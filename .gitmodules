@@ -1,0 +1,3 @@
+[submodule "SmartGlassesManager"]
+	path = SmartGlassesManager
+	url = git@github.com:TeamOpenSmartGlasses/SmartGlassesManager.git
