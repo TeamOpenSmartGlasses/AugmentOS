@@ -33,6 +33,8 @@ public class MXTService extends SmartGlassesAndroidService {
     private final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
     private Future<?> transcriptFuture;
 
+    TextToSpeechSystem tts;
+
     public MXTService(){
         super(MainActivity.class,
                 "mxt_app",
@@ -70,7 +72,15 @@ public class MXTService extends SmartGlassesAndroidService {
         EventBus.getDefault().register(this);
         restComms = new RestComms(this);
 
+        //start text to speech
+        tts = new TextToSpeechSystem(this);
+
         Log.d(TAG, "MXT SERVICE STARTED");
+    }
+
+    public void speakTTS(String toSpeak){
+        Log.d(TAG, "Speaking: " + toSpeak);
+        tts.speak(toSpeak);
     }
 
     public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){

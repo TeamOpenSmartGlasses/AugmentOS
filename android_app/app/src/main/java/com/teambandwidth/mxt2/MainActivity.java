@@ -27,9 +27,24 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         setupHoldToTalkButton();
+        setupTestTTSButton();
 
         mBound = false;
         startMXTService();
+    }
+
+    //setup testing TTS
+    public void setupTestTTSButton() {
+        Button ttsButton = findViewById(R.id.test_tts_button);
+
+        ttsButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (mService != null) {
+                    mService.speakTTS("hello, this is a test of the text to speech system running in our Android app. Let's go!");
+                }
+            }
+        });
+
     }
 
     //setup hold to talk button

@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.teambandwidth.mxt2"
-        minSdk 28
+        minSdk 30
         targetSdk 32
         versionCode 1
         versionName "1.0"
