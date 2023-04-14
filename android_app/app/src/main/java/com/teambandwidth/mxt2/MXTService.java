@@ -114,7 +114,7 @@ public class MXTService extends SmartGlassesAndroidService {
         Log.d(TAG, "Running sendLLMQueryRequest with query: " + query);
         try{
             JSONObject jsonQuery = new JSONObject();
-            jsonQuery.put("query", query);
+            jsonQuery.put("text", query);
             restComms.restRequest(RestComms.LLM_QUERY_ENDPOINT, jsonQuery, new VolleyCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
@@ -140,6 +140,7 @@ public class MXTService extends SmartGlassesAndroidService {
 
     public void parseLLMQueryResult(JSONObject response) throws JSONException {
         Log.d(TAG, "Got result from server: " + response.toString());
+        speakTTS(response.getString("message"));
     }
 
     public void handleNewTranscript(String transcript){

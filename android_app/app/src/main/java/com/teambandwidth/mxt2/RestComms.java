@@ -32,7 +32,7 @@ public class RestComms {
     private int requestTimeoutPeriod = 10000;
 
     //endpoints
-    public static final String LLM_QUERY_ENDPOINT = "/natural_language_query";
+    public static final String LLM_QUERY_ENDPOINT = "/chat";
 
     public static RestComms getInstance(Context c){
         if (restServerComms == null){
@@ -45,7 +45,7 @@ public class RestComms {
         // Instantiate the RequestQueue.
         mContext = context;
         mRequestQueue = Volley.newRequestQueue(mContext);
-        serverUrl = "https://wis.emexwearables.com/api";
+        serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com";
     }
 
     //handles requesting data, sending data
@@ -68,9 +68,10 @@ public class RestComms {
                     public void onResponse(JSONObject response) {
                         // Display the first 500 characters of the response string.
 //                        Log.d(TAG, "Success requesting data, response:");
-//                        Log.d(TAG, response.toString());
+                       Log.d(TAG, response.toString());
                         try{
-                            if (response.getBoolean("success")){
+                            callback.onSuccess(response);
+                            if (response.getString("message").length() > 0){
                                 callback.onSuccess(response);
                             } else{
                                 callback.onFailure();
