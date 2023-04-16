@@ -10,9 +10,13 @@ from langchain.schema import (
 
 app = web.Application()
 app['buffer'] = list()
-# app['llm'] = OpenAI(model_name="gpt-3.5-turbo", n=2, best_of=2)
-app['llm'] = ChatOpenAI(temperature=0.8)
-
+# lower max token decreases latency: https://platform.openai.com/docs/guides/production-best-practices/improving-latencies. On average, each token is 4 characters.
+# Let's imagine the longest question someone is going to ask is 30 seconds and the longest reponse we'll get is 30 seconds
+# we speak 150 wpm
+#average english word is 4.7 characters
+max_talk_time = 30 #seconds
+max_tokens = ((150 * (max_talk_time / 60)) / 4.7) * 2 #*2 for response
+app['llm'] = ChatOpenAI(temperature=0.8, max_tokens=max_tokens)
 
 async def chat_handler(request):
     """
