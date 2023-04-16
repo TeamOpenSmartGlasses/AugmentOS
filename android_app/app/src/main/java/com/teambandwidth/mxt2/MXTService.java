@@ -170,6 +170,6 @@ public class MXTService extends SmartGlassesAndroidService {
                 lastIntermediateTranscript = "";
                 bufferLive = false;
             }
-        }, 350, TimeUnit.MILLISECONDS);
+        }, 415, TimeUnit.MILLISECONDS);
     }
 }
