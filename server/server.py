@@ -15,7 +15,7 @@ app['buffer'] = list()
 # we speak 150 wpm
 #average english word is 4.7 characters
 max_talk_time = 30 #seconds
-max_tokens = ((150 * (max_talk_time / 60)) / 4.7) * 2 #*2 for response
+max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2 #*2 for response
 app['llm'] = ChatOpenAI(temperature=0.8, max_tokens=max_tokens)
 
 async def chat_handler(request):
