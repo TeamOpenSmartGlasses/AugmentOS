@@ -29,7 +29,9 @@ public class MXTService extends SmartGlassesAndroidService {
     private RestComms restComms;
 
     //handle holding a buffer of text and executing in the future
-    public StringBuffer messageBuffer;
+    public StringBuffer messageBuffer; //holds buffer of final transcripts
+    public String lastIntermediateTranscript; //holds the last intermediate transcript
+    public boolean bufferLive;
     private final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
     private Future<?> transcriptFuture;
 
@@ -41,6 +43,8 @@ public class MXTService extends SmartGlassesAndroidService {
                 1259,
                 appName,
                 "LLM Tools for Wearables", R.drawable.ic_launcher_foreground);
+
+        bufferLive = false;
     }
 
     @Override
@@ -89,6 +93,9 @@ public class MXTService extends SmartGlassesAndroidService {
         if(isFinal){
             Log.d(TAG, "GOT FINAL TRANSCRIPT");
             handleNewTranscript(transcript);
+        } else {
+            Log.d(TAG, "I.TRANSCRIPT: " + transcript);
+            lastIntermediateTranscript = transcript;
         }
     }
 
@@ -144,20 +151,25 @@ public class MXTService extends SmartGlassesAndroidService {
     }
 
     public void handleNewTranscript(String transcript){
-        messageBuffer.append(transcript.toLowerCase().trim());
-        messageBuffer.append(" ");
-
+        if (bufferLive) {
+            messageBuffer.append(transcript.toLowerCase().trim());
+            messageBuffer.append(" ");
+            lastIntermediateTranscript = "";
+        }
     }
 
     public void userStartLLMQuery(){
+        bufferLive = true;
     }
 
     public void userStopLLMQuery(){
         transcriptFuture = executorService.schedule(() -> {
-            if (messageBuffer.length() != 0) {
-                sendLLMQueryRequest(messageBuffer.toString());
+            if (messageBuffer.length() != 0 || lastIntermediateTranscript.length() != 0) {
+                sendLLMQueryRequest(messageBuffer.toString() + " " + lastIntermediateTranscript);
                 messageBuffer = new StringBuffer();
+                lastIntermediateTranscript = "";
+                bufferLive = false;
             }
-        }, 1100, TimeUnit.MILLISECONDS);
+        }, 350, TimeUnit.MILLISECONDS);
     }
 }
