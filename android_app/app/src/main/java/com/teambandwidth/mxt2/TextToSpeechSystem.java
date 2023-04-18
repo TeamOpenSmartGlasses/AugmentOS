@@ -49,6 +49,12 @@ public class TextToSpeechSystem {
         }
     }
 
+    public void stopSpeaking(){
+        if (this.isLoaded){
+            ttsModel.stop();
+        }
+    }
+
     public void destroy(){
         ttsModel.shutdown();
         Log.d("TextToSpeech","TTS destroyed");

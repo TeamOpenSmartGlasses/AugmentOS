@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
 
         setupHoldToTalkButton();
         setupTestTTSButton();
+        setupPressToStopTTSButton();
 
         mBound = false;
         startMXTService();
@@ -67,6 +68,17 @@ public class MainActivity extends Activity {
                         return true;
                 }
                 return false;
+            }
+        });
+    }
+
+    public void setupPressToStopTTSButton(){
+        Button stopReponseButton = findViewById(R.id.stop_response_button);
+
+        stopReponseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mService.stopTTS();
             }
         });
     }

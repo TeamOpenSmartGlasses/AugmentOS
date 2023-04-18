@@ -172,4 +172,10 @@ public class MXTService extends SmartGlassesAndroidService {
             }
         }, 415, TimeUnit.MILLISECONDS);
     }
+
+    public void stopTTS(){
+        if (tts != null && tts.isLoaded) {
+            tts.stopSpeaking();
+        }
+    }
 }
