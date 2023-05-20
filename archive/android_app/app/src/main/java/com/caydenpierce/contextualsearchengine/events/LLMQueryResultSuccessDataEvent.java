@@ -1,4 +1,4 @@
-package com.teambandwidth.mxt2.events;
+package com.caydenpierce.contextualsearchengine.events;
 
 public class LLMQueryResultSuccessDataEvent {
     public String response;

@@ -1,4 +1,4 @@
-package com.teambandwidth.mxt2;
+package com.caydenpierce.contextualsearchengine;
 
 //based on https://github.com/emexlabs/WearableIntelligenceSystem/blob/master/android_smart_phone/main/app/src/main/java/com/wearableintelligencesystem/androidsmartphone/texttospeech/TextToSpeechSystem.java
 
@@ -6,9 +6,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.Locale;
 

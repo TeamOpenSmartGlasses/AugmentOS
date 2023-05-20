@@ -1,4 +1,4 @@
-package com.teambandwidth.mxt2;
+package com.caydenpierce.contextualsearchengine;
 
 /*
 Adapted from:
@@ -17,11 +17,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
-import org.json.JSONArray;
 import org.json.JSONException;
 
 public class RestComms {
-    private String TAG = "MXT2_RestComms";
+    private String TAG = "CSE_RestComms";
 
     private static RestComms restServerComms;
 
@@ -29,10 +28,10 @@ public class RestComms {
     public RequestQueue mRequestQueue;
     private Context mContext;
     private String serverUrl;
-    private int requestTimeoutPeriod = 10000;
+    private int requestTimeoutPeriod = 0; //10000;
 
     //endpoints
-    public static final String LLM_QUERY_ENDPOINT = "/chat";
+    public static final String CSE_QUERY_ENDPOINT = "/contextual_search_engine";
 
     public static RestComms getInstance(Context c){
         if (restServerComms == null){
@@ -45,12 +44,13 @@ public class RestComms {
         // Instantiate the RequestQueue.
         mContext = context;
         mRequestQueue = Volley.newRequestQueue(mContext);
-//        serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com"; //stairs
-        serverUrl = "https://9259wtmk89.execute-api.us-east-2.amazonaws.com"; //cayden
+//        serverUrl = "http://192.168.251.188:5000";
+        serverUrl = "http://192.168.243.188:5000";
     }
 
     //handles requesting data, sending data
     public void restRequest(String endpoint, JSONObject data, VolleyCallback callback){
+        Log.d(TAG, "sending rest request");
         //build the url
         String builtUrl = serverUrl + endpoint;
 
@@ -69,10 +69,9 @@ public class RestComms {
                     public void onResponse(JSONObject response) {
                         // Display the first 500 characters of the response string.
 //                        Log.d(TAG, "Success requesting data, response:");
-                       Log.d(TAG, response.toString());
+                        Log.d(TAG, "onREsponse called");
                         try{
-                            callback.onSuccess(response);
-                            if (response.getString("message").length() > 0){
+                            if (response.getString("result").length() > 0){
                                 callback.onSuccess(response);
                             } else{
                                 callback.onFailure();

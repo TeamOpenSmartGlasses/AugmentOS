@@ -1,4 +1,4 @@
-package com.teambandwidth.mxt2;
+package com.caydenpierce.contextualsearchengine;
 
 import org.junit.Test;
 

@@ -1,6 +1,4 @@
-package com.teambandwidth.mxt2;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.caydenpierce.contextualsearchengine;
 
 import android.app.Activity;
 import android.app.ActivityManager;
@@ -16,8 +14,8 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends Activity {
-    public final String TAG = "MXT2_MainActivity";
-    public MXTService mService;
+    public final String TAG = "CSE_MainActivity";
+    public ContextualSearchEngineService mService;
     Button killServiceButton;
     boolean mBound;
 
@@ -26,7 +24,6 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setupHoldToTalkButton();
         setupTestTTSButton();
         setupPressToStopTTSButton();
 
@@ -46,30 +43,6 @@ public class MainActivity extends Activity {
             }
         });
 
-    }
-
-    //setup hold to talk button
-    public void setupHoldToTalkButton(){
-        Button holdToTalkButton = findViewById(R.id.hold_to_chat_button);
-
-        holdToTalkButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        // Start recording audio
-                        Log.d(TAG, "Start chat bro");
-                        mService.userStartLLMQuery();
-                        return true;
-                    case MotionEvent.ACTION_UP:
-                        // Stop recording audio and send the message
-                        Log.d(TAG, "Stop chat bro");
-                        mService.userStopLLMQuery();
-                        return true;
-                }
-                return false;
-            }
-        });
     }
 
     public void setupPressToStopTTSButton(){
@@ -101,28 +74,28 @@ public class MainActivity extends Activity {
 
     public void stopMXTService() {
         unbindMXTService();
-        if (!isMyServiceRunning(MXTService.class)) return;
-        Intent stopIntent = new Intent(this, MXTService.class);
-        stopIntent.setAction(MXTService.ACTION_STOP_FOREGROUND_SERVICE);
+        if (!isMyServiceRunning(ContextualSearchEngineService.class)) return;
+        Intent stopIntent = new Intent(this, ContextualSearchEngineService.class);
+        stopIntent.setAction(ContextualSearchEngineService.ACTION_STOP_FOREGROUND_SERVICE);
         startService(stopIntent);
     }
 
     public void sendMXTServiceMessage(String message) {
-        if (!isMyServiceRunning(MXTService.class)) return;
-        Intent messageIntent = new Intent(this, MXTService.class);
+        if (!isMyServiceRunning(ContextualSearchEngineService.class)) return;
+        Intent messageIntent = new Intent(this, ContextualSearchEngineService.class);
         messageIntent.setAction(message);
         startService(messageIntent);
     }
 
     public void startMXTService() {
-        if (isMyServiceRunning(MXTService.class)){
+        if (isMyServiceRunning(ContextualSearchEngineService.class)){
             Log.d(TAG, "Not starting MXT service because it's already started.");
             return;
         }
 
         Log.d(TAG, "Starting MXT service.");
-        Intent startIntent = new Intent(this, MXTService.class);
-        startIntent.setAction(MXTService.ACTION_START_FOREGROUND_SERVICE);
+        Intent startIntent = new Intent(this, ContextualSearchEngineService.class);
+        startIntent.setAction(ContextualSearchEngineService.ACTION_START_FOREGROUND_SERVICE);
         startService(startIntent);
         bindMXTService();
     }
@@ -140,7 +113,7 @@ public class MainActivity extends Activity {
 
     public void bindMXTService(){
         if (!mBound){
-            Intent intent = new Intent(this, MXTService.class);
+            Intent intent = new Intent(this, ContextualSearchEngineService.class);
             bindService(intent, searchAppServiceConnection, Context.BIND_AUTO_CREATE);
         }
     }
@@ -158,8 +131,8 @@ public class MainActivity extends Activity {
         public void onServiceConnected(ComponentName className,
                                        IBinder service) {
             // We've bound to LocalService, cast the IBinder and get LocalService instance
-            MXTService.LocalBinder sgmLibServiceBinder = (MXTService.LocalBinder) service;
-            mService = (MXTService) sgmLibServiceBinder.getService();
+            ContextualSearchEngineService.LocalBinder sgmLibServiceBinder = (ContextualSearchEngineService.LocalBinder) service;
+            mService = (ContextualSearchEngineService) sgmLibServiceBinder.getService();
             mBound = true;
         }
         @Override
@@ -167,4 +140,5 @@ public class MainActivity extends Activity {
             mBound = false;
         }
     };
+
 }

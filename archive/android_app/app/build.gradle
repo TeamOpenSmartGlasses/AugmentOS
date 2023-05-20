@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.teambandwidth.mxt2'
+    namespace 'com.caydenpierce.contextualsearchengine'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.teambandwidth.mxt2"
+        applicationId "com.caydenpierce.contextualsearchengine"
         minSdk 30
         targetSdk 32
         versionCode 1
