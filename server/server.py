@@ -22,13 +22,16 @@ app['buffer'] = dict()
 # we speak 150 wpm
 # average english word is 4.7 characters
 max_talk_time = 30  # seconds
-max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
+# max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
+max_tokens = 2000
 app['llm'] = ChatOpenAI(temperature=0.5, max_tokens=max_tokens, max_retries=0)
 app['buffer']['test'] = [
     {'text': 'old message be old yo', 'timestamp': time() - 60 * 70},
     {'text': 'I like butts', 'timestamp': time()},
     {'text': 'Who is the real slim shady', 'timestamp': time()},
 ]
+app['buffer']['cayden'] = []
+app['buffer']['jeremy'] = []
 
 
 def get_text_in_past_n_minutes(obj_list, n):
@@ -105,6 +108,15 @@ async def summarize_if_requested(text, userId):
         summary = await summarize_chat_history(recent_text)
 
     return summary
+
+
+async def answer_question_to_jarvis(text):
+    if text.lower().find("jarvis") != -1:
+        response = app['llm']([HumanMessage(
+            content=f"If there is a question in the following text, answer it concisely. Here is the text: \n{text}")])
+
+        print(response.content)
+        return response.content
 
 
 async def chat_handler(request):
