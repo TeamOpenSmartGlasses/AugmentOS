@@ -23,7 +23,7 @@ app['buffer'] = dict()
 # average english word is 4.7 characters
 max_talk_time = 30  # seconds
 max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
-app['llm'] = ChatOpenAI(temperature=0.5, max_tokens=max_tokens)
+app['llm'] = ChatOpenAI(temperature=0.5, max_tokens=max_tokens, max_retries=0)
 app['buffer']['test'] = [
     {'text': 'old message be old yo', 'timestamp': time() - 60 * 70},
     {'text': 'I like butts', 'timestamp': time()},
@@ -81,10 +81,9 @@ async def is_topic_reminder_requested(text):
 async def summarize_chat_history(text):
     response = app['llm']([HumanMessage(
         content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than 12 words long, but I really would rather if it can be 8 or less. Here is the text to summarize:\n{text}")])
-    
+
     summary = response.content
     return summary
-
 
 
 async def summarize_if_requested(text, userId):
@@ -101,7 +100,8 @@ async def summarize_if_requested(text, userId):
         minutes = 2
     if minutes:
         print(f'getting summary for past {minutes} minutes')
-        recent_text = get_text_in_past_n_minutes(app['buffer'][userId], minutes)
+        recent_text = get_text_in_past_n_minutes(
+            app['buffer'][userId], minutes)
         summary = await summarize_chat_history(recent_text)
 
     return summary
@@ -132,7 +132,13 @@ async def chat_handler(request):
         return web.Response(text='no userId in request', status=400)
 
     # Look for questions and commands in the text (async / currently)
-    summary = await summarize_if_requested(text, userId)
+    summary = ''
+    try:
+        summary = await summarize_if_requested(text, userId)
+    except Exception as e:
+        print(e)
+        summary = 'openai is busy'
+
     if not app['buffer'][userId]:
         app['buffer'][userId] = []
     app['buffer'][userId].append({'text': text, 'timestamp': timestamp})
