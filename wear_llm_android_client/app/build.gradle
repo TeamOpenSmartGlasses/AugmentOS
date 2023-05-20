@@ -1,0 +1,102 @@
+plugins {
+    id 'com.android.application'
+    id 'com.google.protobuf'
+}
+
+android {
+    namespace 'com.teambandwidth.wearllm'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.teambandwidth.wearllm"
+        minSdk 30
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            //noinspection ChromeOsAbiSupport
+            abiFilters 'arm64-v8a', 'x86_64'
+        }
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/java'
+            proto.srcDirs += 'src/main/proto'
+        }
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1,DEPENDENCIES}'
+            excludes += '/META-INF/INDEX.LIST'
+        }
+    }
+
+//    ndkVersion '25.2.9519653'
+//    externalNativeBuild {
+//        cmake {
+//            path file('CMakeLists.txt')
+//            version '3.22.1'
+//        }
+//    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.google.api.grpc:grpc-google-cloud-speech-v1p1beta1:2.6.0'
+    implementation 'com.google.flogger:flogger:0.7.4'
+    implementation 'com.google.flogger:flogger-system-backend:0.7.4'
+    implementation 'com.google.protobuf:protobuf-java:3.21.12'
+    implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
+    implementation 'joda-time:joda-time:2.12.2'
+    implementation 'io.grpc:grpc-okhttp:1.53.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //for lifecycle service that stays alive forever
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.2.0"
+
+    //REST API volley
+    implementation 'com.android.volley:volley:1.2.1';
+}
+
+protobuf {
+    protoc {
+        // use this compiler, from the maven repo (instead of a local file, for instance)
+        artifact = 'com.google.protobuf:protoc:3.21.12'
+    }
+    generateProtoTasks {
+        all().configureEach { task ->
+            // remove the default java output
+            task.builtins {
+                remove java
+            }
+            // add the java output with lite runtime
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+            }
+        }
+    }
+}

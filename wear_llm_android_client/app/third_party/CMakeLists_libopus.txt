@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.4.1)
+include(ExternalProject)
+
+set(libopus_src ${CMAKE_CURRENT_SOURCE_DIR}/libopus/src)
+ExternalProject_Add(external_libopus
+        GIT_REPOSITORY    "https://github.com/xiph/opus"
+        GIT_TAG           "ad8fe90db79b7d2a135e3dfd2ed6631b0c5662ab"
+        SOURCE_DIR        "${libopus_src}"
+        CONFIGURE_COMMAND ${CMAKE_COMMAND} ${libopus_src}
+        -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+        -DANDROID_ABI=${ANDROID_ABI}
+        -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/build/libopus/${ANDROID_ABI}
+        INSTALL_COMMAND ${CMAKE_MAKE_PROGRAM} install
+        &&
+        ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_BINARY_DIR}/build/libopus/${ANDROID_ABI}/lib/libopus.a
+        ${CMAKE_CURRENT_SOURCE_DIR}/libopus/lib/${ANDROID_ABI}/
+        )

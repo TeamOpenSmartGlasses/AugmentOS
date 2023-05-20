@@ -1,0 +1,18 @@
+cmake_minimum_required(VERSION 3.4.1)
+include(ExternalProject)
+
+set(libogg_src ${CMAKE_CURRENT_SOURCE_DIR}/libogg/src)
+ExternalProject_Add(external_libogg
+        GIT_REPOSITORY    "https://github.com/xiph/ogg.git"
+        GIT_TAG           "934385378f45f11586b03b6214bf5f363649f3b6"
+        SOURCE_DIR        "${libogg_src}"
+        CONFIGURE_COMMAND ${CMAKE_COMMAND} ${libogg_src}
+        -DCMAKE_TOOLCHAIN_FILE=${CMAKE_TOOLCHAIN_FILE}
+        -DANDROID_ABI=${ANDROID_ABI}
+        -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/build/libogg/${ANDROID_ABI}
+        INSTALL_COMMAND ${CMAKE_MAKE_PROGRAM} install
+        &&
+        ${CMAKE_COMMAND} -E copy
+        ${CMAKE_CURRENT_BINARY_DIR}/build/libogg/${ANDROID_ABI}/lib/libogg.a
+        ${CMAKE_CURRENT_SOURCE_DIR}/libogg/lib/${ANDROID_ABI}/
+        )
