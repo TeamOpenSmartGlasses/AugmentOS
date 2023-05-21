@@ -75,6 +75,10 @@ async def is_summary_requested(text):
 
 
 async def is_topic_reminder_requested(text):
+    # require the word 'summary' or 'summarize' to be in the transcript to get a summary
+    if text.lower().find("just") == -1:
+        return
+
     response = app['llm']([HumanMessage(
         content=f"If the following text contains a question very similar to 'What were we talking about' or 'What was I just saying', output only 'True'. Otherwise output only 'False'. Here is the text: \n{text}")])
 
