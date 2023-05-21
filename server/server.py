@@ -41,6 +41,10 @@ def get_text_in_past_n_minutes(obj_list, n):
 
 
 async def is_summary_requested(text):
+    # require the word 'summary' or 'summarize' to be in the transcript to get a summary
+    if text.lower().find("summar") == -1:
+        return
+
     class SummaryQuery(BaseModel):
         """
         Number of minutes of requested summarization
