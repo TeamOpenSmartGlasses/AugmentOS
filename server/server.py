@@ -83,7 +83,7 @@ async def is_topic_reminder_requested(text):
 
 async def summarize_chat_history(text):
     response = app['llm']([HumanMessage(
-        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than 12 words long, but I really would rather if it can be 8 or less. Here is the text to summarize:\n{text}")])
+        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than 14 words long, but I really would rather if it can be 10 or less. Here is the text to summarize:\n{text}")])
 
     summary = response.content
     return summary
@@ -112,10 +112,11 @@ async def summarize_if_requested(text, userId):
 
 async def answer_question_to_jarvis(text):
     if text.lower().find("jarvis") != -1:
-        response = app['llm']([HumanMessage(
-            content=f"If there is a question in the following text, answer it concisely. Here is the text: \n{text}")])
+        response = app['llm']([
+            SystemMessage(content="You, Jarvis, are an expert in every field who ignores everything said to him that is not relevant to a question. When you answer a question you do so with fewer than 16 words."),
+            HumanMessage(content=text)
+        ])
 
-        print(response.content)
         return response.content
 
 
@@ -127,7 +128,7 @@ async def chat_handler(request):
     Prompt Support:
      - [X] acidbrain prosthetic / what were we just talking about?
      - [X] summarization of the past n minutes of conversation
-     - [ ] general-knowledge questions to an assistant named Jarvis
+     - [X] general-knowledge questions to an assistant named Jarvis
     """
     body = await request.json()
     text = body.get('text')
@@ -143,10 +144,15 @@ async def chat_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
+    # log so we can retain convo memory for later
+    with open(f'{userId}.log', 'a') as f:
+        f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
+
     # Look for questions and commands in the text (async / currently)
     summary = ''
+    answer = ''
     try:
-        summary = await summarize_if_requested(text, userId)
+        summary, answer = await asyncio.gather(summarize_if_requested(text, userId), answer_question_to_jarvis(text))
     except Exception as e:
         print(e)
         summary = 'openai is busy'
@@ -156,8 +162,16 @@ async def chat_handler(request):
     app['buffer'][userId].append({'text': text, 'timestamp': timestamp})
 
     print('summary: ', summary)
+    print('answer: ', answer)
 
-    return web.Response(text=json.dumps({'message': summary}), status=200)
+    # If question was to get a summary, give the summary instead of Jarvis' answer
+    response = ''
+    if summary:
+        response = summary
+    elif answer:
+        response = answer
+
+    return web.Response(text=json.dumps({'message': response}), status=200)
 
 
 app.add_routes(
