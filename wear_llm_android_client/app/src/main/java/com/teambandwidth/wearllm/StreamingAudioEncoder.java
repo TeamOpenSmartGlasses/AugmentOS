@@ -540,6 +540,6 @@ public class StreamingAudioEncoder {
   }
 
   static {
-//    System.loadLibrary("ogg_opus_encoder");
+    System.loadLibrary("ogg_opus_encoder");
   }
 }

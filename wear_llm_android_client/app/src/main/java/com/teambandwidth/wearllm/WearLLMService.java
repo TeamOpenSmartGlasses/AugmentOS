@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.NotificationCompat;
 import androidx.lifecycle.LifecycleService;
 
+import com.google.audio.CodecAndBitrate;
 import com.google.audio.asr.CloudSpeechSessionParams;
 import com.google.audio.asr.CloudSpeechStreamObserverParams;
 import com.google.audio.asr.SpeechRecognitionModelOptions;
@@ -233,12 +234,12 @@ public class WearLLMService extends LifecycleService {
                 CloudSpeechSessionParams.newBuilder()
                         .setObserverParams(
                                 CloudSpeechStreamObserverParams.newBuilder().setRejectUnstableHypotheses(false))
-                        .setFilterProfanity(true)
+                        .setFilterProfanity(false)
                         .setEncoderParams(
                                 CloudSpeechSessionParams.EncoderParams.newBuilder()
-                                        .setEnableEncoder(false))
-                        //.setAllowVbr(true)
-                        //.setCodec(CodecAndBitrate.OGG_OPUS_BITRATE_32KBPS))
+                                        .setEnableEncoder(true)
+                                        .setAllowVbr(true)
+                                        .setCodec(CodecAndBitrate.OGG_OPUS_BITRATE_32KBPS))
                         .build();
         networkChecker = new NetworkConnectionChecker(this);
         networkChecker.registerNetworkCallback();

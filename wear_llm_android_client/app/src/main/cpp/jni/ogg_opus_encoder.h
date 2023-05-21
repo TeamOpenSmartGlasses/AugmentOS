@@ -21,7 +21,7 @@
 
 // https://stackoverflow.com/questions/25363027/jni-getmethodid-not-working-for-constructor-of-inner-class
 #define JNI_METHOD(fn) \
-  Java_com_google_audio_StreamingAudioEncoder_00024OggOpusEncoder_##fn  // NOLINT
+  Java_com_teambandwidth_wearllm_StreamingAudioEncoder_00024OggOpusEncoder_##fn  // NOLINT
 
 extern "C" {
 // Create opus encoder instance. The pointer is returned in a

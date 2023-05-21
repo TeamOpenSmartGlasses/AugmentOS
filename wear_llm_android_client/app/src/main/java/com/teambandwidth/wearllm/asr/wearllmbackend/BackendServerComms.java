@@ -28,7 +28,7 @@ public class BackendServerComms {
     public RequestQueue mRequestQueue;
     private Context mContext;
     private String serverUrl;
-    private int requestTimeoutPeriod = 10000;
+    private int requestTimeoutPeriod = 15000;
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";
