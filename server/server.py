@@ -24,7 +24,7 @@ app['buffer'] = dict()
 max_talk_time = 30  # seconds
 # max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
 max_tokens = 2000
-app['llm'] = ChatOpenAI(temperature=0.5, max_tokens=max_tokens, max_retries=0)
+app['llm'] = ChatOpenAI(temperature=0.5, max_tokens=max_tokens, request_timeout=12, max_retries=0)
 app['buffer']['test'] = [
     {'text': 'old message be old yo', 'timestamp': time() - 60 * 70},
     {'text': 'I like butts', 'timestamp': time()},
