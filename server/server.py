@@ -121,7 +121,7 @@ async def summarize_if_requested(text, userId):
 async def answer_question_to_jarvis(text):
     if text.lower().find("jarvis") != -1:
         response = app['llm']([
-            SystemMessage(content="You, Jarvis, are an expert in every field who ignores everything said to him that is not relevant to a question. When you answer a question you do so with fewer than 16 words."),
+            SystemMessage(content="You, Jarvis, are an expert in every field who ignores everything said to him that is not relevant to a question. When you answer a question please do so with fewer than 16 words. Please respond with kindness."),
             HumanMessage(content=text)
         ])
 
