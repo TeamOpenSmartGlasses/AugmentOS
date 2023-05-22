@@ -23,7 +23,7 @@ app['buffer'] = dict()
 # average english word is 4.7 characters
 max_talk_time = 30  # seconds
 # max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
-max_tokens = 2000
+max_tokens = 3200
 app['llm'] = ChatOpenAI(temperature=0.5, max_tokens=max_tokens, request_timeout=12, max_retries=0)
 app['buffer']['test'] = [
     {'text': 'old message be old yo', 'timestamp': time() - 60 * 70},
@@ -91,7 +91,7 @@ async def is_topic_reminder_requested(text):
 
 async def summarize_chat_history(text):
     response = app['llm']([HumanMessage(
-        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than 14 words long, but I really would rather if it can be 10 or less. Here is the text to summarize:\n{text}")])
+        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than 14 words long, but I really would rather if it can be 10 or less. Please respond kindly. Here is the text to summarize:\n{text}")])
 
     summary = response.content
     return summary
