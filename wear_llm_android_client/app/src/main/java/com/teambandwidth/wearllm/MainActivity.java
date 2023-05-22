@@ -17,9 +17,11 @@ package com.teambandwidth.wearllm;
 
 import android.Manifest;
 import android.app.ActivityManager;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -38,8 +40,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.preference.PreferenceManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import com.teambandwidth.wearllm.R;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
   public final String TAG = "WearLLM_MainActivity";
@@ -50,14 +54,28 @@ public class MainActivity extends AppCompatActivity {
   private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
 
   //UI
-  private TextView transcript;
+  private ResponseTextUiAdapter responseTextUiAdapter;
+  private RecyclerView responseRecyclerView;
+  public static final String UI_UPDATE_FULL = "UI_UPDATE_FULL";
+  public static final String UI_UPDATE_SINGLE = "UI_UPDATE_SINGLE";
+  public static final String WEARLLM_MESSAGE_STRING = "WEARLLM_MESSAGE_STRING";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-    transcript = findViewById(R.id.transcript);
     mBound = false;
+
+    //setup UI
+    responseRecyclerView = findViewById(R.id.recyclerView);
+    responseRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    responseTextUiAdapter = new ResponseTextUiAdapter(new ArrayList<>());
+    responseRecyclerView.setAdapter(responseTextUiAdapter);
+
+    //debug
+//    for (int i = 0; i < 25; i++) {
+//      addResponseTextBox("this is a text box");
+//    }
   }
 
   @Override
@@ -176,9 +194,17 @@ public class MainActivity extends AppCompatActivity {
   protected void onResume() {
     super.onResume();
 
+    //register receiver that gets data from the service
+    registerReceiver(mMainServiceReceiver, makeMainServiceReceiverIntentFilter());
+
     if (isMyServiceRunning(WearLLMService.class)) {
       //bind to WearableAi service
       bindWearLLMService();
+
+      //ask the service to send us all the WearLLM responses
+      if (mService != null) {
+        mService.sendUiUpdateFull();
+      }
     }
   }
 
@@ -188,6 +214,9 @@ public class MainActivity extends AppCompatActivity {
 
     //unbind wearableAi service
     unbindWearLLMService();
+
+    //unregister receiver
+    unregisterReceiver(mMainServiceReceiver);
   }
 
   public void stopWearLLMService() {
@@ -252,10 +281,49 @@ public class MainActivity extends AppCompatActivity {
       WearLLMService.LocalBinder sgmLibServiceBinder = (WearLLMService.LocalBinder) service;
       mService = (WearLLMService) sgmLibServiceBinder.getService();
       mBound = true;
+
+      //get update for UI
+      mService.sendUiUpdateFull();
     }
     @Override
     public void onServiceDisconnected(ComponentName arg0) {
       mBound = false;
     }
   };
+
+  //UI
+  private static IntentFilter makeMainServiceReceiverIntentFilter() {
+    final IntentFilter intentFilter = new IntentFilter();
+    intentFilter.addAction(UI_UPDATE_FULL);
+    intentFilter.addAction(UI_UPDATE_SINGLE);
+
+    return intentFilter;
+  }
+
+  private final BroadcastReceiver mMainServiceReceiver = new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+      final String action = intent.getAction();
+      if (UI_UPDATE_SINGLE.equals(action)) {
+        String message = intent.getStringExtra(WEARLLM_MESSAGE_STRING);
+        if (!message.equals("") && !message.equals(null)) {
+          Log.d(TAG, "Got message: " + message);
+          addResponseTextBox(message);
+        }
+      } else if (UI_UPDATE_FULL.equals(action)){
+        responseTextUiAdapter.clearTexts();
+        ArrayList<String> messages = intent.getStringArrayListExtra(WEARLLM_MESSAGE_STRING);
+        for(String message : messages) {
+          addResponseTextBox(message);
+        }
+      }
+    }
+  };
+
+  // Call this method to add a new text box to the list
+  public void addResponseTextBox(String text) {
+    responseTextUiAdapter.addText(text);
+    responseRecyclerView.smoothScrollToPosition(responseTextUiAdapter.getItemCount() - 1);
+  }
+
 }

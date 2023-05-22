@@ -43,6 +43,8 @@ import com.teambandwidth.wearllm.asr.wearllmbackend.VolleyJsonCallback;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class WearLLMService extends LifecycleService {
     public final String TAG = "WearLLM_WearLLMService";
 
@@ -60,6 +62,7 @@ public class WearLLMService extends LifecycleService {
     //WearLLM stuff
     private BackendServerComms backendServerComms;
     TextToSpeechSystem tts;
+    ArrayList<String> responses;
 
     public WearLLMService() {
         this.mainActivityClass = MainActivity.class;
@@ -146,6 +149,10 @@ public class WearLLMService extends LifecycleService {
         //setup backend comms
         backendServerComms = new BackendServerComms(this);
 
+        //make responses holder
+        responses = new ArrayList<>();
+        responses.add("this is a test to the big boi");
+
         //start text to speech
         constructRepeatingRecognitionSession();
         startRecording();
@@ -192,14 +199,9 @@ public class WearLLMService extends LifecycleService {
 
     private final TranscriptionResultUpdatePublisher transcriptUpdater =
             (formattedTranscript, updateType) -> {
-                Log.d(TAG, formattedTranscript.toString());
                 if (updateType == TranscriptionResultUpdatePublisher.UpdateType.TRANSCRIPT_FINALIZED){
                     sendLLMQueryRequest(formattedTranscript.toString());
                 }
-//                runOnUiThread(
-//                        () -> {
-//                            transcript.setText(formattedTranscript.toString());
-//                        });
             };
 
     private Runnable readMicData =
@@ -288,18 +290,16 @@ public class WearLLMService extends LifecycleService {
     }
 
     public void sendLLMQueryRequest(String query){
-        Log.d(TAG, "Running sendLLMQueryRequest with query: " + query);
         try{
             JSONObject jsonQuery = new JSONObject();
             jsonQuery.put("text", query);
-            jsonQuery.put("userId", "jeremy");
+            jsonQuery.put("userId", "test");
             jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
             backendServerComms.restRequest(BackendServerComms.LLM_QUERY_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
                 @Override
                 public void onSuccess(JSONObject result){
-                    Log.d(TAG, "GOT LLM Query REST RESULT:");
-                    Log.d(TAG, result.toString());
                     try {
+                        Log.d(TAG, "CALLING on Success");
                         parseLLMQueryResult(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
@@ -320,12 +320,26 @@ public class WearLLMService extends LifecycleService {
         Log.d(TAG, "Got result from server: " + response.toString());
         String message = response.getString("message");
         if (!message.equals(""))
+            responses.add(message);
+            sendUiUpdateSingle(message);
             speakTTS(message);
     }
 
     public void speakTTS(String toSpeak){
-        Log.d(TAG, "Speaking: " + toSpeak);
         tts.speak(toSpeak);
     }
 
+    public void sendUiUpdateFull(){
+        Intent intent = new Intent();
+        intent.setAction(MainActivity.UI_UPDATE_FULL);
+        intent.putStringArrayListExtra(MainActivity.WEARLLM_MESSAGE_STRING, responses);
+        sendBroadcast(intent);
+    }
+
+    public void sendUiUpdateSingle(String message) {
+        Intent intent = new Intent();
+        intent.setAction(MainActivity.UI_UPDATE_SINGLE);
+        intent.putExtra(MainActivity.WEARLLM_MESSAGE_STRING, message);
+        sendBroadcast(intent);
+    }
 }

@@ -1,0 +1,19 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingRight="6dp"
+    android:paddingLeft="6dp"
+    android:paddingTop="18dp">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:hint="Text here my man."
+        android:background="@drawable/rounded_corner"
+        android:textColor="#000000"/>
+</LinearLayout>

@@ -41,7 +41,6 @@ public class TextToSpeechSystem {
 
     public void speak(String text){
         if(this.isLoaded){
-            Log.d(TAG, "Speaking now!");
             ttsModel.speak(text, TextToSpeech.QUEUE_FLUSH, null ,null);
         }
     }

@@ -6,21 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.teambandwidth.wearllm.MainActivity">
-  <ScrollView
-      android:id="@+id/scrollview"
-      android:layout_width="match_parent"
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/recyclerView"
+      android:layout_width="350dp"
       android:layout_height="match_parent"
-      android:fadeScrollbars="false"
-      android:scrollbars="vertical"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="parent">
-    <TextView
-        android:id="@+id/transcript"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/say_something"
-        android:textSize="@dimen/text_size"/>
-  </ScrollView>
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

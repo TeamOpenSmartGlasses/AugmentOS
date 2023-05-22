@@ -28,7 +28,7 @@ public class BackendServerComms {
     public RequestQueue mRequestQueue;
     private Context mContext;
     private String serverUrl;
-    private int requestTimeoutPeriod = 15000;
+    private int requestTimeoutPeriod = 0; //15000;
 
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";
@@ -69,7 +69,6 @@ public class BackendServerComms {
 //                        Log.d(TAG, "Success requesting data, response:");
                         Log.d(TAG, response.toString());
                         try{
-                            callback.onSuccess(response);
                             if (response.getString("message").length() > 0){
                                 callback.onSuccess(response);
                             } else{
@@ -94,7 +93,8 @@ public class BackendServerComms {
 
         request.setRetryPolicy(new DefaultRetryPolicy(
                 requestTimeoutPeriod,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+//                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                0,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         mRequestQueue.add(request);

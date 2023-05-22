@@ -449,9 +449,9 @@ public class RepeatingRecognitionSession implements SampleProcessorInterface {
           startReconnectionTimer();
           break;
         case POST_RESULTS:
-          logger.atInfo().log(
-              "Session #%d received result (final = %b).",
-              request.sessionID(), request.requestIsFinal());
+//          logger.atInfo().log(
+//              "Session #%d received result (final = %b).",
+//              request.sessionID(), request.requestIsFinal());
           processResult(request.result(), request.requestIsFinal());
           break;
         case OK_TO_TERMINATE_SESSION:
