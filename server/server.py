@@ -24,7 +24,7 @@ app['jarvis memory'] = dict()
 # average english word is 4.7 characters
 max_talk_time = 30  # seconds
 # max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
-max_tokens = 3200
+max_tokens = 500
 app['llm'] = ChatOpenAI(
     temperature=0.5, max_tokens=max_tokens, request_timeout=12, max_retries=0)
 app['buffer']['test'] = [
@@ -34,6 +34,7 @@ app['buffer']['test'] = [
 ]
 app['buffer']['cayden'] = []
 app['buffer']['jeremy'] = []
+
 app['buffer']['test'] = []
 app['jarvis memory']['cayden'] = []
 app['jarvis memory']['jeremy'] = []
@@ -44,6 +45,17 @@ def get_text_in_past_n_minutes(obj_list, n):
     past_time = time() - 60 * n
 
     return ''.join(t.get('text') + '\n' for t in obj_list if t.get('timestamp') > past_time)
+
+
+def get_text_in_time_range_minutes(obj_list, start, stop):
+    ctime = time()
+
+    return ''.join(
+        t.get('text') + '\n'
+        if ctime - start * 60 < t.get('timestamp') < ctime - stop * 60
+        else ''
+        for t in obj_list
+    )
 
 
 async def is_summary_requested(text):
@@ -196,7 +208,8 @@ async def chat_handler(request):
     summary = ''
     answer = ''
     try:
-        jarvis_mode = app['jarvis memory'][userId] or text.lower().find("jarvis") != -1
+        jarvis_mode = app['jarvis memory'][userId] or text.lower().find(
+            "jarvis") != -1
         if jarvis_mode:
             answer = await answer_question_to_jarvis(text, userId)
             response = answer
@@ -217,9 +230,68 @@ async def chat_handler(request):
     return web.Response(text=json.dumps({'message': response}), status=200)
 
 
+async def get_summaries(request):
+    """
+    Get summaries of 4 most important points for:
+     - past 5 minutes
+     - 5-10 minutes ago
+     - 10-30 minutes ago
+    """
+    body = await request.json()
+    userId = body.get('userId')
+
+    if userId is None or userId == '':
+        return web.Response(text='no userId in request', status=400)
+    
+    memory = app['buffer'][userId]
+    now = time()
+    five_mins_ago = now - 5 * 60
+    ten_mins_ago = now - 10 * 60
+    thirty_mins_ago = now - 25 * 60
+    past_5_mins = [m['text'] for m in memory if five_mins_ago < m['timestamp'] < now]
+    past_10_mins = [m['text'] for m in memory if ten_mins_ago <  m['timestamp'] < five_mins_ago]
+    past_30_mins = [m['text'] for m in memory if thirty_mins_ago <  m['timestamp'] < ten_mins_ago]
+
+    response = {
+        'past 5 mins': '',
+        '5-10 mins ago': '',
+        '10-25 mins ago': '',
+    }
+    try:
+        if past_5_mins:
+            response['past 5 mins'] = extract_n_key_points(4, past_5_mins)
+        if past_10_mins:
+            response['5-10 mins ago'] = extract_n_key_points(2, past_10_mins)
+        if past_30_mins:
+            response['10-30 mins ago'] = extract_n_key_points(2, past_30_mins)
+    except Exception as e:
+        print(e)
+        return web.Response(text="Open AI is busy", status=503)
+    
+    return web.Response(text=json.dumps(response), status=200)
+    
+
+def extract_n_key_points(n, textList):
+    text = ''.join(textList)
+    response = app['llm']([HumanMessage(
+        content=f"Please summarize the following text to a numbered list of {n} or fewer key points of discussion. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The points should each be no more than 12 words long, but I really would rather if they can be 8 or less. For example, a summary might look like: \n1. tipping and rating a trip on a ride-sharing app.\n2. concise and visually appealing summary of business meetings or design meetings.\nHere is the text to summarize:\n{text}")])
+
+    summary = response.content
+    return summary
+    
+
+async def extract_key_points(text):
+    response = app['llm']([HumanMessage(
+        content=f"Please summarize the following text to 4 or fewer key points that give the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The points should each be no more than 12 words long, but I really would rather if they can be 8 or less. Here is the text to summarize:\n{text}")])
+
+    summary = response.content
+    return summary
+
+
 app.add_routes(
     [
         web.post('/chat', chat_handler),
+        web.get('/summaries', get_summaries)
     ]
 )
 
