@@ -22,4 +22,11 @@
         ```
   7. start nginx `sudo systemctl start nginx`
   8. install the python dependencies: `aiohttp, openai, langchain`
-  9. put `server.py` on your server and run it
+  9. Enable Google Natural Language Processing API, Maps API, point `gcp_config.py` to point to your Google Project
+  10. put `server.py` on your server and run it
+
+# Get Data
+
+Data sources used for `english_word_freq_list`:
+- Google: https://github.com/garyongguanjie/entrie/blob/main/unigram_freq.csv or https://www.kaggle.com/datasets/rtatman/english-word-frequency (there are other mirrors as well)
+- Norvig: https://github.com/arstgit/high-frequency-vocabulary (30k.txt, change to .csv and add a single line at the top that just says "word" (CSV header))

@@ -15,13 +15,12 @@ from pydantic import BaseModel, Field, validator
 from typing import List, Optional
 from time import time
 
+from ContextualSearchEngine import ContextualSearchEngine
+
 app = web.Application()
 app['buffer'] = dict()
 app['jarvis memory'] = dict()
-# lower max token decreases latency: https://platform.openai.com/docs/guides/production-best-practices/improving-latencies. On average, each token is 4 characters.
-# Let's imagine the longest question someone is going to ask is 30 seconds and the longest reponse we'll get is 30 seconds
-# we speak 150 wpm
-# average english word is 4.7 characters
+# lower max token decreases latency: https://platform.openai.com/docs/guides/production-best-practices/improving-latencies. On average, each token is 4 characters. We speak 150 wpm, average english word is 4.7 characters
 max_talk_time = 30  # seconds
 # max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
 max_tokens = 500
@@ -30,12 +29,15 @@ app['llm'] = ChatOpenAI(
 app['buffer']['test'] = [
     {'text': 'old message be old yo', 'timestamp': time() - 60 * 70},
     {'text': 'I like butts', 'timestamp': time()},
+    {'text': 'Google is a powerful company', 'timestamp': time()},
+    {'text': 'I really respect Michelle Obama and you', 'timestamp': time()},
+    {'text': "one day I'll grow up to be a gynecologist", 'timestamp': time()},
     {'text': 'Who is the real slim shady', 'timestamp': time()},
 ]
 app['buffer']['cayden'] = []
 app['buffer']['jeremy'] = []
 
-app['buffer']['test'] = []
+#app['buffer']['test'] = []
 app['jarvis memory']['cayden'] = []
 app['jarvis memory']['jeremy'] = []
 app['jarvis memory']['test'] = []
@@ -288,10 +290,33 @@ async def extract_key_points(text):
     return summary
 
 
+#Contextual Search Engine
+cse = ContextualSearchEngine()
+async def contextual_search_engine(request, minutes=0.5):
+    #parse request
+    body = await request.json()
+    userId = body.get('userId')
+
+    #run contextual search engine on recent text
+    recent_text = get_text_in_past_n_minutes(
+        app['buffer'][userId], minutes)
+    cse_result = cse.contextual_search_engine(recent_text)
+
+    #send response
+    resp = dict()
+    if (cse_result) != None:
+        resp["success"] = True
+        resp["result"] = cse_result
+    else:
+        resp["success"] = False
+    return web.Response(text=json.dumps(resp), status=200)
+
+
 app.add_routes(
     [
         web.post('/chat', chat_handler),
-        web.get('/summaries', get_summaries)
+        web.get('/summaries', get_summaries),
+        web.post('/contextual_search_engine', contextual_search_engine)
     ]
 )
 
