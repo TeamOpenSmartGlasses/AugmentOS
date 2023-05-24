@@ -20,6 +20,7 @@ from ContextualSearchEngine import ContextualSearchEngine
 app = web.Application()
 app['buffer'] = dict()
 app['jarvis memory'] = dict()
+app['notes'] = dict()
 # lower max token decreases latency: https://platform.openai.com/docs/guides/production-best-practices/improving-latencies. On average, each token is 4 characters. We speak 150 wpm, average english word is 4.7 characters
 max_talk_time = 30  # seconds
 # max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
@@ -42,6 +43,11 @@ app['jarvis memory']['cayden'] = []
 app['jarvis memory']['jeremy'] = []
 app['jarvis memory']['test'] = []
 
+app['notes']['cayden'] = []
+app['notes']['jeremy'] = []
+app['notes']['test'] = [
+    {'text': 'test note number 1', 'timestamp': time()},
+]
 
 def get_text_in_past_n_minutes(obj_list, n):
     past_time = time() - 60 * n
@@ -94,6 +100,34 @@ async def is_summary_requested(text):
         return 0
 
 
+async def is_note_requested(text):
+    class MakeNoteQuery(BaseModel):
+        """
+        Number of minutes of requested summarization
+        """
+        note_request: bool = Field(
+            description="whether or not the user requested a note to be saved")
+
+    make_note_query_parser = PydanticOutputParser(pydantic_object=MakeNoteQuery)
+    extract_note_query_prompt = PromptTemplate(
+        template="If the following text contains a request or statement very similar to 'write that down' or 'save a note', output only 1. Otherwise, output only 0. \n{format_instructions}\n{text}\n",
+        input_variables=["text"],
+        partial_variables={
+            "format_instructions": make_note_query_parser.get_format_instructions()}
+    )
+
+    make_note_query_prompt_string = extract_note_query_prompt.format_prompt(
+        text=text).to_string()
+
+    response = app['llm'](
+        [HumanMessage(content=make_note_query_prompt_string)])
+    try:
+        requested_note = make_note_query_parser.parse(response.content).note_request
+        return requested_note
+    except OutputParserException:
+        return False
+
+
 async def is_topic_reminder_requested(text):
     # require the word 'summary' or 'summarize' to be in the transcript to get a summary
     if text.lower().find("just") == -1:
@@ -109,9 +143,9 @@ async def is_topic_reminder_requested(text):
     return False
 
 
-async def summarize_chat_history(text):
+async def summarize_chat_history(text, max_words_absolute=18, max_words_prefer=14):
     response = app['llm']([HumanMessage(
-        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than 18 words long, but I really would rather if it can be 14 or less. Please respond kindly. Here is the text to summarize:\n{text}")])
+        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than {max_words_absolute} words long, but I really would rather if it can be {max_words_prefer} or less. Please respond kindly. Here is the text to summarize:\n{text}")])
 
     summary = response.content
     return summary
@@ -136,6 +170,27 @@ async def summarize_if_requested(text, userId):
         summary = await summarize_chat_history(recent_text)
 
     return summary
+
+
+async def add_note_if_requested(text, userId, timestamp, minutes=0.5):
+    """
+    Check if user wants to save a note right now.
+    If they do, summarize the last minutes of text and save the summary as a note to their notes buffer.
+
+    Search for 2 kinds of requests concurrently:
+    1. "write that down"
+    2. "save a note"
+    """
+
+    requested_note = await is_note_requested(text)
+
+    note = ''
+    if requested_note:
+        print(f'making a new note using summary for past {minutes} minutes')
+        recent_text = get_text_in_past_n_minutes(
+            app['buffer'][userId], minutes)
+        note = await summarize_chat_history(recent_text, max_words_absolute=14, max_words_prefer=10)
+        app['notes'][userId].append({'text': note, 'timestamp': timestamp})
 
 
 async def answer_question_to_jarvis(text, userId):
@@ -187,6 +242,7 @@ async def chat_handler(request):
      - [X] acidbrain prosthetic / what were we just talking about?
      - [X] summarization of the past n minutes of conversation
      - [X] general-knowledge questions to an assistant named Jarvis
+     - [X] write down notes in a list
     """
     body = await request.json()
     text = body.get('text')
@@ -218,6 +274,7 @@ async def chat_handler(request):
         else:
             summary = await summarize_if_requested(text, userId)
             response = summary
+            await add_note_if_requested(text, userId, timestamp)
     except Exception as e:
         print(e)
         summary = 'open AI is busy'
@@ -271,7 +328,26 @@ async def get_summaries(request):
         return web.Response(text="Open AI is busy", status=503)
     
     return web.Response(text=json.dumps(response), status=200)
-    
+
+
+async def get_notes(request, minutes=180):
+    """
+    Get notes of a user for the last minutes.
+    """
+    body = await request.json()
+    userId = body.get('userId')
+
+    if userId is None or userId == '':
+        return web.Response(text='no userId in request', status=400)
+
+    response = dict()
+    notes = app['notes'][userId]
+    response["success"] = True
+    past_time = time() - 60 * minutes
+    response["result"] = [t.get('text') for t in app["notes"][userId] if t.get('timestamp') > past_time]
+
+    return web.Response(text=json.dumps(response), status=200)
+   
 
 def extract_n_key_points(n, textList):
     text = ''.join(textList)
@@ -316,6 +392,7 @@ app.add_routes(
     [
         web.post('/chat', chat_handler),
         web.get('/summaries', get_summaries),
+        web.post('/notes', get_notes),
         web.post('/contextual_search_engine', contextual_search_engine)
     ]
 )
