@@ -30,15 +30,15 @@ import com.google.audio.asr.CloudSpeechSessionParams;
 import com.google.audio.asr.CloudSpeechStreamObserverParams;
 import com.google.audio.asr.SpeechRecognitionModelOptions;
 import com.google.audio.asr.TranscriptionResultFormatterOptions;
-import com.teambandwidth.wearllm.R;
 
 import com.teambandwidth.wearllm.asr.RepeatingRecognitionSession;
 import com.teambandwidth.wearllm.asr.SafeTranscriptionResultFormatter;
-import com.teambandwidth.wearllm.asr.TextToSpeechSystem;
 import com.teambandwidth.wearllm.asr.TranscriptionResultUpdatePublisher;
-import com.teambandwidth.wearllm.asr.gcloudspeech.CloudSpeechSessionFactory;
-import com.teambandwidth.wearllm.asr.wearllmbackend.BackendServerComms;
-import com.teambandwidth.wearllm.asr.wearllmbackend.VolleyJsonCallback;
+import com.teambandwidth.wearllm.asr.asrhelpers.NetworkConnectionChecker;
+import com.teambandwidth.wearllm.asr.vad.VadGateSpeechPolicy;
+import com.teambandwidth.wearllm.gcloudspeech.CloudSpeechSessionFactory;
+import com.teambandwidth.wearllm.wearllmbackend.BackendServerComms;
+import com.teambandwidth.wearllm.wearllmbackend.VolleyJsonCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -144,14 +144,14 @@ public class WearLLMService extends LifecycleService {
         this.apiKey = MainActivity.getApiKey(getApplicationContext());
 
         //set language code
-        currentLanguageCode = "en-US"; //this is hacky, use the resources langauges.xml and array.xml once adding in back more langauges
+        currentLanguageCode = "en-US"; //this is hacky, use the resources languages.xml and array.xml once adding in back more languages
 
         //setup backend comms
         backendServerComms = new BackendServerComms(this);
 
         //make responses holder
         responses = new ArrayList<>();
-        responses.add("this is a test to the big boi");
+        responses.add("Welcome to WearLLM - ask Jarvis questions, ask what you were talking about, request summary of <n> minutes.");
 
         //start text to speech
         constructRepeatingRecognitionSession();
@@ -180,9 +180,11 @@ public class WearLLMService extends LifecycleService {
     //WearLLM code --------------------------------------------------------------------
     private static final int MIC_CHANNELS = AudioFormat.CHANNEL_IN_MONO;
     private static final int MIC_CHANNEL_ENCODING = AudioFormat.ENCODING_PCM_16BIT;
-    private static final int MIC_SOURCE = MediaRecorder.AudioSource.VOICE_RECOGNITION;
+//    private static final int MIC_SOURCE = MediaRecorder.AudioSource.VOICE_RECOGNITION;
+    private static final int MIC_SOURCE = MediaRecorder.AudioSource.MIC;
     private static final int SAMPLE_RATE = 16000;
-    private static final int CHUNK_SIZE_SAMPLES = 1280;
+//    private static final int CHUNK_SIZE_SAMPLES = 1280;
+    private static final int CHUNK_SIZE_SAMPLES = 1024;
     private static final int BYTES_PER_SAMPLE = 2;
 
     private int currentLanguageCodePosition;
@@ -200,6 +202,7 @@ public class WearLLMService extends LifecycleService {
     private final TranscriptionResultUpdatePublisher transcriptUpdater =
             (formattedTranscript, updateType) -> {
                 if (updateType == TranscriptionResultUpdatePublisher.UpdateType.TRANSCRIPT_FINALIZED){
+                    Log.d(TAG, "GOT FINAL TRANSCRIPT: " + formattedTranscript.toString());
                     sendLLMQueryRequest(formattedTranscript.toString());
                 }
             };
@@ -259,6 +262,7 @@ public class WearLLMService extends LifecycleService {
                         .setSampleRateHz(SAMPLE_RATE)
                         .setTranscriptionResultFormatter(new SafeTranscriptionResultFormatter(formatterOptions))
                         .setSpeechRecognitionModelOptions(options)
+                        .setSpeechDetectionPolicy(new VadGateSpeechPolicy(getApplicationContext()))
                         .setNetworkConnectionChecker(networkChecker);
         recognizer = recognizerBuilder.build();
         recognizer.registerCallback(transcriptUpdater, TranscriptionResultUpdatePublisher.ResultSource.MOST_RECENT_SEGMENT);

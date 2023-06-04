@@ -84,6 +84,10 @@ dependencies {
 
     //REST API volley
     implementation 'com.android.volley:volley:1.2.1';
+
+    //for VAD (using Silero DNN)
+    implementation 'com.github.gkonovalov:android-vad:2.0.1'
+    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.15.0'
 }
 
 protobuf {

@@ -23,10 +23,10 @@ import android.text.Spanned;
 import com.google.audio.SpeakerIdInfo;
 import com.google.audio.asr.SpeechRecognitionModelOptions;
 import com.google.audio.asr.TranscriptionResult;
-import com.teambandwidth.wearllm.CircularByteBuffer;
-import com.teambandwidth.wearllm.NetworkConnectionChecker;
-import com.teambandwidth.wearllm.SampleProcessorInterface;
-import com.teambandwidth.wearllm.SpeakerIDLabeler;
+import com.teambandwidth.wearllm.asr.asrhelpers.CircularByteBuffer;
+import com.teambandwidth.wearllm.asr.asrhelpers.NetworkConnectionChecker;
+import com.teambandwidth.wearllm.asr.asrhelpers.SampleProcessorInterface;
+import com.teambandwidth.wearllm.asr.asrhelpers.SpeakerIDLabeler;
 import com.google.common.base.Optional;
 import com.google.common.flogger.FluentLogger;
 

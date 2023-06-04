@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.teambandwidth.wearllm.asr.gcloudspeech;
+package com.teambandwidth.wearllm.gcloudspeech;
 
 import com.google.audio.asr.TranscriptionResult;
 import com.teambandwidth.wearllm.asr.TimeUtil;

@@ -15,7 +15,7 @@
  */
 package com.teambandwidth.wearllm.asr;
 
-import com.teambandwidth.wearllm.SampleProcessorInterface;
+import com.teambandwidth.wearllm.asr.asrhelpers.SampleProcessorInterface;
 
 /**
  * Decides whether audio should be passed to the recognizer. Unlike the SpeechDetector, this

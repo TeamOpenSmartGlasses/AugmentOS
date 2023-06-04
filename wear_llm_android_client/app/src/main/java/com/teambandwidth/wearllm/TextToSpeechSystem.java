@@ -1,4 +1,4 @@
-package com.teambandwidth.wearllm.asr;
+package com.teambandwidth.wearllm;
 
 //based on https://github.com/emexlabs/WearableIntelligenceSystem/blob/master/android_smart_phone/main/app/src/main/java/com/wearableintelligencesystem/androidsmartphone/texttospeech/TextToSpeechSystem.java
 
@@ -10,7 +10,7 @@ import android.util.Log;
 import java.util.Locale;
 
 public class TextToSpeechSystem {
-    private String TAG = "MXT2_TextToSpeechSystem";
+    private String TAG = "WearLLM_TextToSpeechSystem";
     private Context mContext;
 
     public boolean isLoaded = false;

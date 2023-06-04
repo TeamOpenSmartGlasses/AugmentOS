@@ -1,4 +1,4 @@
-package com.teambandwidth.wearllm.asr.wearllmbackend;
+package com.teambandwidth.wearllm.wearllmbackend;
 
 /*
 Adapted from:

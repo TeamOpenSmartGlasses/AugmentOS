@@ -43,6 +43,8 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.teambandwidth.wearllm.asr.asrhelpers.ResponseTextUiAdapter;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {

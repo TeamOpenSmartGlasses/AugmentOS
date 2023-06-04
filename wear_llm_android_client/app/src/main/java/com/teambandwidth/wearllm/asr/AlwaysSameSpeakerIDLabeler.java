@@ -16,7 +16,7 @@
 package com.teambandwidth.wearllm.asr;
 
 import com.google.audio.SpeakerIdInfo;
-import com.teambandwidth.wearllm.SpeakerIDLabeler;
+import com.teambandwidth.wearllm.asr.asrhelpers.SpeakerIDLabeler;
 
 import org.joda.time.Instant;
 

@@ -20,11 +20,11 @@
 // and passes the data to a SpeechSessionListener, which helps to aggregate
 // TranscriptionResults and manage the repeatedly reopening sessions.
 
-package com.teambandwidth.wearllm.asr.gcloudspeech;
+package com.teambandwidth.wearllm.gcloudspeech;
 
 import com.google.audio.asr.CloudSpeechSessionParams;
 import com.google.audio.asr.SpeechRecognitionModelOptions;
-import com.teambandwidth.wearllm.StreamingAudioEncoder;
+import com.teambandwidth.wearllm.asr.asrhelpers.StreamingAudioEncoder;
 import com.teambandwidth.wearllm.asr.SpeechSession;
 import com.teambandwidth.wearllm.asr.SpeechSessionListener;
 import com.google.cloud.speech.v1p1beta1.RecognitionConfig;
