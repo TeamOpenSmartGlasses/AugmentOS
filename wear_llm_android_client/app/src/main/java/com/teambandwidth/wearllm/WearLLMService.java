@@ -323,10 +323,11 @@ public class WearLLMService extends LifecycleService {
     public void parseLLMQueryResult(JSONObject response) throws JSONException {
         Log.d(TAG, "Got result from server: " + response.toString());
         String message = response.getString("message");
-        if (!message.equals(""))
+        if (!message.equals("")) {
             responses.add(message);
             sendUiUpdateSingle(message);
             speakTTS(message);
+        }
     }
 
     public void speakTTS(String toSpeak){
