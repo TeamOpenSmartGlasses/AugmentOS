@@ -24,6 +24,9 @@
     <service android:name="com.teambandwidth.wearllm.WearLLMService"
         android:foregroundServiceType="microphone"
         android:exported="true">
+        <intent-filter>
+          <action android:name="SGM_COMMAND_INTENT" />
+        </intent-filter>
     </service>
 
   </application>

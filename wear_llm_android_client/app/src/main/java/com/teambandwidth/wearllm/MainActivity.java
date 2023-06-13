@@ -43,8 +43,6 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.teambandwidth.wearllm.asr.asrhelpers.ResponseTextUiAdapter;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -74,6 +72,9 @@ public class MainActivity extends AppCompatActivity {
     responseTextUiAdapter = new ResponseTextUiAdapter(new ArrayList<>());
     responseRecyclerView.setAdapter(responseTextUiAdapter);
 
+    //start the main WearLLM backend, if it's not already running
+    startWearLLMService();
+
     //debug
 //    for (int i = 0; i < 25; i++) {
 //      addResponseTextBox("this is a text box");
@@ -87,8 +88,6 @@ public class MainActivity extends AppCompatActivity {
         != PackageManager.PERMISSION_GRANTED) {
       ActivityCompat.requestPermissions(
           this, new String[] {Manifest.permission.RECORD_AUDIO}, PERMISSIONS_REQUEST_RECORD_AUDIO);
-    } else {
-      showAPIKeyDialog();
     }
   }
 
@@ -110,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
       case PERMISSIONS_REQUEST_RECORD_AUDIO:
         // If request is cancelled, the result arrays are empty.
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-          showAPIKeyDialog();
+//          showAPIKeyDialog();
         } else {
           // This should nag user again if they launch without the permissions.
           Toast.makeText(
@@ -123,73 +122,6 @@ public class MainActivity extends AppCompatActivity {
         return;
       default: // Should not happen. Something we did not request.
     }
-  }
-
-  /** The API won't work without a valid API key. This prompts the user to enter one. */
-  private void showAPIKeyDialog() {
-    LinearLayout contentLayout =
-        (LinearLayout) getLayoutInflater().inflate(R.layout.api_key_message, null);
-    TextView linkView = contentLayout.findViewById(R.id.api_key_link_view);
-    linkView.setText(Html.fromHtml(getString(R.string.api_key_doc_link)));
-    linkView.setMovementMethod(LinkMovementMethod.getInstance());
-    EditText keyInput = contentLayout.findViewById(R.id.api_key_input);
-    keyInput.setInputType(InputType.TYPE_CLASS_TEXT);
-    keyInput.setText(getApiKey(this));
-
-//    TextView selectLanguageView = contentLayout.findViewById(R.id.language_locale_view);
-//    selectLanguageView.setText(Html.fromHtml(getString(R.string.select_language_message)));
-//    selectLanguageView.setMovementMethod(LinkMovementMethod.getInstance());
-//    final ArrayAdapter<String> languagesList =
-//        new ArrayAdapter<String>(
-//            this,
-//            android.R.layout.simple_spinner_item,
-//            getResources().getStringArray(R.array.languages));
-
-//    Spinner sp = contentLayout.findViewById(R.id.language_locale_spinner);
-//    sp.setAdapter(languagesList);
-//    sp.setOnItemSelectedListener(
-//        new OnItemSelectedListener() {
-//          @Override
-//          public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//            handleLanguageChanged(position);
-//          }
-//
-//          @Override
-//          public void onNothingSelected(AdapterView<?> parent) {}
-//        });
-//    sp.setSelection(currentLanguageCodePosition);
-
-    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-    builder
-        .setTitle(getString(R.string.api_key_message))
-        .setView(contentLayout)
-        .setPositiveButton(
-            getString(android.R.string.ok),
-            (dialog, which) -> {
-              saveApiKey(this, keyInput.getText().toString().trim());
-              //start the main WearLLM backend, if it's not already running
-              startWearLLMService();
-            })
-        .show();
-  }
-
-//  /** Handles selecting language by spinner. */
-//  private void handleLanguageChanged(int itemPosition) {
-//    currentLanguageCodePosition = itemPosition;
-//    currentLanguageCode = getResources().getStringArray(R.array.language_locales)[itemPosition];
-//  }
-
-  /** Saves the API Key in user shared preference. */
-  private static void saveApiKey(Context context, String key) {
-    PreferenceManager.getDefaultSharedPreferences(context)
-        .edit()
-        .putString(context.getResources().getString(R.string.SHARED_PREF_KEY), key)
-        .apply();
-  }
-
-  /** Gets the API key from shared preference. */
-  public static String getApiKey(Context context) {
-    return PreferenceManager.getDefaultSharedPreferences(context).getString(context.getResources().getString(R.string.SHARED_PREF_KEY), "");
   }
 
   @Override
@@ -327,5 +259,4 @@ public class MainActivity extends AppCompatActivity {
     responseTextUiAdapter.addText(text);
     responseRecyclerView.smoothScrollToPosition(responseTextUiAdapter.getItemCount() - 1);
   }
-
 }

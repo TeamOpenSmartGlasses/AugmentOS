@@ -1,6 +1,5 @@
 plugins {
     id 'com.android.application'
-    id 'com.google.protobuf'
 }
 
 android {
@@ -42,7 +41,6 @@ android {
     sourceSets {
         main {
             java.srcDirs += 'src/main/java'
-            proto.srcDirs += 'src/main/proto'
         }
     }
 
@@ -53,13 +51,6 @@ android {
         }
     }
 
-//    ndkVersion '25.2.9519653'
-    externalNativeBuild {
-        cmake {
-            path file('CMakeLists.txt')
-            version '3.22.1'
-        }
-    }
 }
 
 dependencies {
@@ -85,28 +76,6 @@ dependencies {
     //REST API volley
     implementation 'com.android.volley:volley:1.2.1';
 
-    //for VAD (using Silero DNN)
-    implementation 'com.github.gkonovalov:android-vad:2.0.1'
-    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.15.0'
-}
-
-protobuf {
-    protoc {
-        // use this compiler, from the maven repo (instead of a local file, for instance)
-        artifact = 'com.google.protobuf:protoc:3.21.12'
-    }
-    generateProtoTasks {
-        all().configureEach { task ->
-            // remove the default java output
-            task.builtins {
-                remove java
-            }
-            // add the java output with lite runtime
-            task.builtins {
-                java {
-                    option 'lite'
-                }
-            }
-        }
-    }
+    //SGMLib library
+    implementation project (":SGMLib")
 }

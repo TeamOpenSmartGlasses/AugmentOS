@@ -2,7 +2,6 @@
 plugins {
     id 'com.android.application' version '8.0.1' apply false
     id 'com.android.library' version '8.0.1' apply false
-    id 'com.google.protobuf' version '0.9.2' apply false
 }
 
 tasks.register('clean') {

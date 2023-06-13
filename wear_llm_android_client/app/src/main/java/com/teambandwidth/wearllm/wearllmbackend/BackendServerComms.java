@@ -44,7 +44,8 @@ public class BackendServerComms {
         // Instantiate the RequestQueue.
         mContext = context;
         mRequestQueue = Volley.newRequestQueue(mContext);
-        serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com"; //cayden
+//        serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com"; //jeremy
+        serverUrl = "https://9259wtmk89.execute-api.us-east-2.amazonaws.com"; //cayden
     }
 
     //handles requesting data, sending data
