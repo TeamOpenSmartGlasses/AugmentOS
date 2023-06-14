@@ -1,29 +1,31 @@
 # Deployment Guide
-  1. spin up an ubuntu ec2 instance
-  2. give your server an elastic IP
-  3. create an API Gateway API
-  4. add a `/chat` route to your API, and attach to it an `HTTP-URI` integration with HTTP method `POST` and route `http://<ec2 elastic ip>/chat`
-  5. put nginx on your server `sudo apt-get install nginx`
-  6. put this in `/etc/nginx/sites-available/default`:
-        ```
-        server {
-            listen 80 default_server;
-            listen [::]:80 default_server;
+1. spin up an ubuntu ec2 instance
+2. give your server an elastic IP
+3. create an API Gateway API
+4. add a `/chat` route to your API, and attach to it an `HTTP-URI` integration with HTTP method `POST` and route `http://<ec2 elastic ip>/chat`
+5. put nginx on your server `sudo apt-get install nginx`
+6. put this in `/etc/nginx/sites-available/default`:
+    ```
+    server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
 
-            server_name _;
+        server_name _;
 
-            location / {
-                    proxy_pass http://localhost:8080;
-                    proxy_set_header Host $host;
-                    proxy_set_header X-Real-IP $remote_addr;
-                    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-            }
+        location / {
+                proxy_pass http://localhost:8080;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         }
-        ```
-  7. start nginx `sudo systemctl start nginx`
-  8. install the python dependencies: `aiohttp, openai, langchain`
-  9. Enable Google Natural Language Processing API, Maps API, point `gcp_config.py` to point to your Google Project
-  10. put `server.py` on your server and run it
+    }
+    ```
+7. start nginx `sudo systemctl start nginx`
+8. install the python dependencies: `aiohttp, openai, langchain`
+9. Enable Google Natural Language Processing API, Maps API, point `gcp_config.py` to point to your Google Project
+10. Run `python3`, `import nltk`, `nltk.download('wordnet')`
+11. Set your OpenAI API key - `export OPENAI_API_KEY=myKeyHere`
+12. put `server.py` on your server and run it
 
 # Get Data
 

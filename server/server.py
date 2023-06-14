@@ -29,7 +29,6 @@ app['llm'] = ChatOpenAI(
     temperature=0.5, max_tokens=max_tokens, request_timeout=12, max_retries=0)
 app['buffer']['test'] = [
     {'text': 'old message be old yo', 'timestamp': time() - 60 * 70},
-    {'text': 'I like butts', 'timestamp': time()},
     {'text': 'Google is a powerful company', 'timestamp': time()},
     {'text': 'I really respect Michelle Obama and you', 'timestamp': time()},
     {'text': "one day I'll grow up to be a gynecologist", 'timestamp': time()},
@@ -80,16 +79,14 @@ async def is_summary_requested(text):
 
     summary_query_parser = PydanticOutputParser(pydantic_object=SummaryQuery)
     extract_summary_query_prompt = PromptTemplate(
-        template="If the following text contains a question or statement very similar to 'summarize the past n minutes', output only the number of minutes that are to be summarized. Otherwise output only 0. \n{format_instructions}\n{text}\n",
+            template="If the following text contains a question or statement very similar to 'summarize the past n minutes', output only the number of minutes that are to be summarized. Otherwise output only 0. \n{format_instructions}\nHere is the text: \n```{text}```",
         input_variables=["text"],
         partial_variables={
             "format_instructions": summary_query_parser.get_format_instructions()}
     )
-
+    
     extract_summary_query_prompt_string = extract_summary_query_prompt.format_prompt(
         text=text).to_string()
-
-    # print(extract_summary_query_prompt_string)
 
     response = app['llm'](
         [HumanMessage(content=extract_summary_query_prompt_string)])
@@ -106,11 +103,11 @@ async def is_note_requested(text):
         Number of minutes of requested summarization
         """
         note_request: bool = Field(
-            description="whether or not the user requested a note to be saved")
+            description="did text contain request")
 
     make_note_query_parser = PydanticOutputParser(pydantic_object=MakeNoteQuery)
     extract_note_query_prompt = PromptTemplate(
-        template="If the following text contains a request or statement very similar to 'write that down' or 'save a note', output only 1. Otherwise, output only 0. \n{format_instructions}\n{text}\n",
+            template="If the following text contains a request the same as or similar to 'write that down', 'save a note', or 'remember that for later', output only 'True'. Otherwise, output only 'False'. \n\n{format_instructions}\nHere is the text: \n```{text}```",
         input_variables=["text"],
         partial_variables={
             "format_instructions": make_note_query_parser.get_format_instructions()}
@@ -118,6 +115,8 @@ async def is_note_requested(text):
 
     make_note_query_prompt_string = extract_note_query_prompt.format_prompt(
         text=text).to_string()
+
+    print(make_note_query_prompt_string)
 
     response = app['llm'](
         [HumanMessage(content=make_note_query_prompt_string)])
@@ -145,7 +144,7 @@ async def is_topic_reminder_requested(text):
 
 async def summarize_chat_history(text, max_words_absolute=18, max_words_prefer=14):
     response = app['llm']([HumanMessage(
-        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than {max_words_absolute} words long, but I really would rather if it can be {max_words_prefer} or less. Please respond kindly. Here is the text to summarize:\n{text}")])
+        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than {max_words_absolute} words long, but I really would rather if it can be {max_words_prefer} or less. Don't include any quotes or a starting word like \"Text\" or \"Summary\". Please respond kindly. Here is the text to summarize:\n{text}")])
 
     summary = response.content
     return summary
@@ -172,7 +171,7 @@ async def summarize_if_requested(text, userId):
     return summary
 
 
-async def add_note_if_requested(text, userId, timestamp, minutes=0.5):
+async def add_note_if_requested(text, userId, timestamp, minutes=0.75):
     """
     Check if user wants to save a note right now.
     If they do, summarize the last minutes of text and save the summary as a note to their notes buffer.
@@ -217,7 +216,7 @@ async def answer_question_to_jarvis(text, userId):
 
     memory.append({'speaker': userId, 'text': text})
     response = app['llm']([
-        SystemMessage(content="You, Jarvis, are an expert in every field who ignores everything said to him that is not relevant to a question. When you answer a question please do so with fewer than 16 words. Please respond with kindness."),
+        SystemMessage(content="You, Jarvis, are an expert in every field. You will have access to a live stream of data from conversations. When you are called upon, you answer questions using your knowledge and the context of the conversation. You ignore everything said to you that is not relevant to a question. When you answer a question, do so with fewer than 16 words, and preferably as few words as possible. Be succinct but respond with respect and kindness."),
         *[
             HumanMessage(content=mem['text']) if mem['speaker'] == userId
             else AIMessage(content=mem['text'])
@@ -277,7 +276,7 @@ async def chat_handler(request):
             await add_note_if_requested(text, userId, timestamp)
     except Exception as e:
         print(e)
-        summary = 'open AI is busy'
+        summary = 'Sorry, Open AI is busy'
 
     if not app['buffer'][userId]:
         app['buffer'][userId] = []
