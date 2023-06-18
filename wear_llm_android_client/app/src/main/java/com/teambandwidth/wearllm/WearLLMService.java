@@ -30,7 +30,6 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
     //WearLLM stuff
     private BackendServerComms backendServerComms;
-    TextToSpeechSystem tts;
     ArrayList<String> responses;
 
     public WearLLMService() {
@@ -62,9 +61,6 @@ public class WearLLMService extends SmartGlassesAndroidService {
         //Register the command
         sgmLib.registerCommand(command, this::wearLlmStartCommandCallback);
 
-        //start text to speech
-        tts = new TextToSpeechSystem(this);
-
         Log.d(TAG, "WearLLM SERVICE STARTED");
     }
 
@@ -79,9 +75,6 @@ public class WearLLMService extends SmartGlassesAndroidService {
         //request to be the in focus app so we can continue to show transcripts
         sgmLib.requestFocus(this::focusChangedCallback);
 
-        //StartScrollingText to show our translation
-//        sgmLib.startScrollingText("Translation: ");
-
         //Subscribe to transcription stream
         sgmLib.subscribe(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM, this::processTranscriptionCallback);
     }
@@ -89,22 +82,12 @@ public class WearLLMService extends SmartGlassesAndroidService {
     public void focusChangedCallback(FocusStates focusState){
         Log.d(TAG, "Focus callback called with state: " + focusState);
         this.focusState = focusState;
-
-        //StartScrollingText to show our translation
-        if (focusState.equals(FocusStates.IN_FOCUS)) {
-            sgmLib.startScrollingText("Translation: ");
-        }
     }
 
     public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){
         Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + transcript);
 
-        //don't execute if we're not in focus
-        if (!focusState.equals(FocusStates.IN_FOCUS)){
-            return;
-        }
-
-        if(isFinal){
+        if (isFinal){
             sendLLMQueryRequest(transcript);
         }
     }
@@ -147,7 +130,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
     }
 
     public void speakTTS(String toSpeak){
-        tts.speak(toSpeak);
+        sgmLib.sendTextLine(toSpeak);
     }
 
     public void sendUiUpdateFull(){
