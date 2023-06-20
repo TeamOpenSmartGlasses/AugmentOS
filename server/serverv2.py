@@ -5,11 +5,14 @@ from langchain.chat_models import ChatOpenAI
 from langchain import PromptTemplate
 from langchain.chains import RetrievalQA, LLMChain
 from langchain.agents import initialize_agent, Tool, AgentType
+from langchain.output_parsers import PydanticOutputParser
 import tiktoken
-
+from datetime import datetime
 
 from utils import UnitMemory, ShortTermMemory, LongTermMemory
 from utils import TimeNavigator, CurrentTime, MemoryRetriever
+from prompts import memory_retriever_prompt, answer_prompt
+from parsers import retrieve_memory
 
 app = web.Application()
 app['buffer'] = dict() # store and retrieve short term memories. Stored as a list of memories.
@@ -24,7 +27,7 @@ app['notes'] = dict() # store and retrieve notes. Stored as a list of memories.
 OPENAI_API_KEY= os.environ['OPENAI_API_KEY']
 max_tokens = 1024
 app['llm'] = ChatOpenAI(
-    model_name="gpt-3.5-turbo",
+    model_name="gpt-3.5-turbo-0613",
     temperature=0,
     openai_api_key=OPENAI_API_KEY,
     max_tokens=max_tokens,
@@ -82,8 +85,20 @@ async def chat_handler(request):
     try:
         jarvis_mode = text.lower().find("jarvis") != -1
         if jarvis_mode:
+            with open(f'{userId}_commands.log', 'a') as f:
+                f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
+
             answer = await answer_question_to_jarvis(text, userId)
             response = answer
+
+        james_mode = text.lower().find("james") != -1
+        if james_mode:
+            with open(f'{userId}_commands.log', 'a') as f:
+                f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
+
+            answer = await agent_james(text, userId)
+            response = answer
+
     except Exception as e:
         print("Error: ", e)
 
@@ -156,7 +171,7 @@ Query: {question}"""
 
 async def agent_jarvis(text, userId):
 
-    question = text.lower().replace("jarvis", "").strip()
+    question = text.lower().split('jarvis')[-1].strip()
 
     tools = [
         MemoryRetriever(ltm_memory=app['memory'][userId])
@@ -168,30 +183,32 @@ async def agent_jarvis(text, userId):
 
     return answer
 
-async def agent_jarvis_custom(text, userId):
+async def agent_james(text, userId):
 
-    question = text.lower().replace("jarvis", "").strip()
+    question = text.lower().split('james')[-1].strip()
 
-    # define the tools
     memory_retriever = MemoryRetriever(ltm_memory=app['memory'][userId])
-    current_time = CurrentTime()
+    current_time=datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
-    retrieval_query_template = PromptTemplate(prompt=memory_retriever_prompt,
-                                input_variables=["question"],
-                                partial_variables={"current_time": current_time.run(), "context": str(app['buffer'][userId])}
-                            )
+    retriever_input_parser = PydanticOutputParser(pydantic_object=retrieve_memory)
 
-    retrieval_chain = LLMChain(llm=app['llm'], prompt=retrieval_query_template)
+    memory_retriever_template = PromptTemplate(template=memory_retriever_prompt, input_variables=['current_time', 'question'], 
+            partial_variables={'format_instructions': retriever_input_parser.get_format_instructions()})
+    chain = LLMChain(llm=app['llm'], prompt=memory_retriever_template)
 
-    answer_template = PromptTemplate(prompt=answer_prompt, input_variables=["question", "memories"])
-    answer_chain = LLMChain(llm=app['llm'], prompt=answer_template)
+    answer = chain.run(current_time=current_time, question=question)
+    parsed_answer = retriever_input_parser.parse(answer)
+    print(parsed_answer)
 
-    retrieval_query = retrieval_chain.run({"current_time": current_time.run(), "context": str(app['buffer'][userId]), "question": question})
-    query, start_time, end_time = memory_retriever.parse_query(retrieval_query)
-    memories = memory_retriever.run(query, start_time, end_time)
+    retrieved_docs = memory_retriever._run(parsed_answer.query, parsed_answer.start_time, parsed_answer.end_time)
+    print(retrieved_docs)
 
-    answer = answer_chain.run(question=question, memories=memories)
-    return answer
+    answer_template = PromptTemplate(template=answer_prompt, input_variables=['context', 'question'])
+    chain = LLMChain(llm=app['llm'], prompt=answer_template)
+    final_answer = chain.run(context=retrieved_docs, question=question)
+
+    print("Final Answer: ", final_answer)
+    return final_answer
 
 
 app.add_routes(

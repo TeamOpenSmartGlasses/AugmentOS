@@ -43,16 +43,21 @@ class ShortTermMemory:
         return self.memories[-1].timestamp
 
     def add_memory(self, memory: UnitMemory):
-        self.memories.append(memory)
 
-        removed_memories = []
+        decayed_memories = []
 
         # remove old memories
         while self.get_end_time() - self.get_start_time() > self.max_time:
             m = self.memories.pop(0)
-            removed_memories.append(m)
+            decayed_memories.append(m)
 
-        return removed_memories
+        # if self.get_end_time() - self.get_start_time() > self.max_time:
+        #     decayed_memories = self.memories
+        #     self.memories = []
+
+        self.memories.append(memory)
+
+        return decayed_memories
 
 class LongTermMemory:
 
@@ -77,6 +82,8 @@ class LongTermMemory:
         self.db.add_texts([filtered_memory.text], {"timestamp": filtered_memory.timestamp})
 
     def add_memories(self, memories):
+        # full_memories = ".".join([m.text for m in memories])
+        # self.db.add_texts([full_memories], {"timestamp": memories[0].timestamp})
         for memory in memories:
             self.add_memory(memory)
 
@@ -155,32 +162,36 @@ class MemoryRetriever(BaseTool):
     ltm_memory : LongTermMemory = None
 
     def _run(self, query: str, start_time: Optional[str] = "", end_time: Optional[str] = ""):
-        full_query = {
-            "query_texts": query,
-        }
-        if len(start_time)>5 and len(end_time)>5:
-            # convert the time to timestamp in system time
-            start_time = datetime.strptime(start_time.strip(), '%m/%d/%Y, %H:%M:%S')
-            end_time = datetime.strptime(end_time.strip(), '%m/%d/%Y, %H:%M:%S')
 
-            start_time_timestamp = start_time.timestamp()
-            end_time_timestamp = end_time.timestamp()
+        if len(query) == 0:
+            start_time = datetime.strptime(start_time.strip(), '%m/%d/%Y, %H:%M:%S').timestamp()
+            end_time = datetime.strptime(end_time.strip(), '%m/%d/%Y, %H:%M:%S').timestamp()
+            memories = self.ltm_memory.retrieve_memories_in_time_range(start_time, end_time)
+            return memories
+        else:
+            full_query = {
+                "query_texts": query,
+            }
+            if len(start_time)>5 and len(end_time)>5:
+                # convert the time to timestamp in system time
+                start_time = datetime.strptime(start_time.strip(), '%m/%d/%Y, %H:%M:%S').timestamp()
+                end_time = datetime.strptime(end_time.strip(), '%m/%d/%Y, %H:%M:%S').timestamp()
 
-            full_query["where"] = {
-                "$and": [
-                        {
-                            "timestamp": {"$gte": start_time_timestamp}
-                        },
-                        {
-                            "timestamp": {"$lte": end_time_timestamp}
-                        }
-                    ]
-                }
-            
-        memories = self.ltm_memory.retrieve_memories_query(full_query)
+                full_query["where"] = {
+                    "$and": [
+                            {
+                                "timestamp": {"$gte": start_time}
+                            },
+                            {
+                                "timestamp": {"$lte": end_time}
+                            }
+                        ]
+                    }
+                
+            memories = self.ltm_memory.retrieve_memories_query(full_query)
 
-        # may need to summarize the memories depending on the length
-        return memories
+            # may need to summarize the memories depending on the length
+            return memories
 
     def _arun(self):
         raise NotImplementedError("This tool does not support asynchronous execution.")
