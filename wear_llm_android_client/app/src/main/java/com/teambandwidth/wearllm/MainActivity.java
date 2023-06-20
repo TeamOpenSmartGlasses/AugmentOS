@@ -56,9 +56,13 @@ public class MainActivity extends AppCompatActivity {
   //UI
   private ResponseTextUiAdapter responseTextUiAdapter;
   private RecyclerView responseRecyclerView;
+  private TranscriptTextUiAdapter transcriptTextUiAdapter;
+  private RecyclerView transcriptRecyclerView;
   public static final String UI_UPDATE_FULL = "UI_UPDATE_FULL";
   public static final String UI_UPDATE_SINGLE = "UI_UPDATE_SINGLE";
+  public static final String UI_UPDATE_FINAL_TRANSCRIPT = "UI_UPDATE_FINAL_TRANSCRIPT";
   public static final String WEARLLM_MESSAGE_STRING = "WEARLLM_MESSAGE_STRING";
+  public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +75,10 @@ public class MainActivity extends AppCompatActivity {
     responseRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     responseTextUiAdapter = new ResponseTextUiAdapter(new ArrayList<>());
     responseRecyclerView.setAdapter(responseTextUiAdapter);
+    transcriptRecyclerView = findViewById(R.id.rawTranscriptsRecyclerView);
+    transcriptRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+    transcriptTextUiAdapter = new TranscriptTextUiAdapter(new ArrayList<>());
+    transcriptRecyclerView.setAdapter(transcriptTextUiAdapter);
 
     //start the main WearLLM backend, if it's not already running
     startWearLLMService();
@@ -230,6 +238,7 @@ public class MainActivity extends AppCompatActivity {
     final IntentFilter intentFilter = new IntentFilter();
     intentFilter.addAction(UI_UPDATE_FULL);
     intentFilter.addAction(UI_UPDATE_SINGLE);
+    intentFilter.addAction(UI_UPDATE_FINAL_TRANSCRIPT);
 
     return intentFilter;
   }
@@ -250,6 +259,9 @@ public class MainActivity extends AppCompatActivity {
         for(String message : messages) {
           addResponseTextBox(message);
         }
+      } else if (UI_UPDATE_FINAL_TRANSCRIPT.equals(action)){
+        String transcript = intent.getStringExtra(FINAL_TRANSCRIPT);
+        addTranscriptTextBox(transcript);
       }
     }
   };
@@ -258,5 +270,11 @@ public class MainActivity extends AppCompatActivity {
   public void addResponseTextBox(String text) {
     responseTextUiAdapter.addText(text);
     responseRecyclerView.smoothScrollToPosition(responseTextUiAdapter.getItemCount() - 1);
+  }
+
+  // Call this method to add a new text box to the list
+  public void addTranscriptTextBox(String text) {
+    transcriptTextUiAdapter.addText(text);
+    transcriptRecyclerView.smoothScrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
   }
 }

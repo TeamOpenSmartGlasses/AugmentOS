@@ -88,6 +88,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
         Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + transcript);
 
         if (isFinal){
+            sendFinalTranscriptToActivity(transcript);
             sendLLMQueryRequest(transcript);
         }
     }
@@ -144,6 +145,13 @@ public class WearLLMService extends SmartGlassesAndroidService {
         Intent intent = new Intent();
         intent.setAction(MainActivity.UI_UPDATE_SINGLE);
         intent.putExtra(MainActivity.WEARLLM_MESSAGE_STRING, message);
+        sendBroadcast(intent);
+    }
+
+    public void sendFinalTranscriptToActivity(String transcript){
+        Intent intent = new Intent();
+        intent.setAction(MainActivity.UI_UPDATE_FINAL_TRANSCRIPT);
+        intent.putExtra(MainActivity.FINAL_TRANSCRIPT, transcript);
         sendBroadcast(intent);
     }
 }

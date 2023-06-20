@@ -9,9 +9,9 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:padding="12dp"
+        android:padding="8dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/response_text_size"
+        android:textSize="@dimen/transcript_text_size"
         android:hint="Text here my man."
         android:background="@drawable/rounded_corner"
         android:textColor="#000000"/>
