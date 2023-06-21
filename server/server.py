@@ -1,248 +1,59 @@
 from aiohttp import web
-import asyncio
 import json
-from langchain.llms import OpenAI
+import os
 from langchain.chat_models import ChatOpenAI
-from langchain import PromptTemplate, LLMChain
-from langchain.schema import (
-    AIMessage,
-    HumanMessage,
-    SystemMessage
-)
+from langchain import PromptTemplate
+from langchain.chains import RetrievalQA, LLMChain
+from langchain.agents import initialize_agent, Tool, AgentType
 from langchain.output_parsers import PydanticOutputParser
-from langchain.schema import OutputParserException
-from pydantic import BaseModel, Field, validator
-from typing import List, Optional
-from time import time
+import tiktoken
+from datetime import datetime
 
-from ContextualSearchEngine import ContextualSearchEngine
+from utils import UnitMemory, ShortTermMemory, LongTermMemory
+from utils import TimeNavigator, CurrentTime, MemoryRetriever
+from prompts import memory_retriever_prompt, answer_prompt
+from parsers import retrieve_memory
 
 app = web.Application()
-app['buffer'] = dict()
-app['jarvis memory'] = dict()
-app['notes'] = dict()
+app['buffer'] = dict() # store and retrieve short term memories. Stored as a list of memories.
+app['memory'] = dict() # store and retrieve long term memories. Implemented as chromadb
+app['notes'] = dict() # store and retrieve notes. Stored as a list of memories.
+
 # lower max token decreases latency: https://platform.openai.com/docs/guides/production-best-practices/improving-latencies. On average, each token is 4 characters. We speak 150 wpm, average english word is 4.7 characters
-max_talk_time = 30  # seconds
+# max_talk_time = 30  # seconds
 # max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
-max_tokens = 500
+
+OPENAI_API_KEY= os.environ['OPENAI_API_KEY']
+max_tokens = 1024
 app['llm'] = ChatOpenAI(
-    temperature=0.5, max_tokens=max_tokens, request_timeout=12, max_retries=0)
-app['buffer']['test'] = [
-    {'text': 'old message be old yo', 'timestamp': time() - 60 * 70},
-    {'text': 'Google is a powerful company', 'timestamp': time()},
-    {'text': 'I really respect Michelle Obama and you', 'timestamp': time()},
-    {'text': "one day I'll grow up to be a gynecologist", 'timestamp': time()},
-    {'text': 'Who is the real slim shady', 'timestamp': time()},
-]
-app['buffer']['cayden'] = []
+    model_name="gpt-3.5-turbo-0613",
+    temperature=0,
+    openai_api_key=OPENAI_API_KEY,
+    max_tokens=max_tokens,
+)
+
+# app['agent'] = initializeAgent()
+
+app['buffer']['test'] = ShortTermMemory()
+app['buffer']['cayden'] = ShortTermMemory()
 app['buffer']['jeremy'] = []
+app['buffer']['wazeer'] = ShortTermMemory()
 
-#app['buffer']['test'] = []
-app['jarvis memory']['cayden'] = []
-app['jarvis memory']['jeremy'] = []
-app['jarvis memory']['test'] = []
+app['memory']['test'] = LongTermMemory('test')
+app['memory']['cayden'] = LongTermMemory('cayden')
+app['memory']['jeremy'] = []
+app['memory']['wazeer'] = LongTermMemory('wazeer')
 
-app['notes']['cayden'] = []
-app['notes']['jeremy'] = []
-app['notes']['test'] = [
-    {'text': 'test note number 1', 'timestamp': time()},
-]
+# add a chromadb memory for each user
+# have a current context buffer for each user
 
-def get_text_in_past_n_minutes(obj_list, n):
-    past_time = time() - 60 * n
+# maybe notes db for each user
 
-    return ''.join(t.get('text') + '\n' for t in obj_list if t.get('timestamp') > past_time)
-
-
-def get_text_in_time_range_minutes(obj_list, start, stop):
-    ctime = time()
-
-    return ''.join(
-        t.get('text') + '\n'
-        if ctime - start * 60 < t.get('timestamp') < ctime - stop * 60
-        else ''
-        for t in obj_list
-    )
-
-
-async def is_summary_requested(text):
-    # require the word 'summary' or 'summarize' to be in the transcript to get a summary
-    if text.lower().find("summar") == -1:
-        return
-
-    class SummaryQuery(BaseModel):
-        """
-        Number of minutes of requested summarization
-        """
-        duration: int = Field(
-            description="number of minutes of text to summarize in minutes")
-
-    summary_query_parser = PydanticOutputParser(pydantic_object=SummaryQuery)
-    extract_summary_query_prompt = PromptTemplate(
-            template="If the following text contains a question or statement very similar to 'summarize the past n minutes', output only the number of minutes that are to be summarized. Otherwise output only 0. \n{format_instructions}\nHere is the text: \n```{text}```",
-        input_variables=["text"],
-        partial_variables={
-            "format_instructions": summary_query_parser.get_format_instructions()}
-    )
-    
-    extract_summary_query_prompt_string = extract_summary_query_prompt.format_prompt(
-        text=text).to_string()
-
-    response = app['llm'](
-        [HumanMessage(content=extract_summary_query_prompt_string)])
-    try:
-        minutes = summary_query_parser.parse(response.content).duration
-        return minutes
-    except OutputParserException:
-        return 0
-
-
-async def is_note_requested(text):
-    class MakeNoteQuery(BaseModel):
-        """
-        Number of minutes of requested summarization
-        """
-        note_request: bool = Field(
-            description="did text contain request")
-
-    make_note_query_parser = PydanticOutputParser(pydantic_object=MakeNoteQuery)
-    extract_note_query_prompt = PromptTemplate(
-            template="If the following text contains a request the same as or similar to 'write that down', 'save a note', or 'remember that for later', output only 'True'. Otherwise, output only 'False'. \n\n{format_instructions}\nHere is the text: \n```{text}```",
-        input_variables=["text"],
-        partial_variables={
-            "format_instructions": make_note_query_parser.get_format_instructions()}
-    )
-
-    make_note_query_prompt_string = extract_note_query_prompt.format_prompt(
-        text=text).to_string()
-
-    print(make_note_query_prompt_string)
-
-    response = app['llm'](
-        [HumanMessage(content=make_note_query_prompt_string)])
-    try:
-        requested_note = make_note_query_parser.parse(response.content).note_request
-        return requested_note
-    except OutputParserException:
-        return False
-
-
-async def is_topic_reminder_requested(text):
-    # require the word 'summary' or 'summarize' to be in the transcript to get a summary
-    if text.lower().find("just") == -1:
-        return
-
-    response = app['llm']([HumanMessage(
-        content=f"If the following text contains a question very similar to 'What were we talking about' or 'What was I just saying', output only 'True'. Otherwise output only 'False'. Here is the text: \n{text}")])
-
-    remind = response.content
-    if remind.lower().strip() == 'true':
-        return True
-
-    return False
-
-
-async def summarize_chat_history(text, max_words_absolute=18, max_words_prefer=14):
-    response = app['llm']([HumanMessage(
-        content=f"Please summarize the following text to a short string that is easy to parse very quickly and just gives the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The summarized text should be no more than {max_words_absolute} words long, but I really would rather if it can be {max_words_prefer} or less. Don't include any quotes or a starting word like \"Text\" or \"Summary\". Please respond kindly. Here is the text to summarize:\n{text}")])
-
-    summary = response.content
-    return summary
-
-
-async def summarize_if_requested(text, userId):
-
-    # search for 2 kinds of requests concurrently:
-    # 1. Summarize the past n minutes
-    # 2. What were we just talking about (map this to 2 minutes)
-
-    stuff = await asyncio.gather(is_summary_requested(text), is_topic_reminder_requested(text))
-    minutes, remind = stuff
-
-    summary = ''
-    if remind:
-        minutes = 2
-    if minutes:
-        print(f'getting summary for past {minutes} minutes')
-        recent_text = get_text_in_past_n_minutes(
-            app['buffer'][userId], minutes)
-        summary = await summarize_chat_history(recent_text)
-
-    return summary
-
-
-async def add_note_if_requested(text, userId, timestamp, minutes=0.75):
-    """
-    Check if user wants to save a note right now.
-    If they do, summarize the last minutes of text and save the summary as a note to their notes buffer.
-
-    Search for 2 kinds of requests concurrently:
-    1. "write that down"
-    2. "save a note"
-    """
-
-    requested_note = await is_note_requested(text)
-
-    note = ''
-    if requested_note:
-        print(f'making a new note using summary for past {minutes} minutes')
-        recent_text = get_text_in_past_n_minutes(
-            app['buffer'][userId], minutes)
-        note = await summarize_chat_history(recent_text, max_words_absolute=14, max_words_prefer=10)
-        app['notes'][userId].append({'text': note, 'timestamp': timestamp})
-
-
-async def answer_question_to_jarvis(text, userId):
-    """
-    Jarvis QA has memory.
-    Once a conversation has been started, all human and AI messages are recorded and context is maintained.
-    If human speaks while jarvis is thinking, jarvis stops thinking and starts thinking about the combined message.
-    """
-    memory = app['jarvis memory'][userId]
-    jarvis_mentioned = text.lower().find("jarvis") != -1
-
-    # Say Jarvis to start or stop talking to Jarvis
-    if not memory and not jarvis_mentioned:
-        return
-    if memory and jarvis_mentioned:
-        memory.clear()
-        return
-
-    # if user talks before jarvis responds, replace previous jarvis request with a new longer one
-    if memory and memory[-1]['speaker'] == userId:
-        print('user spoke before jarvis')
-        text = memory[-1]['text'] + '\n' + text
-        memory[-1]['text'] = text
-
-    memory.append({'speaker': userId, 'text': text})
-    response = app['llm']([
-        SystemMessage(content="You, Jarvis, are an expert in every field. You will have access to a live stream of data from conversations. When you are called upon, you answer questions using your knowledge and the context of the conversation. You ignore everything said to you that is not relevant to a question. When you answer a question, do so with fewer than 16 words, and preferably as few words as possible. Be succinct but respond with respect and kindness."),
-        *[
-            HumanMessage(content=mem['text']) if mem['speaker'] == userId
-            else AIMessage(content=mem['text'])
-            for mem in memory
-        ],
-        HumanMessage(content=text)
-    ])
-    # If user spoke more while Jarvis was thinking, discard thought and wait for updated one
-    if memory[-1]['text'] != text:
-        return ''
-
-    memory.append({'speaker': 'jarvis', 'text': response.content})
-    return response.content
-
+# agent based interaction for each query
+# or
+# direct prompt based interaction for each query
 
 async def chat_handler(request):
-    """
-    POST API for spoken language and optional responses from LLM System.
-    Saves everything mentioned and provides answers to specific questions / prompts.
-
-    Prompt Support:
-     - [X] acidbrain prosthetic / what were we just talking about?
-     - [X] summarization of the past n minutes of conversation
-     - [X] general-knowledge questions to an assistant named Jarvis
-     - [X] write down notes in a list
-    """
     body = await request.json()
     text = body.get('text')
     timestamp = body.get('timestamp')
@@ -257,142 +68,203 @@ async def chat_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
+    memory = UnitMemory(text, timestamp)
+
+    decayed_memories = app['buffer'][userId].add_memory(memory)
+
+    # add to long term memory
+    app['memory'][userId].add_memories(decayed_memories)
+
     # log so we can retain convo memory for later
     with open(f'{userId}.log', 'a') as f:
         f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
 
-    # when in Jarvis comms mode, ignore summaries and reminders.
-    summary = ''
-    answer = ''
+    # agent response
+    response = ''
     try:
-        jarvis_mode = app['jarvis memory'][userId] or text.lower().find(
-            "jarvis") != -1
+        jarvis_mode = text.lower().find("jarvis") != -1
         if jarvis_mode:
+            with open(f'{userId}_commands.log', 'a') as f:
+                f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
+
             answer = await answer_question_to_jarvis(text, userId)
             response = answer
-        else:
-            summary = await summarize_if_requested(text, userId)
-            response = summary
-            await add_note_if_requested(text, userId, timestamp)
+
+        james_mode = text.lower().find("james") != -1
+        if james_mode:
+            with open(f'{userId}_commands.log', 'a') as f:
+                f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
+
+            answer = await agent_james(text, userId)
+            response = answer
+
     except Exception as e:
-        print(e)
-        summary = 'Sorry, Open AI is busy'
-
-    if not app['buffer'][userId]:
-        app['buffer'][userId] = []
-    app['buffer'][userId].append({'text': text, 'timestamp': timestamp})
-
-    print('summary: ', summary)
-    print('answer: ', answer)
+        print("Error: ", e)
 
     return web.Response(text=json.dumps({'message': response}), status=200)
 
 
-async def get_summaries(request):
-    """
-    Get summaries of 4 most important points for:
-     - past 5 minutes
-     - 5-10 minutes ago
-     - 10-30 minutes ago
-    """
+async def button_handler(request):
     body = await request.json()
+    button_num = body.get('button_num')
+    button_activity = body.get('button_activity')
+    timestamp = body.get('timestamp')
     userId = body.get('userId')
+    print('\n=== New Request ===\n', button_num, button_activity, timestamp, userId)
 
+    # 400 if missing params
+    if button_num is None or button_num == '':
+        return web.Response(text='no button_num in request', status=400)
+    if button_activity is None or button_activity == '':
+        return web.Response(text='no button_activity in request', status=400)
+    if timestamp is None or timestamp == '':
+        return web.Response(text='no timestamp in request', status=400)
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
-    
-    memory = app['buffer'][userId]
-    now = time()
-    five_mins_ago = now - 5 * 60
-    ten_mins_ago = now - 10 * 60
-    thirty_mins_ago = now - 25 * 60
-    past_5_mins = [m['text'] for m in memory if five_mins_ago < m['timestamp'] < now]
-    past_10_mins = [m['text'] for m in memory if ten_mins_ago <  m['timestamp'] < five_mins_ago]
-    past_30_mins = [m['text'] for m in memory if thirty_mins_ago <  m['timestamp'] < ten_mins_ago]
 
-    response = {
-        'past 5 mins': '',
-        '5-10 mins ago': '',
-        '10-25 mins ago': '',
+    if button_activity : #True if push down, false if button release
+        #save event
+        with open(f'{userId}_events.log', 'a') as f:
+            f.write(str({'text': "BUTTON_DOWN", 'timestamp': timestamp}) + '\n')
+
+        #get recent transcripts (last n seconds of speech)
+        short_term_memory = get_short_term_memory(userId)
+        print("------------------------ {} 's STM:")
+        print(short_term_memory)
+        short_term_memory_snippet = short_term_memory
+
+        # agent response
+        #answer = await agent_james(short_term_memory_snippet, userId)
+        answer = await answer_question_to_jarvis(short_term_memory_snippet, userId)
+        response = answer
+
+        return web.Response(text=json.dumps({'message': response}), status=200)
+    else : 
+        return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
+
+def get_short_term_memory(userId):
+    stm = ""
+    for um in app['buffer'][userId].get_memories():
+        stm += um.get_text() + "\n\n"
+    return stm
+
+
+async def print_handler(request):
+    body = await request.json()
+    userId = body.get('userId')
+    print('\n=== New Request ===\n', userId)
+
+    # 400 if missing params
+    if userId is None or userId == '':
+        return web.Response(text='no userId in request', status=400)
+
+    # print short term memory
+    short_term_memory = str(app['buffer'][userId])
+
+    # print long term memory
+    long_term_memory = app['memory'][userId].db.get()
+
+    memories = {
+        'short_term_memory': short_term_memory,
+        'long_term_memory': long_term_memory
     }
-    try:
-        if past_5_mins:
-            response['past 5 mins'] = extract_n_key_points(4, past_5_mins)
-        if past_10_mins:
-            response['5-10 mins ago'] = extract_n_key_points(2, past_10_mins)
-        if past_30_mins:
-            response['10-30 mins ago'] = extract_n_key_points(2, past_30_mins)
-    except Exception as e:
-        print(e)
-        return web.Response(text="Open AI is busy", status=503)
-    
-    return web.Response(text=json.dumps(response), status=200)
+
+    return web.Response(text=json.dumps(memories), status=200)
 
 
-async def get_notes(request, minutes=180):
+async def answer_question_to_jarvis(text, userId):
     """
-    Get notes of a user for the last minutes.
+    Regular old retrieval augmented generation with Jarvis
     """
-    body = await request.json()
-    userId = body.get('userId')
 
-    if userId is None or userId == '':
-        return web.Response(text='no userId in request', status=400)
+    question = text.lower().replace("jarvis", "").strip()
 
-    response = dict()
-    notes = app['notes'][userId]
-    response["success"] = True
-    past_time = time() - 60 * minutes
-    response["result"] = [t.get('text') for t in app["notes"][userId] if t.get('timestamp') > past_time]
+    retrieval_template = """You are a helpful assistant who is an expert in everything that provides answers utilizing conversational memories of a human. The human user is engaged in conversation with another human, and you are listening to the conversation. The user sometimes stops to ask you for assistance mid-conversation.
 
-    return web.Response(text=json.dumps(response), status=200)
-   
+The details to construct the answer can be found in the relevant memories of the user who asks the questins. If you don't know the answer to a question and can't find and answer in the relevant memories, you should say that you do not know the answer.
 
-def extract_n_key_points(n, textList):
-    text = ''.join(textList)
-    response = app['llm']([HumanMessage(
-        content=f"Please summarize the following text to a numbered list of {n} or fewer key points of discussion. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The points should each be no more than 12 words long, but I really would rather if they can be 8 or less. For example, a summary might look like: \n1. tipping and rating a trip on a ride-sharing app.\n2. concise and visually appealing summary of business meetings or design meetings.\nHere is the text to summarize:\n{text}")])
+Relevant user memories: '''{context}'''
 
-    summary = response.content
-    return summary
-    
+The question or request you are to answer is the last (final) question/request posed by the human to you in the below 'Query'. In the 'Query'. Be concise and succinct. Never answer with more than 180 characters.
 
-async def extract_key_points(text):
-    response = app['llm']([HumanMessage(
-        content=f"Please summarize the following text to 4 or fewer key points that give the gist of what is said. Feel free to leave out filler words, like 'the' and 'a' if they aren't useful to human understanding of the abbreviated text. The points should each be no more than 12 words long, but I really would rather if they can be 8 or less. Here is the text to summarize:\n{text}")])
+'Query': '''{question}'''
 
-    summary = response.content
-    return summary
+That was the query. Answer the final question/request succinctly. Here is only the answer to the final question/request:"""
+
+    retrieval_prompt = PromptTemplate(
+        template=retrieval_template,
+        input_variables=["context", "question"]
+        )
+
+    print("JARVIS RETREIVAL PROMPT:")
+    print(retrieval_prompt)
+
+    vectordb_retriever = app['memory'][userId].db.as_retriever(search_kwargs={"k": 30})
+
+    retrieval_qa = RetrievalQA.from_chain_type(
+        llm=app['llm'],
+        chain_type="stuff",
+        retriever=vectordb_retriever,
+        chain_type_kwargs={"prompt": retrieval_prompt}
+    )
+
+    answer = retrieval_qa.run(question)
+
+    # encoding = tiktoken.encoding_for_model("gpt-3.5-turbo")
+
+    print("Question: ", question)
+
+    print("Answer: ", answer)
+    return answer
 
 
-#Contextual Search Engine
-cse = ContextualSearchEngine()
-async def contextual_search_engine(request, minutes=0.5):
-    #parse request
-    body = await request.json()
-    userId = body.get('userId')
+async def agent_jarvis(text, userId):
 
-    #run contextual search engine on recent text
-    recent_text = get_text_in_past_n_minutes(
-        app['buffer'][userId], minutes)
-    cse_result = cse.contextual_search_engine(recent_text)
+    question = text.lower().split('jarvis')[-1].strip()
 
-    #send response
-    resp = dict()
-    if (cse_result) != None:
-        resp["success"] = True
-        resp["result"] = cse_result
-    else:
-        resp["success"] = False
-    return web.Response(text=json.dumps(resp), status=200)
+    tools = [
+        MemoryRetriever(ltm_memory=app['memory'][userId])
+    ]
+
+    agent = initialize_agent(tools, app['llm'], agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+
+    answer = agent.run(question)
+
+    return answer
+
+async def agent_james(text, userId):
+
+    question = text.lower().split('james')[-1].strip()
+
+    memory_retriever = MemoryRetriever(ltm_memory=app['memory'][userId])
+    current_time=datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+
+    retriever_input_parser = PydanticOutputParser(pydantic_object=retrieve_memory)
+
+    memory_retriever_template = PromptTemplate(template=memory_retriever_prompt, input_variables=['current_time', 'question'], 
+            partial_variables={'format_instructions': retriever_input_parser.get_format_instructions()})
+    chain = LLMChain(llm=app['llm'], prompt=memory_retriever_template)
+
+    answer = chain.run(current_time=current_time, question=question)
+    parsed_answer = retriever_input_parser.parse(answer)
+    print(parsed_answer)
+
+    retrieved_docs = memory_retriever._run(parsed_answer.query, parsed_answer.start_time, parsed_answer.end_time)
+    print(retrieved_docs)
+
+    answer_template = PromptTemplate(template=answer_prompt, input_variables=['context', 'question'])
+    chain = LLMChain(llm=app['llm'], prompt=answer_template)
+    final_answer = chain.run(context=retrieved_docs, question=question)
+
+    print("Final Answer: ", final_answer)
+    return final_answer
 
 
 app.add_routes(
     [
         web.post('/chat', chat_handler),
-        web.get('/summaries', get_summaries),
-        web.post('/notes', get_notes),
-        web.post('/contextual_search_engine', contextual_search_engine)
+        web.post('/button_event', button_handler),
+        web.post('/print', print_handler)
     ]
 )
 
