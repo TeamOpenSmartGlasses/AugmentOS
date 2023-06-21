@@ -57,7 +57,7 @@
       app:layout_constraintWidth_percent="0.403">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/llmButton"
         android:layout_width="107dp"
         android:layout_height="207dp"
         android:background="@color/blueButton"

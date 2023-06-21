@@ -154,4 +154,37 @@ public class WearLLMService extends SmartGlassesAndroidService {
         intent.putExtra(MainActivity.FINAL_TRANSCRIPT, transcript);
         sendBroadcast(intent);
     }
+
+    public void buttonDownEvent(int buttonNumber, boolean downUp){ //downUp if true if down, false if up
+        if (!downUp){
+            return;
+        }
+
+        try{
+            JSONObject jsonQuery = new JSONObject();
+            jsonQuery.put("button_num", buttonNumber);
+            jsonQuery.put("button_activity", downUp);
+            jsonQuery.put("userId", "cayden");
+            jsonQuery.put("timestamp", System.currentTimeMillis() / 1000);
+            backendServerComms.restRequest(BackendServerComms.BUTTON_EVENT_ENDPOINT, jsonQuery, new VolleyJsonCallback(){
+                @Override
+                public void onSuccess(JSONObject result){
+                    try {
+                        Log.d(TAG, "GOT BUTTON RESULT: " + result.toString());
+                        String query_answer = result.getString("message");
+                        sendUiUpdateSingle(query_answer);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+                @Override
+                public void onFailure(){
+                    Log.d(TAG, "SOME FAILURE HAPPENED");
+                }
+
+            });
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+    }
 }

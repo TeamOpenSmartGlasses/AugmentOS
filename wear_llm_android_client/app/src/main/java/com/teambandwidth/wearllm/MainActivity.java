@@ -16,6 +16,7 @@
 package com.teambandwidth.wearllm;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.ActivityManager;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -30,6 +31,9 @@ import android.text.Html;
 import android.text.InputType;
 import android.text.method.LinkMovementMethod;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
   public static final String WEARLLM_MESSAGE_STRING = "WEARLLM_MESSAGE_STRING";
   public static final String FINAL_TRANSCRIPT = "FINAL_TRANSCRIPT";
 
+  @SuppressLint("ClickableViewAccessibility")
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -79,6 +84,29 @@ public class MainActivity extends AppCompatActivity {
     transcriptRecyclerView.setLayoutManager(new LinearLayoutManager(this));
     transcriptTextUiAdapter = new TranscriptTextUiAdapter(new ArrayList<>());
     transcriptRecyclerView.setAdapter(transcriptTextUiAdapter);
+
+    //buttons
+    final Button llmButton = findViewById(R.id.llmButton);
+    llmButton.setOnTouchListener(new View.OnTouchListener() {
+      @Override
+      public boolean onTouch(View v, MotionEvent event) {
+        switch (event.getAction()) {
+          case MotionEvent.ACTION_DOWN:
+            Log.d(TAG, "Button down.");
+            if (mService != null) {
+              mService.buttonDownEvent(0, false);
+            }
+            break;
+          case MotionEvent.ACTION_UP:
+            Log.d(TAG, "Button up.");
+            if (mService != null) {
+              mService.buttonDownEvent(0, true);
+            }
+            break;
+        }
+        return true;
+      }
+    });
 
     //start the main WearLLM backend, if it's not already running
     startWearLLMService();
@@ -277,4 +305,6 @@ public class MainActivity extends AppCompatActivity {
     transcriptTextUiAdapter.addText(text);
     transcriptRecyclerView.smoothScrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
   }
+
+
 }
