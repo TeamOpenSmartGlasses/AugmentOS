@@ -173,6 +173,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
                         Log.d(TAG, "GOT BUTTON RESULT: " + result.toString());
                         String query_answer = result.getString("message");
                         sendUiUpdateSingle(query_answer);
+                        speakTTS(query_answer);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
