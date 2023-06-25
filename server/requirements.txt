@@ -5,3 +5,5 @@ nltk
 google-cloud-language
 google-cloud-enterpriseknowledgegraph
 pandas
+sentence_transformers
+chromadb
