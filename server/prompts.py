@@ -67,7 +67,8 @@ Query: {question}
 """
 
 answer_prompt = """
-You are a helpful assistant that provides answers based on conversational memories of a human. The human is engaged in a conversation with another human, and asks you in the middle for assistance.
+You are a helpful assistant that provides answers based on conversational memories of a human. The human asks you for assistance about their memories.
+
 The details to construct the answer can be found in the relevant memories. If it is not found in the relevant memories, you should truthfully answer that you do not know the answer.
 
 Relevant memories: {context}

@@ -52,16 +52,20 @@ class ShortTermMemory:
         return self.memories[-1].timestamp
 
     def add_memory(self, memory: UnitMemory):
-        self.memories.append(memory)
-
-        removed_memories = []
+        decayed_memories = []
 
         # remove old memories
         while self.get_end_time() - self.get_start_time() > self.max_time:
             m = self.memories.pop(0)
-            removed_memories.append(m)
+            decayed_memories.append(m)
 
-        return removed_memories
+        # if self.get_end_time() - self.get_start_time() > self.max_time:
+        #     decayed_memories = self.memories
+        #     self.memories = []
+
+        self.memories.append(memory)
+
+        return decayed_memories
 
 class LongTermMemory:
 
@@ -86,6 +90,8 @@ class LongTermMemory:
         self.db.add_texts([filtered_memory.text], {"timestamp": filtered_memory.timestamp})
 
     def add_memories(self, memories):
+        # full_memories = ".".join([m.text for m in memories])
+        # self.db.add_texts([full_memories], {"timestamp": memories[0].timestamp})
         for memory in memories:
             self.add_memory(memory)
 
