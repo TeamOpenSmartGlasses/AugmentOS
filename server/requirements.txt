@@ -1,0 +1,7 @@
+aiohttp
+openai
+langchain
+nltk
+google-cloud-language
+google-cloud-enterpriseknowledgegraph
+pandas
