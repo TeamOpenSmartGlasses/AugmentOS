@@ -44,9 +44,6 @@ public class WearLLMService extends SmartGlassesAndroidService {
     public void onCreate() {
         super.onCreate();
 
-        //setup backend comms
-        backendServerComms = new BackendServerComms(this);
-
         //make responses holder
         responses = new ArrayList<>();
         responses.add("Welcome to WearLLM - ask Jarvis questions, ask what you were talking about, request summary of <n> minutes.");
@@ -59,7 +56,11 @@ public class WearLLMService extends SmartGlassesAndroidService {
         SGMCommand command = new SGMCommand("WearLLM", commandUUID, new String[]{"WearLLM", "wearable intelligence"}, "AI wearable intelligence.");
 
         //Register the command
+        Log.d(TAG, "Registering WearLLM command with SGMLib");
         sgmLib.registerCommand(command, this::wearLlmStartCommandCallback);
+
+        //setup backend comms
+        backendServerComms = new BackendServerComms(this);
 
         Log.d(TAG, "WearLLM SERVICE STARTED");
     }
@@ -70,7 +71,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
     }
 
     public void wearLlmStartCommandCallback(String args, long commandTriggeredTime){
-        Log.d("TAG","Translation callback called");
+        Log.d("TAG","WearLLM start callback called");
 
         //request to be the in focus app so we can continue to show transcripts
         sgmLib.requestFocus(this::focusChangedCallback);

@@ -30,6 +30,8 @@ public class BackendServerComms {
     private String serverUrl;
     private int requestTimeoutPeriod = 0; //15000;
 
+    private boolean useDevServer;
+
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";
     public static final String BUTTON_EVENT_ENDPOINT = "/button_event";
@@ -46,13 +48,21 @@ public class BackendServerComms {
         mContext = context;
         mRequestQueue = Volley.newRequestQueue(mContext);
 //        serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com"; //jeremy
-        serverUrl = "https://9259wtmk89.execute-api.us-east-2.amazonaws.com"; //cayden
+//        serverUrl = "https://9259wtmk89.execute-api.us-east-2.amazonaws.com"; //cayden
+        serverUrl = "https://m0q3aubk6c.execute-api.us-east-1.amazonaws.com"; //cayden, MIT Media Lab Fluid Interfaces Group
+
+        useDevServer = false;
     }
 
     //handles requesting data, sending data
     public void restRequest(String endpoint, JSONObject data, VolleyJsonCallback callback){
         //build the url
         String builtUrl = serverUrl + endpoint;
+
+        //if using dev server, add /dev in front
+        if (useDevServer) {
+            builtUrl = serverUrl + "/dev" + endpoint;
+        }
 
         //get the request type
         int requestType = Request.Method.GET;
