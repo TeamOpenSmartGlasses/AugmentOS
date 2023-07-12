@@ -43,12 +43,16 @@ class ShortTermMemory:
         return ','.join([str(m) for m in self.memories])
 
     def get_start_time(self):
+        if len(self.memories) == 0:
+            return 0
         return self.memories[0].timestamp
 
     def get_memories(self):
         return self.memories
 
     def get_end_time(self):
+        if len(self.memories) == 0:
+            return 0
         return self.memories[-1].timestamp
 
     def add_memory(self, memory: UnitMemory):

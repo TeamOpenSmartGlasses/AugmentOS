@@ -8,7 +8,8 @@ from langchain.agents import initialize_agent, Tool, AgentType
 from langchain.output_parsers import PydanticOutputParser
 import tiktoken
 from datetime import datetime
-
+from ContextualSearchEngine import ContextualSearchEngine
+from time import time
 from utils import UnitMemory, ShortTermMemory, LongTermMemory
 from utils import TimeNavigator, CurrentTime, MemoryRetriever
 from prompts import memory_retriever_prompt, answer_prompt
@@ -103,6 +104,9 @@ async def chat_handler(request):
 
     return web.Response(text=json.dumps({'message': response}), status=200)
 
+
+#app['buffer']['wazeer'] = ShortTermMemory()
+#UnitMemory class
 
 async def button_handler(request):
     body = await request.json()
@@ -259,12 +263,38 @@ async def agent_james(text, userId):
     print("Final Answer: ", final_answer)
     return final_answer
 
+    #Contextual Search Engine
+cse = ContextualSearchEngine()
+async def contextual_search_engine(request, minutes=0.5):
+    await chat_handler(request)
+
+    #parse request
+    body = await request.json()
+    userId = body.get('userId')
+
+    #run contextual search engine on recent text
+    recent_text = get_short_term_memory(userId)
+
+    print("Running CSE with following text:\n")
+    print(recent_text)
+
+    cse_result = cse.contextual_search_engine(recent_text)
+
+    #send response
+    resp = dict()
+    if (cse_result) != None:
+        resp["success"] = True
+        resp["result"] = cse_result
+    else:
+        resp["success"] = False
+    return web.Response(text=json.dumps(resp), status=200)
 
 app.add_routes(
     [
         web.post('/chat', chat_handler),
         web.post('/button_event', button_handler),
-        web.post('/print', print_handler)
+        web.post('/print', print_handler),
+        web.post('/contextual_search_engine', contextual_search_engine)
     ]
 )
 
