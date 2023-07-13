@@ -146,6 +146,7 @@ async def button_handler(request):
     else : 
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
 
+
 def get_short_term_memory(userId):
     stm = ""
     for um in app['buffer'][userId].get_memories():
@@ -236,6 +237,7 @@ async def agent_jarvis(text, userId):
 
     return answer
 
+
 async def agent_james(text, userId):
 
     question = text.lower().split('james')[-1].strip()
@@ -263,7 +265,8 @@ async def agent_james(text, userId):
     print("Final Answer: ", final_answer)
     return final_answer
 
-    #Contextual Search Engine
+
+#Contextual Search Engine
 cse = ContextualSearchEngine()
 async def contextual_search_engine(request, minutes=0.5):
     await chat_handler(request)
@@ -271,14 +274,15 @@ async def contextual_search_engine(request, minutes=0.5):
     #parse request
     body = await request.json()
     userId = body.get('userId')
+    text = body.get('text')
 
     #run contextual search engine on recent text
-    recent_text = get_short_term_memory(userId)
+    #recent_text = get_short_term_memory(userId)
 
     print("Running CSE with following text:\n")
-    print(recent_text)
+    print(text)
 
-    cse_result = cse.contextual_search_engine(recent_text)
+    cse_result = cse.contextual_search_engine(text)
 
     #send response
     resp = dict()
@@ -288,6 +292,7 @@ async def contextual_search_engine(request, minutes=0.5):
     else:
         resp["success"] = False
     return web.Response(text=json.dumps(resp), status=200)
+
 
 app.add_routes(
     [

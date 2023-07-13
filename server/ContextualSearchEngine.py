@@ -195,12 +195,14 @@ class ContextualSearchEngine:
 
         #build response object from various processing sources
         response = dict()
+        summary_len = 200
         #get rare word def's
         for word_def in rare_word_definitions:
             word = list(word_def.keys())[0]
             definition = list(word_def.values())[0]
             response[word] = dict()
-            response[word]["summary"] = definition
+            summary = definition[0:min(summary_len, len(definition))] + "..." #limit size of summary
+            response[word]["summary"] = summary
             response[word]["type"] = "RARE_WORD"
             response[word]["name"] = word
 
@@ -208,6 +210,9 @@ class ContextualSearchEngine:
         for entity_mid in entity_search_results:
             entity = entity_search_results[entity_mid]
             response[entity["name"]] = entity
+            summary = response[entity["name"]]["summary"]
+            summary = summary[0:min(summary_len, len(summary))] + "..." #limit size of summary
+            response[entity["name"]]["summary"] = summary
 
         #get entities from location results
 #        for location in locations:
