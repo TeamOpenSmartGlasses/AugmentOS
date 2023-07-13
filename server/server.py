@@ -1,4 +1,6 @@
 from aiohttp import web
+from aiohttp.web_response import Response
+from pathlib import Path
 import json
 import os
 from langchain.chat_models import ChatOpenAI
@@ -289,12 +291,25 @@ async def contextual_search_engine(request, minutes=0.5):
         resp["success"] = False
     return web.Response(text=json.dumps(resp), status=200)
 
+async def return_image(request):
+    requestedImg = request.rel_url.query['img']
+    print("Got image request for image: " + requestedImg)
+    imgPath = Path(cse.imagePath).joinpath(requestedImg)
+    try:
+        data = imgPath.read_bytes()
+    except:
+        print("Error reading requested image: " + requestedImg)
+        data = Path('images/404-2.jpg').read_bytes()
+    return Response(body=data, content_type="image/jpg")
+
+
 app.add_routes(
     [
         web.post('/chat', chat_handler),
         web.post('/button_event', button_handler),
         web.post('/print', print_handler),
-        web.post('/contextual_search_engine', contextual_search_engine)
+        web.post('/contextual_search_engine', contextual_search_engine),
+        web.get('/image', return_image)
     ]
 )
 
