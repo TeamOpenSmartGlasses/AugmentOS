@@ -204,3 +204,6 @@ cython_debug/
 
 # macos garbage
 .DS_Store
+
+# ContextualSearchEngine
+server/images/cse/*
