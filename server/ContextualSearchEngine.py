@@ -1,6 +1,7 @@
 import requests
 import json
 import random
+from pathlib import Path
 
 #Google NLP imports
 from google.cloud import language_v1
@@ -192,14 +193,18 @@ class ContextualSearchEngine:
         for entity in entities:
             if language_v1.Entity.Type(entity.type_).name == "LOCATION":
                 print("GOT LOCATION: {}".format(entity.name))
-                static_map_img_raw = self.get_google_static_map_img(entity.name)
-                static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
+                zoom = 3
+                mapImageName = "map_{}-{}.jpg".format(entity.name, zoom)
+                mapImagePath = "{}/{}".format(self.imagePath, mapImageName)
+
+                if not Path(mapImagePath).is_file():
+                    print("{} doesn't exist - generating now...".format(mapImageName))
+                    static_map_img_raw = self.get_google_static_map_img(place=entity.name, zoom=zoom)
+                    static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
+                    #locations[entity.name]["image_raw"] = base64.b64encode(BytesIO(static_map_img_raw).getvalue())
+                    static_map_img_pil.save(mapImagePath)
                 locations[entity.name] = dict()
                 locations[entity.name]["name"] = entity.name
-                #locations[entity.name]["image_raw"] = base64.b64encode(BytesIO(static_map_img_raw).getvalue())
-                mapImageName = "location-{}-{}.jpg".format(entity.name, random.randint(1000, 9999))
-                mapImagePath = "{}/{}".format(self.imagePath, mapImageName)
-                static_map_img_pil.save(mapImagePath)
                 locations[entity.name]['map_image_path'] = "/image?img={}".format(mapImageName)
 
         #get rare word def's
