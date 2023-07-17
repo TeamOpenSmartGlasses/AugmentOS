@@ -58,10 +58,11 @@ app['memory']['wazeer'] = LongTermMemory('wazeer')
 
 async def chat_handler(request):
     body = await request.json()
+    isFinal = body.get('isFinal')
     text = body.get('text')
     timestamp = body.get('timestamp')
     userId = body.get('userId')
-    print('\n=== New Request ===\n', text, timestamp, userId)
+    print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
 
     # 400 if missing params
     if text is None or text == '':
@@ -71,11 +72,12 @@ async def chat_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
-    memory = UnitMemory(text, timestamp)
+    memory = UnitMemory(text, timestamp, isFinal=isFinal)
 
     decayed_memories = app['buffer'][userId].add_memory(memory)
 
     # add to long term memory
+    #    long-term memory is based on final transcripts
     app['memory'][userId].add_memories(decayed_memories)
 
     # log so we can retain convo memory for later
@@ -104,7 +106,7 @@ async def chat_handler(request):
     except Exception as e:
         print("Error: ", e)
 
-    return web.Response(text=json.dumps({'message': response}), status=200)
+    return web.Response(text=json.dumps({'success': True, 'message': response}), status=200)
 
 
 #app['buffer']['wazeer'] = ShortTermMemory()
@@ -268,18 +270,14 @@ async def agent_james(text, userId):
     #Contextual Search Engine
 cse = ContextualSearchEngine()
 async def contextual_search_engine(request, minutes=0.5):
-    await chat_handler(request)
-
     #parse request
     body = await request.json()
     userId = body.get('userId')
 
-    #run contextual search engine on recent text
-    recent_text = get_short_term_memory(userId)
+    # Try to get recent text
+    recent_text = app['buffer'][userId].get_most_recent_memory_sliding()
 
-    print("Running CSE with following text:\n")
-    print(recent_text)
-
+    print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(recent_text))
     cse_result = cse.contextual_search_engine(recent_text)
 
     #send response

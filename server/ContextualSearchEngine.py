@@ -149,6 +149,9 @@ class ContextualSearchEngine:
         return res
 
     def contextual_search_engine(self, talk):
+        if talk == "":
+            return
+
         #build response object from various processing sources
         response = dict()
 
