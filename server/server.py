@@ -371,11 +371,12 @@ async def contextual_search_engine(request, minutes=0.5):
     #parse request
     body = await request.json()
     userId = body.get('userId')
+    transcript = body.get('text')
 
     #run contextual search engine on recent text
-    recent_text = get_text_in_past_n_minutes(
-        app['buffer'][userId], minutes)
-    cse_result = cse.contextual_search_engine(recent_text)
+    #recent_text = get_text_in_past_n_minutes(
+    #    app['buffer'][userId], minutes)
+    cse_result = cse.contextual_search_engine(transcript)
 
     #send response
     resp = dict()
@@ -386,7 +387,6 @@ async def contextual_search_engine(request, minutes=0.5):
         resp["success"] = False
     return web.Response(text=json.dumps(resp), status=200)
 
-
 app.add_routes(
     [
         web.post('/chat', chat_handler),
@@ -395,5 +395,19 @@ app.add_routes(
         web.post('/contextual_search_engine', contextual_search_engine)
     ]
 )
+
+import aiohttp_cors
+from aiohttp import web
+
+cors = aiohttp_cors.setup(app, defaults={
+    "*": aiohttp_cors.ResourceOptions(
+        allow_credentials=True,
+        expose_headers="*",
+        allow_headers="*"
+    )
+})
+
+for route in list(app.router.routes()):
+    cors.add(route)
 
 web.run_app(app)
