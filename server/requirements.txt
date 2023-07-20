@@ -4,6 +4,8 @@ langchain
 nltk
 google-cloud-language
 google-cloud-enterpriseknowledgegraph
+googlemaps
+responses
 pandas
 sentence_transformers
 chromadb
