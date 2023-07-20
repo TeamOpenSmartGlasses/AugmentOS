@@ -1,5 +1,7 @@
 from nltk.corpus import wordnet
 import re
+from google.cloud import aiplatform
+import openai
 
 #load index
 print("Loading word definitions index...")
@@ -34,3 +36,19 @@ def shorten_definition(definition, max_length=46, max_defs=2):
         new_definition += ";" + i
 
     return {word : new_definition}
+
+def benchmark_summarizations(definition):
+    timings = {}
+    openAiModels = ["text"]
+    vertexAiModels = []
+
+    prompt = summarize_prompt_template(definition)
+    
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=prompt
+        )
+    pass
+
+def summarize_prompt_template(definition):
+    return f"Please summarize the following entity definition into 20 words or less\n [Definition]{definition}"

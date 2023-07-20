@@ -7,3 +7,4 @@ google-cloud-enterpriseknowledgegraph
 pandas
 sentence_transformers
 chromadb
+Wikipedia-API
