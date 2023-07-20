@@ -1,0 +1,6 @@
+<resources>
+  <!-- The application name. -->
+  <string name="app_name">WearLLM</string>
+  <!-- Selecting language message. -->
+  <string name="say_something">Say something!</string>
+</resources>
