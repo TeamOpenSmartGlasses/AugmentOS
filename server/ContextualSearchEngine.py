@@ -92,11 +92,29 @@ class ContextualSearchEngine:
         return response.entities
 
     def summarize_entity(self, entity: str):
-        prompt = f"""Please functionally explain the following text as a short string that gives the gist of what it is. Leave out filler words. Use less than 8 words to explain. 
-        Here is the text to summarize:
-        {entity}"""
-        chat_completion = openai.Completion.create(model="text-curie-001", prompt=prompt, temperature=0, max_tokens=14)
-        return chat_completion.choices[0].text
+
+        #like "the" and "a" if they aren't useful to human understanding
+        prompt = f"""Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
+
+        Example:
+        [INPUT]
+        "George Washington (February 22, 1732 – December 14, 1799) was an American military officer, statesman, and Founding Father who served as the first president of the United States from 1789 to 1797."
+
+        [OUTPUT]
+        First American president, military officer, Founding Father.
+
+        Example:
+        [INPUT]
+        "ChatGPT is an artificial intelligence chatbot developed by OpenAI and released in November 2022. It is built on top of OpenAI's GPT-3.5 and GPT-4 families of large language models and has been fine-tuned using both supervised and reinforcement learning techniques."
+        [OUTPUT]
+        AI chatbot using GPT models.
+
+        \n Text to summarize: \n{entity} \nSummary (8 words or less): """
+        print("Running prompt for summary: \n {}".format(prompt))
+        chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
+        response = chat_completion.choices[0].text
+        print(response)
+        return response
 
     def lookup_mids(self, ids: Sequence[str], project_id=gcp_project_id):
         location = 'global'      # Values: 'global'
@@ -243,16 +261,23 @@ class ContextualSearchEngine:
         for entity_mid in entity_search_results:
             entity = entity_search_results[entity_mid]
 
+            #get description
+            #print("111 DEBUG:")
+            #print(entity["name"])
+            #print(entity["summary"])
+            description = entity["summary"]
+
             #summarize entity if greater than 8 words long
-            #COMMENT FOR NOW - broken
-            #if (len(entity) < 8):
-            #    entity = self.summarize_entity(entity)
+            if (len(description.split(" ")) > 8):
+                summary = self.summarize_entity(description)
+            else:
+                summary = description
+
             #print("Entity")
             #print(entity)
 
             response[entity["name"]] = entity
-            summary = response[entity["name"]]["summary"]
-            summary = summary[0:min(summary_len, len(summary))] + "..." #limit size of summary
+            #summary = summary[0:min(summary_len, len(summary))] + "..." #limit size of summary
             response[entity["name"]]["summary"] = summary
 
         #get entities from location results

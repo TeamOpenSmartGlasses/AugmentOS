@@ -1,6 +1,6 @@
 from nltk.corpus import wordnet
 import re
-from google.cloud import aiplatform
+#from google.cloud import aiplatform
 import openai
 
 import requests
