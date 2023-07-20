@@ -1,25 +1,28 @@
 import requests
 import json
 import random
+from pathlib import Path
+import os
 
-#Google NLP imports
+#Google NLP + Maps imports
 from google.cloud import language_v1
 from typing import Sequence
 from google.cloud import enterpriseknowledgegraph as ekg
 from gcp_config import gcp_project_id
-import openai
-import os
 
+#OpenAI imports
+import openai
 openai.api_key = os.environ['OPENAI_API_KEY']
 
 #Google static maps imports
-#import responses
-#import random
-#import googlemaps
-#from googlemaps.maps import StaticMapMarker
-#from googlemaps.maps import StaticMapPath
-#from PIL import Image
-#from io import BytesIO
+from gcp_config import google_maps_api_key
+import responses
+import random
+import googlemaps
+from googlemaps.maps import StaticMapMarker
+from googlemaps.maps import StaticMapPath
+from PIL import Image
+from io import BytesIO
 
 #image conversion
 import base64
@@ -31,33 +34,34 @@ class ContextualSearchEngine:
     def __init__(self):
         #remember what we've defined
         self.previous_defs = list()
-        #self.client = googlemaps.Client(<your key here>)
+        self.client = googlemaps.Client(key=google_maps_api_key)
+        self.imagePath = "images/cse"
 
-#    def get_google_static_map_img(self, place, zoom=3):
-#        url = "https://maps.googleapis.com/maps/api/staticmap"
-#        responses.add(responses.GET, url, status=200)
-#
-#        path = StaticMapPath(
-#            points=["New York City"],
-#            weight=5,
-#            color="red",
-#        )
-#
-#        marker_1 = StaticMapMarker(locations=[place], color="red")
-#
-#        map_response = self.client.static_map(
-#            size=(400, 400),
-#            zoom=zoom,
-#            center=place,
-#            maptype="hybrid",
-#            format="jpg",
-#            scale=1,
-#            markers=[marker_1]
-#        )
-#            
-#        raw_img = b''.join(map_response)
-#
-#        return raw_img
+    def get_google_static_map_img(self, place, zoom=3):
+        url = "https://maps.googleapis.com/maps/api/staticmap"
+        responses.add(responses.GET, url, status=200)
+
+        path = StaticMapPath(
+            points=["New York City"],
+            weight=5,
+            color="red",
+        )
+
+        marker_1 = StaticMapMarker(locations=[place], color="red")
+
+        map_response = self.client.static_map(
+            size=(400, 400),
+            zoom=zoom,
+            center=place,
+            maptype="hybrid",
+            format="jpg",
+            scale=1,
+            markers=[marker_1]
+        )
+            
+        raw_img = b''.join(map_response)
+
+        return raw_img
 
     def analyze_entities(self, text_content):
         """
@@ -144,6 +148,9 @@ class ContextualSearchEngine:
                     #image_url = self.wiki_image_parser(image_url)
                 res[mid]["image_url"] = image_url
 
+            print("Result: ")
+            print(result)
+            print(dir(result))
             res[mid]["name"] = result.get('name')
             res[mid]["category"] = result.get('description')
             res[mid]["type"] = result.get('@type')[0].upper()
@@ -152,15 +159,22 @@ class ContextualSearchEngine:
             if detailed_description:
                 res[mid]["summary"] = detailed_description.get('articleBody')
                 res[mid]["url"] = detailed_description.get('url')
+            else:
+                res[mid]["summary"] = result.get('description')
 
         return res
 
     def contextual_search_engine(self, talk):
-        #find rare words and define them
+        #build response object from various processing sources
+        response = dict()
+
+        #find rare words (including acronyms) and define them
         rare_word_definitions = word_frequency.rare_word_define_string(talk)
 
         # get entities
         entities_raw = self.analyze_entities(talk)
+        print("Entities raw:")
+        print(entities_raw)
 
         #filter entities
         entities = list()
@@ -193,39 +207,58 @@ class ContextualSearchEngine:
         entity_search_results = self.lookup_mids(mids)
 
         #if entities are locations, then lookup the locations using google static maps
-#        locations = dict()
-#        for entity in entities:
-#            if language_v1.Entity.Type(entity.type_).name == "LOCATION":
-#                print("GOT LOCATION: {}".format(entity.name))
-#                static_map_img_raw = self.get_google_static_map_img(entity.name)
-#                static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
-#                locations[entity.name] = dict()
-#                locations[entity.name]["name"] = entity.name
-#                locations[entity.name]["image_raw"] = base64.b64encode(BytesIO(static_map_img_raw).getvalue())
-#                static_map_img_pil.save("location-{}-{}.jpg".format(entity.name, random.randint(1000, 9999)))
+        locations = dict()
+        for entity in entities:
+            if language_v1.Entity.Type(entity.type_).name == "LOCATION":
+                print("GOT LOCATION: {}".format(entity.name))
+                zoom = 3
+                mapImageName = "map_{}-{}.jpg".format(entity.name, zoom)
+                mapImagePath = "{}/{}".format(self.imagePath, mapImageName)
+
+                if not Path(mapImagePath).is_file():
+                    print("{} doesn't exist - generating now...".format(mapImageName))
+                    static_map_img_raw = self.get_google_static_map_img(place=entity.name, zoom=zoom)
+                    static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
+                    #locations[entity.name]["image_raw"] = base64.b64encode(BytesIO(static_map_img_raw).getvalue())
+                    static_map_img_pil.save(mapImagePath)
+                locations[entity.name] = dict()
+                locations[entity.name]["name"] = entity.name
+                locations[entity.name]['map_image_path'] = "/image?img={}".format(mapImageName)
 
         #build response object from various processing sources
         response = dict()
+        summary_len = 200
+
         #get rare word def's
         for word_def in rare_word_definitions:
             word = list(word_def.keys())[0]
             definition = list(word_def.values())[0]
             response[word] = dict()
-            response[word]["summary"] = definition
+            summary = definition[0:min(summary_len, len(definition))] + "..." #limit size of summary
+            response[word]["summary"] = summary
             response[word]["type"] = "RARE_WORD"
             response[word]["name"] = word
 
         #get entities from search results
         for entity_mid in entity_search_results:
             entity = entity_search_results[entity_mid]
-            if (len(entity) < 8):
-                entity = self.summarize_entity(entity)
+
+            #summarize entity if greater than 8 words long
+            #COMMENT FOR NOW - broken
+            #if (len(entity) < 8):
+            #    entity = self.summarize_entity(entity)
+            #print("Entity")
+            #print(entity)
+
             response[entity["name"]] = entity
+            summary = response[entity["name"]]["summary"]
+            summary = summary[0:min(summary_len, len(summary))] + "..." #limit size of summary
+            response[entity["name"]]["summary"] = summary
 
         #get entities from location results
-#        for location in locations:
-#            entity = locations[location]
-#            response[entity["name"]] = entity
+        for location in locations:
+            entity = locations[location]
+            response[entity["name"]] = entity
 
         #drop things we've already defined, then remember the new things
 #        filtered_response = dict()
