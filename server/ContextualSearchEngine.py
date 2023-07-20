@@ -7,6 +7,10 @@ from google.cloud import language_v1
 from typing import Sequence
 from google.cloud import enterpriseknowledgegraph as ekg
 from gcp_config import gcp_project_id
+import openai
+import os
+
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 #Google static maps imports
 #import responses
@@ -82,6 +86,13 @@ class ContextualSearchEngine:
         )
 
         return response.entities
+
+    def summarize_entity(self, entity: str):
+        prompt = f"""Please functionally explain the following text as a short string that gives the gist of what it is. Leave out filler words. Use less than 8 words to explain. 
+        Here is the text to summarize:
+        {entity}"""
+        chat_completion = openai.Completion.create(model="text-curie-001", prompt=prompt, temperature=0, max_tokens=14)
+        return chat_completion.choices[0].text
 
     def lookup_mids(self, ids: Sequence[str], project_id=gcp_project_id):
         location = 'global'      # Values: 'global'
@@ -207,6 +218,8 @@ class ContextualSearchEngine:
         #get entities from search results
         for entity_mid in entity_search_results:
             entity = entity_search_results[entity_mid]
+            if (len(entity) < 8):
+                entity = self.summarize_entity(entity)
             response[entity["name"]] = entity
 
         #get entities from location results
