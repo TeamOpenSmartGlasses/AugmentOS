@@ -59,13 +59,13 @@ def define_word(word):
 
   else:
     # lookup the word
-    syns = wordnet.synsets(word)
+    syns = wordnet.synsets(word.lower())
 
     try:
         definition = syns[0].definition()
     except IndexError as e:
         # print("Definition unknown for: {}".format(word))
-        # check if it is an acronym
+        # if it's not a word, define it an acronym
         definition = define_acronym(word)
         word = word.upper()
   
