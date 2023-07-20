@@ -148,6 +148,7 @@ async def button_handler(request):
     else : 
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
 
+
 def get_short_term_memory(userId):
     stm = ""
     for um in app['buffer'][userId].get_memories():
@@ -238,6 +239,7 @@ async def agent_jarvis(text, userId):
 
     return answer
 
+
 async def agent_james(text, userId):
 
     question = text.lower().split('james')[-1].strip()
@@ -265,7 +267,8 @@ async def agent_james(text, userId):
     print("Final Answer: ", final_answer)
     return final_answer
 
-    #Contextual Search Engine
+
+#Contextual Search Engine
 cse = ContextualSearchEngine()
 async def contextual_search_engine(request, minutes=0.5):
     await chat_handler(request)
