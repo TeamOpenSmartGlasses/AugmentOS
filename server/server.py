@@ -1,4 +1,6 @@
 from aiohttp import web
+from aiohttp.web_response import Response
+from pathlib import Path
 import json
 import os
 from langchain.chat_models import ChatOpenAI
@@ -271,14 +273,15 @@ async def contextual_search_engine(request, minutes=0.5):
     #parse request
     body = await request.json()
     userId = body.get('userId')
+    transcript = body.get('text')
 
     #run contextual search engine on recent text
-    recent_text = get_short_term_memory(userId)
-
+    #recent_text = get_text_in_past_n_minutes(
+    #    app['buffer'][userId], minutes)
+    #recent_text = get_short_term_memory(userId)
     print("Running CSE with following text:\n")
-    print(recent_text)
-
-    cse_result = cse.contextual_search_engine(recent_text)
+    print(transcript)
+    cse_result = cse.contextual_search_engine(transcript)
 
     #send response
     resp = dict()
@@ -289,13 +292,40 @@ async def contextual_search_engine(request, minutes=0.5):
         resp["success"] = False
     return web.Response(text=json.dumps(resp), status=200)
 
+async def return_image(request):
+    requestedImg = request.rel_url.query['img']
+    print("Got image request for image: " + requestedImg)
+    imgPath = Path(cse.imagePath).joinpath(requestedImg)
+    try:
+        data = imgPath.read_bytes()
+    except:
+        print("Error reading requested image: " + requestedImg)
+        data = Path('images/404-2.jpg').read_bytes()
+    return Response(body=data, content_type="image/jpg")
+
+
 app.add_routes(
     [
         web.post('/chat', chat_handler),
         web.post('/button_event', button_handler),
         web.post('/print', print_handler),
-        web.post('/contextual_search_engine', contextual_search_engine)
+        web.post('/contextual_search_engine', contextual_search_engine),
+        web.get('/image', return_image)
     ]
 )
+
+import aiohttp_cors
+from aiohttp import web
+
+cors = aiohttp_cors.setup(app, defaults={
+    "*": aiohttp_cors.ResourceOptions(
+        allow_credentials=True,
+        expose_headers="*",
+        allow_headers="*"
+    )
+})
+
+for route in list(app.router.routes()):
+    cors.add(route)
 
 web.run_app(app)
