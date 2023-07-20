@@ -1,0 +1,85 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.teambandwidth.wearllm'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.teambandwidth.wearllm"
+        minSdk 30
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        ndk {
+            //noinspection ChromeOsAbiSupport
+            abiFilters 'arm64-v8a'//, 'x86_64'
+        }
+
+        externalNativeBuild {
+            cmake {
+                '-DANDROID_STL=c++_static'
+            }
+        }
+
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            java.srcDirs += 'src/main/java'
+        }
+    }
+
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1,DEPENDENCIES}'
+            excludes += '/META-INF/INDEX.LIST'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.google.android.material:material:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'com.google.api.grpc:grpc-google-cloud-speech-v1p1beta1:2.6.0'
+    implementation 'com.google.flogger:flogger:0.7.4'
+    implementation 'com.google.flogger:flogger-system-backend:0.7.4'
+    implementation 'com.google.protobuf:protobuf-java:3.21.12'
+    implementation 'com.google.protobuf:protobuf-java-util:3.21.12'
+    implementation 'joda-time:joda-time:2.12.2'
+    implementation 'io.grpc:grpc-okhttp:1.53.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    //for lifecycle service that stays alive forever
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:2.2.0"
+
+    //REST API volley
+    implementation 'com.android.volley:volley:1.2.1';
+
+    //SGMLib library
+    implementation project (":SGMLib")
+}
