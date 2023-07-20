@@ -137,6 +137,9 @@ class ContextualSearchEngine:
                     #image_url = self.wiki_image_parser(image_url)
                 res[mid]["image_url"] = image_url
 
+            print("Result: ")
+            print(result)
+            print(dir(result))
             res[mid]["name"] = result.get('name')
             res[mid]["category"] = result.get('description')
             res[mid]["type"] = result.get('@type')[0].upper()
@@ -145,6 +148,8 @@ class ContextualSearchEngine:
             if detailed_description:
                 res[mid]["summary"] = detailed_description.get('articleBody')
                 res[mid]["url"] = detailed_description.get('url')
+            else:
+                res[mid]["summary"] = result.get('description')
 
         return res
 
@@ -152,11 +157,13 @@ class ContextualSearchEngine:
         #build response object from various processing sources
         response = dict()
 
-        #find rare words and define them
+        #find rare words (including acronyms) and define them
         rare_word_definitions = word_frequency.rare_word_define_string(talk)
 
         # get entities
         entities_raw = self.analyze_entities(talk)
+        print("Entities raw:")
+        print(entities_raw)
 
         #filter entities
         entities = list()
@@ -224,6 +231,8 @@ class ContextualSearchEngine:
         #get entities from search results
         for entity_mid in entity_search_results:
             entity = entity_search_results[entity_mid]
+            print("Entity")
+            print(entity)
             response[entity["name"]] = entity
             summary = response[entity["name"]]["summary"]
             summary = summary[0:min(summary_len, len(summary))] + "..." #limit size of summary
