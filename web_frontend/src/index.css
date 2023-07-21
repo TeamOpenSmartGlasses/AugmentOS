@@ -11,7 +11,7 @@
   --contentwidth: calc(100vw);
   --headerheight: 10vh;
   --leftColumnWidth: 22vw; /* can't be set lower than header width*/
-  --midColumnWidth: 32vw;
+  --midColumnWidth: 34vw;
   --rightColumnWidth: calc(100vw - var(--leftColumnWidth) - var(--midColumnWidth));
 
   --leftTopHeight: 60vh;
@@ -135,8 +135,8 @@ a:active { text-decoration: none;  color: black; }
 
 .card-img {
     width: 100%;
-    height: 20vh;
-    object-fit: cover;
+    height: 15vh;
+    object-fit: contain;
 }
 
 

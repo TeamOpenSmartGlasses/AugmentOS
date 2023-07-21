@@ -10,8 +10,8 @@ export default class Referencer extends React.Component {
         this.state = {
             entities : [],
             transcriptProcessWordIdx : 0,
-            transcriptWordChangeThreshold : 13,
-            transcriptBackSlider : 3,
+            transcriptWordChangeThreshold : 5,
+            transcriptBackSlider : 2,
             processingTranscript : false,
         }
 
