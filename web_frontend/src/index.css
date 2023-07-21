@@ -1,17 +1,21 @@
 :root {
-  --pagemargin: 1.5vh;
+  --pagemargin: 1vh;
   /*--pageheight: calc(100vh - calc(var(--pagemargin) * 2));*/
   --pageheight: 100vh;
   --pagewidth: 100vw;
   --maincolor: #ed0000;
+  --bgColor: #dedede;
   --popcolor: #ed0000;
   --popmorecolor: #ff5252;
   --contentheight: calc(100vh);
   --contentwidth: calc(100vw);
   --headerheight: 10vh;
-  --youtubeheight: calc((var(--contentheight) - var(--headerheight)) * 0.35); /*don't weigh too low*/
-  --youtubewidth: calc(var(--youtubeheight) * 16 / 9);
-  --transcriptheight: calc(var(--contentheight) - var(--youtubeheight));
+  --leftColumnWidth: 22vw; /* can't be set lower than header width*/
+  --midColumnWidth: 32vw;
+  --rightColumnWidth: calc(100vw - var(--leftColumnWidth) - var(--midColumnWidth));
+
+  --leftTopHeight: 60vh;
+  --leftBottomHeight: calc(var(--contentheight) - var(--leftTopHeight) - var(--headerheight));
 }
 
 
@@ -30,7 +34,7 @@ code {
 }
 
 #logo-img {
-    height: 70px;
+    height: 3.3vw;
     margin: 10px;
 }
 
@@ -68,7 +72,7 @@ a:active { text-decoration: none;  color: black; }
     padding: 0;
     justify-content: space-between;
     */
-    /*background-color: var(--maincolor);*/
+    background-color: var(--bgColor);
 }
 
 .content {
@@ -79,32 +83,42 @@ a:active { text-decoration: none;  color: black; }
 
 #hyperlink-stream {
     display: flex;
-    flex: 1 0;
+    width: var(--midColumnWidth);
+    min-width: var(--midColumnWidth);
 }
 
 #youtube-box {
     display: flex;
-    height: var(--youtubeheight);
-    width: var(--youtubewidth);
+    width: var(--leftColumnWidth);
+    min-width: var(--leftColumnWidth);
+    height: var(--leftTopHeight);
+    min-height: var(--leftTopHeight);
 }
 
 #data-box {
     display: flex;
-    height: var(--youtubeheight);
-    width: var(--youtubewidth);
+    width: var(--leftColumnWidth);
+    min-width: var(--leftColumnWidth);
+    height: var(--leftTopHeight);
+    min-height: var(--leftTopHeight);
+}
+
+#view-more-box {
+    display: flex;
+    width: var(--rightColumnWidth);
+    min-width: var(--rightColumnWidth);
 }
 
 .mycard {
-    margin: 0.3rem;
-    padding: 1rem;
+    margin: 0.5rem;
+    padding: 0.75rem;
 }
 
 #transcript-stream {
     display: flex;
-    width: var(--youtubewidth);
-    height: var(--transcriptheight);
-    max-height: var(--transcriptheight);
-    min-height: var(--transcriptheight);
+    width: var(--leftColumnWidth);
+    height: var(--leftBottomHeight);
+    min-height: var(--leftBottomHeight);
 }
 
 .hyperlink-card{
@@ -132,7 +146,7 @@ a:active { text-decoration: none;  color: black; }
 }
 
 #title-name {
-    font-size: 36px;
+    font-size: 1.3vw;
 }
 
 /* the two below rely on each other's height, this needs to be fixed */

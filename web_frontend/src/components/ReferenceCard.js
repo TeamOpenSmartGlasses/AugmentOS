@@ -2,11 +2,12 @@ import React from 'react';
 import { Card, Button } from 'react-bootstrap';
 
 const ReferenceCard = (props) => {
-    const { ent } = props;
+    const { ent, viewMoreButtonClicked } = props;
 
     function moreButtonClicked(event){
         let url = event.target.getAttribute('value');
-        window.open(url, '_blank');
+//        window.open(url, '_blank');
+        viewMoreButtonClicked(url);
     }
 
     function renderImgBlock(url) {
