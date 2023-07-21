@@ -171,7 +171,14 @@ class ContextualSearchEngine:
             print(dir(result))
             res[mid]["name"] = result.get('name')
             res[mid]["category"] = result.get('description')
-            res[mid]["type"] = result.get('@type')[0].upper()
+            print("TYpES")
+            print(result.get('@type'))
+
+            #set our own types
+            if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
+                res[mid]["type"] = "LOCATION"
+            else:
+                res[mid]["type"] = result.get('@type')[0].upper()
 
             detailed_description = result.get("detailedDescription")
             if detailed_description:
@@ -224,24 +231,21 @@ class ContextualSearchEngine:
                 mids.append(mid)
         entity_search_results = self.lookup_mids(mids)
 
-        #if entities are locations, then lookup the locations using google static maps
+        #if entities are locations, then add a map image to it
         locations = dict()
-        for entity in entities:
-            if language_v1.Entity.Type(entity.type_).name == "LOCATION":
-                print("GOT LOCATION: {}".format(entity.name))
+        for entity_mid in entity_search_results:
+            entity = entity_search_results[entity_mid]
+            if entity["type"] == "LOCATION":
                 zoom = 3
-                mapImageName = "map_{}-{}.jpg".format(entity.name, zoom)
+                mapImageName = "map_{}-{}.jpg".format(entity["name"], zoom)
                 mapImagePath = "{}/{}".format(self.imagePath, mapImageName)
 
                 if not Path(mapImagePath).is_file():
-                    print("{} doesn't exist - generating now...".format(mapImageName))
-                    static_map_img_raw = self.get_google_static_map_img(place=entity.name, zoom=zoom)
+                    static_map_img_raw = self.get_google_static_map_img(place=entity["name"], zoom=zoom)
                     static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
-                    #locations[entity.name]["image_raw"] = base64.b64encode(BytesIO(static_map_img_raw).getvalue())
                     static_map_img_pil.save(mapImagePath)
-                locations[entity.name] = dict()
-                locations[entity.name]["name"] = entity.name
-                locations[entity.name]['map_image_path'] = "/image?img={}".format(mapImageName)
+
+                entity_search_results[entity_mid]["map_image_path"] = "/image?img={}".format(mapImageName)
 
         #build response object from various processing sources
         response = dict()
@@ -257,14 +261,11 @@ class ContextualSearchEngine:
             response[word]["type"] = "RARE_WORD"
             response[word]["name"] = word
 
-        #get entities from search results
+        #build response and summarize long entity descriptions
         for entity_mid in entity_search_results:
             entity = entity_search_results[entity_mid]
 
             #get description
-            #print("111 DEBUG:")
-            #print(entity["name"])
-            #print(entity["summary"])
             description = entity["summary"]
 
             #summarize entity if greater than 8 words long
@@ -273,17 +274,13 @@ class ContextualSearchEngine:
             else:
                 summary = description
 
-            #print("Entity")
-            #print(entity)
-
             response[entity["name"]] = entity
-            #summary = summary[0:min(summary_len, len(summary))] + "..." #limit size of summary
             response[entity["name"]]["summary"] = summary
 
         #get entities from location results
-        for location in locations:
-            entity = locations[location]
-            response[entity["name"]] = entity
+        #for location in locations:
+        #    entity = locations[location]
+        #    response[entity["name"]] = entity
 
         #drop things we've already defined, then remember the new things
 #        filtered_response = dict()
