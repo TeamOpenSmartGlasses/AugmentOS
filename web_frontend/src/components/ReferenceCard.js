@@ -16,11 +16,25 @@ const ReferenceCard = (props) => {
             </div>)
     }
 
+    function renderMapBlock(endpoint) {
+      return (<div className="col-md-4">
+                 <img className="card-img" src={"https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com" + endpoint} />
+            </div>)
+    }
+
+    function referenceCardTypeChooser(ent){
+        if (ent.map_image_path != null){
+            return renderMapBlock(ent.map_image_path);
+        } else if (ent.image_url != null){
+             return renderImgBlock(ent.image_url);
+        }
+    }
+
     return (
         <div className="hyperlink-card">
             <Card style={{'width': '100%'}}>
                 <div class="row no-gutters">
-                    {ent.image_url ? renderImgBlock(ent.image_url) : null}
+                    {referenceCardTypeChooser(ent)}
                     <div className="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">{ent.name}</h5>
