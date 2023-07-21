@@ -9,3 +9,5 @@ responses
 pandas
 sentence_transformers
 chromadb
+tiktoken
+pymongo
