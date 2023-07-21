@@ -27,11 +27,13 @@ import base64
 import word_frequency
 
 class ContextualSearchEngine:
-    def __init__(self):
+    def __init__(self, databaseHandler, relevanceFilter):
         #remember what we've defined
         self.previous_defs = list()
         self.client = googlemaps.Client(key=google_maps_api_key)
         self.imagePath = "images/cse"
+        self.databaseHandler = databaseHandler
+        self.relevanceFilter = relevanceFilter
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
@@ -148,8 +150,11 @@ class ContextualSearchEngine:
 
         return res
 
-    def contextual_search_engine(self, talk):
+    def contextual_search_engine(self, userId, talk):
         if talk == "":
+            return
+        
+        if not self.relevanceFilter.shouldRunForText(talk):
             return
 
         #build response object from various processing sources
@@ -237,7 +242,8 @@ class ContextualSearchEngine:
 #                self.previous_defs.append(entity)
 
         #return filtered_response
-        return response
+        self.databaseHandler.addCseResultForUser(userId, response)
+        # return response
 
     def get_wikipedia_image_link_from_page_title(self, page_title, language="en"):
         WIKI_REQUEST = 'http://{}.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles={}'.format(language, page_title)
