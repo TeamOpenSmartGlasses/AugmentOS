@@ -96,7 +96,7 @@ export default class Referencer extends React.Component {
     <div className="flexy">
             {
                 this.state.entities.map(ent =>
-                    <ReferenceCard ent={ent} />
+                    <ReferenceCard ent={ent} viewMoreButtonClicked={this.props.viewMoreButtonClicked}/>
                 )
             }
         <div ref={this.hyperlinkStream}></div>
