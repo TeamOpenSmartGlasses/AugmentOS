@@ -11,11 +11,17 @@ from langchain.output_parsers import PydanticOutputParser
 import tiktoken
 from datetime import datetime
 from ContextualSearchEngine import ContextualSearchEngine
-from time import time
+import time
 from utils import UnitMemory, ShortTermMemory, LongTermMemory
 from utils import TimeNavigator, CurrentTime, MemoryRetriever
 from prompts import memory_retriever_prompt, answer_prompt
 from parsers import retrieve_memory
+from DatabaseHandler import DatabaseHandler
+from RelevanceFilter import RelevanceFilter
+from multiprocessing import Process
+
+dbHandler = DatabaseHandler()
+relevanceFilter = RelevanceFilter()
 
 app = web.Application()
 app['buffer'] = dict() # store and retrieve short term memories. Stored as a list of memories.
@@ -79,6 +85,10 @@ async def chat_handler(request):
     # add to long term memory
     #    long-term memory is based on final transcripts
     app['memory'][userId].add_memories(decayed_memories)
+
+    # Save to database
+    # TODO: This is at odds with the current memory system. Investigate best solution.
+    dbHandler.saveTranscriptForUser(userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
 
     # log so we can retain convo memory for later
     with open(f'{userId}.log', 'a') as f:
@@ -240,6 +250,7 @@ async def agent_jarvis(text, userId):
 
     return answer
 
+
 async def agent_james(text, userId):
 
     question = text.lower().split('james')[-1].strip()
@@ -268,17 +279,36 @@ async def agent_james(text, userId):
     return final_answer
 
     #Contextual Search Engine
-cse = ContextualSearchEngine()
+
+# Check for new transcripts in background every n ms and run them through CSE
+# TODO: Also use for relevance filter(?)
+def big_poll():
+    print("START BIG POLL")
+    while True:
+        if not dbHandler.ready:
+            continue
+
+        # Check for new transcripts
+        newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
+        for transcript in newTranscripts:
+            # print("Run CSE with: " + transcript['userId'] + ", " + transcript['text'])
+            cse.contextual_search_engine(transcript['userId'], transcript['text'])
+        time.sleep(1)
+
+cse = ContextualSearchEngine(databaseHandler=dbHandler, relevanceFilter=relevanceFilter)
 async def contextual_search_engine(request, minutes=0.5):
     #parse request
     body = await request.json()
     userId = body.get('userId')
 
-    # Try to get recent text
-    recent_text = app['buffer'][userId].get_most_recent_memory_sliding()
-
-    print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(recent_text))
-    cse_result = cse.contextual_search_engine(recent_text)
+    cseResults = dbHandler.getCseResultsForUser(userId=userId, deleteAfter=True)
+    cse_result = None
+    for c in cseResults:
+        if c != {}:
+            cse_result = c
+    
+    if cse_result != None:
+        print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cse_result))
 
     #send response
     resp = dict()
@@ -311,4 +341,9 @@ app.add_routes(
     ]
 )
 
+background_process = Process(target=big_poll)
+background_process.start()
+# background_process.join()
+
 web.run_app(app)
+
