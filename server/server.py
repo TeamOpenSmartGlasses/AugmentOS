@@ -297,8 +297,8 @@ def processing_loop():
         # Check for new transcripts
         newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
         for transcript in newTranscripts:
-            print("Run CSE with: " + transcript['userId'] + ", " + transcript['text'])
-            cseResponse =cse.contextual_search_engine(transcript['userId'], transcript['text'])
+            print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
+            cseResponse = cse.contextual_search_engine(transcript['userId'], transcript['text'])
             dbHandler.addCseResultForUser(transcript['userId'], cseResponse)
         time.sleep(1)
 
@@ -307,6 +307,7 @@ async def ui_poll(request, minutes=0.5):
     #parse request
     body = await request.json()
     userId = body.get('userId')
+    deviceId = body.get('deviceId')
     features = body.get('features')
 
     resp = dict()
@@ -314,7 +315,7 @@ async def ui_poll(request, minutes=0.5):
     #get UI updates that were requested
     if "contextual_search_engine" in features:
         #get CSE results
-        cseResults = dbHandler.getCseResultsForUser(userId=userId, deleteAfter=True)
+        cseResults = dbHandler.getCseResultsForUserDevice(userId=userId, deviceId=deviceId)
         cse_result = None
         for c in cseResults:
             if c != {}:

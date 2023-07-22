@@ -50,12 +50,22 @@ class DatabaseHandler:
 
     def stringifyTranscripts(self, transcriptList):
         output = ""
-        for t in transcriptList:
-            output = output + t['text'] + ' '
-        return output
+        
+        # Concatenate text of all FINAL transcripts
+        lastFinalTranscriptIndex = 99999999
+        for index, t in enumerate(transcriptList):
+            if t['isFinal'] == True:
+                lastFinalTranscriptIndex = index
+                output = output + t['text'] + ' \n'
+        
+        # Then add the last intermediate if it occurs later than the latest final...
+        lastIntermediateText = ""
+        for i in range (lastFinalTranscriptIndex, len(transcriptList)):
+            if transcriptList[i]['isFinal'] == False:
+                lastIntermediateText = transcriptList[i]['text']
+        output = output + ' \n' + lastIntermediateText
 
-    def saveTranscriptForUserFromObject(self, transcriptObj):
-        self.saveTranscriptForUser(userId = transcriptObj["userId"], text=transcriptObj["text"], timestamp=transcriptObj["timestamp"])
+        return output.strip()
 
     def saveTranscriptForUser(self, userId, text, timestamp, isFinal):
         transcript = {"userId": userId, "text": text, "timestamp": timestamp, "isFinal": isFinal}
@@ -174,29 +184,21 @@ class DatabaseHandler:
 #   => Device is created if it doesn't already exist.
 #
 
+"""
 print("BEGIN DB TESTING")
-
 db = DatabaseHandler()
-
 db.saveTranscriptForUser("alex", "fedora tip", 0, False)
 db.addCseResultForUser("alex", {'uuid': '69'})
-
 res1 = db.getCseResultsForUserDevice('alex', 'pc')
-
 print('res1 (Should have 1 obj):')
 for r in res1:
     print(r)
-
 res2 = db.getCseResultsForUserDevice('alex', 'pc')
-
 print("res2 (Shouldn't display anything):")
 for r in res2:
     print(r)
-
-
-
 print('\n\nfinally:')
 z = db.userCollection.find()
 for pp in z:
     print(pp)
-
+"""
