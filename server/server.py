@@ -11,11 +11,17 @@ from langchain.output_parsers import PydanticOutputParser
 import tiktoken
 from datetime import datetime
 from ContextualSearchEngine import ContextualSearchEngine
-from time import time
+import time
 from utils import UnitMemory, ShortTermMemory, LongTermMemory
 from utils import TimeNavigator, CurrentTime, MemoryRetriever
 from prompts import memory_retriever_prompt, answer_prompt
 from parsers import retrieve_memory
+from DatabaseHandler import DatabaseHandler
+from RelevanceFilter import RelevanceFilter
+from multiprocessing import Process
+
+dbHandler = DatabaseHandler()
+relevanceFilter = RelevanceFilter()
 
 app = web.Application()
 app['buffer'] = dict() # store and retrieve short term memories. Stored as a list of memories.
@@ -58,10 +64,11 @@ app['memory']['wazeer'] = LongTermMemory('wazeer')
 
 async def chat_handler(request):
     body = await request.json()
+    isFinal = body.get('isFinal')
     text = body.get('text')
     timestamp = body.get('timestamp')
     userId = body.get('userId')
-    print('\n=== New Request ===\n', text, timestamp, userId)
+    print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
 
     # 400 if missing params
     if text is None or text == '':
@@ -71,12 +78,17 @@ async def chat_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
-    memory = UnitMemory(text, timestamp)
+    memory = UnitMemory(text, timestamp, isFinal=isFinal)
 
     decayed_memories = app['buffer'][userId].add_memory(memory)
 
     # add to long term memory
+    #    long-term memory is based on final transcripts
     app['memory'][userId].add_memories(decayed_memories)
+
+    # Save to database
+    # TODO: This is at odds with the current memory system. Investigate best solution.
+    dbHandler.saveTranscriptForUser(userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
 
     # log so we can retain convo memory for later
     with open(f'{userId}.log', 'a') as f:
@@ -104,7 +116,7 @@ async def chat_handler(request):
     except Exception as e:
         print("Error: ", e)
 
-    return web.Response(text=json.dumps({'message': response}), status=200)
+    return web.Response(text=json.dumps({'success': True, 'message': response}), status=200)
 
 
 #app['buffer']['wazeer'] = ShortTermMemory()
@@ -267,24 +279,38 @@ async def agent_james(text, userId):
     print("Final Answer: ", final_answer)
     return final_answer
 
+    #Contextual Search Engine
 
-#Contextual Search Engine
-cse = ContextualSearchEngine()
+# Check for new transcripts in background every n ms and run them through CSE
+# TODO: Also use for relevance filter(?)
+def big_poll():
+    print("START BIG POLL")
+    while True:
+        if not dbHandler.ready:
+            continue
+
+        # Check for new transcripts
+        newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
+        for transcript in newTranscripts:
+            # print("Run CSE with: " + transcript['userId'] + ", " + transcript['text'])
+            cse.contextual_search_engine(transcript['userId'], transcript['text'])
+        time.sleep(1)
+
+cse = ContextualSearchEngine(databaseHandler=dbHandler, relevanceFilter=relevanceFilter)
 async def contextual_search_engine(request, minutes=0.5):
-    await chat_handler(request)
-
     #parse request
     body = await request.json()
     userId = body.get('userId')
     transcript = body.get('text')
 
-    #run contextual search engine on recent text
-    #recent_text = get_text_in_past_n_minutes(
-    #    app['buffer'][userId], minutes)
-    #recent_text = get_short_term_memory(userId)
-    print("Running CSE with following text:\n")
-    print(transcript)
-    cse_result = cse.contextual_search_engine(transcript)
+    cseResults = dbHandler.getCseResultsForUser(userId=userId, deleteAfter=True)
+    cse_result = None
+    for c in cseResults:
+        if c != {}:
+            cse_result = c
+    
+    if cse_result != None:
+        print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cse_result))
 
     #send response
     resp = dict()
@@ -318,6 +344,14 @@ app.add_routes(
     ]
 )
 
+background_process = Process(target=big_poll)
+background_process.start()
+# background_process.join()
+
+background_process = Process(target=big_poll)
+background_process.start()
+# background_process.join()
+
 import aiohttp_cors
 from aiohttp import web
 
@@ -333,3 +367,4 @@ for route in list(app.router.routes()):
     cors.add(route)
 
 web.run_app(app)
+
