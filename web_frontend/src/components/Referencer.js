@@ -54,36 +54,32 @@ export default class Referencer extends React.Component {
 
         const subTranscript = {
             text: this.props.transcript.substring(transcriptProcessCharIdx),
+            userId: "cayden",
+            timestamp: Date.now(),
+            isFinal: true,
         };
 
         //update the new idx so we don't process the same information again
         this.setState({ transcriptProcessWordIdx : transcriptWordCount });
 
+        //send transcript to the backend
         console.log(subTranscript);
-        //axios.post("https://wis.emexwearables.com/api/semantic_search", subTranscript)
-        //axios.post("http://localhost:5000/contextual_search_engine", subTranscript)
-        axios.post("https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/contextual_search_engine", subTranscript)
+        axios.post("https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/chat", subTranscript)
           .then(res => {
-            const newEntitiesDict = res.data.result;
-            console.log(res.data);
-            if (res.data.result){
-                var newEntitiesArray = Object.keys(newEntitiesDict).map(function(k) {
-                    return newEntitiesDict[k];
-                });
-                console.log(newEntitiesArray);
-                this.setState({ entities : this.state.entities.concat(newEntitiesArray) }, () => {
-                    this.scrollToBottom();
-                    this.setState({ processingTranscript : false });
-                });
-            } else{
-                this.setState({ processingTranscript : false });
-            }
-          }).catch(function (error) { console.error(error); this.setState({ processingTranscript : false }); });
+            this.setState({ processingTranscript : false });
+          }).catch(function (error) {
+              console.error(error);
+              this.setState({ processingTranscript : false });
+          });
       }
 
     componentDidUpdate(prevProps) {
         if(prevProps.transcript !== this.props.transcript) {
             this.updateTranscript();
+        }
+        
+        if(prevProps.entities!== this.props.entities) {
+            this.setState({ entities : this.props.entities }, () => {this.scrollToBottom();});
         }
     }
 
