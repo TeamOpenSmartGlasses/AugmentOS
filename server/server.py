@@ -299,16 +299,25 @@ def processing_loop():
         for transcript in newTranscripts:
             print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
             cseResponse = cse.contextual_search_engine(transcript['userId'], transcript['text'])
-            dbHandler.addCseResultForUser(transcript['userId'], cseResponse)
+            if cseResponse != {}:
+                dbHandler.addCseResultForUser(transcript['userId'], cseResponse)
         time.sleep(1)
 
-cse = ContextualSearchEngine(databaseHandler=dbHandler, relevanceFilter=relevanceFilter)
+cse = ContextualSearchEngine(relevanceFilter=relevanceFilter)
 async def ui_poll(request, minutes=0.5):
     #parse request
     body = await request.json()
     userId = body.get('userId')
     deviceId = body.get('deviceId')
     features = body.get('features')
+
+    # 400 if missing params
+    if userId is None or userId == '':
+        return web.Response(text='no userId in request', status=400)
+    if deviceId is None or deviceId == '':
+        return web.Response(text='no deviceId in request', status=400)
+    if features is None or features == '':
+        return web.Response(text='no features in request', status=400)
 
     resp = dict()
 
