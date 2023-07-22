@@ -1,4 +1,5 @@
 aiohttp
+aiohttp_cors
 openai
 langchain
 nltk
@@ -11,3 +12,5 @@ sentence_transformers
 chromadb
 bs4
 Wikipedia-API
+tiktoken
+pymongo
