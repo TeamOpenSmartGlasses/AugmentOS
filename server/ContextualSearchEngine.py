@@ -3,6 +3,8 @@ import json
 import random
 from pathlib import Path
 import os
+import uuid
+import time
 
 #Google NLP + Maps imports
 from google.cloud import language_v1
@@ -112,10 +114,10 @@ class ContextualSearchEngine:
         AI chatbot using GPT models.
 
         \n Text to summarize: \n{entity} \nSummary (8 words or less): """
-        print("Running prompt for summary: \n {}".format(prompt))
+        # print("Running prompt for summary: \n {}".format(prompt))
         chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
         response = chat_completion.choices[0].text
-        print(response)
+        # print(response)
         return response
 
     def lookup_mids(self, ids: Sequence[str], project_id=gcp_project_id):
@@ -168,13 +170,8 @@ class ContextualSearchEngine:
                     #image_url = self.wiki_image_parser(image_url)
                 res[mid]["image_url"] = image_url
 
-            print("Result: ")
-            print(result)
-            print(dir(result))
             res[mid]["name"] = result.get('name')
             res[mid]["category"] = result.get('description')
-            print("TYpES")
-            print(result.get('@type'))
 
             #set our own types
             if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
@@ -206,8 +203,8 @@ class ContextualSearchEngine:
 
         # get entities
         entities_raw = self.analyze_entities(talk)
-        print("Entities raw:")
-        print(entities_raw)
+        # print("Entities raw:")
+        # print(entities_raw)
 
         #filter entities
         entities = list()
@@ -277,10 +274,13 @@ class ContextualSearchEngine:
             description = entity["summary"]
 
             #summarize entity if greater than 8 words long
-            if (len(description.split(" ")) > 8):
+            if (description != None) and (len(description.split(" ")) > 8):
                 summary = self.summarize_entity(description)
-            else:
+            elif description != None:
                 summary = description
+            else:
+                print("======\nNO DESCRIPTION\n======")
+                summary = "NO description"
 
             response[entity["name"]] = entity
             response[entity["name"]]["summary"] = summary
@@ -298,6 +298,8 @@ class ContextualSearchEngine:
 #                self.previous_defs.append(entity)
 
         #return filtered_response
+        response['timestamp'] = time.time()
+        response['uuid'] = str(uuid.uuid4())
         self.databaseHandler.addCseResultForUser(userId, response)
         # return response
 
