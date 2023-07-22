@@ -135,7 +135,7 @@ class DatabaseHandler:
         alreadyConsumedIds = self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
         newResults = []
         for res in results:
-            if res['uuid'] not in alreadyConsumedIds:
+            if ('uuid' in res) and (res['uuid'] not in alreadyConsumedIds):
                 self.addConsumedCseResultIdForUserDevice(userId, deviceId, res['uuid'])
                 newResults.append(res)        
         return newResults
@@ -157,11 +157,13 @@ class DatabaseHandler:
     ### UI DEVICE ###
 
     def addUiDeviceToUserIfNotExists(self, userId, deviceId):
+        self.createUserIfNotExists(userId)
         user = self.userCollection.find_one({"userId": userId})
         
         needAdd = True
-        for ui in user['uiList']:
-            if ui['deviceId'] == deviceId: needAdd = False
+        if user['uiList'] != None:
+            for ui in user['uiList']:
+                if ui['deviceId'] == deviceId: needAdd = False
 
         if needAdd:
             print("Creating device for user '{}': {}".format(userId, deviceId))
