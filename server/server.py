@@ -298,7 +298,8 @@ def processing_loop():
         newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
         for transcript in newTranscripts:
             print("Run CSE with: " + transcript['userId'] + ", " + transcript['text'])
-            cse.contextual_search_engine(transcript['userId'], transcript['text'])
+            cseResponse =cse.contextual_search_engine(transcript['userId'], transcript['text'])
+            dbHandler.addCseResultForUser(transcript['userId'], cseResponse)
         time.sleep(1)
 
 cse = ContextualSearchEngine(databaseHandler=dbHandler, relevanceFilter=relevanceFilter)

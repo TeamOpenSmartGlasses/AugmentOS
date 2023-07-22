@@ -300,8 +300,7 @@ class ContextualSearchEngine:
         #return filtered_response
         response['timestamp'] = time.time()
         response['uuid'] = str(uuid.uuid4())
-        self.databaseHandler.addCseResultForUser(userId, response)
-        # return response
+        return response
 
     def get_wikipedia_image_link_from_page_title(self, page_title, language="en"):
         WIKI_REQUEST = 'http://{}.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles={}'.format(language, page_title)
