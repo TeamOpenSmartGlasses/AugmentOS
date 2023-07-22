@@ -49,7 +49,7 @@ def find_acronyms(words):
     for word in words:
         # an acronym is usually short and capitalized
         if 1 < len(word) < 5 and ("'" not in word) and word.isupper():
-            print("111 Found acronym: {}".format(word))
+            # print("111 Found acronym: {}".format(word))
             acronyms.append(word)
             continue
         # if the word is very short it might still be an acronym even if it isn't all uppercase
@@ -81,16 +81,16 @@ def rare_word_define_string(text):
 
     #list of words without acronyms
     word_list_no_acronyms = list(set(word_list) - set(acronyms))
-    print("word_list_no_acronyms: ")
-    print(word_list_no_acronyms)
+    # print("word_list_no_acronyms: ")
+    # print(word_list_no_acronyms)
 
     #get words and acronyms
     rare_words = find_low_freq_words(word_list_no_acronyms)
 
-    print("Acro:")
-    print(acronyms)
-    print("Rare words:")
-    print(rare_words)
+    # print("Acro:")
+    # print(acronyms)
+    # print("Rare words:")
+    # print(rare_words)
     all_to_define = rare_words + acronyms
 
     #define words and acronyms
