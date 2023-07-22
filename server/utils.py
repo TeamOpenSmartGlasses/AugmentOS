@@ -16,12 +16,19 @@ class UnitMemory:
         timestamp (int): The timestamp of the memory.
 
     """
-    def __init__(self, text, timestamp):
+    def __init__(self, text, timestamp, isFinal=True):
         self.text = text
         self.timestamp = timestamp
+        self.isFinal = isFinal
 
     def get_text(self):
         return self.text
+    
+    def get_isFinal(self):
+        return self.isFinal
+    
+    def update_text(self, newText):
+        self.text = newText
 
     def get_transcript(self):
         return self.transcript
@@ -39,6 +46,10 @@ class ShortTermMemory:
         self.memories = []
         self.max_time = min(max_time, MAX_POSSIBLE_TIME) # needs to be below the prompt size
 
+        # TODO: Separate into own class?
+        self.most_recent_memory = None
+        self.most_recent_memory_consumed = False
+
     def __str__(self):
         return ','.join([str(m) for m in self.memories])
 
@@ -49,6 +60,22 @@ class ShortTermMemory:
 
     def get_memories(self):
         return self.memories
+    
+    # Set/Update most_recent_memory
+    # If the new text is different, mark it as not-consumed
+    def update_recent_memory_sliding(self, memory):
+        if self.most_recent_memory is not None and self.most_recent_memory.get_text() != memory.get_text():
+            self.most_recent_memory_consumed = False
+        self.most_recent_memory = memory
+
+    # most_recent_memory is "consumed" upon retrieval
+    def get_most_recent_memory_sliding(self, slider=6):
+        recent = ""
+        if not self.most_recent_memory_consumed and self.most_recent_memory is not None:
+            wl = self.most_recent_memory.get_text().split()
+            recent = ' '.join(wl[len(wl)-slider::] if slider <= len(wl) else wl[0::])
+            self.most_recent_memory_consumed = True
+        return recent
 
     def get_end_time(self):
         if len(self.memories) == 0:
@@ -67,7 +94,10 @@ class ShortTermMemory:
         #     decayed_memories = self.memories
         #     self.memories = []
 
-        self.memories.append(memory)
+        # self.memories only saves final transcripts, but most_recent_memory stores everything
+        self.update_recent_memory_sliding(memory)
+        if memory.get_isFinal():
+            self.memories.append(memory)
 
         return decayed_memories
 
