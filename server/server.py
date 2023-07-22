@@ -20,6 +20,10 @@ from DatabaseHandler import DatabaseHandler
 from RelevanceFilter import RelevanceFilter
 from multiprocessing import Process
 
+#CORS
+import aiohttp_cors
+from aiohttp import web
+
 dbHandler = DatabaseHandler()
 relevanceFilter = RelevanceFilter()
 
@@ -78,13 +82,13 @@ async def chat_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
-    memory = UnitMemory(text, timestamp, isFinal=isFinal)
+    #memory = UnitMemory(text, timestamp, isFinal=isFinal)
 
-    decayed_memories = app['buffer'][userId].add_memory(memory)
+    #decayed_memories = app['buffer'][userId].add_memory(memory)
 
     # add to long term memory
     #    long-term memory is based on final transcripts
-    app['memory'][userId].add_memories(decayed_memories)
+    #app['memory'][userId].add_memories(decayed_memories)
 
     # Save to database
     # TODO: This is at odds with the current memory system. Investigate best solution.
@@ -281,39 +285,44 @@ async def agent_james(text, userId):
 
     #Contextual Search Engine
 
-# Check for new transcripts in background every n ms and run them through CSE
-# TODO: Also use for relevance filter(?)
-def big_poll():
-    print("START BIG POLL")
+# run tools for subscribed users in background every n ms if there is fresh data to run on
+def processing_loop():
+    print("START PROCESSING LOOP")
     while True:
         if not dbHandler.ready:
+            print("dbHandler not ready")
+            time.sleep(0.1)
             continue
 
         # Check for new transcripts
         newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
         for transcript in newTranscripts:
-            # print("Run CSE with: " + transcript['userId'] + ", " + transcript['text'])
+            print("Run CSE with: " + transcript['userId'] + ", " + transcript['text'])
             cse.contextual_search_engine(transcript['userId'], transcript['text'])
         time.sleep(1)
 
 cse = ContextualSearchEngine(databaseHandler=dbHandler, relevanceFilter=relevanceFilter)
-async def contextual_search_engine(request, minutes=0.5):
+async def ui_poll(request, minutes=0.5):
     #parse request
     body = await request.json()
     userId = body.get('userId')
-    transcript = body.get('text')
+    features = body.get('features')
 
-    cseResults = dbHandler.getCseResultsForUser(userId=userId, deleteAfter=True)
-    cse_result = None
-    for c in cseResults:
-        if c != {}:
-            cse_result = c
-    
-    if cse_result != None:
-        print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cse_result))
+    resp = dict()
+
+    #get UI updates that were requested
+    if "contextual_search_engine" in features:
+        #get CSE results
+        cseResults = dbHandler.getCseResultsForUser(userId=userId, deleteAfter=True)
+        cse_result = None
+        for c in cseResults:
+            if c != {}:
+                cse_result = c
+        
+        if cse_result != None:
+            print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cse_result))
 
     #send response
-    resp = dict()
     if (cse_result) != None:
         resp["success"] = True
         resp["result"] = cse_result
@@ -339,22 +348,17 @@ app.add_routes(
         web.post('/chat', chat_handler),
         web.post('/button_event', button_handler),
         web.post('/print', print_handler),
-        web.post('/contextual_search_engine', contextual_search_engine),
+        web.post('/ui_poll', ui_poll),
         web.get('/image', return_image)
     ]
 )
 
-background_process = Process(target=big_poll)
+background_process = Process(target=processing_loop)
 background_process.start()
 # background_process.join()
 
-background_process = Process(target=big_poll)
-background_process.start()
-# background_process.join()
-
-import aiohttp_cors
-from aiohttp import web
-
+#setup and run web app
+#CORS allow from all sources
 cors = aiohttp_cors.setup(app, defaults={
     "*": aiohttp_cors.ResourceOptions(
         allow_credentials=True,
@@ -362,9 +366,7 @@ cors = aiohttp_cors.setup(app, defaults={
         allow_headers="*"
     )
 })
-
 for route in list(app.router.routes()):
     cors.add(route)
 
 web.run_app(app)
-
