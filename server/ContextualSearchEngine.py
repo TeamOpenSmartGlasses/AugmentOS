@@ -33,12 +33,11 @@ import base64
 import word_frequency
 
 class ContextualSearchEngine:
-    def __init__(self, databaseHandler, relevanceFilter):
+    def __init__(self, relevanceFilter):
         #remember what we've defined
         self.previous_defs = list()
         self.client = googlemaps.Client(key=google_maps_api_key)
         self.imagePath = "images/cse"
-        self.databaseHandler = databaseHandler
         self.relevanceFilter = relevanceFilter
 
     def get_google_static_map_img(self, place, zoom=3):
