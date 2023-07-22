@@ -10,11 +10,11 @@
   --contentheight: calc(100vh);
   --contentwidth: calc(100vw);
   --headerheight: 10vh;
-  --leftColumnWidth: 22vw; /* can't be set lower than header width*/
+  --leftColumnWidth: 20vw; /* can't be set lower than header width*/
   --midColumnWidth: 34vw;
   --rightColumnWidth: calc(100vw - var(--leftColumnWidth) - var(--midColumnWidth));
 
-  --leftTopHeight: 60vh;
+  --leftTopHeight: 40vh;
   --leftBottomHeight: calc(var(--contentheight) - var(--leftTopHeight) - var(--headerheight));
 }
 
@@ -34,7 +34,7 @@ code {
 }
 
 #logo-img {
-    height: 3.3vw;
+    height: 6.5vh;
     margin: 10px;
 }
 
@@ -121,6 +121,11 @@ a:active { text-decoration: none;  color: black; }
     min-height: var(--leftBottomHeight);
 }
 
+.transcript-text {
+    font-size: 1.6rem;
+    margin: 0;
+}
+
 .hyperlink-card{
     display: flex;
     flex-direction: row;
@@ -135,7 +140,7 @@ a:active { text-decoration: none;  color: black; }
 
 .card-img {
     width: 100%;
-    height: 15vh;
+    height: 13vh;
     object-fit: contain;
 }
 
@@ -166,7 +171,7 @@ a:active { text-decoration: none;  color: black; }
     flex-wrap: nowrap;
     flex-direction: column;
     border: 1px solid #CCCCCC;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     border-radius: 0.2rem;
 
     flex: 1;

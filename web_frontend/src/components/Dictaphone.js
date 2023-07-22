@@ -24,7 +24,7 @@ const Dictaphone = (props) => {
 
   return (
     <div className="scrollcontent">
-      <p>{transcript}</p>
+      <p className="transcript-text">{transcript}</p>
       <div ref={endOfTranscript}></div>
     </div>
   )
