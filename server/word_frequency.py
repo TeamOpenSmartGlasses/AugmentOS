@@ -21,11 +21,10 @@ df_norvig_word_freq.iloc[idx_norvig_dict_word_freq["whereabouts"]] # run once to
 print("--- Word frequency index loaded.")
 
 #we use this funny looking thing for fast string search, thanks to: https://stackoverflow.com/questions/44058097/optimize-a-string-query-with-pandas-large-data
-def find_low_freq_words(text):
-    text = text.lower().replace(".", " ").strip()
-    text = re.sub(r'[0-9]', '', text)
+def find_low_freq_words(words):
     low_freq_words = list()
-    for word in text.split(' '):
+    for word in words:
+        word = word.lower()
         #check if it should be included according to google and/or norvig
         try:
             i_word_google = idx_google_dict_word_freq[word]
@@ -44,9 +43,58 @@ def find_low_freq_words(text):
                 continue
     return low_freq_words
 
-def rare_word_define_string(string):
-    words = find_low_freq_words(string)
-    definitions = [define_word(w) for w in words]
+
+def find_acronyms(words):
+    acronyms = list()
+    for word in words:
+        # an acronym is usually short and capitalized
+        if 1 < len(word) < 5 and ("'" not in word) and word.isupper():
+            print("111 Found acronym: {}".format(word))
+            acronyms.append(word)
+            continue
+        # if the word is very short it might still be an acronym even if it isn't all uppercase
+#        elif len(word) < 4:
+#            # check wether the word is in the is in the wordnet database
+#            syns = wordnet.synsets(word)
+#
+#            try:
+#                definition = syns[0].definition()
+#                print("This is a word: {}".format(word))
+#            # if wordnet can't find a definition for the word assume it's an acronym
+#            except IndexError as e:       
+#                print("222 Found acronym: {}".format(word))
+#                acronyms.append(word)
+#                continue 
+    return acronyms
+
+def rare_word_define_string(text):
+    #clean text and split text into words
+    text = text.replace(".", " ").strip()
+    text = re.sub(r'[0-9]', '', text)
+    word_list = text.split(' ')
+
+    #remove words with apostrophes
+    word_list = [word for word in word_list if "'" not in word]
+
+    #get list of acronyms
+    acronyms = find_acronyms(word_list)
+
+    #list of words without acronyms
+    word_list_no_acronyms = list(set(word_list) - set(acronyms))
+    print("word_list_no_acronyms: ")
+    print(word_list_no_acronyms)
+
+    #get words and acronyms
+    rare_words = find_low_freq_words(word_list_no_acronyms)
+
+    print("Acro:")
+    print(acronyms)
+    print("Rare words:")
+    print(rare_words)
+    all_to_define = rare_words + acronyms
+
+    #define words and acronyms
+    definitions = [define_word(w) for w in all_to_define]
     definitions = [i for i in definitions if i is not None]
     definitions_short = [shorten_definition(d) for d in definitions]
     return definitions_short

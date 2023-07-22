@@ -276,15 +276,15 @@ async def contextual_search_engine(request, minutes=0.5):
     #parse request
     body = await request.json()
     userId = body.get('userId')
-    text = body.get('text')
+    transcript = body.get('text')
 
     #run contextual search engine on recent text
+    #recent_text = get_text_in_past_n_minutes(
+    #    app['buffer'][userId], minutes)
     #recent_text = get_short_term_memory(userId)
-
     print("Running CSE with following text:\n")
-    print(text)
-
-    cse_result = cse.contextual_search_engine(text)
+    print(transcript)
+    cse_result = cse.contextual_search_engine(transcript)
 
     #send response
     resp = dict()
@@ -317,5 +317,19 @@ app.add_routes(
         web.get('/image', return_image)
     ]
 )
+
+import aiohttp_cors
+from aiohttp import web
+
+cors = aiohttp_cors.setup(app, defaults={
+    "*": aiohttp_cors.ResourceOptions(
+        allow_credentials=True,
+        expose_headers="*",
+        allow_headers="*"
+    )
+})
+
+for route in list(app.router.routes()):
+    cors.add(route)
 
 web.run_app(app)

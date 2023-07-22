@@ -2,16 +2,20 @@ import requests
 import json
 import random
 from pathlib import Path
+import os
 
-#Google NLP imports
+#Google NLP + Maps imports
 from google.cloud import language_v1
 from typing import Sequence
 from google.cloud import enterpriseknowledgegraph as ekg
 from gcp_config import gcp_project_id
-from gcp_config import google_maps_api_key
 
+#OpenAI imports
+import openai
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 #Google static maps imports
+from gcp_config import google_maps_api_key
 import responses
 import random
 import googlemaps
@@ -87,6 +91,31 @@ class ContextualSearchEngine:
 
         return response.entities
 
+    def summarize_entity(self, entity: str):
+
+        #like "the" and "a" if they aren't useful to human understanding
+        prompt = f"""Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
+
+        Example:
+        [INPUT]
+        "George Washington (February 22, 1732 – December 14, 1799) was an American military officer, statesman, and Founding Father who served as the first president of the United States from 1789 to 1797."
+
+        [OUTPUT]
+        First American president, military officer, Founding Father.
+
+        Example:
+        [INPUT]
+        "ChatGPT is an artificial intelligence chatbot developed by OpenAI and released in November 2022. It is built on top of OpenAI's GPT-3.5 and GPT-4 families of large language models and has been fine-tuned using both supervised and reinforcement learning techniques."
+        [OUTPUT]
+        AI chatbot using GPT models.
+
+        \n Text to summarize: \n{entity} \nSummary (8 words or less): """
+        print("Running prompt for summary: \n {}".format(prompt))
+        chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
+        response = chat_completion.choices[0].text
+        print(response)
+        return response
+
     def lookup_mids(self, ids: Sequence[str], project_id=gcp_project_id):
         location = 'global'      # Values: 'global'
         languages = ['en']                    # Optional: List of ISO 639-1 Codes
@@ -137,14 +166,26 @@ class ContextualSearchEngine:
                     #image_url = self.wiki_image_parser(image_url)
                 res[mid]["image_url"] = image_url
 
+            print("Result: ")
+            print(result)
+            print(dir(result))
             res[mid]["name"] = result.get('name')
             res[mid]["category"] = result.get('description')
-            res[mid]["type"] = result.get('@type')[0].upper()
+            print("TYpES")
+            print(result.get('@type'))
+
+            #set our own types
+            if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
+                res[mid]["type"] = "LOCATION"
+            else:
+                res[mid]["type"] = result.get('@type')[0].upper()
 
             detailed_description = result.get("detailedDescription")
             if detailed_description:
                 res[mid]["summary"] = detailed_description.get('articleBody')
                 res[mid]["url"] = detailed_description.get('url')
+            else:
+                res[mid]["summary"] = result.get('description')
 
         return res
 
@@ -152,11 +193,13 @@ class ContextualSearchEngine:
         #build response object from various processing sources
         response = dict()
 
-        #find rare words and define them
+        #find rare words (including acronyms) and define them
         rare_word_definitions = word_frequency.rare_word_define_string(talk)
 
         # get entities
         entities_raw = self.analyze_entities(talk)
+        print("Entities raw:")
+        print(entities_raw)
 
         #filter entities
         entities = list()
@@ -188,28 +231,26 @@ class ContextualSearchEngine:
                 mids.append(mid)
         entity_search_results = self.lookup_mids(mids)
 
-        #if entities are locations, then lookup the locations using google static maps
+        #if entities are locations, then add a map image to it
         locations = dict()
-        for entity in entities:
-            if language_v1.Entity.Type(entity.type_).name == "LOCATION":
-                print("GOT LOCATION: {}".format(entity.name))
+        for entity_mid in entity_search_results:
+            entity = entity_search_results[entity_mid]
+            if entity["type"] == "LOCATION":
                 zoom = 3
-                mapImageName = "map_{}-{}.jpg".format(entity.name, zoom)
+                mapImageName = "map_{}-{}.jpg".format(entity["name"], zoom)
                 mapImagePath = "{}/{}".format(self.imagePath, mapImageName)
 
                 if not Path(mapImagePath).is_file():
-                    print("{} doesn't exist - generating now...".format(mapImageName))
-                    static_map_img_raw = self.get_google_static_map_img(place=entity.name, zoom=zoom)
+                    static_map_img_raw = self.get_google_static_map_img(place=entity["name"], zoom=zoom)
                     static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
-                    #locations[entity.name]["image_raw"] = base64.b64encode(BytesIO(static_map_img_raw).getvalue())
                     static_map_img_pil.save(mapImagePath)
-                locations[entity.name] = dict()
-                locations[entity.name]["name"] = entity.name
-                locations[entity.name]['map_image_path'] = "/image?img={}".format(mapImageName)
+
+                entity_search_results[entity_mid]["map_image_path"] = "/image?img={}".format(mapImageName)
 
         #build response object from various processing sources
         response = dict()
         summary_len = 200
+
         #get rare word def's
         for word_def in rare_word_definitions:
             word = list(word_def.keys())[0]
@@ -220,18 +261,26 @@ class ContextualSearchEngine:
             response[word]["type"] = "RARE_WORD"
             response[word]["name"] = word
 
-        #get entities from search results
+        #build response and summarize long entity descriptions
         for entity_mid in entity_search_results:
             entity = entity_search_results[entity_mid]
+
+            #get description
+            description = entity["summary"]
+
+            #summarize entity if greater than 8 words long
+            if (len(description.split(" ")) > 8):
+                summary = self.summarize_entity(description)
+            else:
+                summary = description
+
             response[entity["name"]] = entity
-            summary = response[entity["name"]]["summary"]
-            summary = summary[0:min(summary_len, len(summary))] + "..." #limit size of summary
             response[entity["name"]]["summary"] = summary
 
         #get entities from location results
-        for location in locations:
-            entity = locations[location]
-            response[entity["name"]] = entity
+        #for location in locations:
+        #    entity = locations[location]
+        #    response[entity["name"]] = entity
 
         #drop things we've already defined, then remember the new things
 #        filtered_response = dict()
