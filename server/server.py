@@ -332,6 +332,8 @@ async def ui_poll(request, minutes=0.5):
         
         if cse_result != None:
             print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cse_result))
+            del cse_result['timestamp']
+            del cse_result['uuid']
 
     #send response
     if (cse_result) != None:
