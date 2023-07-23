@@ -40,10 +40,11 @@ export default class App extends React.Component {
     updateUiBackendPoll(){
         const subTranscript = {
             features: ["contextual_search_engine"], //list of features here
-            userId: "cayden"
+            userId: "cayden",
+            deviceId: "cayden-lappy"
         };
 
-        axios.post("https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/ui_poll", subTranscript)
+        axios.post("https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api/ui_poll", subTranscript)
           .then(res => {
             const newEntitiesDict = res.data.result;
             console.log(res.data);
