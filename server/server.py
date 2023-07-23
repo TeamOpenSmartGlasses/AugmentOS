@@ -299,7 +299,7 @@ def processing_loop():
         for transcript in newTranscripts:
             print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
             cseResponse = cse.contextual_search_engine(transcript['userId'], transcript['text'])
-            if cseResponse != {}:
+            if cseResponse != {} and cseResponse != None:
                 dbHandler.addCseResultForUser(transcript['userId'], cseResponse)
         time.sleep(1)
 
@@ -352,7 +352,8 @@ async def return_image(request):
         data = Path('images/404-2.jpg').read_bytes()
     return Response(body=data, content_type="image/jpg")
 
-
+background_process = Process(target=processing_loop)
+background_process.start()
 
 app.add_routes(
     [
@@ -363,10 +364,6 @@ app.add_routes(
         web.get('/image', return_image)
     ]
 )
-
-background_process = Process(target=processing_loop)
-background_process.start()
-# background_process.join()
 
 #setup and run web app
 #CORS allow from all sources
@@ -381,3 +378,4 @@ for route in list(app.router.routes()):
     cors.add(route)
 
 web.run_app(app)
+background_process.join()
