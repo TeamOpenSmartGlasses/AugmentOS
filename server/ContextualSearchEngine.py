@@ -4,6 +4,7 @@ import random
 from pathlib import Path
 import os
 import uuid
+import math
 import time
 
 #Google NLP + Maps imports
@@ -297,8 +298,15 @@ class ContextualSearchEngine:
 #                self.previous_defs.append(entity)
 
         #return filtered_response
-        response['timestamp'] = time.time()
+        if response == {}: 
+            print("\n\n===CSE RESPONSE PROBABLY BAD ;(===\n\n")
+            return None
+       
+        response['timestamp'] = math.trunc(time.time())
         response['uuid'] = str(uuid.uuid4())
+
+        # print("\n\nCSE OUTPUT GOING TO BE:")
+        # print(response)
         return response
 
     def get_wikipedia_image_link_from_page_title(self, page_title, language="en"):

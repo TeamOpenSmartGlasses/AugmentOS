@@ -149,8 +149,7 @@ class DatabaseHandler:
     def getConsumedCseResultIdsForUserDevice(self, userId, deviceId):
         filter = {"userId": userId, "uiList.deviceId": deviceId}
         user = self.userCollection.find_one(filter=filter)
-        if user['uiList'] == None: return []
-        if user['uiList'][0] == None: return []
+        if user == None or user['uiList'] == None or user['uiList'][0] == None: return []
         toReturn = user['uiList'][0]['consumedCseResultIds']
         return toReturn if toReturn != None else []
 
