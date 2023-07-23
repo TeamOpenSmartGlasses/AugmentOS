@@ -250,7 +250,7 @@ class ContextualSearchEngine:
                     static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
                     static_map_img_pil.save(mapImagePath)
 
-                entity_search_results[entity_mid]["map_image_path"] = "/image?img={}".format(mapImageName)
+                entity_search_results[entity_mid]["map_image_path"] = "/api/image?img={}".format(mapImageName)
 
         #build response object from various processing sources
         response = dict()
