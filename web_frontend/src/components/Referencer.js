@@ -64,7 +64,7 @@ export default class Referencer extends React.Component {
 
         //send transcript to the backend
         console.log(subTranscript);
-        axios.post("https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api/chat", subTranscript)
+        axios.post("/api/chat", subTranscript)
           .then(res => {
             this.setState({ processingTranscript : false });
           }).catch(function (error) {
