@@ -44,7 +44,7 @@ export default class App extends React.Component {
             deviceId: "cayden-lappy"
         };
 
-        axios.post("https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api/ui_poll", subTranscript)
+        axios.post("/api/ui_poll", subTranscript)
           .then(res => {
             const newEntitiesDict = res.data.result;
             console.log(res.data);

@@ -18,7 +18,7 @@ const ReferenceCard = (props) => {
 
     function renderMapBlock(endpoint) {
       return (<div className="col-md-4">
-                 <img className="card-img" src={"https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com" + endpoint} />
+                 <img className="card-img" src={endpoint} />
             </div>)
     }
 
