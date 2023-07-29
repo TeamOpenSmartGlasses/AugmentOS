@@ -61,7 +61,7 @@ def find_acronyms(words):
     acronyms = list()
     for word in words:
         # an acronym is usually short and capitalized
-        if 1 < len(word) < 5 and ("'" not in word) and word.isupper():
+        if (1 < len(word) < 5) and ("'" not in word) and word.isupper():
             # print("111 Found acronym: {}".format(word))
             acronyms.append(word)
             continue
@@ -94,23 +94,27 @@ def rare_word_define_string(text):
 
     #list of words without acronyms
     word_list_no_acronyms = list(set(word_list) - set(acronyms))
-    # print("word_list_no_acronyms: ")
-    # print(word_list_no_acronyms)
+    print("word_list_no_acronyms: ")
+    print(word_list_no_acronyms)
 
-    #get words and acronyms
+    #get list of rare words
     rare_words = find_low_freq_words(word_list_no_acronyms)
 
-    # print("Acro:")
-    # print(acronyms)
-    # print("Rare words:")
-    # print(rare_words)
     all_to_define = rare_words + acronyms
 
-    #define words and acronyms
-    definitions = [define_word(w) for w in all_to_define]
-    definitions = [i for i in definitions if i is not None]
-    definitions_short = [shorten_definition(d) for d in definitions]
-    return definitions_short
+    #define acronyms
+    acro_definitions = [define_acronym(a) for a in acronyms]
+    acro_definitions = [ad for ad in acro_definitions if ad is not None]
+
+    #define rare words
+    rare_word_definitions = [define_word(w) for w in rare_words]
+    rare_word_definitions = [wd for wd in rare_word_definitions if wd is not None]
+    rare_word_definitions = [shorten_definition(d) for d in rare_word_definitions]
+
+    #combine definitions
+    definitions = acro_definitions + rare_word_definitions
+
+    return definitions
 
 if __name__ == "__main__":
-    print(rare_word_define_string("existential spectroscopy this is a test and preposterous people might amicably proliferate tungsten arcane ark botanical bonsai gynecologist esoteric"))
+    print(rare_word_define_string("CSE existential LLM spectroscopy this is a test and preposterous NSA people might amicably proliferate OUR tungsten arcane ark USA botanical bonsai ASR gynecologist esoteric multi-processing"))
