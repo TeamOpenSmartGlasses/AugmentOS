@@ -25,7 +25,10 @@ def get_jargon_definition(term):
         return None
 
 
+banned_acronyms = ["NER", "SCSC", "CSE", "CSC", "OUR", "MY", "DOG"]
 def define_acronym(acronym):
+    if acronym in banned_acronyms:
+        return None
 
     # Send a GET request to the webpage
     url = f"https://www.acronymfinder.com/{acronym}.html"
@@ -44,20 +47,18 @@ def define_acronym(acronym):
         return None
 
     # Get the first meaning
-    meaning = definitions.split("\n")[1][len(acronym):]
+    definition = definitions.split("\n")[1][len(acronym):]
 
-    if not meaning:
+    if not definition:
         return None
 
     # Print the meaning
-    return meaning
+    return {acronym : definition} 
 
 
 def define_word(word):
-
   if " " in word:
     definition = get_jargon_definition(word.replace(" ", "_"))
-
 
   else:
     # lookup the word
@@ -66,14 +67,12 @@ def define_word(word):
     try:
         definition = syns[0].definition()
     except IndexError as e:
-        # print("Definition unknown for: {}".format(word))
+        print("Definition unknown for: {}".format(word))
+        return None
         # if it's not a word, define it an acronym
-        definition = define_acronym(word)
-        word = word.upper()
+        #definition = define_acronym(word)
+        #word = word.upper()
   
-  if not definition:
-      return None
-
   return {word: definition}
 
 def shorten_definition(definition, max_length=46, max_defs=2):
