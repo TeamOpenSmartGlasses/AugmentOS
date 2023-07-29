@@ -5,16 +5,21 @@ import word_define
 from word_define import *
 import re
 
+#how rare should a word be for us to consider it rare?
+low_freq_threshold_google = 0.0922 #the percentage of the line number needed to be considered a rare word - the higher, the more rare the word has to be to be defined
+low_freq_threshold_norvig = 0.901
+google_lines = 333334
+norvig_lines = 30000
+low_freq_constant_google =  low_freq_threshold_google * google_lines
+low_freq_line_constant_norvig = low_freq_threshold_norvig * norvig_lines
+
 #load index
+print("Loading word frequency indexes...")
 df_google_word_freq = pd.read_csv("./english_word_freq_list/unigram_freq.csv")
 df_norvig_word_freq = pd.read_csv("./english_word_freq_list/30k.csv", header=0)
 idx_google_dict_word_freq = df_google_word_freq.groupby(by='word').apply(lambda x: x.index.tolist()).to_dict()
 idx_norvig_dict_word_freq = df_norvig_word_freq.groupby(by='word').apply(lambda x: x.index.tolist()).to_dict()
 
-low_freq_constant_google = 300000 #150000 #higher means more word # relative to dataset used, up for debate, maybe user-settable (example english not your first language? Want to be higher)... in general, frequency can't be the only metric - maybe you say a rare word every day, we shouldn't keep defining it - cayden
-low_freq_line_constant_norvig = 15612 #the line number /30,000, so the lower, the more words included
-
-print("Loading word frequency indexes...")
 df_google_word_freq.iloc[idx_google_dict_word_freq["golgw"]] # run once to build the index
 #print(df_norvig_word_freq)
 df_norvig_word_freq.iloc[idx_norvig_dict_word_freq["whereabouts"]] # run once to build the index
@@ -25,22 +30,30 @@ def find_low_freq_words(words):
     low_freq_words = list()
     for word in words:
         word = word.lower()
-        #check if it should be included according to google and/or norvig
+        #find word in google
         try:
-            i_word_google = idx_google_dict_word_freq[word]
-            i_word_norvig = idx_norvig_dict_word_freq[word]
+            i_word_google = idx_google_dict_word_freq[word][0]
+            #print("Google score of |{} == {}|".format(word, i_word_google / google_lines))
         except KeyError as e:
-            #if we didn't find the word, then it's rare, so define it if we have it
+            #if we didn't find the word in giant google dataset, then it's rare, so define it if we have it
             low_freq_words.append(word)
             continue
-        word_freq_google = df_google_word_freq.iloc[i_word_google]
-        if ((len(word_freq_google) > 0) or (len(word_freq_norvig) > 0)):
-            if word_freq_google["count"].iloc[0] < low_freq_constant_google: #we use iloc[0] because our dataset should only have one of each word
-                low_freq_words.append(word)
-                continue
-            elif i_word_norvig[0] > low_freq_line_constant_norvig:
-                low_freq_words.append(word)
-                continue
+        #find word in norvig
+        i_word_norvig = None
+        try:
+            i_word_norvig = idx_norvig_dict_word_freq[word][0]
+            #print("Norvig score of |{} == {}|".format(word, i_word_norvig / norvig_lines))
+        except KeyError as e:
+            #if we didn't find the word in norvig, it might not be rare (e.g. "habitual")
+            print("Word '{}' not found in norvig word frequency database.".format(word))
+        if (i_word_google > low_freq_constant_google):
+            low_freq_words.append(word)
+            continue
+        elif (i_word_norvig != None) and (i_word_norvig > low_freq_line_constant_norvig):
+            low_freq_words.append(word)
+            continue
+
+    #print("low freq words: {}".format(low_freq_words))
     return low_freq_words
 
 
