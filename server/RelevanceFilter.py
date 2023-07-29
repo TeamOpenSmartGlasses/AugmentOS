@@ -3,14 +3,14 @@ class RelevanceFilter:
         self.databaseHandler = databaseHandler
         self.blah = "1"
 
-    def shouldRunForText(self, userId, deviceId, text):
+    def shouldRunForText(self, userId, text):
         shouldRun = True
 
         # Required as per: https://tinyurl.com/obscurePythonErrors
         print("relevance filter doing relevance filter things")
-        termsDefinedInLastFiveMinutes = self.databaseHandler.getDefinedTermsFromLastNMinutesForUserDevice(userId, deviceId)
+        termsDefinedInLastFiveMinutes = self.databaseHandler.getDefinedTermsFromLastNMinutesForUserDevice(userId)
         for term in termsDefinedInLastFiveMinutes:
-            # print("term from last 5 min:" + term['name'] + " ... meanwhile, text: " + text)
             if term['name'] == text:
+                print("BLOCKING TERM '{}': DEFINED TOO RECENTLY".format(text))
                 shouldRun = False
         return shouldRun

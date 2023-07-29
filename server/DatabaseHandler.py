@@ -5,6 +5,7 @@ import math
 class DatabaseHandler:
     def __init__(self):
         self.uri = "mongodb+srv://alex1115alex:usa@testcluster.lvcrdlg.mongodb.net/?retryWrites=true&w=majority"
+        # self.uri = "mongodb+srv://alis4887:usa@testcluster.yzrnimk.mongodb.net/?retryWrites=true&w=majority" # Backup server
         self.maxTranscriptsPerUser = 2
         self.userCollection = None
         self.ready = False
@@ -128,7 +129,7 @@ class DatabaseHandler:
 
     ### CSE RESULTS FOR SPECIFIC DEVICE (USE THIS) ###
 
-    def getCseResultsForUserDevice(self, userId, deviceId, includeConsumed = False):
+    def getCseResultsForUserDevice(self, userId, deviceId, shouldConsume = True, includeConsumed = False):
         self.addUiDeviceToUserIfNotExists(userId, deviceId)
 
         user = self.userCollection.find_one({"userId": userId})
@@ -136,11 +137,8 @@ class DatabaseHandler:
         alreadyConsumedIds = [] if includeConsumed else self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
         newResults = []
         for res in results:
-            #print("res:")
-            #print(res)
-            #good here??
             if ('uuid' in res) and (res['uuid'] not in alreadyConsumedIds):
-                self.addConsumedCseResultIdForUserDevice(userId, deviceId, res['uuid'])
+                if shouldConsume: self.addConsumedCseResultIdForUserDevice(userId, deviceId, res['uuid'])
                 newResults.append(res)        
         return newResults
 
@@ -175,21 +173,27 @@ class DatabaseHandler:
                 consumedResults.append(result)
         return consumedResults
 
-    def getDefinedTermsFromLastNMinutesForUserDevice(self, userId, deviceId, n = 5):
+    def getDefinedTermsFromLastNMinutesForUserDevice(self, userId, n = 5):
         minutes = n * 60000
-        consumedResults = self.getConsumedCseResultsForUserDevice(userId, deviceId)
+        consumedResults = self.getCseResultsForUserDevice(userId=userId, deviceId="", shouldConsume=False, includeConsumed=True)
 
         previouslyDefinedTerms = []
         currentTime = math.trunc(time.time())
         for result in consumedResults:
             if currentTime - result['timestamp'] < minutes:
                 previouslyDefinedTerms.append(result)
-        print("prev defined:")
-        print(previouslyDefinedTerms)
         return previouslyDefinedTerms
 
 
     ### UI DEVICE ###
+
+    def getAllUiDevicesForUser(self, userId):
+        user = self.userCollection.find_one({"userId": userId})
+        uiList = user['uiList']
+        uiListIds = []
+        for ui in uiList:
+            uiListIds.append(ui['deviceId'])
+        return uiListIds
 
     def addUiDeviceToUserIfNotExists(self, userId, deviceId):
         self.createUserIfNotExists(userId)

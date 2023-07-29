@@ -303,7 +303,8 @@ def processing_loop():
             if cseResponses != None:
                 for res in cseResponses:
                     if res != {} and res != None:
-                        dbHandler.addCseResultForUser(transcript['userId'], res)
+                        if relevanceFilter.shouldRunForText(transcript['userId'], res['name']):
+                            dbHandler.addCseResultForUser(transcript['userId'], res)
         time.sleep(1)
 
 cse = ContextualSearchEngine(relevanceFilter=relevanceFilter)
@@ -326,25 +327,10 @@ async def ui_poll(request, minutes=0.5):
     
     resp = dict()
 
-    # Restructured how CSE returns results
-    # CSE results now stored individually in database
-    # Timestamps/UUIDs now stored with individual CSE results
-    # Implemented DatabaseHandler method: getDefinedTermsFromLastNMinutesForUserDevice
-    # Updated RelevanceFitler to use aformentioned method 
-
     #get CSE results
     cseResultList = dbHandler.getCseResultsForUserDevice(userId=userId, deviceId=deviceId)
     
     cseResults = cseResultList
-    #cseResults = []
-    #for res in cseResultList:
-    #    shouldAdd = relevanceFilter.shouldRunForText(userId=userId, deviceId=deviceId, text=res['name'])
-    #    print("SHOULD ADD?: {}".format(shouldAdd))
-    #    if shouldAdd:
-    #        print('woah dude adding some shiznit')
-    #        cseResults.append(res)
-    #    else:
-    #        print('woah buddy we cant add that wtf')
 
     if cseResults != None and cseResults != []:
         print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cseResults))
