@@ -82,13 +82,13 @@ async def chat_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
-    #memory = UnitMemory(text, timestamp, isFinal=isFinal)
+    if isFinal:
+        memory = UnitMemory(text, timestamp, isFinal=isFinal)
+        decayed_memories = app['buffer'][userId].add_memory(memory)
 
-    #decayed_memories = app['buffer'][userId].add_memory(memory)
-
-    # add to long term memory
-    #    long-term memory is based on final transcripts
-    #app['memory'][userId].add_memories(decayed_memories)
+        # add to long term memory
+        #    long-term memory is based on final transcripts
+        app['memory'][userId].add_memories(decayed_memories)
 
     # Save to database
     # TODO: This is at odds with the current memory system. Investigate best solution.
