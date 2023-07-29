@@ -191,9 +191,6 @@ class ContextualSearchEngine:
     def contextual_search_engine(self, userId, talk):
         if talk == "":
             return
-        
-        if not self.relevanceFilter.shouldRunForText(talk):
-            return
 
         #build response object from various processing sources
         response = dict()
@@ -305,16 +302,15 @@ class ContextualSearchEngine:
         #for i in range(len(response)):
         for i in response:
             print(i)
-            
             response[i]['timestamp'] = math.trunc(time.time())
             response[i]['uuid'] = str(uuid.uuid4())
 
+        # Format response into list of individual items
+        responses = []
+        for attr, value in response.items():
+            responses.append(value)
 
-        #response['timestamp'] = math.trunc(time.time())
-        #response['uuid'] = str(uuid.uuid4())
-        # print("\n\nCSE OUTPUT GOING TO BE:")
-        # print(response)
-        return response
+        return responses
 
     def get_wikipedia_image_link_from_page_title(self, page_title, language="en"):
         WIKI_REQUEST = 'http://{}.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles={}'.format(language, page_title)

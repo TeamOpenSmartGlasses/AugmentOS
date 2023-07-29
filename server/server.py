@@ -25,7 +25,7 @@ import aiohttp_cors
 from aiohttp import web
 
 dbHandler = DatabaseHandler()
-relevanceFilter = RelevanceFilter()
+relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
 
 app = web.Application()
 app['buffer'] = dict() # store and retrieve short term memories. Stored as a list of memories.
@@ -82,7 +82,7 @@ async def chat_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
-    if isFinal:
+    if isFinal and False:
         memory = UnitMemory(text, timestamp, isFinal=isFinal)
         decayed_memories = app['buffer'][userId].add_memory(memory)
 
@@ -298,9 +298,12 @@ def processing_loop():
         newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
         for transcript in newTranscripts:
             print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
-            cseResponse = cse.contextual_search_engine(transcript['userId'], transcript['text'])
-            if cseResponse != {} and cseResponse != None:
-                dbHandler.addCseResultForUser(transcript['userId'], cseResponse)
+            cseResponses = cse.contextual_search_engine(transcript['userId'], transcript['text'])
+            
+            if cseResponses != None:
+                for res in cseResponses:
+                    if res != {} and res != None:
+                        dbHandler.addCseResultForUser(transcript['userId'], res)
         time.sleep(1)
 
 cse = ContextualSearchEngine(relevanceFilter=relevanceFilter)
@@ -318,27 +321,38 @@ async def ui_poll(request, minutes=0.5):
         return web.Response(text='no deviceId in request', status=400)
     if features is None or features == '':
         return web.Response(text='no features in request', status=400)
-
+    if "contextual_search_engine" not in features:
+        return web.Response(text='contextual_search_engine not in features', status=400)
+    
     resp = dict()
 
-    #get UI updates that were requested
-    if "contextual_search_engine" in features:
-        #get CSE results
-        cseResults = dbHandler.getCseResultsForUserDevice(userId=userId, deviceId=deviceId)
-        cse_result = None
-        for c in cseResults:
-            if c != {}:
-                cse_result = c
-        
-        if cse_result != None:
-            print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cse_result))
-            #del cse_result['timestamp']
-            #del cse_result['uuid']
+    # Restructured how CSE returns results
+    # CSE results now stored individually in database
+    # Timestamps/UUIDs now stored with individual CSE results
+    # Implemented DatabaseHandler method: getDefinedTermsFromLastNMinutesForUserDevice
+    # Updated RelevanceFitler to use aformentioned method 
+
+    #get CSE results
+    cseResultList = dbHandler.getCseResultsForUserDevice(userId=userId, deviceId=deviceId)
+    
+    cseResults = cseResultList
+    #cseResults = []
+    #for res in cseResultList:
+    #    shouldAdd = relevanceFilter.shouldRunForText(userId=userId, deviceId=deviceId, text=res['name'])
+    #    print("SHOULD ADD?: {}".format(shouldAdd))
+    #    if shouldAdd:
+    #        print('woah dude adding some shiznit')
+    #        cseResults.append(res)
+    #    else:
+    #        print('woah buddy we cant add that wtf')
+
+    if cseResults != None and cseResults != []:
+        print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cseResults))
 
     #send response
-    if (cse_result) != None:
+    if (cseResults) != []:
         resp["success"] = True
-        resp["result"] = cse_result
+        resp["result"] = cseResults
     else:
         resp["success"] = False
     return web.Response(text=json.dumps(resp), status=200)

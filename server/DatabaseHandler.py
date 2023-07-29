@@ -1,6 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-
+import time
+import math
 class DatabaseHandler:
     def __init__(self):
         self.uri = "mongodb+srv://alex1115alex:usa@testcluster.lvcrdlg.mongodb.net/?retryWrites=true&w=majority"
@@ -127,14 +128,17 @@ class DatabaseHandler:
 
     ### CSE RESULTS FOR SPECIFIC DEVICE (USE THIS) ###
 
-    def getCseResultsForUserDevice(self, userId, deviceId):
+    def getCseResultsForUserDevice(self, userId, deviceId, includeConsumed = False):
         self.addUiDeviceToUserIfNotExists(userId, deviceId)
 
         user = self.userCollection.find_one({"userId": userId})
         results = user['cseResults'] if user != None else []
-        alreadyConsumedIds = self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
+        alreadyConsumedIds = [] if includeConsumed else self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
         newResults = []
         for res in results:
+            #print("res:")
+            #print(res)
+            #good here??
             if ('uuid' in res) and (res['uuid'] not in alreadyConsumedIds):
                 self.addConsumedCseResultIdForUserDevice(userId, deviceId, res['uuid'])
                 newResults.append(res)        
@@ -152,6 +156,38 @@ class DatabaseHandler:
         if user == None or user['uiList'] == None or user['uiList'][0] == None: return []
         toReturn = user['uiList'][0]['consumedCseResultIds']
         return toReturn if toReturn != None else []
+    
+    def getCseResultByUUID(self, uuid):
+        filter = {"cseResults.uuid" : uuid}
+        user = self.userCollection.find_one(filter=filter)
+        userResults = user['cseResults']
+        for res in userResults:
+            if res['uuid'] == uuid:
+                return res
+        return None
+    
+    def getConsumedCseResultsForUserDevice(self, userId, deviceId):
+        consumedIds = self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
+        consumedResults = []
+        for id in consumedIds:
+            result = self.getCseResultByUUID(id)
+            if result != None:
+                consumedResults.append(result)
+        return consumedResults
+
+    def getDefinedTermsFromLastNMinutesForUserDevice(self, userId, deviceId, n = 5):
+        minutes = n * 60000
+        consumedResults = self.getConsumedCseResultsForUserDevice(userId, deviceId)
+
+        previouslyDefinedTerms = []
+        currentTime = math.trunc(time.time())
+        for result in consumedResults:
+            if currentTime - result['timestamp'] < minutes:
+                previouslyDefinedTerms.append(result)
+        print("prev defined:")
+        print(previouslyDefinedTerms)
+        return previouslyDefinedTerms
+
 
     ### UI DEVICE ###
 
