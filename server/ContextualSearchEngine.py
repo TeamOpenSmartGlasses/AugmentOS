@@ -302,9 +302,16 @@ class ContextualSearchEngine:
             print("\n\n===CSE RESPONSE PROBABLY BAD ;(===\n\n")
             return None
        
-        response['timestamp'] = math.trunc(time.time())
-        response['uuid'] = str(uuid.uuid4())
+        #for i in range(len(response)):
+        for i in response:
+            print(i)
+            
+            response[i]['timestamp'] = math.trunc(time.time())
+            response[i]['uuid'] = str(uuid.uuid4())
 
+
+        #response['timestamp'] = math.trunc(time.time())
+        #response['uuid'] = str(uuid.uuid4())
         # print("\n\nCSE OUTPUT GOING TO BE:")
         # print(response)
         return response
