@@ -35,6 +35,7 @@ public class BackendServerComms {
     //endpoints
     public static final String LLM_QUERY_ENDPOINT = "/chat";
     public static final String BUTTON_EVENT_ENDPOINT = "/button_event";
+    public static final String CSE_ENDPOINT = "/ui_poll";
 
     public static BackendServerComms getInstance(Context c){
         if (restServerComms == null){
@@ -50,6 +51,7 @@ public class BackendServerComms {
 //        serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com"; //jeremy
 //        serverUrl = "https://9259wtmk89.execute-api.us-east-2.amazonaws.com"; //cayden
         serverUrl = "https://m0q3aubk6c.execute-api.us-east-1.amazonaws.com"; //cayden, MIT Media Lab Fluid Interfaces Group
+        serverUrl = "http://10.0.0.63:8080";
 
         useDevServer = false;
     }
@@ -79,15 +81,28 @@ public class BackendServerComms {
                     public void onResponse(JSONObject response) {
                         // Display the first 500 characters of the response string.
 //                        Log.d(TAG, "Success requesting data, response:");
-                        Log.d(TAG, response.toString());
-                        try{
-                            if (response.getString("message").length() > 0){
-                                callback.onSuccess(response);
-                            } else{
-                                callback.onFailure();
+                        //
+
+                        if(endpoint == CSE_ENDPOINT) {
+                            try {
+                                if (response.getBoolean("success")) {
+                                    callback.onSuccess(response);
+                                }
+                            } catch (JSONException e) {
                             }
-                        } catch (JSONException e){
-                            e.printStackTrace();
+                        }
+
+                        if(endpoint == LLM_QUERY_ENDPOINT || endpoint == BUTTON_EVENT_ENDPOINT) {
+                            Log.d(TAG, response.toString());
+                            try {
+                                if (response.getString("message").length() > 0) {
+                                    callback.onSuccess(response);
+                                } else {
+                                    callback.onFailure();
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
                         }
                     }
                 }, new Response.ErrorListener() {
