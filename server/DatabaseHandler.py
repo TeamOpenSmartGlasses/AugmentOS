@@ -83,6 +83,7 @@ class DatabaseHandler:
             self.popOldestTranscriptForUser(userId)
 
     def getRecentTranscriptsForUser(self, userId, deleteAfter = False):
+        self.createUserIfNotExists(userId)
         user = self.userCollection.find_one({"userId": userId})
         transcripts = user['transcripts']
         if deleteAfter: self.deleteAllTranscriptsForUser(userId)
