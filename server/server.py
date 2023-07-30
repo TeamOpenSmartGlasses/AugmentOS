@@ -307,7 +307,7 @@ def processing_loop():
                             dbHandler.addCseResultForUser(transcript['userId'], res)
         time.sleep(1)
 
-cse = ContextualSearchEngine(relevanceFilter=relevanceFilter)
+cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 async def ui_poll(request, minutes=0.5):
     #parse request
     body = await request.json()

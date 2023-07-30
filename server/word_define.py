@@ -8,6 +8,13 @@ from bs4 import BeautifulSoup
 
 import wikipediaapi
 
+from nltk.corpus import wordnet
+from sklearn.metrics.pairwise import cosine_similarity
+from Tokenizer import Tokenizer
+from Embedder import Embedder
+
+CUSTOM_TOKENIZER = True
+EMBEDDING_DIMENSIONS = [50, 100, 200, 300][0]
 
 # load index
 print("Loading word definitions index...")
@@ -55,8 +62,8 @@ def define_acronym(acronym):
     # Print the meaning
     return {acronym : definition} 
 
-
-def define_word(word):
+def define_word(word, context):
+  print("defining word: '{}' with context '{}'".format(word,context))
   if " " in word:
     definition = get_jargon_definition(word.replace(" ", "_"))
 
@@ -65,7 +72,10 @@ def define_word(word):
     syns = wordnet.synsets(word.lower())
 
     try:
-        definition = syns[0].definition()
+        definitions = [syn.definition() for syn in syns]
+        if not definitions: 
+            return None
+        definition = word_sense_disambiguation(context=context, sentences=definitions)
     except IndexError as e:
         print("Definition unknown for: {}".format(word))
         return None
@@ -74,6 +84,37 @@ def define_word(word):
         #word = word.upper()
   
   return {word: definition}
+
+def average_embedding(words, embedder):
+    embeddings = [embedder.embed_word(word) for word in words if word in embedder.embeddings_dict]
+    if len(embeddings) == 0:
+        print("\n\n\nERROR. WORDS: ")
+        print(words)
+        return -1
+    return sum(embeddings) / len(embeddings)
+
+tokenizer = Tokenizer()
+embedder = Embedder( model_path=f"glove.6B.{EMBEDDING_DIMENSIONS}d.txt")
+
+def word_sense_disambiguation(context, sentences):
+
+  context_words = tokenizer.tokenize(context, max_length=20) if CUSTOM_TOKENIZER else context.split()
+  context_embedding = average_embedding(context_words, embedder)
+
+  max_similarity = -1
+  predicted_meaning = None
+
+  for sentence in sentences:
+
+      sentence_words = tokenizer.tokenize(sentence, max_length=20) if CUSTOM_TOKENIZER else sentence.split()
+      sentence_embedding = average_embedding(sentence_words, embedder)
+      similarity = cosine_similarity(context_embedding.reshape(1, -1), sentence_embedding.reshape(1, -1))
+
+      if similarity > max_similarity:
+          max_similarity = similarity
+          predicted_meaning = sentence
+
+  return predicted_meaning
 
 def shorten_definition(definition, max_length=46, max_defs=2):
     # parse by ";" which seperates seperate definitions
