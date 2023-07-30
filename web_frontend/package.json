@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
+    "lodash": "^4.17.21",
     "mdb-react-ui-kit": "^2.2.0",
     "react": "^17.0.2",
     "react-bootstrap": "^2.1.0",
