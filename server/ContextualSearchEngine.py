@@ -34,12 +34,13 @@ import base64
 import word_frequency
 
 class ContextualSearchEngine:
-    def __init__(self, relevanceFilter):
+    def __init__(self, relevanceFilter, databaseHandler):
         #remember what we've defined
         self.previous_defs = list()
         self.client = googlemaps.Client(key=google_maps_api_key)
         self.imagePath = "images/cse"
         self.relevanceFilter = relevanceFilter
+        self.databaseHandler = databaseHandler
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
@@ -196,7 +197,8 @@ class ContextualSearchEngine:
         response = dict()
 
         #find rare words (including acronyms) and define them
-        rare_word_definitions = word_frequency.rare_word_define_string(talk)
+        context = talk + self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(userId, 3)
+        rare_word_definitions = word_frequency.rare_word_define_string(talk, context)
 
         # get entities
         entities_raw = self.analyze_entities(talk)
