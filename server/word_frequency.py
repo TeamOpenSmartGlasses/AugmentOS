@@ -78,7 +78,7 @@ def find_acronyms(words):
 #                continue 
     return acronyms
 
-def rare_word_define_string(text):
+def rare_word_define_string(text, context):
     #clean text and split text into words
     text = text.replace(".", " ").strip()
     text = re.sub(r'[0-9]', '', text)
@@ -105,7 +105,7 @@ def rare_word_define_string(text):
     acro_definitions = [ad for ad in acro_definitions if ad is not None]
 
     #define rare words
-    rare_word_definitions = [define_word(w) for w in rare_words]
+    rare_word_definitions = [define_word(w, context) for w in rare_words]
     rare_word_definitions = [wd for wd in rare_word_definitions if wd is not None]
     rare_word_definitions = [shorten_definition(d) for d in rare_word_definitions]
 
