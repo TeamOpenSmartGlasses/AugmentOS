@@ -1,5 +1,7 @@
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+import time
+import math
 
 class DatabaseHandler:
     def __init__(self):
@@ -112,6 +114,21 @@ class DatabaseHandler:
                 transcripts.extend(self.getRecentTranscriptsForUser(userId, deleteAfter=deleteAfter))
         
         return transcripts
+
+    def getTranscriptsFromLastNSecondsForUser(self, userId, n = 30):
+        seconds = n * 1000
+        allTranscripts = self.getRecentTranscriptsForUser(userId)
+
+        recentTranscripts = []
+        currentTime = math.trunc(time.time())
+        for transcript in allTranscripts:
+            if currentTime - transcript['timestamp'] < seconds:
+                recentTranscripts.append(transcript)
+        return recentTranscripts
+    
+    def getTranscriptsFromLastNSecondsForUserAsString(self, userId, n = 30):
+        transcripts = self.getTranscriptsFromLastNSecondsForUser(userId, n)
+        return self.stringifyTranscripts(transcriptList=transcripts)
 
     ### CSE RESULTS ###
 
