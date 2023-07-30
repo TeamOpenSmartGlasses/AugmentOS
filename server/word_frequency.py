@@ -15,14 +15,12 @@ low_freq_line_constant_norvig = low_freq_threshold_norvig * norvig_lines
 
 #load index
 print("Loading word frequency indexes...")
-df_google_word_freq = pd.read_csv("./english_word_freq_list/unigram_freq.csv")
-df_norvig_word_freq = pd.read_csv("./english_word_freq_list/30k.csv", header=0)
-idx_google_dict_word_freq = df_google_word_freq.groupby(by='word').apply(lambda x: x.index.tolist()).to_dict()
-idx_norvig_dict_word_freq = df_norvig_word_freq.groupby(by='word').apply(lambda x: x.index.tolist()).to_dict()
+word_frequency_indexes = pickle.load(open("./pickles/word_frequency_indexes.pkl", "rb"))
 
-df_google_word_freq.iloc[idx_google_dict_word_freq["golgw"]] # run once to build the index
-#print(df_norvig_word_freq)
-df_norvig_word_freq.iloc[idx_norvig_dict_word_freq["whereabouts"]] # run once to build the index
+df_google_word_freq = word_frequency_indexes["df_google_word_freq"]
+df_norvig_word_freq = word_frequency_indexes["df_norvig_word_freq"]
+idx_google_dict_word_freq = word_frequency_indexes["idx_google_dict_word_freq"]
+idx_norvig_dict_word_freq = word_frequency_indexes["idx_norvig_dict_word_freq"]
 print("--- Word frequency index loaded.")
 
 #we use this funny looking thing for fast string search, thanks to: https://stackoverflow.com/questions/44058097/optimize-a-string-query-with-pandas-large-data
