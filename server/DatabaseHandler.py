@@ -115,6 +115,21 @@ class DatabaseHandler:
         
         return transcripts
 
+    def getTranscriptsFromLastNMinutesForUser(self, userId, n = 5):
+        minutes = n * 60000
+        allTranscripts = self.getRecentTranscriptsForUser(userId)
+
+        recentTranscripts = []
+        currentTime = math.trunc(time.time())
+        for transcript in allTranscripts:
+            if currentTime - transcript['timestamp'] < minutes:
+                recentTranscripts.append(transcript)
+        return recentTranscripts
+    
+    def getTranscriptsFromLastNMinutesForUserAsString(self, userId, n = 5):
+        transcripts = self.getTranscriptsFromLastNMinutesForUser(userId, n)
+        return self.stringifyTranscripts(transcriptList=transcripts)
+
     ### CSE RESULTS ###
 
     def addCseResultForUser(self, userId, result):
