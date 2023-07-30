@@ -291,4 +291,4 @@ cython_debug/
 .DS_Store
 
 # ContextualSearchEngine
-# server/images/cse/
+server/images/cse/
