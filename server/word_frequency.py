@@ -4,6 +4,7 @@ from nltk.corpus import wordnet
 import word_define
 from word_define import *
 import re
+import pickle
 
 #how rare should a word be for us to consider it rare?
 low_freq_threshold_google = 0.0922 #the percentage of the line number needed to be considered a rare word - the higher, the more rare the word has to be to be defined
@@ -15,10 +16,9 @@ low_freq_line_constant_norvig = low_freq_threshold_norvig * norvig_lines
 
 #load index
 print("Loading word frequency indexes...")
-word_frequency_indexes = pickle.load(open("./pickles/word_frequency_indexes.pkl", "rb"))
-
-df_google_word_freq = word_frequency_indexes["df_google_word_freq"]
-df_norvig_word_freq = word_frequency_indexes["df_norvig_word_freq"]
+word_frequency_indexes = pickle.load(open("./pickles/word_freq_indexes.pkl", "rb"))
+df_google_word_freq = word_frequency_indexes["google_word_freq"]
+df_norvig_word_freq = word_frequency_indexes["norvig_word_freq"]
 idx_google_dict_word_freq = word_frequency_indexes["idx_google_dict_word_freq"]
 idx_norvig_dict_word_freq = word_frequency_indexes["idx_norvig_dict_word_freq"]
 print("--- Word frequency index loaded.")
