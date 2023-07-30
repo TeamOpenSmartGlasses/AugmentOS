@@ -23,14 +23,16 @@ export default class Referencer extends React.Component {
   }
 
   submitTranscript = (isFinal) => {
+    const text = this.props.transcript.substring(this.state.transcriptStartIdx);
+
     const payload = {
-      text: this.props.transcript.substring(this.state.transcriptStartIdx),
+      text: text,
       userId: "cayden",
       timestamp: Date.now(),
       isFinal,
     };
 
-    if (isFinal) {
+    if (isFinal && text !== "") {
       this.setState({
         ...this.state,
         transcriptStartIdx: this.props.transcript.length + 1,
