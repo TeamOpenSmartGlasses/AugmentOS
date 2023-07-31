@@ -4,6 +4,7 @@ from nltk.corpus import wordnet
 import word_define
 from word_define import *
 import re
+import pickle
 
 #how rare should a word be for us to consider it rare?
 low_freq_threshold_google = 0.0922 #the percentage of the line number needed to be considered a rare word - the higher, the more rare the word has to be to be defined
@@ -15,14 +16,11 @@ low_freq_line_constant_norvig = low_freq_threshold_norvig * norvig_lines
 
 #load index
 print("Loading word frequency indexes...")
-df_google_word_freq = pd.read_csv("./english_word_freq_list/unigram_freq.csv")
-df_norvig_word_freq = pd.read_csv("./english_word_freq_list/30k.csv", header=0)
-idx_google_dict_word_freq = df_google_word_freq.groupby(by='word').apply(lambda x: x.index.tolist()).to_dict()
-idx_norvig_dict_word_freq = df_norvig_word_freq.groupby(by='word').apply(lambda x: x.index.tolist()).to_dict()
-
-df_google_word_freq.iloc[idx_google_dict_word_freq["golgw"]] # run once to build the index
-#print(df_norvig_word_freq)
-df_norvig_word_freq.iloc[idx_norvig_dict_word_freq["whereabouts"]] # run once to build the index
+word_frequency_indexes = pickle.load(open("./pickles/word_freq_indexes.pkl", "rb"))
+df_google_word_freq = word_frequency_indexes["google_word_freq"]
+df_norvig_word_freq = word_frequency_indexes["norvig_word_freq"]
+idx_google_dict_word_freq = word_frequency_indexes["idx_google_dict_word_freq"]
+idx_norvig_dict_word_freq = word_frequency_indexes["idx_norvig_dict_word_freq"]
 print("--- Word frequency index loaded.")
 
 #we use this funny looking thing for fast string search, thanks to: https://stackoverflow.com/questions/44058097/optimize-a-string-query-with-pandas-large-data
@@ -80,7 +78,7 @@ def find_acronyms(words):
 #                continue 
     return acronyms
 
-def rare_word_define_string(text):
+def rare_word_define_string(text, context):
     #clean text and split text into words
     text = text.replace(".", " ").strip()
     text = re.sub(r'[0-9]', '', text)
@@ -107,7 +105,7 @@ def rare_word_define_string(text):
     acro_definitions = [ad for ad in acro_definitions if ad is not None]
 
     #define rare words
-    rare_word_definitions = [define_word(w) for w in rare_words]
+    rare_word_definitions = [define_word(w, context) for w in rare_words]
     rare_word_definitions = [wd for wd in rare_word_definitions if wd is not None]
     rare_word_definitions = [shorten_definition(d) for d in rare_word_definitions]
 

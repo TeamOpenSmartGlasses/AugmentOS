@@ -8,7 +8,7 @@ class RelevanceFilter:
 
         # Required as per: https://tinyurl.com/obscurePythonErrors
         print("relevance filter doing relevance filter things")
-        termsDefinedInLastFiveMinutes = self.databaseHandler.getDefinedTermsFromLastNMinutesForUserDevice(userId)
+        termsDefinedInLastFiveMinutes = self.databaseHandler.getDefinedTermsFromLastNSecondsForUserDevice(userId)
         for term in termsDefinedInLastFiveMinutes:
             if term['name'] == text:
                 print("BLOCKING TERM '{}': DEFINED TOO RECENTLY".format(text))
