@@ -43,13 +43,13 @@ import word_frequency
 
 
 class ContextualSearchEngine:
-
-    def __init__(self, relevanceFilter):
+    def __init__(self, relevanceFilter, databaseHandler):
         #remember what we've defined
         self.previous_defs = list()
         self.client = googlemaps.Client(key=google_maps_api_key)
         self.imagePath = "images/cse"
         self.relevanceFilter = relevanceFilter
+        self.databaseHandler = databaseHandler
 
         self.max_window_size = 3
         custom_data_path = "./custom_data/mit_media_lab/"
@@ -221,7 +221,8 @@ class ContextualSearchEngine:
         print("------------------------------------")
 
         #find rare words (including acronyms) and define them
-        rare_word_definitions = word_frequency.rare_word_define_string(talk)
+        context = talk + self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(userId, 3)
+        rare_word_definitions = word_frequency.rare_word_define_string(talk, context)
 
         # get entities
         entities_raw = self.analyze_entities(talk)

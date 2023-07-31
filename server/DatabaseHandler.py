@@ -83,6 +83,7 @@ class DatabaseHandler:
             self.popOldestTranscriptForUser(userId)
 
     def getRecentTranscriptsForUser(self, userId, deleteAfter = False):
+        self.createUserIfNotExists(userId)
         user = self.userCollection.find_one({"userId": userId})
         transcripts = user['transcripts']
         if deleteAfter: self.deleteAllTranscriptsForUser(userId)
@@ -189,14 +190,14 @@ class DatabaseHandler:
                 consumedResults.append(result)
         return consumedResults
 
-    def getDefinedTermsFromLastNMinutesForUserDevice(self, userId, n = 5):
-        minutes = n * 60000
+    def getDefinedTermsFromLastNSecondsForUserDevice(self, userId, n = 300):
+        seconds = n * 1000
         consumedResults = self.getCseResultsForUserDevice(userId=userId, deviceId="", shouldConsume=False, includeConsumed=True)
 
         previouslyDefinedTerms = []
         currentTime = math.trunc(time.time())
         for result in consumedResults:
-            if currentTime - result['timestamp'] < minutes:
+            if currentTime - result['timestamp'] < seconds:
                 previouslyDefinedTerms.append(result)
         return previouslyDefinedTerms
 
