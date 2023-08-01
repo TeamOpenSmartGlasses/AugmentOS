@@ -140,7 +140,12 @@ class ContextualSearchEngine:
         )
 
         # Make the request
-        response = client.lookup(request=request)
+        try:
+            response = client.lookup(request=request)
+        except Exception as e:
+            print("Error with Google Knowledge Graph request:")
+            print(e)
+            return []
 
         # Extract and print date from response
         res = dict()
