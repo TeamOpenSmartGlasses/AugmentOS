@@ -11,14 +11,14 @@ import time
 from google.cloud import language_v1
 from typing import Sequence
 from google.cloud import enterpriseknowledgegraph as ekg
-from gcp_config import gcp_project_id
+from server_config import gcp_project_id
 
 #OpenAI imports
 import openai
 openai.api_key = os.environ['OPENAI_API_KEY']
 
 #Google static maps imports
-from gcp_config import google_maps_api_key
+from server_config import google_maps_api_key
 import responses
 import random
 import googlemaps

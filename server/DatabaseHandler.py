@@ -2,11 +2,11 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import time
 import math
+from server_config import databaseUri
 
 class DatabaseHandler:
     def __init__(self):
-        # self.uri = "mongodb+srv://alex1115alex:usa@testcluster.lvcrdlg.mongodb.net/?retryWrites=true&w=majority"
-        self.uri = "mongodb+srv://alis4887:usa@testcluster.yzrnimk.mongodb.net/?retryWrites=true&w=majority" # Backup server
+        self.uri = databaseUri
         self.maxTranscriptsPerUser = 2
         self.userCollection = None
         self.ready = False
