@@ -1,22 +1,30 @@
-import React from 'react';
-import axios from 'axios';
-import { Card, Button } from 'react-bootstrap';
+import React from "react";
+import axios from "axios";
+import { Card, Button } from "react-bootstrap";
 
 export default class Controls extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-        }
-    }
+    this.state = { isRecognizing: false };
+  }
 
   render() {
     return (
-    <div className="scrollcontent">
+      <div className="scrollcontent">
         <h6>Controls</h6>
-        <Button variant="primary">Stop</Button>
-        <br/>
-        <h6>Custom Data Sources</h6>
+        {this.props.isActive ? (
+          <Button variant="danger" onClick={this.props.toggleActive}>
+            Stop
+          </Button>
+        ) : (
+          <Button variant="success" onClick={this.props.toggleActive}>
+            Start
+          </Button>
+        )}
+
+        <br />
+        {/* <h6>Custom Data Sources</h6>
             <form>
               <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike"/>
               <label for="vehicle1"> MIT Media Lab Website</label><br/>
@@ -26,9 +34,8 @@ export default class Controls extends React.Component {
               <label for="vehicle3"> CSV File Data source</label>
                 <br/><br/>
               <input type="submit" value="Submit" />
-            </form>
-    </div>
-
-    )
+            </form> */}
+      </div>
+    );
   }
 }
