@@ -155,7 +155,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
                     try {
                         Log.d(TAG, "CALLING on Success");
                         Log.d(TAG, "Result: " + result.toString());
-                        parseCSEResult(result);
+                        
+                        parseCSEResults(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -181,31 +182,25 @@ public class WearLLMService extends SmartGlassesAndroidService {
         }
     }
 
-    public void parseCSEResult(JSONObject response) throws JSONException {
+    public void parseCSEResults(JSONObject response) throws JSONException {
         Log.d(TAG, "GOT CSE RESULT: " + response.toString());
-        JSONObject in_response = response.getJSONObject("result");
-        JSONArray keys = in_response.names();
-        if (keys == null){
-            return;
-        }
-        sgmLib.startScrollingText("Contextual Search: ");
+        JSONArray results = response.getJSONArray("result");
 
-        for (int i = 0; i < keys.length(); i++) {
+        for (int i = 0; i < results.length(); i++){
             try {
-                String name = keys.getString(i); // Here's your key
-                String body = in_response.getJSONObject(name).getString("summary");
+                JSONObject obj = results.getJSONObject(i);
+                String name = obj.getString("name");
+                String body = obj.getString("summary");
                 String combined = name + ": " + body;
                 Log.d(TAG, name);
                 Log.d(TAG, "--- " + body);
-                sgmLib.pushScrollingText(combined);
                 responses.add(combined);
                 sendUiUpdateSingle(combined);
                 speakTTS(combined);
-
+                sgmLib.sendReferenceCard(name, body);
             } catch (JSONException e){
                 e.printStackTrace();
             }
-            return;
         }
     }
 
