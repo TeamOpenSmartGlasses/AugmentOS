@@ -306,7 +306,7 @@ def processing_loop():
                     if res != {} and res != None:
                         if relevanceFilter.shouldRunForText(transcript['userId'], res['name']):
                             dbHandler.addCseResultForUser(transcript['userId'], res)
-        time.sleep(1)
+        time.sleep(2)
 
 cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 async def ui_poll(request, minutes=0.5):
