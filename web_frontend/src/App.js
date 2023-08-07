@@ -22,6 +22,8 @@ export default class App extends React.Component {
 
         this.updateTranscript = this.updateTranscript.bind(this);
         this.viewMoreButtonClicked = this.viewMoreButtonClicked.bind(this);
+        window.userId = this.generateRandomUserId();
+        window.deviceId = "CSEWebFrontendDefault";
     }
 
     componentDidMount() {
@@ -36,12 +38,18 @@ export default class App extends React.Component {
         this.setState({ viewMoreUrl });
     }
 
+    generateRandomUserId(){
+        let rand = "x".repeat(5)
+        .replace(/./g, c => "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"[Math.floor(Math.random() * 62) ] );
+        return "WebFrontend_" + rand;
+    }
+
     //poll the backend for UI updates
     updateUiBackendPoll(){
         const subTranscript = {
             features: ["contextual_search_engine"], //list of features here
-            userId: "cayden",
-            deviceId: "cayden-lappy"
+            userId: window.userId,
+            deviceId: window.deviceId
         };
 
         axios.post("/api/ui_poll", subTranscript)
