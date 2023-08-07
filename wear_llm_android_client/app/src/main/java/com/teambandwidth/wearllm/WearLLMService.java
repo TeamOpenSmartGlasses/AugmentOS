@@ -36,7 +36,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
     ArrayList<String> responses;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnableCode;
-    static final String userId = "alex";
+    static final String userId = "WearLLM_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
     static final String deviceId = "android";
     static final String features = "contextual_search_engine";
 
@@ -109,7 +109,9 @@ public class WearLLMService extends SmartGlassesAndroidService {
     public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){
         Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + transcript);
 
-        sendFinalTranscriptToActivity(transcript);
+        if (isFinal)
+            sendFinalTranscriptToActivity(transcript);
+
         sendLLMQueryRequest(transcript, isFinal);
     }
 
