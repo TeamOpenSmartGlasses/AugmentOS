@@ -8,6 +8,7 @@ import Dictaphone from './components/Dictaphone.js';
 import Referencer from './components/Referencer';
 import Controls from './components/Controls';
 import PageView from './components/PageView';
+import Cookies from 'js-cookie';
 import "./index.css";
 import "./App.css";
 
@@ -22,8 +23,7 @@ export default class App extends React.Component {
 
         this.updateTranscript = this.updateTranscript.bind(this);
         this.viewMoreButtonClicked = this.viewMoreButtonClicked.bind(this);
-        window.userId = this.generateRandomUserId();
-        window.deviceId = "CSEWebFrontendDefault";
+        this.initUserId();
     }
 
     componentDidMount() {
@@ -36,6 +36,25 @@ export default class App extends React.Component {
 
     viewMoreButtonClicked(viewMoreUrl){
         this.setState({ viewMoreUrl });
+    }
+
+    initUserId(){
+        let userId = Cookies.get('userId');
+        if(userId == undefined || userId == null || userId == ""){
+            console.log("No userID detected - generating random userID");
+            userId = this.generateRandomUserId();
+        }
+        else
+        {
+            console.log("Previous userId found: " + userId)
+        }
+        this.setUserIdAndDeviceId(userId);
+    }
+
+    setUserIdAndDeviceId(newUserId){
+        window.userId = newUserId;
+        Cookies.set('userId', newUserId, { expires: 9999 });
+        window.deviceId = "CSEWebFrontendDefault";
     }
 
     generateRandomUserId(){
@@ -55,7 +74,8 @@ export default class App extends React.Component {
         axios.post("/api/ui_poll", subTranscript)
           .then(res => {
             const newEntitiesDict = res.data.result;
-            console.log(res.data);
+            if(res.data.success)
+                console.log(res.data);
             if (res.data.result){
                 var newEntitiesArray = Object.keys(newEntitiesDict).map(function(k) {
                     return newEntitiesDict[k];
