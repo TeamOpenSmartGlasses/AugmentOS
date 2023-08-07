@@ -184,6 +184,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
     public void parseCSEResults(JSONObject response) throws JSONException {
         Log.d(TAG, "GOT CSE RESULT: " + response.toString());
+        String imgKey = "image_url";
+        String mapImgKey = "map_image_path";
         JSONArray results = response.getJSONArray("result");
 
         for (int i = 0; i < results.length(); i++){
@@ -197,7 +199,18 @@ public class WearLLMService extends SmartGlassesAndroidService {
                 responses.add(combined);
                 sendUiUpdateSingle(combined);
                 speakTTS(combined);
-                sgmLib.sendReferenceCard(name, body);
+
+                if(obj.has(mapImgKey)){
+                    String mapImgPath = obj.getString(mapImgKey);
+                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
+                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
+                }
+                else if(obj.has(imgKey)) {
+                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
+                }
+                else {
+                    sgmLib.sendReferenceCard(name, body);
+                }
             } catch (JSONException e){
                 e.printStackTrace();
             }
