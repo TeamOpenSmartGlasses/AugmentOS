@@ -317,7 +317,7 @@ def processing_loop():
         finally:
             lock.release()
 
-        time.sleep(2)
+        time.sleep(.5)
 
 cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 async def ui_poll(request, minutes=0.5):
