@@ -299,8 +299,12 @@ def processing_loop():
         newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
         for transcript in newTranscripts:
             print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
-            cseResponses = cse.contextual_search_engine(transcript['userId'], transcript['text'])
-            
+            try:
+                cseResponses = cse.contextual_search_engine(transcript['userId'], transcript['text'])
+            except Exception as e:
+                cseResponses = None
+                print("Exception in CSE...:")
+                print(e)
             if cseResponses != None:
                 for res in cseResponses:
                     if res != {} and res != None:
