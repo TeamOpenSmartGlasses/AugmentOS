@@ -430,4 +430,11 @@ class ContextualSearchEngine:
             matches[titles[mi]]["summary"] = descriptions[mi]
             matches[titles[mi]]["url"] = urls[mi]
 
+        #DEV/TODO - we still return too many false positives sometimes, so limit return if we fail and give a list that is unreasonably big
+        unreasonable_num = 4
+        def random_bye_bye_false_positives(d, max_keys):
+            while len(d) > max_keys:
+                d.pop(random.choice(list(d.keys())))
+        random_bye_bye_false_positives(matches, unreasonable_num)
+
         return matches
