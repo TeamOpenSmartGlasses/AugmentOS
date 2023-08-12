@@ -12,3 +12,6 @@ google_maps_api_key = ""
 databaseUri = "mongodb+srv://alexanderisraelov:usa@testcluster.d4mvpr8.mongodb.net/?retryWrites=true&w=majority"
 server_port = 8081
 path_modifier = "dev/"
+
+# Local:
+# databaseUri = "mongodb://localhost:27017"
