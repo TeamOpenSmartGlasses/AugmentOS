@@ -69,13 +69,16 @@ app['memory']['wazeer'] = LongTermMemory('wazeer')
 # or
 # direct prompt based interaction for each query
 
+mostRecentFinalTranscript = dict()
+fiveSecondsInMs = 5000
 async def chat_handler(request):
+    startTime = time.time()
+
     body = await request.json()
     isFinal = body.get('isFinal')
     text = body.get('text')
     timestamp = body.get('timestamp')
     userId = body.get('userId')
-    print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
 
     # 400 if missing params
     if text is None or text == '':
@@ -94,35 +97,50 @@ async def chat_handler(request):
         app['memory'][userId].add_memories(decayed_memories)
 
     # Save to database
-    # TODO: This is at odds with the current memory system. Investigate best solution.
-    dbHandler.saveTranscriptForUser(userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
+    # & Debounce extraneous intermediate transcripts by only 
+    # considering those that come after 5 seconds of a final transcript
+    if userId not in mostRecentFinalTranscript:
+        mostRecentFinalTranscript[userId] = 0
 
-    # log so we can retain convo memory for later
-    with open(f'{userId}.log', 'a') as f:
-        f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
+    if isFinal:
+        mostRecentFinalTranscript[userId] = timestamp
 
-    # agent response
-    response = ''
-    try:
-        jarvis_mode = text.lower().find("jarvis") != -1
-        if jarvis_mode:
-            with open(f'{userId}_commands.log', 'a') as f:
-                f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
+    if isFinal or (timestamp - mostRecentFinalTranscript[userId] < fiveSecondsInMs):
+        print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
+        dbHandler.saveTranscriptForUser(userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
 
-            answer = await answer_question_to_jarvis(text, userId)
-            response = answer
+        # Also do WearLLM things
+        # log so we can retain convo memory for later
+        with open(f'{userId}.log', 'a') as f:
+            f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
 
-        james_mode = text.lower().find("james") != -1
-        if james_mode:
-            with open(f'{userId}_commands.log', 'a') as f:
-                f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
+        # agent response
+        response = ''
+        try:
+            jarvis_mode = text.lower().find("jarvis") != -1
+            if jarvis_mode:
+                with open(f'{userId}_commands.log', 'a') as f:
+                    f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
 
-            answer = await agent_james(text, userId)
-            response = answer
+                answer = await answer_question_to_jarvis(text, userId)
+                response = answer
 
-    except Exception as e:
-        print("Error: ", e)
+            james_mode = text.lower().find("james") != -1
+            if james_mode:
+                with open(f'{userId}_commands.log', 'a') as f:
+                    f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
 
+                answer = await agent_james(text, userId)
+                response = answer
+
+        except Exception as e:
+            print("Error: ", e)
+    else:
+        print("DEBOUNCING TRANSCRIPT")
+        response = ''
+    
+    endTime = time.time()
+    print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(round(endTime - startTime, 2)))
     return web.Response(text=json.dumps({'success': True, 'message': response}), status=200)
 
 
@@ -297,15 +315,18 @@ def processing_loop():
             print("dbHandler not ready")
             time.sleep(0.1)
             continue
-
         lock.acquire()
 
         try:
+            pLoopStartTime = time.time()
             # Check for new transcripts
-            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
+            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=False)
             for transcript in newTranscripts:
                 print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
+                cseStartTime = time.time()
                 cseResponses = cse.contextual_search_engine(transcript['userId'], transcript['text'])
+                cseEndTime = time.time()
+                print("=== CSE completed in {} seconds ===".format(round(cseEndTime - cseStartTime, 2)))
                 if cseResponses != None:
                     for res in cseResponses:
                         if res != {} and res != None:
@@ -318,7 +339,8 @@ def processing_loop():
                 traceback.print_exc()
         finally:
             lock.release()
-
+            pLoopEndTime = time.time()
+            print("=== processing_loop completed in {} seconds overall ===".format(round(pLoopEndTime - pLoopStartTime, 2)))
         time.sleep(.5)
 
 cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
