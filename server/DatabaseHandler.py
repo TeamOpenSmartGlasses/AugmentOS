@@ -74,7 +74,7 @@ class DatabaseHandler:
         transcript = {"userId": userId, "text": text, "timestamp": timestamp, "isFinal": isFinal}
         self.createUserIfNotExists(userId)
 
-        # Remove old transcripts if there are too many
+        # Remove old transcripts if there are too many, must come before the update_one call
         if len(self.getRecentTranscriptsForUser(userId)) > self.maxTranscriptsPerUser:
             self.popOldestTranscriptForUser(userId)
 
