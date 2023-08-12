@@ -103,7 +103,7 @@ def word_sense_disambiguation(context, sentences):
   predicted_meaning = None
 
   for sentence in sentences:
-
+    try:
       sentence_words = tokenizer.tokenize(sentence, max_length=20) if CUSTOM_TOKENIZER else sentence.split()
       sentence_embedding = average_embedding(sentence_words, embedder)
       similarity = cosine_similarity(context_embedding.reshape(1, -1), sentence_embedding.reshape(1, -1))
@@ -111,7 +111,9 @@ def word_sense_disambiguation(context, sentences):
       if similarity > max_similarity:
           max_similarity = similarity
           predicted_meaning = sentence
-
+    except Exception as e:
+      print(e)
+      predicted_meaning = sentence
   return predicted_meaning
 
 def shorten_definition(definition, max_length=46, max_defs=2):

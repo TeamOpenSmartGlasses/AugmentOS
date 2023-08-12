@@ -107,7 +107,10 @@ async def chat_handler(request):
 
     if isFinal or (timestamp - mostRecentFinalTranscript[userId] < fiveSecondsInMs):
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
+        startSaveDbTime = time.time()
         dbHandler.saveTranscriptForUser(userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
+        endSaveDbTime = time.time()
+        print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(round(endSaveDbTime - startSaveDbTime, 2)))
 
         # Also do WearLLM things
         # log so we can retain convo memory for later
@@ -320,7 +323,7 @@ def processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=False)
+            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
             for transcript in newTranscripts:
                 print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
                 cseStartTime = time.time()
