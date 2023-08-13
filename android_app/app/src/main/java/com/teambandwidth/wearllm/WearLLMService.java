@@ -36,7 +36,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
     ArrayList<String> responses;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnableCode;
-    static final String userId = "alex";
+    static final String userId = "WearLLM_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
     static final String deviceId = "android";
     static final String features = "contextual_search_engine";
 
@@ -109,7 +109,9 @@ public class WearLLMService extends SmartGlassesAndroidService {
     public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){
         Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + transcript);
 
-        sendFinalTranscriptToActivity(transcript);
+        if (isFinal)
+            sendFinalTranscriptToActivity(transcript);
+
         sendLLMQueryRequest(transcript, isFinal);
     }
 
@@ -153,7 +155,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
                     try {
                         Log.d(TAG, "CALLING on Success");
                         Log.d(TAG, "Result: " + result.toString());
-                        parseCSEResult(result);
+                        
+                        parseCSEResults(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -179,31 +182,38 @@ public class WearLLMService extends SmartGlassesAndroidService {
         }
     }
 
-    public void parseCSEResult(JSONObject response) throws JSONException {
+    public void parseCSEResults(JSONObject response) throws JSONException {
         Log.d(TAG, "GOT CSE RESULT: " + response.toString());
-        JSONObject in_response = response.getJSONObject("result");
-        JSONArray keys = in_response.names();
-        if (keys == null){
-            return;
-        }
-        sgmLib.startScrollingText("Contextual Search: ");
+        String imgKey = "image_url";
+        String mapImgKey = "map_image_path";
+        JSONArray results = response.getJSONArray("result");
 
-        for (int i = 0; i < keys.length(); i++) {
+        for (int i = 0; i < results.length(); i++){
             try {
-                String name = keys.getString(i); // Here's your key
-                String body = in_response.getJSONObject(name).getString("summary");
+                JSONObject obj = results.getJSONObject(i);
+                String name = obj.getString("name");
+                String body = obj.getString("summary");
                 String combined = name + ": " + body;
                 Log.d(TAG, name);
                 Log.d(TAG, "--- " + body);
-                sgmLib.pushScrollingText(combined);
                 responses.add(combined);
                 sendUiUpdateSingle(combined);
                 speakTTS(combined);
 
+                if(obj.has(mapImgKey)){
+                    String mapImgPath = obj.getString(mapImgKey);
+                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
+                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
+                }
+                else if(obj.has(imgKey)) {
+                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
+                }
+                else {
+                    sgmLib.sendReferenceCard(name, body);
+                }
             } catch (JSONException e){
                 e.printStackTrace();
             }
-            return;
         }
     }
 

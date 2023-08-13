@@ -27,7 +27,7 @@ public class BackendServerComms {
     //volley vars
     public RequestQueue mRequestQueue;
     private Context mContext;
-    private String serverUrl;
+    public String serverUrl;
     private int requestTimeoutPeriod = 0; //15000;
 
     private boolean useDevServer;
@@ -50,8 +50,9 @@ public class BackendServerComms {
         mRequestQueue = Volley.newRequestQueue(mContext);
 //        serverUrl = "https://1q93wu6qkd.execute-api.us-east-2.amazonaws.com"; //jeremy
 //        serverUrl = "https://9259wtmk89.execute-api.us-east-2.amazonaws.com"; //cayden
-        serverUrl = "https://m0q3aubk6c.execute-api.us-east-1.amazonaws.com"; //cayden, MIT Media Lab Fluid Interfaces Group
-        serverUrl = "http://10.0.0.63:8080";
+        //serverUrl = "https://m0q3aubk6c.execute-api.us-east-1.amazonaws.com"; //cayden, MIT Media Lab Fluid Interfaces Group
+        serverUrl = "https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api"; //TOSG BOX
+//        serverUrl = "http://192.168.7.111:8080";
 
         useDevServer = false;
     }

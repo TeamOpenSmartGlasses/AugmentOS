@@ -9,7 +9,7 @@ export default class Referencer extends React.Component {
 
     this.state = {
       entities: [],
-      transcriptStartIdx: 0
+      transcriptStartIdx: 0,
     };
 
     this.hyperlinkStream = React.createRef();
@@ -27,7 +27,7 @@ export default class Referencer extends React.Component {
 
     const payload = {
       text: text,
-      userId: "cayden",
+      userId: window.userId,
       timestamp: Date.now(),
       isFinal,
     };
