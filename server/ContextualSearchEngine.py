@@ -231,8 +231,6 @@ class ContextualSearchEngine:
 
         # get entities
         entities_raw = self.analyze_entities(talk)
-        # print("Entities raw:")
-        # print(entities_raw)
 
         #filter entities
         entities = list()
@@ -363,6 +361,7 @@ class ContextualSearchEngine:
         except Exception as e:
             print(e)
             img_url = None
+        return img_url
     
     def search_name(self, to_search, entities):
         matches = list()
