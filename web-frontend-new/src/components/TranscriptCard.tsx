@@ -62,7 +62,7 @@ const TranscriptCard = () => {
 
     const payload = {
       text: text,
-      userId: "test",
+      userId: window.userId,
       timestamp: Date.now(),
       isFinal,
     };
@@ -103,6 +103,8 @@ const TranscriptCard = () => {
   }, []);
 
   useEffect(() => {
+    console.log(transcript);
+    
     scrollToBottom();
     if (isRecognizing) {
       submitTranscript(transcript, transcriptStartIdx, false);

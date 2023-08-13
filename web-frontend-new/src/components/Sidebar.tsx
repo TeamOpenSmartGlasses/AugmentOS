@@ -10,14 +10,7 @@ import {
 } from "@mantine/core";
 import {
   IconHome2,
-  IconGauge,
-  IconDeviceDesktopAnalytics,
-  IconFingerprint,
-  IconCalendarStats,
-  IconUser,
   IconSettings,
-  IconLogout,
-  IconSwitchHorizontal,
   TablerIconsProps,
 } from "@tabler/icons-react";
 
