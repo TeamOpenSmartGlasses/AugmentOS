@@ -11,7 +11,6 @@ import {
   IconPlayerStopFilled,
   IconPlayerPlayFilled,
 } from "@tabler/icons-react";
-import "regenerator-runtime/runtime";
 import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
@@ -36,11 +35,12 @@ const TranscriptCard = () => {
 
   const {
     transcript,
+    finalTranscript,
     resetTranscript,
-    // listening,
+    listening,
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable,
-  } = useSpeechRecognition({});
+  } = useSpeechRecognition();
 
   const startRecognizing = () => {
     SpeechRecognition.startListening({ continuous: true });
@@ -104,17 +104,23 @@ const TranscriptCard = () => {
 
   useEffect(() => {
     console.log(transcript);
-    
+
     scrollToBottom();
-    if (isRecognizing) {
-      submitTranscript(transcript, transcriptStartIdx, false);
-      debouncedSubmitFinalTranscript();
-    }
+    submitTranscript(transcript, transcriptStartIdx, false);
+    debouncedSubmitFinalTranscript();
   }, [transcript]);
 
-  useEffect(() => {
-    console.log(transcriptStartIdx);
-  }, [transcriptStartIdx]);
+  // useEffect(() => {
+  //   console.log("Final transcript", finalTranscript);
+  // }, [finalTranscript]);
+
+  // useEffect(() => {
+  //   console.log("Listenitng", listening);
+  // }, [listening]);
+
+  // useEffect(() => {
+  //   console.log(transcriptStartIdx);
+  // }, [transcriptStartIdx]);
 
   if (!browserSupportsSpeechRecognition) {
     return null;
