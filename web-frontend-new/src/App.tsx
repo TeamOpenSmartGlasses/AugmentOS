@@ -14,6 +14,7 @@ import axios from "axios";
 import { Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import { mockEntities } from "./mockData";
+import Cookies from "js-cookie";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -38,19 +39,49 @@ export default function App() {
   const [entities, setEntities] = useState<Entity[]>([]);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
 
+  const initUserId = () => {
+    let userId = Cookies.get("userId");
+    if (userId == undefined || userId == null || userId == "") {
+      console.log("No userID detected - generating random userID");
+      userId = generateRandomUserId();
+    } else {
+      console.log("Previous userId found: " + userId);
+    }
+    setUserIdAndDeviceId(userId);
+  };
+
+  const generateRandomUserId = () => {
+    const rand = "x"
+      .repeat(5)
+      .replace(
+        /./g,
+        () =>
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"[
+            Math.floor(Math.random() * 62)
+          ]
+      );
+    return "WebFrontend_" + rand;
+  };
+
+  const setUserIdAndDeviceId = (newUserId: string) => {
+    window.userId = newUserId;
+    Cookies.set("userId", newUserId, { expires: 9999 });
+    window.deviceId = "CSEWebFrontendDefault";
+  };
+
   //poll the backend for UI updates
   const updateUiBackendPoll = () => {
     const subTranscript = {
       features: ["contextual_search_engine"], //list of features here
-      userId: "cayden",
-      deviceId: "cayden-lappy",
+      userId: window.userId,
+      deviceId: window.deviceId,
     };
 
     axios
       .post("/api/ui_poll", subTranscript)
       .then((res) => {
         const newEntitiesDict = res.data.result;
-        console.log(res.data);
+        if (res.data.success) console.log(res.data);
         if (res.data.result) {
           const newEntitiesArray = Object.keys(newEntitiesDict).map(function (
             k
@@ -67,6 +98,7 @@ export default function App() {
   };
 
   useEffect(() => {
+    initUserId();
     setInterval(() => {
       updateUiBackendPoll();
     }, 1000);
