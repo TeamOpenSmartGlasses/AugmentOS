@@ -14,3 +14,4 @@ bs4
 Wikipedia-API
 tiktoken
 pymongo
+fuzzysearch

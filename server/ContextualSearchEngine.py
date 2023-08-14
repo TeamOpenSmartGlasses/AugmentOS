@@ -6,6 +6,7 @@ import os
 import uuid
 import math
 import time
+from bs4 import BeautifulSoup
 
 #Google NLP + Maps imports
 from google.cloud import language_v1
@@ -27,11 +28,19 @@ from googlemaps.maps import StaticMapPath
 from PIL import Image
 from io import BytesIO
 
+# custom data search
+import nltk
+from nltk.corpus import stopwords
+from fuzzysearch import find_near_matches
+import pandas as pd
+nltk.download('stopwords')
+
 #image conversion
 import base64
 
 #custom
 import word_frequency
+
 
 class ContextualSearchEngine:
     def __init__(self, relevanceFilter, databaseHandler):
@@ -41,6 +50,12 @@ class ContextualSearchEngine:
         self.imagePath = "images/cse"
         self.relevanceFilter = relevanceFilter
         self.databaseHandler = databaseHandler
+
+        self.max_window_size = 3
+        custom_data_path = "./custom_data/mit_media_lab/"
+        # self.people = pd.read_csv(custom_data_path + "people.csv").dropna(subset=['name'])['name']
+        #self.projects = pd.read_csv(custom_data_path + "projects.csv").dropna(subset=['title'])['title']
+        self.custom_data = pd.read_csv(custom_data_path + "projects.csv").dropna(subset=['title'])
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
@@ -96,8 +111,11 @@ class ContextualSearchEngine:
 
         return response.entities
 
-    def summarize_entity(self, entity: str):
+    def summarize_entity(self, entity_description: str, chars_to_use=750):
+        #shorten entity_description if too long
+        entity_description = entity_description[:max(chars_to_use, len(entity_description))]
 
+        #make prompt
         #like "the" and "a" if they aren't useful to human understanding
         prompt = f"""Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
@@ -114,7 +132,7 @@ class ContextualSearchEngine:
         [OUTPUT]
         AI chatbot using GPT models.
 
-        \n Text to summarize: \n{entity} \nSummary (8 words or less): """
+        \n Text to summarize: \n{entity_description} \nSummary (8 words or less): """
         # print("Running prompt for summary: \n {}".format(prompt))
         chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
         response = chat_completion.choices[0].text
@@ -201,14 +219,18 @@ class ContextualSearchEngine:
         #build response object from various processing sources
         response = dict()
 
+        # find mentions of custom data entities
+        entities_custom = self.ner_custom_data(talk)
+        print("----------------CUSTOM ENTITIES--------------------")
+        print(entities_custom)
+        print("------------------------------------")
+
         #find rare words (including acronyms) and define them
         context = talk + self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(userId, 3)
         rare_word_definitions = word_frequency.rare_word_define_string(talk, context)
 
         # get entities
         entities_raw = self.analyze_entities(talk)
-        # print("Entities raw:")
-        # print(entities_raw)
 
         #filter entities
         entities = list()
@@ -224,10 +246,6 @@ class ContextualSearchEngine:
             if entity.type_ == "LOCATION":
                 entities.append(entity)
                 break
-        #if the entity has a salience over n, then we want it (NOTE: salience may be high if transcript length is short)
-            #if entity.salience >= salience_threshold:
-                #entities.append(entity)
-                #continue
 
         #if entities have `mid`s, then lookup the entities with google knowledge graph
         ## get all mid's first, as batch mid search is faster
@@ -270,24 +288,30 @@ class ContextualSearchEngine:
             response[word]["type"] = "RARE_WORD"
             response[word]["name"] = word
 
-        #build response and summarize long entity descriptions
+        #put search results into response
         for entity_mid in entity_search_results:
             entity = entity_search_results[entity_mid]
+            response[entity["name"]] = entity
 
+        #add custom NER entities to response
+        response.update(entities_custom)
+
+        #build response and summarize long entity descriptions
+        for entity_name in response.keys():
             #get description
-            description = entity["summary"]
+            description = response[entity_name]["summary"]
 
-            #summarize entity if greater than 8 words long
-            if (description != None) and (len(description.split(" ")) > 8):
+            #summarize entity if greater than 12 words long
+            if (description != None) and (len(description.split(" ")) > 12):
                 summary = self.summarize_entity(description)
             elif description != None:
                 summary = description
             else:
                 print("======\nNO DESCRIPTION\n======")
-                summary = "NO description"
+                summary = "..."
 
-            response[entity["name"]] = entity
-            response[entity["name"]]["summary"] = summary
+            response[entity_name]["summary"] = summary
+
 
         #get entities from location results
         #for location in locations:
@@ -303,7 +327,7 @@ class ContextualSearchEngine:
 
         #return filtered_response
         if response == {}: 
-            print("\n\n===CSE RESPONSE PROBABLY BAD ;(===\n\n")
+            print("\n\n===CSE RESPONSE EMPTY ===\n\n")
             return None
        
         #for i in range(len(response)):
@@ -338,3 +362,79 @@ class ContextualSearchEngine:
             print(e)
             img_url = None
         return img_url
+    
+    def search_name(self, to_search, entities):
+        matches = list()
+        for idx, entity in entities:
+            match_entity = find_near_matches(to_search, entity, max_deletions=1, max_insertions=1, max_substitutions=1, max_l_dist=1)
+            if match_entity:
+                matches.append(idx)
+        return matches
+    
+    def find_combinations(self, words, entities):
+        """
+        Returns the indices of entities that match.
+        """
+        matches_idxs = []
+        combinations_set = set()
+
+        for window_size in range(2, self.max_window_size + 1):
+            for i in range(len(words) - window_size + 1):
+                combination = ' '.join(words[i:i + window_size])
+                if combination not in combinations_set:
+                    combinations_set.add(combination)
+                    print("Searching for: {}".format(combination))
+                    curr_matches = self.search_name(combination, entities)
+                    matches_idxs.extend(curr_matches)
+
+        return matches_idxs
+
+    def ner_custom_data(self, talk):
+        #lowercase transcript
+        talk = talk.lower()
+
+        #get list of non-banned words from input transcript
+        banned_words = set(stopwords.words("english") + ["mit", "MIT", "Media", "media"])
+        words = [word for word in talk.split() if word.lower() not in banned_words]
+
+        def remove_banned_words(s):
+            s = ' '.join([word.lower() for word in s.split() if word.lower() not in banned_words])
+            return s
+
+        def remove_html_tags(text):
+            if not isinstance(text, str):
+                text = str(text)
+            return BeautifulSoup(text, "html.parser").get_text()
+
+
+        #remove stop words from title
+        self.custom_data['title_filtered'] = self.custom_data['title'].apply(remove_banned_words)
+
+        #remove html from descriptions
+        self.custom_data['description_filtered'] = self.custom_data['description'].apply(remove_html_tags)
+        
+        #get custom data
+        titles_filtered = self.custom_data['title_filtered']
+        titles = self.custom_data['title']
+        descriptions = self.custom_data['description_filtered']
+        urls = self.custom_data['url']
+        
+        #run brute force NER on transcript using custom data
+        matches_idxs = self.find_combinations(words, list(enumerate(titles_filtered)))
+
+        #build response object
+        matches = dict()
+        for mi in matches_idxs:
+            matches[titles[mi]] = dict()
+            matches[titles[mi]]["name"] = titles[mi]
+            matches[titles[mi]]["summary"] = descriptions[mi]
+            matches[titles[mi]]["url"] = urls[mi]
+
+        #DEV/TODO - we still return too many false positives sometimes, so limit return if we fail and give a list that is unreasonably big
+        unreasonable_num = 4
+        def random_bye_bye_false_positives(d, max_keys):
+            while len(d) > max_keys:
+                d.pop(random.choice(list(d.keys())))
+        random_bye_bye_false_positives(matches, unreasonable_num)
+
+        return matches

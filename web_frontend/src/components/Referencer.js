@@ -27,7 +27,7 @@ export default class Referencer extends React.Component {
 
     const payload = {
       text: text,
-      userId: "cayden",
+      userId: window.userId,
       timestamp: Date.now(),
       isFinal,
     };

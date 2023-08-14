@@ -16,6 +16,7 @@ from utils import UnitMemory, ShortTermMemory, LongTermMemory
 from utils import TimeNavigator, CurrentTime, MemoryRetriever
 from prompts import memory_retriever_prompt, answer_prompt
 from parsers import retrieve_memory
+import threading
 from DatabaseHandler import DatabaseHandler
 from RelevanceFilter import RelevanceFilter
 from multiprocessing import Process
@@ -289,24 +290,34 @@ async def agent_james(text, userId):
 # run tools for subscribed users in background every n ms if there is fresh data to run on
 def processing_loop():
     print("START PROCESSING LOOP")
+    lock = threading.Lock()
     while True:
         if not dbHandler.ready:
             print("dbHandler not ready")
             time.sleep(0.1)
             continue
 
-        # Check for new transcripts
-        newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
-        for transcript in newTranscripts:
-            print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
-            cseResponses = cse.contextual_search_engine(transcript['userId'], transcript['text'])
-            
-            if cseResponses != None:
-                for res in cseResponses:
-                    if res != {} and res != None:
-                        if relevanceFilter.shouldRunForText(transcript['userId'], res['name']):
-                            dbHandler.addCseResultForUser(transcript['userId'], res)
-        time.sleep(1)
+        lock.acquire()
+
+        try:
+            # Check for new transcripts
+            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
+            for transcript in newTranscripts:
+                print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
+                cseResponses = cse.contextual_search_engine(transcript['userId'], transcript['text'])
+                if cseResponses != None:
+                    for res in cseResponses:
+                        if res != {} and res != None:
+                            if relevanceFilter.shouldRunForText(transcript['userId'], res['name']):
+                                dbHandler.addCseResultForUser(transcript['userId'], res)
+        except Exception as e:
+                cseResponses = None
+                print("Exception in CSE...:")
+                print(e)
+        finally:
+            lock.release()
+
+        time.sleep(.5)
 
 cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 async def ui_poll(request, minutes=0.5):

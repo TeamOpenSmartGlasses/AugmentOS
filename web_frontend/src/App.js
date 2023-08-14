@@ -11,6 +11,7 @@ import PageView from "./components/PageView";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Cookies from "js-cookie";
 import "./index.css";
 import "./App.css";
 
@@ -26,6 +27,7 @@ export default class App extends React.Component {
 
     this.updateTranscript = this.updateTranscript.bind(this);
     this.viewMoreButtonClicked = this.viewMoreButtonClicked.bind(this);
+    this.initUserId();
   }
 
   componentDidMount() {
@@ -44,19 +46,49 @@ export default class App extends React.Component {
     this.setState({ viewMoreUrl });
   }
 
+  initUserId() {
+    let userId = Cookies.get("userId");
+    if (userId == undefined || userId == null || userId == "") {
+      console.log("No userID detected - generating random userID");
+      userId = this.generateRandomUserId();
+    } else {
+      console.log("Previous userId found: " + userId);
+    }
+    this.setUserIdAndDeviceId(userId);
+  }
+
+  setUserIdAndDeviceId(newUserId) {
+    window.userId = newUserId;
+    Cookies.set("userId", newUserId, { expires: 9999 });
+    window.deviceId = "CSEWebFrontendDefault";
+  }
+
+  generateRandomUserId() {
+    let rand = "x"
+      .repeat(5)
+      .replace(
+        /./g,
+        (c) =>
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"[
+            Math.floor(Math.random() * 62)
+          ]
+      );
+    return "WebFrontend_" + rand;
+  }
+
   //poll the backend for UI updates
   updateUiBackendPoll() {
     const subTranscript = {
       features: ["contextual_search_engine"], //list of features here
-      userId: "cayden",
-      deviceId: "cayden-lappy",
+      userId: window.userId,
+      deviceId: window.deviceId,
     };
 
     axios
       .post("/api/ui_poll", subTranscript)
       .then((res) => {
         const newEntitiesDict = res.data.result;
-        console.log(res.data);
+        if (res.data.success) console.log(res.data);
         if (res.data.result) {
           var newEntitiesArray = Object.keys(newEntitiesDict).map(function (k) {
             return newEntitiesDict[k];
