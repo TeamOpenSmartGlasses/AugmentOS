@@ -167,6 +167,10 @@ public class MainActivity extends AppCompatActivity {
     //register receiver that gets data from the service
     registerReceiver(mMainServiceReceiver, makeMainServiceReceiverIntentFilter());
 
+    //scroll to bottom of scrolling UIs
+    responseRecyclerView.scrollToPosition(responseTextUiAdapter.getItemCount() - 1);
+    transcriptRecyclerView.scrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
+
     if (isMyServiceRunning(WearLLMService.class)) {
       //bind to WearableAi service
       bindWearLLMService();

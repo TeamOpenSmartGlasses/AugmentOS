@@ -14,6 +14,7 @@ import com.teamopensmartglasses.sgmlib.SGMCommand;
 import com.teamopensmartglasses.sgmlib.SGMLib;
 import com.teamopensmartglasses.sgmlib.SmartGlassesAndroidService;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -85,10 +86,13 @@ public class WearLLMService extends SmartGlassesAndroidService {
         };
         handler.post(runnableCode);
     }
+
     @Override
     public void onDestroy(){
-        super.onDestroy();
         handler.removeCallbacks(runnableCode);
+        EventBus.getDefault().unregister(this);
+        sgmLib.deinit();
+        super.onDestroy();
     }
 
     public void wearLlmStartCommandCallback(String args, long commandTriggeredTime){

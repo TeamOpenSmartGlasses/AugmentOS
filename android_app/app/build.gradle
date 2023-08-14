@@ -80,6 +80,9 @@ dependencies {
     //REST API volley
     implementation 'com.android.volley:volley:1.2.1';
 
+    //EventBus, greenrobot
+    implementation("org.greenrobot:eventbus:3.3.1")
+
     //SGMLib library
     implementation project (":SGMLib")
 }
