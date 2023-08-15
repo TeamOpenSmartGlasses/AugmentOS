@@ -33,6 +33,7 @@ import nltk
 from nltk.corpus import stopwords
 from fuzzysearch import find_near_matches
 import pandas as pd
+import numpy as np
 nltk.download('stopwords')
 
 #image conversion
@@ -40,6 +41,33 @@ import base64
 
 #custom
 import word_frequency
+
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from txtai.pipeline import Similarity
+import torch
+
+import warnings
+
+
+def first_last_concat(s):
+    words = s.split()
+    if len(words) > 1:
+        return words[0] + " " +  words[-1]
+    elif len(words) == 1:  # If the string contains only one word
+        return words[0]
+    else:
+        return ''
+
+
+def remove_html_tags(text):
+    if not isinstance(text, str):
+        text = str(text)
+    return BeautifulSoup(text, "html.parser").get_text()
+
+
+def remove_banned_words(s, banned_words):
+    s = ' '.join([word.lower() for word in s.split() if word.lower() not in banned_words])
+    return s
 
 
 class ContextualSearchEngine:
@@ -52,10 +80,25 @@ class ContextualSearchEngine:
         self.databaseHandler = databaseHandler
 
         self.max_window_size = 3
+
         custom_data_path = "./custom_data/mit_media_lab/"
-        # self.people = pd.read_csv(custom_data_path + "people.csv").dropna(subset=['name'])['name']
-        #self.projects = pd.read_csv(custom_data_path + "projects.csv").dropna(subset=['title'])['title']
-        self.custom_data = pd.read_csv(custom_data_path + "projects.csv").dropna(subset=['title'])
+        data_people = [custom_data_path + "people.csv"]
+        data_projects = [custom_data_path + "projects.csv"]
+        people = pd.concat([pd.read_csv(path).dropna(subset=['name']) for path in data_people])
+        projects = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_projects])
+        self.custom_data = {
+            "people": people,
+            "projects": projects,
+        }
+        self.banned_words = set(stopwords.words("english") + ["mit", "MIT", "Media", "media"])
+        description_banned_words = set(["mit", "MIT", "Media", "media"])
+        self.custom_data['people']['name'] = self.custom_data['people']['name'].apply(first_last_concat)
+        self.custom_data['projects']['title'] = self.custom_data['projects']['title'].apply(lambda x: remove_banned_words(x, banned_words))
+        self.custom_data['projects']['description'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+
+        self.similarity_func = Similarity(gpu=False)
+        self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        self.model = GPT2LMHeadModel.from_pretrained("gpt2")
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
@@ -220,9 +263,13 @@ class ContextualSearchEngine:
         response = dict()
 
         # find mentions of custom data entities
-        entities_custom = self.ner_custom_data(talk)
+        entities_custom_list = []
+        
+        for key in self.custom_data.keys():
+            entities_custom_list.extend(self.ner_custom_data(talk, key))
+
         print("----------------CUSTOM ENTITIES--------------------")
-        print(entities_custom)
+        print(entities_custom_list)
         print("------------------------------------")
 
         #find rare words (including acronyms) and define them
@@ -294,7 +341,8 @@ class ContextualSearchEngine:
             response[entity["name"]] = entity
 
         #add custom NER entities to response
-        response.update(entities_custom)
+        for entities_custom in entities_custom_list:
+            response.update(entities_custom)
 
         #build response and summarize long entity descriptions
         for entity_name in response.keys():
@@ -362,65 +410,55 @@ class ContextualSearchEngine:
             print(e)
             img_url = None
         return img_url
-    
-    def search_name(self, to_search, entities):
-        matches = list()
-        for idx, entity in entities:
-            match_entity = find_near_matches(to_search, entity, max_deletions=1, max_insertions=1, max_substitutions=1, max_l_dist=1)
-            if match_entity:
-                matches.append(idx)
-        return matches
-    
-    def find_combinations(self, words, entities):
-        """
-        Returns the indices of entities that match.
-        """
-        matches_idxs = []
-        combinations_set = set()
 
-        for window_size in range(2, self.max_window_size + 1):
-            for i in range(len(words) - window_size + 1):
-                combination = ' '.join(words[i:i + window_size])
-                if combination not in combinations_set:
-                    combinations_set.add(combination)
-                    print("Searching for: {}".format(combination))
-                    curr_matches = self.search_name(combination, entities)
-                    matches_idxs.extend(curr_matches)
+    def ner_custom_data(self, talk, dataset_key):
+        words = [word for word in talk.split() if (word.lower() not in self.banned_words and not word.isnumeric())]
 
-        return matches_idxs
+        match dataset_key:
+            case "people":
+                config = {
+                    "entity_column_name": "name",
+                    "max_window_size": 2,
+                    "max_deletions": 2,
+                    "max_insertions": 2,
+                    "max_substitutions": 2,
+                    "max_l_dist": 2,
+                    "compute_entropy": False,
+                }
+                # words = [word.capitalize() for word in words]
 
-    def ner_custom_data(self, talk):
-        #lowercase transcript
-        talk = talk.lower()
+            case "projects":
+                config = {
+                    "entity_column_name": "title",
+                    "max_window_size": self.max_window_size,
+                    "max_deletions": 2,
+                    "max_insertions": 2,
+                    "max_substitutions": 2,
+                    "max_l_dist": 2,
+                    "compute_entropy": True,
+                }
 
-        #get list of non-banned words from input transcript
-        banned_words = set(stopwords.words("english") + ["mit", "MIT", "Media", "media"])
-        words = [word for word in talk.split() if word.lower() not in banned_words]
+            case _:
+                warnings.warn("Missing Config for this type of entities", UserWarning)
+                return []
 
-        def remove_banned_words(s):
-            s = ' '.join([word.lower() for word in s.split() if word.lower() not in banned_words])
-            return s
-
-        def remove_html_tags(text):
-            if not isinstance(text, str):
-                text = str(text)
-            return BeautifulSoup(text, "html.parser").get_text()
-
-
-        #remove stop words from title
-        self.custom_data['title_filtered'] = self.custom_data['title'].apply(remove_banned_words)
-
-        #remove html from descriptions
-        self.custom_data['description_filtered'] = self.custom_data['description'].apply(remove_html_tags)
-        
-        #get custom data
         titles_filtered = self.custom_data['title_filtered']
         titles = self.custom_data['title']
         descriptions = self.custom_data['description_filtered']
-        urls = self.custom_data['url']
-        
-        #run brute force NER on transcript using custom data
-        matches_idxs = self.find_combinations(words, list(enumerate(titles_filtered)))
+
+        # get custom data
+        entities = self.custom_data[dataset_key][config["entity_column_name"]]
+        descriptions = self.custom_data[dataset_key]["description"]
+        # urls = self.custom_data['url'] if self.custom_data[dataset_key]["url"] else None
+
+        # run brute force NER on transcript using custom data
+        matches_idxs = self.find_combinations(
+            words=words,
+            entities=list(enumerate(entities)),
+            config=config,
+            descriptions=descriptions,
+            context=talk
+        )
 
         #build response object
         matches = dict()
@@ -428,13 +466,88 @@ class ContextualSearchEngine:
             matches[titles[mi]] = dict()
             matches[titles[mi]]["name"] = titles[mi]
             matches[titles[mi]]["summary"] = descriptions[mi]
-            matches[titles[mi]]["url"] = urls[mi]
+            # matches[titles[mi]]["url"] = urls[mi]
 
         #DEV/TODO - we still return too many false positives sometimes, so limit return if we fail and give a list that is unreasonably big
         unreasonable_num = 4
-        def random_bye_bye_false_positives(d, max_keys):
+        
+        def remove_random_false_positives(d, max_keys):
             while len(d) > max_keys:
                 d.pop(random.choice(list(d.keys())))
-        random_bye_bye_false_positives(matches, unreasonable_num)
+        
+        remove_random_false_positives(matches, unreasonable_num)
 
         return matches
+
+    def get_similarity(self, context, string_to_match):
+        similarity = self.similarity_func(string_to_match, [context])
+        return similarity
+    
+    def word_sequence_entropy(self, sequence):
+        input_ids = self.tokenizer.encode(sequence, return_tensors='pt')
+        token_count = input_ids.size(1)
+
+        with torch.no_grad():
+            output = self.model(input_ids, labels=input_ids)
+
+        log_likelihood = output[0].item()
+        normalized_score = 1 / (1 + np.exp(-log_likelihood / token_count))
+        return normalized_score
+
+    def search_name(self, to_search, entities, config, descriptions=None, context=None):
+        max_deletions = config["max_deletions"]
+        max_insertions = config["max_insertions"]
+        max_substitutions = config["max_substitutions"]
+        compute_entropy = config["compute_entropy"]
+        max_l_dist = config["max_l_dist"]
+
+        matches = list()
+
+        for idx, entity in entities:
+
+            match_entity = find_near_matches(
+                to_search,
+                entity,
+                max_deletions=max_deletions,
+                max_insertions=max_insertions,
+                max_substitutions=max_substitutions,
+                max_l_dist=max_l_dist,
+            )
+
+            if match_entity and (not compute_entropy or (self.word_sequence_entropy(to_search) > 0.94 and self.get_similarity(descriptions[idx], context)[0][1] > 0.3)):
+                matches.append(idx)
+                # print("to_search", to_search)
+                # print("entity", entity)
+                # print(match_entity)
+                # print(self.get_similarity(descriptions[idx], context)[0][1] if compute_entropy else None)
+                # # print(word_sequence_entropy(to_search))
+                # print(descriptions[idx] if compute_entropy else None)
+                # print(context)
+                # print('-------------------------------')
+                break
+
+        return matches
+    
+    def find_combinations(self, words, entities, config, descriptions=None, context=None):
+        """
+        Returns the indices of entities that match.
+        """
+        matches_idxs = []
+        combinations_set = set()
+
+        for window_size in range(2, config["max_window_size"] + 1):
+            for i in range(len(words) - window_size + 1):
+                combination = ' '.join(words[i:i + window_size])
+
+                if combination not in combinations_set:
+                    combinations_set.add(combination)
+                    curr_matches = self.search_name(
+                        combination,
+                        entities,
+                        config,
+                        descriptions,
+                        context
+                    )
+                    matches_idxs.extend(curr_matches)
+
+        return matches_idxs
