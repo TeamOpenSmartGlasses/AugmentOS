@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   ActionIcon,
   Text,
@@ -85,9 +85,12 @@ const TranscriptCard = () => {
       });
   };
 
-  const debouncedSubmitFinalTranscript = debounce(
-    () => submitTranscript(transcript, transcriptStartIdx, true),
-    800
+  const debouncedSubmitFinalTranscript = useCallback(
+    debounce(
+      (transcript, index) => submitTranscript(transcript, index, true),
+      800
+    ),
+    []
   );
 
   const scrollToBottom = () => {
@@ -103,11 +106,9 @@ const TranscriptCard = () => {
   }, []);
 
   useEffect(() => {
-    console.log(transcript);
-
     scrollToBottom();
     submitTranscript(transcript, transcriptStartIdx, false);
-    debouncedSubmitFinalTranscript();
+    debouncedSubmitFinalTranscript(transcript, transcriptStartIdx);
   }, [transcript]);
 
   // useEffect(() => {
