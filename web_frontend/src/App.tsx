@@ -38,6 +38,7 @@ export default function App() {
   const endOfReferencesRef = useRef<HTMLDivElement | null>(null);
   const [entities, setEntities] = useState<Entity[]>([]);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
+  const [selectedCardId, setSelectedCardId] = useState<string>("")
 
   const initUserId = () => {
     let userId = Cookies.get("userId");
@@ -126,6 +127,9 @@ export default function App() {
                   <ReferenceCard
                     entity={entity}
                     key={`entity-${i}`}
+                    cardId={`entity-${i}`}
+                    selectedCardId={selectedCardId}
+                    setSelectedCardId={setSelectedCardId}
                     setViewMoreUrl={setViewMoreUrl}
                   />
                 ))}

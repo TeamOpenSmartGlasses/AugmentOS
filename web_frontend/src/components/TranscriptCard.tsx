@@ -24,6 +24,12 @@ const useStyles = createStyles((theme) => ({
     width: "2rem",
     height: "2rem",
   },
+
+  transcriptBox: {
+    backgroundColor: "gray",
+    borderBottomLeftRadius: "0.25rem",
+    WebkitBorderBottomRightRadius: "0.25rem",
+  },
 }));
 
 const TranscriptCard = () => {
@@ -128,8 +134,8 @@ const TranscriptCard = () => {
   }
 
   return (
-    <Flex direction={"column"} py={"xs"} px={"md"} className={classes.card}>
-      <Flex justify={"space-between"} align={"center"}>
+    <Flex direction={"column"} className={classes.card}>
+      <Flex justify={"space-between"} align={"center"} px={"md"} py={"xs"}>
         <Text size={"lg"} weight={500}>
           {isMicrophoneAvailable
             ? isRecognizing
@@ -164,9 +170,16 @@ const TranscriptCard = () => {
         )}
       </Flex>
       {isRecognizing && (
-        <ScrollArea scrollHideDelay={100}>
-          <Box mt={5} mah={"9vh"}>
-            <Text size={"lg"}>{transcript}</Text>
+        <ScrollArea
+          scrollHideDelay={100}
+          className={classes.transcriptBox}
+          px={"lg"}
+          py={"md"}
+        >
+          <Box mah={"6.5vh"}>
+            <Text size={"xl"} color="white">
+              {transcript}
+            </Text>
             <div ref={endOfTranscriptRef}></div>
           </Box>
         </ScrollArea>
