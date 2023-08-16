@@ -16,6 +16,5 @@ Wikipedia-API
 tiktoken
 pymongo
 fuzzysearch
-torch
 txtai
 transformers

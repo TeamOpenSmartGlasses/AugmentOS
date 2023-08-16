@@ -44,7 +44,6 @@ import word_frequency
 
 from transformers import GPT2LMHeadModel, GPT2Tokenizer
 from txtai.pipeline import Similarity
-import torch
 
 import warnings
 
@@ -93,7 +92,7 @@ class ContextualSearchEngine:
         self.banned_words = set(stopwords.words("english") + ["mit", "MIT", "Media", "media"])
         description_banned_words = set(["mit", "MIT", "Media", "media"])
         self.custom_data['people']['name'] = self.custom_data['people']['name'].apply(first_last_concat)
-        self.custom_data['projects']['title'] = self.custom_data['projects']['title'].apply(lambda x: remove_banned_words(x, banned_words))
+        self.custom_data['projects']['title'] = self.custom_data['projects']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
         self.custom_data['projects']['description'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
 
         self.similarity_func = Similarity(gpu=False)
@@ -487,8 +486,7 @@ class ContextualSearchEngine:
         input_ids = self.tokenizer.encode(sequence, return_tensors='pt')
         token_count = input_ids.size(1)
 
-        with torch.no_grad():
-            output = self.model(input_ids, labels=input_ids)
+        output = self.model(input_ids, labels=input_ids)
 
         log_likelihood = output[0].item()
         normalized_score = 1 / (1 + np.exp(-log_likelihood / token_count))
