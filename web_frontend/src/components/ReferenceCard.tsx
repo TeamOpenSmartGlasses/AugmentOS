@@ -13,19 +13,32 @@ import { Entity } from "../types";
 const useStyles = createStyles((theme) => ({
   card: {
     height: 120,
-    marginBottom: "1rem",
-    ":last-child": { marginBottom: 0 },
+    marginTop: "1rem",
+    ":first-child": { marginTop: 0 },
     backgroundColor: theme.white,
+    ":hover": {
+      opacity: 0.75,
+    },
   },
 }));
 
 interface ReferenceCardProps {
   entity: Entity;
+  cardId: string;
+  selectedCardId: string;
+  setSelectedCardId: React.Dispatch<React.SetStateAction<string>>;
   setViewMoreUrl: React.Dispatch<React.SetStateAction<string | undefined>>;
 }
 
-const ReferenceCard = ({ entity, setViewMoreUrl }: ReferenceCardProps) => {
+const ReferenceCard = ({
+  entity,
+  setViewMoreUrl,
+  cardId,
+  selectedCardId,
+  setSelectedCardId,
+}: ReferenceCardProps) => {
   const { classes } = useStyles();
+  const selected = cardId === selectedCardId;
 
   const getImageUrl = (entity: Entity) => {
     if (entity.map_image_path) {
@@ -34,15 +47,37 @@ const ReferenceCard = ({ entity, setViewMoreUrl }: ReferenceCardProps) => {
     return entity.image_url;
   };
 
+  const handleSelectCard = () => {
+    setSelectedCardId(cardId);
+    setViewMoreUrl(entity.url);
+  };
+
   return (
-    <Card withBorder radius="md" p={0} className={classes.card}>
+    <Card
+      withBorder
+      radius="md"
+      p={0}
+      h={"max-content"}
+      onClick={handleSelectCard}
+      className={classes.card}
+      sx={{
+        backgroundColor: selected ? "grey" : "white",
+        color: selected ? "white" : "black",
+      }}
+    >
       <Flex gap={"1rem"} align={"center"} h={"100%"}>
         {entity.image_url || entity.map_image_path ? (
           <Image src={getImageUrl(entity)} height={120} width={120} />
         ) : (
           <Box ml={"1rem"}></Box>
         )}
-        <Flex direction={"column"} pr={"lg"} h={"100%"} justify={"center"}>
+        <Flex
+          direction={"column"}
+          pr={"lg"}
+          h={"100%"}
+          justify={"center"}
+          py={entity.image_url || entity.map_image_path ? 0 : 10}
+        >
           <Title order={2} lineClamp={1}>
             {entity.name}
           </Title>
@@ -63,7 +98,8 @@ const ReferenceCard = ({ entity, setViewMoreUrl }: ReferenceCardProps) => {
                     marginLeft: "0.5rem",
                     textDecoration: "underline",
                   }}
-                  onClick={() => setViewMoreUrl(entity.url)}
+                  color={selected ? "white" : "black"}
+                  onClick={handleSelectCard}
                 >
                   Read more
                 </Text>
