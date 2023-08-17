@@ -83,17 +83,23 @@ class ContextualSearchEngine:
         custom_data_path = "./custom_data/mit_media_lab/"
         data_people = [custom_data_path + "people.csv"]
         data_projects = [custom_data_path + "projects.csv"]
+        data_bookmarks = [custom_data_path + "bookmarks_1.csv"]
         people = pd.concat([pd.read_csv(path).dropna(subset=['name']) for path in data_people])
         projects = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_projects])
+        bookmarks = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_bookmarks])
         self.custom_data = {
             "people": people,
             "projects": projects,
+            "bookmarks": bookmarks,
         }
         self.banned_words = set(stopwords.words("english") + ["mit", "MIT", "Media", "media"])
         description_banned_words = set(["mit", "MIT", "Media", "media"])
         self.custom_data['people']['name'] = self.custom_data['people']['name'].apply(first_last_concat)
-        self.custom_data['projects']['title'] = self.custom_data['projects']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
-        self.custom_data['projects']['description'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+        self.custom_data['projects']['title_filtered'] = self.custom_data['projects']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
+        #self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+
+        self.custom_data['bookmarks']['title_filtered'] = self.custom_data['bookmarks']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
+        #self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
 
         # self.similarity_func = Similarity("valhalla/distilbart-mnli-12-1", gpu=False)
         # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
@@ -262,13 +268,10 @@ class ContextualSearchEngine:
         response = dict()
 
         # find mentions of custom data entities
-        entities_custom_list = []
+        entities_custom = self.ner_custom_data(talk)
         
-        for key in self.custom_data.keys():
-            entities_custom_list.extend(self.ner_custom_data(talk, key))
-
         print("----------------CUSTOM ENTITIES--------------------")
-        print(entities_custom_list)
+        print(entities_custom)
         print("------------------------------------")
 
         #find rare words (including acronyms) and define them
@@ -340,8 +343,7 @@ class ContextualSearchEngine:
             response[entity["name"]] = entity
 
         #add custom NER entities to response
-        for entities_custom in entities_custom_list:
-            response.update(entities_custom)
+        response.update(entities_custom)
 
         #build response and summarize long entity descriptions
         for entity_name in response.keys():
@@ -349,7 +351,7 @@ class ContextualSearchEngine:
             description = response[entity_name]["summary"]
 
             #summarize entity if greater than 12 words long
-            if (description != None) and (len(description.split(" ")) > 12):
+            if (description != None) and (description != None) and (len(description.split(" ")) > 12):
                 summary = self.summarize_entity(description)
             elif description != None:
                 summary = description
@@ -410,62 +412,82 @@ class ContextualSearchEngine:
             img_url = None
         return img_url
 
-    def ner_custom_data(self, talk, dataset_key):
+    def ner_custom_data(self, talk):
         words = [word for word in talk.split() if (word.lower() not in self.banned_words and not word.isnumeric())]
 
-        match dataset_key:
-            case "people":
-                config = {
-                    "entity_column_name": "name",
-                    "max_window_size": 2,
-                    "max_deletions": 2,
-                    "max_insertions": 2,
-                    "max_substitutions": 2,
-                    "max_l_dist": 2,
-                    "compute_entropy": False,
-                }
-                # words = [word.capitalize() for word in words]
-
-            case "projects":
-                config = {
-                    "entity_column_name": "title",
-                    "max_window_size": self.max_window_size,
-                    "max_deletions": 2,
-                    "max_insertions": 2,
-                    "max_substitutions": 2,
-                    "max_l_dist": 2,
-                    "compute_entropy": True,
-                }
-
-            case _:
-                warnings.warn("Missing Config for this type of entities", UserWarning)
-                return []
-
-        titles_filtered = self.custom_data['title_filtered']
-        titles = self.custom_data['title']
-        descriptions = self.custom_data['description_filtered']
-
-        # get custom data
-        entities = self.custom_data[dataset_key][config["entity_column_name"]]
-        descriptions = self.custom_data[dataset_key]["description"]
-        # urls = self.custom_data['url'] if self.custom_data[dataset_key]["url"] else None
-
-        # run brute force NER on transcript using custom data
-        matches_idxs = self.find_combinations(
-            words=words,
-            entities=list(enumerate(entities)),
-            config=config,
-            descriptions=descriptions,
-            context=talk
-        )
-
-        #build response object
         matches = dict()
-        for mi in matches_idxs:
-            matches[titles[mi]] = dict()
-            matches[titles[mi]]["name"] = titles[mi]
-            matches[titles[mi]]["summary"] = descriptions[mi]
-            # matches[titles[mi]]["url"] = urls[mi]
+        for data_type_key in self.custom_data.keys():
+            match data_type_key:
+                case "people":
+                    config = {
+                        "entity_column_name": "name",
+                        "entity_column_name_filtered": "name",
+                        "max_window_size": 2,
+                        "max_deletions": 2,
+                        "max_insertions": 2,
+                        "max_substitutions": 2,
+                        "max_l_dist": 2,
+                        "compute_entropy": False,
+                    }
+
+                case "projects":
+                    config = {
+                        "entity_column_name": "title",
+                        "entity_column_name_filtered": "title_filtered",
+                        "max_window_size": self.max_window_size,
+                        "max_deletions": 2,
+                        "max_insertions": 2,
+                        "max_substitutions": 2,
+                        "max_l_dist": 2,
+                        "compute_entropy": True,
+                    }
+
+                case "bookmarks":
+                    config = {
+                        "entity_column_name": "title",
+                        "entity_column_name_filtered": "title_filtered",
+                        "max_window_size": self.max_window_size,
+                        "max_deletions": 2,
+                        "max_insertions": 2,
+                        "max_substitutions": 2,
+                        "max_l_dist": 2,
+                        "compute_entropy": True,
+                    }
+
+                case _:
+                    warnings.warn("Missing Config for this type of entities", UserWarning)
+                    return []
+
+
+            # get custom data
+            #get the titles to show in UI
+            titles = self.custom_data[data_type_key][config["entity_column_name"]]
+
+            #get descriptions to show in UI
+            descriptions = self.custom_data[data_type_key]["description"]
+
+            #get entity names to match, that have been pre-filtered
+            entity_names_to_match_filtered = self.custom_data[data_type_key][config['entity_column_name_filtered']]
+            #descriptions_filtered = self.custom_data[data_type_key]['description_filtered']
+
+            #get URLs, if they exist
+            urls = self.custom_data[data_type_key]['url'] if ('url' in self.custom_data[data_type_key]) else None
+
+            # run brute force NER on transcript using custom data
+            matches_idxs = self.find_combinations(
+                words=words,
+                entities=list(enumerate(entity_names_to_match_filtered)),
+                config=config,
+                descriptions=descriptions,
+                context=talk
+            )
+
+            #build response object
+            for mi in matches_idxs:
+                matches[titles[mi]] = dict()
+                matches[titles[mi]]["name"] = titles[mi]
+                matches[titles[mi]]["summary"] = descriptions[mi] if descriptions[mi] is not np.nan else None
+                matches[titles[mi]]["url"] = urls[mi]
 
         #DEV/TODO - we still return too many false positives sometimes, so limit return if we fail and give a list that is unreasonably big
         unreasonable_num = 4
@@ -476,6 +498,8 @@ class ContextualSearchEngine:
         
         remove_random_false_positives(matches, unreasonable_num)
 
+        print("CSE CUSTOM")
+        print(matches)
         return matches
 
     # def get_similarity(self, context, string_to_match):

@@ -71,18 +71,16 @@ def define_word(word, context):
     # lookup the word
     syns = wordnet.synsets(word.lower())
 
-    try:
-        definitions = [syn.definition() for syn in syns]
-        if not definitions: 
-            return None
-        definition = word_sense_disambiguation(context=context, sentences=definitions)
-    except IndexError as e:
-        print("Definition unknown for: {}".format(word))
-        return None
+    definitions = [syn.definition() for syn in syns]
+    if not definitions:
         # if it's not a word, define it an acronym
         #definition = define_acronym(word)
         #word = word.upper()
-  
+        print("Definition unknown for: {}".format(word))
+        return None
+    
+    definition = word_sense_disambiguation(context=context, sentences=definitions)
+
   return {word: definition}
 
 def average_embedding(words, embedder):
