@@ -41,6 +41,10 @@ public class WearLLMService extends SmartGlassesAndroidService {
     static final String deviceId = "android";
     static final String features = "contextual_search_engine";
 
+    private SMSComms smsComms;
+    static final String phoneNum = "8477367492"; //Alex's phone
+    //static final String phoneNum = "4167705346"; //Cayden's phone (spam this one)
+
     public WearLLMService() {
         super(MainActivity.class,
                 "wear_llm_app",
@@ -74,6 +78,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
         Log.d(TAG, "WearLLM SERVICE STARTED");
 
         setUpCsePolling();
+
+        smsComms = new SMSComms();
     }
 
     public void setUpCsePolling(){
@@ -103,11 +109,32 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
         //Subscribe to transcription stream
         sgmLib.subscribe(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM, this::processTranscriptionCallback);
+        sgmLib.subscribe(DataStreamType.SMART_RING_BUTTON, this::processButtonCallback);
     }
 
     public void focusChangedCallback(FocusStates focusState){
         Log.d(TAG, "Focus callback called with state: " + focusState);
         this.focusState = focusState;
+    }
+
+    public void processButtonCallback(int buttonId, long timestamp, boolean isDown){
+        if(!isDown) return;
+        Log.d(TAG,"DETECTED BUTTON PRESS W BUTTON ID: " + buttonId);
+
+        // Double press detected
+        if(buttonId == 3){
+            sendLatestCSEResultViaSms();
+        }
+    }
+
+    public void sendLatestCSEResultViaSms(){
+        if (responses.size() > 1) {
+            //Send latest CSE result via sms;
+            String messageToSend = responses.get(responses.size() - 1);
+            messageToSend += "\n\nSent from Discuss++";
+
+            smsComms.sendSms(phoneNum, messageToSend);
+        }
     }
 
     public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){

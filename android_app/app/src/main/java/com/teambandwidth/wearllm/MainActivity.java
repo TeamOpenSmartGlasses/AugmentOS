@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
   //Permissions
   private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
-
+  private static final int SEND_SMS_PERMISSION_REQUEST_CODE = 1234;
   //UI
   private ResponseTextUiAdapter responseTextUiAdapter;
   private RecyclerView responseRecyclerView;
@@ -124,6 +124,13 @@ public class MainActivity extends AppCompatActivity {
         != PackageManager.PERMISSION_GRANTED) {
       ActivityCompat.requestPermissions(
           this, new String[] {Manifest.permission.RECORD_AUDIO}, PERMISSIONS_REQUEST_RECORD_AUDIO);
+    }
+
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
+            != PackageManager.PERMISSION_GRANTED) {
+      Log.d(TAG, "NO SMS PERM!");
+      ActivityCompat.requestPermissions(
+              this, new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
     }
   }
 
@@ -310,5 +317,5 @@ public class MainActivity extends AppCompatActivity {
     transcriptRecyclerView.smoothScrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
   }
 
-
+  
 }
