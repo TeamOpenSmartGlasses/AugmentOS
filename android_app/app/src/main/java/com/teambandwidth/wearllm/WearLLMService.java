@@ -42,8 +42,16 @@ public class WearLLMService extends SmartGlassesAndroidService {
     static final String features = "contextual_search_engine";
 
     private SMSComms smsComms;
-    static final String phoneNum = "8477367492"; //Alex's phone
-    //static final String phoneNum = "4167705346"; //Cayden's phone (spam this one)
+    //static final String phoneNum = "8477367492"; //Alex's phone
+    static final String phoneNum = "4167705346"; //Cayden's phone (spam this one)
+
+    private long currTime = 0;
+    private long lastPressed = 0;
+    private long lastTapped = 0;
+
+    // Double clicking constants
+    private final long doublePressTimeConst = 420;
+    private final long doubleTapTimeConst = 600;
 
     public WearLLMService() {
         super(MainActivity.class,
@@ -110,6 +118,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
         //Subscribe to transcription stream
         sgmLib.subscribe(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM, this::processTranscriptionCallback);
         sgmLib.subscribe(DataStreamType.SMART_RING_BUTTON, this::processButtonCallback);
+        sgmLib.subscribe(DataStreamType.GLASSES_SIDE_TAP, this::processGlassesTapCallback);
     }
 
     public void focusChangedCallback(FocusStates focusState){
@@ -117,13 +126,21 @@ public class WearLLMService extends SmartGlassesAndroidService {
         this.focusState = focusState;
     }
 
+    public void processGlassesTapCallback(int numTaps, boolean sideOfGlasses, long timestamp){
+        Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
+    }
     public void processButtonCallback(int buttonId, long timestamp, boolean isDown){
-        if(!isDown) return;
+        if(!isDown || buttonId != 1) return;
         Log.d(TAG,"DETECTED BUTTON PRESS W BUTTON ID: " + buttonId);
 
-        // Double press detected
-        if(buttonId == 3){
+        //Detect double presses
+        if(isDown && currTime - lastPressed < doublePressTimeConst) {
+            Log.d(TAG, "CurrTime-lastPressed: "+ (currTime-lastPressed));
             sendLatestCSEResultViaSms();
+        }
+
+        if(isDown) {
+            lastPressed = System.currentTimeMillis();
         }
     }
 
