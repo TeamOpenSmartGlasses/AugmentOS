@@ -219,6 +219,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
         String mapImgKey = "map_image_path";
         JSONArray results = response.getJSONArray("result");
 
+        ArrayList<String> cseResults = new ArrayList<>();
         for (int i = 0; i < results.length(); i++){
             try {
                 JSONObject obj = results.getJSONObject(i);
@@ -231,21 +232,25 @@ public class WearLLMService extends SmartGlassesAndroidService {
                 sendUiUpdateSingle(combined);
                 speakTTS(combined);
 
-                if(obj.has(mapImgKey)){
-                    String mapImgPath = obj.getString(mapImgKey);
-                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
-                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
-                }
-                else if(obj.has(imgKey)) {
-                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
-                }
-                else {
-                    sgmLib.sendReferenceCard(name, body);
-                }
+                cseResults.add(combined.substring(0,Math.min(90, combined.length())).trim().replaceAll("\\s+", " "));
+
+//                if(obj.has(mapImgKey)){
+//                    String mapImgPath = obj.getString(mapImgKey);
+//                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
+//                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
+//                }
+//                else if(obj.has(imgKey)) {
+//                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
+//                }
+//                else {
+//                    sgmLib.sendReferenceCard(name, body);
+//                }
             } catch (JSONException e){
                 e.printStackTrace();
             }
         }
+        String[] cseResultsArr = cseResults.toArray(new String[cseResults.size()]);
+        sgmLib.sendBulletPointList("Discuss++", cseResultsArr);
     }
 
     public void speakTTS(String toSpeak){
