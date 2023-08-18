@@ -13,7 +13,6 @@ import PageView from "./components/PageView";
 import axios from "axios";
 import { Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
-import { mockEntities } from "./mockData";
 import Cookies from "js-cookie";
 
 const useStyles = createStyles((theme) => ({

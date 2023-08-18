@@ -41,9 +41,7 @@ const TranscriptCard = () => {
 
   const {
     transcript,
-    finalTranscript,
     resetTranscript,
-    listening,
     browserSupportsSpeechRecognition,
     isMicrophoneAvailable,
   } = useSpeechRecognition();

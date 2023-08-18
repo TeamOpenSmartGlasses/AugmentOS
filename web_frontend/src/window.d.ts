@@ -1,6 +1,4 @@
-declare global {
-  interface Window {
-    userId: string;
-    deviceId: string;
-  }
+interface Window {
+  userId: string;
+  deviceId: string;
 }
