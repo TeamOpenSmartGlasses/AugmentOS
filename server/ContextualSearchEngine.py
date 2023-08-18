@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 from google.cloud import language_v1
 from typing import Sequence
 from google.cloud import enterpriseknowledgegraph as ekg
-from server_config import gcp_project_id
+from server_config import gcp_project_id, path_modifier
 
 #OpenAI imports
 import openai
@@ -87,6 +87,9 @@ class ContextualSearchEngine:
         people = pd.concat([pd.read_csv(path).dropna(subset=['name']) for path in data_people])
         projects = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_projects])
         bookmarks = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_bookmarks])
+        print(people)
+        print(projects)
+        print(bookmarks)
         self.custom_data = {
             "people": people,
             "projects": projects,
@@ -159,7 +162,7 @@ class ContextualSearchEngine:
 
         return response.entities
 
-    def summarize_entity(self, entity_description: str, chars_to_use=750):
+    def summarize_entity(self, entity_description: str, chars_to_use=650):
         #shorten entity_description if too long
         entity_description = entity_description[:max(chars_to_use, len(entity_description))]
 
@@ -321,7 +324,7 @@ class ContextualSearchEngine:
                     static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
                     static_map_img_pil.save(mapImagePath)
 
-                entity_search_results[entity_mid]["map_image_path"] = "/api/image?img={}".format(mapImageName)
+                entity_search_results[entity_mid]["map_image_path"] = "/api/{}image?img={}".format(path_modifier, mapImageName)
 
         #build response object from various processing sources
         response = dict()
@@ -423,10 +426,10 @@ class ContextualSearchEngine:
                         "entity_column_name": "name",
                         "entity_column_name_filtered": "name",
                         "max_window_size": 2,
-                        "max_deletions": 2,
-                        "max_insertions": 2,
-                        "max_substitutions": 2,
-                        "max_l_dist": 2,
+                        "max_deletions": 3,
+                        "max_insertions": 3,
+                        "max_substitutions": 3,
+                        "max_l_dist": 3,
                         "compute_entropy": False,
                     }
 
@@ -461,17 +464,17 @@ class ContextualSearchEngine:
 
             # get custom data
             #get the titles to show in UI
-            titles = self.custom_data[data_type_key][config["entity_column_name"]]
+            titles = self.custom_data[data_type_key][config["entity_column_name"]].tolist()
 
             #get descriptions to show in UI
-            descriptions = self.custom_data[data_type_key]["description"]
+            descriptions = self.custom_data[data_type_key]["description"].tolist()
 
             #get entity names to match, that have been pre-filtered
-            entity_names_to_match_filtered = self.custom_data[data_type_key][config['entity_column_name_filtered']]
+            entity_names_to_match_filtered = self.custom_data[data_type_key][config['entity_column_name_filtered']].tolist()
             #descriptions_filtered = self.custom_data[data_type_key]['description_filtered']
 
             #get URLs, if they exist
-            urls = self.custom_data[data_type_key]['url'] if ('url' in self.custom_data[data_type_key]) else None
+            urls = self.custom_data[data_type_key]['url'].tolist() if ('url' in self.custom_data[data_type_key]) else None
 
             # run brute force NER on transcript using custom data
             matches_idxs = self.find_combinations(
@@ -490,7 +493,7 @@ class ContextualSearchEngine:
                 matches[titles[mi]]["url"] = urls[mi]
 
         #DEV/TODO - we still return too many false positives sometimes, so limit return if we fail and give a list that is unreasonably big
-        unreasonable_num = 4
+        unreasonable_num = 6
         
         def remove_random_false_positives(d, max_keys):
             while len(d) > max_keys:
