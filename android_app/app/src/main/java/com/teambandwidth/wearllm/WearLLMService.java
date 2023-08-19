@@ -42,8 +42,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
     static final String features = "contextual_search_engine";
 
     private SMSComms smsComms;
-    //static final String phoneNum = "8477367492"; //Alex's phone
-    static final String phoneNum = "4167705346"; //Cayden's phone (spam this one)
+    static final String phoneNum = "8477367492"; //Alex's phone
+    //static final String phoneNum = "4167705346"; //Cayden's phone (spam this one)
 
     private long currTime = 0;
     private long lastPressed = 0;
@@ -132,6 +132,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
     public void processButtonCallback(int buttonId, long timestamp, boolean isDown){
         if(!isDown || buttonId != 1) return;
         Log.d(TAG,"DETECTED BUTTON PRESS W BUTTON ID: " + buttonId);
+        currTime = System.currentTimeMillis();
 
         //Detect double presses
         if(isDown && currTime - lastPressed < doublePressTimeConst) {
