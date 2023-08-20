@@ -28,6 +28,7 @@ interface ReferenceCardProps {
   selectedCardId: string;
   setSelectedCardId: React.Dispatch<React.SetStateAction<string>>;
   setViewMoreUrl: React.Dispatch<React.SetStateAction<string | undefined>>;
+  setLoading: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const ReferenceCard = ({
@@ -36,8 +37,9 @@ const ReferenceCard = ({
   cardId,
   selectedCardId,
   setSelectedCardId,
+  setLoading,
 }: ReferenceCardProps) => {
-  const { classes } = useStyles();
+  const { classes, theme } = useStyles();
   const selected = cardId === selectedCardId;
 
   const getImageUrl = (entity: Entity) => {
@@ -50,6 +52,7 @@ const ReferenceCard = ({
   const handleSelectCard = () => {
     setSelectedCardId(cardId);
     setViewMoreUrl(entity.url);
+    setLoading(true);
   };
 
   return (
@@ -61,8 +64,7 @@ const ReferenceCard = ({
       onClick={handleSelectCard}
       className={classes.card}
       sx={{
-        backgroundColor: selected ? "grey" : "white",
-        color: selected ? "white" : "black",
+        color: selected ? theme.colors.indigo[9] : "black",
       }}
     >
       <Flex gap={"1rem"} align={"center"} h={"100%"}>

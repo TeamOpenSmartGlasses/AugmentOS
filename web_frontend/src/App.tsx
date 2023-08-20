@@ -5,6 +5,7 @@ import {
   MantineProvider,
   ScrollArea,
   Stack,
+  Title,
   createStyles,
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
@@ -37,7 +38,9 @@ export default function App() {
   const endOfReferencesRef = useRef<HTMLDivElement | null>(null);
   const [entities, setEntities] = useState<Entity[]>([]);
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
-  const [selectedCardId, setSelectedCardId] = useState<string>("")
+  const [selectedCardId, setSelectedCardId] = useState<string>("");
+  const [loadingViewMore, setLoadingViewMore] = useState(false);
+  const hideTitle = entities.length > 5;
 
   const initUserId = () => {
     let userId = Cookies.get("userId");
@@ -120,6 +123,17 @@ export default function App() {
           <Flex justify={"space-evenly"} gap={"2.5rem"} h={"100%"}>
             {/* Left Panel */}
             <Stack w={"50%"} spacing={"xl"}>
+              <Title
+                order={1}
+                transform="uppercase"
+                sx={{
+                  display: hideTitle ? "none" : "block",
+                  transition: "display 0.5s, transform 0.5s",
+                  transform: hideTitle ? "translateY(-100%)" : "",
+                }}
+              >
+                Contextual Search Engine
+              </Title>
               <TranscriptCard />
               <ScrollArea scrollHideDelay={100}>
                 {entities.map((entity, i) => (
@@ -130,6 +144,7 @@ export default function App() {
                     selectedCardId={selectedCardId}
                     setSelectedCardId={setSelectedCardId}
                     setViewMoreUrl={setViewMoreUrl}
+                    setLoading={setLoadingViewMore}
                   />
                 ))}
                 <div ref={endOfReferencesRef}></div>
@@ -144,7 +159,11 @@ export default function App() {
               py={"sm"}
               className={classes.rightPanel}
             >
-              <PageView viewMoreUrl={viewMoreUrl} />
+              <PageView
+                viewMoreUrl={viewMoreUrl}
+                loading={loadingViewMore}
+                setLoading={setLoadingViewMore}
+              />
             </Flex>
           </Flex>
         </Container>

@@ -7,12 +7,9 @@ import {
   createStyles,
   Stack,
   rem,
+  Avatar,
 } from "@mantine/core";
-import {
-  IconHome2,
-  IconSettings,
-  TablerIconsProps,
-} from "@tabler/icons-react";
+import { IconHome2, IconSettings, TablerIconsProps } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -87,7 +84,12 @@ export function NavbarMinimal() {
 
   return (
     <Navbar width={{ base: 80 }} p="md">
-      <Center>CSE</Center>
+      <Center>
+        {" "}
+        <Avatar src={null} color="red">
+          CSE
+        </Avatar>
+      </Center>
       <Navbar.Section grow mt={50}>
         <Stack justify="center" spacing={0}>
           {links}
