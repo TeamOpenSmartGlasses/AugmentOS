@@ -74,13 +74,13 @@ class DatabaseHandler:
         transcript = {"userId": userId, "text": text, "timestamp": timestamp, "isFinal": isFinal}
         self.createUserIfNotExists(userId)
 
-        filter = {"userId": userId}
-        update = {"$push": {"transcripts": transcript}}
-        self.userCollection.update_one(filter=filter, update=update)
-
         # Remove old transcripts if there are too many
         if len(self.getRecentTranscriptsForUser(userId)) > self.maxTranscriptsPerUser:
             self.popOldestTranscriptForUser(userId)
+
+        filter = {"userId": userId}
+        update = {"$push": {"transcripts": transcript}}
+        self.userCollection.update_one(filter=filter, update=update)
 
     def getRecentTranscriptsForUser(self, userId, deleteAfter = False):
         self.createUserIfNotExists(userId)

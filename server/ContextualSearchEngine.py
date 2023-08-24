@@ -162,9 +162,9 @@ class ContextualSearchEngine:
 
         return response.entities
 
-    def summarize_entity(self, entity_description: str, chars_to_use=650):
+    def summarize_entity(self, entity_description: str, chars_to_use=1250):
         #shorten entity_description if too long
-        entity_description = entity_description[:max(chars_to_use, len(entity_description))]
+        entity_description = entity_description[:min(chars_to_use, len(entity_description))]
 
         #make prompt
         #like "the" and "a" if they aren't useful to human understanding
@@ -328,9 +328,9 @@ class ContextualSearchEngine:
 
         #build response object from various processing sources
         response = dict()
-        summary_len = 200
 
         #get rare word def's
+        summary_len = 200
         for word_def in rare_word_definitions:
             word = list(word_def.keys())[0]
             definition = list(word_def.values())[0]
@@ -353,8 +353,8 @@ class ContextualSearchEngine:
             #get description
             description = response[entity_name]["summary"]
 
-            #summarize entity if greater than 12 words long
-            if (description != None) and (description != None) and (len(description.split(" ")) > 12):
+            #summarize entity if greater than n words long
+            if (description != None) and (description != None) and (len(description.split(" ")) > 14):
                 summary = self.summarize_entity(description)
             elif description != None:
                 summary = description
@@ -363,7 +363,6 @@ class ContextualSearchEngine:
                 summary = "..."
 
             response[entity_name]["summary"] = summary
-
 
         #get entities from location results
         #for location in locations:
@@ -381,8 +380,8 @@ class ContextualSearchEngine:
         if response == {}: 
             print("\n\n===CSE RESPONSE EMPTY ===\n\n")
             return None
-       
-        #for i in range(len(response)):
+
+        #add timestamp and id to response
         for i in response:
             print(i)
             response[i]['timestamp'] = math.trunc(time.time())

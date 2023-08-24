@@ -21,6 +21,7 @@ from DatabaseHandler import DatabaseHandler
 from RelevanceFilter import RelevanceFilter
 from multiprocessing import Process
 from server_config import server_port
+import traceback
 
 #CORS
 import aiohttp_cors
@@ -314,6 +315,7 @@ def processing_loop():
                 cseResponses = None
                 print("Exception in CSE...:")
                 print(e)
+                traceback.print_exc()
         finally:
             lock.release()
 
