@@ -15,7 +15,7 @@ import SpeechRecognition, {
   useSpeechRecognition,
 } from "react-speech-recognition";
 import { debounce } from "lodash";
-import axios from "axios";
+import axiosClient from "../axiosConfig";
 
 const useStyles = createStyles((theme) => ({
   card: { backgroundColor: theme.white, borderRadius: "0.25rem" },
@@ -81,7 +81,7 @@ const TranscriptCard = () => {
 
     console.log(text, isFinal);
 
-    axios
+    axiosClient
       .post("/api/chat", payload)
       // .then((res) => {})
       .catch((error) => {

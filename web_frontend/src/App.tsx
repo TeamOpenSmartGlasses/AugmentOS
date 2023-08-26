@@ -11,10 +11,10 @@ import {
 import Sidebar from "./components/Sidebar";
 import TranscriptCard from "./components/TranscriptCard";
 import PageView from "./components/PageView";
-import axios from "axios";
 import { Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
+import axiosClient from "./axiosConfig";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -80,7 +80,7 @@ export default function App() {
       deviceId: window.deviceId,
     };
 
-    axios
+    axiosClient
       .post("/api/ui_poll", subTranscript)
       .then((res) => {
         const newEntitiesDict = res.data.result;
