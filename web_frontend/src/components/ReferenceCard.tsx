@@ -42,6 +42,15 @@ const ReferenceCard = ({
   const { classes, theme } = useStyles();
   const selected = cardId === selectedCardId;
 
+  const getImageUrl = (entity: Entity) => {
+    if (entity.map_image_path) {
+      return `${import.meta.env.VITE_BACKEND_BASE_URL}/${
+        entity.map_image_path
+      }`;
+    }
+    return entity.image_url;
+  };
+
   const handleSelectCard = () => {
     setSelectedCardId(cardId);
     setViewMoreUrl(entity.url);
@@ -62,7 +71,7 @@ const ReferenceCard = ({
     >
       <Flex gap={"1rem"} align={"center"} h={"100%"}>
         {entity.image_url || entity.map_image_path ? (
-          <Image src={entity.image_url} height={120} width={120} />
+          <Image src={getImageUrl(entity)} height={120} width={120} />
         ) : (
           <Box ml={"1rem"}></Box>
         )}
