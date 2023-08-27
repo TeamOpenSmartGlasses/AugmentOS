@@ -9,6 +9,7 @@ import {
   ScrollArea,
   Stack,
   Title,
+  Text,
   createStyles,
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
@@ -191,7 +192,7 @@ export default function App() {
           ml={40}
           opened={opened}
           onClose={close}
-          title="More Details"
+          title={<Text fw={700}>More Details</Text>}
         >
           <Box h={"80vh"}>
             <PageView
