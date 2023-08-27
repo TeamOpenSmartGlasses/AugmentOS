@@ -29,6 +29,7 @@ interface ReferenceCardProps {
   setSelectedCardId: React.Dispatch<React.SetStateAction<string>>;
   setViewMoreUrl: React.Dispatch<React.SetStateAction<string | undefined>>;
   setLoading: React.Dispatch<React.SetStateAction<boolean>>;
+  openModal: () => void;
 }
 
 const ReferenceCard = ({
@@ -38,6 +39,7 @@ const ReferenceCard = ({
   selectedCardId,
   setSelectedCardId,
   setLoading,
+  openModal,
 }: ReferenceCardProps) => {
   const { classes, theme } = useStyles();
   const selected = cardId === selectedCardId;
@@ -55,6 +57,7 @@ const ReferenceCard = ({
     setSelectedCardId(cardId);
     setViewMoreUrl(entity.url);
     setLoading(true);
+    openModal()
   };
 
   return (

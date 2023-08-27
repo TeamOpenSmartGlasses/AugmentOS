@@ -1,8 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import {
+  Box,
   Container,
   Flex,
   MantineProvider,
+  MediaQuery,
+  Modal,
   ScrollArea,
   Stack,
   Title,
@@ -15,6 +18,7 @@ import { Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
 import axiosClient from "./axiosConfig";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -41,6 +45,9 @@ export default function App() {
   const [selectedCardId, setSelectedCardId] = useState<string>("");
   const [loadingViewMore, setLoadingViewMore] = useState(false);
   const hideTitle = entities.length > 5;
+
+  const [opened, { open, close }] = useDisclosure(false);
+  const smallerThanMedium = useMediaQuery("(max-width: 62em)");
 
   const initUserId = () => {
     let userId = Cookies.get("userId");
@@ -115,6 +122,12 @@ export default function App() {
     });
   }, [entities]);
 
+  const openModal = () => {
+    if (!opened && smallerThanMedium) {
+      open();
+    }
+  };
+
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS>
       <Flex className={classes.root}>
@@ -122,7 +135,7 @@ export default function App() {
         <Container fluid className={classes.container}>
           <Flex justify={"space-evenly"} gap={"2.5rem"} h={"100%"}>
             {/* Left Panel */}
-            <Stack w={"50%"} spacing={"xl"}>
+            <Stack w={{ xs: "100%", md: "50%" }} spacing={"xl"}>
               <Title
                 order={1}
                 transform="uppercase"
@@ -145,6 +158,7 @@ export default function App() {
                     setSelectedCardId={setSelectedCardId}
                     setViewMoreUrl={setViewMoreUrl}
                     setLoading={setLoadingViewMore}
+                    openModal={openModal}
                   />
                 ))}
                 <div ref={endOfReferencesRef}></div>
@@ -152,22 +166,42 @@ export default function App() {
             </Stack>
 
             {/* Right Panel */}
-            <Flex
-              direction={"column"}
-              w={"50%"}
-              px={"md"}
-              py={"sm"}
-              className={classes.rightPanel}
-            >
-              <PageView
-                viewMoreUrl={viewMoreUrl}
-                loading={loadingViewMore}
-                setLoading={setLoadingViewMore}
-              />
-            </Flex>
+            <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
+              <Flex
+                direction={"column"}
+                w={"50%"}
+                px={"md"}
+                py={"sm"}
+                className={classes.rightPanel}
+              >
+                <PageView
+                  viewMoreUrl={viewMoreUrl}
+                  loading={loadingViewMore}
+                  setLoading={setLoadingViewMore}
+                />
+              </Flex>
+            </MediaQuery>
           </Flex>
         </Container>
       </Flex>
+
+      <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
+        <Modal
+          size="80vw"
+          ml={40}
+          opened={opened}
+          onClose={close}
+          title="More Details"
+        >
+          <Box h={"80vh"}>
+            <PageView
+              viewMoreUrl={viewMoreUrl}
+              loading={loadingViewMore}
+              setLoading={setLoadingViewMore}
+            />
+          </Box>
+        </Modal>
+      </MediaQuery>
     </MantineProvider>
   );
 }
