@@ -72,7 +72,7 @@ You only have to to follow these specific steps if you are building the OGG/Orbi
 - Cayden Pierce
 - Alex Israelov
 - Kenji Phang
-- Nicolo
+- Nicolo Micheletti
 - Jeremy Stairs
 - Wazeer Zufikar
 - Vaze
