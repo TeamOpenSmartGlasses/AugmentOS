@@ -92,7 +92,7 @@ def average_embedding(words, embedder):
     return sum(embeddings) / len(embeddings)
 
 tokenizer = Tokenizer()
-embedder = Embedder( model_path=f"glove.6B.{EMBEDDING_DIMENSIONS}d.txt")
+embedder = Embedder( model_path=f"./glove.6B/glove.6B.{EMBEDDING_DIMENSIONS}d.txt")
 
 def word_sense_disambiguation(context, sentences):
 
