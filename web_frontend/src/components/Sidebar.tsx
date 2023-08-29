@@ -85,10 +85,7 @@ export function NavbarMinimal() {
   return (
     <Navbar width={{ base: 80 }} p="md">
       <Center>
-        {" "}
-        <Avatar src={null} color="red">
-          CSE
-        </Avatar>
+        <Avatar src="/CSE_logo_tmp.png" alt="CSE Logo" />
       </Center>
       <Navbar.Section grow mt={50}>
         <Stack justify="center" spacing={0}>
