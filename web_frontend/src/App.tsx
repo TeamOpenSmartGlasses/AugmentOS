@@ -1,15 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import {
-  Box,
   Container,
   Flex,
   MantineProvider,
-  MediaQuery,
-  Modal,
   ScrollArea,
   Stack,
   Title,
-  Text,
   createStyles,
 } from "@mantine/core";
 import Sidebar from "./components/Sidebar";
@@ -19,7 +15,10 @@ import { Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
 import axiosClient from "./axiosConfig";
-import { useDisclosure, useMediaQuery } from "@mantine/hooks";
+import {
+  // useDisclosure,
+  useMediaQuery,
+} from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -47,7 +46,7 @@ export default function App() {
   const [loadingViewMore, setLoadingViewMore] = useState(false);
   const hideTitle = entities.length > 5;
 
-  const [opened, { open, close }] = useDisclosure(false);
+  // const [opened, { open, close }] = useDisclosure(false);
   const smallerThanMedium = useMediaQuery("(max-width: 62em)");
 
   const initUserId = () => {
@@ -124,9 +123,9 @@ export default function App() {
   }, [entities]);
 
   const openModal = () => {
-    if (!opened && smallerThanMedium) {
-      open();
-    }
+    // if (!opened && smallerThanMedium) {
+    //   // open();
+    // }
   };
 
   return (
@@ -140,11 +139,20 @@ export default function App() {
       }}
     >
       <Flex className={classes.root}>
-        <Sidebar />
+        {!smallerThanMedium && <Sidebar />}
         <Container fluid className={classes.container}>
-          <Flex justify={"space-evenly"} gap={"2.5rem"} h={"100%"}>
+          <Flex
+            justify={"space-evenly"}
+            gap={"2.5rem"}
+            h={"100%"}
+            direction={smallerThanMedium ? "column" : "row"}
+          >
             {/* Left Panel */}
-            <Stack w={{ xs: "100%", md: "50%" }} spacing={"xl"}>
+            <Stack
+              w={{ xs: "100%", md: "50%" }}
+              h={{ xs: "50%", md: "100%" }}
+              spacing={"xl"}
+            >
               <Title
                 order={2}
                 sx={{
@@ -155,7 +163,9 @@ export default function App() {
               >
                 Contextual Search Engine
               </Title>
-              <TranscriptCard />
+              <TranscriptCard
+                transcriptBoxHeight={smallerThanMedium ? "2.5vh" : "6.5vh"}
+              />
               <ScrollArea scrollHideDelay={100}>
                 {entities.map((entity, i) => (
                   <ReferenceCard
@@ -174,26 +184,26 @@ export default function App() {
             </Stack>
 
             {/* Right Panel */}
-            <MediaQuery smallerThan={"md"} styles={{ display: "none" }}>
-              <Flex
-                direction={"column"}
-                w={"50%"}
-                px={"md"}
-                py={"sm"}
-                className={classes.rightPanel}
-              >
-                <PageView
-                  viewMoreUrl={viewMoreUrl}
-                  loading={loadingViewMore}
-                  setLoading={setLoadingViewMore}
-                />
-              </Flex>
-            </MediaQuery>
+            <Flex
+              direction={"column"}
+              w={{ xs: "100%", md: "50%" }}
+              h={{ xs: "50%", md: "100%" }}
+              px={"md"}
+              py={"sm"}
+              className={classes.rightPanel}
+            >
+              <PageView
+                viewMoreUrl={viewMoreUrl}
+                loading={loadingViewMore}
+                setLoading={setLoadingViewMore}
+              />
+            </Flex>
           </Flex>
         </Container>
       </Flex>
 
-      <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
+      {/* Save this for settings */}
+      {/* <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
         <Modal
           size="80vw"
           ml={40}
@@ -209,7 +219,7 @@ export default function App() {
             />
           </Box>
         </Modal>
-      </MediaQuery>
+      </MediaQuery> */}
     </MantineProvider>
   );
 }

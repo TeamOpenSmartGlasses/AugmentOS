@@ -13,7 +13,7 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
   return (
     <Box h={"100%"}>
       {viewMoreUrl ? (
-        <Skeleton visible={loading} h={"100%"}>
+        <Skeleton visible={loading} h={"100%"} w={"100%"}>
           <iframe
             src={viewMoreUrl}
             onLoad={handleLoad}

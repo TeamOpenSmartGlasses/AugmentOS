@@ -32,7 +32,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-const TranscriptCard = () => {
+interface TranscriptCardProps {
+  transcriptBoxHeight: string;
+}
+
+const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
   const { classes } = useStyles();
   const endOfTranscriptRef = useRef<HTMLDivElement | null>(null);
 
@@ -174,7 +178,7 @@ const TranscriptCard = () => {
           px={"lg"}
           py={"md"}
         >
-          <Box mah={"6.5vh"}>
+          <Box mah={transcriptBoxHeight}>
             <Text size={"xl"} color="white">
               {transcript}
             </Text>
