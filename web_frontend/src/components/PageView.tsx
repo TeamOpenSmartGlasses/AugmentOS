@@ -15,6 +15,7 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
       {viewMoreUrl ? (
         <Skeleton visible={loading} h={"100%"} w={"100%"}>
           <iframe
+            id="zoomed-out-iframe"
             src={viewMoreUrl}
             onLoad={handleLoad}
             width="100%"

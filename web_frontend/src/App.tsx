@@ -19,12 +19,14 @@ import {
   // useDisclosure,
   useMediaQuery,
 } from "@mantine/hooks";
+import "./index.css";
 
 const useStyles = createStyles((theme) => ({
   root: {
     height: "100vh",
     width: "100vw",
     backgroundColor: "#DEDEDE",
+    overflow: "clip"
   },
 
   container: {
