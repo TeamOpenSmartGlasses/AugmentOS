@@ -130,7 +130,15 @@ export default function App() {
   };
 
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        fontFamily: "Inter, sans-serif",
+        fontFamilyMonospace: "Inter, monospace",
+        headings: { fontFamily: "Inter, sans-serif" },
+      }}
+    >
       <Flex className={classes.root}>
         <Sidebar />
         <Container fluid className={classes.container}>
@@ -138,8 +146,7 @@ export default function App() {
             {/* Left Panel */}
             <Stack w={{ xs: "100%", md: "50%" }} spacing={"xl"}>
               <Title
-                order={1}
-                transform="uppercase"
+                order={2}
                 sx={{
                   display: hideTitle ? "none" : "block",
                   transition: "display 0.5s, transform 0.5s",
