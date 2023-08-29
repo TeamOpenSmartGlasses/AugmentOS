@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
   card: {
     height: 120,
     marginTop: "1rem",
-    ":first-child": { marginTop: 0 },
+    ":first-of-type": { marginTop: 0 },
     backgroundColor: theme.white,
     ":hover": {
       opacity: 0.75,
@@ -57,7 +57,7 @@ const ReferenceCard = ({
     setSelectedCardId(cardId);
     setViewMoreUrl(entity.url);
     setLoading(true);
-    openModal()
+    openModal();
   };
 
   return (

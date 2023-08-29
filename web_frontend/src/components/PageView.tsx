@@ -19,6 +19,7 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
             onLoad={handleLoad}
             width="100%"
             height="100%"
+            frameBorder={0}
           ></iframe>
         </Skeleton>
       ) : (
