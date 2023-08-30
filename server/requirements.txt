@@ -8,6 +8,7 @@ google-cloud-enterpriseknowledgegraph
 googlemaps
 responses
 pandas
+numpy
 sentence_transformers
 chromadb
 bs4
@@ -15,3 +16,5 @@ Wikipedia-API
 tiktoken
 pymongo
 fuzzysearch
+txtai
+transformers
