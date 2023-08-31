@@ -1,8 +1,8 @@
-# Discuss++
+# Convoscope
 
 Tools to augment conversations.
 
-Discuss++ augments conversations by providing language tools that run during your conversation, providing you with useful information, just-in-time.
+Convoscope augments conversations by providing language tools that run during your conversation, providing you with useful information, just-in-time.
 
 It runs on smart glasses or earbuds for IRL conversations or on a laptop for meeting rooms and video calls.
 
@@ -19,22 +19,6 @@ It runs on smart glasses or earbuds for IRL conversations or on a laptop for mee
 - FactChecker: Fact-checks your conversation in real-time.
 - Memory Augmentation: Short term memory aids during conversations. Afterwards, ask questions about and get summaries of your conversations.
 
-## Name Ideas
-
-Discuss++
-
-Convo++
-ConvoTech - A combination of 'Conversation' and 'Technology', highlighting the high-tech nature of the tool.
-ChatSight - Playing on the idea of glasses (sight) and conversation (chat).
-DeepTalk - Emphasizes the depth and richness the tool adds to conversations.
-ChatLens - A nod to the augmented reality perspective and the "lens" through which users can view enriched content.
-ConvoScope - Like a microscope or telescope, it provides depth and breadth to conversations.
-DialogDrive - Points to the dynamic, interactive nature of the tool and how it drives conversations forward.
-InsightChat - Emphasizing the insights and information the tool provides.
-IntellectConvo - Highlights the intellectual depth and richness the tool brings to discussions.
-ConvoCortex - Drawing an analogy to the cerebral cortex, where complex thoughts and processes happen.
-ChatSphere - Suggests a comprehensive, encompassing conversation platform.
-
 ## Install/Setup
 
 ### Backend
@@ -48,8 +32,8 @@ See this guide: [Frontend Setup Guide](./web_frontend/README.md)
 ### Wearables
 
 1. Install and run the [SmartGlassesManager](https://github.com/TeamOpenSmartGlasses/SmartGlassesManager).
-2. Install and run the Discuss++ Android app located in ./android_app
-3. Start Discuss++ using the SmartGlassesManager launcher.
+2. Install and run the Convoscope Android app located in ./android_app
+3. Start Convoscope using the SmartGlassesManager launcher.
 
 ### Building OGG/Orbis C++ for ASP
 
