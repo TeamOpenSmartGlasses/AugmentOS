@@ -222,7 +222,7 @@ export default function App() {
         smallerThanMedium={smallerThanMedium}
         opened={opened}
         closeSettings={closeSettings}
-        setUserId={setUserIdAndDeviceId}
+        setUserIdAndDeviceId={setUserIdAndDeviceId}
       />
     </MantineProvider>
   );
