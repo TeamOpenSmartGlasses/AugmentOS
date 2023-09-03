@@ -2,31 +2,31 @@ import { useEffect, useRef, useState } from "react";
 import {
   Container,
   Flex,
+  Group,
   MantineProvider,
   ScrollArea,
   Stack,
   Title,
   createStyles,
 } from "@mantine/core";
-import Sidebar from "./components/Sidebar";
+import Sidebar, { NavbarLink } from "./components/Sidebar";
 import TranscriptCard from "./components/TranscriptCard";
 import PageView from "./components/PageView";
 import { Entity } from "./types";
 import ReferenceCard from "./components/ReferenceCard";
 import Cookies from "js-cookie";
 import axiosClient from "./axiosConfig";
-import {
-  // useDisclosure,
-  useMediaQuery,
-} from "@mantine/hooks";
+import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import "./index.css";
+import { IconSettings } from "@tabler/icons-react";
+import SettingsModal from "./components/SettingsModal";
 
 const useStyles = createStyles((theme) => ({
   root: {
     height: "100vh",
     width: "100vw",
     backgroundColor: "#DEDEDE",
-    overflow: "clip"
+    overflow: "clip",
   },
 
   container: {
@@ -46,10 +46,19 @@ export default function App() {
   const [viewMoreUrl, setViewMoreUrl] = useState<string | undefined>();
   const [selectedCardId, setSelectedCardId] = useState<string>("");
   const [loadingViewMore, setLoadingViewMore] = useState(false);
-  const hideTitle = entities.length > 5;
 
-  // const [opened, { open, close }] = useDisclosure(false);
+  const [opened, { open: openSettings, close: closeSettings }] =
+    useDisclosure(false);
   const smallerThanMedium = useMediaQuery("(max-width: 62em)");
+  const hideTitle = !smallerThanMedium && entities.length > 5;
+
+  const toggleSettings = () => {
+    if (opened) {
+      closeSettings();
+    } else {
+      openSettings();
+    }
+  };
 
   const initUserId = () => {
     let userId = Cookies.get("userId");
@@ -124,12 +133,6 @@ export default function App() {
     });
   }, [entities]);
 
-  const openModal = () => {
-    // if (!opened && smallerThanMedium) {
-    //   // open();
-    // }
-  };
-
   return (
     <MantineProvider
       withGlobalStyles
@@ -141,7 +144,9 @@ export default function App() {
       }}
     >
       <Flex className={classes.root}>
-        {!smallerThanMedium && <Sidebar />}
+        {!smallerThanMedium && (
+          <Sidebar settingsOpened={opened} toggleSettings={toggleSettings} />
+        )}
         <Container fluid className={classes.container}>
           <Flex
             justify={"space-evenly"}
@@ -155,16 +160,26 @@ export default function App() {
               h={{ xs: "50%", md: "100%" }}
               spacing={"xl"}
             >
-              <Title
-                order={2}
-                sx={{
-                  display: hideTitle ? "none" : "block",
-                  transition: "display 0.5s, transform 0.5s",
-                  transform: hideTitle ? "translateY(-100%)" : "",
-                }}
-              >
-                Contextual Search Engine
-              </Title>
+              <Group position="apart">
+                <Title
+                  order={2}
+                  sx={{
+                    display: hideTitle ? "none" : "block",
+                    transition: "display 0.5s, transform 0.5s",
+                    transform: hideTitle ? "translateY(-100%)" : "",
+                  }}
+                >
+                  Contextual Search Engine
+                </Title>
+                {smallerThanMedium && (
+                  <NavbarLink
+                    active={opened}
+                    onClick={toggleSettings}
+                    icon={IconSettings}
+                    label={"Settings"}
+                  />
+                )}
+              </Group>
               <TranscriptCard
                 transcriptBoxHeight={smallerThanMedium ? "2.5vh" : "6.5vh"}
               />
@@ -178,7 +193,6 @@ export default function App() {
                     setSelectedCardId={setSelectedCardId}
                     setViewMoreUrl={setViewMoreUrl}
                     setLoading={setLoadingViewMore}
-                    openModal={openModal}
                   />
                 ))}
                 <div ref={endOfReferencesRef}></div>
@@ -204,24 +218,12 @@ export default function App() {
         </Container>
       </Flex>
 
-      {/* Save this for settings */}
-      {/* <MediaQuery largerThan={"md"} styles={{ display: "none" }}>
-        <Modal
-          size="80vw"
-          ml={40}
-          opened={opened}
-          onClose={close}
-          title={<Text fw={700}>More Details</Text>}
-        >
-          <Box h={"80vh"}>
-            <PageView
-              viewMoreUrl={viewMoreUrl}
-              loading={loadingViewMore}
-              setLoading={setLoadingViewMore}
-            />
-          </Box>
-        </Modal>
-      </MediaQuery> */}
+      <SettingsModal
+        smallerThanMedium={smallerThanMedium}
+        opened={opened}
+        closeSettings={closeSettings}
+        setUserId={setUserIdAndDeviceId}
+      />
     </MantineProvider>
   );
 }
