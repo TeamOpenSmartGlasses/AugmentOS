@@ -35,6 +35,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
     //WearLLM stuff
     private BackendServerComms backendServerComms;
     ArrayList<String> responses;
+    ArrayList<String> responsesToShare;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnableCode;
     static final String userId = "WearLLM_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
@@ -67,6 +68,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
         //make responses holder
         responses = new ArrayList<>();
+        responsesToShare = new ArrayList<>();
         responses.add("Welcome to WearLLM - ask Jarvis questions, ask what you were talking about, request summary of <n> minutes.");
 
         //Create SGMLib instance with context: this
@@ -150,12 +152,11 @@ public class WearLLMService extends SmartGlassesAndroidService {
     public void sendLatestCSEResultViaSms(){
         if (responses.size() > 1) {
             //Send latest CSE result via sms;
-            String messageToSend = responses.get(responses.size() - 1);
-            messageToSend += "\n\nSent from Discuss++";
+            String messageToSend = responsesToShare.get(responsesToShare.size() - 1);
 
             smsComms.sendSms(phoneNum, messageToSend);
 
-            sgmLib.sendReferenceCard("Discuss++", "Sending result(s) via SMS");
+            sgmLib.sendReferenceCard("Convoscope", "Sending result(s) via SMS");
         }
     }
 
@@ -242,6 +243,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
         JSONArray results = response.getJSONArray("result");
 
         ArrayList<String> cseResults = new ArrayList<>();
+        String sharableResponse = "";
         for (int i = 0; i < results.length(); i++){
             try {
                 JSONObject obj = results.getJSONObject(i);
@@ -267,12 +269,25 @@ public class WearLLMService extends SmartGlassesAndroidService {
 //                else {
 //                    sgmLib.sendReferenceCard(name, body);
 //                }
+
+                // For SMS
+                sharableResponse += combined;
+                if(obj.has("url")){
+                    sharableResponse += "\n" + obj.get("url");
+                }
+                sharableResponse += "\n\n";
+                if(i == results.length() - 1){
+                    sharableResponse += "Sent from Convoscope";
+                }
+
+
             } catch (JSONException e){
                 e.printStackTrace();
             }
         }
+        responsesToShare.add(sharableResponse);
         String[] cseResultsArr = cseResults.toArray(new String[cseResults.size()]);
-        sgmLib.sendBulletPointList("Discuss++", cseResultsArr);
+        sgmLib.sendBulletPointList("Convoscope", cseResultsArr);
     }
 
     public void speakTTS(String toSpeak){
