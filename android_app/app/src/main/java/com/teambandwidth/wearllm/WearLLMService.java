@@ -135,7 +135,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
     public void processGlassesTapCallback(int numTaps, boolean sideOfGlasses, long timestamp){
         Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
-        if (numTaps == 2)
+        if (numTaps == 3)
             sendLatestCSEResultViaSms();
     }
     public void processButtonCallback(int buttonId, long timestamp, boolean isDown){
