@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
+import com.teambandwidth.wearllm.events.SharingContactChangedEvent;
 import com.teambandwidth.wearllm.wearllmbackend.BackendServerComms;
 import com.teambandwidth.wearllm.wearllmbackend.VolleyJsonCallback;
 import com.teamopensmartglasses.sgmlib.DataStreamType;
@@ -15,6 +16,7 @@ import com.teamopensmartglasses.sgmlib.SGMLib;
 import com.teamopensmartglasses.sgmlib.SmartGlassesAndroidService;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,6 +26,7 @@ import java.util.UUID;
 
 public class WearLLMService extends SmartGlassesAndroidService {
     public final String TAG = "WearLLM_WearLLMService";
+    public final String appName = "Convoscope";
 
     private final IBinder binder = new LocalBinder();
     public static final String ACTION_START_FOREGROUND_SERVICE = "WEARLLM_ACTION_START_FOREGROUND_SERVICE";
@@ -43,8 +46,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
     static final String features = "contextual_search_engine";
 
     private SMSComms smsComms;
-    static final String phoneNum = "8477367492"; //Alex's phone
-    //static final String phoneNum = "4167705346"; //Cayden's phone (spam this one)
+    static String phoneNumName = "Alex";
+    static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
 
     private long currTime = 0;
     private long lastPressed = 0;
@@ -86,6 +89,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
         backendServerComms = new BackendServerComms(this);
 
         Log.d(TAG, "WearLLM SERVICE STARTED");
+
+        EventBus.getDefault().register(this);
 
         setUpCsePolling();
 
@@ -156,7 +161,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
             smsComms.sendSms(phoneNum, messageToSend);
 
-            sgmLib.sendReferenceCard("Convoscope", "Sending result(s) via SMS");
+            sgmLib.sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
         }
     }
 
@@ -347,5 +352,13 @@ public class WearLLMService extends SmartGlassesAndroidService {
         } catch (JSONException e){
             e.printStackTrace();
         }
+    }
+
+    @Subscribe
+    public void onContactChangedEvent(SharingContactChangedEvent receivedEvent){
+        Log.d(TAG, "GOT NEW PHONE NUMBER: " + receivedEvent.phoneNumber);
+        String newNum = receivedEvent.phoneNumber;
+        phoneNumName = receivedEvent.name;
+        phoneNum = newNum.replaceAll("[^0-9]", "");
     }
 }
