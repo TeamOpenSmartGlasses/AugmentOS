@@ -20,7 +20,7 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
     <activity
-        android:name="com.teambandwidth.wearllm.MainActivity"
+        android:name="com.teamopensmartglasses.convoscope.MainActivity"
         android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -28,7 +28,7 @@
       </intent-filter>
     </activity>
 
-    <service android:name="com.teambandwidth.wearllm.WearLLMService"
+    <service android:name="com.teamopensmartglasses.convoscope.ConvoscopeService"
         android:foregroundServiceType="microphone"
         android:exported="true">
         <intent-filter>

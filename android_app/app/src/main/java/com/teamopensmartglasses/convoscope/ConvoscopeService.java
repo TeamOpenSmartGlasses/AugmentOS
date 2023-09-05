@@ -1,4 +1,4 @@
-package com.teambandwidth.wearllm;
+package com.teamopensmartglasses.convoscope;
 
 import android.content.Intent;
 import android.os.Handler;
@@ -6,9 +6,9 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
-import com.teambandwidth.wearllm.events.SharingContactChangedEvent;
-import com.teambandwidth.wearllm.wearllmbackend.BackendServerComms;
-import com.teambandwidth.wearllm.wearllmbackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
+import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
+import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
 import com.teamopensmartglasses.sgmlib.DataStreamType;
 import com.teamopensmartglasses.sgmlib.FocusStates;
 import com.teamopensmartglasses.sgmlib.SGMCommand;
@@ -24,24 +24,24 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class WearLLMService extends SmartGlassesAndroidService {
-    public final String TAG = "WearLLM_WearLLMService";
+public class ConvoscopeService extends SmartGlassesAndroidService {
+    public final String TAG = "Convoscope_ConvoscopeService";
     public final String appName = "Convoscope";
 
     private final IBinder binder = new LocalBinder();
-    public static final String ACTION_START_FOREGROUND_SERVICE = "WEARLLM_ACTION_START_FOREGROUND_SERVICE";
-    public static final String ACTION_STOP_FOREGROUND_SERVICE = "WEARLLM_ACTION_STOP_FOREGROUND_SERVICE";
+    public static final String ACTION_START_FOREGROUND_SERVICE = "CONVOSCOPE_ACTION_START_FOREGROUND_SERVICE";
+    public static final String ACTION_STOP_FOREGROUND_SERVICE = "CONVOSCOPE_ACTION_STOP_FOREGROUND_SERVICE";
 
     //our instance of the SGM library
     public SGMLib sgmLib;
 
-    //WearLLM stuff
+    //Convoscope stuff
     private BackendServerComms backendServerComms;
     ArrayList<String> responses;
     ArrayList<String> responsesToShare;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnableCode;
-    static final String userId = "WearLLM_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
+    static final String userId = "Convoscope_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
     static final String deviceId = "android";
     static final String features = "contextual_search_engine";
 
@@ -57,12 +57,12 @@ public class WearLLMService extends SmartGlassesAndroidService {
     private final long doublePressTimeConst = 420;
     private final long doubleTapTimeConst = 600;
 
-    public WearLLMService() {
+    public ConvoscopeService() {
         super(MainActivity.class,
-                "wear_llm_app",
+                "convoscope_app",
                 3288,
-                "WearLLM",
-                "Wearable intelligence upgrades. By Team Bandwidth.", R.drawable.ic_launcher_background);
+                "Convoscope",
+                "Wearable intelligence upgrades. By TeamOpenSmartGlasses.", R.drawable.ic_launcher_background);
     }
 
     @Override
@@ -72,23 +72,23 @@ public class WearLLMService extends SmartGlassesAndroidService {
         //make responses holder
         responses = new ArrayList<>();
         responsesToShare = new ArrayList<>();
-        responses.add("Welcome to WearLLM - ask Jarvis questions, ask what you were talking about, request summary of <n> minutes.");
+        responses.add("Welcome to Convoscope - ask Jarvis questions, ask what you were talking about, request summary of <n> minutes.");
 
         //Create SGMLib instance with context: this
         sgmLib = new SGMLib(this);
 
         //Define command with a UUID
         UUID commandUUID = UUID.fromString("5b824bb6-d3b3-417d-8c74-3b103efb403f");
-        SGMCommand command = new SGMCommand("WearLLM", commandUUID, new String[]{"WearLLM", "wearable intelligence"}, "AI wearable intelligence.");
+        SGMCommand command = new SGMCommand("Convoscope", commandUUID, new String[]{"Convoscope", "wearable intelligence"}, "AI wearable intelligence.");
 
         //Register the command
-        Log.d(TAG, "Registering WearLLM command with SGMLib");
-        sgmLib.registerCommand(command, this::wearLlmStartCommandCallback);
+        Log.d(TAG, "Registering Convoscope command with SGMLib");
+        sgmLib.registerCommand(command, this::convoscopeStartCommandCallback);
 
         //setup backend comms
         backendServerComms = new BackendServerComms(this);
 
-        Log.d(TAG, "WearLLM SERVICE STARTED");
+        Log.d(TAG, "Convoscope SERVICE STARTED");
 
         EventBus.getDefault().register(this);
 
@@ -116,8 +116,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
         super.onDestroy();
     }
 
-    public void wearLlmStartCommandCallback(String args, long commandTriggeredTime){
-        Log.d("TAG","WearLLM start callback called");
+    public void convoscopeStartCommandCallback(String args, long commandTriggeredTime){
+        Log.d("TAG","Convoscope start callback called");
 
         //request to be the in focus app so we can continue to show transcripts
         sgmLib.requestFocus(this::focusChangedCallback);
@@ -302,14 +302,14 @@ public class WearLLMService extends SmartGlassesAndroidService {
     public void sendUiUpdateFull(){
         Intent intent = new Intent();
         intent.setAction(MainActivity.UI_UPDATE_FULL);
-        intent.putStringArrayListExtra(MainActivity.WEARLLM_MESSAGE_STRING, responses);
+        intent.putStringArrayListExtra(MainActivity.CONVOSCOPE_MESSAGE_STRING, responses);
         sendBroadcast(intent);
     }
 
     public void sendUiUpdateSingle(String message) {
         Intent intent = new Intent();
         intent.setAction(MainActivity.UI_UPDATE_SINGLE);
-        intent.putExtra(MainActivity.WEARLLM_MESSAGE_STRING, message);
+        intent.putExtra(MainActivity.CONVOSCOPE_MESSAGE_STRING, message);
         sendBroadcast(intent);
     }
 

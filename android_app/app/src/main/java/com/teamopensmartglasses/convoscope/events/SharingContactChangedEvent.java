@@ -1,4 +1,4 @@
-package com.teambandwidth.wearllm.events;
+package com.teamopensmartglasses.convoscope.events;
 
 public class SharingContactChangedEvent {
     public String name;

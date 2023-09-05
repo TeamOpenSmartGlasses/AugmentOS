@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.teambandwidth.wearllm'
+    namespace 'com.teamopensmartglasses.convoscope'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.teambandwidth.wearllm"
+        applicationId "com.teamopensmartglasses.convoscope"
         minSdk 30
         targetSdk 33
         versionCode 1

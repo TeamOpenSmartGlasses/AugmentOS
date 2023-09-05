@@ -1,6 +1,6 @@
 <resources>
   <!-- The application name. -->
-  <string name="app_name">WearLLM</string>
+  <string name="app_name">Convoscope</string>
   <!-- Selecting language message. -->
   <string name="say_something">Say something!</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.teambandwidth.wearllm.wearllmbackend;
+package com.teamopensmartglasses.convoscope.convoscopebackend;
 
 /*
 Adapted from:

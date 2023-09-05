@@ -1,6 +1,5 @@
-package com.teambandwidth.wearllm;
+package com.teamopensmartglasses.convoscope;
 
-import android.provider.Telephony;
 import android.telephony.SmsManager;
 import android.util.Log;
 
