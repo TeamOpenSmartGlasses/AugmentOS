@@ -73,8 +73,8 @@ See this guide: [Frontend Setup Guide](./web_frontend/README.md)
 ### Wearables
 
 1. Install and run the [SmartGlassesManager](https://github.com/TeamOpenSmartGlasses/SmartGlassesManager).
-2. Install and run the Discuss++ Android app located in ./android_app
-3. Start Discuss++ using the SmartGlassesManager launcher.
+2. Install and run the Convoscope Android app located in ./android_app
+3. Start Convoscope using the SmartGlassesManager launcher.
 
 ### Building OGG/Orbis C++ for ASP
 
