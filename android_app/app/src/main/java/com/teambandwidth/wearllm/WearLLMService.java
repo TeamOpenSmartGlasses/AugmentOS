@@ -6,6 +6,7 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.util.Log;
 
+import com.teambandwidth.wearllm.events.SharingContactChangedEvent;
 import com.teambandwidth.wearllm.wearllmbackend.BackendServerComms;
 import com.teambandwidth.wearllm.wearllmbackend.VolleyJsonCallback;
 import com.teamopensmartglasses.sgmlib.DataStreamType;
@@ -14,6 +15,8 @@ import com.teamopensmartglasses.sgmlib.SGMCommand;
 import com.teamopensmartglasses.sgmlib.SGMLib;
 import com.teamopensmartglasses.sgmlib.SmartGlassesAndroidService;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,6 +26,7 @@ import java.util.UUID;
 
 public class WearLLMService extends SmartGlassesAndroidService {
     public final String TAG = "WearLLM_WearLLMService";
+    public final String appName = "Convoscope";
 
     private final IBinder binder = new LocalBinder();
     public static final String ACTION_START_FOREGROUND_SERVICE = "WEARLLM_ACTION_START_FOREGROUND_SERVICE";
@@ -34,11 +38,24 @@ public class WearLLMService extends SmartGlassesAndroidService {
     //WearLLM stuff
     private BackendServerComms backendServerComms;
     ArrayList<String> responses;
+    ArrayList<String> responsesToShare;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnableCode;
     static final String userId = "WearLLM_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
     static final String deviceId = "android";
     static final String features = "contextual_search_engine";
+
+    private SMSComms smsComms;
+    static String phoneNumName = "Alex";
+    static String phoneNum = "8477367492"; // Alex's phone number. Fun default.
+
+    private long currTime = 0;
+    private long lastPressed = 0;
+    private long lastTapped = 0;
+
+    // Double clicking constants
+    private final long doublePressTimeConst = 420;
+    private final long doubleTapTimeConst = 600;
 
     public WearLLMService() {
         super(MainActivity.class,
@@ -54,6 +71,7 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
         //make responses holder
         responses = new ArrayList<>();
+        responsesToShare = new ArrayList<>();
         responses.add("Welcome to WearLLM - ask Jarvis questions, ask what you were talking about, request summary of <n> minutes.");
 
         //Create SGMLib instance with context: this
@@ -72,7 +90,11 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
         Log.d(TAG, "WearLLM SERVICE STARTED");
 
+        EventBus.getDefault().register(this);
+
         setUpCsePolling();
+
+        smsComms = new SMSComms();
     }
 
     public void setUpCsePolling(){
@@ -85,10 +107,13 @@ public class WearLLMService extends SmartGlassesAndroidService {
         };
         handler.post(runnableCode);
     }
+
     @Override
     public void onDestroy(){
-        super.onDestroy();
         handler.removeCallbacks(runnableCode);
+        EventBus.getDefault().unregister(this);
+        sgmLib.deinit();
+        super.onDestroy();
     }
 
     public void wearLlmStartCommandCallback(String args, long commandTriggeredTime){
@@ -99,11 +124,45 @@ public class WearLLMService extends SmartGlassesAndroidService {
 
         //Subscribe to transcription stream
         sgmLib.subscribe(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM, this::processTranscriptionCallback);
+        sgmLib.subscribe(DataStreamType.SMART_RING_BUTTON, this::processButtonCallback);
+        sgmLib.subscribe(DataStreamType.GLASSES_SIDE_TAP, this::processGlassesTapCallback);
     }
 
     public void focusChangedCallback(FocusStates focusState){
         Log.d(TAG, "Focus callback called with state: " + focusState);
         this.focusState = focusState;
+    }
+
+    public void processGlassesTapCallback(int numTaps, boolean sideOfGlasses, long timestamp){
+        Log.d(TAG, "GLASSES TAPPED X TIMES: " + numTaps + " SIDEOFGLASSES: " + sideOfGlasses);
+        if (numTaps == 3)
+            sendLatestCSEResultViaSms();
+    }
+    public void processButtonCallback(int buttonId, long timestamp, boolean isDown){
+        if(!isDown || buttonId != 1) return;
+        Log.d(TAG,"DETECTED BUTTON PRESS W BUTTON ID: " + buttonId);
+        currTime = System.currentTimeMillis();
+
+        //Detect double presses
+        if(isDown && currTime - lastPressed < doublePressTimeConst) {
+            Log.d(TAG, "CurrTime-lastPressed: "+ (currTime-lastPressed));
+            sendLatestCSEResultViaSms();
+        }
+
+        if(isDown) {
+            lastPressed = System.currentTimeMillis();
+        }
+    }
+
+    public void sendLatestCSEResultViaSms(){
+        if (responses.size() > 1) {
+            //Send latest CSE result via sms;
+            String messageToSend = responsesToShare.get(responsesToShare.size() - 1);
+
+            smsComms.sendSms(phoneNum, messageToSend);
+
+            sgmLib.sendReferenceCard("Convoscope", "Sending result(s) via SMS to " + phoneNumName);
+        }
     }
 
     public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){
@@ -188,6 +247,8 @@ public class WearLLMService extends SmartGlassesAndroidService {
         String mapImgKey = "map_image_path";
         JSONArray results = response.getJSONArray("result");
 
+        ArrayList<String> cseResults = new ArrayList<>();
+        String sharableResponse = "";
         for (int i = 0; i < results.length(); i++){
             try {
                 JSONObject obj = results.getJSONObject(i);
@@ -200,21 +261,38 @@ public class WearLLMService extends SmartGlassesAndroidService {
                 sendUiUpdateSingle(combined);
                 speakTTS(combined);
 
-                if(obj.has(mapImgKey)){
-                    String mapImgPath = obj.getString(mapImgKey);
-                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
-                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
+                cseResults.add(combined.substring(0,Math.min(90, combined.length())).trim().replaceAll("\\s+", " "));
+
+//                if(obj.has(mapImgKey)){
+//                    String mapImgPath = obj.getString(mapImgKey);
+//                    String mapImgUrl = backendServerComms.serverUrl + mapImgPath;
+//                    sgmLib.sendReferenceCard(name, body, mapImgUrl);
+//                }
+//                else if(obj.has(imgKey)) {
+//                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
+//                }
+//                else {
+//                    sgmLib.sendReferenceCard(name, body);
+//                }
+
+                // For SMS
+                sharableResponse += combined;
+                if(obj.has("url")){
+                    sharableResponse += "\n" + obj.get("url");
                 }
-                else if(obj.has(imgKey)) {
-                    sgmLib.sendReferenceCard(name, body, obj.getString(imgKey));
+                sharableResponse += "\n\n";
+                if(i == results.length() - 1){
+                    sharableResponse += "Sent from Convoscope";
                 }
-                else {
-                    sgmLib.sendReferenceCard(name, body);
-                }
+
+
             } catch (JSONException e){
                 e.printStackTrace();
             }
         }
+        responsesToShare.add(sharableResponse);
+        String[] cseResultsArr = cseResults.toArray(new String[cseResults.size()]);
+        sgmLib.sendBulletPointList("Convoscope", cseResultsArr);
     }
 
     public void speakTTS(String toSpeak){
@@ -274,5 +352,13 @@ public class WearLLMService extends SmartGlassesAndroidService {
         } catch (JSONException e){
             e.printStackTrace();
         }
+    }
+
+    @Subscribe
+    public void onContactChangedEvent(SharingContactChangedEvent receivedEvent){
+        Log.d(TAG, "GOT NEW PHONE NUMBER: " + receivedEvent.phoneNumber);
+        String newNum = receivedEvent.phoneNumber;
+        phoneNumName = receivedEvent.name;
+        phoneNum = newNum.replaceAll("[^0-9]", "");
     }
 }

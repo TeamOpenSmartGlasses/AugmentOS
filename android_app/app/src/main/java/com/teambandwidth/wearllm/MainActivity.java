@@ -25,8 +25,11 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.InputType;
 import android.text.method.LinkMovementMethod;
@@ -47,6 +50,10 @@ import androidx.preference.PreferenceManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.teambandwidth.wearllm.events.SharingContactChangedEvent;
+
+import org.greenrobot.eventbus.EventBus;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,7 +63,9 @@ public class MainActivity extends AppCompatActivity {
 
   //Permissions
   private static final int PERMISSIONS_REQUEST_RECORD_AUDIO = 1;
-
+  private static final int SEND_SMS_PERMISSION_REQUEST_CODE = 1234;
+  private static final int PICK_CONTACT_REQUEST = 1;
+  private static final int READ_CONTACTS_PERMISSIONS_REQUEST = 2;
   //UI
   private ResponseTextUiAdapter responseTextUiAdapter;
   private RecyclerView responseRecyclerView;
@@ -108,13 +117,23 @@ public class MainActivity extends AppCompatActivity {
       }
     });
 
+    Button pickContactButton = findViewById(R.id.pick_contact_button);
+    pickContactButton.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+          ActivityCompat.requestPermissions(MainActivity.this,
+                  new String[]{Manifest.permission.READ_CONTACTS},
+                  READ_CONTACTS_PERMISSIONS_REQUEST);
+        } else {
+          pickContact();
+        }
+      }
+    });
+
     //start the main WearLLM backend, if it's not already running
     startWearLLMService();
-
-    //debug
-//    for (int i = 0; i < 25; i++) {
-//      addResponseTextBox("this is a text box");
-//    }
   }
 
   @Override
@@ -124,6 +143,13 @@ public class MainActivity extends AppCompatActivity {
         != PackageManager.PERMISSION_GRANTED) {
       ActivityCompat.requestPermissions(
           this, new String[] {Manifest.permission.RECORD_AUDIO}, PERMISSIONS_REQUEST_RECORD_AUDIO);
+    }
+
+    if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)
+            != PackageManager.PERMISSION_GRANTED) {
+      Log.d(TAG, "NO SMS PERM!");
+      ActivityCompat.requestPermissions(
+              this, new String[] {Manifest.permission.SEND_SMS}, SEND_SMS_PERMISSION_REQUEST_CODE);
     }
   }
 
@@ -156,6 +182,13 @@ public class MainActivity extends AppCompatActivity {
           finish();
         }
         return;
+      case READ_CONTACTS_PERMISSIONS_REQUEST:
+        if (grantResults.length > 0 &&
+                grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+          pickContact();
+        } else {
+          Toast.makeText(this, "Permission to read contacts denied", Toast.LENGTH_SHORT).show();
+        }
       default: // Should not happen. Something we did not request.
     }
   }
@@ -166,6 +199,10 @@ public class MainActivity extends AppCompatActivity {
 
     //register receiver that gets data from the service
     registerReceiver(mMainServiceReceiver, makeMainServiceReceiverIntentFilter());
+
+    //scroll to bottom of scrolling UIs
+    responseRecyclerView.scrollToPosition(responseTextUiAdapter.getItemCount() - 1);
+    transcriptRecyclerView.scrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
 
     if (isMyServiceRunning(WearLLMService.class)) {
       //bind to WearableAi service
@@ -306,5 +343,44 @@ public class MainActivity extends AppCompatActivity {
     transcriptRecyclerView.smoothScrollToPosition(transcriptTextUiAdapter.getItemCount() - 1);
   }
 
+  private void pickContact() {
+    Intent pickContactIntent = new Intent(Intent.ACTION_PICK, ContactsContract.Contacts.CONTENT_URI);
+    startActivityForResult(pickContactIntent, PICK_CONTACT_REQUEST);
+  }
 
+
+  @Override
+  protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (requestCode == PICK_CONTACT_REQUEST && resultCode == RESULT_OK) {
+      Uri contactUri = data.getData();
+
+      // Perform another query to get the contact's details
+      Cursor cursor = getContentResolver().query(contactUri, null,
+              null, null, null);
+
+      if (cursor != null && cursor.moveToFirst()) {
+        String id = cursor.getString(cursor.getColumnIndexOrThrow(ContactsContract.Contacts._ID));
+
+        Cursor phones = getContentResolver().query(
+                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
+                null,
+                ContactsContract.CommonDataKinds.Phone.CONTACT_ID + " = " + id,
+                null, null);
+
+        while (phones != null && phones.moveToNext()) {
+          @SuppressLint("Range") String phoneNumber = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
+          @SuppressLint("Range") String name = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
+          Toast.makeText(this, "Phone number: " + phoneNumber, Toast.LENGTH_LONG).show();
+          EventBus.getDefault().post(new SharingContactChangedEvent(name, phoneNumber));
+        }
+
+        cursor.close();
+
+        if (phones != null) {
+          phones.close();
+        }
+      }
+    }
+  }
 }

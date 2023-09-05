@@ -58,17 +58,30 @@
 
     <Button
         android:id="@+id/llmButton"
-        android:layout_width="107dp"
-        android:layout_height="207dp"
+        android:layout_width="115dp"
+        android:layout_height="75dp"
         android:background="@color/blueButton"
         android:text="LLM"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.665" />
+
+    <Button
+        android:id="@+id/pick_contact_button"
+        android:layout_width="115dp"
+        android:layout_height="75dp"
+        android:text="Contact"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/llmButton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<!--    <Button-->
+    <!--    <Button-->
 <!--        android:id="@+id/button2"-->
 <!--        android:layout_width="107dp"-->
 <!--        android:layout_height="107dp"-->
