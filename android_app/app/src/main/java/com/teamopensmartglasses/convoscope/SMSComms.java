@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class SMSComms {
 
-    private final String TAG = "DiscussPlusPlus_SMSComms";
+    private final String TAG = "Convoscope_SMSComms";
     private static SmsManager sm;
 
     private static SMSComms myself;
