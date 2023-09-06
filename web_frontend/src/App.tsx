@@ -146,7 +146,7 @@ export default function App() {
                   transform: hideTitle ? "translateY(-100%)" : "",
                 }}
               >
-                Contextual Search Engine
+                 Convoscope
               </Title>
               <TranscriptCard />
               <ScrollArea scrollHideDelay={100}>
