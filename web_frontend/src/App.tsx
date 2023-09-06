@@ -169,7 +169,7 @@ export default function App() {
                     transform: hideTitle ? "translateY(-100%)" : "",
                   }}
                 >
-                  Contextual Search Engine
+                  Convoscope
                 </Title>
                 {smallerThanMedium && (
                   <NavbarLink
