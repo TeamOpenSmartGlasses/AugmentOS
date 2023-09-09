@@ -89,7 +89,8 @@ class DatabaseHandler:
         self.createUserIfNotExists(userId)
         user = self.userCollection.find_one({"userId": userId})
         transcripts = user['transcripts']
-        if deleteAfter: self.deleteAllTranscriptsForUser(userId)
+        if deleteAfter:
+            self.deleteAllTranscriptsForUser(userId)
         return transcripts
 
     def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
