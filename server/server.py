@@ -12,8 +12,6 @@ import tiktoken
 from datetime import datetime
 from ContextualSearchEngine import ContextualSearchEngine
 import time
-from utils import UnitMemory, ShortTermMemory, LongTermMemory
-from utils import TimeNavigator, CurrentTime, MemoryRetriever
 from prompts import memory_retriever_prompt, answer_prompt
 from parsers import retrieve_memory
 import threading
@@ -147,9 +145,6 @@ async def chat_handler(request):
     return web.Response(text=json.dumps({'success': True, 'message': response}), status=200)
 
 
-#app['buffer']['wazeer'] = ShortTermMemory()
-#UnitMemory class
-
 async def button_handler(request):
     body = await request.json()
     button_num = body.get('button_num')
@@ -173,50 +168,9 @@ async def button_handler(request):
         with open(f'{userId}_events.log', 'a') as f:
             f.write(str({'text': "BUTTON_DOWN", 'timestamp': timestamp}) + '\n')
 
-        #get recent transcripts (last n seconds of speech)
-        short_term_memory = get_short_term_memory(userId)
-        print("------------------------ {} 's STM:")
-        print(short_term_memory)
-        short_term_memory_snippet = short_term_memory
-
-        # agent response
-        #answer = await agent_james(short_term_memory_snippet, userId)
-        answer = await answer_question_to_jarvis(short_term_memory_snippet, userId)
-        response = answer
-
-        return web.Response(text=json.dumps({'message': response}), status=200)
+        return web.Response(text=json.dumps({'message': "button down activity detected"}), status=200)
     else : 
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
-
-
-def get_short_term_memory(userId):
-    stm = ""
-    for um in app['buffer'][userId].get_memories():
-        stm += um.get_text() + "\n\n"
-    return stm
-
-
-async def print_handler(request):
-    body = await request.json()
-    userId = body.get('userId')
-    print('\n=== New Request ===\n', userId)
-
-    # 400 if missing params
-    if userId is None or userId == '':
-        return web.Response(text='no userId in request', status=400)
-
-    # print short term memory
-    short_term_memory = str(app['buffer'][userId])
-
-    # print long term memory
-    long_term_memory = app['memory'][userId].db.get()
-
-    memories = {
-        'short_term_memory': short_term_memory,
-        'long_term_memory': long_term_memory
-    }
-
-    return web.Response(text=json.dumps(memories), status=200)
 
 
 async def answer_question_to_jarvis(text, userId):

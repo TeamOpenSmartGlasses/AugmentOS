@@ -2,7 +2,9 @@
 
 #### Smart glasses and web tools to augment conversations.
 
-Convoscope answers your questions before you even ask. It does so by listening to your conversations and proactively provide useful definitions and insights, helping you understand what is said, have better ideas, and more effectively solve problems. It runs on smart glasses for IRL conversations or on a laptop for meeting rooms and video calls.
+Convoscope answers your questions before you even ask. It does so by listening to your conversations and proactively providing useful definitions and insights to help you understand what is said, have better ideas, and more effectively solve problems. It runs on smart glasses for IRL conversations or on a laptop for meeting rooms and video calls.
+
+[![Convoscope Demo video](./convoscope_play_video.jpg)](https://www.youtube.com/watch?v=3n6DzuYQ_v8 "Convoscope Demo")
 
 ### What Does It Do?
 
@@ -76,7 +78,9 @@ See this guide: [Frontend Setup Guide](./web_frontend/README.md)
 2. Install and run the Convoscope Android app located in ./android_app
 3. Start Convoscope using the SmartGlassesManager launcher.
 
-### Building OGG/Orbis C++ for ASP
+##### Building OGG/Orbis C++ for ASP
+
+(You probably don't need this)
 
 You only have to to follow these specific steps if you are building the OGG/Orbis C++ code. Otherwise, things will likely work with your regular Android Studio setup.
 
@@ -121,5 +125,4 @@ Convoscope is still work in progress and still in active development. Reach out 
 
 ## License
 
-MIT License
-Copyright 2023 TeamOpenSmartGlasses
+MIT License Copyright 2023 TeamOpenSmartGlasses
