@@ -1,4 +1,4 @@
-package com.teambandwidth.wearllm;
+package com.teamopensmartglasses.convoscope;
 
 import android.view.LayoutInflater;
 import android.view.View;
