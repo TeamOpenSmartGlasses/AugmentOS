@@ -62,7 +62,6 @@ A neighbor mentions buying only from brands that use recycled materials. Your gl
 
 While brainstorming on a new drone design, a colleague suggests integrating "gallium nitride" (GaN) transistors. An electron flow animation on your glasses contrasts silicon vs. GaN transistors, with GaN showing faster flow rates. You comprehend its impact on drone performance and discuss its cost-benefit for your prototype.
 
->>>>>>> dev
 ## Install/Setup
 
 ### Backend
