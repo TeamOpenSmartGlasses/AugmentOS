@@ -17,9 +17,12 @@ from parsers import retrieve_memory
 import threading
 from DatabaseHandler import DatabaseHandler
 from RelevanceFilter import RelevanceFilter
-from multiprocessing import Process
 from server_config import server_port
 import traceback
+
+#multiprocessing
+import multiprocessing
+#multiprocessing.set_start_method('spawn')
 
 #CORS
 import aiohttp_cors
@@ -45,27 +48,6 @@ app['llm'] = ChatOpenAI(
     openai_api_key=OPENAI_API_KEY,
     max_tokens=max_tokens,
 )
-
-# app['agent'] = initializeAgent()
-
-app['buffer']['test'] = ShortTermMemory()
-app['buffer']['cayden'] = ShortTermMemory()
-app['buffer']['jeremy'] = []
-app['buffer']['wazeer'] = ShortTermMemory()
-
-app['memory']['test'] = LongTermMemory('test')
-app['memory']['cayden'] = LongTermMemory('cayden')
-app['memory']['jeremy'] = []
-app['memory']['wazeer'] = LongTermMemory('wazeer')
-
-# add a chromadb memory for each user
-# have a current context buffer for each user
-
-# maybe notes db for each user
-
-# agent based interaction for each query
-# or
-# direct prompt based interaction for each query
 
 mostRecentFinalTranscript = dict()
 fiveSecondsInMs = 5000
@@ -347,14 +329,13 @@ async def return_image(request):
         data = Path('images/404-2.jpg').read_bytes()
     return Response(body=data, content_type="image/jpg")
 
-background_process = Process(target=processing_loop)
+background_process = multiprocessing.Process(target=processing_loop)
 background_process.start()
 
 app.add_routes(
     [
         web.post('/chat', chat_handler),
         web.post('/button_event', button_handler),
-        web.post('/print', print_handler),
         web.post('/ui_poll', ui_poll),
         web.get('/image', return_image)
     ]

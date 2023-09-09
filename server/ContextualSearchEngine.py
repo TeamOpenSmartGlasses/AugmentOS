@@ -7,6 +7,7 @@ import uuid
 import math
 import time
 from bs4 import BeautifulSoup
+import warnings
 
 #Google NLP + Maps imports
 from google.cloud import language_v1
@@ -36,16 +37,16 @@ import pandas as pd
 import numpy as np
 nltk.download('stopwords')
 
+#language models
+import torch
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
+from txtai.pipeline import Similarity
+
 #image conversion
 import base64
 
 #custom
 import word_frequency
-
-# from transformers import GPT2LMHeadModel, GPT2Tokenizer
-# from txtai.pipeline import Similarity
-
-import warnings
 
 
 def first_last_concat(s):
@@ -112,9 +113,10 @@ class ContextualSearchEngine:
         self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
         #self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
 
-        # self.similarity_func = Similarity("valhalla/distilbart-mnli-12-1", gpu=False)
-        # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-        # self.model = GPT2LMHeadModel.from_pretrained("gpt2")
+        #self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        #self.similarity_func = Similarity("valhalla/distilbart-mnli-12-1", gpu=True)
+        #self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        #self.model = GPT2LMHeadModel.from_pretrained("gpt2").to(self.inference_device)
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
@@ -521,19 +523,19 @@ class ContextualSearchEngine:
         print(matches)
         return matches
 
-    # def get_similarity(self, context, string_to_match):
-    #     similarity = self.similarity_func(string_to_match, [context])
-    #     return similarity
-    
-    # def word_sequence_entropy(self, sequence):
-    #     input_ids = self.tokenizer.encode(sequence, return_tensors='pt')
-    #     token_count = input_ids.size(1)
+    def get_similarity(self, context, string_to_match):
+        similarity = self.similarity_func(string_to_match, [context])
+        return similarity
 
-    #     output = self.model(input_ids, labels=input_ids)
+    def word_sequence_entropy(self, sequence):
+        input_ids = self.tokenizer.encode(sequence, return_tensors='pt').to(self.inference_device)
+        token_count = input_ids.size(1)
 
-    #     log_likelihood = output[0].item()
-    #     normalized_score = 1 / (1 + np.exp(-log_likelihood / token_count))
-    #     return normalized_score
+        output = self.model(input_ids, labels=input_ids)
+
+        log_likelihood = output[0].item()
+        normalized_score = 1 / (1 + np.exp(-log_likelihood / token_count))
+        return normalized_score
 
     def search_name(self, to_search, entities, config, descriptions=None, context=None):
         max_deletions = config["max_deletions"]
@@ -555,16 +557,16 @@ class ContextualSearchEngine:
                 max_l_dist=max_l_dist,
             )
 
-            if match_entity: # and (not compute_entropy or (self.get_similarity(descriptions[idx], context)[0][1] > 0.3 and self.word_sequence_entropy(to_search) > 0.94)):
+            if match_entity:# and (not compute_entropy or (self.get_similarity(descriptions[idx], context)[0][1] > 0.3 and self.word_sequence_entropy(to_search) > 0.94)):
                 matches.append(idx)
-                # print("to_search", to_search)
-                # print("entity", entity)
-                # print(match_entity)
-                # print(self.get_similarity(descriptions[idx], context)[0][1] if compute_entropy else None)
-                # # print(word_sequence_entropy(to_search))
-                # print(descriptions[idx] if compute_entropy else None)
-                # print(context)
-                # print('-------------------------------')
+                #print("to_search", to_search)
+                #print("entity", entity)
+                #print(match_entity)
+                #print(self.get_similarity(descriptions[idx], context)[0][1] if compute_entropy else None)
+                #print(self.word_sequence_entropy(to_search))
+                #print(descriptions[idx] if compute_entropy else None)
+                #print(context)
+                #print('-------------------------------')
                 break
 
         return matches
