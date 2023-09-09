@@ -115,6 +115,22 @@ class ContextualSearchEngine:
         # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         # self.model = GPT2LMHeadModel.from_pretrained("gpt2")
 
+    async def upload_user_data(self, user_id):
+        user_folder_path = os.path.join('custom_data', str(user_id))
+
+        # List all CSV files in the user-specific folder
+        csv_files = [f for f in os.listdir(
+            user_folder_path) if f.endswith('.csv')]
+
+        # Read each CSV into a DataFrame
+        dfs = [pd.read_csv(os.path.join(user_folder_path, csv_file))
+               for csv_file in csv_files]
+
+        # Concatenate all DataFrames into a single DataFrame
+        concatenated_df = pd.concat(dfs, ignore_index=True)
+
+        self.custom_data['user_data'] = concatenated_df
+
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
         responses.add(responses.GET, url, status=200)

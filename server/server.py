@@ -439,6 +439,8 @@ async def upload_user_data(request):
 
         save_user_data(df, user_id)
 
+        cse.upload_user_data(user_id)
+
         return web.Response(text="Data processed successfully")
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
