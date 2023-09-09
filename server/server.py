@@ -477,8 +477,8 @@ app.add_routes(
         web.post('/button_event', button_handler),
         web.post('/print', print_handler),
         web.post('/ui_poll', ui_poll),
+        web.post('/upload_userdata', upload_user_data),
         web.get('/image', return_image),
-        web.get('/upload_userdata', upload_user_data),
     ]
 )
 
