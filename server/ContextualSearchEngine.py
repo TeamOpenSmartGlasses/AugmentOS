@@ -13,6 +13,7 @@ from googlemaps.maps import StaticMapMarker
 import googlemaps
 import responses
 from server_config import google_maps_api_key
+from constants import CUSTOM_USER_DATA_PATH
 import requests
 import json
 import random
@@ -85,7 +86,7 @@ class ContextualSearchEngine:
         data_projects = [custom_data_path + "projects.csv"]
         data_bookmarks = [custom_data_path + "bookmarks_1.csv"]
 
-        people = pd.concat([pd.read_csv(path).dropna(subset=['name']) for path in data_people])
+        people = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_people])
         projects = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_projects])
         bookmarks = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_bookmarks])
 
@@ -103,7 +104,7 @@ class ContextualSearchEngine:
         description_banned_words = set(["mit", "MIT", "Media", "media"])
 
         #make names regular (first and last)
-        self.custom_data['people']['name'] = self.custom_data['people']['name'].apply(first_last_concat)
+        self.custom_data['people']['title'] = self.custom_data['people']['title'].apply(first_last_concat)
 
         #get titles without stop/banned words
         self.custom_data['projects']['title_filtered'] = self.custom_data['projects']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
@@ -292,9 +293,20 @@ class ContextualSearchEngine:
 
         return res
 
+    def setup_custom_data_folder(self, userId):
+        """Create user data folder if it doesn't exist."""
+        path = "{}/{}".format(CUSTOM_USER_DATA_PATH, userId)
+        if not os.path.exists(path):
+            os.makedirs(path)
+            print(f"Folder '{path}' created!")
+        else:
+            print(f"Folder '{path}' already exists.")
+
     def contextual_search_engine(self, userId, talk):
         if talk == "":
             return
+        
+        self.setup_custom_data_folder(userId)
 
         # build response object from various processing sources
         response = dict()
@@ -461,9 +473,9 @@ class ContextualSearchEngine:
             match data_type_key:
                 case "people":
                     config = {
-                        "entity_column_name": "name",
-                        "entity_column_name_filtered": "name",
-                        "entity_column_description": "name",
+                        "entity_column_name": "title",
+                        "entity_column_name_filtered": "title",
+                        "entity_column_description": "description",
                         "max_window_size": 2,
                         "max_deletions": 3,
                         "max_insertions": 3,
@@ -475,7 +487,7 @@ class ContextualSearchEngine:
                 case "projects":
                     config = {
                         "entity_column_name": "title",
-                        "entity_column_name_filtered": "title_filtered",
+                        "entity_column_name_filtered": "title",
                         "entity_column_description": "description",
                         "max_window_size": self.max_window_size,
                         "max_deletions": 2,
@@ -488,8 +500,8 @@ class ContextualSearchEngine:
                 case "bookmarks":
                     config = {
                         "entity_column_name": "title",
-                        "entity_column_name_filtered": "title_filtered",
-                        "entity_column_description": "text",
+                        "entity_column_name_filtered": "title",
+                        "entity_column_description": "description",
                         "max_window_size": self.max_window_size,
                         "max_deletions": 2,
                         "max_insertions": 2,
