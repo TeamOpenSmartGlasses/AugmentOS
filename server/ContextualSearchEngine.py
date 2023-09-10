@@ -310,7 +310,7 @@ class ContextualSearchEngine:
         else:
             print(f"Folder '{path}' already exists.")
 
-        self.user_id = userId
+            self.user_id = userId
 
         user_folder_path = os.path.join(
             CUSTOM_USER_DATA_PATH, str(self.user_id))
@@ -326,7 +326,10 @@ class ContextualSearchEngine:
         # Concatenate all DataFrames into a single DataFrame
         concatenated_df = pd.concat(dfs, ignore_index=True)
 
-        self.custom_data[self.custom_data] = {'user_data': concatenated_df}
+        concatenated_df = pd.concat([pd.read_csv(path).dropna(
+            subset=['title']) for path in concatenated_df])
+
+        self.custom_data[self.user_id] = concatenated_df
 
     def contextual_search_engine(self, userId, talk):
         if talk == "":
@@ -495,7 +498,7 @@ class ContextualSearchEngine:
             word.lower() not in self.banned_words and not word.isnumeric())]
 
         matches = dict()
-        for data_type_key in self.custom_data.keys():
+        for data_type_key in list(self.custom_data.keys()) + [self.user_id]:
             match data_type_key:
                 case "people":
                     config = {
@@ -524,6 +527,19 @@ class ContextualSearchEngine:
                     }
 
                 case "bookmarks":
+                    config = {
+                        "entity_column_name": "title",
+                        "entity_column_name_filtered": "title",
+                        "entity_column_description": "description",
+                        "max_window_size": self.max_window_size,
+                        "max_deletions": 2,
+                        "max_insertions": 2,
+                        "max_substitutions": 2,
+                        "max_l_dist": 2,
+                        "compute_entropy": True,
+                    }
+                
+                case self.user_id:
                     config = {
                         "entity_column_name": "title",
                         "entity_column_name_filtered": "title",
@@ -581,6 +597,7 @@ class ContextualSearchEngine:
                 else:
                     matches[titles[mi]]["url"] = None
 
+        self.custom_data[self.user_id]
         # DEV/TODO - we still return too many false positives sometimes, so limit return if we fail and give a list that is unreasonably big
         unreasonable_num = 6
 
