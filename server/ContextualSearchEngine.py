@@ -86,9 +86,12 @@ class ContextualSearchEngine:
         data_projects = [custom_data_path + "projects.csv"]
         data_bookmarks = [custom_data_path + "bookmarks_1.csv"]
 
-        people = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_people])
-        projects = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_projects])
-        bookmarks = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_bookmarks])
+        people = pd.concat([pd.read_csv(path).dropna(
+            subset=['title']) for path in data_people])
+        projects = pd.concat([pd.read_csv(path).dropna(
+            subset=['title']) for path in data_projects])
+        bookmarks = pd.concat([pd.read_csv(path).dropna(
+            subset=['title']) for path in data_bookmarks])
 
         print(people)
         print(projects)
@@ -100,18 +103,23 @@ class ContextualSearchEngine:
             "bookmarks": bookmarks,
         }
 
-        self.banned_words = set(stopwords.words("english") + ["mit", "MIT", "Media", "media"])
+        self.banned_words = set(stopwords.words(
+            "english") + ["mit", "MIT", "Media", "media"])
         description_banned_words = set(["mit", "MIT", "Media", "media"])
 
-        #make names regular (first and last)
-        self.custom_data['people']['title'] = self.custom_data['people']['title'].apply(first_last_concat)
+        # make names regular (first and last)
+        self.custom_data['people']['title'] = self.custom_data['people']['title'].apply(
+            first_last_concat)
 
-        #get titles without stop/banned words
-        self.custom_data['projects']['title_filtered'] = self.custom_data['projects']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
-        self.custom_data['bookmarks']['title_filtered'] = self.custom_data['bookmarks']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
-        #get descriptions without stop/banned words
-        self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
-        #self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+        # get titles without stop/banned words
+        self.custom_data['projects']['title_filtered'] = self.custom_data['projects']['title'].apply(
+            lambda x: remove_banned_words(x, self.banned_words))
+        self.custom_data['bookmarks']['title_filtered'] = self.custom_data['bookmarks']['title'].apply(
+            lambda x: remove_banned_words(x, self.banned_words))
+        # get descriptions without stop/banned words
+        self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(
+            remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+        # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
 
         # self.similarity_func = Similarity("valhalla/distilbart-mnli-12-1", gpu=False)
         # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
@@ -302,10 +310,28 @@ class ContextualSearchEngine:
         else:
             print(f"Folder '{path}' already exists.")
 
+        self.user_id = userId
+
+        user_folder_path = os.path.join(
+            CUSTOM_USER_DATA_PATH, str(self.user_id))
+
+        # List all CSV files in the user-specific folder
+        csv_files = [f for f in os.listdir(
+            user_folder_path) if f.endswith('.csv')]
+
+        # Read each CSV into a DataFrame
+        dfs = [pd.read_csv(os.path.join(user_folder_path, csv_file))
+               for csv_file in csv_files]
+
+        # Concatenate all DataFrames into a single DataFrame
+        concatenated_df = pd.concat(dfs, ignore_index=True)
+
+        self.custom_data[self.custom_data] = {'user_data': concatenated_df}
+
     def contextual_search_engine(self, userId, talk):
         if talk == "":
             return
-        
+
         self.setup_custom_data_folder(userId)
 
         # build response object from various processing sources
@@ -517,13 +543,15 @@ class ContextualSearchEngine:
 
             # get custom data
             # all custom data has a title, a filtered title (for searching), and a description
-            #get the titles to show in UI
-            titles = self.custom_data[data_type_key][config["entity_column_name"]].tolist()
+            # get the titles to show in UI
+            titles = self.custom_data[data_type_key][config["entity_column_name"]].tolist(
+            )
 
-            #get descriptions to show in UI
+            # get descriptions to show in UI
             print(data_type_key)
             print(self.custom_data[data_type_key])
-            descriptions = self.custom_data[data_type_key][config["entity_column_description"]].tolist()
+            descriptions = self.custom_data[data_type_key][config["entity_column_description"]].tolist(
+            )
 
             # get entity names to match, that have been pre-filtered
             entity_names_to_match_filtered = self.custom_data[data_type_key][config['entity_column_name_filtered']].tolist(

@@ -31,7 +31,7 @@ from aiohttp import web
 dbHandler = DatabaseHandler()
 relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
 
-app = web.Application()
+app = web.Application(client_max_size=1000000 * 32)
 # store and retrieve short term memories. Stored as a list of memories.
 app['buffer'] = dict()
 # store and retrieve long term memories. Implemented as chromadb
