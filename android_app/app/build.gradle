@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.teambandwidth.wearllm'
+    namespace 'com.teamopensmartglasses.convoscope'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.teambandwidth.wearllm"
+        applicationId "com.teamopensmartglasses.convoscope"
         minSdk 30
         targetSdk 33
         versionCode 1
@@ -79,6 +79,9 @@ dependencies {
 
     //REST API volley
     implementation 'com.android.volley:volley:1.2.1';
+
+    //EventBus, greenrobot
+    implementation("org.greenrobot:eventbus:3.3.1")
 
     //SGMLib library
     implementation project (":SGMLib")

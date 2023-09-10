@@ -84,32 +84,33 @@ class ContextualSearchEngine:
         data_people = [custom_data_path + "people.csv"]
         data_projects = [custom_data_path + "projects.csv"]
         data_bookmarks = [custom_data_path + "bookmarks_1.csv"]
-        people = pd.concat([pd.read_csv(path).dropna(
-            subset=['name']) for path in data_people])
-        projects = pd.concat([pd.read_csv(path).dropna(
-            subset=['title']) for path in data_projects])
-        bookmarks = pd.concat([pd.read_csv(path).dropna(
-            subset=['title']) for path in data_bookmarks])
+
+        people = pd.concat([pd.read_csv(path).dropna(subset=['name']) for path in data_people])
+        projects = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_projects])
+        bookmarks = pd.concat([pd.read_csv(path).dropna(subset=['title']) for path in data_bookmarks])
+
         print(people)
         print(projects)
         print(bookmarks)
+
         self.custom_data = {
             "people": people,
             "projects": projects,
             "bookmarks": bookmarks,
         }
-        self.banned_words = set(stopwords.words(
-            "english") + ["mit", "MIT", "Media", "media"])
-        description_banned_words = set(["mit", "MIT", "Media", "media"])
-        self.custom_data['people']['name'] = self.custom_data['people']['name'].apply(
-            first_last_concat)
-        self.custom_data['projects']['title_filtered'] = self.custom_data['projects']['title'].apply(
-            lambda x: remove_banned_words(x, self.banned_words))
-        # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
 
-        self.custom_data['bookmarks']['title_filtered'] = self.custom_data['bookmarks']['title'].apply(
-            lambda x: remove_banned_words(x, self.banned_words))
-        # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+        self.banned_words = set(stopwords.words("english") + ["mit", "MIT", "Media", "media"])
+        description_banned_words = set(["mit", "MIT", "Media", "media"])
+
+        #make names regular (first and last)
+        self.custom_data['people']['name'] = self.custom_data['people']['name'].apply(first_last_concat)
+
+        #get titles without stop/banned words
+        self.custom_data['projects']['title_filtered'] = self.custom_data['projects']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
+        self.custom_data['bookmarks']['title_filtered'] = self.custom_data['bookmarks']['title'].apply(lambda x: remove_banned_words(x, self.banned_words))
+        #get descriptions without stop/banned words
+        self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+        #self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
 
         # self.similarity_func = Similarity("valhalla/distilbart-mnli-12-1", gpu=False)
         # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
@@ -462,6 +463,7 @@ class ContextualSearchEngine:
                     config = {
                         "entity_column_name": "name",
                         "entity_column_name_filtered": "name",
+                        "entity_column_description": "name",
                         "max_window_size": 2,
                         "max_deletions": 3,
                         "max_insertions": 3,
@@ -474,6 +476,7 @@ class ContextualSearchEngine:
                     config = {
                         "entity_column_name": "title",
                         "entity_column_name_filtered": "title_filtered",
+                        "entity_column_description": "description",
                         "max_window_size": self.max_window_size,
                         "max_deletions": 2,
                         "max_insertions": 2,
@@ -486,6 +489,7 @@ class ContextualSearchEngine:
                     config = {
                         "entity_column_name": "title",
                         "entity_column_name_filtered": "title_filtered",
+                        "entity_column_description": "text",
                         "max_window_size": self.max_window_size,
                         "max_deletions": 2,
                         "max_insertions": 2,
@@ -500,13 +504,14 @@ class ContextualSearchEngine:
                     return []
 
             # get custom data
-            # get the titles to show in UI
-            titles = self.custom_data[data_type_key][config["entity_column_name"]].tolist(
-            )
+            # all custom data has a title, a filtered title (for searching), and a description
+            #get the titles to show in UI
+            titles = self.custom_data[data_type_key][config["entity_column_name"]].tolist()
 
-            # get descriptions to show in UI
-            descriptions = self.custom_data[data_type_key]["description"].tolist(
-            )
+            #get descriptions to show in UI
+            print(data_type_key)
+            print(self.custom_data[data_type_key])
+            descriptions = self.custom_data[data_type_key][config["entity_column_description"]].tolist()
 
             # get entity names to match, that have been pre-filtered
             entity_names_to_match_filtered = self.custom_data[data_type_key][config['entity_column_name_filtered']].tolist(
@@ -531,7 +536,10 @@ class ContextualSearchEngine:
                 matches[titles[mi]] = dict()
                 matches[titles[mi]]["name"] = titles[mi]
                 matches[titles[mi]]["summary"] = descriptions[mi] if descriptions[mi] is not np.nan else None
-                matches[titles[mi]]["url"] = urls[mi]
+                if urls is not None:
+                    matches[titles[mi]]["url"] = urls[mi]
+                else:
+                    matches[titles[mi]]["url"] = None
 
         # DEV/TODO - we still return too many false positives sometimes, so limit return if we fail and give a list that is unreasonably big
         unreasonable_num = 6
@@ -542,7 +550,7 @@ class ContextualSearchEngine:
 
         remove_random_false_positives(matches, unreasonable_num)
 
-        print("CSE CUSTOM")
+        print("=========== CSE RESPONSE: =========")
         print(matches)
         return matches
 

@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+  <uses-feature
+      android:name="android.hardware.telephony"
+      android:required="false" />
+
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
   <uses-permission android:name="android.permission.INTERNET"/>
   <uses-permission android:name="android.permission.RECORD_AUDIO"/>
   <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+  <uses-permission android:name="android.permission.SEND_SMS"/>
+  <uses-permission android:name="android.permission.READ_CONTACTS" />
 
   <application
       android:usesCleartextTraffic="true"
@@ -14,7 +20,7 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme">
     <activity
-        android:name="com.teambandwidth.wearllm.MainActivity"
+        android:name="com.teamopensmartglasses.convoscope.MainActivity"
         android:exported="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
@@ -22,7 +28,7 @@
       </intent-filter>
     </activity>
 
-    <service android:name="com.teambandwidth.wearllm.WearLLMService"
+    <service android:name="com.teamopensmartglasses.convoscope.ConvoscopeService"
         android:foregroundServiceType="microphone"
         android:exported="true">
         <intent-filter>

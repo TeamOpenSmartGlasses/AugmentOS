@@ -13,7 +13,7 @@ dependencyResolutionManagement {
         maven { url 'https://jitpack.io' }
     }
 }
-rootProject.name = "WearLLM"
+rootProject.name = "Convoscope"
 include ':app'
 
 include ':SGMLib'
