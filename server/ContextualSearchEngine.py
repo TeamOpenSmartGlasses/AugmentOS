@@ -81,44 +81,24 @@ class ContextualSearchEngine:
 
         self.max_window_size = 3
 
-        custom_data_path = "./custom_data/mit_media_lab/"
-        data_people = [custom_data_path + "people.csv"]
-        data_projects = [custom_data_path + "projects.csv"]
-        data_bookmarks = [custom_data_path + "bookmarks_1.csv"]
-
-        people = pd.concat([pd.read_csv(path).dropna(
-            subset=['title']) for path in data_people])
-        projects = pd.concat([pd.read_csv(path).dropna(
-            subset=['title']) for path in data_projects])
-        bookmarks = pd.concat([pd.read_csv(path).dropna(
-            subset=['title']) for path in data_bookmarks])
-
-        print(people)
-        print(projects)
-        print(bookmarks)
-
-        self.custom_data = {
-            "people": people,
-            "projects": projects,
-            "bookmarks": bookmarks,
-        }
+        self.custom_data = dict()
 
         self.banned_words = set(stopwords.words(
             "english") + ["mit", "MIT", "Media", "media"])
         description_banned_words = set(["mit", "MIT", "Media", "media"])
 
         # make names regular (first and last)
-        self.custom_data['people']['title'] = self.custom_data['people']['title'].apply(
-            first_last_concat)
+        # self.custom_data['people']['title'] = self.custom_data['people']['title'].apply(
+        #     first_last_concat)
 
-        # get titles without stop/banned words
-        self.custom_data['projects']['title_filtered'] = self.custom_data['projects']['title'].apply(
-            lambda x: remove_banned_words(x, self.banned_words))
-        self.custom_data['bookmarks']['title_filtered'] = self.custom_data['bookmarks']['title'].apply(
-            lambda x: remove_banned_words(x, self.banned_words))
-        # get descriptions without stop/banned words
-        self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(
-            remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+        # # get titles without stop/banned words
+        # self.custom_data['projects']['title_filtered'] = self.custom_data['projects']['title'].apply(
+        #     lambda x: remove_banned_words(x, self.banned_words))
+        # self.custom_data['bookmarks']['title_filtered'] = self.custom_data['bookmarks']['title'].apply(
+        #     lambda x: remove_banned_words(x, self.banned_words))
+        # # get descriptions without stop/banned words
+        # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(
+        #     remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
         # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
 
         # self.similarity_func = Similarity("valhalla/distilbart-mnli-12-1", gpu=False)
@@ -139,7 +119,7 @@ class ContextualSearchEngine:
         # Concatenate all DataFrames into a single DataFrame
         concatenated_df = pd.concat(dfs, ignore_index=True)
 
-        self.custom_data['user_data'] = concatenated_df
+        self.custom_data[user_id] = concatenated_df
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
@@ -301,19 +281,17 @@ class ContextualSearchEngine:
 
         return res
 
-    def setup_custom_data_folder(self, userId):
+    def setup_custom_data_folder(self, user_id):
         """Create user data folder if it doesn't exist."""
-        path = "{}/{}".format(CUSTOM_USER_DATA_PATH, userId)
+        path = "{}/{}".format(CUSTOM_USER_DATA_PATH, user_id)
         if not os.path.exists(path):
             os.makedirs(path)
             print(f"Folder '{path}' created!")
         else:
             print(f"Folder '{path}' already exists.")
 
-            self.user_id = userId
-
         user_folder_path = os.path.join(
-            CUSTOM_USER_DATA_PATH, str(self.user_id))
+            CUSTOM_USER_DATA_PATH, str(user_id))
 
         # List all CSV files in the user-specific folder
         csv_files = [f for f in os.listdir(
@@ -324,12 +302,15 @@ class ContextualSearchEngine:
                for csv_file in csv_files]
 
         # Concatenate all DataFrames into a single DataFrame
-        concatenated_df = pd.concat(dfs, ignore_index=True)
+        if dfs:
+            concatenated_df = pd.concat(dfs, ignore_index=True)
 
-        concatenated_df = pd.concat([pd.read_csv(path).dropna(
-            subset=['title']) for path in concatenated_df])
+            concatenated_df = concatenated_df.dropna(subset=['title'])
 
-        self.custom_data[self.user_id] = concatenated_df
+
+            self.custom_data[user_id] = concatenated_df
+        else:
+            self.custom_data[user_id] = dict()
 
     def contextual_search_engine(self, userId, talk):
         if talk == "":
@@ -341,7 +322,7 @@ class ContextualSearchEngine:
         response = dict()
 
         # find mentions of custom data entities
-        entities_custom = self.ner_custom_data(talk)
+        entities_custom = self.ner_custom_data(userId, talk)
 
         print("----------------CUSTOM ENTITIES--------------------")
         print(entities_custom)
@@ -493,28 +474,14 @@ class ContextualSearchEngine:
             img_url = None
         return img_url
 
-    def ner_custom_data(self, talk):
+    def ner_custom_data(self, user_id, talk):
+        if not self.custom_data[user_id].keys(): return {}
+
         words = [word for word in talk.split() if (
             word.lower() not in self.banned_words and not word.isnumeric())]
 
         matches = dict()
-        for data_type_key in list(self.custom_data.keys()) + [self.user_id]:
-            match data_type_key:
-                case "people":
-                    config = {
-                        "entity_column_name": "title",
-                        "entity_column_name_filtered": "title",
-                        "entity_column_description": "description",
-                        "max_window_size": 2,
-                        "max_deletions": 3,
-                        "max_insertions": 3,
-                        "max_substitutions": 3,
-                        "max_l_dist": 3,
-                        "compute_entropy": False,
-                    }
-
-                case "projects":
-                    config = {
+        config = {
                         "entity_column_name": "title",
                         "entity_column_name_filtered": "title",
                         "entity_column_description": "description",
@@ -525,79 +492,48 @@ class ContextualSearchEngine:
                         "max_l_dist": 2,
                         "compute_entropy": True,
                     }
+        
+        # get custom data
+        # all custom data has a title, a filtered title (for searching), and a description
+        # get the titles to show in UI
+        titles = self.custom_data[user_id][config["entity_column_name"]].tolist(
+        )
 
-                case "bookmarks":
-                    config = {
-                        "entity_column_name": "title",
-                        "entity_column_name_filtered": "title",
-                        "entity_column_description": "description",
-                        "max_window_size": self.max_window_size,
-                        "max_deletions": 2,
-                        "max_insertions": 2,
-                        "max_substitutions": 2,
-                        "max_l_dist": 2,
-                        "compute_entropy": True,
-                    }
-                
-                case self.user_id:
-                    config = {
-                        "entity_column_name": "title",
-                        "entity_column_name_filtered": "title",
-                        "entity_column_description": "description",
-                        "max_window_size": self.max_window_size,
-                        "max_deletions": 2,
-                        "max_insertions": 2,
-                        "max_substitutions": 2,
-                        "max_l_dist": 2,
-                        "compute_entropy": True,
-                    }
+        # get descriptions to show in UI
+        print(user_id)
+        print(self.custom_data[user_id])
+        descriptions = self.custom_data[user_id][config["entity_column_description"]].tolist(
+        )
 
-                case _:
-                    warnings.warn(
-                        "Missing Config for this type of entities", UserWarning)
-                    return []
+        # get entity names to match, that have been pre-filtered
+        entity_names_to_match_filtered = self.custom_data[user_id][config['entity_column_name_filtered']].tolist(
+        )
+        # descriptions_filtered = self.custom_data[data_type_key]['description_filtered']
 
-            # get custom data
-            # all custom data has a title, a filtered title (for searching), and a description
-            # get the titles to show in UI
-            titles = self.custom_data[data_type_key][config["entity_column_name"]].tolist(
-            )
+        # get URLs, if they exist
+        urls = self.custom_data[user_id]['url'].tolist() if (
+            'url' in self.custom_data[user_id]) else None
 
-            # get descriptions to show in UI
-            print(data_type_key)
-            print(self.custom_data[data_type_key])
-            descriptions = self.custom_data[data_type_key][config["entity_column_description"]].tolist(
-            )
+        # run brute force NER on transcript using custom data
+        matches_idxs = self.find_combinations(
+            words=words,
+            entities=list(enumerate(entity_names_to_match_filtered)),
+            config=config,
+            descriptions=descriptions,
+            context=talk
+        )
 
-            # get entity names to match, that have been pre-filtered
-            entity_names_to_match_filtered = self.custom_data[data_type_key][config['entity_column_name_filtered']].tolist(
-            )
-            # descriptions_filtered = self.custom_data[data_type_key]['description_filtered']
+        # build response object
+        for mi in matches_idxs:
+            matches[titles[mi]] = dict()
+            matches[titles[mi]]["name"] = titles[mi]
+            matches[titles[mi]]["summary"] = descriptions[mi] if descriptions[mi] is not np.nan else None
+            if urls is not None:
+                matches[titles[mi]]["url"] = urls[mi]
+            else:
+                matches[titles[mi]]["url"] = None
 
-            # get URLs, if they exist
-            urls = self.custom_data[data_type_key]['url'].tolist() if (
-                'url' in self.custom_data[data_type_key]) else None
-
-            # run brute force NER on transcript using custom data
-            matches_idxs = self.find_combinations(
-                words=words,
-                entities=list(enumerate(entity_names_to_match_filtered)),
-                config=config,
-                descriptions=descriptions,
-                context=talk
-            )
-
-            # build response object
-            for mi in matches_idxs:
-                matches[titles[mi]] = dict()
-                matches[titles[mi]]["name"] = titles[mi]
-                matches[titles[mi]]["summary"] = descriptions[mi] if descriptions[mi] is not np.nan else None
-                if urls is not None:
-                    matches[titles[mi]]["url"] = urls[mi]
-                else:
-                    matches[titles[mi]]["url"] = None
-
-        self.custom_data[self.user_id]
+        self.custom_data[user_id]
         # DEV/TODO - we still return too many false positives sometimes, so limit return if we fail and give a list that is unreasonably big
         unreasonable_num = 6
 
