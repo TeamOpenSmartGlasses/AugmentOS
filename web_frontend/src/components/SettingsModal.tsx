@@ -59,6 +59,11 @@ const SettingsModal = ({
           "Content-Type": "multipart/form-data",
         },
       })
+      .then((res: any) => {
+        if(res.status == 200){
+          alert("Custom user data uploaded successfully");
+        }
+      })
       .catch(function (error) {
         console.error(error);
       });
