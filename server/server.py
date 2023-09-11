@@ -435,7 +435,10 @@ async def upload_user_data(request):
         if user_file.content_type != 'text/csv':
             return web.Response(text="Uploaded file is not a CSV", status=400)
 
-        df = pd.read_csv(user_file.file)
+        try:
+            df = pd.read_csv(user_file.file)
+        except Exception:
+            return web.Response(text="Bad data format", status=400)
 
         # Validate data
         if not cse.is_custom_data_valid(df):
