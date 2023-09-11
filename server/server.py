@@ -103,7 +103,7 @@ async def chat_handler(request):
 
         # Also do WearLLM things
         # log so we can retain convo memory for later
-        with open(f'./logs/{userId}.log', 'a') as f:
+        with open(f'./logs/{userId}.log', 'a+') as f:
             f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
 
         # agent response
@@ -111,7 +111,7 @@ async def chat_handler(request):
         try:
             jarvis_mode = text.lower().find("jarvis") != -1
             if jarvis_mode:
-                with open(f'./logs/{userId}_commands.log', 'a') as f:
+                with open(f'./logs/{userId}_commands.log', 'a+') as f:
                     f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
 
                 answer = await answer_question_to_jarvis(text, userId)
@@ -119,7 +119,7 @@ async def chat_handler(request):
 
             james_mode = text.lower().find("james") != -1
             if james_mode:
-                with open(f'./logs/{userId}_commands.log', 'a') as f:
+                with open(f'./logs/{userId}_commands.log', 'a+') as f:
                     f.write(str({'text': text, 'timestamp': timestamp}) + '\n')
 
                 answer = await agent_james(text, userId)
@@ -158,7 +158,7 @@ async def button_handler(request):
 
     if button_activity:  # True if push down, false if button release
         # save event
-        with open(f'./logs/{userId}_events.log', 'a') as f:
+        with open(f'./logs/{userId}_events.log', 'a+') as f:
             f.write(str({'text': "BUTTON_DOWN", 'timestamp': timestamp}) + '\n')
 
         # get recent transcripts (last n seconds of speech)
