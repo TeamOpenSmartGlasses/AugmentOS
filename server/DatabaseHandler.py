@@ -10,6 +10,7 @@ class DatabaseHandler:
         self.uri = databaseUri
         self.maxTranscriptsPerUser = 2
         self.userCollection = None
+        self.cacheCollection = None
         self.ready = False
 
         # Create a new client and connect to the server
@@ -21,11 +22,12 @@ class DatabaseHandler:
 
             # Success!
             self.initUsersCollection()
+            self.initCacheCollection()
 
         except Exception as e:
             print(e)
 
-    ### MISC ###
+    ### INIT ###
 
     def initUsersCollection(self):
         self.userDb = self.client['users']
@@ -40,6 +42,19 @@ class DatabaseHandler:
 
         self.ready = True
 
+    def initCacheCollection(self):
+        self.cacheDb = self.client['cache']
+        if 'cache' in self.cacheDb.list_collection_names():
+            self.cacheCollection = self.cacheDb.get_collection('cache')
+
+            # TODO: Temporary (wipe the db on startup):
+            self.cacheCollection.drop()
+            self.initCacheCollection()
+        else:
+            self.cacheCollection = self.cacheDb.create_collection('cache')
+
+    ### MISC ###
+
     def createUserIfNotExists(self, userId):
         users = self.userCollection.find()
         needCreate = True
@@ -50,6 +65,22 @@ class DatabaseHandler:
             print('Creating new user: ' + userId)
             self.userCollection.insert_one(
                 {"userId": userId, "transcripts": [], "cseResults": [], "uiList": []})
+            
+    ### CACHE ###
+
+    def findCachedSummary(self, long_description):
+        descriptionHash = hash(long_description)
+        filter = {"description": descriptionHash}
+        item = self.cacheCollection.find_one(filter)
+        if item and 'summary' in item: 
+            return item['summary'] 
+        else: 
+            return None
+        
+    def saveCachedSummary(self, long_description, summary):
+        descriptionHash = hash(long_description)
+        item = {"description": descriptionHash, "summary": summary}
+        self.cacheCollection.insert_one(item)
 
     ### TRANSCRIPTS ###
 
