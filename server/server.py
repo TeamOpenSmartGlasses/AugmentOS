@@ -23,24 +23,28 @@ import traceback
 #multiprocessing
 import multiprocessing
 #multiprocessing.set_start_method('spawn')
+import pandas as pd
 
-#CORS
+# CORS
 import aiohttp_cors
 from aiohttp import web
 
 dbHandler = DatabaseHandler()
 relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
 
-app = web.Application()
-app['buffer'] = dict() # store and retrieve short term memories. Stored as a list of memories.
-app['memory'] = dict() # store and retrieve long term memories. Implemented as chromadb
-app['notes'] = dict() # store and retrieve notes. Stored as a list of memories.
+app = web.Application(client_max_size=1000000 * 32)
+# store and retrieve short term memories. Stored as a list of memories.
+app['buffer'] = dict()
+# store and retrieve long term memories. Implemented as chromadb
+app['memory'] = dict()
+# store and retrieve notes. Stored as a list of memories.
+app['notes'] = dict()
 
 # lower max token decreases latency: https://platform.openai.com/docs/guides/production-best-practices/improving-latencies. On average, each token is 4 characters. We speak 150 wpm, average english word is 4.7 characters
 # max_talk_time = 30  # seconds
 # max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
 
-OPENAI_API_KEY= os.environ['OPENAI_API_KEY']
+OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
 max_tokens = 1024
 app['llm'] = ChatOpenAI(
     model_name="gpt-3.5-turbo-0613",
@@ -51,6 +55,8 @@ app['llm'] = ChatOpenAI(
 
 mostRecentFinalTranscript = dict()
 fiveSecondsInMs = 5000
+
+
 async def chat_handler(request):
     startTime = time.time()
 
@@ -77,7 +83,7 @@ async def chat_handler(request):
         app['memory'][userId].add_memories(decayed_memories)
 
     # Save to database
-    # & Debounce extraneous intermediate transcripts by only 
+    # & Debounce extraneous intermediate transcripts by only
     # considering those that come after 5 seconds of a final transcript
     if userId not in mostRecentFinalTranscript:
         mostRecentFinalTranscript[userId] = 0
@@ -86,11 +92,14 @@ async def chat_handler(request):
         mostRecentFinalTranscript[userId] = timestamp
 
     if isFinal or (timestamp - mostRecentFinalTranscript[userId] < fiveSecondsInMs):
-        print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
+        print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
+            "FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
         startSaveDbTime = time.time()
-        dbHandler.saveTranscriptForUser(userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
+        dbHandler.saveTranscriptForUser(
+            userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
         endSaveDbTime = time.time()
-        print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(round(endSaveDbTime - startSaveDbTime, 2)))
+        print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
+            round(endSaveDbTime - startSaveDbTime, 2)))
 
         # Also do WearLLM things
         # log so we can retain convo memory for later
@@ -121,9 +130,10 @@ async def chat_handler(request):
     else:
         print("DEBOUNCING TRANSCRIPT")
         response = ''
-    
+
     endTime = time.time()
-    print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(round(endTime - startTime, 2)))
+    print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
+        round(endTime - startTime, 2)))
     return web.Response(text=json.dumps({'success': True, 'message': response}), status=200)
 
 
@@ -133,7 +143,8 @@ async def button_handler(request):
     button_activity = body.get('button_activity')
     timestamp = body.get('timestamp')
     userId = body.get('userId')
-    print('\n=== New Request ===\n', button_num, button_activity, timestamp, userId)
+    print('\n=== New Request ===\n', button_num,
+          button_activity, timestamp, userId)
 
     # 400 if missing params
     if button_num is None or button_num == '':
@@ -145,13 +156,24 @@ async def button_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
-    if button_activity : #True if push down, false if button release
-        #save event
+    if button_activity:  # True if push down, false if button release
+        # save event
         with open(f'{userId}_events.log', 'a') as f:
             f.write(str({'text': "BUTTON_DOWN", 'timestamp': timestamp}) + '\n')
 
-        return web.Response(text=json.dumps({'message': "button down activity detected"}), status=200)
-    else : 
+        # get recent transcripts (last n seconds of speech)
+        short_term_memory = get_short_term_memory(userId)
+        print("------------------------ {} 's STM:")
+        print(short_term_memory)
+        short_term_memory_snippet = short_term_memory
+
+        # agent response
+        # answer = await agent_james(short_term_memory_snippet, userId)
+        answer = await answer_question_to_jarvis(short_term_memory_snippet, userId)
+        response = answer
+
+        return web.Response(text=json.dumps({'message': response}), status=200)
+    else:
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
 
 
@@ -177,12 +199,13 @@ That was the query. Answer the final question/request succinctly. Here is only t
     retrieval_prompt = PromptTemplate(
         template=retrieval_template,
         input_variables=["context", "question"]
-        )
+    )
 
     print("JARVIS RETREIVAL PROMPT:")
     print(retrieval_prompt)
 
-    vectordb_retriever = app['memory'][userId].db.as_retriever(search_kwargs={"k": 30})
+    vectordb_retriever = app['memory'][userId].db.as_retriever(search_kwargs={
+                                                               "k": 30})
 
     retrieval_qa = RetrievalQA.from_chain_type(
         llm=app['llm'],
@@ -209,7 +232,8 @@ async def agent_jarvis(text, userId):
         MemoryRetriever(ltm_memory=app['memory'][userId])
     ]
 
-    agent = initialize_agent(tools, app['llm'], agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
+    agent = initialize_agent(
+        tools, app['llm'], agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
     answer = agent.run(question)
 
@@ -221,31 +245,36 @@ async def agent_james(text, userId):
     question = text.lower().split('james')[-1].strip()
 
     memory_retriever = MemoryRetriever(ltm_memory=app['memory'][userId])
-    current_time=datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
+    current_time = datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
-    retriever_input_parser = PydanticOutputParser(pydantic_object=retrieve_memory)
+    retriever_input_parser = PydanticOutputParser(
+        pydantic_object=retrieve_memory)
 
-    memory_retriever_template = PromptTemplate(template=memory_retriever_prompt, input_variables=['current_time', 'question'], 
-            partial_variables={'format_instructions': retriever_input_parser.get_format_instructions()})
+    memory_retriever_template = PromptTemplate(template=memory_retriever_prompt, input_variables=['current_time', 'question'],
+                                               partial_variables={'format_instructions': retriever_input_parser.get_format_instructions()})
     chain = LLMChain(llm=app['llm'], prompt=memory_retriever_template)
 
     answer = chain.run(current_time=current_time, question=question)
     parsed_answer = retriever_input_parser.parse(answer)
     print(parsed_answer)
 
-    retrieved_docs = memory_retriever._run(parsed_answer.query, parsed_answer.start_time, parsed_answer.end_time)
+    retrieved_docs = memory_retriever._run(
+        parsed_answer.query, parsed_answer.start_time, parsed_answer.end_time)
     print(retrieved_docs)
 
-    answer_template = PromptTemplate(template=answer_prompt, input_variables=['context', 'question'])
+    answer_template = PromptTemplate(
+        template=answer_prompt, input_variables=['context', 'question'])
     chain = LLMChain(llm=app['llm'], prompt=answer_template)
     final_answer = chain.run(context=retrieved_docs, question=question)
 
     print("Final Answer: ", final_answer)
     return final_answer
 
-    #Contextual Search Engine
+    # Contextual Search Engine
 
 # run tools for subscribed users in background every n ms if there is fresh data to run on
+
+
 def processing_loop():
     print("START PROCESSING LOOP")
     lock = threading.Lock()
@@ -259,32 +288,42 @@ def processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(combineTranscripts=True, deleteAfter=True)
+            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(
+                combineTranscripts=True, deleteAfter=True)
             for transcript in newTranscripts:
-                print("Run CSE with... userId: '{}' ... text: '{}'".format(transcript['userId'], transcript['text']))
+                print("Run CSE with... userId: '{}' ... text: '{}'".format(
+                    transcript['userId'], transcript['text']))
                 cseStartTime = time.time()
-                cseResponses = cse.contextual_search_engine(transcript['userId'], transcript['text'])
+                cseResponses = cse.contextual_search_engine(
+                    transcript['userId'], transcript['text'])
                 cseEndTime = time.time()
-                print("=== CSE completed in {} seconds ===".format(round(cseEndTime - cseStartTime, 2)))
+                print("=== CSE completed in {} seconds ===".format(
+                    round(cseEndTime - cseStartTime, 2)))
                 if cseResponses != None:
                     for res in cseResponses:
                         if res != {} and res != None:
                             if relevanceFilter.shouldRunForText(transcript['userId'], res['name']):
-                                dbHandler.addCseResultForUser(transcript['userId'], res)
+                                dbHandler.addCseResultForUser(
+                                    transcript['userId'], res)
         except Exception as e:
-                cseResponses = None
-                print("Exception in CSE...:")
-                print(e)
-                traceback.print_exc()
+            cseResponses = None
+            print("Exception in CSE...:")
+            print(e)
+            traceback.print_exc()
         finally:
             lock.release()
             pLoopEndTime = time.time()
-            print("=== processing_loop completed in {} seconds overall ===".format(round(pLoopEndTime - pLoopStartTime, 2)))
+            print("=== processing_loop completed in {} seconds overall ===".format(
+                round(pLoopEndTime - pLoopStartTime, 2)))
         time.sleep(.5)
 
-cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
+
+cse = ContextualSearchEngine(
+    relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
+
+
 async def ui_poll(request, minutes=0.5):
-    #parse request
+    # parse request
     body = await request.json()
     userId = body.get('userId')
     deviceId = body.get('deviceId')
@@ -299,24 +338,26 @@ async def ui_poll(request, minutes=0.5):
         return web.Response(text='no features in request', status=400)
     if "contextual_search_engine" not in features:
         return web.Response(text='contextual_search_engine not in features', status=400)
-    
+
     resp = dict()
 
-    #get CSE results
-    cseResultList = dbHandler.getCseResultsForUserDevice(userId=userId, deviceId=deviceId)
-    
+    # get CSE results
+    cseResultList = dbHandler.getCseResultsForUserDevice(
+        userId=userId, deviceId=deviceId)
+
     cseResults = cseResultList
 
     if cseResults != None and cseResults != []:
         print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cseResults))
 
-    #send response
+    # send response
     if (cseResults) != []:
         resp["success"] = True
         resp["result"] = cseResults
     else:
         resp["success"] = False
     return web.Response(text=json.dumps(resp), status=200)
+
 
 async def return_image(request):
     requestedImg = request.rel_url.query['img']
@@ -329,6 +370,34 @@ async def return_image(request):
         data = Path('images/404-2.jpg').read_bytes()
     return Response(body=data, content_type="image/jpg")
 
+
+async def upload_user_data(request):
+    post_data = await request.post()
+
+    user_file = post_data.get('custom-file')
+    user_id = post_data.get('userId')
+
+    if user_file and user_id:
+        # Check if the file is a CSV file by looking at its content type
+        if user_file.content_type != 'text/csv':
+            return web.Response(text="Uploaded file is not a CSV", status=400)
+
+        try:
+            df = pd.read_csv(user_file.file)
+        except Exception:
+            return web.Response(text="Bad data format", status=400)
+
+        # Validate data
+        if not cse.is_custom_data_valid(df):
+            return web.Response(text="Bad data format", status=400)
+
+        cse.upload_custom_user_data(user_id, df)
+        
+        return web.Response(text="Data processed successfully")
+    else:
+        return web.Response(text="Missing user file or user ID in the received data", status=400)
+
+
 background_process = multiprocessing.Process(target=processing_loop)
 background_process.start()
 
@@ -337,12 +406,13 @@ app.add_routes(
         web.post('/chat', chat_handler),
         web.post('/button_event', button_handler),
         web.post('/ui_poll', ui_poll),
-        web.get('/image', return_image)
+        web.post('/upload_userdata', upload_user_data),
+        web.get('/image', return_image),
     ]
 )
 
-#setup and run web app
-#CORS allow from all sources
+# setup and run web app
+# CORS allow from all sources
 cors = aiohttp_cors.setup(app, defaults={
     "*": aiohttp_cors.ResourceOptions(
         allow_credentials=True,

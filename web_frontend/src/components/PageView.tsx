@@ -13,12 +13,14 @@ const PageView = ({ viewMoreUrl, loading, setLoading }: PageViewProps) => {
   return (
     <Box h={"100%"}>
       {viewMoreUrl ? (
-        <Skeleton visible={loading} h={"100%"}>
+        <Skeleton visible={loading} h={"100%"} w={"100%"}>
           <iframe
+            id="zoomed-out-iframe"
             src={viewMoreUrl}
             onLoad={handleLoad}
             width="100%"
             height="100%"
+            frameBorder={0}
           ></iframe>
         </Skeleton>
       ) : (
