@@ -361,10 +361,12 @@ class ContextualSearchEngine:
 
             concatenated_df = concatenated_df.dropna(subset=['title'])
 
-
             self.custom_data[user_id] = concatenated_df
         else:
             self.custom_data[user_id] = dict()
+
+        print("SETUP CUSTOM DATA FOR USER {}, CUSTOM DATA FRAME IS BELOW:".format(user_id))
+        print(self.custom_data[user_id])
 
     def contextual_search_engine(self, userId, talk):
         if talk == "":
@@ -378,10 +380,6 @@ class ContextualSearchEngine:
 
         # find mentions of custom data entities
         entities_custom = self.ner_custom_data(userId, talk)
-
-        print("----------------CUSTOM ENTITIES--------------------")
-        print(entities_custom)
-        print("------------------------------------")
 
         # find rare words (including acronyms) and define them
         context = talk + \
@@ -550,25 +548,20 @@ class ContextualSearchEngine:
                         "max_deletions": 2,
                         "max_insertions": 2,
                         "max_substitutions": 2,
-                        "max_l_dist": 2,
+                        "max_l_dist": 3,
                         "compute_entropy": True,
                     }
         
         # get custom data
         # all custom data has a title, a filtered title (for searching), and a description
         # get the titles to show in UI
-        titles = self.custom_data[user_id][config["entity_column_name"]].tolist(
-        )
+        titles = self.custom_data[user_id][config["entity_column_name"]].tolist()
 
         # get descriptions to show in UI
-        print(user_id)
-        print(self.custom_data[user_id])
-        descriptions = self.custom_data[user_id][config["entity_column_description"]].tolist(
-        )
+        descriptions = self.custom_data[user_id][config["entity_column_description"]].tolist()
 
         # get entity names to match, that have been pre-filtered
-        entity_names_to_match_filtered = self.custom_data[user_id][config['entity_column_name_filtered']].tolist(
-        )
+        entity_names_to_match_filtered = self.custom_data[user_id][config['entity_column_name_filtered']].tolist()
         # descriptions_filtered = self.custom_data[data_type_key]['description_filtered']
 
         # get URLs, if they exist
@@ -604,8 +597,6 @@ class ContextualSearchEngine:
 
         remove_random_false_positives(matches, unreasonable_num)
 
-        print("=========== CSE RESPONSE: =========")
-        print(matches)
         return matches
 
     # def get_similarity(self, context, string_to_match):
@@ -631,11 +622,43 @@ class ContextualSearchEngine:
 
         matches = list()
 
+        def get_whole_match(match_entity, full_string):
+            start_idx = match_entity.start #inclusive
+            end_idx = match_entity.end #exclusive
+
+            substring = full_string[start_idx:end_idx]
+
+            #add characters before until first character or whitespace
+            while start_idx > 0:
+                start_idx -= 1
+                pre_char = full_string[start_idx]
+                if pre_char not in [" ", "\n", "\r", ",", ":", ";"]:
+                    substring = pre_char + substring
+                else:
+                    break
+            #add characters after until first character or whitespace
+            while end_idx < len(full_string):
+                end_idx += 1
+                post_char = full_string[end_idx - 1]
+                if post_char not in [" ", "\n", "\r", ",", ":", ";"]:
+                    substring = substring + post_char
+                else:
+                    break
+
+            return substring
+
         for idx, entity in entities:
 
-            match_entity = find_near_matches(
-                to_search,
-                entity,
+            #if (to_search in entity) or (to_search == entity):
+                #print("************************ FOUNNNNNDD EXACT MATCH")
+                #print(entity)
+                #print(to_search)
+                #matches.append(idx)
+                #continue
+
+            match_entities = find_near_matches(
+                to_search.lower(),
+                entity.lower(),
                 max_deletions=max_deletions,
                 max_insertions=max_insertions,
                 max_substitutions=max_substitutions,
@@ -643,17 +666,28 @@ class ContextualSearchEngine:
             )
 
             # and (not compute_entropy or (self.get_similarity(descriptions[idx], context)[0][1] > 0.3 and self.word_sequence_entropy(to_search) > 0.94)):
-            if match_entity:
-                matches.append(idx)
-                #print("to_search", to_search)
-                #print("entity", entity)
-                #print(match_entity)
-                #print(self.get_similarity(descriptions[idx], context)[0][1] if compute_entropy else None)
-                #print(self.word_sequence_entropy(to_search))
-                #print(descriptions[idx] if compute_entropy else None)
-                #print(context)
-                #print('-------------------------------')
-                break
+            if match_entities:
+                for match_entity in match_entities:
+                    #match_entity = match_entities[0]
+                    #first check if match is true by making sure what is said is similiar length to match
+                    #get length of substring that matched
+                    match_len = match_entity.end - match_entity.start
+                    #get length of all the words that that substring belonged to
+                    whole_match = get_whole_match(match_entity, entity)
+                    if (abs(len(whole_match) - len(to_search)) >= 3):
+                        continue
+                    print("TRUE MATCH")
+                    print("--- WHOLEMATCH", whole_match)
+                    print("--- to_search", to_search)
+                    print("--- entity", entity)
+                    matches.append(idx)
+                    #print(match_entity)
+                    #print(self.get_similarity(descriptions[idx], context)[0][1] if compute_entropy else None)
+                    #print(self.word_sequence_entropy(to_search))
+                    #print(descriptions[idx] if compute_entropy else None)
+                    #print(context)
+                    #print('-------------------------------')
+                    continue
 
         return matches
 
@@ -670,6 +704,7 @@ class ContextualSearchEngine:
 
                 if combination not in combinations_set:
                     combinations_set.add(combination)
+                    print("checking combo: {}".format(combination))
                     curr_matches = self.search_name(
                         combination,
                         entities,
@@ -678,5 +713,7 @@ class ContextualSearchEngine:
                         context
                     )
                     matches_idxs.extend(curr_matches)
+
+        print(combinations_set)
 
         return matches_idxs
