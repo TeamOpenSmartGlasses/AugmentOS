@@ -6,43 +6,47 @@ from word_define import *
 import re
 import pickle
 
-#how rare should a word be for us to consider it rare?
-low_freq_threshold_google = 0.0922 #the percentage of the line number needed to be considered a rare word - the higher, the more rare the word has to be to be defined
+# how rare should a word be for us to consider it rare?
+# the percentage of the line number needed to be considered a rare word - the higher, the more rare the word has to be to be defined
+low_freq_threshold_google = 0.0922
 low_freq_threshold_norvig = 0.901
 google_lines = 333334
 norvig_lines = 30000
-low_freq_constant_google =  low_freq_threshold_google * google_lines
+low_freq_constant_google = low_freq_threshold_google * google_lines
 low_freq_line_constant_norvig = low_freq_threshold_norvig * norvig_lines
 
-#load index
+# load index
 print("Loading word frequency indexes...")
-word_frequency_indexes = pickle.load(open("./pickles/word_freq_indexes.pkl", "rb"))
+word_frequency_indexes = pickle.load(
+    open("./pickles/word_freq_indexes.pkl", "rb"))
 df_google_word_freq = word_frequency_indexes["google_word_freq"]
 df_norvig_word_freq = word_frequency_indexes["norvig_word_freq"]
 idx_google_dict_word_freq = word_frequency_indexes["idx_google_dict_word_freq"]
 idx_norvig_dict_word_freq = word_frequency_indexes["idx_norvig_dict_word_freq"]
 print("--- Word frequency index loaded.")
 
-#we use this funny looking thing for fast string search, thanks to: https://stackoverflow.com/questions/44058097/optimize-a-string-query-with-pandas-large-data
+# we use this funny looking thing for fast string search, thanks to: https://stackoverflow.com/questions/44058097/optimize-a-string-query-with-pandas-large-data
+
+
 def find_low_freq_words(words):
     low_freq_words = list()
     for word in words:
         word = word.lower()
-        #find word in google
+        # find word in google
         try:
             i_word_google = idx_google_dict_word_freq[word][0]
-            #print("Google score of |{} == {}|".format(word, i_word_google / google_lines))
+            # print("Google score of |{} == {}|".format(word, i_word_google / google_lines))
         except KeyError as e:
-            #if we didn't find the word in giant google dataset, then it's rare, so define it if we have it
+            # if we didn't find the word in giant google dataset, then it's rare, so define it if we have it
             low_freq_words.append(word)
             continue
-        #find word in norvig
+        # find word in norvig
         i_word_norvig = None
         try:
             i_word_norvig = idx_norvig_dict_word_freq[word][0]
-            #print("Norvig score of |{} == {}|".format(word, i_word_norvig / norvig_lines))
+            # print("Norvig score of |{} == {}|".format(word, i_word_norvig / norvig_lines))
         except KeyError as e:
-            #if we didn't find the word in norvig, it might not be rare (e.g. "habitual")
+            # if we didn't find the word in norvig, it might not be rare (e.g. "habitual")
             print("Word '{}' not found in norvig word frequency database.".format(word))
         if (i_word_google > low_freq_constant_google):
             low_freq_words.append(word)
@@ -51,7 +55,7 @@ def find_low_freq_words(words):
             low_freq_words.append(word)
             continue
 
-    #print("low freq words: {}".format(low_freq_words))
+    # print("low freq words: {}".format(low_freq_words))
     return low_freq_words
 
 
@@ -72,47 +76,51 @@ def find_acronyms(words):
 #                definition = syns[0].definition()
 #                print("This is a word: {}".format(word))
 #            # if wordnet can't find a definition for the word assume it's an acronym
-#            except IndexError as e:       
+#            except IndexError as e:
 #                print("222 Found acronym: {}".format(word))
 #                acronyms.append(word)
-#                continue 
+#                continue
     return acronyms
 
+
 def rare_word_define_string(text, context):
-    #clean text and split text into words
+    # clean text and split text into words
     text = text.replace(".", " ").strip()
     text = re.sub(r'[0-9]', '', text)
     word_list = text.split(' ')
 
-    #remove words with apostrophes
+    # remove words with apostrophes
     word_list = [word for word in word_list if "'" not in word]
 
-    #get list of acronyms
+    # get list of acronyms
     acronyms = find_acronyms(word_list)
 
-    #list of words without acronyms
+    # list of words without acronyms
     word_list_no_acronyms = list(set(word_list) - set(acronyms))
     print("word_list_no_acronyms: ")
     print(word_list_no_acronyms)
 
-    #get list of rare words
+    # get list of rare words
     rare_words = find_low_freq_words(word_list_no_acronyms)
 
     all_to_define = rare_words + acronyms
 
-    #define acronyms
+    # define acronyms
     acro_definitions = [define_acronym(a) for a in acronyms]
     acro_definitions = [ad for ad in acro_definitions if ad is not None]
 
-    #define rare words
+    # define rare words
     rare_word_definitions = [define_word(w, context) for w in rare_words]
-    rare_word_definitions = [wd for wd in rare_word_definitions if wd is not None]
-    rare_word_definitions = [shorten_definition(d) for d in rare_word_definitions]
+    rare_word_definitions = [
+        wd for wd in rare_word_definitions if wd is not None]
+    rare_word_definitions = [shorten_definition(
+        d) for d in rare_word_definitions]
 
-    #combine definitions
+    # combine definitions
     definitions = acro_definitions + rare_word_definitions
 
     return definitions
+
 
 if __name__ == "__main__":
     print(rare_word_define_string("CSE existential LLM spectroscopy this is a test and preposterous NSA people might amicably proliferate OUR tungsten arcane ark USA botanical bonsai ASR gynecologist esoteric multi-processing"))

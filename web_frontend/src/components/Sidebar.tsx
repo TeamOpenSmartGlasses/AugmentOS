@@ -9,7 +9,7 @@ import {
   rem,
   Avatar,
 } from "@mantine/core";
-import { IconHome2, IconSettings, TablerIconsProps } from "@tabler/icons-react";
+import { IconSettings, TablerIconsProps } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -51,7 +51,12 @@ interface NavbarLinkProps {
   onClick?(): void;
 }
 
-function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
+export function NavbarLink({
+  icon: Icon,
+  label,
+  active,
+  onClick,
+}: NavbarLinkProps) {
   const { classes, cx } = useStyles();
   return (
     <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
@@ -65,42 +70,30 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
   );
 }
 
-const mockdata = [
-  { icon: IconHome2, label: "Home" },
-  { icon: IconSettings, label: "Settings" },
-];
+interface NavbarMinimalProps {
+  settingsOpened: boolean;
+  toggleSettings: () => void;
+}
 
-export function NavbarMinimal() {
-  const [active, setActive] = useState(2);
-
-  const links = mockdata.map((link, index) => (
-    <NavbarLink
-      {...link}
-      key={link.label}
-      active={index === active}
-      onClick={() => setActive(index)}
-    />
-  ));
-
+export function NavbarMinimal({
+  settingsOpened,
+  toggleSettings,
+}: NavbarMinimalProps) {
   return (
     <Navbar width={{ base: 80 }} p="md">
       <Center>
-        {" "}
-        <Avatar src={null} color="red">
-          CSE
-        </Avatar>
+        <Avatar src="/Convoscope_logo_clean.png" alt="CSE Logo" />
       </Center>
       <Navbar.Section grow mt={50}>
         <Stack justify="center" spacing={0}>
-          {links}
+          <NavbarLink
+            icon={IconSettings}
+            label={"Settings"}
+            active={settingsOpened}
+            onClick={toggleSettings}
+          />
         </Stack>
       </Navbar.Section>
-      {/* <Navbar.Section>
-        <Stack justify="center" spacing={0}>
-          <NavbarLink icon={IconSwitchHorizontal} label="Change account" />
-          <NavbarLink icon={IconLogout} label="Logout" />
-        </Stack>
-      </Navbar.Section> */}
     </Navbar>
   );
 }
