@@ -437,10 +437,8 @@ async def upload_user_data(request):
 
         df = pd.read_csv(user_file.file)
 
-        save_user_data(df, user_id)
-
-        cse.upload_user_data(user_id)
-
+        cse.upload_custom_user_data(user_id, df)
+        
         return web.Response(text="Data processed successfully")
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)

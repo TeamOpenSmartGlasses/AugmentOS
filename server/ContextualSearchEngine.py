@@ -281,7 +281,24 @@ class ContextualSearchEngine:
 
         return res
 
-    def setup_custom_data_folder(self, user_id):
+    def upload_custom_user_data(self, user_id, df):
+        user_folder_path = self.get_custom_data_folder(user_id)
+
+        # Determine the next available file number
+        existing_files = [f for f in os.listdir(
+            user_folder_path) if f.startswith('data') and f.endswith('.csv')]
+        existing_numbers = [int(f[4:-4]) for f in existing_files]
+        next_file_num = 1 if not existing_numbers else max(existing_numbers) + 1
+
+        # Save the DataFrame with the next available file number
+        df_file_path = os.path.join(user_folder_path, f'data{next_file_num}.csv')
+        df.to_csv(df_file_path, index=False)
+
+        print(f"Data saved to: {df_file_path}")
+
+        self.load_custom_user_data(user_id)
+    
+    def get_custom_data_folder(self, user_id):
         """Create user data folder if it doesn't exist."""
         path = "{}/{}".format(CUSTOM_USER_DATA_PATH, user_id)
         if not os.path.exists(path):
@@ -292,6 +309,12 @@ class ContextualSearchEngine:
 
         user_folder_path = os.path.join(
             CUSTOM_USER_DATA_PATH, str(user_id))
+        
+        return user_folder_path
+
+    # Run this if the user does not have custom data loaded, or after a new data upload
+    def load_custom_user_data(self, user_id):
+        user_folder_path = self.get_custom_data_folder(user_id)
 
         # List all CSV files in the user-specific folder
         csv_files = [f for f in os.listdir(
@@ -316,7 +339,8 @@ class ContextualSearchEngine:
         if talk == "":
             return
 
-        self.setup_custom_data_folder(userId)
+        if not self.does_user_have_custom_data_loaded(userId):
+            self.load_custom_user_data(userId)
 
         # build response object from various processing sources
         response = dict()
@@ -474,8 +498,14 @@ class ContextualSearchEngine:
             img_url = None
         return img_url
 
+    def does_user_have_custom_data_loaded(self, user_id):
+        if user_id not in self.custom_data: return False
+        if not isinstance(self.custom_data[user_id], pd.DataFrame): return False
+        if self.custom_data[user_id].empty: return False
+        return True
+
     def ner_custom_data(self, user_id, talk):
-        if not self.custom_data[user_id].keys(): return {}
+        if not self.does_user_have_custom_data_loaded(user_id): return {}
 
         words = [word for word in talk.split() if (
             word.lower() not in self.banned_words and not word.isnumeric())]
