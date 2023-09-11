@@ -2,7 +2,8 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import time
 import math
-from server_config import databaseUri
+from hashlib import sha256
+from server_config import databaseUri, clear_users_on_start, clear_cache_on_start
 
 
 class DatabaseHandler:
@@ -10,6 +11,7 @@ class DatabaseHandler:
         self.uri = databaseUri
         self.maxTranscriptsPerUser = 2
         self.userCollection = None
+        self.cacheCollection = None
         self.ready = False
 
         # Create a new client and connect to the server
@@ -21,24 +23,38 @@ class DatabaseHandler:
 
             # Success!
             self.initUsersCollection()
+            self.initCacheCollection()
 
         except Exception as e:
             print(e)
 
-    ### MISC ###
+    ### INIT ###
 
     def initUsersCollection(self):
         self.userDb = self.client['users']
         if 'users' in self.userDb.list_collection_names():
             self.userCollection = self.userDb.get_collection('users')
 
-            # TODO: Temporary (wipe the db on startup):
-            self.userCollection.drop()
-            self.initUsersCollection()
+            if clear_users_on_start:
+                self.userCollection.drop()
+                self.initUsersCollection()
         else:
             self.userCollection = self.userDb.create_collection('users')
 
         self.ready = True
+
+    def initCacheCollection(self):
+        self.cacheDb = self.client['cache']
+        if 'cache' in self.cacheDb.list_collection_names():
+            self.cacheCollection = self.cacheDb.get_collection('cache')
+
+            if clear_cache_on_start:
+                self.cacheCollection.drop()
+                self.initCacheCollection()
+        else:
+            self.cacheCollection = self.cacheDb.create_collection('cache')
+
+    ### MISC ###
 
     def createUserIfNotExists(self, userId):
         users = self.userCollection.find()
@@ -50,6 +66,22 @@ class DatabaseHandler:
             print('Creating new user: ' + userId)
             self.userCollection.insert_one(
                 {"userId": userId, "transcripts": [], "cseResults": [], "uiList": []})
+            
+    ### CACHE ###
+
+    def findCachedSummary(self, long_description):
+        descriptionHash = sha256(long_description.encode("utf-8")).hexdigest()
+        filter = {"description": descriptionHash}
+        item = self.cacheCollection.find_one(filter)
+        if item and 'summary' in item: 
+            return item['summary'] 
+        else: 
+            return None
+        
+    def saveCachedSummary(self, long_description, summary):
+        descriptionHash = sha256(long_description.encode("utf-8")).hexdigest()
+        item = {"description": descriptionHash, "summary": summary}
+        self.cacheCollection.insert_one(item)
 
     ### TRANSCRIPTS ###
 

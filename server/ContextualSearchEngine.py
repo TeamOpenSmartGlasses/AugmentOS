@@ -25,15 +25,13 @@ import time
 from bs4 import BeautifulSoup
 import warnings
 
+from Summarizer import Summarizer
+
 # Google NLP + Maps imports
 from google.cloud import language_v1
 from typing import Sequence
 from google.cloud import enterpriseknowledgegraph as ekg
 from server_config import gcp_project_id, path_modifier
-
-# OpenAI imports
-import openai
-openai.api_key = os.environ['OPENAI_API_KEY']
 
 # Google static maps imports
 
@@ -87,6 +85,7 @@ class ContextualSearchEngine:
         self.user_custom_data_path = "./custom_data/mit_media_lab/"
         self.relevanceFilter = relevanceFilter
         self.databaseHandler = databaseHandler
+        self.summarizer = Summarizer(databaseHandler)
 
         self.max_window_size = 3
 
@@ -201,36 +200,6 @@ class ContextualSearchEngine:
         )
 
         return response.entities
-
-    def summarize_entity(self, entity_description: str, chars_to_use=1250):
-        # shorten entity_description if too long
-        entity_description = entity_description[:min(
-            chars_to_use, len(entity_description))]
-
-        # make prompt
-        # like "the" and "a" if they aren't useful to human understanding
-        prompt = f"""Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
-
-        Example:
-        [INPUT]
-        "George Washington (February 22, 1732 – December 14, 1799) was an American military officer, statesman, and Founding Father who served as the first president of the United States from 1789 to 1797."
-
-        [OUTPUT]
-        First American president, military officer, Founding Father.
-
-        Example:
-        [INPUT]
-        "ChatGPT is an artificial intelligence chatbot developed by OpenAI and released in November 2022. It is built on top of OpenAI's GPT-3.5 and GPT-4 families of large language models and has been fine-tuned using both supervised and reinforcement learning techniques."
-        [OUTPUT]
-        AI chatbot using GPT models.
-
-        \n Text to summarize: \n{entity_description} \nSummary (8 words or less): """
-        # print("Running prompt for summary: \n {}".format(prompt))
-        chat_completion = openai.Completion.create(
-            model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
-        response = chat_completion.choices[0].text
-        # print(response)
-        return response
 
     def lookup_mids(self, ids: Sequence[str], project_id=gcp_project_id):
         location = 'global'      # Values: 'global'
@@ -466,7 +435,7 @@ class ContextualSearchEngine:
 
             # summarize entity if greater than n words long
             if (description != None) and (description != None) and (len(description.split(" ")) > 14):
-                summary = self.summarize_entity(description)
+                summary = self.summarizer.summarize_entity(description)
             elif description != None:
                 summary = description
             else:

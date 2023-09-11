@@ -1,5 +1,7 @@
 gcp_project_id = "personal-337917"
 google_maps_api_key = ""
+clear_users_on_start = True
+clear_cache_on_start = False
 
 # Uncomment one of the following for prod/dev:
 #
