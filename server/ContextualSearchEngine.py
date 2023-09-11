@@ -281,6 +281,11 @@ class ContextualSearchEngine:
 
         return res
 
+    def is_custom_data_valid(self, df):
+        if ('title' not in df) or ('description' not in df) or ('url' not in df):
+            return False
+        return True
+
     def upload_custom_user_data(self, user_id, df):
         user_folder_path = self.get_custom_data_folder(user_id)
 

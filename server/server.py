@@ -437,33 +437,15 @@ async def upload_user_data(request):
 
         df = pd.read_csv(user_file.file)
 
+        # Validate data
+        if not cse.is_custom_data_valid(df):
+            return web.Response(text="Bad data format", status=400)
+
         cse.upload_custom_user_data(user_id, df)
         
         return web.Response(text="Data processed successfully")
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
-
-
-def save_user_data(df, user_id):
-
-    if not os.path.exists('user_data'):
-        os.mkdir('user_data')
-
-    user_folder_path = os.path.join('user_data', str(user_id))
-    if not os.path.exists(user_folder_path):
-        os.mkdir(user_folder_path)
-
-    # Determine the next available file number
-    existing_files = [f for f in os.listdir(
-        user_folder_path) if f.startswith('data') and f.endswith('.csv')]
-    existing_numbers = [int(f[4:-4]) for f in existing_files]
-    next_file_num = 1 if not existing_numbers else max(existing_numbers) + 1
-
-    # Save the DataFrame with the next available file number
-    df_file_path = os.path.join(user_folder_path, f'data{next_file_num}.csv')
-    df.to_csv(df_file_path, index=False)
-
-    print(f"Data saved to: {df_file_path}")
 
 
 background_process = Process(target=processing_loop)
