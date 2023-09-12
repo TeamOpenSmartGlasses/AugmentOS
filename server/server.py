@@ -16,7 +16,7 @@ from prompts import memory_retriever_prompt, answer_prompt
 from parsers import retrieve_memory
 import threading
 from DatabaseHandler import DatabaseHandler
-from RelevanceFilter import RelevanceFilter
+from Modules.RelevanceFilter import RelevanceFilter
 from server_config import server_port
 import traceback
 

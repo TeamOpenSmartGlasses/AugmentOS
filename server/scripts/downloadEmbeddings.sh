@@ -1,5 +1,7 @@
 #!/bin/sh
 
+cd ..
+
 set -e
 set -u
 
