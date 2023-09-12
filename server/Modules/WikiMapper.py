@@ -26,7 +26,8 @@ class WikiMapper:
 
         with sqlite3.connect(self._path_to_db) as conn:
             c = conn.cursor()
-            c.execute("SELECT wikidata_id FROM mapping WHERE wikipedia_title=?", (page_title,))
+            c.execute(
+                "SELECT wikidata_id FROM mapping WHERE wikipedia_title=?", (page_title,))
             result = c.fetchone()
 
         if result is not None and result[0] is not None:
@@ -68,7 +69,8 @@ class WikiMapper:
         with sqlite3.connect(self._path_to_db) as conn:
             c = conn.cursor()
             c.execute(
-                "SELECT DISTINCT wikipedia_title FROM mapping WHERE wikidata_id =?", (wikidata_id,)
+                "SELECT DISTINCT wikipedia_title FROM mapping WHERE wikidata_id =?", (
+                    wikidata_id,)
             )
             results = c.fetchall()
 

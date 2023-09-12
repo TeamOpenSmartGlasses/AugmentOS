@@ -11,6 +11,7 @@ import pickle
 low_freq_threshold_google = 0.0922
 low_freq_threshold_norvig = 0.901
 google_lines = 333334
+
 norvig_lines = 30000
 low_freq_constant_google = low_freq_threshold_google * google_lines
 low_freq_line_constant_norvig = low_freq_threshold_norvig * norvig_lines
