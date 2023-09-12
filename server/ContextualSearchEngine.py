@@ -25,7 +25,7 @@ import time
 from bs4 import BeautifulSoup
 import warnings
 
-from Summarizer import Summarizer
+from Modules.Summarizer import Summarizer
 
 # Google NLP + Maps imports
 from google.cloud import language_v1
