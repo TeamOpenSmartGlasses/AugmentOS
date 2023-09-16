@@ -28,6 +28,8 @@ import time
 from bs4 import BeautifulSoup
 from txtai.embeddings import Embeddings
 import warnings
+import multiprocessing
+
 
 from Modules.Summarizer import Summarizer
 
@@ -103,11 +105,18 @@ class ContextualSearchEngine:
         # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(
         #     remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
         # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
+        use_cpu = True
 
-        # self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
-        # self.similarity_func = Similarity("valhalla/distilbart-mnli-12-1", gpu=True)
-        # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-        # self.model = GPT2LMHeadModel.from_pretrained("gpt2").to(self.inference_device)
+        if use_cpu:
+            self.inference_device = "cpu"
+        else:
+            self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+
+        self.similarity_func = Similarity(
+            "valhalla/distilbart-mnli-12-1", gpu=(not use_cpu))
+        self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        self.model = GPT2LMHeadModel.from_pretrained(
+            "gpt2").to(self.inference_device)
 
     # def search(self, query):
     #     return [(result["score"], result["text"]) for result in self.embeddings.search(query, limit=5)]
@@ -117,6 +126,7 @@ class ContextualSearchEngine:
     #     return [(score, results[x]) for x, score in similarity(query, results)]
 
     def compute_query_score(self, queries):
+        print("Computing query score.")
         for query in queries:
             print("Running similiarity search.")
             print("********************8Query: {}".format(query))
@@ -124,7 +134,7 @@ class ContextualSearchEngine:
             res = self.embeddings.search(query, 10)
 
             for val in res:
-                if val["score"] > 0.6:
+                if val["score"] > 0.45:
                     print(val)
                     print("\n********")
                 else:
@@ -585,11 +595,17 @@ class ContextualSearchEngine:
     #     similarity = self.similarity_func(string_to_match, [context])
     #     return similarity
 
-    # def word_sequence_entropy(self, sequence):
-    #     input_ids = self.tokenizer.encode(sequence, return_tensors='pt')
-    #     token_count = input_ids.size(1)
+    def word_sequence_entropy(self, sequence):
+        input_ids = self.tokenizer.encode(
+            sequence, return_tensors='pt').to(self.inference_device)
+        token_count = input_ids.size(1)
 
-        output = self.model(input_ids, labels=input_ids)
+        output = None
+        with torch.no_grad():
+            output = self.model(input_ids, labels=input_ids)
+
+        if output is None:
+            return None
 
         log_likelihood = output[0].item()
         normalized_score = 1 / (1 + np.exp(-log_likelihood / token_count))

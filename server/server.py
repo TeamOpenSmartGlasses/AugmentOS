@@ -22,7 +22,7 @@ import traceback
 
 # multiprocessing
 import multiprocessing
-# multiprocessing.set_start_method('spawn')
+
 import pandas as pd
 
 # CORS
@@ -397,10 +397,6 @@ async def upload_user_data(request):
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
-
-background_process = multiprocessing.Process(target=processing_loop)
-background_process.start()
-
 app.add_routes(
     [
         web.post('/chat', chat_handler),
@@ -423,5 +419,9 @@ cors = aiohttp_cors.setup(app, defaults={
 for route in list(app.router.routes()):
     cors.add(route)
 
-web.run_app(app, port=server_port)
-background_process.join()
+if __name__ == '__main__':
+    multiprocessing.set_start_method('spawn')
+    background_process = multiprocessing.Process(target=processing_loop)
+    background_process.start()
+    web.run_app(app, port=server_port)
+    background_process.join()
