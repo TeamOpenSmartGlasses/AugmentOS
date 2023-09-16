@@ -26,6 +26,7 @@ import uuid
 import math
 import time
 from bs4 import BeautifulSoup
+from txtai.embeddings import Embeddings
 import warnings
 
 from Modules.Summarizer import Summarizer
@@ -81,7 +82,13 @@ class ContextualSearchEngine:
 
         self.banned_words = set(stopwords.words(
             "english") + ["mit", "MIT", "Media", "media"])
-        description_banned_words = set(["mit", "MIT", "Media", "media"])
+
+        self.embeddings = Embeddings(
+            {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
+
+        self.embeddings.load("updated_embeddings/custom_data_embeddings.txtai")
+
+        # description_banned_words = set(["mit", "MIT", "Media", "media"])
 
         # make names regular (first and last)
         # self.custom_data['people']['title'] = self.custom_data['people']['title'].apply(
@@ -102,21 +109,28 @@ class ContextualSearchEngine:
         # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         # self.model = GPT2LMHeadModel.from_pretrained("gpt2").to(self.inference_device)
 
-    async def upload_user_data(self, user_id):
-        user_folder_path = os.path.join('custom_data', str(user_id))
+    # def search(self, query):
+    #     return [(result["score"], result["text"]) for result in self.embeddings.search(query, limit=5)]
 
-        # List all CSV files in the user-specific folder
-        csv_files = [f for f in os.listdir(
-            user_folder_path) if f.endswith('.csv')]
+    # def ranksearch(self, query):
+    #     results = [text for _, text in search(query)]
+    #     return [(score, results[x]) for x, score in similarity(query, results)]
 
-        # Read each CSV into a DataFrame
-        dfs = [pd.read_csv(os.path.join(user_folder_path, csv_file))
-               for csv_file in csv_files]
+    def compute_query_score(self, queries):
+        for query in queries:
+            print("Running similiarity search.")
+            print("********************8Query: {}".format(query))
 
-        # Concatenate all DataFrames into a single DataFrame
-        concatenated_df = pd.concat(dfs, ignore_index=True)
+            res = self.embeddings.search(query, 10)
 
-        self.custom_data[user_id] = concatenated_df
+            for val in res:
+                if val["score"] > 0.6:
+                    print(val)
+                    print("\n********")
+                else:
+                    break
+
+            print("\n\n\n")
 
     async def upload_user_data(self, user_id):
         user_folder_path = os.path.join('custom_data', str(user_id))
@@ -339,6 +353,8 @@ class ContextualSearchEngine:
 
         # find mentions of custom data entities
         entities_custom = self.ner_custom_data(userId, talk)
+
+        self.compute_query_score([talk])
 
         # find rare words (including acronyms) and define them
         context = talk + \
