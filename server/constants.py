@@ -1,1 +1,4 @@
 CUSTOM_USER_DATA_PATH = "./custom_data"
+SUMMARIZE_CUSTOM_DATA = False
+USE_GPU_FOR_INFERENCING = False
+SAMPLE_USER_ID = "sample_user_id"

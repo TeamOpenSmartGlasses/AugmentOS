@@ -16,7 +16,7 @@ from googlemaps.maps import StaticMapMarker
 import googlemaps
 import responses
 from server_config import google_maps_api_key
-from constants import CUSTOM_USER_DATA_PATH
+from constants import CUSTOM_USER_DATA_PATH, USE_GPU_FOR_INFERENCING, SUMMARIZE_CUSTOM_DATA, SAMPLE_USER_ID
 import requests
 import json
 import random
@@ -28,8 +28,7 @@ import time
 from bs4 import BeautifulSoup
 from txtai.embeddings import Embeddings
 import warnings
-import multiprocessing
-
+from update_embeddings import update_embeddings
 
 from Modules.Summarizer import Summarizer
 
@@ -88,8 +87,9 @@ class ContextualSearchEngine:
         self.embeddings = Embeddings(
             {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
 
-        self.embeddings.load("updated_embeddings/custom_data_embeddings.txtai")
-
+        user_folder_path = os.path.join('custom_data', str(SAMPLE_USER_ID))
+        self.embeddings.load(
+            f"{user_folder_path}/custom_data_embeddings.txtai")
         # description_banned_words = set(["mit", "MIT", "Media", "media"])
 
         # make names regular (first and last)
@@ -105,15 +105,14 @@ class ContextualSearchEngine:
         # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(
         #     remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
         # self.custom_data['projects']['description_filtered'] = self.custom_data['projects']['description'].apply(remove_html_tags).apply(lambda x: remove_banned_words(x, description_banned_words))
-        use_cpu = True
 
-        if use_cpu:
-            self.inference_device = "cpu"
-        else:
+        if USE_GPU_FOR_INFERENCING:
             self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
+        else:
+            self.inference_device = "cpu"
 
         self.similarity_func = Similarity(
-            "valhalla/distilbart-mnli-12-1", gpu=(not use_cpu))
+            "valhalla/distilbart-mnli-12-1", gpu=(USE_GPU_FOR_INFERENCING))
         self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
         self.model = GPT2LMHeadModel.from_pretrained(
             "gpt2").to(self.inference_device)
@@ -131,6 +130,12 @@ class ContextualSearchEngine:
             print("Running similiarity search.")
             print("********************8Query: {}".format(query))
 
+            try:
+                query = summarizer.summarize_description_with_bert(
+                    query) if SUMMARIZE_CUSTOM_DATA else query
+            except:
+                pass
+
             res = self.embeddings.search(query, 10)
 
             for val in res:
@@ -142,7 +147,7 @@ class ContextualSearchEngine:
 
             print("\n\n\n")
 
-    async def upload_user_data(self, user_id):
+    async def load_user_data(self, user_id):
         user_folder_path = os.path.join('custom_data', str(user_id))
 
         # List all CSV files in the user-specific folder
@@ -157,6 +162,8 @@ class ContextualSearchEngine:
         concatenated_df = pd.concat(dfs, ignore_index=True)
 
         self.custom_data[user_id] = concatenated_df
+        self.embeddings.load(
+            f"{user_folder_path}/custom_data_embeddings.txtai")
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
@@ -309,6 +316,9 @@ class ContextualSearchEngine:
         df.to_csv(df_file_path, index=False)
 
         print(f"Data saved to: {df_file_path}")
+
+        # Update the embeddings
+        update_embeddings(df, user_id)
 
         self.load_custom_user_data(user_id)
 

@@ -2,9 +2,10 @@ import os
 
 # OpenAI imports
 import openai
+from summarizer.sbert import SBertSummarizer
 openai.api_key = os.environ['OPENAI_API_KEY']
 
-ogPrompt= """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
+ogPrompt = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
             Example:
             [INPUT]
@@ -21,10 +22,12 @@ ogPrompt= """Please summarize the following "entity description" text to 8 words
 
             \n Text to summarize: \n{} \nSummary (8 words or less): """
 
+
 class Summarizer:
 
     def __init__(self, databaseHandler):
         self.databaseHandler = databaseHandler
+        self.model = SBertSummarizer('paraphrase-MiniLM-L6-v2')
 
     def summarize_entity(self, entity_description: str, chars_to_use=1250):
         # shorten entity_description if too long
@@ -33,10 +36,10 @@ class Summarizer:
 
         # Check cache for summary first
         summary = self.databaseHandler.findCachedSummary(entity_description)
-        if summary: 
+        if summary:
             print("$$$ SUMMARY: FOUND CACHED SUMMARY")
             return summary
-        
+
         # Summary does not exist. Get it with OpenAI
         print("$$$ SUMMARY: SUMMARIZING WITH OPENAI")
         summary = self.summarize_entity_with_openai(entity_description)
@@ -44,12 +47,15 @@ class Summarizer:
         return summary
 
     def summarize_entity_with_openai(self, entity_description: str):
-            # make prompt
-            # like "the" and "a" if they aren't useful to human understanding
-            prompt = ogPrompt.format(entity_description)
-            # print("Running prompt for summary: \n {}".format(prompt))
-            chat_completion = openai.Completion.create(
-                model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
-            response = chat_completion.choices[0].text
-            # print(response)
-            return response
+        # make prompt
+        # like "the" and "a" if they aren't useful to human understanding
+        prompt = ogPrompt.format(entity_description)
+        # print("Running prompt for summary: \n {}".format(prompt))
+        chat_completion = openai.Completion.create(
+            model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
+        response = chat_completion.choices[0].text
+        # print(response)
+        return response
+
+    def summarize_description_with_bert(self, description):
+        return self.model(description, num_sentences=3)
