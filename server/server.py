@@ -16,13 +16,13 @@ from prompts import memory_retriever_prompt, answer_prompt
 from parsers import retrieve_memory
 import threading
 from DatabaseHandler import DatabaseHandler
-from RelevanceFilter import RelevanceFilter
+from Modules.RelevanceFilter import RelevanceFilter
 from server_config import server_port
 import traceback
 
-#multiprocessing
+# multiprocessing
 import multiprocessing
-#multiprocessing.set_start_method('spawn')
+
 import pandas as pd
 
 # CORS
@@ -353,7 +353,7 @@ async def ui_poll(request, minutes=0.5):
         print("server.py =================================CSERESULT")
         print(cseResults)
 
-    #if cseResults != None and cseResults != []:
+    # if cseResults != None and cseResults != []:
     #    print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cseResults))
 
     # send response
@@ -398,14 +398,10 @@ async def upload_user_data(request):
             return web.Response(text="Bad data format", status=400)
 
         cse.upload_custom_user_data(user_id, df)
-        
+
         return web.Response(text="Data processed successfully", status=200)
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
-
-
-background_process = multiprocessing.Process(target=processing_loop)
-background_process.start()
 
 app.add_routes(
     [
@@ -429,5 +425,9 @@ cors = aiohttp_cors.setup(app, defaults={
 for route in list(app.router.routes()):
     cors.add(route)
 
-web.run_app(app, port=server_port)
-background_process.join()
+if __name__ == '__main__':
+    multiprocessing.set_start_method('spawn')
+    background_process = multiprocessing.Process(target=processing_loop)
+    background_process.start()
+    web.run_app(app, port=server_port)
+    background_process.join()
