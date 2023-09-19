@@ -72,7 +72,7 @@ class ContextualSearchEngine:
         self.previous_defs = list()
         self.client = googlemaps.Client(key=google_maps_api_key)
         self.imagePath = "images/cse"
-        self.user_custom_data_path = "./custom_data/mit_media_lab/"
+        self.user_custom_data_path = "./custom_data/"
         self.relevanceFilter = relevanceFilter
         self.databaseHandler = databaseHandler
         self.summarizer = Summarizer(databaseHandler)
@@ -80,16 +80,16 @@ class ContextualSearchEngine:
         self.max_window_size = 3
 
         self.custom_data = dict()
+        self.custom_embeddings = dict()
 
         self.banned_words = set(stopwords.words(
             "english") + ["mit", "MIT", "Media", "media"])
 
-        self.embeddings = Embeddings(
-            {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
+        # self.embeddings = Embeddings(
+        #     {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
 
-        user_folder_path = os.path.join('custom_data', str(SAMPLE_USER_ID))
-        self.embeddings.load(
-            f"{user_folder_path}/custom_data_embeddings.txtai")
+        # self.embeddings.load(
+        #     f"{user_folder_path}/custom_data_embeddings.txtai")
         # description_banned_words = set(["mit", "MIT", "Media", "media"])
 
         # make names regular (first and last)
@@ -124,19 +124,19 @@ class ContextualSearchEngine:
     #     results = [text for _, text in search(query)]
     #     return [(score, results[x]) for x, score in similarity(query, results)]
 
-    def compute_query_score(self, queries):
+    def compute_query_score(self, queries, user_id):
         print("Computing query score.")
         for query in queries:
             print("Running similiarity search.")
             print("********************8Query: {}".format(query))
 
             try:
-                query = summarizer.summarize_description_with_bert(
+                query = self.summarizer.summarize_description_with_bert(
                     query) if SUMMARIZE_CUSTOM_DATA else query
             except:
                 pass
 
-            res = self.embeddings.search(query, 10)
+            res = self.custom_embeddings[user_id].search(query, 10)
 
             for val in res:
                 if val["score"] > 0.45:
@@ -162,7 +162,7 @@ class ContextualSearchEngine:
         concatenated_df = pd.concat(dfs, ignore_index=True)
 
         self.custom_data[user_id] = concatenated_df
-        self.embeddings.load(
+        self.custom_embeddings[user_id].load(
             f"{user_folder_path}/custom_data_embeddings.txtai")
 
     def get_google_static_map_img(self, place, zoom=3):
@@ -361,25 +361,29 @@ class ContextualSearchEngine:
         print("SETUP CUSTOM DATA FOR USER {}, CUSTOM DATA FRAME IS BELOW:".format(user_id))
         print(self.custom_data[user_id])
 
-    def contextual_search_engine(self, userId, talk):
+    def contextual_search_engine(self, user_id, talk):
         if talk == "":
             return
 
-        if not self.does_user_have_custom_data_loaded(userId):
-            self.load_custom_user_data(userId)
+        if not self.does_user_have_custom_data_loaded(user_id):
+            self.load_custom_user_data(user_id)
+            self.custom_embeddings[user_id] = Embeddings(
+                {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
+            self.custom_embeddings[user_id].load(
+                f"{self.user_custom_data_path}{user_id}/custom_data_embeddings.txtai")
 
         # build response object from various processing sources
         response = dict()
 
         # find mentions of custom data entities
-        entities_custom = self.ner_custom_data(userId, talk)
+        entities_custom = self.ner_custom_data(user_id, talk)
 
-        self.compute_query_score([talk])
+        self.compute_query_score([talk], user_id)
 
         # find rare words (including acronyms) and define them
         context = talk + \
             self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
-                userId, 3)
+                user_id, 3)
         rare_word_definitions = word_frequency.rare_word_define_string(
             talk, context)
 
