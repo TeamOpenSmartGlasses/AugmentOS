@@ -191,7 +191,7 @@ class DatabaseHandler:
             penultimateTranscript = transcriptList[-2]['text']
             penultimateTranscriptWordList = penultimateTranscript.strip().split()
             penultimateTranscriptLastNWords = ' '.join(penultimateTranscriptWordList[-(backSlider-len(latestTranscriptWordList)):])
-            transcriptToRunOn = penultimateTranscriptLastNWords + latestTranscript
+            transcriptToRunOn = penultimateTranscriptLastNWords + ' ' + latestTranscript
         return transcriptToRunOn
 
 
