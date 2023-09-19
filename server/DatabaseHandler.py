@@ -13,6 +13,8 @@ class DatabaseHandler:
         self.userCollection = None
         self.cacheCollection = None
         self.ready = False
+        self.intermediateTranscriptValidityTime = .3 # 300 ms in seconds
+        self.transcriptExpirationTime = 600 # 10 minutes in seconds
 
         # Create a new client and connect to the server
         self.client = MongoClient(self.uri, server_api=ServerApi('1'))
@@ -85,8 +87,119 @@ class DatabaseHandler:
 
     ### TRANSCRIPTS ###
 
+    def saveTranscriptForUser(self, userId, text, timestamp, isFinal):
+        transcript = {"userId": userId, "text": text,
+                      "timestamp": timestamp, "isFinal": isFinal, "isConsumed": False}
+        self.createUserIfNotExists(userId)
+
+        self.purgeOldTranscriptsForUserId(userId)
+
+        filter = {"userId": userId}
+        update = {"$set": {"latestTranscript": transcript}}
+        self.userCollection.update_one(filter=filter, update=update)
+
+        if isFinal:
+            filter = {"userId": userId}
+            update = {"$push": {"transcripts": transcript}}
+            self.userCollection.update_one(filter=filter, update=update)
+
+    def getRecentTranscriptsForUser(self, userId, deleteAfter=False):
+        self.createUserIfNotExists(userId)
+        user = self.userCollection.find_one({"userId": userId})
+        transcripts = list(filter(lambda t: t['isConsumed'] == False, user['transcripts']))
+        
+        # Only use 'latestTranscript' if it's an unconsumed intermediate
+        if 'latestTranscript' in user and 'isFinal' in user['latestTranscript'] and (user['latestTranscript']['isFinal'] is False and user['latestTranscript']['isConsumed'] is False):
+            if user['latestTranscript']['timestamp'] < time.time() - self.intermediateTranscriptValidityTime:
+                transcripts.append(user['latestTranscript'])
+        
+        if transcripts and deleteAfter:
+            self.markAllTranscriptsAsConsumedForUserId(userId)
+        
+        return transcripts
+
+    def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
+        transcripts = self.getRecentTranscriptsForUser(
+            userId, deleteAfter=deleteAfter)
+        # return self.stringifyTranscripts(transcriptList=transcripts)
+        return self.getStringifiedTranscriptWindow(transcripts)
+
+    def popOldestTranscriptForUser(self, userId):
+        filter = {"userId": userId}
+        update = {"$pop": {"transcripts": -1}}
+        self.userCollection.update_one(filter=filter, update=update)
+
+    def markAllTranscriptsAsConsumedForUserId(self, userId):
+        print("===MARKING CONSUMED===")
+        filter = {"userId": userId}
+        update = {'$set': {'transcripts.$[].isConsumed': True, 'latestTranscript.isConsumed': True}}
+        self.userCollection.update_many(filter=filter, update=update)
+
+    def deleteAllTranscriptsForUser(self, userId):
+        filter = {"userId": userId}
+        update = {"$set": {"transcripts": []}}
+        self.userCollection.update_one(filter=filter, update=update)
+
+    def getRecentTranscriptsForAllUsers(self, combineTranscripts=False, deleteAfter=False):
+        users = self.userCollection.find()
+        transcripts = []
+        for user in users:
+            userId = user['userId']
+            if combineTranscripts:
+                transcriptString = self.getRecentTranscriptsForUserAsString(
+                    userId, deleteAfter=deleteAfter)
+                if transcriptString:
+                    transcripts.append(
+                        {'userId': userId, 'text': transcriptString})
+            else:
+                transcripts.extend(self.getRecentTranscriptsForUser(
+                    userId, deleteAfter=deleteAfter))
+
+        return transcripts
+
+    def getTranscriptsFromLastNSecondsForUser(self, userId, n=30):
+        seconds = n * 1000
+        allTranscripts = self.getRecentTranscriptsForUser(userId)
+
+        recentTranscripts = []
+        currentTime = time.time()
+        for transcript in allTranscripts:
+            if currentTime - transcript['timestamp'] < seconds:
+                recentTranscripts.append(transcript)
+        return recentTranscripts
+
+    def getTranscriptsFromLastNSecondsForUserAsString(self, userId, n=30):
+        transcripts = self.getTranscriptsFromLastNSecondsForUser(userId, n)
+        return self.stringifyTranscripts(transcriptList=transcripts)
+
+    def purgeOldTranscriptsForUserId(self, userId):
+        transcriptExpirationDate = time.time() - self.transcriptExpirationTime
+        filter = {'userId': userId}
+        condition = {'$pull': {'transcripts': {'timestamp': {'$lt': transcriptExpirationDate}}}}
+        self.userCollection.update_many(filter, condition)
+
+    ## TRANSCRIPT FORMATTING ###
+
+    def getStringifiedTranscriptWindow(self, transcriptList):
+        if len(transcriptList) == 0: return None
+        backSlider = 4
+        latestTranscript = transcriptList[-1]['text']
+        latestTranscriptWordList = latestTranscript.strip().split()
+        transcriptToRunOn = latestTranscript
+        if len(latestTranscriptWordList) < backSlider and len(transcriptList) > 1:
+            # Defer to penultimate transcript (if there is one)
+            penultimateTranscript = transcriptList[-2]['text']
+            penultimateTranscriptWordList = penultimateTranscript.strip().split()
+            penultimateTranscriptLastNWords = ' '.join(penultimateTranscriptWordList[-(backSlider-len(latestTranscriptWordList)):])
+            transcriptToRunOn = penultimateTranscriptLastNWords + latestTranscript
+        return transcriptToRunOn
+
+
     def stringifyTranscripts(self, transcriptList):
         output = ""
+        if len(transcriptList) == 0: return output
+
+
 
         # Concatenate text of all FINAL transcripts
         lastFinalTranscriptIndex = 99999999
@@ -102,75 +215,7 @@ class DatabaseHandler:
                 lastIntermediateText = transcriptList[i]['text']
         output = output + ' \n' + lastIntermediateText
 
-        return output.strip()
-
-    def saveTranscriptForUser(self, userId, text, timestamp, isFinal):
-        transcript = {"userId": userId, "text": text,
-                      "timestamp": timestamp, "isFinal": isFinal}
-        self.createUserIfNotExists(userId)
-
-        # Remove old transcripts if there are too many, must come before the update_one call
-        if len(self.getRecentTranscriptsForUser(userId)) > self.maxTranscriptsPerUser:
-            self.popOldestTranscriptForUser(userId)
-
-        filter = {"userId": userId}
-        update = {"$push": {"transcripts": transcript}}
-        self.userCollection.update_one(filter=filter, update=update)
-
-    def getRecentTranscriptsForUser(self, userId, deleteAfter=False):
-        self.createUserIfNotExists(userId)
-        user = self.userCollection.find_one({"userId": userId})
-        transcripts = user['transcripts']
-        if deleteAfter:
-            self.deleteAllTranscriptsForUser(userId)
-        return transcripts
-
-    def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
-        transcripts = self.getRecentTranscriptsForUser(
-            userId, deleteAfter=deleteAfter)
-        return self.stringifyTranscripts(transcriptList=transcripts)
-
-    def popOldestTranscriptForUser(self, userId):
-        filter = {"userId": userId}
-        update = {"$pop": {"transcripts": -1}}
-        self.userCollection.update_one(filter=filter, update=update)
-
-    def deleteAllTranscriptsForUser(self, userId):
-        filter = {"userId": userId}
-        update = {"$set": {"transcripts": []}}
-        self.userCollection.update_one(filter=filter, update=update)
-
-    def getRecentTranscriptsForAllUsers(self, combineTranscripts=False, deleteAfter=False):
-        users = self.userCollection.find()
-        transcripts = []
-        for user in users:
-            userId = user['userId']
-            if combineTranscripts:
-                transcriptString = self.getRecentTranscriptsForUserAsString(
-                    userId, deleteAfter=deleteAfter)
-                if transcriptString != "":
-                    transcripts.append(
-                        {'userId': userId, 'text': transcriptString})
-            else:
-                transcripts.extend(self.getRecentTranscriptsForUser(
-                    userId, deleteAfter=deleteAfter))
-
-        return transcripts
-
-    def getTranscriptsFromLastNSecondsForUser(self, userId, n=30):
-        seconds = n * 1000
-        allTranscripts = self.getRecentTranscriptsForUser(userId)
-
-        recentTranscripts = []
-        currentTime = math.trunc(time.time())
-        for transcript in allTranscripts:
-            if currentTime - transcript['timestamp'] < seconds:
-                recentTranscripts.append(transcript)
-        return recentTranscripts
-
-    def getTranscriptsFromLastNSecondsForUserAsString(self, userId, n=30):
-        transcripts = self.getTranscriptsFromLastNSecondsForUser(userId, n)
-        return self.stringifyTranscripts(transcriptList=transcripts)
+        return output.strip() 
 
     ### CSE RESULTS ###
 

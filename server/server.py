@@ -63,7 +63,7 @@ async def chat_handler(request):
     body = await request.json()
     isFinal = body.get('isFinal')
     text = body.get('text')
-    timestamp = body.get('timestamp')
+    timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
     userId = body.get('userId')
 
     # 400 if missing params
