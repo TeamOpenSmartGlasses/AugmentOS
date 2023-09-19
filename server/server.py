@@ -53,8 +53,8 @@ app['llm'] = ChatOpenAI(
     max_tokens=max_tokens,
 )
 
-mostRecentFinalTranscript = dict()
-fiveSecondsInMs = 5000
+mostRecentIntermediateTranscript = dict()
+intermediateMaxRate = .2 # Only take intermediates every 200ms
 
 
 async def chat_handler(request):
@@ -83,15 +83,15 @@ async def chat_handler(request):
         app['memory'][userId].add_memories(decayed_memories)
 
     # Save to database
-    # & Debounce extraneous intermediate transcripts by only
-    # considering those that come after 5 seconds of a final transcript
-    if userId not in mostRecentFinalTranscript:
-        mostRecentFinalTranscript[userId] = 0
+    # & Debounce intermediate transcripts by only
+    # accepting them every 200ms max
+    if userId not in mostRecentIntermediateTranscript:
+        mostRecentIntermediateTranscript[userId] = 0
 
-    if isFinal:
-        mostRecentFinalTranscript[userId] = timestamp
+    if not isFinal:
+        mostRecentIntermediateTranscript[userId] = timestamp
 
-    if isFinal or (timestamp - mostRecentFinalTranscript[userId] < fiveSecondsInMs):
+    if isFinal or (timestamp - mostRecentIntermediateTranscript[userId] > intermediateMaxRate):
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
             "FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
         startSaveDbTime = time.time()
