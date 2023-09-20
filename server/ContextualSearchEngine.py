@@ -77,7 +77,7 @@ class ContextualSearchEngine:
         self.databaseHandler = databaseHandler
         self.summarizer = Summarizer(databaseHandler)
 
-        self.max_window_size = 3
+        self.max_window_size = 4
 
         self.custom_data = dict()
         self.custom_embeddings = dict()
@@ -125,18 +125,17 @@ class ContextualSearchEngine:
     #     return [(score, results[x]) for x, score in similarity(query, results)]
 
     def compute_query_score(self, queries, user_id):
-        print("Computing query score.")
         for query in queries:
             print("Running similiarity search.")
             print("********************8Query: {}".format(query))
 
-            try:
-                query = self.summarizer.summarize_description_with_bert(
-                    query) if SUMMARIZE_CUSTOM_DATA else query
-            except:
-                pass
+            #try:
+            #    query = self.summarizer.summarize_description_with_bert(
+            #        query) if SUMMARIZE_CUSTOM_DATA else query
+            #except:
+            #    pass
 
-            res = self.custom_embeddings[user_id].search(query, 10)
+            res = self.custom_embeddings[user_id].search(query, 3)
 
             for val in res:
                 if val["score"] > 0.45:
@@ -162,8 +161,12 @@ class ContextualSearchEngine:
         concatenated_df = pd.concat(dfs, ignore_index=True)
 
         self.custom_data[user_id] = concatenated_df
+
+        #load user data embeddings
+        print(f"Loading embeddings for {user_id}...")
         self.custom_embeddings[user_id].load(
             f"{user_folder_path}/custom_data_embeddings.txtai")
+        print(f"-- Loaded embeddings for {user_id}...")
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
@@ -361,20 +364,23 @@ class ContextualSearchEngine:
         print("SETUP CUSTOM DATA FOR USER {}, CUSTOM DATA FRAME IS BELOW:".format(user_id))
         print(self.custom_data[user_id])
 
+        #setup custom embeddings for user
+        custom_embeddings_path = f"{self.user_custom_data_path}/{user_id}/custom_data_embeddings.txtai"
+        print(f"Loading embeddings for {user_id}...")
+        self.custom_embeddings[user_id] = Embeddings(
+            {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
+        if (os.path.exists(custom_embeddings_path)):
+            self.custom_embeddings[user_id].load(custom_embeddings_path)
+            print(f"-- Populated embeddings loaded for {user_id}...")
+        else:
+            print(f"-- Empty embeddings only loaded for {user_id}...")
+
     def contextual_search_engine(self, user_id, talk):
         if talk == "":
             return
 
         if not self.does_user_have_custom_data_loaded(user_id):
             self.load_custom_user_data(user_id)
-            custom_embeddings_path = f"{self.user_custom_data_path}{user_id}/custom_data_embeddings.txtai"
-            print(f"Loading embeddings for {user_id}...")
-            if (os.path.isfile(custom_embeddings_path)):
-                self.custom_embeddings[user_id].load(custom_embeddings_path)
-            else:
-                self.custom_embeddings[user_id] = Embeddings(
-                    {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
-            print(f"-- Embeddings loaded for {user_id}...")
 
         # build response object from various processing sources
         response = dict()
@@ -382,6 +388,7 @@ class ContextualSearchEngine:
         # find mentions of custom data entities
         entities_custom = self.ner_custom_data(user_id, talk)
 
+        #run semantic search
         self.compute_query_score([talk], user_id)
 
         # find rare words (including acronyms) and define them
@@ -692,10 +699,10 @@ class ContextualSearchEngine:
                     whole_match = get_whole_match(match_entity, entity)
                     if (abs(len(whole_match) - len(to_search)) >= 3):
                         continue
-                    print("TRUE MATCH")
-                    print("--- WHOLEMATCH", whole_match)
-                    print("--- to_search", to_search)
-                    print("--- entity", entity)
+                    #print("TRUE MATCH")
+                    #print("--- WHOLEMATCH", whole_match)
+                    #print("--- to_search", to_search)
+                    #print("--- entity", entity)
                     matches.append(idx)
                     # print(match_entity)
                     # print(self.get_similarity(descriptions[idx], context)[0][1] if compute_entropy else None)
@@ -720,7 +727,7 @@ class ContextualSearchEngine:
 
                 if combination not in combinations_set:
                     combinations_set.add(combination)
-                    print("checking combo: {}".format(combination))
+                    #print("checking combo: {}".format(combination))
                     curr_matches = self.search_name(
                         combination,
                         entities,

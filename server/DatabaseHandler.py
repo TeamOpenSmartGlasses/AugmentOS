@@ -130,7 +130,7 @@ class DatabaseHandler:
         self.userCollection.update_one(filter=filter, update=update)
 
     def markAllTranscriptsAsConsumedForUserId(self, userId):
-        print("===MARKING CONSUMED===")
+        #print("===MARKING CONSUMED===")
         filter = {"userId": userId}
         update = {'$set': {'transcripts.$[].isConsumed': True, 'latestTranscript.isConsumed': True}}
         self.userCollection.update_many(filter=filter, update=update)

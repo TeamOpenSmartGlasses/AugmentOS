@@ -7,12 +7,9 @@ import sys
 from txtai.embeddings import Embeddings
 from txtai.pipeline import Similarity
 from Modules.Summarizer import Summarizer
-from constants import SUMMARIZE_CUSTOM_DATA, SAMPLE_USER_ID
+from constants import SUMMARIZE_CUSTOM_DATA
 
 import pandas as pd
-
-# csv path
-csv_path = "./custom_data/custom_data_example.csv"
 
 # globals
 stream_index = 0
@@ -20,7 +17,6 @@ finished = False
 NUMERO = 100000000
 
 summarizer = Summarizer(None)
-
 
 # utils
 def estimate_df_line_number(df_path):
@@ -48,7 +44,10 @@ def stream(dataset):
             print("Error summarizing entity: {}".format(row['title']))
             description = str(row['description'])
 
-        text = title + " " + description
+        print("Title: {}".format(title))
+        print("-- Description: {}".format(description))
+
+        text = title + ": " + description
         # data_id = row['index']
         yield (title, text)
         stream_index += 1
@@ -57,7 +56,7 @@ def stream(dataset):
             return
 
 
-def search(query):
+def semantic_search(embeddings, query):
     return [(result["score"], result["text"]) for result in embeddings.search(query, limit=50)]
 
 
@@ -136,8 +135,7 @@ def update_embeddings(df, user_id):
     # total_lines_to_proc = estimate_df_line_number(csv_path)
     # i = 0
 
-    df = pd.read_csv(csv_path)
-    embeddings = process(df, embeddings)
+    populated_embeddings = process(df, embeddings)
 
     # for chunk in pd.read_csv(csv_path, quotechar='|', index_col = False, chunksize=chunksize):
     # for chunk in pd.read_csv(csv_path, chunksize=chunksize):
@@ -152,9 +150,11 @@ def update_embeddings(df, user_id):
     #     if proc_finished_flag:
     #         break
 
-    embeddings.save(
+    populated_embeddings.save(
         f"{user_folder_path}/custom_data_embeddings.txtai"
     )
+
+    return populated_embeddings
 
     # top_df = pd.DataFrame({'title':top_wiki_name})
     # top_df.to_csv("test.csv")
@@ -162,5 +162,7 @@ def update_embeddings(df, user_id):
 
 if __name__ == "__main__":
     os.makedirs(os.path.join('custom_data', str(
-        SAMPLE_USER_ID)), exist_ok=True)
-    update_embeddings(pd.read_csv(csv_path), SAMPLE_USER_ID)
+        sys.argv[1])), exist_ok=True)
+    embeddings = update_embeddings(pd.read_csv(sys.argv[2]), sys.argv[1])
+    search_results = semantic_search(embeddings, "wearable augmentation and memory")
+    print(search_results)
