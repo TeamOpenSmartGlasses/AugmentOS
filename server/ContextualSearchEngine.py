@@ -435,7 +435,7 @@ class ContextualSearchEngine:
 
             # summarize entity if greater than n words long
             if (description != None) and (description != None) and (len(description.split(" ")) > 14):
-                summary = self.summarizer.summarize_entity(description)
+                summary = self.summarizer.summarize_entity(description, context=context)
             elif description != None:
                 summary = description
             else:
