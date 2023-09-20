@@ -88,12 +88,11 @@ async def chat_handler(request):
     if userId not in mostRecentIntermediateTranscript:
         mostRecentIntermediateTranscript[userId] = 0
 
-    if not isFinal:
-        mostRecentIntermediateTranscript[userId] = timestamp
-
     if isFinal or (timestamp - mostRecentIntermediateTranscript[userId] > intermediateMaxRate):
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
             "FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
+        if not isFinal:
+            mostRecentIntermediateTranscript[userId] = timestamp
         startSaveDbTime = time.time()
         dbHandler.saveTranscriptForUser(
             userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
