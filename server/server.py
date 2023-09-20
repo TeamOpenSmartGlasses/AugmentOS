@@ -298,12 +298,16 @@ def processing_loop():
                 cseEndTime = time.time()
                 print("=== CSE completed in {} seconds ===".format(
                     round(cseEndTime - cseStartTime, 2)))
+
+                #filter responses with relevance filter, then save CSE results to the database
+                cseResponsesFiltered = list()
                 if cseResponses != None:
                     for res in cseResponses:
                         if res != {} and res != None:
                             if relevanceFilter.shouldRunForText(transcript['userId'], res['name']):
-                                dbHandler.addCseResultForUser(
-                                    transcript['userId'], res)
+                                cseResponsesFiltered.append(res)
+                    dbHandler.addCseResultsForUser(
+                        transcript['userId'], cseResponsesFiltered)
         except Exception as e:
             cseResponses = None
             print("Exception in CSE...:")
@@ -314,7 +318,7 @@ def processing_loop():
             pLoopEndTime = time.time()
             print("=== processing_loop completed in {} seconds overall ===".format(
                 round(pLoopEndTime - pLoopStartTime, 2)))
-        time.sleep(1.5)
+        time.sleep(2.5)
 
 
 cse = ContextualSearchEngine(
@@ -341,10 +345,12 @@ async def ui_poll(request, minutes=0.5):
     resp = dict()
 
     # get CSE results
-    cseResultList = dbHandler.getCseResultsForUserDevice(
+    cseResults = dbHandler.getCseResultsForUserDevice(
         userId=userId, deviceId=deviceId)
 
-    cseResults = cseResultList
+    if cseResults:
+        print("server.py =================================CSERESULT")
+        print(cseResults)
 
     #if cseResults != None and cseResults != []:
     #    print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cseResults))

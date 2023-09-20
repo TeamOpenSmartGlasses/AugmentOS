@@ -219,9 +219,9 @@ class DatabaseHandler:
 
     ### CSE RESULTS ###
 
-    def addCseResultForUser(self, userId, result):
+    def addCseResultsForUser(self, userId, results):
         filter = {"userId": userId}
-        update = {"$push": {"cseResults": result}}
+        update = {"$push": {"cseResults": {'$each': results}}}
         self.userCollection.update_one(filter=filter, update=update)
 
     def deleteCseResultsForUser(self, userId):
@@ -237,7 +237,7 @@ class DatabaseHandler:
         user = self.userCollection.find_one({"userId": userId})
         results = user['cseResults'] if user != None else []
         alreadyConsumedIds = [
-        ] if includeConsumed else self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
+                ] if includeConsumed else self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
         newResults = []
         for res in results:
             if ('uuid' in res) and (res['uuid'] not in alreadyConsumedIds):
