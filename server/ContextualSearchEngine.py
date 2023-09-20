@@ -16,7 +16,7 @@ from googlemaps.maps import StaticMapMarker
 import googlemaps
 import responses
 from server_config import google_maps_api_key
-from constants import CUSTOM_USER_DATA_PATH, USE_GPU_FOR_INFERENCING, SUMMARIZE_CUSTOM_DATA, SAMPLE_USER_ID
+from constants import CUSTOM_USER_DATA_PATH, USE_GPU_FOR_INFERENCING, SUMMARIZE_CUSTOM_DATA, USE_CUSTOM_EMBEDDINGS
 import requests
 import json
 import random
@@ -369,8 +369,9 @@ class ContextualSearchEngine:
             self.load_custom_user_data(user_id)
             self.custom_embeddings[user_id] = Embeddings(
                 {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
-            self.custom_embeddings[user_id].load(
-                f"{self.user_custom_data_path}{user_id}/custom_data_embeddings.txtai")
+            if USE_CUSTOM_EMBEDDINGS:
+                self.custom_embeddings[user_id].load(
+                    f"{self.user_custom_data_path}{user_id}/custom_data_embeddings.txtai")
 
         # build response object from various processing sources
         response = dict()

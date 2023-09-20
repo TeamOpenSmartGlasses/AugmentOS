@@ -121,3 +121,7 @@ def rare_word_define_string(text, context):
     definitions = acro_definitions + rare_word_definitions
 
     return definitions
+
+
+# if __name__ == "__main__":
+#     print(rare_word_define_string("CSE existential LLM spectroscopy this is a test and preposterous NSA people might amicably proliferate OUR tungsten arcane ark USA botanical bonsai ASR gynecologist esoteric multi-processing"))
