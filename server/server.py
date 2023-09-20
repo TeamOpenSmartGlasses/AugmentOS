@@ -98,8 +98,8 @@ async def chat_handler(request):
         dbHandler.saveTranscriptForUser(
             userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
         endSaveDbTime = time.time()
-        print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
-            round(endSaveDbTime - startSaveDbTime, 2)))
+        #print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
+        #    round(endSaveDbTime - startSaveDbTime, 2)))
 
         # Also do WearLLM things
         # log so we can retain convo memory for later
@@ -128,12 +128,12 @@ async def chat_handler(request):
         except Exception as e:
             print("Error: ", e)
     else:
-        print("DEBOUNCING TRANSCRIPT")
+        #print("DEBOUNCING TRANSCRIPT")
         response = ''
 
     endTime = time.time()
-    print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
-        round(endTime - startTime, 2)))
+    #print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
+    #    round(endTime - startTime, 2)))
     return web.Response(text=json.dumps({'success': True, 'message': response}), status=200)
 
 
