@@ -68,18 +68,18 @@ class DatabaseHandler:
             print('Creating new user: ' + userId)
             self.userCollection.insert_one(
                 {"userId": userId, "transcripts": [], "cseResults": [], "uiList": []})
-            
+
     ### CACHE ###
 
     def findCachedSummary(self, long_description):
         descriptionHash = sha256(long_description.encode("utf-8")).hexdigest()
         filter = {"description": descriptionHash}
         item = self.cacheCollection.find_one(filter)
-        if item and 'summary' in item: 
-            return item['summary'] 
-        else: 
+        if item and 'summary' in item:
+            return item['summary']
+        else:
             return None
-        
+
     def saveCachedSummary(self, long_description, summary):
         descriptionHash = sha256(long_description.encode("utf-8")).hexdigest()
         item = {"description": descriptionHash, "summary": summary}
