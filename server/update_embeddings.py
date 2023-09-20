@@ -1,20 +1,11 @@
-# from datasets import load_dataset
 import os
 import sys
-
-# from Modules.WikiMapper import WikiMapper
-
 from txtai.embeddings import Embeddings
 from txtai.pipeline import Similarity
 from Modules.Summarizer import Summarizer
 from constants import SUMMARIZE_CUSTOM_DATA
-
 import pandas as pd
-
-# globals
-stream_index = 0
-finished = False
-NUMERO = 100000000
+import json
 
 summarizer = Summarizer(None)
 
@@ -33,7 +24,7 @@ def estimate_df_line_number(df_path):
 
 
 def stream(dataset):
-    global stream_index, finished
+    global stream_index
     for idx, row in dataset.iterrows():
         title = str(row['title'])
 
@@ -47,17 +38,17 @@ def stream(dataset):
         print("Title: {}".format(title))
         print("-- Description: {}".format(description))
 
+        tags = json.dumps({"title" : title,
+                "description" : description,
+                "url" : str(row["url"])
+                })
+
         text = title + ": " + description
-        # data_id = row['index']
-        yield (title, text)
-        stream_index += 1
-        if stream_index >= NUMERO:
-            finished = True
-            return
+        yield (title, text, tags)
 
 
 def semantic_search(embeddings, query):
-    return [(result["score"], result["text"]) for result in embeddings.search(query, limit=50)]
+    return [(result["score"], result["text"], result["tags"]) for result in embeddings.search(f"select id, text, score, tags from txtai where similar('{query}')", limit=10)]
 
 
 def ranksearch(query):
@@ -73,7 +64,6 @@ def ranksearch(query):
 
 
 def process(df, embeddings):
-    global finished, top_wiki_name
     # df['timestamp'] = pd.to_datetime(df['timestamp'],format='%Y-%m-%dT%H:%M:%SZ')
 
     # print("\n\n")

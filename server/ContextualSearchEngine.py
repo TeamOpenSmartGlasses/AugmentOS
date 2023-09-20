@@ -124,27 +124,36 @@ class ContextualSearchEngine:
     #     results = [text for _, text in search(query)]
     #     return [(score, results[x]) for x, score in similarity(query, results)]
 
-    def compute_query_score(self, queries, user_id):
-        for query in queries:
-            print("Running similiarity search.")
-            print("********************8Query: {}".format(query))
+    def semantic_search_custom_data(self, query, user_id):
+        print("Running similiarity search.")
+        print("******************** Query: {}".format(query))
 
-            #try:
-            #    query = self.summarizer.summarize_description_with_bert(
-            #        query) if SUMMARIZE_CUSTOM_DATA else query
-            #except:
-            #    pass
+        #try:
+        #    query = self.summarizer.summarize_description_with_bert(
+        #        query) if SUMMARIZE_CUSTOM_DATA else query
+        #except:
+        #    pass
 
-            res = self.custom_embeddings[user_id].search(query, 3)
+        results = self.custom_embeddings[user_id].search(f"select id, text, score, tags from txtai where similar('{query}')", limit=10)
+        filtered_results = dict()
 
-            for val in res:
-                if val["score"] > 0.45:
-                    print(val)
-                    print("\n********")
-                else:
-                    break
+        for result in results:
+            if result["score"] > 0.45:
+                title = result["id"]
+                tags = json.loads(result["tags"])
+                description = tags["description"]
+                url = tags["url"]
+                print("Got semantic search match:")
+                print(f"-- Semantic match title: {title}")
+                print(f"-- Semantic match desc.: {description}")
+                print(f"-- Semantic match url.: {url}")
+                print("\n********")
+                res_obj = {"name" : title, "summary" : description, "url" : url}
+                filtered_results[title] = res_obj
+            else:
+                break
 
-            print("\n\n\n")
+        return filtered_results
 
     async def load_user_data(self, user_id):
         user_folder_path = os.path.join('custom_data', str(user_id))
@@ -387,9 +396,13 @@ class ContextualSearchEngine:
 
         # find mentions of custom data entities
         entities_custom = self.ner_custom_data(user_id, talk)
+        print("ENTITIES_CUSTOM: ")
+        print(entities_custom)
 
         #run semantic search
-        self.compute_query_score([talk], user_id)
+        entities_semantic_custom = self.semantic_search_custom_data(talk, user_id)
+        print("SEMANTIC ENTITIES_CUSTOM: ")
+        print(entities_semantic_custom)
 
         # find rare words (including acronyms) and define them
         context = talk + \
@@ -468,6 +481,7 @@ class ContextualSearchEngine:
 
         # add custom NER entities to response
         response.update(entities_custom)
+        response.update(entities_semantic_custom)
 
         # build response and summarize long entity descriptions
         for entity_name in response.keys():

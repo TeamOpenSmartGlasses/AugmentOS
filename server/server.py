@@ -12,8 +12,6 @@ import tiktoken
 from datetime import datetime
 from ContextualSearchEngine import ContextualSearchEngine
 import time
-from prompts import memory_retriever_prompt, answer_prompt
-from parsers import retrieve_memory
 import threading
 from DatabaseHandler import DatabaseHandler
 from Modules.RelevanceFilter import RelevanceFilter
@@ -103,7 +101,7 @@ async def chat_handler(request):
     endTime = time.time()
     #print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
     #    round(endTime - startTime, 2)))
-    return web.Response(text=json.dumps({'success': True, 'message': response}), status=200)
+    return web.Response(text=json.dumps({'success': True, 'message': "Got that chat, yo"}), status=200)
 
 
 async def button_handler(request):
