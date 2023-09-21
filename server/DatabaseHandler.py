@@ -13,7 +13,7 @@ class DatabaseHandler:
         self.userCollection = None
         self.cacheCollection = None
         self.ready = False
-        self.intermediateTranscriptValidityTime = .3 # 300 ms in seconds
+        self.intermediateTranscriptValidityTime = 0 #.3 # 300 ms in seconds
         self.transcriptExpirationTime = 600 # 10 minutes in seconds
 
         # Create a new client and connect to the server
@@ -121,6 +121,8 @@ class DatabaseHandler:
     def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
         transcripts = self.getRecentTranscriptsForUser(
             userId, deleteAfter=deleteAfter)
+        print("Running getRecentTranscritsForUserAsString")
+        print(transcripts)
         # return self.stringifyTranscripts(transcriptList=transcripts)
         return self.getStringifiedTranscriptWindow(transcripts)
 
@@ -181,6 +183,8 @@ class DatabaseHandler:
     ## TRANSCRIPT FORMATTING ###
 
     def getStringifiedTranscriptWindow(self, transcriptList):
+        print("Running getStringifiedTranscriptWindow with:")
+        print(transcriptList)
         if len(transcriptList) == 0: return None
         backSlider = 4
         latestTranscript = transcriptList[-1]['text']

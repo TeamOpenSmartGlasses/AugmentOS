@@ -134,11 +134,13 @@ class ContextualSearchEngine:
         #except:
         #    pass
 
-        results = self.custom_embeddings[user_id].search(f"select id, text, score, tags from txtai where similar('{query}')", limit=10)
+        print(f"Semantic searching {query} for user {user_id}")
+        query_stripped = query.replace("\"", "")
+        results = self.custom_embeddings[user_id].search(f"select id, text, score, tags from txtai where similar(\"{query_stripped}\")", limit=10)
         filtered_results = dict()
 
         for result in results:
-            if result["score"] > 0.45:
+            if result["score"] > 0.55:
                 title = result["id"]
                 tags = json.loads(result["tags"])
                 description = tags["description"]
@@ -405,11 +407,11 @@ class ContextualSearchEngine:
         print(entities_semantic_custom)
 
         # find rare words (including acronyms) and define them
-        context = talk + \
-            self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
-                user_id, 3)
-        rare_word_definitions = word_frequency.rare_word_define_string(
-            talk, context)
+        #context = talk + \
+        #    self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
+        #        user_id, 3)
+        #rare_word_definitions = word_frequency.rare_word_define_string(
+        #    talk, context)
 
         # get entities
         entities_raw = self.analyze_entities(talk)
@@ -463,16 +465,16 @@ class ContextualSearchEngine:
         response = dict()
 
         # get rare word def's
-        summary_len = 200
-        for word_def in rare_word_definitions:
-            word = list(word_def.keys())[0]
-            definition = list(word_def.values())[0]
-            response[word] = dict()
-            # limit size of summary
-            summary = definition[0:min(summary_len, len(definition))] + "..."
-            response[word]["summary"] = summary
-            response[word]["type"] = "RARE_WORD"
-            response[word]["name"] = word
+        #summary_len = 200
+        #for word_def in rare_word_definitions:
+        #    word = list(word_def.keys())[0]
+        #    definition = list(word_def.values())[0]
+        #    response[word] = dict()
+        #    # limit size of summary
+        #    summary = definition[0:min(summary_len, len(definition))] + "..."
+        #    response[word]["summary"] = summary
+        #    response[word]["type"] = "RARE_WORD"
+        #    response[word]["name"] = word
 
         # put search results into response
         for entity_mid in entity_search_results:
@@ -742,6 +744,8 @@ class ContextualSearchEngine:
                 if combination not in combinations_set:
                     combinations_set.add(combination)
                     #print("checking combo: {}".format(combination))
+                    if len(combination) < 7: #some combinations are super short and not worth searching because they yield false positives
+                        continue
                     curr_matches = self.search_name(
                         combination,
                         entities,

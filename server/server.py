@@ -55,7 +55,7 @@ app['llm'] = ChatOpenAI(
 )
 
 mostRecentIntermediateTranscript = dict()
-intermediateMaxRate = .2 # Only take intermediates every 200ms
+intermediateMaxRate = 0 #.2 # Only take intermediates every n seconds
 
 
 async def chat_handler(request):
