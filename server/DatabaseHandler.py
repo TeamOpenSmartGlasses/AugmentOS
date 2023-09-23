@@ -97,15 +97,14 @@ class DatabaseHandler:
 
         # Handle final transcript first
         if isFinal:
-            # OPTIMIZATION TODO:
-            # If new final transcript text == latestTranscript text, 
-            # mark 'isConsumed' = True
+            # If new final transcript text equals latestTranscript text, 
+            # final['isConsumed'] should equal intermediate['consumed']
             # before inserting in db 
-            # ALSO: Consider algo changes required for this...
-            
-            # latest = self.getLatestTranscriptForUserId(userId)
-            # if transcript['text'] == latest['text']:
-            #     transcript['isConsumed'] = latest['isConsumed']
+
+            latest = self.getLatestTranscriptForUserId(userId)
+            if transcript['text'] == latest['text']:
+                print("=====89dua98wcud9a8c::::  IDENTICAL INTEREMDIATE==FINAL")
+                transcript['isConsumed'] = latest['isConsumed']
 
             filter = {"userId": userId}
             update = {"$push": {"transcripts": transcript}}
