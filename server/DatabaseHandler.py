@@ -224,6 +224,13 @@ class DatabaseHandler:
     ## TRANSCRIPT FORMATTING ###
 
     def getStringifiedTranscriptWindow(self, transcriptList):
+        # If we only have an intermediate, use the latest 15 words at most
+        if len(transcriptList) == 1 and not transcriptList[0]['isFinal']:
+            text = transcriptList[0]['text']
+            textWordList = text.strip().split()
+            textLastNWords = ' '.join(textWordList[-(15-len(textWordList)):])
+            return textLastNWords
+
         transcriptToRunOn = ""
         for t in transcriptList:
             if t['isConsumed']:
