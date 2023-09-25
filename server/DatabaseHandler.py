@@ -7,7 +7,8 @@ from server_config import databaseUri, clear_users_on_start, clear_cache_on_star
 import uuid
 
 class DatabaseHandler:
-    def __init__(self):
+    def __init__(self, parentHandler=True):
+        print("INITTING DB HANDLER")
         self.uri = databaseUri
         self.minTranscriptWordLength = 5
         self.userCollection = None
@@ -15,18 +16,18 @@ class DatabaseHandler:
         self.ready = False
         self.intermediateTranscriptValidityTime = 0 #.3 # 300 ms in seconds
         self.transcriptExpirationTime = 600 # 10 minutes in seconds
+        self.parentHandler = parentHandler
 
         # Create a new client and connect to the server
         self.client = MongoClient(self.uri, server_api=ServerApi('1'))
+
         # Send a ping to confirm a successful connection
         try:
             self.client.admin.command('ping')
             print("Pinged your deployment. You successfully connected to MongoDB!")
 
-            # Success!
             self.initUsersCollection()
             self.initCacheCollection()
-
         except Exception as e:
             print(e)
 
@@ -37,7 +38,7 @@ class DatabaseHandler:
         if 'users' in self.userDb.list_collection_names():
             self.userCollection = self.userDb.get_collection('users')
 
-            if clear_users_on_start:
+            if clear_users_on_start and self.parentHandler:
                 self.userCollection.drop()
                 self.initUsersCollection()
         else:
@@ -50,7 +51,7 @@ class DatabaseHandler:
         if 'cache' in self.cacheDb.list_collection_names():
             self.cacheCollection = self.cacheDb.get_collection('cache')
 
-            if clear_cache_on_start:
+            if clear_cache_on_start and self.parentHandler:
                 self.cacheCollection.drop()
                 self.initCacheCollection()
         else:
@@ -156,15 +157,15 @@ class DatabaseHandler:
     def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
         transcripts = self.getRecentTranscriptsForUser(
             userId, deleteAfter=deleteAfter)
-        print("Running getRecentTranscritsForUserAsString")
-        print(transcripts)
+        #print("Running getRecentTranscritsForUserAsString")
+        #print(transcripts)
         # return self.stringifyTranscripts(transcriptList=transcripts)
         return self.getStringifiedTranscriptWindow(transcripts)
 
     def markTranscriptsAsConsumed(self, userId, transcripts):
         uuidList = [t['uuid'] for t in transcripts]
-        print("WE WANT TO CONSUME UUIDS: ")
-        print(uuidList)
+        #print("WE WANT TO CONSUME UUIDS: ")
+        #print(uuidList)
 
         filter = {"userId": userId, "transcripts.uuid": {"$in": uuidList}}
 
@@ -238,9 +239,9 @@ class DatabaseHandler:
             if t['isConsumed']:
                 # This is effectively the backslider/window/thing
                 # TODO: Only take last 4 words?
-                transcriptToRunOn += "\n " + t['text']
+                transcriptToRunOn += " " + t['text']
             else:
-                transcriptToRunOn += "\n " + t['text']
+                transcriptToRunOn += " " + t['text']
         
         # if len(transcriptList) == 0: return None
         # backSlider = 4
@@ -267,14 +268,14 @@ class DatabaseHandler:
         for index, t in enumerate(transcriptList):
             if t['isFinal'] == True:
                 lastFinalTranscriptIndex = index
-                output = output + t['text'] + ' \n'
+                output = output + t['text'] + ' '
 
         # Then add the last intermediate if it occurs later than the latest final...
         lastIntermediateText = ""
         for i in range(lastFinalTranscriptIndex, len(transcriptList)):
             if transcriptList[i]['isFinal'] == False:
                 lastIntermediateText = transcriptList[i]['text']
-        output = output + ' \n' + lastIntermediateText
+        output = output + ' ' + lastIntermediateText
 
         return output.strip() 
 

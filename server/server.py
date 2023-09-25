@@ -30,33 +30,12 @@ import pandas as pd
 import aiohttp_cors
 from aiohttp import web
 
-dbHandler = DatabaseHandler()
-relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
-
-app = web.Application(client_max_size=1000000 * 32)
-# store and retrieve short term memories. Stored as a list of memories.
-app['buffer'] = dict()
-# store and retrieve long term memories. Implemented as chromadb
-app['memory'] = dict()
-# store and retrieve notes. Stored as a list of memories.
-app['notes'] = dict()
-
-# lower max token decreases latency: https://platform.openai.com/docs/guides/production-best-practices/improving-latencies. On average, each token is 4 characters. We speak 150 wpm, average english word is 4.7 characters
-# max_talk_time = 30  # seconds
-# max_tokens = (((150 * (max_talk_time / 60)) * 4.7) / 4) * 2  # *2 for response
-
-OPENAI_API_KEY = os.environ['OPENAI_API_KEY']
-max_tokens = 1024
-app['llm'] = ChatOpenAI(
-    model_name="gpt-3.5-turbo-0613",
-    temperature=0,
-    openai_api_key=OPENAI_API_KEY,
-    max_tokens=max_tokens,
-)
-
+global dbHandler
+global relevanceFilter
+global app
+imagePath = "images/cse"
 mostRecentIntermediateTranscript = dict()
 intermediateMaxRate = 0 #.2 # Only take intermediates every n seconds
-
 
 async def chat_handler(request):
     startTime = time.time()
@@ -134,17 +113,21 @@ async def button_handler(request):
 
 
 # run tools for subscribed users in background every n ms if there is fresh data to run on
-def processing_loop(log_queue):
+def processing_loop():
     print("START PROCESSING LOOP")
-    lock = threading.Lock()
+    #lock = threading.Lock()
+
+    dbHandler = DatabaseHandler(parentHandler=False)
+    relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
+    cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 
     #first, setup logging as this loop is a subprocess
-    worker_logger = multiprocessing.get_logger()
-    worker_logger.setLevel(logging.INFO)
-    handler = logging.handlers.QueueHandler(log_queue)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    worker_logger.addHandler(handler)
+#    worker_logger = multiprocessing.get_logger()
+#    worker_logger.setLevel(logging.INFO)
+#    handler = logging.handlers.QueueHandler(log_queue)
+#    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+#    handler.setFormatter(formatter)
+#    worker_logger.addHandler(handler)
     
     #then run the main loop
     while True:
@@ -152,7 +135,7 @@ def processing_loop(log_queue):
             print("dbHandler not ready")
             time.sleep(0.1)
             continue
-        lock.acquire()
+        #lock.acquire()
 
         try:
             pLoopStartTime = time.time()
@@ -184,15 +167,11 @@ def processing_loop(log_queue):
             print(e)
             traceback.print_exc()
         finally:
-            lock.release()
+            #lock.release()
             pLoopEndTime = time.time()
             print("=== processing_loop completed in {} seconds overall ===".format(
                 round(pLoopEndTime - pLoopStartTime, 2)))
         time.sleep(2.5)
-
-
-cse = ContextualSearchEngine(
-    relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 
 
 async def ui_poll(request, minutes=0.5):
@@ -237,7 +216,7 @@ async def ui_poll(request, minutes=0.5):
 async def return_image(request):
     requestedImg = request.rel_url.query['img']
     print("Got image request for image: " + requestedImg)
-    imgPath = Path(cse.imagePath).joinpath(requestedImg)
+    imgPath = Path(imagePath).joinpath(requestedImg)
     try:
         data = imgPath.read_bytes()
     except:
@@ -263,73 +242,74 @@ async def upload_user_data(request):
         except Exception:
             return web.Response(text="Bad data format", status=400)
 
-        if not cse.is_custom_data_valid(df):
-            return web.Response(text="Bad data format", status=400)
-
-        cse.upload_custom_user_data(user_id, df)
+#        if not cse.is_custom_data_valid(df):
+#            return web.Response(text="Bad data format", status=400)
+#
+#        cse.upload_custom_user_data(user_id, df)
 
         return web.Response(text="Data processed successfully", status=200)
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
-app.add_routes(
-    [
-        web.post('/chat', chat_handler),
-        web.post('/button_event', button_handler),
-        web.post('/ui_poll', ui_poll),
-        web.post('/upload_userdata', upload_user_data),
-        web.get('/image', return_image),
-    ]
-)
 
-def worker_function(log_queue):
-    # Configure the logger within the worker function
-    worker_logger = multiprocessing.get_logger()
-    worker_logger.setLevel(logging.INFO)
-    handler = logging.handlers.QueueHandler(log_queue)
-    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-    handler.setFormatter(formatter)
-    worker_logger.addHandler(handler)
 
-    # This will log a message to the queue
-    worker_logger.info("This is a log message from a child process")
-    
-    # This will print a message to the queue
-    print("This is a print statement from a child process")
-
-# setup and run web app
-# CORS allow from all sources
-cors = aiohttp_cors.setup(app, defaults={
-    "*": aiohttp_cors.ResourceOptions(
-        allow_credentials=True,
-        expose_headers="*",
-        allow_headers="*"
-    )
-})
-for route in list(app.router.routes()):
-    cors.add(route)
-
-def start_server():
-    web.run_app(app, port=server_port)
+#def worker_function(log_queue):
+#    # Configure the logger within the worker function
+#    worker_logger = multiprocessing.get_logger()
+#    worker_logger.setLevel(logging.INFO)
+#    handler = logging.handlers.QueueHandler(log_queue)
+#    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+#    handler.setFormatter(formatter)
+#    worker_logger.addHandler(handler)
+#
+#    # This will log a message to the queue
+#    worker_logger.info("This is a log message from a child process")
+#    
+#    # This will print a message to the queue
+#    print("This is a print statement from a child process")
 
 if __name__ == '__main__':
+    dbHandler = DatabaseHandler()
     #start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method('spawn')
-    log_queue = multiprocessing.Queue()
-    background_process = multiprocessing.Process(target=processing_loop, args=(log_queue,))
-    background_process.start()
+
+    #log_queue = multiprocessing.Queue()
+    cse_process = multiprocessing.Process(target=processing_loop)#, args=(cse,))
+    cse_process.start()
 
     #start web server subprocess
-    server_process = multiprocessing.Process(target=start_server)
-    server_process.start()
+    #server_process = multiprocessing.Process(target=start_server)
+    #server_process.start()
+    # setup and run web app
+    # CORS allow from all sources
+    app = web.Application(client_max_size=1000000 * 32)
+    app.add_routes(
+        [
+            web.post('/chat', chat_handler),
+            web.post('/button_event', button_handler),
+            web.post('/ui_poll', ui_poll),
+            web.post('/upload_userdata', upload_user_data),
+            web.get('/image', return_image),
+        ]
+    )
+    cors = aiohttp_cors.setup(app, defaults={
+        "*": aiohttp_cors.ResourceOptions(
+            allow_credentials=True,
+            expose_headers="*",
+            allow_headers="*"
+        )
+    })
+    for route in list(app.router.routes()):
+        cors.add(route)
+    web.run_app(app, port=server_port)
 
     # Retrieve and process logs and print statements from the queue
-    while not log_queue.empty():
-        record = log_queue.get()
-        # Process log records in the main process
-        logger = logging.getLogger(record.name)
-        logger.handle(record)
+#    while not log_queue.empty():
+#        record = log_queue.get()
+#        # Process log records in the main process
+#        logger = logging.getLogger(record.name)
+#        logger.handle(record)
 
-    server_process.join()
-    background_process.join()
+    #server_process.join()
+    cse_process.join()

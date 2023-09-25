@@ -17,9 +17,10 @@ CUSTOM_TOKENIZER = True
 EMBEDDING_DIMENSIONS = [50, 100, 200, 300][0]
 
 # load index
-print("Loading word definitions index...")
-syns = wordnet.synsets("dog")  # run once to build index
-print("--- Word definitions index loaded.")
+def load_word_def_index():
+    print("Loading word definitions index...")
+    syns = wordnet.synsets("dog")  # run once to build index
+    print("--- Word definitions index loaded.")
 
 
 def get_jargon_definition(term):

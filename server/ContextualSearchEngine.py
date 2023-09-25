@@ -41,8 +41,7 @@ from server_config import gcp_project_id, path_modifier
 # Google static maps imports
 
 # custom data search
-nltk.download('stopwords')
-
+#nltk.download('stopwords')
 
 def first_last_concat(s):
     words = s.split()
@@ -76,6 +75,9 @@ class ContextualSearchEngine:
         self.relevanceFilter = relevanceFilter
         self.databaseHandler = databaseHandler
         self.summarizer = Summarizer(databaseHandler)
+
+        #load the word frequency index
+        word_frequency.load_word_freq_indices()
 
         self.max_window_size = 4
 
