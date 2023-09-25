@@ -4,12 +4,12 @@ import time
 import math
 from hashlib import sha256
 from server_config import databaseUri, clear_users_on_start, clear_cache_on_start
-
+import uuid
 
 class DatabaseHandler:
     def __init__(self):
         self.uri = databaseUri
-        self.maxTranscriptsPerUser = 2
+        self.minTranscriptWordLength = 5
         self.userCollection = None
         self.cacheCollection = None
         self.ready = False
@@ -89,33 +89,68 @@ class DatabaseHandler:
 
     def saveTranscriptForUser(self, userId, text, timestamp, isFinal):
         transcript = {"userId": userId, "text": text,
-                      "timestamp": timestamp, "isFinal": isFinal, "isConsumed": False}
+                      "timestamp": timestamp, "isFinal": isFinal, 
+                      "isConsumed": False, "uuid": str(uuid.uuid4())}
         self.createUserIfNotExists(userId)
 
         self.purgeOldTranscriptsForUserId(userId)
 
-        filter = {"userId": userId}
-        update = {"$set": {"latestTranscript": transcript}}
-        self.userCollection.update_one(filter=filter, update=update)
-
+        # Handle final transcript first
         if isFinal:
+            # If new final transcript text equals latestTranscript text, 
+            # final['isConsumed'] should equal intermediate['consumed']
+            # before inserting in db 
+
+            latest = self.getLatestTranscriptForUserId(userId)
+            if transcript['text'] == latest['text']:
+                print("=====89dua98wcud9a8c::::  IDENTICAL INTEREMDIATE==FINAL")
+                transcript['isConsumed'] = latest['isConsumed']
+
             filter = {"userId": userId}
             update = {"$push": {"transcripts": transcript}}
             self.userCollection.update_one(filter=filter, update=update)
 
+        # Always save to latestTranscript
+        # TODO: What if we only took the last n words of an intermediate?
+        filter = {"userId": userId}
+        update = {"$set": {"latestTranscript": transcript}}
+        self.userCollection.update_one(filter=filter, update=update)
+
     def getRecentTranscriptsForUser(self, userId, deleteAfter=False):
         self.createUserIfNotExists(userId)
         user = self.userCollection.find_one({"userId": userId})
-        transcripts = list(filter(lambda t: t['isConsumed'] == False, user['transcripts']))
+        
+        # Keep track of overall word length
+        overallWordLength = 0
+
+        # Gather unconsumed final transcripts, 
+        # and save the latest CONSUMED transcript
+        # in case we need it later
+        latestConsumedTranscript = None
+        transcripts = []
+        for t in user['transcripts']:
+            if t['isConsumed']:
+                latestConsumedTranscript = t
+            else:
+                transcripts.append(t)
+                overallWordLength += len(t['text'].strip().split()) 
         
         # Only use 'latestTranscript' if it's an unconsumed intermediate
         if 'latestTranscript' in user and 'isFinal' in user['latestTranscript'] and (user['latestTranscript']['isFinal'] is False and user['latestTranscript']['isConsumed'] is False):
             if user['latestTranscript']['timestamp'] < time.time() - self.intermediateTranscriptValidityTime:
                 transcripts.append(user['latestTranscript'])
+                overallWordLength += len(user['latestTranscript']['text'].strip().split())
         
+        # Mark these transcripts as consumed before doing any suffixng
         if transcripts and deleteAfter:
-            self.markAllTranscriptsAsConsumedForUserId(userId)
+            self.markTranscriptsAsConsumed(userId, transcripts)
         
+        # Now check if we have enough text. 
+        # If overall transcript length is too small (<5 words),
+        # suffix the latest consumed transcript if one exists
+        if 0 < overallWordLength < self.minTranscriptWordLength and latestConsumedTranscript:
+            transcripts.insert(0, latestConsumedTranscript)
+
         return transcripts
 
     def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
@@ -126,16 +161,24 @@ class DatabaseHandler:
         # return self.stringifyTranscripts(transcriptList=transcripts)
         return self.getStringifiedTranscriptWindow(transcripts)
 
-    def popOldestTranscriptForUser(self, userId):
-        filter = {"userId": userId}
-        update = {"$pop": {"transcripts": -1}}
-        self.userCollection.update_one(filter=filter, update=update)
+    def markTranscriptsAsConsumed(self, userId, transcripts):
+        uuidList = [t['uuid'] for t in transcripts]
+        print("WE WANT TO CONSUME UUIDS: ")
+        print(uuidList)
 
-    def markAllTranscriptsAsConsumedForUserId(self, userId):
-        #print("===MARKING CONSUMED===")
-        filter = {"userId": userId}
-        update = {'$set': {'transcripts.$[].isConsumed': True, 'latestTranscript.isConsumed': True}}
+        filter = {"userId": userId, "transcripts.uuid": {"$in": uuidList}}
+
+        # Potential issue TODO: latestTranscript is always consumed here, regardless of whether UUID matches
+        # (Counterpoint: latestTranscript realistically always needs to be consumed here anyway, so... it's not a bug - it's a feature! (hopefully)) 
+        update = {'$set': {'transcripts.$.isConsumed': True, 'latestTranscript.isConsumed': True}}
         self.userCollection.update_many(filter=filter, update=update)
+
+    def getLatestTranscriptForUserId(self, userId):
+        t = self.userCollection.find_one({'userId': userId}, {"latestTranscript": 1, "_id":0})
+        if 'latestTranscript' in t: 
+            return t['latestTranscript']
+        else:
+            return None
 
     def deleteAllTranscriptsForUser(self, userId):
         filter = {"userId": userId}
@@ -183,19 +226,33 @@ class DatabaseHandler:
     ## TRANSCRIPT FORMATTING ###
 
     def getStringifiedTranscriptWindow(self, transcriptList):
-        print("Running getStringifiedTranscriptWindow with:")
-        print(transcriptList)
-        if len(transcriptList) == 0: return None
-        backSlider = 4
-        latestTranscript = transcriptList[-1]['text']
-        latestTranscriptWordList = latestTranscript.strip().split()
-        transcriptToRunOn = latestTranscript
-        if len(latestTranscriptWordList) < backSlider and len(transcriptList) > 1:
-            # Defer to penultimate transcript (if there is one)
-            penultimateTranscript = transcriptList[-2]['text']
-            penultimateTranscriptWordList = penultimateTranscript.strip().split()
-            penultimateTranscriptLastNWords = ' '.join(penultimateTranscriptWordList[-(backSlider-len(latestTranscriptWordList)):])
-            transcriptToRunOn = penultimateTranscriptLastNWords + ' ' + latestTranscript
+        # If we only have an intermediate, use the latest 15 words at most
+        if len(transcriptList) == 1 and not transcriptList[0]['isFinal']:
+            text = transcriptList[0]['text']
+            textWordList = text.strip().split()
+            textLastNWords = ' '.join(textWordList[-(15-len(textWordList)):])
+            return textLastNWords
+
+        transcriptToRunOn = ""
+        for t in transcriptList:
+            if t['isConsumed']:
+                # This is effectively the backslider/window/thing
+                # TODO: Only take last 4 words?
+                transcriptToRunOn += "\n " + t['text']
+            else:
+                transcriptToRunOn += "\n " + t['text']
+        
+        # if len(transcriptList) == 0: return None
+        # backSlider = 4
+        # latestTranscript = transcriptList[-1]['text']
+        # latestTranscriptWordList = latestTranscript.strip().split()
+        # transcriptToRunOn = latestTranscript
+        # if len(latestTranscriptWordList) < backSlider and len(transcriptList) > 1:
+        #     # Defer to penultimate transcript (if there is one)
+        #     penultimateTranscript = transcriptList[-2]['text']
+        #     penultimateTranscriptWordList = penultimateTranscript.strip().split()
+        #     penultimateTranscriptLastNWords = ' '.join(penultimateTranscriptWordList[-(backSlider-len(latestTranscriptWordList)):])
+        #     transcriptToRunOn = penultimateTranscriptLastNWords + ' ' + latestTranscript
         return transcriptToRunOn
 
 
