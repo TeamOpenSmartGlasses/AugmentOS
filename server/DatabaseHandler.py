@@ -157,6 +157,19 @@ class DatabaseHandler:
 
         return transcripts
 
+    def getRecentTranscriptsFromLastNSecondsForAllUsers(self, n=30):
+        users = self.userCollection.find()
+        transcripts = []
+        for user in users:
+            userId = user['userId']
+            transcriptString = self.getTranscriptsFromLastNSecondsForUserAsString(
+                userId, n)
+            if transcriptString:
+                transcripts.append(
+                    {'userId': userId, 'text': transcriptString})
+
+        return transcripts
+    
     def getTranscriptsFromLastNSecondsForUser(self, userId, n=30):
         seconds = n * 1000
         allTranscripts = self.getRecentTranscriptsForUser(userId)
