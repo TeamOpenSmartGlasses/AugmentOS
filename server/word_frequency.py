@@ -22,6 +22,11 @@ df_norvig_word_freq = None
 idx_google_dict_word_freq = None
 idx_norvig_dict_word_freq = None
 def load_word_freq_indices():
+    global word_frequency_indexes
+    global df_google_word_freq
+    global df_norvig_word_freq
+    global idx_google_dict_word_freq
+    global idx_norvig_dict_word_freq
     # load index
     print("Loading word frequency indexes...")
     word_frequency_indexes = pickle.load(
@@ -65,6 +70,35 @@ def find_low_freq_words(words):
 
     # print("low freq words: {}".format(low_freq_words))
     return low_freq_words
+
+def get_word_freq_index(word):
+    """
+    Takes in a word and gives a frequency index, where 0 is common and 1 is rare.
+    """
+    word = word.lower()
+    google_score = None
+    norvig_score = None
+    # find word in google
+    try:
+        i_word_google = idx_google_dict_word_freq[word][0]
+        google_score = (i_word_google / google_lines)
+        #print("Google score of |{} == {}|".format(word, i_word_google / google_lines))
+    except KeyError as e:
+        # if we didn't find the word in giant google dataset, then it's rare, so define it if we have it
+        google_score = 1.0
+    
+    # find word in norvig
+    i_word_norvig = None
+    try:
+        i_word_norvig = idx_norvig_dict_word_freq[word][0]
+        norvig_score = i_word_norvig / norvig_lines
+        #print("Norvig score of |{} == {}|".format(word, i_word_norvig / norvig_lines))
+    except KeyError as e:
+        # if we didn't find the word in norvig, it might not be rare (e.g. "habitual")
+        #print("Word '{}' not found in norvig word frequency database.".format(word))
+        norvig_score = 1.0 #just give it a score of half, since we don't know
+
+    return (((google_score * 2) + norvig_score) / 3)
 
 
 def find_acronyms(words):

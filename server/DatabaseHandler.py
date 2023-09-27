@@ -344,7 +344,7 @@ class DatabaseHandler:
         return consumedResults
 
     def getDefinedTermsFromLastNSecondsForUserDevice(self, userId, n=300):
-        seconds = n * 1000
+        seconds = n #* 1000
         consumedResults = self.getCseResultsForUserDevice(
             userId=userId, deviceId="", shouldConsume=False, includeConsumed=True)
 

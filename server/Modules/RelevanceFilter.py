@@ -1,12 +1,12 @@
 class RelevanceFilter:
     def __init__(self, databaseHandler):
         self.databaseHandler = databaseHandler
-        self.banned_terms = ["LOL", "AI", "Caden Pierce"]
+        self.banned_terms = ["LOL", "AI", "Caden Pierce", "Alex Israel"]
 
     def shouldRunForText(self, userId, text):
         shouldRun = True
 
-        termsDefinedInLastNSeconds = self.databaseHandler.getDefinedTermsFromLastNSecondsForUserDevice(userId, n=(30))
+        termsDefinedInLastNSeconds = self.databaseHandler.getDefinedTermsFromLastNSecondsForUserDevice(userId, n=90)
         for term in termsDefinedInLastNSeconds:
             if term in self.banned_terms:
                 return False
