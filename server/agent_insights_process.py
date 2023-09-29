@@ -49,11 +49,17 @@ def processing_loop():
                 insightGenerationStartTime = time.time()
                 length = len(transcript['text'])
                 new_chunk_length = int(length * 0.05)
-                insight = agent.run(generate_prompt(f"<Old Transcript>{transcript['text'][:length-new_chunk_length]}<New Transcript>{transcript['text'][length-new_chunk_length:]}"))
+                try:
+                    insight = agent.run(generate_prompt(f"<Old Transcript>{transcript['text'][:length-new_chunk_length]}<New Transcript>{transcript['text'][length-new_chunk_length:]}"))
+                    print(insight)
+                except Exception as e:
+                    print("Exception in agent.run()...:")
+                    print(e)
+                    traceback.print_exc()
+                    continue
                 insightGenerationEndTime = time.time()
                 print("=== insightGeneration completed in {} seconds ===".format(
                     round(insightGenerationEndTime - insightGenerationStartTime, 2)))
-                print(insight)
         except Exception as e:
             print("Exception in Insight generator...:")
             print(e)
