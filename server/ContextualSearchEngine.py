@@ -389,7 +389,7 @@ class ContextualSearchEngine:
             print(f"-- Empty embeddings only loaded for {user_id}...")
 
     def contextual_search_engine(self, user_id, talk):
-        if talk == "":
+        if talk.strip() == "":
             return
 
         if not self.does_user_have_custom_data_loaded(user_id):
