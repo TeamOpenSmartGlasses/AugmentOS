@@ -3,7 +3,7 @@ from nltk.tokenize import word_tokenize, MWETokenizer
 
 from string import punctuation
 
-nltk.download('stopwords')
+#nltk.download('stopwords')
 
 
 class Tokenizer:

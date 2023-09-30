@@ -24,7 +24,7 @@
 8. install the python dependencies: `aiohttp, openai, langchain`
 9. Enable Google Natural Language Processing API, Maps API, point `gcp_config.py` to point to your Google Project
 10. Download the embeddings by running `./downloadEmbeddings.sh`
-11. Run `python3`, `import nltk`, `nltk.download('wordnet')`
+11. Run `python3`, `import nltk`, `nltk.download('wordnet')`, `nltk.download('stopwords')`
 12. Set your OpenAI API key - `export OPENAI_API_KEY=myKeyHere`
 13. put `server.py` on your server and run it
 

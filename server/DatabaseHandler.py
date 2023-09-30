@@ -4,29 +4,33 @@ import time
 import math
 from hashlib import sha256
 from server_config import databaseUri, clear_users_on_start, clear_cache_on_start
+import uuid
 
 
 class DatabaseHandler:
-    def __init__(self):
+    def __init__(self, parentHandler=True):
+        print("INITTING DB HANDLER")
         self.uri = databaseUri
-        self.maxTranscriptsPerUser = 2
+        self.minTranscriptWordLength = 5
         self.userCollection = None
         self.cacheCollection = None
         self.ready = False
-        self.intermediateTranscriptValidityTime = .3 # 300 ms in seconds
-        self.transcriptExpirationTime = 600 # 10 minutes in seconds
+        self.intermediateTranscriptValidityTime = 0  # .3 # 300 ms in seconds
+        self.transcriptExpirationTime = 600  # 10 minutes in seconds
+        self.parentHandler = parentHandler
+        self.emptyTranscript = {"text": "",
+                                "timestamp": -1, "isFinal": False, "uuid": -1}
 
         # Create a new client and connect to the server
         self.client = MongoClient(self.uri, server_api=ServerApi('1'))
+
         # Send a ping to confirm a successful connection
         try:
             self.client.admin.command('ping')
             print("Pinged your deployment. You successfully connected to MongoDB!")
 
-            # Success!
             self.initUsersCollection()
             self.initCacheCollection()
-
         except Exception as e:
             print(e)
 
@@ -37,7 +41,7 @@ class DatabaseHandler:
         if 'users' in self.userDb.list_collection_names():
             self.userCollection = self.userDb.get_collection('users')
 
-            if clear_users_on_start:
+            if clear_users_on_start and self.parentHandler:
                 self.userCollection.drop()
                 self.initUsersCollection()
         else:
@@ -50,7 +54,7 @@ class DatabaseHandler:
         if 'cache' in self.cacheDb.list_collection_names():
             self.cacheCollection = self.cacheDb.get_collection('cache')
 
-            if clear_cache_on_start:
+            if clear_cache_on_start and self.parentHandler:
                 self.cacheCollection.drop()
                 self.initCacheCollection()
         else:
@@ -67,19 +71,24 @@ class DatabaseHandler:
         if needCreate:
             print('Creating new user: ' + userId)
             self.userCollection.insert_one(
-                {"userId": userId, "transcripts": [], "cseResults": [], "uiList": []})
-            
+                {"userId": userId,
+                 "latest_intermediate_transcript": self.emptyTranscript,
+                 "final_transcripts": [],
+                 "cseConsumedTranscriptId": -1,
+                 "cseConsumedTranscriptIdx": -1,
+                 "transcripts": [], "cseResults": [], "uiList": []})
+
     ### CACHE ###
 
     def findCachedSummary(self, long_description):
         descriptionHash = sha256(long_description.encode("utf-8")).hexdigest()
         filter = {"description": descriptionHash}
         item = self.cacheCollection.find_one(filter)
-        if item and 'summary' in item: 
-            return item['summary'] 
-        else: 
+        if item and 'summary' in item:
+            return item['summary']
+        else:
             return None
-        
+
     def saveCachedSummary(self, long_description, summary):
         descriptionHash = sha256(long_description.encode("utf-8")).hexdigest()
         item = {"description": descriptionHash, "summary": summary}
@@ -89,51 +98,124 @@ class DatabaseHandler:
 
     def saveTranscriptForUser(self, userId, text, timestamp, isFinal):
         transcript = {"userId": userId, "text": text,
-                      "timestamp": timestamp, "isFinal": isFinal, "isConsumed": False}
+                      "timestamp": timestamp, "isFinal": isFinal, "uuid": str(uuid.uuid4())}
         self.createUserIfNotExists(userId)
 
         self.purgeOldTranscriptsForUserId(userId)
 
-        filter = {"userId": userId}
-        update = {"$set": {"latestTranscript": transcript}}
-        self.userCollection.update_one(filter=filter, update=update)
-
         if isFinal:
+            # Save to `final_transcripts` database with id `myNewId`
             filter = {"userId": userId}
-            update = {"$push": {"transcripts": transcript}}
+            update = {"$push": {"final_transcripts": transcript}}
             self.userCollection.update_one(filter=filter, update=update)
 
+            # Set `latest_intermediate_transcript` to empty string and timestamp -1
+            update = {
+                "$set": {"latest_intermediate_transcript": self.emptyTranscript}}
+            self.userCollection.update_one(filter=filter, update=update)
+
+            # If `cseConsumedTranscriptId` == -1:
+            # Set `cseConsumedTranscriptId` = `myNewId`
+            # `cseConsumedTranscriptIdx` stays the same
+            user = self.getUser(userId)
+            if user['cseConsumedTranscriptId'] == -1:
+                update = {
+                    "$set": {"cseConsumedTranscriptId": transcript['uuid']}}
+                self.userCollection.update_one(filter=filter, update=update)
+        else:
+            # Save to `latest_intermediate_transcript` field in database - text and timestamp
+            filter = {"userId": userId}
+            update = {"$set": {"latest_intermediate_transcript": transcript}}
+            self.userCollection.update_one(filter=filter, update=update)
+
+    def getUser(self, userId):
+        return self.userCollection.find_one({"userId": userId})
+
+# getNewCseTranscriptsForUser
     def getRecentTranscriptsForUser(self, userId, deleteAfter=False):
         self.createUserIfNotExists(userId)
-        user = self.userCollection.find_one({"userId": userId})
-        transcripts = list(filter(lambda t: t['isConsumed'] == False, user['transcripts']))
-        
-        # Only use 'latestTranscript' if it's an unconsumed intermediate
-        if 'latestTranscript' in user and 'isFinal' in user['latestTranscript'] and (user['latestTranscript']['isFinal'] is False and user['latestTranscript']['isConsumed'] is False):
-            if user['latestTranscript']['timestamp'] < time.time() - self.intermediateTranscriptValidityTime:
-                transcripts.append(user['latestTranscript'])
-        
-        if transcripts and deleteAfter:
-            self.markAllTranscriptsAsConsumedForUserId(userId)
-        
-        return transcripts
+        user = self.getUser(userId)
+        unconsumed_transcripts = []
+
+        if user['cseConsumedTranscriptId'] != -1:
+            print()
+            # Get the transcript with ID `cseConsumedTranscriptId`, get the last part of it (anything after `cseConsumedTranscriptIdx`)
+            first_transcript = None
+            for t in user['final_transcripts']:
+                # Get the first unconsumed final
+                if t['uuid'] == user['cseConsumedTranscriptId']:
+                    first_transcript = t
+                    startIndex = user['cseConsumedTranscriptIdx']
+                    first_transcript['text'] = first_transcript['text'][startIndex:]
+                    unconsumed_transcripts.append(first_transcript)
+                    continue
+
+                # Get any subsequent unconsumed final
+                if first_transcript != None:
+                    # (any transcript newer than cseConsumedTranscriptId)
+                    # Append any transcript from `final_transcripts` that is newer in time than the `cseConsumedTranscriptId` transcript
+                    unconsumed_transcripts.append(t)
+
+            # Append `latest_intermediate_transcript`
+            unconsumed_transcripts.append(
+                user['latest_intermediate_transcript'])
+            indexOffset = 0
+        else:
+            # Get part `latest_intermediate_transcript` after `cseConsumedTranscriptIdx` index
+            startIndex = user['cseConsumedTranscriptIdx']
+            t = user['latest_intermediate_transcript']
+            # Make sure protect against if intermediate transcript gets smaller
+            if (len(t['text']) - 1) > startIndex:
+                t['text'] = t['text'][startIndex:]
+                unconsumed_transcripts.append(t)
+            indexOffset = startIndex
+
+        # Update step
+        # `cseConsumedTranscriptId` = -1
+        # `cseConsumedTranscriptIdx` to index of most recent transcript we consumed in 1.
+        if len(unconsumed_transcripts) > 0:
+            newIndex = len(unconsumed_transcripts[-1]['text']) + indexOffset
+        else:
+            newIndex = 0
+
+        filter = {"userId": userId}
+        update = {"$set": {"cseConsumedTranscriptId": -1, "cseConsumedTranscriptIdx": newIndex}}
+        self.userCollection.update_one(filter=filter, update=update)
+
+        # ### old ###
+        # transcripts = list(filter(lambda t: t['isConsumed'] == False, user['transcripts']))
+
+        # # Only use 'latestTranscript' if it's an unconsumed intermediate
+        # if 'latestTranscript' in user and 'isFinal' in user['latestTranscript'] and (user['latestTranscript']['isFinal'] is False and user['latestTranscript']['isConsumed'] is False):
+        #     if user['latestTranscript']['timestamp'] < time.time() - self.intermediateTranscriptValidityTime:
+        #         transcripts.append(user['latestTranscript'])
+
+        # if transcripts and deleteAfter:
+        #     self.markAllTranscriptsAsConsumedForUserId(userId)
+        return unconsumed_transcripts
+
+    def getFinalTranscriptByUuid(self, uuid):
+        filter = {"final_transcripts.uuid": uuid}
+        return self.userCollection.find_one(filter)
 
     def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
         transcripts = self.getRecentTranscriptsForUser(
             userId, deleteAfter=deleteAfter)
+        # print("Running getRecentTranscritsForUserAsString")
+        # print(transcripts)
         # return self.stringifyTranscripts(transcriptList=transcripts)
-        return self.getStringifiedTranscriptWindow(transcripts)
+        #return self.getStringifiedTranscriptWindow(transcripts)
+        theString = ""
+        for t in transcripts:
+            theString += t['text'] + ' '
+        return theString
 
-    def popOldestTranscriptForUser(self, userId):
-        filter = {"userId": userId}
-        update = {"$pop": {"transcripts": -1}}
-        self.userCollection.update_one(filter=filter, update=update)
+    def markTranscriptsAsConsumed(self, userId, transcripts):
+        uuidList = [t['uuid'] for t in transcripts]
+        # print("WE WANT TO CONSUME UUIDS: ")
+        # print(uuidList)
 
-    def markAllTranscriptsAsConsumedForUserId(self, userId):
-        print("===MARKING CONSUMED===")
-        filter = {"userId": userId}
-        update = {'$set': {'transcripts.$[].isConsumed': True, 'latestTranscript.isConsumed': True}}
-        self.userCollection.update_many(filter=filter, update=update)
+        filter = {"userId": userId, "transcripts.uuid": {"$in": uuidList}}
 
     def deleteAllTranscriptsForUser(self, userId):
         filter = {"userId": userId}
@@ -188,47 +270,62 @@ class DatabaseHandler:
     def purgeOldTranscriptsForUserId(self, userId):
         transcriptExpirationDate = time.time() - self.transcriptExpirationTime
         filter = {'userId': userId}
-        condition = {'$pull': {'transcripts': {'timestamp': {'$lt': transcriptExpirationDate}}}}
+        condition = {'$pull': {'transcripts': {
+            'timestamp': {'$lt': transcriptExpirationDate}}}}
         self.userCollection.update_many(filter, condition)
 
     ## TRANSCRIPT FORMATTING ###
 
     def getStringifiedTranscriptWindow(self, transcriptList):
-        if len(transcriptList) == 0: return None
-        backSlider = 4
-        latestTranscript = transcriptList[-1]['text']
-        latestTranscriptWordList = latestTranscript.strip().split()
-        transcriptToRunOn = latestTranscript
-        if len(latestTranscriptWordList) < backSlider and len(transcriptList) > 1:
-            # Defer to penultimate transcript (if there is one)
-            penultimateTranscript = transcriptList[-2]['text']
-            penultimateTranscriptWordList = penultimateTranscript.strip().split()
-            penultimateTranscriptLastNWords = ' '.join(penultimateTranscriptWordList[-(backSlider-len(latestTranscriptWordList)):])
-            transcriptToRunOn = penultimateTranscriptLastNWords + ' ' + latestTranscript
-        return transcriptToRunOn
+        # If we only have an intermediate, use the latest 15 words at most
+        #if len(transcriptList) == 1 and not transcriptList[0]['isFinal']:
+        #    text = transcriptList[0]['text']
+        #    textWordList = text.strip().split()
+        #    textLastNWords = ' '.join(textWordList[-(15-len(textWordList)):])
+        #    return textLastNWords
 
+        #transcriptToRunOn = ""
+        #for t in transcriptList:
+        #    if False:
+        #        # This is effectively the backslider/window/thing
+        #       # TODO: Only take last 4 words?
+        #        transcriptToRunOn += " " + t['text']
+        #    else:
+        #        transcriptToRunOn += " " + t['text']
+
+        # if len(transcriptList) == 0: return None
+        # backSlider = 4
+        # latestTranscript = transcriptList[-1]['text']
+        # latestTranscriptWordList = latestTranscript.strip().split()
+        # transcriptToRunOn = latestTranscript
+        # if len(latestTranscriptWordList) < backSlider and len(transcriptList) > 1:
+        #     # Defer to penultimate transcript (if there is one)
+        #     penultimateTranscript = transcriptList[-2]['text']
+        #     penultimateTranscriptWordList = penultimateTranscript.strip().split()
+        #     penultimateTranscriptLastNWords = ' '.join(penultimateTranscriptWordList[-(backSlider-len(latestTranscriptWordList)):])
+        #     transcriptToRunOn = penultimateTranscriptLastNWords + ' ' + latestTranscript
+        return 0
 
     def stringifyTranscripts(self, transcriptList):
         output = ""
-        if len(transcriptList) == 0: return output
-
-
+        if len(transcriptList) == 0:
+            return output
 
         # Concatenate text of all FINAL transcripts
         lastFinalTranscriptIndex = 99999999
         for index, t in enumerate(transcriptList):
             if t['isFinal'] == True:
                 lastFinalTranscriptIndex = index
-                output = output + t['text'] + ' \n'
+                output = output + t['text'] + ' '
 
         # Then add the last intermediate if it occurs later than the latest final...
         lastIntermediateText = ""
         for i in range(lastFinalTranscriptIndex, len(transcriptList)):
             if transcriptList[i]['isFinal'] == False:
                 lastIntermediateText = transcriptList[i]['text']
-        output = output + ' \n' + lastIntermediateText
+        output = output + ' ' + lastIntermediateText
 
-        return output.strip() 
+        return output.strip()
 
     ### CSE RESULTS ###
 
@@ -250,7 +347,7 @@ class DatabaseHandler:
         user = self.userCollection.find_one({"userId": userId})
         results = user['cseResults'] if user != None else []
         alreadyConsumedIds = [
-                ] if includeConsumed else self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
+        ] if includeConsumed else self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
         newResults = []
         for res in results:
             if ('uuid' in res) and (res['uuid'] not in alreadyConsumedIds):
@@ -295,7 +392,7 @@ class DatabaseHandler:
         return consumedResults
 
     def getDefinedTermsFromLastNSecondsForUserDevice(self, userId, n=300):
-        seconds = n * 1000
+        seconds = n  # * 1000
         consumedResults = self.getCseResultsForUserDevice(
             userId=userId, deviceId="", shouldConsume=False, includeConsumed=True)
 
