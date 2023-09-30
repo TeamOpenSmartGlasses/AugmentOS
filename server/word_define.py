@@ -1,5 +1,6 @@
 from nltk.corpus import wordnet
 import re
+
 # from google.cloud import aiplatform
 import openai
 
@@ -16,6 +17,7 @@ from Modules.Embedder import Embedder
 CUSTOM_TOKENIZER = True
 EMBEDDING_DIMENSIONS = [50, 100, 200, 300][0]
 
+
 # load index
 def load_word_def_index():
     print("Loading word definitions index...")
@@ -24,7 +26,7 @@ def load_word_def_index():
 
 
 def get_jargon_definition(term):
-    wiki_wiki = wikipediaapi.Wikipedia('MyProjectName (joe@example.com)', 'en')
+    wiki_wiki = wikipediaapi.Wikipedia("MyProjectName (joe@example.com)", "en")
 
     page = wiki_wiki.page(term)
     if page.exists():
@@ -45,7 +47,7 @@ def define_acronym(acronym):
     response = requests.get(url)
 
     # Create a BeautifulSoup object to parse the HTML content
-    soup = BeautifulSoup(response.content, 'html.parser')
+    soup = BeautifulSoup(response.content, "html.parser")
 
     # Find the definition element on the page
     definition_element = soup.find(class_="result-list")
@@ -57,7 +59,7 @@ def define_acronym(acronym):
         return None
 
     # Get the first meaning
-    definition = definitions.split("\n")[1][len(acronym):]
+    definition = definitions.split("\n")[1][len(acronym) :]
 
     if not definition:
         return None
@@ -83,15 +85,15 @@ def define_word(word, context):
             print("Definition unknown for: {}".format(word))
             return None
 
-        definition = word_sense_disambiguation(
-            context=context, sentences=definitions)
+        definition = word_sense_disambiguation(context=context, sentences=definitions)
 
     return {word: definition}
 
 
 def average_embedding(words, embedder):
-    embeddings = [embedder.embed_word(
-        word) for word in words if word in embedder.embeddings_dict]
+    embeddings = [
+        embedder.embed_word(word) for word in words if word in embedder.embeddings_dict
+    ]
     if len(embeddings) == 0:
         print("\n\n\nERROR. WORDS: ")
         print(words)
@@ -100,14 +102,16 @@ def average_embedding(words, embedder):
 
 
 tokenizer = Tokenizer()
-embedder = Embedder(
-    model_path=f"./glove.6B/glove.6B.{EMBEDDING_DIMENSIONS}d.txt")
+embedder = Embedder(model_path=f"./glove.6B/glove.6B.{EMBEDDING_DIMENSIONS}d.txt")
 
 
 def word_sense_disambiguation(context, sentences):
 
-    context_words = tokenizer.tokenize(
-        context, max_length=20) if CUSTOM_TOKENIZER else context.split()
+    context_words = (
+        tokenizer.tokenize(context, max_length=20)
+        if CUSTOM_TOKENIZER
+        else context.split()
+    )
     context_embedding = average_embedding(context_words, embedder)
 
     max_similarity = -1
@@ -115,11 +119,15 @@ def word_sense_disambiguation(context, sentences):
 
     for sentence in sentences:
         try:
-            sentence_words = tokenizer.tokenize(
-                sentence, max_length=20) if CUSTOM_TOKENIZER else sentence.split()
+            sentence_words = (
+                tokenizer.tokenize(sentence, max_length=20)
+                if CUSTOM_TOKENIZER
+                else sentence.split()
+            )
             sentence_embedding = average_embedding(sentence_words, embedder)
-            similarity = cosine_similarity(context_embedding.reshape(
-                1, -1), sentence_embedding.reshape(1, -1))
+            similarity = cosine_similarity(
+                context_embedding.reshape(1, -1), sentence_embedding.reshape(1, -1)
+            )
 
             if similarity > max_similarity:
                 max_similarity = similarity
@@ -136,8 +144,9 @@ def shorten_definition(definition, max_length=46, max_defs=2):
     definition_list = list(definition.values())[0].split(";")
 
     # cut out everything in parantheses
-    definition_list = [re.sub("[\(\[].*?[\)\]]", "", d).strip()
-                       for d in definition_list]
+    definition_list = [
+        re.sub("[\(\[].*?[\)\]]", "", d).strip() for d in definition_list
+    ]
 
     # grab other definitions
     new_definition = definition_list[0]
@@ -158,10 +167,7 @@ def benchmark_summarizations(definition):
 
     prompt = summarize_prompt_template(definition)
 
-    response = openai.Completion.create(
-        model="text-davinci-003",
-        prompt=prompt
-    )
+    response = openai.Completion.create(model="text-davinci-003", prompt=prompt)
     pass
 
 
