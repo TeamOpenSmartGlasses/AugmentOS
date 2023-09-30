@@ -22,28 +22,39 @@ ogPromptNoContext = """Please summarize the following "entity description" text 
             \n Text to summarize: \n{} \nSummary (8 words or less): """
 
 ogPromptWithContext = """
-    Summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity that's relevant to the given "context". The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
+    Summarize the following "entity description" text in relation to the given "context" which is a transcript from a conversation. 
+Extract only the most important information about the entitiy, as summaries must be 8 words or less. 
+The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. 
+Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
-    Example:
-    [INPUT]
-    "George Washington (February 22, 1732 – December 14, 1799) was an American military officer, statesman, and Founding Father who served as the first president of the United States from 1789 to 1797."
+Example:
+[INPUT]
+Text to summarize:
+"LinkedIn is a business and employment-focused social media platform that works through websites and mobile apps. It was launched on May 5, 2003."
 
-    [OUTPUT]
-    First American president, military officer, Founding Father.
+Context:
+"LinkedIn was bought by Microsoft."
 
-    Example:
-    [INPUT]
-    "ChatGPT is an artificial intelligence chatbot developed by OpenAI and released in November 2022. It is built on top of OpenAI's GPT-3.5 and GPT-4 families of large language models and has been fine-tuned using both supervised and reinforcement learning techniques."
-    
-    [OUTPUT]
-    AI chatbot using GPT models.
+[OUTPUT]
+Social media platform, bought by Microsoft in 2016.
 
-    \nText to summarize:\n\n
-    {}\n
-    Context:\n\n
-    {}\n
-    \nSummary (8 words or less): 
-    """
+Example:
+[INPUT]
+Text to summarize:
+"Barack Hussein Obama II is an American politician who served as the 44th president of the United States from 2009 to 2017. A member of the Democratic Party, he was the first African-American president."
+
+Context:
+"Obama grew up in Chicago"
+
+[OUTPUT]
+44th US President, elected 2009, from Chicago Illinois.
+
+\nText to summarize:\n\n
+{}\n
+Context:\n\n
+{}\n
+\nSummary (8 words or less): 
+"""
 
 class Summarizer:
 
@@ -64,14 +75,14 @@ class Summarizer:
         
         # Summary does not exist. Get it with OpenAI
         print("$$$ SUMMARY: SUMMARIZING WITH OPENAI")
-        summary = self.summarize_entity_with_openai(entity_description)
+        summary = self.summarize_entity_with_openai(entity_description, context)
         self.databaseHandler.saveCachedSummary(cache_key, summary)
         return summary
 
     def summarize_entity_with_openai(self, entity_description: str, context: str = ""):
             # make prompt
             # like "the" and "a" if they aren't useful to human understanding
-            if context:
+            if context and context != "":
                 prompt = ogPromptWithContext.format(entity_description, context)
             else:
                 prompt = ogPromptNoContext.format(entity_description)
