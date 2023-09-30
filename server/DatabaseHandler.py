@@ -62,6 +62,20 @@ class DatabaseHandler:
 
     ### MISC ###
 
+    # Returns the index of the nearest beginning of a word before "currIndex"
+    # EX: findClosestStartWordIndex('hello world, my name is alex!', 5) => 5
+    # EX: ...
+    # EX: findClosestStartWordIndex('hello world, my name is alex!', 11) => 5
+    # EX: findClosestStartWordIndex('hello world, my name is alex!', 12) => 12
+    def findClosestStartWordIndex(self, text, currIndex):
+        latestStopIndex = 0
+        for i, c in enumerate(text):
+            if c == " ":
+                if(i > currIndex):
+                    return latestStopIndex
+                latestStopIndex = i
+        return currIndex
+
     def createUserIfNotExists(self, userId):
         users = self.userCollection.find()
         needCreate = True
@@ -75,7 +89,7 @@ class DatabaseHandler:
                  "latest_intermediate_transcript": self.emptyTranscript,
                  "final_transcripts": [],
                  "cseConsumedTranscriptId": -1,
-                 "cseConsumedTranscriptIdx": -1,
+                 "cseConsumedTranscriptIdx": 0, # 0
                  "transcripts": [], "cseResults": [], "uiList": []})
 
     ### CACHE ###
@@ -97,6 +111,8 @@ class DatabaseHandler:
     ### TRANSCRIPTS ###
 
     def saveTranscriptForUser(self, userId, text, timestamp, isFinal):
+        if text == "": return
+
         transcript = {"userId": userId, "text": text,
                       "timestamp": timestamp, "isFinal": isFinal, "uuid": str(uuid.uuid4())}
         self.createUserIfNotExists(userId)
@@ -131,7 +147,7 @@ class DatabaseHandler:
     def getUser(self, userId):
         return self.userCollection.find_one({"userId": userId})
 
-# getNewCseTranscriptsForUser
+    # getNewCseTranscriptsForUser
     def getRecentTranscriptsForUser(self, userId, deleteAfter=False):
         self.createUserIfNotExists(userId)
         user = self.getUser(userId)
@@ -146,8 +162,13 @@ class DatabaseHandler:
                 if t['uuid'] == user['cseConsumedTranscriptId']:
                     first_transcript = t
                     startIndex = user['cseConsumedTranscriptIdx']
+                    
+                    # ensure startIndex points to the beginning of a word
+                    startIndex = self.findClosestStartWordIndex(first_transcript['text'], startIndex)
+
                     first_transcript['text'] = first_transcript['text'][startIndex:]
-                    unconsumed_transcripts.append(first_transcript)
+                    if first_transcript['text'] != "":
+                        unconsumed_transcripts.append(first_transcript)
                     continue
 
                 # Get any subsequent unconsumed final
@@ -157,13 +178,18 @@ class DatabaseHandler:
                     unconsumed_transcripts.append(t)
 
             # Append `latest_intermediate_transcript`
-            unconsumed_transcripts.append(
-                user['latest_intermediate_transcript'])
+            if user['latest_intermediate_transcript']['text'] != "":
+                unconsumed_transcripts.append(
+                    user['latest_intermediate_transcript'])
             indexOffset = 0
         else:
             # Get part `latest_intermediate_transcript` after `cseConsumedTranscriptIdx` index
             startIndex = user['cseConsumedTranscriptIdx']
             t = user['latest_intermediate_transcript']
+
+            # ensure startIndex points to the beginning of a word
+            startIndex = self.findClosestStartWordIndex(t['text'], startIndex)
+
             # Make sure protect against if intermediate transcript gets smaller
             if (len(t['text']) - 1) > startIndex:
                 t['text'] = t['text'][startIndex:]
@@ -182,17 +208,14 @@ class DatabaseHandler:
         update = {"$set": {"cseConsumedTranscriptId": -1, "cseConsumedTranscriptIdx": newIndex}}
         self.userCollection.update_one(filter=filter, update=update)
 
-        # ### old ###
-        # transcripts = list(filter(lambda t: t['isConsumed'] == False, user['transcripts']))
-
-        # # Only use 'latestTranscript' if it's an unconsumed intermediate
-        # if 'latestTranscript' in user and 'isFinal' in user['latestTranscript'] and (user['latestTranscript']['isFinal'] is False and user['latestTranscript']['isConsumed'] is False):
-        #     if user['latestTranscript']['timestamp'] < time.time() - self.intermediateTranscriptValidityTime:
-        #         transcripts.append(user['latestTranscript'])
-
-        # if transcripts and deleteAfter:
-        #     self.markAllTranscriptsAsConsumedForUserId(userId)
+        # print("9999999999 LEN OF UNCONSUMED TRRAA")
+        # print(len(unconsumed_transcripts))
         return unconsumed_transcripts
+
+    def updateCseConsumedTranscriptIdxForUser(self, userId, newIndex):
+        filter = {"userId": userId}
+        update = {"$set": {"cseConsumedTranscriptIdx": newIndex}}
+        self.userCollection.update_one(filter=filter, update=update)
 
     def getFinalTranscriptByUuid(self, uuid):
         filter = {"final_transcripts.uuid": uuid}
@@ -201,25 +224,14 @@ class DatabaseHandler:
     def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
         transcripts = self.getRecentTranscriptsForUser(
             userId, deleteAfter=deleteAfter)
-        # print("Running getRecentTranscritsForUserAsString")
-        # print(transcripts)
-        # return self.stringifyTranscripts(transcriptList=transcripts)
-        #return self.getStringifiedTranscriptWindow(transcripts)
         theString = ""
         for t in transcripts:
             theString += t['text'] + ' '
-        return theString
-
-    def markTranscriptsAsConsumed(self, userId, transcripts):
-        uuidList = [t['uuid'] for t in transcripts]
-        # print("WE WANT TO CONSUME UUIDS: ")
-        # print(uuidList)
-
-        filter = {"userId": userId, "transcripts.uuid": {"$in": uuidList}}
+        return theString.strip()
 
     def deleteAllTranscriptsForUser(self, userId):
         filter = {"userId": userId}
-        update = {"$set": {"transcripts": []}}
+        update = {"$set": {"final_transcripts": []}}
         self.userCollection.update_one(filter=filter, update=update)
 
     def getRecentTranscriptsForAllUsers(self, combineTranscripts=False, deleteAfter=False):
@@ -240,13 +252,12 @@ class DatabaseHandler:
         return transcripts
 
     def getTranscriptsFromLastNSecondsForUser(self, userId, n=30):
-        seconds = n * 1000
         allTranscripts = self.getRecentTranscriptsForUser(userId)
 
         recentTranscripts = []
         currentTime = time.time()
         for transcript in allTranscripts:
-            if currentTime - transcript['timestamp'] < seconds:
+            if currentTime - transcript['timestamp'] < n:
                 recentTranscripts.append(transcript)
         return recentTranscripts
 
@@ -335,6 +346,9 @@ class DatabaseHandler:
         results = user['cseResults'] if user != None else []
         alreadyConsumedIds = [
         ] if includeConsumed else self.getConsumedCseResultIdsForUserDevice(userId, deviceId)
+
+        # print("ALREADY CONSUMED IDS:")
+        # print(alreadyConsumedIds)
         newResults = []
         for res in results:
             if ('uuid' in res) and (res['uuid'] not in alreadyConsumedIds):
@@ -379,14 +393,13 @@ class DatabaseHandler:
         return consumedResults
 
     def getDefinedTermsFromLastNSecondsForUserDevice(self, userId, n=300):
-        seconds = n  # * 1000
         consumedResults = self.getCseResultsForUserDevice(
             userId=userId, deviceId="", shouldConsume=False, includeConsumed=True)
 
         previouslyDefinedTerms = []
         currentTime = math.trunc(time.time())
         for result in consumedResults:
-            if currentTime - result['timestamp'] < seconds:
+            if currentTime - result['timestamp'] < n:
                 previouslyDefinedTerms.append(result)
         return previouslyDefinedTerms
 
