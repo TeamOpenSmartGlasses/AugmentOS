@@ -579,6 +579,7 @@ class ContextualSearchEngine:
             "entity_column_name": "title",
             "entity_column_name_filtered": "title",
             "entity_column_description": "description",
+            "entity_column_images": "image_url",
             "max_window_size": self.max_window_size,
             "max_deletions": 1,
             "max_insertions": 1,
@@ -597,7 +598,11 @@ class ContextualSearchEngine:
 
         # get entity names to match, that have been pre-filtered
         entity_names_to_match_filtered = self.custom_data[user_id][config['entity_column_name_filtered']].tolist()
-        # descriptions_filtered = self.custom_data[data_type_key]['description_filtered']
+
+        #get image urls
+        #image_urls = self.custom_data[user_id][].tolist()
+        image_urls = self.custom_data[user_id][config['entity_column_images']].tolist() if (
+            'image_url' in self.custom_data[user_id]) else None
 
         # get URLs, if they exist
         urls = self.custom_data[user_id]['url'].tolist() if (
@@ -619,6 +624,14 @@ class ContextualSearchEngine:
             matches[titles[mi]] = dict()
             matches[titles[mi]]["name"] = titles[mi]
             matches[titles[mi]]["summary"] = descriptions[mi] if descriptions[mi] is not np.nan else None
+            if image_urls is not None:
+                if image_urls[mi] is not np.nan:
+                    matches[titles[mi]]["image_url"] = image_urls[mi]
+                else:
+                    matches[titles[mi]]["image_url"] = None
+            else:
+                matches[titles[mi]]["image_url"] = None
+
             if urls is not None:
                 c_url = urls[mi]
                 if (c_url is not None) and (c_url is not np.nan):
@@ -675,6 +688,12 @@ class ContextualSearchEngine:
         max_l_dist = config["max_l_dist"]
 
         matches = list()
+
+        #don't even try search if the to_search is too high frequency
+        to_search_string_freq_index = self.get_string_freq(to_search)
+        if to_search_string_freq_index < 0.06:
+            print(f"--- Didn't search '{to_search}' because too common words")
+            return list()
 
         def get_whole_match(match_entity, full_string):
             start_idx = match_entity.start  # inclusive
