@@ -161,7 +161,6 @@ def processing_loop():
                                 cseResponsesFiltered.append(res)
                     dbHandler.addCseResultsForUser(
                         transcript['userId'], cseResponsesFiltered)
-                dbHandler.markAllTranscriptsAsConsumedForUserId(transcript['userId'])
         except Exception as e:
             cseResponses = None
             print("Exception in CSE...:")
