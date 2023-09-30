@@ -25,9 +25,9 @@ agent = initialize_agent([
     StructuredTool.from_function(scrape_page)
 ], llm, agent=AgentType.STRUCTURED_CHAT_ZERO_SHOT_REACT_DESCRIPTION, verbose=True)
 
-def processing_loop():
+def agent_insights_processing_loop():
     lock = threading.Lock()
-    print("START PROCESSING LOOP")
+    print("START AGENT INSIGHT PROCESSING LOOP")
     while True:
         if not dbHandler.ready:
             print("dbHandler not ready")
@@ -70,7 +70,3 @@ def processing_loop():
             # print("=== processing_loop completed in {} seconds overall ===".format(
             #     round(pLoopEndTime - pLoopStartTime, 2)))
         time.sleep(120)
-
-background_process = multiprocessing.Process(target=processing_loop)
-background_process.start()
-background_process.join()

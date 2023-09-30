@@ -29,6 +29,8 @@ import pandas as pd
 import aiohttp_cors
 from aiohttp import web
 
+from agent_insights_process import agent_insights_processing_loop
+
 dbHandler = DatabaseHandler()
 relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
 
@@ -409,6 +411,9 @@ async def upload_user_data(request):
 background_process = multiprocessing.Process(target=processing_loop)
 background_process.start()
 
+agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
+agent_background_process.start()
+
 app.add_routes(
     [
         web.post('/chat', chat_handler),
@@ -433,3 +438,4 @@ for route in list(app.router.routes()):
 
 web.run_app(app, port=server_port)
 background_process.join()
+agent_background_process.join()
