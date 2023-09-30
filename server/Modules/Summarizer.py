@@ -3,7 +3,9 @@ import os
 # OpenAI imports
 import openai
 from summarizer.sbert import SBertSummarizer
-openai.api_key = os.environ['OPENAI_API_KEY']
+from server_config import openai_api_key
+
+openai.api_key = openai_api_key
 
 ogPrompt = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 

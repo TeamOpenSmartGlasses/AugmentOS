@@ -143,7 +143,7 @@ def processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(
+            newTranscripts = dbHandler.getNewCseTranscriptsForAllUsers(
                 combineTranscripts=True, deleteAfter=False)
             for transcript in newTranscripts:
                 print("Run CSE with... userId: '{}' ... text: '{}'".format(
@@ -195,24 +195,27 @@ async def ui_poll(request, minutes=0.5):
         return web.Response(text='contextual_search_engine not in features', status=400)
 
     resp = dict()
+    resp["success"] = True
 
     # get CSE results
-    cseResults = dbHandler.getCseResultsForUserDevice(
-        userId=userId, deviceId=deviceId)
+    if "contextual_search_engine" in features:
+        cseResults = dbHandler.getCseResultsForUserDevice(
+            userId=userId, deviceId=deviceId)
 
-    if cseResults:
-        print("server.py =================================CSERESULT")
-        print(cseResults)
+        if cseResults:
+            print("server.py =================================CSERESULT")
+            print(cseResults)
 
-    # if cseResults != None and cseResults != []:
-    #    print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cseResults))
-
-    # send response
-    if (cseResults) != []:
-        resp["success"] = True
+        # add CSE response
         resp["result"] = cseResults
-    else:
-        resp["success"] = False
+
+    #get agent results
+    if "agent_insights" in features:
+        agentInsightResults = dbHandler.getAgentInsightsResultsForUserDevice(userId=userId, deviceId=deviceId)
+
+        #add agents insight to response
+        resp["result_agent_insights"] = agentInsightResults
+
     return web.Response(text=json.dumps(resp), status=200)
 
 

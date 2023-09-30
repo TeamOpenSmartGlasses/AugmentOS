@@ -1,6 +1,7 @@
 from typing import Any, List, Literal
 from bs4 import BeautifulSoup
 import requests
+from server_config import serper_api_key
 import os
 
 banned_sites = ["calendar.google.com", "researchgate.net"]
@@ -46,7 +47,6 @@ k: int = 5
 gl: str = "us"
 hl: str = "en"
 tbs = None
-serper_api_key=os.environ['SERPER_API_KEY']
 search_type: Literal["news", "search", "places", "images"] = "search"
 
 def serper_search(
