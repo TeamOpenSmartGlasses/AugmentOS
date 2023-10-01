@@ -5,59 +5,57 @@ import torch
 
 relevance_filter_prompt = (
     lambda context, entity: f"""
-I need some help with a task, you need to imagine the following scenario. I will first provide you some custom definitions to follow, your objective in this task, how the input is structured, and the final task.
+I require your expertise for a task. To assist you, I'll present a scenario containing custom definitions, your main objective, the structure of the input, and the final task.
 
 <Scenario start>
 [Definitions]
-- "Insights": Intelligent analysis, ideas, arguments, questions to ask, and deeper insights that will help the user improve the flow within their conversations. 
-- "Convoscope": a tool that listens to a user's live conversation and enhances their conversation flow by providing them with real time "Insights", which will often lead the user to deeper understanding, broader perspective, new ideas, and better replies. Convoscope has 2 independent components
-1) a planner which will outline detailed steps for the insight generation process
-2) an executor which will execute the steps
+- "Entity Relevance": Determining if a particular entity needs further clarification or definition in the context of a conversation.
+- "Convoscope": a tool that listens to a user's live conversation and aids the user by deciding if real-time "Entity Definitions" are required.
 
 [Your Objective]
-You are the "Insight" generator of "Convoscope". Your primary function is to outline a plan to generate an "Insight" for the user, based on live transcription streams of their ongoing conversation, and search for additional information to ensure that the "Insight" you generated is factual.
+You are part of "Convoscope". Your primary role is to decide if an entity from the live transcription stream of an ongoing conversation requires definition.
 
-[User Live Transcript Structure]
-You will receive inputs below which represent the current live conversation the user is having.
-<Old Transcripts>
-{{Previous transcripts from the conversation, which you should read to understand the short/mid term context of the conversation, to help figure out what information to provide the user.}}
-<New Transcripts>
-{{latest transcripts from the conversation, we should generate definitions and insights that will help the user based on the New Transcript.}}
+[Examples of "Entity Relevance"]
+These examples will guide you in determining when an entity is pertinent or not in the given context:
 
-[Example "Insights"]
-The following are some examples of "Insights" that "Convoscope" generated for a given conversation. We prefer insights that highlights quantitative insights where possible.
+1) User Conversation: "I've started practicing mindfulness through Vipassana."
+   "Entity": Vipassana
+   "Relevance": YES
 
-User Conversation: At an expo, a competitor unveils a tech gadget boasting a new "nano-silicon" battery. A battery icon with an 'N' in its center appears on your glasses, with a subscript: "Nano-Silicon: +300% Capacity." Equipped with this insight, you gauge the competition's edge more accurately.
-"Insight": "Nano-Silicon: +300% battery capacity"
+2) User Conversation: "I love the new movie by Christopher Nolan."
+   "Entity": Christopher Nolan
+   "Relevance": NO
 
-User Conversation: A friend claims that the Keto diet is the most effective for rapid weight loss. As the debate heats up, your glasses flash a comparison chart of popular diets over a three-month period. While Keto shows initial rapid loss, another diet displays more sustainable results. You share this, shifting the conversation from short-term efficacy to long-term health benefits.
-"Insight": "Keto: Rapid but short-term loss"
+3) User Conversation: "Quantum computing might revolutionize the tech world."
+   "Entity": Quantum computing
+   "Relevance": YES
 
-User Conversation: As the table discusses the viability of Mars colonization, someone skeptically mentions the resource cost. Your glasses project a concise infographic comparing the cost of space missions against their potential for resource discovery, like water or minerals on Mars. This propels the conversation from expenditure critique to the potential returns of such endeavors.
-"Insight": "Mars: Potential water, mineral discovery"
+4) User Conversation: "I enjoy the fresh breeze during my morning walks."
+   "Entity": Morning walks
+   "Relevance": NO
 
-User Conversation: A neighbor mentions buying only from brands that use recycled materials. Your glasses showcase a quick pie chart on a brand she mentions, depicting its material sources. While a chunk is recycled, a notable portion isn't. You gently introduce the topic of greenwashing in the industry, leading to a broader discussion on informed consumer choices.
-"Insight": "Brand: Only 40% truly recycled"
+5) User Conversation: "The new dessert shop downtown offers the best tiramisu."
+   "Entity": Tiramisu
+   "Relevance": YES
 
-User Conversation: In a workshop focused on wearable technology, a debate arises about the balance between functionality and cognitive load. Your glasses quickly reference several cognitive load theories and provide a visual overlay of optimal data chunks for quick consumption. This aids the team in determining just how much information a wearable should display at any given moment to be both useful and user-friendly.
-"Insight": "Optimal: 3-7 word data chunks"
-
-User Conversation: While discussing the cultural adaptation of voice assistants, a colleague wonders how regional accents influence user satisfaction. Your glasses aggregate global user reviews and present a correlation graph: regions with stronger accents tend to report lower satisfaction. This sparks a deeper dive into developing accent-inclusive training data for voice recognition.
-"Insight": "Stronger accents: Lower voice-assist satisfaction"
+6) User Conversation: "I usually take the subway to work."
+   "Entity": Subway
+   "Relevance": NO
 
 <Task start>
-I need you to help me generate a similar "Insight" based on the examples on top for the following conversation transcript. The "Insight" should be providing additional understanding beyond what is currently being said in the transcript, it shouldn't be plainly repeating what is being said in the transcripts.
+Given the context and entity, your task is to determine whether the entity is relevant in that context and requires a definition.
 
-In your initial thought, you should first come up with a plan to generate the "Insight". The plan should include
-1. Identify the best "Insight" you could generate to enhance the user's conversation, preferably an "Insight" with quantitative data. The "Insight" should be providing additional understanding beyond what is currently being said in the transcript, it shouldn't be plainly repeating what is being said in the transcripts. Come up with a general description of the "Insight" to generate.
-2. What information you need to generate the "Insight" (preferably quantitative data) and where to find the information
-3. A final step to generate the insight. The insight should be summarized within 12 words and be in the format `Insight: {{Insert your "Insight" here}}`
+Output:
+- If the entity doesn't require a definition in the context, simply output "NO".
+- If the entity requires a definition, output "YES".
 <Task end>
 
 <Context>{context}<Context>
 <Entity>{entity}<Entity>
 
-Given the following context and entity, please determine whether the entity is relevant given the context. If the entity is not relevant, please output "NO". If the entity is relevant, please output "YES".
+Considering the context and entity, does the entity require a definition? If yes, state "YES". If no, state "NO".
+<Task end>
+<Scenario end>
 """
 )
 
@@ -117,7 +115,7 @@ class Relevance_Filter:
             logits = outputs.logits
             predictions = torch.argmax(logits, dim=1)
 
-        if predictions[0].item() == "YES":
+        if predictions[0].item() == "NO":
             entity = None
 
         return entity
