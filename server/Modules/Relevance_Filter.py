@@ -86,7 +86,8 @@ class Relevance_Filter:
 
         # Filter the cse_outputs based on the combined banned terms
         cse_outputs_filtered = [
-            cse_output for cse_output in cse_outputs
+            cse_output
+            for cse_output in cse_outputs
             if cse_output not in banned_terms_combined
         ]
 
