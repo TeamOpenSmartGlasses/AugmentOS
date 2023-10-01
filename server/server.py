@@ -301,7 +301,7 @@ async def upload_user_data(request):
 
 if __name__ == "__main__":
     dbHandler = DatabaseHandler()
-    # start proccessing loop subprocess to process data as it comes in
+    # start processing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method("spawn")
 
