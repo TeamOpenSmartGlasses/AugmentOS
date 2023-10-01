@@ -155,43 +155,42 @@ def processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            newTranscripts = db_handler.getRecentTranscriptsForAllUsers(
+            new_transcripts = db_handler.getRecentTranscriptsForAllUsers(
                 combineTranscripts=True, deleteAfter=False
             )
 
-            for transcript in newTranscripts:
+            for transcript in new_transcripts:
                 print(
                     "Run CSE with... userId: '{}' ... text: '{}'".format(
                         transcript["userId"], transcript["text"]
                     )
                 )
-                cseStartTime = time.time()
-                cseResponses = cse.contextual_search_engine(
+                cse_start_time = time.time()
+                cse_responses = cse.contextual_search_engine(
                     transcript["userId"], transcript["text"]
                 )
                 cseEndTime = time.time()
                 print(
                     "=== CSE completed in {} seconds ===".format(
-                        round(cseEndTime - cseStartTime, 2)
+                        round(cseEndTime - cse_start_time, 2)
                     )
                 )
 
                 # filter responses with relevance filter, then save CSE results to the
                 # database
-                cseResponsesFiltered = list()
-                if cseResponses is not None:
-                    for res in cseResponses:
-                        if res != {} and res is not None:
-                            if relevance_filter.should_run_for_text(
-                                transcript["userId"], res["name"], transcript["text"]
-                            ):
-                                cseResponsesFiltered.append(res)
-                    db_handler.add_cse_results_for_user(
-                        transcript["userId"], cseResponsesFiltered
+                cse_responses_filtered = list()
+
+                if cse_responses:
+                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
+                        transcript["userId"], cse_responses, transcript["text"]
                     )
 
+                db_handler.add_cse_results_for_user(
+                    transcript["userId"], cse_responses_filtered
+                )
+
         except Exception as e:
-            cseResponses = None
+            cse_responses = None
             print("Exception in CSE...:")
             print(e)
             traceback.print_exc()
