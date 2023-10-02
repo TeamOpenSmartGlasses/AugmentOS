@@ -4,6 +4,16 @@ import os
 import openai
 openai.api_key = os.environ['OPENAI_API_KEY']
 
+### For use with Azure OpenAI ###
+useAzure = os.getenv("AZURE_OPENAI_ENDPOINT")
+if useAzure:
+    print("$$$ USING AZURE OPENAI $$$")
+    openai.api_key = os.getenv("AZURE_OPENAI_KEY")
+    openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    openai.api_type = 'azure'
+    openai.api_version = '2023-05-15' # this may change in the future
+    deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT") #This will correspond to the custom name you chose for your deployment when you deployed a model. 
+
 ogPromptNoContext = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
             Example:
@@ -80,16 +90,15 @@ class Summarizer:
         return summary
 
     def summarize_entity_with_openai(self, entity_description: str, context: str = ""):
-            # make prompt
-            # like "the" and "a" if they aren't useful to human understanding
             if context and context != "":
                 prompt = ogPromptWithContext.format(entity_description, context)
             else:
                 prompt = ogPromptNoContext.format(entity_description)
             
-            # print("Running prompt for summary: \n {}".format(prompt))
-            chat_completion = openai.Completion.create(
-                model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
+            if useAzure:
+                chat_completion = openai.Completion.create(engine=deployment_name, prompt=prompt, temperature=0.5, max_tokens=20)
+            else:
+                chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
+                
             response = chat_completion.choices[0].text
-            # print(response)
             return response
