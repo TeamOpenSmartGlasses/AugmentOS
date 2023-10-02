@@ -13,6 +13,7 @@ import { IconInfoCircle } from "@tabler/icons-react";
 import Cookies from "js-cookie";
 import { useRef, useState } from "react";
 import axiosClient from "../axiosConfig";
+import { UPLOAD_USERDATA_ENDPOINT } from "../serverEndpoints";
 
 interface SettingsModalProps {
   smallerThanMedium: boolean;
@@ -54,7 +55,7 @@ const SettingsModal = ({
     formData.append("custom-file", file);
     formData.append("userId", userId);
     axiosClient
-      .post("/api/upload_userdata", formData, {
+      .post(UPLOAD_USERDATA_ENDPOINT, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
