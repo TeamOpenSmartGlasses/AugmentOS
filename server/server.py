@@ -284,8 +284,8 @@ if __name__ == '__main__':
     cse_process.start()
 
     #start the agent process
-    agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
-    agent_background_process.start()
+    #agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
+    #agent_background_process.start()
 
     #start web server subprocess
     #server_process = multiprocessing.Process(target=start_server)
@@ -314,7 +314,7 @@ if __name__ == '__main__':
     web.run_app(app, port=server_port)
 
     #let processes finish and join
-    agent_background_process.join()
+    #agent_background_process.join()
     cse_process.join()
 
     # Retrieve and process logs and print statements from the queue
