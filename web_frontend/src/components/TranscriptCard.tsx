@@ -16,6 +16,7 @@ import SpeechRecognition, {
 } from "react-speech-recognition";
 import { debounce } from "lodash";
 import axiosClient from "../axiosConfig";
+import { CHAT_ENDPOINT } from "../serverEndpoints";
 
 const useStyles = createStyles((theme) => ({
   card: { backgroundColor: theme.white, borderRadius: "0.25rem" },
@@ -59,6 +60,7 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
     SpeechRecognition.stopListening();
     setIsRecognizing(false);
     resetTranscript();
+    setTranscriptStartIdx(0);
   };
 
   const submitTranscript = (
@@ -86,7 +88,7 @@ const TranscriptCard = ({ transcriptBoxHeight }: TranscriptCardProps) => {
     console.log(text, isFinal);
 
     axiosClient
-      .post("/api/chat", payload)
+      .post(CHAT_ENDPOINT, payload)
       // .then((res) => {})
       .catch((error) => {
         console.error(error);

@@ -18,3 +18,4 @@ pymongo
 fuzzysearch
 txtai
 transformers
+bert-extractive-summarizer

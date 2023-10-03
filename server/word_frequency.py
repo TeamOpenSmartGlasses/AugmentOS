@@ -11,19 +11,32 @@ import pickle
 low_freq_threshold_google = 0.0922
 low_freq_threshold_norvig = 0.901
 google_lines = 333334
+
 norvig_lines = 30000
 low_freq_constant_google = low_freq_threshold_google * google_lines
 low_freq_line_constant_norvig = low_freq_threshold_norvig * norvig_lines
 
-# load index
-print("Loading word frequency indexes...")
-word_frequency_indexes = pickle.load(
-    open("./pickles/word_freq_indexes.pkl", "rb"))
-df_google_word_freq = word_frequency_indexes["google_word_freq"]
-df_norvig_word_freq = word_frequency_indexes["norvig_word_freq"]
-idx_google_dict_word_freq = word_frequency_indexes["idx_google_dict_word_freq"]
-idx_norvig_dict_word_freq = word_frequency_indexes["idx_norvig_dict_word_freq"]
-print("--- Word frequency index loaded.")
+word_frequency_indexes = None
+df_google_word_freq = None
+df_norvig_word_freq = None
+idx_google_dict_word_freq = None
+idx_norvig_dict_word_freq = None
+def load_word_freq_indices():
+    global word_frequency_indexes
+    global df_google_word_freq
+    global df_norvig_word_freq
+    global idx_google_dict_word_freq
+    global idx_norvig_dict_word_freq
+    # load index
+    print("Loading word frequency indexes...")
+    word_frequency_indexes = pickle.load(
+        open("./pickles/word_freq_indexes.pkl", "rb"))
+    df_google_word_freq = word_frequency_indexes["google_word_freq"]
+    df_norvig_word_freq = word_frequency_indexes["norvig_word_freq"]
+    idx_google_dict_word_freq = word_frequency_indexes["idx_google_dict_word_freq"]
+    idx_norvig_dict_word_freq = word_frequency_indexes["idx_norvig_dict_word_freq"]
+    print("--- Word frequency index loaded.")
+    load_word_def_index()
 
 # we use this funny looking thing for fast string search, thanks to: https://stackoverflow.com/questions/44058097/optimize-a-string-query-with-pandas-large-data
 
@@ -57,6 +70,35 @@ def find_low_freq_words(words):
 
     # print("low freq words: {}".format(low_freq_words))
     return low_freq_words
+
+def get_word_freq_index(word):
+    """
+    Takes in a word and gives a frequency index, where 0 is common and 1 is rare.
+    """
+    word = word.lower()
+    google_score = None
+    norvig_score = None
+    # find word in google
+    try:
+        i_word_google = idx_google_dict_word_freq[word][0]
+        google_score = (i_word_google / google_lines)
+        #print("Google score of |{} == {}|".format(word, i_word_google / google_lines))
+    except KeyError as e:
+        # if we didn't find the word in giant google dataset, then it's rare, so define it if we have it
+        google_score = 1.0
+    
+    # find word in norvig
+    i_word_norvig = None
+    try:
+        i_word_norvig = idx_norvig_dict_word_freq[word][0]
+        norvig_score = i_word_norvig / norvig_lines
+        #print("Norvig score of |{} == {}|".format(word, i_word_norvig / norvig_lines))
+    except KeyError as e:
+        # if we didn't find the word in norvig, it might not be rare (e.g. "habitual")
+        #print("Word '{}' not found in norvig word frequency database.".format(word))
+        norvig_score = 1.0 #just give it a score of half, since we don't know
+
+    return (((google_score * 2) + norvig_score) / 3)
 
 
 def find_acronyms(words):
@@ -122,5 +164,5 @@ def rare_word_define_string(text, context):
     return definitions
 
 
-if __name__ == "__main__":
-    print(rare_word_define_string("CSE existential LLM spectroscopy this is a test and preposterous NSA people might amicably proliferate OUR tungsten arcane ark USA botanical bonsai ASR gynecologist esoteric multi-processing"))
+# if __name__ == "__main__":
+#     print(rare_word_define_string("CSE existential LLM spectroscopy this is a test and preposterous NSA people might amicably proliferate OUR tungsten arcane ark USA botanical bonsai ASR gynecologist esoteric multi-processing"))

@@ -20,6 +20,7 @@ import { useDisclosure, useMediaQuery } from "@mantine/hooks";
 import "./index.css";
 import { IconSettings } from "@tabler/icons-react";
 import SettingsModal from "./components/SettingsModal";
+import { UI_POLL_ENDPOINT } from "./serverEndpoints";
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -99,7 +100,7 @@ export default function App() {
     };
 
     axiosClient
-      .post("/api/ui_poll", subTranscript)
+      .post(UI_POLL_ENDPOINT, subTranscript)
       .then((res) => {
         const newEntitiesDict = res.data.result;
         if (res.data.success) console.log(res.data);
