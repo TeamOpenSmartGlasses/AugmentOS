@@ -107,6 +107,7 @@ async def chat_handler(request):
 
         # agent response
         response = ''
+        """
         try:
             jarvis_mode = text.lower().find("jarvis") != -1
             if jarvis_mode:
@@ -126,6 +127,7 @@ async def chat_handler(request):
 
         except Exception as e:
             print("Error: ", e)
+        """
     else:
         print("DEBOUNCING TRANSCRIPT")
         response = ''
@@ -288,7 +290,7 @@ def processing_loop():
             pLoopStartTime = time.time()
             # Check for new transcripts
             newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(
-                combineTranscripts=True, deleteAfter=True)
+                combineTranscripts=True, deleteAfter=False)
             for transcript in newTranscripts:
                 print("Run CSE with... userId: '{}' ... text: '{}'".format(
                     transcript['userId'], transcript['text']))
@@ -308,6 +310,7 @@ def processing_loop():
                                 cseResponsesFiltered.append(res)
                     dbHandler.addCseResultsForUser(
                         transcript['userId'], cseResponsesFiltered)
+                dbHandler.markAllTranscriptsAsConsumedForUserId(transcript['userId'])
         except Exception as e:
             cseResponses = None
             print("Exception in CSE...:")
@@ -316,8 +319,8 @@ def processing_loop():
         finally:
             lock.release()
             pLoopEndTime = time.time()
-            print("=== processing_loop completed in {} seconds overall ===".format(
-                round(pLoopEndTime - pLoopStartTime, 2)))
+            # print("=== processing_loop completed in {} seconds overall ===".format(
+            #     round(pLoopEndTime - pLoopStartTime, 2)))
         time.sleep(2.5)
 
 
