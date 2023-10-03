@@ -104,6 +104,8 @@ class Summarizer:
             if use_azure_openai:
                 messages = [{"role": "user", "content": prompt}]
                 chat_completion = openai.ChatCompletion.create(engine=deployment_name, messages=messages, temperature=0.5, max_tokens=20)
+                if chat_completion['choices'][0]['finish_reason'] == "content_filter":
+                    print("Microsoft content filter says hello")
                 response = chat_completion['choices'][0]['message']['content']
             else:
                 chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
