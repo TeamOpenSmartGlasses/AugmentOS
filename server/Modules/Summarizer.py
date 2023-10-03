@@ -3,13 +3,12 @@ import os
 # OpenAI imports
 import openai
 from summarizer.sbert import SBertSummarizer
-from server_config import openai_api_key, azure_openai_api_key, azure_openai_api_base, azure_openai_api_deployment
+from server_config import openai_api_key, use_azure_openai, azure_openai_api_key, azure_openai_api_base, azure_openai_api_deployment
 
 openai.api_key = openai_api_key
 
 ### For use with Azure OpenAI ###
-useAzure = azure_openai_api_key
-if useAzure:
+if use_azure_openai:
     print("$$$ USING AZURE OPENAI $$$")
     openai.api_key = azure_openai_api_key
     openai.api_base = azure_openai_api_base # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
@@ -102,7 +101,7 @@ class Summarizer:
             else:
                 prompt = ogPromptNoContext.format(entity_description)
             
-            if useAzure:
+            if use_azure_openai:
                 messages = [{"role": "user", "content": prompt}]
                 chat_completion = openai.ChatCompletion.create(engine=deployment_name, messages=messages, temperature=0.5, max_tokens=20)
                 response = chat_completion['choices'][0]['message']['content']
