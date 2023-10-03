@@ -30,10 +30,13 @@ import pandas as pd
 import aiohttp_cors
 from aiohttp import web
 
+from agent_insights_process import agent_insights_processing_loop
+
 global dbHandler
 global relevanceFilter
 global app
 imagePath = "images/cse"
+
 mostRecentIntermediateTranscript = dict()
 intermediateMaxRate = 0 #.2 # Only take intermediates every n seconds
 
@@ -140,8 +143,8 @@ def processing_loop():
         try:
             pLoopStartTime = time.time()
             # Check for new transcripts
-            newTranscripts = dbHandler.getRecentTranscriptsForAllUsers(
-                combineTranscripts=True, deleteAfter=True)
+            newTranscripts = dbHandler.getNewCseTranscriptsForAllUsers(
+                combineTranscripts=True, deleteAfter=False)
             for transcript in newTranscripts:
                 print("Run CSE with... userId: '{}' ... text: '{}'".format(
                     transcript['userId'], transcript['text']))
@@ -169,8 +172,8 @@ def processing_loop():
         finally:
             #lock.release()
             pLoopEndTime = time.time()
-            print("=== processing_loop completed in {} seconds overall ===".format(
-                round(pLoopEndTime - pLoopStartTime, 2)))
+            # print("=== processing_loop completed in {} seconds overall ===".format(
+            #     round(pLoopEndTime - pLoopStartTime, 2)))
         time.sleep(2.5)
 
 
@@ -192,24 +195,27 @@ async def ui_poll(request, minutes=0.5):
         return web.Response(text='contextual_search_engine not in features', status=400)
 
     resp = dict()
+    resp["success"] = True
 
     # get CSE results
-    cseResults = dbHandler.getCseResultsForUserDevice(
-        userId=userId, deviceId=deviceId)
+    if "contextual_search_engine" in features:
+        cseResults = dbHandler.getCseResultsForUserDevice(
+            userId=userId, deviceId=deviceId)
 
-    if cseResults:
-        print("server.py =================================CSERESULT")
-        print(cseResults)
+        if cseResults:
+            print("server.py =================================CSERESULT")
+            print(cseResults)
 
-    # if cseResults != None and cseResults != []:
-    #    print("\n=== CONTEXTUAL_SEARCH_ENGINE ===\n{}".format(cseResults))
-
-    # send response
-    if (cseResults) != []:
-        resp["success"] = True
+        # add CSE response
         resp["result"] = cseResults
-    else:
-        resp["success"] = False
+
+    #get agent results
+    if "agent_insights" in features:
+        agentInsightResults = dbHandler.getAgentInsightsResultsForUserDevice(userId=userId, deviceId=deviceId)
+
+        #add agents insight to response
+        resp["result_agent_insights"] = agentInsightResults
+
     return web.Response(text=json.dumps(resp), status=200)
 
 
@@ -252,7 +258,6 @@ async def upload_user_data(request):
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
 
-
 #def worker_function(log_queue):
 #    # Configure the logger within the worker function
 #    worker_logger = multiprocessing.get_logger()
@@ -275,8 +280,12 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     #log_queue = multiprocessing.Queue()
-    cse_process = multiprocessing.Process(target=processing_loop)#, args=(cse,))
+    cse_process = multiprocessing.Process(target=processing_loop)
     cse_process.start()
+
+    #start the agent process
+    #agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
+    #agent_background_process.start()
 
     #start web server subprocess
     #server_process = multiprocessing.Process(target=start_server)
@@ -304,6 +313,10 @@ if __name__ == '__main__':
         cors.add(route)
     web.run_app(app, port=server_port)
 
+    #let processes finish and join
+    #agent_background_process.join()
+    cse_process.join()
+
     # Retrieve and process logs and print statements from the queue
 #    while not log_queue.empty():
 #        record = log_queue.get()
@@ -312,4 +325,3 @@ if __name__ == '__main__':
 #        logger.handle(record)
 
     #server_process.join()
-    cse_process.join()

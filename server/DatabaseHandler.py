@@ -90,7 +90,10 @@ class DatabaseHandler:
                  "final_transcripts": [],
                  "cseConsumedTranscriptId": -1,
                  "cseConsumedTranscriptIdx": 0, # 0
-                 "transcripts": [], "cseResults": [], "uiList": []})
+                 "transcripts": [], 
+                 "cseResults": [], 
+                 "uiList": [],
+                 "agentInsightsResults" : []})
 
     ### CACHE ###
 
@@ -147,8 +150,12 @@ class DatabaseHandler:
     def getUser(self, userId):
         return self.userCollection.find_one({"userId": userId})
 
-    # getNewCseTranscriptsForUser
-    def getRecentTranscriptsForUser(self, userId, deleteAfter=False):
+    def getAllTranscriptsForUser(self, userId, deleteAfter=False):
+        self.createUserIfNotExists(userId)
+        user = self.getUser(userId)
+        return user['final_transcripts']
+
+    def getNewCseTranscriptsForUser(self, userId, deleteAfter=False):
         self.createUserIfNotExists(userId)
         user = self.getUser(userId)
         unconsumed_transcripts = []
@@ -207,9 +214,6 @@ class DatabaseHandler:
         filter = {"userId": userId}
         update = {"$set": {"cseConsumedTranscriptId": -1, "cseConsumedTranscriptIdx": newIndex}}
         self.userCollection.update_one(filter=filter, update=update)
-
-        # print("9999999999 LEN OF UNCONSUMED TRRAA")
-        # print(len(unconsumed_transcripts))
         return unconsumed_transcripts
 
     def updateCseConsumedTranscriptIdxForUser(self, userId, newIndex):
@@ -221,8 +225,8 @@ class DatabaseHandler:
         filter = {"final_transcripts.uuid": uuid}
         return self.userCollection.find_one(filter)
 
-    def getRecentTranscriptsForUserAsString(self, userId, deleteAfter=False):
-        transcripts = self.getRecentTranscriptsForUser(
+    def getNewCseTranscriptsForUserAsString(self, userId, deleteAfter=False):
+        transcripts = self.getNewCseTranscriptsForUser(
             userId, deleteAfter=deleteAfter)
         theString = ""
         for t in transcripts:
@@ -234,23 +238,36 @@ class DatabaseHandler:
         update = {"$set": {"final_transcripts": []}}
         self.userCollection.update_one(filter=filter, update=update)
 
-    def getRecentTranscriptsForAllUsers(self, combineTranscripts=False, deleteAfter=False):
+    def getNewCseTranscriptsForAllUsers(self, combineTranscripts=False, deleteAfter=False):
         users = self.userCollection.find()
         transcripts = []
         for user in users:
             userId = user['userId']
             if combineTranscripts:
-                transcriptString = self.getRecentTranscriptsForUserAsString(
+                transcriptString = self.getNewCseTranscriptsForUserAsString(
                     userId, deleteAfter=deleteAfter)
                 if transcriptString:
                     transcripts.append(
                         {'userId': userId, 'text': transcriptString})
             else:
-                transcripts.extend(self.getRecentTranscriptsForUser(
+                transcripts.extend(self.getNewCseTranscriptsForUser(
                     userId, deleteAfter=deleteAfter))
 
         return transcripts
 
+    def getRecentTranscriptsFromLastNSecondsForAllUsers(self, n=30):
+        users = self.userCollection.find()
+        transcripts = []
+        for user in users:
+            userId = user['userId']
+            transcriptString = self.getTranscriptsFromLastNSecondsForUserAsString(
+                userId, n)
+            if transcriptString:
+                transcripts.append(
+                    {'userId': userId, 'text': transcriptString})
+
+        return transcripts
+    
     def getTranscriptsFromLastNSecondsForUser(self, userId, n=30):
         allTranscripts = self.getRecentTranscriptsForUser(userId)
 
@@ -337,6 +354,11 @@ class DatabaseHandler:
         update = {"$set": {"cseResults": []}}
         self.userCollection.update_one(filter=filter, update=update)
 
+    def addAgentInsightsResultsForUser(self, userId, results):
+        filter = {"userId": userId}
+        update = {"$push": {"agentInsightsResults": {'$each': results}}}
+        self.userCollection.update_one(filter=filter, update=update)
+
     ### CSE RESULTS FOR SPECIFIC DEVICE (USE THIS) ###
 
     def getCseResultsForUserDevice(self, userId, deviceId, shouldConsume=True, includeConsumed=False):
@@ -358,10 +380,33 @@ class DatabaseHandler:
                 newResults.append(res)
         return newResults
 
+    def getAgentInsightsResultsForUserDevice(self, userId, deviceId, shouldConsume=True, includeConsumed=False):
+        self.addUiDeviceToUserIfNotExists(userId, deviceId)
+
+        user = self.userCollection.find_one({"userId": userId})
+        results = user['agentInsightsResults'] if user != None else []
+        alreadyConsumedIds = [
+        ] if includeConsumed else self.getConsumedAgentInsightsResultIdsForUserDevice(userId, deviceId)
+        newResults = []
+        for res in results:
+            if ('uuid' in res) and (res['uuid'] not in alreadyConsumedIds):
+                if shouldConsume:
+                    self.addConsumedAgentInsightsResultIdForUserDevice(
+                        userId, deviceId, res['uuid'])
+                newResults.append(res)
+        return newResults
+
     def addConsumedCseResultIdForUserDevice(self, userId, deviceId, consumedResultUUID):
         filter = {"userId": userId, "uiList.deviceId": deviceId}
         update = {"$addToSet": {
             "uiList.$.consumedCseResultIds": consumedResultUUID}}
+        # "$addToSet": {"uiList": deviceId}}
+        self.userCollection.update_many(filter=filter, update=update)
+
+    def addConsumedAgentInsightsResultIdForUserDevice(self, userId, deviceId, consumedResultUUID):
+        filter = {"userId": userId, "uiList.deviceId": deviceId}
+        update = {"$addToSet": {
+            "uiList.$.consumedAgentInsightsResultIds": consumedResultUUID}}
         # "$addToSet": {"uiList": deviceId}}
         self.userCollection.update_many(filter=filter, update=update)
 
@@ -371,6 +416,14 @@ class DatabaseHandler:
         if user == None or user['uiList'] == None or user['uiList'][0] == None:
             return []
         toReturn = user['uiList'][0]['consumedCseResultIds']
+        return toReturn if toReturn != None else []
+
+    def getConsumedAgentInsightsResultIdsForUserDevice(self, userId, deviceId):
+        filter = {"userId": userId, "uiList.deviceId": deviceId}
+        user = self.userCollection.find_one(filter=filter)
+        if user == None or user['uiList'] == None or user['uiList'][0] == None:
+            return []
+        toReturn = user['uiList'][0]['consumedAgentInsightsResultIds']
         return toReturn if toReturn != None else []
 
     def getCseResultByUUID(self, uuid):
@@ -425,7 +478,7 @@ class DatabaseHandler:
 
         if needAdd:
             print("Creating device for user '{}': {}".format(userId, deviceId))
-            uiObject = {"deviceId": deviceId, "consumedCseResultIds": []}
+            uiObject = {"deviceId": deviceId, "consumedCseResultIds": [], "consumedAgentInsightsResultIds": []}
             filter = {"userId": userId}
             update = {"$addToSet": {"uiList": uiObject}}
             self.userCollection.update_one(filter=filter, update=update)
