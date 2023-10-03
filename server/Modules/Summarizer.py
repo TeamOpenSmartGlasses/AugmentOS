@@ -91,7 +91,7 @@ class Summarizer:
 
         # Summary does not exist. Get it with OpenAI
         print("$$$ SUMMARY: SUMMARIZING WITH OPENAI")
-        summary = self.summarize_entity_with_openai(entity_description)
+        summary = self.summarize_entity_with_openai(entity_description, context)
         self.databaseHandler.saveCachedSummary(entity_description, summary)
         return summary
 
