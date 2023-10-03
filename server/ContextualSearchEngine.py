@@ -409,9 +409,9 @@ class ContextualSearchEngine:
         #print(entities_semantic_custom)
 
         # find rare words (including acronyms) and define them
-        #context = talk + \
-        #    self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
-        #        user_id, 3)
+        context = talk + \
+            self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
+                user_id, 3)
         #rare_word_definitions = word_frequency.rare_word_define_string(
         #    talk, context)
 
