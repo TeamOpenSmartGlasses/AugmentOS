@@ -11,7 +11,7 @@ if useAzure:
     openai.api_key = os.getenv("AZURE_OPENAI_KEY")
     openai.api_base = os.getenv("AZURE_OPENAI_ENDPOINT") # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
     openai.api_type = 'azure'
-    openai.api_version = '2023-05-15' # this may change in the future
+    openai.api_version = '2023-08-01-preview' # this may change in the future
     deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT") #This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
 ogPromptNoContext = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
@@ -33,9 +33,12 @@ ogPromptNoContext = """Please summarize the following "entity description" text 
 
 ogPromptWithContext = """
     Summarize the following "entity description" text in relation to the given "context" which is a transcript from a conversation. 
-Extract only the most important information about the entitiy, as summaries must be 8 words or less. 
-The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. 
-Use less than 8 words for the entire summary. Be concise, brief, and succinct.
+* Extract only the most important information about the entitiy, as summaries must be 8 words or less. 
+* The summary should be easy to parse very quickly. 
+* Leave out filler words. 
+* Don't write the name of the entity. 
+* Don't include the "Text to summarize" in your response.
+* Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
 Example:
 [INPUT]
@@ -54,7 +57,7 @@ Text to summarize:
 "Barack Hussein Obama II is an American politician who served as the 44th president of the United States from 2009 to 2017. A member of the Democratic Party, he was the first African-American president."
 
 Context:
-"Obama grew up in Chicago"
+"Where did Obama come from?"
 
 [OUTPUT]
 44th US President, elected 2009, from Chicago Illinois.
@@ -90,15 +93,17 @@ class Summarizer:
         return summary
 
     def summarize_entity_with_openai(self, entity_description: str, context: str = ""):
-            if context and context != "":
+            if context and context != "" and False: # Disable contextual summaries for now
                 prompt = ogPromptWithContext.format(entity_description, context)
             else:
                 prompt = ogPromptNoContext.format(entity_description)
             
             if useAzure:
-                chat_completion = openai.Completion.create(engine=deployment_name, prompt=prompt, temperature=0.5, max_tokens=20)
+                messages = [{"role": "user", "content": prompt}]
+                chat_completion = openai.ChatCompletion.create(engine=deployment_name, messages=messages, temperature=0.5, max_tokens=20)
+                response = chat_completion['choices'][0]['message']['content']
             else:
                 chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
-                
-            response = chat_completion.choices[0].text
+                response = chat_completion.choices[0].text
+            
             return response
