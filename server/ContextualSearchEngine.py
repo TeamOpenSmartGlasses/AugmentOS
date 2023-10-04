@@ -116,9 +116,9 @@ class ContextualSearchEngine:
 
         self.similarity_func = Similarity(
             "valhalla/distilbart-mnli-12-1", gpu=(USE_GPU_FOR_INFERENCING))
-        self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
-        self.model = GPT2LMHeadModel.from_pretrained(
-            "gpt2").to(self.inference_device)
+        # self.tokenizer = GPT2Tokenizer.from_pretrained("gpt2")
+        # self.model = GPT2LMHeadModel.from_pretrained(
+        #     "gpt2").to(self.inference_device)
 
     # def search(self, query):
     #     return [(result["score"], result["text"]) for result in self.embeddings.search(query, limit=5)]
@@ -657,21 +657,21 @@ class ContextualSearchEngine:
     #     similarity = self.similarity_func(string_to_match, [context])
     #     return similarity
 
-    def word_sequence_entropy(self, sequence):
-        input_ids = self.tokenizer.encode(
-            sequence, return_tensors='pt').to(self.inference_device)
-        token_count = input_ids.size(1)
+    # def word_sequence_entropy(self, sequence):
+    #     input_ids = self.tokenizer.encode(
+    #         sequence, return_tensors='pt').to(self.inference_device)
+    #     token_count = input_ids.size(1)
 
-        output = None
-        with torch.no_grad():
-            output = self.model(input_ids, labels=input_ids)
+    #     output = None
+    #     with torch.no_grad():
+    #         output = self.model(input_ids, labels=input_ids)
 
-        if output is None:
-            return None
+    #     if output is None:
+    #         return None
 
-        log_likelihood = output[0].item()
-        normalized_score = 1 / (1 + np.exp(-log_likelihood / token_count))
-        return normalized_score
+    #     log_likelihood = output[0].item()
+    #     normalized_score = 1 / (1 + np.exp(-log_likelihood / token_count))
+    #     return normalized_score
 
     def get_string_freq(self, text):
         freq_indexes = list()

@@ -156,14 +156,17 @@ def processing_loop():
                     round(cseEndTime - cseStartTime, 2)))
 
                 #filter responses with relevance filter, then save CSE results to the database
-                cseResponsesFiltered = list()
-                if cseResponses != None:
-                    for res in cseResponses:
-                        if res != {} and res != None:
-                            if relevanceFilter.shouldRunForText(transcript['userId'], res['name']):
-                                cseResponsesFiltered.append(res)
-                    dbHandler.addCseResultsForUser(
-                        transcript['userId'], cseResponsesFiltered)
+                cse_responses_filtered = list()
+
+                if cseResponses:
+                    cse_responses_filtered = relevanceFilter.should_display_result_based_on_context(
+                        transcript["userId"], cseResponses, transcript["text"]
+                    )
+
+                # dbHandler.addCseResultsForUser(
+                #     transcript["userId"], cse_responses_filtered
+                # )
+
         except Exception as e:
             cseResponses = None
             print("Exception in CSE...:")
