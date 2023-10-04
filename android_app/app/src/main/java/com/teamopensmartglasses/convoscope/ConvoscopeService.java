@@ -9,6 +9,7 @@ import android.util.Log;
 import com.teamopensmartglasses.convoscope.events.SharingContactChangedEvent;
 import com.teamopensmartglasses.convoscope.convoscopebackend.BackendServerComms;
 import com.teamopensmartglasses.convoscope.convoscopebackend.VolleyJsonCallback;
+import com.teamopensmartglasses.convoscope.events.UserIdChangedEvent;
 import com.teamopensmartglasses.sgmlib.DataStreamType;
 import com.teamopensmartglasses.sgmlib.FocusStates;
 import com.teamopensmartglasses.sgmlib.SGMCommand;
@@ -41,7 +42,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     ArrayList<String> responsesToShare;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnableCode;
-    static final String userId = "Convoscope_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
+    static String userId = "Convoscope_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
     static final String deviceId = "android";
     static final String features = "contextual_search_engine";
 
@@ -155,6 +156,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void sendLatestCSEResultViaSms(){
+        if (phoneNum == "") return;
+
         if (responses.size() > 1) {
             //Send latest CSE result via sms;
             String messageToSend = responsesToShare.get(responsesToShare.size() - 1);
@@ -360,5 +363,21 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         String newNum = receivedEvent.phoneNumber;
         phoneNumName = receivedEvent.name;
         phoneNum = newNum.replaceAll("[^0-9]", "");
+    }
+
+    @Subscribe
+    public void onUserIdChangedEvent(UserIdChangedEvent receivedEvent){
+        Log.d(TAG, "GOT NEW USERID: " + receivedEvent.userId);
+        setUserId(receivedEvent.userId);
+    }
+
+    public void setUserId(String newUserId){
+        // TODO: Save userId to sharedprefs
+        userId = newUserId;
+    }
+
+    public String loadUserId(){
+        // TODO: Load userId from sharedprefs
+        return userId;
     }
 }

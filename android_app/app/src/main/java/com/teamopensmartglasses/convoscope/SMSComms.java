@@ -29,6 +29,8 @@ public class SMSComms {
         //Put in Runnable to avoid being run by SGMLib (has no SMS perms)
         class SmsLinker implements Runnable {
             public void run() {
+                if (phoneNumber == "") return;
+
                 //send a text message
                 Log.d(TAG, "Sending SMS");
                 Log.d(TAG, "-- number: " + phoneNumber);
