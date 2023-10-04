@@ -15,6 +15,7 @@ class DatabaseHandler:
         self.userCollection = None
         self.cacheCollection = None
         self.ready = False
+        self.backslide = 4
         self.intermediateTranscriptValidityTime = 0  # .3 # 300 ms in seconds
         self.transcriptExpirationTime = 600  # 10 minutes in seconds
         self.parentHandler = parentHandler
@@ -164,7 +165,7 @@ class DatabaseHandler:
             print()
             # Get the transcript with ID `cseConsumedTranscriptId`, get the last part of it (anything after `cseConsumedTranscriptIdx`)
             first_transcript = None
-            for t in user['final_transcripts']:
+            for index, t in enumerate(user['final_transcripts']):
                 # Get the first unconsumed final
                 if t['uuid'] == user['cseConsumedTranscriptId']:
                     first_transcript = t
@@ -173,7 +174,15 @@ class DatabaseHandler:
                     # ensure startIndex points to the beginning of a word
                     startIndex = self.findClosestStartWordIndex(first_transcript['text'], startIndex)
 
-                    first_transcript['text'] = first_transcript['text'][startIndex:]
+                    # backslide
+                    most_recent_final_text = user['final_transcripts'][index - 1]['text'] if index > 0 else ""
+                    previous_text_to_backslide = most_recent_final_text + " " + first_transcript['text'][:startIndex]
+                    backslide_word_list = previous_text_to_backslide.strip().split()
+                    backslide_words = ' '.join(backslide_word_list[-(self.backslide-len(backslide_word_list)):])
+
+                    words_from_start = first_transcript['text'][startIndex:].strip()
+                    first_transcript['text'] = backslide_words + " " + words_from_start
+
                     if first_transcript['text'] != "":
                         unconsumed_transcripts.append(first_transcript)
                     continue
@@ -199,7 +208,14 @@ class DatabaseHandler:
 
             # Make sure protect against if intermediate transcript gets smaller
             if (len(t['text']) - 1) > startIndex:
-                t['text'] = t['text'][startIndex:]
+                # backslide
+                most_recent_final_text = user['final_transcripts'][-1]['text'] if len(user['final_transcripts']) > 0 else ""
+                previous_text_to_backslide = most_recent_final_text + " " + t['text'][:startIndex]
+                backslide_word_list = previous_text_to_backslide.strip().split()
+                backslide_words = ' '.join(backslide_word_list[-(self.backslide-len(backslide_word_list)):])
+
+                words_from_start = t['text'][startIndex:].strip()
+                t['text'] = backslide_words + " " + words_from_start
                 unconsumed_transcripts.append(t)
             indexOffset = startIndex
 
