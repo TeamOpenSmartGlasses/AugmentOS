@@ -124,7 +124,7 @@ export default function App() {
         if (res.data.success) {
           const newEntities = res.data.result as any[];
           const newInsights = res.data.result_agent_insights as any[];
-          if (newEntities.length === 0 || newInsights.length === 0) return;
+          if (newEntities.length === 0 && newInsights.length === 0) return;
 
           setEntities((entities) => [
             ...entities,
