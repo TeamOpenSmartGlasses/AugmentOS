@@ -113,5 +113,5 @@ class Summarizer:
             
             return response
 
-    def summarize_description_with_bert(self, description):
-        return self.model(description, num_sentences=3)
+    def summarize_description_with_bert(self, description, num_sentences=3):
+        return self.model(description, num_sentences=num_sentences)

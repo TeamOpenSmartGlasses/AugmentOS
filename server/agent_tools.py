@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import requests
 from server_config import serper_api_key
 import os
+from Modules.Summarizer import Summarizer
 
 banned_sites = ["calendar.google.com", "researchgate.net"]
 
@@ -28,18 +29,10 @@ def scrape_page(url: str, title: str):
 
             soup = BeautifulSoup(response.content, 'html.parser')
             text = " ".join([t.get_text() for t in soup.find_all(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'])])
-            return {
-                'url': url,
-                'description': text.replace('|',''),
-                'title': title.replace('|','')
-            }
+            return text.replace('|','')
         except requests.RequestException as e:
             print(f"Failed to fetch {url}. Error: {e}")
-            return {
-                'url': url,
-                'description': None,
-                'title': title.replace('|','')
-            }
+            return None
         
 # custom search tool, we copied the serper integration on langchain but we prefer all the data to be displayed in one json message
 
@@ -48,6 +41,7 @@ gl: str = "us"
 hl: str = "en"
 tbs = None
 search_type: Literal["news", "search", "places", "images"] = "search"
+summarizer = Summarizer(None)
 
 def serper_search(
         search_term: str, search_type: str = "search", **kwargs: Any
@@ -98,12 +92,9 @@ def parse_snippets(results: dict) -> List[str]:
 
     for result in results[result_key_for_type[search_type]][:k]:
         if "snippet" in result:
-            snippets.append(str(result))
-            # snippets.append(scrape_page(result["link"], result["title"]))
-        # for attribute, value in result.get("attributes", {}).items():
-        #     snippets.append(f"{attribute}: {value}.")
-
-        # print(result)
+            snippet = scrape_page(result["link"], result["title"])
+            snippet = summarizer.summarize_description_with_bert(snippet, 20)
+            snippets.append(result["title"] + "\n" + snippet)
 
     if len(snippets) == 0:
         return ["No good Google Search Result was found"]
