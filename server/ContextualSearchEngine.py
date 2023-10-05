@@ -389,7 +389,7 @@ class ContextualSearchEngine:
             print(f"-- Empty embeddings only loaded for {user_id}...")
 
     def contextual_search_engine(self, user_id, talk):
-        if talk == "":
+        if talk.strip() == "":
             return
 
         if not self.does_user_have_custom_data_loaded(user_id):
@@ -402,16 +402,22 @@ class ContextualSearchEngine:
         entities_custom = self.ner_custom_data(user_id, talk)
         #print("ENTITIES_CUSTOM: ")
         #print(entities_custom)
-
+ 
         #run semantic search
-        entities_semantic_custom = self.semantic_search_custom_data(talk, user_id)
+        context = self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
+            user_id, 60
+        )
+        print("CONTEXT: ", context)
+        context_summary = self.summarizer.summarize_description_with_bert(context)
+        print("CONTEXT SUMMARY: ", context_summary)
+        entities_semantic_custom = self.semantic_search_custom_data(context_summary, user_id)
         #print("SEMANTIC ENTITIES_CUSTOM: ")
         #print(entities_semantic_custom)
 
         # find rare words (including acronyms) and define them
-        #context = talk + \
-        #    self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
-        #        user_id, 3)
+        context = talk + \
+            self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
+                user_id, 3)
         #rare_word_definitions = word_frequency.rare_word_define_string(
         #    talk, context)
 
@@ -494,7 +500,7 @@ class ContextualSearchEngine:
 
             # summarize entity if greater than n words long
             if (description != None) and (description != None) and (len(description.split(" ")) > 14):
-                summary = self.summarizer.summarize_entity(description)
+                summary = self.summarizer.summarize_entity(description, context=context)
             elif description != None:
                 summary = description
             else:
