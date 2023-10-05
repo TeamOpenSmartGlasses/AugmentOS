@@ -409,9 +409,9 @@ class ContextualSearchEngine:
         #print(entities_semantic_custom)
 
         # find rare words (including acronyms) and define them
-        #context = talk + \
-        #    self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
-        #        user_id, 3)
+        context = talk + \
+            self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(
+                user_id, 3)
         #rare_word_definitions = word_frequency.rare_word_define_string(
         #    talk, context)
 
@@ -494,7 +494,7 @@ class ContextualSearchEngine:
 
             # summarize entity if greater than n words long
             if (description != None) and (description != None) and (len(description.split(" ")) > 14):
-                summary = self.summarizer.summarize_entity(description)
+                summary = self.summarizer.summarize_entity(description, context=context)
             elif description != None:
                 summary = description
             else:
