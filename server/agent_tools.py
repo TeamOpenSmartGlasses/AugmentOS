@@ -93,7 +93,8 @@ def parse_snippets(results: dict) -> List[str]:
     for result in results[result_key_for_type[search_type]][:k]:
         if "snippet" in result:
             snippet = scrape_page(result["link"], result["title"])
-            snippet = summarizer.summarize_description_with_bert(snippet, 20)
+            if snippet is not None:
+                snippet = summarizer.summarize_description_with_bert(snippet, 10)
             snippets.append(result["title"] + "\n" + snippet)
 
     if len(snippets) == 0:
