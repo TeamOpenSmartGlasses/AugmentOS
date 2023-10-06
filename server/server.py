@@ -248,7 +248,7 @@ async def upload_user_data(request):
         try:
             df = pd.read_csv(user_file.file)
         except Exception:
-            return web.Response(text="Bad data format", status=400)
+            return web.Response(text="Could not read CSV", status=400)
 
         if not cse.is_custom_data_valid(df):
             return web.Response(text="Bad data format", status=400)
