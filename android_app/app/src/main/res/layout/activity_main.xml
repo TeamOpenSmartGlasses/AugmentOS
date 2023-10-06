@@ -56,53 +56,66 @@
       app:layout_constraintWidth_default="percent"
       app:layout_constraintWidth_percent="0.403">
 
-    <Button
-        android:id="@+id/llmButton"
-        android:layout_width="119dp"
-        android:layout_height="43dp"
-        android:background="@color/blueButton"
-        android:text="LLM"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.853" />
-
-    <Button
-        android:id="@+id/pick_contact_button"
-        android:layout_width="118dp"
-        android:layout_height="56dp"
-        android:text="Contact"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/llmButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.52"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.539" />
-
     <Switch
         android:id="@+id/toggleSharingSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
         android:text="Sharing"
         app:layout_constraintBottom_toTopOf="@+id/pick_contact_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.491" />
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/llmButton"
+        android:layout_width="119dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/blueButton"
+        android:text="LLM"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/serviceToggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/pick_contact_button"
+        android:layout_width="118dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="4dp"
+        android:text="Contact"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/setUserIdButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/setUserIdButton"
         android:layout_width="117dp"
         android:layout_height="52dp"
+        android:layout_marginBottom="12dp"
         android:text="UserID"
         app:layout_constraintBottom_toTopOf="@+id/llmButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pick_contact_button" />
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Switch
+        android:id="@+id/serviceToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:checked="true"
+        android:text="Service"
+        android:textAlignment="viewStart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!--    <Button-->
 <!--        android:id="@+id/button2"-->
