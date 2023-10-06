@@ -285,7 +285,7 @@ class DatabaseHandler:
         return transcripts
     
     def getTranscriptsFromLastNSecondsForUser(self, userId, n=30):
-        allTranscripts = self.getRecentTranscriptsForUser(userId)
+        allTranscripts = self.getAllTranscriptsForUser(userId)
 
         recentTranscripts = []
         currentTime = time.time()
