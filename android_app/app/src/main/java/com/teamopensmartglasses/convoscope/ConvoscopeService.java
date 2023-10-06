@@ -1,6 +1,7 @@
 package com.teamopensmartglasses.convoscope;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
@@ -42,7 +43,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     ArrayList<String> responsesToShare;
     private Handler handler = new Handler(Looper.getMainLooper());
     private Runnable runnableCode;
-    static String userId = "Convoscope_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
+    static String userId;
     static final String deviceId = "android";
     static final String features = "contextual_search_engine";
 
@@ -92,6 +93,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         Log.d(TAG, "Convoscope SERVICE STARTED");
 
         EventBus.getDefault().register(this);
+
+        userId = getUserId();
 
         setUpCsePolling();
 
@@ -188,7 +191,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
-                        Log.d(TAG, "CALLING on Success");
+                        //Log.d(TAG, "CALLING on Success");
                         parseLLMQueryResult(result);
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
@@ -215,8 +218,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 @Override
                 public void onSuccess(JSONObject result){
                     try {
-                        Log.d(TAG, "CALLING on Success");
-                        Log.d(TAG, "Result: " + result.toString());
+                        //Log.d(TAG, "CALLING on Success");
+                        //Log.d(TAG, "Result: " + result.toString());
                         
                         parseCSEResults(result);
                     } catch (JSONException e) {
@@ -245,10 +248,12 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void parseCSEResults(JSONObject response) throws JSONException {
-        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
         JSONArray results = response.getJSONArray("result");
+        if (results.length() > 0){
+            Log.d(TAG, "GOT CSE RESULT: " + response.toString());
+        }
 
         ArrayList<String> cseResults = new ArrayList<>();
         String sharableResponse = "";
@@ -372,12 +377,24 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void setUserId(String newUserId){
-        // TODO: Save userId to sharedprefs
+        SharedPreferences sharedPreferences = getSharedPreferences(appName, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("userId", newUserId);
+        editor.apply();
+
         userId = newUserId;
     }
 
-    public String loadUserId(){
-        // TODO: Load userId from sharedprefs
-        return userId;
+    public String getUserId(){
+        SharedPreferences sharedPreferences = getSharedPreferences(appName, MODE_PRIVATE);
+        String value = sharedPreferences.getString("userId", "noUserIdFound");
+
+        if (value == "noUserIdFound"){
+            String randomUserId = "Convoscope_" + UUID.randomUUID().toString().replaceAll("_", "").substring(0, 5);
+            setUserId(randomUserId);
+            return randomUserId;
+        }
+
+        return value;
     }
 }
