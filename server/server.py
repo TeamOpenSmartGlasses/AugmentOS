@@ -295,7 +295,7 @@ if __name__ == '__main__':
     # setup and run web app
     # CORS allow from all sources
     
-    MAX_FILE_SIZE_MB = 32
+    MAX_FILE_SIZE_MB = 88
     app = web.Application(client_max_size=(1024*1024*MAX_FILE_SIZE_MB))
     app.add_routes(
         [
