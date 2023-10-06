@@ -62,11 +62,12 @@ const SettingsModal = ({
       })
       .then((res: any) => {
         if(res.status == 200){
-          alert("Custom user data uploaded successfully");
+          alert(res.data);
         }
       })
-      .catch(function (error) {
+      .catch(function (error: any) {
         console.error(error);
+        alert(error.response.data);
       });
   };
 

@@ -28,7 +28,7 @@ import pandas as pd
 
 # CORS
 import aiohttp_cors
-from aiohttp import web
+from aiohttp import web, web_exceptions
 
 from agent_insights_process import agent_insights_processing_loop
 
@@ -116,14 +116,12 @@ async def button_handler(request):
 
 
 # run tools for subscribed users in background every n ms if there is fresh data to run on
+dbHandler = DatabaseHandler(parentHandler=False)
+relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
+cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 def processing_loop():
     print("START PROCESSING LOOP")
     #lock = threading.Lock()
-
-    dbHandler = DatabaseHandler(parentHandler=False)
-    relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
-    cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
-
     #first, setup logging as this loop is a subprocess
 #    worker_logger = multiprocessing.get_logger()
 #    worker_logger.setLevel(logging.INFO)
@@ -232,7 +230,11 @@ async def return_image(request):
 
 
 async def upload_user_data(request):
-    post_data = await request.post()
+    # Check file size before doing anything else
+    try:
+        post_data = await request.post()
+    except web_exceptions.HTTPRequestEntityTooLarge:
+        return web.Response(text="File too large. Max file size: {}MB".format(MAX_FILE_SIZE_MB), status=413)
 
     user_file = post_data.get('custom-file')
     user_id = post_data.get('userId')
@@ -248,12 +250,12 @@ async def upload_user_data(request):
         except Exception:
             return web.Response(text="Bad data format", status=400)
 
-#        if not cse.is_custom_data_valid(df):
-#            return web.Response(text="Bad data format", status=400)
-#
-#        cse.upload_custom_user_data(user_id, df)
+        if not cse.is_custom_data_valid(df):
+            return web.Response(text="Bad data format", status=400)
 
-        return web.Response(text="Data processed successfully", status=200)
+        cse.upload_custom_user_data(user_id, df)
+
+        return web.Response(text="Custom data uploaded successfully", status=200)
     else:
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
@@ -292,7 +294,9 @@ if __name__ == '__main__':
     #server_process.start()
     # setup and run web app
     # CORS allow from all sources
-    app = web.Application(client_max_size=1000000 * 32)
+    
+    MAX_FILE_SIZE_MB = 32
+    app = web.Application(client_max_size=(1024*1024*MAX_FILE_SIZE_MB))
     app.add_routes(
         [
             web.post('/chat', chat_handler),
