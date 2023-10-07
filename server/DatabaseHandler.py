@@ -91,7 +91,7 @@ class DatabaseHandler:
                  "latest_intermediate_transcript": self.emptyTranscript,
                  "final_transcripts": [],
                  "cseConsumedTranscriptId": -1,
-                 "cseConsumedTranscriptIdx": 0, # 0
+                 "cseConsumedTranscriptIdx": 0,
                  "transcripts": [], 
                  "cseResults": [], 
                  "uiList": [],
@@ -171,7 +171,6 @@ class DatabaseHandler:
         unconsumed_transcripts = []
 
         if user['cseConsumedTranscriptId'] != -1:
-            print()
             # Get the transcript with ID `cseConsumedTranscriptId`, get the last part of it (anything after `cseConsumedTranscriptIdx`)
             first_transcript = None
             for index, t in enumerate(user['final_transcripts']):
@@ -208,6 +207,16 @@ class DatabaseHandler:
                     user['latest_intermediate_transcript'])
             indexOffset = 0
         else:
+            #if the latest intermediate is old/stale, then the frontend client stops streaming transcripts before giving us a final, so make it final and drop it
+            stale_intermediate_time = 10
+            if (user['latest_intermediate_transcript']['timestamp'] != -1) and ((time.time() - user['latest_intermediate_transcript']['timestamp']) > stale_intermediate_time):
+                print("~~~~~~~~~~~~~~ Killing stale intermediate transcript")
+                filter = {"userId": userId}
+                # Set `latest_intermediate_transcript` to empty string and timestamp -1
+                update = {
+                    "$set": {"latest_intermediate_transcript": self.emptyTranscript}}
+                self.userCollection.update_one(filter=filter, update=update)
+
             # Get part `latest_intermediate_transcript` after `cseConsumedTranscriptIdx` index
             startIndex = user['cseConsumedTranscriptIdx']
             t = user['latest_intermediate_transcript']

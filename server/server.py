@@ -116,9 +116,6 @@ async def button_handler(request):
 
 
 # run tools for subscribed users in background every n ms if there is fresh data to run on
-dbHandler = DatabaseHandler(parentHandler=False)
-relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
-cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 def processing_loop():
     print("START PROCESSING LOOP")
     #lock = threading.Lock()
@@ -129,6 +126,10 @@ def processing_loop():
 #    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 #    handler.setFormatter(formatter)
 #    worker_logger.addHandler(handler)
+
+    dbHandler = DatabaseHandler(parentHandler=False)
+    relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
+    cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
     
     #then run the main loop
     while True:
@@ -250,10 +251,10 @@ async def upload_user_data(request):
         except Exception:
             return web.Response(text="Could not read CSV", status=400)
 
-        if not cse.is_custom_data_valid(df):
-            return web.Response(text="Bad data format", status=400)
-
-        cse.upload_custom_user_data(user_id, df)
+        #if not cse.is_custom_data_valid(df):
+            #return web.Response(text="Bad data format", status=400)
+#
+        #cse.upload_custom_user_data(user_id, df)
 
         return web.Response(text="Custom data uploaded successfully", status=200)
     else:
