@@ -2,44 +2,32 @@ from aiohttp import web
 from aiohttp.web_response import Response
 from pathlib import Path
 import json
-import os
-from langchain.chat_models import ChatOpenAI
-from langchain import PromptTemplate
-from langchain.chains import RetrievalQA, LLMChain
-from langchain.agents import initialize_agent, Tool, AgentType
-from langchain.output_parsers import PydanticOutputParser
-import tiktoken
-from datetime import datetime
-from ContextualSearchEngine import ContextualSearchEngine
 import time
-import threading
-from DatabaseHandler import DatabaseHandler
-from Modules.RelevanceFilter import RelevanceFilter
-from server_config import server_port
 import traceback
-from constants import USE_GPU_FOR_INFERENCING
+import pandas as pd
 
 # multiprocessing
 import multiprocessing
 import logging
 import logging.handlers
 
-import pandas as pd
-
 # CORS
 import aiohttp_cors
 from aiohttp import web
 
+#Convoscope
+from server_config import server_port
+from constants import USE_GPU_FOR_INFERENCING, IMAGE_PATH
+from ContextualSearchEngine import ContextualSearchEngine
+from DatabaseHandler import DatabaseHandler
 from agent_insights_process import agent_insights_processing_loop
+from Modules.RelevanceFilter import RelevanceFilter
 
 global dbHandler
 global relevanceFilter
 global app
-imagePath = "images/cse"
 
-mostRecentIntermediateTranscript = dict()
-intermediateMaxRate = 0 #.2 # Only take intermediates every n seconds
-
+#handle new transcripts coming in
 async def chat_handler(request):
     startTime = time.time()
 
@@ -57,35 +45,24 @@ async def chat_handler(request):
     if userId is None or userId == '':
         return web.Response(text='no userId in request', status=400)
 
-    # Save to database
-    # & Debounce intermediate transcripts by only
-    # accepting them every 200ms max
-    if userId not in mostRecentIntermediateTranscript:
-        mostRecentIntermediateTranscript[userId] = 0
-
-    if isFinal or (timestamp - mostRecentIntermediateTranscript[userId] > intermediateMaxRate):
-        #print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
-        #    "FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
-        if isFinal:
-            print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, userId))
-        if not isFinal:
-            mostRecentIntermediateTranscript[userId] = timestamp
-        startSaveDbTime = time.time()
-        dbHandler.saveTranscriptForUser(
-            userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
-        endSaveDbTime = time.time()
-        #print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
-        #    round(endSaveDbTime - startSaveDbTime, 2)))
-    else:
-        #print("DEBOUNCING TRANSCRIPT")
-        response = ''
+    #print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
+    #    "FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
+    if isFinal:
+        print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, userId))
+    startSaveDbTime = time.time()
+    dbHandler.saveTranscriptForUser(
+        userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
+    endSaveDbTime = time.time()
+    #print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
+    #    round(endSaveDbTime - startSaveDbTime, 2)))
 
     endTime = time.time()
     #print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
     #    round(endTime - startTime, 2)))
-    return web.Response(text=json.dumps({'success': True, 'message': "Got that chat, yo"}), status=200)
+    return web.Response(text=json.dumps({'success': True, 'message': ""}), status=200)
 
 
+#runs when button is pressed on frontend - right now button ring on wearable or button in TPA
 async def button_handler(request):
     body = await request.json()
     button_num = body.get('button_num')
@@ -106,39 +83,28 @@ async def button_handler(request):
         return web.Response(text='no userId in request', status=400)
 
     if button_activity:  # True if push down, false if button release
-        # save event
-        with open(f'./logs/{userId}_events.log', 'a+') as f:
-            f.write(str({'text': "BUTTON_DOWN", 'timestamp': timestamp}) + '\n')
+        print("button True")
 
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
     else:
         return web.Response(text=json.dumps({'message': "button up activity detected"}), status=200)
 
 
-# run tools for subscribed users in background every n ms if there is fresh data to run on
-def processing_loop():
+# run cse/definer tools for subscribed users in background every n ms if there is fresh data to run on
+def cse_loop():
     print("START PROCESSING LOOP")
-    #lock = threading.Lock()
 
+    #setup things we need for processing
     dbHandler = DatabaseHandler(parentHandler=False)
     relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
     cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
 
-    #first, setup logging as this loop is a subprocess
-#    worker_logger = multiprocessing.get_logger()
-#    worker_logger.setLevel(logging.INFO)
-#    handler = logging.handlers.QueueHandler(log_queue)
-#    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-#    handler.setFormatter(formatter)
-#    worker_logger.addHandler(handler)
-    
     #then run the main loop
     while True:
         if not dbHandler.ready:
             print("dbHandler not ready")
             time.sleep(0.1)
             continue
-        #lock.acquire()
 
         try:
             pLoopStartTime = time.time()
@@ -170,13 +136,13 @@ def processing_loop():
             print(e)
             traceback.print_exc()
         finally:
-            #lock.release()
             pLoopEndTime = time.time()
             # print("=== processing_loop completed in {} seconds overall ===".format(
             #     round(pLoopEndTime - pLoopStartTime, 2)))
         time.sleep(2.5)
 
 
+#frontends poll this to get the results from our processing of their transcripts
 async def ui_poll(request, minutes=0.5):
     # parse request
     body = await request.json()
@@ -203,7 +169,7 @@ async def ui_poll(request, minutes=0.5):
             userId=userId, deviceId=deviceId)
 
         if cseResults:
-            print("server.py =================================CSERESULT")
+            print("server.py ================================= CSERESULT")
             print(cseResults)
 
         # add CSE response
@@ -219,10 +185,10 @@ async def ui_poll(request, minutes=0.5):
     return web.Response(text=json.dumps(resp), status=200)
 
 
+#return images that we generated and gave frontends a URL for
 async def return_image(request):
     requestedImg = request.rel_url.query['img']
-    print("Got image request for image: " + requestedImg)
-    imgPath = Path(imagePath).joinpath(requestedImg)
+    imgPath = Path(IMAGE_PATH).joinpath(requestedImg)
     try:
         data = imgPath.read_bytes()
     except:
@@ -231,6 +197,7 @@ async def return_image(request):
     return Response(body=data, content_type="image/jpg")
 
 
+#frontend can upload CSVs to run custom data search on
 async def upload_user_data(request):
     post_data = await request.post()
 
@@ -258,21 +225,6 @@ async def upload_user_data(request):
         return web.Response(text="Missing user file or user ID in the received data", status=400)
 
 
-#def worker_function(log_queue):
-#    # Configure the logger within the worker function
-#    worker_logger = multiprocessing.get_logger()
-#    worker_logger.setLevel(logging.INFO)
-#    handler = logging.handlers.QueueHandler(log_queue)
-#    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-#    handler.setFormatter(formatter)
-#    worker_logger.addHandler(handler)
-#
-#    # This will log a message to the queue
-#    worker_logger.info("This is a log message from a child process")
-#    
-#    # This will print a message to the queue
-#    print("This is a print statement from a child process")
-
 if __name__ == '__main__':
     dbHandler = DatabaseHandler()
     #start proccessing loop subprocess to process data as it comes in
@@ -280,16 +232,13 @@ if __name__ == '__main__':
         multiprocessing.set_start_method('spawn')
 
     #log_queue = multiprocessing.Queue()
-    cse_process = multiprocessing.Process(target=processing_loop)
+    cse_process = multiprocessing.Process(target=cse_loop)
     cse_process.start()
 
     #start the agent process
     #agent_background_process = multiprocessing.Process(target=agent_insights_processing_loop)
     #agent_background_process.start()
 
-    #start web server subprocess
-    #server_process = multiprocessing.Process(target=start_server)
-    #server_process.start()
     # setup and run web app
     # CORS allow from all sources
     app = web.Application(client_max_size=1000000 * 32)
@@ -317,11 +266,3 @@ if __name__ == '__main__':
     #agent_background_process.join()
     cse_process.join()
 
-    # Retrieve and process logs and print statements from the queue
-#    while not log_queue.empty():
-#        record = log_queue.get()
-#        # Process log records in the main process
-#        logger = logging.getLogger(record.name)
-#        logger.handle(record)
-
-    #server_process.join()
