@@ -18,6 +18,7 @@ class DatabaseHandler:
         self.backslide = 4
         self.intermediateTranscriptValidityTime = 0  # .3 # 300 ms in seconds
         self.transcriptExpirationTime = 600  # 10 minutes in seconds
+        self.final_transcript_validity_time = 30 # 30 seconds
         self.parentHandler = parentHandler
         self.emptyTranscript = {"text": "",
                                 "timestamp": -1, "isFinal": False, "uuid": -1}
@@ -156,6 +157,14 @@ class DatabaseHandler:
         user = self.getUser(userId)
         return user['final_transcripts']
 
+    def combineTextFromTranscripts(self, transcripts, recent_transcripts_only=True):
+        curr_time = time.time()
+        text = ""
+        for t in transcripts:
+            if recent_transcripts_only and (curr_time - t['timestamp'] < self.final_transcript_validity_time):
+                text += t['text'] + " "
+        return text
+
     def getNewCseTranscriptsForUser(self, userId, deleteAfter=False):
         self.createUserIfNotExists(userId)
         user = self.getUser(userId)
@@ -175,7 +184,7 @@ class DatabaseHandler:
                     startIndex = self.findClosestStartWordIndex(first_transcript['text'], startIndex)
 
                     # backslide
-                    most_recent_final_text = user['final_transcripts'][index - 1]['text'] if index > 0 else ""
+                    most_recent_final_text = self.combineTextFromTranscripts(user['final_transcripts'][:index])
                     previous_text_to_backslide = most_recent_final_text + " " + first_transcript['text'][:startIndex]
                     backslide_word_list = previous_text_to_backslide.strip().split()
                     backslide_words = ' '.join(backslide_word_list[-(self.backslide-len(backslide_word_list)):])
@@ -209,7 +218,7 @@ class DatabaseHandler:
             # Make sure protect against if intermediate transcript gets smaller
             if (len(t['text']) - 1) > startIndex:
                 # backslide
-                most_recent_final_text = user['final_transcripts'][-1]['text'] if len(user['final_transcripts']) > 0 else ""
+                most_recent_final_text = self.combineTextFromTranscripts(user['final_transcripts'])
                 previous_text_to_backslide = most_recent_final_text + " " + t['text'][:startIndex]
                 backslide_word_list = previous_text_to_backslide.strip().split()
                 backslide_words = ' '.join(backslide_word_list[-(self.backslide-len(backslide_word_list)):])
