@@ -105,6 +105,7 @@ const SettingsModal = ({
         />
         <Button onClick={updateUsername}>Set Username</Button>
 
+        {/*
         {isCustomUser && (
           <>
             <Divider my="sm" />
@@ -126,6 +127,7 @@ const SettingsModal = ({
             )}
           </>
         )}
+        */}
       </Stack>
     </Modal>
   );
