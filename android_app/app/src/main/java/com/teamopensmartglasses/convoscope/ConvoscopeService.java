@@ -31,8 +31,6 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     public final String appName = "Convoscope";
 
     private final IBinder binder = new LocalBinder();
-    public static final String ACTION_START_FOREGROUND_SERVICE = "CONVOSCOPE_ACTION_START_FOREGROUND_SERVICE";
-    public static final String ACTION_STOP_FOREGROUND_SERVICE = "CONVOSCOPE_ACTION_STOP_FOREGROUND_SERVICE";
 
     //our instance of the SGM library
     public SGMLib sgmLib;
