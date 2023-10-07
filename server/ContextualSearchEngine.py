@@ -1,8 +1,6 @@
 from txtai.pipeline import Similarity
 import re
 import torch
-import warnings
-import base64
 import numpy as np
 import pandas as pd
 from fuzzysearch import find_near_matches
@@ -23,10 +21,15 @@ from bs4 import BeautifulSoup
 from txtai.embeddings import Embeddings
 from update_embeddings import update_embeddings
 
-#Convoscope
+# Convoscope
 from Modules.Summarizer import Summarizer
 import word_frequency
-from constants import CUSTOM_USER_DATA_PATH, USE_GPU_FOR_INFERENCING, SUMMARIZE_CUSTOM_DATA, DEFINE_RARE_WORDS, IMAGE_PATH
+from constants import (
+    CUSTOM_USER_DATA_PATH,
+    USE_GPU_FOR_INFERENCING,
+    DEFINE_RARE_WORDS,
+    IMAGE_PATH,
+)
 from server_config import google_maps_api_key
 
 # Google NLP
@@ -47,7 +50,7 @@ def first_last_concat(s):
     elif len(words) == 1:  # If the string contains only one word
         return words[0]
     else:
-        return ''
+        return ""
 
 
 def remove_html_tags(text):
@@ -57,9 +60,42 @@ def remove_html_tags(text):
 
 
 def remove_banned_words(s, banned_words):
-    s = ' '.join([word.lower()
-                 for word in s.split() if word.lower() not in banned_words])
+    s = " ".join(
+        [word.lower() for word in s.split() if word.lower() not in banned_words]
+    )
     return s
+
+
+def get_wikipedia_image_link_from_page_title(page_title, language="en"):
+    WIKI_REQUEST = (
+        "http://{}.wikipedia.org/w/api.php?action=query&prop=pageimages"
+        "&format=json&piprop=original&titles={}"
+    ).format(language, page_title)
+    response = requests.get(WIKI_REQUEST)
+    json_data = json.loads(response.text)
+    try:
+        img_url = list(json_data["query"]["pages"].values())[0]["original"]["source"]
+        max_size = 480
+        image_wikipedia_name = img_url.split("/")[-1]
+        img_url = img_url.replace("/commons/", "/commons/thumb/")
+        img_url = img_url.replace(f"/{language}/", f"/{language}/thumb/")
+        img_url = img_url + f"/{max_size}px-{image_wikipedia_name}"
+        if img_url[-3:] == "svg":
+            img_url = img_url + ".png"
+        elif img_url[-3:] == "ogv":
+            img_url = None
+    except Exception as e:
+        print(e)
+        img_url = None
+    return img_url
+
+
+def get_string_freq(text):
+    freq_indexes = list()
+    for word in text.split():
+        freq_index = word_frequency.get_word_freq_index(word)
+        freq_indexes.append(freq_index)
+    return np.mean(freq_indexes)
 
 
 class ContextualSearchEngine:
@@ -69,7 +105,7 @@ class ContextualSearchEngine:
         self.db_handler = db_handler
         self.summarizer = Summarizer(db_handler)
 
-        #load the word frequency index
+        # load the word frequency index
         word_frequency.load_word_freq_indices()
 
         self.max_window_size = 3
@@ -77,8 +113,34 @@ class ContextualSearchEngine:
         self.custom_data = dict()
         self.custom_embeddings = dict()
 
-        self.banned_words = set(stopwords.words(
-            "english") + ["mit", "MIT", "Media", "media", "yeah", "we're", "thing", "going", "hey", "that", "OK", "like", "right", "one", "I'm", "to", "pretty", "I", "think", "so", "get", "has", "have"])
+        self.banned_words = set(
+            stopwords.words("english")
+            + [
+                "mit",
+                "MIT",
+                "Media",
+                "media",
+                "yeah",
+                "we're",
+                "thing",
+                "going",
+                "hey",
+                "that",
+                "OK",
+                "like",
+                "right",
+                "one",
+                "I'm",
+                "to",
+                "pretty",
+                "I",
+                "think",
+                "so",
+                "get",
+                "has",
+                "have",
+            ]
+        )
 
         if USE_GPU_FOR_INFERENCING:
             self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -86,21 +148,27 @@ class ContextualSearchEngine:
             self.inference_device = "cpu"
 
         self.similarity_func = Similarity(
-            "valhalla/distilbart-mnli-12-1", gpu=(USE_GPU_FOR_INFERENCING))
+            "valhalla/distilbart-mnli-12-1", gpu=USE_GPU_FOR_INFERENCING
+        )
 
     def semantic_search_custom_data(self, user_id):
-        #first, get the context, and the summary of that context
-        context = self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 60)
+        # first, get the context, and the summary of that context
+        context = self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(
+            user_id, 60
+        )
         context_summary = self.summarizer.summarize_description_with_bert(context)
         query = context_summary
 
-        #run semantic search
+        # run semantic search
         print(f"@@@@@@@@@@ Semantic searching {query} for user {user_id}")
-        query_stripped = query.replace("\"", "")
-        results = self.custom_embeddings[user_id].search(f"select id, text, score, tags from txtai where similar(\"{query_stripped}\") order by score DESC", limit=10)
+        query_stripped = query.replace('"', "")
+        results = self.custom_embeddings[user_id].search(
+            f'select id, text, score, tags from txtai where similar("{query_stripped}") order by score DESC',
+            limit=10,
+        )
         filtered_results = dict()
 
-        #get best semantic search results and put them into proper data structure
+        # get the best semantic search results and put them into proper data structure
         for result in results:
             if result["score"] > 0.59:
                 title = result["id"]
@@ -109,10 +177,10 @@ class ContextualSearchEngine:
                 url = tags["url"]
                 print("Got semantic search match:")
                 print(f"-- Semantic match title: {title}")
-                #print(f"-- Semantic match desc.: {description}")
+                # print(f"-- Semantic match desc.: {description}")
                 print(f"-- Semantic match url.: {url}")
                 print("\n********")
-                res_obj = {"name" : title, "summary" : description, "url" : url}
+                res_obj = {"name": title, "summary": description, "url": url}
                 filtered_results[title] = res_obj
             else:
                 break
@@ -120,36 +188,34 @@ class ContextualSearchEngine:
         return filtered_results
 
     async def load_user_data(self, user_id):
-        user_folder_path = os.path.join('custom_data', str(user_id))
+        user_folder_path = os.path.join("custom_data", str(user_id))
 
         # List all CSV files in the user-specific folder
-        csv_files = [f for f in os.listdir(
-            user_folder_path) if f.endswith('.csv')]
+        csv_files = [f for f in os.listdir(user_folder_path) if f.endswith(".csv")]
 
         # Read each CSV into a DataFrame
-        dfs = [pd.read_csv(os.path.join(user_folder_path, csv_file))
-               for csv_file in csv_files]
+        dfs = [
+            pd.read_csv(os.path.join(user_folder_path, csv_file))
+            for csv_file in csv_files
+        ]
 
         # Concatenate all DataFrames into a single DataFrame
         concatenated_df = pd.concat(dfs, ignore_index=True)
 
         self.custom_data[user_id] = concatenated_df
 
-        #load user data embeddings
+        # load user data embeddings
         print(f"Loading embeddings for {user_id}...")
         self.custom_embeddings[user_id].load(
-            f"{user_folder_path}/custom_data_embeddings.txtai")
+            f"{user_folder_path}/custom_data_embeddings.txtai"
+        )
         print(f"-- Loaded embeddings for {user_id}...")
 
     def get_google_static_map_img(self, place, zoom=3):
         url = "https://maps.googleapis.com/maps/api/staticmap"
         responses.add(responses.GET, url, status=200)
 
-        path = StaticMapPath(
-            points=["New York City"],
-            weight=5,
-            color="red",
-        )
+        path = StaticMapPath(points=["New York City"], weight=5, color="red",)
 
         marker_1 = StaticMapMarker(locations=[place], color="red")
 
@@ -160,10 +226,10 @@ class ContextualSearchEngine:
             maptype="hybrid",
             format="jpg",
             scale=1,
-            markers=[marker_1]
+            markers=[marker_1],
         )
 
-        raw_img = b''.join(map_response)
+        raw_img = b"".join(map_response)
 
         return raw_img
 
@@ -184,8 +250,7 @@ class ContextualSearchEngine:
         # For list of supported languages:
         # https://cloud.google.com/natural-language/docs/languages
         language = "en"
-        document = {"content": text_content,
-                    "type_": type_, "language": language}
+        document = {"content": text_content, "type_": type_, "language": language}
 
         # Available values: NONE, UTF8, UTF16, UTF32
         encoding_type = language_v1.EncodingType.UTF8
@@ -197,24 +262,19 @@ class ContextualSearchEngine:
         return response.entities
 
     def lookup_mids(self, ids: Sequence[str], project_id=gcp_project_id):
-        location = 'global'      # Values: 'global'
+        location = "global"  # Values: 'global'
         # Optional: List of ISO 639-1 Codes
-        languages = ['en']
+        languages = ["en"]
 
         # Create a client
         client = ekg.EnterpriseKnowledgeGraphServiceClient()
 
         # The full resource name of the location
         # e.g. projects/{project_id}/locations/{location}
-        parent = client.common_location_path(
-            project=project_id, location=location)
+        parent = client.common_location_path(project=project_id, location=location)
 
         # Initialize request argument(s)
-        request = ekg.LookupRequest(
-            parent=parent,
-            ids=ids,
-            languages=languages,
-        )
+        request = ekg.LookupRequest(parent=parent, ids=ids, languages=languages,)
 
         # Make the request
         try:
@@ -232,8 +292,8 @@ class ContextualSearchEngine:
             # get mid and start entry - assuming we always get a mid
             mid = None
             for identifier in result.get("identifier"):
-                if identifier.get('name') == 'google_kg_mid':
-                    mid = identifier.get('value')
+                if identifier.get("name") == "google_kg_mid":
+                    mid = identifier.get("value")
                     break
 
             if mid is None:
@@ -243,36 +303,39 @@ class ContextualSearchEngine:
             res[mid]["mid"] = mid
 
             # get google cloud id
-            cloud_id = result.get('@id')
+            cloud_id = result.get("@id")
 
             # get image
-            if result.get('image'):
-                image_url = result.get('image').get('content_url')
+            if result.get("image"):
+                image_url = result.get("image").get("content_url")
                 # convert to actual image url if it's a wikipedia image
                 # if "wiki" in image_url:
                 # image_url = self.wiki_image_parser(image_url)
                 res[mid]["image_url"] = image_url
 
-            res[mid]["name"] = result.get('name')
-            res[mid]["category"] = result.get('description')
+            res[mid]["name"] = result.get("name")
+            res[mid]["category"] = result.get("description")
 
             # set our own types
-            if any(x in ['Place', 'City', 'AdministrativeArea'] for x in result.get('@type')):
+            if any(
+                x in ["Place", "City", "AdministrativeArea"]
+                for x in result.get("@type")
+            ):
                 res[mid]["type"] = "LOCATION"
             else:
-                res[mid]["type"] = result.get('@type')[0].upper()
+                res[mid]["type"] = result.get("@type")[0].upper()
 
             detailed_description = result.get("detailed_description")
             if detailed_description:
-                res[mid]["summary"] = detailed_description.get('article_body')
-                res[mid]["url"] = detailed_description.get('url')
+                res[mid]["summary"] = detailed_description.get("article_body")
+                res[mid]["url"] = detailed_description.get("url")
             else:
-                res[mid]["summary"] = result.get('description')
+                res[mid]["summary"] = result.get("description")
 
         return res
 
     def is_custom_data_valid(self, df):
-        if ('title' not in df) or ('description' not in df) or ('url' not in df):
+        if ("title" not in df) or ("description" not in df) or ("url" not in df):
             return False
         return True
 
@@ -280,15 +343,16 @@ class ContextualSearchEngine:
         user_folder_path = self.get_custom_data_folder(user_id)
 
         # Determine the next available file number
-        existing_files = [f for f in os.listdir(
-            user_folder_path) if f.startswith('data') and f.endswith('.csv')]
+        existing_files = [
+            f
+            for f in os.listdir(user_folder_path)
+            if f.startswith("data") and f.endswith(".csv")
+        ]
         existing_numbers = [int(f[4:-4]) for f in existing_files]
-        next_file_num = 1 if not existing_numbers else max(
-            existing_numbers) + 1
+        next_file_num = 1 if not existing_numbers else max(existing_numbers) + 1
 
         # Save the DataFrame with the next available file number
-        df_file_path = os.path.join(
-            user_folder_path, f'data{next_file_num}.csv')
+        df_file_path = os.path.join(user_folder_path, f"data{next_file_num}.csv")
         df.to_csv(df_file_path, index=False)
 
         print(f"Data saved to: {df_file_path}")
@@ -307,8 +371,7 @@ class ContextualSearchEngine:
         else:
             print(f"Folder '{path}' already exists.")
 
-        user_folder_path = os.path.join(
-            CUSTOM_USER_DATA_PATH, str(user_id))
+        user_folder_path = os.path.join(CUSTOM_USER_DATA_PATH, str(user_id))
 
         return user_folder_path
 
@@ -317,34 +380,40 @@ class ContextualSearchEngine:
         user_folder_path = self.get_custom_data_folder(user_id)
 
         # List all CSV files in the user-specific folder
-        csv_files = [f for f in os.listdir(
-            user_folder_path) if f.endswith('.csv')]
+        csv_files = [f for f in os.listdir(user_folder_path) if f.endswith(".csv")]
         print("FOUND FILES FOR {user_id}: ")
         print(csv_files)
 
         # Read each CSV into a DataFrame
-        dfs = [pd.read_csv(os.path.join(user_folder_path, csv_file))
-               for csv_file in csv_files]
+        dfs = [
+            pd.read_csv(os.path.join(user_folder_path, csv_file))
+            for csv_file in csv_files
+        ]
 
         # Concatenate all DataFrames into a single DataFrame
         if dfs:
             concatenated_df = pd.concat(dfs, ignore_index=True)
 
-            concatenated_df = concatenated_df.dropna(subset=['title'])
+            concatenated_df = concatenated_df.dropna(subset=["title"])
 
             self.custom_data[user_id] = concatenated_df
         else:
             self.custom_data[user_id] = dict()
 
-        print("SETUP CUSTOM DATA FOR USER {}, CUSTOM DATA FRAME IS BELOW:".format(user_id))
+        print(
+            "SETUP CUSTOM DATA FOR USER {}, CUSTOM DATA FRAME IS BELOW:".format(user_id)
+        )
         print(self.custom_data[user_id])
 
-        #setup custom embeddings for user
-        custom_embeddings_path = f"{self.user_custom_data_path}/{user_id}/custom_data_embeddings.txtai"
+        # setup custom embeddings for user
+        custom_embeddings_path = (
+            f"{self.user_custom_data_path}/{user_id}/custom_data_embeddings.txtai"
+        )
         print(f"Loading embeddings for {user_id}...")
         self.custom_embeddings[user_id] = Embeddings(
-            {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
-        if (os.path.exists(custom_embeddings_path)):
+            {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True}
+        )
+        if os.path.exists(custom_embeddings_path):
             self.custom_embeddings[user_id].load(custom_embeddings_path)
             print(f"-- Populated embeddings loaded for {user_id}...")
         else:
@@ -362,13 +431,18 @@ class ContextualSearchEngine:
 
         # find mentions of custom data entities
         entities_custom = self.fuzzy_search_on_user_custom_data(user_id, talk)
- 
-        #run semantic search
+
+        # run semantic search
         entities_semantic_custom = self.semantic_search_custom_data(user_id)
 
         # find rare words (including acronyms) and define them
-        context = talk + self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 3)
-        
+        context = (
+            talk
+            + self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(
+                user_id, 3
+            )
+        )
+
         # get entities
         entities_raw = self.analyze_entities(talk)
 
@@ -376,7 +450,7 @@ class ContextualSearchEngine:
         entities = list()
         metadata_keys_we_want = ["mid", "wikipedia_url"]
         for entity in entities_raw:
-            # if the entitiy had a knowledge graph ID or wikipedia entry, then we want it
+            # if the entity had a knowledge graph ID or wikipedia entry, then we want it
             for metadata_name, metadata_value in entity.metadata.items():
                 if metadata_name in metadata_keys_we_want:
                     entities.append(entity)
@@ -386,7 +460,8 @@ class ContextualSearchEngine:
                 entities.append(entity)
                 break
 
-        # if entities have `mid`s, then lookup the entities with google knowledge graph, get all mid's first, as batch mid search is faster
+        # if entities have `mid`s, then lookup the entities with Google knowledge
+        # graph, get all mids first, as batch mid-search is faster
         mids = list()
         for entity in entities:
             metadata = entity.metadata
@@ -407,29 +482,33 @@ class ContextualSearchEngine:
 
                 if not Path(map_image_path).is_file():
                     static_map_img_raw = self.get_google_static_map_img(
-                        place=entity["name"], zoom=zoom)
-                    static_map_img_pil = Image.open(
-                        BytesIO(static_map_img_raw))
+                        place=entity["name"], zoom=zoom
+                    )
+                    static_map_img_pil = Image.open(BytesIO(static_map_img_raw))
                     static_map_img_pil.save(map_image_path)
 
-                entity_search_results[entity_mid]["map_image_path"] = "/api/{}image?img={}".format(
-                    path_modifier, map_image_name)
+                entity_search_results[entity_mid][
+                    "map_image_path"
+                ] = "/api/{}image?img={}".format(path_modifier, map_image_name)
 
         # build response object from various processing sources
         response = dict()
 
-        # get rare word def's
+        # get rare word definitions
         if DEFINE_RARE_WORDS:
-            #find the rare words and their definitions
-            rare_word_definitions = word_frequency.rare_word_define_string(talk, context)
-            #summarize the definitions by cutting them short
+            # find the rare words and their definitions
+            rare_word_definitions = word_frequency.rare_word_define_string(
+                talk, context
+            )
+            # summarize the definitions by cutting them short
             summary_len = 180
+
             for word_def in rare_word_definitions:
                 word = list(word_def.keys())[0]
                 definition = list(word_def.values())[0]
                 response[word] = dict()
                 # limit size of summary
-                summary = definition[0:min(summary_len, len(definition))] + "..."
+                summary = definition[0 : min(summary_len, len(definition))] + "..."
                 response[word]["summary"] = summary
                 response[word]["type"] = "RARE_WORD"
                 response[word]["name"] = word
@@ -449,9 +528,13 @@ class ContextualSearchEngine:
             description = response[entity_name]["summary"]
 
             # summarize entity if greater than n words long
-            if (description != None) and (description != None) and (len(description.split(" ")) > 14):
+            if (
+                (description is not None)
+                and (description is not None)
+                and (len(description.split(" ")) > 14)
+            ):
                 summary = self.summarizer.summarize_entity(description, context=context)
-            elif description != None:
+            elif description is not None:
                 summary = description
             else:
                 summary = "..."
@@ -466,8 +549,8 @@ class ContextualSearchEngine:
         # add timestamp and id to each response
         for i in response:
             print(i)
-            response[i]['timestamp'] = math.trunc(time.time())
-            response[i]['uuid'] = str(uuid.uuid4())
+            response[i]["timestamp"] = math.trunc(time.time())
+            response[i]["uuid"] = str(uuid.uuid4())
 
         # format response into list of individual items
         responses = []
@@ -475,28 +558,6 @@ class ContextualSearchEngine:
             responses.append(value)
 
         return responses
-
-    def get_wikipedia_image_link_from_page_title(self, page_title, language="en"):
-        WIKI_REQUEST = 'http://{}.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles={}'.format(
-            language, page_title)
-        response = requests.get(WIKI_REQUEST)
-        json_data = json.loads(response.text)
-        try:
-            img_url = list(json_data['query']['pages'].values())[
-                0]['original']['source']
-            max_size = 480
-            image_wikipedia_name = img_url.split("/")[-1]
-            img_url = img_url.replace("/commons/", "/commons/thumb/")
-            img_url = img_url.replace(f"/{language}/", f"/{language}/thumb/")
-            img_url = img_url + f"/{max_size}px-{image_wikipedia_name}"
-            if img_url[-3:] == "svg":
-                img_url = img_url + ".png"
-            elif img_url[-3:] == "ogv":
-                img_url = None
-        except Exception as e:
-            print(e)
-            img_url = None
-        return img_url
 
     def does_user_have_custom_data_loaded(self, user_id):
         if user_id not in self.custom_data:
@@ -511,10 +572,10 @@ class ContextualSearchEngine:
         if not self.does_user_have_custom_data_loaded(user_id):
             return {}
 
-        #split the text to seach with into individual words
+        # split the text to each with into individual words
         words = talk.split()
 
-        #setup some parameters for the fuzzy search
+        # setup some parameters for the fuzzy search
         config = {
             "entity_column_name": "title",
             "entity_column_name_filtered": "title",
@@ -531,29 +592,44 @@ class ContextualSearchEngine:
         titles = self.custom_data[user_id][config["entity_column_name"]].tolist()
 
         # get descriptions
-        descriptions = self.custom_data[user_id][config["entity_column_description"]].tolist()
+        descriptions = self.custom_data[user_id][
+            config["entity_column_description"]
+        ].tolist()
 
         # get entity names to match
-        entity_names_to_match_filtered = self.custom_data[user_id][config['entity_column_name_filtered']].tolist()
+        entity_names_to_match_filtered = self.custom_data[user_id][
+            config["entity_column_name_filtered"]
+        ].tolist()
 
         # get URLs, if they exist
-        urls = self.custom_data[user_id]['url'].tolist() if ('url' in self.custom_data[user_id]) else None
+        urls = (
+            self.custom_data[user_id]["url"].tolist()
+            if ("url" in self.custom_data[user_id])
+            else None
+        )
 
-        #get image urls
-        image_urls = self.custom_data[user_id][config['entity_column_images']].tolist() if ('image_url' in self.custom_data[user_id]) else None
+        # get image urls
+        image_urls = (
+            self.custom_data[user_id][config["entity_column_images"]].tolist()
+            if ("image_url" in self.custom_data[user_id])
+            else None
+        )
 
         # run brute force NER on transcript using custom data
         word_combos = self.find_combinations(words, self.max_window_size)
 
-        #run combinations through the fuzzy search
+        # run combinations through the fuzzy search
         matches_idxs = list()
         for combination in word_combos:
             ctime = time.time()
             curr_matches = self.custom_fuzzy_search(
-                combination,
-                list(enumerate(entity_names_to_match_filtered)),
-                config)
-            print("custom_fuzzy_search ran in {} on combo '{}'".format(time.time() - ctime, combination))
+                combination, list(enumerate(entity_names_to_match_filtered)), config
+            )
+            print(
+                "custom_fuzzy_search ran in {} on combo '{}'".format(
+                    time.time() - ctime, combination
+                )
+            )
             matches_idxs.extend(curr_matches)
 
         # build response object
@@ -561,7 +637,9 @@ class ContextualSearchEngine:
         for mi in matches_idxs:
             matches[titles[mi]] = dict()
             matches[titles[mi]]["name"] = titles[mi]
-            matches[titles[mi]]["summary"] = descriptions[mi] if descriptions[mi] is not np.nan else None
+            matches[titles[mi]]["summary"] = (
+                descriptions[mi] if descriptions[mi] is not np.nan else None
+            )
             if image_urls is not None:
                 if image_urls[mi] is not np.nan:
                     matches[titles[mi]]["image_url"] = image_urls[mi]
@@ -579,8 +657,8 @@ class ContextualSearchEngine:
             else:
                 matches[titles[mi]]["url"] = None
 
-        #self.custom_data[user_id]
-        # this is mostly unneeded as we rarely return too many results, but this is here just in case we do return too many results
+        # self.custom_data[user_id] this is mostly unneeded as we rarely return too
+        # many results, but this is here just in case we do return too many results
         unreasonable_num = 4
 
         def remove_random_false_positives(d, max_keys):
@@ -591,13 +669,6 @@ class ContextualSearchEngine:
 
         return matches
 
-    def get_string_freq(self, text):
-        freq_indexes = list()
-        for word in text.split():
-            freq_index = word_frequency.get_word_freq_index(word)
-            freq_indexes.append(freq_index)
-        return np.mean(freq_indexes)
-
     def custom_fuzzy_search(self, to_search, entities, config):
         max_deletions = config["max_deletions"]
         max_insertions = config["max_insertions"]
@@ -605,11 +676,12 @@ class ContextualSearchEngine:
         compute_entropy = config["compute_entropy"]
         max_l_dist = config["max_l_dist"]
 
-        #before searching, check a few things to make sure the search is worth doing
-        #some combinations are super short and not worth searching because they yield false positives
+        # before searching, check a few things to make sure the search is worth doing
+        # some combinations are super short and not worth searching because they yield
+        # false positives
         if len(to_search) < 8:
             return list()
-        #only run to_searchs that don't contain too many filler words
+        # only run to_searches that don't contain too many filler words
         individual_words = to_search.split()
         num_banned = 0
         for word in individual_words:
@@ -617,13 +689,13 @@ class ContextualSearchEngine:
                 num_banned += 1
         if (num_banned / len(individual_words)) >= 0.4:
             return list()
-        #don't even try search if the to_search is too high frequency
-        to_search_string_freq_index = self.get_string_freq(to_search)
+        # don't even try search if the to_search is too high frequency
+        to_search_string_freq_index = get_string_freq(to_search)
         if to_search_string_freq_index < 0.04:
             print(f"--- Didn't search '{to_search}' because too common words")
             return list()
 
-        #helper functions for fuzzy search
+        # helper functions for fuzzy search
         def get_whole_match(match_entity, full_string):
             start_idx = match_entity.start  # inclusive
             end_idx = match_entity.end  # exclusive
@@ -653,11 +725,11 @@ class ContextualSearchEngine:
             return sum(1 for char in text if char.isupper())
 
         def pascal_to_words(pascal_str):
-            return ' '.join(re.findall(r'[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)', pascal_str))
+            return " ".join(re.findall(r"[A-Z]?[a-z]+|[A-Z]+(?=[A-Z]|$)", pascal_str))
 
         matches = list()
         for idx, entity in entities:
-            #use fuzzysearch to run first search
+            # use fuzzysearch to run first search
             searched_entity = pascal_to_words(entity).lower().replace(":", "")
             match_entities = find_near_matches(
                 to_search.lower(),
@@ -668,32 +740,44 @@ class ContextualSearchEngine:
                 max_l_dist=max_l_dist,
             )
 
-            #if we got a fuzzysearch result, run the result through a number of hand-made filters
+            # if we got a fuzzysearch result, run the result through a number of
+            # hand-made filters
             if match_entities:
                 for match_entity in match_entities:
-                    # first check if match is true by making sure what is said is similiar length to match
-                    match_len = match_entity.end - match_entity.start # get length of substring that matched
-                    whole_match = get_whole_match(match_entity, searched_entity) # get length of all the words that that substring belonged to
+                    # first check if match is true by making sure what is said is
+                    # similar length to match
+                    match_len = (
+                        match_entity.end - match_entity.start
+                    )  # get length of substring that matched
+                    whole_match = get_whole_match(
+                        match_entity, searched_entity
+                    )  # get length of all the words that that substring belonged to
                     match_distance = abs(len(whole_match) - len(to_search))
-                    if (match_distance >= 2):
-                        #print(f"--- Drop '{whole_match}' because match distance is too high") #don't print, because too common
+                    if match_distance >= 2:
+                        # print(f"--- Drop '{whole_match}' because match distance is
+                        # too high") #don't print, because too common
                         continue
 
-                    #if not a very close match, check if the matched entity is rare enough to be a real match
-                    string_freq_index = self.get_string_freq(whole_match.replace(":",""))
+                    # if not a very close match, check if the matched entity is rare
+                    # enough to be a real match
+                    string_freq_index = get_string_freq(whole_match.replace(":", ""))
                     if (match_entity.dist > 1) and (string_freq_index < 0.06):
                         print(f"--- Drop '{whole_match}' because too common words")
                         continue
 
-                    #never match on just a single word (but allow PascalCase style through as it's multiple words)
+                    # never match on just a single word (but allow PascalCase style
+                    # through as it's multiple words)
                     if not (" " in whole_match) and (count_capitals(whole_match) < 2):
                         print(f"-- Skip '{whole_match}' because single word")
                         continue
 
-                    #if our match is not the start of a word, then don't count it
+                    # if our match is not the start of a word, then don't count it
                     if match_entity.start != 0:
-                        if (searched_entity[match_entity.start - 1] != " "):
-                            print(f"-- Skip '{whole_match}' because it's not the start of a word")
+                        if searched_entity[match_entity.start - 1] != " ":
+                            print(
+                                f"-- Skip '{whole_match}' because it's not the start of "
+                                f"a word"
+                            )
                             continue
 
                     print("@@@@@@@@@@@@@@ TRUE MATCH")
@@ -716,7 +800,7 @@ class ContextualSearchEngine:
 
         for window_size in range(2, window_size + 1):
             for i in range(len(words) - window_size + 1):
-                combination = ' '.join(words[i:i + window_size])
+                combination = " ".join(words[i : i + window_size])
 
                 if combination not in combinations_set:
                     combinations_set.add(combination)

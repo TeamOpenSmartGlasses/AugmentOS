@@ -3,18 +3,26 @@ import os
 # OpenAI imports
 import openai
 from summarizer.sbert import SBertSummarizer
-from server_config import openai_api_key, use_azure_openai, azure_openai_api_key, azure_openai_api_base, azure_openai_api_deployment
+from server_config import (
+    openai_api_key,
+    use_azure_openai,
+    azure_openai_api_key,
+    azure_openai_api_base,
+    azure_openai_api_deployment,
+)
 
 openai.api_key = openai_api_key
 
-### For use with Azure OpenAI ###
+# For use with Azure OpenAI
 if use_azure_openai:
     print("$$$ USING AZURE OPENAI $$$")
     openai.api_key = azure_openai_api_key
-    openai.api_base = azure_openai_api_base # your endpoint should look like the following https://YOUR_RESOURCE_NAME.openai.azure.com/
-    openai.api_type = 'azure'
-    openai.api_version = '2023-08-01-preview' # this may change in the future
-    deployment_name = azure_openai_api_deployment # This will correspond to the custom name you chose for your deployment when you deployed a model. 
+    openai.api_base = azure_openai_api_base  # your endpoint should look like the
+    # following https://YOUR_RESOURCE_NAME.openai.azure.com/
+    openai.api_type = "azure"
+    openai.api_version = "2023-08-01-preview"  # this may change in the future
+    deployment_name = azure_openai_api_deployment  # This will correspond to the custom
+    # name you chose for your deployment when you deployed a model.
 
 og_prompt_no_context = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
@@ -71,19 +79,22 @@ Context:\n\n
 \n_summary (8 words or less): 
 """
 
-class Summarizer:
 
+class Summarizer:
     def __init__(self, database_handler):
         self.database_handler = database_handler
-        self.model = SBertSummarizer('paraphrase-MiniLM-L6-v2')
+        self.model = SBertSummarizer("paraphrase-MiniLM-L6-v2")
 
-    def summarize_entity(self, entity_description: str, context: str = "", chars_to_use=1250):
+    def summarize_entity(
+        self, entity_description: str, context: str = "", chars_to_use=1250
+    ):
         # shorten entity_description if too long
-        entity_description = entity_description[:min(
-            chars_to_use, len(entity_description))]
+        entity_description = entity_description[
+            : min(chars_to_use, len(entity_description))
+        ]
 
         # Check cache for summary first
-        cache_key = entity_description + ' c: ' + context
+        cache_key = entity_description + " c: " + context
         summary = self.database_handler.find_cached_summary(cache_key)
         if summary:
             print("$$$ SUMMARY: FOUND CACHED SUMMARY")
@@ -96,22 +107,29 @@ class Summarizer:
         return summary
 
     def summarize_entity_with_openai(self, entity_description: str, context: str = ""):
-            if context and context != "" and False: # Disable contextual summaries for now
-                prompt = og_prompt_with_context.format(entity_description, context)
-            else:
-                prompt = og_prompt_no_context.format(entity_description)
-            
-            if use_azure_openai:
-                messages = [{"role": "user", "content": prompt}]
-                chat_completion = openai.ChatCompletion.create(engine=deployment_name, messages=messages, temperature=0.5, max_tokens=20)
-                if chat_completion['choices'][0]['finish_reason'] == "content_filter":
-                    print("Microsoft content filter says hello")
-                response = chat_completion['choices'][0]['message']['content']
-            else:
-                chat_completion = openai.Completion.create(model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20)
-                response = chat_completion.choices[0].text
-            
-            return response
+        if context and context != "" and False:  # Disable contextual summaries for now
+            prompt = og_prompt_with_context.format(entity_description, context)
+        else:
+            prompt = og_prompt_no_context.format(entity_description)
+
+        if use_azure_openai:
+            messages = [{"role": "user", "content": prompt}]
+            chat_completion = openai.ChatCompletion.create(
+                engine=deployment_name,
+                messages=messages,
+                temperature=0.5,
+                max_tokens=20,
+            )
+            if chat_completion["choices"][0]["finish_reason"] == "content_filter":
+                print("Microsoft content filter says hello")
+            response = chat_completion["choices"][0]["message"]["content"]
+        else:
+            chat_completion = openai.Completion.create(
+                model="text-davinci-002", prompt=prompt, temperature=0.5, max_tokens=20
+            )
+            response = chat_completion.choices[0].text
+
+        return response
 
     def summarize_description_with_bert(self, description):
         return self.model(description, num_sentences=3)

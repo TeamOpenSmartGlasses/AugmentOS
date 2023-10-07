@@ -9,46 +9,53 @@ import json
 
 summarizer = Summarizer(None)
 
+
 # utils
 def estimate_df_line_number(df_path):
     full_size = os.path.getsize(df_path)  # get size of file
-    linecount = None
-    with open(df_path, 'rb') as f:
-        next(f)                              # skip header
+    line_count = None
+    with open(df_path, "rb") as f:
+        next(f)  # skip header
         f.readline()  # skip header of csv, as it's always different
         # get average size of 3 lines, assuming 1 byte encoding
-        line_size = (len(f.readline()) + len(f.readline()) +
-                     len(f.readline())) / 3
-        linecount = full_size // line_size + 1   # ~count of lines
-    return linecount
+        line_size = (len(f.readline()) + len(f.readline()) + len(f.readline())) / 3
+        line_count = full_size // line_size + 1  # ~count of lines
+    return line_count
 
 
 def stream(dataset):
-    global stream_index
     for idx, row in dataset.iterrows():
-        title = str(row['title'])
+        title = str(row["title"])
 
         try:
-            description = summarizer.summarize_description_with_bert(str(row['description'])) if SUMMARIZE_CUSTOM_DATA else str(
-                row['description'])
+            description = (
+                summarizer.summarize_description_with_bert(str(row["description"]))
+                if SUMMARIZE_CUSTOM_DATA
+                else str(row["description"])
+            )
         except:
-            print("Error summarizing entity: {}".format(row['title']))
-            description = str(row['description'])
+            print("Error summarizing entity: {}".format(row["title"]))
+            description = str(row["description"])
 
         print("Title: {}".format(title))
         print("-- Description: {}".format(description))
 
-        tags = json.dumps({"title" : title,
-                "description" : description,
-                "url" : str(row["url"])
-                })
+        tags = json.dumps(
+            {"title": title, "description": description, "url": str(row["url"])}
+        )
 
         text = title + ": " + description
-        yield (title, text, tags)
+        yield title, text, tags
 
 
 def semantic_search(embeddings, query):
-    return [(result["score"], result["text"], result["tags"]) for result in embeddings.search(f"select id, text, score, tags from txtai where similar('{query}')", limit=10)]
+    return [
+        (result["score"], result["text"], result["tags"])
+        for result in embeddings.search(
+            f"select id, text, score, tags from txtai where similar('{query}')",
+            limit=10,
+        )
+    ]
 
 
 def ranksearch(query):
@@ -82,7 +89,8 @@ def process(df, embeddings):
 
     # dataset = df['abstract'].tolist()
 
-    # Create embeddings model, backed by sentence-transformers & transformers, enable content storage
+    # Create embeddings model, backed by sentence-transformers & transformers,
+    # enable content storage
     print("Starting making embeddings...")
     embeddings.upsert(stream(df))
     # insert into csv
@@ -97,7 +105,7 @@ def process(df, embeddings):
 
     # queries = ["what a wonderful world", "Donald Trump", "big war in the 60s", "hippy music festival 1969", "opposite of day", "dog"]
     # for query in queries:
-    #    print("Running similiarity search.")
+    #    print("Running similarity search.")
     #    print(ranksearch(query)[:2])
 
 
@@ -107,16 +115,18 @@ def process(df, embeddings):
 # Load HF dataset
 # dataset = load_dataset("ag_news", split="train")
 
+
 def update_embeddings(df, user_id):
     print("Loading CSV...")
     # df = pd.read_csv('enwiki-20220901-pages-articles-multistream.csv', quotechar='|', index_col = False, nrows=NUMERO)
-    user_folder_path = os.path.join('custom_data', str(user_id))
+    user_folder_path = os.path.join("custom_data", str(user_id))
     # load the qrank top n csv to compare
     # qrank = pd.read_csv("qrank_top_n_pandas_hundredthousand_2.csv")
     # qrank = pd.read_csv("qrank_top_n_pandas_tenthousand_2.csv")
 
     embeddings = Embeddings(
-        {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True})
+        {"path": "sentence-transformers/paraphrase-MiniLM-L3-v2", "content": True}
+    )
     # top_wiki_name = []
 
     # chunk through the CSV so we don't load ~86Gb at once
@@ -140,9 +150,7 @@ def update_embeddings(df, user_id):
     #     if proc_finished_flag:
     #         break
 
-    populated_embeddings.save(
-        f"{user_folder_path}/custom_data_embeddings.txtai"
-    )
+    populated_embeddings.save(f"{user_folder_path}/custom_data_embeddings.txtai")
 
     return populated_embeddings
 
@@ -151,8 +159,7 @@ def update_embeddings(df, user_id):
 
 
 if __name__ == "__main__":
-    os.makedirs(os.path.join('custom_data', str(
-        sys.argv[1])), exist_ok=True)
+    os.makedirs(os.path.join("custom_data", str(sys.argv[1])), exist_ok=True)
     embeddings = update_embeddings(pd.read_csv(sys.argv[2]), sys.argv[1])
     search_results = semantic_search(embeddings, "wearable augmentation and memory")
     print(search_results)

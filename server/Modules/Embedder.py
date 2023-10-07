@@ -5,7 +5,6 @@ EMBEDDING_DIMENSIONS = [50, 100, 200, 300][0]
 
 
 class Embedder:
-
     def __init__(self, model_path):
         self.model_path = model_path
         self.embeddings_dict = {}
@@ -13,7 +12,7 @@ class Embedder:
 
     def load_all_embeddings(self):
 
-        with open(self.model_path, 'r', encoding="utf-8") as f:
+        with open(self.model_path, "r", encoding="utf-8") as f:
 
             for line in f:
                 values = line.split()
