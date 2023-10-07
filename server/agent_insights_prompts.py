@@ -1,7 +1,6 @@
 # Define the agent prompt here
 
-generate_prompt = (
-    lambda x: f"""
+generate_prompt = lambda x: f"""
 I need some help with a task, you need to imagine the following scenario. I will first provide you some custom definitions to follow, your objective in this task, how the input is structured, and the final task.
 
 <Scenario start>
@@ -54,4 +53,3 @@ In your initial thought, you should first come up with a plan to generate the "I
 <Transcript start>{x}<Transcript end>
 <Scenario end>
 """
-)
