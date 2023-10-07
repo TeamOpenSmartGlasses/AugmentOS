@@ -23,42 +23,42 @@ from DatabaseHandler import DatabaseHandler
 from agent_insights_process import agent_insights_processing_loop
 from Modules.RelevanceFilter import RelevanceFilter
 
-global dbHandler
-global relevanceFilter
+global db_handler
+global relevance_filter
 global app
 
 #handle new transcripts coming in
 async def chat_handler(request):
-    startTime = time.time()
+    start_time = time.time()
 
     body = await request.json()
-    isFinal = body.get('isFinal')
+    is_final = body.get('is_final')
     text = body.get('text')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
-    userId = body.get('userId')
+    user_id = body.get('user_id')
 
     # 400 if missing params
     if text is None or text == '':
         return web.Response(text='no text in request', status=400)
     if timestamp is None or timestamp == '':
         return web.Response(text='no timestamp in request', status=400)
-    if userId is None or userId == '':
-        return web.Response(text='no userId in request', status=400)
+    if user_id is None or user_id == '':
+        return web.Response(text='no user_id in request', status=400)
 
-    #print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
-    #    "FINAL" if isFinal else "INTERMEDIATE", text, timestamp, userId))
-    if isFinal:
-        print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, userId))
-    startSaveDbTime = time.time()
-    dbHandler.saveTranscriptForUser(
-        userId=userId, text=text, timestamp=timestamp, isFinal=isFinal)
-    endSaveDbTime = time.time()
+    print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
+        "FINAL" if is_final else "INTERMEDIATE", text, timestamp, user_id))
+    if is_final:
+        print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
+    start_save_db_time = time.time()
+    db_handler.save_transcript_for_user(
+        user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
+    end_save_db_time = time.time()
     #print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
-    #    round(endSaveDbTime - startSaveDbTime, 2)))
+    #    round(end_save_db_time - start_save_db_time, 2)))
 
-    endTime = time.time()
+    end_time = time.time()
     #print("=== CHAT_HANDLER COMPLETED IN {} SECONDS ===".format(
-    #    round(endTime - startTime, 2)))
+    #    round(end_time - start_time, 2)))
     return web.Response(text=json.dumps({'success': True, 'message': ""}), status=200)
 
 
@@ -68,9 +68,9 @@ async def button_handler(request):
     button_num = body.get('button_num')
     button_activity = body.get('button_activity')
     timestamp = body.get('timestamp')
-    userId = body.get('userId')
+    user_id = body.get('user_id')
     print('\n=== New Request ===\n', button_num,
-          button_activity, timestamp, userId)
+          button_activity, timestamp, user_id)
 
     # 400 if missing params
     if button_num is None or button_num == '':
@@ -79,8 +79,8 @@ async def button_handler(request):
         return web.Response(text='no button_activity in request', status=400)
     if timestamp is None or timestamp == '':
         return web.Response(text='no timestamp in request', status=400)
-    if userId is None or userId == '':
-        return web.Response(text='no userId in request', status=400)
+    if user_id is None or user_id == '':
+        return web.Response(text='no user_id in request', status=400)
 
     if button_activity:  # True if push down, false if button release
         print("button True")
@@ -95,50 +95,52 @@ def cse_loop():
     print("START PROCESSING LOOP")
 
     #setup things we need for processing
-    dbHandler = DatabaseHandler(parentHandler=False)
-    relevanceFilter = RelevanceFilter(databaseHandler=dbHandler)
-    cse = ContextualSearchEngine(relevanceFilter=relevanceFilter, databaseHandler=dbHandler)
+    db_handler = DatabaseHandler(parent_handler=False)
+    relevance_filter = RelevanceFilter(db_handler=db_handler)
+    cse = ContextualSearchEngine(db_handler=db_handler)
 
     #then run the main loop
     while True:
-        if not dbHandler.ready:
-            print("dbHandler not ready")
+        if not db_handler.ready:
+            print("db_handler not ready")
             time.sleep(0.1)
             continue
 
         try:
-            pLoopStartTime = time.time()
+            p_loop_start_time = time.time()
             # Check for new transcripts
-            newTranscripts = dbHandler.getNewCseTranscriptsForAllUsers(
-                combineTranscripts=True, deleteAfter=False)
-            for transcript in newTranscripts:
-                print("Run CSE with... userId: '{}' ... text: '{}'".format(
-                    transcript['userId'], transcript['text']))
-                cseStartTime = time.time()
-                cseResponses = cse.contextual_search_engine(
-                    transcript['userId'], transcript['text'])
-                cseEndTime = time.time()
+            new_transcripts = db_handler.get_new_cse_transcripts_for_all_users(
+                combine_transcripts=True, delete_after=False)
+            if new_transcripts is None or new_transcripts == []:
+                print("---------- No transcripts to run on for this cse_loop run...")
+            for transcript in new_transcripts:
+                print("Run CSE with... user_id: '{}' ... text: '{}'".format(
+                    transcript['user_id'], transcript['text']))
+                cse_start_time = time.time()
+                cse_responses = cse.contextual_search_engine(
+                    transcript['user_id'], transcript['text'])
+                cse_end_time = time.time()
                 print("=== CSE completed in {} seconds ===".format(
-                    round(cseEndTime - cseStartTime, 2)))
+                    round(cse_end_time - cse_start_time, 2)))
 
                 #filter responses with relevance filter, then save CSE results to the database
-                cseResponsesFiltered = list()
-                if cseResponses != None:
-                    for res in cseResponses:
+                cse_responses_filtered = list()
+                if cse_responses != None:
+                    for res in cse_responses:
                         if res != {} and res != None:
-                            if relevanceFilter.shouldRunForText(transcript['userId'], res['name']):
-                                cseResponsesFiltered.append(res)
-                    dbHandler.addCseResultsForUser(
-                        transcript['userId'], cseResponsesFiltered)
+                            if relevance_filter.should_run_for_text(transcript['user_id'], res['name']):
+                                cse_responses_filtered.append(res)
+                    db_handler.add_cse_results_for_user(
+                        transcript['user_id'], cse_responses_filtered)
         except Exception as e:
-            cseResponses = None
+            cse_responses = None
             print("Exception in CSE...:")
             print(e)
             traceback.print_exc()
         finally:
-            pLoopEndTime = time.time()
+            p_loop_end_time = time.time()
             # print("=== processing_loop completed in {} seconds overall ===".format(
-            #     round(pLoopEndTime - pLoopStartTime, 2)))
+            #     round(p_loop_end_time - p_loop_start_time, 2)))
         time.sleep(2.5)
 
 
@@ -146,15 +148,15 @@ def cse_loop():
 async def ui_poll(request, minutes=0.5):
     # parse request
     body = await request.json()
-    userId = body.get('userId')
-    deviceId = body.get('deviceId')
+    user_id = body.get('user_id')
+    device_id = body.get('device_id')
     features = body.get('features')
 
     # 400 if missing params
-    if userId is None or userId == '':
-        return web.Response(text='no userId in request', status=400)
-    if deviceId is None or deviceId == '':
-        return web.Response(text='no deviceId in request', status=400)
+    if user_id is None or user_id == '':
+        return web.Response(text='no user_id in request', status=400)
+    if device_id is None or device_id == '':
+        return web.Response(text='no device_id in request', status=400)
     if features is None or features == '':
         return web.Response(text='no features in request', status=400)
     if "contextual_search_engine" not in features:
@@ -165,34 +167,34 @@ async def ui_poll(request, minutes=0.5):
 
     # get CSE results
     if "contextual_search_engine" in features:
-        cseResults = dbHandler.getCseResultsForUserDevice(
-            userId=userId, deviceId=deviceId)
+        cse_results = db_handler.get_cse_results_for_user_device(
+            user_id=user_id, device_id=device_id)
 
-        if cseResults:
+        if cse_results:
             print("server.py ================================= CSERESULT")
-            print(cseResults)
+            print(cse_results)
 
         # add CSE response
-        resp["result"] = cseResults
+        resp["result"] = cse_results
 
     #get agent results
     if "agent_insights" in features:
-        agentInsightResults = dbHandler.getAgentInsightsResultsForUserDevice(userId=userId, deviceId=deviceId)
+        agent_insight_results = db_handler.get_agent_insights_results_for_user_device(user_id=user_id, device_id=device_id)
 
         #add agents insight to response
-        resp["result_agent_insights"] = agentInsightResults
+        resp["result_agent_insights"] = agent_insight_results
 
     return web.Response(text=json.dumps(resp), status=200)
 
 
 #return images that we generated and gave frontends a URL for
 async def return_image(request):
-    requestedImg = request.rel_url.query['img']
-    imgPath = Path(IMAGE_PATH).joinpath(requestedImg)
+    requested_img = request.rel_url.query['img']
+    img_path = Path(IMAGE_PATH).joinpath(requested_img)
     try:
-        data = imgPath.read_bytes()
+        data = img_path.read_bytes()
     except:
-        print("Error reading requested image: " + requestedImg)
+        print("Error reading requested image: " + requested_img)
         data = Path('images/404-2.jpg').read_bytes()
     return Response(body=data, content_type="image/jpg")
 
@@ -202,7 +204,7 @@ async def upload_user_data(request):
     post_data = await request.post()
 
     user_file = post_data.get('custom-file')
-    user_id = post_data.get('userId')
+    user_id = post_data.get('user_id')
 
     if user_file and user_id:
         # Check if the file is a CSV file by looking at its content type
@@ -226,7 +228,7 @@ async def upload_user_data(request):
 
 
 if __name__ == '__main__':
-    dbHandler = DatabaseHandler()
+    db_handler = DatabaseHandler()
     #start proccessing loop subprocess to process data as it comes in
     if USE_GPU_FOR_INFERENCING:
         multiprocessing.set_start_method('spawn')
@@ -260,6 +262,7 @@ if __name__ == '__main__':
     })
     for route in list(app.router.routes()):
         cors.add(route)
+    print("Running web server...")
     web.run_app(app, port=server_port)
 
     #let processes finish and join

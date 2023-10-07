@@ -63,12 +63,11 @@ def remove_banned_words(s, banned_words):
 
 
 class ContextualSearchEngine:
-    def __init__(self, relevanceFilter, databaseHandler):
+    def __init__(self, db_handler):
         self.client = googlemaps.Client(key=google_maps_api_key)
         self.user_custom_data_path = "./custom_data/"
-        self.relevanceFilter = relevanceFilter
-        self.databaseHandler = databaseHandler
-        self.summarizer = Summarizer(databaseHandler)
+        self.db_handler = db_handler
+        self.summarizer = Summarizer(db_handler)
 
         #load the word frequency index
         word_frequency.load_word_freq_indices()
@@ -91,7 +90,7 @@ class ContextualSearchEngine:
 
     def semantic_search_custom_data(self, user_id):
         #first, get the context, and the summary of that context
-        context = self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(user_id, 60)
+        context = self.db_handler.getTranscriptsFromLastNSecondsForUserAsString(user_id, 60)
         context_summary = self.summarizer.summarize_description_with_bert(context)
         query = context_summary
 
@@ -368,7 +367,7 @@ class ContextualSearchEngine:
         entities_semantic_custom = self.semantic_search_custom_data(user_id)
 
         # find rare words (including acronyms) and define them
-        context = talk + self.databaseHandler.getTranscriptsFromLastNSecondsForUserAsString(user_id, 3)
+        context = talk + self.db_handler.getTranscriptsFromLastNSecondsForUserAsString(user_id, 3)
         
         # get entities
         entities_raw = self.analyze_entities(talk)

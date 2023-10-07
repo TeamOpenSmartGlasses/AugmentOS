@@ -1,6 +1,6 @@
 class RelevanceFilter:
-    def __init__(self, databaseHandler):
-        self.databaseHandler = databaseHandler
+    def __init__(self, db_handler):
+        self.db_handler = db_handler
         self.banned_terms = ["LOL", "AI", "Caden Pierce", "Alex Israel"]
 
     def shouldRunForText(self, userId, text):
