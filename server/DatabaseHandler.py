@@ -414,14 +414,14 @@ class DatabaseHandler:
 
     def add_consumed_cse_result_id_for_user_device(self, user_id, device_id, consumed_result_uuid):
         filter = {"user_id": user_id, "ui_list.device_id": device_id}
-        update = {"$add_to_set": {
+        update = {"$addToSet": {
             "ui_list.$.consumed_cse_result_ids": consumed_result_uuid}}
         # "$add_to_set": {"ui_list": device_id}}
         self.user_collection.update_many(filter=filter, update=update)
 
     def add_consumed_agent_insights_result_id_for_user_device(self, user_id, device_id, consumed_result_uuid):
         filter = {"user_id": user_id, "ui_list.device_id": device_id}
-        update = {"$add_to_set": {
+        update = {"$addToSet": {
             "ui_list.$.consumed_agent_insights_result_ids": consumed_result_uuid}}
         # "$add_to_set": {"ui_list": device_id}}
         self.user_collection.update_many(filter=filter, update=update)
@@ -496,7 +496,7 @@ class DatabaseHandler:
             print("Creating device for user '{}': {}".format(user_id, device_id))
             ui_object = {"device_id": device_id, "consumed_cse_result_ids": [], "consumed_agent_insights_result_ids": []}
             filter = {"user_id": user_id}
-            update = {"$add_to_set": {"ui_list": ui_object}}
+            update = {"$addToSet": {"ui_list": ui_object}}
             self.user_collection.update_one(filter=filter, update=update)
 
 ### Function list for developers ###

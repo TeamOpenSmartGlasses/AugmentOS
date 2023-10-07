@@ -78,7 +78,7 @@ class ContextualSearchEngine:
         self.custom_embeddings = dict()
 
         self.banned_words = set(stopwords.words(
-            "english") + ["mit", "MIT", "Media", "media", "yeah", "we're", "thing", "that", "OK", "like", "right", "one", "I'm", "to", "pretty", "I", "think", "so", "get", "has", "have"])
+            "english") + ["mit", "MIT", "Media", "media", "yeah", "we're", "thing", "going", "hey", "that", "OK", "like", "right", "one", "I'm", "to", "pretty", "I", "think", "so", "get", "has", "have"])
 
         if USE_GPU_FOR_INFERENCING:
             self.inference_device = "cuda:0" if torch.cuda.is_available() else "cpu"
@@ -90,7 +90,7 @@ class ContextualSearchEngine:
 
     def semantic_search_custom_data(self, user_id):
         #first, get the context, and the summary of that context
-        context = self.db_handler.getTranscriptsFromLastNSecondsForUserAsString(user_id, 60)
+        context = self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 60)
         context_summary = self.summarizer.summarize_description_with_bert(context)
         query = context_summary
 
@@ -232,7 +232,7 @@ class ContextualSearchEngine:
             # get mid and start entry - assuming we always get a mid
             mid = None
             for identifier in result.get("identifier"):
-                if identifier.get('name') == 'googleKgMID':
+                if identifier.get('name') == 'google_kg_mid':
                     mid = identifier.get('value')
                     break
 
@@ -247,7 +247,7 @@ class ContextualSearchEngine:
 
             # get image
             if result.get('image'):
-                image_url = result.get('image').get('contentUrl')
+                image_url = result.get('image').get('content_url')
                 # convert to actual image url if it's a wikipedia image
                 # if "wiki" in image_url:
                 # image_url = self.wiki_image_parser(image_url)
@@ -262,9 +262,9 @@ class ContextualSearchEngine:
             else:
                 res[mid]["type"] = result.get('@type')[0].upper()
 
-            detailed_description = result.get("detailedDescription")
+            detailed_description = result.get("detailed_description")
             if detailed_description:
-                res[mid]["summary"] = detailed_description.get('articleBody')
+                res[mid]["summary"] = detailed_description.get('article_body')
                 res[mid]["url"] = detailed_description.get('url')
             else:
                 res[mid]["summary"] = result.get('description')
@@ -367,7 +367,7 @@ class ContextualSearchEngine:
         entities_semantic_custom = self.semantic_search_custom_data(user_id)
 
         # find rare words (including acronyms) and define them
-        context = talk + self.db_handler.getTranscriptsFromLastNSecondsForUserAsString(user_id, 3)
+        context = talk + self.db_handler.get_transcripts_from_last_nseconds_for_user_as_string(user_id, 3)
         
         # get entities
         entities_raw = self.analyze_entities(talk)
@@ -402,18 +402,18 @@ class ContextualSearchEngine:
             entity = entity_search_results[entity_mid]
             if entity["type"] == "LOCATION":
                 zoom = 3
-                mapImageName = "map_{}-{}.jpg".format(entity["name"], zoom)
-                mapImagePath = "{}/{}".format(IMAGE_PATH, mapImageName)
+                map_image_name = "map_{}-{}.jpg".format(entity["name"], zoom)
+                map_image_path = "{}/{}".format(IMAGE_PATH, map_image_name)
 
-                if not Path(mapImagePath).is_file():
+                if not Path(map_image_path).is_file():
                     static_map_img_raw = self.get_google_static_map_img(
                         place=entity["name"], zoom=zoom)
                     static_map_img_pil = Image.open(
                         BytesIO(static_map_img_raw))
-                    static_map_img_pil.save(mapImagePath)
+                    static_map_img_pil.save(map_image_path)
 
                 entity_search_results[entity_mid]["map_image_path"] = "/api/{}image?img={}".format(
-                    path_modifier, mapImageName)
+                    path_modifier, map_image_name)
 
         # build response object from various processing sources
         response = dict()
@@ -619,7 +619,7 @@ class ContextualSearchEngine:
             return list()
         #don't even try search if the to_search is too high frequency
         to_search_string_freq_index = self.get_string_freq(to_search)
-        if to_search_string_freq_index < 0.06:
+        if to_search_string_freq_index < 0.04:
             print(f"--- Didn't search '{to_search}' because too common words")
             return list()
 

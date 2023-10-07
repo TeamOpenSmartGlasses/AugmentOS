@@ -29,20 +29,24 @@ global app
 
 #handle new transcripts coming in
 async def chat_handler(request):
+    print("got chat...")
     start_time = time.time()
 
     body = await request.json()
-    is_final = body.get('is_final')
+    is_final = body.get('isFinal')
     text = body.get('text')
     timestamp = time.time() # Never use client's timestamp ### body.get('timestamp')
-    user_id = body.get('user_id')
+    user_id = body.get('userId')
 
     # 400 if missing params
     if text is None or text == '':
+        print("Text none in chat_handler, exiting with error response 400.")
         return web.Response(text='no text in request', status=400)
     if timestamp is None or timestamp == '':
+        print("Timestamp none in chat_handler, exiting with error response 400.")
         return web.Response(text='no timestamp in request', status=400)
     if user_id is None or user_id == '':
+        print("user_id none in chat_handler, exiting with error response 400.")
         return web.Response(text='no user_id in request', status=400)
 
     print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format(
@@ -50,8 +54,7 @@ async def chat_handler(request):
     if is_final:
         print('\n=== CHAT_HANDLER ===\n{}: {}, {}, {}'.format("FINAL", text, timestamp, user_id))
     start_save_db_time = time.time()
-    db_handler.save_transcript_for_user(
-        user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
+    db_handler.save_transcript_for_user(user_id=user_id, text=text, timestamp=timestamp, is_final=is_final)
     end_save_db_time = time.time()
     #print("=== CHAT_HANDLER's save DB done in {} SECONDS ===".format(
     #    round(end_save_db_time - start_save_db_time, 2)))
@@ -65,10 +68,10 @@ async def chat_handler(request):
 #runs when button is pressed on frontend - right now button ring on wearable or button in TPA
 async def button_handler(request):
     body = await request.json()
-    button_num = body.get('button_num')
-    button_activity = body.get('button_activity')
+    button_num = body.get('buttonNum')
+    button_activity = body.get('buttonActivity')
     timestamp = body.get('timestamp')
-    user_id = body.get('user_id')
+    user_id = body.get('userId')
     print('\n=== New Request ===\n', button_num,
           button_activity, timestamp, user_id)
 
@@ -148,8 +151,8 @@ def cse_loop():
 async def ui_poll(request, minutes=0.5):
     # parse request
     body = await request.json()
-    user_id = body.get('user_id')
-    device_id = body.get('device_id')
+    user_id = body.get('userId')
+    device_id = body.get('deviceId')
     features = body.get('features')
 
     # 400 if missing params
