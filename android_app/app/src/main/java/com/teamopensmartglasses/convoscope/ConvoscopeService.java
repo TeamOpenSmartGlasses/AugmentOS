@@ -72,14 +72,14 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         //make responses holder
         responses = new ArrayList<>();
         responsesToShare = new ArrayList<>();
-        responses.add("Welcome to Convoscope - ask Jarvis questions, ask what you were talking about, request summary of <n> minutes.");
+        responses.add("Welcome to Convoscope.");
 
         //Create SGMLib instance with context: this
         sgmLib = new SGMLib(this);
 
         //Define command with a UUID
         UUID commandUUID = UUID.fromString("5b824bb6-d3b3-417d-8c74-3b103efb403f");
-        SGMCommand command = new SGMCommand("Convoscope", commandUUID, new String[]{"Convoscope", "wearable intelligence"}, "AI wearable intelligence.");
+        SGMCommand command = new SGMCommand("Convoscope", commandUUID, new String[]{"convoscope", "wearable intelligence"}, "AI wearable intelligence.");
 
         //Register the command
         Log.d(TAG, "Registering Convoscope command with SGMLib");
@@ -97,6 +97,8 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         setUpCsePolling();
 
         smsComms = new SMSComms();
+
+        runConvoscope();
     }
 
     public void setUpCsePolling(){
@@ -118,16 +120,22 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         super.onDestroy();
     }
 
-    public void convoscopeStartCommandCallback(String args, long commandTriggeredTime){
-        Log.d("TAG","Convoscope start callback called");
-
+    public void runConvoscope(){
         //request to be the in focus app so we can continue to show transcripts
-        sgmLib.requestFocus(this::focusChangedCallback);
+//        sgmLib.requestFocus(this::focusChangedCallback);
+        if (focusState == FocusStates.OUT_FOCUS){
+            sgmLib.requestFocus(this::focusChangedCallback);
+        }
 
         //Subscribe to transcription stream
         sgmLib.subscribe(DataStreamType.TRANSCRIPTION_ENGLISH_STREAM, this::processTranscriptionCallback);
         sgmLib.subscribe(DataStreamType.SMART_RING_BUTTON, this::processButtonCallback);
         sgmLib.subscribe(DataStreamType.GLASSES_SIDE_TAP, this::processGlassesTapCallback);
+    }
+
+    public void convoscopeStartCommandCallback(String args, long commandTriggeredTime){
+        Log.d("TAG","Convoscope start callback called");
+        runConvoscope();
     }
 
     public void focusChangedCallback(FocusStates focusState){
@@ -169,13 +177,50 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
         }
     }
 
+    private Handler debounceHandler = new Handler(Looper.getMainLooper());
+    private Runnable debounceRunnable;
+
+//    private void debounceAndSendTranscript(String transcript, boolean isFinal){
+//        debounceHandler.removeCallbacks(debounceRunnable);
+//        if (isFinal){
+//            sendLLMQueryRequest(transcript, isFinal);
+//        } else {
+//            debounceRunnable = () -> sendLLMQueryRequest(transcript, isFinal);
+//            debounceHandler.postDelayed(debounceRunnable, 900);
+//        }
+//    }
+
+
+
     public void processTranscriptionCallback(String transcript, long timestamp, boolean isFinal){
         Log.d(TAG, "PROCESS TRANSCRIPTION CALLBACK. IS IT FINAL? " + isFinal + " " + transcript);
 
         if (isFinal)
             sendFinalTranscriptToActivity(transcript);
 
-        sendLLMQueryRequest(transcript, isFinal);
+        //debounce and then send to backend
+        debounceAndSendTranscript(transcript, isFinal);
+    }
+
+    private long lastSentTime = 0;
+    private final long DEBOUNCE_DELAY = 250; // in milliseconds
+    private void debounceAndSendTranscript(String transcript, boolean isFinal) {
+        debounceHandler.removeCallbacks(debounceRunnable);
+        long currentTime = System.currentTimeMillis();
+        if (isFinal) {
+            sendLLMQueryRequest(transcript, isFinal);
+        } else { //if intermediate
+            if (currentTime - lastSentTime >= DEBOUNCE_DELAY) {
+                sendLLMQueryRequest(transcript, isFinal);
+                lastSentTime = currentTime;
+            } else {
+                debounceRunnable = () -> {
+                    sendLLMQueryRequest(transcript, isFinal);
+                    lastSentTime = System.currentTimeMillis();
+                };
+                debounceHandler.postDelayed(debounceRunnable, DEBOUNCE_DELAY);
+            }
+        }
     }
 
     public void sendLLMQueryRequest(String query, boolean isFinal){
@@ -236,21 +281,29 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
     }
 
     public void parseLLMQueryResult(JSONObject response) throws JSONException {
-        Log.d(TAG, "Got result from server: " + response.toString());
+//        Log.d(TAG, "Got result from server: " + response.toString());
         String message = response.getString("message");
-        if (!message.equals("")) {
-            responses.add(message);
-            sendUiUpdateSingle(message);
-            speakTTS(message);
-        }
+        //DEV
+        return;
+//        if (!message.equals("")) {
+//            responses.add(message);
+//            sendUiUpdateSingle(message);
+//            speakTTS(message);
+//        }
     }
 
     public void parseCSEResults(JSONObject response) throws JSONException {
+//        Log.d(TAG, "GOT CSE RESULT: " + response.toString());
         String imgKey = "image_url";
         String mapImgKey = "map_image_path";
         JSONArray results = response.getJSONArray("result");
+
         if (results.length() > 0){
             Log.d(TAG, "GOT CSE RESULT: " + response.toString());
+        }
+
+        if (results.length() == 0){
+            return;
         }
 
         ArrayList<String> cseResults = new ArrayList<>();
@@ -267,7 +320,7 @@ public class ConvoscopeService extends SmartGlassesAndroidService {
                 sendUiUpdateSingle(combined);
                 speakTTS(combined);
 
-                cseResults.add(combined.substring(0,Math.min(90, combined.length())).trim().replaceAll("\\s+", " "));
+                cseResults.add(combined.substring(0,Math.min(72, combined.length())).trim().replaceAll("\\s+", " "));
 
 //                if(obj.has(mapImgKey)){
 //                    String mapImgPath = obj.getString(mapImgKey);

@@ -120,27 +120,27 @@ public class MainActivity extends AppCompatActivity {
     final Button changeUserIdButton = findViewById(R.id.setUserIdButton);
     changeUserIdButton.setOnClickListener(v -> showTextInputDialog(MainActivity.this));
 
-    final Button llmButton = findViewById(R.id.llmButton);
-    llmButton.setOnTouchListener(new View.OnTouchListener() {
-      @Override
-      public boolean onTouch(View v, MotionEvent event) {
-        switch (event.getAction()) {
-          case MotionEvent.ACTION_DOWN:
-            Log.d(TAG, "Button down.");
-            if (mService != null) {
-              mService.buttonDownEvent(0, false);
-            }
-            break;
-          case MotionEvent.ACTION_UP:
-            Log.d(TAG, "Button up.");
-            if (mService != null) {
-              mService.buttonDownEvent(0, true);
-            }
-            break;
-        }
-        return true;
-      }
-    });
+//    final Button llmButton = findViewById(R.id.llmButton);
+//    llmButton.setOnTouchListener(new View.OnTouchListener() {
+//      @Override
+//      public boolean onTouch(View v, MotionEvent event) {
+//        switch (event.getAction()) {
+//          case MotionEvent.ACTION_DOWN:
+//            Log.d(TAG, "Button down.");
+//            if (mService != null) {
+//              mService.buttonDownEvent(0, false);
+//            }
+//            break;
+//          case MotionEvent.ACTION_UP:
+//            Log.d(TAG, "Button up.");
+//            if (mService != null) {
+//              mService.buttonDownEvent(0, true);
+//            }
+//            break;
+//        }
+//        return true;
+//      }
+//    });
 
     Button pickContactButton = findViewById(R.id.pick_contact_button);
     pickContactButton.setOnClickListener(new View.OnClickListener() {
