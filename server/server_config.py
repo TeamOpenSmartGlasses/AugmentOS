@@ -13,12 +13,12 @@ azure_openai_api_deployment=""
 # Uncomment one of the following for prod/dev:
 #
 # Prod:
-databaseUri = "mongodb+srv://alis4887:usa@testcluster.yzrnimk.mongodb.net/?retryWrites=true&w=majority"
+database_uri = "mongodb+srv://alis4887:usa@testcluster.yzrnimk.mongodb.net/?retryWrites=true&w=majority"
 server_port = 8080
 path_modifier = ""
 
 # Dev:
-#databaseUri = "mongodb+srv://alexanderisraelov:usa@testcluster.d4mvpr8.mongodb.net/?retryWrites=true&w=majority"
+#database_uri = "mongodb+srv://alexanderisraelov:usa@testcluster.d4mvpr8.mongodb.net/?retryWrites=true&w=majority"
 #server_port = 8081
 #path_modifier = "dev/"
 
