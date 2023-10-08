@@ -127,13 +127,16 @@ def cse_loop():
 
                 #filter responses with relevance filter, then save CSE results to the database
                 cse_responses_filtered = list()
-                if cse_responses != None:
-                    for res in cse_responses:
-                        if res != {} and res != None:
-                            if relevance_filter.should_run_for_text(transcript['user_id'], res['name']):
-                                cse_responses_filtered.append(res)
-                    db_handler.add_cse_results_for_user(
-                        transcript['user_id'], cse_responses_filtered)
+
+                if cse_responses:
+                    cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
+                        transcript["userId"], cse_responses, transcript["text"]
+                    )
+
+                # dbHandler.addCseResultsForUser(
+                #     transcript["userId"], cse_responses_filtered
+                # )
+
         except Exception as e:
             cse_responses = None
             print("Exception in CSE...:")

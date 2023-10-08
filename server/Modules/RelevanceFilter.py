@@ -64,7 +64,7 @@ class RelevanceFilter:
     def should_display_result_based_on_context(self, userId, cse_outputs, context):
         valid_outputs = []
         
-        terms_defined_in_last_n_seconds = self.databaseHandler.getDefinedTermsFromLastNSecondsForUserDevice(
+        terms_defined_in_last_n_seconds = self.db_handler.getDefinedTermsFromLastNSecondsForUserDevice(
             userId, n=90
         )
 
