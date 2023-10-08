@@ -1,0 +1,3566 @@
+WEBVTT
+
+00:00.000 --> 00:03.360
+ The following is a conversation with Paola Arlotta.
+
+00:03.360 --> 00:06.380
+ She's a professor of stem cell and regenerative biology
+
+00:06.380 --> 00:09.760
+ at Harvard University and is interested in understanding
+
+00:09.760 --> 00:13.160
+ the molecular laws that govern the birth, differentiation,
+
+00:13.160 --> 00:16.600
+ and assembly of the human brain's cerebral cortex.
+
+00:16.600 --> 00:18.400
+ She explores the complexity of the brain
+
+00:18.400 --> 00:21.000
+ by studying and engineering elements
+
+00:21.000 --> 00:22.880
+ of how the brain develops.
+
+00:22.880 --> 00:25.640
+ This was a fascinating conversation to me.
+
+00:25.640 --> 00:28.560
+ It's part of the Artificial Intelligence podcast.
+
+00:28.560 --> 00:30.600
+ If you enjoy it, subscribe on YouTube,
+
+00:30.600 --> 00:33.800
+ give it five stars on iTunes, support it on Patreon,
+
+00:33.800 --> 00:35.800
+ or simply connect with me on Twitter
+
+00:35.800 --> 00:39.960
+ at Lex Friedman, spelled F R I D M A N.
+
+00:39.960 --> 00:43.120
+ And I'd like to give a special thank you to Amy Jeffress
+
+00:43.120 --> 00:45.560
+ for her support of the podcast on Patreon.
+
+00:45.560 --> 00:47.660
+ She's an artist and you should definitely check out
+
+00:47.660 --> 00:52.660
+ her Instagram at lovetruthgood, three beautiful words.
+
+00:52.760 --> 00:55.640
+ Your support means a lot and inspires me
+
+00:55.640 --> 00:57.720
+ to keep the series going.
+
+00:57.720 --> 01:01.740
+ And now here's my conversation with Paola Arlotta.
+
+01:03.120 --> 01:05.320
+ You studied the development of the human brain
+
+01:05.320 --> 01:06.720
+ for many years.
+
+01:06.720 --> 01:10.520
+ So let me ask you an out of the box question first.
+
+01:11.480 --> 01:14.600
+ How likely is it that there's intelligent life out there
+
+01:14.600 --> 01:17.160
+ in the universe outside of earth
+
+01:17.160 --> 01:19.320
+ with something like the human brain?
+
+01:19.320 --> 01:20.760
+ So I can put it another way.
+
+01:20.760 --> 01:24.320
+ How unlikely is the human brain?
+
+01:24.320 --> 01:28.320
+ How difficult is it to build a thing
+
+01:28.320 --> 01:30.360
+ through the evolutionary process?
+
+01:30.360 --> 01:32.480
+ Well, it has happened here, right?
+
+01:32.480 --> 01:33.320
+ On this planet.
+
+01:33.320 --> 01:34.160
+ Once, yes.
+
+01:34.160 --> 01:35.000
+ Once.
+
+01:36.320 --> 01:39.940
+ So that simply tells you that it could, of course,
+
+01:39.940 --> 01:42.120
+ happen again other places.
+
+01:42.120 --> 01:44.080
+ It's only a matter of probability.
+
+01:44.080 --> 01:46.560
+ What the probability that you would get a brain
+
+01:46.560 --> 01:51.200
+ like the ones that we have, like the human brain.
+
+01:51.200 --> 01:53.960
+ So how difficult is it to make the human brain?
+
+01:53.960 --> 01:57.880
+ It's pretty difficult, but most importantly,
+
+01:59.040 --> 02:00.920
+ I guess we know very little
+
+02:00.920 --> 02:04.400
+ about how this process really happens.
+
+02:04.400 --> 02:06.280
+ And there is a reason for that,
+
+02:06.280 --> 02:09.080
+ actually multiple reasons for that.
+
+02:09.080 --> 02:13.280
+ Most of what we know about how the mammalian brain,
+
+02:13.280 --> 02:17.000
+ so the brain of mammals develop comes from studying
+
+02:17.000 --> 02:20.440
+ in labs other brains, not our own brain,
+
+02:20.440 --> 02:22.520
+ the brain of mice, for example.
+
+02:22.520 --> 02:25.360
+ But if I showed you a picture of a mouse brain,
+
+02:25.360 --> 02:28.320
+ and then you put it next to a picture of a human brain,
+
+02:28.320 --> 02:31.080
+ they don't look at all like each other.
+
+02:31.080 --> 02:32.960
+ So they're very different.
+
+02:32.960 --> 02:36.200
+ And therefore there is a limit to what you can learn
+
+02:36.200 --> 02:37.880
+ about how the human brain is made
+
+02:37.880 --> 02:39.720
+ by studying the mouse brain.
+
+02:41.000 --> 02:43.240
+ There is a huge value in studying the mouse brain.
+
+02:43.240 --> 02:45.000
+ There are many things that we have learned,
+
+02:45.000 --> 02:46.520
+ but it's not the same thing.
+
+02:46.520 --> 02:49.120
+ So in having studied the human brain,
+
+02:49.120 --> 02:51.360
+ or through the mouse and through other methodologies
+
+02:51.360 --> 02:54.640
+ that we'll talk about, do you have a sense?
+
+02:54.640 --> 02:57.440
+ I mean, you're one of the experts in the world.
+
+02:57.440 --> 03:01.040
+ How much do you feel you know about the brain
+
+03:01.040 --> 03:05.280
+ and how often do you find yourself
+
+03:05.280 --> 03:07.720
+ in awe of this mysterious thing?
+
+03:07.720 --> 03:12.120
+ Yeah, you pretty much find yourself in awe all the time.
+
+03:12.120 --> 03:15.240
+ It's an amazing process.
+
+03:15.240 --> 03:17.840
+ It's a process by which,
+
+03:17.840 --> 03:20.640
+ by means that we don't fully understand,
+
+03:20.640 --> 03:23.560
+ at the very beginning of embryogenesis,
+
+03:23.560 --> 03:26.240
+ the structure called the neural tube,
+
+03:26.240 --> 03:28.720
+ literally self assembles.
+
+03:28.720 --> 03:30.360
+ And it happens in an embryo
+
+03:30.360 --> 03:33.680
+ and it can happen also from stem cells in a dish.
+
+03:33.680 --> 03:34.840
+ Okay.
+
+03:34.840 --> 03:36.840
+ And then from there,
+
+03:36.840 --> 03:39.800
+ these stem cells that are present within the neural tube
+
+03:39.800 --> 03:42.200
+ give rise to all of the thousands and thousands
+
+03:42.200 --> 03:45.040
+ of different cell types that are present in the brain
+
+03:45.040 --> 03:46.480
+ through time, right?
+
+03:46.480 --> 03:50.920
+ With the interesting, very intriguing, interesting
+
+03:50.920 --> 03:54.880
+ observation is that the time that it takes
+
+03:54.880 --> 03:58.760
+ for the human brain to be made, it's human time.
+
+03:58.760 --> 04:02.120
+ Meaning that for me and you,
+
+04:02.120 --> 04:05.240
+ it took almost nine months of gestation to build the brain
+
+04:05.240 --> 04:08.680
+ and then another 20 years of learning postnatally
+
+04:08.680 --> 04:09.960
+ to get the brain that we have today
+
+04:09.960 --> 04:12.080
+ that allows us to this conversation.
+
+04:12.080 --> 04:17.080
+ A mouse takes 20 days or so for an embryo to be born.
+
+04:19.560 --> 04:23.760
+ And so the brain is built in a much shorter period of time.
+
+04:23.760 --> 04:27.160
+ And the beauty of it is that if you take mouse stem cells
+
+04:27.160 --> 04:28.880
+ and you put them in a culture dish,
+
+04:29.840 --> 04:33.280
+ the brain organoid that you get from a mouse
+
+04:33.280 --> 04:37.600
+ is formed faster than if you took human stem cells
+
+04:37.600 --> 04:39.080
+ and put them in the dish
+
+04:39.080 --> 04:41.960
+ and let them make a human brain organoid.
+
+04:41.960 --> 04:45.520
+ So the very developmental process is...
+
+04:45.520 --> 04:48.200
+ Controlled by the speed of the species.
+
+04:49.040 --> 04:54.040
+ Which means it's on purpose, it's not accidental
+
+04:54.040 --> 04:58.320
+ or there is something in that temporal...
+
+04:58.320 --> 05:01.440
+ It's very, exactly, that is very important
+
+05:01.440 --> 05:04.000
+ for us to get the brain we have.
+
+05:04.000 --> 05:08.080
+ And we can speculate for why that is.
+
+05:08.080 --> 05:11.560
+ You know, it takes us a long time as human beings
+
+05:11.560 --> 05:14.520
+ after we're born to learn all the things
+
+05:14.520 --> 05:17.920
+ that we have to learn to have the adult brain.
+
+05:17.920 --> 05:20.120
+ It's actually 20 years, think about it.
+
+05:20.120 --> 05:23.400
+ From when a baby is born to when a teenager
+
+05:23.400 --> 05:27.160
+ goes through puberty to adults, it's a long time.
+
+05:27.160 --> 05:30.240
+ Do you think you can maybe talk through
+
+05:30.240 --> 05:35.040
+ the first few months and then on to the first 20 years
+
+05:35.040 --> 05:37.560
+ and then for the rest of their lives?
+
+05:37.560 --> 05:41.080
+ What is the development of the human brain look like?
+
+05:41.080 --> 05:42.480
+ What are the different stages?
+
+05:42.480 --> 05:46.720
+ Yeah, at the beginning, you have to build a brain, right?
+
+05:46.720 --> 05:48.840
+ And the brain is made of cells.
+
+05:48.840 --> 05:49.760
+ What's the very beginning?
+
+05:49.760 --> 05:52.000
+ Which beginning are we talking about?
+
+05:52.000 --> 05:56.000
+ In the embryo, as the embryo is developing in the womb,
+
+05:56.000 --> 05:58.520
+ in addition to making all of the other tissues
+
+05:58.520 --> 06:02.040
+ of the embryo, the muscle, the heart, the blood,
+
+06:02.040 --> 06:04.960
+ the embryo is also building the brain.
+
+06:04.960 --> 06:08.440
+ And it builds from a very simple structure
+
+06:08.440 --> 06:11.200
+ called the neural tube, which is basically nothing
+
+06:11.200 --> 06:14.760
+ but a tube of cells that spans sort of the length
+
+06:14.760 --> 06:18.480
+ of the embryo from the head all the way to the tail,
+
+06:18.480 --> 06:19.920
+ let's say, of the embryo.
+
+06:20.800 --> 06:25.520
+ And then over in human beings, over many months of gestation
+
+06:25.520 --> 06:30.280
+ from that neural tube, which contains stem cell
+
+06:30.280 --> 06:35.120
+ like cells of the brain, you will make many, many
+
+06:35.120 --> 06:36.960
+ other building blocks of the brain.
+
+06:36.960 --> 06:40.160
+ So all of the other cell types, because there are many,
+
+06:40.160 --> 06:43.040
+ many different types of cells in the brain
+
+06:43.040 --> 06:46.600
+ that will form specific structures of the brain.
+
+06:46.600 --> 06:49.760
+ So you can think about embryonic development of the brain
+
+06:49.760 --> 06:51.600
+ as just the time in which you are making
+
+06:51.600 --> 06:54.400
+ the building blocks, the cells.
+
+06:54.400 --> 06:57.600
+ Are the stem cells relatively homogeneous, like uniform,
+
+06:57.600 --> 06:59.440
+ or are they all different types?
+
+06:59.440 --> 07:00.280
+ It's a very good question.
+
+07:00.280 --> 07:01.240
+ It's exactly how it works.
+
+07:01.240 --> 07:04.160
+ You start with a more homogeneous,
+
+07:04.160 --> 07:09.160
+ perhaps more multipotent type of stem cell.
+
+07:09.160 --> 07:10.000
+ With multipotent.
+
+07:10.000 --> 07:13.520
+ With multipotent it means that it has the potential
+
+07:13.520 --> 07:17.200
+ to make many, many different types of other cells.
+
+07:17.200 --> 07:20.200
+ And then with time, these progenitors become
+
+07:20.200 --> 07:22.840
+ more heterogeneous, which means more diverse.
+
+07:22.840 --> 07:26.200
+ There are gonna be many different types of the stem cells.
+
+07:26.200 --> 07:30.080
+ And also they will give rise to progeny to other cells
+
+07:30.080 --> 07:32.880
+ that are not stem cells, that are specific cells
+
+07:32.880 --> 07:34.200
+ of the brain that are very different
+
+07:34.200 --> 07:35.880
+ from the mother stem cell.
+
+07:35.880 --> 07:38.880
+ And now you think about this process of making cells
+
+07:38.880 --> 07:41.560
+ from the stem cells over many, many months
+
+07:41.560 --> 07:43.840
+ of development for humans.
+
+07:43.840 --> 07:46.200
+ And what you're doing, you're building the cells
+
+07:46.200 --> 07:48.240
+ that physically make the brain,
+
+07:48.240 --> 07:52.440
+ and then you arrange them in specific structures
+
+07:52.440 --> 07:55.480
+ that are present in the final brain.
+
+07:55.480 --> 07:58.720
+ So you can think about the embryonic development
+
+07:58.720 --> 08:02.160
+ of the brain as the time where you're building the bricks,
+
+08:02.160 --> 08:05.560
+ you're putting the bricks together to form buildings,
+
+08:05.560 --> 08:08.160
+ structures, regions of the brain.
+
+08:08.160 --> 08:10.400
+ And where you make the connections
+
+08:10.400 --> 08:13.080
+ between these many different type of cells,
+
+08:13.080 --> 08:15.280
+ especially nerve cells, neurons, right?
+
+08:15.280 --> 08:19.280
+ That transmit action potentials and electricity.
+
+08:19.280 --> 08:21.360
+ I've heard you also say somewhere, I think,
+
+08:21.360 --> 08:22.320
+ correct me if I'm wrong,
+
+08:22.320 --> 08:25.160
+ that the order of the way this builds matters.
+
+08:25.160 --> 08:26.080
+ Oh yes.
+
+08:26.080 --> 08:29.920
+ If you are an engineer and you think about development,
+
+08:29.920 --> 08:34.920
+ you can think of it as, well, I could also take all the cells
+
+08:35.040 --> 08:38.000
+ and bring them all together into a brain in the end.
+
+08:38.000 --> 08:40.360
+ But development is much more than that.
+
+08:40.360 --> 08:43.920
+ So the cells are made in a very specific order
+
+08:43.920 --> 08:47.440
+ that subserve the final product that you need to get.
+
+08:47.440 --> 08:49.920
+ And so, for example, all of the nerve cells,
+
+08:49.920 --> 08:52.240
+ the neurons are made first,
+
+08:52.240 --> 08:54.440
+ and all of the supportive cells of the neurons,
+
+08:54.440 --> 08:56.840
+ like the glia, is made later.
+
+08:56.840 --> 08:58.440
+ And there is a reason for that
+
+08:58.440 --> 09:02.160
+ because they have to assemble together in specific ways.
+
+09:02.160 --> 09:03.400
+ But you also may say, well,
+
+09:03.400 --> 09:05.800
+ why don't we just put them all together in the end?
+
+09:05.800 --> 09:09.000
+ It's because as they develop next to each other,
+
+09:09.000 --> 09:11.360
+ they influence their own development.
+
+09:11.360 --> 09:13.280
+ So it's a different thing for a glia
+
+09:13.280 --> 09:15.480
+ to be made alone in a dish,
+
+09:15.480 --> 09:19.440
+ than a glia cell be made in a developing embryo
+
+09:19.440 --> 09:21.400
+ with all these other cells around it
+
+09:21.400 --> 09:23.760
+ that produce all these other signals.
+
+09:23.760 --> 09:25.960
+ First of all, that's mind blowing,
+
+09:25.960 --> 09:27.880
+ this development process.
+
+09:27.880 --> 09:29.800
+ From my perspective in artificial intelligence,
+
+09:29.800 --> 09:33.480
+ you often think of how incredible the final product is,
+
+09:33.480 --> 09:35.200
+ the final product, the brain.
+
+09:35.200 --> 09:38.440
+ But you're making me realize that the final product
+
+09:38.440 --> 09:42.080
+ is just, the beautiful thing
+
+09:42.080 --> 09:44.480
+ is the actual development process.
+
+09:44.480 --> 09:49.480
+ Do we know the code that drives that development?
+
+09:51.160 --> 09:52.000
+ Yeah.
+
+09:52.000 --> 09:53.880
+ Do we have any sense?
+
+09:53.880 --> 09:55.800
+ First of all, thank you for saying
+
+09:55.800 --> 09:59.320
+ that it's really the formation of the brain.
+
+09:59.320 --> 10:00.680
+ It's really its development.
+
+10:00.680 --> 10:05.120
+ It is this incredibly choreographed dance
+
+10:05.120 --> 10:07.480
+ that happens the same way every time
+
+10:07.480 --> 10:10.560
+ each one of us builds the brain, right?
+
+10:10.560 --> 10:12.680
+ And that builds an organ that allows us
+
+10:12.680 --> 10:14.920
+ to do what we're doing today, right?
+
+10:14.920 --> 10:16.360
+ That is mind blowing.
+
+10:16.360 --> 10:18.920
+ And this is why developmental neurobiologists
+
+10:18.920 --> 10:21.880
+ never get tired of studying that.
+
+10:21.880 --> 10:23.800
+ Now you're asking about the code.
+
+10:23.800 --> 10:24.880
+ What drives this?
+
+10:24.880 --> 10:26.480
+ How is this done?
+
+10:26.480 --> 10:29.720
+ Well, it's millions of years of evolution
+
+10:29.720 --> 10:33.160
+ of really fine tuning gene expression programs
+
+10:33.160 --> 10:37.440
+ that allow certain cells to be made at a certain time
+
+10:37.440 --> 10:41.680
+ and to become a certain cell type,
+
+10:41.680 --> 10:46.680
+ but also mechanical forces of pressure bending.
+
+10:47.360 --> 10:50.320
+ This embryo is not just, it will not stay a tube,
+
+10:50.320 --> 10:52.000
+ this brain for very long.
+
+10:52.000 --> 10:54.880
+ At some point, this tube in the front of the embryo
+
+10:54.880 --> 10:58.160
+ will expand to make the primordium of the brain, right?
+
+10:58.160 --> 11:02.840
+ Now the forces that control that the cells feel,
+
+11:02.840 --> 11:04.960
+ and this is another beautiful thing,
+
+11:04.960 --> 11:06.840
+ the very force that they feel,
+
+11:06.840 --> 11:10.240
+ which is different from a week before, a week ago,
+
+11:10.240 --> 11:12.280
+ will tell the cell, oh, you're being squished
+
+11:12.280 --> 11:16.600
+ in a certain way, begin to produce these new genes
+
+11:16.600 --> 11:18.440
+ because now you are at the corner
+
+11:18.440 --> 11:21.480
+ or you are in a stretch of cells
+
+11:21.480 --> 11:23.960
+ or whatever it is, and that,
+
+11:23.960 --> 11:26.000
+ so that mechanical physical force
+
+11:26.000 --> 11:29.480
+ shapes the fate of the cell as well.
+
+11:29.480 --> 11:32.920
+ So it's not only chemical, it's also mechanical.
+
+11:32.920 --> 11:34.440
+ So from my perspective,
+
+11:34.440 --> 11:39.440
+ biology is this incredibly complex mess, gooey mess.
+
+11:40.400 --> 11:43.880
+ So you're saying mechanical forces.
+
+11:43.880 --> 11:47.760
+ How different is like a computer
+
+11:47.760 --> 11:52.120
+ or any kind of mechanical machine that we humans build
+
+11:52.120 --> 11:54.000
+ and the biological systems?
+
+11:54.000 --> 11:54.840
+ Have you been,
+
+11:54.840 --> 11:57.000
+ because you've worked a lot with biological systems.
+
+11:57.000 --> 12:00.680
+ Are they as much of a mess as it seems
+
+12:00.680 --> 12:03.560
+ from a perspective of an engineer, a mechanical engineer?
+
+12:03.560 --> 12:08.400
+ Yeah, they are much more prone
+
+12:08.400 --> 12:11.680
+ to taking alternative routes, right?
+
+12:11.680 --> 12:16.040
+ So if you, we go back to printing a brain
+
+12:16.040 --> 12:18.200
+ versus developing a brain,
+
+12:18.200 --> 12:20.480
+ of course, if you print a brain,
+
+12:20.480 --> 12:23.040
+ given that you start with the same building blocks,
+
+12:23.040 --> 12:23.960
+ the same cells,
+
+12:23.960 --> 12:28.640
+ you could potentially print it the same way every time,
+
+12:28.640 --> 12:32.520
+ but that final brain may not work the same way
+
+12:32.520 --> 12:34.440
+ as a brain built during development does
+
+12:34.440 --> 12:38.720
+ because the very same building blocks that you're using
+
+12:38.720 --> 12:41.440
+ developed in a completely different environment, right?
+
+12:41.440 --> 12:43.040
+ It was not the environment of the brain.
+
+12:43.040 --> 12:46.680
+ Therefore, they're gonna be different just by definition.
+
+12:46.680 --> 12:50.480
+ So if you instead use development to build,
+
+12:50.480 --> 12:52.720
+ let's say a brain organoid,
+
+12:52.720 --> 12:55.840
+ which maybe we will be talking about in a few minutes.
+
+12:55.840 --> 12:56.960
+ Those things are fascinating.
+
+12:56.960 --> 13:01.960
+ Yes, so if you use processes of development,
+
+13:01.960 --> 13:03.360
+ then when you watch it,
+
+13:03.360 --> 13:06.440
+ you can see that sometimes things can go wrong
+
+13:06.440 --> 13:08.120
+ in some organoids and by wrong,
+
+13:08.120 --> 13:10.840
+ I mean different one organoid from the next.
+
+13:10.840 --> 13:14.800
+ While if you think about that embryo, it always goes right.
+
+13:14.800 --> 13:18.920
+ So this development, it's for as complex as it is.
+
+13:18.920 --> 13:23.600
+ Every time a baby is born has, with very few exceptions,
+
+13:23.600 --> 13:26.160
+ so the brain is like the next baby,
+
+13:26.160 --> 13:31.160
+ but it's not the same if you develop it in a dish.
+
+13:31.320 --> 13:33.800
+ And first of all, we don't even develop a brain,
+
+13:33.800 --> 13:36.040
+ you develop something much simpler in the dish,
+
+13:36.040 --> 13:39.640
+ but there are more options for building things differently,
+
+13:39.640 --> 13:42.920
+ which really tells you that evolution
+
+13:42.920 --> 13:47.920
+ has played a really tight game here
+
+13:48.000 --> 13:53.000
+ for how in the end the brain is built in vivo.
+
+13:53.280 --> 13:55.360
+ So just a quick, maybe dumb question,
+
+13:55.360 --> 13:58.320
+ but it seems like this is not,
+
+13:58.320 --> 14:01.080
+ the building process is not a dictatorship.
+
+14:01.080 --> 14:03.320
+ It seems like there's not a centralized,
+
+14:04.760 --> 14:07.400
+ like high level mechanism that says,
+
+14:07.400 --> 14:10.240
+ okay, this cell built itself the wrong way,
+
+14:10.240 --> 14:11.480
+ I'm gonna kill it.
+
+14:11.480 --> 14:15.440
+ It seems like there's a really strong distributed mechanism.
+
+14:15.440 --> 14:18.400
+ Is that in your sense for what you mean?
+
+14:18.400 --> 14:20.880
+ There are a lot of possibilities, right?
+
+14:20.880 --> 14:23.560
+ And if you think about, for example,
+
+14:23.560 --> 14:26.720
+ different species building their brain,
+
+14:26.720 --> 14:28.840
+ each brain is a little bit different.
+
+14:28.840 --> 14:31.000
+ So the brain of a lizard is very different
+
+14:31.000 --> 14:35.480
+ from that of a chicken, from that of one of us
+
+14:35.480 --> 14:38.000
+ and so on and so forth and still is a brain,
+
+14:38.000 --> 14:43.000
+ but it was built differently starting from stem cells
+
+14:43.240 --> 14:45.960
+ that pretty much had the same potential,
+
+14:45.960 --> 14:49.320
+ but in the end, evolution builds different brains
+
+14:49.320 --> 14:52.480
+ in different species because that serves in a way
+
+14:52.480 --> 14:53.960
+ the purpose of that species
+
+14:53.960 --> 14:56.560
+ and the wellbeing of that organism.
+
+14:56.560 --> 15:00.640
+ And so there are many possibilities,
+
+15:00.640 --> 15:04.760
+ but then there is a way and you were talking about a code.
+
+15:04.760 --> 15:07.440
+ Nobody knows what the entire code of development is.
+
+15:07.440 --> 15:08.600
+ Of course we don't.
+
+15:08.600 --> 15:13.320
+ We know bits and pieces of very specific aspects
+
+15:13.320 --> 15:14.440
+ of development of the brain,
+
+15:14.440 --> 15:17.000
+ what genes are involved to make a certain cell types,
+
+15:17.000 --> 15:20.320
+ how those two cells interact to make the next level structure
+
+15:20.320 --> 15:22.760
+ that we might know, but the entirety of it,
+
+15:22.760 --> 15:26.120
+ how it's so well controlled, it's really mind blowing.
+
+15:26.120 --> 15:29.760
+ So in the first two months in the embryo or whatever,
+
+15:29.760 --> 15:32.680
+ the first few weeks, months,
+
+15:32.680 --> 15:37.080
+ so yeah, the building blocks are constructed.
+
+15:37.080 --> 15:40.000
+ The actual, the different regions of the brain,
+
+15:40.000 --> 15:42.720
+ I guess in the nervous system.
+
+15:42.720 --> 15:44.280
+ Well, this continues way longer
+
+15:44.280 --> 15:46.440
+ than just the first few months.
+
+15:46.440 --> 15:50.400
+ So over the very first few months,
+
+15:50.400 --> 15:52.000
+ you build a lot of the cells,
+
+15:52.000 --> 15:56.720
+ but then there is continuous building of new cell types
+
+15:56.720 --> 15:58.360
+ all the way through birth.
+
+15:58.360 --> 16:00.360
+ And then even postnatally,
+
+16:00.360 --> 16:03.960
+ I don't know if you've ever heard of myelin.
+
+16:03.960 --> 16:06.680
+ Myelin is this sort of insulation
+
+16:06.680 --> 16:09.800
+ that is built around the cables of the neurons
+
+16:09.800 --> 16:12.160
+ so that the electricity can go really fast from.
+
+16:12.160 --> 16:13.400
+ The axons, I guess they're called.
+
+16:13.400 --> 16:15.960
+ The axons, they're called axons, exactly.
+
+16:15.960 --> 16:19.680
+ And so as human beings,
+
+16:19.680 --> 16:24.320
+ we myelinate our cells postnatally.
+
+16:24.320 --> 16:28.720
+ A kid, a six year old kid has barely started
+
+16:28.720 --> 16:31.880
+ the process of making the mature oligodendrocytes,
+
+16:31.880 --> 16:33.640
+ which are the cells that then eventually
+
+16:33.640 --> 16:36.600
+ will wrap the axons into myelin.
+
+16:36.600 --> 16:38.960
+ And this will continue, believe it or not,
+
+16:38.960 --> 16:42.440
+ until we are about 25, 30 years old.
+
+16:42.440 --> 16:45.320
+ So there is a continuous process of maturation
+
+16:45.320 --> 16:47.080
+ and tweaking and additions,
+
+16:47.080 --> 16:51.040
+ and also in response to what we do.
+
+16:51.040 --> 16:53.960
+ I remember taking AP Biology in high school,
+
+16:53.960 --> 16:57.040
+ and in the textbook, it said that,
+
+16:57.040 --> 16:58.560
+ I'm going by memory here,
+
+16:58.560 --> 17:01.080
+ that scientists disagree on the purpose
+
+17:01.080 --> 17:04.720
+ of myelin in the brain.
+
+17:04.720 --> 17:06.320
+ Is that totally wrong?
+
+17:06.320 --> 17:10.600
+ So like, I guess it speeds up the,
+
+17:12.240 --> 17:13.200
+ okay, I might be wrong here,
+
+17:13.200 --> 17:14.760
+ but I guess it speeds up the electricity
+
+17:14.760 --> 17:17.160
+ traveling down the axon or something.
+
+17:17.160 --> 17:20.160
+ Yeah, so that's the most sort of canonical,
+
+17:20.160 --> 17:21.720
+ and definitely that's the case.
+
+17:21.720 --> 17:24.880
+ So you have to imagine an axon,
+
+17:24.880 --> 17:27.680
+ and you can think about it as a cable of some type
+
+17:27.680 --> 17:29.520
+ with electricity going through.
+
+17:29.520 --> 17:34.400
+ And what myelin does, by insulating the outside,
+
+17:34.400 --> 17:36.360
+ I should say there are tracts of myelin
+
+17:36.360 --> 17:39.640
+ and pieces of axons that are naked without myelin.
+
+17:39.640 --> 17:41.760
+ And so by having the insulation,
+
+17:41.760 --> 17:43.320
+ the electricity, instead of going straight
+
+17:43.320 --> 17:45.160
+ through the cable, it will jump
+
+17:45.160 --> 17:47.240
+ over a piece of myelin, right,
+
+17:47.240 --> 17:49.960
+ to the next naked little piece and jump again.
+
+17:49.960 --> 17:52.720
+ And therefore, that's the idea that you go faster.
+
+17:52.720 --> 17:57.400
+ And it was always thought that in order to build
+
+17:57.400 --> 18:00.640
+ a big brain, a big nervous system,
+
+18:00.640 --> 18:03.000
+ in order to have a nervous system
+
+18:03.000 --> 18:05.320
+ that can do very complex type of things,
+
+18:05.320 --> 18:06.640
+ then you need a lot of myelin
+
+18:06.640 --> 18:09.680
+ because you wanna go fast with this information
+
+18:09.680 --> 18:12.400
+ from point A to point B.
+
+18:12.400 --> 18:16.840
+ Well, a few years ago, maybe five years ago or so,
+
+18:16.840 --> 18:19.520
+ we discovered that some of the most evolved,
+
+18:19.520 --> 18:23.120
+ which means the newest type of neurons that we have
+
+18:23.120 --> 18:25.480
+ as nonhuman primates, as human beings
+
+18:25.480 --> 18:28.040
+ in the top of our cerebral cortex,
+
+18:28.040 --> 18:29.840
+ which should be the neurons that do some
+
+18:29.840 --> 18:32.160
+ of the most complex things that we do,
+
+18:32.160 --> 18:36.120
+ well, those have axons that have very little myelin.
+
+18:36.120 --> 18:36.960
+ Wow.
+
+18:36.960 --> 18:41.000
+ And they have very interesting ways
+
+18:41.000 --> 18:43.360
+ in which they put this myelin on their axons.
+
+18:43.360 --> 18:44.520
+ You know, a little piece here,
+
+18:44.520 --> 18:47.640
+ then a long track with no myelin, another chunk there.
+
+18:47.640 --> 18:49.840
+ And some don't have myelin at all.
+
+18:49.840 --> 18:52.400
+ So now, you have to explain
+
+18:52.400 --> 18:57.240
+ where we're going with evolution.
+
+18:57.240 --> 18:58.760
+ And if you think about it,
+
+18:58.760 --> 19:00.560
+ perhaps as an electrical engineer,
+
+19:01.880 --> 19:05.240
+ when I looked at it, I initially thought,
+
+19:05.240 --> 19:06.880
+ and I'm a developmental neurobiologist,
+
+19:06.880 --> 19:10.160
+ I thought maybe this is what we see now,
+
+19:10.160 --> 19:13.480
+ but if we give evolution another few million years,
+
+19:13.480 --> 19:15.840
+ we'll see a lot of myelin on these neurons too.
+
+19:15.840 --> 19:19.640
+ But I actually think now that that's instead the future
+
+19:19.640 --> 19:20.480
+ of the brain.
+
+19:20.480 --> 19:21.320
+ Less myelin.
+
+19:21.320 --> 19:24.200
+ Less myelin might allow for more flexibility
+
+19:24.200 --> 19:26.200
+ on what you do with your axons,
+
+19:26.200 --> 19:28.000
+ and therefore more complicated
+
+19:28.000 --> 19:31.640
+ and unpredictable type of functions,
+
+19:31.640 --> 19:33.800
+ which is also a bit mind blowing.
+
+19:33.800 --> 19:37.960
+ So it seems like it's controlling the timing of the signal.
+
+19:37.960 --> 19:42.800
+ So they're in the timing, you can encode a lot of information.
+
+19:42.800 --> 19:43.640
+ Yeah.
+
+19:43.640 --> 19:44.480
+ And so the brain.
+
+19:44.480 --> 19:48.520
+ The timing, the chemistry of that little piece of axon,
+
+19:48.520 --> 19:52.080
+ perhaps it's a dynamic process where the myelin can move.
+
+19:52.080 --> 19:57.080
+ Now you see how many layers of variability you can add,
+
+19:57.440 --> 19:58.880
+ and that's actually really good
+
+19:58.880 --> 20:02.240
+ if you're trying to come up with a new function
+
+20:02.240 --> 20:06.520
+ or a new capability or something unpredictable in a way.
+
+20:06.520 --> 20:08.160
+ So we're gonna jump around a little bit,
+
+20:08.160 --> 20:12.800
+ but the old question of how much is nature
+
+20:12.800 --> 20:14.480
+ and how much is nurture?
+
+20:14.480 --> 20:17.240
+ In terms of this incredible thing
+
+20:17.240 --> 20:18.920
+ after the development is over,
+
+20:20.160 --> 20:25.160
+ we seem to be kind of somewhat smart, intelligent,
+
+20:26.080 --> 20:27.520
+ cognition, consciousness,
+
+20:27.520 --> 20:29.720
+ all of these things are just incredible,
+
+20:29.720 --> 20:31.960
+ ability to reason and so on emerge.
+
+20:31.960 --> 20:34.880
+ In your sense, how much is in the hardware,
+
+20:34.880 --> 20:39.000
+ in the nature and how much is in the nurture
+
+20:39.000 --> 20:40.960
+ is learned through with our parents
+
+20:40.960 --> 20:42.440
+ through interacting with the environment and so on.
+
+20:42.440 --> 20:43.760
+ It's really both, right?
+
+20:43.760 --> 20:45.000
+ If you think about it.
+
+20:45.000 --> 20:48.000
+ So we are born with a brain as babies
+
+20:48.000 --> 20:53.000
+ that has most of its cells and most of its structures.
+
+20:53.600 --> 20:57.880
+ And that will take a few years to grow,
+
+20:57.880 --> 21:00.600
+ to add more, to be better.
+
+21:00.600 --> 21:04.120
+ But really then we have this 20 years
+
+21:04.120 --> 21:07.000
+ of interacting with the environment around us.
+
+21:07.000 --> 21:10.760
+ And so what that brain that was so perfectly built
+
+21:10.760 --> 21:15.760
+ or imperfectly built due to our genetic cues
+
+21:16.400 --> 21:20.160
+ will then be used to incorporate the environment
+
+21:20.160 --> 21:22.720
+ in its further maturation and development.
+
+21:22.720 --> 21:26.960
+ And so your experiences do shape your brain.
+
+21:26.960 --> 21:29.440
+ I mean, we know that like if you and I
+
+21:29.440 --> 21:32.960
+ may have had a different childhood or a different,
+
+21:32.960 --> 21:35.040
+ we have been going to different schools,
+
+21:35.040 --> 21:36.440
+ we have been learning different things
+
+21:36.440 --> 21:38.760
+ and our brain is a little bit different because of that.
+
+21:38.760 --> 21:41.120
+ We behave differently because of that.
+
+21:41.120 --> 21:44.000
+ And so especially postnatally
+
+21:44.000 --> 21:46.000
+ experience is extremely important.
+
+21:46.000 --> 21:48.760
+ We are born with a plastic brain.
+
+21:48.760 --> 21:51.440
+ What that means is a brain that is able to change
+
+21:51.440 --> 21:56.320
+ in response to stimuli that can be sensory.
+
+21:56.320 --> 22:01.000
+ So perhaps some of the most illuminating studies
+
+22:01.000 --> 22:03.400
+ that were done were studies in which
+
+22:03.400 --> 22:06.720
+ the sensory organs were not working, right?
+
+22:06.720 --> 22:09.520
+ Like if you are born with eyes that don't work,
+
+22:09.520 --> 22:12.520
+ then your very brain, that piece of the brain
+
+22:12.520 --> 22:16.040
+ that normally would process vision, the visual cortex,
+
+22:17.200 --> 22:19.800
+ develops postnatally differently
+
+22:19.800 --> 22:23.480
+ and it might be used to do something different, right?
+
+22:23.480 --> 22:25.600
+ So that's the most extreme.
+
+22:25.600 --> 22:27.440
+ The plasticity of the brain, I guess,
+
+22:27.440 --> 22:29.400
+ is the magic hardware that it,
+
+22:29.400 --> 22:32.920
+ and then it's flexibility in all forms
+
+22:32.920 --> 22:36.280
+ is what enables the learning postnatally.
+
+22:36.280 --> 22:39.200
+ Can you talk about organoids?
+
+22:39.200 --> 22:40.840
+ What are they?
+
+22:40.840 --> 22:44.320
+ And how can you use them to help us understand the brain
+
+22:44.320 --> 22:45.680
+ and the development of the brain?
+
+22:45.680 --> 22:47.280
+ This is very, very important.
+
+22:47.280 --> 22:49.880
+ So the first thing I'd like to say,
+
+22:49.880 --> 22:51.360
+ please skip this in the video.
+
+22:52.680 --> 22:56.040
+ The first thing I'd like to say is that an organoid,
+
+22:56.040 --> 22:59.480
+ a brain organoid is not the same as a brain.
+
+23:00.680 --> 23:01.600
+ Okay?
+
+23:01.600 --> 23:03.600
+ It's a fundamental distinction.
+
+23:03.600 --> 23:08.520
+ It's a system, a cellular system
+
+23:08.520 --> 23:12.160
+ that one can develop in the culture dish,
+
+23:12.160 --> 23:17.160
+ starting from stem cells that will mimic some aspects
+
+23:17.160 --> 23:21.360
+ of the development of the brain, but not all of it.
+
+23:21.360 --> 23:23.720
+ They are very small, maximum,
+
+23:23.720 --> 23:27.880
+ they become about four to five millimeters in diameters.
+
+23:27.880 --> 23:32.880
+ They are much simpler than our brain, of course,
+
+23:32.880 --> 23:35.960
+ but yet they are the only system
+
+23:35.960 --> 23:39.040
+ where we can literally watch a process
+
+23:39.040 --> 23:42.040
+ of human brain development unfold.
+
+23:42.040 --> 23:44.600
+ And by watch, I mean, study it.
+
+23:44.600 --> 23:47.520
+ Remember when I told you that we can't understand
+
+23:47.520 --> 23:49.520
+ everything about development in our own brain
+
+23:49.520 --> 23:51.000
+ by studying a mouse?
+
+23:51.000 --> 23:53.080
+ Well, we can't study the actual process
+
+23:53.080 --> 23:54.280
+ of development of the human brain
+
+23:54.280 --> 23:55.760
+ because it all happens in utero.
+
+23:55.760 --> 23:58.800
+ So we will never have access to that process ever.
+
+23:58.800 --> 24:02.960
+ And therefore, this is our next best thing.
+
+24:02.960 --> 24:06.960
+ Like a bunch of stem cells that can be coaxed
+
+24:06.960 --> 24:10.240
+ into starting a process of neural tube formation.
+
+24:10.240 --> 24:13.200
+ Remember that tube that is made by the embryo early on.
+
+24:13.200 --> 24:15.640
+ And from there, a lot of the cell types
+
+24:15.640 --> 24:19.200
+ that are present within the brain,
+
+24:19.200 --> 24:23.480
+ and you can simply watch it and study,
+
+24:23.480 --> 24:27.200
+ but you can also think about diseases
+
+24:27.200 --> 24:29.800
+ where development of the brain
+
+24:29.800 --> 24:33.240
+ does not proceed normally, right, properly.
+
+24:33.240 --> 24:34.880
+ Think about neurodevelopmental diseases.
+
+24:34.880 --> 24:37.320
+ There are many, many different types.
+
+24:37.320 --> 24:39.160
+ Think about autism spectrum disorders.
+
+24:39.160 --> 24:41.680
+ There are also many different types of autism.
+
+24:41.680 --> 24:44.360
+ So there you could take a stem cell,
+
+24:44.360 --> 24:46.600
+ which really means either a sample of blood
+
+24:46.600 --> 24:50.080
+ or a sample of skin from the patient,
+
+24:50.080 --> 24:53.520
+ make a stem cell, and then with that stem cell,
+
+24:53.520 --> 24:56.200
+ watch a process of formation of a brain organ
+
+24:56.200 --> 25:00.600
+ or a brain organoid of that person with that genetics,
+
+25:00.600 --> 25:02.200
+ with that genetic code in it.
+
+25:02.200 --> 25:05.800
+ And you can ask, what is this genetic code doing
+
+25:05.800 --> 25:08.760
+ to some aspects of development of the brain?
+
+25:08.760 --> 25:12.000
+ And for the first time, you may come to solutions
+
+25:12.000 --> 25:16.000
+ like what cells are involved in autism, right?
+
+25:16.000 --> 25:17.360
+ So many questions around this.
+
+25:17.360 --> 25:20.520
+ So if you take this human stem cell
+
+25:20.520 --> 25:23.360
+ for that particular person with that genetic code,
+
+25:23.360 --> 25:26.520
+ how, and you try to build an organoid,
+
+25:26.520 --> 25:28.840
+ how often will it look similar?
+
+25:28.840 --> 25:31.800
+ What's the, yeah, so.
+
+25:31.800 --> 25:33.240
+ The reproducibility?
+
+25:33.240 --> 25:36.600
+ Yes, or how much variability is the flip side of that?
+
+25:36.600 --> 25:40.280
+ Yeah, so there is much more variability
+
+25:40.280 --> 25:44.520
+ in building organoids than there is in building brain.
+
+25:44.520 --> 25:47.280
+ It's really true that the majority of us,
+
+25:47.280 --> 25:49.560
+ when we are born as babies,
+
+25:49.560 --> 25:52.440
+ our brains look a lot like each other.
+
+25:52.440 --> 25:54.880
+ This is the magic that the embryo does,
+
+25:54.880 --> 25:57.640
+ where it builds a brain in the context of a body
+
+25:57.640 --> 26:01.240
+ and there is very little variability there.
+
+26:01.240 --> 26:02.280
+ There is disease, of course,
+
+26:02.280 --> 26:03.960
+ but in general, a little variability.
+
+26:03.960 --> 26:05.760
+ When you build an organoid,
+
+26:07.000 --> 26:09.480
+ we don't have the full code for how this is done.
+
+26:09.480 --> 26:13.400
+ And so in part, the organoid somewhat builds itself
+
+26:13.400 --> 26:15.560
+ because there are some structures of the brain
+
+26:15.560 --> 26:17.240
+ that the cells know how to make.
+
+26:18.120 --> 26:21.800
+ And another part comes from the investigator,
+
+26:21.800 --> 26:26.120
+ the scientist adding to the media factors
+
+26:26.120 --> 26:27.960
+ that we know in the mouse, for example,
+
+26:27.960 --> 26:30.680
+ would foster a certain step of development,
+
+26:30.680 --> 26:33.160
+ but it's very limited.
+
+26:33.160 --> 26:36.080
+ And so as a result,
+
+26:36.080 --> 26:38.120
+ the kind of product you get in the end
+
+26:38.120 --> 26:39.640
+ is much more reductionist,
+
+26:39.640 --> 26:42.600
+ is much more simple than what you get in vivo.
+
+26:42.600 --> 26:46.120
+ It mimics early events of development as of today,
+
+26:46.120 --> 26:49.040
+ and it doesn't build very complex type of anatomy
+
+26:49.040 --> 26:52.480
+ and structure does not as of today,
+
+26:52.480 --> 26:54.840
+ which happens instead in vivo.
+
+26:54.840 --> 26:59.040
+ And also the variability that you see,
+
+26:59.040 --> 27:02.720
+ one organ to the next tends to be higher
+
+27:02.720 --> 27:05.480
+ than when you compare an embryo to the next.
+
+27:05.480 --> 27:07.320
+ So, okay, then the next question is,
+
+27:07.320 --> 27:11.040
+ how hard and maybe another flip side of that expensive
+
+27:11.040 --> 27:14.880
+ is it to go from one stem cell to an organoid?
+
+27:14.880 --> 27:16.680
+ How many can you build in like,
+
+27:16.680 --> 27:18.400
+ because it sounds very complicated.
+
+27:18.400 --> 27:23.400
+ It's work definitely, and it's money definitely,
+
+27:23.400 --> 27:28.000
+ but you can really grow a very high number
+
+27:28.000 --> 27:31.560
+ of these organoids, can go perhaps,
+
+27:31.560 --> 27:32.680
+ I told you the maximum,
+
+27:32.680 --> 27:35.320
+ they become about five millimeters in diameter.
+
+27:35.320 --> 27:39.920
+ So this is about the size of a tiny, tiny raisin,
+
+27:40.920 --> 27:43.120
+ or perhaps the seed of an apple.
+
+27:43.120 --> 27:47.480
+ And so you can grow 50 to 100 of those
+
+27:47.480 --> 27:51.240
+ inside one big bioreactors, which are these flasks
+
+27:51.240 --> 27:55.440
+ where the media provides nutrients for the organoids.
+
+27:55.440 --> 28:00.440
+ So the problem is not to grow more or less of them.
+
+28:01.680 --> 28:06.440
+ It's really to figure out how to grow them in a way
+
+28:06.440 --> 28:08.360
+ that they are more and more reproducible,
+
+28:08.360 --> 28:09.920
+ for example, organoid to organoid,
+
+28:09.920 --> 28:13.160
+ so they can be used to study a biological process.
+
+28:13.160 --> 28:15.560
+ Because if you have too much variability,
+
+28:15.560 --> 28:17.080
+ then you never know if what you see
+
+28:17.080 --> 28:19.520
+ is just an exception or really the rule.
+
+28:19.520 --> 28:22.200
+ So what does an organoid look like?
+
+28:22.200 --> 28:25.080
+ Are there different neurons already emerging?
+
+28:25.080 --> 28:28.520
+ Is there, well, first, can you tell me
+
+28:28.520 --> 28:29.920
+ what kind of neurons are there?
+
+28:29.920 --> 28:30.880
+ Yes.
+
+28:30.880 --> 28:35.560
+ Are they sort of all the same?
+
+28:35.560 --> 28:37.160
+ Are they not all the same?
+
+28:38.200 --> 28:39.520
+ How much do we understand?
+
+28:39.520 --> 28:43.440
+ And how much of that variance, if any,
+
+28:43.440 --> 28:45.800
+ can exist in organoids?
+
+28:45.800 --> 28:47.000
+ Yes.
+
+28:47.000 --> 28:49.400
+ So you could grow,
+
+28:49.400 --> 28:52.440
+ I told you that the brain has different parts.
+
+28:52.440 --> 28:55.960
+ So the cerebral cortex is on the top part of the brain,
+
+28:55.960 --> 28:57.960
+ but there is another region called the striatum
+
+28:57.960 --> 28:59.960
+ that is below the cortex and so on and so forth.
+
+28:59.960 --> 29:03.760
+ All of these regions have different types of cells
+
+29:03.760 --> 29:05.640
+ in the actual brain, okay?
+
+29:05.640 --> 29:08.880
+ And so scientists have been able to grow organoids
+
+29:08.880 --> 29:11.440
+ that may mimic some aspects of development
+
+29:11.440 --> 29:13.960
+ of these different regions of the brain.
+
+29:13.960 --> 29:16.440
+ And so we are very interested in the cerebral cortex.
+
+29:16.440 --> 29:17.760
+ That's the coolest part, right?
+
+29:17.760 --> 29:18.600
+ Very cool.
+
+29:18.600 --> 29:20.880
+ I agree with you.
+
+29:20.880 --> 29:22.040
+ We wouldn't be here talking
+
+29:22.040 --> 29:23.880
+ if we didn't have a cerebral cortex.
+
+29:23.880 --> 29:26.040
+ It's also, I like to think, the part of the brain
+
+29:26.040 --> 29:27.600
+ that really truly makes us human,
+
+29:27.600 --> 29:30.200
+ the most evolved in recent evolution.
+
+29:30.200 --> 29:33.600
+ And so in the attempt to make the cerebral cortex
+
+29:33.600 --> 29:37.200
+ and by figuring out a way to have these organoids
+
+29:37.200 --> 29:40.240
+ continue to grow and develop for extended periods of times,
+
+29:40.240 --> 29:42.440
+ much like it happens in the real embryo,
+
+29:42.440 --> 29:44.240
+ months and months in culture,
+
+29:44.240 --> 29:48.560
+ then you can see that many different types of neurons
+
+29:48.560 --> 29:50.120
+ of the cortex appear.
+
+29:50.120 --> 29:52.120
+ And at some point, also the astrocytes,
+
+29:52.120 --> 29:57.120
+ so the glia cells of the cerebral cortex also appear.
+
+29:57.600 --> 30:00.320
+ What are these astrocytes?
+
+30:00.320 --> 30:03.360
+ The astrocytes are not neurons, so they're not nerve cells,
+
+30:03.360 --> 30:06.120
+ but they play very important roles.
+
+30:06.120 --> 30:08.960
+ One important role is to support the neuron.
+
+30:08.960 --> 30:11.800
+ But of course, they have much more active type of roles.
+
+30:11.800 --> 30:14.480
+ They're very important, for example, to make the synapses,
+
+30:14.480 --> 30:17.560
+ which are the point of contact and communication
+
+30:17.560 --> 30:18.800
+ between two neurons.
+
+30:21.400 --> 30:25.600
+ So all that chemistry fun happens in the synapses,
+
+30:25.600 --> 30:28.120
+ happens because of these cells?
+
+30:28.120 --> 30:29.560
+ Are they the medium in which?
+
+30:29.560 --> 30:31.960
+ It happens because of the interactions,
+
+30:31.960 --> 30:34.720
+ happens because you are making the cells
+
+30:34.720 --> 30:36.280
+ and they have certain properties,
+
+30:36.280 --> 30:40.320
+ including the ability to make neurotransmitters,
+
+30:40.320 --> 30:43.240
+ which are the chemicals that are secreted to the synapses,
+
+30:43.240 --> 30:46.440
+ including the ability of making these axons grow
+
+30:46.440 --> 30:49.120
+ with their growth cones and so on and so forth.
+
+30:49.120 --> 30:51.320
+ And then you have other cells around it
+
+30:51.320 --> 30:55.160
+ that release chemicals or touch the neurons
+
+30:55.160 --> 30:57.120
+ or interact with them in different ways
+
+30:57.120 --> 30:59.800
+ to really foster this perfect process,
+
+30:59.800 --> 31:02.440
+ in this case of synaptogenesis.
+
+31:02.440 --> 31:05.640
+ And this does happen within organoids.
+
+31:05.640 --> 31:09.720
+ So the mechanical and the chemical stuff happens.
+
+31:09.720 --> 31:11.600
+ The connectivity between neurons,
+
+31:11.600 --> 31:13.320
+ this in a way is not surprising
+
+31:13.320 --> 31:18.120
+ because scientists have been culturing neurons forever.
+
+31:18.120 --> 31:20.760
+ And when you take a neuron, even a very young one,
+
+31:20.760 --> 31:23.480
+ and you culture it, eventually finds another cell
+
+31:23.480 --> 31:26.920
+ or another neuron to talk to, it will form a synapse.
+
+31:26.920 --> 31:28.520
+ Are we talking about mice neurons?
+
+31:28.520 --> 31:29.640
+ Are we talking about human neurons?
+
+31:29.640 --> 31:30.600
+ It doesn't matter, both.
+
+31:30.600 --> 31:33.240
+ So you can culture a neuron, like a single neuron
+
+31:33.240 --> 31:37.920
+ and give it a little friend and it starts interacting?
+
+31:37.920 --> 31:41.000
+ Yes, so neurons are able to, it sounds,
+
+31:41.000 --> 31:43.520
+ it's more simple than what it may sound to you.
+
+31:44.600 --> 31:48.320
+ Neurons have molecular properties and structural properties
+
+31:48.320 --> 31:50.920
+ that allow them to really communicate with other cells.
+
+31:50.920 --> 31:53.200
+ And so if you put not one neuron,
+
+31:53.200 --> 31:55.160
+ but if you put several neurons together,
+
+31:55.160 --> 31:59.400
+ chances are that they will form synapses with each other.
+
+32:00.280 --> 32:01.120
+ Okay, great.
+
+32:01.120 --> 32:03.360
+ So an organoid is not a brain.
+
+32:03.360 --> 32:04.200
+ No.
+
+32:04.200 --> 32:09.200
+ But there's some, it's able to,
+
+32:09.240 --> 32:10.440
+ especially what you're talking about,
+
+32:10.440 --> 32:15.120
+ mimics some properties of the cerebral cortex, for example.
+
+32:15.120 --> 32:17.960
+ So what can you understand about the brain
+
+32:17.960 --> 32:21.080
+ by studying an organoid of a cerebral cortex?
+
+32:21.080 --> 32:25.800
+ I can literally study all this incredible diversity
+
+32:25.800 --> 32:28.040
+ of cell type, all these many, many different classes
+
+32:28.040 --> 32:30.760
+ of cells, how are they made?
+
+32:30.760 --> 32:32.520
+ How do they look like?
+
+32:32.520 --> 32:34.960
+ What do they need to be made properly?
+
+32:34.960 --> 32:39.720
+ And what goes wrong if now the genetics of that stem cell
+
+32:39.720 --> 32:42.800
+ that I used to make the organoid came from a patient
+
+32:42.800 --> 32:44.320
+ with a neurodevelopmental disease?
+
+32:44.320 --> 32:47.640
+ Can I actually watch for the very first time
+
+32:47.640 --> 32:51.400
+ what may have gone wrong years before in this kid
+
+32:51.400 --> 32:53.520
+ when its own brain was being made?
+
+32:53.520 --> 32:54.760
+ Think about that loop.
+
+32:54.760 --> 32:59.600
+ In a way, it's a little tiny rudimentary window
+
+32:59.600 --> 33:04.280
+ into the past, into the time when that brain
+
+33:04.280 --> 33:07.680
+ in a kid that had this neurodevelopmental disease
+
+33:07.680 --> 33:08.880
+ was being made.
+
+33:10.120 --> 33:12.880
+ And I think that's unbelievably powerful
+
+33:12.880 --> 33:16.800
+ because today we have no idea of what cell types,
+
+33:16.800 --> 33:18.760
+ we barely know what brain regions
+
+33:18.760 --> 33:20.880
+ are affected in these diseases.
+
+33:20.880 --> 33:23.720
+ Now we have an experimental system
+
+33:23.720 --> 33:25.440
+ that we can study in the lab.
+
+33:25.440 --> 33:28.440
+ And we can ask, what are the cells affected?
+
+33:28.440 --> 33:31.840
+ When during development things went wrong?
+
+33:31.840 --> 33:34.080
+ What are the molecules among the many, many
+
+33:34.080 --> 33:36.600
+ different molecules that control brain development?
+
+33:36.600 --> 33:39.720
+ Which ones are the ones that really messed up here
+
+33:39.720 --> 33:42.160
+ and we want perhaps to fix?
+
+33:42.160 --> 33:44.520
+ And what is really the final product?
+
+33:44.520 --> 33:48.560
+ Is it a less strong kind of circuit and brain?
+
+33:48.560 --> 33:51.000
+ Is it a brain that lacks a cell type?
+
+33:51.000 --> 33:52.040
+ What is it?
+
+33:52.040 --> 33:54.920
+ Because then we can think about treatment
+
+33:54.920 --> 33:59.360
+ and care for these patients that is informed
+
+33:59.360 --> 34:02.080
+ rather than just based on current diagnostics.
+
+34:02.080 --> 34:04.560
+ So how hard is it to detect
+
+34:04.560 --> 34:06.360
+ through the developmental process?
+
+34:06.360 --> 34:09.440
+ It's a super exciting tool
+
+34:10.520 --> 34:14.000
+ to see how different conditions develop.
+
+34:15.200 --> 34:17.640
+ How hard is it to detect that, wait a minute,
+
+34:17.640 --> 34:20.800
+ this is abnormal development.
+
+34:20.800 --> 34:21.640
+ Yeah.
+
+34:21.640 --> 34:24.760
+ How much signal is there?
+
+34:24.760 --> 34:26.480
+ How much of it is it a mess?
+
+34:26.480 --> 34:29.440
+ Because things can go wrong at multiple levels, right?
+
+34:29.440 --> 34:34.280
+ You could have a cell that is born and built
+
+34:34.280 --> 34:36.200
+ but then doesn't work properly
+
+34:36.200 --> 34:38.280
+ or a cell that is not even born
+
+34:38.280 --> 34:40.680
+ or a cell that doesn't interact with other cells differently
+
+34:40.680 --> 34:42.080
+ and so on and so forth.
+
+34:42.080 --> 34:44.360
+ So today we have technology
+
+34:44.360 --> 34:47.720
+ that we did not have even five years ago
+
+34:47.720 --> 34:49.760
+ that allows us to look for example
+
+34:49.760 --> 34:52.080
+ at the molecular picture of a cell,
+
+34:52.080 --> 34:56.560
+ of a single cell in a sea of cells with high precision.
+
+34:56.560 --> 34:58.800
+ And so that molecular information
+
+34:58.800 --> 35:01.720
+ where you compare many, many single cells
+
+35:01.720 --> 35:03.600
+ for the genes that they produce
+
+35:03.600 --> 35:06.120
+ between a control individual
+
+35:06.120 --> 35:10.080
+ and an individual with a neurodevelopmental disease,
+
+35:10.080 --> 35:13.760
+ that may tell you what is different molecularly.
+
+35:13.760 --> 35:18.520
+ Or you could see that some cells are not even made,
+
+35:18.520 --> 35:20.720
+ for example, or that the process of maturation
+
+35:20.720 --> 35:22.560
+ of the cells may be wrong.
+
+35:22.560 --> 35:24.960
+ There are many different levels here
+
+35:25.920 --> 35:29.520
+ and we can study the cells at the molecular level
+
+35:29.520 --> 35:33.320
+ but also we can use the organoids to ask questions
+
+35:33.320 --> 35:35.240
+ about the properties of the neurons,
+
+35:35.240 --> 35:37.280
+ the functional properties,
+
+35:37.280 --> 35:38.880
+ how they communicate with each other,
+
+35:38.880 --> 35:41.320
+ how they respond to a stimulus and so on and so forth.
+
+35:41.320 --> 35:46.320
+ And we may get an abnormalities there, right?
+
+35:46.320 --> 35:47.440
+ Detect those.
+
+35:47.440 --> 35:50.560
+ So how early is this work in the,
+
+35:51.760 --> 35:54.240
+ maybe in the history of science?
+
+35:54.240 --> 35:59.240
+ So, I mean like, so if you were to,
+
+35:59.720 --> 36:04.720
+ if you and I time travel a thousand years into the future,
+
+36:05.160 --> 36:09.880
+ organoids seem to be, maybe I'm romanticizing the notion
+
+36:09.880 --> 36:12.720
+ but you're building not a brain
+
+36:12.720 --> 36:15.640
+ but something that has properties of a brain.
+
+36:15.640 --> 36:18.960
+ So it feels like you might be getting close to,
+
+36:18.960 --> 36:23.160
+ in the building process, to build this to understand.
+
+36:23.160 --> 36:28.160
+ So how far are we in this understanding
+
+36:29.000 --> 36:30.200
+ process of development?
+
+36:31.320 --> 36:34.160
+ A thousand years from now, it's a long time from now.
+
+36:34.160 --> 36:36.360
+ So if this planet is still gonna be here
+
+36:36.360 --> 36:38.160
+ a thousand years from now.
+
+36:38.160 --> 36:41.960
+ So, I mean, if, you know, like they write a book,
+
+36:41.960 --> 36:43.960
+ obviously there'll be a chapter about you.
+
+36:43.960 --> 36:47.320
+ That's right, that science fiction book, today.
+
+36:47.320 --> 36:49.920
+ Yeah, today, about, I mean, I guess where
+
+36:49.920 --> 36:52.040
+ we really understood very little about the brain
+
+36:52.040 --> 36:55.880
+ a century ago, I was a big fan in high school
+
+36:55.880 --> 36:58.760
+ of reading Freud and so on, still am of psychiatry.
+
+36:59.680 --> 37:01.480
+ I would say we still understand very little
+
+37:01.480 --> 37:03.680
+ about the functional aspect of just,
+
+37:04.680 --> 37:07.760
+ but how in the history of understanding
+
+37:07.760 --> 37:09.640
+ the biology of the brain, the development,
+
+37:09.640 --> 37:11.240
+ how far are we along?
+
+37:11.240 --> 37:12.960
+ It's a very good question.
+
+37:12.960 --> 37:15.520
+ And so this is just, of course, my opinion.
+
+37:15.520 --> 37:19.720
+ I think that we did not have technology
+
+37:19.720 --> 37:23.160
+ even 10 years ago or certainly not 20 years ago
+
+37:23.160 --> 37:27.760
+ to even think about experimentally investigating
+
+37:27.760 --> 37:30.160
+ the development of the human brain.
+
+37:30.160 --> 37:32.200
+ So we've done a lot of work in science
+
+37:32.200 --> 37:35.480
+ to study the brain or many other organisms.
+
+37:35.480 --> 37:39.600
+ Now we have some technologies which I'll spell out
+
+37:39.600 --> 37:43.120
+ that allow us to actually look at the real thing
+
+37:43.120 --> 37:45.040
+ and look at the brain, at the human brain.
+
+37:45.040 --> 37:46.840
+ So what are these technologies?
+
+37:46.840 --> 37:50.440
+ There has been huge progress in stem cell biology.
+
+37:50.440 --> 37:54.080
+ The moment someone figured out how to turn a skin cell
+
+37:54.080 --> 37:57.760
+ into an embryonic stem cell, basically,
+
+37:57.760 --> 38:00.160
+ and that how that embryonic stem cell
+
+38:00.160 --> 38:02.480
+ could begin a process of development again
+
+38:02.480 --> 38:04.000
+ to, for example, make a brain,
+
+38:04.000 --> 38:06.040
+ there was a huge advance,
+
+38:06.040 --> 38:08.160
+ and in fact, there was a Nobel Prize for that.
+
+38:08.160 --> 38:10.400
+ That started the field, really,
+
+38:10.400 --> 38:14.200
+ of using stem cells to build organs.
+
+38:14.200 --> 38:17.000
+ Now we can build on all the knowledge of development
+
+38:17.000 --> 38:18.520
+ that we build over the many, many, many years
+
+38:18.520 --> 38:20.680
+ to say, how do we make the stem cells
+
+38:20.680 --> 38:22.640
+ now make more and more complex aspects
+
+38:22.640 --> 38:24.360
+ of development of the human brain?
+
+38:25.240 --> 38:28.440
+ So this field is young, the field of brain organoids,
+
+38:28.440 --> 38:30.080
+ but it's moving faster.
+
+38:30.080 --> 38:32.520
+ And it's moving fast in a very serious way
+
+38:32.520 --> 38:35.920
+ that is rooted in labs with the right ethical framework
+
+38:35.920 --> 38:40.680
+ and really building on solid science
+
+38:40.680 --> 38:43.040
+ for what reality is and what is not.
+
+38:44.680 --> 38:49.080
+ But it will go faster and it will be more and more powerful.
+
+38:49.080 --> 38:51.440
+ We also have technology that allows us
+
+38:51.440 --> 38:54.600
+ to basically study the properties of single cells
+
+38:54.600 --> 38:59.200
+ across many, many millions of single cells,
+
+38:59.200 --> 39:02.120
+ which we didn't have perhaps five years ago.
+
+39:02.120 --> 39:04.800
+ So now with that, even an organoid
+
+39:04.800 --> 39:08.440
+ that has millions of cells can be profiled in a way,
+
+39:08.440 --> 39:11.280
+ looked at with very, very high resolution,
+
+39:11.280 --> 39:13.920
+ the single cell level to really understand
+
+39:13.920 --> 39:14.880
+ what is going on.
+
+39:14.880 --> 39:17.480
+ And you could do it in multiple stages of development
+
+39:17.480 --> 39:20.080
+ and you can build your hypothesis and so on and so forth.
+
+39:20.080 --> 39:22.560
+ So it's not gonna be a thousand years.
+
+39:22.560 --> 39:25.200
+ It's gonna be a shorter amount of time.
+
+39:25.200 --> 39:29.440
+ And I see this as sort of an exponential growth
+
+39:29.440 --> 39:33.520
+ of this field enabled by these technologies
+
+39:33.520 --> 39:34.960
+ that we didn't have before.
+
+39:34.960 --> 39:36.920
+ And so we're gonna see something transformative
+
+39:36.920 --> 39:41.840
+ that we didn't see at all in the prior thousand years.
+
+39:41.840 --> 39:44.600
+ So I apologize for the crazy sci fi questions,
+
+39:44.600 --> 39:48.120
+ but the developmental process is fascinating
+
+39:48.120 --> 39:53.120
+ to watch and study, but how far are we away from
+
+39:53.320 --> 39:57.240
+ and maybe how difficult is it to build
+
+39:57.240 --> 40:02.240
+ not just an organoid, but a human brain from a stem cell?
+
+40:02.240 --> 40:05.640
+ Yeah, first of all, that's not the goal
+
+40:05.640 --> 40:07.680
+ for the majority of the serious scientists
+
+40:07.680 --> 40:12.640
+ that work on this because you don't have to build
+
+40:12.640 --> 40:16.040
+ the whole human brain to make this model useful
+
+40:16.040 --> 40:17.920
+ for understanding how the brain develops
+
+40:17.920 --> 40:20.400
+ or understanding disease.
+
+40:20.400 --> 40:22.400
+ You don't have to build the whole thing.
+
+40:22.400 --> 40:25.160
+ So let me just comment on this, fascinating.
+
+40:25.160 --> 40:29.160
+ It shows to me the difference between you and I
+
+40:29.160 --> 40:31.800
+ as you're actually trying to understand
+
+40:31.800 --> 40:34.200
+ the beauty of the human brain and to use it
+
+40:34.200 --> 40:36.880
+ to really help thousands or millions of people
+
+40:36.880 --> 40:38.800
+ with disease and so on, right?
+
+40:38.800 --> 40:41.480
+ From an artificial intelligence perspective,
+
+40:41.480 --> 40:45.600
+ we're trying to build systems that we can put in robots
+
+40:45.600 --> 40:49.080
+ and try to create systems that have echoes
+
+40:49.080 --> 40:52.360
+ of the intelligence about reasoning about the world,
+
+40:52.360 --> 40:53.600
+ navigating the world.
+
+40:53.600 --> 40:56.000
+ It's different objectives, I think.
+
+40:56.000 --> 40:57.560
+ Yeah, that's very much science fiction.
+
+40:57.560 --> 41:00.480
+ Science fiction, but we operate in science fiction a little bit.
+
+41:00.480 --> 41:03.400
+ So on that point of building a brain,
+
+41:03.400 --> 41:06.160
+ even though that is not the focus or interest, perhaps,
+
+41:06.160 --> 41:08.480
+ of the community, how difficult is it?
+
+41:08.480 --> 41:11.160
+ Is it truly science fiction at this point?
+
+41:11.160 --> 41:13.920
+ I think the field will progress, like I said,
+
+41:13.920 --> 41:17.240
+ and that the system will be more and more complex
+
+41:17.240 --> 41:18.680
+ in a way, right?
+
+41:18.680 --> 41:23.680
+ But there are properties that emerge from the human brain
+
+41:23.840 --> 41:25.360
+ that have to do with the mind,
+
+41:25.360 --> 41:26.720
+ that may have to do with consciousness,
+
+41:26.720 --> 41:29.800
+ that may have to do with intelligence or whatever
+
+41:29.800 --> 41:31.960
+ that we really don't understand
+
+41:31.960 --> 41:35.560
+ even how they can emerge from an actual, real brain.
+
+41:35.560 --> 41:39.120
+ And therefore, we can now measure or study in an organoid.
+
+41:39.120 --> 41:43.000
+ So I think that this field, many, many years from now,
+
+41:43.000 --> 41:46.960
+ may lead to the building of better neural circuits
+
+41:48.280 --> 41:50.320
+ that really are built out of understanding
+
+41:50.320 --> 41:52.240
+ of how this process really works.
+
+41:52.240 --> 41:57.000
+ And it's hard to predict how complex this really will be.
+
+41:57.000 --> 42:00.200
+ I really don't think we're so far from,
+
+42:00.200 --> 42:01.200
+ it makes me laugh, really.
+
+42:01.200 --> 42:05.120
+ It's really that far from building the human brain.
+
+42:05.120 --> 42:07.800
+ But you're gonna be building something
+
+42:07.800 --> 42:11.600
+ that is always a bad version of it,
+
+42:11.600 --> 42:14.840
+ but that may have really powerful properties
+
+42:14.840 --> 42:18.560
+ and might be able to respond to stimuli
+
+42:18.560 --> 42:21.720
+ or be used in certain context.
+
+42:21.720 --> 42:23.680
+ And this is why I really think
+
+42:23.680 --> 42:25.800
+ that there is no other way to do this science,
+
+42:25.800 --> 42:28.200
+ but within the right ethical framework,
+
+42:28.200 --> 42:30.600
+ because where you're going with this is also,
+
+42:31.520 --> 42:34.080
+ we can talk about science fiction and write that book,
+
+42:34.080 --> 42:36.600
+ and we could today,
+
+42:36.600 --> 42:41.520
+ but this work happens in a specific ethical framework
+
+42:41.520 --> 42:43.200
+ that we don't decide just as scientists,
+
+42:43.200 --> 42:44.880
+ but also as a society.
+
+42:44.880 --> 42:48.560
+ So the ethical framework here is a fascinating one,
+
+42:48.560 --> 42:49.720
+ is a complicated one.
+
+42:49.720 --> 42:51.120
+ Yes.
+
+42:51.120 --> 42:53.320
+ Do you have a sense, a grasp
+
+42:53.320 --> 42:58.320
+ of how we think about ethically of building organoids
+
+43:00.040 --> 43:04.160
+ from human stem cells to understand the brain?
+
+43:04.160 --> 43:06.280
+ It seems like a tool
+
+43:06.280 --> 43:11.080
+ for helping potentially millions of people cure diseases
+
+43:11.080 --> 43:14.960
+ or at least start the cure by understanding it.
+
+43:14.960 --> 43:17.840
+ But is there more, is there gray areas
+
+43:17.840 --> 43:22.400
+ that we have to think about ethically?
+
+43:22.400 --> 43:23.240
+ Absolutely.
+
+43:23.240 --> 43:25.600
+ We must think about that.
+
+43:25.600 --> 43:29.640
+ Every discussion about the ethics of this
+
+43:29.640 --> 43:32.720
+ needs to be based on actual data
+
+43:32.720 --> 43:34.520
+ from the models that we have today
+
+43:34.520 --> 43:36.360
+ and from the ones that we will have tomorrow.
+
+43:36.360 --> 43:37.880
+ So it's a continuous conversation.
+
+43:37.880 --> 43:39.880
+ It's not something that you decide now.
+
+43:39.880 --> 43:42.080
+ Today, there is no issue really.
+
+43:42.080 --> 43:47.080
+ Very simple models that clearly can help you in many ways
+
+43:47.320 --> 43:49.920
+ without much think about,
+
+43:49.920 --> 43:52.240
+ but tomorrow we need to have another conversation
+
+43:52.240 --> 43:53.080
+ and so on and so forth.
+
+43:53.080 --> 43:54.680
+ And so the way we do this
+
+43:54.680 --> 43:57.920
+ is to actually really bring together constantly
+
+43:57.920 --> 44:00.440
+ a group of people that are not only scientists,
+
+44:00.440 --> 44:03.400
+ but also bioethicists, the lawyers, philosophers,
+
+44:03.400 --> 44:04.880
+ psychiatrists and so on,
+
+44:04.880 --> 44:06.720
+ psychologists and so on and so forth
+
+44:06.720 --> 44:11.720
+ to decide as a society really what we should
+
+44:13.040 --> 44:15.320
+ and what we should not do.
+
+44:15.320 --> 44:17.600
+ So that's the way to think about the ethics.
+
+44:17.600 --> 44:21.240
+ Now, I also think though, that as a scientist,
+
+44:21.240 --> 44:23.720
+ I have a moral responsibility.
+
+44:23.720 --> 44:28.720
+ So if you think about how transformative it could be
+
+44:29.480 --> 44:34.120
+ for understanding and curing a neuropsychiatric disease,
+
+44:34.120 --> 44:37.320
+ to be able to actually watch and study
+
+44:37.320 --> 44:40.640
+ and treat with drugs the very brain
+
+44:40.640 --> 44:43.240
+ of the patient that you are trying to study.
+
+44:43.240 --> 44:47.200
+ How transformative at this moment in time this could be.
+
+44:47.200 --> 44:48.760
+ We couldn't do it five years ago,
+
+44:48.760 --> 44:50.720
+ we could do it now, right?
+
+44:50.720 --> 44:51.560
+ If we didn't do it.
+
+44:51.560 --> 44:52.960
+ Taking a stem cell of a particular patient.
+
+44:52.960 --> 44:56.120
+ Patient and make an organoid for a simple
+
+44:56.120 --> 44:58.880
+ and different from the human brain,
+
+44:58.880 --> 45:02.160
+ it still is his process of brain development
+
+45:02.160 --> 45:04.720
+ with his or her genetics.
+
+45:04.720 --> 45:08.320
+ And we could understand perhaps what is going wrong.
+
+45:08.320 --> 45:09.960
+ Perhaps we could use as a platform,
+
+45:09.960 --> 45:12.160
+ as a cellular platform to screen for drugs,
+
+45:12.160 --> 45:15.280
+ to fix a process and so on and so forth, right?
+
+45:15.280 --> 45:18.840
+ So we could do it now, we couldn't do it five years ago.
+
+45:18.840 --> 45:20.480
+ Should we not do it?
+
+45:20.480 --> 45:24.760
+ What is the downside of doing it?
+
+45:24.760 --> 45:27.320
+ I don't see a downside at this very moment.
+
+45:27.320 --> 45:30.040
+ If we invited a lot of people,
+
+45:30.040 --> 45:33.440
+ I'm sure there would be somebody who would argue against it.
+
+45:33.440 --> 45:37.920
+ What would be the devil's advocate argument?
+
+45:37.920 --> 45:39.680
+ Yeah, yeah.
+
+45:39.680 --> 45:42.960
+ So it's exactly perhaps what you alluded at
+
+45:42.960 --> 45:44.280
+ with your question,
+
+45:44.280 --> 45:51.280
+ that you are enabling some process of formation of the brain
+
+45:51.640 --> 45:54.400
+ that could be misused at some point,
+
+45:54.400 --> 45:59.040
+ or that could be showing properties
+
+45:59.040 --> 46:03.960
+ that ethically we don't wanna see in a tissue.
+
+46:03.960 --> 46:07.720
+ So today, I repeat, today, this is not an issue.
+
+46:07.720 --> 46:11.680
+ And so you just gain dramatically from the science without,
+
+46:11.680 --> 46:15.240
+ because the system is so simple and so different
+
+46:15.240 --> 46:17.800
+ in a way from the actual brain.
+
+46:17.800 --> 46:19.960
+ But because it is the brain,
+
+46:19.960 --> 46:23.920
+ we have an obligation to really consider all of this, right?
+
+46:23.920 --> 46:27.160
+ And again, it's a balanced conversation
+
+46:27.160 --> 46:30.320
+ where we should put disease and betterment of humanity
+
+46:30.320 --> 46:32.400
+ also on that plate.
+
+46:32.400 --> 46:35.400
+ What do you think, at least historically,
+
+46:35.400 --> 46:37.240
+ there was some politicization,
+
+46:37.240 --> 46:42.240
+ politicization of embryonic stem cells,
+
+46:44.280 --> 46:46.480
+ a stem cell research.
+
+46:46.480 --> 46:49.440
+ Do you still see that out there?
+
+46:49.440 --> 46:53.520
+ Is that still a force that we have to think about,
+
+46:53.520 --> 46:55.520
+ especially in this larger discourse
+
+46:55.520 --> 46:57.520
+ that we're having about the role of science
+
+46:57.520 --> 47:00.560
+ in at least American society?
+
+47:00.560 --> 47:03.440
+ Yeah, this is a very good question.
+
+47:03.440 --> 47:04.960
+ It's very, very important.
+
+47:04.960 --> 47:08.440
+ I see a very central role for scientists
+
+47:08.440 --> 47:12.000
+ to inform decisions about what we should
+
+47:12.000 --> 47:14.400
+ or should not do in society.
+
+47:14.400 --> 47:16.360
+ And this is because the scientists
+
+47:16.360 --> 47:20.400
+ have the firsthand look and understanding
+
+47:20.400 --> 47:23.480
+ of really the work that they are doing.
+
+47:23.480 --> 47:26.040
+ And again, this varies depending on
+
+47:26.040 --> 47:27.440
+ what we're talking about here.
+
+47:27.440 --> 47:31.080
+ So now we're talking about brain organoids.
+
+47:31.080 --> 47:33.760
+ I think that the scientists need to be part
+
+47:33.760 --> 47:36.480
+ of that conversation about what is,
+
+47:36.480 --> 47:37.960
+ will be allowed in the future
+
+47:37.960 --> 47:40.760
+ or not allowed in the future to do with the system.
+
+47:40.760 --> 47:43.320
+ And I think that is very, very important
+
+47:43.320 --> 47:47.840
+ because they bring the reality of data to the conversation.
+
+47:48.840 --> 47:51.640
+ And so they should have a voice.
+
+47:51.640 --> 47:53.320
+ So data should have a voice.
+
+47:53.320 --> 47:55.160
+ Data needs to have a voice.
+
+47:55.160 --> 47:57.280
+ Because in not only data,
+
+47:57.280 --> 48:01.120
+ we should also be good at communicating
+
+48:01.120 --> 48:04.200
+ with non scientists, the data.
+
+48:04.200 --> 48:06.800
+ So there has been often time,
+
+48:06.800 --> 48:11.000
+ there is a lot of discussion and, you know,
+
+48:11.000 --> 48:16.000
+ excitement and fights about certain topics
+
+48:16.280 --> 48:19.280
+ just because of the way they are described.
+
+48:19.280 --> 48:20.960
+ I'll give you an example.
+
+48:20.960 --> 48:23.360
+ If I called the same cellular system
+
+48:23.360 --> 48:27.040
+ we just talked about a brain organoid,
+
+48:27.040 --> 48:30.280
+ or if I called it a human mini brain,
+
+48:30.280 --> 48:34.560
+ your reaction is gonna be very different to this.
+
+48:34.560 --> 48:37.720
+ And so the way the systems are described,
+
+48:37.720 --> 48:42.480
+ I mean, we and journalists alike need to be a bit careful
+
+48:42.480 --> 48:46.040
+ that this debate is a real debate and informed by real data.
+
+48:46.040 --> 48:47.920
+ That's all I'm asking.
+
+48:47.920 --> 48:49.560
+ And yeah, the language matters here.
+
+48:49.560 --> 48:51.280
+ So I work on autonomous vehicles
+
+48:51.280 --> 48:53.000
+ and there the use of language
+
+48:53.000 --> 48:56.440
+ could drastically change the interpretation
+
+48:56.440 --> 48:58.480
+ and the way people feel about
+
+48:58.480 --> 49:01.480
+ what is the right way to proceed forward.
+
+49:01.480 --> 49:06.200
+ You are, as I've seen from a presentation, you're a parent.
+
+49:06.200 --> 49:09.800
+ I saw you show a couple of pictures of your son.
+
+49:09.800 --> 49:11.400
+ Is it just the one?
+
+49:11.400 --> 49:12.240
+ Two.
+
+49:12.240 --> 49:13.080
+ Two.
+
+49:13.080 --> 49:13.920
+ Son and a daughter.
+
+49:13.920 --> 49:14.760
+ Son and a daughter.
+
+49:14.760 --> 49:17.320
+ So what have you learned from the human brain
+
+49:17.320 --> 49:20.040
+ by raising two of them?
+
+49:20.040 --> 49:22.640
+ More than I could ever learn in the lab.
+
+49:24.480 --> 49:25.560
+ What have I learned?
+
+49:25.560 --> 49:27.480
+ I've learned that children really have
+
+49:27.480 --> 49:30.480
+ these amazing plastic minds, right?
+
+49:30.480 --> 49:34.800
+ That we have a responsibility to, you know,
+
+49:34.800 --> 49:37.440
+ foster their growth in good, healthy ways.
+
+49:38.360 --> 49:41.360
+ That keep them curious, that keeps them adventurous,
+
+49:41.360 --> 49:44.800
+ that doesn't raise them in fear of things.
+
+49:45.800 --> 49:47.920
+ But also respecting who they are,
+
+49:47.920 --> 49:49.040
+ which is in part, you know,
+
+49:49.040 --> 49:51.360
+ coming from the genetics we talked about.
+
+49:51.360 --> 49:53.560
+ My children are very different from each other
+
+49:53.560 --> 49:55.560
+ despite the fact that they're the product of
+
+49:55.560 --> 49:56.920
+ the same two parents.
+
+49:58.440 --> 50:03.440
+ I also learned that what you do for them comes back to you.
+
+50:03.440 --> 50:05.000
+ Like, you know, if you're a good parent,
+
+50:05.000 --> 50:08.000
+ you're gonna, most of the time,
+
+50:08.000 --> 50:11.240
+ have, you know, perhaps a decent kids at the end.
+
+50:11.240 --> 50:12.960
+ So what do you think, just a quick comment,
+
+50:12.960 --> 50:16.920
+ what do you think is the source of that difference?
+
+50:16.920 --> 50:20.400
+ That's often the surprising thing for parents.
+
+50:20.400 --> 50:23.880
+ Is that they can't believe that our kids,
+
+50:23.880 --> 50:26.360
+ oh, they're so different,
+
+50:26.360 --> 50:28.000
+ yet they came from the same parents.
+
+50:28.000 --> 50:29.560
+ Well, they are genetically different.
+
+50:29.560 --> 50:31.880
+ Even they came from the same two parents
+
+50:31.880 --> 50:33.600
+ because the mixing of gametes,
+
+50:33.600 --> 50:35.640
+ you know, we know this genetics,
+
+50:35.640 --> 50:39.760
+ creates every time a genetically different individual,
+
+50:39.760 --> 50:43.680
+ which will have a specific mix of genes
+
+50:43.680 --> 50:46.480
+ that is a different mix every time from the two parents.
+
+50:46.480 --> 50:50.280
+ And so they're not twins.
+
+50:50.280 --> 50:52.800
+ They are genetically different.
+
+50:52.800 --> 50:55.320
+ Even just that little bit of variation,
+
+50:55.320 --> 50:58.320
+ because you said really from a biological perspective,
+
+50:58.320 --> 51:00.600
+ the brains look pretty similar.
+
+51:00.600 --> 51:02.400
+ Well, so let me clarify that.
+
+51:02.400 --> 51:05.440
+ So the genetics you have, the genes that you have,
+
+51:05.440 --> 51:08.680
+ that play that beautiful orchestrated symphony
+
+51:08.680 --> 51:12.040
+ of development, different genes
+
+51:12.040 --> 51:13.920
+ will play it slightly differently.
+
+51:13.920 --> 51:16.120
+ It's like playing the same piece of music,
+
+51:16.120 --> 51:20.000
+ but with a different orchestra and a different director.
+
+51:20.000 --> 51:21.480
+ The music will not come out.
+
+51:21.480 --> 51:25.440
+ It will be still a piece by the same author,
+
+51:25.440 --> 51:27.080
+ but it will come out differently
+
+51:27.080 --> 51:28.960
+ if it's played by the high school orchestra
+
+51:28.960 --> 51:33.480
+ instead of the Scala in Milan.
+
+51:34.680 --> 51:39.360
+ And so you are born superficially with the same brain.
+
+51:39.360 --> 51:41.240
+ It has the same cell types,
+
+51:41.240 --> 51:43.440
+ similar patterns of connectivity,
+
+51:43.440 --> 51:45.240
+ but the properties of the cells
+
+51:45.240 --> 51:47.600
+ and how the cells will then react to the environment
+
+51:47.600 --> 51:51.320
+ as you experience your world will be also shaped
+
+51:51.320 --> 51:53.680
+ by who genetically you are.
+
+51:53.680 --> 51:55.120
+ Speaking just as a parent,
+
+51:55.120 --> 51:56.880
+ this is not something that comes from my work.
+
+51:56.880 --> 52:01.080
+ I think you can tell at birth that these kids are different,
+
+52:01.080 --> 52:04.560
+ that they have a different personality in a way, right?
+
+52:05.560 --> 52:08.720
+ So both is needed, the genetics,
+
+52:08.720 --> 52:10.600
+ as well as the nurturing afterwards.
+
+52:11.600 --> 52:15.480
+ So you are one human with a brain,
+
+52:15.480 --> 52:17.680
+ sort of living through the whole mess of it,
+
+52:17.680 --> 52:21.520
+ the human condition, full of love, maybe fear,
+
+52:21.520 --> 52:23.400
+ ultimately mortal.
+
+52:24.480 --> 52:27.680
+ How has studying the brain changed the way you see yourself?
+
+52:27.680 --> 52:30.480
+ When you look in the mirror, when you think about your life,
+
+52:30.480 --> 52:33.440
+ the fears, the love, when you see your own life,
+
+52:33.440 --> 52:34.640
+ your own mortality.
+
+52:34.640 --> 52:37.360
+ Yeah, that's a very good question.
+
+52:38.520 --> 52:43.520
+ It's almost impossible to dissociate some time for me.
+
+52:43.520 --> 52:46.200
+ Some of the things we do or some of the things
+
+52:46.200 --> 52:48.520
+ that other people do from,
+
+52:48.520 --> 52:51.400
+ oh, that's because that part of the brain
+
+52:52.320 --> 52:54.400
+ is working in a certain way.
+
+52:54.400 --> 52:58.120
+ Or thinking about a teenager,
+
+52:59.560 --> 53:02.160
+ going through teenage years and being at time funny
+
+53:02.160 --> 53:03.840
+ in the way they think.
+
+53:03.840 --> 53:07.480
+ And impossible for me not to think it's because
+
+53:07.480 --> 53:09.680
+ they're going through this period of time
+
+53:09.680 --> 53:13.040
+ called critical periods of plasticity
+
+53:13.040 --> 53:16.200
+ where their synapses are being eliminated here and there,
+
+53:16.200 --> 53:17.560
+ and they're just confused.
+
+53:17.560 --> 53:22.080
+ And so from that comes perhaps a different take
+
+53:22.080 --> 53:27.080
+ on that behavior, or maybe I can justify it scientifically
+
+53:27.880 --> 53:29.880
+ in some sort of way.
+
+53:29.880 --> 53:32.080
+ I also look at humanity in general,
+
+53:32.080 --> 53:36.840
+ and I am amazed by what we can do
+
+53:36.840 --> 53:39.760
+ and the kind of ideas that we can come up with.
+
+53:39.760 --> 53:43.480
+ And I cannot stop thinking about how the brain
+
+53:43.480 --> 53:46.200
+ is continuing to evolve.
+
+53:46.200 --> 53:47.120
+ I don't know if you do this,
+
+53:47.120 --> 53:49.480
+ but I think about the next brain sometimes.
+
+53:49.480 --> 53:50.880
+ Where are we going with this?
+
+53:50.880 --> 53:53.680
+ Like, what are the features of this brain
+
+53:53.680 --> 53:57.680
+ that evolution is really playing with
+
+53:57.680 --> 54:02.320
+ to get us in the future, the new brain?
+
+54:02.320 --> 54:04.040
+ It's not over, right?
+
+54:04.040 --> 54:06.960
+ It's a work in progress.
+
+54:06.960 --> 54:09.040
+ So let me just a quick comment on that.
+
+54:09.040 --> 54:14.040
+ Do you think there's a lot of fascination
+
+54:14.240 --> 54:15.960
+ and hope for artificial intelligence
+
+54:15.960 --> 54:17.720
+ of creating artificial brains?
+
+54:17.720 --> 54:20.080
+ You said the next brain.
+
+54:20.080 --> 54:23.360
+ When you imagine over a period of a thousand years,
+
+54:23.360 --> 54:25.480
+ the evolution of the human brain,
+
+54:25.480 --> 54:28.680
+ do you sometimes envisioning that future
+
+54:28.680 --> 54:32.400
+ see an artificial one, artificial intelligence,
+
+54:32.400 --> 54:34.920
+ as it is hoped by many, not hoped,
+
+54:34.920 --> 54:37.440
+ thought by many people would be actually
+
+54:37.440 --> 54:40.440
+ the next evolutionary step in the development of humans?
+
+54:40.440 --> 54:45.240
+ Yeah, I think in a way that will happen, right?
+
+54:45.240 --> 54:48.520
+ It's almost like a part of the way we evolve.
+
+54:48.520 --> 54:51.160
+ We evolve in the world that we created,
+
+54:51.160 --> 54:55.280
+ that we interact with, that shape us as we grow up
+
+54:55.280 --> 54:56.480
+ and so on and so forth.
+
+54:58.200 --> 55:00.880
+ Sometime I think about something that may sound silly,
+
+55:00.880 --> 55:04.480
+ but think about the use of cell phones.
+
+55:04.480 --> 55:07.000
+ Part of me thinks that somehow in their brain,
+
+55:07.000 --> 55:09.000
+ there will be a region of the cortex
+
+55:09.000 --> 55:13.560
+ that is attuned to that tool.
+
+55:13.560 --> 55:16.440
+ And this comes from a lot of studies
+
+55:16.440 --> 55:20.840
+ in modern organisms where really the cortex,
+
+55:20.840 --> 55:24.080
+ especially adapts to the kind of things you have to do.
+
+55:24.080 --> 55:28.440
+ So if we need to move our fingers in a very specific way,
+
+55:28.440 --> 55:30.600
+ we have a part of our cortex that allows us
+
+55:30.600 --> 55:32.880
+ to do this kind of very precise movement.
+
+55:34.200 --> 55:36.800
+ An owl that has to see very, very far away
+
+55:36.800 --> 55:39.800
+ with big eyes, the visual cortex, very big.
+
+55:39.800 --> 55:43.120
+ The brain attunes to your environment.
+
+55:43.120 --> 55:47.440
+ So the brain will attune to the technologies
+
+55:47.440 --> 55:51.040
+ that we will have and will be shaped by it.
+
+55:51.040 --> 55:52.800
+ So the cortex very well may be.
+
+55:52.800 --> 55:54.480
+ Will be shaped by it.
+
+55:54.480 --> 55:57.200
+ In artificial intelligence, it may merge with it,
+
+55:57.200 --> 56:01.120
+ it may get, envelop it and adjust.
+
+56:01.120 --> 56:04.040
+ Even if it's not a merge of the kind of,
+
+56:04.040 --> 56:06.800
+ oh, let's have a synthetic element together
+
+56:06.800 --> 56:08.640
+ with a biological one.
+
+56:08.640 --> 56:11.680
+ The very space around us, the fact, for example,
+
+56:11.680 --> 56:15.120
+ think about we put on some goggles of virtual reality
+
+56:15.120 --> 56:18.680
+ and we physically are surfing the ocean, right?
+
+56:18.680 --> 56:19.960
+ Like I've done it.
+
+56:19.960 --> 56:22.600
+ And you have all these emotions that come to you.
+
+56:22.600 --> 56:27.000
+ Your brain placed you in that reality.
+
+56:27.000 --> 56:29.520
+ And it was able to do it like that
+
+56:29.520 --> 56:31.000
+ just by putting the goggles on.
+
+56:31.000 --> 56:35.840
+ It didn't take thousands of years of adapting to this.
+
+56:35.840 --> 56:37.320
+ The brain is plastic.
+
+56:37.320 --> 56:39.160
+ So adapts to new technology.
+
+56:39.160 --> 56:41.600
+ So you could do it from the outside
+
+56:41.600 --> 56:46.600
+ by simply hijacking some sensory capacities that we have.
+
+56:47.480 --> 56:51.440
+ So clearly over recent evolution,
+
+56:51.440 --> 56:53.800
+ the cerebral cortex has been a part of the brain
+
+56:53.800 --> 56:55.840
+ that has known the most evolution.
+
+56:55.840 --> 56:58.240
+ So we have put a lot of chips
+
+56:58.240 --> 57:02.440
+ on evolving this specific part of the brain.
+
+57:02.440 --> 57:05.800
+ And the evolution of cortex is plasticity.
+
+57:05.800 --> 57:10.120
+ It's this ability to change in response to things.
+
+57:10.120 --> 57:12.240
+ So yes, they will integrate.
+
+57:12.240 --> 57:13.640
+ That we want it or not.
+
+57:14.800 --> 57:18.000
+ Well, there's no better way to end it, Paola.
+
+57:18.000 --> 57:19.320
+ Thank you so much for talking today.
+
+57:19.320 --> 57:20.160
+ You're very welcome.
+
+57:20.160 --> 57:41.560
+ This is very exciting.
+

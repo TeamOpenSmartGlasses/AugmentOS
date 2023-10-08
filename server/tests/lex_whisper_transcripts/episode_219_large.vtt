@@ -1,0 +1,3659 @@
+WEBVTT
+
+00:00.000 --> 00:04.960
+ The following is a conversation with Donald Knuth, his second time on this podcast.
+
+00:05.520 --> 00:12.160
+ Don is a legendary computer scientist, Turing Award winner, father of algorithm analysis,
+
+00:12.160 --> 00:19.040
+ author of The Art of Computer Programming, creator of tech that led to late tech, and
+
+00:19.040 --> 00:23.920
+ one of the kindest and most fascinating human beings I've ever got a chance to talk to.
+
+00:23.920 --> 00:30.640
+ I wrote him a letter a long time ago, he responded, and the rest, as they say, is history.
+
+00:30.640 --> 00:35.680
+ We've interacted many times since then, and every time has been joyful and inspiring.
+
+00:36.480 --> 00:40.080
+ To support this podcast, please check out our sponsors in the description.
+
+00:40.720 --> 00:46.480
+ This is the Lex Friedman Podcast, and here is my conversation with Donald Knuth.
+
+00:46.480 --> 00:54.880
+ Don Knuth, your first large scale program, you wrote it in IBM 650 Assembler in the summer of 1957.
+
+00:54.880 --> 00:59.920
+ I wrote it in decimal machine language. I didn't know about Assembler until a year later.
+
+00:59.920 --> 01:04.640
+ But the year, 1957, and the program is tic tac toe.
+
+01:04.640 --> 01:09.200
+ Yeah, I might have learned about Assembler later that summer, I probably did. In 1957,
+
+01:09.200 --> 01:12.320
+ hardly anybody had heard of Assemblers. You looked at the user manuals,
+
+01:12.320 --> 01:21.360
+ and how would you write a program for this machine? It would say 69, which meant load
+
+01:21.360 --> 01:25.840
+ the distributor, and then you would give the address of the number you wanted to load into
+
+01:25.840 --> 01:34.000
+ the distributor. Yesterday, my friend Doug Spicer at the Computer History Museum sent me a link to
+
+01:34.560 --> 01:41.840
+ something that just went on YouTube. It was IBM's progress report from 1956, which is very
+
+01:41.840 --> 01:52.400
+ contemporary with 1957. In 1956, IBM had donated to Stanford University an IBM 650, one of the first
+
+01:52.400 --> 01:58.320
+ ones, when they showed a picture of the assembly line for IBM 650s, and they said, this is number
+
+01:58.320 --> 02:05.840
+ 500 or something coming off the assembly line. I had never seen so many IBM 650s I did in this
+
+02:05.840 --> 02:19.120
+ movie that's on YouTube now. It showed the picture from Stanford. They said, look, we donated one of
+
+02:19.120 --> 02:26.400
+ these to Stanford, one to MIT, and they mentioned one other college. In December of 1956, they
+
+02:26.400 --> 02:36.480
+ donated to my university, Case Tech. Anyway, they showed a picture then of a class session where a
+
+02:36.480 --> 02:45.680
+ guy was teaching programming, and on the blackboard, it said 69, 8,000. He was teaching them how to
+
+02:45.680 --> 02:56.400
+ write code for this IBM 650, which was in decimal numbers. The instructions were 10 decimal digits.
+
+02:56.400 --> 03:05.280
+ You had two digits that said what to do, four digits to say what to do it to, and four more
+
+03:05.280 --> 03:10.160
+ digits to say where to get your next instruction. And there's a manual that describes what each of
+
+03:10.160 --> 03:16.560
+ the numbers mean. If the manual had been well written, I probably never would have gone into
+
+03:16.560 --> 03:22.400
+ computer science, but it was so badly written, I figured that I must have a talent for it because
+
+03:22.400 --> 03:27.920
+ I'm only a freshman and I could write a better manual. That's what you did.
+
+03:27.920 --> 03:41.600
+ And so I started working at the computer center and wrote some manuals then. But this was the
+
+03:41.600 --> 03:47.600
+ way we did it. And my first program then was June of 1957. The Tic Tac Toe?
+
+03:48.320 --> 03:52.800
+ No, that was the second program. The first, the third program. The first program was
+
+03:52.800 --> 04:03.360
+ factoring a number. So you dial a number on the switches. I mean, you sat at this big mainframe
+
+04:05.120 --> 04:11.680
+ and you turn the dials, set a number, and then it would punch out the factors of that number
+
+04:12.400 --> 04:15.440
+ on cards. So that's the input, is the number?
+
+04:15.440 --> 04:25.120
+ The input was, yeah, the input was a number, a tentative number. And the output was its factors.
+
+04:26.560 --> 04:32.000
+ And I wrote that program. I still have a copy of it somewhere.
+
+04:34.320 --> 04:36.080
+ How many lines of code? Do you remember?
+
+04:36.080 --> 04:40.960
+ Well, yeah, it started out as about 20, but then I kept having to debug it.
+
+04:40.960 --> 04:45.280
+ And I discovered debugging, of course, when I wrote my first program.
+
+04:45.280 --> 04:49.840
+ What does debugging look like on a program with just all numbers?
+
+04:50.800 --> 04:55.840
+ Well, you sit there and you, I don't remember how I got it into the machine, but I think there was
+
+04:55.840 --> 05:02.560
+ a way to punch it on cards. So each instruction would be one card. Or maybe I could get seven
+
+05:02.560 --> 05:06.320
+ instructions on a card, eight instructions. I don't know. But anyway, so I'm sitting there
+
+05:06.320 --> 05:10.400
+ at the console of the machine. I mean, I'm doing this at night when nobody else is around.
+
+05:10.400 --> 05:10.800
+ Of course.
+
+05:11.680 --> 05:17.520
+ And so you have one set of switches where you dial the number I'm inputting, but there's another
+
+05:17.520 --> 05:26.560
+ switch that says, okay, now execute one instruction and show me what you did. Or there was another four
+
+05:26.560 --> 05:33.200
+ switches that say, stop if you get to that instruction. So I can say, now go until you
+
+05:33.200 --> 05:39.920
+ get there again and watch. So I could watch, it would take that number and it would divide it by
+
+05:39.920 --> 05:48.160
+ two. And if there's no remainder, then okay, two is a factor. So then I work on it. But if not
+
+05:48.160 --> 05:54.960
+ divisible by two, divide by three. Keep trying until you know you're at the end.
+
+05:55.680 --> 06:01.600
+ And you would find a bug if you were just surprised that something weird happened?
+
+06:02.720 --> 06:05.200
+ Well, certainly. I mean, first of all, I might have
+
+06:05.200 --> 06:11.040
+ tried to divide by one instead of two. You go off by one error, as people make all the time.
+
+06:11.040 --> 06:11.520
+ Yes.
+
+06:11.520 --> 06:18.800
+ But maybe I go to the wrong instruction. Maybe I left something in a register that I shouldn't have
+
+06:18.800 --> 06:26.480
+ done. But the first bugs were pretty... Probably on the first night, I was able to get the factors
+
+06:26.480 --> 06:29.200
+ of 30 as equal to two, three, and five. Okay.
+
+06:29.200 --> 06:36.000
+ Sorry to interrupt. So you're sitting there late at night.
+
+06:36.000 --> 06:36.400
+ Yeah.
+
+06:36.400 --> 06:42.480
+ So it feels like you spent many years late at night working on a computer.
+
+06:42.480 --> 06:43.280
+ Oh, yeah.
+
+06:43.280 --> 06:49.280
+ So what's that like? So most of the world is sleeping. And you have to be there at night
+
+06:49.280 --> 06:51.520
+ because that's when you get access to the computer.
+
+06:51.520 --> 06:56.320
+ Between my freshman and sophomore year, I didn't need sleep. I used to do all nighters.
+
+06:56.320 --> 07:03.760
+ When I was in high school, I used to do the whole student newspaper every Monday night.
+
+07:04.800 --> 07:08.720
+ I would just stay up all night and it would be done on Tuesday morning.
+
+07:12.560 --> 07:14.800
+ I didn't get ulcers and stuff like that until later.
+
+07:18.000 --> 07:19.760
+ I don't know if you know Rodney Brooks.
+
+07:19.760 --> 07:20.880
+ Rod Brooks, of course.
+
+07:20.880 --> 07:28.480
+ Yeah. He told me a story that he really looked up to you. He was actually afraid of you.
+
+07:29.360 --> 07:31.280
+ Well, vice versa, I must say.
+
+07:32.400 --> 07:37.680
+ But he tells a story when you were working on tech that they screwed up something with
+
+07:37.680 --> 07:42.800
+ a machine. I think this might have been MIT. I don't know. And you were waiting for them
+
+07:42.800 --> 07:45.920
+ to fix the machine so you can get back to work late at night.
+
+07:47.760 --> 07:49.440
+ That happened all the time.
+
+07:49.440 --> 07:52.720
+ He was really intimidated. He's like, Dr. Knuth is not happy with this.
+
+07:54.000 --> 08:04.000
+ That's interesting. But no, the machine at Stanford AI Lab was down an awful lot because
+
+08:05.760 --> 08:09.840
+ they had many talented programmers changing the operating system every day.
+
+08:09.840 --> 08:14.480
+ So the operating system was getting better every day, but it was also crashing.
+
+08:14.480 --> 08:23.280
+ So I wrote almost the entire manual for tech during downtime of that machine.
+
+08:23.280 --> 08:24.400
+ But that's another story.
+
+08:24.400 --> 08:30.480
+ Well, he was saying it's a hardware problem. They tried to fix it and they reinserted
+
+08:30.480 --> 08:32.080
+ something and smoke was everywhere.
+
+08:32.080 --> 08:35.840
+ Oh, wow. Well, that didn't happen as often as the operating system.
+
+08:38.480 --> 08:44.160
+ It's a funny story because he was saying there's this tall Don Knuth that I look up to
+
+08:44.160 --> 08:50.560
+ and there was pressure to fix the computer. It's funny.
+
+08:51.680 --> 08:54.080
+ The kind of things we remember that stick in our memory.
+
+08:54.080 --> 08:58.560
+ Well, okay. Yeah. Well, I could tell you a bunch of Rod Brooks stories too, but let's
+
+09:00.160 --> 09:12.480
+ go back to the 650. So I'm debugging my first program and I had more bugs in it than a number
+
+09:12.480 --> 09:17.520
+ of lines of code. I mean, the number of lines of code kept growing. And let me explain.
+
+09:17.520 --> 09:24.320
+ So I had to punch the answers on cards. So suppose I'm factoring the number 30, then
+
+09:26.080 --> 09:31.040
+ I got to put two somewhere on the card. I got to put a three somewhere on the card.
+
+09:31.040 --> 09:37.680
+ I got to put a five somewhere on the card. And here's my first program. I probably screwed up
+
+09:37.680 --> 09:44.720
+ and it fell off the edge of the card or something like that. But I didn't realize that there are
+
+09:44.720 --> 09:53.200
+ some tentative numbers that have more than eight factors. And the card has only 80 columns. And so
+
+09:53.200 --> 09:58.560
+ I need 10 columns for every factor. So my first program didn't take account for the fact that I
+
+09:58.560 --> 10:03.920
+ would have to punch more than one card. My first program just lined stuff up in memory and then
+
+10:03.920 --> 10:11.200
+ punched the card. So by the time I finished, I had to deal with lots of things. Also,
+
+10:14.960 --> 10:20.240
+ if you put a large prime number in there, my program might have sat there for 10 minutes.
+
+10:20.240 --> 10:24.000
+ The 650 was pretty slow. And so it would sit there spinning its wheels and you wouldn't know
+
+10:24.000 --> 10:26.800
+ if it was in a loop or whatever. You said 10 digit?
+
+10:26.800 --> 10:34.400
+ 10 digits. Yeah. So I think the largest is sort of 999999997 or something like that.
+
+10:36.240 --> 10:40.960
+ That would take me a while for that first one. Anyway, that was my first program.
+
+10:40.960 --> 10:46.560
+ Well, what was your goal with that program? Was there something you were hoping to find a large
+
+10:46.560 --> 10:54.160
+ prime maybe or the opposite? No, my goal was to see the lights flashing and understand how this
+
+10:54.160 --> 10:59.440
+ magical machine would be able to do something that took so long by hand. So what was your second
+
+10:59.440 --> 11:08.880
+ program? My second program was a converted number from binary to decimal or something like that. It
+
+11:08.880 --> 11:14.400
+ was much simpler. It didn't have that many bugs in it. My third program was tic tac toe.
+
+11:14.400 --> 11:20.560
+ Yeah. And it had some machines. So the tic tac toe program is interesting on many levels,
+
+11:20.560 --> 11:24.640
+ but one of them is that it had some you can call machine learning in it.
+
+11:26.800 --> 11:34.240
+ Yeah, that's right. I don't know how long it's going to be before the name of our field has
+
+11:34.240 --> 11:42.560
+ changed from computer science to machine learning. But anyway, it was my first experience with
+
+11:42.560 --> 11:46.880
+ machine learning. Okay. So here we had... Yeah. How does the program... Well, first of all,
+
+11:46.880 --> 11:53.200
+ what is the problem you were solving? What is tic tac toe? What are we talking about? And then
+
+11:54.880 --> 12:00.640
+ how was it designed? Right. So you've got a three by three grid and each
+
+12:03.040 --> 12:08.640
+ can be in three states. It can be empty or it can have an X or an O. Yeah. All right. So three to
+
+12:08.640 --> 12:26.400
+ the ninth is a... Well, how big is it? I should know. But it's 81 times three. So anyway, eight
+
+12:26.400 --> 12:35.680
+ is like two to the third. And so that would be like two to the sixth. But that would be 64.
+
+12:35.680 --> 12:41.280
+ Then you have to... Anyway, I love how you're doing the calculation. So it's a lot of... Anyway,
+
+12:41.280 --> 12:49.680
+ the three comes from the fact that it's either empty, an X or an O. Right. And the 650 was a
+
+12:49.680 --> 13:00.720
+ machine that had only two thousand ten digit words. You go from zero zero zero zero to one
+
+13:00.720 --> 13:08.880
+ nine nine nine and that's it. And each word you have a ten digit number. So that's not many bits.
+
+13:09.360 --> 13:13.600
+ I mean, I got to have... In order to have a memory of every position I've seen,
+
+13:14.480 --> 13:21.280
+ I need three to the ninth bits. Okay. But it was a decimal machine too. It didn't have bits.
+
+13:21.840 --> 13:29.600
+ But it did have strange instruction where if you had a ten digit number, but all the digits were
+
+13:29.600 --> 13:38.400
+ either eight or nine, you'd be eight, nine, nine, eight or something like that. You could make a
+
+13:38.400 --> 13:43.760
+ test whether it was eight or nine. That was one of the strange things IBM engineers put into the
+
+13:43.760 --> 13:51.040
+ machine. I have no idea why. Well, hardly ever used. But anyway, I needed one digit for every
+
+13:51.840 --> 13:57.360
+ position I'd seen. Zero meant it was a bad position. Nine meant it was good position.
+
+13:57.360 --> 14:06.400
+ And I think I started out at five or six. But if you win a game, then you increase the value of
+
+14:06.400 --> 14:18.240
+ that position for you, but you decrease it for your opponent. But I had that much total memory
+
+14:18.240 --> 14:25.760
+ for every possible position was one digit. And I had a total of 20,000 digits, which had to also
+
+14:25.760 --> 14:34.320
+ include my program and all the logic and everything, including how to ask the user what the moves are
+
+14:34.320 --> 14:41.920
+ and things like this. So I think I had to work it out. Every position in tic tac toe is equivalent
+
+14:41.920 --> 14:49.120
+ to roughly eight others because you can rotate the board, which gives you a factor of four,
+
+14:49.120 --> 14:55.680
+ and you can also flip it over. And that's another factor too. So I might have needed only three to
+
+14:55.680 --> 15:05.520
+ the ninth over eight positions plus a little bit. But anyway, that was a part of the program to
+
+15:05.520 --> 15:11.200
+ squeeze it into this tiny... So you tried to find an efficient representation that took
+
+15:11.200 --> 15:14.560
+ account for that kind of rotation. I had to, otherwise I couldn't do the learning.
+
+15:18.080 --> 15:24.880
+ But I had three parts to my tic tac toe program. And I called it brain one, brain two, and brain
+
+15:24.880 --> 15:39.440
+ three. So brain one just played at random. It's your turn. Okay. You got to put an X somewhere.
+
+15:39.440 --> 15:48.640
+ It has to go in an empty space, but that's it. Okay. Choose one and play it. Brain two
+
+15:48.640 --> 15:59.200
+ had a canned routine. And I think it also... Maybe it assumed you were the first player,
+
+15:59.200 --> 16:03.440
+ or maybe it allowed you to be first. I think you're allowed to be either first or second,
+
+16:03.440 --> 16:09.760
+ but had a canned built in strategy known to be optimum for tic tac toe. Before I forget,
+
+16:09.760 --> 16:18.480
+ by the way, I learned many years later that Charles Babbage had thought about programming
+
+16:18.480 --> 16:23.760
+ tic tac toe for his dream machine that he was never able to finish.
+
+16:23.760 --> 16:26.400
+ Wow. So that was the program he thought about.
+
+16:26.400 --> 16:36.480
+ More than 100 years ago. He did that. Okay. And I had, however, been influenced by a
+
+16:37.120 --> 16:42.960
+ demonstration at the Museum of Science and Industry in Chicago. It's like Boston Science
+
+16:42.960 --> 16:50.800
+ Museum. I think Bell Labs had prepared a special exhibit about telephones and relay technology,
+
+16:50.800 --> 16:58.080
+ and they had a tic tac toe playing machine as part of that exhibit. So that had been one of my...
+
+17:00.160 --> 17:05.120
+ Something I'd seen before I was a freshman in college and inspired me to see if I could
+
+17:05.120 --> 17:13.920
+ write a program for it. Okay. So anyway, I had brain one, random, knowing nothing. Brain two,
+
+17:13.920 --> 17:22.080
+ knowing everything. Then brain three was the learning one. And I could play brain one against
+
+17:22.080 --> 17:28.800
+ brain one, brain one against brain two, and so on. And so you could also play against the user,
+
+17:28.800 --> 17:36.000
+ against the live users. So I started going, the learning thing, and I said, okay, take two random
+
+17:37.520 --> 17:48.320
+ people just playing tic tac toe knowing nothing. And after about... I forget the number now, but
+
+17:49.040 --> 17:57.440
+ it converged after about 600 games to a safe draw. The way my program learned was actually,
+
+17:57.440 --> 18:04.800
+ it learned how not to make mistakes. It didn't try to do anything for winning,
+
+18:04.800 --> 18:10.320
+ it just tried to say not losing. So that was probably because of the way I designed the
+
+18:10.320 --> 18:18.080
+ learning thing. I could have had a different reinforcement function that would reward brilliant
+
+18:18.080 --> 18:29.360
+ play. And if I took a novice against a skilled player, it was able to learn how to play a good
+
+18:29.360 --> 18:38.240
+ game. And that was really my... But after I finished that, I felt I understood programming.
+
+18:38.240 --> 18:48.160
+ Yeah. Did a curiosity and interest in learning systems persist for you?
+
+18:48.880 --> 18:58.320
+ So why did you want brain three to learn? Yeah. I think naturally, we're talking about
+
+18:58.320 --> 19:08.000
+ Rod Brooks. He was teaching all kinds of very small devices to learn stuff. If a leaf drops
+
+19:08.000 --> 19:15.840
+ off of a tree, he was saying something, well, it learns if there's wind or not.
+
+19:17.200 --> 19:22.480
+ But I mean, he pushed that a little bit too far. But he said he could probably train some little
+
+19:22.480 --> 19:28.000
+ mini bugs to scour out dishes if he had enough financial support. I don't know.
+
+19:28.000 --> 19:38.560
+ Can I ask you about that? He also mentioned that during those years, there was discussion
+
+19:39.440 --> 19:45.680
+ inspired by Turing about computation, of what is computation.
+
+19:45.680 --> 19:59.600
+ Yeah. I never thought about any stuff like that. That was way too philosophical. I was a freshman
+
+20:00.560 --> 20:05.360
+ after all. I was pretty much a machine.
+
+20:07.040 --> 20:12.720
+ So it's almost like, yeah, I got you. It's a tinkering mindset, not a philosophical mindset.
+
+20:12.720 --> 20:21.920
+ Yeah. It was just exciting to me to be able to control something, but not to say, am I solving
+
+20:21.920 --> 20:26.720
+ a big problem or something like that? Or is this a step for humankind? No, no way.
+
+20:28.240 --> 20:34.400
+ When did you first start thinking about computation in the big sense? Like the
+
+20:34.400 --> 20:47.040
+ universal Turing machine? I had to take classes on computability when I was a senior. So we read
+
+20:47.040 --> 20:53.360
+ this book by Martin Davis. Yeah, this is cool stuff. But I learned about it because I needed
+
+20:53.360 --> 21:00.720
+ to pass the exams. But I didn't invent any of that boring stuff. But I had great fun playing
+
+21:00.720 --> 21:09.040
+ with the machine. I wrote programs because it was fun to write programs and get this.
+
+21:11.120 --> 21:13.760
+ I mean, it was like watching miracles happen.
+
+21:15.360 --> 21:22.400
+ You mentioned in an interview that when reading a program, you can tell when the author of the
+
+21:22.400 --> 21:31.680
+ program changed. How the heck can you do that? Like, what makes a distinct style for a programmer,
+
+21:31.680 --> 21:39.280
+ do you think? You know, there's different Hemingway has a style of writing versus James Joyce or
+
+21:39.280 --> 21:45.920
+ something. Yeah, those are pretty easy to imitate. But it's the same with music and whatever.
+
+21:45.920 --> 21:55.520
+ During the pandemic, I spent a lot more time playing the piano. And I found something that
+
+21:55.520 --> 22:05.600
+ I'd had when I was taking lessons before I was a teenager. And it was Yankee Doodle
+
+22:05.600 --> 22:16.880
+ who played in the style of... You had Beethoven and you had Debussy and Chopin, and the last one
+
+22:16.880 --> 22:25.360
+ was Gershwin. And I played over and over again. I thought it was so brilliant. But it was so easy.
+
+22:26.080 --> 22:35.120
+ But also to appreciate how this author, Mario, somebody or other, had been able to reverse
+
+22:35.120 --> 22:43.040
+ engineer the styles of those composers. But now, specifically to your question, I mean, there would
+
+22:43.040 --> 22:53.840
+ be... It was pretty obvious in this program I was reading. It was a compiler and it had been written
+
+22:53.840 --> 23:03.600
+ by a team at Carnegie Mellon. And I have no idea which program was responsible for it. But you
+
+23:03.600 --> 23:09.920
+ would get to a part where the guy would just not know how to move things between registers very
+
+23:09.920 --> 23:16.160
+ efficiently. And so everything that could be done in one instruction would take three or something
+
+23:16.160 --> 23:23.840
+ like that. That would be a pretty obvious change in style. But there were also flashes of brilliance
+
+23:23.840 --> 23:29.280
+ where you could do in one instruction. Normally, I used two because you knew enough about the way
+
+23:29.280 --> 23:37.280
+ the machine worked that you could accomplish two goals in one step. So it was mostly the
+
+23:37.280 --> 23:45.440
+ brilliance of the concept more than the semicolons or the use of short sentences versus long sentences
+
+23:45.440 --> 23:50.960
+ or something like that. So you would see the idea in the code and you could see the different style
+
+23:50.960 --> 23:57.840
+ of thinking expressed in the code. Right. It was stylistic. I mean, I could identify authors by
+
+23:57.840 --> 24:04.960
+ their by the amount of technical aptitude they had, but not by the style in the sense of
+
+24:07.040 --> 24:11.280
+ rhythm or something like that. So if you think about Mozart, Beethoven, Bach,
+
+24:11.840 --> 24:18.480
+ if somebody looked at Don Knuth code, would they be able to tell that this
+
+24:19.600 --> 24:23.360
+ is a distinct style of thinking going on here? What do you think?
+
+24:23.360 --> 24:27.680
+ And what would be the defining characteristic of the style?
+
+24:28.400 --> 24:37.680
+ Well, my code now is literate programming. So it's a combination of English and C mostly. But
+
+24:37.680 --> 24:46.160
+ if you just looked at the C part of it, you would also probably notice that I use a lot of global
+
+24:46.160 --> 24:55.280
+ variables that other people don't. And I expand things in line more than instead of calling.
+
+24:56.240 --> 25:00.080
+ Anyway, I have different subset of C that I use.
+
+25:00.080 --> 25:02.320
+ Okay. But that's a little bit stylistic.
+
+25:03.120 --> 25:08.240
+ But with literate programming, you alternate between English and C or whatever.
+
+25:10.880 --> 25:14.560
+ And by the way, people listening to this should look up literate programming. It's
+
+25:14.560 --> 25:20.240
+ very interesting concept that you proposed and developed over the years.
+
+25:21.040 --> 25:32.800
+ Yeah. That's the most significant thing, I think, to come out of the tech project is that I
+
+25:32.800 --> 25:45.120
+ realized that my programs were to be read by people and not just by computers and that typography
+
+25:45.120 --> 25:53.760
+ could massively enhance that. And so, I mean, they're just wonderful. If they're going to look
+
+25:53.760 --> 26:02.240
+ it up, they should also look up this book called Physically Based Rendering by Matt Farr and,
+
+26:02.240 --> 26:10.560
+ gosh, anyway, it got an Academy Award. But all the graphic effects you see in movies
+
+26:13.520 --> 26:19.120
+ are accomplished by algorithms. And the whole book is a literate program. It tells you not
+
+26:19.120 --> 26:27.360
+ only how you do all the shading and bring images in that you need for animation and
+
+26:27.360 --> 26:42.080
+ textures and so on, but you can run the code. And so, I find it an extension of how to teach
+
+26:42.080 --> 26:47.680
+ programming is by telling a story as part of the program.
+
+26:47.680 --> 26:52.480
+ So it works as a program, but it's also readable by humans.
+
+26:52.480 --> 26:58.720
+ Yes. And especially by me a week later or a year later.
+
+26:58.720 --> 27:06.320
+ That's a good test. If you yourself understand the code easily a week or a month or a year later.
+
+27:06.320 --> 27:12.160
+ Yeah. So it's the greatest thing since sliced bread.
+
+27:12.720 --> 27:14.640
+ Programming or literate programming?
+
+27:14.640 --> 27:15.520
+ Literate programming.
+
+27:15.520 --> 27:24.080
+ Okay. You heard it here first. Okay. You dodged this question in an interview I listened to.
+
+27:24.960 --> 27:29.680
+ So let me ask you again here. What makes for a beautiful program?
+
+27:30.240 --> 27:31.840
+ What makes for a beautiful program?
+
+27:31.840 --> 27:36.000
+ Yeah. What are the characteristics you see? Like you just said, literate programming.
+
+27:36.640 --> 27:40.960
+ What are the characteristics you see in a program that make you sit back and say,
+
+27:40.960 --> 27:47.280
+ that's pretty good? Well, the reason I didn't answer is because there are dozens and dozens
+
+27:47.280 --> 27:54.080
+ of answers to that because you can define beauty, the same personal defined beauty,
+
+27:54.960 --> 27:59.120
+ different way from hour to hour. I mean, it depends on what you're looking for.
+
+27:59.120 --> 28:10.960
+ At one level, it's beautiful just if it works at all. At another level, it's beautiful if it can
+
+28:10.960 --> 28:19.760
+ be understood easily. It's beautiful if it's literate programming. It's beautiful. It makes
+
+28:19.760 --> 28:21.280
+ you laugh. I mean.
+
+28:21.280 --> 28:26.400
+ Yeah. So I'm with you. I think beauty, if it's readable.
+
+28:27.120 --> 28:28.000
+ Readable, yeah.
+
+28:28.000 --> 28:35.120
+ Is if you understand what's going on and also understand the elegance of thought behind it.
+
+28:36.160 --> 28:42.880
+ And then also, as you said, wit and humor. I was always, I remember having this conversation,
+
+28:42.880 --> 28:51.040
+ I had this conversation on Stack Overflow, whether humor is good in comments. And I think it is.
+
+28:51.040 --> 28:53.120
+ Whether humor is good in comments.
+
+28:53.120 --> 28:58.960
+ Like when you add comments in code, I always thought a little bit of humor is good.
+
+29:00.000 --> 29:06.080
+ It shows personality. It shows character, shows wit and fun and all those kinds of things
+
+29:07.280 --> 29:08.800
+ of the personality of the programmer.
+
+29:08.800 --> 29:17.040
+ Yeah. Okay. So a couple of days ago, I received a wonderful present from my former editor at
+
+29:17.040 --> 29:24.880
+ Aspen Wesley. He's downsizing his house and he found that somebody at the company had
+
+29:26.880 --> 29:32.240
+ found all of their internal files about the art of computer programming from the 1960s
+
+29:32.240 --> 29:39.920
+ and they gave it to him before throwing it in the garbage. And then so he said,
+
+29:39.920 --> 29:44.400
+ oh yeah, he planned to keep it for posterity, but now he realized that posterity is
+
+29:44.400 --> 29:54.720
+ a bit too much for him to handle, so he sent it to me. And so I just received this big stack
+
+29:55.760 --> 30:01.200
+ of letters, some of which I had written to them, but many of which they had written to
+
+30:02.000 --> 30:06.320
+ early guinea pigs who were telling them whether they should publish or not.
+
+30:06.320 --> 30:13.920
+ You know, and one of the things was in the comments to volume one,
+
+30:17.760 --> 30:27.920
+ the major reader was Bob Floyd, who is my great co worker in the 60s, died early,
+
+30:27.920 --> 30:38.960
+ unfortunately. And he commented about the humor in it. So he ran it by me, you know,
+
+30:38.960 --> 30:45.520
+ says, you know, keep this joke in or not, you know. They also sent it out to focus group.
+
+30:46.480 --> 30:50.240
+ What do you think about humor in a book about computer programming?
+
+30:50.240 --> 30:51.520
+ What's the conclusion?
+
+30:51.520 --> 30:59.600
+ And I stated my philosophy. It said, you know, the ideal thing is that it's something where
+
+31:00.320 --> 31:04.800
+ the reader knows that there's probably a joke here if you only understood it. And this is a
+
+31:04.800 --> 31:13.280
+ motivation to understand, to think about it a little bit. But anyway, it's a very delicate
+
+31:13.280 --> 31:21.600
+ humor. I mean, it's really each each century invents a different kind of humor, too. Different
+
+31:21.600 --> 31:27.600
+ cultures have different different kinds of humor. Yeah. Like we talked about Russia a little bit
+
+31:27.600 --> 31:34.960
+ offline. You know, there's dark humor and, you know, when a country goes through something
+
+31:34.960 --> 31:39.680
+ difficult, that life and stuff like this. And, you know, and Jack Benny, I mean,
+
+31:39.680 --> 31:46.000
+ you know, Steve Allen wrote this book about humor, and it was the most boring book,
+
+31:46.000 --> 31:54.080
+ but he was one of my idols. But it's called The Funny Men or something like that. But yeah. Okay.
+
+31:54.080 --> 32:00.800
+ So anyway, I think it's important to know that this is part of life, and it should be fun and
+
+32:00.800 --> 32:08.560
+ not... And so, you know, I wrote this organ composition, which is based on the Bible,
+
+32:08.560 --> 32:13.760
+ but I didn't refrain from putting little jokes in it also in the music.
+
+32:14.320 --> 32:15.680
+ It's hidden in the music.
+
+32:15.680 --> 32:17.440
+ It's there, yeah.
+
+32:18.160 --> 32:19.520
+ A little humor is okay?
+
+32:19.520 --> 32:25.040
+ Yeah. I mean, not egregious humor. So in this correspondence, you know, there were
+
+32:27.280 --> 32:35.840
+ things I said, yeah, I really shouldn't have done that. But other ones I insisted on. And I've got
+
+32:35.840 --> 32:44.800
+ jokes in there that nobody has figured out yet. In fact, in volume two, I've got a cryptogram,
+
+32:44.800 --> 32:52.560
+ a message, enciphered. And in order to decipher it, you're going to have to break an RSA key,
+
+32:52.560 --> 32:59.680
+ which is larger than people know how to break. And so, you know, if computers keep getting faster
+
+32:59.680 --> 33:04.080
+ and faster, then, you know, it might be a hundred years, but somebody will figure out what this
+
+33:04.080 --> 33:07.680
+ what this message is and they will laugh. I mean, I've got a joke in there.
+
+33:09.520 --> 33:14.240
+ So that one you really have to work for. I don't know if you've heard about this.
+
+33:15.840 --> 33:21.520
+ Let me explain it. Maybe you'll find it interesting. So OpenAI is a company that
+
+33:22.400 --> 33:28.480
+ does AI work, and they have this language model. It's a neural network that can generate
+
+33:28.480 --> 33:37.680
+ language pretty well. But they also have, on top of that, developed something called OpenAI Codex.
+
+33:38.640 --> 33:42.720
+ And together with GitHub, they developed a system called OpenAI Copilot.
+
+33:43.680 --> 33:50.720
+ Let me explain what it does. There's echoes of literate programming in it. So what you do
+
+33:50.720 --> 33:57.600
+ is you start writing code and it completes the code for you. So, for example, you start,
+
+33:57.600 --> 34:03.520
+ let's go to your factoring program. You start, you write in JavaScript and Python and any language
+
+34:04.480 --> 34:11.200
+ that it trained on. You start, you write the first line and some comments, like what this
+
+34:11.200 --> 34:17.040
+ code does, and it generates the function for you. And it does an incredibly good job.
+
+34:17.040 --> 34:23.280
+ Like, it's not provably right, but it often does a really good job of completing the code for you.
+
+34:23.280 --> 34:26.880
+ I see. But how do you know whether it did a good job or not?
+
+34:26.880 --> 34:27.440
+ Yeah.
+
+34:27.440 --> 34:29.840
+ You could see a lot of examples where it did a good job.
+
+34:31.040 --> 34:34.400
+ And so it's not a thing that generates code for you.
+
+34:34.400 --> 34:35.360
+ Yeah, exactly.
+
+34:35.360 --> 34:41.760
+ It starts, it gives you, so it puts the human in the seat of fixing
+
+34:42.720 --> 34:47.920
+ issues versus writing from scratch. Do you find that kind of idea at all interesting?
+
+34:48.560 --> 34:53.360
+ Every year, we're going to be losing more and more control over what machines are doing.
+
+34:53.360 --> 35:02.320
+ And people are saying, well, when I was a professor at Caltech in the 60s, we had this
+
+35:03.760 --> 35:10.720
+ guy who talked a good game. He could give inspiring lectures and you'd think, well,
+
+35:13.440 --> 35:16.880
+ thrilling things he was talking about. An hour later, you'd say, well, what did he say?
+
+35:16.880 --> 35:23.520
+ Yeah. But he really felt that it didn't matter whether computers got the right answer or not,
+
+35:23.520 --> 35:29.040
+ it just mattered whether it made you happy or not. In other words, if your boss paid for it,
+
+35:30.800 --> 35:35.360
+ then you had a job, you could take care of your wife.
+
+35:35.360 --> 35:37.120
+ Happiness is more important than truth.
+
+35:38.000 --> 35:40.800
+ Exactly. He didn't believe in truth, but he was a philosopher.
+
+35:40.800 --> 35:45.680
+ Yes, I like it. And somehow you see...
+
+35:47.040 --> 35:52.800
+ We're going that way. So many more things are taken over by saying, well, this seems to work.
+
+35:55.440 --> 35:59.520
+ When there is a competing interest involved, neither side understands
+
+36:00.880 --> 36:09.360
+ why the decision is being made. We realize now that it's bad, but consider what happens
+
+36:09.360 --> 36:17.360
+ 5 or 10 years down the line when things get even more further detached. Each thing is based on
+
+36:17.920 --> 36:20.080
+ something from the previous year.
+
+36:20.080 --> 36:23.600
+ Yeah. So you start to lose... The more you automate,
+
+36:23.600 --> 36:26.800
+ the more you start to lose track of some deep human things.
+
+36:26.800 --> 36:27.600
+ Exponentially.
+
+36:28.160 --> 36:36.080
+ Exponentially. So that's the dark side. The positive side is the more you automate,
+
+36:36.080 --> 36:41.600
+ the more you let humans do what humans do best. So maybe programming...
+
+36:43.280 --> 36:48.080
+ Maybe humans should focus on a small part of programming that requires that genius,
+
+36:48.640 --> 36:53.600
+ the magic of the human mind, and the mess you let the machine generate.
+
+36:55.600 --> 37:00.400
+ That's the positive, but of course, it does come with the darkness of automation.
+
+37:01.760 --> 37:02.800
+ What's better? Correctness?
+
+37:02.800 --> 37:06.480
+ I'm never going to try to write a book about that.
+
+37:06.480 --> 37:09.440
+ I'm never going to recommend to any of my students to work for them.
+
+37:10.160 --> 37:14.160
+ Sure. So you're on the side of correctness, not beauty, not happiness.
+
+37:14.160 --> 37:16.560
+ I'm on the side of understanding.
+
+37:17.200 --> 37:18.240
+ Understanding.
+
+37:18.240 --> 37:25.840
+ And I think these things are really marvelous if what they do is all of a sudden we have a better
+
+37:25.840 --> 37:34.560
+ medical diagnosis or it'll help guide some scientific experiment or something like curing
+
+37:34.560 --> 37:45.120
+ diseases or whatever. But when it affects people's lives in a serious way... If you're writing code,
+
+37:46.080 --> 37:50.160
+ oh yeah, this is great. This will make a slaughter bot.
+
+37:50.160 --> 37:59.600
+ I see. So you have to be very careful. Right now it seems like fun and games.
+
+37:59.600 --> 38:04.160
+ It's useful to write a little JavaScript program that helps you with the website.
+
+38:04.800 --> 38:10.000
+ But like you said, one year passes, two years passes, five years, and you forget.
+
+38:10.000 --> 38:14.560
+ You start building on top of it, and then all of a sudden you have autonomous weapon systems.
+
+38:14.560 --> 38:19.520
+ Well, we're all dead. It doesn't matter in that sense.
+
+38:21.360 --> 38:25.360
+ Well, in the end, this whole thing ends anyway.
+
+38:28.880 --> 38:36.400
+ There is a heat death of the universe predicted, but I'm trying to postpone that for a little bit.
+
+38:38.160 --> 38:42.960
+ Well, it'd be nice that at the end, as we approach the heat death of the universe,
+
+38:42.960 --> 38:51.120
+ there's still some kind of consciousness there to appreciate it. Hopefully human consciousness.
+
+38:51.760 --> 38:59.120
+ I'll settle for 10 to the 10th year, some finite number. But things like this might be the reason
+
+38:59.120 --> 39:06.160
+ we don't pick up any signals from extraterrestrials. They don't want anything to do with us.
+
+39:06.160 --> 39:14.480
+ Oh, because they, because they, they, they invented it too.
+
+39:14.480 --> 39:22.480
+ So you, you do have a little bit of worry on the existential threats of AI and automation.
+
+39:23.120 --> 39:26.960
+ So like, like removing the human from the picture, et cetera. Yeah.
+
+39:26.960 --> 39:36.160
+ Um, people have more, more potential to do harm now than by far than they did a hundred years ago.
+
+39:36.160 --> 39:42.080
+ But are you optimistic about the humans are good at creating destructive things,
+
+39:42.080 --> 39:46.240
+ but also humans are good at solving problems. Yeah. I mean, there's half empty and half full,
+
+39:46.240 --> 39:54.160
+ you know, so I can go. So let me, let me put it this way because,
+
+39:54.160 --> 40:02.960
+ because it's the only way I can be optimistic, but, but, but, but think of, um, of, uh,
+
+40:05.280 --> 40:10.960
+ things that have changed because of civilization, you know, they don't occur just in nature.
+
+40:11.840 --> 40:19.920
+ So just, uh, just imagine the room we're in, for example. Okay. Some, you know, we've got pencils,
+
+40:19.920 --> 40:24.800
+ we've got books, we've got tables, we've got microphones, your clothing, food,
+
+40:25.440 --> 40:34.080
+ all these things were added. Somebody invented them one by one and millions of things, uh,
+
+40:34.080 --> 40:40.320
+ that we inherit. Okay. Um, and, uh, it's inconceivable that, that so many millions
+
+40:40.320 --> 40:48.960
+ of billions of things, uh, wouldn't have problems and we get it all right. Um, and each one
+
+40:48.960 --> 40:58.880
+ would have no negative effects and so on. So it, it's very amazing that as much works as does work.
+
+40:58.880 --> 41:05.840
+ It's, it's, it's incredibly amazing. And actually that's the source of my optimism as well,
+
+41:06.880 --> 41:15.280
+ including for artificial intelligence. So we, we drive over bridges. We, uh, we use all kinds
+
+41:15.280 --> 41:20.080
+ of technology. We don't know how it works. And there's millions of brilliant people involved in
+
+41:20.080 --> 41:26.320
+ building a small part of that and it doesn't go wrong and it works. And I mean that it, it works
+
+41:27.040 --> 41:34.320
+ and it doesn't go, go wrong often enough for us to suffer. And we can identify things that
+
+41:34.320 --> 41:42.240
+ aren't working and try to improve on them. In a suboptimal, often suboptimal way. Oh, absolutely.
+
+41:42.240 --> 41:50.800
+ But it's, but the, but the, the kind of things that I know how to improve require human beings
+
+41:50.800 --> 41:57.600
+ to be rational. And I, I'm losing my confidence that human beings are rational. Yeah. Yeah. Now
+
+41:57.600 --> 42:04.160
+ here you go again with the worst case, uh, worst case analysis. Um, they may not be rational, but
+
+42:04.160 --> 42:12.560
+ they're, um, they're, they're clever and, uh, beautiful in their own kind of way. I tend to
+
+42:12.560 --> 42:20.720
+ think that most people, um, have the desire and the capacity to be good to each other and love
+
+42:20.720 --> 42:27.440
+ will ultimately win out. Like if they're given the opportunity, that's where they lean. In the Art
+
+42:27.440 --> 42:32.560
+ of Computer Programming, you wrote, the real problem is that programmers have spent far too
+
+42:32.560 --> 42:38.400
+ much time worrying about efficiency in the wrong places. And at the wrong times, premature
+
+42:38.400 --> 42:46.880
+ optimization is the root of all evil in parentheses, or at least most of it in programming. Can you,
+
+42:46.880 --> 42:54.880
+ uh, explain this idea? Uh, what's the wrong time? What is the wrong place for optimization? So
+
+42:54.880 --> 43:04.000
+ so first of all, the word optimization, I started out writing software, uh, and optimization was,
+
+43:04.000 --> 43:11.520
+ I was a compiler writer. So optimization meant, uh, making the, uh, making a better translation
+
+43:12.400 --> 43:17.840
+ so that it would run faster on a, on a machine. So an optimized program is just like, you know,
+
+43:17.840 --> 43:24.320
+ you, you, you run a program and you set the optimization level, uh, for, uh, to the compiler.
+
+43:24.320 --> 43:31.120
+ So that's one word for optimization. Um, and at that time I, I happened to be looking in an
+
+43:31.120 --> 43:37.360
+ unabridged dictionary, uh, for some reason or other, and I came to the word optimizer.
+
+43:37.360 --> 43:42.080
+ So what's the meaning of the word optimize? And it says to view with optimism.
+
+43:44.800 --> 43:50.320
+ And you look in Webster's dictionary of English language in 19, early 1960s,
+
+43:50.320 --> 43:58.560
+ that's what optimize meant. Okay. Um, now, so people started doing cost optimization,
+
+43:58.560 --> 44:06.640
+ other kinds of things, uh, uh, you know, whole sub fields of, of, uh, algorithms and economics
+
+44:06.640 --> 44:13.600
+ and whatever are based on what they call optimization now. But, uh, but to me optimization
+
+44:13.600 --> 44:21.040
+ when I was saying that was saying, uh, changing a program to make it more, uh, tuned to the machine.
+
+44:21.680 --> 44:32.560
+ And I found out that, uh, when a person writes a program, uh, he or she tends to think that
+
+44:33.120 --> 44:37.200
+ the parts that were hardest to write are going to be hardest for the computer to execute.
+
+44:37.200 --> 44:47.440
+ So maybe I have 10 pages of code, but I had to work a week writing this page. I mentally think
+
+44:47.440 --> 44:53.360
+ that when the computer gets to that page, it's going to slow down. It's going to say, oh, I
+
+44:53.360 --> 44:58.880
+ don't understand what I'm doing. I better, I better be more careful. Anyway, this is of course silly,
+
+44:58.880 --> 45:04.080
+ but it's, it's, it's something that we, that we, that we don't know when we write a piece of code.
+
+45:04.080 --> 45:09.200
+ We don't know what, what, whether the computer is actually going to be executing that code
+
+45:09.200 --> 45:17.280
+ very much. So, so people had, had a very poor understanding of, of what the computer was
+
+45:17.280 --> 45:25.440
+ actually doing. Uh, I made one test where, where we studied a Fortran compiler and it was spending
+
+45:25.440 --> 45:32.240
+ more than 80% of its time reading the comments card. Um, but as a programmer, we were really
+
+45:32.240 --> 45:36.400
+ concerned about how fast it could take a complicated expression that had lots of
+
+45:36.400 --> 45:43.760
+ levels of parentheses and, and, and, and convert that into something. But that was just, you know,
+
+45:43.760 --> 45:52.080
+ less than 1% of the, so if we optimize that, uh, we didn't know what we were doing, but, but,
+
+45:52.080 --> 45:57.200
+ but if we knew that it was spending 80% of his time on the comments card, you know, in 10 minutes,
+
+45:57.200 --> 46:01.040
+ we could, we could make the, the, the compiler run more than twice as fast.
+
+46:01.040 --> 46:05.840
+ And you could only do that once you've completed the program and then you empirically study where.
+
+46:05.840 --> 46:09.520
+ I had some kind of profiling that I knew what was important. Yeah.
+
+46:10.080 --> 46:15.200
+ So you don't think this applies generally? I mean, there's something that rings true to this
+
+46:15.200 --> 46:18.080
+ across all of them. I'm glad that it applied generally, but it was,
+
+46:18.080 --> 46:24.400
+ it was only my good luck. I said it, but you know, but I did, but I said it in a limited context
+
+46:24.400 --> 46:31.760
+ and I, and, and I'm glad if it makes people think about stuff because I, but it applies
+
+46:32.800 --> 46:41.760
+ in another sense too, that is sometimes I will do optimization in a way that does help
+
+46:43.440 --> 46:49.520
+ the actual running time, but makes the program impossible to change next week.
+
+46:49.520 --> 46:55.280
+ Right. Because I've changed my data structure or something that, that made it less adaptable.
+
+46:56.080 --> 47:04.000
+ So one of the great principles of computer science is, is, is laziness or whatever you call it,
+
+47:04.800 --> 47:14.000
+ late binding. You know, don't hold off decisions when you can. And, and, and, you know, and we
+
+47:14.000 --> 47:18.560
+ understand now quantitatively how valuable that is.
+
+47:18.560 --> 47:22.160
+ What do you mean we understand? So you mean from a...
+
+47:22.160 --> 47:29.440
+ People, people have written thesis about how you can, how late binding will, will improve the,
+
+47:29.440 --> 47:35.200
+ I mean, you know, just in time manufacturing or whatever, you can make, you can defer a decision
+
+47:36.320 --> 47:41.440
+ instead of doing your advanced planning and say, I'm going to allocate 30% to this and 50%.
+
+47:41.440 --> 47:45.920
+ So in all kinds of domains, there's an optimality to laziness in many cases.
+
+47:45.920 --> 47:53.600
+ Decision is not made in advance. So instead you, you, you design in order to be flexible to change
+
+47:53.600 --> 48:00.160
+ with the, with the way the wind is blowing. Yeah. But so the reason that line resonated
+
+48:00.160 --> 48:06.000
+ with a lot of people is because there's something about the programmer's mind
+
+48:06.560 --> 48:15.600
+ that wants, that enjoys optimization. So it's a constant struggle to balance laziness and late
+
+48:15.600 --> 48:23.840
+ binding with the desire to optimize. The elegance of a well optimized code
+
+48:23.840 --> 48:30.000
+ is something that's compelling to programming. Yeah. It's another concept of beauty.
+
+48:31.520 --> 48:39.600
+ Let me ask you a weird question. So Roger Penrose has talked about computation computers
+
+48:39.600 --> 48:49.360
+ and he proposed that the way the human mind discovers mathematical ideas is something more
+
+48:49.360 --> 48:57.200
+ than a computer. That, that a universal Turing machine cannot do everything that a human mind
+
+48:57.200 --> 49:05.120
+ can do. Now this includes discovering mathematical ideas and it also includes, he's written a book
+
+49:05.120 --> 49:12.240
+ about it, Consciousness. So I don't know if you know Roger, but my, my daughter's kids played
+
+49:12.240 --> 49:19.840
+ with his kids in Oxford. Nice. So do you think there is such a limit to the computer? Do you
+
+49:19.840 --> 49:26.080
+ think consciousness is more than a computation? Do you think the human mind, the way it thinks
+
+49:26.080 --> 49:35.360
+ is more than a computation? I mean, I can say yes or no, but, but, but I don't, I have no reason. I
+
+49:35.360 --> 49:40.480
+ mean. So you don't find it useful to have an intuition in one way or the other? Like when
+
+49:40.480 --> 49:46.400
+ you think about algorithms, isn't it useful to think about the limits? Unanswerable question in
+
+49:46.400 --> 49:51.520
+ my opinion is, is no better than anybody else. You think it's unanswerable. So you don't think
+
+49:51.520 --> 49:56.640
+ eventually science. How many angels can dance on the head of a, I mean, I don't know. But angels.
+
+49:58.400 --> 50:02.880
+ Anyway, there, there are lots of things that are beyond, that we can speculate about, but
+
+50:03.600 --> 50:08.640
+ I don't want somebody to say, oh yeah, Knuth said this and so he's, he's, he's smart. And so,
+
+50:08.640 --> 50:14.560
+ so he, so that must be, I mean, I say it's something that we'll never know.
+
+50:14.560 --> 50:22.000
+ Oh, interesting. Okay. That's a strong statement. I don't, I personally think it's something we
+
+50:22.000 --> 50:28.080
+ will know eventually. Like there's no reason to me why the, the workings of the human mind
+
+50:28.880 --> 50:34.080
+ are not within the reach of science. That's absolutely possible. And I'm not denying it.
+
+50:34.080 --> 50:38.640
+ Yeah. But right now you don't have a good intuition. I mean, that's also possible,
+
+50:38.640 --> 50:45.280
+ you know, that an AI, you know, created the universe, you know, intelligent design has all
+
+50:45.280 --> 50:51.920
+ been done by an AI. This is, I mean, all of these things are, but, but, but you're asking me to,
+
+50:52.640 --> 50:58.960
+ to pronounce on it. And I don't have any expertise. I'm a teacher that passes on knowledge,
+
+50:58.960 --> 51:05.440
+ but I don't, but I don't know the fact that I, that I vote yes or no on.
+
+51:05.440 --> 51:13.840
+ Well, you do have expertise as a human, not as a, not as a teacher or a scholar of computer science.
+
+51:14.480 --> 51:18.640
+ I mean, that's ultimately the realm of where the discussion of human thought.
+
+51:18.640 --> 51:19.760
+ Yeah. Well, I know where.
+
+51:19.760 --> 51:21.040
+ And consciousness is.
+
+51:21.040 --> 51:25.280
+ I know where, where Penrose is coming from. He, I'm sure he has no,
+
+51:26.160 --> 51:28.880
+ I mean, he might even thought he proved it, but.
+
+51:28.880 --> 51:32.320
+ No, he doesn't. He doesn't prove it. He is following intuition.
+
+51:32.320 --> 51:36.400
+ But, but I mean, you have to ask John McCarthy. John McCarthy,
+
+51:38.240 --> 51:41.920
+ I think, were totally unimpressed by these statements.
+
+51:43.600 --> 51:50.240
+ So you don't think, so even like the Turing paper on, on the Turing test that,
+
+51:51.120 --> 51:53.760
+ you know, starts by asking, can machines think?
+
+51:53.760 --> 51:54.000
+ Oh.
+
+51:54.960 --> 51:59.520
+ You don't think these kind of, Turing doesn't like that question.
+
+51:59.520 --> 52:03.280
+ Yeah. I don't consider it important, let's just put it that way.
+
+52:04.560 --> 52:10.080
+ Because it's, it's in the category of things that it would be nice to know,
+
+52:10.080 --> 52:15.600
+ but I think it's beyond knowledge. And so I don't, I'm more interested in knowing
+
+52:16.800 --> 52:19.520
+ about the Riemann hypothesis or something.
+
+52:20.320 --> 52:23.680
+ So when you say, it's an interesting statement, beyond knowledge.
+
+52:24.320 --> 52:24.720
+ Yeah.
+
+52:24.720 --> 52:31.200
+ I think what you mean is it's not sufficiently well, it's not even known well enough to be
+
+52:31.200 --> 52:35.920
+ able to formalize it in order to ask a clear question.
+
+52:35.920 --> 52:36.320
+ Yeah.
+
+52:36.320 --> 52:39.200
+ And so that's why it's beyond knowledge, but that doesn't mean it's not
+
+52:40.000 --> 52:41.680
+ eventually going to be formalized.
+
+52:41.680 --> 52:45.360
+ Yeah. Yeah. Maybe consciousness will be understood some, someday.
+
+52:46.080 --> 52:51.120
+ The last time I checked, it was still 200 years away.
+
+52:51.120 --> 52:57.360
+ I mean, I haven't been specializing in this by any means, but I went to lectures about it 20
+
+52:57.360 --> 53:05.280
+ years ago when I was, there was a symposium at the American Academy in Cambridge. And it started out
+
+53:05.280 --> 53:11.360
+ by saying, essentially, everything that's been written about consciousness is hogwash.
+
+53:12.960 --> 53:18.240
+ I tend to disagree with that a little bit.
+
+53:18.240 --> 53:24.640
+ So consciousness for the longest time still is in the realm of philosophy.
+
+53:24.640 --> 53:28.320
+ So it's just conversations without any basis and understanding.
+
+53:28.960 --> 53:36.080
+ Still, I think once you start creating artificial intelligence systems that interact with humans
+
+53:38.320 --> 53:45.040
+ and they have personality, they have identity, you start flirting with the question of
+
+53:45.040 --> 53:49.680
+ consciousness, not from a philosophical perspective, but from an engineering perspective.
+
+53:50.320 --> 53:53.920
+ And then it starts becoming much more like, I feel like.
+
+53:53.920 --> 53:59.440
+ Yeah. Don't misunderstand me. I certainly don't disagree with that at all.
+
+54:00.800 --> 54:07.680
+ And even at these lectures that we had 20 years ago, there were neurologists pointing out that
+
+54:08.880 --> 54:14.640
+ human beings had actually decided to do something before they were conscious of making that
+
+54:14.640 --> 54:24.320
+ decision. I mean, they could tell that signals were being sent to their arms before they knew
+
+54:24.320 --> 54:34.480
+ that things like this are true. And Les Valiant has an architecture for the brain. And more recently,
+
+54:34.480 --> 54:44.640
+ Christos Papadimitriou in the Academy of Science Proceedings a year ago with two other people,
+
+54:44.640 --> 54:54.720
+ but I know Christos very well. And he's got this model of this architecture by which
+
+54:54.720 --> 55:02.720
+ you could create things that correlate well with experiments that are done on consciousness.
+
+55:02.720 --> 55:15.520
+ And he actually has a machine language in which you can write code and test hypotheses.
+
+55:17.520 --> 55:24.960
+ And so we might have a big breakthrough. My personal feeling is that consciousness is the
+
+55:24.960 --> 55:38.560
+ best model I've heard of to explain the miracle of consciousness is that somehow inside of our
+
+55:39.440 --> 55:49.440
+ brains, we're having a continual survival for the fittest competition. And I'm speaking to you,
+
+55:49.440 --> 55:56.240
+ and I'm speaking to you, all the possible things I might be wanting to say are all in there and
+
+55:56.240 --> 56:03.280
+ there's like a voting going on. Yeah, right. And one of them is winning and that's affecting
+
+56:04.880 --> 56:11.840
+ the next sentence and so on. And there was this book, Machine Intelligence or something?
+
+56:11.840 --> 56:12.640
+ On Intelligence?
+
+56:12.640 --> 56:21.280
+ On Intelligence, yeah. Bill Atkinson was a total devotee of that book.
+
+56:21.280 --> 56:27.360
+ Well, I like whether it's consciousness or something else, I like the storytelling part
+
+56:27.360 --> 56:34.960
+ that it feels like for us humans, it feels like there's a concrete story. It's almost
+
+56:34.960 --> 56:38.640
+ like literary programming. I don't know what the programming is going on on the inside,
+
+56:38.640 --> 56:44.080
+ but I'm getting a nice story here about what happened. And it feels like I'm in control and
+
+56:44.080 --> 56:49.920
+ I'm getting a nice clear story. But it's also possible there's a computation going on that's
+
+56:49.920 --> 56:54.560
+ really messy. There's a bunch of different competing ideas. And in the end, it just kind
+
+56:54.560 --> 57:01.680
+ of generates a story for you, a consistent story for you to believe. And that makes it all nice.
+
+57:01.680 --> 57:08.400
+ Yeah. And so I prefer to talk about things that I have some expertise in than things
+
+57:08.400 --> 57:13.440
+ which I'm only on the sideline.
+
+57:14.480 --> 57:18.560
+ So there's a tricky thing. I don't know if you have any expertise in this.
+
+57:18.560 --> 57:21.280
+ You might be a little bit on the sideline. It'd be interesting to ask though.
+
+57:21.840 --> 57:24.960
+ What are your thoughts on Cellular Automata and the Game of Life?
+
+57:25.680 --> 57:28.800
+ Have you ever played with those kind of little games?
+
+57:28.800 --> 57:43.200
+ I think the Game of Life is wonderful and shows all kinds of stuff about how things can evolve
+
+57:43.200 --> 57:51.520
+ without the creator understanding anything more than the power of learning in a way. But to me,
+
+57:51.520 --> 58:01.840
+ the most important thing about the Game of Life is how it focused for me what it meant to have
+
+58:01.840 --> 58:11.600
+ free will or not. Because the Game of Life is obviously totally deterministic. And I find it
+
+58:11.600 --> 58:17.360
+ hard to believe that anybody who's ever had children cannot believe in free will. On the
+
+58:17.360 --> 58:30.160
+ other hand, this makes it crystal clear. John Conway said he wondered whether it was immoral
+
+58:30.160 --> 58:34.960
+ to shut the computer off after he got into a particularly interesting play of the Game of Life.
+
+58:36.640 --> 58:43.200
+ Wow. Yeah. So to me, the reason I love the Game of Life is exactly as you said,
+
+58:43.200 --> 58:49.040
+ a clear illustration that from simple initial conditions with simple rules,
+
+58:49.040 --> 58:58.640
+ you know exactly how the system is operating, it's deterministic. And yet, if you allow yourself to
+
+58:58.640 --> 59:06.240
+ lose that knowledge a little bit enough to see the bigger organisms that emerge,
+
+59:06.240 --> 59:10.720
+ and then all of a sudden they seem conscious. They seem, not conscious, but living.
+
+59:10.720 --> 59:17.520
+ If the universe is finite, we're all living in the Game of Life, just slowed down. I mean,
+
+59:18.240 --> 59:19.520
+ it sped up a lot.
+
+59:21.040 --> 59:28.160
+ But do you think technically some of the ideas that you used for analysis of algorithms can be
+
+59:28.160 --> 59:32.960
+ used to analyze the Game of Life? Can we make sense of it? Or is it too weird?
+
+59:32.960 --> 59:43.360
+ Yeah. I mean, I've got a dozen exercises in volume four, fascicle six, that actually work
+
+59:43.360 --> 59:57.120
+ rather well for that purpose. Bill Gospers came up with the algorithm that allows Golly to run
+
+59:57.120 --> 1:00:04.480
+ thousands and thousands of times faster. You know the website called Golly? G O L L Y?
+
+1:00:04.480 --> 1:00:07.680
+ It simulates the cellular automata, like Game of Life?
+
+1:00:07.680 --> 1:00:09.200
+ Yeah, you got to check it out.
+
+1:00:10.480 --> 1:00:11.920
+ Can I ask you about John Conway?
+
+1:00:12.640 --> 1:00:19.600
+ Yes. In fact, I'm just reading now the issue of mathematical intelligence that came in last
+
+1:00:19.600 --> 1:00:27.680
+ week. It's a whole issue devoted to remembrance of him.
+
+1:00:28.320 --> 1:00:29.040
+ Did you know him?
+
+1:00:30.560 --> 1:00:33.920
+ I slept overnight in his house several times.
+
+1:00:35.680 --> 1:00:36.320
+ Yeah.
+
+1:00:36.320 --> 1:00:37.760
+ He recently passed away.
+
+1:00:38.800 --> 1:00:46.160
+ Yeah, he died a year ago, May, I think it was, of COVID.
+
+1:00:46.160 --> 1:00:58.240
+ What are some memories of him, of his work, that stand out for you? On a technical level,
+
+1:00:58.240 --> 1:01:04.640
+ did any of his work inspire you? On a personal level, did he himself inspire you in some way?
+
+1:01:06.480 --> 1:01:11.360
+ Absolutely, all of those things. But let's see, when did I first meet him? I guess I first met
+
+1:01:11.360 --> 1:01:17.120
+ him at Oxford in 1967 when I was... Okay, that's a long time ago.
+
+1:01:17.120 --> 1:01:25.840
+ Yeah, you were minus 20 years old or something, I don't know, 1967. But there was a conference where
+
+1:01:28.720 --> 1:01:37.760
+ I think I was speaking about something known as the Knuth Bendix algorithm now, but he gave a
+
+1:01:37.760 --> 1:01:46.160
+ famous talk about knots. And I didn't know at the time, but anyway, that talk had now...
+
+1:01:47.680 --> 1:01:54.560
+ The source of thousands and thousands of papers since then. And he was reported on something that
+
+1:01:54.560 --> 1:02:04.560
+ he had done in high school almost 10 years earlier before this conference, but he never published it.
+
+1:02:04.560 --> 1:02:13.760
+ And he climaxed his talk by building some knots. You have these little plastic things that you
+
+1:02:13.760 --> 1:02:23.200
+ can stick together. It's something like Lego, but easier. And so he made a whole bunch of knots
+
+1:02:23.200 --> 1:02:29.200
+ in front of the audience and so on and then disassembled it. So it was a dramatic lecture
+
+1:02:29.200 --> 1:02:33.680
+ before he had learned how to give even more dramatic lectures later.
+
+1:02:33.680 --> 1:02:37.920
+ Were you at that lecture?
+
+1:02:37.920 --> 1:02:46.240
+ And I was there, yeah, because I was at the same conference. For some reason, I happened to be in
+
+1:02:46.240 --> 1:02:56.400
+ Calgary the same day that he was visiting Calgary. And it was the spring of 72, I'm pretty sure.
+
+1:02:56.400 --> 1:03:07.200
+ And we had lunch together and he wrote down during the lunch on a napkin all of the facts about
+
+1:03:08.160 --> 1:03:17.680
+ what he called numbers. And he covered the napkin with the theorems about his
+
+1:03:17.680 --> 1:03:31.280
+ idea of numbers. And I thought it was incredibly beautiful. And later in 1972, my sabbatical year
+
+1:03:31.280 --> 1:03:37.440
+ began and I went to Norway. And in December of that year, in the middle of the night,
+
+1:03:39.120 --> 1:03:46.480
+ the thought came to me, you know, Conway's theory about numbers would be a great thing to teach
+
+1:03:46.480 --> 1:03:57.680
+ students how to invent research and what the joys are of research. And I had also read a book in
+
+1:03:57.680 --> 1:04:06.800
+ dialogue by Alfred Renyi, kind of a Socratic thing where the two characters were talking
+
+1:04:06.800 --> 1:04:16.800
+ to each other about mathematics. And so at the end, in the morning, I woke up my wife and said,
+
+1:04:16.800 --> 1:04:27.440
+ Jill, I think I want to write a book about Conway's theory. And, you know, I'm supposed
+
+1:04:27.440 --> 1:04:32.400
+ to be writing the Art of Computer Program and doing all this other stuff, but I really want
+
+1:04:32.400 --> 1:04:39.360
+ to write this other book. And so we made this plan. But I said, I thought I could write it in a week.
+
+1:04:40.400 --> 1:04:47.280
+ And we made the plan then. So in January, I rented a room in a hotel in downtown Oslo.
+
+1:04:47.920 --> 1:04:56.160
+ We were in sabbatical in Norway. And I rented the hotel in downtown Oslo and did nothing else
+
+1:04:56.160 --> 1:05:02.960
+ except write up Conway's theory. And I changed the name to Surreal Numbers. And so this book
+
+1:05:02.960 --> 1:05:11.360
+ is now published as Surreal Numbers. And, you know, we figured out, we'd always wonder what
+
+1:05:11.360 --> 1:05:16.080
+ would be like to have a fair enough hotel room. So we figured out that she would visit me twice
+
+1:05:16.080 --> 1:05:24.400
+ during the week. Things like this, you know, we would try to sneak in. This hotel was run by a
+
+1:05:24.400 --> 1:05:32.960
+ mission organization. These ladies were probably very strict, but anyway. So, and it's a wild week
+
+1:05:34.320 --> 1:05:38.880
+ in every way. But the thing is, I had lost that. I had lost that napkin in which he wrote the
+
+1:05:38.880 --> 1:05:46.960
+ theory, but I looked for it, but I couldn't find it. So I tried to recreate from memory what he
+
+1:05:46.960 --> 1:05:55.600
+ had told me at that lunch in Calgary. And as I wrote the book, I was going through exactly what
+
+1:05:55.600 --> 1:06:01.440
+ I, what the characters in the book were supposed to be doing. So I start with the two axioms that
+
+1:06:01.440 --> 1:06:06.000
+ start out the whole thing and everything is defined, flows from that, but you have to discover
+
+1:06:06.000 --> 1:06:15.680
+ why. And every mistake that I make as I'm trying to discover it, my characters make too. And so
+
+1:06:15.680 --> 1:06:25.760
+ it's a long, long story. But I worked through this week and it was one of the most intense
+
+1:06:25.760 --> 1:06:36.160
+ weeks of my life and I described it in other places. But anyway, after six days, I finished it
+
+1:06:36.160 --> 1:06:44.720
+ and on the seventh day I rested and I sent to my secretary to type it. It was flowing as I was
+
+1:06:44.720 --> 1:06:54.080
+ writing it faster than I could think almost. But after I finished and tried to write a letter to
+
+1:06:54.080 --> 1:06:59.520
+ my secretary telling her how to type it, I couldn't write anymore. You gave it everything.
+
+1:06:59.520 --> 1:07:05.280
+ The muse had left me completely. Can you explain how that week could have happened? Like why?
+
+1:07:05.280 --> 1:07:08.640
+ That seems like such a magical week of productivity. I have no idea. But anyway,
+
+1:07:08.640 --> 1:07:15.920
+ there was some... It was almost as if I was channeling. So the book was typed,
+
+1:07:15.920 --> 1:07:21.440
+ they sent it to Conway and he said, well, Don, you got the one axiom wrong.
+
+1:07:24.080 --> 1:07:32.240
+ Is there a difference between less than or equal and not greater than? The opposite of being
+
+1:07:32.240 --> 1:07:38.880
+ greater than and less than or equal. But anyway, technically it can make a difference when you're
+
+1:07:38.880 --> 1:07:45.840
+ developing a logical theory. And the way I had chosen was harder to do than John's original.
+
+1:07:47.840 --> 1:07:53.840
+ And we visited him at his house in Cambridge in April. We took a boat actually from Norway
+
+1:07:53.840 --> 1:08:01.920
+ over to across the channel and so on and stayed with him for some days. And we talked
+
+1:08:01.920 --> 1:08:11.280
+ about all kinds of things he had. He had puzzles that I'd never heard of before. He had a great way
+
+1:08:12.160 --> 1:08:18.480
+ to solve the game of solitaire. Many of the common interests that he'd never written them up.
+
+1:08:19.680 --> 1:08:25.360
+ But anyway, then in the summertime, I took another week off and went to a
+
+1:08:25.360 --> 1:08:32.800
+ Conway place in the mountains of Norway and rewrote the book using the correct axiom.
+
+1:08:34.400 --> 1:08:39.440
+ So that was the most intensive connection with Conway. After that...
+
+1:08:40.080 --> 1:08:41.440
+ It started with a napkin.
+
+1:08:41.440 --> 1:08:50.160
+ It started with a napkin. But we would run into each other. The next really...
+
+1:08:50.160 --> 1:09:02.000
+ And I was giving lectures in Montreal. I was giving a series of seven lectures about the
+
+1:09:02.000 --> 1:09:11.600
+ topic called Stable Marriages. And he arrived in Montreal between my sixth and seventh lecture.
+
+1:09:11.600 --> 1:09:20.560
+ And we met at a party. And I started telling him about the topic I was doing. And he sat and
+
+1:09:20.560 --> 1:09:26.240
+ thought about it. He came up with a beautiful theory to show that the... I mean, in technical
+
+1:09:26.240 --> 1:09:34.400
+ terms, it's that the set of all stable marriages forms a lattice. And there was a simple way to
+
+1:09:34.400 --> 1:09:41.200
+ find the greatest lower bound of two stable pairings and least upper bound of two stable
+
+1:09:41.200 --> 1:09:46.160
+ marriage. And so I could use it in my lecture the next day. And he came up with this theorem
+
+1:09:46.160 --> 1:09:59.200
+ during the party. And it's a distributive lattice. It added greatly to the theory of stable matching.
+
+1:09:59.200 --> 1:10:07.360
+ So you mentioned your wife, Jill. You mentioned stable marriage. Can you tell the story of how
+
+1:10:07.360 --> 1:10:17.440
+ you two met? So we celebrated 60 years of wedded bliss last month. And we met because I was dating
+
+1:10:17.440 --> 1:10:24.480
+ her roommate. This was my sophomore year, her freshman year. I was dating her roommate. And
+
+1:10:24.480 --> 1:10:33.120
+ I wanted her advice on strategy or something like this. And anyway, I found I enjoyed her advice
+
+1:10:33.120 --> 1:10:39.440
+ better than her. I enjoyed her roommate. You guys were majoring the same thing?
+
+1:10:39.440 --> 1:10:46.880
+ No, no, no. Because I read something about working on a computer in grad school on a difficult
+
+1:10:46.880 --> 1:10:55.520
+ computer science topic. So she's an artist and I'm a geek.
+
+1:10:55.520 --> 1:11:01.920
+ What was she doing with a computer science book? Was it the manual that she was reading?
+
+1:11:01.920 --> 1:11:05.840
+ What was she reading? I wrote the manual that she had to take a
+
+1:11:05.840 --> 1:11:10.480
+ class in computer science. So you're the tutor?
+
+1:11:10.480 --> 1:11:22.800
+ No, no. There were terrible times trying to learn certain concepts, but I learned art from her.
+
+1:11:23.680 --> 1:11:32.240
+ And so we worked together occasionally in design projects. But every year we write a Christmas card
+
+1:11:32.240 --> 1:11:40.720
+ and we each have to compromise our own notions of beauty.
+
+1:11:40.720 --> 1:11:48.480
+ When did you fall in love with her? That day that I asked her about her roommate.
+
+1:11:48.480 --> 1:11:59.120
+ I don't mind telling these things, depending on how far you go.
+
+1:11:59.120 --> 1:12:05.280
+ I promise not to go too far.
+
+1:12:05.280 --> 1:12:13.600
+ Let me tell you this. I never really enjoyed kissing until I found how she did it.
+
+1:12:13.600 --> 1:12:17.520
+ Wow. And 60 years.
+
+1:12:20.240 --> 1:12:26.480
+ Is there a secret you can say in terms of stable marriages, of how you stayed together so long?
+
+1:12:27.360 --> 1:12:32.800
+ The topic stable marriage, by the way, is a technical term.
+
+1:12:33.600 --> 1:12:36.480
+ Yes. It's a joke, Don.
+
+1:12:36.480 --> 1:12:46.640
+ But two different people will have to learn how to compromise and work together and
+
+1:12:48.080 --> 1:12:54.800
+ you're going to have ups and downs and crises and so on. And so as long as you don't
+
+1:12:56.000 --> 1:13:04.640
+ set your expectation on having 24 hours of bliss, then there's a lot of hope for stability.
+
+1:13:04.640 --> 1:13:11.120
+ But if you decide that there's going to be no frustration, then...
+
+1:13:13.200 --> 1:13:18.000
+ So you're going to have to compromise on your notions of beauty when you write Christmas cards.
+
+1:13:18.000 --> 1:13:18.560
+ That's it.
+
+1:13:21.840 --> 1:13:24.640
+ You mentioned that Richard Feynman was someone you looked up to.
+
+1:13:25.600 --> 1:13:25.840
+ Yeah.
+
+1:13:26.960 --> 1:13:28.800
+ Probably you've met him in Caltech.
+
+1:13:28.800 --> 1:13:34.320
+ Well, we knew each other, yeah, at Caltech, for sure, yeah.
+
+1:13:35.760 --> 1:13:41.440
+ You are one of the seminal personalities of computer science. He's one for physics.
+
+1:13:43.280 --> 1:13:48.160
+ Is there specific things you picked up from him by way of inspiration?
+
+1:13:49.440 --> 1:13:51.600
+ So we used to go to each other's lectures.
+
+1:13:51.600 --> 1:13:59.360
+ But if I saw him sitting in the front row, it would throw me for a loop, actually. I would
+
+1:13:59.360 --> 1:14:11.600
+ miss a few sentences. What unique story do I have? I often refer to his time in Brazil
+
+1:14:11.600 --> 1:14:18.720
+ where he essentially said they were teaching all the physics students the wrong way. They were just
+
+1:14:18.720 --> 1:14:25.200
+ learning how to pass exams and not learning any physics. And he said, if you want me to prove it,
+
+1:14:27.200 --> 1:14:32.720
+ here, I'll turn any page of this textbook and I'll tell you what's wrong with this page. And
+
+1:14:32.720 --> 1:14:39.440
+ he did so. And the textbook had been written by his host, and he was a great teacher. And he
+
+1:14:39.440 --> 1:14:47.040
+ had previously asked his host if he was supposed to tell the truth. But anyway, it epitomizes the
+
+1:14:47.040 --> 1:15:00.480
+ way education goes wrong in all kinds of fields and has to periodically be brought back from a
+
+1:15:00.480 --> 1:15:09.600
+ process of giving credentials to a process of giving knowledge.
+
+1:15:10.720 --> 1:15:16.560
+ That's probably a story that continues to this day in a bunch of places where it's too easy for
+
+1:15:19.840 --> 1:15:26.480
+ educational institutions to fall into credentialism versus inspirationalism.
+
+1:15:26.480 --> 1:15:33.680
+ I don't know if those are words, but sort of understanding versus just giving a little
+
+1:15:36.080 --> 1:15:36.480
+ plaque.
+
+1:15:39.360 --> 1:15:45.200
+ It's very much like what we were talking about. If you want to be able to believe
+
+1:15:45.200 --> 1:15:51.440
+ the answer, a computer is doing that. One of the things Bob Floyd showed me in the 60s,
+
+1:15:51.440 --> 1:15:59.520
+ there was a... He loved this cartoon. There were two guys standing in front of... In those days,
+
+1:15:59.520 --> 1:16:03.520
+ a computer was a big thing. And the first guy says to the other guy, he said,
+
+1:16:04.240 --> 1:16:11.440
+ this machine can do in one second what it would take a million people to do in a hundred years.
+
+1:16:12.080 --> 1:16:14.640
+ And the other guy says, oh, so how do you know it's right?
+
+1:16:14.640 --> 1:16:18.720
+ That's a good line.
+
+1:16:21.600 --> 1:16:25.200
+ Is there some interesting distinction between physics and math to you?
+
+1:16:26.160 --> 1:16:29.600
+ Have you looked at physics much? Speaking of Richard Feynman,
+
+1:16:31.520 --> 1:16:36.000
+ the difference between the physics community, the physics way of thinking, the physics intuition
+
+1:16:36.000 --> 1:16:40.640
+ versus the theoretical computer science, the mathematical sciences,
+
+1:16:40.640 --> 1:16:43.600
+ do you see that as a gap? Are they strongly overlapping?
+
+1:16:44.880 --> 1:16:50.720
+ It's quite different, in my opinion. I started as a physics major and I switched into math.
+
+1:16:52.080 --> 1:16:59.680
+ And probably the reason was that I could get A plus on the physics exam, but I never had any
+
+1:16:59.680 --> 1:17:05.040
+ idea why I would have been able to come up with the problems that were on those exams.
+
+1:17:05.040 --> 1:17:13.520
+ But in math, I knew why the teacher set those problems and I thought of other problems that
+
+1:17:13.520 --> 1:17:17.680
+ I could set, too. And I believe it's quite a different mentality.
+
+1:17:20.400 --> 1:17:23.920
+ It has to do with your philosophy of geekdom?
+
+1:17:23.920 --> 1:17:30.720
+ No, it's... I mean, some of my computer scientist friends are really good at physics and others are
+
+1:17:30.720 --> 1:17:38.640
+ really good at physics and others are not. And I'm really good at algebra, but not at geometry.
+
+1:17:39.840 --> 1:17:44.800
+ Talk about different parts of mathematics. So there are different kinds of physics,
+
+1:17:44.800 --> 1:17:51.680
+ but physicists think of things in terms of waves. And I can think of things in terms of waves,
+
+1:17:51.680 --> 1:17:54.960
+ but it's like a dog walking on hind legs if I'm thinking about it.
+
+1:17:54.960 --> 1:18:02.800
+ So you basically like to see the world in discrete ways and then physics is more continuous.
+
+1:18:02.800 --> 1:18:09.920
+ Yeah. I'm not sure if Turing would have been a great physicist. I think he was a pretty good
+
+1:18:10.720 --> 1:18:19.680
+ chemist, but I don't know. But anyway, I see things... I believe that computer science is
+
+1:18:19.680 --> 1:18:33.840
+ largely driven by people who have brains who are good at resonating with certain kinds of concepts.
+
+1:18:34.480 --> 1:18:37.440
+ And like quantum computers, it takes a different kind of brain.
+
+1:18:37.440 --> 1:18:42.640
+ Yeah, that's interesting. Yeah. Well, quantum computers is almost like at the intersection
+
+1:18:42.640 --> 1:18:50.080
+ in terms of brain between computer science and physics because it involves both at least at this
+
+1:18:50.960 --> 1:18:58.400
+ time. But there is like the physicists I've known, they have incredibly powerful intuition.
+
+1:18:59.280 --> 1:19:08.880
+ And I mean, statistical mechanics. So I study statistical mechanics and I mean,
+
+1:19:08.880 --> 1:19:15.600
+ random processes are related to algorithms in a lot of ways. But there's lots of different
+
+1:19:15.600 --> 1:19:23.200
+ flavors of physics as there are different flavors of mathematics as well. But the thing is that I
+
+1:19:23.200 --> 1:19:30.240
+ don't see... Well, actually, when they talk to physicists, they use a completely different
+
+1:19:30.240 --> 1:19:36.640
+ language than when they're writing expository papers. And so I didn't understand quantum
+
+1:19:36.640 --> 1:19:42.720
+ mechanics at all from reading about it in Scientific American. But when I read how they
+
+1:19:42.720 --> 1:19:49.600
+ describe it to each other, talking about eigenvalues and various mathematical terms that
+
+1:19:50.800 --> 1:19:58.800
+ made sense, then it made sense to me. But Hawking said that every formula you put in a book,
+
+1:19:58.800 --> 1:20:02.480
+ you lose half of your readers. And so he didn't put any formulas in the book. So I couldn't
+
+1:20:02.480 --> 1:20:09.600
+ understand his book at all. You could say you understood it, but I really didn't.
+
+1:20:10.720 --> 1:20:17.680
+ Well, Feynman also spoke in this way. So Feynman, I think, prided himself on really strong
+
+1:20:17.680 --> 1:20:23.440
+ intuition. But at the same time, he was hiding all the really good, the deep computation he was
+
+1:20:23.440 --> 1:20:32.000
+ doing. So there was one thing that I was never able to... I wish I'd had more time to work out
+
+1:20:32.000 --> 1:20:38.800
+ with him. But I guess I could describe it for you. There's something that got my name attached to it
+
+1:20:39.520 --> 1:20:47.520
+ called Knuth arrow notation. But it's a notation for very large numbers. And so I find out that
+
+1:20:48.720 --> 1:20:56.720
+ somebody invented it in the 1830s. It's fairly easy to understand anyway. So you start with
+
+1:20:56.720 --> 1:21:08.560
+ x plus x plus x plus x n times, and you can call that xn. So xn is multiplication. Then you take x
+
+1:21:08.560 --> 1:21:17.600
+ times x times x times x n times. That gives you exponentiation, x to the nth power. So that's one
+
+1:21:17.600 --> 1:21:25.280
+ arrow. So xn with no arrows is multiplication. Arrow n is x to the nth power.
+
+1:21:25.280 --> 1:21:34.640
+ Yeah. So just to clarify for the... So x times x times x n times is obviously xn.
+
+1:21:36.400 --> 1:21:38.160
+ x plus x plus x n times.
+
+1:21:39.200 --> 1:21:47.840
+ Oh, yeah. Okay. And then multiplication is x to the n. And then here the arrow is when you're
+
+1:21:47.840 --> 1:21:51.760
+ doing the same kind of repetitive operation for the exponential.
+
+1:21:51.760 --> 1:21:57.440
+ So I put in one arrow, and I get x to the nth power. Now I put in two arrows. And that takes
+
+1:21:57.440 --> 1:22:08.480
+ x to the x to the x to the x n times power. So in other words, if it's two double arrow three,
+
+1:22:08.480 --> 1:22:15.840
+ that would be two to the two to the two. So that would be two to the fourth power. That'd be 16.
+
+1:22:15.840 --> 1:22:27.200
+ Okay. So that's the double arrow. And now you can do a triple arrow, of course, and so on.
+
+1:22:28.720 --> 1:22:38.960
+ And I had this paper called, well, essentially big numbers. You try to impress your friend,
+
+1:22:38.960 --> 1:22:46.160
+ but by saying a number they've never thought of before. And I gave a special name for it
+
+1:22:47.360 --> 1:22:53.680
+ and designed a font for it that has script k and so on. But it really is 10, I think,
+
+1:22:53.680 --> 1:23:00.560
+ like 10 quadruple arrow three or something like that. And I claim that that number is so mind
+
+1:23:00.560 --> 1:23:07.120
+ boggling that you can't comprehend how large it is. But anyway, I talked to Feynman about this,
+
+1:23:07.120 --> 1:23:14.640
+ and he said, oh, let's just use double arrow. But instead of taking integers, let's consider
+
+1:23:15.440 --> 1:23:26.480
+ complex numbers. I mean, okay, x arrow arrow two, that means x to the x. But what about x
+
+1:23:27.600 --> 1:23:34.880
+ double arrow 2.5? Well, that's not too hard to figure out. That's interpolate between those.
+
+1:23:34.880 --> 1:23:41.600
+ But what about x double arrow i or 1 plus i or some complex number?
+
+1:23:42.960 --> 1:23:53.040
+ And so he claimed that there was no analytic function that would do the job.
+
+1:23:54.640 --> 1:24:03.600
+ But I didn't know how he could claim that that wasn't true. And his next question was,
+
+1:24:03.600 --> 1:24:05.600
+ did then have a complex number of arrows?
+
+1:24:09.440 --> 1:24:10.400
+ Yeah. Okay.
+
+1:24:10.400 --> 1:24:11.200
+ Wow. Okay.
+
+1:24:11.200 --> 1:24:13.680
+ Okay. So that's Feynman.
+
+1:24:13.680 --> 1:24:14.400
+ That's Feynman.
+
+1:24:14.400 --> 1:24:14.900
+ Yeah.
+
+1:24:16.080 --> 1:24:24.080
+ Can you describe what the Knuth Morris Pratt algorithm does? And how did you come to develop
+
+1:24:24.080 --> 1:24:28.640
+ it? One of the many things that you're known for and has your name attached to it.
+
+1:24:28.640 --> 1:24:36.080
+ Yeah. All right. So it should be actually Morris Pratt Knuth. But we decided to use
+
+1:24:36.080 --> 1:24:42.800
+ alphabetical order when we published the paper. The problem is something that everybody knows
+
+1:24:42.800 --> 1:24:53.040
+ now if they're using a search engine. You have a large collection of text, and you want to know
+
+1:24:53.040 --> 1:25:01.280
+ if the word Knuth appears anywhere in the text, let's say, or some other word that's less
+
+1:25:01.280 --> 1:25:05.040
+ interesting than Knuth. But anyway. That's the most interesting word.
+
+1:25:05.040 --> 1:25:06.800
+ Like Morris or something. Like Morris, right.
+
+1:25:07.440 --> 1:25:16.480
+ So anyway, we have a large piece of text, and it's all one long, one dimensional thing. First
+
+1:25:16.480 --> 1:25:24.240
+ letter, second letter, et cetera, et cetera, et cetera. And so you'd like to be able to do this
+
+1:25:24.240 --> 1:25:33.840
+ quickly. And the obvious way is let's say we're looking for Morris. Okay. So we would go through
+
+1:25:33.840 --> 1:25:39.280
+ and wait till we get to letter M. Then we look at the next word, and sure enough, it's an O,
+
+1:25:39.280 --> 1:25:52.880
+ and then an R. But then, too bad, the next letter is E. So we missed out on Morris. And so we go
+
+1:25:52.880 --> 1:26:01.440
+ back and start looking for another. So that's the obvious way to do it. All right. And Jim Morris
+
+1:26:01.440 --> 1:26:09.680
+ noticed there was a more clever way to do it. The obvious way would have started... Let's say
+
+1:26:10.800 --> 1:26:16.880
+ we found that letter M had character position 1000. So it would have started next at character
+
+1:26:16.880 --> 1:26:26.560
+ position 1001. But he said, no, look, we already read the O and the R, and we know that they aren't
+
+1:26:26.560 --> 1:26:36.640
+ Ms. So we can start... We don't have to read those over again. And this gets pretty tricky when
+
+1:26:37.840 --> 1:26:43.520
+ the word isn't Morris, but it's more like abracadabra, where you have patterns that
+
+1:26:43.520 --> 1:26:49.760
+ are occurring. Like repeating patterns at the beginning, at the middle, at the end.
+
+1:26:49.760 --> 1:26:57.680
+ Right. So he worked it out, and he put it into the system software at Berkeley, I think it was,
+
+1:26:57.680 --> 1:27:03.600
+ where he was writing some... Berkeley Unix, I think, was some routine that was supposed to
+
+1:27:03.600 --> 1:27:14.320
+ find occurrences of patterns in text. But he didn't explain it. And so he found out that several
+
+1:27:14.320 --> 1:27:20.960
+ months later, somebody had looked at it, didn't look right, and so they ripped it out. So he had
+
+1:27:20.960 --> 1:27:28.560
+ this algorithm, but it didn't make it through because it wasn't understood. Nobody knew about
+
+1:27:28.560 --> 1:27:39.360
+ this particularly. Von Pratt also had independently discovered it a year or two later. I forget why.
+
+1:27:39.360 --> 1:27:48.800
+ I think Von was studying some technical problem about palindromes or something like that. He
+
+1:27:48.800 --> 1:27:56.320
+ wasn't really... Von wasn't working on text searching, but he was working on an abstract
+
+1:27:56.320 --> 1:28:04.480
+ problem that was related. Well, at that time, Steve Cook was professor at Berkeley, and
+
+1:28:04.480 --> 1:28:12.240
+ it was the greatest mistake that Berkeley CS department made was not to give him tenure.
+
+1:28:13.120 --> 1:28:20.000
+ So Steve went to Toronto. But I knew Steve while he was at Berkeley,
+
+1:28:20.800 --> 1:28:29.120
+ and he had come up with a very peculiar theorem about a technical concept called a stack automaton.
+
+1:28:29.120 --> 1:28:38.080
+ And a stack automaton is a machine that can't do everything a Turing machine can do, but it
+
+1:28:38.080 --> 1:28:44.560
+ can only look at something at the top of a stack, or it can put more things on the stack, or it can
+
+1:28:44.560 --> 1:28:51.760
+ take things off of the stack. It can't remember a long string of symbols, but it can remember them
+
+1:28:51.760 --> 1:29:00.240
+ in reverse order. So if you tell a stack automaton A, B, C, D, E, it can tell you afterwards E, D,
+
+1:29:00.240 --> 1:29:08.320
+ C, B, A. It doesn't have any other memory except this one thing that it can see. And Steve Cook
+
+1:29:08.320 --> 1:29:16.800
+ proved this amazing thing that says if a stack automaton can recognize a language where the
+
+1:29:16.800 --> 1:29:24.320
+ strings of the language are length n in any amount of time whatsoever, so the stack automaton might
+
+1:29:24.320 --> 1:29:30.000
+ use a zillion steps, a regular computer can recognize that same language in time n log n.
+
+1:29:30.800 --> 1:29:36.240
+ So Steve had a way of transforming a computation that goes on and on and on and on
+
+1:29:38.800 --> 1:29:43.360
+ using different data structures into something that you can do on a regular computer
+
+1:29:43.360 --> 1:29:52.720
+ fast. The stack automaton goes slow, but somehow the fact that it can do it at all
+
+1:29:53.280 --> 1:29:58.560
+ means that there has to be a fast way. So I thought this was a pretty cool theorem.
+
+1:29:59.680 --> 1:30:07.200
+ And so I tried it out on a problem where I knew a stack automaton could do it,
+
+1:30:08.320 --> 1:30:12.720
+ but I couldn't figure out a fast way to do it on a regular computer. I thought it was a pretty
+
+1:30:12.720 --> 1:30:21.760
+ good programmer, but by golly, I couldn't think of any way to recognize this language efficiently.
+
+1:30:22.880 --> 1:30:29.920
+ So I went through Steve Cook's construction. I filled my blackboard with everything that
+
+1:30:29.920 --> 1:30:37.520
+ stack automaton did. I wrote down, and then I tried to see patterns in that.
+
+1:30:37.520 --> 1:30:44.720
+ And how did he convert that into a computer program on a regular machine? And finally,
+
+1:30:44.720 --> 1:30:52.080
+ I psyched it out. What was the thing I was missing so that I could say, oh yeah, this is what I
+
+1:30:52.080 --> 1:31:01.040
+ should do in my program. And now I have an efficient program. And so I would never have
+
+1:31:01.040 --> 1:31:09.120
+ thought about that if I hadn't had his theorem, which was a purely abstract thing.
+
+1:31:09.120 --> 1:31:16.160
+ So you used this theorem to try to intuit how to use the stack automaton for the string matching
+
+1:31:16.160 --> 1:31:23.600
+ problem. Yeah. So the problem I had started with was not the string matching problem,
+
+1:31:23.600 --> 1:31:28.720
+ but then I realized that the string matching problem was another thing which could be done
+
+1:31:28.720 --> 1:31:36.000
+ by a stack automaton. And so when I looked at what that told me, then I had a nice algorithm for this
+
+1:31:36.640 --> 1:31:44.320
+ string matching problem. And it told me exactly what I should remember as I'm going through the
+
+1:31:44.320 --> 1:31:50.800
+ string. And I worked it out, and I wrote this little paper called Automata Theory Can Be Useful.
+
+1:31:52.240 --> 1:31:56.720
+ And the reason was that it was first, I mean, I had been reading all kinds of papers about
+
+1:31:56.720 --> 1:32:04.880
+ automata theory, but it never improved my programming for everyday problems. It was
+
+1:32:04.880 --> 1:32:11.920
+ something that you published in journals, and it was interesting stuff. But here was a case
+
+1:32:11.920 --> 1:32:16.960
+ where I couldn't figure out how to write the program. I had a theorem from automata theory.
+
+1:32:16.960 --> 1:32:25.200
+ Then I knew how to write the program. So this was, for me, a change in life. I started to say,
+
+1:32:25.200 --> 1:32:32.560
+ maybe I should learn more about automata theory. And I showed this note to Vaughn Pratt,
+
+1:32:32.560 --> 1:32:41.520
+ and he said, that's similar to something I was working on. And Jim Morris was at Berkeley,
+
+1:32:41.520 --> 1:32:49.760
+ too, at the time. Anyway, he's had an illustrious career, but I haven't kept track of Jim. But Vaughn
+
+1:32:49.760 --> 1:32:58.240
+ is my colleague at Stanford and my student later. But this was before Vaughn was still a graduate
+
+1:32:58.240 --> 1:33:02.400
+ student and hadn't come to Stanford yet. So we found out that we'd all been working on the
+
+1:33:02.400 --> 1:33:07.360
+ same thing. So it was our algorithm. We each discovered it independently, but each of us
+
+1:33:07.360 --> 1:33:15.520
+ had discovered a different part of the elephant, a different aspect of it. And so we could put our
+
+1:33:15.520 --> 1:33:22.640
+ things together with my job to write the paper. How did the elephant spring to life?
+
+1:33:23.520 --> 1:33:29.440
+ Spring to life was because I had drafted this paper, automata theory.
+
+1:33:30.400 --> 1:33:35.760
+ Oh. It can be useful, which was seen by Vaughn and then by Jim. And then we combined,
+
+1:33:36.560 --> 1:33:40.800
+ because maybe they had also been thinking of writing something up about it.
+
+1:33:40.800 --> 1:33:45.840
+ About specifically the string match problem in a period.
+
+1:33:48.480 --> 1:33:54.080
+ Let me ask a ridiculous question. Last time we talked, you told me what the most beautiful
+
+1:33:54.080 --> 1:34:02.800
+ algorithm is, actually, for strongly connected graphs. What is the hardest problem, puzzle,
+
+1:34:03.440 --> 1:34:09.280
+ idea in computer science for you personally that you had to work through? Just something that was
+
+1:34:09.280 --> 1:34:17.600
+ just the hardest thing that I've ever been involved with. I don't know how to answer
+
+1:34:17.600 --> 1:34:29.120
+ questions like that, but in this case, it's pretty clear because it's called the birth of
+
+1:34:29.120 --> 1:34:35.600
+ the giant component. So now let me explain that because this actually gets into physics too.
+
+1:34:35.600 --> 1:34:44.560
+ And it gets into something called Bose Einstein statistics. But anyway, it's got some interesting
+
+1:34:44.560 --> 1:34:52.480
+ stories and it's connected with Berkeley again. So start with the idea of a random graph.
+
+1:34:52.480 --> 1:35:02.880
+ Now, here we just say we have N points that are totally unconnected and there's no geometry
+
+1:35:02.880 --> 1:35:08.000
+ involved. There's no saying some points are further apart than others. All points are exactly
+
+1:35:09.840 --> 1:35:17.120
+ alike. And let's say we have 100 points and we number them from 0 to 99.
+
+1:35:19.280 --> 1:35:31.040
+ Now let's take pi, the digits of pi, so two at a time. So we had 31, 41, 59, 26. We can
+
+1:35:31.040 --> 1:35:41.440
+ look, go through pi. And so we take the first two, 31, 41, and let's put a connection between
+
+1:35:41.440 --> 1:35:52.560
+ 0.31 and 0.41. That's an edge in the graph. Then we take 59, 26 and make another edge.
+
+1:35:52.560 --> 1:36:00.240
+ And the graph gets bigger, gets more and more connected as we add these things one at a time.
+
+1:36:00.240 --> 1:36:10.720
+ So we started out with N points and we add M edges. Each edge is completely, we forgot about
+
+1:36:10.720 --> 1:36:16.880
+ edges we had before. We might get an edge twice. We might get an edge from a point to itself even.
+
+1:36:16.880 --> 1:36:26.080
+ Maybe pi is going to have a run of four digits in there. But anyway, we're evolving a graph at
+
+1:36:26.080 --> 1:36:40.080
+ random. And a magical thing happens when the number of edges is like 0.49 N, so maybe N is a
+
+1:36:40.080 --> 1:36:53.440
+ million and I have 490,000 edges. Then almost all the time, it consists of isolated trees,
+
+1:36:55.440 --> 1:36:56.640
+ not even any loops.
+
+1:36:58.640 --> 1:37:00.640
+ It's a very small number of edges so far.
+
+1:37:01.680 --> 1:37:03.680
+ A little less than half N.
+
+1:37:03.680 --> 1:37:04.720
+ N, right.
+
+1:37:04.720 --> 1:37:11.200
+ A little less than half N. But if I had 0.51 edges, so a little more than half N.
+
+1:37:12.000 --> 1:37:19.520
+ So a million points, 510,000 edges. Now it probably has
+
+1:37:24.080 --> 1:37:30.960
+ one component that's much bigger than the others. And we call that the giant component.
+
+1:37:30.960 --> 1:37:37.600
+ So can you clarify? First of all, is there a name for this kind of random,
+
+1:37:37.600 --> 1:37:39.360
+ super cool pi random graph?
+
+1:37:41.200 --> 1:37:50.320
+ Well, I call it the pi graph. No, no, the pi graph is actually, my pi graph is based on
+
+1:37:51.840 --> 1:37:59.360
+ binary representation of pi, not the decimal representation of pi. But anyway, let's suppose
+
+1:37:59.360 --> 1:38:04.640
+ I was rolling dice instead. So it doesn't have to be pi?
+
+1:38:07.040 --> 1:38:12.080
+ The point is, every step, choose totally at random one of those endpoints,
+
+1:38:13.280 --> 1:38:20.240
+ choose totally at random another one of those endpoints, make that an edge. That's the process.
+
+1:38:21.440 --> 1:38:23.520
+ So there's nothing magical about pi?
+
+1:38:23.520 --> 1:38:29.840
+ No, no, I was sort of saying pi is sort of random that nobody knows the pattern in.
+
+1:38:29.840 --> 1:38:30.720
+ Exactly, got it.
+
+1:38:31.760 --> 1:38:39.760
+ But I could have just as well drawn straws or something. This was a concept invented by
+
+1:38:39.760 --> 1:38:44.960
+ Erdos and Renyi, and they call it the evolution of random graphs. And if you start out with
+
+1:38:45.680 --> 1:38:52.960
+ a large number N, and you repeat this process, all of a sudden a big bang happens at one half N.
+
+1:38:52.960 --> 1:39:01.680
+ There'll be two points together, then maybe we'll have three. And then maybe branch out a little
+
+1:39:01.680 --> 1:39:08.160
+ bit. But they'll all be separate until we get to one half N. And we pass one half N, and all of a
+
+1:39:08.160 --> 1:39:16.240
+ sudden there's substance to it. There's a big clump of stuff that's all joined together.
+
+1:39:16.240 --> 1:39:19.040
+ So it's almost like a phase transition of some kind.
+
+1:39:19.040 --> 1:39:24.720
+ It's exactly. It's a phase transition, but it's a double phase transition. It turns out
+
+1:39:27.760 --> 1:39:34.080
+ that there's actually two things going on at once at this phase transition, which is very
+
+1:39:34.080 --> 1:39:40.400
+ remarkable about it. So a lot of the most important algorithms are based on random
+
+1:39:40.400 --> 1:39:46.560
+ processes. And so I want to understand random processes now. So there are data structures that
+
+1:39:46.560 --> 1:39:55.280
+ sort of grow this way. Okay, so Dick Karp, one of the leading experts on randomized algorithms,
+
+1:39:56.000 --> 1:40:01.680
+ had his students looking at this at Berkeley. And we heard a rumor that the students had
+
+1:40:02.640 --> 1:40:08.080
+ found something interesting happening. The students are generating this,
+
+1:40:08.080 --> 1:40:17.600
+ or simulating this random evolution of graphs. And they're taking snapshots every so often to
+
+1:40:17.600 --> 1:40:22.560
+ take a look at what the graph is. And the rumor was that every time they looked,
+
+1:40:23.600 --> 1:40:28.560
+ there was only one component that had loops in it, almost always. They do a million experiments,
+
+1:40:30.000 --> 1:40:35.920
+ and only three or four times did they ever happen to see a loop at this point.
+
+1:40:35.920 --> 1:40:43.200
+ I mean, no, more than one component with a loop. So they watch it until the graph gets
+
+1:40:43.840 --> 1:40:50.800
+ completely full. So it starts out totally empty and gets more and more edges all the time.
+
+1:40:52.400 --> 1:40:59.200
+ And so, okay, certainly a loop comes along once. But now all the loops stay somehow joined to that
+
+1:40:59.200 --> 1:41:11.680
+ one. There never were two guys with loops in these experiments. So anyway, almost always,
+
+1:41:12.400 --> 1:41:17.680
+ certainly not always, but with very high probability this seemed to be true.
+
+1:41:19.200 --> 1:41:26.880
+ So we heard about this rumor at Stanford, and we said, if that's true, then a lot more must also
+
+1:41:26.880 --> 1:41:31.680
+ be true. So there's a whole theory out there waiting to be discovered that we haven't ever
+
+1:41:31.680 --> 1:41:36.560
+ thought about. So let's take a look at it. And so we looked closer and we found out, no, actually,
+
+1:41:37.200 --> 1:41:46.240
+ it's not true. But in fact, it's almost true. Namely, there's a very short interval of time
+
+1:41:46.240 --> 1:41:51.840
+ when it's true. And if you don't happen to look at it during that short interval of time,
+
+1:41:51.840 --> 1:41:59.360
+ then you miss it. So in other words, there'll be a period where there are two or three
+
+1:42:00.320 --> 1:42:05.440
+ components that have loops, but they join together pretty soon.
+
+1:42:05.440 --> 1:42:15.680
+ Okay. So if you don't have a real fast shutter speed, you're going to miss that instant.
+
+1:42:15.680 --> 1:42:18.320
+ So separate loops don't exist for long.
+
+1:42:18.320 --> 1:42:25.440
+ That's it. Yeah. I started looking at this to make it quantitative. And the basic problem was
+
+1:42:25.440 --> 1:42:31.920
+ to slow down the Big Bang so that I could watch it happening. I think I can explain it actually
+
+1:42:32.880 --> 1:42:38.720
+ in fairly elementary terms, even without writing a formula, like Hawking would do.
+
+1:42:38.720 --> 1:42:47.600
+ And so let's watch the evolution. And at first, these edges are coming along and they're just
+
+1:42:47.600 --> 1:42:54.080
+ making things without loops, which we call trees. So then all of a sudden, a loop first appears.
+
+1:42:54.640 --> 1:43:01.440
+ So at that point, I have one component that has a loop. Now, I say that the complexity of a
+
+1:43:01.440 --> 1:43:10.720
+ component is the number of edges minus the number of vertices. So if I have a loop, I have like a
+
+1:43:10.720 --> 1:43:19.840
+ loop of length five, it has five edges and five vertices. Or I could put a tail on that and that
+
+1:43:19.840 --> 1:43:21.440
+ would be another edge, another vertex.
+
+1:43:21.440 --> 1:43:24.880
+ It's like a zero, one, two complexity kind of thing.
+
+1:43:24.880 --> 1:43:32.880
+ So if the complexity is zero, we have one loop, I call it a cycle or I call it a cyclic
+
+1:43:32.880 --> 1:43:44.240
+ component. So a cyclic component looks like a wheel to which you attach fibers or trees.
+
+1:43:45.840 --> 1:43:49.280
+ They go branching, but there are no more loops. There's only one loop and everything else
+
+1:43:49.280 --> 1:43:57.440
+ feeds into that loop. And that has complexity zero. But a tree itself has complexity minus one
+
+1:43:57.440 --> 1:44:06.800
+ because it might have 10 vertices and nine edges to tie them together. So nine minus 10 is minus
+
+1:44:06.800 --> 1:44:14.000
+ one. So complexity minus one is a tree. It's got to be connected. That's what I mean by a
+
+1:44:14.000 --> 1:44:19.840
+ component. It's got to be connected. So if I have 10 things connected, I have to have nine edges.
+
+1:44:21.360 --> 1:44:28.880
+ Can you clarify why when complexity can go above zero, I'm a little confused why.
+
+1:44:28.880 --> 1:44:34.560
+ Right. So the complexity plus one is the number of loops. So if complexity is zero,
+
+1:44:34.560 --> 1:44:43.280
+ I have one loop. If complexity is one, that means I have one more edge than I have vertices. So I
+
+1:44:43.280 --> 1:44:53.040
+ might have like 11 edges and 10 vertices. So we call that a bicycle because it's got two loops
+
+1:44:53.040 --> 1:45:00.560
+ in it. It's got to have two loops in it. Well, but why can't it be trees just going off of the loop?
+
+1:45:02.000 --> 1:45:08.800
+ I would need more edges then. Oh, right. Right. Okay. I got it. So every time I get another loop,
+
+1:45:08.800 --> 1:45:13.920
+ I get another excess of edges over vertices. I got you. Okay. So in other words,
+
+1:45:15.840 --> 1:45:22.400
+ we start out and after I have one loop, I have one component that has a cycle in it.
+
+1:45:23.200 --> 1:45:31.520
+ Now the next step, according to the rumor, would be that at the next step, I would have a bicycle
+
+1:45:31.520 --> 1:45:39.280
+ in the evolution of almost all graphs. It would go from cycle to bicycle. But in fact,
+
+1:45:39.280 --> 1:45:46.720
+ there's a certain probability it goes from cycle to two different cycles.
+
+1:45:48.800 --> 1:45:51.760
+ And I worked out the probability was something like five out of 24.
+
+1:45:52.720 --> 1:45:53.520
+ That's pretty high.
+
+1:45:53.520 --> 1:46:01.280
+ Right. It was substantial. But still, soon they're going to merge together almost. Okay.
+
+1:46:02.480 --> 1:46:03.600
+ That's so cool.
+
+1:46:03.600 --> 1:46:11.200
+ But then it splits again after you have either two or one, one. The next step is you either have
+
+1:46:11.200 --> 1:46:17.920
+ three or you have two, one or you have one, one, one. Okay. And so I worked out the probability
+
+1:46:17.920 --> 1:46:27.280
+ for those transitions. And I worked it out up to the first five transitions. And I had these
+
+1:46:28.480 --> 1:46:35.920
+ strange numbers, five 24s. And I stayed up all night and about 3 a.m. I had the numbers computed
+
+1:46:35.920 --> 1:46:49.680
+ and I looked at them. The denominator was something like 23023. The probability was
+
+1:46:49.680 --> 1:46:53.280
+ something over 23023. I don't know how you worked that out.
+
+1:46:53.280 --> 1:46:58.640
+ But I had a formula that I could calculate the probability. And I could find the limiting
+
+1:46:58.640 --> 1:47:04.240
+ probability as n goes to infinity. And it turned out to be this number. But the denominator was
+
+1:47:04.240 --> 1:47:10.400
+ 230. And I looked at the denominator and I said, wait a minute. This number factors because
+
+1:47:11.200 --> 1:47:17.040
+ 1001 is equal to 7 times 11 times 13. I had learned that in my first computer program.
+
+1:47:17.040 --> 1:47:31.040
+ So 23023 is 7 times 11 times 13 times 23. That's not a random number. There has to be a reason
+
+1:47:31.040 --> 1:47:41.440
+ why those small primes appear in the denominator. So all of a sudden that suggested another way of
+
+1:47:41.440 --> 1:47:50.960
+ looking at the problem where small prime factors would occur. So that said, oh, yeah, let me take
+
+1:47:50.960 --> 1:47:59.840
+ the logarithm of this formula. And sure enough, it's going to simplify. And it happened. So I
+
+1:47:59.840 --> 1:48:05.280
+ and I wouldn't have noticed it except for this factorization. OK, so I go to bed and I say,
+
+1:48:05.280 --> 1:48:09.760
+ oh, OK, this is this looks like I'm slowing down the Big Bang. I can figure out what's going on
+
+1:48:09.760 --> 1:48:17.040
+ here. And the next day it turned out Bill Gates comes to Stanford to visit. They're trying to
+
+1:48:17.040 --> 1:48:25.200
+ sell him on donating money for a new computer science building. And they gave me an appointment
+
+1:48:25.200 --> 1:48:33.360
+ to talk to Bill and I wrote down on the blackboard this evolutionary diagram going from one to two,
+
+1:48:33.360 --> 1:48:39.040
+ five twenty fourths in all this business. And I wrote it down. And anyway, at the end of the day,
+
+1:48:40.320 --> 1:48:46.400
+ he was discussing people with the development office and he said, boy, I was really impressed
+
+1:48:46.400 --> 1:48:56.480
+ with what Professor Knuth said about this giant component. And and so, you know, I love this story
+
+1:48:56.480 --> 1:49:03.200
+ because it shows that theoretical computer science is really worthwhile. Does Bill have you ever
+
+1:49:03.200 --> 1:49:09.440
+ talked to Bill Gates about it since then? Yeah, that's a cool that's a cool little moment in
+
+1:49:09.440 --> 1:49:17.360
+ history. But anyway, he happened to visit on exactly the day after I had I had found this
+
+1:49:17.360 --> 1:49:25.920
+ pattern and that allowed me to crack the problem so that I could develop the theory some more and
+
+1:49:25.920 --> 1:49:33.200
+ understand what's happening in the big. But because I could I could now write down explicit formulas
+
+1:49:33.200 --> 1:49:39.840
+ for stuff. And so it would work not only the first few steps, but also they'll study the
+
+1:49:39.840 --> 1:49:45.600
+ whole process. And and I worked further and further and I with two authors, co authors,
+
+1:49:45.600 --> 1:49:53.600
+ and we finally figured out that the probability that the rumor was true. In other words,
+
+1:49:53.600 --> 1:50:02.800
+ look at the evolution of a random graph going from zero to complete and say, what's the probability
+
+1:50:02.800 --> 1:50:09.200
+ that at every point in time, there was only one component with a cycle? We started with this
+
+1:50:09.200 --> 1:50:16.960
+ rumor saying there's only one site, there's only one component with a cycle. And so the rumor was
+
+1:50:16.960 --> 1:50:26.160
+ it's 100%. Rumor was that was 100%. It turned out the actual numbers is like 87%. I should remember
+
+1:50:26.160 --> 1:50:33.440
+ the number but I don't but I don't have it with me. But but anyway, but but the but the number it
+
+1:50:33.440 --> 1:50:42.160
+ turned out to be like 12 over pi squared or eight over pi. Anyway, it was a nice it related to pi.
+
+1:50:42.160 --> 1:50:48.880
+ Yeah. And we could never have done that with it. But so that's the hardest problem I ever
+
+1:50:48.880 --> 1:50:54.640
+ solved in my life was to prove that this probability is it was proven. The probability
+
+1:50:54.640 --> 1:51:01.280
+ was proven. Yeah, I was able to prove this that this and this should shed light on a whole bunch
+
+1:51:01.280 --> 1:51:07.600
+ of other things about random graphs. That was sort of the major thing we were after.
+
+1:51:07.600 --> 1:51:11.440
+ That's super cool. What was the connection to physics that you mentioned?
+
+1:51:11.440 --> 1:51:18.960
+ Well, Bose Einstein statistics is a study of how molecules bond together
+
+1:51:18.960 --> 1:51:32.080
+ without geometry. You created the tech typesetting system and released it as open source.
+
+1:51:33.280 --> 1:51:40.480
+ Just on that little aspect, why did you release it as open source? What is your vision for open source?
+
+1:51:42.160 --> 1:51:47.440
+ Okay, well that the word open source didn't exist at that time. But we but I didn't want
+
+1:51:47.440 --> 1:51:56.720
+ proprietary rights over it. Because I saw how proprietary rights were holding things back.
+
+1:51:56.720 --> 1:52:02.480
+ In the late 50s, people at IBM developed the language called Fortran. They could have
+
+1:52:03.760 --> 1:52:09.440
+ kept it proprietary. They could have said only IBM can use this language. Everybody else has to.
+
+1:52:09.440 --> 1:52:18.160
+ But they didn't. They said anybody who can translate Fortran into the language of their
+
+1:52:18.160 --> 1:52:28.000
+ machines is allowed to make Fortran compilers. On the other hand, in the typography industry,
+
+1:52:28.000 --> 1:52:34.400
+ I had seen a lot of languages that were developed for composing pages.
+
+1:52:34.400 --> 1:52:41.760
+ And each manufacturer had his own language for composing pages. And that was holding everything
+
+1:52:41.760 --> 1:52:48.800
+ back because people were tied to a particular manufacturer. And then a new equipment is invented
+
+1:52:48.800 --> 1:52:54.880
+ a year later. But printing machines, they have to expect to amortize the cost over 20, 30 years.
+
+1:52:55.680 --> 1:52:57.360
+ So you didn't want that for tech?
+
+1:52:57.360 --> 1:53:11.920
+ That for tech. I didn't need the income. I already had a good job. And my books were,
+
+1:53:14.640 --> 1:53:23.040
+ people were buying enough books that it would bring me plenty of supplemental income for
+
+1:53:23.040 --> 1:53:28.640
+ everything my kids needed for education and whatever. So there was no reason for me to try
+
+1:53:28.640 --> 1:53:36.480
+ to maximize income any further. Income is sort of a threshold function. If you don't have enough,
+
+1:53:36.480 --> 1:53:41.680
+ you're starving. But if you get over the threshold, then you start thinking about
+
+1:53:41.680 --> 1:53:51.200
+ philanthropy or else you're trying to take it with you. But anyway, my income was over the
+
+1:53:51.200 --> 1:53:58.880
+ threshold. So I didn't need to keep it. And so I specifically could see the advantage of
+
+1:54:00.560 --> 1:54:02.640
+ making it open for everybody.
+
+1:54:02.640 --> 1:54:05.120
+ Do you think most software should be open?
+
+1:54:06.080 --> 1:54:13.040
+ So I think that people should charge for non trivial software, but not for trivial software.
+
+1:54:13.040 --> 1:54:21.280
+ Yeah, you give an example of, I think, Adobe Photoshop versus GIMP on Linux as Photoshop has
+
+1:54:21.280 --> 1:54:21.680
+ value.
+
+1:54:22.880 --> 1:54:33.760
+ So it's definitely worth paying for all this stuff. I mean, well, they keep adding stuff that
+
+1:54:33.760 --> 1:54:47.040
+ my wife and I don't care about, but they have built in a fantastic undo feature, for example,
+
+1:54:47.040 --> 1:54:54.800
+ in Photoshop where you can go through a sequence of a thousand complicated steps on graphics and
+
+1:54:54.800 --> 1:55:03.360
+ then it can take you back anywhere in that sequence with really beautiful algorithms.
+
+1:55:03.360 --> 1:55:08.000
+ Oh, that's interesting. I didn't think about what algorithm. It must be some kind of efficient
+
+1:55:08.000 --> 1:55:08.800
+ representation.
+
+1:55:08.800 --> 1:55:16.800
+ Yeah, no. I mean, there's a lot of really subtle Nobel Prize class creation of intellectual
+
+1:55:16.800 --> 1:55:30.640
+ property in there. And with patents, you get a limited time to, I mean, eventually the
+
+1:55:30.640 --> 1:55:35.120
+ idea of patents is that you publish so that it's not a trade secret.
+
+1:55:37.200 --> 1:55:45.200
+ That said, you've said that I currently use Ubuntu Linux on a standalone laptop. It has
+
+1:55:45.200 --> 1:55:50.320
+ no internet connection. I occasionally carry flash memory drives between the machine and
+
+1:55:50.320 --> 1:55:57.280
+ the Macs that I use for network surfing and graphics, but I trust my family jewels only
+
+1:55:57.280 --> 1:56:00.080
+ to Linux. Why do you love Linux?
+
+1:56:00.880 --> 1:56:07.120
+ The version of Linux that I use is stable. Actually, I'm going to have to upgrade one
+
+1:56:07.120 --> 1:56:07.840
+ of these days, but...
+
+1:56:08.400 --> 1:56:10.320
+ To a newer version of Ubuntu?
+
+1:56:10.320 --> 1:56:17.360
+ Yeah, I'll stick with Ubuntu, but right now I'm running something that doesn't support
+
+1:56:18.000 --> 1:56:26.880
+ a lot of the new software. The last stable, I don't remember the number, like 14. Anyway,
+
+1:56:26.880 --> 1:56:35.280
+ it's quite... And I'm going to get a new computer. I'm getting new solid state memory instead
+
+1:56:35.280 --> 1:56:36.800
+ of a hard disk.
+
+1:56:36.800 --> 1:56:47.280
+ Yeah, the basics. Well, let me ask you, sticking on the topic of tech, when thinking about
+
+1:56:47.280 --> 1:56:56.080
+ beautiful typography, what is your favorite letter, number, or symbol? I know, I know.
+
+1:56:56.080 --> 1:56:57.760
+ Ridiculous question, but is there some...
+
+1:56:57.760 --> 1:56:59.440
+ Let me show you here.
+
+1:56:59.440 --> 1:57:06.560
+ Look at the last page.
+
+1:57:11.120 --> 1:57:12.320
+ The very end of the index.
+
+1:57:15.200 --> 1:57:15.840
+ What is that?
+
+1:57:17.040 --> 1:57:21.680
+ There's a book by Dr. Seuss called On Beyond Zebra, and he gave a name to that.
+
+1:57:22.240 --> 1:57:24.480
+ Did you say Dr. Seuss gave a name to that?
+
+1:57:24.480 --> 1:57:33.680
+ Dr. Seuss, this is S, E, U, S, S, E. He wrote children's books in the 50s, 40s and 50s.
+
+1:57:34.960 --> 1:57:36.880
+ Wait, you're talking about Cat in the Hat, Dr. Seuss?
+
+1:57:36.880 --> 1:57:39.760
+ Cat in the Hat, yeah. That's it, yeah.
+
+1:57:39.760 --> 1:57:41.120
+ I like how you had the spell there.
+
+1:57:41.120 --> 1:57:46.080
+ On Beyond Zebra, did it get to Soviet Union?
+
+1:57:46.080 --> 1:57:56.640
+ No, Dr. Seuss did not come to the Soviet Union, but since you... Oh, actually, I think it did
+
+1:57:56.640 --> 1:58:07.520
+ actually a little bit when we were... That was a book, maybe Cat in the Hat or Green Eggs and Ham,
+
+1:58:07.520 --> 1:58:10.320
+ I think was used to learn English.
+
+1:58:10.320 --> 1:58:11.280
+ Oh, okay.
+
+1:58:11.280 --> 1:58:12.960
+ So I think it made it in that way.
+
+1:58:12.960 --> 1:58:20.720
+ Well, my... Okay, I didn't like those as much as Bartholomew Cubbins, but I used to know
+
+1:58:21.760 --> 1:58:24.080
+ Bartholomew Cubbins by heart when I was young.
+
+1:58:24.720 --> 1:58:28.800
+ So what the heck is this symbol we're looking at? There's so much going on.
+
+1:58:28.800 --> 1:58:32.000
+ He has a name for it at the end of his book On Beyond Zebra.
+
+1:58:32.800 --> 1:58:33.440
+ Who made it?
+
+1:58:34.080 --> 1:58:34.720
+ He did.
+
+1:58:34.720 --> 1:58:39.440
+ He did. So there's... It looks like a bunch of vines.
+
+1:58:39.440 --> 1:58:41.760
+ Well, is that symbol exist in fact?
+
+1:58:41.760 --> 1:58:49.040
+ By the way, he made a movie in the early 50s. I don't remember the name of the movie now.
+
+1:58:49.040 --> 1:58:54.560
+ You can probably find it easily enough, but it features dozens and dozens of
+
+1:58:54.560 --> 1:59:02.480
+ pianos all playing together at the same time. But all the scenery is sort of based on the kind
+
+1:59:02.480 --> 1:59:14.320
+ of artwork that was in his books and the fantasy, you know, based of Seussland or something.
+
+1:59:14.320 --> 1:59:20.400
+ And I saw the movie only once or twice, but it's quite... I'd like to see it again.
+
+1:59:22.400 --> 1:59:26.960
+ That's really fascinating that you gave him... They gave him a shout out here.
+
+1:59:26.960 --> 1:59:34.960
+ Okay. Is there some elegant basic symbol that you're attracted to? Something that
+
+1:59:34.960 --> 1:59:38.480
+ gives you pleasure? Something you use a lot? Pi?
+
+1:59:39.600 --> 1:59:47.920
+ Pi, of course. I try to use pi as often as I can when I need a random example
+
+1:59:47.920 --> 1:59:59.440
+ because it doesn't have any known characters. So for instance, I don't have it here to show you,
+
+1:59:59.440 --> 2:00:06.240
+ but do you know the game called Masyu? M A S Y U?
+
+2:00:06.240 --> 2:00:08.080
+ No.
+
+2:00:08.080 --> 2:00:15.200
+ It's a great recreation. I mean, Sudoku is easier to understand, but Masyu
+
+2:00:15.200 --> 2:00:24.240
+ is more addictive. You have black and white stones, like on a go board, and you have to
+
+2:00:24.240 --> 2:00:30.880
+ draw a path that goes straight through a white stone and makes a right angle turn at the black
+
+2:00:30.880 --> 2:00:39.120
+ stone. And it turns out to be a really nice puzzle because it doesn't involve numbers.
+
+2:00:39.120 --> 2:00:48.640
+ It's visual, but it's really pleasant to play with. So I wanted to use it as an example in
+
+2:00:48.640 --> 2:00:57.840
+ art of computer programming, and I have exercises on how to design cool Masyu puzzles. You can find
+
+2:00:57.840 --> 2:01:10.000
+ on Wikipedia certainly as an example, M A S Y U. And so I decided I would take pi, the actual image
+
+2:01:10.000 --> 2:01:18.720
+ of it, and it had pixels, and I would put a stone wherever it belongs in the Greek letter pi.
+
+2:01:20.080 --> 2:01:26.400
+ But the problem was, find a way to make some of the stones white, some of the stones black,
+
+2:01:26.400 --> 2:01:33.680
+ so that there's a unique solution to the Masyu puzzle. That was a good test case for my algorithm
+
+2:01:33.680 --> 2:01:40.400
+ on how to design Masyu puzzles because I insisted in advance that the stones had to be placed in
+
+2:01:40.400 --> 2:01:49.600
+ exactly the positions that make the letter pi, make a Greek letter pi. And it turned out there
+
+2:01:49.600 --> 2:02:01.680
+ was a unique way to do that. And so pi is a source of examples where I can prove that I'm starting
+
+2:02:01.680 --> 2:02:08.560
+ with something that isn't canned. And most recently, I was writing about something called
+
+2:02:08.560 --> 2:02:19.760
+ graceful graphs. Graceful graphs is the following. You have a graph that has M edges to it,
+
+2:02:20.960 --> 2:02:27.680
+ and you attach numbers to every vertex in the following way. So every time you have an edge
+
+2:02:27.680 --> 2:02:34.480
+ between vertices, you take the difference between those numbers, and that difference
+
+2:02:34.480 --> 2:02:41.520
+ has got to be... I'll tell you what edge it is. So one edge, two numbers will be one apart. There'll
+
+2:02:41.520 --> 2:02:48.240
+ be another edge where the numbers are two apart. And so it's a great computer problem. Can you
+
+2:02:48.240 --> 2:02:55.600
+ find a graceful way to label a graph? So I started with a graph that I use for
+
+2:02:55.600 --> 2:03:04.720
+ an organic graph, not a mathematically symmetric graph or anything. And I take 49 states of the
+
+2:03:04.720 --> 2:03:12.000
+ United States, the edges go from one state to the next state. So for example, California
+
+2:03:12.000 --> 2:03:24.320
+ be next to Oregon, Nevada, Arizona. And I include District of Columbia, so I have 49. I can't get
+
+2:03:24.320 --> 2:03:30.000
+ Alaska and Hawaii in there because they don't touch. You have to be able to drive from one to
+
+2:03:30.000 --> 2:03:36.560
+ the other. So is there a graceful labeling of the United States? Each state gets a number,
+
+2:03:37.600 --> 2:03:45.120
+ and then if California is number 30 and Oregon is number 11, that edge is going to be number 19,
+
+2:03:45.120 --> 2:03:52.960
+ the difference between those, okay? So is there a way to do this for all the states? And so I was
+
+2:03:52.960 --> 2:04:02.160
+ thinking of having a contest for people to get it as graceful as they could. But my friend,
+
+2:04:02.160 --> 2:04:08.880
+ Tom Rokicki, actually solved the problem by proving that, I mean, I was able to get it down
+
+2:04:10.560 --> 2:04:13.920
+ within seven or something like that. He was able to get a perfect solution.
+
+2:04:14.640 --> 2:04:17.200
+ The actual solution or to prove that a solution exists?
+
+2:04:17.200 --> 2:04:25.440
+ Well, more precisely, I had figured out a way to put labels on so that all the edges were labeled
+
+2:04:25.440 --> 2:04:32.480
+ somewhere between 1 and 117, but there were some gaps in there because I should really have gone
+
+2:04:32.480 --> 2:04:41.280
+ from 1 to 105 or whatever the number is. So I gave myself a lot of slack. He did it without
+
+2:04:41.280 --> 2:04:49.600
+ any slack whatsoever, a perfect graceful labeling. And so I called out the contest because the
+
+2:04:49.600 --> 2:04:54.320
+ problem's already solved and too easy in a sense because Tom was able to do it in an afternoon.
+
+2:04:55.680 --> 2:04:58.160
+ Sorry, he gave the algorithm or for this particular...
+
+2:04:59.200 --> 2:05:00.800
+ For the United States.
+
+2:05:00.800 --> 2:05:01.600
+ For the United States.
+
+2:05:01.600 --> 2:05:05.040
+ This problem is incredibly hard. I mean...
+
+2:05:05.040 --> 2:05:12.160
+ For the general algorithm. But it was very lucky that it worked for the United States, I think.
+
+2:05:13.360 --> 2:05:19.520
+ The theory is still very incomplete. But anyway, then Tom came back a couple of days later and he
+
+2:05:19.520 --> 2:05:26.800
+ had been able to not only find a graceful labeling, but the label of Washington was 31,
+
+2:05:26.800 --> 2:05:38.560
+ and the label of Idaho was 41, following the digits of pi. Going across the top edge of the
+
+2:05:38.560 --> 2:05:41.280
+ United States, he has the digits of pi perfectly.
+
+2:05:41.280 --> 2:05:42.320
+ Did he do it on purpose?
+
+2:05:43.360 --> 2:05:48.000
+ He was able to still get a graceful labeling with that extra thing.
+
+2:05:48.000 --> 2:05:49.280
+ What? Wow.
+
+2:05:50.720 --> 2:05:51.520
+ Wow.
+
+2:05:51.520 --> 2:05:59.920
+ And it's a miracle, okay? But I like to use pi in my book, you see.
+
+2:06:02.800 --> 2:06:11.520
+ All roads lead to pi. Somehow often hidden in the middle of the most difficult problems.
+
+2:06:12.560 --> 2:06:15.440
+ Can I ask you about productivity?
+
+2:06:16.720 --> 2:06:17.680
+ Productivity.
+
+2:06:17.680 --> 2:06:23.520
+ Yeah, you said that, quote, my scheduling principle is to do the thing I hate most
+
+2:06:25.200 --> 2:06:32.800
+ on my to do list. By week's end, I'm very happy. Can you explain this process to a productive life?
+
+2:06:33.440 --> 2:06:39.200
+ Oh, I see. Well, but all the time I'm working on what I don't want to do,
+
+2:06:39.200 --> 2:06:42.960
+ but still, I'm glad to have all those unpleasant tasks finished.
+
+2:06:42.960 --> 2:06:46.000
+ Yes. Is that something you would advise to others?
+
+2:06:46.000 --> 2:06:54.880
+ Well, yeah, I don't know how to say it. During the pandemic, I feel my productivity actually
+
+2:06:54.880 --> 2:07:07.600
+ went down by half because I have to communicate by writing, which is slow. I don't like to send
+
+2:07:07.600 --> 2:07:14.320
+ out a bad sentence. So I go through and reread what I've written and edit and fix it. So everything
+
+2:07:14.320 --> 2:07:25.600
+ takes a lot longer when I'm communicating by text messages instead of just together with somebody
+
+2:07:25.600 --> 2:07:30.960
+ in a room. And it's also slower because the libraries are closed and stuff.
+
+2:07:31.840 --> 2:07:35.680
+ But there's another thing about scheduling that I learned from my mother that I should
+
+2:07:35.680 --> 2:07:42.320
+ probably tell you, and that is it's different from what people in the robotics field do,
+
+2:07:42.320 --> 2:07:48.000
+ which is called planning. So she had this principle that was,
+
+2:07:49.360 --> 2:07:51.440
+ see something that needs to be done and do it.
+
+2:07:54.960 --> 2:08:03.920
+ Instead of saying, I'm going to do this first and do this first, just pick this up.
+
+2:08:03.920 --> 2:08:11.440
+ But at any one moment, there's a set of tasks that you can do. And you're saying a good heuristic
+
+2:08:12.400 --> 2:08:14.960
+ is to do the one you want to do least.
+
+2:08:15.680 --> 2:08:18.560
+ Right. The one I haven't got any good reason,
+
+2:08:20.960 --> 2:08:28.400
+ that I'll never be able to do it any better than I am now. There are some things that I know,
+
+2:08:29.440 --> 2:08:32.800
+ if I do something else first, then I'll be able to do that one better.
+
+2:08:32.800 --> 2:08:33.200
+ Yeah.
+
+2:08:33.200 --> 2:08:39.440
+ But there are some that are going to be harder because I've forgotten some of the
+
+2:08:40.160 --> 2:08:46.080
+ groundwork that went into it or something like that. So I just finished a pretty tough part of
+
+2:08:46.080 --> 2:08:56.560
+ the book. And so now I'm doing the parts that are more fun. But the other thing is, as I'm
+
+2:08:56.560 --> 2:09:02.320
+ writing the book, of course, I want the reader to think that I'm happy all the time I'm writing
+
+2:09:02.320 --> 2:09:14.000
+ the book. It's upbeat. I can have humor. I can say this is cool. And this, I have to disguise
+
+2:09:14.000 --> 2:09:18.240
+ the fact that it was painful in any way to come up with these.
+
+2:09:18.240 --> 2:09:25.520
+ The road to that excitement is painful. Yeah. It's laden with pain. Okay. You've given some
+
+2:09:25.520 --> 2:09:30.320
+ advice to people before, but can you...
+
+2:09:30.320 --> 2:09:38.640
+ You give me too much credit. But anyway, this is my turn to say things that I believe. But
+
+2:09:39.840 --> 2:09:48.800
+ I want to preface it by saying I also believe that other people do these things much better
+
+2:09:48.800 --> 2:09:52.160
+ than I do. So I can only tell you my side of it.
+
+2:09:52.160 --> 2:10:01.120
+ Right. So can I ask you to give advice to young people today, to high school students,
+
+2:10:01.120 --> 2:10:08.560
+ to college students, whether they're geeks or the other kind, about how to live a life
+
+2:10:08.560 --> 2:10:13.840
+ that they can be proud of, how to have a successful career, how to have a successful life?
+
+2:10:13.840 --> 2:10:24.720
+ It's always the same as I've said before, I guess, not to do something because it's
+
+2:10:24.720 --> 2:10:32.800
+ trendy, but something that you personally feel that you were called to do rather than
+
+2:10:32.800 --> 2:10:37.520
+ somebody else expects you to do. How do you know you're called to do something?
+
+2:10:37.520 --> 2:10:45.200
+ If you try it and it works or it doesn't work. I mean, you learn about yourself. Life is
+
+2:10:45.200 --> 2:10:49.280
+ a binary search. You try something and you find out, oh yeah, I have a background that
+
+2:10:49.280 --> 2:10:57.920
+ helped me with this. Or maybe I could do this if I worked a little bit harder. But you try
+
+2:10:57.920 --> 2:11:04.960
+ something else and you say, well, I have really no intuition for this and it looks like it
+
+2:11:04.960 --> 2:11:12.560
+ doesn't have my name on it. Was there advice along the way that you got about what you
+
+2:11:12.560 --> 2:11:18.000
+ should and shouldn't work on? Or do you just try to listen to yourself? Yeah, I probably
+
+2:11:18.000 --> 2:11:27.120
+ overreact another way. When I see everybody else going some way, I probably say, hmm,
+
+2:11:27.120 --> 2:11:37.600
+ not too much competition. But mostly I played with things that were interesting to me and
+
+2:11:37.600 --> 2:11:43.520
+ then later on I found, oh, actually the most important thing I learned was how to be interested
+
+2:11:43.520 --> 2:11:51.920
+ in almost anything. I mean, not to be bored. It makes me very sad when I see kids talking
+
+2:11:51.920 --> 2:12:06.320
+ to each other and they say, that was boring. And to me, a person should feel upset if he
+
+2:12:06.320 --> 2:12:12.400
+ had to admit that he wasn't able to find something interesting. It's a skill they
+
+2:12:13.600 --> 2:12:20.400
+ think, I haven't learned how to enjoy life. I have to have somebody entertain me instead of...
+
+2:12:20.400 --> 2:12:26.640
+ Right. That's really interesting. It is a skill. David Foster Wallace, I really like
+
+2:12:27.520 --> 2:12:34.480
+ the thing he says about this, which is the key to life is to be unborable. And I do really like
+
+2:12:34.480 --> 2:12:40.640
+ you saying that it's a skill because I think that's a really good advice, which is if you
+
+2:12:40.640 --> 2:12:49.360
+ find something boring, that's not... I don't believe it's because it's boring. It's because
+
+2:12:49.360 --> 2:12:51.840
+ you haven't developed a skill. I haven't learned how to...
+
+2:12:51.840 --> 2:12:56.960
+ How to find the beauty in that, how to find the fun in it. That's a really good point.
+
+2:12:58.000 --> 2:13:05.040
+ Sometimes it's more difficult than others to do this. I mean, during the COVID,
+
+2:13:06.000 --> 2:13:14.640
+ lots of days when I never saw another human being, but I still find other ways to...
+
+2:13:14.640 --> 2:13:18.000
+ It still was a pretty fun time.
+
+2:13:18.000 --> 2:13:27.360
+ Yeah. I came a few minutes early today and I walked around Foster City. I didn't know
+
+2:13:28.160 --> 2:13:33.360
+ what was going on in Foster City. I saw some beautiful flowers at the nursery at Home Depot
+
+2:13:33.360 --> 2:13:34.400
+ a few blocks away.
+
+2:13:34.400 --> 2:13:42.800
+ Yeah. Life is amazing. It's full of amazing things like this. Yeah. Sometimes I'll sit
+
+2:13:42.800 --> 2:13:48.880
+ there and just stare at a tree. Nature is beautiful. Let me ask you the big ridiculous
+
+2:13:48.880 --> 2:13:52.400
+ question. I don't think I asked you last time. So I have to ask this time in case you have
+
+2:13:52.400 --> 2:14:00.480
+ a good answer. What is the meaning of life? Our existence here on earth, the whole thing.
+
+2:14:06.080 --> 2:14:11.600
+ No, no, you can't. I will not allow you to try to escape answering this question.
+
+2:14:11.600 --> 2:14:19.840
+ You have to answer definitively because surely, surely, Don Knuth, there must be an answer.
+
+2:14:19.840 --> 2:14:21.440
+ What is the answer? Is it 42?
+
+2:14:22.480 --> 2:14:26.000
+ Yes. Well, I don't think it's a numerical. That's the SDS.
+
+2:14:26.000 --> 2:14:37.040
+ That was in Zen and... All right. So anyway, it's only for me, but I personally
+
+2:14:37.040 --> 2:14:48.800
+ think of my belief that God exists, although I have no idea what that means. But I believe
+
+2:14:48.800 --> 2:15:06.080
+ that there is something beyond human capabilities. It might be some AI, but whatever it is. But
+
+2:15:06.080 --> 2:15:16.560
+ whatever. But I do believe that there is something that goes beyond the realm of human understanding,
+
+2:15:17.680 --> 2:15:29.600
+ but that I can try to learn more about how to resonate with whatever that being would
+
+2:15:29.600 --> 2:15:34.640
+ like me to do. So you think you can have occasional glimpses
+
+2:15:34.640 --> 2:15:42.000
+ of that being? I strive for that. Not that I ever think
+
+2:15:42.000 --> 2:15:49.040
+ I'm going to get close to it, but it's not for me. It's saying, what should I do that
+
+2:15:49.040 --> 2:16:03.200
+ that being wants me to do? I'm trying to ask, does that being want me to be talking to Lex
+
+2:16:03.200 --> 2:16:08.000
+ Friedman right now? And I said, yes. Okay. Thank you.
+
+2:16:09.600 --> 2:16:19.680
+ Well, thank you. What I'm trying to say is, of all the strategies I could choose or something,
+
+2:16:22.640 --> 2:16:33.040
+ I try to do it not strategically, but I try to imagine that I'm following somebody's wishes.
+
+2:16:33.040 --> 2:16:37.200
+ Even though you're not smart enough to know what they are.
+
+2:16:37.200 --> 2:16:42.640
+ Yeah. It's that funny little dance. Well, I mean, this AI or whatever,
+
+2:16:43.760 --> 2:16:47.760
+ probably is smart enough to help to give me clues.
+
+2:16:51.120 --> 2:16:56.080
+ And to make the whole journey from clue to clue a fun one.
+
+2:16:56.080 --> 2:17:00.800
+ Yeah. As so many people have said, it's the journey, not the destination.
+
+2:17:00.800 --> 2:17:10.800
+ And people live through crises, help each other. Things come up, history repeats itself.
+
+2:17:12.640 --> 2:17:20.480
+ You try to say, in the world today, is there any government that's working? I read history. I know
+
+2:17:20.480 --> 2:17:28.320
+ that things were... They were a lot worse in many ways.
+
+2:17:28.320 --> 2:17:36.080
+ There's a lot of bad things all the time. And I read about... I look at things and people had
+
+2:17:36.080 --> 2:17:42.000
+ good ideas and they were working on great projects. And then I know that it didn't succeed, though,
+
+2:17:42.000 --> 2:17:48.240
+ in the end. But the new insight I've gotten actually in that way was... I was reading...
+
+2:17:50.160 --> 2:17:56.320
+ What book was I reading recently? It was by Ken Follett and it was called The Man from
+
+2:17:56.320 --> 2:18:04.240
+ St. Petersburg. But it was talking about the prequel to World War I. And Winston Churchill,
+
+2:18:05.040 --> 2:18:10.960
+ according to this book, sees that Germany has been spending all its gold reserves
+
+2:18:11.680 --> 2:18:18.240
+ building up a huge military. And there's no question that if Germany would attack England,
+
+2:18:18.240 --> 2:18:27.040
+ that England would be wiped out. So he wants Russia to help to attack Germany from the other side,
+
+2:18:27.040 --> 2:18:32.000
+ because Germany doesn't have enough of an army to be fighting two wars at one.
+
+2:18:33.040 --> 2:18:45.520
+ Okay. Now, then there's an anarchist in Russia who sees that wars are something that leaders
+
+2:18:45.520 --> 2:18:56.160
+ start, but actually people get killed. And so he wants to stop any alliance between England and
+
+2:18:56.160 --> 2:19:03.600
+ Russia, because that would mean that thousands and thousands of people of Russia would be killed
+
+2:19:03.600 --> 2:19:13.360
+ that wouldn't be otherwise killed. All right. And so his life's goal is to assassinate a Russian
+
+2:19:13.360 --> 2:19:20.000
+ prince who's visiting England, because that will mean the Tsar will not form the alliance. All
+
+2:19:20.000 --> 2:19:29.440
+ right. So we have this question about what should the government do? Should it actually do something
+
+2:19:29.440 --> 2:19:37.920
+ that will lead to... Is the war inevitable or is there a way to have peace? And it struck me that
+
+2:19:37.920 --> 2:19:46.400
+ if I were in a position of responsibility for people's lives, in most cases, I wouldn't have
+
+2:19:46.400 --> 2:19:54.800
+ any confidence that any of my decisions were good. That these questions are too hard, probably for
+
+2:19:54.800 --> 2:20:04.400
+ any human being, but certainly for me. Well, I think coupling the not being sure that the
+
+2:20:04.400 --> 2:20:11.120
+ decisions are right. So that's actually a really good thing, coupled with the fact that you do have
+
+2:20:11.120 --> 2:20:20.640
+ to make a decision and carry the burden of that. And ultimately I have faith in human beings and
+
+2:20:20.640 --> 2:20:27.920
+ the great leaders to arise and help build a better world. I mean, that's the hope of democracy.
+
+2:20:27.920 --> 2:20:35.600
+ Yeah, Ben, let's hope that we can enhance their abilities with algorithms.
+
+2:20:40.080 --> 2:20:46.160
+ Well put, Don. It's such a huge honor. You've been an inspiration to me and to millions for
+
+2:20:46.160 --> 2:20:52.000
+ such a long time. Thank you for spending your really valuable time with me. Once again,
+
+2:20:52.560 --> 2:20:54.800
+ it's a huge honor. I really enjoyed this conversation.
+
+2:20:54.800 --> 2:21:00.080
+ Thanks for listening to this conversation with Donald Knuth. To support this podcast,
+
+2:21:00.080 --> 2:21:05.200
+ please check out our sponsors in the description. And now let me leave you with some words from
+
+2:21:05.200 --> 2:21:12.880
+ Don Knuth himself. Science is what we understand well enough to explain to a computer. Art is
+
+2:21:12.880 --> 2:21:26.640
+ everything else we do. Thank you for listening and hope to see you next time.
+

@@ -1,0 +1,7859 @@
+WEBVTT
+
+00:00.000 --> 00:01.720
+ We think that self assembly,
+
+00:01.720 --> 00:04.760
+ this modular reconfigurable algorithm
+
+00:04.760 --> 00:07.520
+ for constructing space structures in orbit
+
+00:07.520 --> 00:10.760
+ is gonna give us this promise of space architecture
+
+00:10.760 --> 00:12.320
+ that's actually worth living in.
+
+00:12.320 --> 00:14.500
+ You see, you do believe we might one day
+
+00:14.500 --> 00:17.920
+ become intergalactic civilization.
+
+00:17.920 --> 00:19.060
+ I have a hope, yeah.
+
+00:21.280 --> 00:24.240
+ The following is a conversation with Ariel Ekblah,
+
+00:24.240 --> 00:27.400
+ Director of MIT Space Exploration Initiative.
+
+00:27.400 --> 00:30.120
+ She's especially interested in autonomously
+
+00:30.120 --> 00:32.700
+ self assembling space architectures.
+
+00:32.700 --> 00:35.880
+ Basically, giant space structures
+
+00:35.880 --> 00:37.720
+ that can sustain human life
+
+00:37.720 --> 00:40.440
+ and that assemble themselves out in space
+
+00:40.440 --> 00:45.440
+ and then orbit Earth, Moon, Mars, and other planets.
+
+00:46.240 --> 00:48.280
+ This is the Lex Friedman podcast.
+
+00:48.280 --> 00:50.240
+ To support it, please check out our sponsors
+
+00:50.240 --> 00:51.480
+ in the description.
+
+00:51.480 --> 00:55.420
+ And now, dear friends, here's Ariel Ekblah.
+
+00:55.420 --> 00:59.540
+ When did you first fall in love with space exploration
+
+00:59.540 --> 01:01.260
+ and space in general?
+
+01:01.260 --> 01:04.100
+ My parents are both ex Air Force.
+
+01:04.100 --> 01:05.860
+ So my dad's an A10 fighter pilot
+
+01:05.860 --> 01:09.660
+ and my mom trained and had qualified to be a fighter pilot,
+
+01:09.660 --> 01:11.000
+ but it was early enough
+
+01:11.000 --> 01:13.380
+ that women were not allowed in combat at that time.
+
+01:13.380 --> 01:16.380
+ And so I grew up with these two pilots
+
+01:16.380 --> 01:18.620
+ and although they themselves did not become astronauts,
+
+01:18.620 --> 01:20.960
+ there's a really rich legacy of Air Force pilots
+
+01:20.960 --> 01:24.260
+ becoming astronauts and this loomed large in my childhood.
+
+01:24.260 --> 01:26.780
+ What does it mean to be courageous, to be an explorer,
+
+01:26.780 --> 01:31.680
+ to be at the vanguard of something hard and challenging?
+
+01:31.680 --> 01:32.900
+ And to couple with that,
+
+01:32.900 --> 01:35.060
+ my dad was a huge fan of science fiction.
+
+01:35.060 --> 01:39.580
+ And so I, as a kid, read Heinlein and Isaac Asimov,
+
+01:39.580 --> 01:41.220
+ all these different classics of science fiction
+
+01:41.220 --> 01:42.500
+ that he had introduced me to.
+
+01:42.500 --> 01:45.900
+ And that just started a love affair with space exploration
+
+01:45.900 --> 01:47.820
+ and really thinking about
+
+01:47.820 --> 01:50.740
+ civilization scale space exploration.
+
+01:50.740 --> 01:55.740
+ So did they themselves dream about going to the stars
+
+01:57.720 --> 02:01.020
+ as opposed to flying here in Earth's atmosphere,
+
+02:01.020 --> 02:02.000
+ just looking up?
+
+02:02.000 --> 02:04.100
+ Yeah, my dad always said he was absolutely convinced
+
+02:04.100 --> 02:06.300
+ because he was a child of the Apollo years
+
+02:06.300 --> 02:08.580
+ that he would get to go in his lifetime,
+
+02:08.580 --> 02:09.980
+ really thought it was gonna happen.
+
+02:09.980 --> 02:12.760
+ And so it was a challenge and sad for many people
+
+02:12.760 --> 02:15.220
+ when to their view on the outside,
+
+02:15.220 --> 02:17.940
+ space exploration slowed down for a period of time.
+
+02:17.940 --> 02:19.700
+ In reality, we were just catching up.
+
+02:19.700 --> 02:23.140
+ I think we leapt so far ahead with Apollo,
+
+02:23.140 --> 02:25.260
+ more than the rest of society was ready for.
+
+02:25.260 --> 02:27.620
+ And now we're coming back to this moment
+
+02:27.620 --> 02:29.980
+ for space exploration where we actually have an economy
+
+02:29.980 --> 02:32.780
+ and we have the other accoutrement that society needs
+
+02:32.780 --> 02:34.980
+ to be able to make space exploration more real.
+
+02:34.980 --> 02:37.340
+ And my dad's thrilled because finally,
+
+02:37.340 --> 02:39.980
+ not nearly, I hope not anywhere near the end of his life,
+
+02:39.980 --> 02:40.920
+ but as he's an older man,
+
+02:40.920 --> 02:44.480
+ he now can see still within his lifetime,
+
+02:44.480 --> 02:45.540
+ people really getting a chance
+
+02:45.540 --> 02:47.900
+ to build a sustainable lunar settlement on the moon
+
+02:47.900 --> 02:49.180
+ or maybe even go to Mars.
+
+02:49.180 --> 02:52.120
+ So settlement, civilizations and other planets,
+
+02:52.120 --> 02:55.580
+ that's the cool thing to dream about in the future.
+
+02:55.580 --> 02:56.820
+ It certainly is.
+
+02:56.820 --> 03:00.580
+ What was the favorite sci fi authors when you were growing up?
+
+03:00.580 --> 03:02.560
+ Pabé Eszeg Asimov Foundation Trilogy.
+
+03:02.560 --> 03:05.220
+ This is an amazing story of Harry Seldon,
+
+03:05.220 --> 03:09.180
+ this foundation that he forms at different ends of the,
+
+03:09.180 --> 03:10.860
+ well, according to the story,
+
+03:10.860 --> 03:12.420
+ different ends of the universe
+
+03:12.420 --> 03:16.820
+ and has this interesting focus on society.
+
+03:16.820 --> 03:19.220
+ So it's not just space exploration
+
+03:19.220 --> 03:21.500
+ for the sake of space exploration or novel technology,
+
+03:21.500 --> 03:23.940
+ which is a lot of what I work on day to day at MIT,
+
+03:23.940 --> 03:26.940
+ but how do you structure a society
+
+03:27.960 --> 03:31.540
+ across those vast expanses of distance and time?
+
+03:31.540 --> 03:33.640
+ And so I'd say absolutely a favorite.
+
+03:33.640 --> 03:38.060
+ Now though, my favorite is Neal Stephenson and Seveneves.
+
+03:38.060 --> 03:40.620
+ It's a book that inspired my own PhD research
+
+03:40.620 --> 03:43.100
+ and some ongoing work that we're doing with NASA now
+
+03:43.100 --> 03:46.660
+ for the future of swarm robotics for spacecraft.
+
+03:46.660 --> 03:49.700
+ We were saying offline about Neal Stephenson
+
+03:49.700 --> 03:51.580
+ because I just recently had a conversation with him.
+
+03:51.580 --> 03:54.660
+ And I said that not until I was doing the research for him
+
+03:54.660 --> 03:59.660
+ that I realized he also had a role to play in Blue Origin.
+
+03:59.860 --> 04:02.760
+ So it's like sci fi actually having a role to play
+
+04:02.760 --> 04:06.080
+ in the design, engineering,
+
+04:06.080 --> 04:07.640
+ just the implementation of ideas
+
+04:07.640 --> 04:10.860
+ that kind of percolate up from the sci fi world
+
+04:10.860 --> 04:11.980
+ and actually become reality.
+
+04:11.980 --> 04:14.540
+ It's kind of a fascinating figure in that way.
+
+04:14.540 --> 04:16.900
+ So do you also think about him
+
+04:16.900 --> 04:19.660
+ beyond just his work in science fiction,
+
+04:19.660 --> 04:22.900
+ but his role in coming up with wild, crazy ideas
+
+04:22.900 --> 04:24.220
+ that actually become reality?
+
+04:24.220 --> 04:26.860
+ Yes, I think it's a great example of this cycle
+
+04:26.860 --> 04:29.980
+ between authors and scientists and engineers
+
+04:29.980 --> 04:32.100
+ that we can be inspired in one generation
+
+04:32.100 --> 04:33.900
+ by what authors dream up.
+
+04:33.900 --> 04:35.740
+ We build it, we make it a reality.
+
+04:35.740 --> 04:37.420
+ And then that inspires another generation
+
+04:37.420 --> 04:40.540
+ of really wild and crazy thought for science fiction.
+
+04:40.540 --> 04:42.240
+ I think Neal Stephenson does a beautiful job
+
+04:42.240 --> 04:44.740
+ of being what we'd call a hard science fiction author.
+
+04:44.740 --> 04:46.500
+ So it's really grounded in a lot of science,
+
+04:46.500 --> 04:47.940
+ which makes it very compelling for me
+
+04:47.940 --> 04:50.140
+ as a scientist and engineer to read
+
+04:50.140 --> 04:53.260
+ and then be challenged to make that vision a reality.
+
+04:53.260 --> 04:56.100
+ The other community that Neal's involved with
+
+04:56.100 --> 04:57.620
+ and some of my other mentors are involved with
+
+04:57.620 --> 05:00.260
+ that we are thinking about more and more in the work
+
+05:00.260 --> 05:03.940
+ that we do at MIT is the Long Now Foundation.
+
+05:03.940 --> 05:08.860
+ And this focus on what does society need to take
+
+05:08.860 --> 05:11.460
+ in terms of steps at this juncture,
+
+05:11.460 --> 05:14.500
+ this particular inflection point in human history
+
+05:14.500 --> 05:16.140
+ to make sure that we're setting ourselves up
+
+05:16.140 --> 05:18.780
+ for a long and prosperous horizon,
+
+05:18.780 --> 05:20.440
+ for humanity's horizons.
+
+05:20.440 --> 05:21.340
+ There's a lot of examples
+
+05:21.340 --> 05:23.860
+ of what the Long Now Foundation does and thinks about.
+
+05:23.860 --> 05:25.500
+ But when I think about this in my own work,
+
+05:25.500 --> 05:30.140
+ it's what does it take to scale humanity's presence
+
+05:30.140 --> 05:31.740
+ in orbit?
+
+05:31.740 --> 05:34.200
+ We are seeing some additional investment
+
+05:34.200 --> 05:36.300
+ in commercial space habitats.
+
+05:36.300 --> 05:37.660
+ So it'll no longer be just NASA
+
+05:37.660 --> 05:39.420
+ running the International Space Station,
+
+05:39.420 --> 05:42.860
+ but to really democratize access to space,
+
+05:42.860 --> 05:44.780
+ like Bezos wants to have millions of people living
+
+05:44.780 --> 05:46.020
+ and working in space,
+
+05:46.020 --> 05:49.460
+ you need architecture that's bigger and grander
+
+05:49.460 --> 05:50.940
+ and can actually scale.
+
+05:50.940 --> 05:52.100
+ That means you need to be thinking about
+
+05:52.100 --> 05:55.120
+ how can you construct things for long time horizons
+
+05:55.120 --> 05:56.740
+ that are really sustainable in orbit
+
+05:56.740 --> 05:59.460
+ or on a surface of a celestial body
+
+05:59.460 --> 06:02.180
+ that are bigger than the biggest rocket payload fairing
+
+06:02.180 --> 06:03.460
+ that we currently have available.
+
+06:03.460 --> 06:05.420
+ And that what led me to self assembly
+
+06:05.420 --> 06:08.300
+ and other models of in space construction.
+
+06:08.300 --> 06:10.580
+ Okay, every time you speak,
+
+06:10.580 --> 06:12.540
+ I get like a million tangent ideas.
+
+06:12.540 --> 06:13.380
+ You can cut me off.
+
+06:13.380 --> 06:15.220
+ No, no, no, no, no, no, please keep talking.
+
+06:15.220 --> 06:16.140
+ This is amazing.
+
+06:16.140 --> 06:19.100
+ I just, there's like a million of ideas.
+
+06:19.100 --> 06:21.820
+ So one sort of on the dark side, let me ask,
+
+06:21.820 --> 06:25.060
+ do you think about the threats to human civilization
+
+06:25.060 --> 06:28.940
+ that kind of motivate the scaling of the expansion
+
+06:28.940 --> 06:31.740
+ of humans in space and on other planets?
+
+06:31.740 --> 06:32.900
+ What are you worried about?
+
+06:32.900 --> 06:35.660
+ Nuclear war, pandemics,
+
+06:35.660 --> 06:39.700
+ super intelligent, artificial intelligence systems,
+
+06:40.820 --> 06:44.100
+ more not existential crises,
+
+06:44.100 --> 06:46.360
+ but ones that have significant,
+
+06:46.360 --> 06:48.760
+ potentially significant detrimental effects on society,
+
+06:48.760 --> 06:51.020
+ like climate change, those kinds of things.
+
+06:51.020 --> 06:52.780
+ And then there's of course the fun S story
+
+06:52.780 --> 06:55.420
+ coming out from the darkness and hitting all earth.
+
+06:55.420 --> 06:57.060
+ There's been a few movies on that.
+
+06:57.060 --> 06:59.420
+ Anyway, is there something that you think about
+
+07:00.300 --> 07:02.280
+ that threatens us in this century?
+
+07:03.140 --> 07:04.520
+ I mean, as an ex military family,
+
+07:04.520 --> 07:06.420
+ we used to talk about all of this.
+
+07:06.420 --> 07:08.740
+ We would say that luck favors the prepared.
+
+07:08.740 --> 07:13.300
+ And so growing up, we had a plan, actually a family plan
+
+07:13.300 --> 07:14.460
+ for what we would do in a pandemic.
+
+07:14.460 --> 07:15.540
+ Didn't think we were gonna have to put that
+
+07:15.540 --> 07:17.500
+ and plan into place and here we are.
+
+07:17.500 --> 07:20.780
+ We do, certainly among my own family and my friends
+
+07:20.780 --> 07:21.820
+ and then our work at MIT,
+
+07:21.820 --> 07:24.900
+ we do think about existential threats and risks to humanity
+
+07:24.900 --> 07:27.260
+ and what role does space exploration
+
+07:27.260 --> 07:29.180
+ and getting humans off world have to play
+
+07:29.180 --> 07:32.100
+ in a resilient future for humanity.
+
+07:32.100 --> 07:35.420
+ But what I actually find more compelling recently
+
+07:35.420 --> 07:40.420
+ is instead of thinking about a need to ever abandon earth
+
+07:40.540 --> 07:42.980
+ through a path of space exploration or space foraging
+
+07:42.980 --> 07:44.900
+ is to see how we can use space technology
+
+07:44.900 --> 07:47.260
+ to keep earth livable.
+
+07:47.260 --> 07:50.020
+ The obvious direct ways of doing this would be,
+
+07:50.020 --> 07:52.300
+ satellite technology that's helping us learn more
+
+07:52.300 --> 07:56.260
+ about climate change or emitters or CO2.
+
+07:56.260 --> 07:58.160
+ But there's also a future for geo engineering
+
+07:58.160 --> 07:59.580
+ that might be space based.
+
+07:59.580 --> 08:01.040
+ A lot of questions that would have to be answered
+
+08:01.040 --> 08:04.940
+ around that, but these are examples of pivoting our focus
+
+08:04.940 --> 08:06.940
+ away from maybe the Hollywood vision of,
+
+08:06.940 --> 08:08.200
+ oh, an asteroid's gonna come,
+
+08:08.200 --> 08:09.380
+ we're all gonna have to escape earth
+
+08:09.380 --> 08:14.380
+ to let's use our considerable technology prowess
+
+08:14.420 --> 08:16.420
+ and use space technology to save earth
+
+08:16.420 --> 08:18.180
+ and be very much focused on how we can have
+
+08:18.180 --> 08:20.780
+ a worthwhile life for earth citizens.
+
+08:20.780 --> 08:24.020
+ Even if some of us wanna go out and further venturing.
+
+08:24.020 --> 08:28.060
+ Right, just the desire to explore the mysterious, yes.
+
+08:28.060 --> 08:31.500
+ But also it does seem that by placing us
+
+08:31.500 --> 08:33.860
+ in harsh conditions, the harsh conditions of space,
+
+08:33.860 --> 08:35.700
+ the harsh conditions of planets,
+
+08:35.700 --> 08:38.020
+ and the biology, the chemistry, the engineering,
+
+08:38.020 --> 08:41.540
+ the robotics, the materials, all of that,
+
+08:41.540 --> 08:43.940
+ that's just a nice way to come up with cool new things.
+
+08:43.940 --> 08:45.140
+ Great forcing function, yeah.
+
+08:45.140 --> 08:48.500
+ Yeah, exactly, it's a forcing function like survival.
+
+08:48.500 --> 08:50.960
+ You don't get this right, you die.
+
+08:50.960 --> 08:53.420
+ So, and that you can bring back to earth
+
+08:53.420 --> 08:57.920
+ and it will improve, like figuring out food in space
+
+08:57.920 --> 09:01.860
+ will make you figure out how to eat,
+
+09:01.860 --> 09:04.140
+ live healthier lives here on earth.
+
+09:04.140 --> 09:05.900
+ So true, I mean, some of the technologies
+
+09:05.900 --> 09:08.700
+ that we're directly looking at right now
+
+09:08.700 --> 09:12.080
+ for space habitats, it's hard to keep humans alive
+
+09:12.080 --> 09:15.620
+ in this really fragile little pocket against the vacuum
+
+09:15.620 --> 09:19.060
+ and all of the dangers that the space environment presents.
+
+09:19.060 --> 09:20.900
+ Some of the technologies we are gonna have to figure out
+
+09:20.900 --> 09:24.700
+ is energy efficient cooling and air conditioning,
+
+09:24.700 --> 09:28.900
+ air filtration, scrubbing CO2 from the air,
+
+09:28.900 --> 09:33.900
+ being able to have habitats that are themselves resilient
+
+09:34.220 --> 09:36.340
+ to extremes of space weather and radiation.
+
+09:36.340 --> 09:39.340
+ And some of these are direct translational opportunities
+
+09:39.340 --> 09:41.740
+ for areas turned by natural disasters.
+
+09:41.740 --> 09:43.740
+ People in California a decade ago would never have had
+
+09:43.740 --> 09:45.860
+ to think about having an airtight house.
+
+09:45.860 --> 09:48.800
+ But now with wildfires, maybe you do want something close
+
+09:48.800 --> 09:51.520
+ to an airtight house, how do you manage that?
+
+09:51.520 --> 09:52.760
+ There's a lot of technologies
+
+09:52.760 --> 09:55.060
+ from the space habitation world
+
+09:55.060 --> 09:57.020
+ that we are hoping we can actually bring back down
+
+09:57.020 --> 09:58.660
+ to benefit life on earth as well
+
+09:58.660 --> 10:01.220
+ in these extreme environment contexts.
+
+10:01.220 --> 10:05.860
+ Okay, so you mentioned to go back to swarm.
+
+10:05.860 --> 10:06.700
+ Yeah.
+
+10:06.700 --> 10:09.120
+ So that was interesting to you,
+
+10:09.120 --> 10:10.380
+ first of all, in your own work,
+
+10:10.380 --> 10:12.620
+ but also I believe you said something
+
+10:12.620 --> 10:14.900
+ that was inspiring from Niel Stevenson as well.
+
+10:14.900 --> 10:19.420
+ So when you say swarm, are you thinking about
+
+10:19.420 --> 10:24.300
+ architectures or are you thinking about
+
+10:24.300 --> 10:26.040
+ artificial intelligence like robotics
+
+10:26.040 --> 10:28.380
+ or are those kind of intermixed?
+
+10:28.380 --> 10:30.180
+ I think the future that we're seeing
+
+10:30.180 --> 10:31.780
+ is that they're going to be intermixed,
+
+10:31.780 --> 10:33.160
+ which is really exciting.
+
+10:33.160 --> 10:35.220
+ So the future of space habitats
+
+10:35.220 --> 10:38.580
+ are one of intelligent structures,
+
+10:38.580 --> 10:39.960
+ maybe not all the way to Hal
+
+10:39.960 --> 10:43.220
+ and the 2001 Space Odyssey reference that scares people
+
+10:43.220 --> 10:45.820
+ about the habitat having a mind of its own.
+
+10:45.820 --> 10:47.820
+ But certainly we're building systems now
+
+10:47.820 --> 10:51.800
+ where the habitat has sensing technology
+
+10:51.800 --> 10:56.380
+ that allows it to communicate its basic functions,
+
+10:56.380 --> 10:58.340
+ maintaining life support for the astronauts,
+
+10:58.340 --> 11:01.500
+ but could also communicate in symbiosis
+
+11:01.500 --> 11:03.220
+ with these swarm robots
+
+11:03.220 --> 11:05.700
+ that would be on the outside of the spacecraft,
+
+11:05.700 --> 11:08.140
+ whether it's in a microgravity orbiting environment
+
+11:08.140 --> 11:09.220
+ or on the surface.
+
+11:09.220 --> 11:10.460
+ And these little robots,
+
+11:10.460 --> 11:13.320
+ they crawl just a la Niel Stevenson in seven eves,
+
+11:13.320 --> 11:15.460
+ they crawl along the outside of the spacecraft
+
+11:15.460 --> 11:18.180
+ looking for micrometeorite punctures
+
+11:18.180 --> 11:21.620
+ or gas leaks or other faults and defects.
+
+11:21.620 --> 11:24.020
+ And right now we're just working on the diagnosis.
+
+11:24.020 --> 11:27.260
+ So can the swarm with its collective intelligence
+
+11:27.260 --> 11:30.220
+ act in symbiosis with the spacecraft and detect things?
+
+11:30.220 --> 11:31.280
+ But in the future we'd also love
+
+11:31.280 --> 11:34.100
+ for these little micro robots to repair in situ
+
+11:34.100 --> 11:37.620
+ and really be like ants living in a tree
+
+11:37.620 --> 11:39.460
+ altogether connected to the spacecraft.
+
+11:39.460 --> 11:44.260
+ Do you envision the system to be fully distributed
+
+11:44.260 --> 11:45.820
+ and just like an ant colony,
+
+11:45.820 --> 11:50.640
+ if one of them is damaged or whatever,
+
+11:51.900 --> 11:53.520
+ loses control and all those kinds of things
+
+11:53.520 --> 11:57.340
+ that doesn't affect the performance of the complete system
+
+11:57.340 --> 11:58.960
+ or doesn't need to be centralized?
+
+11:58.960 --> 12:01.140
+ This is more like almost like a technical question.
+
+12:01.140 --> 12:01.980
+ Do you think we can?
+
+12:01.980 --> 12:03.020
+ Good architecture question.
+
+12:03.020 --> 12:05.860
+ Right, from the ground up,
+
+12:05.860 --> 12:08.820
+ it's so scary to go fully distributed.
+
+12:08.820 --> 12:10.140
+ Yes.
+
+12:10.140 --> 12:12.700
+ But it's also exceptionally powerful, right?
+
+12:12.700 --> 12:15.860
+ Robust, resilient to the harsh conditions of space.
+
+12:15.860 --> 12:20.860
+ What do you, if you look into the next 10, 20, 100 years,
+
+12:22.300 --> 12:23.460
+ starting from scratch,
+
+12:23.460 --> 12:24.620
+ do you think we should be doing
+
+12:24.620 --> 12:27.180
+ architecture wise distributed systems?
+
+12:28.040 --> 12:31.300
+ For space, yes, because it gives you this redundancy
+
+12:31.300 --> 12:33.380
+ and safety profile that's really critical.
+
+12:33.380 --> 12:35.140
+ So whether it's small swarm robots
+
+12:35.140 --> 12:37.300
+ where it doesn't matter if you lose a few of them,
+
+12:37.300 --> 12:43.820
+ to habitats that instead of having a central monolithic habitat,
+
+12:43.820 --> 12:45.780
+ you might actually be able to have
+
+12:45.780 --> 12:49.060
+ a decentralized node of a space station
+
+12:49.060 --> 12:50.980
+ so that you can kind of right out of Star Wars,
+
+12:50.980 --> 12:53.300
+ you can shut a blast door if there's a fire
+
+12:53.300 --> 12:55.060
+ or if there's a conflict in a certain area
+
+12:55.060 --> 12:57.180
+ and you can move the humans and the crew
+
+12:57.180 --> 12:59.820
+ into another decentralized node of the spacecraft.
+
+12:59.820 --> 13:01.980
+ There's another idea out of Neal Stephenson's Seven Eves
+
+13:01.980 --> 13:03.820
+ actually where these arclets,
+
+13:03.820 --> 13:06.180
+ which were decentralized spacecraft that could form
+
+13:06.180 --> 13:09.980
+ and dock little temporary space stations with each other
+
+13:09.980 --> 13:12.140
+ and then separate and go off on their way
+
+13:12.140 --> 13:15.900
+ and have a decentralized approach to living in space.
+
+13:15.900 --> 13:19.100
+ So the self assembly component of that too,
+
+13:19.100 --> 13:21.780
+ so this is your PhD work and beyond,
+
+13:21.780 --> 13:25.420
+ you explored autonomously self assembling space architecture
+
+13:25.420 --> 13:28.220
+ for future space, tourists, habitats,
+
+13:28.220 --> 13:31.420
+ and space stations in orbit around Earth, Moon, and Mars.
+
+13:31.420 --> 13:34.660
+ There's few things I personally find sexier
+
+13:34.660 --> 13:39.660
+ than autonomously self assembling space architecture.
+
+13:40.980 --> 13:42.740
+ In general, it doesn't even need to be space.
+
+13:42.740 --> 13:46.100
+ The idea of self assembling architectures
+
+13:46.100 --> 13:48.420
+ is really interesting, like building a bridge
+
+13:48.420 --> 13:51.580
+ or something like that through self assembling materials.
+
+13:51.580 --> 13:56.580
+ It feels like an incredibly efficient way to do it
+
+13:57.340 --> 13:59.860
+ because optimization is built in.
+
+13:59.860 --> 14:03.180
+ So you can build the most optimal structures
+
+14:03.180 --> 14:08.180
+ given dynamic, uncertain, changing conditions.
+
+14:09.060 --> 14:11.340
+ So maybe can you talk about your PhD work,
+
+14:11.340 --> 14:16.340
+ about this work, about Tesserae, what is it in general?
+
+14:17.380 --> 14:19.420
+ Any cool stuff, because this is super cool.
+
+14:19.420 --> 14:21.100
+ Yeah, yeah, absolutely.
+
+14:21.100 --> 14:23.700
+ So Tesserae is my PhD research.
+
+14:23.700 --> 14:26.820
+ It's this idea that we could take tiles
+
+14:26.820 --> 14:30.020
+ that construct a large structure like a bucky ball.
+
+14:30.020 --> 14:31.860
+ Yeah, this is exactly what we're looking at here,
+
+14:31.860 --> 14:34.700
+ which is the tiles that are packed flat in a rocket.
+
+14:34.700 --> 14:38.380
+ They're released to float in microgravity.
+
+14:38.380 --> 14:41.220
+ Magnets, pretty powerful, electropermanent magnets
+
+14:41.220 --> 14:44.460
+ on their edges draw them together for autonomous docking.
+
+14:44.460 --> 14:46.100
+ So there's no human in the loop here,
+
+14:46.100 --> 14:48.180
+ and there's no central agent coordinating
+
+14:48.180 --> 14:50.740
+ saying tile one, go to tile two.
+
+14:50.740 --> 14:52.500
+ It's completely decentralized system.
+
+14:52.500 --> 14:54.820
+ They find each other on their own.
+
+14:54.820 --> 14:56.060
+ What we don't show in this video
+
+14:56.060 --> 14:58.220
+ is what happens if there's an error, right?
+
+14:58.220 --> 15:00.140
+ So what happens if they bond incorrectly?
+
+15:00.140 --> 15:02.620
+ The tiles have sensing, so proximity sensing,
+
+15:02.620 --> 15:04.780
+ magnetometer, other sensors that allow them
+
+15:04.780 --> 15:07.900
+ to detect a good bond versus a bad bond
+
+15:07.900 --> 15:10.020
+ and pulse off and self correct,
+
+15:10.020 --> 15:12.700
+ which anybody who works in the field of self assembly
+
+15:12.700 --> 15:15.780
+ will tell you that error detection and correction,
+
+15:15.780 --> 15:19.020
+ just like error detection in a DNA sequence
+
+15:19.020 --> 15:21.900
+ or protein folding is really important part of the system
+
+15:21.900 --> 15:23.140
+ for that robustness.
+
+15:23.140 --> 15:26.380
+ And so we've done a lot of work to engineer that ability
+
+15:26.380 --> 15:29.300
+ for the tiles to be self determining.
+
+15:29.300 --> 15:30.820
+ They know whether they're forming the structure
+
+15:30.820 --> 15:32.180
+ that they're supposed to form or not.
+
+15:32.180 --> 15:34.340
+ They know if they're in a toxic relationship
+
+15:34.340 --> 15:35.780
+ and they need to get out.
+
+15:35.780 --> 15:38.700
+ Right, right, if they need to separate, exactly, yeah.
+
+15:38.700 --> 15:40.500
+ All right, this is like so amazing.
+
+15:40.500 --> 15:41.980
+ And for people who are just listening to this,
+
+15:41.980 --> 15:45.180
+ yeah, there's, I mean, how large are these tiles?
+
+15:45.180 --> 15:47.780
+ So the size that we use in the lab,
+
+15:47.780 --> 15:49.140
+ they can really be any size
+
+15:49.140 --> 15:51.020
+ because we can scale them down to do testing
+
+15:51.020 --> 15:51.860
+ in microgravity.
+
+15:51.860 --> 15:55.020
+ So we sent tiles that were about three inches wide
+
+15:55.020 --> 15:57.100
+ to the International Space Station a couple years ago
+
+15:57.100 --> 16:00.100
+ to test the code, test the state machine,
+
+16:00.100 --> 16:02.260
+ test the algorithm of self assembly.
+
+16:02.260 --> 16:03.500
+ But now we're actually building
+
+16:03.500 --> 16:05.660
+ our first ever human scale tiles.
+
+16:05.660 --> 16:06.860
+ They're me human size.
+
+16:06.860 --> 16:09.660
+ So a little smaller than maybe your average human,
+
+16:09.660 --> 16:13.980
+ but they're 2.5 feet on edge length.
+
+16:13.980 --> 16:16.700
+ The larger scale that we would love to build in the future
+
+16:16.700 --> 16:18.700
+ would actually be tiles that are big enough
+
+16:18.700 --> 16:21.900
+ to form a bucky ball, big open spherical volume,
+
+16:21.900 --> 16:23.580
+ spherical approximation volume,
+
+16:23.580 --> 16:25.660
+ that'd be about 10 meters in diameter.
+
+16:25.660 --> 16:29.100
+ So 30 feet, which is much bigger and grander
+
+16:29.100 --> 16:32.540
+ in terms of open space than any current module on the ISS.
+
+16:32.540 --> 16:35.140
+ And one of the goals of this project was to say,
+
+16:35.140 --> 16:38.780
+ what's the purpose of next generation space architecture?
+
+16:38.780 --> 16:41.660
+ Should it be something that really inspires
+
+16:41.660 --> 16:44.780
+ and delights people when you float into that space?
+
+16:44.780 --> 16:46.700
+ Can you get goosebumps in the way that you do
+
+16:46.700 --> 16:48.740
+ when you walk into a really stunning piece
+
+16:48.740 --> 16:50.180
+ of architecture on earth?
+
+16:50.180 --> 16:52.260
+ And so we think that self assembly,
+
+16:52.260 --> 16:55.300
+ this modular reconfigurable algorithm
+
+16:55.300 --> 16:58.060
+ for constructing space structures in orbit
+
+16:58.060 --> 17:01.300
+ is gonna give us this promise of space architecture
+
+17:01.300 --> 17:03.460
+ that's actually worth living in.
+
+17:03.460 --> 17:05.340
+ Living in, oh, I thought you also meant
+
+17:05.340 --> 17:07.340
+ from like outside artistic perspective,
+
+17:07.340 --> 17:09.660
+ when you see the whole thing is just.
+
+17:09.660 --> 17:11.460
+ With the aesthetics of it, absolutely.
+
+17:11.460 --> 17:14.460
+ You know, when you like go like into Vegas,
+
+17:14.460 --> 17:16.460
+ whenever you go into a city
+
+17:16.460 --> 17:19.340
+ and it like over the hill appears in front of you.
+
+17:19.340 --> 17:23.380
+ And I mean, there's something majestic about seeing like,
+
+17:23.380 --> 17:25.300
+ wow, humans created that.
+
+17:25.300 --> 17:26.820
+ It gives you like hope about like,
+
+17:26.820 --> 17:28.780
+ if these a bunch of ants were able to figure out
+
+17:28.780 --> 17:31.420
+ how to build skyscrapers that light up.
+
+17:31.420 --> 17:33.980
+ And in general, the design of these tiles
+
+17:33.980 --> 17:36.460
+ in the way you envision it are pretty scalable.
+
+17:36.460 --> 17:38.460
+ Yes, and they're inspired by exactly
+
+17:38.460 --> 17:39.540
+ what you mentioned a moment ago,
+
+17:39.540 --> 17:42.980
+ which is we have these patterns of self assembly on earth.
+
+17:42.980 --> 17:45.020
+ And there's a lot of fantastic MIT research
+
+17:45.020 --> 17:46.500
+ that we're building this concept on.
+
+17:46.500 --> 17:49.380
+ So like Daniela Ruse at CSAIL and Pebbles,
+
+17:49.380 --> 17:53.860
+ taking the power of magnets to create units
+
+17:53.860 --> 17:56.180
+ that are themselves interchangeable,
+
+17:56.180 --> 17:58.620
+ this notion of programmable matter.
+
+17:58.620 --> 18:01.580
+ And so we're interested in going really big with it
+
+18:01.580 --> 18:05.340
+ to build big scale space structures with programmable tiles.
+
+18:05.340 --> 18:07.340
+ But there's also a really fascinating,
+
+18:07.340 --> 18:08.940
+ you know, end of that on the other side of the spectrum,
+
+18:08.940 --> 18:11.380
+ which is how small can you go with matter
+
+18:11.380 --> 18:13.780
+ that's programmable and stacks and builds itself
+
+18:13.780 --> 18:16.860
+ and creates a bridge or something in the future.
+
+18:16.860 --> 18:19.540
+ What do you envision the thing would look like?
+
+18:19.540 --> 18:22.300
+ Like when you imagine a thing far into the future
+
+18:22.300 --> 18:25.900
+ where there's, so we're not even thinking about
+
+18:25.900 --> 18:28.980
+ like small space, well, let's not call them small,
+
+18:28.980 --> 18:30.780
+ but our currently sized space stations,
+
+18:30.780 --> 18:34.260
+ but like something gigantic, what do you envision?
+
+18:34.260 --> 18:36.620
+ Is this something with symmetry
+
+18:36.620 --> 18:38.860
+ or is this something we can't even come up with yet?
+
+18:38.860 --> 18:42.900
+ Is there beautiful structures that you imagine in your mind?
+
+18:42.900 --> 18:45.740
+ I've got three candidates that I would love to build.
+
+18:45.740 --> 18:48.700
+ If we're talking about monumental space architecture,
+
+18:48.700 --> 18:51.740
+ one is what does a space cathedral look like?
+
+18:51.740 --> 18:52.860
+ It can be a secular cathedral,
+
+18:52.860 --> 18:54.460
+ doesn't necessarily have to be about religion,
+
+18:54.460 --> 18:57.980
+ but that notion of long sight lines,
+
+18:57.980 --> 19:01.260
+ inspiring, stunning architecture when you go in.
+
+19:01.260 --> 19:03.860
+ And you can imagine floating instead of, you know,
+
+19:03.860 --> 19:07.300
+ being on the ground and only looking up in space,
+
+19:07.300 --> 19:08.740
+ you could be in a central node
+
+19:08.740 --> 19:10.740
+ and each direction you look at,
+
+19:10.740 --> 19:14.100
+ all the cardinal directions are spires going off
+
+19:14.100 --> 19:15.420
+ in a really large and long way.
+
+19:15.420 --> 19:17.180
+ So that's concept number one.
+
+19:17.180 --> 19:19.980
+ Number two would be something more organic
+
+19:19.980 --> 19:21.780
+ that's not just geometric.
+
+19:21.780 --> 19:24.420
+ So here, one of the ideas that we're working on at MIT
+
+19:24.420 --> 19:27.580
+ in my lab is to say, could you,
+
+19:27.580 --> 19:29.260
+ instead of the tesserae model, right,
+
+19:29.260 --> 19:31.900
+ which is self assembling a shell,
+
+19:31.900 --> 19:34.980
+ could you define a module that's a node,
+
+19:34.980 --> 19:36.940
+ a small node that someone can live in
+
+19:36.940 --> 19:39.660
+ and you self assemble a lot of those together,
+
+19:39.660 --> 19:43.620
+ they're called plesiohedrons like space filling solids
+
+19:43.620 --> 19:45.580
+ and you dock a bunch of them together
+
+19:45.580 --> 19:49.820
+ and you can create a really organic structure out of that.
+
+19:49.820 --> 19:53.460
+ So this is the same way that muscles accrete to appear,
+
+19:53.460 --> 19:55.580
+ you can have these nodes that dock together
+
+19:55.580 --> 19:57.660
+ and one shape that I would love to form out of this
+
+19:57.660 --> 20:00.460
+ is something like a nautilus, a seashell,
+
+20:00.460 --> 20:03.500
+ that beautiful, you know, fibonacci spiral sequence
+
+20:03.500 --> 20:04.940
+ that you get in that shape,
+
+20:04.940 --> 20:06.180
+ which I think would be a stunning
+
+20:06.180 --> 20:10.300
+ and fabulous aggregated space station.
+
+20:10.300 --> 20:14.180
+ You said so many cool words, plesiohedron.
+
+20:14.180 --> 20:15.020
+ Yeah, plesiohedron.
+
+20:15.020 --> 20:18.220
+ So that's a space filling.
+
+20:18.220 --> 20:20.980
+ Solid, the simplest thing to think of is like a cube.
+
+20:20.980 --> 20:21.980
+ Oh, cube. A cube, right?
+
+20:21.980 --> 20:23.620
+ So you can stack cubes together
+
+20:23.620 --> 20:25.380
+ and if you had an infinite number of cubes,
+
+20:25.380 --> 20:27.140
+ you'd fill all that space,
+
+20:27.140 --> 20:28.900
+ there's no gaps in between the cubes,
+
+20:28.900 --> 20:31.340
+ they stack and fill space.
+
+20:31.340 --> 20:34.660
+ Another plesiohedron is a truncated octahedron
+
+20:34.660 --> 20:36.420
+ and that's actually one of the candidate structures
+
+20:36.420 --> 20:38.660
+ that we think would be great for space stations.
+
+20:38.660 --> 20:40.020
+ What's the truncated part?
+
+20:40.020 --> 20:41.820
+ Ah, so you cut off,
+
+20:41.820 --> 20:44.540
+ an octahedron actually has little pointy areas,
+
+20:44.540 --> 20:46.260
+ you truncate certain sections of it
+
+20:46.260 --> 20:50.020
+ and you get surfaces that are on the structure
+
+20:50.020 --> 20:52.820
+ that are cubes and I think hexagons,
+
+20:52.820 --> 20:55.540
+ I have to remind myself exactly what the faces are.
+
+20:55.540 --> 20:59.180
+ But overall, a truncated octahedron can be bonded
+
+20:59.180 --> 21:00.700
+ to other truncated octahedrons
+
+21:00.700 --> 21:03.500
+ and just like a cube, it fills all the gaps
+
+21:03.500 --> 21:04.820
+ as you build it out.
+
+21:04.820 --> 21:07.700
+ So you can imagine two truncated octahedrons,
+
+21:07.700 --> 21:09.180
+ they come together at an airlock,
+
+21:09.180 --> 21:12.260
+ which is what we space people call doors in space
+
+21:12.260 --> 21:14.180
+ and you dock them on all sides
+
+21:14.180 --> 21:18.060
+ and you've basically created this decentralized network
+
+21:18.060 --> 21:21.980
+ of space nodes that make a big space station
+
+21:21.980 --> 21:23.620
+ and once you have enough of them
+
+21:23.620 --> 21:25.460
+ and you're growing with enough big units,
+
+21:25.460 --> 21:28.020
+ you can do it in any macro shape you want.
+
+21:28.020 --> 21:29.300
+ That's where the Nautilus comes in,
+
+21:29.300 --> 21:32.940
+ is could we design an organically inspired shape
+
+21:32.940 --> 21:34.220
+ for a space station?
+
+21:34.220 --> 21:36.820
+ Can I just say how awesome it is to hear you say,
+
+21:36.820 --> 21:38.700
+ we space people.
+
+21:38.700 --> 21:41.220
+ I know you meant people that are doing research
+
+21:41.220 --> 21:43.820
+ on space exploration, space technology,
+
+21:43.820 --> 21:45.940
+ but it also made me think of a future.
+
+21:45.940 --> 21:50.580
+ There's earth people and there's those space people.
+
+21:50.580 --> 21:51.420
+ And then there's the Mars people.
+
+21:51.420 --> 21:52.380
+ I'd love to unite those too.
+
+21:52.380 --> 21:54.140
+ Yeah, no, no, for sure, for sure.
+
+21:54.140 --> 21:58.620
+ But like, it's like New Yorkers and like Texans
+
+21:58.620 --> 22:00.500
+ or something like that.
+
+22:00.500 --> 22:03.540
+ Yeah, of course you live for a time in New York
+
+22:03.540 --> 22:05.140
+ and then you go up to Boston
+
+22:05.140 --> 22:07.100
+ but for a time you're the space people.
+
+22:07.100 --> 22:09.300
+ Oh, I know those space people.
+
+22:09.300 --> 22:11.140
+ They're kind of wild up there.
+
+22:11.140 --> 22:12.500
+ We'll see how that dynamic evolves.
+
+22:12.500 --> 22:13.340
+ Yeah, exactly.
+
+22:13.340 --> 22:14.660
+ There's that culture, culture forms.
+
+22:14.660 --> 22:17.020
+ And I would love to see what kind of culture,
+
+22:17.020 --> 22:21.100
+ once you have sort of more and more civilians.
+
+22:21.100 --> 22:22.500
+ I mean, there's a human,
+
+22:22.500 --> 22:24.420
+ I mean, I love psychology and sociology
+
+22:24.420 --> 22:27.540
+ and I'll maybe ask you about that too,
+
+22:27.540 --> 22:29.580
+ which is like the dynamic between humans.
+
+22:29.580 --> 22:31.700
+ You have to kind of start considering that
+
+22:31.700 --> 22:34.660
+ and you start spending more and more time up in space
+
+22:34.660 --> 22:37.660
+ and start sending civilians, start sending bigger
+
+22:37.660 --> 22:39.140
+ and bigger groups of people.
+
+22:39.140 --> 22:42.900
+ And then of course the beautiful and the ugly emerges
+
+22:42.900 --> 22:47.380
+ from the human nature that we haven't been able
+
+22:47.380 --> 22:49.020
+ to escape up to this point.
+
+22:49.020 --> 22:53.060
+ But when you say the plesiohedrons, these kinds of shapes,
+
+22:53.060 --> 22:54.500
+ are they multifunctional?
+
+22:54.500 --> 22:56.700
+ Like is the idea you'd be able to,
+
+22:58.620 --> 23:02.220
+ humans can occupy them safely in some of them
+
+23:02.220 --> 23:04.820
+ and some others have some other purposes?
+
+23:04.820 --> 23:05.660
+ Exactly.
+
+23:05.660 --> 23:07.300
+ One could be sleeping quarters.
+
+23:07.300 --> 23:10.380
+ One could be a greenhouse or an agricultural unit.
+
+23:10.380 --> 23:13.740
+ One could be a storage depot.
+
+23:13.740 --> 23:15.660
+ Essentially all of the different rooms
+
+23:15.660 --> 23:17.860
+ or functions that you might need in a space station
+
+23:17.860 --> 23:19.940
+ could be subdivided into these nodes
+
+23:19.940 --> 23:22.220
+ and then stacked together.
+
+23:22.220 --> 23:24.460
+ And one of the promises of both Tesseray,
+
+23:24.460 --> 23:26.940
+ my original PhD research, which is these shells,
+
+23:26.940 --> 23:29.540
+ and then this follow on node concept,
+
+23:29.540 --> 23:32.100
+ is that right now we build space stations
+
+23:32.100 --> 23:33.780
+ and once they're built, they're done.
+
+23:33.780 --> 23:36.260
+ You can't really change them profoundly.
+
+23:36.260 --> 23:38.940
+ But the benefit of a modular self assembling system
+
+23:38.940 --> 23:40.940
+ is you can disassemble it.
+
+23:40.940 --> 23:42.780
+ You can completely reconfigure it.
+
+23:42.780 --> 23:45.140
+ So if your mission changes or the number of people
+
+23:45.140 --> 23:46.340
+ in space that you wanna host,
+
+23:46.340 --> 23:47.740
+ if you have a space conference happening
+
+23:47.740 --> 23:48.860
+ like South by Southwest.
+
+23:48.860 --> 23:50.100
+ I was thinking space party,
+
+23:50.100 --> 23:52.460
+ but space conference is good too.
+
+23:52.460 --> 23:55.660
+ Then maybe all of a sudden you want to change out
+
+23:55.660 --> 23:58.700
+ what were window tiles yesterday, cupola tiles,
+
+23:58.700 --> 24:00.460
+ and make them into a birthing port
+
+24:00.460 --> 24:02.540
+ so that you can welcome five new spaceships
+
+24:02.540 --> 24:04.260
+ to come and join you in space.
+
+24:04.260 --> 24:07.260
+ That's what this promise of reconfigurable space architecture
+
+24:07.260 --> 24:09.060
+ might allow us to explore.
+
+24:09.060 --> 24:10.660
+ I've been hanging out with Grimes recently
+
+24:10.660 --> 24:13.180
+ and I just feel like she belongs up in space.
+
+24:13.180 --> 24:15.460
+ This is like designed for artists essentially.
+
+24:15.460 --> 24:18.140
+ Like imagine, I mean, this is what South by
+
+24:18.140 --> 24:20.220
+ keeps introducing me to is there's like
+
+24:20.220 --> 24:23.420
+ the weird and the beautiful people and like the artists.
+
+24:23.420 --> 24:26.300
+ And it feels like there's a lot of opportunities
+
+24:26.300 --> 24:28.660
+ for art and design.
+
+24:28.660 --> 24:29.500
+ 100%.
+
+24:29.500 --> 24:32.540
+ It's like space is a combination of arts, design,
+
+24:32.540 --> 24:34.100
+ and great engineering.
+
+24:36.820 --> 24:39.780
+ It's safety critical with like the highest of stakes.
+
+24:39.780 --> 24:41.740
+ So don't, you can't mess it up.
+
+24:41.740 --> 24:43.220
+ And is this, is there, first of all,
+
+24:43.220 --> 24:44.660
+ you're talking about tiling.
+
+24:44.660 --> 24:46.620
+ So Neil Stephenson is obsessed about tile.
+
+24:46.620 --> 24:48.780
+ I don't know if it's related to any of this,
+
+24:48.780 --> 24:50.620
+ but he seems to be obsessed with like,
+
+24:50.620 --> 24:51.660
+ how do you tile a space?
+
+24:51.660 --> 24:54.060
+ That's like a mathematical, geometric notion.
+
+24:54.060 --> 24:55.060
+ Like the tessellation.
+
+24:55.060 --> 24:59.540
+ And it's, I mean, it's a beautiful idea for architecture
+
+24:59.540 --> 25:03.380
+ that you can self assemble these different shapes
+
+25:03.380 --> 25:07.460
+ and you can have probably some centralized guidance
+
+25:07.460 --> 25:09.700
+ of the kind of thing you want to build.
+
+25:09.700 --> 25:12.020
+ But they also kind of figure stuff out themselves
+
+25:12.020 --> 25:13.540
+ in terms of the low level details,
+
+25:13.540 --> 25:15.980
+ in terms of the figuring out when the,
+
+25:15.980 --> 25:19.700
+ when everything fits just right for the OCD people,
+
+25:19.700 --> 25:23.060
+ like what's that subreddit?
+
+25:23.060 --> 25:25.660
+ Pleasantly, it's like really fun.
+
+25:25.660 --> 25:27.380
+ Everything, they have like videos of everything
+
+25:27.380 --> 25:29.580
+ is just pleasant when everything just fits perfectly.
+
+25:29.580 --> 25:30.420
+ Very pleasing.
+
+25:30.420 --> 25:32.540
+ All the tolerances come together well, yeah.
+
+25:32.540 --> 25:34.420
+ So they figure that out on themselves
+
+25:34.420 --> 25:36.340
+ and the local robotics problem.
+
+25:36.340 --> 25:39.340
+ But by the way, what's the Pebbles Project?
+
+25:39.340 --> 25:41.540
+ The Pebbles Project are little cubes
+
+25:41.540 --> 25:44.260
+ that have EPMs in them, electropermanent magnets,
+
+25:44.260 --> 25:46.140
+ and they can self disassemble.
+
+25:46.140 --> 25:47.100
+ So they'll turn off.
+
+25:47.100 --> 25:48.340
+ And so you'll have this little structure
+
+25:48.340 --> 25:51.660
+ that all of a sudden can flip the little pebbles over
+
+25:51.660 --> 25:54.540
+ and essentially just disaggregate.
+
+25:54.540 --> 25:56.620
+ They have to make some pleasing sounds.
+
+25:56.620 --> 25:57.460
+ Yes, they do.
+
+25:57.460 --> 26:01.380
+ And that's gonna, so I'm supposed to talk to Danielle,
+
+26:01.380 --> 26:02.900
+ so I'll probably spend an hour
+
+26:02.900 --> 26:04.980
+ just discussing the sounds on the pebbles.
+
+26:04.980 --> 26:07.540
+ Okay, what were we talking about?
+
+26:07.540 --> 26:10.940
+ So that's, because you mentioned two, I think.
+
+26:10.940 --> 26:12.060
+ Right, my third one.
+
+26:12.060 --> 26:13.220
+ Yeah, is there a third one?
+
+26:13.220 --> 26:14.580
+ My third one is The Ringworld,
+
+26:14.580 --> 26:17.300
+ just because every science fiction book ever
+
+26:17.300 --> 26:19.820
+ that's worth anything has A Ringworld in it.
+
+26:19.820 --> 26:21.860
+ Is it like a donut?
+
+26:21.860 --> 26:24.460
+ A donut, yeah, it's a really big torus
+
+26:24.460 --> 26:27.620
+ that could encircle a planet
+
+26:27.620 --> 26:29.580
+ or encircle another celestial body,
+
+26:29.580 --> 26:32.100
+ maybe an asteroid or a small moon.
+
+26:32.100 --> 26:36.060
+ And the promise here is just the beauty
+
+26:36.060 --> 26:39.900
+ of being able to have that geometry in orbit
+
+26:39.900 --> 26:43.140
+ and all that surface area for solar panels and docking
+
+26:43.140 --> 26:46.540
+ and essentially just all of what that enables
+
+26:46.540 --> 26:48.940
+ to have a ring world at that scale in orbit.
+
+26:48.940 --> 26:51.540
+ By the way, for the viewers, we're looking at Figure 11.
+
+26:51.540 --> 26:52.580
+ What paper is this from?
+
+26:52.580 --> 26:54.820
+ This is a hexagonal tiling
+
+26:54.820 --> 26:57.340
+ of a torus generated in Mathematica
+
+26:57.340 --> 27:01.060
+ referencing code and approach from two citations.
+
+27:01.060 --> 27:04.220
+ So we're looking at a tiled donut, and I'm now hungry.
+
+27:04.220 --> 27:06.940
+ So this is the, is this from your thesis or no?
+
+27:06.940 --> 27:08.740
+ This is probably, I mean, this is in my thesis.
+
+27:08.740 --> 27:10.580
+ This looks like it was one of my earlier papers.
+
+27:10.580 --> 27:13.260
+ This was an approach to say, great,
+
+27:13.260 --> 27:15.460
+ we've come up with this tessellation approach
+
+27:15.460 --> 27:18.120
+ for a buckyball, and we picked the buckyball
+
+27:18.120 --> 27:21.340
+ because it is the most efficient surface area
+
+27:21.340 --> 27:23.940
+ to volume shape and what's expensive in space,
+
+27:23.940 --> 27:26.340
+ the surface area shipping up all that material.
+
+27:26.340 --> 27:28.780
+ So we wanted something that would maximize the volume.
+
+27:28.780 --> 27:30.820
+ But if we think about ring worlds and other shapes,
+
+27:30.820 --> 27:34.060
+ we wanted to look at how do you tile a torus?
+
+27:34.060 --> 27:36.420
+ And this is one example with hexagons
+
+27:36.420 --> 27:39.120
+ to be able to say, could we take this same tesserae approach
+
+27:39.120 --> 27:42.180
+ of self assembling tiles and create other geometries?
+
+27:42.180 --> 27:43.540
+ This is so freaking cool.
+
+27:43.540 --> 27:44.360
+ That's awesome.
+
+27:44.360 --> 27:48.420
+ So you mentioned microgravity, and I saw,
+
+27:48.420 --> 27:50.180
+ I believe that there's a picture
+
+27:50.180 --> 27:52.020
+ of you floating in microgravity.
+
+27:52.020 --> 27:53.740
+ When did you get to experience that?
+
+27:53.740 --> 27:54.580
+ What was that like?
+
+27:54.580 --> 27:56.920
+ Ah, so I've flown nine times
+
+27:56.920 --> 27:59.980
+ on the affectionately known as the Vomit Comet.
+
+27:59.980 --> 28:02.500
+ It's the parabolic flight, and essentially,
+
+28:02.500 --> 28:04.300
+ it does what you'd want a plane never to do.
+
+28:04.300 --> 28:07.060
+ It pitches really steeply upwards at 45 degrees.
+
+28:07.060 --> 28:07.900
+ Oh, that's a picture of you.
+
+28:07.900 --> 28:09.540
+ Yeah, yeah, that's tesserae.
+
+28:09.540 --> 28:11.300
+ That's super early in my PhD,
+
+28:11.300 --> 28:12.800
+ some of just the passive tiles
+
+28:12.800 --> 28:14.260
+ before we even put electronics in.
+
+28:14.260 --> 28:17.100
+ We were just testing the magnet polarity
+
+28:17.100 --> 28:20.900
+ and the, essentially, is it an energy favorable structure
+
+28:20.900 --> 28:22.260
+ to self assemble on its own?
+
+28:22.260 --> 28:23.900
+ So we tweaked a lot of things between.
+
+28:23.900 --> 28:25.940
+ Are we looking at a couple of them?
+
+28:25.940 --> 28:27.260
+ Yeah, you're looking at a bunch of them there.
+
+28:27.260 --> 28:28.100
+ Oh, oh, I see.
+
+28:28.100 --> 28:29.260
+ Almost 32 of them, yeah.
+
+28:29.260 --> 28:30.100
+ Cool.
+
+28:30.100 --> 28:31.660
+ They're clumping, they're clumping, yeah.
+
+28:31.660 --> 28:33.140
+ Can you comment on what's the difference
+
+28:33.140 --> 28:35.900
+ between microgravity and zero gravity?
+
+28:35.900 --> 28:37.980
+ Yes, so there is, is that an important difference?
+
+28:37.980 --> 28:38.820
+ It's an important difference.
+
+28:38.820 --> 28:41.580
+ There is no zero gravity.
+
+28:41.580 --> 28:43.740
+ There's no nothing, there's, in the universe,
+
+28:43.740 --> 28:46.000
+ there is no such thing as zero gravity.
+
+28:46.000 --> 28:48.180
+ So Newton's law of gravity tells us
+
+28:48.180 --> 28:50.280
+ that there's always gravity attraction
+
+28:50.280 --> 28:51.300
+ between any two objects.
+
+28:51.300 --> 28:54.240
+ So zero G is a shorthand that some of us fall into using,
+
+28:54.240 --> 28:56.420
+ where it's a little easier to communicate to the public.
+
+28:56.420 --> 28:59.420
+ The accurate term is microgravity,
+
+28:59.420 --> 29:02.040
+ where you are essentially floating, you're weightless,
+
+29:02.040 --> 29:04.220
+ but generally in free fall.
+
+29:04.220 --> 29:06.580
+ So on the parabolic flights, the vomit comet,
+
+29:06.580 --> 29:09.260
+ you're in free fall at the end of the parabola.
+
+29:09.260 --> 29:12.380
+ And in orbit around the Earth when you're floating,
+
+29:12.380 --> 29:14.340
+ you're also in free fall.
+
+29:14.340 --> 29:15.900
+ So that's microgravity.
+
+29:15.900 --> 29:17.660
+ So affectionately called vomit comet,
+
+29:17.660 --> 29:19.780
+ I'm sure there's a reason why it's called affectionately.
+
+29:19.780 --> 29:21.040
+ So what's it like?
+
+29:21.040 --> 29:23.560
+ What's your first time?
+
+29:23.560 --> 29:27.940
+ So both philosophically, spiritually, and biologically,
+
+29:27.940 --> 29:28.860
+ what's it like?
+
+29:28.860 --> 29:30.300
+ It's profound.
+
+29:30.300 --> 29:35.120
+ It is unlike anything else you will experience on Earth
+
+29:35.120 --> 29:38.660
+ because it is this true feeling of weightlessness
+
+29:38.660 --> 29:40.000
+ with no drag.
+
+29:40.000 --> 29:41.660
+ So the closest experience you can think of
+
+29:41.660 --> 29:43.020
+ would be floating in a pool,
+
+29:43.020 --> 29:44.860
+ but you move slowly when you float in a pool
+
+29:44.860 --> 29:46.540
+ and your motion is restricted.
+
+29:46.540 --> 29:49.940
+ When you're floating, it's just you and your body flying,
+
+29:49.940 --> 29:51.160
+ like in a dream.
+
+29:52.160 --> 29:54.260
+ It takes the littlest amount of energy,
+
+29:54.260 --> 29:56.440
+ like a finger tap against the wall of the plane
+
+29:56.440 --> 29:58.760
+ to shoot all the way across the fuselage.
+
+29:58.760 --> 30:01.100
+ And you can move at full speed.
+
+30:01.100 --> 30:02.680
+ You can move your arms.
+
+30:02.680 --> 30:03.520
+ Exactly.
+
+30:03.520 --> 30:04.340
+ So your muscles work.
+
+30:04.340 --> 30:05.180
+ There's no resistance.
+
+30:05.180 --> 30:06.800
+ There's no resistance.
+
+30:06.800 --> 30:09.940
+ They actually tell you to make a memory
+
+30:09.940 --> 30:11.440
+ when you're on the plane
+
+30:11.440 --> 30:13.900
+ because it's such a fleeting experience for your body
+
+30:13.900 --> 30:14.940
+ that even a few days later,
+
+30:14.940 --> 30:17.780
+ you've already forgotten exactly what it felt like.
+
+30:17.780 --> 30:20.140
+ It's so foreign to the human experience.
+
+30:20.140 --> 30:22.500
+ They kind of suggest that you explicitly try
+
+30:22.500 --> 30:24.380
+ to really form this into a memory
+
+30:24.380 --> 30:25.700
+ and then you can do the replay.
+
+30:25.700 --> 30:26.540
+ Is that for training?
+
+30:26.540 --> 30:27.700
+ Cognitively freeze it.
+
+30:27.700 --> 30:28.540
+ Yeah.
+
+30:28.540 --> 30:29.380
+ Cognitively.
+
+30:29.380 --> 30:30.200
+ Yeah.
+
+30:30.200 --> 30:31.040
+ Save.
+
+30:31.040 --> 30:31.880
+ Right.
+
+30:31.880 --> 30:34.980
+ When we have Neuralink, we can replay that memory.
+
+30:34.980 --> 30:38.200
+ So in terms of how much stress it has on your body,
+
+30:38.200 --> 30:41.180
+ is it biologically stressful?
+
+30:41.180 --> 30:43.580
+ You do feel a 2G pullout, right?
+
+30:43.580 --> 30:46.460
+ So the cost of getting those micro G parabolas
+
+30:46.460 --> 30:48.900
+ is you then have a 2G pullout and that's hard.
+
+30:48.900 --> 30:50.180
+ You have to train for it.
+
+30:50.180 --> 30:52.620
+ If you move your neck too quickly in that 2G pullout,
+
+30:52.620 --> 30:54.780
+ you can strain muscles.
+
+30:54.780 --> 30:56.800
+ But I wouldn't say that it's actually
+
+30:56.800 --> 31:00.180
+ a profound tough thing on the body.
+
+31:00.180 --> 31:02.940
+ It's really just an incredibly novel experience.
+
+31:02.940 --> 31:04.500
+ And when you're in orbit
+
+31:04.500 --> 31:06.620
+ and you're not having to go through the ups and downs
+
+31:06.620 --> 31:07.840
+ of the parabolic plane,
+
+31:07.840 --> 31:09.900
+ there's a real grace and elegance.
+
+31:09.900 --> 31:12.460
+ And you see the astronauts learn to operate
+
+31:12.460 --> 31:14.980
+ in this completely new environment.
+
+31:14.980 --> 31:16.380
+ What are some interesting differences
+
+31:16.380 --> 31:17.800
+ between the parabolic plane
+
+31:17.800 --> 31:20.180
+ and when you're actually going up into orbit?
+
+31:20.180 --> 31:22.900
+ Is it that with orbit you can look out
+
+31:22.900 --> 31:26.180
+ and see that blue little planet of ours?
+
+31:26.180 --> 31:28.800
+ You can see the blue marble, the stunning overview effect,
+
+31:28.800 --> 31:30.900
+ which is something I hope to see one day.
+
+31:31.940 --> 31:34.180
+ What's also really different is if you're in orbit
+
+31:34.180 --> 31:36.060
+ for any significant period of time,
+
+31:36.060 --> 31:38.180
+ there's gonna be a lot more physiological changes
+
+31:38.180 --> 31:41.500
+ to your body than if you just did an afternoon flight
+
+31:41.500 --> 31:42.860
+ on the Vomit Comet.
+
+31:42.860 --> 31:44.940
+ Everything from your bones, your muscles,
+
+31:44.940 --> 31:47.500
+ your eyeballs change shape.
+
+31:47.500 --> 31:49.020
+ There's a lot of different things that happen
+
+31:49.020 --> 31:51.120
+ for long duration space flight.
+
+31:51.120 --> 31:52.520
+ And we still have to, as scientists,
+
+31:52.520 --> 31:54.500
+ we still have to solve a lot of these interesting challenges
+
+31:54.500 --> 31:58.400
+ to be able to keep humans thriving in microgravity
+
+31:58.400 --> 32:00.140
+ or deep duration space missions.
+
+32:01.000 --> 32:03.580
+ Deep duration space missions.
+
+32:03.580 --> 32:05.080
+ Okay, let's talk about this.
+
+32:05.080 --> 32:08.220
+ I was just gonna ask a bunch of dumb questions.
+
+32:08.220 --> 32:11.660
+ So approximately how long does it take to travel to Mars?
+
+32:11.660 --> 32:12.620
+ Asking for a friend.
+
+32:12.620 --> 32:14.820
+ Asking for a friend, as we all do.
+
+32:14.820 --> 32:17.780
+ About three years for a round trip.
+
+32:17.780 --> 32:19.180
+ And that's not that it actually takes that long.
+
+32:19.180 --> 32:20.940
+ Why the round trip, is that?
+
+32:20.940 --> 32:23.780
+ Well, you're just asking about the one way trip.
+
+32:23.780 --> 32:25.020
+ Got it, got it, got it.
+
+32:25.020 --> 32:25.860
+ It's okay, cool.
+
+32:25.860 --> 32:29.460
+ So for just like literally flying to Mars in a round,
+
+32:29.460 --> 32:30.740
+ it takes three years.
+
+32:30.740 --> 32:32.540
+ There's some interstitial time there
+
+32:32.540 --> 32:35.460
+ because you really can only go between Earth and Mars
+
+32:35.460 --> 32:37.540
+ at certain points in their orbits
+
+32:37.540 --> 32:39.420
+ where it's favorable to make that journey.
+
+32:39.420 --> 32:40.860
+ And so part of that three years
+
+32:40.860 --> 32:42.900
+ is you take the journey to Mars,
+
+32:42.900 --> 32:45.000
+ a few months, six to nine months.
+
+32:45.000 --> 32:46.400
+ You're there for a period of time
+
+32:46.400 --> 32:49.860
+ until the orbits find a favorable alignment again.
+
+32:49.860 --> 32:51.900
+ And then you come back another six to nine months.
+
+32:51.900 --> 32:54.140
+ So one way travel, six to nine months.
+
+32:54.140 --> 32:56.420
+ They hang out there on vacation and come back.
+
+32:56.420 --> 32:57.260
+ Forced vacation.
+
+32:57.260 --> 32:58.080
+ Forced vacation.
+
+32:58.080 --> 32:58.920
+ You come back.
+
+32:58.920 --> 33:00.940
+ Well, me who loves working all the time,
+
+33:00.940 --> 33:03.260
+ all vacation is forced vacation.
+
+33:03.260 --> 33:04.660
+ All right.
+
+33:04.660 --> 33:07.780
+ So okay, so that gives us a sense of duration.
+
+33:07.780 --> 33:10.260
+ And we can maybe also talk about longer
+
+33:10.260 --> 33:13.580
+ and longer and longer duration as well.
+
+33:13.580 --> 33:18.580
+ What are the hardest aspects of living in space
+
+33:18.700 --> 33:23.320
+ for many days, for let's say 100 days, 200 days?
+
+33:23.320 --> 33:25.900
+ Maybe there's a threshold when it gets really tough.
+
+33:25.900 --> 33:29.780
+ What are some stupid little things or big things
+
+33:29.780 --> 33:32.340
+ that are very difficult for human beings to go through?
+
+33:32.340 --> 33:33.860
+ It's one big thing and one little thing.
+
+33:33.860 --> 33:35.460
+ And there are these two classic problems
+
+33:35.460 --> 33:37.260
+ that we're trying to solve in the space industry.
+
+33:37.260 --> 33:38.820
+ One is radiation.
+
+33:38.820 --> 33:40.940
+ It's not as much of a problem for us right now
+
+33:40.940 --> 33:42.280
+ on the International Space Station
+
+33:42.280 --> 33:44.100
+ because we're still protected
+
+33:44.100 --> 33:46.140
+ by part of Earth's magnetosphere.
+
+33:46.140 --> 33:47.980
+ But as soon as you get farther out into space
+
+33:47.980 --> 33:49.340
+ and you don't have that protection
+
+33:49.340 --> 33:52.700
+ once you leave the Van Allen belt area of the Earth
+
+33:52.700 --> 33:55.380
+ and the cocoon around the Earth,
+
+33:55.380 --> 33:57.940
+ we have really serious concerns about radiation
+
+33:57.940 --> 33:59.940
+ and the effect on human health longterm.
+
+33:59.940 --> 34:01.360
+ That's the big one.
+
+34:01.360 --> 34:02.960
+ The small one, and I say it's small
+
+34:02.960 --> 34:04.340
+ because it seems mundane,
+
+34:04.340 --> 34:06.020
+ but it actually is really big in its own way,
+
+34:06.020 --> 34:09.100
+ is mental health and how to keep people happy and balanced.
+
+34:09.100 --> 34:10.820
+ And you were alluding to some of the psychological
+
+34:10.820 --> 34:13.980
+ challenges of having humans together on missions
+
+34:13.980 --> 34:16.180
+ and especially as we try to scale the number of humans
+
+34:16.180 --> 34:18.180
+ in orbit or in space.
+
+34:18.180 --> 34:20.520
+ So that's another big challenge is how to keep people happy
+
+34:20.520 --> 34:22.860
+ and balanced and cooperating.
+
+34:24.140 --> 34:25.940
+ That's not an issue on Earth at all.
+
+34:25.940 --> 34:27.220
+ At all.
+
+34:27.220 --> 34:29.460
+ Okay, so we'll talk about each of those
+
+34:29.460 --> 34:31.140
+ in a bit more detail,
+
+34:31.140 --> 34:34.460
+ but let me continue on the chain of dumb questions.
+
+34:34.460 --> 34:35.700
+ What about food?
+
+34:35.700 --> 34:38.660
+ What's a good source for food in space?
+
+34:38.660 --> 34:42.700
+ And what are some sort of standard go to meals, menus?
+
+34:42.700 --> 34:46.060
+ Right now your go to menu is gonna be mostly freeze dried.
+
+34:46.060 --> 34:50.380
+ Every so often NASA will arrange for a fun stunt
+
+34:50.380 --> 34:51.900
+ or fresh food to get up to station.
+
+34:51.900 --> 34:54.540
+ So they did bake DoubleTree cookies with Hilton
+
+34:54.540 --> 34:55.800
+ a couple of years ago, as I recall,
+
+34:55.800 --> 34:57.820
+ I think sometime before the pandemic.
+
+34:57.820 --> 35:00.140
+ But there's work actually in our lab at MIT,
+
+35:00.140 --> 35:02.140
+ Maggie Koblans, one of my staff researchers
+
+35:02.140 --> 35:04.580
+ is looking at the future of fermentation.
+
+35:04.580 --> 35:06.120
+ Everybody loves beer, right?
+
+35:06.120 --> 35:08.700
+ Beer and wine and kimchi and miso,
+
+35:08.700 --> 35:11.880
+ these foods that have just been really important
+
+35:11.880 --> 35:15.100
+ to human cultures for eons because we love the umami
+
+35:15.100 --> 35:16.540
+ and the better flavor in them.
+
+35:16.540 --> 35:18.420
+ But it turns out they also have a good shelf life
+
+35:18.420 --> 35:19.740
+ if done properly.
+
+35:19.740 --> 35:22.460
+ And they also have a additional health benefit
+
+35:22.460 --> 35:25.660
+ for the microbiome, for probiotics and prebiotics.
+
+35:25.660 --> 35:28.180
+ So we're trying to work with NASA and convince them
+
+35:28.180 --> 35:30.980
+ to be more open minded to fermented food
+
+35:30.980 --> 35:33.120
+ for long duration deep space missions.
+
+35:33.120 --> 35:35.180
+ That we think is one of the future elements
+
+35:35.180 --> 35:38.580
+ in addition to in situ growing your own food.
+
+35:38.580 --> 35:41.420
+ Okay, this is essential for the space party
+
+35:41.420 --> 35:43.300
+ is the space beer.
+
+35:43.300 --> 35:45.780
+ Yes, it's the fermented product, yes.
+
+35:45.780 --> 35:46.740
+ Okay, cool.
+
+35:46.740 --> 35:49.700
+ In terms of water, what's a good source of drinkable water?
+
+35:49.700 --> 35:50.660
+ Like where do you get water?
+
+35:50.660 --> 35:52.900
+ Do you have to always bring it on board with you?
+
+35:52.900 --> 35:56.700
+ And is there a compressed efficient way of storing it?
+
+35:56.700 --> 35:58.860
+ So to steal a line from Charlie Bolden,
+
+35:58.860 --> 36:01.420
+ who's the former administrator of NASA,
+
+36:01.420 --> 36:04.640
+ this morning's fresh water is yesterday's coffee.
+
+36:04.640 --> 36:06.420
+ So if you think about what that means,
+
+36:06.420 --> 36:08.100
+ you drank the coffee yesterday.
+
+36:08.100 --> 36:10.780
+ Right, as it travels, it goes fully through the body.
+
+36:10.780 --> 36:13.100
+ Fully through the body as the recycling system.
+
+36:13.100 --> 36:15.420
+ And then you drink what you peed out
+
+36:15.420 --> 36:20.420
+ as clarified, refined fresh water the next day.
+
+36:20.420 --> 36:22.340
+ That is one source of water.
+
+36:22.340 --> 36:24.460
+ Another source of water in the near neighborhood
+
+36:24.460 --> 36:26.180
+ of our solar system would be on the moon.
+
+36:26.180 --> 36:29.100
+ So water ice deposits, there's also water on Mars.
+
+36:29.100 --> 36:31.740
+ This is one of the big things that's bringing people
+
+36:31.740 --> 36:34.260
+ to want to develop infrastructure on the moon
+
+36:34.260 --> 36:36.780
+ is once you've gotten out of the gravity well of Earth,
+
+36:36.780 --> 36:39.340
+ if you can find water on the moon and refine it,
+
+36:39.340 --> 36:40.900
+ you can either make it into propellant
+
+36:40.900 --> 36:43.180
+ or drinkable water for humans.
+
+36:43.180 --> 36:46.100
+ And so that's really valuable as a potential gateway
+
+36:46.100 --> 36:47.660
+ out into the rest of the solar system
+
+36:47.660 --> 36:48.860
+ to be able to get propellant
+
+36:48.860 --> 36:51.100
+ without always having to ship it up from Earth.
+
+36:52.300 --> 36:55.220
+ So how much water is there on Mars?
+
+36:55.220 --> 36:56.060
+ That's a great question.
+
+36:56.060 --> 36:56.900
+ I do not know.
+
+36:56.900 --> 36:57.740
+ We don't know this yet, right?
+
+36:57.740 --> 36:58.900
+ I know there's water at the caps.
+
+36:58.900 --> 37:03.340
+ I suspect NASA from all of the satellite studies
+
+37:03.340 --> 37:05.780
+ that they've done at Mars have a decent idea
+
+37:05.780 --> 37:07.620
+ of what the water deposits look like,
+
+37:07.620 --> 37:08.660
+ but I don't know to what degree
+
+37:08.660 --> 37:10.540
+ they have characterized those.
+
+37:10.540 --> 37:13.100
+ I really hope there's life or traces
+
+37:13.100 --> 37:15.780
+ of previous life on Mars.
+
+37:15.780 --> 37:17.660
+ This is a special spot in my heart
+
+37:17.660 --> 37:20.020
+ because I got to work on SHERLOC,
+
+37:20.020 --> 37:22.260
+ which is the astrobiology experiment
+
+37:22.260 --> 37:23.660
+ that's on Mars right now,
+
+37:23.660 --> 37:25.540
+ searching for what they would say
+
+37:25.540 --> 37:30.060
+ in a very cautious way is signs of past habitability.
+
+37:30.060 --> 37:32.260
+ They wanna be careful not to get people overly excited
+
+37:32.260 --> 37:34.180
+ and say we're searching for signs of life.
+
+37:34.180 --> 37:37.460
+ They're searching to see if there would have been organics
+
+37:37.460 --> 37:39.820
+ on the surface of Mars or water in certain areas
+
+37:39.820 --> 37:42.660
+ that would have allowed for life to flourish.
+
+37:42.660 --> 37:44.620
+ And I really love this prospect.
+
+37:44.620 --> 37:46.500
+ I do think within our lifetimes
+
+37:46.500 --> 37:49.420
+ we'll get a better answer about finding life
+
+37:49.420 --> 37:51.420
+ in our solar system if it's there.
+
+37:51.420 --> 37:54.980
+ If not on Mars, maybe Europa, one of the icy worlds.
+
+37:54.980 --> 37:58.300
+ So you like astrobiology.
+
+37:58.300 --> 37:59.140
+ I do.
+
+37:59.140 --> 38:02.620
+ This is part of the, it's not just about human biology.
+
+38:02.620 --> 38:05.740
+ It's also other extraterrestrial alien biology.
+
+38:05.740 --> 38:07.540
+ Search for life in the universe.
+
+38:07.540 --> 38:08.380
+ Okay.
+
+38:08.380 --> 38:09.580
+ Does that scare you or excite you?
+
+38:09.580 --> 38:11.220
+ It excites me, profoundly excites me.
+
+38:11.220 --> 38:13.580
+ That there's other alien civilizations
+
+38:13.580 --> 38:16.100
+ potentially very different than our own?
+
+38:16.100 --> 38:18.020
+ I think there's gotta be some humility there.
+
+38:18.020 --> 38:19.300
+ And certainly from science fiction
+
+38:19.300 --> 38:22.660
+ we have plenty of reasons to fear that outcome as well.
+
+38:22.660 --> 38:24.020
+ But I do think as a scientist
+
+38:24.020 --> 38:26.660
+ it would be profoundly exciting if we were to find life
+
+38:26.660 --> 38:29.540
+ especially in the near neighborhood of our solar system.
+
+38:29.540 --> 38:32.580
+ Right now we would expect it to be most likely microbial life
+
+38:32.580 --> 38:34.860
+ but we have a real serious challenge in astrobiology
+
+38:34.860 --> 38:37.860
+ which is it may not even be carbon based life.
+
+38:37.860 --> 38:39.180
+ And all of our detectors,
+
+38:39.180 --> 38:42.100
+ we only know to look for DNA or RNA.
+
+38:42.100 --> 38:43.820
+ How would you even build a detector
+
+38:43.820 --> 38:47.260
+ to look for silicon based life
+
+38:47.260 --> 38:49.140
+ or different molecules than what we know
+
+38:49.140 --> 38:51.380
+ to be the fundamental molecules for life?
+
+38:51.380 --> 38:53.380
+ And then you mentioned offline Sarah Walker.
+
+38:53.380 --> 38:56.380
+ I mean she, her, the question that she's obsessed with
+
+38:56.380 --> 38:58.300
+ is even just defining life.
+
+38:58.300 --> 38:59.460
+ What is life?
+
+38:59.460 --> 39:02.020
+ To look outside the carbon base.
+
+39:02.020 --> 39:04.380
+ I mean to look outside of basically anything
+
+39:04.380 --> 39:06.740
+ we can even imagine chemically.
+
+39:06.740 --> 39:08.300
+ To look outside of any kind of notions
+
+39:08.300 --> 39:10.260
+ that we think of as biology.
+
+39:10.260 --> 39:11.740
+ Yeah, it's really weird.
+
+39:11.740 --> 39:14.420
+ So you now get into this land of like complexity
+
+39:14.420 --> 39:19.420
+ of a measuring of like how many assembly steps
+
+39:20.540 --> 39:22.580
+ it takes to build that thing.
+
+39:22.580 --> 39:23.420
+ Right.
+
+39:23.420 --> 39:27.660
+ And maybe dynamic movement or some maintenance
+
+39:27.660 --> 39:29.700
+ of some kind of membrane structures.
+
+39:29.700 --> 39:33.500
+ We don't even know like which properties life should have.
+
+39:33.500 --> 39:34.340
+ Right.
+
+39:34.340 --> 39:36.220
+ Whether it should be able to reproduce
+
+39:36.220 --> 39:39.180
+ and all those kinds of things or pass information,
+
+39:39.180 --> 39:41.180
+ genetic type of information.
+
+39:41.180 --> 39:42.420
+ We don't know.
+
+39:42.420 --> 39:45.140
+ And it's like, it's so humbling.
+
+39:45.140 --> 39:47.660
+ I mean I tend to believe that there could be
+
+39:48.540 --> 39:51.060
+ something like alien life here on Earth
+
+39:51.060 --> 39:54.620
+ and we're just too human, biology obsessed
+
+39:54.620 --> 39:55.980
+ to even recognize it.
+
+39:55.980 --> 39:57.940
+ The shadow biosphere, I remember you and Sarah
+
+39:57.940 --> 39:58.940
+ were talking about.
+
+39:58.940 --> 40:02.220
+ I mean that's like, speaking of beer,
+
+40:02.220 --> 40:04.380
+ I mean that's something I wanted to make sure
+
+40:04.380 --> 40:07.240
+ in all of science to shake ourselves out of like,
+
+40:07.240 --> 40:10.140
+ remind ourselves constantly how little we know.
+
+40:10.140 --> 40:13.100
+ Because it might be right in front of our nose.
+
+40:13.100 --> 40:15.900
+ Like I wouldn't be surprised if like trees
+
+40:15.900 --> 40:18.860
+ are like orders of magnitude more intelligent than humans.
+
+40:18.860 --> 40:21.300
+ They're just operating at a much slower scale
+
+40:21.300 --> 40:23.820
+ and they're like talking shit about us the whole time.
+
+40:23.820 --> 40:26.580
+ Like about silly humans that take everything seriously
+
+40:26.580 --> 40:28.640
+ and we start all kinds of nuclear wars
+
+40:28.640 --> 40:31.900
+ and we quarrel and we tweet about it and then,
+
+40:31.900 --> 40:35.180
+ but the trees are always there just watching us silly humans.
+
+40:35.180 --> 40:37.020
+ Like the Ents in Lord of the Rings.
+
+40:37.020 --> 40:37.860
+ Exactly.
+
+40:37.860 --> 40:40.940
+ So I mean, I don't know, I mean, obviously I'm joking
+
+40:40.940 --> 40:43.220
+ on that one, but there could be stuff like that.
+
+40:44.140 --> 40:46.700
+ Well, let me ask you the Drake equation,
+
+40:46.700 --> 40:51.060
+ the big question, how many, like obviously nobody knows,
+
+40:51.060 --> 40:54.180
+ but what's your gut, what's your hope as a scientist,
+
+40:54.180 --> 40:57.140
+ as a human, how many alien civilizations are out there?
+
+40:58.540 --> 41:01.260
+ As a ex physicist, I'm now much more
+
+41:01.260 --> 41:03.500
+ on the aerospace engineering side for space architecture,
+
+41:03.500 --> 41:08.500
+ but as an ex physicist, I hope it is prolific.
+
+41:08.660 --> 41:10.660
+ I think the challenge is if it's as prolific
+
+41:10.660 --> 41:12.900
+ as we would hope, if there are many, many, many
+
+41:12.900 --> 41:16.940
+ civilizations, then the question is, where are they?
+
+41:16.940 --> 41:18.740
+ Why haven't we heard from them?
+
+41:18.740 --> 41:21.820
+ And the Fermi paradox, is there some great filter
+
+41:21.820 --> 41:25.540
+ that life only gets to some level of sophistication
+
+41:25.540 --> 41:29.220
+ and then kills itself off through war or through famine
+
+41:29.220 --> 41:30.860
+ or through different challenges that filter
+
+41:30.860 --> 41:33.820
+ that society out of existence?
+
+41:33.820 --> 41:35.140
+ And it would be an interesting question to try
+
+41:35.140 --> 41:38.100
+ to understand if the universe was teeming with life,
+
+41:38.100 --> 41:41.080
+ why haven't we found it or heard from it yet,
+
+41:41.080 --> 41:41.920
+ to our knowledge?
+
+41:41.920 --> 41:44.900
+ Yeah, I personally believe that it's teeming with life,
+
+41:44.900 --> 41:46.920
+ and you're right, I think that's a really useful,
+
+41:46.920 --> 41:49.460
+ productive engineering scientific question
+
+41:49.460 --> 41:53.540
+ of what kind of great filter can just be destroying
+
+41:53.540 --> 41:57.380
+ all of that life or preventing it from just constantly
+
+41:57.380 --> 42:01.540
+ talking to us, silly descendants of apes.
+
+42:01.540 --> 42:05.380
+ That's a really nice question, like what are the ways
+
+42:05.380 --> 42:07.720
+ civilizations can destroy themselves?
+
+42:09.020 --> 42:10.660
+ There's too many, sadly.
+
+42:10.660 --> 42:13.620
+ Well, I don't think we've come up with most of them yet.
+
+42:13.620 --> 42:15.580
+ That's also probably true.
+
+42:15.580 --> 42:18.920
+ That's the thing, it's, I mean, and if you look
+
+42:18.920 --> 42:21.860
+ at nuclear war, some of it is physics,
+
+42:21.860 --> 42:26.180
+ but some of it is game theory, it's human nature,
+
+42:26.180 --> 42:29.260
+ it's how societies built themselves, how they interact,
+
+42:29.260 --> 42:32.540
+ how we create and resolve conflict,
+
+42:32.540 --> 42:34.640
+ and it gets back to the human question
+
+42:34.640 --> 42:37.120
+ on when you're doing long term space travel,
+
+42:37.120 --> 42:40.320
+ how do you maintain this dynamical system
+
+42:40.320 --> 42:45.320
+ of flawed, irrational humans such that it persists
+
+42:46.580 --> 42:50.140
+ throughout time, and not just maintain the biological body,
+
+42:50.140 --> 42:52.660
+ but get people from not murdering each other,
+
+42:52.660 --> 42:56.700
+ like like each other sufficiently to where you kinda
+
+42:56.700 --> 43:01.700
+ fit well, but I think if songs or poetry or books
+
+43:01.900 --> 43:04.700
+ taught me anything, if you like each other a little too much,
+
+43:05.800 --> 43:07.860
+ I mean, the problems arise, because then there's always
+
+43:07.860 --> 43:10.180
+ a third person who also likes, and then there's the drama,
+
+43:10.180 --> 43:12.820
+ it's like, I can't believe you did that last night,
+
+43:12.820 --> 43:14.780
+ whatever, so, and then there's beer.
+
+43:14.780 --> 43:17.180
+ Gets complicated quickly. Gets complicated quickly.
+
+43:17.180 --> 43:20.220
+ Okay, anyway, back to the dumb questions,
+
+43:20.220 --> 43:22.900
+ because you answered this, there's an interview
+
+43:22.900 --> 43:24.500
+ where you answer a bunch of cool little questions
+
+43:24.500 --> 43:28.300
+ from young students and so on, about like space.
+
+43:29.540 --> 43:32.340
+ One of them was playing music in space.
+
+43:32.340 --> 43:33.220
+ Yeah.
+
+43:33.220 --> 43:37.060
+ And you mentioned something about what kind of instruments
+
+43:37.060 --> 43:39.460
+ you could use to play music in space.
+
+43:39.460 --> 43:43.120
+ Could you mention about like the Spotify work in space,
+
+43:43.120 --> 43:45.060
+ and if I wanted to do a live performance,
+
+43:45.060 --> 43:47.780
+ what kind of instruments would I need?
+
+43:47.780 --> 43:50.300
+ Yeah, I mean, you referenced culture before,
+
+43:50.300 --> 43:51.960
+ and I think this is one of the most exciting things
+
+43:51.960 --> 43:55.380
+ that we have at our fingertips, which is to define
+
+43:55.380 --> 43:57.780
+ a new culture for space exploration.
+
+43:57.780 --> 44:01.620
+ We don't just have to import cultural artifacts from Earth
+
+44:01.620 --> 44:03.460
+ to make life worth living in space,
+
+44:03.460 --> 44:05.140
+ and this musical instrument that you referenced
+
+44:05.140 --> 44:08.180
+ was a design of an object that could only be performed
+
+44:08.180 --> 44:09.460
+ in microgravity.
+
+44:09.460 --> 44:10.300
+ Oh, cool.
+
+44:10.300 --> 44:13.140
+ So it doesn't sound the same way when it's,
+
+44:13.140 --> 44:15.140
+ it's a percussive instrument when it's rattled
+
+44:15.140 --> 44:17.500
+ or moved in a gravity environment, it is unique.
+
+44:17.500 --> 44:18.340
+ Can we look it up?
+
+44:18.340 --> 44:19.500
+ It's called the Telematron.
+
+44:19.500 --> 44:20.340
+ Yeah, it's created by.
+
+44:20.340 --> 44:21.900
+ Of course it's called the Telematron.
+
+44:21.900 --> 44:22.720
+ Telematron.
+
+44:22.720 --> 44:23.560
+ That is so awesome.
+
+44:23.560 --> 44:25.780
+ Created by Sands Fish and Nicole Boulier,
+
+44:25.780 --> 44:28.540
+ two amazing graduate students and staff researchers
+
+44:28.540 --> 44:29.460
+ on my team.
+
+44:29.460 --> 44:30.300
+ What does it look like?
+
+44:30.300 --> 44:33.300
+ It looks steampunk, actually.
+
+44:33.300 --> 44:34.140
+ That's awesome.
+
+44:34.140 --> 44:35.100
+ Yeah, it's a pretty cool design.
+
+44:35.100 --> 44:37.300
+ It looks like it's a geometric solid
+
+44:37.300 --> 44:39.860
+ that has these interesting artifacts on the inside,
+
+44:39.860 --> 44:41.260
+ and it has a lot of sensors, actually,
+
+44:41.260 --> 44:42.220
+ additionally on the inside,
+
+44:42.220 --> 44:44.980
+ like IMU's inertial measurement sensors
+
+44:44.980 --> 44:47.780
+ that allow it to detect when it's floating
+
+44:47.780 --> 44:49.140
+ and when it's not floating,
+
+44:49.140 --> 44:52.500
+ and provides this really kind of ethereal,
+
+44:52.500 --> 44:53.580
+ they later sonify it.
+
+44:53.580 --> 44:56.220
+ So they use electronic music to turn it into a symphony
+
+44:56.220 --> 44:57.620
+ or turn it into a piece.
+
+44:57.620 --> 44:59.580
+ And yeah, this is the object, the Telematron.
+
+44:59.580 --> 45:01.380
+ How does the human interact with it?
+
+45:01.380 --> 45:02.220
+ By tossing it.
+
+45:02.220 --> 45:04.020
+ So it's an interactive musical instrument.
+
+45:04.020 --> 45:06.420
+ It actually requires another partner.
+
+45:06.420 --> 45:09.420
+ So the idea was that it's something like a dance
+
+45:09.420 --> 45:12.020
+ or just like something like a choreography in space.
+
+45:12.020 --> 45:12.860
+ Got it.
+
+45:12.860 --> 45:15.820
+ Speaking of which, you also talked about sports,
+
+45:15.820 --> 45:18.340
+ and like ball sports, like playing soccer.
+
+45:18.340 --> 45:20.220
+ So you mentioned that,
+
+45:20.220 --> 45:22.940
+ so your muscles can move at full speed,
+
+45:23.780 --> 45:26.460
+ and then if you push off the wall lightly,
+
+45:26.460 --> 45:28.660
+ you fly across, zoom across.
+
+45:28.660 --> 45:31.340
+ So how does the physics of that work?
+
+45:31.340 --> 45:34.420
+ Can you still play soccer, for example, in space?
+
+45:34.420 --> 45:37.220
+ You can, but one of the most intuitive things
+
+45:37.220 --> 45:39.140
+ that we all learn as babies, right,
+
+45:39.140 --> 45:40.620
+ is whenever you throw something,
+
+45:40.620 --> 45:41.940
+ if I was gonna toss something to you,
+
+45:41.940 --> 45:42.980
+ I'd toss it up,
+
+45:42.980 --> 45:44.660
+ because I know that it has to compensate
+
+45:44.660 --> 45:47.620
+ for the fact that that Keplerian arc is gonna draw it down,
+
+45:47.620 --> 45:50.860
+ the equations of motion are gonna draw it down.
+
+45:50.860 --> 45:51.900
+ I would, in space,
+
+45:51.900 --> 45:54.420
+ I would just shoot something directly towards you,
+
+45:54.420 --> 45:56.260
+ so like straight in line of sight.
+
+45:56.260 --> 45:57.380
+ And so that would be very different
+
+45:57.380 --> 45:58.580
+ for any type of ball sport,
+
+45:58.580 --> 46:00.420
+ is to retrain your human mind
+
+46:00.420 --> 46:03.380
+ to have that as your intuitive arc of motion
+
+46:03.380 --> 46:04.300
+ or lack of arc.
+
+46:04.300 --> 46:05.460
+ From your experience,
+
+46:05.460 --> 46:07.180
+ from understanding how astronauts
+
+46:07.180 --> 46:08.460
+ get adjusted to this stuff,
+
+46:08.460 --> 46:10.340
+ how long does it take to adjust to the physics
+
+46:10.340 --> 46:12.980
+ of this world, this other world?
+
+46:12.980 --> 46:15.420
+ So even after one or two parabolic flights,
+
+46:15.420 --> 46:18.620
+ you can gain a certain facility
+
+46:18.620 --> 46:20.660
+ with moving in that environment.
+
+46:20.660 --> 46:22.180
+ I think most astronauts would say
+
+46:22.180 --> 46:23.820
+ maybe several days on station
+
+46:23.820 --> 46:25.020
+ or a week on station,
+
+46:25.020 --> 46:26.740
+ and their brain flips.
+
+46:26.740 --> 46:28.940
+ It's amazing the plasticity of the human brain
+
+46:28.940 --> 46:31.140
+ and how quickly they are able to adapt.
+
+46:31.140 --> 46:32.060
+ And so pretty quickly,
+
+46:32.060 --> 46:36.100
+ they become creatures of this new environment.
+
+46:36.100 --> 46:36.940
+ Okay, so that's cool.
+
+46:36.940 --> 46:38.980
+ It's creating a little bit of an experience.
+
+46:38.980 --> 46:42.420
+ What about if you go for more than 100 days
+
+46:42.420 --> 46:46.100
+ for one year, for two years, for three years?
+
+46:46.100 --> 46:49.100
+ What challenges start to emerge in that case?
+
+46:49.100 --> 46:50.940
+ So Scott Kelly wrote this amazing book
+
+46:50.940 --> 46:52.580
+ after he spent a year in space,
+
+46:52.580 --> 46:53.460
+ and he's a twin.
+
+46:53.460 --> 46:54.780
+ It's absolutely fantastic
+
+46:54.780 --> 46:57.140
+ that NASA got to do a twin study.
+
+46:57.140 --> 46:58.540
+ It's perfect.
+
+46:58.540 --> 47:00.740
+ So he wrote a lot about his experience
+
+47:00.740 --> 47:02.980
+ on the health side of what changed,
+
+47:02.980 --> 47:06.900
+ things like bone density, muscle atrophy,
+
+47:06.900 --> 47:08.140
+ eyesight changing
+
+47:08.140 --> 47:10.060
+ because the shape of your eyeball changes,
+
+47:10.060 --> 47:11.180
+ which changes your lens,
+
+47:11.180 --> 47:12.900
+ which changes how you see.
+
+47:12.900 --> 47:14.620
+ If we're then thinking about the challenges
+
+47:14.620 --> 47:16.500
+ between a year and three years,
+
+47:16.500 --> 47:18.500
+ especially if we're doing that three year trip to Mars
+
+47:18.500 --> 47:20.340
+ for your friend who asked earlier,
+
+47:20.340 --> 47:23.940
+ then you have to think about nutrition.
+
+47:23.940 --> 47:25.620
+ And so how are you keeping
+
+47:25.620 --> 47:28.060
+ all of these different needs for your body alive?
+
+47:28.060 --> 47:30.620
+ How are you protecting astronauts against radiation?
+
+47:30.620 --> 47:33.100
+ Either having some type of a shell on the spacecraft,
+
+47:33.100 --> 47:35.540
+ which is expensive because it's heavy.
+
+47:35.540 --> 47:36.420
+ If it's something like lead,
+
+47:36.420 --> 47:37.980
+ a really effective radiation shell,
+
+47:37.980 --> 47:39.660
+ it's gonna be a lot of mass.
+
+47:39.660 --> 47:42.060
+ Or is there a pill that could be taken
+
+47:42.060 --> 47:46.500
+ to try to make you less in danger
+
+47:46.500 --> 47:49.300
+ of some of the radiation effects?
+
+47:49.300 --> 47:51.060
+ A lot of this has not yet been answered,
+
+47:51.060 --> 47:53.420
+ but radiation is a really significant challenge
+
+47:53.420 --> 47:55.540
+ for that three year journey.
+
+47:55.540 --> 47:57.460
+ And what are the negative effects of radiation
+
+47:57.460 --> 47:59.140
+ on the human body out in space?
+
+47:59.140 --> 48:03.300
+ A higher likelihood to develop cancer at a younger age.
+
+48:03.300 --> 48:05.260
+ So you'd probably be able to get there and get back,
+
+48:05.260 --> 48:08.100
+ but you'd find yourself in the same way
+
+48:08.100 --> 48:10.740
+ of if you were exposed to significant radiation on Earth,
+
+48:10.740 --> 48:13.460
+ you'd find significant bad health effects as you age.
+
+48:14.380 --> 48:16.980
+ What do you think about like decades?
+
+48:16.980 --> 48:19.100
+ Do you think about decades?
+
+48:19.100 --> 48:21.220
+ Or is this like an entire?
+
+48:21.220 --> 48:23.980
+ I think about centuries for MySpace.
+
+48:23.980 --> 48:25.820
+ But yeah, for decades,
+
+48:25.820 --> 48:28.340
+ I think as soon as we get past the three year mark,
+
+48:28.340 --> 48:29.580
+ we'll absolutely want,
+
+48:29.580 --> 48:31.100
+ somewhere between three years and a decade,
+
+48:31.100 --> 48:33.620
+ we'll want artificial gravity.
+
+48:33.620 --> 48:35.300
+ And we know how to do that, actually.
+
+48:35.300 --> 48:37.380
+ The engineering questions still need to be tweaked
+
+48:37.380 --> 48:38.460
+ for how we'd really implement it,
+
+48:38.460 --> 48:39.700
+ but the science is there to know
+
+48:39.700 --> 48:44.100
+ how we would spin habitats in orbit and generate that force.
+
+48:44.100 --> 48:46.380
+ So even if the entire habitat's not spinning,
+
+48:46.380 --> 48:49.060
+ you at least have a treadmill part of the space station
+
+48:49.060 --> 48:50.180
+ that is spinning,
+
+48:50.180 --> 48:52.340
+ and you can spend some fraction of your day
+
+48:52.340 --> 48:56.780
+ in a near to 1G environment and keep your body healthy.
+
+48:56.780 --> 48:58.420
+ Wait, literally from just spinning?
+
+48:58.420 --> 49:00.140
+ From spinning, yes, centripetal force.
+
+49:00.140 --> 49:01.500
+ That's fascinating. So you generate this force.
+
+49:01.500 --> 49:03.500
+ If you've ever been in those carnival rides,
+
+49:03.500 --> 49:06.060
+ the gravitrons that spin you up around the side,
+
+49:06.060 --> 49:07.300
+ that's the concept.
+
+49:07.300 --> 49:08.900
+ And this is actually one of the reasons
+
+49:08.900 --> 49:12.140
+ why we are spinning out a new company
+
+49:12.140 --> 49:13.860
+ from my MIT lab. Spinning out, ha.
+
+49:13.860 --> 49:14.700
+ Spinning out, ha.
+
+49:14.700 --> 49:18.020
+ That was accidental, but well noted space pun.
+
+49:18.020 --> 49:20.660
+ It's like impossible to avoid. Dad jokes, all right.
+
+49:20.660 --> 49:23.820
+ But yeah, we're spinning out a new company
+
+49:23.820 --> 49:27.820
+ to look at next generation space architecture,
+
+49:27.820 --> 49:30.540
+ and how do we actually scale humanity's access to space?
+
+49:30.540 --> 49:32.540
+ And one of the areas that we wanna look at
+
+49:32.540 --> 49:34.060
+ is artificial gravity.
+
+49:34.060 --> 49:34.940
+ Is there a name yet?
+
+49:34.940 --> 49:36.540
+ Yep, there's a name. We are brand new.
+
+49:36.540 --> 49:38.780
+ We are just exiting stealth mode.
+
+49:38.780 --> 49:40.940
+ So your podcast listeners will literally be among
+
+49:40.940 --> 49:42.540
+ some of the first to hear about it.
+
+49:42.540 --> 49:45.220
+ It's called Aurelia Institute.
+
+49:45.220 --> 49:48.260
+ Aurelia is an old English word for chrysalis.
+
+49:48.260 --> 49:51.940
+ And the idea with this is that we, humanity collectively,
+
+49:51.940 --> 49:55.620
+ are at this next stage of our metamorphosis,
+
+49:55.620 --> 49:58.660
+ like a chrysalis, into a spacefaring species.
+
+49:58.660 --> 50:00.860
+ And so we felt that this was a good time,
+
+50:00.860 --> 50:04.340
+ a necessary time, to think about
+
+50:04.340 --> 50:06.100
+ next generation space architecture,
+
+50:06.100 --> 50:08.100
+ but also Starfleet Academy,
+
+50:08.100 --> 50:10.180
+ if you know that reference from Star Trek.
+
+50:12.300 --> 50:17.220
+ Yes, so let me ask a silly sounding, ridiculous sounding,
+
+50:17.220 --> 50:19.900
+ but probably extremely important question.
+
+50:19.900 --> 50:23.220
+ Sex and space, including intercourse, conception,
+
+50:23.220 --> 50:27.820
+ procreation, birth, like being a parent,
+
+50:27.820 --> 50:29.180
+ like raising the baby.
+
+50:29.180 --> 50:33.420
+ So basically from birth, well, from the before birth part,
+
+50:33.420 --> 50:34.780
+ like the birds and the bees and stuff,
+
+50:34.780 --> 50:37.020
+ and then the whole thing.
+
+50:37.020 --> 50:38.500
+ How complicated is that?
+
+50:38.500 --> 50:41.020
+ I remember looking at the, thank you.
+
+50:43.300 --> 50:46.020
+ I remember looking at this exact Wikipedia page actually,
+
+50:46.020 --> 50:50.180
+ and I remember being, the Wikipedia page is sex and space,
+
+50:50.180 --> 50:52.660
+ and fascinating how difficult of an engineering problem
+
+50:52.660 --> 50:53.740
+ the whole thing is.
+
+50:53.740 --> 50:55.340
+ Is that something you think about too,
+
+50:55.340 --> 50:58.900
+ how to have generations of humans?
+
+50:58.900 --> 51:03.100
+ Self, self replicating organizations.
+
+51:03.100 --> 51:04.740
+ Yeah, societies essentially.
+
+51:04.740 --> 51:05.820
+ I mean, I guess with micro,
+
+51:05.820 --> 51:07.500
+ like if you solve the gravity problem,
+
+51:07.500 --> 51:09.020
+ you solve a lot of these problems.
+
+51:09.020 --> 51:09.980
+ That's the hope, yeah.
+
+51:09.980 --> 51:12.140
+ It's like the central challenge of microgravity
+
+51:12.140 --> 51:13.660
+ to human reproduction.
+
+51:13.660 --> 51:16.660
+ But we do host a workshop every year at Beyond the Cradle,
+
+51:16.660 --> 51:18.820
+ which is the space event that we run at MIT.
+
+51:18.820 --> 51:21.580
+ And we always do one on pregnancy in space,
+
+51:21.580 --> 51:24.420
+ or motherhood, or raising children in space,
+
+51:24.420 --> 51:26.740
+ because there are huge questions.
+
+51:26.740 --> 51:29.060
+ There've been a few mammal studies
+
+51:29.060 --> 51:31.060
+ that have looked at reproduction in space,
+
+51:31.060 --> 51:32.500
+ but there are still really major questions
+
+51:32.500 --> 51:33.820
+ about how does it work?
+
+51:33.820 --> 51:36.100
+ How does the fetus evolve in microgravity
+
+51:36.100 --> 51:37.460
+ if you were pregnant in space?
+
+51:37.460 --> 51:39.540
+ And I think the near term answer is just gonna be,
+
+51:39.540 --> 51:43.940
+ we need to be able to give humans a 1G environment
+
+51:43.940 --> 51:45.220
+ for that phase of our development.
+
+51:45.220 --> 51:49.220
+ Yeah, so there's some studies on mice in microgravity.
+
+51:49.220 --> 51:51.180
+ And it's interesting, I think the mice,
+
+51:51.180 --> 51:53.180
+ like one of them, the mice weren't able to walk,
+
+51:53.180 --> 51:55.380
+ or their understanding of physics, I guess,
+
+51:55.380 --> 51:56.580
+ is off or something like that.
+
+51:56.580 --> 51:59.940
+ Yeah, the mental model when you're really young
+
+51:59.940 --> 52:03.460
+ and you're kind of getting your mental model of physics,
+
+52:03.460 --> 52:07.020
+ we do think that that would change kids abilities
+
+52:07.020 --> 52:09.020
+ to if they were born in microgravity,
+
+52:09.020 --> 52:11.100
+ their ability to have that intuition
+
+52:11.100 --> 52:13.860
+ around an Earth based 1G environment might be missing,
+
+52:13.860 --> 52:15.340
+ because a lot of that is really crystallized
+
+52:15.340 --> 52:17.820
+ in early development, early childhood development.
+
+52:17.820 --> 52:20.060
+ So that makes sense that they would see that in mice, yeah.
+
+52:20.060 --> 52:27.180
+ So what about life when we choose to park our vehicles
+
+52:27.180 --> 52:30.500
+ on another planet, on the moon, but let's go to Mars?
+
+52:30.500 --> 52:35.660
+ First of all, is that excite you, humans going to Mars,
+
+52:35.660 --> 52:37.460
+ like stepping foot on Mars?
+
+52:37.460 --> 52:38.820
+ And when do you think it'll happen?
+
+52:38.820 --> 52:39.860
+ It does excite me.
+
+52:39.860 --> 52:42.420
+ I think visionaries like Elon are working
+
+52:42.420 --> 52:45.860
+ to make that happen in terms of building the road to space.
+
+52:45.860 --> 52:48.460
+ We are really excited about building out
+
+52:48.460 --> 52:51.420
+ the human lived experience of space once you get there.
+
+52:51.420 --> 52:53.180
+ So how are you going to grow your food?
+
+52:53.180 --> 52:55.220
+ What is your habitat going to look like?
+
+52:55.220 --> 52:56.620
+ I think it's profoundly exciting,
+
+52:56.620 --> 52:57.980
+ but I do think that there's a little bit
+
+52:57.980 --> 53:02.420
+ of a misunderstanding of Mars anywhere in the near future
+
+53:02.420 --> 53:04.980
+ being anything like a replacement for Earth.
+
+53:04.980 --> 53:07.300
+ So it is good for humanity to have these other pockets
+
+53:07.300 --> 53:10.020
+ of our civilization that can expand out beyond Earth,
+
+53:10.020 --> 53:13.620
+ but Mars is not in its current state,
+
+53:13.620 --> 53:15.780
+ a good home for humanity.
+
+53:15.780 --> 53:17.420
+ Too many perchlorates in the soil,
+
+53:17.420 --> 53:19.580
+ you can't use that soil to grow crops.
+
+53:19.580 --> 53:21.820
+ Atmosphere is too thin, certainly can't breathe it,
+
+53:21.820 --> 53:25.420
+ but it's also just really thin compared to our atmosphere.
+
+53:25.420 --> 53:26.780
+ A lot of different challenges that would have
+
+53:26.780 --> 53:29.700
+ to be fundamentally changed on that planet
+
+53:29.700 --> 53:33.380
+ to make it a good home for a large human civilization.
+
+53:33.380 --> 53:37.940
+ How does a large civilization of humans get built on Mars?
+
+53:37.940 --> 53:42.540
+ And where do you think it starts being difficult?
+
+53:42.540 --> 53:44.980
+ So can you have a small base of like 10 people,
+
+53:44.980 --> 53:47.820
+ essentially, kind of like the International Space Station
+
+53:47.820 --> 53:51.380
+ kind of situation, and then can you get it to 100,
+
+53:51.380 --> 53:53.220
+ to 1,000, to a million?
+
+53:53.220 --> 53:55.620
+ Are there some interesting challenges there
+
+53:55.620 --> 53:58.900
+ that worry you, saying that Mars is just not a good backup
+
+53:58.900 --> 54:00.980
+ at this time for Earth?
+
+54:00.980 --> 54:04.060
+ I think small outposts, absolutely, like McMurdo, right?
+
+54:04.060 --> 54:06.540
+ So we have these models of really extreme environments
+
+54:06.540 --> 54:08.740
+ on Earth in Antarctica, for example,
+
+54:08.740 --> 54:10.360
+ where humans have been able to go
+
+54:10.360 --> 54:13.460
+ and make a sustainable settlement.
+
+54:13.460 --> 54:18.460
+ McMurdo style life on Mars, probably feasible in the 2030s.
+
+54:18.760 --> 54:21.100
+ So we want to send the first human missions to Mars
+
+54:21.100 --> 54:22.660
+ and maybe as early as the end of this decade,
+
+54:22.660 --> 54:24.780
+ more likely early 2030s.
+
+54:24.780 --> 54:28.060
+ Moving anywhere beyond that in terms of a place
+
+54:28.060 --> 54:31.060
+ where like an entire human life would be lived,
+
+54:31.060 --> 54:33.460
+ where it's not just you go for a three month deployment
+
+54:33.460 --> 54:36.820
+ and you come back, that is actually the big challenge line,
+
+54:36.820 --> 54:41.420
+ is just saying, is there enough technological sophistication
+
+54:41.420 --> 54:44.540
+ that can be brought that far out into space?
+
+54:44.540 --> 54:46.540
+ If you imagine your electronics break,
+
+54:46.540 --> 54:48.860
+ there's no RadioShack, this dates me a little bit
+
+54:48.860 --> 54:50.340
+ that my mind jumps to RadioShack,
+
+54:50.340 --> 54:54.140
+ but there's no supply chains on Mars
+
+54:54.140 --> 54:58.100
+ that can supply the level of technological sophistication
+
+54:58.100 --> 55:01.100
+ for all the products that we rely on, on day to day life.
+
+55:01.100 --> 55:03.940
+ So you'd be going back to actually a very simple existence,
+
+55:03.940 --> 55:06.000
+ more like pioneer life out West,
+
+55:06.000 --> 55:08.700
+ in the story of the US, for example.
+
+55:08.700 --> 55:13.140
+ And I think that the future of larger scale gatherings
+
+55:13.140 --> 55:15.180
+ of humans in orbit, or sorry, in space,
+
+55:15.180 --> 55:17.660
+ is actually gonna be in microgravity,
+
+55:17.660 --> 55:21.260
+ floating space cities, not so much trying
+
+55:21.260 --> 55:25.600
+ to establish settlements on the surface.
+
+55:25.600 --> 55:29.500
+ So you think sort of a significant engineering investment
+
+55:29.500 --> 55:31.420
+ in terms of our efforts and money
+
+55:31.420 --> 55:34.420
+ should be on large spaceships,
+
+55:34.420 --> 55:39.420
+ that perhaps are doing this kind of self assembly,
+
+55:40.040 --> 55:41.960
+ all these kinds of things, and doing it in orbit,
+
+55:41.960 --> 55:45.480
+ maybe building a giant donut around the planet over time.
+
+55:45.480 --> 55:46.320
+ Yeah, that is the goal.
+
+55:46.320 --> 55:48.240
+ And I think the current political climate
+
+55:48.240 --> 55:52.340
+ is such that you can't get the trillion dollar investment
+
+55:52.340 --> 55:56.760
+ to start from scratch and build the sci fi megastructure.
+
+55:56.760 --> 55:58.960
+ But if you can build it in fits and starts,
+
+55:58.960 --> 56:00.000
+ in little different pieces,
+
+56:00.000 --> 56:02.000
+ which is another advantage of self assembly,
+
+56:02.000 --> 56:04.160
+ it's much more like how nature works.
+
+56:04.160 --> 56:07.600
+ So it's biomimicry inspired way for humanity
+
+56:07.600 --> 56:09.760
+ to scale out in space.
+
+56:09.760 --> 56:12.720
+ And whether it's out in space or on Mars,
+
+56:12.720 --> 56:15.320
+ the idea that sort of two people fall in love,
+
+56:16.240 --> 56:21.240
+ they have sex, a child is born,
+
+56:21.560 --> 56:25.000
+ and then that couple has to teach that child
+
+56:25.000 --> 56:27.600
+ that they came from Earth.
+
+56:27.600 --> 56:30.560
+ I just love the idea that somebody is born on Mars
+
+56:30.560 --> 56:33.400
+ or out in space, and you have to be like,
+
+56:33.400 --> 56:36.400
+ this is not actually like the original home.
+
+56:36.400 --> 56:38.940
+ Just them looking at Earth and being like,
+
+56:38.940 --> 56:40.240
+ this is where we came from.
+
+56:40.240 --> 56:42.040
+ I don't know, that's really inspiring to me.
+
+56:42.040 --> 56:43.640
+ And the child being really confused
+
+56:43.640 --> 56:45.800
+ and then wanting to go back to TikTok,
+
+56:45.800 --> 56:47.520
+ or whatever they do.
+
+56:47.520 --> 56:49.120
+ Whatever they do in that area.
+
+56:49.120 --> 56:50.520
+ I mean, there's great sci fi, right,
+
+56:50.520 --> 56:52.960
+ about people being born on Mars.
+
+56:52.960 --> 56:55.000
+ And because it's a lower gravity environment,
+
+56:55.000 --> 56:56.800
+ they're taller, they're more gangly,
+
+56:56.800 --> 56:58.240
+ if they were actually able to develop there.
+
+56:58.240 --> 56:59.360
+ And then they come back to Earth
+
+56:59.360 --> 57:01.400
+ and they're like second class citizens
+
+57:01.400 --> 57:04.080
+ because they can't function here in the same way
+
+57:04.080 --> 57:06.080
+ because the gravity's too strong for them.
+
+57:06.080 --> 57:07.800
+ You see this in series like The Expanse
+
+57:07.800 --> 57:10.120
+ with the Belters and these different societies
+
+57:10.120 --> 57:13.840
+ that if we were to succeed in having human societies
+
+57:13.840 --> 57:14.960
+ grow up in different pockets,
+
+57:14.960 --> 57:17.880
+ it's not necessarily going to be easy for them
+
+57:17.880 --> 57:20.360
+ to always come back to Earth as their home.
+
+57:20.360 --> 57:21.800
+ Yeah, different cultures form,
+
+57:21.800 --> 57:23.440
+ which is the positive way of phrasing it.
+
+57:23.440 --> 57:26.700
+ But it's also, this human history teaches us
+
+57:26.700 --> 57:29.360
+ that we like to form the other.
+
+57:29.360 --> 57:30.760
+ So there's this kind of conflict
+
+57:30.760 --> 57:32.040
+ that naturally emerges.
+
+57:33.080 --> 57:35.280
+ Let me ask another sort of dark question.
+
+57:35.280 --> 57:37.980
+ What do you think about coming from a military family?
+
+57:38.880 --> 57:43.360
+ There's still sadly wars in the world.
+
+57:43.360 --> 57:46.440
+ Do you think wars, military conflicts
+
+57:46.440 --> 57:51.340
+ will follow us into space, wars between nations?
+
+57:51.340 --> 57:54.040
+ Like from my perspective currently,
+
+57:54.040 --> 57:56.280
+ it just seems like space is a place
+
+57:56.280 --> 58:00.120
+ for scientists and engineers to explore ideas.
+
+58:00.120 --> 58:02.720
+ But the more and more progress you make,
+
+58:02.720 --> 58:05.960
+ does it worry you that nations start to step in
+
+58:05.960 --> 58:10.960
+ and form, that go out and fall out military conflict,
+
+58:11.640 --> 58:15.620
+ whether it's in cyberspace, in space,
+
+58:15.620 --> 58:18.400
+ or actual hot war?
+
+58:18.400 --> 58:19.920
+ I am really concerned about that.
+
+58:19.920 --> 58:22.040
+ And I do think for decades,
+
+58:22.040 --> 58:23.600
+ the scientific community in space
+
+58:23.600 --> 58:24.920
+ has hung on to this notion
+
+58:24.920 --> 58:28.000
+ from the 1967 Outer Space Treaty,
+
+58:28.000 --> 58:30.400
+ which is space is the province of all humankind,
+
+58:30.400 --> 58:32.800
+ peaceful uses of outer space only.
+
+58:32.800 --> 58:35.000
+ But I do think the rise in tensions
+
+58:35.000 --> 58:37.360
+ and the geopolitical scene that we're seeing,
+
+58:38.400 --> 58:42.080
+ I do harbor a lot of concern about hot wars
+
+58:42.080 --> 58:44.880
+ following humanity out into space.
+
+58:44.880 --> 58:49.340
+ And it's worth trying to tie nations together
+
+58:49.340 --> 58:51.960
+ with more collaboration to avoid that happening.
+
+58:51.960 --> 58:53.760
+ The International Space Station is a great example.
+
+58:53.760 --> 58:55.500
+ I think it's something like 18 countries
+
+58:55.500 --> 58:57.040
+ are party to this treaty.
+
+58:57.040 --> 58:59.360
+ It might be less, it might be more.
+
+58:59.360 --> 59:01.120
+ And then of course, there's a smaller number of countries
+
+59:01.120 --> 59:02.640
+ that actually send astronauts.
+
+59:02.640 --> 59:05.640
+ But even at the fall of the Soviet Union
+
+59:05.640 --> 59:07.920
+ and through some tense times with Russia,
+
+59:07.920 --> 59:10.720
+ the ISS had been a place where the US and Russia
+
+59:10.720 --> 59:13.960
+ were actually able to collaborate between Mir and ISS.
+
+59:13.960 --> 59:17.080
+ I think it'd be really important right now in particular
+
+59:17.080 --> 59:20.600
+ to find other platforms where these hegemonic powers
+
+59:20.600 --> 59:23.480
+ in the world and developing world nations
+
+59:23.480 --> 59:26.560
+ can come and collaborate on the future of space
+
+59:26.560 --> 59:29.520
+ and purposefully intertwine our success
+
+59:29.520 --> 59:31.280
+ so that there's a danger to multiple parties
+
+59:31.280 --> 59:32.880
+ if somebody is a bad actor.
+
+59:32.880 --> 59:36.480
+ So we're now talking as there's a war in Ukraine
+
+59:36.480 --> 59:37.840
+ and I haven't been sleeping much.
+
+59:37.840 --> 59:42.840
+ I have family, friends, colleagues in both countries.
+
+59:43.120 --> 59:45.480
+ And I'm just talking to a lot of people,
+
+59:45.480 --> 59:48.720
+ many of whom are crying, refugees.
+
+59:48.720 --> 59:52.640
+ And there's a basic human compassion
+
+59:52.640 --> 59:55.760
+ and love for each other that I believe technology
+
+59:55.760 --> 59:59.120
+ can help catalyze and accelerate.
+
+59:59.120 --> 1:00:00.440
+ But there's also science.
+
+1:00:00.440 --> 1:00:02.160
+ There's something about rockets.
+
+1:00:02.160 --> 1:00:05.800
+ There's something about, and I mean like space exploration
+
+1:00:05.800 --> 1:00:10.800
+ that inspires the world about the positive possibilities
+
+1:00:13.800 --> 1:00:15.600
+ of the human species.
+
+1:00:15.600 --> 1:00:18.760
+ So in terms of Ukraine and Russia and China and India
+
+1:00:18.760 --> 1:00:22.840
+ and the United States and Europe and everywhere else,
+
+1:00:22.840 --> 1:00:27.840
+ it seems like collaborating on giant space projects
+
+1:00:27.920 --> 1:00:30.080
+ is one way to escape these wars,
+
+1:00:31.160 --> 1:00:33.720
+ to escape these sort of geopolitical conflicts.
+
+1:00:33.720 --> 1:00:34.560
+ I mean, there's something,
+
+1:00:34.560 --> 1:00:37.440
+ there's so much camaraderie to the whole thing.
+
+1:00:37.440 --> 1:00:42.440
+ And even in this little period of human history
+
+1:00:42.840 --> 1:00:45.480
+ we're living through, it seems like that's essential.
+
+1:00:45.480 --> 1:00:47.720
+ Even through this pandemic,
+
+1:00:47.720 --> 1:00:49.720
+ there's something so inspiring about those
+
+1:00:49.720 --> 1:00:52.280
+ like SpaceX rockets going up, for example.
+
+1:00:52.280 --> 1:00:57.080
+ This reinvigoration of the space exploration efforts
+
+1:00:57.080 --> 1:00:59.520
+ by the commercial sector, I don't know.
+
+1:00:59.520 --> 1:01:03.120
+ That was, as many of us have,
+
+1:01:03.120 --> 1:01:06.360
+ sort of some dark times during this pandemic,
+
+1:01:06.360 --> 1:01:10.120
+ just like loneliness and sometimes emotion and anger
+
+1:01:10.120 --> 1:01:13.640
+ and just hopelessness and politics.
+
+1:01:13.640 --> 1:01:15.680
+ And then you look at those rockets going up
+
+1:01:15.680 --> 1:01:17.120
+ and it just gives you hope.
+
+1:01:17.120 --> 1:01:21.360
+ So I think that's an understated sort of value
+
+1:01:21.360 --> 1:01:22.920
+ of space exploration,
+
+1:01:22.920 --> 1:01:26.320
+ is the thing that unites us and gives us hope.
+
+1:01:26.320 --> 1:01:29.120
+ Obviously also inspires young generations
+
+1:01:29.120 --> 1:01:31.480
+ and young minds to also contribute
+
+1:01:31.480 --> 1:01:33.000
+ in not necessarily in space exploration
+
+1:01:33.000 --> 1:01:35.400
+ but in all of science and literature and poetry.
+
+1:01:35.400 --> 1:01:38.120
+ There's something about when you look up to the stars
+
+1:01:38.120 --> 1:01:39.760
+ that makes you dream.
+
+1:01:39.760 --> 1:01:40.600
+ Very true.
+
+1:01:40.600 --> 1:01:43.560
+ And so that's a really good reason
+
+1:01:43.560 --> 1:01:45.040
+ to sort of invest in this,
+
+1:01:45.040 --> 1:01:47.120
+ whether it's building giant megastructure,
+
+1:01:47.120 --> 1:01:48.400
+ which is so freaking cool,
+
+1:01:48.400 --> 1:01:52.680
+ but also colonizing Mars.
+
+1:01:52.680 --> 1:01:54.960
+ Yeah, it's something to look forward to.
+
+1:01:55.960 --> 1:02:00.960
+ Something that, and not make it a domain of war,
+
+1:02:02.080 --> 1:02:04.520
+ but a domain of human collaboration
+
+1:02:04.520 --> 1:02:06.800
+ and human compassion, I think.
+
+1:02:06.800 --> 1:02:09.240
+ You're the founder and director
+
+1:02:09.240 --> 1:02:12.240
+ of the MIT Space Exploration Initiative.
+
+1:02:12.240 --> 1:02:14.440
+ It includes a ton of projects.
+
+1:02:14.440 --> 1:02:18.520
+ So I just wanted to, they're focused, I guess, on life in space
+
+1:02:18.520 --> 1:02:22.160
+ from astrobiology, like we talked about, to habitats.
+
+1:02:22.160 --> 1:02:23.800
+ Are there some other interesting projects,
+
+1:02:23.800 --> 1:02:27.440
+ part of this initiative that pop to mind
+
+1:02:27.440 --> 1:02:29.280
+ that you find particularly cool?
+
+1:02:29.280 --> 1:02:30.280
+ Absolutely.
+
+1:02:30.280 --> 1:02:33.320
+ One is the future of in space manufacturing.
+
+1:02:33.320 --> 1:02:35.720
+ So if we're gonna build large scale space structures,
+
+1:02:35.720 --> 1:02:37.760
+ yes, it's great to ship them up from Earth
+
+1:02:37.760 --> 1:02:39.200
+ and self assemble them.
+
+1:02:39.200 --> 1:02:41.880
+ But what about extrusion in orbit?
+
+1:02:41.880 --> 1:02:43.760
+ It's one of the best technologies
+
+1:02:43.760 --> 1:02:45.240
+ to leverage in microgravity
+
+1:02:45.240 --> 1:02:48.440
+ because you can extrude a particularly long beam
+
+1:02:48.440 --> 1:02:51.000
+ that would sag in a normal gravity environment,
+
+1:02:51.000 --> 1:02:53.560
+ but might be able to become the basis of a truss
+
+1:02:53.560 --> 1:02:55.080
+ or a large scale space structure.
+
+1:02:55.080 --> 1:02:57.920
+ So we're doing miniature tests of extrusion
+
+1:02:57.920 --> 1:02:59.280
+ and are excited to fly this
+
+1:02:59.280 --> 1:03:01.840
+ on the International Space Station in a few months.
+
+1:03:01.840 --> 1:03:04.280
+ We are working on swarm robots.
+
+1:03:04.280 --> 1:03:08.840
+ We have just announced actually MIT's return to the moon.
+
+1:03:08.840 --> 1:03:11.480
+ So my organization is leading this mission for MIT,
+
+1:03:11.480 --> 1:03:12.920
+ going back to the surface of the moon
+
+1:03:12.920 --> 1:03:15.480
+ as early as the end of this year, 2022,
+
+1:03:15.480 --> 1:03:17.440
+ maybe early 2023,
+
+1:03:17.440 --> 1:03:21.640
+ and trying to take data from our research payloads
+
+1:03:21.640 --> 1:03:24.440
+ at this historic South Pole site
+
+1:03:24.440 --> 1:03:27.120
+ where NASA is supposed to send the first humans back
+
+1:03:27.120 --> 1:03:28.200
+ on the Artemis III mission.
+
+1:03:28.200 --> 1:03:30.720
+ So our hope is to directly support that human mission
+
+1:03:30.720 --> 1:03:32.120
+ with our data.
+
+1:03:32.120 --> 1:03:34.400
+ How does that connect to the swarm aspects?
+
+1:03:34.400 --> 1:03:35.680
+ Does it connect?
+
+1:03:35.680 --> 1:03:37.000
+ Yeah, so we're actually gonna fly
+
+1:03:37.000 --> 1:03:38.400
+ one of the little astro ants.
+
+1:03:38.400 --> 1:03:39.840
+ That's the current plan.
+
+1:03:39.840 --> 1:03:42.800
+ One of the little swarm robots on the top of a rover.
+
+1:03:42.800 --> 1:03:44.320
+ That's part of the mission.
+
+1:03:44.320 --> 1:03:45.640
+ Ants riding a rover?
+
+1:03:45.640 --> 1:03:48.160
+ Yes, exactly, an ant riding a rover.
+
+1:03:48.160 --> 1:03:49.840
+ That rover gets packed in a lander.
+
+1:03:49.840 --> 1:03:52.000
+ That lander gets packed in a SpaceX rocket.
+
+1:03:52.000 --> 1:03:53.880
+ So it's a whole nesting dolls situation
+
+1:03:53.880 --> 1:03:55.440
+ to get to the moon.
+
+1:03:55.440 --> 1:03:57.200
+ Mother of robot dragons.
+
+1:03:57.200 --> 1:03:58.640
+ Yes, exactly.
+
+1:03:58.640 --> 1:04:01.560
+ So this one, a swarm of one?
+
+1:04:01.560 --> 1:04:02.720
+ Swarm of one, exactly.
+
+1:04:02.720 --> 1:04:03.720
+ We're testing out.
+
+1:04:03.720 --> 1:04:05.480
+ It's a tech demonstration mission,
+
+1:04:05.480 --> 1:04:06.840
+ not a true swarm.
+
+1:04:06.840 --> 1:04:07.680
+ Yeah, there they are.
+
+1:04:07.680 --> 1:04:09.200
+ Those are the astro ants.
+
+1:04:09.200 --> 1:04:11.600
+ Wow, and this was a distributed system,
+
+1:04:11.600 --> 1:04:14.200
+ and in theory, you could have a ton of these.
+
+1:04:14.200 --> 1:04:15.880
+ Yes, these could also be centralized.
+
+1:04:15.880 --> 1:04:17.400
+ So they have wireless technology
+
+1:04:17.400 --> 1:04:19.840
+ that could also talk to a central base station
+
+1:04:19.840 --> 1:04:22.520
+ and will be assessing kind of case by case
+
+1:04:22.520 --> 1:04:23.880
+ whether it makes sense to operate them
+
+1:04:23.880 --> 1:04:25.120
+ in a decentralized swarm
+
+1:04:25.120 --> 1:04:27.800
+ or to command them in a centralized swarm.
+
+1:04:29.120 --> 1:04:32.200
+ Each robot is equipped with four magnetic wheels
+
+1:04:32.200 --> 1:04:35.680
+ which enable the robot to attach to any magnetic surface
+
+1:04:35.680 --> 1:04:37.760
+ so you can operate basically in any environment.
+
+1:04:37.760 --> 1:04:41.000
+ He tested the, we tested the mobility of all robots
+
+1:04:41.000 --> 1:04:44.840
+ on different materials in a microgravity environment.
+
+1:04:44.840 --> 1:04:46.960
+ On the vomit comet prior to going to the moon.
+
+1:04:46.960 --> 1:04:48.360
+ That must look so cool.
+
+1:04:48.360 --> 1:04:50.720
+ So they're basically moving along different
+
+1:04:50.720 --> 1:04:52.120
+ like metallic surfaces.
+
+1:04:52.120 --> 1:04:53.160
+ Yeah, exactly.
+
+1:04:54.200 --> 1:04:56.480
+ It's interesting when you, just a minute ago
+
+1:04:56.480 --> 1:04:58.360
+ talking about the reflection of
+
+1:04:59.320 --> 1:05:01.920
+ how space can be so aspirational and so uniting.
+
+1:05:01.920 --> 1:05:03.720
+ There's a great quote from Bill Anders
+
+1:05:03.720 --> 1:05:05.320
+ from the Apollo 8 mission to the moon,
+
+1:05:05.320 --> 1:05:08.280
+ which is he, it's the Earthrise photo that was taken
+
+1:05:08.280 --> 1:05:09.720
+ where you see the Earth coming up
+
+1:05:09.720 --> 1:05:11.080
+ over the horizon of the moon.
+
+1:05:11.080 --> 1:05:12.840
+ And the quote is something along the lines of
+
+1:05:12.840 --> 1:05:15.200
+ we came all the way to discover the moon
+
+1:05:15.200 --> 1:05:17.880
+ and what we really discovered was the Earth.
+
+1:05:17.880 --> 1:05:20.080
+ This really powerful image looking back.
+
+1:05:20.080 --> 1:05:22.360
+ And so we're also trying to think for our lunar mission
+
+1:05:22.360 --> 1:05:24.560
+ we realized we're a very privileged group at MIT
+
+1:05:24.560 --> 1:05:26.280
+ to get the opportunity to do this.
+
+1:05:26.280 --> 1:05:29.000
+ How could we bring humanity along with us?
+
+1:05:29.000 --> 1:05:31.080
+ And so one of the things we're still testing out
+
+1:05:31.080 --> 1:05:32.760
+ I don't know if we're gonna be able to swing it
+
+1:05:32.760 --> 1:05:35.560
+ would be to do something like a Twitch plays Pokemon
+
+1:05:35.560 --> 1:05:36.880
+ but with the robot.
+
+1:05:36.880 --> 1:05:39.560
+ So let a lot of people on earth actually control the robot
+
+1:05:39.560 --> 1:05:42.000
+ or at least benefit from the data that we're gathering
+
+1:05:42.000 --> 1:05:44.040
+ and try to release the data openly.
+
+1:05:44.040 --> 1:05:45.560
+ So we're exploring a couple of different ideas
+
+1:05:45.560 --> 1:05:48.360
+ for how do we engage more people in this mission.
+
+1:05:48.360 --> 1:05:51.440
+ That would be surreal to be able to interact
+
+1:05:51.440 --> 1:05:53.920
+ in some way with the thing that's out there.
+
+1:05:53.920 --> 1:05:54.760
+ Exactly.
+
+1:05:54.760 --> 1:05:55.600
+ On another surface.
+
+1:05:55.600 --> 1:05:56.600
+ Direct connection.
+
+1:05:56.600 --> 1:05:57.720
+ Direct connection.
+
+1:05:59.040 --> 1:06:01.320
+ I think about artificial intelligence in that same way
+
+1:06:01.320 --> 1:06:04.840
+ which is like building robots
+
+1:06:04.840 --> 1:06:07.360
+ puts a mirror to us humans.
+
+1:06:07.360 --> 1:06:09.320
+ It makes us like wonder about like
+
+1:06:09.320 --> 1:06:10.520
+ what is intelligence?
+
+1:06:10.520 --> 1:06:11.640
+ What is consciousness?
+
+1:06:11.640 --> 1:06:14.560
+ And what is actually valuable about human beings?
+
+1:06:14.560 --> 1:06:18.320
+ When AI system learns to play chess better than humans
+
+1:06:18.320 --> 1:06:19.760
+ you start to let go of this idea
+
+1:06:19.760 --> 1:06:22.800
+ that humans are special because of intelligence.
+
+1:06:22.800 --> 1:06:24.680
+ It's something else.
+
+1:06:26.280 --> 1:06:29.160
+ It's maybe the flame of human consciousness.
+
+1:06:29.160 --> 1:06:32.680
+ It's the capacity to feel deeply
+
+1:06:32.680 --> 1:06:36.360
+ to sort of to both suffer and to love all those things.
+
+1:06:36.360 --> 1:06:39.800
+ And that somehow AI to me sort of puts a mirror to that.
+
+1:06:39.800 --> 1:06:41.880
+ You mentioned HAL 9000.
+
+1:06:41.880 --> 1:06:46.400
+ You have to bring it up with these swarm bots
+
+1:06:46.400 --> 1:06:50.840
+ crawling on the surface of your cocoon in space.
+
+1:06:50.840 --> 1:06:52.440
+ I mean, all right.
+
+1:06:52.440 --> 1:06:56.680
+ Let me steel man the HAL 9000 perspective here.
+
+1:06:56.680 --> 1:06:57.520
+ Okay.
+
+1:06:58.920 --> 1:07:02.120
+ The poor guy just wanted to maintain the mission
+
+1:07:02.120 --> 1:07:03.200
+ and the astronauts were,
+
+1:07:03.200 --> 1:07:05.680
+ I mean, I don't know if people often talk about that
+
+1:07:05.680 --> 1:07:10.080
+ but like doctors have to make difficult decisions too.
+
+1:07:10.080 --> 1:07:11.600
+ When there's limited resources
+
+1:07:11.600 --> 1:07:14.040
+ you actually do have to sacrifice human life often
+
+1:07:14.040 --> 1:07:16.680
+ because you have to make decisions.
+
+1:07:16.680 --> 1:07:20.120
+ And I think HAL is probably making that kind of decision
+
+1:07:20.120 --> 1:07:22.800
+ about what's more important,
+
+1:07:22.800 --> 1:07:26.640
+ the lives of individual astronauts or the mission.
+
+1:07:26.640 --> 1:07:30.200
+ And I feel like AI and other humans
+
+1:07:30.200 --> 1:07:33.000
+ will need to make these decisions.
+
+1:07:33.000 --> 1:07:37.160
+ And it also feels like AI systems will need to help
+
+1:07:37.160 --> 1:07:38.920
+ make those decisions.
+
+1:07:38.920 --> 1:07:40.200
+ I don't know.
+
+1:07:40.200 --> 1:07:42.680
+ I guess my question is about
+
+1:07:42.680 --> 1:07:46.000
+ greater and greater collective intelligence by systems.
+
+1:07:49.320 --> 1:07:51.560
+ Do you worry about that?
+
+1:07:51.560 --> 1:07:54.720
+ What is the right way to sort of solve this problem
+
+1:07:54.720 --> 1:07:56.000
+ keeping a human in the loop?
+
+1:07:56.000 --> 1:07:57.480
+ Do you think about this kind of stuff
+
+1:07:57.480 --> 1:08:00.040
+ or are they sufficiently dumb now the robots
+
+1:08:00.040 --> 1:08:03.480
+ that that's not yet on the horizon to think about?
+
+1:08:03.480 --> 1:08:04.840
+ I think it should be on the horizon.
+
+1:08:04.840 --> 1:08:06.560
+ It's always good to think about these things early
+
+1:08:06.560 --> 1:08:09.280
+ because we make a lot of technical design decisions
+
+1:08:09.280 --> 1:08:11.160
+ at this phase working with swarm robots
+
+1:08:11.160 --> 1:08:12.600
+ that it would be better to have thought
+
+1:08:12.600 --> 1:08:13.920
+ about some of these questions early
+
+1:08:13.920 --> 1:08:16.320
+ in the life cycle of a project.
+
+1:08:16.320 --> 1:08:18.600
+ There is a real interest in NASA right now
+
+1:08:18.600 --> 1:08:21.640
+ thinking about the future of human robot interaction, HRI,
+
+1:08:21.640 --> 1:08:22.920
+ and what is the right synergy
+
+1:08:22.920 --> 1:08:25.800
+ in terms of level of control for the human
+
+1:08:25.800 --> 1:08:29.120
+ versus level of dependence or control for the robot.
+
+1:08:29.120 --> 1:08:33.560
+ And we're beginning to test out more of these scenarios.
+
+1:08:33.560 --> 1:08:36.080
+ For example, the Gateway Space Station,
+
+1:08:36.080 --> 1:08:37.920
+ which is meant to be in orbit around the moon
+
+1:08:37.920 --> 1:08:40.680
+ as a staging base for the surface operations,
+
+1:08:40.680 --> 1:08:43.640
+ is meant to be able to function autonomously
+
+1:08:43.640 --> 1:08:46.360
+ with no humans in it for months at a time
+
+1:08:46.360 --> 1:08:47.800
+ because they think it's gonna be seasonal.
+
+1:08:47.800 --> 1:08:50.160
+ They think we might not be constantly staffing it.
+
+1:08:50.160 --> 1:08:51.800
+ So this will be a really great test of,
+
+1:08:51.800 --> 1:08:53.480
+ I don't know that anybody's yet worried
+
+1:08:53.480 --> 1:08:55.280
+ about HAL 9000 evolving,
+
+1:08:55.280 --> 1:08:58.800
+ but certainly just the robustness of some of these AI systems
+
+1:08:58.800 --> 1:09:01.840
+ that might be asked to autonomously maintain the station
+
+1:09:01.840 --> 1:09:06.080
+ while the humans are away or detection algorithms
+
+1:09:06.080 --> 1:09:07.960
+ that are gonna say, if you had a human pilot,
+
+1:09:07.960 --> 1:09:09.920
+ they might see debris in orbit and steer around it.
+
+1:09:09.920 --> 1:09:11.280
+ There'll be a lot of autonomous navigation
+
+1:09:11.280 --> 1:09:12.800
+ that has to happen.
+
+1:09:12.800 --> 1:09:14.160
+ That'll be one of the early test beds
+
+1:09:14.160 --> 1:09:16.640
+ where we'll start to get a little bit closer to that future.
+
+1:09:16.640 --> 1:09:19.400
+ Well, the HRI component is really interesting to me,
+
+1:09:20.880 --> 1:09:24.760
+ especially when the I includes like almost friendship
+
+1:09:24.760 --> 1:09:27.560
+ because people don't realize this, I think,
+
+1:09:27.560 --> 1:09:29.840
+ that we humans long for connection.
+
+1:09:29.840 --> 1:09:32.320
+ And when you have even a basic interaction
+
+1:09:32.320 --> 1:09:35.280
+ that's just like supposed to be just like serving you
+
+1:09:35.280 --> 1:09:37.680
+ or something, you still project,
+
+1:09:37.680 --> 1:09:42.680
+ it's still a source of meaning and connection.
+
+1:09:45.320 --> 1:09:47.040
+ And so you do have to think about that.
+
+1:09:47.040 --> 1:09:51.520
+ I mean, HAL 9000, the movie maybe doesn't portray it
+
+1:09:51.520 --> 1:09:53.800
+ that way, but I'm sure there's a relationship there
+
+1:09:53.800 --> 1:09:56.240
+ between the astronauts and the robot,
+
+1:09:56.240 --> 1:09:57.800
+ especially when you have greater and greater level
+
+1:09:57.800 --> 1:09:58.720
+ of intelligence.
+
+1:09:58.720 --> 1:10:02.960
+ And maybe that addresses the happiness question too.
+
+1:10:02.960 --> 1:10:06.320
+ Yeah, I think there's a great book by Kate Darling,
+
+1:10:06.320 --> 1:10:08.200
+ who's one of my colleagues at MIT.
+
+1:10:08.200 --> 1:10:09.480
+ Yeah, she's amazing.
+
+1:10:09.480 --> 1:10:11.520
+ She's already been on this podcast,
+
+1:10:11.520 --> 1:10:14.760
+ but we talk all the time and we're supposed to talk
+
+1:10:14.760 --> 1:10:16.200
+ and we've been missing each other
+
+1:10:16.200 --> 1:10:18.000
+ and we're gonna make it happen soon.
+
+1:10:18.000 --> 1:10:18.840
+ Yeah.
+
+1:10:18.840 --> 1:10:20.520
+ Come down to Texas, Kate.
+
+1:10:20.520 --> 1:10:22.320
+ All right, anyway, yeah, she's amazing.
+
+1:10:22.320 --> 1:10:25.160
+ She has this book, her whole work is about this.
+
+1:10:25.160 --> 1:10:26.520
+ Connection with robots, yeah.
+
+1:10:26.520 --> 1:10:28.440
+ This beautiful connection that we have with robots,
+
+1:10:28.440 --> 1:10:30.600
+ but I think it's greater and greater importance
+
+1:10:30.600 --> 1:10:32.240
+ when it's out in space,
+
+1:10:32.240 --> 1:10:34.920
+ because it could help alleviate some of the loneliness.
+
+1:10:34.920 --> 1:10:35.760
+ Right.
+
+1:10:35.760 --> 1:10:37.360
+ One of the projects in the book that I gave you,
+
+1:10:37.360 --> 1:10:39.040
+ which is this catalog of the projects
+
+1:10:39.040 --> 1:10:40.760
+ that we've worked on over the last five years,
+
+1:10:40.760 --> 1:10:43.960
+ is this social robot that was developed at the Media Lab.
+
+1:10:43.960 --> 1:10:46.320
+ And we, one of the first years in 2017
+
+1:10:46.320 --> 1:10:47.920
+ that we flew a zero G flight,
+
+1:10:47.920 --> 1:10:49.680
+ we took the social robot along
+
+1:10:49.680 --> 1:10:50.760
+ and tried to do a little bit
+
+1:10:50.760 --> 1:10:53.000
+ of a very scaled down human study
+
+1:10:53.000 --> 1:10:54.080
+ to look at these questions,
+
+1:10:54.080 --> 1:10:56.880
+ because you do imagine that we would form a bond,
+
+1:10:56.880 --> 1:10:58.840
+ a real bond with the social robots
+
+1:10:58.840 --> 1:11:01.600
+ that might be not just serving us on a mission,
+
+1:11:01.600 --> 1:11:04.480
+ but really be our teammates on a future mission.
+
+1:11:04.480 --> 1:11:06.640
+ And I do think that that could have a powerful role
+
+1:11:06.640 --> 1:11:08.680
+ in the mental health and just the stability of a crew
+
+1:11:08.680 --> 1:11:10.880
+ is to have some other robot friends come along.
+
+1:11:10.880 --> 1:11:13.320
+ What do you, by the way, the book you mentioned
+
+1:11:13.320 --> 1:11:18.320
+ is into the Anthropocosmos,
+
+1:11:18.320 --> 1:11:22.000
+ a whole space catalog from the space catalog.
+
+1:11:22.000 --> 1:11:22.840
+ Get that reference.
+
+1:11:22.840 --> 1:11:25.240
+ Yeah, so call out to Earth catalog,
+
+1:11:25.240 --> 1:11:26.320
+ a whole space catalog
+
+1:11:26.320 --> 1:11:29.440
+ from the MIT Space Exploration Initiative.
+
+1:11:30.440 --> 1:11:31.880
+ What about the happiness?
+
+1:11:31.880 --> 1:11:33.920
+ You said that that's one of the problems
+
+1:11:33.920 --> 1:11:35.880
+ of when you're out in space.
+
+1:11:35.880 --> 1:11:37.480
+ How do you keep humans happy?
+
+1:11:37.480 --> 1:11:38.760
+ Again, asking for a friend.
+
+1:11:38.760 --> 1:11:40.920
+ Yes, I mean, one of the big challenges
+
+1:11:40.920 --> 1:11:43.440
+ is you can't just open a window
+
+1:11:43.440 --> 1:11:45.920
+ or walk out a door and blow off steam, right?
+
+1:11:45.920 --> 1:11:49.280
+ You can't just go somewhere to clear your head.
+
+1:11:49.280 --> 1:11:52.760
+ And in that sense, you need to build habitats
+
+1:11:52.760 --> 1:11:56.920
+ that are homes that really care for the humans inside them
+
+1:11:56.920 --> 1:11:59.240
+ and have, whether it's biophilia
+
+1:11:59.240 --> 1:12:02.040
+ and a place where you can go and feel like you're in nature
+
+1:12:02.040 --> 1:12:06.920
+ or a VR headset, which for some people is a poor simulacrum
+
+1:12:06.920 --> 1:12:09.200
+ but is maybe better than nothing.
+
+1:12:09.200 --> 1:12:10.280
+ You need to be thinking
+
+1:12:10.280 --> 1:12:12.920
+ about these technological interventions
+
+1:12:12.920 --> 1:12:14.960
+ that are gonna have to be part of your home
+
+1:12:14.960 --> 1:12:17.720
+ and be part of your maybe day to day ritual
+
+1:12:17.720 --> 1:12:20.760
+ to keep you steady and balanced and happy
+
+1:12:20.760 --> 1:12:22.840
+ or feeling fulfilled.
+
+1:12:22.840 --> 1:12:25.600
+ What about other humans, relationship with other humans?
+
+1:12:25.600 --> 1:12:28.000
+ Do those get weird
+
+1:12:28.000 --> 1:12:30.360
+ when you get past a certain number of humans?
+
+1:12:30.360 --> 1:12:31.600
+ I'm not an expert in this area
+
+1:12:31.600 --> 1:12:33.040
+ but an anecdote that I'll share.
+
+1:12:33.040 --> 1:12:36.240
+ My understanding is that NASA has still not decided
+
+1:12:36.240 --> 1:12:38.400
+ whether it's better to send married couples
+
+1:12:38.400 --> 1:12:41.040
+ or single crew members in terms of,
+
+1:12:41.040 --> 1:12:43.040
+ you want some level of stability,
+
+1:12:43.040 --> 1:12:45.560
+ you don't wanna have the drama of romantic relationships
+
+1:12:45.560 --> 1:12:47.600
+ like you're alluding to before,
+
+1:12:47.600 --> 1:12:50.600
+ but they can't decide because married couples also fight
+
+1:12:50.600 --> 1:12:52.080
+ and have a really tough dynamic.
+
+1:12:52.080 --> 1:12:54.400
+ And so there's a lot of open questions still to answer
+
+1:12:54.400 --> 1:12:57.520
+ about what is the ideal psychological makeup of a crew?
+
+1:12:57.520 --> 1:12:59.800
+ And we're starting to test some of these things
+
+1:12:59.800 --> 1:13:01.720
+ with the civilian crews that are growing up
+
+1:13:01.720 --> 1:13:04.120
+ with Inspiration4, like last fall with SpaceX
+
+1:13:04.120 --> 1:13:07.360
+ and Axe One that's gonna fly in a few days here in March.
+
+1:13:07.360 --> 1:13:10.920
+ As we begin to lengthen the time of those civilian crews,
+
+1:13:10.920 --> 1:13:12.440
+ I think we'll start to learn a little bit more
+
+1:13:12.440 --> 1:13:15.800
+ about just average everyday human to human dynamics
+
+1:13:15.800 --> 1:13:18.280
+ and not the astronauts that are themselves selected
+
+1:13:18.280 --> 1:13:21.600
+ to be perfect human specimens, very good to work with,
+
+1:13:21.600 --> 1:13:23.040
+ easy to get along with.
+
+1:13:23.040 --> 1:13:26.360
+ I wish you collected more data about this pandemic
+
+1:13:26.360 --> 1:13:29.240
+ because I feel like it's a good rough simulation
+
+1:13:29.240 --> 1:13:30.440
+ of what it'd be like out in space.
+
+1:13:30.440 --> 1:13:33.520
+ A lot of people are locked down, some married couples,
+
+1:13:33.520 --> 1:13:35.360
+ I think a lot of marriages broke up,
+
+1:13:35.360 --> 1:13:38.400
+ a lot of marriages got closer together.
+
+1:13:38.400 --> 1:13:41.120
+ So it's like, and then the single people,
+
+1:13:41.120 --> 1:13:43.120
+ some of them went off the cliff
+
+1:13:43.120 --> 1:13:45.680
+ and some of them discovered their new happiness
+
+1:13:45.680 --> 1:13:46.840
+ and meaning and so on.
+
+1:13:46.840 --> 1:13:50.080
+ It's a beautiful little experiment, a painful one.
+
+1:13:50.080 --> 1:13:52.580
+ Is there a thorough way to really test that?
+
+1:13:54.840 --> 1:13:56.720
+ Because it's such a costly experiment
+
+1:13:58.560 --> 1:13:59.800
+ to send humans up there,
+
+1:13:59.800 --> 1:14:01.560
+ but I guess you can always return back to Earth
+
+1:14:01.560 --> 1:14:02.760
+ if it's not working out.
+
+1:14:02.760 --> 1:14:04.600
+ That's what we hope, that's what you hope.
+
+1:14:04.600 --> 1:14:06.960
+ You don't have like a Apollo 13 situation
+
+1:14:06.960 --> 1:14:08.040
+ that doesn't quite make it back.
+
+1:14:08.040 --> 1:14:11.920
+ But yeah, this is also why Mars is such a challenge.
+
+1:14:11.920 --> 1:14:13.560
+ The moon is only three days away.
+
+1:14:13.560 --> 1:14:15.280
+ That's a lot quicker to recover from
+
+1:14:15.280 --> 1:14:17.040
+ if there's a psychological problem with the crew
+
+1:14:17.040 --> 1:14:19.400
+ or any type of maintenance problem, anything.
+
+1:14:19.400 --> 1:14:23.680
+ Three years is such a challenge
+
+1:14:23.680 --> 1:14:25.020
+ compared to these other domains
+
+1:14:25.020 --> 1:14:26.240
+ that we've been getting more used to
+
+1:14:26.240 --> 1:14:27.960
+ in terms of human spaceflight.
+
+1:14:27.960 --> 1:14:30.760
+ So this is a question that we will need to have explored more
+
+1:14:30.760 --> 1:14:33.000
+ before we start really sending crews to Mars.
+
+1:14:33.000 --> 1:14:38.000
+ So you're a young scientist, do you think in your lifetime
+
+1:14:39.760 --> 1:14:43.480
+ you will go out into orbit,
+
+1:14:43.480 --> 1:14:47.360
+ you will go out beyond into deep space
+
+1:14:47.360 --> 1:14:50.380
+ and potentially step, you,
+
+1:14:50.380 --> 1:14:53.320
+ I don't know if you can call yourself a civilian.
+
+1:14:53.320 --> 1:14:54.740
+ I don't know if that's what you count as,
+
+1:14:54.740 --> 1:14:59.740
+ but you as a curious ant from MIT land step on Mars.
+
+1:15:03.660 --> 1:15:04.500
+ Yes.
+
+1:15:06.240 --> 1:15:07.080
+ That's a firm, that's a firm.
+
+1:15:07.080 --> 1:15:07.920
+ Are you coming back?
+
+1:15:07.920 --> 1:15:08.980
+ Firm, yes, yeah, I'm coming back.
+
+1:15:08.980 --> 1:15:12.080
+ I don't want that one way mission, I want the two way mission.
+
+1:15:12.080 --> 1:15:14.220
+ But yes, I mean, I think we're already talking
+
+1:15:14.220 --> 1:15:16.240
+ about a pretty near term opportunity
+
+1:15:16.240 --> 1:15:17.900
+ where I could send graduate students
+
+1:15:17.900 --> 1:15:19.140
+ to the International Space Station.
+
+1:15:19.140 --> 1:15:24.140
+ Yeah, not a sacrifice, but send graduate students.
+
+1:15:25.000 --> 1:15:25.840
+ For the experience.
+
+1:15:25.840 --> 1:15:26.960
+ For the experience.
+
+1:15:26.960 --> 1:15:29.440
+ Send graduate students to the ISS to do their research.
+
+1:15:29.440 --> 1:15:31.720
+ I do think you and I both would have an opportunity
+
+1:15:31.720 --> 1:15:35.640
+ to go to a lunar base of some sort within our lifetime.
+
+1:15:35.640 --> 1:15:39.620
+ And there's a good chance if we really wanted to,
+
+1:15:39.620 --> 1:15:41.760
+ we might have to really advocate for it,
+
+1:15:41.760 --> 1:15:43.280
+ apply to an astronaut program.
+
+1:15:43.280 --> 1:15:45.120
+ There will be some avenues for humans
+
+1:15:45.120 --> 1:15:46.800
+ in our lifetime to go to Mars.
+
+1:15:46.800 --> 1:15:51.080
+ What's the bar for like health?
+
+1:15:51.080 --> 1:15:53.380
+ Do you think that bar will keep getting lower and lower
+
+1:15:53.380 --> 1:15:55.320
+ in terms of how healthy, how athletic,
+
+1:15:55.320 --> 1:15:57.880
+ like how the psychological profile,
+
+1:15:57.880 --> 1:15:59.000
+ all those kinds of things?
+
+1:15:59.000 --> 1:16:01.600
+ Yeah, for one, we're gonna build more robust habitats
+
+1:16:01.600 --> 1:16:03.360
+ that don't depend on astronauts
+
+1:16:03.360 --> 1:16:05.320
+ being so impeccably well trained.
+
+1:16:05.320 --> 1:16:08.280
+ So we're gonna make it better for inclusion
+
+1:16:08.280 --> 1:16:10.480
+ and just opening access to space.
+
+1:16:10.480 --> 1:16:12.800
+ But there's a fantastic group called Astro Access
+
+1:16:12.800 --> 1:16:15.480
+ that is already helping disabled space flyers
+
+1:16:15.480 --> 1:16:18.480
+ do zero G flights and potentially get access to the ISS.
+
+1:16:18.480 --> 1:16:19.840
+ And some of the things that we think of
+
+1:16:19.840 --> 1:16:24.800
+ as disabilities on earth are hyper abilities in space.
+
+1:16:24.800 --> 1:16:27.520
+ You don't need really powerful legs in space.
+
+1:16:27.520 --> 1:16:30.760
+ What you'd really benefit from having is a third arm,
+
+1:16:30.760 --> 1:16:32.360
+ more ways to kind of move yourself around
+
+1:16:32.360 --> 1:16:33.640
+ and grip and interact.
+
+1:16:33.640 --> 1:16:38.040
+ So we are already seeing a much more open minded approach
+
+1:16:38.040 --> 1:16:40.840
+ to who gets to go to space and Astro Access
+
+1:16:40.840 --> 1:16:43.440
+ is a wonderful organization doing some of that work.
+
+1:16:43.440 --> 1:16:47.640
+ I'm hoping introversion will also be a superpower in space.
+
+1:16:47.640 --> 1:16:50.000
+ Okay, well, first I'd love to get your opinion
+
+1:16:50.000 --> 1:16:52.640
+ on commercial space flight, what SpaceX,
+
+1:16:52.640 --> 1:16:54.200
+ what Blue Origin are doing.
+
+1:16:54.200 --> 1:16:57.720
+ And also another question on top of that is,
+
+1:16:58.680 --> 1:17:01.360
+ because you've worked with a lot of different kinds
+
+1:17:01.360 --> 1:17:03.240
+ of people, culturally, what's the difference
+
+1:17:03.240 --> 1:17:07.960
+ between SpaceX or commercial type of efforts
+
+1:17:07.960 --> 1:17:10.800
+ NASA and MIT?
+
+1:17:10.800 --> 1:17:11.760
+ And academia.
+
+1:17:11.760 --> 1:17:12.720
+ Academia.
+
+1:17:12.720 --> 1:17:14.440
+ Yeah, so the first part of your question,
+
+1:17:14.440 --> 1:17:18.360
+ I am thrilled by all of the commercial activity in space.
+
+1:17:18.360 --> 1:17:20.000
+ It has really empowered our program.
+
+1:17:20.000 --> 1:17:23.480
+ So instead of me waiting for five years to get a grant
+
+1:17:23.480 --> 1:17:24.600
+ and get the money from the grant
+
+1:17:24.600 --> 1:17:26.920
+ and only then can you send a project to space,
+
+1:17:26.920 --> 1:17:29.640
+ I go out and I fundraise a lot like a startup founder
+
+1:17:29.640 --> 1:17:32.440
+ and I directly buy access to space
+
+1:17:32.440 --> 1:17:33.600
+ on the International Space Station
+
+1:17:33.600 --> 1:17:36.160
+ through SpaceX or NanoRacks, same with Blue Origin
+
+1:17:36.160 --> 1:17:38.720
+ and their suborbital craft, same with Axiom now.
+
+1:17:38.720 --> 1:17:42.480
+ Axiom's making plans for their own commercial space station.
+
+1:17:42.480 --> 1:17:44.200
+ It's not out of the realm of possibility,
+
+1:17:44.200 --> 1:17:48.360
+ but in a few years, I will rent lab space in orbit.
+
+1:17:48.360 --> 1:17:50.920
+ I will rent a module from the Axiom space station
+
+1:17:50.920 --> 1:17:54.000
+ or the orbital reef, which is the Blue Origin space station
+
+1:17:54.000 --> 1:17:56.840
+ or NanoRacks is thinking about Starlab Oasis.
+
+1:17:56.840 --> 1:17:58.000
+ There's probably some other companies
+
+1:17:58.000 --> 1:17:59.040
+ that I'm not even aware of yet
+
+1:17:59.040 --> 1:18:00.880
+ that are doing commercial space habitats.
+
+1:18:00.880 --> 1:18:02.800
+ So I think that's fabulous
+
+1:18:02.800 --> 1:18:04.800
+ and really empowering for our research.
+
+1:18:04.800 --> 1:18:06.320
+ Is it affordable?
+
+1:18:06.320 --> 1:18:09.800
+ So like loosely speaking, does it become affordable
+
+1:18:09.800 --> 1:18:13.800
+ for like MIT type of research lab?
+
+1:18:13.800 --> 1:18:18.200
+ Does it, or does it need to be a multi university
+
+1:18:18.200 --> 1:18:20.800
+ like a gigantic effort, a consortium thing?
+
+1:18:20.800 --> 1:18:22.800
+ One of the reasons we're spinning out Aurelia
+
+1:18:22.800 --> 1:18:24.640
+ is we actually realized it's cheap enough.
+
+1:18:24.640 --> 1:18:26.640
+ It doesn't even have to be MIT.
+
+1:18:26.640 --> 1:18:29.640
+ And we wanted to start democratizing access
+
+1:18:29.640 --> 1:18:30.960
+ to these spaceflight opportunities
+
+1:18:30.960 --> 1:18:33.040
+ to a much broader swath of humanity.
+
+1:18:33.040 --> 1:18:36.640
+ Could you take a Khan Academy educational course
+
+1:18:36.640 --> 1:18:38.800
+ about, hey, students around the world,
+
+1:18:38.800 --> 1:18:40.720
+ this is how you get ready for a zero G flight.
+
+1:18:40.720 --> 1:18:43.280
+ And by the way, come fly with us next year,
+
+1:18:43.280 --> 1:18:44.800
+ which is something we're gonna do with Aurelius.
+
+1:18:44.800 --> 1:18:48.120
+ We're gonna bring much more just kind of day to day folks
+
+1:18:48.120 --> 1:18:50.280
+ on zero G flights and get them access
+
+1:18:50.280 --> 1:18:52.600
+ to engaging in the space industry.
+
+1:18:52.600 --> 1:18:54.720
+ So it's become cheap enough
+
+1:18:54.720 --> 1:18:57.000
+ and the prices have dropped enough to consider even that.
+
+1:18:57.000 --> 1:18:57.960
+ So that's amazing.
+
+1:18:57.960 --> 1:18:59.360
+ It definitely doesn't have to be a consortium
+
+1:18:59.360 --> 1:19:00.880
+ of universities anymore.
+
+1:19:00.880 --> 1:19:02.040
+ Depends on what you wanna fly.
+
+1:19:02.040 --> 1:19:03.440
+ If you wanna fly James Webb,
+
+1:19:03.440 --> 1:19:05.880
+ a huge telescope that's decades in the making,
+
+1:19:05.880 --> 1:19:08.920
+ sure, you need a NASA allocation budget.
+
+1:19:08.920 --> 1:19:10.520
+ You need billions.
+
+1:19:10.520 --> 1:19:12.480
+ But for a lot of the stuff in the book
+
+1:19:12.480 --> 1:19:13.600
+ and our research portfolio,
+
+1:19:13.600 --> 1:19:16.000
+ it's actually becoming far more accessible.
+
+1:19:16.000 --> 1:19:17.520
+ So that's a commercial.
+
+1:19:17.520 --> 1:19:21.200
+ What about NASA and MIT academia?
+
+1:19:21.200 --> 1:19:25.720
+ Yeah, I think people have been worried about NASA
+
+1:19:25.720 --> 1:19:28.400
+ the last few years because in some people's minds,
+
+1:19:28.400 --> 1:19:31.600
+ they are ceding ground to these commercial efforts,
+
+1:19:31.600 --> 1:19:34.360
+ but that's really not what's happening.
+
+1:19:34.360 --> 1:19:37.560
+ NASA empowered these commercial efforts
+
+1:19:37.560 --> 1:19:40.080
+ because they wanna free themselves up to go to Mars
+
+1:19:40.080 --> 1:19:43.000
+ and go to Europa and continue being
+
+1:19:43.000 --> 1:19:46.000
+ that really aspirational force for humanity
+
+1:19:46.000 --> 1:19:48.760
+ of pushing the boundary, always pushing the boundary.
+
+1:19:48.760 --> 1:19:50.840
+ And if they were anchored in low earth orbit,
+
+1:19:50.840 --> 1:19:53.200
+ maintaining a space station indefinitely,
+
+1:19:53.200 --> 1:19:54.800
+ that's so much a part of their budget
+
+1:19:54.800 --> 1:19:57.120
+ that it was keeping them from being able to do more.
+
+1:19:57.120 --> 1:19:59.000
+ So it actually is really fantastic for NASA
+
+1:19:59.000 --> 1:20:00.920
+ to have grown this commercial ecosystem
+
+1:20:00.920 --> 1:20:03.040
+ and then that frees NASA up to go further.
+
+1:20:03.040 --> 1:20:05.400
+ And in academia, we like to think that we will be able
+
+1:20:05.400 --> 1:20:09.480
+ to do the provocative next generation research
+
+1:20:09.480 --> 1:20:13.120
+ that is going to unlock things at that frontier.
+
+1:20:13.120 --> 1:20:14.920
+ And we can partner with NASA.
+
+1:20:14.920 --> 1:20:15.960
+ We can go through a program
+
+1:20:15.960 --> 1:20:18.160
+ if we wanna send a probe out really far,
+
+1:20:18.160 --> 1:20:19.560
+ but we can also partner with SpaceX
+
+1:20:19.560 --> 1:20:22.720
+ and see what human life in a SpaceX Mars settlement
+
+1:20:22.720 --> 1:20:24.880
+ might look like and how we could design for that.
+
+1:20:24.880 --> 1:20:27.600
+ Speaking of projects, maybe are there other projects
+
+1:20:27.600 --> 1:20:30.120
+ that pop to mind from the Space Exploration Initiative
+
+1:20:30.120 --> 1:20:32.800
+ or maybe stuff from the book that you can mention?
+
+1:20:32.800 --> 1:20:34.280
+ Something super cool.
+
+1:20:34.280 --> 1:20:35.800
+ I mean, everything we've been talking about is cool,
+
+1:20:35.800 --> 1:20:37.800
+ but just something that pops to mind again.
+
+1:20:37.800 --> 1:20:40.520
+ Yeah, so we talked about life in space
+
+1:20:40.520 --> 1:20:42.680
+ and you might need more arms than legs.
+
+1:20:42.680 --> 1:20:44.800
+ One of the projects by Valentina Sumini
+
+1:20:44.800 --> 1:20:48.680
+ was a air powered robotics tail.
+
+1:20:48.680 --> 1:20:50.400
+ So it's a soft robotics tail
+
+1:20:50.400 --> 1:20:53.000
+ that essentially has a little camera on the back end of it,
+
+1:20:53.000 --> 1:20:55.680
+ can do computer vision and knows where to grapple.
+
+1:20:55.680 --> 1:20:56.840
+ So it's behind you.
+
+1:20:56.840 --> 1:20:59.320
+ It grapples onto something and holds you in space
+
+1:20:59.320 --> 1:21:00.440
+ and then you can actually free up
+
+1:21:00.440 --> 1:21:02.080
+ both of your hands to work.
+
+1:21:02.080 --> 1:21:03.400
+ So we're already starting to think about
+
+1:21:03.400 --> 1:21:07.040
+ the design of bionic humans or prosthetics
+
+1:21:07.040 --> 1:21:09.240
+ or things that would make you kind of like a cyborg
+
+1:21:09.240 --> 1:21:11.600
+ to augment your capabilities
+
+1:21:11.600 --> 1:21:13.160
+ when you're in a space environment.
+
+1:21:13.160 --> 1:21:14.600
+ How would you control something like that?
+
+1:21:14.600 --> 1:21:17.960
+ So it's kind of like a, I mean, you can't call it a leg,
+
+1:21:17.960 --> 1:21:20.280
+ but whatever, it's a. An additional appendage.
+
+1:21:20.280 --> 1:21:21.760
+ Appendage, so how would you,
+
+1:21:21.760 --> 1:21:23.840
+ what are ideas for controlling something like that?
+
+1:21:23.840 --> 1:21:26.560
+ Yeah, so right now it's super, yeah, there you go.
+
+1:21:26.560 --> 1:21:27.400
+ That's cool.
+
+1:21:27.400 --> 1:21:29.720
+ Right now it's super manual.
+
+1:21:29.720 --> 1:21:32.400
+ It's basically just like a kind of a set pattern
+
+1:21:32.400 --> 1:21:34.160
+ of inflating as we're testing it.
+
+1:21:34.160 --> 1:21:35.960
+ But in the future, if we had a Neuralink,
+
+1:21:35.960 --> 1:21:38.000
+ I mean, this is something that you could imagine
+
+1:21:38.000 --> 1:21:39.000
+ directly controlling,
+
+1:21:39.000 --> 1:21:41.360
+ just thinking thoughts and controlling it.
+
+1:21:41.360 --> 1:21:42.560
+ That's a ways away.
+
+1:21:42.560 --> 1:21:45.360
+ Yeah, so we talked about on the biology side,
+
+1:21:45.360 --> 1:21:47.800
+ astrobiology, there's probably agriculture stuff.
+
+1:21:48.720 --> 1:21:51.240
+ Is there other things that kind of feed the ecosystem
+
+1:21:51.240 --> 1:21:53.160
+ of out in space for survival
+
+1:21:53.160 --> 1:21:56.200
+ or the robotics architectures, the self assembly stuff?
+
+1:21:56.200 --> 1:21:59.000
+ So kind of combining something we were talking about,
+
+1:21:59.000 --> 1:22:01.040
+ you can form these relationships with objects
+
+1:22:01.040 --> 1:22:02.640
+ and anthropomorphize.
+
+1:22:02.640 --> 1:22:04.840
+ One of the things that we're thinking about for agriculture
+
+1:22:04.840 --> 1:22:08.720
+ created by Manwe and Somu, so two students at MIT,
+
+1:22:08.720 --> 1:22:10.880
+ was this little, it looks like a planet,
+
+1:22:10.880 --> 1:22:13.160
+ but it's inspired by, I think, a Mandala
+
+1:22:13.160 --> 1:22:15.000
+ or Nepalese spinning wheel.
+
+1:22:15.000 --> 1:22:16.680
+ And you plant plants on the inside
+
+1:22:16.680 --> 1:22:19.160
+ and the astronaut has to spin it every day
+
+1:22:19.160 --> 1:22:20.920
+ to help the plants survive.
+
+1:22:20.920 --> 1:22:22.520
+ So it's a way to give the astronauts
+
+1:22:22.520 --> 1:22:23.960
+ something to care about,
+
+1:22:23.960 --> 1:22:26.400
+ something that they are responsible for keeping alive
+
+1:22:26.400 --> 1:22:29.120
+ and can really invest themselves in.
+
+1:22:29.120 --> 1:22:30.600
+ And it's not necessary, right?
+
+1:22:30.600 --> 1:22:33.560
+ We have other ways to grow in orbit,
+
+1:22:33.560 --> 1:22:35.120
+ hydroponics, liquid medium,
+
+1:22:35.120 --> 1:22:37.480
+ trying to keep the liquid around the plant roots is hard
+
+1:22:37.480 --> 1:22:39.080
+ because there's no gravity to pull it down
+
+1:22:39.080 --> 1:22:40.440
+ in a particular direction.
+
+1:22:40.440 --> 1:22:42.680
+ But what I loved about this project was they said,
+
+1:22:42.680 --> 1:22:45.600
+ sure, we have ways that the plants could grow on their own,
+
+1:22:45.600 --> 1:22:48.040
+ but the astronauts might want to care for it
+
+1:22:48.040 --> 1:22:49.680
+ in the same way that we have little plants
+
+1:22:49.680 --> 1:22:52.680
+ that come to be important to us, little plant friends.
+
+1:22:52.680 --> 1:22:54.480
+ So there's AgriFuge, that's an early model
+
+1:22:54.480 --> 1:22:58.040
+ of this manually spinning plant habitat.
+
+1:22:58.040 --> 1:23:01.520
+ I guess this is the best of academic research
+
+1:23:01.520 --> 1:23:03.520
+ is you can do these kinds of wild ideas.
+
+1:23:03.520 --> 1:23:04.520
+ Wild ideas, yeah.
+
+1:23:04.520 --> 1:23:07.240
+ Well, I get to spend quite a bit of time
+
+1:23:07.240 --> 1:23:12.000
+ with Mr. Elon Musk and he's very stressed,
+
+1:23:12.000 --> 1:23:14.520
+ especially about Starship
+
+1:23:14.520 --> 1:23:16.520
+ and all those kinds of engineering efforts.
+
+1:23:17.800 --> 1:23:20.600
+ What do you think about how damn hard it is
+
+1:23:20.600 --> 1:23:23.520
+ to get out of space?
+
+1:23:23.520 --> 1:23:25.680
+ Like, are we humans gonna be able to do this?
+
+1:23:26.920 --> 1:23:28.880
+ I don't know, I think it feels like
+
+1:23:28.880 --> 1:23:31.400
+ it's an engineering problem, it's a scientific problem,
+
+1:23:31.400 --> 1:23:33.400
+ but it's also just a motivation problem
+
+1:23:33.400 --> 1:23:35.400
+ for the entire human species.
+
+1:23:35.400 --> 1:23:39.520
+ And you also need to have superstar researchers
+
+1:23:39.520 --> 1:23:40.800
+ and engineers working on it.
+
+1:23:40.800 --> 1:23:42.920
+ So you have to get like the best people in the world,
+
+1:23:42.920 --> 1:23:47.200
+ inspire them and starting from a young age and kind of.
+
+1:23:47.200 --> 1:23:48.920
+ Almost inculcating us into why we do it.
+
+1:23:48.920 --> 1:23:50.360
+ I mean, I guess that's why it's exciting.
+
+1:23:50.360 --> 1:23:52.480
+ You don't know if we're gonna be able to pull this off.
+
+1:23:52.480 --> 1:23:56.280
+ Like, we could like fail miserably.
+
+1:23:56.280 --> 1:23:57.760
+ And that, I suppose, I mean,
+
+1:23:57.760 --> 1:23:59.960
+ that's where the best of engineering is done
+
+1:23:59.960 --> 1:24:02.880
+ is like success is not guaranteed.
+
+1:24:02.880 --> 1:24:06.320
+ And even if it happens, it might be very painful.
+
+1:24:06.320 --> 1:24:07.200
+ I think that's what's so special
+
+1:24:07.200 --> 1:24:08.920
+ about what Elon is doing with SpaceX
+
+1:24:08.920 --> 1:24:12.000
+ is he takes these risks and he tests iteratively
+
+1:24:12.000 --> 1:24:14.880
+ and he'll, we'll see the spectacular failures
+
+1:24:14.880 --> 1:24:17.480
+ on the path to a successful Starship.
+
+1:24:17.480 --> 1:24:18.720
+ It's something that, you know, people have said,
+
+1:24:18.720 --> 1:24:19.960
+ why isn't NASA doing that?
+
+1:24:19.960 --> 1:24:22.440
+ Well, that's cause NASA is doing that with taxpayer dollars
+
+1:24:22.440 --> 1:24:25.120
+ and we would all revolt if we saw NASA failing
+
+1:24:25.120 --> 1:24:26.200
+ at all these different stages.
+
+1:24:26.200 --> 1:24:27.600
+ But that level of, you know,
+
+1:24:27.600 --> 1:24:30.200
+ spiral engineering theory of development
+
+1:24:30.200 --> 1:24:31.560
+ isn't super impressive.
+
+1:24:31.560 --> 1:24:32.760
+ And it's a really interesting approach
+
+1:24:32.760 --> 1:24:34.360
+ that SpaceX has taken.
+
+1:24:34.360 --> 1:24:37.920
+ And I think between people like Elon and Jeff Bezos
+
+1:24:37.920 --> 1:24:41.520
+ and Firefly and NASA and ESO, we are gonna get there.
+
+1:24:41.520 --> 1:24:43.160
+ They're building the road to space.
+
+1:24:43.160 --> 1:24:45.000
+ These trailblazers are doing it.
+
+1:24:45.000 --> 1:24:47.760
+ And now part of the challenge is to get the rest
+
+1:24:47.760 --> 1:24:52.000
+ of the public to understand that it's happening, right?
+
+1:24:52.000 --> 1:24:53.600
+ A lot of people don't know that we're going back
+
+1:24:53.600 --> 1:24:55.400
+ to the moon, that we're gonna send the first woman
+
+1:24:55.400 --> 1:24:57.720
+ to the moon within a few years.
+
+1:24:57.720 --> 1:24:58.640
+ A lot of people don't know
+
+1:24:58.640 --> 1:25:00.680
+ that there are commercial space stations in orbit,
+
+1:25:00.680 --> 1:25:03.320
+ that it's not just NASA that does space stuff.
+
+1:25:03.320 --> 1:25:07.040
+ So we have a big challenge to get more of humanity excited
+
+1:25:07.040 --> 1:25:08.480
+ and educated and involved again,
+
+1:25:08.480 --> 1:25:09.840
+ kind of like in the Apollo era
+
+1:25:09.840 --> 1:25:12.360
+ where it was a big deal for everybody.
+
+1:25:12.360 --> 1:25:15.120
+ Well, a lot of that is also one of the big impressive things
+
+1:25:15.120 --> 1:25:18.560
+ that Elon does, I think, extremely well
+
+1:25:18.560 --> 1:25:21.280
+ is the social media, is the getting people excited.
+
+1:25:21.280 --> 1:25:24.200
+ And I think that actually, he's helped NASA
+
+1:25:24.200 --> 1:25:26.520
+ step their game up in terms of social media.
+
+1:25:26.520 --> 1:25:28.680
+ There's something about, yeah, the storytelling,
+
+1:25:28.680 --> 1:25:33.680
+ but also not like, you know, like authentic
+
+1:25:34.000 --> 1:25:36.200
+ and just real and raw engineering.
+
+1:25:36.200 --> 1:25:40.520
+ There's a lot of excitement for that humor and fun also.
+
+1:25:40.520 --> 1:25:42.560
+ All of those things you realize,
+
+1:25:42.560 --> 1:25:46.080
+ the thing that make up the virality of the meme
+
+1:25:46.080 --> 1:25:48.680
+ is beautiful, you have to kind of embrace that.
+
+1:25:48.680 --> 1:25:52.280
+ And to me, this kind of,
+
+1:25:53.520 --> 1:25:56.200
+ I criticize a lot of companies based on this.
+
+1:25:56.200 --> 1:25:59.320
+ I talked to a bunch of CEOs and so on,
+
+1:25:59.320 --> 1:26:01.000
+ and it's just like, there's a caution,
+
+1:26:01.000 --> 1:26:04.600
+ like let us do this like press conference thing
+
+1:26:04.600 --> 1:26:06.760
+ where when the final product is ready
+
+1:26:06.760 --> 1:26:08.160
+ and it's overproduced,
+
+1:26:08.160 --> 1:26:11.520
+ as opposed to the raw, the gritty just showed off.
+
+1:26:11.520 --> 1:26:14.000
+ I mean, something that I think MIT is very good at doing
+
+1:26:14.000 --> 1:26:17.560
+ is just showing the raw, by nature, the mess of it.
+
+1:26:17.560 --> 1:26:18.920
+ And the mess of it is beautiful
+
+1:26:18.920 --> 1:26:21.760
+ and people get really excited and failure is really exciting.
+
+1:26:21.760 --> 1:26:23.920
+ When the thing blows up and you're like, oh shit,
+
+1:26:23.920 --> 1:26:27.080
+ that makes it even more exciting when it doesn't blow up.
+
+1:26:27.080 --> 1:26:29.040
+ And doing all of that on social media
+
+1:26:29.040 --> 1:26:31.680
+ and showing also the humans behind it,
+
+1:26:31.680 --> 1:26:35.240
+ the individual young researchers or the engineers
+
+1:26:35.240 --> 1:26:38.480
+ or the leaders where everything's at stake.
+
+1:26:38.480 --> 1:26:40.840
+ I don't know, I think I'm really excited about that.
+
+1:26:40.840 --> 1:26:43.840
+ I do want MIT to do that more for students
+
+1:26:43.840 --> 1:26:47.240
+ to show off their stuff and not be pressured
+
+1:26:47.240 --> 1:26:51.080
+ to do this kind of generic official presentation,
+
+1:26:51.080 --> 1:26:54.480
+ but show their, become a YouTuber also.
+
+1:26:54.480 --> 1:26:55.960
+ Like show off your raw research
+
+1:26:55.960 --> 1:26:58.120
+ as you're working on it in the early days.
+
+1:26:58.120 --> 1:26:59.480
+ I hope that's the future.
+
+1:26:59.480 --> 1:27:02.280
+ Things like, I was teasing about TikTok earlier,
+
+1:27:02.280 --> 1:27:07.280
+ but these kinds of things I think inspire young people
+
+1:27:07.280 --> 1:27:11.240
+ to show off their stuff, to show their true self,
+
+1:27:11.240 --> 1:27:12.080
+ the rawness of it,
+
+1:27:12.080 --> 1:27:13.880
+ because I think that's where engineering is best.
+
+1:27:13.880 --> 1:27:16.120
+ And I think that will inspire people
+
+1:27:16.120 --> 1:27:18.920
+ about all the cool stuff we could do out in space.
+
+1:27:18.920 --> 1:27:20.240
+ I should say, I couldn't agree more.
+
+1:27:20.240 --> 1:27:21.920
+ And I actually think that this is why we need
+
+1:27:21.920 --> 1:27:24.680
+ a real life Starfleet Academy right now.
+
+1:27:24.680 --> 1:27:27.080
+ It was the place where the space cadets got to go
+
+1:27:27.080 --> 1:27:31.360
+ to learn about how to engage in a future of life in space.
+
+1:27:31.360 --> 1:27:33.840
+ And we can do it in a much better way.
+
+1:27:33.840 --> 1:27:35.120
+ There are a bunch of groups that traditionally
+
+1:27:35.120 --> 1:27:37.840
+ haven't thought that they could engage in aerospace,
+
+1:27:37.840 --> 1:27:38.920
+ whether it's because you were told
+
+1:27:38.920 --> 1:27:40.680
+ you had to be into math and science.
+
+1:27:40.680 --> 1:27:42.160
+ Now we need space lawyers,
+
+1:27:42.160 --> 1:27:44.240
+ we need space artists like Grimes, right?
+
+1:27:44.240 --> 1:27:48.120
+ We need really creative, profoundly interesting people
+
+1:27:48.120 --> 1:27:51.560
+ to wanna see themselves in that future.
+
+1:27:51.560 --> 1:27:53.200
+ And I think it's a big challenge to us
+
+1:27:53.200 --> 1:27:55.440
+ in the space industry to also do some more diversity,
+
+1:27:55.440 --> 1:27:56.520
+ equity and inclusion,
+
+1:27:56.520 --> 1:27:58.920
+ and show a broader swath of society
+
+1:27:58.920 --> 1:28:00.360
+ that there's a future for them
+
+1:28:00.360 --> 1:28:01.960
+ in this space exploration vision.
+
+1:28:01.960 --> 1:28:03.160
+ Let me push back on one thing.
+
+1:28:03.160 --> 1:28:04.480
+ We don't need space lawyers.
+
+1:28:04.480 --> 1:28:05.320
+ I'm just kidding.
+
+1:28:05.320 --> 1:28:06.680
+ Okay, it's a joke.
+
+1:28:06.680 --> 1:28:07.760
+ We do, we do, we do.
+
+1:28:07.760 --> 1:28:09.400
+ Okay, we do.
+
+1:28:09.400 --> 1:28:11.400
+ The lawyers are great, I love them.
+
+1:28:11.400 --> 1:28:13.840
+ Okay, let me ask a big, ridiculous question.
+
+1:28:13.840 --> 1:28:17.120
+ What is the most beautiful idea to you
+
+1:28:17.120 --> 1:28:19.200
+ about space exploration?
+
+1:28:19.200 --> 1:28:22.560
+ Whether it's the engineering, the astrobiology,
+
+1:28:22.560 --> 1:28:27.560
+ the science, the inspiration, the human happiness,
+
+1:28:28.800 --> 1:28:30.200
+ or aliens, I don't know.
+
+1:28:30.200 --> 1:28:35.200
+ What do you, like, inspires you every day
+
+1:28:35.400 --> 1:28:39.560
+ in terms of its beauty, in terms of its awe?
+
+1:28:39.560 --> 1:28:43.280
+ As a ex physicist, what I've always found so profound
+
+1:28:44.280 --> 1:28:47.080
+ is just that at really, really small scales,
+
+1:28:47.080 --> 1:28:48.320
+ like particle physics,
+
+1:28:48.320 --> 1:28:51.520
+ and really, really big scales, like astrophysics,
+
+1:28:51.520 --> 1:28:53.360
+ there are similarities in the way
+
+1:28:53.360 --> 1:28:55.560
+ that those systems behave and look,
+
+1:28:55.560 --> 1:28:59.440
+ and there's a certain beautiful symmetry in the universe
+
+1:28:59.440 --> 1:29:01.120
+ that's just kind of waiting for us
+
+1:29:01.120 --> 1:29:04.280
+ to tie together the physics and really understand it.
+
+1:29:04.280 --> 1:29:07.760
+ That is something that just really captivates me,
+
+1:29:07.760 --> 1:29:08.880
+ and I would love to,
+
+1:29:08.880 --> 1:29:09.920
+ even though I'm now much more
+
+1:29:09.920 --> 1:29:12.480
+ on the applied space exploration side,
+
+1:29:12.480 --> 1:29:14.240
+ I really try to keep up with what's happening
+
+1:29:14.240 --> 1:29:15.160
+ in those physics areas,
+
+1:29:15.160 --> 1:29:18.360
+ because I think that will be a huge answer for humanity
+
+1:29:18.360 --> 1:29:21.500
+ along the lines of, are we alone in the universe?
+
+1:29:22.560 --> 1:29:24.200
+ One of the fascinating things about you
+
+1:29:24.200 --> 1:29:28.120
+ is you have a degree in physics, mathematics,
+
+1:29:28.120 --> 1:29:31.360
+ and philosophy, and now, I don't know,
+
+1:29:31.360 --> 1:29:34.280
+ would you call it aerospace engineering maybe kind of thing?
+
+1:29:34.280 --> 1:29:36.940
+ So you have at a foot in all of these worlds,
+
+1:29:36.940 --> 1:29:41.940
+ the theoretic, the beauty of that world,
+
+1:29:42.160 --> 1:29:44.680
+ and the philosophy somehow is in there,
+
+1:29:44.680 --> 1:29:48.380
+ and now the very practical, pragmatic implementation
+
+1:29:48.380 --> 1:29:50.880
+ of all these wild ideas,
+
+1:29:50.880 --> 1:29:53.320
+ plus your incredible communicator, all of those things.
+
+1:29:53.320 --> 1:29:56.120
+ What did you pick up from those different disciplines?
+
+1:29:56.120 --> 1:29:57.540
+ Or maybe I'm just romanticizing
+
+1:29:57.540 --> 1:29:59.400
+ all those different disciplines,
+
+1:29:59.400 --> 1:30:02.760
+ but what did you pick up from the variety
+
+1:30:02.760 --> 1:30:06.200
+ of that physics, mathematics, philosophy?
+
+1:30:06.200 --> 1:30:07.880
+ What I loved about having this chance
+
+1:30:07.880 --> 1:30:10.120
+ to do a liberal arts education
+
+1:30:10.120 --> 1:30:13.400
+ was trying to understand the human condition,
+
+1:30:13.400 --> 1:30:16.440
+ and I think more designers for space exploration
+
+1:30:16.440 --> 1:30:17.720
+ should be thinking about that,
+
+1:30:17.720 --> 1:30:19.800
+ because there's so much depth of,
+
+1:30:19.800 --> 1:30:21.200
+ like we were talking about,
+
+1:30:21.200 --> 1:30:24.420
+ issues and opportunities around human connection,
+
+1:30:24.420 --> 1:30:27.060
+ human life, meaning in life.
+
+1:30:27.060 --> 1:30:29.400
+ How do you find fulfillment or happiness?
+
+1:30:29.400 --> 1:30:31.160
+ And I think if you approach these questions
+
+1:30:31.160 --> 1:30:33.240
+ just purely from the standpoint of an engineer
+
+1:30:33.240 --> 1:30:35.360
+ or a scientist, you'll miss some of what
+
+1:30:35.360 --> 1:30:38.240
+ makes it a life worth living.
+
+1:30:38.240 --> 1:30:40.360
+ And so I love being able to combine
+
+1:30:40.360 --> 1:30:41.760
+ some of this notion of philosophy
+
+1:30:41.760 --> 1:30:43.660
+ and the human condition with my work,
+
+1:30:43.660 --> 1:30:45.240
+ but I'm also a pragmatist,
+
+1:30:45.240 --> 1:30:47.140
+ and I didn't want to stay just purely
+
+1:30:47.140 --> 1:30:49.920
+ in these big picture questions about the universe.
+
+1:30:49.920 --> 1:30:52.280
+ I wanted to have an impact on society,
+
+1:30:52.280 --> 1:30:55.940
+ and I also felt like I had such a wonderful childhood
+
+1:30:55.940 --> 1:31:00.940
+ and a really fantastic setup that I owe society some work
+
+1:31:01.360 --> 1:31:04.400
+ to really make a positive impact
+
+1:31:04.400 --> 1:31:05.640
+ for a broader swath of citizens.
+
+1:31:05.640 --> 1:31:07.820
+ And so that kind of led me from the physics domain
+
+1:31:07.820 --> 1:31:10.340
+ to thinking about engineering and practical questions
+
+1:31:10.340 --> 1:31:11.240
+ for life in space.
+
+1:31:11.240 --> 1:31:13.960
+ In physics, was there a dream?
+
+1:31:13.960 --> 1:31:16.120
+ Are you also captivated by this search
+
+1:31:16.120 --> 1:31:19.400
+ for the theory of everything that kind of unlocks
+
+1:31:19.400 --> 1:31:23.580
+ the deeper and deeper, in the simple, elegant way,
+
+1:31:23.580 --> 1:31:25.300
+ the function of our universe?
+
+1:31:25.300 --> 1:31:27.160
+ Do you think that'll be useful for us
+
+1:31:28.360 --> 1:31:30.360
+ for the actual practical engineering things
+
+1:31:30.360 --> 1:31:31.520
+ that you're working on now?
+
+1:31:31.520 --> 1:31:32.360
+ It could be.
+
+1:31:32.360 --> 1:31:35.200
+ I mean, I worked at CERN for two summers in undergrad,
+
+1:31:35.200 --> 1:31:37.560
+ and we were looking for supersymmetry,
+
+1:31:37.560 --> 1:31:40.040
+ which was one of these alternatives to the standard model.
+
+1:31:40.040 --> 1:31:41.640
+ And it was sad because my professors
+
+1:31:41.640 --> 1:31:43.200
+ were getting sadder and sadder
+
+1:31:43.200 --> 1:31:44.520
+ because they weren't finding it.
+
+1:31:44.520 --> 1:31:47.080
+ They were excluding what we would call this parameter space
+
+1:31:47.080 --> 1:31:50.000
+ of finding these supersymmetric particles.
+
+1:31:50.000 --> 1:31:53.120
+ But the search for what that theory of everything could be,
+
+1:31:53.120 --> 1:31:55.480
+ or a grand unified theory that kind of answers
+
+1:31:55.480 --> 1:31:58.360
+ some of the holes within the standard model of physics
+
+1:31:58.360 --> 1:32:02.320
+ would presumably kind of unlock a better understanding
+
+1:32:02.320 --> 1:32:05.480
+ of certain fundamental physical laws
+
+1:32:05.480 --> 1:32:08.000
+ that we should be able to build a better understanding
+
+1:32:08.000 --> 1:32:10.760
+ of engineering and day to day services from that.
+
+1:32:10.760 --> 1:32:13.140
+ It might not be an immediately obvious thing.
+
+1:32:13.140 --> 1:32:15.160
+ When we discovered the Higgs boson,
+
+1:32:15.160 --> 1:32:16.600
+ I was there at CERN that day.
+
+1:32:16.600 --> 1:32:19.840
+ It was July 4th, 2012 that it was announced.
+
+1:32:19.840 --> 1:32:22.240
+ We all waited like nerds overnight in line
+
+1:32:22.240 --> 1:32:23.800
+ to get into the announcement chamber.
+
+1:32:23.800 --> 1:32:25.760
+ I'd never waited for even like a Harry Potter premiere
+
+1:32:25.760 --> 1:32:27.760
+ in my life, but we waited for this announcement
+
+1:32:27.760 --> 1:32:30.840
+ of the Higgs boson to get into the chamber overnight.
+
+1:32:30.840 --> 1:32:33.840
+ But did that immediately translate
+
+1:32:33.840 --> 1:32:35.680
+ to technology for engineering?
+
+1:32:35.680 --> 1:32:39.200
+ No, but it's still a really important part
+
+1:32:39.200 --> 1:32:41.560
+ of our understanding of these fundamental laws of physics.
+
+1:32:41.560 --> 1:32:43.160
+ And so I don't know that it's always immediate,
+
+1:32:43.160 --> 1:32:44.660
+ but I think it is really critical knowledge
+
+1:32:44.660 --> 1:32:46.020
+ for humanity to seek.
+
+1:32:46.880 --> 1:32:50.680
+ It might just shake up understanding of the world.
+
+1:32:50.680 --> 1:32:52.880
+ What scares me is it might help us create
+
+1:32:52.880 --> 1:32:54.160
+ more dangerous weapons.
+
+1:32:54.160 --> 1:32:57.680
+ So, and then we'll figure out that great filter situation.
+
+1:32:57.680 --> 1:33:00.800
+ And I still believe that human compassion and love
+
+1:33:02.120 --> 1:33:04.280
+ is actually the way to defend against all these greater
+
+1:33:04.280 --> 1:33:07.740
+ and greater and more impressive weapons.
+
+1:33:07.740 --> 1:33:10.600
+ Let me ask a weird question in terms
+
+1:33:10.600 --> 1:33:12.520
+ of you disagreeing with others.
+
+1:33:12.520 --> 1:33:15.640
+ What important idea do you believe is true
+
+1:33:15.640 --> 1:33:20.400
+ that many others don't agree with you on?
+
+1:33:20.400 --> 1:33:22.160
+ Maybe, it's a tough question.
+
+1:33:22.160 --> 1:33:23.800
+ You might have to think about that one,
+
+1:33:23.800 --> 1:33:26.320
+ but whether it's very specific,
+
+1:33:26.320 --> 1:33:28.800
+ like which material to use or something
+
+1:33:28.800 --> 1:33:30.680
+ about a particular project,
+
+1:33:30.680 --> 1:33:35.200
+ or it could be grand priorities on missions.
+
+1:33:35.200 --> 1:33:36.920
+ I think one you actually mentioned is interesting
+
+1:33:36.920 --> 1:33:40.640
+ is like the thing we should be looking for
+
+1:33:40.640 --> 1:33:43.000
+ is like colonization of space
+
+1:33:43.000 --> 1:33:45.040
+ versus colonization of planets.
+
+1:33:45.040 --> 1:33:45.880
+ Meaning like.
+
+1:33:45.880 --> 1:33:47.540
+ Yes, it's probably my best hot take
+
+1:33:47.540 --> 1:33:49.080
+ that people would disagree with me on
+
+1:33:49.080 --> 1:33:51.840
+ is life in floating cities
+
+1:33:51.840 --> 1:33:54.840
+ as opposed to life on the surface.
+
+1:33:54.840 --> 1:33:58.320
+ How do you envision that like spread of humans?
+
+1:33:58.320 --> 1:34:00.720
+ Cause you said at the beginning of the conversation,
+
+1:34:00.720 --> 1:34:03.760
+ something about like scale, increasing the scale
+
+1:34:03.760 --> 1:34:05.560
+ of basically humans in space.
+
+1:34:05.560 --> 1:34:09.480
+ Are they just like in, they're in orbit
+
+1:34:09.480 --> 1:34:11.640
+ and then they get a little farther and farther out.
+
+1:34:11.640 --> 1:34:15.760
+ Like, do you see this kind of floating cities
+
+1:34:15.760 --> 1:34:17.460
+ just getting farther and farther from earth?
+
+1:34:17.460 --> 1:34:18.960
+ They can always kind of return,
+
+1:34:18.960 --> 1:34:22.000
+ but like if you look a few centuries from now,
+
+1:34:22.000 --> 1:34:24.240
+ do you just see us, all these like floating cities.
+
+1:34:24.240 --> 1:34:25.080
+ Like Amoeba.
+
+1:34:25.080 --> 1:34:25.900
+ Yeah.
+
+1:34:25.900 --> 1:34:30.640
+ And it just kind of envelops the space around us
+
+1:34:30.640 --> 1:34:31.920
+ in these like neighborhoods.
+
+1:34:31.920 --> 1:34:32.760
+ Yeah, in these neighborhoods.
+
+1:34:32.760 --> 1:34:36.760
+ It's like rural and there's like giant structures
+
+1:34:36.760 --> 1:34:38.960
+ and there's small pirate structures
+
+1:34:38.960 --> 1:34:39.800
+ and that kind of stuff.
+
+1:34:39.800 --> 1:34:40.620
+ Pirate structures, yeah.
+
+1:34:40.620 --> 1:34:43.400
+ I think low earth orbit might come to look like that.
+
+1:34:43.400 --> 1:34:45.680
+ And it's a really interesting regulatory challenge
+
+1:34:45.680 --> 1:34:49.200
+ to make sure that there's some cross purposes.
+
+1:34:49.200 --> 1:34:51.620
+ So the more cool space cities we have in orbit,
+
+1:34:51.620 --> 1:34:53.800
+ the more shiny objects in the night sky,
+
+1:34:53.800 --> 1:34:55.320
+ the worse it is for astronomers
+
+1:34:55.320 --> 1:34:58.080
+ in a really kind of overly simplified case.
+
+1:34:58.080 --> 1:35:00.840
+ So there's some pushback to this like Amoebaing
+
+1:35:00.840 --> 1:35:05.080
+ where we just grow kind of incongruously
+
+1:35:05.080 --> 1:35:08.000
+ or indiscriminately as an Amoeba in low earth orbit.
+
+1:35:08.000 --> 1:35:10.640
+ Beyond that though, I think we'll grow in pockets
+
+1:35:10.640 --> 1:35:12.200
+ where there are resources.
+
+1:35:12.200 --> 1:35:15.840
+ So we won't just expand around the gravity well of earth.
+
+1:35:15.840 --> 1:35:18.600
+ We'll do some development around the moon,
+
+1:35:18.600 --> 1:35:20.200
+ some development around asteroids,
+
+1:35:20.200 --> 1:35:21.760
+ some development around Mars,
+
+1:35:21.760 --> 1:35:23.300
+ because there'll always be purposes
+
+1:35:23.300 --> 1:35:25.480
+ for which we wanna go down to a physical object
+
+1:35:25.480 --> 1:35:28.460
+ and study it or extract something or learn from it.
+
+1:35:28.460 --> 1:35:32.000
+ But I think we'll grow in fits and starts in pockets.
+
+1:35:32.000 --> 1:35:35.140
+ Some of the coolest pockets are the gravity balanced pockets
+
+1:35:35.140 --> 1:35:37.800
+ like the Lagrange points, which is where we just sent,
+
+1:35:37.800 --> 1:35:41.440
+ we not me personally, but NASA just sent James Webb,
+
+1:35:41.440 --> 1:35:44.000
+ the big telescope, I think it's at L2.
+
+1:35:44.000 --> 1:35:44.840
+ So.
+
+1:35:44.840 --> 1:35:46.480
+ What's the nice feature about those pockets?
+
+1:35:46.480 --> 1:35:48.480
+ So it's a stable orbit.
+
+1:35:48.480 --> 1:35:50.520
+ There are several different Lagrange points.
+
+1:35:50.520 --> 1:35:52.400
+ And so it just requires less energy
+
+1:35:52.400 --> 1:35:55.200
+ to stay where you're trying to stay.
+
+1:35:55.200 --> 1:35:57.480
+ Yeah, that's fascinating.
+
+1:35:57.480 --> 1:35:59.840
+ What's also fascinating is the interaction
+
+1:35:59.840 --> 1:36:04.440
+ between nations on that regard.
+
+1:36:04.440 --> 1:36:06.480
+ Like who owns that?
+
+1:36:06.480 --> 1:36:09.200
+ Would you say in those floating cities,
+
+1:36:09.200 --> 1:36:13.080
+ do you envision independent governments?
+
+1:36:13.080 --> 1:36:14.520
+ That was gonna be my next answer to you,
+
+1:36:14.520 --> 1:36:17.480
+ which pushed me harder for a more provocative question
+
+1:36:17.480 --> 1:36:19.320
+ where I might disagree with other people.
+
+1:36:19.320 --> 1:36:22.720
+ I don't yet have my own opinions fully formed on this,
+
+1:36:22.720 --> 1:36:24.280
+ but we are trying to figure out right now
+
+1:36:24.280 --> 1:36:25.840
+ what happens to the moon
+
+1:36:25.840 --> 1:36:29.820
+ with all of these first come first served actors
+
+1:36:29.820 --> 1:36:32.360
+ just arriving and setting precedents
+
+1:36:32.360 --> 1:36:34.480
+ that might really affect future access.
+
+1:36:34.480 --> 1:36:37.260
+ And one example is property rights.
+
+1:36:37.260 --> 1:36:40.080
+ We do want companies that have the expertise
+
+1:36:40.080 --> 1:36:41.880
+ to go to the moon and mine stuff
+
+1:36:41.880 --> 1:36:45.960
+ that will help us develop a human settlement there
+
+1:36:45.960 --> 1:36:49.200
+ or a gateway, but companies need to know generally
+
+1:36:49.200 --> 1:36:50.800
+ that they have rights to a certain area
+
+1:36:50.800 --> 1:36:52.900
+ or that they have some legal right to sell things
+
+1:36:52.900 --> 1:36:53.740
+ that they're getting.
+
+1:36:53.740 --> 1:36:55.760
+ Does that mean we're gonna grant property rights
+
+1:36:55.760 --> 1:36:58.760
+ on the moon to companies who has the right
+
+1:36:58.760 --> 1:37:00.720
+ to give that right away?
+
+1:37:00.720 --> 1:37:02.760
+ So there's a bunch of really kind of gnarly questions
+
+1:37:02.760 --> 1:37:03.580
+ that we have to think about,
+
+1:37:03.580 --> 1:37:04.920
+ which is why I think we need space lawyers.
+
+1:37:04.920 --> 1:37:07.600
+ Maybe that's the true provocative answers.
+
+1:37:07.600 --> 1:37:09.040
+ I think we need space lawyers.
+
+1:37:09.040 --> 1:37:12.020
+ I mean, yeah, yeah, I mean, but those questions,
+
+1:37:12.020 --> 1:37:14.580
+ again, as you said eloquently,
+
+1:37:14.580 --> 1:37:17.120
+ will help us answer questions about here on Earth.
+
+1:37:17.120 --> 1:37:18.240
+ We hope so, yeah.
+
+1:37:18.240 --> 1:37:20.920
+ It is a little strange.
+
+1:37:20.920 --> 1:37:23.100
+ I mean, it's obvious, but it's also strange
+
+1:37:23.100 --> 1:37:25.640
+ if you look at the big picture of it all
+
+1:37:25.640 --> 1:37:28.940
+ that we draw these like borders around geographical areas
+
+1:37:28.940 --> 1:37:32.120
+ and we say, this is mine, like,
+
+1:37:32.120 --> 1:37:34.160
+ and then we fight wars over what's mine
+
+1:37:34.160 --> 1:37:39.160
+ and not, it seems like there's possible alternatives,
+
+1:37:39.200 --> 1:37:42.920
+ but also it seems like there needs to be a public ownership
+
+1:37:42.920 --> 1:37:45.880
+ of some parts, like, what is it?
+
+1:37:45.880 --> 1:37:47.280
+ Central Park in New York.
+
+1:37:47.280 --> 1:37:50.460
+ Is there something like preserving?
+
+1:37:51.440 --> 1:37:52.400
+ The commons.
+
+1:37:52.400 --> 1:37:53.240
+ Yeah, the commons.
+
+1:37:53.240 --> 1:37:54.080
+ The commons.
+
+1:37:54.080 --> 1:37:57.320
+ That's why we titled the book Into the Anthropocosmos.
+
+1:37:57.320 --> 1:37:59.680
+ We know it's a long and kind of a mouthful,
+
+1:37:59.680 --> 1:38:02.360
+ but this notion of the Anthropocene,
+
+1:38:02.360 --> 1:38:04.900
+ we have a lot of commons problems in humanity.
+
+1:38:04.900 --> 1:38:07.000
+ How are we treating the Earth, global climate change?
+
+1:38:07.000 --> 1:38:09.180
+ How are we gonna treat and behave in space?
+
+1:38:09.180 --> 1:38:12.880
+ How can we be responsible stewards of the space commons?
+
+1:38:12.880 --> 1:38:15.120
+ And I would love to see an approach to the moon
+
+1:38:15.120 --> 1:38:18.340
+ that is commons based, but it's hard to know
+
+1:38:18.340 --> 1:38:21.960
+ who would be the protector or the enforcer of that.
+
+1:38:21.960 --> 1:38:25.120
+ And if it's, which it will be probably in the early days,
+
+1:38:25.120 --> 1:38:28.080
+ a lot of companies sort of working on the moon,
+
+1:38:28.080 --> 1:38:30.840
+ working on Mars, working out in space,
+
+1:38:30.840 --> 1:38:33.080
+ it feels like there still needs to be
+
+1:38:33.080 --> 1:38:37.400
+ a civilian representation of like the greater effort
+
+1:38:37.400 --> 1:38:38.680
+ or something like that.
+
+1:38:38.680 --> 1:38:40.160
+ Like where there should be a president,
+
+1:38:40.160 --> 1:38:42.840
+ there should be a democracy of some kind
+
+1:38:42.840 --> 1:38:43.880
+ where people can vote.
+
+1:38:43.880 --> 1:38:45.320
+ Some representative government.
+
+1:38:45.320 --> 1:38:49.200
+ Those are all, again, the same human questions.
+
+1:38:49.200 --> 1:38:54.000
+ What advice would you give to a young person today
+
+1:38:54.000 --> 1:38:57.840
+ thinking about what they wanna do with their life, career?
+
+1:38:57.840 --> 1:39:01.540
+ So somebody in high school, somebody in college,
+
+1:39:01.540 --> 1:39:03.300
+ maybe somebody that looks up to the stars
+
+1:39:03.300 --> 1:39:07.120
+ and dreams to one day, take a one way ticket to Mars
+
+1:39:07.120 --> 1:39:09.900
+ or to contribute something to the effort.
+
+1:39:09.900 --> 1:39:12.800
+ I'd say you should feel empowered
+
+1:39:12.800 --> 1:39:16.080
+ because it's really the first time in human history
+
+1:39:16.080 --> 1:39:19.940
+ that we're at this cusp of interplanetary civilization.
+
+1:39:19.940 --> 1:39:22.240
+ And I don't think we're gonna lapse back from it.
+
+1:39:22.240 --> 1:39:25.200
+ So the future is incredibly bright for young people
+
+1:39:25.200 --> 1:39:26.680
+ that even younger than you and I,
+
+1:39:26.680 --> 1:39:28.560
+ who will actually really get a chance to go to Mars
+
+1:39:28.560 --> 1:39:29.400
+ for certain.
+
+1:39:30.280 --> 1:39:32.800
+ The other thing I would say is be open minded
+
+1:39:32.800 --> 1:39:34.360
+ about what your own interests are.
+
+1:39:34.360 --> 1:39:36.480
+ I don't think you anymore have to be shoehorned
+
+1:39:36.480 --> 1:39:39.200
+ into a particular career to be welcomed
+
+1:39:39.200 --> 1:39:41.320
+ into the future of space exploration.
+
+1:39:41.320 --> 1:39:43.800
+ If you are an artist and that is your passion,
+
+1:39:43.800 --> 1:39:47.400
+ but you would love to do space art or if not space art,
+
+1:39:47.400 --> 1:39:49.920
+ use your artistry to communicate a feeling
+
+1:39:49.920 --> 1:39:51.880
+ or a message about space.
+
+1:39:51.880 --> 1:39:54.400
+ That's a role that we desperately need
+
+1:39:54.400 --> 1:39:56.080
+ just as much as we need space scientists
+
+1:39:56.080 --> 1:39:57.880
+ and space engineers, so.
+
+1:39:57.880 --> 1:40:00.200
+ Well, when you look at your own life,
+
+1:40:00.200 --> 1:40:02.800
+ you're an incredibly accomplished scientist,
+
+1:40:02.800 --> 1:40:05.000
+ young scientist, but you know,
+
+1:40:05.000 --> 1:40:08.960
+ and you hopped around from physics to aerospace.
+
+1:40:08.960 --> 1:40:11.640
+ So going from the biggest theoretical ideas
+
+1:40:11.640 --> 1:40:14.280
+ to the biggest practical ideas.
+
+1:40:14.280 --> 1:40:15.760
+ Is there something from your own journey
+
+1:40:15.760 --> 1:40:17.720
+ you can give advice to,
+
+1:40:17.720 --> 1:40:22.320
+ like how to end up doing incredible research at MIT?
+
+1:40:22.320 --> 1:40:26.680
+ Maybe the role of the university and college
+
+1:40:26.680 --> 1:40:29.440
+ and education and learning, all that kind of stuff.
+
+1:40:29.440 --> 1:40:33.120
+ I'd say one piece of advice is find really good teammates
+
+1:40:33.120 --> 1:40:35.280
+ because I get to be the one that's talking to you,
+
+1:40:35.280 --> 1:40:38.920
+ but there are 50 graduate students, staff and faculty
+
+1:40:38.920 --> 1:40:41.640
+ that are part of my organization back at MIT.
+
+1:40:41.640 --> 1:40:43.160
+ And I'm actually, you guys can't see it on camera,
+
+1:40:43.160 --> 1:40:45.560
+ but I'm sitting here with my co founder and COO,
+
+1:40:45.560 --> 1:40:48.920
+ Danielle DeLotte, and that is really what makes
+
+1:40:48.920 --> 1:40:52.560
+ these large scale challenges for humanity possible
+
+1:40:52.560 --> 1:40:55.120
+ is really fantastic teams working together
+
+1:40:55.120 --> 1:40:57.360
+ to scale more than what I could do alone.
+
+1:40:57.360 --> 1:40:58.600
+ So I think that that's an important model
+
+1:40:58.600 --> 1:41:00.360
+ that we don't talk about enough in academia.
+
+1:41:00.360 --> 1:41:03.680
+ There's a big push for this like lone wolf genius figure
+
+1:41:03.680 --> 1:41:06.000
+ in academia, but that's certainly not been the case
+
+1:41:06.000 --> 1:41:06.840
+ in my life.
+
+1:41:06.840 --> 1:41:09.440
+ I've had wonderful collaborators and people
+
+1:41:09.440 --> 1:41:10.680
+ that I work with along the team.
+
+1:41:10.680 --> 1:41:12.560
+ Also cross disciplinary.
+
+1:41:12.560 --> 1:41:13.680
+ Absolutely, yeah.
+
+1:41:13.680 --> 1:41:15.320
+ Cross disciplinary, interdisciplinary,
+
+1:41:15.320 --> 1:41:17.240
+ whatever you wanna call it, but.
+
+1:41:17.240 --> 1:41:19.280
+ Artists, where do artists come in?
+
+1:41:19.280 --> 1:41:20.200
+ Do you work with artists?
+
+1:41:20.200 --> 1:41:21.040
+ We do.
+
+1:41:21.040 --> 1:41:22.120
+ We have an arts curator
+
+1:41:22.120 --> 1:41:24.160
+ on the space exploration initiative side.
+
+1:41:24.160 --> 1:41:26.560
+ She helps make sure partly around that communication
+
+1:41:26.560 --> 1:41:27.600
+ challenge that we talked about,
+
+1:41:27.600 --> 1:41:29.560
+ that we're not just doing zero G flights
+
+1:41:29.560 --> 1:41:32.720
+ and space missions, but that we take our artifacts
+
+1:41:32.720 --> 1:41:35.440
+ of this sci fi space future to museums
+
+1:41:35.440 --> 1:41:38.000
+ and galleries and exhibits.
+
+1:41:38.000 --> 1:41:41.760
+ She pushed me to make sure her name is Shinglu.
+
+1:41:41.760 --> 1:41:44.440
+ She pushed me for our first ISS mission.
+
+1:41:44.440 --> 1:41:46.720
+ I was just gathering all the engineering payloads
+
+1:41:46.720 --> 1:41:48.600
+ that I wanted to support for the students to fly,
+
+1:41:48.600 --> 1:41:49.800
+ including my own work.
+
+1:41:49.800 --> 1:41:50.640
+ And she said, you know what?
+
+1:41:50.640 --> 1:41:52.920
+ We should do an open call internationally
+
+1:41:52.920 --> 1:41:55.920
+ for artists to send something to the ISS.
+
+1:41:55.920 --> 1:41:57.760
+ And we found out it was the first time.
+
+1:41:57.760 --> 1:42:00.120
+ We were the first ever international open call
+
+1:42:00.120 --> 1:42:01.840
+ for art to go to the ISS.
+
+1:42:01.840 --> 1:42:04.080
+ And that was thanks to Shing, an artist bringing
+
+1:42:04.080 --> 1:42:05.520
+ a perspective that I might not have thought
+
+1:42:05.520 --> 1:42:08.000
+ about prioritizing, so.
+
+1:42:08.000 --> 1:42:09.040
+ Yeah, that's awesome.
+
+1:42:09.040 --> 1:42:11.080
+ So when you look out there,
+
+1:42:11.080 --> 1:42:12.920
+ it's the flame of human consciousness.
+
+1:42:12.920 --> 1:42:15.040
+ There does seem to be something quite special
+
+1:42:15.040 --> 1:42:16.760
+ about us humans.
+
+1:42:16.760 --> 1:42:21.760
+ Well, first of all, what do you think it is?
+
+1:42:21.760 --> 1:42:23.000
+ What's consciousness?
+
+1:42:23.000 --> 1:42:25.840
+ What are we trying to preserve here?
+
+1:42:27.080 --> 1:42:32.080
+ What is it about humans that should be preserved
+
+1:42:32.120 --> 1:42:33.880
+ or life here on earth?
+
+1:42:34.920 --> 1:42:37.880
+ What gives you hope to try to expand it out
+
+1:42:37.880 --> 1:42:38.960
+ farther and farther?
+
+1:42:38.960 --> 1:42:43.140
+ Like, what makes you sad if it was all gone?
+
+1:42:43.140 --> 1:42:46.180
+ I think we're a remarkable species
+
+1:42:46.180 --> 1:42:49.820
+ that we are aware of our own thoughts.
+
+1:42:49.820 --> 1:42:52.060
+ We are meta aware of our own thoughts
+
+1:42:52.060 --> 1:42:52.900
+ and of ourselves.
+
+1:42:52.900 --> 1:42:54.580
+ And we're able to speak on a podcast
+
+1:42:54.580 --> 1:42:56.940
+ about our meta awareness, about our own thoughts.
+
+1:42:56.940 --> 1:42:58.020
+ About our own thoughts, yeah.
+
+1:42:58.020 --> 1:42:59.220
+ Turtles all the way down.
+
+1:43:00.900 --> 1:43:03.140
+ I think that that is a really special gift
+
+1:43:03.140 --> 1:43:04.740
+ that we have been given as a species
+
+1:43:04.740 --> 1:43:07.660
+ and that there's a worth to expanding
+
+1:43:07.660 --> 1:43:09.540
+ our circles of awareness.
+
+1:43:09.540 --> 1:43:12.140
+ So we're very aware of, as an earth based species,
+
+1:43:12.140 --> 1:43:13.700
+ we've become a little bit more aware
+
+1:43:13.700 --> 1:43:15.980
+ of the fragility of earth and how special a place it is
+
+1:43:15.980 --> 1:43:18.100
+ when we go to the moon and we look back.
+
+1:43:18.100 --> 1:43:21.940
+ What would it mean for us to have a presence
+
+1:43:21.940 --> 1:43:26.180
+ and our purpose in life as a inter solar system species
+
+1:43:26.180 --> 1:43:28.540
+ or eventually an intergalactic species?
+
+1:43:28.540 --> 1:43:30.160
+ I think it's a really profound opportunity
+
+1:43:30.160 --> 1:43:34.500
+ for exploration, for the sake of exploration.
+
+1:43:34.500 --> 1:43:36.300
+ A real gift for the human mind.
+
+1:43:36.300 --> 1:43:41.020
+ Yeah, for anything, we're curious creatures.
+
+1:43:41.020 --> 1:43:43.220
+ You see, you do believe we might one day
+
+1:43:43.220 --> 1:43:46.340
+ become intergalactic civilizations.
+
+1:43:46.340 --> 1:43:47.700
+ Long, long time from now.
+
+1:43:47.700 --> 1:43:49.980
+ We have a lot of propulsion challenges
+
+1:43:49.980 --> 1:43:51.500
+ to answer to get that far.
+
+1:43:51.500 --> 1:43:53.140
+ So you have a hope for this.
+
+1:43:53.140 --> 1:43:54.740
+ Yeah.
+
+1:43:54.740 --> 1:43:57.580
+ Another big ridiculous question building on top of that.
+
+1:43:57.580 --> 1:44:00.220
+ What do you think is the meaning of life?
+
+1:44:00.220 --> 1:44:03.820
+ This individual life of ours, your life,
+
+1:44:03.820 --> 1:44:06.300
+ that unfortunately has to come to an end
+
+1:44:06.300 --> 1:44:08.060
+ as far as we know for now.
+
+1:44:08.060 --> 1:44:09.180
+ Yeah.
+
+1:44:09.180 --> 1:44:13.900
+ And our life here together, is there a why?
+
+1:44:13.900 --> 1:44:18.900
+ Or do we just kinda like let our curiosity carry us away?
+
+1:44:20.740 --> 1:44:21.580
+ Oh, interesting.
+
+1:44:21.580 --> 1:44:25.380
+ Is there a single kind of driving purpose why
+
+1:44:25.380 --> 1:44:28.020
+ or can it just be curiosity based?
+
+1:44:28.020 --> 1:44:30.700
+ I certainly feel, and this is not the scientist
+
+1:44:30.700 --> 1:44:34.080
+ in me talking, but just more of like a human soul talking.
+
+1:44:34.080 --> 1:44:38.420
+ I certainly feel some sense of purpose
+
+1:44:38.420 --> 1:44:39.580
+ and meaning in my life.
+
+1:44:39.580 --> 1:44:40.580
+ And there's a version of that
+
+1:44:40.580 --> 1:44:43.340
+ that's a very local level within my family,
+
+1:44:43.340 --> 1:44:44.860
+ which is funny because this whole conversation
+
+1:44:44.860 --> 1:44:47.060
+ has been big, grand space exploration themes.
+
+1:44:47.060 --> 1:44:48.140
+ But you asked me this question
+
+1:44:48.140 --> 1:44:50.060
+ and my first thought is what really matters to me,
+
+1:44:50.060 --> 1:44:53.480
+ my family, my biological reproducing unit.
+
+1:44:53.480 --> 1:44:57.900
+ But then there's also another purpose,
+
+1:44:57.900 --> 1:44:59.780
+ like another version of the meaning in my life
+
+1:44:59.780 --> 1:45:02.420
+ that is trying to do good things for humanity.
+
+1:45:02.420 --> 1:45:04.980
+ So that sense that we can be individual humans
+
+1:45:04.980 --> 1:45:06.740
+ and have our local meaning,
+
+1:45:06.740 --> 1:45:08.620
+ and we can also be global humans.
+
+1:45:08.620 --> 1:45:10.500
+ Maybe someday like the Star Trek utopia
+
+1:45:10.500 --> 1:45:12.460
+ will all be global citizens.
+
+1:45:12.460 --> 1:45:14.440
+ I don't wanna sound too naive.
+
+1:45:15.480 --> 1:45:17.260
+ But there is I think that beauty to a meaning
+
+1:45:17.260 --> 1:45:20.100
+ and a purpose of your life that's bigger than yourself,
+
+1:45:20.100 --> 1:45:21.960
+ working on something that's bigger and grander
+
+1:45:21.960 --> 1:45:23.640
+ than just yourself.
+
+1:45:23.640 --> 1:45:25.140
+ The deepest meaning is from
+
+1:45:25.140 --> 1:45:28.020
+ the local biological reproduction unit.
+
+1:45:28.020 --> 1:45:31.260
+ And then it goes to the engineering scientific,
+
+1:45:32.140 --> 1:45:35.240
+ what is it, corporate like company unit
+
+1:45:35.240 --> 1:45:37.380
+ that can actually produce and compete
+
+1:45:37.380 --> 1:45:38.620
+ and interact with the world.
+
+1:45:38.620 --> 1:45:41.340
+ And then there's the giant human unit
+
+1:45:41.340 --> 1:45:43.980
+ that's struggling with pandemics.
+
+1:45:43.980 --> 1:45:45.180
+ And commons.
+
+1:45:45.180 --> 1:45:49.220
+ And together struggling against the forces of nature
+
+1:45:49.220 --> 1:45:50.820
+ that keeps wanting to kill us.
+
+1:45:50.820 --> 1:45:52.920
+ Yeah, there'd be nothing like an alien invasion
+
+1:45:52.920 --> 1:45:54.980
+ to unite the planet, we think.
+
+1:45:54.980 --> 1:45:57.980
+ I can't wait, bring it on aliens.
+
+1:45:57.980 --> 1:46:00.660
+ Listen, your work, you're an incredible communicator,
+
+1:46:00.660 --> 1:46:01.900
+ incredible young scientist there.
+
+1:46:01.900 --> 1:46:04.860
+ It's huge honor that you would spend your time with me.
+
+1:46:04.860 --> 1:46:07.740
+ I can't wait what you do in the future.
+
+1:46:07.740 --> 1:46:10.980
+ And thank you for representing MIT so beautifully,
+
+1:46:10.980 --> 1:46:11.820
+ so masterfully.
+
+1:46:11.820 --> 1:46:12.800
+ You're an incredible person.
+
+1:46:12.800 --> 1:46:13.640
+ Thank you for talking to me.
+
+1:46:13.640 --> 1:46:14.660
+ Thank you so much for having me.
+
+1:46:14.660 --> 1:46:15.660
+ It's been an absolute pleasure.
+
+1:46:15.660 --> 1:46:17.620
+ It's a great conversation.
+
+1:46:17.620 --> 1:46:19.140
+ Thanks for listening to this conversation
+
+1:46:19.140 --> 1:46:20.700
+ with Ariel Ekblah.
+
+1:46:20.700 --> 1:46:21.940
+ To support this podcast,
+
+1:46:21.940 --> 1:46:25.260
+ please check out our sponsors in the description.
+
+1:46:25.260 --> 1:46:29.280
+ And now let me leave you with some words from Seneca,
+
+1:46:29.280 --> 1:46:31.200
+ the Roman stoic philosopher.
+
+1:46:31.200 --> 1:46:36.200
+ There is no easy way from earth to the stars.
+
+1:46:36.200 --> 1:47:03.200
+ Thank you for listening and hope to see you next time.
+

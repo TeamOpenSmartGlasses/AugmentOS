@@ -1,0 +1,3122 @@
+WEBVTT
+
+00:00.000 --> 00:02.520
+ The following is a conversation with Jack Dorsey,
+
+00:02.520 --> 00:05.160
+ co founder and CEO of Twitter
+
+00:05.160 --> 00:08.760
+ and founder and CEO of Square.
+
+00:08.760 --> 00:12.240
+ Given the happenings at the time related to Twitter leadership
+
+00:12.240 --> 00:13.960
+ and the very limited time we had,
+
+00:13.960 --> 00:16.680
+ we decided to focus this conversation on Square
+
+00:16.680 --> 00:18.880
+ and some broader philosophical topics
+
+00:18.880 --> 00:20.840
+ and to save an in depth conversation
+
+00:20.840 --> 00:23.080
+ on engineering and AI at Twitter
+
+00:23.080 --> 00:25.840
+ for a second appearance in this podcast.
+
+00:25.840 --> 00:27.320
+ This conversation was recorded
+
+00:27.320 --> 00:29.480
+ before the outbreak of the pandemic.
+
+00:29.480 --> 00:31.880
+ For everyone feeling the medical, psychological
+
+00:31.880 --> 00:33.840
+ and financial burden of this crisis,
+
+00:33.840 --> 00:35.520
+ I'm sending love your way.
+
+00:35.520 --> 00:36.560
+ Stay strong.
+
+00:36.560 --> 00:37.720
+ We're in this together.
+
+00:37.720 --> 00:38.800
+ We'll beat this thing.
+
+00:39.840 --> 00:41.480
+ As an aside, let me mention
+
+00:41.480 --> 00:45.280
+ that Jack moved $1 billion of Square equity,
+
+00:45.280 --> 00:47.560
+ which is 28% of his wealth
+
+00:47.560 --> 00:51.440
+ to form an organization that funds COVID 19 relief.
+
+00:51.440 --> 00:53.840
+ First, as Andrew Yang tweeted,
+
+00:53.840 --> 00:56.280
+ this is a spectacular commitment.
+
+00:56.280 --> 00:59.600
+ And second, it is amazing that it operates transparently
+
+00:59.600 --> 01:03.360
+ by posting all its donations to a single Google doc.
+
+01:03.360 --> 01:06.160
+ To me, true transparency is simple.
+
+01:06.160 --> 01:08.320
+ And this is as simple as it gets.
+
+01:09.360 --> 01:11.840
+ This is the Artificial Intelligence Podcast.
+
+01:11.840 --> 01:13.720
+ If you enjoy it, subscribe on YouTube,
+
+01:13.720 --> 01:15.960
+ review it with five stars on Apple Podcast,
+
+01:15.960 --> 01:17.080
+ support it on Patreon
+
+01:17.080 --> 01:18.960
+ or simply connect with me on Twitter
+
+01:18.960 --> 01:22.240
+ at Lex Friedman spelled F R I D M A N.
+
+01:22.240 --> 01:24.640
+ As usual, I'll do a few minutes of ads now
+
+01:24.640 --> 01:26.080
+ and never any ads in the middle
+
+01:26.080 --> 01:28.200
+ that can break the flow of the conversation.
+
+01:28.200 --> 01:29.480
+ I hope that works for you
+
+01:29.480 --> 01:32.160
+ and doesn't hurt the listening experience.
+
+01:32.160 --> 01:34.800
+ This show is presented by Masterclass.
+
+01:34.800 --> 01:37.880
+ Sign up on masterclass.com slash Lex
+
+01:37.880 --> 01:40.840
+ to get a discount and to support this podcast.
+
+01:40.840 --> 01:42.440
+ When I first heard about Masterclass,
+
+01:42.440 --> 01:44.360
+ I thought it was too good to be true.
+
+01:44.360 --> 01:46.520
+ For $180 a year,
+
+01:46.520 --> 01:49.600
+ you get an all access pass to watch courses from,
+
+01:49.600 --> 01:51.360
+ to list some of my favorites,
+
+01:51.360 --> 01:53.680
+ Chris Hadfield on space exploration,
+
+01:53.680 --> 01:55.800
+ Neil deGrasse Tyson on scientific thinking
+
+01:55.800 --> 01:57.000
+ and communication,
+
+01:57.000 --> 02:00.000
+ Will Wright, creator of SimCity and Sims,
+
+02:00.000 --> 02:03.160
+ both one of my favorite games on game design,
+
+02:03.160 --> 02:05.520
+ Jane Goodall on conservation,
+
+02:05.520 --> 02:07.200
+ Carlos Santana on guitar,
+
+02:07.200 --> 02:08.960
+ one of my favorite guitar players,
+
+02:08.960 --> 02:10.760
+ Gary Kasparov on chess,
+
+02:10.760 --> 02:13.960
+ Daniel Nagrano on poker and many, many more.
+
+02:13.960 --> 02:17.040
+ Chris Hadfield explaining how rockets work
+
+02:17.040 --> 02:19.520
+ and the experience of being launched into space alone
+
+02:19.520 --> 02:20.840
+ is worth the money.
+
+02:20.840 --> 02:22.640
+ For me, the key is to not be overwhelmed
+
+02:22.640 --> 02:24.280
+ by the abundance of choice.
+
+02:24.280 --> 02:26.400
+ Pick three courses you want to complete,
+
+02:26.400 --> 02:28.240
+ watch each all the way through.
+
+02:28.240 --> 02:29.440
+ It's not that long,
+
+02:29.440 --> 02:31.120
+ but it's an experience that will stick with you
+
+02:31.120 --> 02:32.880
+ for a long time.
+
+02:32.880 --> 02:34.640
+ It's easily worth the money.
+
+02:34.640 --> 02:37.280
+ You can watch it on basically any device.
+
+02:37.280 --> 02:41.040
+ Once again, sign up on masterclass.com slash Lex
+
+02:41.040 --> 02:44.440
+ to get a discount and to support this podcast.
+
+02:44.440 --> 02:47.820
+ And now, here's my conversation with Jack Dorsey.
+
+02:48.840 --> 02:50.720
+ You've been on several podcasts,
+
+02:50.720 --> 02:53.520
+ Joe Rogan, Sam Harris, Rach Roll, others,
+
+02:53.520 --> 02:55.280
+ excellent conversations,
+
+02:55.280 --> 02:57.520
+ but I think there's several topics
+
+02:57.520 --> 03:00.040
+ that you didn't talk about that I think are fascinating
+
+03:00.040 --> 03:01.780
+ that I'd love to talk to you about,
+
+03:01.780 --> 03:04.160
+ sort of machine learning, artificial intelligence,
+
+03:04.160 --> 03:06.280
+ both the narrow kind and the general kind
+
+03:06.280 --> 03:08.560
+ and engineering at scale.
+
+03:08.560 --> 03:11.240
+ So there's a lot of incredible engineering going on
+
+03:11.240 --> 03:12.400
+ that you're a part of,
+
+03:12.400 --> 03:16.240
+ crypto, cryptocurrency, blockchain, UBI,
+
+03:16.240 --> 03:18.640
+ all kinds of philosophical questions maybe we'll get to
+
+03:18.640 --> 03:21.660
+ about life and death and meaning and beauty.
+
+03:21.660 --> 03:24.520
+ So you're involved in building some of
+
+03:25.480 --> 03:27.800
+ the biggest network systems in the world,
+
+03:27.800 --> 03:30.840
+ sort of trillions of interactions a day.
+
+03:30.840 --> 03:33.160
+ The cool thing about that is the infrastructure,
+
+03:33.160 --> 03:35.080
+ the engineering at scale.
+
+03:35.080 --> 03:38.600
+ You started as a programmer with C building.
+
+03:38.600 --> 03:39.420
+ Yeah, so.
+
+03:39.420 --> 03:41.080
+ I'm a hacker, I'm not really an engineer.
+
+03:41.080 --> 03:43.000
+ Not a legit software engineer,
+
+03:43.000 --> 03:44.360
+ you're a hacker at heart.
+
+03:44.360 --> 03:47.280
+ But to achieve scale, you have to do some,
+
+03:47.280 --> 03:49.920
+ unfortunately, legit large scale engineering.
+
+03:49.920 --> 03:52.800
+ So how do you make that magic happen?
+
+03:52.800 --> 03:57.540
+ Hire people that I can learn from, number one.
+
+03:57.540 --> 04:00.280
+ I mean, I'm a hacker in the sense that I,
+
+04:00.280 --> 04:02.340
+ my approach has always been do whatever it takes
+
+04:02.340 --> 04:03.180
+ to make it work.
+
+04:04.600 --> 04:07.640
+ So that I can see and feel the thing
+
+04:07.640 --> 04:09.540
+ and then learn what needs to come next.
+
+04:09.540 --> 04:13.260
+ And oftentimes what needs to come next is
+
+04:13.260 --> 04:16.260
+ a matter of being able to bring it to more people,
+
+04:16.260 --> 04:17.520
+ which is scale.
+
+04:17.520 --> 04:21.960
+ And there's a lot of great people out there
+
+04:21.960 --> 04:26.200
+ that either have experience or are extremely fast learners
+
+04:27.760 --> 04:30.200
+ that we've been lucky enough to find
+
+04:30.200 --> 04:33.680
+ and work with for years.
+
+04:33.680 --> 04:35.440
+ But I think a lot of it,
+
+04:35.440 --> 04:39.560
+ we benefit a ton from the open source community
+
+04:39.560 --> 04:41.460
+ and just all the learnings there
+
+04:41.460 --> 04:44.480
+ that are laid bare in the open.
+
+04:44.480 --> 04:46.480
+ All the mistakes, all the success,
+
+04:46.480 --> 04:48.640
+ all the problems.
+
+04:48.640 --> 04:53.420
+ It's a very slow moving process usually open source,
+
+04:53.420 --> 04:54.600
+ but it's very deliberate.
+
+04:54.600 --> 04:58.520
+ And you get to see because of the pace,
+
+04:58.520 --> 05:00.280
+ you get to see what it takes
+
+05:00.280 --> 05:02.600
+ to really build something meaningful.
+
+05:02.600 --> 05:06.680
+ So I learned most of everything I learned about hacking
+
+05:06.680 --> 05:11.000
+ and programming and engineering has been due to open source
+
+05:11.000 --> 05:16.000
+ and the generosity that people have given
+
+05:19.720 --> 05:21.640
+ to give up their time, sacrifice their time
+
+05:21.640 --> 05:24.440
+ without any expectation in return,
+
+05:24.440 --> 05:27.320
+ other than being a part of something
+
+05:27.320 --> 05:29.800
+ much larger than themselves, which I think is great.
+
+05:29.800 --> 05:31.400
+ Open source movement is amazing.
+
+05:31.400 --> 05:33.520
+ But if you just look at the scale,
+
+05:33.520 --> 05:35.660
+ like Square has to take care of,
+
+05:35.660 --> 05:38.720
+ is this fundamentally a software problem
+
+05:38.720 --> 05:39.760
+ or a hardware problem?
+
+05:39.760 --> 05:41.900
+ You mentioned hiring a bunch of people,
+
+05:41.900 --> 05:45.880
+ but it's not, maybe from my perspective,
+
+05:45.880 --> 05:48.920
+ not often talked about how incredible that is
+
+05:48.920 --> 05:52.160
+ to sort of have a system that doesn't go down often,
+
+05:52.160 --> 05:54.500
+ that is secure, is able to take care
+
+05:54.500 --> 05:55.960
+ of all these transactions.
+
+05:55.960 --> 05:58.800
+ Like maybe I'm also a hacker at heart
+
+05:58.800 --> 06:01.100
+ and it's incredible to me that that kind of scale
+
+06:01.100 --> 06:02.200
+ could be achieved.
+
+06:02.200 --> 06:06.380
+ Is there some insight, some lessons,
+
+06:06.380 --> 06:10.080
+ some interesting tidbits that you can say
+
+06:10.080 --> 06:12.280
+ how to make that scale happen?
+
+06:12.280 --> 06:14.240
+ Is it the hardware fundamentally challenge?
+
+06:14.240 --> 06:16.000
+ Is it a software challenge?
+
+06:19.200 --> 06:23.800
+ Is it a social challenge of building large teams
+
+06:23.800 --> 06:25.520
+ of engineers that work together, that kind of thing?
+
+06:25.520 --> 06:28.560
+ Like what's the interesting challenges there?
+
+06:28.560 --> 06:31.040
+ By the way, you're the best dressed hacker I've met.
+
+06:31.040 --> 06:32.300
+ I think the. Thank you.
+
+06:34.120 --> 06:36.000
+ If the enumeration you just went through,
+
+06:36.000 --> 06:37.360
+ I don't think there's one.
+
+06:37.360 --> 06:39.760
+ You have to kind of focus on all
+
+06:39.760 --> 06:43.120
+ and the ability to focus on all that
+
+06:43.120 --> 06:47.040
+ really comes down to how you face problems
+
+06:47.040 --> 06:51.000
+ and whether you can break them down into parts
+
+06:51.000 --> 06:53.600
+ that you can focus on.
+
+06:53.600 --> 06:58.200
+ Because I think the biggest mistake is trying to solve
+
+06:58.200 --> 07:00.780
+ or address too many at once
+
+07:02.300 --> 07:05.200
+ or not going deep enough with the questions
+
+07:05.200 --> 07:08.660
+ or not being critical of the answers you find
+
+07:08.660 --> 07:13.660
+ or not taking the time to form credible hypotheses
+
+07:15.720 --> 07:19.480
+ that you can actually test and you can see the results of.
+
+07:19.480 --> 07:24.480
+ So all of those fall in the face of ultimately
+
+07:25.520 --> 07:27.880
+ critical thinking skills, problem solving skills.
+
+07:27.880 --> 07:30.720
+ And if there's one skill I want to improve every day,
+
+07:30.720 --> 07:34.960
+ it's that that's what contributes to the learning
+
+07:34.960 --> 07:38.800
+ and the only way we can evolve any of these things
+
+07:38.800 --> 07:41.440
+ is learning what it's currently doing
+
+07:41.440 --> 07:44.320
+ and how to take it to the next step.
+
+07:44.320 --> 07:45.540
+ And questioning assumptions,
+
+07:45.540 --> 07:47.200
+ the first principles kind of thinking,
+
+07:47.200 --> 07:50.640
+ seems like a fundamental to this whole process.
+
+07:50.640 --> 07:53.260
+ Yeah, but if you get too overextended into,
+
+07:53.260 --> 07:54.960
+ well, this is a hardware issue,
+
+07:54.960 --> 07:56.940
+ you miss all the software solutions.
+
+07:56.940 --> 08:01.940
+ And vice versa, if you focus too much on the software,
+
+08:01.940 --> 08:06.700
+ there are hardware solutions that can 10X the thing.
+
+08:06.700 --> 08:11.700
+ So I try to resist the categories of thinking
+
+08:13.420 --> 08:16.080
+ and look for the underlying systems
+
+08:16.080 --> 08:18.100
+ that make all these things work.
+
+08:18.100 --> 08:22.540
+ But those only emerge when you have a skill
+
+08:22.540 --> 08:27.180
+ around creative thinking, problem solving,
+
+08:27.180 --> 08:32.180
+ and being able to ask critical questions
+
+08:33.620 --> 08:35.460
+ and having the patience to go deep.
+
+08:36.420 --> 08:38.460
+ So one of the amazing things,
+
+08:38.460 --> 08:40.580
+ if we look at the mission of Square,
+
+08:40.580 --> 08:45.020
+ is to increase people's access to the economy.
+
+08:45.020 --> 08:46.840
+ Maybe you can correct me if I'm wrong,
+
+08:46.840 --> 08:47.900
+ that's from my perspective.
+
+08:47.900 --> 08:49.560
+ So from the perspective of merchants,
+
+08:49.560 --> 08:52.780
+ peer to peer payments, even crypto, cryptocurrency,
+
+08:52.780 --> 08:56.140
+ digital cryptocurrency, what do you see as the major ways
+
+08:56.140 --> 08:59.460
+ that our society can increase participation in the economy?
+
+08:59.460 --> 09:01.420
+ So if we look at today and the next 10 years,
+
+09:01.420 --> 09:04.380
+ next 20 years, you go into Africa, maybe in Africa
+
+09:04.380 --> 09:07.560
+ and all kinds of other places outside of the North America.
+
+09:09.380 --> 09:13.980
+ If there was one word that I think represents
+
+09:13.980 --> 09:17.220
+ what we're trying to do at Square, it is that word access.
+
+09:19.100 --> 09:21.820
+ One of the things we found is that
+
+09:21.820 --> 09:23.500
+ we weren't expecting this at all.
+
+09:23.500 --> 09:25.300
+ When we started, we thought we were just building
+
+09:25.300 --> 09:29.140
+ a piece of hardware to enable people
+
+09:29.140 --> 09:32.100
+ to plug it into their phone and swipe a credit card.
+
+09:32.100 --> 09:34.420
+ And then as we talked with people
+
+09:34.420 --> 09:37.660
+ who actually tried to accept credit cards in the past,
+
+09:37.660 --> 09:40.460
+ we found a consistent theme, which many of them
+
+09:40.460 --> 09:44.100
+ weren't even enabled, not enabled,
+
+09:44.100 --> 09:46.580
+ but allowed to process credit cards.
+
+09:46.580 --> 09:50.580
+ And we dug a little bit deeper, again, asking that question.
+
+09:50.580 --> 09:54.300
+ And we found that a lot of them would go to banks
+
+09:54.300 --> 09:57.260
+ or these merchant acquirers.
+
+09:57.260 --> 10:01.000
+ And waiting for them was a credit check
+
+10:01.000 --> 10:03.220
+ and looking at a FICA score.
+
+10:03.220 --> 10:07.700
+ And many of the businesses that we talked to
+
+10:07.700 --> 10:09.580
+ and many small businesses,
+
+10:09.580 --> 10:13.580
+ they don't have good credit or a credit history.
+
+10:15.220 --> 10:17.780
+ They're entrepreneurs who are just getting started,
+
+10:17.780 --> 10:20.120
+ taking a lot of personal risk, financial risk.
+
+10:21.300 --> 10:24.060
+ And it just felt ridiculous to us
+
+10:24.060 --> 10:29.060
+ that for the job of being able to accept money from people,
+
+10:31.980 --> 10:33.700
+ you had to get your credit checked.
+
+10:33.700 --> 10:36.500
+ And as we dug deeper, we realized that
+
+10:36.500 --> 10:38.540
+ that wasn't the intention of the financial industry,
+
+10:38.540 --> 10:42.220
+ but it's the only tool they had available to them
+
+10:42.220 --> 10:45.540
+ to understand authenticity, intent,
+
+10:46.400 --> 10:49.140
+ predictor of future behavior.
+
+10:49.140 --> 10:50.820
+ So that's the first thing we actually looked at.
+
+10:50.820 --> 10:52.620
+ And that's where the, you know, we built the hardware,
+
+10:52.620 --> 10:57.460
+ but the software really came in terms of risk modeling.
+
+10:57.460 --> 11:00.700
+ And that's when we started down the path
+
+11:00.700 --> 11:03.040
+ that eventually leads to AI.
+
+11:03.040 --> 11:07.620
+ We started with a very strong data science discipline
+
+11:08.580 --> 11:10.260
+ because we knew that our business
+
+11:10.260 --> 11:13.860
+ was not necessarily about making hardware.
+
+11:13.860 --> 11:17.080
+ It was more about enabling more people
+
+11:17.080 --> 11:18.620
+ to come into the system.
+
+11:18.620 --> 11:21.220
+ So the fundamental challenge there is,
+
+11:21.220 --> 11:23.420
+ so to enable more people to come into the system,
+
+11:23.420 --> 11:26.780
+ you have to lower the barrier of checking
+
+11:26.780 --> 11:30.500
+ that that person will be a legitimate vendor.
+
+11:30.500 --> 11:31.740
+ Is that the fundamental problem?
+
+11:31.740 --> 11:33.980
+ Yeah, and a different mindset.
+
+11:33.980 --> 11:36.340
+ I think a lot of the financial industry had a mindset
+
+11:36.340 --> 11:41.340
+ of kind of distrust and just constantly looking
+
+11:41.340 --> 11:46.340
+ for opportunities to prove why people shouldn't get
+
+11:46.340 --> 11:50.340
+ into the system, whereas we took on a mindset of trust
+
+11:50.340 --> 11:52.980
+ and then verify, verify, verify, verify, verify.
+
+11:52.980 --> 11:53.820
+ Yes.
+
+11:53.820 --> 11:58.820
+ So we moved, you know, when we entered the space,
+
+12:00.100 --> 12:03.260
+ only about 30 to 40% of the people who applied
+
+12:03.260 --> 12:05.860
+ to accept credit cards would actually get through the system.
+
+12:05.860 --> 12:08.700
+ We took that knowledge, we took it to the next level.
+
+12:08.700 --> 12:11.540
+ If we applied to accept credit cards,
+
+12:11.540 --> 12:13.180
+ we'd actually get through the system.
+
+12:13.180 --> 12:15.620
+ We took that number to 99%.
+
+12:15.620 --> 12:19.100
+ And that's because we reframed the problem,
+
+12:19.100 --> 12:24.100
+ we built credible models, and we had this mindset of,
+
+12:25.540 --> 12:28.420
+ we're going to watch not at the merchant level,
+
+12:28.420 --> 12:30.740
+ but we're gonna watch at the transaction level.
+
+12:30.740 --> 12:35.020
+ So come in, perform some transactions,
+
+12:35.020 --> 12:36.620
+ and as long as you're doing things
+
+12:36.620 --> 12:40.460
+ with integrity, credible, and don't look suspicious,
+
+12:40.460 --> 12:43.300
+ we'll continue to serve you.
+
+12:43.300 --> 12:47.620
+ If we see any interestingness in how you use our system,
+
+12:47.620 --> 12:50.780
+ that will be bubbled up to people to review,
+
+12:50.780 --> 12:53.460
+ to figure out if there's something nefarious going on,
+
+12:53.460 --> 12:56.020
+ and that's when we might ask you to leave.
+
+12:56.020 --> 13:01.020
+ So the change in the mindset led to the technology
+
+13:01.020 --> 13:06.020
+ that we needed to enable more people to get through,
+
+13:06.460 --> 13:08.900
+ and to enable more people to access the system.
+
+13:08.900 --> 13:11.780
+ What role does machine learning play into that,
+
+13:11.780 --> 13:15.340
+ in that context of, you said,
+
+13:15.340 --> 13:17.580
+ first of all, it's a beautiful shift.
+
+13:17.580 --> 13:20.500
+ Anytime you shift your viewpoint into seeing
+
+13:20.500 --> 13:23.120
+ that people are fundamentally good,
+
+13:24.020 --> 13:25.860
+ and then you just have to verify
+
+13:25.860 --> 13:27.660
+ and catch the ones who are not,
+
+13:27.660 --> 13:30.300
+ as opposed to assuming everybody's bad,
+
+13:30.300 --> 13:31.580
+ this is a beautiful thing.
+
+13:31.580 --> 13:35.020
+ So what role does the, to you,
+
+13:35.940 --> 13:37.300
+ throughout the history of the company,
+
+13:37.300 --> 13:40.500
+ has machine learning played in doing that verification?
+
+13:40.500 --> 13:41.820
+ It was immediate.
+
+13:41.820 --> 13:43.420
+ I mean, we weren't calling it machine learning,
+
+13:43.420 --> 13:45.260
+ but it was data science.
+
+13:45.260 --> 13:47.600
+ And then as the industry evolved,
+
+13:47.600 --> 13:50.020
+ machine learning became more of the nomenclature,
+
+13:50.020 --> 13:54.820
+ and as that evolved, it became more sophisticated
+
+13:54.820 --> 13:58.740
+ with deep learning, and as that continues to evolve,
+
+13:58.740 --> 13:59.940
+ it'll be another thing.
+
+13:59.940 --> 14:02.180
+ But they're all in the same vein.
+
+14:02.180 --> 14:04.420
+ But we built that discipline up
+
+14:04.420 --> 14:06.940
+ within the first year of the company,
+
+14:06.940 --> 14:11.940
+ because we also had, we had to partner with a bank,
+
+14:11.940 --> 14:14.340
+ we had to partner with Visa and MasterCard,
+
+14:14.340 --> 14:16.160
+ and we had to show that,
+
+14:16.160 --> 14:19.260
+ by bringing more people into the system,
+
+14:19.260 --> 14:21.460
+ that we could do so in a responsible way,
+
+14:21.460 --> 14:23.700
+ that would not compromise their systems,
+
+14:23.700 --> 14:25.260
+ and that they would trust us.
+
+14:25.260 --> 14:27.820
+ How do you convince this upstart company
+
+14:27.820 --> 14:30.620
+ with some cool machine learning tricks
+
+14:30.620 --> 14:35.620
+ is able to deliver on this trustworthy set of merchants?
+
+14:35.700 --> 14:37.900
+ We staged it out in tiers.
+
+14:37.900 --> 14:41.300
+ We had a bucket of 500 people using it,
+
+14:41.300 --> 14:43.040
+ and then we showed results,
+
+14:43.040 --> 14:45.700
+ and then 1,000, and then 10,000, then 50,000,
+
+14:45.700 --> 14:49.940
+ and then the constraint was lifted.
+
+14:49.940 --> 14:54.180
+ So again, it's kind of getting something tangible out there.
+
+14:54.180 --> 14:58.220
+ I want to show what we can do rather than talk about it.
+
+14:58.220 --> 15:00.180
+ And that put a lot of pressure on us
+
+15:00.180 --> 15:01.620
+ to do the right things.
+
+15:02.900 --> 15:07.300
+ And it also created a culture of accountability,
+
+15:07.300 --> 15:09.560
+ of a little bit more transparency,
+
+15:10.760 --> 15:15.760
+ and I think incentivized all of our early folks
+
+15:15.980 --> 15:18.140
+ and the company in the right way.
+
+15:18.140 --> 15:19.900
+ So what does the future look like
+
+15:19.900 --> 15:21.920
+ in terms of increasing people's access?
+
+15:21.920 --> 15:25.420
+ Or if you look at IoT, Internet of Things,
+
+15:25.420 --> 15:27.260
+ there's more and more intelligent devices.
+
+15:27.260 --> 15:29.620
+ You can see there's some people even talking
+
+15:29.620 --> 15:32.220
+ about our personal data as a thing
+
+15:32.220 --> 15:35.940
+ that we could monetize more explicitly versus implicitly.
+
+15:35.940 --> 15:38.460
+ Sort of everything can become part of the economy.
+
+15:38.460 --> 15:41.420
+ Do you see, so what does the future of Square look like
+
+15:41.420 --> 15:45.620
+ in sort of giving people access in all kinds of ways
+
+15:45.620 --> 15:49.240
+ to being part of the economy as merchants and as consumers?
+
+15:49.240 --> 15:52.500
+ I believe that the currency we use
+
+15:52.500 --> 15:55.740
+ is a huge part of the answer.
+
+15:55.740 --> 15:58.980
+ And I believe that the internet deserves
+
+15:58.980 --> 16:01.780
+ and requires a native currency.
+
+16:01.780 --> 16:06.420
+ And that's why I'm such a huge believer in Bitcoin
+
+16:07.260 --> 16:10.340
+ because it just,
+
+16:11.480 --> 16:13.540
+ our biggest problem as a company right now
+
+16:13.540 --> 16:16.380
+ is we cannot act like an internet company.
+
+16:16.380 --> 16:17.300
+ Open a new market,
+
+16:17.300 --> 16:20.020
+ we have to have a partnership with a local bank.
+
+16:20.020 --> 16:21.180
+ We have to pay attention
+
+16:21.180 --> 16:24.360
+ to different regulatory onboarding environments.
+
+16:25.860 --> 16:29.980
+ And a digital currency like Bitcoin
+
+16:29.980 --> 16:31.660
+ takes a bunch of that away
+
+16:31.660 --> 16:35.260
+ where we can potentially launch a product
+
+16:35.260 --> 16:37.260
+ in every single market around the world
+
+16:38.660 --> 16:41.180
+ because they're all using the same currency.
+
+16:41.180 --> 16:46.180
+ And we have consistent understanding of regulation
+
+16:46.180 --> 16:49.560
+ and onboarding and what that means.
+
+16:49.560 --> 16:54.460
+ So I think the internet continuing to be accessible
+
+16:54.460 --> 16:57.480
+ to people is number one.
+
+16:57.480 --> 17:00.320
+ And then I think currency is number two.
+
+17:01.720 --> 17:04.320
+ And it will just allow for a lot more innovation,
+
+17:04.320 --> 17:07.800
+ a lot more speed in terms of what we can build
+
+17:07.800 --> 17:09.160
+ and others can build.
+
+17:09.160 --> 17:11.860
+ And it's just really exciting.
+
+17:11.860 --> 17:13.760
+ So, I mean, I wanna be able to see that
+
+17:13.760 --> 17:16.240
+ and feel that in my lifetime.
+
+17:16.240 --> 17:19.000
+ So in this aspect and in other aspects,
+
+17:19.000 --> 17:22.040
+ you have a deep interest in cryptocurrency
+
+17:22.040 --> 17:24.040
+ and distributed ledger tech in general.
+
+17:24.040 --> 17:27.760
+ I talked to Vitalik Buterin yesterday on this podcast.
+
+17:27.760 --> 17:29.040
+ He says hi, by the way.
+
+17:29.040 --> 17:29.880
+ Hey.
+
+17:29.880 --> 17:33.960
+ He's a brilliant, brilliant person.
+
+17:33.960 --> 17:36.160
+ Talked a lot about Bitcoin and Ethereum, of course.
+
+17:36.160 --> 17:38.560
+ So can you maybe linger on this point?
+
+17:38.560 --> 17:42.400
+ What do you find appealing about Bitcoin,
+
+17:42.400 --> 17:43.720
+ about digital currency?
+
+17:43.720 --> 17:46.960
+ Where do you see it going in the next 10, 20 years?
+
+17:46.960 --> 17:50.740
+ And what are some of the challenges with respect to Square
+
+17:50.740 --> 17:55.320
+ but also just bigger for our globally, for our world,
+
+17:55.320 --> 17:58.420
+ for the way we think about money?
+
+17:59.360 --> 18:01.560
+ I think the most beautiful thing about it
+
+18:01.560 --> 18:04.180
+ is there's no one person setting the direction.
+
+18:05.880 --> 18:07.760
+ And there's no one person on the other side
+
+18:07.760 --> 18:08.600
+ that can stop it.
+
+18:08.600 --> 18:13.600
+ So we have something that is pretty organic in nature
+
+18:15.160 --> 18:18.400
+ and very principled in its original design.
+
+18:19.600 --> 18:22.400
+ And I think the Bitcoin white paper
+
+18:22.400 --> 18:24.660
+ is one of the most seminal works of computer science
+
+18:24.660 --> 18:27.260
+ in the last 20, 30 years.
+
+18:28.480 --> 18:30.020
+ It's poetry.
+
+18:30.020 --> 18:30.860
+ I mean, it really is.
+
+18:30.860 --> 18:32.180
+ Yeah, it's a pretty cool technology.
+
+18:32.180 --> 18:33.640
+ That's not often talked about.
+
+18:33.640 --> 18:36.940
+ There's so much hype around digital currency
+
+18:36.940 --> 18:38.580
+ about the financial impacts of it.
+
+18:38.580 --> 18:40.520
+ But the actual technology is quite beautiful
+
+18:40.520 --> 18:42.200
+ from a computer science perspective.
+
+18:42.200 --> 18:44.320
+ Yeah, and the underlying principles behind it
+
+18:44.320 --> 18:46.000
+ that went into it, even to the point
+
+18:46.000 --> 18:47.700
+ of releasing it under a pseudonym.
+
+18:48.660 --> 18:51.320
+ I think that's a very, very powerful statement.
+
+18:51.320 --> 18:54.200
+ The timing of when it was released is powerful.
+
+18:54.200 --> 18:58.180
+ It was a total activist move.
+
+18:58.180 --> 19:00.560
+ I mean, it's moving the world forward
+
+19:00.560 --> 19:05.560
+ in a way that I think is extremely noble and honorable
+
+19:05.560 --> 19:08.920
+ and enables everyone to be part of the story,
+
+19:08.920 --> 19:10.400
+ which is also really cool.
+
+19:10.400 --> 19:13.880
+ So you asked a question around 10 years and 20 years.
+
+19:13.880 --> 19:16.840
+ I mean, I think the amazing thing is no one knows.
+
+19:17.840 --> 19:19.040
+ And it can emerge.
+
+19:19.040 --> 19:22.200
+ And every person that comes into the ecosystem,
+
+19:22.200 --> 19:26.680
+ whether they be a developer or someone who uses it,
+
+19:27.680 --> 19:30.880
+ can change its direction in small and large ways.
+
+19:31.840 --> 19:33.160
+ And that's what I think it should be,
+
+19:33.160 --> 19:36.080
+ because that's what the internet has shown is possible.
+
+19:36.080 --> 19:38.360
+ Now, there's complications with that, of course.
+
+19:38.360 --> 19:42.480
+ And there's certainly companies that own large parts
+
+19:42.480 --> 19:44.440
+ of the internet and can direct it more than others.
+
+19:44.440 --> 19:47.880
+ And there's not equal access
+
+19:47.880 --> 19:50.160
+ to every single person in the world just yet.
+
+19:50.160 --> 19:53.320
+ But all those problems are visible enough
+
+19:53.320 --> 19:54.640
+ to speak about them.
+
+19:54.640 --> 19:57.560
+ And to me, that gives confidence that they're solvable
+
+19:57.560 --> 20:00.720
+ in a relatively short timeframe.
+
+20:00.720 --> 20:02.760
+ I think the world should be able to do that.
+
+20:02.760 --> 20:06.960
+ I think the world changes a lot as we get these satellites
+
+20:08.200 --> 20:11.560
+ projecting the internet down to earth,
+
+20:11.560 --> 20:14.320
+ because it just removes a bunch of the former constraints
+
+20:15.240 --> 20:18.280
+ and really levels the playing field.
+
+20:18.280 --> 20:20.480
+ But a global currency,
+
+20:20.480 --> 20:24.920
+ which a native currency for the internet is a proxy for,
+
+20:24.920 --> 20:27.040
+ is a very powerful concept.
+
+20:27.040 --> 20:29.080
+ And I don't think any one person on this planet
+
+20:29.080 --> 20:31.560
+ truly understands the ramifications of that.
+
+20:31.560 --> 20:34.120
+ I think there's a lot of positives to it.
+
+20:34.120 --> 20:35.880
+ There's some negatives as well.
+
+20:35.880 --> 20:36.720
+ But...
+
+20:36.720 --> 20:37.560
+ Do you think it's possible, sorry to interrupt,
+
+20:37.560 --> 20:40.840
+ do you think it's possible that this kind of digital currency
+
+20:40.840 --> 20:43.440
+ would redefine the nature of money,
+
+20:43.440 --> 20:46.400
+ so become the main currency of the world,
+
+20:46.400 --> 20:49.080
+ as opposed to being tied to fiat currency
+
+20:49.080 --> 20:51.960
+ of different nations and sort of really push
+
+20:51.960 --> 20:54.880
+ the decentralization of control of money?
+
+20:54.880 --> 20:58.160
+ Definitely, but I think the bigger ramification
+
+20:58.160 --> 21:02.280
+ is how it affects how society works.
+
+21:02.280 --> 21:06.240
+ And I think there are many positive ramifications
+
+21:06.240 --> 21:07.600
+ outside of just money.
+
+21:07.600 --> 21:08.800
+ Outside of just money.
+
+21:08.800 --> 21:12.160
+ Money is a foundational layer that enables so much more.
+
+21:12.160 --> 21:14.920
+ I was meeting with an entrepreneur in Ethiopia,
+
+21:14.920 --> 21:19.840
+ and payments is probably the number one problem to solve
+
+21:19.840 --> 21:20.920
+ across the continent,
+
+21:21.840 --> 21:24.680
+ both in terms of moving money across borders
+
+21:24.680 --> 21:26.680
+ between nations on the continent,
+
+21:26.680 --> 21:31.680
+ or the amount of corruption within the current system.
+
+21:33.720 --> 21:37.880
+ But the lack of easy ways to pay people
+
+21:39.280 --> 21:42.440
+ makes starting anything really difficult.
+
+21:42.440 --> 21:47.120
+ I met an entrepreneur who started the Lyft slash Uber
+
+21:47.120 --> 21:49.840
+ of Ethiopia, and one of the biggest problems she has
+
+21:49.840 --> 21:54.760
+ is that it's not easy for her riders to pay the company,
+
+21:54.760 --> 21:56.800
+ it's not easy for her to pay the drivers.
+
+21:57.800 --> 22:00.800
+ And that definitely has stunted her growth
+
+22:00.800 --> 22:02.400
+ and made everything more challenging.
+
+22:02.400 --> 22:07.160
+ So the fact that she even has to think about payments
+
+22:07.160 --> 22:10.280
+ instead of thinking about the best rider experience
+
+22:10.280 --> 22:15.080
+ and the best driver experience is pretty telling.
+
+22:15.080 --> 22:20.080
+ So I think as we get a more durable, resilient
+
+22:20.080 --> 22:25.080
+ and global standard, we see a lot more innovation everywhere.
+
+22:26.400 --> 22:29.080
+ And I think there's no better case study for this
+
+22:29.080 --> 22:32.080
+ than the various countries within Africa
+
+22:32.080 --> 22:35.080
+ and their entrepreneurs who are trying to start things
+
+22:35.080 --> 22:38.800
+ within health or sustainability or transportation
+
+22:38.800 --> 22:42.520
+ or a lot of the companies that we've seen here.
+
+22:42.520 --> 22:47.280
+ So the majority of companies I met in November
+
+22:47.280 --> 22:51.280
+ when I spent a month on the continent were payments oriented.
+
+22:52.400 --> 22:54.280
+ You mentioned, and this is a small tangent,
+
+22:54.280 --> 22:58.320
+ you mentioned the anonymous launch of Bitcoin
+
+22:58.320 --> 23:00.720
+ is a sort of profound philosophical statement.
+
+23:00.720 --> 23:02.040
+ Pseudonymous.
+
+23:02.040 --> 23:03.640
+ What's that even mean?
+
+23:03.640 --> 23:04.480
+ There's a pseudonym.
+
+23:04.480 --> 23:05.320
+ First of all, let me ask.
+
+23:05.320 --> 23:06.480
+ There's an identity tied to it.
+
+23:06.480 --> 23:10.080
+ It's not just anonymous, it's Nakamoto.
+
+23:10.080 --> 23:13.440
+ So Nakamoto might represent one person or multiple people.
+
+23:13.440 --> 23:15.840
+ But let me ask, are you Satoshi Nakamoto?
+
+23:15.840 --> 23:17.520
+ Just checking, catch you off guard.
+
+23:17.520 --> 23:18.520
+ And if I were, would I tell you?
+
+23:18.520 --> 23:19.640
+ Yeah, that's true.
+
+23:19.640 --> 23:21.120
+ Maybe you slip.
+
+23:21.120 --> 23:25.120
+ A pseudonym is constructed identity.
+
+23:25.120 --> 23:28.040
+ Anonymity is just kind of this random,
+
+23:28.040 --> 23:32.080
+ like drop something off and leave.
+
+23:32.080 --> 23:34.480
+ There's no intention to build an identity around it.
+
+23:34.480 --> 23:39.480
+ And while the identity being built was a short time window,
+
+23:39.480 --> 23:44.480
+ it was meant to stick around, I think, and to be known.
+
+23:44.840 --> 23:49.840
+ And it's being honored in how the community
+
+23:50.040 --> 23:50.880
+ thinks about building it,
+
+23:50.880 --> 23:54.400
+ like the concept of Satoshi's, for instance,
+
+23:55.400 --> 23:56.920
+ is one such example.
+
+23:56.920 --> 24:01.400
+ But I think it was smart not to do it anonymous,
+
+24:01.400 --> 24:03.760
+ not to do it as a real identity,
+
+24:03.760 --> 24:05.120
+ but to do it as pseudonym,
+
+24:05.120 --> 24:07.600
+ because I think it builds tangibility
+
+24:07.600 --> 24:12.600
+ and a little bit of empathy that this was a human
+
+24:13.400 --> 24:14.680
+ or a set of humans behind it.
+
+24:14.680 --> 24:19.680
+ And there's this natural identity that I can imagine.
+
+24:19.680 --> 24:22.440
+ But there is also a sacrifice of ego.
+
+24:22.440 --> 24:23.680
+ That's a pretty powerful thing
+
+24:23.680 --> 24:25.360
+ from your perspective. Yeah, which is beautiful.
+
+24:25.360 --> 24:28.760
+ Would you do, sort of philosophically,
+
+24:28.760 --> 24:29.800
+ to ask you the question,
+
+24:29.800 --> 24:32.920
+ would you do all the same things you're doing now
+
+24:32.920 --> 24:35.000
+ if your name wasn't attached to it?
+
+24:35.000 --> 24:39.320
+ Sort of, if you had to sacrifice the ego,
+
+24:39.320 --> 24:41.960
+ put another way, is your ego deeply tied
+
+24:41.960 --> 24:43.880
+ in the decisions you've been making?
+
+24:44.920 --> 24:45.760
+ I hope not.
+
+24:45.760 --> 24:49.240
+ I mean, I believe I would certainly attempt
+
+24:49.240 --> 24:51.440
+ to do the things without my name having
+
+24:51.440 --> 24:53.400
+ to be attached with it.
+
+24:53.400 --> 24:58.400
+ But it's hard to do that in a corporation, legally.
+
+25:01.200 --> 25:02.600
+ That's the issue.
+
+25:02.600 --> 25:05.200
+ If I were to do more open source things,
+
+25:05.200 --> 25:10.200
+ then absolutely, I don't need my particular identity,
+
+25:10.680 --> 25:12.600
+ my real identity associated with it.
+
+25:12.600 --> 25:17.600
+ But I think the appreciation that comes
+
+25:17.640 --> 25:21.000
+ from doing something good and being able to see it
+
+25:21.000 --> 25:25.840
+ and see people use it is pretty overwhelming and powerful,
+
+25:26.800 --> 25:29.920
+ more so than maybe seeing your name in the headlines.
+
+25:29.920 --> 25:33.240
+ Let's talk about artificial intelligence a little bit,
+
+25:33.240 --> 25:34.840
+ if we could.
+
+25:34.840 --> 25:38.000
+ 70 years ago, Alan Turing formulated the Turing test.
+
+25:38.000 --> 25:41.240
+ To me, natural language is one of the most interesting
+
+25:41.240 --> 25:44.440
+ spaces of problems that are tackled
+
+25:44.440 --> 25:45.600
+ by artificial intelligence.
+
+25:45.600 --> 25:47.440
+ It's the canonical problem of what it means
+
+25:47.440 --> 25:48.520
+ to be intelligent.
+
+25:48.520 --> 25:50.720
+ He formulated it as the Turing test.
+
+25:50.720 --> 25:53.320
+ Let me ask sort of the broad question,
+
+25:53.320 --> 25:56.440
+ how hard do you think is it to pass the Turing test
+
+25:56.440 --> 25:58.600
+ in the space of language?
+
+25:58.600 --> 26:00.240
+ Just from a very practical standpoint,
+
+26:00.240 --> 26:05.240
+ I think where we are now and for at least years out
+
+26:07.080 --> 26:11.600
+ is one where the artificial intelligence,
+
+26:11.600 --> 26:13.800
+ machine learning, the deep learning models
+
+26:13.800 --> 26:17.280
+ can bubble up interestingness very, very quickly
+
+26:17.280 --> 26:22.280
+ and pair that with human discretion around severity,
+
+26:22.280 --> 26:27.280
+ around depth, around nuance and meaning.
+
+26:27.760 --> 26:32.760
+ I think for me, the chasm across for general intelligence
+
+26:33.120 --> 26:38.120
+ is to be able to explain why and the meaning
+
+26:38.400 --> 26:40.160
+ behind something.
+
+26:40.160 --> 26:42.000
+ Behind a decision.
+
+26:42.000 --> 26:45.800
+ Behind a decision or a set of data.
+
+26:45.800 --> 26:48.720
+ So the explainability part is kind of essential
+
+26:48.720 --> 26:52.080
+ to be able to explain the meaning behind something.
+
+26:52.080 --> 26:54.320
+ To explain using natural language
+
+26:54.320 --> 26:56.600
+ why the decisions were made, that kind of thing.
+
+26:56.600 --> 26:58.880
+ Yeah, I mean I think that's one of our biggest risks
+
+26:58.880 --> 27:01.240
+ in artificial intelligence going forward
+
+27:01.240 --> 27:03.560
+ is we are building a lot of black boxes
+
+27:03.560 --> 27:06.840
+ that can't necessarily explain why they made a decision
+
+27:06.840 --> 27:09.480
+ or what criteria they used to make the decision.
+
+27:09.480 --> 27:11.160
+ And we're trusting them more and more
+
+27:11.160 --> 27:14.720
+ from lending decisions to content recommendation
+
+27:14.720 --> 27:18.120
+ to driving to health.
+
+27:18.120 --> 27:20.880
+ Like a lot of us have watches that tell us
+
+27:20.880 --> 27:23.120
+ to understand how they're deciding that.
+
+27:23.120 --> 27:25.360
+ I mean that one's pretty simple.
+
+27:25.360 --> 27:28.240
+ But you can imagine how complex they get.
+
+27:28.240 --> 27:32.080
+ And being able to explain the reasoning behind
+
+27:32.080 --> 27:34.960
+ some of those recommendations seems to be an essential part.
+
+27:34.960 --> 27:35.800
+ Although it's hard.
+
+27:35.800 --> 27:37.840
+ Which is a very hard problem because sometimes
+
+27:37.840 --> 27:40.880
+ even we can't explain why we make decisions.
+
+27:40.880 --> 27:42.720
+ That's what I was, I think we're being sometimes
+
+27:42.720 --> 27:45.720
+ a little bit unfair to artificial intelligence systems
+
+27:45.720 --> 27:48.280
+ because we're not very good at some of these things.
+
+27:48.280 --> 27:52.600
+ So do you think, apologize for the ridiculous
+
+27:52.600 --> 27:55.840
+ romanticized question, but on that line of thought,
+
+27:55.840 --> 27:58.840
+ do you think we'll ever be able to build a system
+
+28:00.280 --> 28:03.200
+ like in the movie Her that you could fall in love with?
+
+28:03.200 --> 28:05.440
+ So have that kind of deep connection with.
+
+28:06.360 --> 28:07.440
+ Hasn't that already happened?
+
+28:07.440 --> 28:12.020
+ Hasn't someone in Japan fallen in love with his AI?
+
+28:13.280 --> 28:14.840
+ There's always going to be somebody
+
+28:14.840 --> 28:15.960
+ that does that kind of thing.
+
+28:15.960 --> 28:19.280
+ I mean at a much larger scale of actually building
+
+28:19.280 --> 28:21.640
+ relationships, of being deeper connections.
+
+28:21.640 --> 28:24.120
+ It doesn't have to be love, but it's just deeper connections
+
+28:24.120 --> 28:26.560
+ with artificial intelligence systems.
+
+28:26.560 --> 28:27.400
+ So you mentioned explainability.
+
+28:27.400 --> 28:29.800
+ That's less a function of the artificial intelligence
+
+28:29.800 --> 28:32.240
+ and more a function of the individual
+
+28:32.240 --> 28:34.680
+ and how they find meaning and where they find meaning.
+
+28:34.680 --> 28:37.400
+ Do you think we humans can find meaning in technology
+
+28:37.400 --> 28:38.240
+ in this kind of way?
+
+28:38.240 --> 28:40.600
+ Yeah, yeah, yeah, 100%, 100%.
+
+28:40.600 --> 28:43.220
+ And I don't necessarily think it's a negative.
+
+28:43.220 --> 28:48.220
+ But it's constantly going to evolve.
+
+28:50.180 --> 28:54.460
+ So I don't know, but meaning is something
+
+28:54.460 --> 28:56.240
+ that's entirely subjective.
+
+28:56.240 --> 28:59.340
+ And I don't think it's going to be a function
+
+28:59.340 --> 29:02.380
+ of finding the magic algorithm
+
+29:02.380 --> 29:06.340
+ that enables everyone to love it.
+
+29:07.420 --> 29:09.100
+ But maybe, I don't know.
+
+29:09.100 --> 29:10.820
+ That question really gets at the difference
+
+29:10.820 --> 29:12.700
+ between human and machine.
+
+29:12.700 --> 29:16.220
+ So you had a little bit of an exchange with Elon Musk.
+
+29:17.340 --> 29:20.140
+ Basically, I mean it's a trivial version of that,
+
+29:20.140 --> 29:22.060
+ but I think there's a more fundamental question
+
+29:22.060 --> 29:24.220
+ of is it possible to tell the difference
+
+29:24.220 --> 29:27.260
+ between a bot and a human?
+
+29:27.260 --> 29:31.420
+ And do you think it's, if we look into the future,
+
+29:31.420 --> 29:34.060
+ 10, 20 years out, do you think it would be possible
+
+29:34.060 --> 29:36.340
+ or is it even necessary to tell the difference
+
+29:36.340 --> 29:40.380
+ in the digital space between a human and a robot?
+
+29:40.380 --> 29:42.700
+ Can we have fulfilling relationships with each
+
+29:42.700 --> 29:45.260
+ or do we need to tell the difference between them?
+
+29:46.200 --> 29:49.340
+ I think it's certainly useful in certain problem domains
+
+29:49.340 --> 29:51.040
+ to be able to tell the difference.
+
+29:52.460 --> 29:56.500
+ I think in others it might not be as useful.
+
+29:56.500 --> 29:58.180
+ Do you think it's possible for us today
+
+29:58.180 --> 30:00.020
+ to tell that difference?
+
+30:00.020 --> 30:02.860
+ Is the reverse the meta of the Turing test?
+
+30:02.860 --> 30:07.060
+ Well, what's interesting is I think the technology
+
+30:07.060 --> 30:10.660
+ to create is moving much faster
+
+30:10.660 --> 30:13.500
+ than the technology to detect, generally.
+
+30:13.500 --> 30:14.340
+ You think so?
+
+30:14.340 --> 30:17.220
+ So if you look at adversarial machine learning,
+
+30:17.220 --> 30:18.660
+ there's a lot of systems that try
+
+30:18.660 --> 30:21.220
+ to fool machine learning systems.
+
+30:21.220 --> 30:23.940
+ And at least for me, the hope is that the technology
+
+30:23.940 --> 30:28.940
+ to defend will always be right there, at least.
+
+30:28.940 --> 30:30.900
+ Your sense is that...
+
+30:30.900 --> 30:31.980
+ I don't know if they'll be right there.
+
+30:31.980 --> 30:34.140
+ I mean, it's a race, right?
+
+30:34.140 --> 30:38.340
+ So the detection technologies have to be two
+
+30:38.340 --> 30:42.100
+ or 10 steps ahead of the creation technologies.
+
+30:42.100 --> 30:44.180
+ This is a problem that I think the financial industry
+
+30:44.180 --> 30:48.460
+ will face more and more because a lot of our risk models,
+
+30:48.460 --> 30:50.780
+ for instance, are built around identity.
+
+30:50.780 --> 30:53.420
+ Payments ultimately comes down to identity.
+
+30:53.420 --> 30:57.620
+ And you can imagine a world where all this conversation
+
+30:57.620 --> 31:00.940
+ around deep fakes goes towards the direction
+
+31:00.940 --> 31:05.940
+ of a driver's license or passports or state identities.
+
+31:06.380 --> 31:09.260
+ And people construct identities in order
+
+31:09.260 --> 31:11.900
+ to get through a system such as ours
+
+31:11.900 --> 31:15.060
+ to start accepting credit cards or into the cash app.
+
+31:15.940 --> 31:19.700
+ And those technologies seem to be moving very, very quickly.
+
+31:19.700 --> 31:22.820
+ Our ability to detect them, I think,
+
+31:22.820 --> 31:25.060
+ is probably lagging at this point,
+
+31:25.060 --> 31:29.820
+ but certainly with more focus, we can get ahead of it.
+
+31:29.820 --> 31:33.980
+ But this is gonna touch everything.
+
+31:33.980 --> 31:38.500
+ So I think it's like security.
+
+31:38.500 --> 31:39.780
+ We're never going to be able
+
+31:39.780 --> 31:42.940
+ to build a perfect detection system.
+
+31:42.940 --> 31:45.620
+ We're only going to be able to...
+
+31:45.620 --> 31:50.540
+ What we should be focused on is the speed of evolving it
+
+31:50.540 --> 31:55.540
+ and being able to take signals that show correctness
+
+31:55.540 --> 31:58.260
+ or errors as quickly as possible
+
+31:58.260 --> 32:01.500
+ and move and to be able to build that
+
+32:01.500 --> 32:04.940
+ into our newer models or the self learning models.
+
+32:04.940 --> 32:06.020
+ Do you have other worries?
+
+32:06.020 --> 32:07.900
+ Like some people, like Elon and others,
+
+32:07.900 --> 32:10.340
+ have worries of existential threats
+
+32:10.340 --> 32:11.620
+ of artificial intelligence,
+
+32:11.620 --> 32:13.700
+ of artificial general intelligence?
+
+32:13.700 --> 32:17.060
+ Or if you think more narrowly about threats
+
+32:17.060 --> 32:20.300
+ and concerns about more narrow artificial intelligence,
+
+32:20.300 --> 32:23.780
+ like what are your thoughts in this domain?
+
+32:23.780 --> 32:26.580
+ Do you have concerns or are you more optimistic?
+
+32:26.580 --> 32:29.100
+ I think Yuval in his book,
+
+32:29.100 --> 32:31.980
+ 21 Lessons for the 21st Century,
+
+32:31.980 --> 32:34.940
+ his last chapter is around meditation.
+
+32:34.940 --> 32:37.140
+ And you look at the title of the chapter
+
+32:37.140 --> 32:39.700
+ and you're like, oh, it's all meditation.
+
+32:39.700 --> 32:42.660
+ But what was interesting about that chapter
+
+32:42.660 --> 32:47.660
+ is he believes that kids being born today,
+
+32:48.740 --> 32:53.740
+ growing up today, Google has a stronger sense
+
+32:53.740 --> 32:56.300
+ of their preferences than they do,
+
+32:57.300 --> 32:59.260
+ which you can easily imagine.
+
+32:59.260 --> 33:04.260
+ I can easily imagine today that Google probably knows
+
+33:04.420 --> 33:07.300
+ my preferences more than my mother does.
+
+33:08.300 --> 33:12.500
+ Maybe not me per se, but for someone growing up
+
+33:12.500 --> 33:13.340
+ only knowing the internet,
+
+33:13.340 --> 33:16.500
+ only knowing what Google is capable of,
+
+33:16.500 --> 33:20.060
+ or Facebook or Twitter or Square or any of these things,
+
+33:20.060 --> 33:25.060
+ the self awareness is being offloaded to other systems
+
+33:25.580 --> 33:28.180
+ and particularly these algorithms.
+
+33:28.180 --> 33:32.220
+ And his concern is that we lose that self awareness
+
+33:32.220 --> 33:35.220
+ because the self awareness is now outside of us
+
+33:35.220 --> 33:37.060
+ and it's doing such a better job
+
+33:37.060 --> 33:41.380
+ at helping us direct our decisions around,
+
+33:41.380 --> 33:43.700
+ should I stand, should I walk today?
+
+33:43.700 --> 33:45.300
+ What doctor should I choose?
+
+33:45.300 --> 33:46.620
+ Who should I date?
+
+33:46.620 --> 33:50.420
+ All these things we're now seeing play out very quickly.
+
+33:50.420 --> 33:54.780
+ So he sees meditation as a tool to build that self awareness
+
+33:54.780 --> 33:56.860
+ and to bring the focus back on,
+
+33:56.860 --> 33:58.500
+ why do I make these decisions?
+
+33:58.500 --> 34:00.100
+ Why do I react in this way?
+
+34:00.100 --> 34:02.740
+ Why did I have this thought?
+
+34:02.740 --> 34:04.140
+ Where did that come from?
+
+34:04.140 --> 34:05.740
+ That's a way to regain control.
+
+34:07.140 --> 34:10.140
+ Or awareness, maybe not control, but awareness
+
+34:10.140 --> 34:13.300
+ so that you can be aware that yes, I am,
+
+34:13.300 --> 34:15.500
+ I am, I am, I am, I am.
+
+34:15.500 --> 34:19.780
+ Yes, I am offloading this decision to this algorithm
+
+34:19.780 --> 34:21.660
+ that I don't fully understand
+
+34:21.660 --> 34:24.580
+ and can't tell me why it's doing the things it's doing
+
+34:24.580 --> 34:26.740
+ because it's so complex.
+
+34:26.740 --> 34:29.060
+ That's not to say that the algorithm can't be a good thing.
+
+34:29.060 --> 34:31.340
+ And to me recommender systems,
+
+34:31.340 --> 34:34.940
+ the best of what they can do is to help guide you
+
+34:34.940 --> 34:39.700
+ on a journey of learning new ideas of learning period.
+
+34:39.700 --> 34:41.860
+ It can be a great thing, but do you know you're doing that?
+
+34:41.860 --> 34:45.540
+ Are you aware that you're inviting it to do that to you?
+
+34:45.540 --> 34:48.540
+ I think that's the risk he identifies, right?
+
+34:50.100 --> 34:51.700
+ That's perfectly okay.
+
+34:51.700 --> 34:55.700
+ But are you aware that you have that invitation
+
+34:55.700 --> 34:58.460
+ and it's being acted upon?
+
+34:58.460 --> 35:02.460
+ And so that's a concern you're kind of highlighting
+
+35:02.460 --> 35:04.660
+ that without a lack of awareness,
+
+35:04.660 --> 35:06.300
+ you can just be like floating at sea.
+
+35:06.300 --> 35:08.900
+ So awareness is key in the future
+
+35:08.900 --> 35:10.860
+ of these artificial intelligence systems.
+
+35:10.860 --> 35:12.460
+ Yeah, the movie WALLY.
+
+35:12.460 --> 35:13.300
+ WALLY.
+
+35:13.300 --> 35:15.340
+ Which I think is one of Pixar's best movies
+
+35:15.340 --> 35:17.100
+ besides RATATOUILLI.
+
+35:19.340 --> 35:20.660
+ RATATOUILLI was incredible.
+
+35:20.660 --> 35:22.220
+ You had me until RATATOUILLI, okay.
+
+35:22.220 --> 35:23.620
+ RATATOUILLI was incredible.
+
+35:26.180 --> 35:28.140
+ All right, we've come to the first point
+
+35:28.140 --> 35:29.140
+ where we disagree, okay.
+
+35:29.140 --> 35:31.940
+ It's the entrepreneurial story in the form of a rat.
+
+35:35.780 --> 35:38.660
+ I just remember just the soundtrack was really good, so.
+
+35:38.660 --> 35:41.020
+ Excellent.
+
+35:41.020 --> 35:43.780
+ What are your thoughts, sticking on artificial intelligence
+
+35:43.780 --> 35:45.980
+ a little bit, about the displacement of jobs?
+
+35:45.980 --> 35:48.220
+ That's another perspective that candidates
+
+35:48.220 --> 35:50.180
+ like Andrew Yang talk about.
+
+35:50.180 --> 35:51.220
+ Yang gang forever.
+
+35:53.100 --> 35:54.100
+ Yang gang.
+
+35:54.100 --> 35:56.300
+ So he unfortunately, speaking of Yang gang,
+
+35:56.300 --> 35:57.580
+ has recently dropped out.
+
+35:57.580 --> 36:00.180
+ I know, it was very disappointing and depressing.
+
+36:00.180 --> 36:02.180
+ Yeah, but on the positive side,
+
+36:02.180 --> 36:05.300
+ he's I think launching a podcast, so.
+
+36:05.300 --> 36:06.180
+ Really, cool.
+
+36:06.180 --> 36:07.940
+ Yeah, he just announced that.
+
+36:07.940 --> 36:09.900
+ I'm sure he'll try to talk you into trying
+
+36:09.900 --> 36:11.060
+ to come on to the podcast.
+
+36:11.060 --> 36:12.060
+ I will talk to him.
+
+36:12.060 --> 36:13.260
+ So. About RATATOUILLI.
+
+36:14.580 --> 36:16.100
+ Yeah, maybe he'll be more welcoming
+
+36:16.100 --> 36:18.220
+ of the RATATOUILLI argument.
+
+36:18.220 --> 36:20.260
+ What are your thoughts on his concerns
+
+36:20.260 --> 36:22.180
+ of the displacement of jobs, of automations,
+
+36:22.180 --> 36:24.940
+ of the, of course there's positive impacts
+
+36:24.940 --> 36:26.660
+ that could come from automation and AI,
+
+36:26.660 --> 36:29.300
+ but there could also be negative impacts.
+
+36:29.300 --> 36:31.500
+ And within that framework, what are your thoughts
+
+36:31.500 --> 36:33.420
+ about universal basic income?
+
+36:33.420 --> 36:36.020
+ So these interesting new ideas
+
+36:36.020 --> 36:39.340
+ of how we can empower people in the economy.
+
+36:40.380 --> 36:45.380
+ I think he was 100% right on almost every dimension.
+
+36:46.660 --> 36:48.660
+ We see this in Square's business.
+
+36:48.660 --> 36:52.180
+ I mean, he identified truck drivers.
+
+36:52.180 --> 36:53.100
+ I'm from Missouri.
+
+36:54.180 --> 36:59.180
+ And he certainly pointed to the concern
+
+37:00.540 --> 37:04.340
+ and the issue that people from where I'm from
+
+37:04.340 --> 37:07.700
+ feel every single day that is often invisible
+
+37:07.700 --> 37:09.500
+ and not talked about enough.
+
+37:09.500 --> 37:12.020
+ You know, the next big one is cashiers.
+
+37:12.020 --> 37:14.380
+ This is where it pertains to Square's business.
+
+37:15.700 --> 37:19.740
+ We are seeing more and more of the point of sale
+
+37:19.740 --> 37:22.940
+ move to the individual customer's hand
+
+37:22.940 --> 37:24.500
+ in the form of their phone and apps
+
+37:24.500 --> 37:27.260
+ and preorder and order ahead.
+
+37:27.260 --> 37:29.620
+ We're seeing more kiosks.
+
+37:29.620 --> 37:32.300
+ We're seeing more things like Amazon Go.
+
+37:32.300 --> 37:37.300
+ And the number of workers as a cashier in retail is immense.
+
+37:40.340 --> 37:43.620
+ And, you know, there's no real answers
+
+37:43.620 --> 37:47.940
+ on how they transform their skills
+
+37:47.940 --> 37:51.140
+ and work into something else.
+
+37:51.140 --> 37:53.100
+ And I think that does lead to a lot
+
+37:53.100 --> 37:56.140
+ of really negative ramifications.
+
+37:56.140 --> 37:59.020
+ And the important point that he brought up
+
+37:59.020 --> 38:01.460
+ around universal basic income
+
+38:01.460 --> 38:03.540
+ is given that the shift is going to come
+
+38:04.900 --> 38:07.540
+ and given it is going to take time
+
+38:07.540 --> 38:12.540
+ to set people up with new skills and new careers,
+
+38:14.860 --> 38:17.700
+ they need to have a floor to be able to survive.
+
+38:17.700 --> 38:22.620
+ And this $1,000 a month is such a floor.
+
+38:22.620 --> 38:25.100
+ It's not going to incentivize you to quit your job
+
+38:25.100 --> 38:26.620
+ because it's not enough,
+
+38:26.620 --> 38:30.220
+ but it will enable you to not have to worry
+
+38:30.220 --> 38:35.220
+ as much about just getting on day to day
+
+38:35.860 --> 38:39.860
+ so that you can focus on what am I going to do now
+
+38:39.860 --> 38:44.860
+ and what am I going to, what skills do I need to acquire?
+
+38:44.860 --> 38:48.740
+ And I think, you know, a lot of people point
+
+38:48.740 --> 38:53.260
+ to the fact that, you know, during the industrial age,
+
+38:53.260 --> 38:55.780
+ we had the same concerns around automation,
+
+38:55.780 --> 38:59.220
+ factory lines and everything worked out okay.
+
+38:59.220 --> 39:04.220
+ But the biggest change is just the velocity
+
+39:04.340 --> 39:08.060
+ and the centralization of a lot of the things
+
+39:08.060 --> 39:10.900
+ that make this work, which is the data
+
+39:11.820 --> 39:14.900
+ and the algorithms that work on this data.
+
+39:14.900 --> 39:18.900
+ I think that the second biggest scary thing
+
+39:18.900 --> 39:23.900
+ is just how around AI is just who actually owns the data
+
+39:24.820 --> 39:26.300
+ and who can operate on it.
+
+39:26.300 --> 39:31.300
+ And are we able to share the insights from the data
+
+39:32.940 --> 39:36.380
+ so that we can also build algorithms that help our needs
+
+39:36.380 --> 39:39.140
+ or help our business or whatnot?
+
+39:39.140 --> 39:43.500
+ So that's where I think regulation could play
+
+39:43.500 --> 39:45.300
+ a strong and positive part.
+
+39:46.540 --> 39:50.460
+ First, looking at the primitives of AI
+
+39:50.460 --> 39:52.660
+ and the tools we use to build these services
+
+39:52.660 --> 39:54.820
+ that will ultimately touch every single aspect
+
+39:54.820 --> 39:56.540
+ of the human experience.
+
+39:56.540 --> 40:01.540
+ And then where data is owned and how it's shared.
+
+40:05.980 --> 40:10.540
+ So those are the answers that as a society, as a world,
+
+40:10.540 --> 40:12.460
+ we need to have better answers around,
+
+40:12.460 --> 40:13.860
+ which we're currently not.
+
+40:13.860 --> 40:15.380
+ They're just way too centralized
+
+40:15.380 --> 40:18.100
+ into a few very, very large companies.
+
+40:19.580 --> 40:23.260
+ But I think it was spot on with identifying the problem
+
+40:23.260 --> 40:25.860
+ and proposing solutions that would actually work.
+
+40:26.780 --> 40:29.300
+ At least that we learned from that you could expand
+
+40:29.300 --> 40:34.300
+ or evolve, but I mean, I think UBI is well past its due.
+
+40:38.380 --> 40:41.620
+ I mean, it was certainly trumpeted by Martin Luther King
+
+40:41.620 --> 40:43.820
+ and even before him as well.
+
+40:44.820 --> 40:48.060
+ And like you said, the exact $1,000 mark
+
+40:48.060 --> 40:50.260
+ might not be the correct one,
+
+40:50.260 --> 40:54.020
+ but you should take the steps to try to implement
+
+40:54.020 --> 40:56.260
+ these solutions and see what works.
+
+40:56.260 --> 40:57.500
+ 100%.
+
+40:57.500 --> 40:59.380
+ So I think you and I eat similar diets,
+
+40:59.380 --> 41:01.740
+ and at least I was.
+
+41:01.740 --> 41:04.180
+ The first time I've heard this.
+
+41:04.180 --> 41:05.380
+ Yeah, so I was doing it before.
+
+41:05.380 --> 41:08.620
+ First time anyone has said that to me, in this case anyway.
+
+41:08.620 --> 41:11.040
+ Yeah, but it's becoming more and more cool.
+
+41:12.140 --> 41:13.700
+ But I was doing it before it was cool.
+
+41:13.700 --> 41:16.300
+ So intermittent fasting and fasting in general,
+
+41:16.300 --> 41:18.700
+ I really enjoy, I love food,
+
+41:18.700 --> 41:23.060
+ but I enjoy the, I also love suffering because I'm Russian.
+
+41:23.060 --> 41:26.100
+ So fasting kind of makes you appreciate the,
+
+41:29.580 --> 41:32.420
+ makes you appreciate what it is to be human somehow.
+
+41:33.540 --> 41:36.660
+ But I have, outside the philosophical stuff,
+
+41:36.660 --> 41:37.900
+ I have a more specific question.
+
+41:37.900 --> 41:41.980
+ It also helps me as a programmer and a deep thinker,
+
+41:41.980 --> 41:43.940
+ like from the scientific perspective,
+
+41:43.940 --> 41:46.900
+ to sit there for many hours and focus deeply.
+
+41:46.900 --> 41:50.900
+ Maybe you were a hacker before you were CEO.
+
+41:50.900 --> 41:55.020
+ What have you learned about diet, lifestyle,
+
+41:55.020 --> 41:57.940
+ mindset that helps you maximize mental performance,
+
+41:57.940 --> 42:00.220
+ to be able to focus for,
+
+42:00.220 --> 42:03.980
+ to think deeply in this world of distractions?
+
+42:03.980 --> 42:07.220
+ I think I just took it for granted for too long.
+
+42:08.380 --> 42:09.660
+ Which aspect?
+
+42:09.660 --> 42:13.460
+ Just the social structure of we eat three meals a day
+
+42:13.460 --> 42:15.140
+ and there's snacks in between.
+
+42:15.140 --> 42:18.980
+ And I just never really asked the question, why?
+
+42:18.980 --> 42:20.780
+ Oh, by the way, in case people don't know,
+
+42:20.780 --> 42:22.100
+ I think a lot of people know,
+
+42:22.100 --> 42:26.100
+ but you at least, you famously eat once a day.
+
+42:26.100 --> 42:27.620
+ You still eat once a day?
+
+42:27.620 --> 42:29.620
+ Yep, I eat dinner.
+
+42:29.620 --> 42:32.060
+ By the way, what made you decide to eat once a day?
+
+42:32.060 --> 42:33.980
+ Like, cause to me that was a huge revolution
+
+42:33.980 --> 42:35.420
+ that you don't have to eat breakfast.
+
+42:35.420 --> 42:37.380
+ That was like, I felt like I was a rebel.
+
+42:37.380 --> 42:39.900
+ Like I abandoned my parents or something
+
+42:39.900 --> 42:41.100
+ and became an anarchist.
+
+42:41.100 --> 42:43.500
+ When you first, like the first week you start doing it,
+
+42:43.500 --> 42:45.860
+ it feels that you kind of like have a superpower.
+
+42:45.860 --> 42:47.660
+ Then you realize it's not really a superpower.
+
+42:47.660 --> 42:50.100
+ But it, I think you realize,
+
+42:50.100 --> 42:53.060
+ at least I realized like it just how much is,
+
+42:53.060 --> 42:58.060
+ how much our mind dictates what we're possible of.
+
+42:59.780 --> 43:02.260
+ And sometimes we have structures around us
+
+43:02.260 --> 43:05.340
+ that incentivize like, this three meal a day thing,
+
+43:05.340 --> 43:09.700
+ which was purely social structure
+
+43:09.700 --> 43:14.180
+ versus necessity for our health and for our bodies.
+
+43:14.180 --> 43:17.500
+ And I did it just, I started doing it
+
+43:17.500 --> 43:21.540
+ because I played a lot with my diet when I was a kid
+
+43:21.540 --> 43:23.340
+ and I was vegan for two years
+
+43:23.340 --> 43:28.260
+ and just went all over the place just because I,
+
+43:28.260 --> 43:31.180
+ you know, health is the most precious thing we have
+
+43:31.180 --> 43:33.900
+ and none of us really understand it.
+
+43:33.900 --> 43:37.980
+ So being able to ask the question through experiments
+
+43:37.980 --> 43:39.460
+ that I can perform on myself
+
+43:39.460 --> 43:44.140
+ and learn about is compelling to me.
+
+43:44.140 --> 43:47.580
+ And I heard this one guy on a podcast, Wim Hof,
+
+43:47.580 --> 43:50.900
+ who's famous for doing ice baths and holding his breath
+
+43:50.900 --> 43:53.540
+ and all these things.
+
+43:54.660 --> 43:56.580
+ He said he only eats one meal a day.
+
+43:56.580 --> 43:59.180
+ I'm like, wow, that sounds super challenging
+
+43:59.180 --> 44:00.700
+ and uncomfortable.
+
+44:00.700 --> 44:02.020
+ I'm gonna do it.
+
+44:02.020 --> 44:05.380
+ So I just, I learn the most when I make myself,
+
+44:06.260 --> 44:07.460
+ I wouldn't say suffer,
+
+44:07.460 --> 44:10.420
+ but when I make myself feel uncomfortable
+
+44:10.420 --> 44:14.140
+ because everything comes to bear in those moments
+
+44:14.140 --> 44:19.140
+ and you really learn what you're about or what you're not.
+
+44:21.020 --> 44:23.940
+ So I've been doing that my whole life.
+
+44:23.940 --> 44:25.780
+ Like when I was a kid, I could not,
+
+44:25.780 --> 44:27.620
+ like I was, I could not speak.
+
+44:27.620 --> 44:29.140
+ Like I had to go to a speech therapist
+
+44:29.140 --> 44:31.940
+ and it made me extremely shy.
+
+44:31.940 --> 44:34.860
+ And then one day I realized I can't keep doing this
+
+44:34.860 --> 44:39.740
+ and I signed up for the speech club.
+
+44:39.740 --> 44:44.740
+ And it was the most uncomfortable thing
+
+44:45.060 --> 44:49.540
+ I could imagine doing, getting a topic on a note card,
+
+44:49.540 --> 44:51.500
+ having five minutes to write a speech
+
+44:51.500 --> 44:53.580
+ about whatever that topic is,
+
+44:53.580 --> 44:56.620
+ not being able to use the note card while speaking
+
+44:56.620 --> 44:59.420
+ and speaking for five minutes about that topic.
+
+44:59.420 --> 45:03.940
+ So, but it just, it puts so much,
+
+45:03.940 --> 45:06.220
+ it gave me so much perspective
+
+45:06.220 --> 45:08.500
+ around the power of communication,
+
+45:08.500 --> 45:10.020
+ around my own deficiencies
+
+45:10.020 --> 45:14.140
+ and around if I set my mind to do something, I'll do it.
+
+45:14.140 --> 45:16.420
+ So it gave me a lot more confidence.
+
+45:16.420 --> 45:18.900
+ So I see fasting in the same light.
+
+45:18.900 --> 45:21.460
+ This is something that was interesting,
+
+45:21.460 --> 45:23.860
+ challenging, uncomfortable,
+
+45:23.860 --> 45:28.860
+ and has given me so much learning and benefit as a result.
+
+45:30.220 --> 45:32.620
+ And it will lead to other things that I'll experiment with
+
+45:32.620 --> 45:35.820
+ and play with, but yeah,
+
+45:35.820 --> 45:38.780
+ it does feel a little bit like a superpower sometimes.
+
+45:39.820 --> 45:42.700
+ The most boring superpower one can imagine.
+
+45:42.700 --> 45:44.060
+ Now it's quite incredible.
+
+45:44.060 --> 45:46.820
+ The clarity of mind is pretty interesting.
+
+45:47.660 --> 45:49.700
+ Speaking of suffering,
+
+45:49.700 --> 45:53.060
+ you kind of talk about facing difficult ideas.
+
+45:53.060 --> 45:58.060
+ You meditate, you think about the broad context of life,
+
+45:58.940 --> 46:00.300
+ of our societies.
+
+46:00.300 --> 46:02.500
+ Let me ask, sort of apologize again
+
+46:02.500 --> 46:03.700
+ for the romanticized question,
+
+46:03.700 --> 46:06.500
+ but do you ponder your own mortality?
+
+46:06.500 --> 46:09.940
+ Do you think about death,
+
+46:09.940 --> 46:13.780
+ about the finiteness of human existence
+
+46:13.780 --> 46:15.420
+ when you meditate, when you think about it?
+
+46:15.420 --> 46:18.020
+ And if you do, what,
+
+46:18.020 --> 46:20.540
+ how do you make sense of it, that this thing ends?
+
+46:22.460 --> 46:23.740
+ Well, I don't try to make sense of it.
+
+46:23.740 --> 46:25.500
+ I do think about it every day.
+
+46:25.500 --> 46:29.060
+ I mean, it's a daily, multiple times a day.
+
+46:29.060 --> 46:30.540
+ Are you afraid of death?
+
+46:30.540 --> 46:32.380
+ No, I'm not afraid of it.
+
+46:32.380 --> 46:36.300
+ I think it's a transformation, I don't know to what,
+
+46:36.300 --> 46:38.180
+ but it's also a tool
+
+46:39.260 --> 46:44.260
+ to feel the importance of every moment.
+
+46:44.620 --> 46:48.620
+ So I just use it as a reminder, like I have an hour.
+
+46:48.620 --> 46:51.380
+ Is this really what I'm going to spend the hour doing?
+
+46:52.300 --> 46:55.460
+ Like I only have so many more sunsets and sunrises to watch.
+
+46:55.460 --> 46:58.300
+ Like I'm not going to get up for it.
+
+46:58.300 --> 47:02.060
+ I'm not going to make sure that I try to see it.
+
+47:02.060 --> 47:06.660
+ So it just puts a lot into perspective
+
+47:06.660 --> 47:09.060
+ and it helps me prioritize.
+
+47:09.060 --> 47:12.500
+ I think it's, I don't see it as something that's like
+
+47:13.780 --> 47:15.500
+ that I dread or is dreadful.
+
+47:15.500 --> 47:18.060
+ It's a tool that is available
+
+47:18.060 --> 47:19.660
+ to every single person to use every day
+
+47:19.660 --> 47:21.780
+ because it shows how precious life is.
+
+47:21.780 --> 47:24.540
+ And there's reminders every single day,
+
+47:24.540 --> 47:27.940
+ whether it be your own health or a friend or a coworker
+
+47:27.940 --> 47:29.620
+ or something you see in the news.
+
+47:30.620 --> 47:32.380
+ So to me it's just a question
+
+47:32.380 --> 47:34.820
+ of what we do with our daily reminder.
+
+47:34.820 --> 47:39.820
+ And for me, it's am I really focused on what matters?
+
+47:40.180 --> 47:42.220
+ And sometimes that might be work,
+
+47:42.220 --> 47:45.180
+ sometimes that might be friendships or family
+
+47:45.180 --> 47:47.020
+ or relationships or whatnot,
+
+47:47.020 --> 47:51.300
+ but it's the ultimate clarifier in that sense.
+
+47:51.300 --> 47:53.620
+ So on the question of what matters,
+
+47:53.620 --> 47:57.060
+ another ridiculously big question of
+
+47:57.060 --> 47:58.460
+ once you try to make sense of it,
+
+47:58.460 --> 48:00.700
+ what do you think is the meaning of it all,
+
+48:00.700 --> 48:02.020
+ the meaning of life?
+
+48:02.020 --> 48:07.020
+ What gives you purpose, happiness, meaning?
+
+48:07.660 --> 48:08.500
+ A lot does.
+
+48:08.500 --> 48:11.500
+ I mean, just being able to be aware
+
+48:14.340 --> 48:18.580
+ of the fact that I'm alive is pretty meaningful.
+
+48:20.060 --> 48:23.060
+ The connections I feel with individuals,
+
+48:23.060 --> 48:25.060
+ whether they're people I just meet
+
+48:25.060 --> 48:29.940
+ or long lasting friendships or my family is meaningful.
+
+48:30.900 --> 48:33.740
+ Seeing people use something that I helped build
+
+48:33.740 --> 48:36.300
+ is really meaningful and powerful to me.
+
+48:38.820 --> 48:40.300
+ But that sense of, I mean,
+
+48:40.300 --> 48:43.460
+ I think ultimately it comes down to a sense of connection
+
+48:43.460 --> 48:47.220
+ and just feeling like I am bigger,
+
+48:47.220 --> 48:49.940
+ I am part of something that's bigger than myself
+
+48:49.940 --> 48:52.180
+ and like I can feel it directly
+
+48:52.180 --> 48:54.020
+ in small ways or large ways,
+
+48:54.020 --> 48:58.260
+ however it manifests is probably it.
+
+48:59.700 --> 49:00.700
+ Last question.
+
+49:00.700 --> 49:02.860
+ Do you think we're living in a simulation?
+
+49:05.900 --> 49:06.740
+ I don't know.
+
+49:06.740 --> 49:08.100
+ It's a pretty fun one if we are,
+
+49:09.060 --> 49:14.020
+ but also crazy and random and wrought with tons of problems.
+
+49:15.580 --> 49:17.260
+ But yeah.
+
+49:17.260 --> 49:19.420
+ Would you have it any other way?
+
+49:19.420 --> 49:20.260
+ Yeah.
+
+49:20.260 --> 49:24.580
+ I mean, I just think it's taken us way too long
+
+49:24.580 --> 49:27.180
+ as a planet to realize we're all in this together
+
+49:27.180 --> 49:32.180
+ and we all are connected in very significant ways.
+
+49:34.100 --> 49:38.940
+ I think we hide our connectivity very well through ego,
+
+49:38.940 --> 49:42.060
+ through whatever it is of the day.
+
+49:42.060 --> 49:46.260
+ But that is the one thing I would wanna work
+
+49:46.260 --> 49:51.260
+ towards changing and that's how I would have it another way.
+
+49:51.540 --> 49:52.900
+ Cause if we can't do that,
+
+49:52.900 --> 49:55.620
+ then how are we gonna connect to all the other simulations?
+
+49:55.620 --> 49:57.380
+ Cause that's the next step is like
+
+49:57.380 --> 49:58.860
+ what's happening in the other simulation.
+
+49:58.860 --> 50:01.140
+ Escaping this one and yeah.
+
+50:03.380 --> 50:05.500
+ Spanning across the multiple simulations
+
+50:05.500 --> 50:07.380
+ and sharing in and on the fun.
+
+50:07.380 --> 50:09.940
+ I don't think there's a better way to end it.
+
+50:09.940 --> 50:12.060
+ Jack, thank you so much for all the work you do.
+
+50:12.060 --> 50:13.940
+ There's probably other ways that we've ended this
+
+50:13.940 --> 50:16.620
+ and other simulations that may have been better.
+
+50:16.620 --> 50:18.740
+ We'll have to wait and see.
+
+50:18.740 --> 50:19.900
+ Thanks so much for talking today.
+
+50:19.900 --> 50:20.740
+ Thank you.
+
+50:21.620 --> 50:24.180
+ Thanks for listening to this conversation with Jack Dorsey
+
+50:24.180 --> 50:26.980
+ and thank you to our sponsor, Masterclass.
+
+50:26.980 --> 50:29.180
+ Please consider supporting this podcast
+
+50:29.180 --> 50:34.180
+ by signing up to Masterclass at masterclass.com slash Lex.
+
+50:34.700 --> 50:37.100
+ If you enjoy this podcast, subscribe on YouTube,
+
+50:37.100 --> 50:39.420
+ review it with five stars on Apple Podcast,
+
+50:39.420 --> 50:42.700
+ support on Patreon or simply connect with me on Twitter
+
+50:42.700 --> 50:44.020
+ at Lex Friedman.
+
+50:45.180 --> 50:47.180
+ And now let me leave you with some words
+
+50:47.180 --> 50:49.580
+ about Bitcoin from Paul Graham.
+
+50:50.540 --> 50:52.580
+ I'm very intrigued by Bitcoin.
+
+50:52.580 --> 50:55.100
+ It has all the signs of a paradigm shift.
+
+50:55.100 --> 50:58.900
+ Hackers love it, yet it is described as a toy,
+
+50:58.900 --> 51:01.020
+ just like microcomputers.
+
+51:01.020 --> 51:14.020
+ Thank you for listening and hope to see you next time.
+

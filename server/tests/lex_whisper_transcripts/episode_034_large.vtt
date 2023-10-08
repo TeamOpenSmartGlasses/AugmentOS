@@ -1,0 +1,1547 @@
+WEBVTT
+
+00:00.000 --> 00:04.800
+ The following is a conversation with Pamela McCordick. She's an author who has written on
+
+00:04.800 --> 00:10.400
+ the history and the philosophical significance of artificial intelligence. Her books include
+
+00:10.400 --> 00:18.160
+ Machines Who Think in 1979, The Fifth Generation in 1983 with Ed Feigenbaum, who's considered to
+
+00:18.160 --> 00:24.000
+ be the father of expert systems, The Edge of Chaos that features women, and many more books.
+
+00:24.000 --> 00:29.520
+ I came across her work in an unusual way by stumbling in a quote from Machines Who Think
+
+00:29.520 --> 00:36.240
+ that is something like, artificial intelligence began with the ancient wish to forge the gods.
+
+00:37.040 --> 00:42.320
+ That was a beautiful way to draw a connecting line between our societal relationship with AI
+
+00:42.960 --> 00:48.560
+ from the grounded day to day science, math and engineering, to popular stories and science
+
+00:48.560 --> 00:54.800
+ fiction and myths of automatons that go back for centuries. Through her literary work,
+
+00:54.800 --> 01:00.480
+ she has spent a lot of time with the seminal figures of artificial intelligence, including
+
+01:00.480 --> 01:07.920
+ the founding fathers of AI from the 1956 Dartmouth summer workshop where the field was launched.
+
+01:08.480 --> 01:13.760
+ I reached out to Pamela for a conversation in hopes of getting a sense of what those early
+
+01:13.760 --> 01:19.200
+ days were like, and how their dreams continue to reverberate through the work of our community
+
+01:19.200 --> 01:25.600
+ today. I often don't know where the conversation may take us, but I jump in and see. Having no
+
+01:25.600 --> 01:31.760
+ constraints, rules, or goals is a wonderful way to discover new ideas. This is the Artificial
+
+01:31.760 --> 01:37.840
+ Intelligence Podcast. If you enjoy it, subscribe on YouTube, give it five stars on iTunes,
+
+01:37.840 --> 01:44.720
+ support it on Patreon, or simply connect with me on Twitter, at Lex Friedman, spelled F R I D M
+
+01:44.720 --> 01:53.840
+ A N. And now, here's my conversation with Pamela McCordick. In 1979, your book Machines Who Think
+
+01:55.040 --> 02:00.720
+ was published. In it, you interview some of the early AI pioneers and explore the idea that
+
+02:00.720 --> 02:10.400
+ AI was born not out of maybe math and computer science, but out of myth and legend. So, tell me
+
+02:10.400 --> 02:17.520
+ if you could the story of how you first arrived at the book, the journey of beginning to write it.
+
+02:19.040 --> 02:29.120
+ I had been a novelist. I'd published two novels, and I was sitting under the portal at Stanford
+
+02:29.120 --> 02:33.920
+ one day, the house we were renting for the summer. And I thought, I should write a novel about these
+
+02:33.920 --> 02:41.360
+ weird people in AI, I know. And then I thought, ah, don't write a novel, write a history. Simple.
+
+02:41.360 --> 02:48.240
+ Just go around, interview them, splice it together, voila, instant book. Ha, ha, ha. It was
+
+02:48.240 --> 02:54.400
+ much harder than that. But nobody else was doing it. And so, I thought, well, this is a great
+
+02:54.400 --> 03:03.760
+ opportunity. And there were people who, John McCarthy, for example, thought it was a nutty
+
+03:03.760 --> 03:11.040
+ idea. The field had not evolved yet, so on. And he had some mathematical thing he thought I should
+
+03:11.040 --> 03:17.840
+ write instead. And I said, no, John, I am not a woman in search of a project. This is what I want
+
+03:17.840 --> 03:24.560
+ to do. I hope you'll cooperate. And he said, oh, mutter, mutter, well, okay, it's your time.
+
+03:24.560 --> 03:30.800
+ What was the pitch for the, I mean, such a young field at that point. How do you write
+
+03:30.800 --> 03:37.040
+ a personal history of a field that's so young? I said, this is wonderful. The founders of the
+
+03:37.040 --> 03:42.720
+ field are alive and kicking and able to talk about what they're doing. Did they sound or feel like
+
+03:42.720 --> 03:48.000
+ founders at the time? Did they know that they have founded something?
+
+03:48.000 --> 03:55.520
+ Oh, yeah. They knew what they were doing was very important. Very. What I now see in retrospect
+
+03:56.160 --> 04:04.320
+ is that they were at the height of their research careers. And it's humbling to me that they took
+
+04:04.320 --> 04:11.440
+ time out from all the things that they had to do as a consequence of being there. And to talk to
+
+04:11.440 --> 04:16.400
+ this woman who said, I think I'm going to write a book about you. No, it was amazing. Just amazing.
+
+04:17.040 --> 04:25.040
+ So who stands out to you? Maybe looking 63 years ago, the Dartmouth conference,
+
+04:26.480 --> 04:32.960
+ so Marvin Minsky was there, McCarthy was there, Claude Shannon, Alan Newell, Herb Simon,
+
+04:32.960 --> 04:40.080
+ some of the folks you've mentioned. Then there's other characters, right? One of your coauthors
+
+04:40.080 --> 04:43.120
+ He wasn't at Dartmouth.
+
+04:43.120 --> 04:43.920
+ He wasn't at Dartmouth.
+
+04:43.920 --> 04:46.800
+ No. He was, I think, an undergraduate then.
+
+04:47.680 --> 04:56.000
+ And of course, Joe Traub. All of these are players, not at Dartmouth, but in that era.
+
+04:56.000 --> 04:56.500
+ Right.
+
+04:57.600 --> 05:02.960
+ CMU and so on. So who are the characters, if you could paint a picture, that stand out to you
+
+05:02.960 --> 05:07.200
+ from memory? Those people you've interviewed and maybe not, people that were just in the
+
+05:08.400 --> 05:09.920
+ In the atmosphere.
+
+05:09.920 --> 05:10.720
+ In the atmosphere.
+
+05:11.840 --> 05:15.920
+ Of course, the four founding fathers were extraordinary guys. They really were.
+
+05:15.920 --> 05:17.040
+ Who are the founding fathers?
+
+05:18.560 --> 05:24.800
+ Alan Newell, Herbert Simon, Marvin Minsky, John McCarthy. They were the four who were not only
+
+05:24.800 --> 05:28.880
+ at the Dartmouth conference, but Newell and Simon arrived there with a working program
+
+05:29.600 --> 05:34.960
+ called The Logic Theorist. Everybody else had great ideas about how they might do it, but
+
+05:34.960 --> 05:38.480
+ But they weren't going to do it yet.
+
+05:41.040 --> 05:48.720
+ And you mentioned Joe Traub, my husband. I was immersed in AI before I met Joe
+
+05:50.080 --> 05:55.040
+ because I had been Ed Feigenbaum's assistant at Stanford. And before that,
+
+05:55.040 --> 06:04.320
+ I had worked on a book edited by Feigenbaum and Julian Feldman called Computers and Thought.
+
+06:04.320 --> 06:10.480
+ It was the first textbook of readings of AI. And they only did it because they were trying to teach
+
+06:10.480 --> 06:15.040
+ AI to people at Berkeley. And there was nothing, you'd have to send them to this journal and that
+
+06:15.040 --> 06:22.240
+ journal. This was not the internet where you could go look at an article. So I was fascinated from
+
+06:22.240 --> 06:30.960
+ the get go by AI. I was an English major. What did I know? And yet I was fascinated. And that's
+
+06:30.960 --> 06:38.080
+ why you saw that historical, that literary background, which I think is very much a part
+
+06:38.080 --> 06:47.600
+ of the continuum of AI, that AI grew out of that same impulse. That traditional, what was,
+
+06:47.600 --> 06:54.880
+ what drew you to AI? How did you even think of it back then? What was the possibilities,
+
+06:54.880 --> 07:03.200
+ the dreams? What was interesting to you? The idea of intelligence outside the human cranium,
+
+07:03.200 --> 07:08.000
+ this was a phenomenal idea. And even when I finished Machines Who Think,
+
+07:08.960 --> 07:15.120
+ I didn't know if they were going to succeed. In fact, the final chapter is very wishy washy,
+
+07:15.120 --> 07:25.760
+ frankly. Succeed, the field did. Yeah. So was there the idea that AI began with the wish to
+
+07:25.760 --> 07:33.760
+ forge the gods? So the spiritual component that we crave to create this other thing greater than
+
+07:33.760 --> 07:42.320
+ ourselves. For those guys, I don't think so. Newell and Simon were cognitive psychologists.
+
+07:42.320 --> 07:49.040
+ What they wanted was to simulate aspects of human intelligence,
+
+07:49.040 --> 07:57.280
+ and they found they could do it on the computer. Minsky just thought it was a really cool thing
+
+07:57.280 --> 08:06.160
+ to do. Likewise, McCarthy. McCarthy had got the idea in 1949 when he was a Caltech student.
+
+08:06.160 --> 08:15.520
+ And he listened to somebody's lecture. It's in my book. I forget who it was. And he thought,
+
+08:15.520 --> 08:20.560
+ oh, that would be fun to do. How do we do that? And he took a very mathematical approach.
+
+08:21.520 --> 08:29.440
+ Minsky was hybrid, and Newell and Simon were very much cognitive psychology. How can we simulate
+
+08:29.440 --> 08:37.120
+ various things about human cognition? What happened over the many years is, of course,
+
+08:37.120 --> 08:44.800
+ our definition of intelligence expanded tremendously. These days, biologists are
+
+08:44.800 --> 08:49.240
+ comfortable talking about the intelligence of the cell, the intelligence of the brain,
+
+08:49.240 --> 09:00.560
+ not just human brain, but the intelligence of any kind of brain. Cephalopods, I mean, an octopus is
+
+09:00.560 --> 09:06.880
+ really intelligent by any amount. We wouldn't have thought of that in the 60s, even the 70s.
+
+09:06.880 --> 09:16.320
+ So all these things have worked in. And I did hear one behavioral primatologist, Franz De Waal,
+
+09:16.320 --> 09:26.240
+ say, AI taught us the questions to ask. Yeah, this is what happens, right? When you try to build it,
+
+09:26.240 --> 09:32.400
+ is when you start to actually ask questions. It puts a mirror to ourselves. Yeah, right. So you
+
+09:32.400 --> 09:38.880
+ were there in the middle of it. It seems like not many people were asking the questions that
+
+09:38.880 --> 09:45.920
+ you were, or just trying to look at this field the way you were. I was so low. When I went to
+
+09:45.920 --> 09:53.800
+ get funding for this because I needed somebody to transcribe the interviews and I needed travel
+
+09:53.800 --> 10:07.160
+ expenses, I went to everything you could think of, the NSF, the DARPA. There was an Air Force
+
+10:07.160 --> 10:15.480
+ place that doled out money. And each of them said, well, that's a very interesting idea.
+
+10:15.480 --> 10:23.960
+ But we'll think about it. And the National Science Foundation actually said to me in plain English,
+
+10:23.960 --> 10:30.480
+ hey, you're only a writer. You're not a historian of science. And I said, yeah, that's true. But
+
+10:30.480 --> 10:35.400
+ the historians of science will be crawling all over this field. I'm writing for the general
+
+10:35.400 --> 10:43.880
+ audience, so I thought. And they still wouldn't budge. I finally got a private grant without
+
+10:43.880 --> 10:51.400
+ knowing who it was from, from Ed Fredkin at MIT. He was a wealthy man, and he liked what he called
+
+10:51.400 --> 10:58.680
+ crackpot ideas. And he considered this a crackpot idea, and he was willing to support it. I am ever
+
+10:58.680 --> 11:06.720
+ grateful, let me say that. Some would say that a history of science approach to AI, or even just a
+
+11:06.720 --> 11:13.760
+ history, or anything like the book that you've written, hasn't been written since. Maybe I'm
+
+11:13.760 --> 11:20.240
+ not familiar, but it's certainly not many. If we think about bigger than just these couple of
+
+11:20.240 --> 11:30.640
+ decades, few decades, what are the roots of AI? Oh, they go back so far. Yes, of course, there's
+
+11:30.640 --> 11:41.240
+ all the legendary stuff, the Golem and the early robots of the 20th century. But they go back much
+
+11:41.240 --> 11:49.680
+ further than that. If you read Homer, Homer has robots in the Iliad. And a classical scholar was
+
+11:49.680 --> 11:54.120
+ pointing out to me just a few months ago, well, you said you just read the Odyssey. The Odyssey
+
+11:54.120 --> 12:00.800
+ is full of robots. It is, I said? Yeah. How do you think Odysseus's ship gets from one place to
+
+12:00.800 --> 12:07.320
+ another? He doesn't have the crew people to do that, the crewmen. Yeah, it's magic. It's robots.
+
+12:07.320 --> 12:17.240
+ Oh, I thought, how interesting. So we've had this notion of AI for a long time. And then toward the
+
+12:17.240 --> 12:23.080
+ end of the 19th century, the beginning of the 20th century, there were scientists who actually
+
+12:23.080 --> 12:29.520
+ tried to make this happen some way or another, not successfully. They didn't have the technology for
+
+12:29.520 --> 12:40.080
+ it. And of course, Babbage in the 1850s and 60s, he saw that what he was building was capable of
+
+12:40.080 --> 12:47.080
+ intelligent behavior. And when he ran out of funding, the British government finally said,
+
+12:47.080 --> 12:55.880
+ that's enough. He and Lady Lovelace decided, oh, well, why don't we play the ponies with this? He
+
+12:55.880 --> 13:02.400
+ had other ideas for raising money too. But if we actually reach back once again, I think people
+
+13:02.400 --> 13:09.160
+ don't actually really know that robots do appear and ideas of robots. You talk about the Hellenic
+
+13:09.160 --> 13:16.760
+ and the Hebraic points of view. Oh, yes. Can you tell me about each? I defined it this way. The
+
+13:16.760 --> 13:25.160
+ Hellenic point of view is robots are great. They are party help. They help this guy Hephaestus,
+
+13:25.160 --> 13:32.560
+ this god Hephaestus in his forge. I presume he made them to help him and so on and so forth.
+
+13:32.560 --> 13:40.120
+ And they welcome the whole idea of robots. The Hebraic view has to do with, I think it's the
+
+13:40.120 --> 13:47.280
+ second commandment, thou shalt not make any graven image. In other words, you better not
+
+13:47.280 --> 13:55.200
+ start imitating humans because that's just forbidden. It's the second commandment. And
+
+13:55.200 --> 14:08.800
+ a lot of the reaction to artificial intelligence has been a sense that this is somehow wicked,
+
+14:08.800 --> 14:17.600
+ this is somehow blasphemous. We shouldn't be going there. Now, you can say, yeah, but there are going
+
+14:17.600 --> 14:21.840
+ to be some downsides. And I say, yes, there are, but blasphemy is not one of them.
+
+14:21.840 --> 14:29.800
+ You know, there is a kind of fear that feels to be almost primal. Is there religious roots to that?
+
+14:29.800 --> 14:36.280
+ Because so much of our society has religious roots. And so there is a feeling of, like you
+
+14:36.280 --> 14:43.800
+ said, blasphemy of creating the other, of creating something, you know, it doesn't have to be
+
+14:43.800 --> 14:48.640
+ artificial intelligence. It's creating life in general. It's the Frankenstein idea.
+
+14:48.640 --> 14:56.080
+ There's the annotated Frankenstein on my coffee table. It's a tremendous novel. It really is just
+
+14:56.080 --> 15:03.880
+ beautifully perceptive. Yes, we do fear this and we have good reason to fear it,
+
+15:03.880 --> 15:08.760
+ but because it can get out of hand. Maybe you can speak to that fear,
+
+15:08.760 --> 15:12.960
+ the psychology, if you've thought about it. You know, there's a practical set of fears,
+
+15:12.960 --> 15:17.800
+ concerns in the short term. You can think if we actually think about artificial intelligence
+
+15:17.800 --> 15:29.160
+ systems, you can think about bias of discrimination in algorithms. You can think about their social
+
+15:29.160 --> 15:35.520
+ networks have algorithms that recommend the content you see, thereby these algorithms control
+
+15:35.520 --> 15:40.320
+ the behavior of the masses. There's these concerns. But to me, it feels like the fear
+
+15:40.320 --> 15:46.280
+ that people have is deeper than that. So have you thought about the psychology of it?
+
+15:46.280 --> 15:57.240
+ I think in a superficial way I have. There is this notion that if we produce a machine that
+
+15:57.240 --> 16:01.240
+ can think, it will outthink us and therefore replace us.
+
+16:01.240 --> 16:11.960
+ I guess that's a primal fear of almost kind of a kind of mortality. So around the time you said
+
+16:11.960 --> 16:21.760
+ you worked at Stanford with Ed Feigenbaum. So let's look at that one person. Throughout his
+
+16:21.760 --> 16:31.240
+ history, clearly a key person, one of the many in the history of AI. How has he changed in general
+
+16:31.240 --> 16:36.440
+ around him? How has Stanford changed in the last, how many years are we talking about here?
+
+16:36.440 --> 16:38.400
+ Oh, since 65.
+
+16:38.400 --> 16:45.000
+ 65. So maybe it doesn't have to be about him. It could be bigger. But because he was a key
+
+16:45.000 --> 16:54.160
+ person in expert systems, for example, how is that, how are these folks who you've interviewed in the
+
+16:54.160 --> 16:58.360
+ 70s, 79 changed through the decades?
+
+16:58.360 --> 17:12.240
+ In Ed's case, I know him well. We are dear friends. We see each other every month or so. He told me
+
+17:12.240 --> 17:17.040
+ that when Machines Who Think first came out, he really thought all the front matter was kind of
+
+17:17.040 --> 17:27.040
+ bologna. And 10 years later, he said, no, I see what you're getting at. Yes, this is an impulse
+
+17:27.040 --> 17:34.800
+ that has been a human impulse for thousands of years to create something outside the human
+
+17:34.800 --> 17:46.000
+ cranium that has intelligence. I think it's very hard when you're down at the algorithmic level,
+
+17:46.000 --> 17:53.000
+ and you're just trying to make something work, which is hard enough to step back and think of
+
+17:53.000 --> 17:59.720
+ the big picture. It reminds me of when I was in Santa Fe, I knew a lot of archaeologists,
+
+17:59.720 --> 18:07.920
+ which was a hobby of mine. And I would say, yeah, yeah, well, you can look at the shards and say,
+
+18:07.920 --> 18:14.080
+ oh, this came from this tribe and this came from this trade route and so on. But what about the big
+
+18:14.080 --> 18:21.840
+ picture? And a very distinguished archaeologist said to me, they don't think that way. No,
+
+18:21.840 --> 18:30.520
+ they're trying to match the shard to where it came from. Where did the remainder of this corn
+
+18:30.520 --> 18:37.360
+ come from? Was it grown here? Was it grown elsewhere? And I think this is part of any
+
+18:37.360 --> 18:46.800
+ scientific field. You're so busy doing the hard work, and it is hard work, that you don't step
+
+18:46.800 --> 18:53.120
+ back and say, oh, well, now let's talk about the general meaning of all this. Yes.
+
+18:53.120 --> 18:58.320
+ So none of the even Minsky and McCarthy, they...
+
+18:58.320 --> 19:01.840
+ Oh, those guys did. Yeah. The founding fathers did.
+
+19:01.840 --> 19:03.920
+ Early on or later?
+
+19:03.920 --> 19:11.200
+ Pretty early on. But in a different way from how I looked at it. The two cognitive psychologists,
+
+19:11.200 --> 19:20.960
+ Newell and Simon, they wanted to imagine reforming cognitive psychology so that we would really,
+
+19:20.960 --> 19:31.520
+ really understand the brain. Minsky was more speculative. And John McCarthy saw it as,
+
+19:32.960 --> 19:40.320
+ I think I'm doing him right by this, he really saw it as a great boon for human beings to have
+
+19:40.320 --> 19:48.000
+ this technology. And that was reason enough to do it. And he had wonderful, wonderful
+
+19:48.880 --> 19:56.800
+ fables about how if you do the mathematics, you will see that these things are really good for
+
+19:56.800 --> 20:03.440
+ human beings. And if you had a technological objection, he had an answer, a technological
+
+20:03.440 --> 20:10.320
+ answer. But here's how we could get over that and then blah, blah, blah. And one of his favorite things
+
+20:10.320 --> 20:15.680
+ was what he called the literary problem, which of course he presented to me several times.
+
+20:16.400 --> 20:23.680
+ That is everything in literature, there are conventions in literature. One of the conventions
+
+20:23.680 --> 20:36.160
+ is that you have a villain and a hero. And the hero in most literature is human,
+
+20:36.160 --> 20:41.680
+ and the villain in most literature is a machine. And he said, that's just not the way it's going
+
+20:41.680 --> 20:47.600
+ to be. But that's the way we're used to it. So when we tell stories about AI, it's always
+
+20:47.600 --> 20:57.040
+ with this paradigm. I thought, yeah, he's right. Looking back, the classics RUR is certainly the
+
+20:57.040 --> 21:04.000
+ machines trying to overthrow the humans. Frankenstein is different. Frankenstein is
+
+21:06.400 --> 21:13.440
+ a creature. He never has a name. Frankenstein, of course, is the guy who created him, the human,
+
+21:13.440 --> 21:22.320
+ Dr. Frankenstein. This creature wants to be loved, wants to be accepted. And it is only when
+
+21:22.320 --> 21:32.800
+ Frankenstein turns his head, in fact, runs the other way. And the creature is without love,
+
+21:34.480 --> 21:38.560
+ that he becomes the monster that he later becomes.
+
+21:38.560 --> 21:43.840
+ So who's the villain in Frankenstein? It's unclear, right?
+
+21:43.840 --> 21:45.520
+ Oh, it is unclear, yeah.
+
+21:45.520 --> 21:54.240
+ It's really the people who drive him. By driving him away, they bring out the worst.
+
+21:54.240 --> 22:00.800
+ That's right. They give him no human solace. And he is driven away, you're right.
+
+22:00.800 --> 22:08.160
+ He becomes, at one point, the friend of a blind man. And he serves this blind man,
+
+22:08.160 --> 22:14.880
+ and they become very friendly. But when the sighted people of the blind man's family come in,
+
+22:14.880 --> 22:23.040
+ ah, you've got a monster here. So it's very didactic in its way. And what I didn't know
+
+22:23.040 --> 22:31.120
+ is that Mary Shelley and Percy Shelley were great readers of the literature surrounding abolition
+
+22:31.120 --> 22:38.720
+ in the United States, the abolition of slavery. And they picked that up wholesale. You are making
+
+22:38.720 --> 22:44.000
+ monsters of these people because you won't give them the respect and love that they deserve.
+
+22:44.000 --> 22:52.000
+ Do you have, if we get philosophical for a second, do you worry that once we create
+
+22:52.000 --> 22:56.960
+ machines that are a little bit more intelligent, let's look at Roomba, the vacuums, the cleaner,
+
+22:58.080 --> 23:08.080
+ that this darker part of human nature where we abuse the other, the somebody who's different,
+
+23:08.800 --> 23:09.600
+ will come out?
+
+23:09.600 --> 23:18.560
+ I don't worry about it. I could imagine it happening. But I think that what AI has to offer
+
+23:18.560 --> 23:24.800
+ the human race will be so attractive that people will be won over.
+
+23:25.760 --> 23:32.480
+ So you have looked deep into these people, had deep conversations, and it's interesting to get
+
+23:32.480 --> 23:42.720
+ a sense of stories of the way they were thinking and the way it was changed, the way your own
+
+23:42.720 --> 23:51.840
+ thinking about AI has changed. So you mentioned McCarthy. What about the years at CMU, Carnegie
+
+23:51.840 --> 24:02.800
+ Mellon, with Joe? Sure. Joe was not in AI. He was in algorithmic complexity.
+
+24:03.440 --> 24:07.280
+ Was there always a line between AI and computer science, for example?
+
+24:07.280 --> 24:10.880
+ Is AI its own place of outcasts? Was that the feeling?
+
+24:10.880 --> 24:24.560
+ There was a kind of outcast period for AI. For instance, in 1974, the new field was hardly 10
+
+24:24.560 --> 24:31.680
+ years old. The new field of computer science was asked by the National Science Foundation,
+
+24:31.680 --> 24:34.400
+ I believe, but it may have been the National Academies, I can't remember,
+
+24:34.400 --> 24:43.200
+ to tell your fellow scientists where computer science is and what it means.
+
+24:44.160 --> 24:53.520
+ And they wanted to leave out AI. And they only agreed to put it in because Don Knuth said,
+
+24:53.520 --> 24:57.280
+ hey, this is important. You can't just leave that out.
+
+24:57.280 --> 24:58.240
+ Really? Don, dude?
+
+24:58.240 --> 24:59.680
+ Don Knuth, yes.
+
+24:59.680 --> 25:02.960
+ I talked to him recently, too. Out of all the people.
+
+25:02.960 --> 25:08.640
+ Yes. But you see, an AI person couldn't have made that argument. He wouldn't have been believed.
+
+25:08.640 --> 25:10.800
+ But Knuth was believed. Yes.
+
+25:10.800 --> 25:15.200
+ So Joe Traub worked on the real stuff.
+
+25:15.200 --> 25:22.160
+ Joe was working on algorithmic complexity. But he would say in plain English again and again,
+
+25:22.160 --> 25:24.720
+ the smartest people I know are in AI.
+
+25:24.720 --> 25:25.280
+ Really?
+
+25:25.280 --> 25:35.120
+ Oh, yes. No question. Anyway, Joe loved these guys. What happened was that I guess it was
+
+25:35.760 --> 25:40.480
+ as I started to write Machines Who Think, Herb Simon and I became very close friends.
+
+25:41.360 --> 25:47.200
+ He would walk past our house on Northumberland Street every day after work. And I would just
+
+25:47.200 --> 25:52.160
+ be putting my cover on my typewriter. And I would lean out the door and say,
+
+25:52.160 --> 25:58.880
+ Herb, would you like a sherry? And Herb almost always would like a sherry. So he'd stop in
+
+25:59.440 --> 26:06.000
+ and we'd talk for an hour, two hours. My journal says we talked this afternoon for three hours.
+
+26:06.720 --> 26:11.680
+ What was on his mind at the time in terms of on the AI side of things?
+
+26:11.680 --> 26:14.640
+ Oh, we didn't talk too much about AI. We talked about other things.
+
+26:14.640 --> 26:15.680
+ Just life.
+
+26:15.680 --> 26:24.000
+ We both love literature. And Herb had read Proust in the original French twice all the
+
+26:24.000 --> 26:30.480
+ way through. I can't. I've read it in English in translation. So we talked about literature.
+
+26:30.480 --> 26:36.240
+ We talked about languages. We talked about music because he loved music. We talked about
+
+26:36.240 --> 26:44.960
+ art because he was actually enough of a painter that he had to give it up because he was afraid
+
+26:44.960 --> 26:50.960
+ it was interfering with his research and so on. So no, it was really just chat, chat.
+
+26:51.520 --> 26:59.360
+ But it was very warm. So one summer I said to Herb, my students have all the really
+
+26:59.360 --> 27:03.920
+ interesting conversations. I was teaching at the University of Pittsburgh then in the English
+
+27:03.920 --> 27:09.920
+ department. They get to talk about the meaning of life and that kind of thing. And what do I have?
+
+27:09.920 --> 27:17.040
+ I have university meetings where we talk about the photocopying budget and whether the course
+
+27:17.040 --> 27:23.040
+ on romantic poetry should be one semester or two. So Herb laughed. He said, yes, I know what you
+
+27:23.040 --> 27:30.640
+ mean. He said, but you could do something about that. Dot, that was his wife, Dot and I used to
+
+27:30.640 --> 27:38.560
+ have a salon at the University of Chicago every Sunday night. And we would have essentially an
+
+27:38.560 --> 27:45.360
+ open house and people knew. It wasn't for a small talk. It was really for some topic of
+
+27:47.600 --> 27:54.480
+ depth. He said, but my advice would be that you choose the topic ahead of time. Fine, I said.
+
+27:54.480 --> 28:01.680
+ So we exchanged mail over the summer. That was US Post in those days because
+
+28:01.680 --> 28:11.360
+ you didn't have personal email. And I decided I would organize it and there would be eight of us,
+
+28:12.000 --> 28:21.200
+ Alan Noland, his wife, Herb Simon and his wife Dorothea. There was a novelist in town,
+
+28:21.200 --> 28:29.680
+ a man named Mark Harris. He had just arrived and his wife Josephine. Mark was most famous then for
+
+28:29.680 --> 28:35.920
+ a novel called Bang the Drum Slowly, which was about baseball. And Joe and me, so eight people.
+
+28:36.720 --> 28:45.760
+ And we met monthly and we just sank our teeth into really hard topics and it was great fun.
+
+28:45.760 --> 28:52.080
+ TK How have your own views around artificial intelligence changed
+
+28:53.600 --> 28:57.440
+ through the process of writing Machines Who Think and afterwards, the ripple effects?
+
+28:57.440 --> 29:04.160
+ RL I was a little skeptical that this whole thing would work out. It didn't matter. To me,
+
+29:04.160 --> 29:16.800
+ it was so audacious. AI generally. And in some ways, it hasn't worked out the way I expected
+
+29:16.800 --> 29:26.880
+ so far. That is to say, there's this wonderful lot of apps, thanks to deep learning and so on.
+
+29:26.880 --> 29:37.920
+ But those are algorithmic. And in the part of symbolic processing, there's very little yet.
+
+29:39.120 --> 29:45.600
+ And that's a field that lies waiting for industrious graduate students.
+
+29:45.600 --> 29:53.040
+ TK Maybe you can tell me some figures that popped up in your life in the 80s with expert systems
+
+29:53.040 --> 30:00.320
+ where there was the symbolic AI possibilities of what most people think of as AI,
+
+30:00.960 --> 30:07.520
+ if you dream of the possibilities of AI, it's really expert systems. And those hit a few walls
+
+30:07.520 --> 30:12.080
+ and there was challenges there. And I think, yes, they will reemerge again with some new
+
+30:12.080 --> 30:17.760
+ breakthroughs and so on. But what did that feel like, both the possibility and the winter that
+
+30:17.760 --> 30:24.480
+ followed the slowdown in research? BG Ah, you know, this whole thing about AI winter is to me
+
+30:25.040 --> 30:26.960
+ a crock. TK Snow winters.
+
+30:26.960 --> 30:33.760
+ BG Because I look at the basic research that was being done in the 80s, which is supposed to be,
+
+30:34.480 --> 30:40.320
+ my God, it was really important. It was laying down things that nobody had thought about before,
+
+30:40.320 --> 30:44.880
+ but it was basic research. You couldn't monetize it. Hence the winter.
+
+30:44.880 --> 30:49.120
+ TK That's the winter. BG You know, research,
+
+30:49.120 --> 30:53.680
+ scientific research goes and fits and starts. It isn't this nice smooth,
+
+30:54.240 --> 30:59.040
+ oh, this follows this follows this. No, it just doesn't work that way.
+
+30:59.040 --> 31:03.600
+ TK The interesting thing, the way winters happen, it's never the fault of the researchers.
+
+31:05.760 --> 31:12.000
+ It's the some source of hype over promising. Well, no, let me take that back. Sometimes it
+
+31:12.000 --> 31:17.200
+ is the fault of the researchers. Sometimes certain researchers might over promise the
+
+31:17.200 --> 31:23.520
+ possibilities. They themselves believe that we're just a few years away. Sort of just recently
+
+31:23.520 --> 31:28.160
+ talked to Elon Musk and he believes he'll have an autonomous vehicle, will have autonomous vehicles
+
+31:28.160 --> 31:30.640
+ in a year. And he believes it. BG A year?
+
+31:30.640 --> 31:33.360
+ TK A year. Yeah. With mass deployment of a time.
+
+31:33.360 --> 31:38.640
+ BG For the record, this is 2019 right now. So he's talking 2020.
+
+31:38.640 --> 31:44.480
+ TK To do the impossible, you really have to believe it. And I think what's going to happen
+
+31:44.480 --> 31:47.360
+ when you believe it, because there's a lot of really brilliant people around him,
+
+31:48.240 --> 31:53.840
+ is some good stuff will come out of it. Some unexpected brilliant breakthroughs will come out
+
+31:53.840 --> 31:58.480
+ of it when you really believe it, when you work that hard. BG I believe that. And I believe
+
+31:58.480 --> 32:02.640
+ autonomous vehicles will come. I just don't believe it'll be in a year. I wish.
+
+32:02.640 --> 32:09.120
+ TK But nevertheless, there's, autonomous vehicles is a good example. There's a feeling
+
+32:09.120 --> 32:16.640
+ many companies have promised by 2021, by 2022, Ford, GM, basically every single automotive
+
+32:16.640 --> 32:21.440
+ company has promised they'll have autonomous vehicles. So that kind of over promise is what
+
+32:21.440 --> 32:26.720
+ leads to the winter. Because we'll come to those dates, there won't be autonomous vehicles.
+
+32:26.720 --> 32:32.080
+ BG And there'll be a feeling, well, wait a minute, if we took your word at that time,
+
+32:32.080 --> 32:39.680
+ that means we just spent billions of dollars, had made no money, and there's a counter response to
+
+32:39.680 --> 32:46.880
+ where everybody gives up on it. Sort of intellectually, at every level, the hope just
+
+32:46.880 --> 32:52.960
+ dies. And all that's left is a few basic researchers. So you're uncomfortable with
+
+32:52.960 --> 32:58.400
+ some aspects of this idea. TK Well, it's the difference between science and commerce.
+
+32:58.400 --> 33:04.160
+ BG So you think science goes on the way it does?
+
+33:04.160 --> 33:12.000
+ TK Oh, science can really be killed by not getting proper funding or timely funding.
+
+33:14.160 --> 33:19.440
+ I think Great Britain was a perfect example of that. The Lighthill report in,
+
+33:19.440 --> 33:26.560
+ I can't remember the year, essentially said, there's no use Great Britain putting any money
+
+33:26.560 --> 33:35.600
+ into this, it's going nowhere. And this was all about social factions in Great Britain.
+
+33:37.040 --> 33:44.720
+ Edinburgh hated Cambridge and Cambridge hated Manchester. Somebody else can write that story.
+
+33:44.720 --> 33:54.400
+ But it really did have a hard effect on research there. Now, they've come roaring back with Deep
+
+33:54.400 --> 34:03.760
+ Mind. But that's one guy and his visionaries around him. BG But just to push on that,
+
+34:03.760 --> 34:08.320
+ it's kind of interesting. You have this dislike of the idea of an AI winter.
+
+34:08.320 --> 34:15.440
+ Where's that coming from? Where were you? TK Oh, because I just don't think it's true.
+
+34:15.440 --> 34:21.280
+ BG There was a particular period of time. It's a romantic notion, certainly.
+
+34:21.280 --> 34:33.280
+ TK Yeah, well. No, I admire science, perhaps more than I admire commerce. Commerce is fine. Hey,
+
+34:33.280 --> 34:45.920
+ you know, we all gotta live. But science has a much longer view than commerce and continues
+
+34:46.720 --> 34:56.400
+ almost regardless. It can't continue totally regardless, but almost regardless of what's
+
+34:56.400 --> 35:01.680
+ saleable and what's not, what's monetizable and what's not. BG So the winter is just something
+
+35:01.680 --> 35:10.960
+ that happens on the commerce side, and the science marches. That's a beautifully optimistic
+
+35:10.960 --> 35:16.400
+ and inspiring message. I agree with you. I think if we look at the key people that work in AI,
+
+35:16.400 --> 35:22.160
+ that work in key scientists in most disciplines, they continue working out of the love for science.
+
+35:22.160 --> 35:30.480
+ You can always scrape up some funding to stay alive, and they continue working diligently.
+
+35:31.680 --> 35:38.080
+ But there certainly is a huge amount of funding now, and there's a concern on the AI side and
+
+35:38.080 --> 35:44.160
+ deep learning. There's a concern that we might, with over promising, hit another slowdown in
+
+35:44.160 --> 35:47.520
+ funding, which does affect the number of students, you know, that kind of thing.
+
+35:47.520 --> 35:52.080
+ RG Yeah, it does. BG So the kind of ideas you had in Machines Who Think,
+
+35:52.640 --> 35:56.240
+ did you continue that curiosity through the decades that followed?
+
+35:56.240 --> 36:03.840
+ RG Yes, I did. BG And what was your view, historical view of how AI community evolved,
+
+36:03.840 --> 36:09.280
+ the conversations about it, the work? Has it persisted the same way from its birth?
+
+36:09.280 --> 36:19.760
+ RG No, of course not. It's just as we were just talking, the symbolic AI really kind of dried up
+
+36:19.760 --> 36:26.640
+ and it all became algorithmic. I remember a young AI student telling me what he was doing,
+
+36:27.200 --> 36:33.200
+ and I had been away from the field long enough. I'd gotten involved with complexity at the Santa
+
+36:33.200 --> 36:40.960
+ Fe Institute. I thought, algorithms, yeah, they're in the service of, but they're not the main event.
+
+36:41.680 --> 36:49.440
+ No, they became the main event. That surprised me. And we all know the downside of this. We all
+
+36:49.440 --> 36:58.240
+ know that if you're using an algorithm to make decisions based on a gazillion human decisions,
+
+36:58.240 --> 37:04.480
+ baked into it are all the mistakes that humans make, the bigotries, the short sightedness,
+
+37:05.440 --> 37:13.280
+ and so on and so on. BG So you mentioned Santa Fe Institute. So you've written the novel
+
+37:13.280 --> 37:20.720
+ Edge of Chaos, but it's inspired by the ideas of complexity, a lot of which have been extensively
+
+37:20.720 --> 37:31.200
+ explored at the Santa Fe Institute. It's another fascinating topic, just sort of emergent
+
+37:31.200 --> 37:37.440
+ complexity from chaos. Nobody knows how it happens really, but it seems to where all the interesting
+
+37:37.440 --> 37:44.480
+ stuff does happen. So how did first, not your novel, but just complexity in general and the
+
+37:44.480 --> 37:50.960
+ work at Santa Fe, fit into the bigger puzzle of the history of AI? Or maybe even your personal
+
+37:51.600 --> 37:56.320
+ journey through that? RG One of the last projects I did
+
+37:57.760 --> 38:06.080
+ concerning AI in particular was looking at the work of Harold Cohen, the painter. And Harold was
+
+38:06.080 --> 38:17.920
+ deeply involved with AI. He was a painter first. And what his project, ARIN, which was a lifelong
+
+38:17.920 --> 38:30.480
+ project, did was reflect his own cognitive processes. Okay. Harold and I, even though I wrote
+
+38:30.480 --> 38:39.120
+ a book about it, we had a lot of friction between us. And I went, I thought, this is it. The book
+
+38:39.120 --> 38:47.760
+ died. It was published and fell into a ditch. This is it. I'm finished. It's time for me to
+
+38:47.760 --> 38:55.840
+ do something different. By chance, this was a sabbatical year for my husband. And we spent two
+
+38:55.840 --> 39:03.120
+ months at the Santa Fe Institute and two months at Caltech. And then the spring semester in Munich,
+
+39:03.120 --> 39:15.040
+ Germany. Okay. Those two months at the Santa Fe Institute were so restorative for me. And I began
+
+39:15.040 --> 39:22.560
+ to, the Institute was very small then. It was in some kind of office complex on old Santa Fe trail.
+
+39:22.560 --> 39:29.840
+ Everybody kept their door open. So you could crack your head on a problem. And if you finally didn't
+
+39:29.840 --> 39:39.040
+ get it, you could walk in to see Stuart Kaufman or any number of people and say, I don't get this.
+
+39:39.040 --> 39:46.880
+ Can you explain? And one of the people that I was talking to about complex adaptive systems
+
+39:46.880 --> 39:55.200
+ was Murray Gelman. And I told Murray what Harold Cohen had done. And I said, you know,
+
+39:55.200 --> 40:02.240
+ this sounds to me like a complex adaptive system. And he said, yeah, it is. Well, what do you know?
+
+40:02.240 --> 40:09.120
+ Harold Aaron had all these kids and cousins all over the world in science and in economics and
+
+40:09.120 --> 40:16.480
+ so on and so forth. I was so relieved. I thought, okay, your instincts are okay. You're doing the
+
+40:16.480 --> 40:21.760
+ right thing. I didn't have the vocabulary. And that was one of the things that the Santa Fe
+
+40:21.760 --> 40:26.880
+ Institute gave me. If I could have rewritten that book, no, it had just come out. I couldn't rewrite
+
+40:26.880 --> 40:34.480
+ it. I would have had a vocabulary to explain what Aaron was doing. Okay. So I got really interested
+
+40:34.480 --> 40:44.080
+ in what was going on at the Institute. The people were, again, bright and funny and willing to
+
+40:44.080 --> 40:51.600
+ explain anything to this amateur. George Cowan, who was then the head of the Institute, said he
+
+40:51.600 --> 40:58.800
+ thought it might be a nice idea if I wrote a book about the Institute. And I thought about it and I
+
+40:58.800 --> 41:05.920
+ had my eye on some other project, God knows what. And I said, I'm sorry, George. Yeah, I'd really
+
+41:05.920 --> 41:11.440
+ love to do it, but just not going to work for me at this moment. He said, oh, too bad. I think it
+
+41:11.440 --> 41:17.120
+ would make an interesting book. Well, he was right and I was wrong. I wish I'd done it. But that's
+
+41:17.120 --> 41:22.080
+ interesting. I hadn't thought about that, that that was a road not taken that I wish I'd taken.
+
+41:22.080 --> 41:31.680
+ Well, you know what? Just on that point, it's quite brave for you as a writer, as sort of
+
+41:31.680 --> 41:37.120
+ coming from a world of literature and the literary thinking and historical thinking. I mean, just
+
+41:37.120 --> 41:49.600
+ from that world and bravely talking to quite, I assume, large egos in AI or in complexity.
+
+41:49.600 --> 41:59.040
+ Yeah, in AI or in complexity and so on. How'd you do it? I mean, I suppose they could be
+
+41:59.040 --> 42:03.120
+ intimidated of you as well because it's two different worlds coming together.
+
+42:03.120 --> 42:06.080
+ I never picked up that anybody was intimidated by me.
+
+42:06.080 --> 42:08.640
+ But how were you brave enough? Where did you find the guts to sort of...
+
+42:08.640 --> 42:14.000
+ God, just dumb luck. I mean, this is an interesting rock to turn over. I'm going
+
+42:14.000 --> 42:18.880
+ to write a book about it. And you know, people have enough patience with writers
+
+42:18.880 --> 42:24.240
+ if they think they're going to end up in a book that they let you flail around and so on.
+
+42:24.800 --> 42:27.360
+ Well, but they also look if the writer has,
+
+42:28.320 --> 42:31.120
+ if there's a sparkle in their eye, if they get it.
+
+42:31.120 --> 42:31.680
+ Yeah, sure.
+
+42:32.640 --> 42:34.720
+ When were you at the Santa Fe Institute?
+
+42:35.920 --> 42:46.240
+ The time I'm talking about is 1990, 1991, 1992. But we then, because Joe was an external faculty
+
+42:46.240 --> 42:52.640
+ member, were in Santa Fe every summer. We bought a house there and I didn't have that much to do
+
+42:52.640 --> 42:57.920
+ with the Institute anymore. I was writing my novels. I was doing whatever I was doing.
+
+43:00.560 --> 43:04.320
+ But I loved the Institute and I loved
+
+43:08.400 --> 43:12.960
+ again, the audacity of the ideas. That really appeals to me.
+
+43:12.960 --> 43:22.160
+ I think that there's this feeling, much like in great institutes of neuroscience, for example,
+
+43:23.040 --> 43:29.840
+ that they're in it for the long game of understanding something fundamental about
+
+43:29.840 --> 43:36.800
+ reality and nature. And that's really exciting. So if we start now to look a little bit more recently,
+
+43:36.800 --> 43:46.480
+ how, you know, AI is really popular today. How is this world, you mentioned algorithmic,
+
+43:46.480 --> 43:51.680
+ but in general, is the spirit of the people, the kind of conversations you hear through the
+
+43:51.680 --> 43:55.360
+ grapevine and so on, is that different than the roots that you remember?
+
+43:55.360 --> 44:01.200
+ No. The same kind of excitement, the same kind of, this is really going to make a difference
+
+44:01.200 --> 44:07.920
+ in the world. And it will. It has. You know, a lot of folks, especially young, 20 years old or
+
+44:07.920 --> 44:14.000
+ something, they think we've just found something special here. We're going to change the world
+
+44:14.000 --> 44:24.240
+ tomorrow. On a time scale, do you have a sense of what, of the time scale at which breakthroughs
+
+44:24.240 --> 44:31.440
+ of the time scale at which breakthroughs in AI happen? I really don't. Because look at Deep Learning.
+
+44:32.240 --> 44:44.720
+ That was, Jeffrey Hinton came up with the algorithm in 86. But it took all these years
+
+44:44.720 --> 44:56.400
+ for the technology to be good enough to actually be applicable. So no, I can't predict that at all.
+
+44:56.400 --> 45:02.480
+ I can't. I wouldn't even try. Well, let me ask you to, not to try to predict, but to speak to the,
+
+45:03.760 --> 45:09.440
+ you know, I'm sure in the 60s, as it continues now, there's people that think, let's call it,
+
+45:09.440 --> 45:16.160
+ we can call it this fun word, the singularity. When there's a phase shift, there's some profound
+
+45:16.160 --> 45:22.720
+ feeling where we're all really surprised by what's able to be achieved. I'm sure those dreams are
+
+45:22.720 --> 45:29.200
+ there. I remember reading quotes in the 60s and those continued. How have your own views,
+
+45:29.200 --> 45:34.960
+ maybe if you look back, about the timeline of a singularity changed?
+
+45:34.960 --> 45:45.760
+ Well, I'm not a big fan of the singularity as Ray Kurzweil has presented it.
+
+45:46.640 --> 45:53.120
+ How would you define the Ray Kurzweil? How do you think of singularity in those?
+
+45:53.120 --> 45:59.280
+ If I understand Kurzweil's view, it's sort of, there's going to be this moment when machines
+
+45:59.280 --> 46:07.120
+ are smarter than humans and, you know, game over. However, the game over is. I mean, do they put us
+
+46:07.120 --> 46:15.680
+ on a reservation? Do they, et cetera, et cetera. And first of all, machines are smarter than humans
+
+46:15.680 --> 46:21.440
+ in some ways all over the place. And they have been since adding machines were invented.
+
+46:21.440 --> 46:28.640
+ So it's not, it's not going to come like some great eatable crossroads, you know, where
+
+46:29.440 --> 46:37.360
+ they meet each other and our offspring, Oedipus says, you're dead. It's just not going to happen.
+
+46:37.920 --> 46:44.000
+ Yeah. So it's already game over with calculators, right? They're already out to do much better at
+
+46:44.000 --> 46:51.920
+ basic arithmetic than us. But you know, there's a human like intelligence. And it's not the ones
+
+46:51.920 --> 46:57.920
+ that destroy us, but you know, somebody that you can have as a, as a friend, you can have deep
+
+46:57.920 --> 47:04.640
+ connections with that kind of passing the touring test and beyond those kinds of ideas. Have you
+
+47:04.640 --> 47:10.560
+ dreamt of those? Oh yes, yes, yes. Those possibilities. In a book I wrote with Ed Feigenbaum,
+
+47:10.560 --> 47:16.160
+ a book I wrote with Ed Feigenbaum, there's a little story called the geriatric robot.
+
+47:17.280 --> 47:24.880
+ And how I came up with the geriatric robot is a story in itself. But here's what the geriatric
+
+47:24.880 --> 47:29.520
+ robot does. It doesn't just clean you up and feed you and wheel you out into the sun.
+
+47:29.520 --> 47:44.480
+ It's great advantages. It listens. It says, tell me again about the great coup of 73. Tell me again
+
+47:45.280 --> 47:52.080
+ about how awful or how wonderful your grandchildren are and so on and so forth.
+
+47:52.960 --> 47:59.440
+ And it isn't hanging around to inherit your money. It isn't hanging around because it can't get
+
+47:59.440 --> 48:08.320
+ any other job. This is his job. And so on and so forth. Well, I would love something like that.
+
+48:09.120 --> 48:15.680
+ Yeah. I mean, for me, that deeply excites me. So I think there's a lot of us.
+
+48:15.680 --> 48:20.880
+ Lex, you gotta know, it was a joke. I dreamed it up because I needed to talk to college students
+
+48:20.880 --> 48:26.960
+ and I needed to give them some idea of what AI might be. And they were rolling in the aisles as
+
+48:26.960 --> 48:35.680
+ I elaborated and elaborated and elaborated. When it went into the book, they took my hide off
+
+48:36.320 --> 48:41.280
+ in the New York Review of Books. This is just what we have thought about these people in AI.
+
+48:41.280 --> 48:47.280
+ They're inhuman. Come on, get over it. Don't you think that's a good thing for
+
+48:47.280 --> 48:52.000
+ the world that AI could potentially do? I do. Absolutely. And furthermore,
+
+48:52.000 --> 49:02.560
+ I'm pushing 80 now. By the time I need help like that, I also want it to roll itself in a corner
+
+49:02.560 --> 49:09.360
+ and shut the fuck up. Let me linger on that point. Do you really though?
+
+49:09.360 --> 49:12.720
+ Yeah, I do. Here's why. Don't you want it to push back a little bit?
+
+49:13.360 --> 49:20.240
+ A little. But I have watched my friends go through the whole issue around having help
+
+49:20.240 --> 49:28.880
+ in the house. And some of them have been very lucky and had fabulous help. And some of them
+
+49:28.880 --> 49:34.000
+ have had people in the house who want to keep the television going on all day, who want to talk on
+
+49:34.000 --> 49:41.360
+ their phones all day. No. Just roll yourself in the corner and shut the fuck up. Unfortunately,
+
+49:41.360 --> 49:47.040
+ us humans, when we're assistants, we're still, even when we're assisting others,
+
+49:47.040 --> 49:54.800
+ we care about ourselves more. Of course. And so you create more frustration. And a robot AI
+
+49:54.800 --> 50:01.520
+ assistant can really optimize the experience for you. I was just speaking to the point,
+
+50:01.520 --> 50:05.360
+ you actually bring up a very, very good point. But I was speaking to the fact that
+
+50:05.360 --> 50:11.120
+ us humans are a little complicated, that we don't necessarily want a perfect servant.
+
+50:11.120 --> 50:20.800
+ I don't, maybe you disagree with that, but there's a, I think there's a push and pull with humans.
+
+50:20.800 --> 50:21.360
+ You're right.
+
+50:21.360 --> 50:27.680
+ A little tension, a little mystery that, of course, that's really difficult for AI to get right. But
+
+50:27.680 --> 50:34.800
+ I do sense, especially today with social media, that people are getting more and more lonely,
+
+50:34.800 --> 50:42.080
+ even young folks, and sometimes especially young folks, that loneliness, there's a longing for
+
+50:42.080 --> 50:49.840
+ connection and AI can help alleviate some of that loneliness. Some, just somebody who listens,
+
+50:50.800 --> 51:03.200
+ like in person. So to speak. So to speak, yeah. So to speak. Yeah, that to me is really exciting.
+
+51:03.200 --> 51:08.880
+ That is really exciting. But so if we look at that, that level of intelligence, which is
+
+51:08.880 --> 51:15.520
+ exceptionally difficult to achieve actually, as the singularity or whatever, that's the human level
+
+51:15.520 --> 51:23.920
+ bar, that people have dreamt of that too. Turing dreamt of it. He had a date timeline. Do you have,
+
+51:23.920 --> 51:27.840
+ how have your own timeline evolved on past?
+
+51:27.840 --> 51:28.960
+ I don't even think about it.
+
+51:28.960 --> 51:29.680
+ You don't even think?
+
+51:29.680 --> 51:37.200
+ No. Just this field has been so full of surprises for me.
+
+51:38.080 --> 51:42.080
+ You're just taking in and see the fun about the basic science.
+
+51:42.080 --> 51:48.160
+ Yeah. I just can't. Maybe that's because I've been around the field long enough to think,
+
+51:48.960 --> 51:54.720
+ you know, don't go that way. Herb Simon was terrible about making these predictions of
+
+51:54.720 --> 52:00.640
+ when this and that would happen. And he was a sensible guy.
+
+52:00.640 --> 52:03.360
+ His quotes are often used, right?
+
+52:03.360 --> 52:04.880
+ As a legend, yeah.
+
+52:04.880 --> 52:14.800
+ Yeah. Do you have concerns about AI, the existential threats that many people
+
+52:14.800 --> 52:18.800
+ like Elon Musk and Sam Harris and others are thinking about?
+
+52:18.800 --> 52:26.560
+ Yeah. That takes up half a chapter in my book. I call it the male gaze.
+
+52:29.600 --> 52:35.200
+ Well, you hear me out. The male gaze is actually a term from film criticism.
+
+52:36.240 --> 52:44.240
+ And I'm blocking on the women who dreamed this up. But she pointed out how most movies were
+
+52:44.240 --> 52:52.240
+ made from the male point of view, that women were objects, not subjects. They didn't have any
+
+52:53.760 --> 53:00.800
+ agency and so on and so forth. So when Elon and his pals Hawking and so on came,
+
+53:01.520 --> 53:07.360
+ AI is going to eat our lunch and our dinner and our midnight snack too, I thought, what?
+
+53:08.000 --> 53:13.120
+ And I said to Ed Feigenbaum, oh, this is the first guy. First, these guys have always been
+
+53:13.120 --> 53:18.800
+ the smartest guy on the block. And here comes something that might be smarter. Oh, let's stamp
+
+53:18.800 --> 53:23.360
+ it out before it takes over. And Ed laughed. He said, I didn't think about it that way.
+
+53:24.080 --> 53:34.480
+ But I did. I did. And it is the male gaze. Okay, suppose these things do have agency.
+
+53:34.480 --> 53:43.920
+ Well, let's wait and see what happens. Can we imbue them with ethics? Can we imbue them
+
+53:43.920 --> 53:54.480
+ with a sense of empathy? Or are they just going to be, I don't know, we've had centuries of guys
+
+53:54.480 --> 54:05.280
+ like that. That's interesting that the ego, the male gaze is immediately threatened. And so you
+
+54:05.280 --> 54:16.240
+ can't think in a patient, calm way of how the tech could evolve. Speaking of which, your 96 book,
+
+54:16.240 --> 54:23.840
+ The Future of Women, I think at the time and now, certainly now, I mean, I'm sorry, maybe at the
+
+54:23.840 --> 54:30.800
+ time, but I'm more cognizant of now, is extremely relevant. You and Nancy Ramsey talk about four
+
+54:30.800 --> 54:38.960
+ possible futures of women in science and tech. So if we look at the decades before and after
+
+54:38.960 --> 54:46.800
+ the book was released, can you tell a history, sorry, of women in science and tech and how it
+
+54:46.800 --> 54:54.320
+ has evolved? How have things changed? Where do we stand? Not enough. They have not changed enough.
+
+54:54.320 --> 55:05.840
+ The way that women are ground down in computing is simply unbelievable. But what are the four
+
+55:05.840 --> 55:13.520
+ possible futures for women in tech from the book? What you're really looking at are various aspects
+
+55:13.520 --> 55:20.880
+ of the present. So for each of those, you could say, oh yeah, we do have backlash. Look at what's
+
+55:20.880 --> 55:26.640
+ happening with abortion and so on and so forth. We have one step forward, one step back.
+
+55:28.400 --> 55:33.440
+ The golden age of equality was the hardest chapter to write. And I used something from
+
+55:33.440 --> 55:41.760
+ the Santa Fe Institute, which is the sandpile effect, that you drop sand very slowly onto a pile
+
+55:41.760 --> 55:47.680
+ and it grows and it grows and it grows until suddenly it just breaks apart. And
+
+55:50.240 --> 55:58.240
+ in a way, Me Too has done that. That was the last drop of sand that broke everything apart.
+
+55:58.240 --> 56:03.760
+ That was a perfect example of the sandpile effect. And that made me feel good. It didn't
+
+56:03.760 --> 56:10.480
+ change all of society, but it really woke a lot of people up. But are you in general optimistic
+
+56:10.480 --> 56:17.120
+ about maybe after Me Too? I mean, Me Too is about a very specific kind of thing.
+
+56:17.120 --> 56:18.800
+ Boy, solve that and you solve everything.
+
+56:19.920 --> 56:23.200
+ But are you in general optimistic about the future?
+
+56:23.200 --> 56:27.600
+ Yes. I'm a congenital optimistic. I can't help it.
+
+56:28.400 --> 56:33.440
+ What about AI? What are your thoughts about the future of AI?
+
+56:34.560 --> 56:40.080
+ Of course, I get asked, what do you worry about? And the one thing I worry about is the things
+
+56:40.080 --> 56:47.440
+ we can't anticipate. There's going to be something out of left field that we will just say,
+
+56:47.440 --> 56:56.800
+ we weren't prepared for that. I am generally optimistic. When I first took up
+
+56:58.240 --> 57:05.760
+ being interested in AI, like most people in the field, more intelligence was like more virtue.
+
+57:05.760 --> 57:13.520
+ You know, what could be bad? And in a way, I still believe that. But I realize that my
+
+57:13.520 --> 57:19.440
+ notion of intelligence has broadened. There are many kinds of intelligence,
+
+57:19.440 --> 57:22.640
+ and we need to imbue our machines with those many kinds.
+
+57:24.720 --> 57:32.560
+ So you've now just finished or in the process of finishing the book that you've been working
+
+57:32.560 --> 57:39.440
+ on, the memoir, how have you changed? I know it's just writing, but how have you changed
+
+57:39.440 --> 57:46.800
+ the process? If you look back, what kind of stuff did it bring up to you that surprised you,
+
+57:47.600 --> 57:55.840
+ looking at the entirety of it all? The biggest thing, and it really wasn't a surprise,
+
+57:55.840 --> 58:07.520
+ is how lucky I was. Oh, my. To have access to the beginning of a scientific field that is going to
+
+58:07.520 --> 58:20.240
+ change the world. How did I luck out? And yes, of course, my view of things has widened a lot.
+
+58:20.240 --> 58:28.640
+ If I can get back to one feminist part of our conversation. Without knowing it,
+
+58:28.640 --> 58:36.320
+ it really was subconscious. I wanted AI to succeed because I was so tired of hearing
+
+58:36.320 --> 58:43.280
+ that intelligence was inside the male cranium. And I thought if there was something out there
+
+58:43.280 --> 58:53.040
+ that wasn't a male thinking and doing well, then that would put a lie to this whole notion of
+
+58:53.040 --> 59:01.600
+ intelligence resides in the male cranium. I did not know that until one night Harold Cohen and I
+
+59:01.600 --> 59:09.600
+ were having a glass of wine, maybe two, and he said, what drew you to AI? And I said, oh,
+
+59:09.600 --> 59:14.720
+ you know, smartest people I knew, great project, blah, blah, blah. And I said, and I wanted
+
+59:14.720 --> 59:24.160
+ something besides male smarts. And it just bubbled up out of me like, what?
+
+59:24.160 --> 59:32.000
+ It's kind of brilliant, actually. So AI really humbles all of us and humbles the people that
+
+59:32.000 --> 59:35.360
+ need to be humbled the most. Let's hope.
+
+59:35.360 --> 59:40.800
+ Wow. That is so beautiful. Pamela, thank you so much for talking to me. It's really a huge honor.
+
+59:40.800 --> 59:41.840
+ It's been a great pleasure.
+
+59:41.840 --> 1:00:05.840
+ Thank you.
+

@@ -1,0 +1,2705 @@
+WEBVTT
+
+00:00.000 --> 00:03.120
+ The following is a conversation with Chris Sampson.
+
+00:03.120 --> 00:06.000
+ He was a CTO of the Google self driving car team,
+
+00:06.000 --> 00:08.880
+ a key engineer and leader behind the Carnegie Mellon
+
+00:08.880 --> 00:12.000
+ University autonomous vehicle entries in the DARPA Grand
+
+00:12.000 --> 00:16.160
+ Challenges and the winner of the DARPA Urban Challenge.
+
+00:16.160 --> 00:20.100
+ Today, he's the CEO of Aurora Innovation, an autonomous
+
+00:20.100 --> 00:21.360
+ vehicle software company.
+
+00:21.360 --> 00:23.600
+ He started with Sterling Anderson,
+
+00:23.600 --> 00:25.960
+ who was the former director of Tesla Autopilot,
+
+00:25.960 --> 00:30.120
+ and drew back now, Uber's former autonomy and perception lead.
+
+00:30.120 --> 00:32.880
+ Chris is one of the top roboticists and autonomous
+
+00:32.880 --> 00:36.320
+ vehicle experts in the world, and a longtime voice
+
+00:36.320 --> 00:38.840
+ of reason in a space that is shrouded
+
+00:38.840 --> 00:41.320
+ in both mystery and hype.
+
+00:41.320 --> 00:43.600
+ He both acknowledges the incredible challenges
+
+00:43.600 --> 00:46.480
+ involved in solving the problem of autonomous driving
+
+00:46.480 --> 00:49.760
+ and is working hard to solve it.
+
+00:49.760 --> 00:52.400
+ This is the Artificial Intelligence podcast.
+
+00:52.400 --> 00:54.720
+ If you enjoy it, subscribe on YouTube,
+
+00:54.720 --> 00:57.920
+ give it five stars on iTunes, support it on Patreon,
+
+00:57.920 --> 00:59.720
+ or simply connect with me on Twitter
+
+00:59.720 --> 01:03.240
+ at Lex Friedman, spelled F R I D M A N.
+
+01:03.240 --> 01:09.120
+ And now, here's my conversation with Chris Sampson.
+
+01:09.120 --> 01:11.960
+ You were part of both the DARPA Grand Challenge
+
+01:11.960 --> 01:13.880
+ and the DARPA Urban Challenge teams
+
+01:13.880 --> 01:17.040
+ at CMU with Red Whitaker.
+
+01:17.040 --> 01:19.720
+ What technical or philosophical things
+
+01:19.720 --> 01:22.240
+ have you learned from these races?
+
+01:22.240 --> 01:26.600
+ I think the high order bit was that it could be done.
+
+01:26.600 --> 01:30.200
+ I think that was the thing that was
+
+01:30.200 --> 01:34.880
+ incredible about the first of the Grand Challenges,
+
+01:34.880 --> 01:38.160
+ that I remember I was a grad student at Carnegie Mellon,
+
+01:38.160 --> 01:45.360
+ and there was kind of this dichotomy of it
+
+01:45.360 --> 01:46.720
+ seemed really hard, so that would
+
+01:46.720 --> 01:48.800
+ be cool and interesting.
+
+01:48.800 --> 01:52.800
+ But at the time, we were the only robotics institute around,
+
+01:52.800 --> 01:55.560
+ and so if we went into it and fell on our faces,
+
+01:55.560 --> 01:58.360
+ that would be embarrassing.
+
+01:58.360 --> 02:01.120
+ So I think just having the will to go do it,
+
+02:01.120 --> 02:02.880
+ to try to do this thing that at the time
+
+02:02.880 --> 02:05.000
+ was marked as darn near impossible,
+
+02:05.000 --> 02:06.960
+ and then after a couple of tries,
+
+02:06.960 --> 02:08.420
+ be able to actually make it happen,
+
+02:08.420 --> 02:12.320
+ I think that was really exciting.
+
+02:12.320 --> 02:15.040
+ But at which point did you believe it was possible?
+
+02:15.040 --> 02:16.960
+ Did you from the very beginning?
+
+02:16.960 --> 02:18.000
+ Did you personally?
+
+02:18.000 --> 02:19.800
+ Because you're one of the lead engineers.
+
+02:19.800 --> 02:21.800
+ You actually had to do a lot of the work.
+
+02:21.800 --> 02:23.880
+ Yeah, I was the technical director there,
+
+02:23.880 --> 02:26.120
+ and did a lot of the work, along with a bunch
+
+02:26.120 --> 02:28.420
+ of other really good people.
+
+02:28.420 --> 02:29.760
+ Did I believe it could be done?
+
+02:29.760 --> 02:31.080
+ Yeah, of course.
+
+02:31.080 --> 02:32.760
+ Why would you go do something you thought
+
+02:32.760 --> 02:34.800
+ was completely impossible?
+
+02:34.800 --> 02:36.260
+ We thought it was going to be hard.
+
+02:36.260 --> 02:37.800
+ We didn't know how we were going to be able to do it.
+
+02:37.800 --> 02:42.880
+ We didn't know if we'd be able to do it the first time.
+
+02:42.880 --> 02:45.960
+ Turns out we couldn't.
+
+02:45.960 --> 02:48.400
+ That, yeah, I guess you have to.
+
+02:48.400 --> 02:52.960
+ I think there's a certain benefit to naivete, right?
+
+02:52.960 --> 02:55.440
+ That if you don't know how hard something really is,
+
+02:55.440 --> 02:59.600
+ you try different things, and it gives you an opportunity
+
+02:59.600 --> 03:04.120
+ that others who are wiser maybe don't have.
+
+03:04.120 --> 03:05.720
+ What were the biggest pain points?
+
+03:05.720 --> 03:08.880
+ Mechanical, sensors, hardware, software,
+
+03:08.880 --> 03:11.800
+ algorithms for mapping, localization,
+
+03:11.800 --> 03:13.680
+ just general perception, control?
+
+03:13.680 --> 03:15.320
+ Like hardware, software, first of all?
+
+03:15.320 --> 03:20.120
+ I think that's the joy of this field, is that it's all hard
+
+03:20.120 --> 03:25.360
+ and that you have to be good at each part of it.
+
+03:25.360 --> 03:32.360
+ So for the urban challenges, if I look back at it from today,
+
+03:32.360 --> 03:38.960
+ it should be easy today, that it was a static world.
+
+03:38.960 --> 03:40.800
+ There weren't other actors moving through it,
+
+03:40.800 --> 03:42.480
+ is what that means.
+
+03:42.480 --> 03:47.080
+ It was out in the desert, so you get really good GPS.
+
+03:47.080 --> 03:51.400
+ So that went, and we could map it roughly.
+
+03:51.400 --> 03:55.160
+ And so in retrospect now, it's within the realm of things
+
+03:55.160 --> 03:57.840
+ we could do back then.
+
+03:57.840 --> 03:59.720
+ Just actually getting the vehicle and the,
+
+03:59.720 --> 04:00.680
+ there's a bunch of engineering work
+
+04:00.680 --> 04:04.760
+ to get the vehicle so that we could control it and drive it.
+
+04:04.760 --> 04:09.600
+ That's still a pain today, but it was even more so back then.
+
+04:09.600 --> 04:14.280
+ And then the uncertainty of exactly what they wanted us to do
+
+04:14.280 --> 04:17.040
+ was part of the challenge as well.
+
+04:17.040 --> 04:19.440
+ Right, you didn't actually know the track heading in here.
+
+04:19.440 --> 04:21.480
+ You knew approximately, but you didn't actually
+
+04:21.480 --> 04:23.520
+ know the route that was going to be taken.
+
+04:23.520 --> 04:24.920
+ That's right, we didn't know the route.
+
+04:24.920 --> 04:28.600
+ We didn't even really, the way the rules had been described,
+
+04:28.600 --> 04:29.800
+ you had to kind of guess.
+
+04:29.800 --> 04:33.360
+ So if you think back to that challenge,
+
+04:33.360 --> 04:36.960
+ the idea was that the government would give us,
+
+04:36.960 --> 04:40.320
+ the DARPA would give us a set of waypoints
+
+04:40.320 --> 04:43.520
+ and kind of the width that you had to stay within
+
+04:43.520 --> 04:46.800
+ between the line that went between each of those waypoints.
+
+04:46.800 --> 04:49.280
+ And so the most devious thing they could have done
+
+04:49.280 --> 04:53.280
+ is set a kilometer wide corridor across a field
+
+04:53.280 --> 04:58.280
+ of scrub brush and rocks and said, go figure it out.
+
+04:58.520 --> 05:01.920
+ Fortunately, it really, it turned into basically driving
+
+05:01.920 --> 05:05.000
+ along a set of trails, which is much more relevant
+
+05:05.000 --> 05:07.920
+ to the application they were looking for.
+
+05:08.760 --> 05:12.080
+ But no, it was a hell of a thing back in the day.
+
+05:12.080 --> 05:16.640
+ So the legend, Red, was kind of leading that effort
+
+05:16.640 --> 05:19.120
+ in terms of just broadly speaking.
+
+05:19.120 --> 05:22.040
+ So you're a leader now.
+
+05:22.040 --> 05:25.000
+ What have you learned from Red about leadership?
+
+05:25.000 --> 05:26.200
+ I think there's a couple things.
+
+05:26.200 --> 05:31.080
+ One is go and try those really hard things.
+
+05:31.080 --> 05:34.480
+ That's where there is an incredible opportunity.
+
+05:34.480 --> 05:36.560
+ I think the other big one, though,
+
+05:36.560 --> 05:40.680
+ is to see people for who they can be, not who they are.
+
+05:41.720 --> 05:43.720
+ It's one of the things that I actually,
+
+05:43.720 --> 05:46.080
+ one of the deepest lessons I learned from Red
+
+05:46.080 --> 05:50.200
+ was that he would look at undergraduates
+
+05:50.200 --> 05:55.200
+ or graduate students and empower them to be leaders,
+
+05:56.120 --> 06:00.320
+ to have responsibility, to do great things
+
+06:00.320 --> 06:04.480
+ that I think another person might look at them
+
+06:04.480 --> 06:06.600
+ and think, oh, well, that's just an undergraduate student.
+
+06:06.600 --> 06:07.720
+ What could they know?
+
+06:08.680 --> 06:12.720
+ And so I think that kind of trust but verify,
+
+06:12.720 --> 06:14.480
+ have confidence in what people can become,
+
+06:14.480 --> 06:16.680
+ I think is a really powerful thing.
+
+06:16.680 --> 06:20.440
+ So through that, let's just fast forward through the history.
+
+06:20.440 --> 06:24.160
+ Can you maybe talk through the technical evolution
+
+06:24.160 --> 06:26.200
+ of autonomous vehicle systems
+
+06:26.200 --> 06:29.960
+ from the first two Grand Challenges to the Urban Challenge
+
+06:29.960 --> 06:33.560
+ to today, are there major shifts in your mind
+
+06:33.560 --> 06:37.240
+ or is it the same kind of technology just made more robust?
+
+06:37.240 --> 06:39.840
+ I think there's been some big, big steps.
+
+06:40.880 --> 06:43.720
+ So for the Grand Challenge,
+
+06:43.720 --> 06:48.720
+ the real technology that unlocked that was HD mapping.
+
+06:51.400 --> 06:54.200
+ Prior to that, a lot of the off road robotics work
+
+06:55.160 --> 06:58.480
+ had been done without any real prior model
+
+06:58.480 --> 07:01.400
+ of what the vehicle was going to encounter.
+
+07:01.400 --> 07:04.880
+ And so that innovation that the fact that we could get
+
+07:05.960 --> 07:10.960
+ decimeter resolution models was really a big deal.
+
+07:13.440 --> 07:18.200
+ And that allowed us to kind of bound the complexity
+
+07:18.200 --> 07:19.680
+ of the driving problem the vehicle had
+
+07:19.680 --> 07:21.040
+ and allowed it to operate at speed
+
+07:21.040 --> 07:23.800
+ because we could assume things about the environment
+
+07:23.800 --> 07:25.360
+ that it was going to encounter.
+
+07:25.360 --> 07:29.720
+ So that was the big step there.
+
+07:31.280 --> 07:35.280
+ For the Urban Challenge,
+
+07:37.240 --> 07:39.280
+ one of the big technological innovations there
+
+07:39.280 --> 07:41.040
+ was the multi beam LIDAR
+
+07:41.960 --> 07:45.760
+ and being able to generate high resolution,
+
+07:45.760 --> 07:48.680
+ mid to long range 3D models of the world
+
+07:48.680 --> 07:53.680
+ and use that for understanding the world around the vehicle.
+
+07:53.680 --> 07:56.600
+ And that was really kind of a game changing technology.
+
+07:58.600 --> 08:00.000
+ In parallel with that,
+
+08:00.000 --> 08:04.360
+ we saw a bunch of other technologies
+
+08:04.360 --> 08:06.120
+ that had been kind of converging
+
+08:06.120 --> 08:08.440
+ half their day in the sun.
+
+08:08.440 --> 08:12.560
+ So Bayesian estimation had been,
+
+08:12.560 --> 08:17.560
+ SLAM had been a big field in robotics.
+
+08:17.840 --> 08:20.760
+ You would go to a conference a couple of years before that
+
+08:20.760 --> 08:24.880
+ and every paper would effectively have SLAM somewhere in it.
+
+08:24.880 --> 08:29.320
+ And so seeing that the Bayesian estimation techniques
+
+08:30.720 --> 08:33.400
+ play out on a very visible stage,
+
+08:33.400 --> 08:36.520
+ I thought that was pretty exciting to see.
+
+08:38.080 --> 08:41.560
+ And mostly SLAM was done based on LIDAR at that time.
+
+08:41.560 --> 08:44.560
+ Yeah, and in fact, we weren't really doing SLAM per se
+
+08:45.600 --> 08:47.480
+ in real time because we had a model ahead of time,
+
+08:47.480 --> 08:51.040
+ we had a roadmap, but we were doing localization.
+
+08:51.040 --> 08:53.560
+ And we were using the LIDAR or the cameras
+
+08:53.560 --> 08:55.400
+ depending on who exactly was doing it
+
+08:55.400 --> 08:57.560
+ to localize to a model of the world.
+
+08:57.560 --> 09:00.160
+ And I thought that was a big step
+
+09:00.160 --> 09:05.160
+ from kind of naively trusting GPS, INS before that.
+
+09:06.640 --> 09:09.840
+ And again, lots of work had been going on in this field.
+
+09:09.840 --> 09:13.040
+ Certainly this was not doing anything
+
+09:13.040 --> 09:16.840
+ particularly innovative in SLAM or in localization,
+
+09:16.840 --> 09:20.200
+ but it was seeing that technology necessary
+
+09:20.200 --> 09:21.800
+ in a real application on a big stage,
+
+09:21.800 --> 09:23.080
+ I thought was very cool.
+
+09:23.080 --> 09:24.000
+ So for the urban challenge,
+
+09:24.000 --> 09:28.600
+ those are already maps constructed offline in general.
+
+09:28.600 --> 09:30.920
+ And did people do that individually,
+
+09:30.920 --> 09:33.600
+ did individual teams do it individually
+
+09:33.600 --> 09:36.440
+ so they had their own different approaches there
+
+09:36.440 --> 09:41.440
+ or did everybody kind of share that information
+
+09:41.720 --> 09:42.880
+ at least intuitively?
+
+09:42.880 --> 09:47.880
+ So DARPA gave all the teams a model of the world, a map.
+
+09:49.640 --> 09:53.240
+ And then one of the things that we had to figure out
+
+09:53.240 --> 09:56.080
+ back then was, and it's still one of these things
+
+09:56.080 --> 09:57.280
+ that trips people up today
+
+09:57.280 --> 10:00.280
+ is actually the coordinate system.
+
+10:00.280 --> 10:03.080
+ So you get a latitude longitude
+
+10:03.080 --> 10:05.040
+ and to so many decimal places,
+
+10:05.040 --> 10:07.360
+ you don't really care about kind of the ellipsoid
+
+10:07.360 --> 10:09.560
+ of the earth that's being used.
+
+10:09.560 --> 10:12.240
+ But when you want to get to 10 centimeter
+
+10:12.240 --> 10:14.400
+ or centimeter resolution,
+
+10:14.400 --> 10:18.520
+ you care whether the coordinate system is NADS 83
+
+10:18.520 --> 10:23.520
+ or WGS 84 or these are different ways to describe
+
+10:24.200 --> 10:26.760
+ both the kind of non sphericalness of the earth,
+
+10:26.760 --> 10:31.080
+ but also kind of the, I think,
+
+10:31.080 --> 10:32.080
+ I can't remember which one,
+
+10:32.080 --> 10:33.600
+ the tectonic shifts that are happening
+
+10:33.600 --> 10:37.000
+ and how to transform the global datum as a function of that.
+
+10:37.000 --> 10:41.020
+ So getting a map and then actually matching it to reality
+
+10:41.020 --> 10:42.880
+ to centimeter resolution, that was kind of interesting
+
+10:42.880 --> 10:44.040
+ and fun back then.
+
+10:44.040 --> 10:46.760
+ So how much work was the perception doing there?
+
+10:46.760 --> 10:51.760
+ So how much were you relying on localization based on maps
+
+10:52.480 --> 10:55.760
+ without using perception to register to the maps?
+
+10:55.760 --> 10:58.000
+ And I guess the question is how advanced
+
+10:58.000 --> 10:59.800
+ was perception at that point?
+
+10:59.800 --> 11:01.960
+ It's certainly behind where we are today, right?
+
+11:01.960 --> 11:05.840
+ We're more than a decade since the urban challenge.
+
+11:05.840 --> 11:08.640
+ But the core of it was there.
+
+11:08.640 --> 11:13.120
+ That we were tracking vehicles.
+
+11:13.120 --> 11:15.640
+ We had to do that at 100 plus meter range
+
+11:15.640 --> 11:18.320
+ because we had to merge with other traffic.
+
+11:18.320 --> 11:21.240
+ We were using, again, Bayesian estimates
+
+11:21.240 --> 11:23.860
+ for state of these vehicles.
+
+11:23.860 --> 11:25.580
+ We had to deal with a bunch of the problems
+
+11:25.580 --> 11:26.920
+ that you think of today,
+
+11:26.920 --> 11:29.820
+ of predicting where that vehicle's going to be
+
+11:29.820 --> 11:31.060
+ a few seconds into the future.
+
+11:31.060 --> 11:32.380
+ We had to deal with the fact
+
+11:32.380 --> 11:35.320
+ that there were multiple hypotheses for that
+
+11:35.320 --> 11:37.660
+ because a vehicle at an intersection might be going right
+
+11:37.660 --> 11:38.780
+ or it might be going straight
+
+11:38.780 --> 11:40.620
+ or it might be making a left turn.
+
+11:41.500 --> 11:44.120
+ And we had to deal with the challenge of the fact
+
+11:44.120 --> 11:47.600
+ that our behavior was going to impact the behavior
+
+11:47.600 --> 11:48.960
+ of that other operator.
+
+11:48.960 --> 11:53.480
+ And we did a lot of that in relatively naive ways,
+
+11:53.480 --> 11:54.820
+ but it kind of worked.
+
+11:54.820 --> 11:57.080
+ Still had to have some kind of solution.
+
+11:57.080 --> 11:59.960
+ And so where does that, 10 years later,
+
+11:59.960 --> 12:01.520
+ where does that take us today
+
+12:01.520 --> 12:04.260
+ from that artificial city construction
+
+12:04.260 --> 12:07.000
+ to real cities to the urban environment?
+
+12:07.000 --> 12:09.160
+ Yeah, I think the biggest thing
+
+12:09.160 --> 12:14.160
+ is that the actors are truly unpredictable.
+
+12:15.720 --> 12:18.800
+ That most of the time, the drivers on the road,
+
+12:18.800 --> 12:23.800
+ the other road users are out there behaving well,
+
+12:24.080 --> 12:25.880
+ but every once in a while they're not.
+
+12:27.080 --> 12:32.080
+ The variety of other vehicles is, you have all of them.
+
+12:32.080 --> 12:35.840
+ In terms of behavior, in terms of perception, or both?
+
+12:35.840 --> 12:36.680
+ Both.
+
+12:38.740 --> 12:40.520
+ Back then we didn't have to deal with cyclists,
+
+12:40.520 --> 12:42.800
+ we didn't have to deal with pedestrians,
+
+12:42.800 --> 12:44.800
+ didn't have to deal with traffic lights.
+
+12:46.260 --> 12:49.400
+ The scale over which that you have to operate is now
+
+12:49.400 --> 12:51.120
+ is much larger than the air base
+
+12:51.120 --> 12:52.720
+ that we were thinking about back then.
+
+12:52.720 --> 12:55.420
+ So what, easy question,
+
+12:56.280 --> 12:59.720
+ what do you think is the hardest part about driving?
+
+12:59.720 --> 13:00.560
+ Easy question.
+
+13:00.560 --> 13:02.560
+ Yeah, no, I'm joking.
+
+13:02.560 --> 13:07.440
+ I'm sure nothing really jumps out at you as one thing,
+
+13:07.440 --> 13:12.440
+ but in the jump from the urban challenge to the real world,
+
+13:12.920 --> 13:15.320
+ is there something that's a particular,
+
+13:15.320 --> 13:18.480
+ you foresee as very serious, difficult challenge?
+
+13:18.480 --> 13:21.080
+ I think the most fundamental difference
+
+13:21.080 --> 13:25.340
+ is that we're doing it for real.
+
+13:26.760 --> 13:28.960
+ That in that environment,
+
+13:28.960 --> 13:31.880
+ it was both a limited complexity environment
+
+13:31.880 --> 13:33.240
+ because certain actors weren't there,
+
+13:33.240 --> 13:35.380
+ because the roads were maintained,
+
+13:35.380 --> 13:37.360
+ there were barriers keeping people separate
+
+13:37.360 --> 13:39.400
+ from robots at the time,
+
+13:40.840 --> 13:43.300
+ and it only had to work for 60 miles.
+
+13:43.300 --> 13:46.160
+ Which, looking at it from 2006,
+
+13:46.160 --> 13:48.960
+ it had to work for 60 miles, right?
+
+13:48.960 --> 13:50.940
+ Looking at it from now,
+
+13:51.880 --> 13:53.720
+ we want things that will go and drive
+
+13:53.720 --> 13:57.160
+ for half a million miles,
+
+13:57.160 --> 14:00.020
+ and it's just a different game.
+
+14:00.940 --> 14:03.480
+ So how important,
+
+14:03.480 --> 14:06.080
+ you said LiDAR came into the game early on,
+
+14:06.080 --> 14:07.880
+ and it's really the primary driver
+
+14:07.880 --> 14:10.240
+ of autonomous vehicles today as a sensor.
+
+14:10.240 --> 14:11.920
+ So how important is the role of LiDAR
+
+14:11.920 --> 14:14.800
+ in the sensor suite in the near term?
+
+14:14.800 --> 14:16.740
+ So I think it's essential.
+
+14:17.920 --> 14:20.480
+ I believe, but I also believe that cameras are essential,
+
+14:20.480 --> 14:22.120
+ and I believe the radar is essential.
+
+14:22.120 --> 14:26.280
+ I think that you really need to use
+
+14:26.280 --> 14:28.720
+ the composition of data from these different sensors
+
+14:28.720 --> 14:32.640
+ if you want the thing to really be robust.
+
+14:32.640 --> 14:34.360
+ The question I wanna ask,
+
+14:34.360 --> 14:35.600
+ let's see if we can untangle it,
+
+14:35.600 --> 14:39.320
+ is what are your thoughts on the Elon Musk
+
+14:39.320 --> 14:42.340
+ provocative statement that LiDAR is a crutch,
+
+14:42.340 --> 14:47.340
+ that it's a kind of, I guess, growing pains,
+
+14:47.760 --> 14:49.920
+ and that much of the perception task
+
+14:49.920 --> 14:52.120
+ can be done with cameras?
+
+14:52.120 --> 14:55.440
+ So I think it is undeniable
+
+14:55.440 --> 14:59.360
+ that people walk around without lasers in their foreheads,
+
+14:59.360 --> 15:01.880
+ and they can get into vehicles and drive them,
+
+15:01.880 --> 15:05.600
+ and so there's an existence proof
+
+15:05.600 --> 15:09.600
+ that you can drive using passive vision.
+
+15:10.880 --> 15:12.720
+ No doubt, can't argue with that.
+
+15:12.720 --> 15:14.680
+ In terms of sensors, yeah, so there's proof.
+
+15:14.680 --> 15:16.000
+ Yeah, in terms of sensors, right?
+
+15:16.000 --> 15:20.200
+ So there's an example that we all go do it,
+
+15:20.200 --> 15:21.380
+ many of us every day.
+
+15:21.380 --> 15:26.380
+ In terms of LiDAR being a crutch, sure.
+
+15:28.180 --> 15:33.100
+ But in the same way that the combustion engine
+
+15:33.100 --> 15:35.260
+ was a crutch on the path to an electric vehicle,
+
+15:35.260 --> 15:39.300
+ in the same way that any technology ultimately gets
+
+15:40.840 --> 15:44.380
+ replaced by some superior technology in the future,
+
+15:44.380 --> 15:47.740
+ and really the way that I look at this
+
+15:47.740 --> 15:51.460
+ is that the way we get around on the ground,
+
+15:51.460 --> 15:53.920
+ the way that we use transportation is broken,
+
+15:55.280 --> 15:59.740
+ and that we have this, I think the number I saw this morning,
+
+15:59.740 --> 16:04.060
+ 37,000 Americans killed last year on our roads,
+
+16:04.060 --> 16:05.380
+ and that's just not acceptable.
+
+16:05.380 --> 16:09.460
+ And so any technology that we can bring to bear
+
+16:09.460 --> 16:12.860
+ that accelerates this self driving technology
+
+16:12.860 --> 16:14.640
+ coming to market and saving lives
+
+16:14.640 --> 16:17.320
+ is technology we should be using.
+
+16:18.280 --> 16:20.840
+ And it feels just arbitrary to say,
+
+16:20.840 --> 16:25.840
+ well, I'm not okay with using lasers
+
+16:26.240 --> 16:27.820
+ because that's whatever,
+
+16:27.820 --> 16:30.720
+ but I am okay with using an eight megapixel camera
+
+16:30.720 --> 16:32.880
+ or a 16 megapixel camera.
+
+16:32.880 --> 16:34.640
+ These are just bits of technology,
+
+16:34.640 --> 16:36.360
+ and we should be taking the best technology
+
+16:36.360 --> 16:41.360
+ from the tool bin that allows us to go and solve a problem.
+
+16:41.360 --> 16:45.160
+ The question I often talk to, well, obviously you do as well,
+
+16:45.160 --> 16:48.280
+ to sort of automotive companies,
+
+16:48.280 --> 16:51.360
+ and if there's one word that comes up more often
+
+16:51.360 --> 16:55.280
+ than anything, it's cost, and trying to drive costs down.
+
+16:55.280 --> 17:00.280
+ So while it's true that it's a tragic number, the 37,000,
+
+17:01.400 --> 17:04.880
+ the question is, and I'm not the one asking this question
+
+17:04.880 --> 17:05.820
+ because I hate this question,
+
+17:05.820 --> 17:09.960
+ but we want to find the cheapest sensor suite
+
+17:09.960 --> 17:13.280
+ that creates a safe vehicle.
+
+17:13.280 --> 17:18.220
+ So in that uncomfortable trade off,
+
+17:18.220 --> 17:23.220
+ do you foresee LiDAR coming down in cost in the future,
+
+17:23.680 --> 17:26.680
+ or do you see a day where level four autonomy
+
+17:26.680 --> 17:29.880
+ is possible without LiDAR?
+
+17:29.880 --> 17:32.880
+ I see both of those, but it's really a matter of time.
+
+17:32.880 --> 17:36.040
+ And I think really, maybe I would talk to the question
+
+17:36.040 --> 17:37.840
+ you asked about the cheapest sensor.
+
+17:37.840 --> 17:40.360
+ I don't think that's actually what you want.
+
+17:40.360 --> 17:45.360
+ What you want is a sensor suite that is economically viable.
+
+17:45.680 --> 17:49.440
+ And then after that, everything is about margin
+
+17:49.440 --> 17:52.120
+ and driving costs out of the system.
+
+17:52.120 --> 17:55.360
+ What you also want is a sensor suite that works.
+
+17:55.360 --> 17:58.200
+ And so it's great to tell a story about
+
+17:59.600 --> 18:03.260
+ how it would be better to have a self driving system
+
+18:03.260 --> 18:08.040
+ with a $50 sensor instead of a $500 sensor.
+
+18:08.040 --> 18:10.520
+ But if the $500 sensor makes it work
+
+18:10.520 --> 18:14.760
+ and the $50 sensor doesn't work, who cares?
+
+18:15.680 --> 18:20.020
+ So long as you can actually have an economic opportunity,
+
+18:20.020 --> 18:21.520
+ there's an economic opportunity there.
+
+18:21.520 --> 18:23.760
+ And the economic opportunity is important
+
+18:23.760 --> 18:27.760
+ because that's how you actually have a sustainable business
+
+18:27.760 --> 18:31.120
+ and that's how you can actually see this come to scale
+
+18:31.120 --> 18:32.400
+ and be out in the world.
+
+18:32.400 --> 18:34.780
+ And so when I look at LiDAR,
+
+18:35.960 --> 18:38.880
+ I see a technology that has no underlying
+
+18:38.880 --> 18:42.420
+ fundamentally expense to it, fundamental expense to it.
+
+18:42.420 --> 18:46.080
+ It's going to be more expensive than an imager
+
+18:46.080 --> 18:50.360
+ because CMOS processes or FAP processes
+
+18:51.360 --> 18:55.080
+ are dramatically more scalable than mechanical processes.
+
+18:56.200 --> 18:58.320
+ But we still should be able to drive costs down
+
+18:58.320 --> 19:00.120
+ substantially on that side.
+
+19:00.120 --> 19:04.840
+ And then I also do think that with the right business model
+
+19:05.880 --> 19:07.560
+ you can absorb more,
+
+19:07.560 --> 19:09.480
+ certainly more cost on the bill of materials.
+
+19:09.480 --> 19:12.600
+ Yeah, if the sensor suite works, extra value is provided,
+
+19:12.600 --> 19:15.480
+ thereby you don't need to drive costs down to zero.
+
+19:15.480 --> 19:17.100
+ It's the basic economics.
+
+19:17.100 --> 19:18.820
+ You've talked about your intuition
+
+19:18.820 --> 19:22.200
+ that level two autonomy is problematic
+
+19:22.200 --> 19:25.920
+ because of the human factor of vigilance,
+
+19:25.920 --> 19:28.040
+ decrement, complacency, over trust and so on,
+
+19:28.040 --> 19:29.600
+ just us being human.
+
+19:29.600 --> 19:31.120
+ We over trust the system,
+
+19:31.120 --> 19:34.240
+ we start doing even more so partaking
+
+19:34.240 --> 19:37.180
+ in the secondary activities like smartphones and so on.
+
+19:38.680 --> 19:43.000
+ Have your views evolved on this point in either direction?
+
+19:43.000 --> 19:44.800
+ Can you speak to it?
+
+19:44.800 --> 19:47.480
+ So, and I want to be really careful
+
+19:47.480 --> 19:50.380
+ because sometimes this gets twisted in a way
+
+19:50.380 --> 19:53.040
+ that I certainly didn't intend.
+
+19:53.040 --> 19:58.040
+ So active safety systems are a really important technology
+
+19:58.040 --> 20:00.680
+ that we should be pursuing and integrating into vehicles.
+
+20:02.080 --> 20:04.280
+ And there's an opportunity in the near term
+
+20:04.280 --> 20:06.520
+ to reduce accidents, reduce fatalities,
+
+20:06.520 --> 20:10.320
+ and we should be pushing on that.
+
+20:11.960 --> 20:14.680
+ Level two systems are systems
+
+20:14.680 --> 20:18.080
+ where the vehicle is controlling two axes.
+
+20:18.080 --> 20:21.720
+ So braking and throttle slash steering.
+
+20:23.480 --> 20:25.680
+ And I think there are variants of level two systems
+
+20:25.680 --> 20:27.280
+ that are supporting the driver.
+
+20:27.280 --> 20:31.080
+ That absolutely we should encourage to be out there.
+
+20:31.080 --> 20:32.880
+ Where I think there's a real challenge
+
+20:32.880 --> 20:37.640
+ is in the human factors part around this
+
+20:37.640 --> 20:41.240
+ and the misconception from the public
+
+20:41.240 --> 20:43.600
+ around the capability set that that enables
+
+20:43.600 --> 20:45.640
+ and the trust that they should have in it.
+
+20:46.640 --> 20:50.000
+ And that is where I kind of,
+
+20:50.000 --> 20:52.920
+ I'm actually incrementally more concerned
+
+20:52.920 --> 20:54.440
+ around level three systems
+
+20:54.440 --> 20:58.440
+ and how exactly a level two system is marketed and delivered
+
+20:58.440 --> 21:01.840
+ and how much effort people have put into those human factors.
+
+21:01.840 --> 21:05.640
+ So I still believe several things around this.
+
+21:05.640 --> 21:09.440
+ One is people will overtrust the technology.
+
+21:09.440 --> 21:11.440
+ We've seen over the last few weeks
+
+21:11.440 --> 21:14.040
+ a spate of people sleeping in their Tesla.
+
+21:14.920 --> 21:19.920
+ I watched an episode last night of Trevor Noah
+
+21:19.920 --> 21:23.920
+ talking about this and him,
+
+21:23.920 --> 21:26.720
+ this is a smart guy who has a lot of resources
+
+21:26.720 --> 21:30.720
+ at his disposal describing a Tesla as a self driving car
+
+21:30.720 --> 21:33.480
+ and that why shouldn't people be sleeping in their Tesla?
+
+21:33.480 --> 21:36.560
+ And it's like, well, because it's not a self driving car
+
+21:36.560 --> 21:38.840
+ and it is not intended to be
+
+21:38.840 --> 21:43.840
+ and these people will almost certainly die at some point
+
+21:46.400 --> 21:48.040
+ or hurt other people.
+
+21:48.040 --> 21:50.080
+ And so we need to really be thoughtful
+
+21:50.080 --> 21:51.840
+ about how that technology is described
+
+21:51.840 --> 21:53.280
+ and brought to market.
+
+21:54.240 --> 21:59.240
+ I also think that because of the economic challenges
+
+21:59.240 --> 22:01.240
+ we were just talking about,
+
+22:01.240 --> 22:05.160
+ that these level two driver assistance systems,
+
+22:05.160 --> 22:07.280
+ that technology path will diverge
+
+22:07.280 --> 22:10.200
+ from the technology path that we need to be on
+
+22:10.200 --> 22:14.080
+ to actually deliver truly self driving vehicles,
+
+22:14.080 --> 22:16.920
+ ones where you can get in it and drive it.
+
+22:16.920 --> 22:20.800
+ Can get in it and sleep and have the equivalent
+
+22:20.800 --> 22:24.680
+ or better safety than a human driver behind the wheel.
+
+22:24.680 --> 22:27.520
+ Because again, the economics are very different
+
+22:28.480 --> 22:30.880
+ in those two worlds and so that leads
+
+22:30.880 --> 22:32.800
+ to divergent technology.
+
+22:32.800 --> 22:34.680
+ So you just don't see the economics
+
+22:34.680 --> 22:38.560
+ of gradually increasing from level two
+
+22:38.560 --> 22:41.600
+ and doing so quickly enough
+
+22:41.600 --> 22:44.480
+ to where it doesn't cause safety, critical safety concerns.
+
+22:44.480 --> 22:47.680
+ You believe that it needs to diverge at this point
+
+22:48.680 --> 22:50.800
+ into basically different routes.
+
+22:50.800 --> 22:55.560
+ And really that comes back to what are those L2
+
+22:55.560 --> 22:57.080
+ and L1 systems doing?
+
+22:57.080 --> 22:59.840
+ And they are driver assistance functions
+
+22:59.840 --> 23:04.400
+ where the people that are marketing that responsibly
+
+23:04.400 --> 23:08.000
+ are being very clear and putting human factors in place
+
+23:08.000 --> 23:12.440
+ such that the driver is actually responsible for the vehicle
+
+23:12.440 --> 23:15.160
+ and that the technology is there to support the driver.
+
+23:15.160 --> 23:19.880
+ And the safety cases that are built around those
+
+23:19.880 --> 23:24.040
+ are dependent on that driver attention and attentiveness.
+
+23:24.040 --> 23:28.000
+ And at that point, you can kind of give up
+
+23:29.160 --> 23:31.240
+ to some degree for economic reasons,
+
+23:31.240 --> 23:33.480
+ you can give up on say false negatives.
+
+23:34.800 --> 23:36.200
+ And the way to think about this
+
+23:36.200 --> 23:39.320
+ is for a four collision mitigation braking system,
+
+23:39.320 --> 23:43.960
+ if it half the times the driver missed a vehicle
+
+23:43.960 --> 23:46.080
+ in front of it, it hit the brakes
+
+23:46.080 --> 23:47.680
+ and brought the vehicle to a stop,
+
+23:47.680 --> 23:51.640
+ that would be an incredible, incredible advance
+
+23:51.640 --> 23:53.040
+ in safety on our roads, right?
+
+23:53.040 --> 23:55.000
+ That would be equivalent to seat belts.
+
+23:55.000 --> 23:56.600
+ But it would mean that if that vehicle
+
+23:56.600 --> 23:59.440
+ wasn't being monitored, it would hit one out of two cars.
+
+24:00.600 --> 24:05.120
+ And so economically, that's a perfectly good solution
+
+24:05.120 --> 24:06.280
+ for a driver assistance system.
+
+24:06.280 --> 24:07.240
+ What you should do at that point,
+
+24:07.240 --> 24:09.240
+ if you can get it to work 50% of the time,
+
+24:09.240 --> 24:10.520
+ is drive the cost out of that
+
+24:10.520 --> 24:13.320
+ so you can get it on as many vehicles as possible.
+
+24:13.320 --> 24:14.760
+ But driving the cost out of it
+
+24:14.760 --> 24:18.800
+ doesn't drive up performance on the false negative case.
+
+24:18.800 --> 24:21.440
+ And so you'll continue to not have a technology
+
+24:21.440 --> 24:25.680
+ that could really be available for a self driven vehicle.
+
+24:25.680 --> 24:28.440
+ So clearly the communication,
+
+24:28.440 --> 24:31.600
+ and this probably applies to all four vehicles as well,
+
+24:31.600 --> 24:34.440
+ the marketing and communication
+
+24:34.440 --> 24:37.040
+ of what the technology is actually capable of,
+
+24:37.040 --> 24:38.400
+ how hard it is, how easy it is,
+
+24:38.400 --> 24:41.000
+ all that kind of stuff is highly problematic.
+
+24:41.000 --> 24:45.640
+ So say everybody in the world was perfectly communicated
+
+24:45.640 --> 24:48.400
+ and were made to be completely aware
+
+24:48.400 --> 24:50.000
+ of every single technology out there,
+
+24:50.000 --> 24:52.840
+ what it's able to do.
+
+24:52.840 --> 24:54.120
+ What's your intuition?
+
+24:54.120 --> 24:56.880
+ And now we're maybe getting into philosophical ground.
+
+24:56.880 --> 25:00.000
+ Is it possible to have a level two vehicle
+
+25:00.000 --> 25:03.280
+ where we don't over trust it?
+
+25:04.680 --> 25:05.800
+ I don't think so.
+
+25:05.800 --> 25:10.800
+ If people truly understood the risks and internalized it,
+
+25:11.160 --> 25:14.320
+ then sure, you could do that safely.
+
+25:14.320 --> 25:16.160
+ But that's a world that doesn't exist.
+
+25:16.160 --> 25:17.520
+ The people are going to,
+
+25:18.720 --> 25:20.760
+ if the facts are put in front of them,
+
+25:20.760 --> 25:24.440
+ they're gonna then combine that with their experience.
+
+25:24.440 --> 25:28.360
+ And let's say they're using an L2 system
+
+25:28.360 --> 25:30.800
+ and they go up and down the 101 every day
+
+25:30.800 --> 25:32.720
+ and they do that for a month.
+
+25:32.720 --> 25:36.200
+ And it just worked every day for a month.
+
+25:36.200 --> 25:39.000
+ Like that's pretty compelling at that point,
+
+25:39.000 --> 25:41.800
+ just even if you know the statistics,
+
+25:41.800 --> 25:43.400
+ you're like, well, I don't know,
+
+25:43.400 --> 25:44.760
+ maybe there's something funny about those.
+
+25:44.760 --> 25:46.920
+ Maybe they're driving in difficult places.
+
+25:46.920 --> 25:49.840
+ Like I've seen it with my own eyes, it works.
+
+25:49.840 --> 25:52.400
+ And the problem is that that sample size that they have,
+
+25:52.400 --> 25:53.880
+ so it's 30 miles up and down,
+
+25:53.880 --> 25:56.360
+ so 60 miles times 30 days,
+
+25:56.360 --> 25:58.720
+ so 60, 180, 1,800 miles.
+
+25:58.720 --> 26:03.280
+ Like that's a drop in the bucket
+
+26:03.280 --> 26:07.640
+ compared to the, what, 85 million miles between fatalities.
+
+26:07.640 --> 26:11.400
+ And so they don't really have a true estimate
+
+26:11.400 --> 26:14.440
+ based on their personal experience of the real risks,
+
+26:14.440 --> 26:15.640
+ but they're gonna trust it anyway,
+
+26:15.640 --> 26:16.480
+ because it's hard not to.
+
+26:16.480 --> 26:18.640
+ It worked for a month, what's gonna change?
+
+26:18.640 --> 26:21.640
+ So even if you start a perfect understanding of the system,
+
+26:21.640 --> 26:24.160
+ your own experience will make it drift.
+
+26:24.160 --> 26:25.920
+ I mean, that's a big concern.
+
+26:25.920 --> 26:28.160
+ Over a year, over two years even,
+
+26:28.160 --> 26:29.440
+ it doesn't have to be months.
+
+26:29.440 --> 26:32.920
+ And I think that as this technology moves
+
+26:32.920 --> 26:37.760
+ from what I would say is kind of the more technology savvy
+
+26:37.760 --> 26:40.880
+ ownership group to the mass market,
+
+26:42.640 --> 26:44.600
+ you may be able to have some of those folks
+
+26:44.600 --> 26:46.280
+ who are really familiar with technology,
+
+26:46.280 --> 26:48.840
+ they may be able to internalize it better.
+
+26:48.840 --> 26:50.800
+ And your kind of immunization
+
+26:50.800 --> 26:53.360
+ against this kind of false risk assessment
+
+26:53.360 --> 26:54.280
+ might last longer,
+
+26:54.280 --> 26:58.680
+ but as folks who aren't as savvy about that
+
+26:58.680 --> 27:00.880
+ read the material and they compare that
+
+27:00.880 --> 27:02.160
+ to their personal experience,
+
+27:02.160 --> 27:07.160
+ I think there it's going to move more quickly.
+
+27:08.160 --> 27:11.280
+ So your work, the program that you've created at Google
+
+27:11.280 --> 27:16.280
+ and now at Aurora is focused more on the second path
+
+27:16.600 --> 27:18.480
+ of creating full autonomy.
+
+27:18.480 --> 27:20.880
+ So it's such a fascinating,
+
+27:20.880 --> 27:24.560
+ I think it's one of the most interesting AI problems
+
+27:24.560 --> 27:25.600
+ of the century, right?
+
+27:25.600 --> 27:28.280
+ It's, I just talked to a lot of people,
+
+27:28.280 --> 27:29.440
+ just regular people, I don't know,
+
+27:29.440 --> 27:31.720
+ my mom, about autonomous vehicles,
+
+27:31.720 --> 27:34.520
+ and you begin to grapple with ideas
+
+27:34.520 --> 27:38.080
+ of giving your life control over to a machine.
+
+27:38.080 --> 27:40.040
+ It's philosophically interesting,
+
+27:40.040 --> 27:41.760
+ it's practically interesting.
+
+27:41.760 --> 27:43.720
+ So let's talk about safety.
+
+27:43.720 --> 27:46.240
+ How do you think we demonstrate,
+
+27:46.240 --> 27:47.880
+ you've spoken about metrics in the past,
+
+27:47.880 --> 27:51.880
+ how do you think we demonstrate to the world
+
+27:51.880 --> 27:56.160
+ that an autonomous vehicle, an Aurora system is safe?
+
+27:56.160 --> 27:57.320
+ This is one where it's difficult
+
+27:57.320 --> 27:59.280
+ because there isn't a soundbite answer.
+
+27:59.280 --> 28:04.280
+ That we have to show a combination of work
+
+28:05.960 --> 28:08.360
+ that was done diligently and thoughtfully,
+
+28:08.360 --> 28:10.840
+ and this is where something like a functional safety process
+
+28:10.840 --> 28:11.680
+ is part of that.
+
+28:11.680 --> 28:14.360
+ It's like here's the way we did the work,
+
+28:15.280 --> 28:17.160
+ that means that we were very thorough.
+
+28:17.160 --> 28:20.040
+ So if you believe that what we said
+
+28:20.040 --> 28:21.440
+ about this is the way we did it,
+
+28:21.440 --> 28:22.720
+ then you can have some confidence
+
+28:22.720 --> 28:25.200
+ that we were thorough in the engineering work
+
+28:25.200 --> 28:26.920
+ we put into the system.
+
+28:26.920 --> 28:28.920
+ And then on top of that,
+
+28:28.920 --> 28:32.000
+ to kind of demonstrate that we weren't just thorough,
+
+28:32.000 --> 28:33.800
+ we were actually good at what we did,
+
+28:35.280 --> 28:38.200
+ there'll be a kind of a collection of evidence
+
+28:38.200 --> 28:40.440
+ in terms of demonstrating that the capabilities
+
+28:40.440 --> 28:42.920
+ worked the way we thought they did,
+
+28:42.920 --> 28:45.320
+ statistically and to whatever degree
+
+28:45.320 --> 28:47.280
+ we can demonstrate that,
+
+28:48.160 --> 28:50.320
+ both in some combination of simulations,
+
+28:50.320 --> 28:53.080
+ some combination of unit testing
+
+28:53.080 --> 28:54.640
+ and decomposition testing,
+
+28:54.640 --> 28:57.000
+ and then some part of it will be on road data.
+
+28:58.160 --> 29:02.680
+ And I think the way we'll ultimately
+
+29:02.680 --> 29:04.000
+ convey this to the public
+
+29:04.000 --> 29:06.760
+ is there'll be clearly some conversation
+
+29:06.760 --> 29:08.200
+ with the public about it,
+
+29:08.200 --> 29:12.040
+ but we'll kind of invoke the kind of the trusted nodes
+
+29:12.040 --> 29:13.880
+ and that we'll spend more time
+
+29:13.880 --> 29:17.280
+ being able to go into more depth with folks like NHTSA
+
+29:17.280 --> 29:19.720
+ and other federal and state regulatory bodies
+
+29:19.720 --> 29:22.080
+ and kind of given that they are
+
+29:22.080 --> 29:25.200
+ operating in the public interest and they're trusted,
+
+29:26.240 --> 29:28.640
+ that if we can show enough work to them
+
+29:28.640 --> 29:30.000
+ that they're convinced,
+
+29:30.000 --> 29:33.800
+ then I think we're in a pretty good place.
+
+29:33.800 --> 29:35.000
+ That means you work with people
+
+29:35.000 --> 29:36.920
+ that are essentially experts at safety
+
+29:36.920 --> 29:39.000
+ to try to discuss and show.
+
+29:39.000 --> 29:41.720
+ Do you think, the answer's probably no,
+
+29:41.720 --> 29:42.920
+ but just in case,
+
+29:42.920 --> 29:44.360
+ do you think there exists a metric?
+
+29:44.360 --> 29:46.320
+ So currently people have been using
+
+29:46.320 --> 29:48.200
+ number of disengagements.
+
+29:48.200 --> 29:50.120
+ And it quickly turns into a marketing scheme
+
+29:50.120 --> 29:54.280
+ to sort of you alter the experiments you run to adjust.
+
+29:54.280 --> 29:56.280
+ I think you've spoken that you don't like.
+
+29:56.280 --> 29:57.120
+ Don't love it.
+
+29:57.120 --> 29:59.680
+ No, in fact, I was on the record telling DMV
+
+29:59.680 --> 30:01.960
+ that I thought this was not a great metric.
+
+30:01.960 --> 30:05.280
+ Do you think it's possible to create a metric,
+
+30:05.280 --> 30:09.440
+ a number that could demonstrate safety
+
+30:09.440 --> 30:12.320
+ outside of fatalities?
+
+30:12.320 --> 30:13.440
+ So I do.
+
+30:13.440 --> 30:16.560
+ And I think that it won't be just one number.
+
+30:17.600 --> 30:21.280
+ So as we are internally grappling with this,
+
+30:21.280 --> 30:23.560
+ and at some point we'll be able to talk
+
+30:23.560 --> 30:25.040
+ more publicly about it,
+
+30:25.040 --> 30:28.520
+ is how do we think about human performance
+
+30:28.520 --> 30:29.840
+ in different tasks,
+
+30:29.840 --> 30:32.160
+ say detecting traffic lights
+
+30:32.160 --> 30:36.200
+ or safely making a left turn across traffic?
+
+30:37.680 --> 30:40.080
+ And what do we think the failure rates are
+
+30:40.080 --> 30:42.520
+ for those different capabilities for people?
+
+30:42.520 --> 30:44.760
+ And then demonstrating to ourselves
+
+30:44.760 --> 30:48.480
+ and then ultimately folks in the regulatory role
+
+30:48.480 --> 30:50.760
+ and then ultimately the public
+
+30:50.760 --> 30:52.400
+ that we have confidence that our system
+
+30:52.400 --> 30:54.760
+ will work better than that.
+
+30:54.760 --> 30:57.040
+ And so these individual metrics
+
+30:57.040 --> 31:00.720
+ will kind of tell a compelling story ultimately.
+
+31:01.760 --> 31:03.920
+ I do think at the end of the day
+
+31:03.920 --> 31:06.640
+ what we care about in terms of safety
+
+31:06.640 --> 31:11.320
+ is life saved and injuries reduced.
+
+31:12.160 --> 31:15.280
+ And then ultimately kind of casualty dollars
+
+31:16.440 --> 31:19.360
+ that people aren't having to pay to get their car fixed.
+
+31:19.360 --> 31:22.680
+ And I do think that in aviation
+
+31:22.680 --> 31:25.880
+ they look at a kind of an event pyramid
+
+31:25.880 --> 31:28.600
+ where a crash is at the top of that
+
+31:28.600 --> 31:30.440
+ and that's the worst event obviously
+
+31:30.440 --> 31:34.240
+ and then there's injuries and near miss events and whatnot
+
+31:34.240 --> 31:37.320
+ and violation of operating procedures
+
+31:37.320 --> 31:40.160
+ and you kind of build a statistical model
+
+31:40.160 --> 31:44.440
+ of the relevance of the low severity things
+
+31:44.440 --> 31:45.280
+ or the high severity things.
+
+31:45.280 --> 31:46.120
+ And I think that's something
+
+31:46.120 --> 31:48.200
+ where we'll be able to look at as well
+
+31:48.200 --> 31:51.840
+ because an event per 85 million miles
+
+31:51.840 --> 31:54.440
+ is statistically a difficult thing
+
+31:54.440 --> 31:56.800
+ even at the scale of the U.S.
+
+31:56.800 --> 31:59.360
+ to kind of compare directly.
+
+31:59.360 --> 32:02.240
+ And that event fatality that's connected
+
+32:02.240 --> 32:07.240
+ to an autonomous vehicle is significantly
+
+32:07.440 --> 32:09.160
+ at least currently magnified
+
+32:09.160 --> 32:12.320
+ in the amount of attention it gets.
+
+32:12.320 --> 32:15.080
+ So that speaks to public perception.
+
+32:15.080 --> 32:16.720
+ I think the most popular topic
+
+32:16.720 --> 32:19.480
+ about autonomous vehicles in the public
+
+32:19.480 --> 32:23.080
+ is the trolley problem formulation, right?
+
+32:23.080 --> 32:27.000
+ Which has, let's not get into that too much
+
+32:27.000 --> 32:29.600
+ but is misguided in many ways.
+
+32:29.600 --> 32:32.320
+ But it speaks to the fact that people are grappling
+
+32:32.320 --> 32:36.160
+ with this idea of giving control over to a machine.
+
+32:36.160 --> 32:41.160
+ So how do you win the hearts and minds of the people
+
+32:41.560 --> 32:44.600
+ that autonomy is something that could be a part
+
+32:44.600 --> 32:45.520
+ of their lives?
+
+32:45.520 --> 32:47.640
+ I think you let them experience it, right?
+
+32:47.640 --> 32:50.440
+ I think it's right.
+
+32:50.440 --> 32:52.800
+ I think people should be skeptical.
+
+32:52.800 --> 32:55.680
+ I think people should ask questions.
+
+32:55.680 --> 32:57.000
+ I think they should doubt
+
+32:57.000 --> 33:00.120
+ because this is something new and different.
+
+33:00.120 --> 33:01.880
+ They haven't touched it yet.
+
+33:01.880 --> 33:03.640
+ And I think that's perfectly reasonable.
+
+33:03.640 --> 33:07.320
+ And, but at the same time,
+
+33:07.320 --> 33:09.320
+ it's clear there's an opportunity to make the road safer.
+
+33:09.320 --> 33:12.440
+ It's clear that we can improve access to mobility.
+
+33:12.440 --> 33:14.960
+ It's clear that we can reduce the cost of mobility.
+
+33:16.640 --> 33:19.480
+ And that once people try that
+
+33:19.480 --> 33:22.720
+ and understand that it's safe
+
+33:22.720 --> 33:24.440
+ and are able to use in their daily lives,
+
+33:24.440 --> 33:25.280
+ I think it's one of these things
+
+33:25.280 --> 33:28.040
+ that will just be obvious.
+
+33:28.040 --> 33:32.240
+ And I've seen this practically in demonstrations
+
+33:32.240 --> 33:35.560
+ that I've given where I've had people come in
+
+33:35.560 --> 33:38.840
+ and they're very skeptical.
+
+33:38.840 --> 33:40.440
+ Again, in a vehicle, my favorite one
+
+33:40.440 --> 33:42.560
+ is taking somebody out on the freeway
+
+33:42.560 --> 33:46.000
+ and we're on the 101 driving at 65 miles an hour.
+
+33:46.000 --> 33:48.400
+ And after 10 minutes, they kind of turn and ask,
+
+33:48.400 --> 33:49.480
+ is that all it does?
+
+33:49.480 --> 33:52.080
+ And you're like, it's a self driving car.
+
+33:52.080 --> 33:54.840
+ I'm not sure exactly what you thought it would do, right?
+
+33:54.840 --> 33:57.920
+ But it becomes mundane,
+
+33:58.840 --> 34:01.480
+ which is exactly what you want a technology
+
+34:01.480 --> 34:02.720
+ like this to be, right?
+
+34:02.720 --> 34:07.280
+ We don't really, when I turn the light switch on in here,
+
+34:07.280 --> 34:12.000
+ I don't think about the complexity of those electrons
+
+34:12.000 --> 34:14.200
+ being pushed down a wire from wherever it was
+
+34:14.200 --> 34:15.240
+ and being generated.
+
+34:15.240 --> 34:19.080
+ It's like, I just get annoyed if it doesn't work, right?
+
+34:19.080 --> 34:21.400
+ And what I value is the fact
+
+34:21.400 --> 34:23.080
+ that I can do other things in this space.
+
+34:23.080 --> 34:24.560
+ I can see my colleagues.
+
+34:24.560 --> 34:26.160
+ I can read stuff on a paper.
+
+34:26.160 --> 34:29.200
+ I can not be afraid of the dark.
+
+34:30.360 --> 34:33.320
+ And I think that's what we want this technology to be like
+
+34:33.320 --> 34:34.640
+ is it's in the background
+
+34:34.640 --> 34:37.120
+ and people get to have those life experiences
+
+34:37.120 --> 34:38.440
+ and do so safely.
+
+34:38.440 --> 34:42.160
+ So putting this technology in the hands of people
+
+34:42.160 --> 34:46.320
+ speaks to scale of deployment, right?
+
+34:46.320 --> 34:50.880
+ So what do you think the dreaded question about the future
+
+34:50.880 --> 34:53.560
+ because nobody can predict the future,
+
+34:53.560 --> 34:57.240
+ but just maybe speak poetically
+
+34:57.240 --> 35:00.880
+ about when do you think we'll see a large scale deployment
+
+35:00.880 --> 35:05.880
+ of autonomous vehicles, 10,000, those kinds of numbers?
+
+35:06.680 --> 35:08.240
+ We'll see that within 10 years.
+
+35:09.240 --> 35:10.240
+ I'm pretty confident.
+
+35:14.040 --> 35:16.040
+ What's an impressive scale?
+
+35:16.040 --> 35:19.200
+ What moment, so you've done the DARPA challenge
+
+35:19.200 --> 35:20.440
+ where there's one vehicle.
+
+35:20.440 --> 35:23.960
+ At which moment does it become, wow, this is serious scale?
+
+35:23.960 --> 35:26.520
+ So I think the moment it gets serious
+
+35:26.520 --> 35:31.520
+ is when we really do have a driverless vehicle
+
+35:32.240 --> 35:34.120
+ operating on public roads
+
+35:35.000 --> 35:37.960
+ and that we can do that kind of continuously.
+
+35:37.960 --> 35:38.880
+ Without a safety driver.
+
+35:38.880 --> 35:40.440
+ Without a safety driver in the vehicle.
+
+35:40.440 --> 35:41.560
+ I think at that moment,
+
+35:41.560 --> 35:44.400
+ we've kind of crossed the zero to one threshold.
+
+35:45.920 --> 35:50.200
+ And then it is about how do we continue to scale that?
+
+35:50.200 --> 35:53.960
+ How do we build the right business models?
+
+35:53.960 --> 35:56.320
+ How do we build the right customer experience around it
+
+35:56.320 --> 35:59.960
+ so that it is actually a useful product out in the world?
+
+36:00.960 --> 36:03.600
+ And I think that is really,
+
+36:03.600 --> 36:05.920
+ at that point it moves from
+
+36:05.920 --> 36:09.200
+ what is this kind of mixed science engineering project
+
+36:09.200 --> 36:12.360
+ into engineering and commercialization
+
+36:12.360 --> 36:15.840
+ and really starting to deliver on the value
+
+36:15.840 --> 36:20.680
+ that we all see here and actually making that real in the world.
+
+36:20.680 --> 36:22.240
+ What do you think that deployment looks like?
+
+36:22.240 --> 36:26.440
+ Where do we first see the inkling of no safety driver,
+
+36:26.440 --> 36:28.600
+ one or two cars here and there?
+
+36:28.600 --> 36:29.800
+ Is it on the highway?
+
+36:29.800 --> 36:33.160
+ Is it in specific routes in the urban environment?
+
+36:33.160 --> 36:36.920
+ I think it's gonna be urban, suburban type environments.
+
+36:37.880 --> 36:41.560
+ Yeah, with Aurora, when we thought about how to tackle this,
+
+36:41.560 --> 36:45.040
+ it was kind of in vogue to think about trucking
+
+36:46.040 --> 36:47.800
+ as opposed to urban driving.
+
+36:47.800 --> 36:51.280
+ And again, the human intuition around this
+
+36:51.280 --> 36:55.400
+ is that freeways are easier to drive on
+
+36:57.080 --> 36:59.280
+ because everybody's kind of going in the same direction
+
+36:59.280 --> 37:01.560
+ and lanes are a little wider, et cetera.
+
+37:01.560 --> 37:03.320
+ And I think that that intuition is pretty good,
+
+37:03.320 --> 37:06.040
+ except we don't really care about most of the time.
+
+37:06.040 --> 37:08.400
+ We care about all of the time.
+
+37:08.400 --> 37:10.880
+ And when you're driving on a freeway with a truck,
+
+37:10.880 --> 37:13.440
+ say 70 miles an hour,
+
+37:14.600 --> 37:16.240
+ and you've got 70,000 pound load with you,
+
+37:16.240 --> 37:18.880
+ that's just an incredible amount of kinetic energy.
+
+37:18.880 --> 37:21.440
+ And so when that goes wrong, it goes really wrong.
+
+37:22.640 --> 37:27.640
+ And those challenges that you see occur more rarely,
+
+37:27.800 --> 37:31.120
+ so you don't get to learn as quickly.
+
+37:31.120 --> 37:34.720
+ And they're incrementally more difficult than urban driving,
+
+37:34.720 --> 37:37.440
+ but they're not easier than urban driving.
+
+37:37.440 --> 37:41.640
+ And so I think this happens in moderate speed
+
+37:41.640 --> 37:45.280
+ urban environments because if two vehicles crash
+
+37:45.280 --> 37:48.120
+ at 25 miles per hour, it's not good,
+
+37:48.120 --> 37:50.120
+ but probably everybody walks away.
+
+37:51.080 --> 37:53.720
+ And those events where there's the possibility
+
+37:53.720 --> 37:55.800
+ for that occurring happen frequently.
+
+37:55.800 --> 37:58.000
+ So we get to learn more rapidly.
+
+37:58.000 --> 38:01.360
+ We get to do that with lower risk for everyone.
+
+38:02.520 --> 38:04.360
+ And then we can deliver value to people
+
+38:04.360 --> 38:05.880
+ that need to get from one place to another.
+
+38:05.880 --> 38:08.160
+ And once we've got that solved,
+
+38:08.160 --> 38:11.320
+ then the freeway driving part of this just falls out.
+
+38:11.320 --> 38:13.080
+ But we're able to learn more safely,
+
+38:13.080 --> 38:15.200
+ more quickly in the urban environment.
+
+38:15.200 --> 38:18.760
+ So 10 years and then scale 20, 30 year,
+
+38:18.760 --> 38:22.040
+ who knows if a sufficiently compelling experience
+
+38:22.040 --> 38:24.400
+ is created, it could be faster and slower.
+
+38:24.400 --> 38:27.160
+ Do you think there could be breakthroughs
+
+38:27.160 --> 38:29.920
+ and what kind of breakthroughs might there be
+
+38:29.920 --> 38:32.400
+ that completely change that timeline?
+
+38:32.400 --> 38:35.360
+ Again, not only am I asking you to predict the future,
+
+38:35.360 --> 38:37.360
+ I'm asking you to predict breakthroughs
+
+38:37.360 --> 38:38.360
+ that haven't happened yet.
+
+38:38.360 --> 38:41.440
+ So what's the, I think another way to ask that
+
+38:41.440 --> 38:44.320
+ would be if I could wave a magic wand,
+
+38:44.320 --> 38:46.720
+ what part of the system would I make work today
+
+38:46.720 --> 38:49.480
+ to accelerate it as quickly as possible?
+
+38:52.120 --> 38:54.200
+ Don't say infrastructure, please don't say infrastructure.
+
+38:54.200 --> 38:56.320
+ No, it's definitely not infrastructure.
+
+38:56.320 --> 39:00.600
+ It's really that perception forecasting capability.
+
+39:00.600 --> 39:04.840
+ So if tomorrow you could give me a perfect model
+
+39:04.840 --> 39:06.960
+ of what's happened, what is happening
+
+39:06.960 --> 39:09.200
+ and what will happen for the next five seconds
+
+39:10.360 --> 39:13.040
+ around a vehicle on the roadway,
+
+39:13.040 --> 39:15.360
+ that would accelerate things pretty dramatically.
+
+39:15.360 --> 39:17.600
+ Are you, in terms of staying up at night,
+
+39:17.600 --> 39:21.760
+ are you mostly bothered by cars, pedestrians or cyclists?
+
+39:21.760 --> 39:25.960
+ So I worry most about the vulnerable road users
+
+39:25.960 --> 39:28.480
+ about the combination of cyclists and cars, right?
+
+39:28.480 --> 39:31.960
+ Or cyclists and pedestrians because they're not in armor.
+
+39:31.960 --> 39:36.480
+ The cars, they're bigger, they've got protection
+
+39:36.480 --> 39:39.440
+ for the people and so the ultimate risk is lower there.
+
+39:41.080 --> 39:43.240
+ Whereas a pedestrian or a cyclist,
+
+39:43.240 --> 39:46.480
+ they're out on the road and they don't have any protection
+
+39:46.480 --> 39:49.720
+ and so we need to pay extra attention to that.
+
+39:49.720 --> 39:54.120
+ Do you think about a very difficult technical challenge
+
+39:55.720 --> 39:58.520
+ of the fact that pedestrians,
+
+39:58.520 --> 40:00.240
+ if you try to protect pedestrians
+
+40:00.240 --> 40:04.560
+ by being careful and slow, they'll take advantage of that.
+
+40:04.560 --> 40:09.040
+ So the game theoretic dance, does that worry you
+
+40:09.040 --> 40:12.480
+ of how, from a technical perspective, how we solve that?
+
+40:12.480 --> 40:14.560
+ Because as humans, the way we solve that
+
+40:14.560 --> 40:17.240
+ is kind of nudge our way through the pedestrians
+
+40:17.240 --> 40:20.000
+ which doesn't feel, from a technical perspective,
+
+40:20.000 --> 40:22.300
+ as a appropriate algorithm.
+
+40:23.200 --> 40:25.920
+ But do you think about how we solve that problem?
+
+40:25.920 --> 40:30.920
+ Yeah, I think there's two different concepts there.
+
+40:31.360 --> 40:35.820
+ So one is, am I worried that because these vehicles
+
+40:35.820 --> 40:37.600
+ are self driving, people will kind of step in the road
+
+40:37.600 --> 40:38.640
+ and take advantage of them?
+
+40:38.640 --> 40:43.640
+ And I've heard this and I don't really believe it
+
+40:43.760 --> 40:45.960
+ because if I'm driving down the road
+
+40:45.960 --> 40:48.400
+ and somebody steps in front of me, I'm going to stop.
+
+40:50.600 --> 40:53.660
+ Even if I'm annoyed, I'm not gonna just drive
+
+40:53.660 --> 40:56.400
+ through a person stood in the road.
+
+40:56.400 --> 41:00.400
+ And so I think today people can take advantage of this
+
+41:00.400 --> 41:02.560
+ and you do see some people do it.
+
+41:02.560 --> 41:04.180
+ I guess there's an incremental risk
+
+41:04.180 --> 41:05.880
+ because maybe they have lower confidence
+
+41:05.880 --> 41:07.720
+ that I'm gonna see them than they might have
+
+41:07.720 --> 41:10.400
+ for an automated vehicle and so maybe that shifts
+
+41:10.400 --> 41:12.040
+ it a little bit.
+
+41:12.040 --> 41:14.360
+ But I think people don't wanna get hit by cars.
+
+41:14.360 --> 41:17.080
+ And so I think that I'm not that worried
+
+41:17.080 --> 41:18.760
+ about people walking out of the 101
+
+41:18.760 --> 41:23.760
+ and creating chaos more than they would today.
+
+41:24.400 --> 41:27.040
+ Regarding kind of the nudging through a big stream
+
+41:27.040 --> 41:30.040
+ of pedestrians leaving a concert or something,
+
+41:30.040 --> 41:33.520
+ I think that is further down the technology pipeline.
+
+41:33.520 --> 41:36.960
+ I think that you're right, that's tricky.
+
+41:36.960 --> 41:38.620
+ I don't think it's necessarily,
+
+41:40.360 --> 41:43.600
+ I think the algorithm people use for this is pretty simple.
+
+41:43.600 --> 41:44.800
+ It's kind of just move forward slowly
+
+41:44.800 --> 41:46.800
+ and if somebody's really close then stop.
+
+41:46.800 --> 41:50.880
+ And I think that that probably can be replicated
+
+41:50.880 --> 41:54.040
+ pretty easily and particularly given that
+
+41:54.040 --> 41:55.720
+ you don't do this at 30 miles an hour,
+
+41:55.720 --> 41:59.080
+ you do it at one, that even in those situations
+
+41:59.080 --> 42:01.200
+ the risk is relatively minimal.
+
+42:01.200 --> 42:03.640
+ But it's not something we're thinking about
+
+42:03.640 --> 42:04.560
+ in any serious way.
+
+42:04.560 --> 42:07.920
+ And probably that's less an algorithm problem
+
+42:07.920 --> 42:10.160
+ and more creating a human experience.
+
+42:10.160 --> 42:14.300
+ So the HCI people that create a visual display
+
+42:14.300 --> 42:16.260
+ that you're pleasantly as a pedestrian
+
+42:16.260 --> 42:20.760
+ nudged out of the way, that's an experience problem,
+
+42:20.760 --> 42:22.000
+ not an algorithm problem.
+
+42:22.880 --> 42:25.480
+ Who's the main competitor to Aurora today?
+
+42:25.480 --> 42:28.640
+ And how do you outcompete them in the long run?
+
+42:28.640 --> 42:31.200
+ So we really focus a lot on what we're doing here.
+
+42:31.200 --> 42:34.480
+ I think that, I've said this a few times,
+
+42:34.480 --> 42:37.960
+ that this is a huge difficult problem
+
+42:37.960 --> 42:40.320
+ and it's great that a bunch of companies are tackling it
+
+42:40.320 --> 42:42.320
+ because I think it's so important for society
+
+42:42.320 --> 42:43.800
+ that somebody gets there.
+
+42:43.800 --> 42:48.800
+ So we don't spend a whole lot of time
+
+42:49.120 --> 42:51.600
+ thinking tactically about who's out there
+
+42:51.600 --> 42:55.240
+ and how do we beat that person individually.
+
+42:55.240 --> 42:58.720
+ What are we trying to do to go faster ultimately?
+
+42:59.760 --> 43:02.640
+ Well part of it is the leadership team we have
+
+43:02.640 --> 43:04.200
+ has got pretty tremendous experience.
+
+43:04.200 --> 43:06.440
+ And so we kind of understand the landscape
+
+43:06.440 --> 43:09.160
+ and understand where the cul de sacs are to some degree
+
+43:09.160 --> 43:10.980
+ and we try and avoid those.
+
+43:10.980 --> 43:14.260
+ I think there's a part of it,
+
+43:14.260 --> 43:16.260
+ just this great team we've built.
+
+43:16.260 --> 43:19.080
+ People, this is a technology and a company
+
+43:19.080 --> 43:22.320
+ that people believe in the mission of
+
+43:22.320 --> 43:23.740
+ and so it allows us to attract
+
+43:23.740 --> 43:25.740
+ just awesome people to go work.
+
+43:26.800 --> 43:29.320
+ We've got a culture I think that people appreciate
+
+43:29.320 --> 43:30.460
+ that allows them to focus,
+
+43:30.460 --> 43:33.120
+ allows them to really spend time solving problems.
+
+43:33.120 --> 43:35.900
+ And I think that keeps them energized.
+
+43:35.900 --> 43:38.940
+ And then we've invested hard,
+
+43:38.940 --> 43:43.500
+ invested heavily in the infrastructure
+
+43:43.500 --> 43:46.540
+ and architectures that we think will ultimately accelerate us.
+
+43:46.540 --> 43:50.660
+ So because of the folks we're able to bring in early on,
+
+43:50.660 --> 43:53.540
+ because of the great investors we have,
+
+43:53.540 --> 43:56.780
+ we don't spend all of our time doing demos
+
+43:56.780 --> 43:58.660
+ and kind of leaping from one demo to the next.
+
+43:58.660 --> 44:02.820
+ We've been given the freedom to invest in
+
+44:03.940 --> 44:05.500
+ infrastructure to do machine learning,
+
+44:05.500 --> 44:08.600
+ infrastructure to pull data from our on road testing,
+
+44:08.600 --> 44:11.500
+ infrastructure to use that to accelerate engineering.
+
+44:11.500 --> 44:14.480
+ And I think that early investment
+
+44:14.480 --> 44:17.340
+ and continuing investment in those kind of tools
+
+44:17.340 --> 44:19.780
+ will ultimately allow us to accelerate
+
+44:19.780 --> 44:21.940
+ and do something pretty incredible.
+
+44:21.940 --> 44:23.420
+ Chris, beautifully put.
+
+44:23.420 --> 44:24.660
+ It's a good place to end.
+
+44:24.660 --> 44:26.500
+ Thank you so much for talking today.
+
+44:26.500 --> 44:47.940
+ Thank you very much. Really enjoyed it.
+

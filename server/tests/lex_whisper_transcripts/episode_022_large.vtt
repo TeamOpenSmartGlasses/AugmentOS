@@ -1,0 +1,4808 @@
+WEBVTT
+
+00:00.000 --> 00:03.080
+ The following is a conversation with Rajat Manga.
+
+00:03.080 --> 00:04.920
+ He's an engineer and director of Google,
+
+00:04.920 --> 00:06.960
+ leading the TensorFlow team.
+
+00:06.960 --> 00:09.160
+ TensorFlow is an open source library
+
+00:09.160 --> 00:11.540
+ at the center of much of the work going on in the world
+
+00:11.540 --> 00:14.040
+ in deep learning, both the cutting edge research
+
+00:14.040 --> 00:17.720
+ and the large scale application of learning based approaches.
+
+00:17.720 --> 00:20.940
+ But it's quickly becoming much more than a software library.
+
+00:20.940 --> 00:24.120
+ It's now an ecosystem of tools for the deployment of machine
+
+00:24.120 --> 00:26.800
+ learning in the cloud, on the phone, in the browser,
+
+00:26.800 --> 00:29.840
+ on both generic and specialized hardware.
+
+00:29.840 --> 00:31.960
+ TPU, GPU, and so on.
+
+00:31.960 --> 00:35.220
+ Plus, there's a big emphasis on growing a passionate community
+
+00:35.220 --> 00:36.640
+ of developers.
+
+00:36.640 --> 00:39.820
+ Rajat, Jeff Dean, and a large team of engineers at Google
+
+00:39.820 --> 00:42.200
+ Brain are working to define the future of machine
+
+00:42.200 --> 00:46.240
+ learning with TensorFlow 2.0, which is now in alpha.
+
+00:46.240 --> 00:49.160
+ I think the decision to open source TensorFlow
+
+00:49.160 --> 00:51.760
+ is a definitive moment in the tech industry.
+
+00:51.760 --> 00:54.400
+ It showed that open innovation can be successful
+
+00:54.400 --> 00:56.920
+ and inspire many companies to open source their code,
+
+00:56.920 --> 00:58.880
+ to publish, and in general engage
+
+00:58.880 --> 01:01.240
+ in the open exchange of ideas.
+
+01:01.240 --> 01:03.940
+ This conversation is part of the Artificial Intelligence
+
+01:03.940 --> 01:05.080
+ podcast.
+
+01:05.080 --> 01:07.860
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+01:07.860 --> 01:10.880
+ or simply connect with me on Twitter at Lex Friedman,
+
+01:10.880 --> 01:12.720
+ spelled F R I D.
+
+01:12.720 --> 01:17.960
+ And now, here's my conversation with Rajat Manga.
+
+01:17.960 --> 01:22.520
+ You were involved with Google Brain since its start in 2011
+
+01:22.520 --> 01:24.880
+ with Jeff Dean.
+
+01:24.880 --> 01:29.220
+ It started with this belief, the proprietary machine learning
+
+01:29.220 --> 01:32.800
+ library, and turned into TensorFlow in 2014,
+
+01:32.800 --> 01:35.720
+ the open source library.
+
+01:35.720 --> 01:39.120
+ So what were the early days of Google Brain like?
+
+01:39.120 --> 01:41.840
+ What were the goals, the missions?
+
+01:41.840 --> 01:45.120
+ How do you even proceed forward once there's
+
+01:45.120 --> 01:47.760
+ so much possibilities before you?
+
+01:47.760 --> 01:50.560
+ It was interesting back then when I started,
+
+01:50.560 --> 01:55.400
+ or when you were even just talking about it,
+
+01:55.400 --> 01:59.520
+ the idea of deep learning was interesting and intriguing
+
+01:59.520 --> 02:00.480
+ in some ways.
+
+02:00.480 --> 02:04.920
+ It hadn't yet taken off, but it held some promise.
+
+02:04.920 --> 02:08.740
+ It had shown some very promising and early results.
+
+02:08.740 --> 02:11.400
+ I think the idea where Andrew and Jeff had started
+
+02:11.400 --> 02:15.440
+ was, what if we can take this work people are doing
+
+02:15.440 --> 02:18.800
+ in research and scale it to what Google has
+
+02:18.800 --> 02:23.000
+ in terms of the compute power, and also
+
+02:23.000 --> 02:24.320
+ put that kind of data together?
+
+02:24.320 --> 02:25.320
+ What does it mean?
+
+02:25.320 --> 02:28.300
+ And so far, the results had been, if you scale the compute,
+
+02:28.300 --> 02:30.200
+ scale the data, it does better.
+
+02:30.200 --> 02:31.520
+ And would that work?
+
+02:31.520 --> 02:35.140
+ And so that was the first year or two, can we prove that out?
+
+02:35.140 --> 02:37.480
+ And with this belief, when we started the first year,
+
+02:37.480 --> 02:40.800
+ we got some early wins, which is always great.
+
+02:40.800 --> 02:41.960
+ What were the wins like?
+
+02:41.960 --> 02:44.160
+ What was the wins where you were,
+
+02:44.160 --> 02:46.640
+ there's some problems to this, this is going to be good?
+
+02:46.640 --> 02:49.680
+ I think there are two early wins where one was speech,
+
+02:49.680 --> 02:52.280
+ that we collaborated very closely with the speech research
+
+02:52.280 --> 02:54.820
+ team, who was also getting interested in this.
+
+02:54.820 --> 02:58.800
+ And the other one was on images, where the cat paper,
+
+02:58.800 --> 03:03.160
+ as we call it, that was covered by a lot of folks.
+
+03:03.160 --> 03:07.440
+ And the birth of Google Brain was around neural networks.
+
+03:07.440 --> 03:09.320
+ So it was deep learning from the very beginning.
+
+03:09.320 --> 03:10.800
+ That was the whole mission.
+
+03:10.800 --> 03:15.040
+ So what would, in terms of scale,
+
+03:15.040 --> 03:20.040
+ what was the sort of dream of what this could become?
+
+03:21.080 --> 03:24.280
+ Were there echoes of this open source TensorFlow community
+
+03:24.280 --> 03:26.240
+ that might be brought in?
+
+03:26.240 --> 03:28.640
+ Was there a sense of TPUs?
+
+03:28.640 --> 03:31.760
+ Was there a sense of machine learning is now going to be
+
+03:31.760 --> 03:33.720
+ at the core of the entire company,
+
+03:33.720 --> 03:36.040
+ is going to grow into that direction?
+
+03:36.040 --> 03:38.320
+ Yeah, I think, so that was interesting.
+
+03:38.320 --> 03:41.380
+ And if I think back to 2012 or 2011,
+
+03:41.380 --> 03:45.240
+ and first was can we scale it in the year or so,
+
+03:45.240 --> 03:47.520
+ we had started scaling it to hundreds and thousands
+
+03:47.520 --> 03:48.360
+ of machines.
+
+03:48.360 --> 03:51.080
+ In fact, we had some runs even going to 10,000 machines.
+
+03:51.080 --> 03:52.880
+ And all of those shows great promise.
+
+03:53.880 --> 03:56.800
+ In terms of machine learning at Google,
+
+03:56.800 --> 03:58.780
+ the good thing was Google's been doing machine learning
+
+03:58.780 --> 04:00.240
+ for a long time.
+
+04:00.240 --> 04:03.760
+ Deep learning was new, but as we scaled this up,
+
+04:03.760 --> 04:05.600
+ we showed that, yes, that was possible.
+
+04:05.600 --> 04:07.840
+ And it was going to impact lots of things.
+
+04:07.840 --> 04:11.200
+ Like we started seeing real products wanting to use this.
+
+04:11.200 --> 04:13.800
+ Again, speech was the first, there were image things
+
+04:13.800 --> 04:17.400
+ that photos came out of and then many other products as well.
+
+04:17.400 --> 04:18.920
+ So that was exciting.
+
+04:20.180 --> 04:23.160
+ As we went into that a couple of years,
+
+04:23.160 --> 04:25.800
+ externally also academia started to,
+
+04:25.800 --> 04:27.200
+ there was lots of push on, okay,
+
+04:27.200 --> 04:28.320
+ deep learning is interesting,
+
+04:28.320 --> 04:30.600
+ we should be doing more and so on.
+
+04:30.600 --> 04:34.580
+ And so by 2014, we were looking at, okay,
+
+04:34.580 --> 04:36.780
+ this is a big thing, it's going to grow.
+
+04:36.780 --> 04:39.440
+ And not just internally, externally as well.
+
+04:39.440 --> 04:42.280
+ Yes, maybe Google's ahead of where everybody is,
+
+04:42.280 --> 04:43.640
+ but there's a lot to do.
+
+04:43.640 --> 04:46.720
+ So a lot of this started to make sense and come together.
+
+04:46.720 --> 04:49.560
+ So the decision to open source,
+
+04:49.560 --> 04:52.200
+ I was just chatting with Chris Glatner about this.
+
+04:52.200 --> 04:54.640
+ The decision to go open source with TensorFlow,
+
+04:54.640 --> 04:57.080
+ I would say sort of for me personally,
+
+04:57.080 --> 04:59.640
+ seems to be one of the big seminal moments
+
+04:59.640 --> 05:01.720
+ in all of software engineering ever.
+
+05:01.720 --> 05:04.620
+ I think that's when a large company like Google
+
+05:04.620 --> 05:07.520
+ decides to take a large project that many lawyers
+
+05:07.520 --> 05:10.800
+ might argue has a lot of IP,
+
+05:10.800 --> 05:12.900
+ just decide to go open source with it,
+
+05:12.900 --> 05:14.880
+ and in so doing lead the entire world
+
+05:14.880 --> 05:16.520
+ and saying, you know what, open innovation
+
+05:16.520 --> 05:20.780
+ is a pretty powerful thing, and it's okay to do.
+
+05:22.360 --> 05:26.320
+ That was, I mean, that's an incredible moment in time.
+
+05:26.320 --> 05:29.320
+ So do you remember those discussions happening?
+
+05:29.320 --> 05:31.400
+ Whether open source should be happening?
+
+05:31.400 --> 05:32.680
+ What was that like?
+
+05:32.680 --> 05:36.880
+ I would say, I think, so the initial idea came from Jeff,
+
+05:36.880 --> 05:39.440
+ who was a big proponent of this.
+
+05:39.440 --> 05:42.480
+ I think it came off of two big things.
+
+05:42.480 --> 05:46.320
+ One was research wise, we were a research group.
+
+05:46.320 --> 05:49.640
+ We were putting all our research out there.
+
+05:49.640 --> 05:51.720
+ If you wanted to, we were building on others research
+
+05:51.720 --> 05:55.000
+ and we wanted to push the state of the art forward.
+
+05:55.000 --> 05:56.840
+ And part of that was to share the research.
+
+05:56.840 --> 05:58.960
+ That's how I think deep learning and machine learning
+
+05:58.960 --> 06:00.460
+ has really grown so fast.
+
+06:01.380 --> 06:03.360
+ So the next step was, okay, now,
+
+06:03.360 --> 06:05.360
+ would software help with that?
+
+06:05.360 --> 06:08.440
+ And it seemed like they were existing
+
+06:08.440 --> 06:11.280
+ a few libraries out there, Tiano being one,
+
+06:11.280 --> 06:14.000
+ Torch being another, and a few others,
+
+06:14.000 --> 06:15.480
+ but they were all done by academia
+
+06:15.480 --> 06:18.040
+ and so the level was significantly different.
+
+06:18.960 --> 06:22.000
+ The other one was from a software perspective,
+
+06:22.000 --> 06:23.880
+ Google had done lots of software
+
+06:23.880 --> 06:27.080
+ or that we used internally, you know,
+
+06:27.080 --> 06:29.080
+ and we published papers.
+
+06:29.080 --> 06:31.680
+ Often there was an open source project
+
+06:31.680 --> 06:33.600
+ that came out of that that somebody else
+
+06:33.600 --> 06:35.400
+ picked up that paper and implemented
+
+06:35.400 --> 06:37.020
+ and they were very successful.
+
+06:38.240 --> 06:41.440
+ Back then it was like, okay, there's Hadoop,
+
+06:41.440 --> 06:44.140
+ which has come off of tech that we've built.
+
+06:44.140 --> 06:46.200
+ We know the tech we've built is way better
+
+06:46.200 --> 06:47.880
+ for a number of different reasons.
+
+06:47.880 --> 06:50.420
+ We've invested a lot of effort in that.
+
+06:51.660 --> 06:54.320
+ And turns out we have Google Cloud
+
+06:54.320 --> 06:57.520
+ and we are now not really providing our tech,
+
+06:57.520 --> 07:00.360
+ but we are saying, okay, we have Bigtable,
+
+07:00.360 --> 07:02.040
+ which is the original thing.
+
+07:02.040 --> 07:03.880
+ We are going to now provide H base APIs
+
+07:03.880 --> 07:06.040
+ on top of that, which isn't as good,
+
+07:06.040 --> 07:07.480
+ but that's what everybody's used to.
+
+07:07.480 --> 07:10.040
+ So there's like, can we make something
+
+07:10.040 --> 07:12.320
+ that is better and really just provide,
+
+07:12.320 --> 07:14.320
+ helps the community in lots of ways,
+
+07:14.320 --> 07:18.320
+ but also helps push a good standard forward.
+
+07:18.320 --> 07:19.940
+ So how does Cloud fit into that?
+
+07:19.940 --> 07:22.680
+ There's a TensorFlow open source library
+
+07:22.680 --> 07:24.760
+ and how does the fact that you can
+
+07:25.800 --> 07:28.240
+ use so many of the resources that Google provides
+
+07:28.240 --> 07:31.100
+ and the Cloud fit into that strategy?
+
+07:31.100 --> 07:33.600
+ So TensorFlow itself is open
+
+07:33.600 --> 07:34.920
+ and you can use it anywhere, right?
+
+07:34.920 --> 07:38.360
+ And we want to make sure that continues to be the case.
+
+07:38.360 --> 07:41.040
+ On Google Cloud, we do make sure
+
+07:41.040 --> 07:43.840
+ that there's lots of integrations with everything else
+
+07:43.840 --> 07:44.880
+ and we want to make sure
+
+07:44.880 --> 07:47.320
+ that it works really, really well there.
+
+07:47.320 --> 07:50.400
+ You're leading the TensorFlow effort.
+
+07:50.400 --> 07:51.280
+ Can you tell me the history
+
+07:51.280 --> 07:53.600
+ and the timeline of TensorFlow project
+
+07:53.600 --> 07:55.880
+ in terms of major design decisions,
+
+07:55.880 --> 07:58.160
+ so like the open source decision,
+
+07:58.160 --> 08:01.600
+ but really what to include and not?
+
+08:01.600 --> 08:03.200
+ There's this incredible ecosystem
+
+08:03.200 --> 08:04.760
+ that I'd like to talk about.
+
+08:04.760 --> 08:05.720
+ There's all these parts,
+
+08:05.720 --> 08:10.720
+ but what if just some sample moments
+
+08:11.240 --> 08:15.040
+ that defined what TensorFlow eventually became
+
+08:15.040 --> 08:17.640
+ through its, I don't know if you're allowed to say history
+
+08:17.640 --> 08:20.240
+ when it's just, but in deep learning,
+
+08:20.240 --> 08:21.280
+ everything moves so fast
+
+08:21.280 --> 08:23.460
+ and just a few years is already history.
+
+08:23.460 --> 08:28.460
+ Yes, yes, so looking back, we were building TensorFlow.
+
+08:29.780 --> 08:34.240
+ I guess we open sourced it in 2015, November 2015.
+
+08:34.240 --> 08:38.600
+ We started on it in summer of 2014, I guess.
+
+08:39.780 --> 08:42.960
+ And somewhere like three to six, late 2014,
+
+08:42.960 --> 08:45.120
+ by then we had decided that, okay,
+
+08:45.120 --> 08:47.080
+ there's a high likelihood we'll open source it.
+
+08:47.080 --> 08:48.880
+ So we started thinking about that
+
+08:48.880 --> 08:53.880
+ and making sure we're heading down that path.
+
+08:53.960 --> 08:56.080
+ At that point, by that point,
+
+08:56.080 --> 08:59.320
+ we had seen a few, lots of different use cases at Google.
+
+08:59.320 --> 09:01.000
+ So there were things like, okay,
+
+09:01.000 --> 09:04.200
+ yes, you wanna run it at large scale in the data center.
+
+09:04.200 --> 09:07.560
+ Yes, we need to support different kind of hardware.
+
+09:07.560 --> 09:09.440
+ We had GPUs at that point.
+
+09:09.440 --> 09:11.880
+ We had our first GPU at that point
+
+09:11.880 --> 09:14.700
+ or was about to come out roughly around that time.
+
+09:15.700 --> 09:18.700
+ So the design sort of included those.
+
+09:18.700 --> 09:21.800
+ We had started to push on mobile.
+
+09:21.800 --> 09:24.920
+ So we were running models on mobile.
+
+09:24.920 --> 09:28.160
+ At that point, people were customizing code.
+
+09:28.160 --> 09:29.560
+ So we wanted to make sure TensorFlow
+
+09:29.560 --> 09:30.700
+ could support that as well.
+
+09:30.700 --> 09:35.260
+ So that sort of became part of that overall design.
+
+09:35.260 --> 09:36.560
+ When you say mobile,
+
+09:36.560 --> 09:38.680
+ you mean like a pretty complicated algorithms
+
+09:38.680 --> 09:40.040
+ running on the phone?
+
+09:40.040 --> 09:40.880
+ That's correct.
+
+09:40.880 --> 09:44.320
+ So when you have a model that you deploy on the phone
+
+09:44.320 --> 09:45.160
+ and run it there, right?
+
+09:45.160 --> 09:46.420
+ So already at that time,
+
+09:46.420 --> 09:48.800
+ there was ideas of running machine learning on the phone.
+
+09:48.800 --> 09:49.640
+ That's correct.
+
+09:49.640 --> 09:51.400
+ We already had a couple of products
+
+09:51.400 --> 09:53.260
+ that were doing that by then.
+
+09:53.260 --> 09:54.500
+ And in those cases,
+
+09:54.500 --> 09:57.540
+ we had basically customized handcrafted code
+
+09:57.540 --> 10:00.160
+ or some internal libraries that we're using.
+
+10:00.160 --> 10:02.600
+ So I was actually at Google during this time
+
+10:02.600 --> 10:04.560
+ in a parallel, I guess, universe,
+
+10:04.560 --> 10:07.140
+ but we were using Theano and Caffe.
+
+10:09.240 --> 10:11.600
+ Was there some degree to which you were bouncing,
+
+10:11.600 --> 10:15.520
+ like trying to see what Caffe was offering people,
+
+10:15.520 --> 10:17.960
+ trying to see what Theano was offering
+
+10:17.960 --> 10:19.960
+ that you want to make sure you're delivering
+
+10:19.960 --> 10:21.640
+ on whatever that is?
+
+10:21.640 --> 10:23.720
+ Perhaps the Python part of thing,
+
+10:23.720 --> 10:27.520
+ maybe did that influence any design decisions?
+
+10:27.520 --> 10:28.360
+ Totally.
+
+10:28.360 --> 10:29.600
+ So when we built this belief
+
+10:29.600 --> 10:31.600
+ and some of that was in parallel
+
+10:31.600 --> 10:33.400
+ with some of these libraries coming up,
+
+10:33.400 --> 10:35.400
+ I mean, Theano itself is older,
+
+10:36.680 --> 10:39.880
+ but we were building this belief
+
+10:39.880 --> 10:41.160
+ focused on our internal thing
+
+10:41.160 --> 10:42.960
+ because our systems were very different.
+
+10:42.960 --> 10:44.080
+ By the time we got to this,
+
+10:44.080 --> 10:47.120
+ we looked at a number of libraries that were out there.
+
+10:47.120 --> 10:49.280
+ Theano, there were folks in the group
+
+10:49.280 --> 10:52.140
+ who had experience with Torch, with Lua.
+
+10:52.140 --> 10:54.800
+ There were folks here who had seen Caffe.
+
+10:54.800 --> 10:57.540
+ I mean, actually, Yang Jing was here as well.
+
+10:58.840 --> 11:02.980
+ There's what other libraries?
+
+11:02.980 --> 11:04.920
+ I think we looked at a number of things.
+
+11:04.920 --> 11:06.840
+ Might even have looked at JNR back then.
+
+11:06.840 --> 11:09.400
+ I'm trying to remember if it was there.
+
+11:09.400 --> 11:12.040
+ In fact, yeah, we did discuss ideas around,
+
+11:12.040 --> 11:14.240
+ okay, should we have a graph or not?
+
+11:17.840 --> 11:20.480
+ So putting all these together was definitely,
+
+11:20.480 --> 11:22.800
+ they were key decisions that we wanted.
+
+11:22.800 --> 11:27.220
+ We had seen limitations in our prior disbelief things.
+
+11:28.800 --> 11:31.360
+ A few of them were just in terms of research
+
+11:31.360 --> 11:33.740
+ was moving so fast, we wanted the flexibility.
+
+11:35.040 --> 11:36.360
+ The hardware was changing fast.
+
+11:36.360 --> 11:37.760
+ We expected to change that
+
+11:37.760 --> 11:39.900
+ so that those probably were two things.
+
+11:39.900 --> 11:43.140
+ And yeah, I think the flexibility
+
+11:43.140 --> 11:44.380
+ in terms of being able to express
+
+11:44.380 --> 11:46.980
+ all kinds of crazy things was definitely a big one then.
+
+11:46.980 --> 11:49.020
+ So what, the graph decisions though,
+
+11:49.020 --> 11:52.460
+ with moving towards TensorFlow 2.0,
+
+11:52.460 --> 11:56.800
+ there's more, by default, there'll be eager execution.
+
+11:56.800 --> 11:59.260
+ So sort of hiding the graph a little bit
+
+11:59.260 --> 12:00.660
+ because it's less intuitive
+
+12:00.660 --> 12:03.660
+ in terms of the way people develop and so on.
+
+12:03.660 --> 12:06.800
+ What was that discussion like in terms of using graphs?
+
+12:06.800 --> 12:09.420
+ It seemed, it's kind of the Theano way.
+
+12:09.420 --> 12:11.660
+ Did it seem the obvious choice?
+
+12:11.660 --> 12:15.780
+ So I think where it came from was our disbelief
+
+12:15.780 --> 12:17.700
+ had a graph like thing as well.
+
+12:17.700 --> 12:19.780
+ A much more simple, it wasn't a general graph,
+
+12:19.780 --> 12:21.880
+ it was more like a straight line thing.
+
+12:23.220 --> 12:25.060
+ More like what you might think of cafe,
+
+12:25.060 --> 12:26.440
+ I guess in that sense.
+
+12:26.440 --> 12:28.900
+ But the graph was,
+
+12:28.900 --> 12:31.180
+ and we always cared about the production stuff.
+
+12:31.180 --> 12:32.020
+ Like even with disbelief,
+
+12:32.020 --> 12:34.500
+ we were deploying a whole bunch of stuff in production.
+
+12:34.500 --> 12:37.460
+ So graph did come from that when we thought of,
+
+12:37.460 --> 12:39.420
+ okay, should we do that in Python?
+
+12:39.420 --> 12:40.900
+ And we experimented with some ideas
+
+12:40.900 --> 12:43.880
+ where it looked a lot simpler to use,
+
+12:44.740 --> 12:46.780
+ but not having a graph meant,
+
+12:46.780 --> 12:47.980
+ okay, how do you deploy now?
+
+12:47.980 --> 12:51.180
+ So that was probably what tilted the balance for us
+
+12:51.180 --> 12:52.940
+ and eventually we ended up with a graph.
+
+12:52.940 --> 12:55.400
+ And I guess the question there is, did you,
+
+12:55.400 --> 12:57.420
+ I mean, so production seems to be
+
+12:57.420 --> 12:59.900
+ the really good thing to focus on,
+
+12:59.900 --> 13:02.500
+ but did you even anticipate the other side of it
+
+13:02.500 --> 13:04.620
+ where there could be, what is it?
+
+13:04.620 --> 13:05.460
+ What are the numbers?
+
+13:05.460 --> 13:08.980
+ It's been crazy, 41 million downloads.
+
+13:08.980 --> 13:09.820
+ Yep.
+
+13:12.780 --> 13:16.300
+ I mean, was that even like a possibility in your mind
+
+13:16.300 --> 13:19.220
+ that it would be as popular as it became?
+
+13:19.220 --> 13:23.260
+ So I think we did see a need for this
+
+13:24.480 --> 13:27.600
+ a lot from the research perspective
+
+13:27.600 --> 13:30.940
+ and like early days of deep learning in some ways.
+
+13:32.340 --> 13:35.140
+ 41 million, no, I don't think I imagined this number.
+
+13:35.140 --> 13:40.140
+ Then it seemed like there's a potential future
+
+13:41.700 --> 13:43.780
+ where lots more people would be doing this
+
+13:43.780 --> 13:45.700
+ and how do we enable that?
+
+13:45.700 --> 13:48.140
+ I would say this kind of growth,
+
+13:49.100 --> 13:52.660
+ I probably started seeing somewhat after the open sourcing
+
+13:52.660 --> 13:55.300
+ where it was like, okay,
+
+13:55.300 --> 13:57.880
+ deep learning is actually growing way faster
+
+13:57.880 --> 13:59.240
+ for a lot of different reasons.
+
+13:59.240 --> 14:02.740
+ And we are in just the right place to push on that
+
+14:02.740 --> 14:06.100
+ and leverage that and deliver on lots of things
+
+14:06.100 --> 14:07.500
+ that people want.
+
+14:07.500 --> 14:09.780
+ So what changed once you open sourced?
+
+14:09.780 --> 14:13.380
+ Like how this incredible amount of attention
+
+14:13.380 --> 14:16.540
+ from a global population of developers,
+
+14:16.540 --> 14:18.260
+ how did the project start changing?
+
+14:18.260 --> 14:22.220
+ I don't even actually remember during those times.
+
+14:22.220 --> 14:24.620
+ I know looking now, there's really good documentation,
+
+14:24.620 --> 14:26.620
+ there's an ecosystem of tools,
+
+14:26.620 --> 14:27.980
+ there's a community, there's a blog,
+
+14:27.980 --> 14:29.820
+ there's a YouTube channel now, right?
+
+14:29.820 --> 14:31.180
+ Yeah.
+
+14:31.180 --> 14:33.860
+ It's very community driven.
+
+14:33.860 --> 14:37.660
+ Back then, I guess 0.1 version,
+
+14:38.700 --> 14:39.860
+ is that the version?
+
+14:39.860 --> 14:42.180
+ I think we call it 0.6 or five,
+
+14:42.180 --> 14:43.740
+ something like that, I forget.
+
+14:43.740 --> 14:46.160
+ What changed leading into 1.0?
+
+14:47.180 --> 14:48.500
+ It's interesting.
+
+14:48.500 --> 14:51.660
+ I think we've gone through a few things there.
+
+14:51.660 --> 14:53.720
+ When we started out, when we first came out,
+
+14:53.720 --> 14:56.100
+ people loved the documentation we have
+
+14:56.100 --> 14:58.860
+ because it was just a huge step up from everything else
+
+14:58.860 --> 15:00.440
+ because all of those were academic projects,
+
+15:00.440 --> 15:03.380
+ people doing, who don't think about documentation.
+
+15:04.580 --> 15:06.960
+ I think what that changed was,
+
+15:06.960 --> 15:09.420
+ instead of deep learning being a research thing,
+
+15:10.380 --> 15:12.580
+ some people who were just developers
+
+15:12.580 --> 15:14.660
+ could now suddenly take this out
+
+15:14.660 --> 15:16.940
+ and do some interesting things with it, right?
+
+15:16.940 --> 15:20.300
+ Who had no clue what machine learning was before then.
+
+15:20.300 --> 15:22.580
+ And that I think really changed
+
+15:22.580 --> 15:24.760
+ how things started to scale up in some ways
+
+15:24.760 --> 15:26.740
+ and pushed on it.
+
+15:27.900 --> 15:30.420
+ Over the next few months as we looked at
+
+15:30.420 --> 15:31.980
+ how do we stabilize things,
+
+15:31.980 --> 15:33.900
+ as we look at not just researchers,
+
+15:33.900 --> 15:36.520
+ now we want stability, people want to deploy things.
+
+15:36.520 --> 15:38.980
+ That's how we started planning for 1.0
+
+15:38.980 --> 15:42.180
+ and there are certain needs for that perspective.
+
+15:42.180 --> 15:44.380
+ And so again, documentation comes up,
+
+15:45.380 --> 15:48.200
+ designs, more kinds of things to put that together.
+
+15:49.380 --> 15:52.240
+ And so that was exciting to get that to a stage
+
+15:52.240 --> 15:55.420
+ where more and more enterprises wanted to buy in
+
+15:55.420 --> 15:57.740
+ and really get behind that.
+
+15:57.740 --> 16:01.800
+ And I think post 1.0 and over the next few releases,
+
+16:01.800 --> 16:04.400
+ that enterprise adoption also started to take off.
+
+16:04.400 --> 16:07.160
+ I would say between the initial release and 1.0,
+
+16:07.160 --> 16:10.240
+ it was, okay, researchers of course,
+
+16:10.240 --> 16:12.960
+ then a lot of hobbies and early interest,
+
+16:12.960 --> 16:15.160
+ people excited about this who started to get on board
+
+16:15.160 --> 16:18.200
+ and then over the 1.x thing, lots of enterprises.
+
+16:18.200 --> 16:23.200
+ I imagine anything that's below 1.0
+
+16:23.200 --> 16:25.160
+ gives pressure to be,
+
+16:25.160 --> 16:28.040
+ the enterprise probably wants something that's stable.
+
+16:28.040 --> 16:28.880
+ Exactly.
+
+16:28.880 --> 16:33.320
+ And do you have a sense now that TensorFlow is stable?
+
+16:33.320 --> 16:35.560
+ Like it feels like deep learning in general
+
+16:35.560 --> 16:39.000
+ is extremely dynamic field, so much is changing.
+
+16:40.440 --> 16:43.420
+ And TensorFlow has been growing incredibly.
+
+16:43.420 --> 16:46.760
+ Do you have a sense of stability at the helm of it?
+
+16:46.760 --> 16:48.400
+ I mean, I know you're in the midst of it, but.
+
+16:48.400 --> 16:51.680
+ Yeah, I think in the midst of it,
+
+16:51.680 --> 16:55.120
+ it's often easy to forget what an enterprise wants
+
+16:55.120 --> 16:58.800
+ and what some of the people on that side want.
+
+16:58.800 --> 17:00.420
+ There are still people running models
+
+17:00.420 --> 17:02.680
+ that are three years old, four years old.
+
+17:02.680 --> 17:06.040
+ So Inception is still used by tons of people.
+
+17:06.040 --> 17:08.960
+ Even ResNet 50 is what, couple of years old now or more,
+
+17:08.960 --> 17:12.240
+ but there are tons of people who use that and they're fine.
+
+17:12.240 --> 17:15.320
+ They don't need the last couple of bits of performance
+
+17:15.320 --> 17:17.720
+ or quality, they want some stability
+
+17:17.720 --> 17:19.640
+ in things that just work.
+
+17:19.640 --> 17:22.240
+ And so there is value in providing that
+
+17:22.240 --> 17:25.200
+ with that kind of stability and making it really simpler
+
+17:25.200 --> 17:27.800
+ because that allows a lot more people to access it.
+
+17:27.800 --> 17:31.200
+ And then there's the research crowd which wants,
+
+17:31.200 --> 17:33.080
+ okay, they wanna do these crazy things
+
+17:33.080 --> 17:34.280
+ exactly like you're saying, right?
+
+17:34.280 --> 17:37.080
+ Not just deep learning in the straight up models
+
+17:37.080 --> 17:40.640
+ that used to be there, they want RNNs
+
+17:40.640 --> 17:43.480
+ and even RNNs are maybe old, they are transformers now.
+
+17:43.480 --> 17:48.440
+ And now it needs to combine with RL and GANs and so on.
+
+17:48.440 --> 17:52.000
+ So there's definitely that area that like the boundary
+
+17:52.000 --> 17:55.200
+ that's shifting and pushing the state of the art.
+
+17:55.200 --> 17:57.200
+ But I think there's more and more of the past
+
+17:57.200 --> 18:01.440
+ that's much more stable and even stuff
+
+18:01.440 --> 18:03.880
+ that was two, three years old is very, very usable
+
+18:03.880 --> 18:04.960
+ by lots of people.
+
+18:04.960 --> 18:07.440
+ So that part makes it a lot easier.
+
+18:07.440 --> 18:09.840
+ So I imagine, maybe you can correct me if I'm wrong,
+
+18:09.840 --> 18:12.440
+ one of the biggest use cases is essentially
+
+18:12.440 --> 18:14.440
+ taking something like ResNet 50
+
+18:14.440 --> 18:17.280
+ and doing some kind of transfer learning
+
+18:17.280 --> 18:19.600
+ on a very particular problem that you have.
+
+18:19.600 --> 18:23.080
+ It's basically probably what majority of the world does.
+
+18:24.520 --> 18:27.360
+ And you wanna make that as easy as possible.
+
+18:27.360 --> 18:30.440
+ So I would say for the hobbyist perspective,
+
+18:30.440 --> 18:32.800
+ that's the most common case, right?
+
+18:32.800 --> 18:35.400
+ In fact, the apps and phones and stuff that you'll see,
+
+18:35.400 --> 18:37.720
+ the early ones, that's the most common case.
+
+18:37.720 --> 18:40.360
+ I would say there are a couple of reasons for that.
+
+18:40.360 --> 18:43.520
+ One is that everybody talks about that.
+
+18:44.440 --> 18:46.160
+ It looks great on slides.
+
+18:46.160 --> 18:49.960
+ That's a presentation, yeah, exactly.
+
+18:49.960 --> 18:53.080
+ What enterprises want is that is part of it,
+
+18:53.080 --> 18:54.360
+ but that's not the big thing.
+
+18:54.360 --> 18:56.080
+ Enterprises really have data
+
+18:56.080 --> 18:58.000
+ that they wanna make predictions on.
+
+18:58.000 --> 19:00.320
+ This is often what they used to do
+
+19:00.320 --> 19:01.760
+ with the people who were doing ML
+
+19:01.760 --> 19:03.560
+ was just regression models,
+
+19:03.560 --> 19:06.360
+ linear regression, logistic regression, linear models,
+
+19:06.360 --> 19:09.760
+ or maybe gradient booster trees and so on.
+
+19:09.760 --> 19:11.680
+ Some of them still benefit from deep learning,
+
+19:11.680 --> 19:14.400
+ but they want that's the bread and butter,
+
+19:14.400 --> 19:16.360
+ or like the structured data and so on.
+
+19:16.360 --> 19:18.280
+ So depending on the audience you look at,
+
+19:18.280 --> 19:19.600
+ they're a little bit different.
+
+19:19.600 --> 19:22.560
+ And they just have, I mean, the best of enterprise
+
+19:23.440 --> 19:26.520
+ probably just has a very large data set,
+
+19:26.520 --> 19:28.720
+ or deep learning can probably shine.
+
+19:28.720 --> 19:30.320
+ That's correct, that's right.
+
+19:30.320 --> 19:33.320
+ And then I think the other pieces that they wanted,
+
+19:33.320 --> 19:36.480
+ again, with 2.0, the developer summit we put together
+
+19:36.480 --> 19:39.080
+ is the whole TensorFlow Extended piece,
+
+19:39.080 --> 19:40.680
+ which is the entire pipeline.
+
+19:40.680 --> 19:43.640
+ They care about stability across doing their entire thing.
+
+19:43.640 --> 19:46.320
+ They want simplicity across the entire thing.
+
+19:46.320 --> 19:47.760
+ I don't need to just train a model.
+
+19:47.760 --> 19:51.360
+ I need to do that every day again, over and over again.
+
+19:51.360 --> 19:54.360
+ I wonder to which degree you have a role in,
+
+19:54.360 --> 19:56.720
+ I don't know, so I teach a course on deep learning.
+
+19:56.720 --> 20:01.400
+ I have people like lawyers come up to me and say,
+
+20:01.400 --> 20:04.240
+ when is machine learning gonna enter legal,
+
+20:04.240 --> 20:05.640
+ the legal realm?
+
+20:05.640 --> 20:09.520
+ The same thing in all kinds of disciplines,
+
+20:09.520 --> 20:14.520
+ immigration, insurance, often when I see
+
+20:14.720 --> 20:17.440
+ what it boils down to is these companies
+
+20:17.440 --> 20:19.480
+ are often a little bit old school
+
+20:19.480 --> 20:20.880
+ in the way they organize the data.
+
+20:20.880 --> 20:24.040
+ So the data is just not ready yet, it's not digitized.
+
+20:24.040 --> 20:26.000
+ Do you also find yourself being in the role
+
+20:26.000 --> 20:31.000
+ of an evangelist for like, let's get,
+
+20:31.520 --> 20:33.760
+ organize your data, folks, and then you'll get
+
+20:33.760 --> 20:35.480
+ the big benefit of TensorFlow.
+
+20:35.480 --> 20:38.040
+ Do you get those, have those conversations?
+
+20:38.040 --> 20:41.480
+ Yeah, yeah, you know, I get all kinds of questions there
+
+20:41.480 --> 20:46.480
+ from, okay, what do I need to make this work, right?
+
+20:49.080 --> 20:50.840
+ Do we really need deep learning?
+
+20:50.840 --> 20:52.120
+ I mean, there are all these things,
+
+20:52.120 --> 20:55.200
+ I already use this linear model, why would this help?
+
+20:55.200 --> 20:57.200
+ I don't have enough data, let's say,
+
+20:57.200 --> 21:00.000
+ or I wanna use machine learning,
+
+21:00.000 --> 21:01.800
+ but I have no clue where to start.
+
+21:01.800 --> 21:04.960
+ So it varies, that to all the way to the experts
+
+21:04.960 --> 21:08.600
+ to why support very specific things, it's interesting.
+
+21:08.600 --> 21:09.920
+ Is there a good answer?
+
+21:09.920 --> 21:12.520
+ It boils down to oftentimes digitizing data.
+
+21:12.520 --> 21:14.480
+ So whatever you want automated,
+
+21:14.480 --> 21:17.560
+ whatever data you want to make prediction based on,
+
+21:17.560 --> 21:20.200
+ you have to make sure that it's in an organized form.
+
+21:21.280 --> 21:24.000
+ Like within the TensorFlow ecosystem,
+
+21:24.000 --> 21:26.560
+ there's now, you're providing more and more data sets
+
+21:26.560 --> 21:28.960
+ and more and more pre trained models.
+
+21:28.960 --> 21:32.440
+ Are you finding yourself also the organizer of data sets?
+
+21:32.440 --> 21:34.520
+ Yes, I think the TensorFlow data sets
+
+21:34.520 --> 21:37.560
+ that we just released, that's definitely come up
+
+21:37.560 --> 21:39.240
+ where people want these data sets,
+
+21:39.240 --> 21:41.760
+ can we organize them and can we make that easier?
+
+21:41.760 --> 21:45.320
+ So that's definitely one important thing.
+
+21:45.320 --> 21:47.680
+ The other related thing I would say is I often tell people,
+
+21:47.680 --> 21:51.000
+ you know what, don't think of the most fanciest thing
+
+21:51.000 --> 21:53.320
+ that the newest model that you see,
+
+21:53.320 --> 21:56.400
+ make something very basic work and then you can improve it.
+
+21:56.400 --> 21:58.920
+ There's just lots of things you can do with it.
+
+21:58.920 --> 22:00.640
+ Yeah, start with the basics, true.
+
+22:00.640 --> 22:03.280
+ One of the big things that makes TensorFlow
+
+22:03.280 --> 22:06.120
+ even more accessible was the appearance
+
+22:06.120 --> 22:08.360
+ whenever that happened of Keras,
+
+22:08.360 --> 22:12.400
+ the Keras standard sort of outside of TensorFlow.
+
+22:12.400 --> 22:17.400
+ I think it was Keras on top of Tiano at first only
+
+22:18.240 --> 22:22.520
+ and then Keras became on top of TensorFlow.
+
+22:22.520 --> 22:27.520
+ Do you know when Keras chose to also add TensorFlow
+
+22:28.760 --> 22:31.200
+ as a backend, who was the,
+
+22:31.200 --> 22:34.000
+ was it just the community that drove that initially?
+
+22:34.000 --> 22:37.040
+ Do you know if there was discussions, conversations?
+
+22:37.040 --> 22:41.000
+ Yeah, so Francois started the Keras project
+
+22:41.000 --> 22:44.600
+ before he was at Google and the first thing was Tiano.
+
+22:44.600 --> 22:46.560
+ I don't remember if that was
+
+22:46.560 --> 22:48.760
+ after TensorFlow was created or way before.
+
+22:49.680 --> 22:51.440
+ And then at some point,
+
+22:51.440 --> 22:53.040
+ when TensorFlow started becoming popular,
+
+22:53.040 --> 22:54.200
+ there were enough similarities
+
+22:54.200 --> 22:56.360
+ that he decided to create this interface
+
+22:56.360 --> 22:58.200
+ and put TensorFlow as a backend.
+
+22:58.200 --> 23:00.760
+ I believe that might still have been
+
+23:00.760 --> 23:03.320
+ before he joined Google.
+
+23:03.320 --> 23:06.720
+ So we weren't really talking about that.
+
+23:06.720 --> 23:09.720
+ He decided on his own and thought that was interesting
+
+23:09.720 --> 23:11.280
+ and relevant to the community.
+
+23:12.800 --> 23:17.120
+ In fact, I didn't find out about him being at Google
+
+23:17.120 --> 23:19.680
+ until a few months after he was here.
+
+23:19.680 --> 23:21.880
+ He was working on some research ideas
+
+23:21.880 --> 23:24.480
+ and doing Keras on his nights and weekends project.
+
+23:24.480 --> 23:25.320
+ Oh, interesting.
+
+23:25.320 --> 23:28.520
+ He wasn't like part of the TensorFlow.
+
+23:28.520 --> 23:29.720
+ He didn't join initially.
+
+23:29.720 --> 23:32.280
+ He joined research and he was doing some amazing research.
+
+23:32.280 --> 23:34.360
+ He has some papers on that and research,
+
+23:34.360 --> 23:36.920
+ so he's a great researcher as well.
+
+23:38.400 --> 23:40.400
+ And at some point we realized,
+
+23:40.400 --> 23:42.440
+ oh, he's doing this good stuff.
+
+23:42.440 --> 23:45.400
+ People seem to like the API and he's right here.
+
+23:45.400 --> 23:47.760
+ So we talked to him and he said,
+
+23:47.760 --> 23:50.600
+ okay, why don't I come over to your team
+
+23:50.600 --> 23:52.840
+ and work with you for a quarter
+
+23:52.840 --> 23:55.520
+ and let's make that integration happen.
+
+23:55.520 --> 23:56.840
+ And we talked to his manager and he said,
+
+23:56.840 --> 23:58.600
+ sure, quarter's fine.
+
+23:59.800 --> 24:02.400
+ And that quarter's been something like two years now.
+
+24:02.400 --> 24:05.080
+ And so he's fully on this.
+
+24:05.080 --> 24:10.080
+ So Keras got integrated into TensorFlow in a deep way.
+
+24:12.000 --> 24:15.240
+ And now with 2.0, TensorFlow 2.0,
+
+24:15.240 --> 24:18.800
+ sort of Keras is kind of the recommended way
+
+24:18.800 --> 24:21.720
+ for a beginner to interact with TensorFlow.
+
+24:21.720 --> 24:24.640
+ Which makes that initial sort of transfer learning
+
+24:24.640 --> 24:28.040
+ or the basic use cases, even for an enterprise,
+
+24:28.040 --> 24:29.320
+ super simple, right?
+
+24:29.320 --> 24:30.440
+ That's correct, that's right.
+
+24:30.440 --> 24:32.040
+ So what was that decision like?
+
+24:32.040 --> 24:37.040
+ That seems like it's kind of a bold decision as well.
+
+24:38.680 --> 24:41.240
+ We did spend a lot of time thinking about that one.
+
+24:41.240 --> 24:46.000
+ We had a bunch of APIs, some built by us.
+
+24:46.000 --> 24:48.760
+ There was a parallel layers API that we were building.
+
+24:48.760 --> 24:51.560
+ And when we decided to do Keras in parallel,
+
+24:51.560 --> 24:54.400
+ so there were like, okay, two things that we are looking at.
+
+24:54.400 --> 24:55.960
+ And the first thing we was trying to do
+
+24:55.960 --> 24:58.240
+ is just have them look similar,
+
+24:58.240 --> 25:00.120
+ like be as integrated as possible,
+
+25:00.120 --> 25:02.200
+ share all of that stuff.
+
+25:02.200 --> 25:04.000
+ There were also like three other APIs
+
+25:04.000 --> 25:05.840
+ that others had built over time
+
+25:05.840 --> 25:07.760
+ because we didn't have a standard one.
+
+25:09.040 --> 25:11.480
+ But one of the messages that we kept hearing
+
+25:11.480 --> 25:13.240
+ from the community, okay, which one do we use?
+
+25:13.240 --> 25:14.480
+ And they kept seeing like, okay,
+
+25:14.480 --> 25:16.760
+ here's a model in this one and here's a model in this one,
+
+25:16.760 --> 25:17.760
+ which should I pick?
+
+25:18.880 --> 25:20.960
+ So that's sort of like, okay,
+
+25:20.960 --> 25:24.080
+ we had to address that straight on with 2.0.
+
+25:24.080 --> 25:26.360
+ The whole idea was we need to simplify.
+
+25:26.360 --> 25:27.400
+ We had to pick one.
+
+25:28.640 --> 25:30.520
+ Based on where we were, we were like,
+
+25:30.520 --> 25:35.520
+ okay, let's see what are the people like?
+
+25:35.680 --> 25:39.320
+ And Keras was clearly one that lots of people loved.
+
+25:39.320 --> 25:41.640
+ There were lots of great things about it.
+
+25:41.640 --> 25:43.920
+ So we settled on that.
+
+25:43.920 --> 25:46.440
+ Organically, that's kind of the best way to do it.
+
+25:46.440 --> 25:47.520
+ It was great.
+
+25:47.520 --> 25:48.760
+ It was surprising, nevertheless,
+
+25:48.760 --> 25:51.120
+ to sort of bring in an outside.
+
+25:51.120 --> 25:52.560
+ I mean, there was a feeling like Keras
+
+25:52.560 --> 25:55.440
+ might be almost like a competitor
+
+25:55.440 --> 25:58.040
+ in a certain kind of, to TensorFlow.
+
+25:58.040 --> 26:01.320
+ And in a sense, it became an empowering element
+
+26:01.320 --> 26:02.240
+ of TensorFlow.
+
+26:02.240 --> 26:03.280
+ That's right.
+
+26:03.280 --> 26:06.440
+ Yeah, it's interesting how you can put two things together,
+
+26:06.440 --> 26:08.800
+ which can align.
+
+26:08.800 --> 26:11.800
+ In this case, I think Francois, the team,
+
+26:11.800 --> 26:14.280
+ and a bunch of us have chatted,
+
+26:14.280 --> 26:17.360
+ and I think we all want to see the same kind of things.
+
+26:17.360 --> 26:18.800
+ We all care about making it easier
+
+26:18.800 --> 26:21.440
+ for the huge set of developers out there,
+
+26:21.440 --> 26:23.480
+ and that makes a difference.
+
+26:23.480 --> 26:26.880
+ So Python has Guido van Rossum,
+
+26:26.880 --> 26:28.920
+ who until recently held the position
+
+26:28.920 --> 26:31.920
+ of benevolent dictator for life.
+
+26:31.920 --> 26:36.480
+ All right, so there's a huge successful open source project
+
+26:36.480 --> 26:40.680
+ like TensorFlow need one person who makes a final decision.
+
+26:40.680 --> 26:45.480
+ So you've did a pretty successful TensorFlow Dev Summit
+
+26:45.480 --> 26:47.520
+ just now, last couple of days.
+
+26:47.520 --> 26:51.080
+ There's clearly a lot of different new features
+
+26:51.080 --> 26:54.160
+ being incorporated, an amazing ecosystem, so on.
+
+26:54.160 --> 26:57.320
+ Who's, how are those design decisions made?
+
+26:57.320 --> 27:00.640
+ Is there a BDFL in TensorFlow,
+
+27:02.800 --> 27:05.800
+ or is it more distributed and organic?
+
+27:05.800 --> 27:08.760
+ I think it's somewhat different, I would say.
+
+27:08.760 --> 27:14.560
+ I've always been involved in the key design directions,
+
+27:14.560 --> 27:17.080
+ but there are lots of things that are distributed
+
+27:17.080 --> 27:20.560
+ where there are a number of people, Martin Wick being one,
+
+27:20.560 --> 27:23.880
+ who has really driven a lot of our open source stuff,
+
+27:23.880 --> 27:26.080
+ a lot of the APIs,
+
+27:26.080 --> 27:29.080
+ and there are a number of other people who've been,
+
+27:29.080 --> 27:31.360
+ you know, pushed and been responsible
+
+27:31.360 --> 27:34.080
+ for different parts of it.
+
+27:34.080 --> 27:36.480
+ We do have regular design reviews.
+
+27:36.480 --> 27:38.480
+ Over the last year, we've had a lot of
+
+27:38.480 --> 27:41.480
+ we've really spent a lot of time opening up to the community
+
+27:41.480 --> 27:44.160
+ and adding transparency.
+
+27:44.160 --> 27:45.880
+ We're setting more processes in place,
+
+27:45.880 --> 27:49.080
+ so RFCs, special interest groups,
+
+27:49.080 --> 27:53.600
+ to really grow that community and scale that.
+
+27:53.600 --> 27:57.720
+ I think the kind of scale that ecosystem is in,
+
+27:57.720 --> 27:59.520
+ I don't think we could scale with having me
+
+27:59.520 --> 28:02.280
+ as the lone point of decision maker.
+
+28:02.280 --> 28:05.920
+ I got it. So, yeah, the growth of that ecosystem,
+
+28:05.920 --> 28:08.040
+ maybe you can talk about it a little bit.
+
+28:08.040 --> 28:10.720
+ First of all, it started with Andrej Karpathy
+
+28:10.720 --> 28:13.120
+ when he first did ComNetJS.
+
+28:13.120 --> 28:15.360
+ The fact that you can train and you'll network
+
+28:15.360 --> 28:18.480
+ in the browser was, in JavaScript, was incredible.
+
+28:18.480 --> 28:22.160
+ So now TensorFlow.js is really making that
+
+28:22.160 --> 28:26.400
+ a serious, like a legit thing,
+
+28:26.400 --> 28:28.520
+ a way to operate, whether it's in the backend
+
+28:28.520 --> 28:29.520
+ or the front end.
+
+28:29.520 --> 28:32.680
+ Then there's the TensorFlow Extended, like you mentioned.
+
+28:32.680 --> 28:35.320
+ There's TensorFlow Lite for mobile.
+
+28:35.320 --> 28:37.440
+ And all of it, as far as I can tell,
+
+28:37.440 --> 28:40.440
+ it's really converging towards being able to
+
+28:41.680 --> 28:43.440
+ save models in the same kind of way.
+
+28:43.440 --> 28:46.680
+ You can move around, you can train on the desktop
+
+28:46.680 --> 28:48.880
+ and then move it to mobile and so on.
+
+28:48.880 --> 28:49.720
+ That's right.
+
+28:49.720 --> 28:52.280
+ So there's that cohesiveness.
+
+28:52.280 --> 28:56.120
+ So can you maybe give me, whatever I missed,
+
+28:56.120 --> 28:58.840
+ a bigger overview of the mission of the ecosystem
+
+28:58.840 --> 29:02.080
+ that's trying to be built and where is it moving forward?
+
+29:02.080 --> 29:06.720
+ Yeah. So in short, the way I like to think of this is
+
+29:06.720 --> 29:09.680
+ our goals to enable machine learning.
+
+29:09.680 --> 29:13.120
+ And in a couple of ways, you know, one is
+
+29:13.120 --> 29:16.520
+ we have lots of exciting things going on in ML today.
+
+29:16.520 --> 29:17.520
+ We started with deep learning,
+
+29:17.520 --> 29:20.240
+ but we now support a bunch of other algorithms too.
+
+29:21.360 --> 29:23.760
+ So one is to, on the research side,
+
+29:23.760 --> 29:25.280
+ keep pushing on the state of the art.
+
+29:25.280 --> 29:27.200
+ Can we, you know, how do we enable researchers
+
+29:27.200 --> 29:28.920
+ to build the next amazing thing?
+
+29:28.920 --> 29:31.720
+ So BERT came out recently, you know,
+
+29:31.720 --> 29:33.920
+ it's great that people are able to do new kinds of research.
+
+29:33.920 --> 29:35.360
+ And there are lots of amazing research
+
+29:35.360 --> 29:37.480
+ that happens across the world.
+
+29:37.480 --> 29:38.800
+ So that's one direction.
+
+29:38.800 --> 29:42.440
+ The other is how do you take that across
+
+29:42.440 --> 29:45.200
+ all the people outside who want to take that research
+
+29:45.200 --> 29:46.600
+ and do some great things with it
+
+29:46.600 --> 29:48.600
+ and integrate it to build real products,
+
+29:48.600 --> 29:50.840
+ to have a real impact on people.
+
+29:51.720 --> 29:54.960
+ And so if that's the other axes in some ways,
+
+29:56.320 --> 29:59.600
+ you know, at a high level, one way I think about it is
+
+29:59.600 --> 30:02.440
+ there are a crazy number of compute devices
+
+30:02.440 --> 30:04.160
+ across the world.
+
+30:04.160 --> 30:07.840
+ And we often used to think of ML and training
+
+30:07.840 --> 30:09.400
+ and all of this as, okay, something you do
+
+30:09.400 --> 30:12.480
+ either in the workstation or the data center or cloud.
+
+30:13.560 --> 30:15.640
+ But we see things running on the phones.
+
+30:15.640 --> 30:17.600
+ We see things running on really tiny chips.
+
+30:17.600 --> 30:20.680
+ I mean, we had some demos at the developer summit.
+
+30:20.680 --> 30:25.680
+ And so the way I think about this ecosystem is
+
+30:25.760 --> 30:29.880
+ how do we help get machine learning on every device
+
+30:29.880 --> 30:32.480
+ that has a compute capability?
+
+30:32.480 --> 30:36.440
+ And that continues to grow and so in some ways
+
+30:36.440 --> 30:38.680
+ this ecosystem is looked at, you know,
+
+30:38.680 --> 30:41.120
+ various aspects of that and grown over time
+
+30:41.120 --> 30:42.440
+ to cover more of those.
+
+30:42.440 --> 30:44.640
+ And we continue to push the boundaries.
+
+30:44.640 --> 30:48.160
+ In some areas we've built more tooling
+
+30:48.160 --> 30:50.000
+ and things around that to help you.
+
+30:50.000 --> 30:52.760
+ I mean, the first tool we started was TensorBoard.
+
+30:52.760 --> 30:54.960
+ You wanted to learn just the training piece,
+
+30:56.240 --> 30:58.080
+ the effects or TensorFlow extended
+
+30:58.080 --> 31:00.400
+ to really do your entire ML pipelines.
+
+31:00.400 --> 31:03.880
+ If you're, you know, care about all that production stuff,
+
+31:04.760 --> 31:06.600
+ but then going to the edge,
+
+31:06.600 --> 31:09.480
+ going to different kinds of things.
+
+31:09.480 --> 31:11.760
+ And it's not just us now.
+
+31:11.760 --> 31:14.440
+ We are a place where there are lots of libraries
+
+31:14.440 --> 31:15.800
+ being built on top.
+
+31:15.800 --> 31:17.760
+ So there are some for research,
+
+31:17.760 --> 31:20.040
+ maybe things like TensorFlow agents
+
+31:20.040 --> 31:22.440
+ or TensorFlow probability that started as research things
+
+31:22.440 --> 31:24.200
+ or for researchers for focusing
+
+31:24.200 --> 31:26.120
+ on certain kinds of algorithms,
+
+31:26.120 --> 31:27.280
+ but they're also being deployed
+
+31:27.280 --> 31:30.240
+ or used by, you know, production folks.
+
+31:30.240 --> 31:33.320
+ And some have come from within Google,
+
+31:33.320 --> 31:34.720
+ just teams across Google
+
+31:34.720 --> 31:37.000
+ who wanted to build these things.
+
+31:37.000 --> 31:39.680
+ Others have come from just the community
+
+31:39.680 --> 31:41.840
+ because there are different pieces
+
+31:41.840 --> 31:44.600
+ that different parts of the community care about.
+
+31:44.600 --> 31:49.480
+ And I see our goal as enabling even that, right?
+
+31:49.480 --> 31:53.240
+ It's not, we cannot and won't build every single thing.
+
+31:53.240 --> 31:54.840
+ That just doesn't make sense.
+
+31:54.840 --> 31:57.360
+ But if we can enable others to build the things
+
+31:57.360 --> 32:00.400
+ that they care about, and there's a broader community
+
+32:00.400 --> 32:02.880
+ that cares about that, and we can help encourage that,
+
+32:02.880 --> 32:05.280
+ and that's great.
+
+32:05.280 --> 32:08.600
+ That really helps the entire ecosystem, not just those.
+
+32:08.600 --> 32:11.840
+ One of the big things about 2.0 that we're pushing on is,
+
+32:11.840 --> 32:14.640
+ okay, we have these so many different pieces, right?
+
+32:14.640 --> 32:18.320
+ How do we help make all of them work well together?
+
+32:18.320 --> 32:21.960
+ So there are a few key pieces there that we're pushing on,
+
+32:21.960 --> 32:23.880
+ one being the core format in there
+
+32:23.880 --> 32:26.600
+ and how we share the models themselves
+
+32:26.600 --> 32:29.560
+ through save model and TensorFlow hub and so on.
+
+32:30.480 --> 32:34.000
+ And a few of the pieces that we really put this together.
+
+32:34.000 --> 32:35.600
+ I was very skeptical that that's,
+
+32:35.600 --> 32:37.280
+ you know, when TensorFlow.js came out,
+
+32:37.280 --> 32:40.160
+ it didn't seem, or deep learning JS as it was earlier.
+
+32:40.160 --> 32:41.680
+ Yeah, that was the first.
+
+32:41.680 --> 32:45.080
+ It seems like technically very difficult project.
+
+32:45.080 --> 32:47.000
+ As a standalone, it's not as difficult,
+
+32:47.000 --> 32:49.960
+ but as a thing that integrates into the ecosystem,
+
+32:49.960 --> 32:51.240
+ it seems very difficult.
+
+32:51.240 --> 32:53.240
+ So, I mean, there's a lot of aspects of this
+
+32:53.240 --> 32:54.840
+ you're making look easy, but,
+
+32:54.840 --> 32:57.160
+ and the technical side,
+
+32:57.160 --> 32:59.480
+ how many challenges have to be overcome here?
+
+33:00.520 --> 33:01.480
+ A lot.
+
+33:01.480 --> 33:03.040
+ And still have to be overcome.
+
+33:03.040 --> 33:04.680
+ That's the question here too.
+
+33:04.680 --> 33:06.320
+ There are lots of steps to it, right?
+
+33:06.320 --> 33:07.960
+ And we've iterated over the last few years,
+
+33:07.960 --> 33:09.640
+ so there's a lot we've learned.
+
+33:10.680 --> 33:14.200
+ I, yeah, and often when things come together well,
+
+33:14.200 --> 33:16.360
+ things look easy and that's exactly the point.
+
+33:16.360 --> 33:18.320
+ It should be easy for the end user,
+
+33:18.320 --> 33:21.320
+ but there are lots of things that go behind that.
+
+33:21.320 --> 33:25.320
+ If I think about still challenges ahead,
+
+33:25.320 --> 33:26.680
+ there are,
+
+33:29.400 --> 33:32.880
+ you know, we have a lot more devices coming on board,
+
+33:32.880 --> 33:35.280
+ for example, from the hardware perspective.
+
+33:35.280 --> 33:37.600
+ How do we make it really easy for these vendors
+
+33:37.600 --> 33:42.040
+ to integrate with something like TensorFlow, right?
+
+33:42.040 --> 33:43.600
+ So there's a lot of compiler stuff
+
+33:43.600 --> 33:45.280
+ that others are working on.
+
+33:45.280 --> 33:48.280
+ There are things we can do in terms of our APIs
+
+33:48.280 --> 33:50.440
+ and so on that we can do.
+
+33:50.440 --> 33:52.960
+ As we, you know,
+
+33:52.960 --> 33:55.760
+ TensorFlow started as a very monolithic system
+
+33:55.760 --> 33:57.600
+ and to some extent it still is.
+
+33:57.600 --> 33:59.360
+ There are less, lots of tools around it,
+
+33:59.360 --> 34:02.880
+ but the core is still pretty large and monolithic.
+
+34:02.880 --> 34:05.680
+ One of the key challenges for us to scale that out
+
+34:05.680 --> 34:10.320
+ is how do we break that apart with clearer interfaces?
+
+34:10.320 --> 34:14.520
+ It's, you know, in some ways it's software engineering 101,
+
+34:14.520 --> 34:18.480
+ but for a system that's now four years old, I guess,
+
+34:18.480 --> 34:21.560
+ or more, and that's still rapidly evolving
+
+34:21.560 --> 34:23.960
+ and that we're not slowing down with,
+
+34:23.960 --> 34:28.200
+ it's hard to change and modify and really break apart.
+
+34:28.200 --> 34:29.880
+ It's sort of like, as people say, right,
+
+34:29.880 --> 34:32.560
+ it's like changing the engine with a car running
+
+34:32.560 --> 34:33.600
+ or trying to fix that.
+
+34:33.600 --> 34:35.040
+ That's exactly what we're trying to do.
+
+34:35.040 --> 34:37.520
+ So there's a challenge here
+
+34:37.520 --> 34:41.560
+ because the downside of so many people
+
+34:41.560 --> 34:43.800
+ being excited about TensorFlow
+
+34:43.800 --> 34:48.520
+ and coming to rely on it in many of their applications
+
+34:48.520 --> 34:52.000
+ is that you're kind of responsible,
+
+34:52.000 --> 34:53.480
+ like it's the technical debt.
+
+34:53.480 --> 34:55.600
+ You're responsible for previous versions
+
+34:55.600 --> 34:57.560
+ to some degree still working.
+
+34:57.560 --> 34:59.840
+ So when you're trying to innovate,
+
+34:59.840 --> 35:02.360
+ I mean, it's probably easier
+
+35:02.360 --> 35:04.760
+ to just start from scratch every few months.
+
+35:04.760 --> 35:07.160
+ Absolutely.
+
+35:07.160 --> 35:09.240
+ So do you feel the pain of that?
+
+35:09.240 --> 35:14.240
+ 2.0 does break some back compatibility,
+
+35:14.320 --> 35:15.400
+ but not too much.
+
+35:15.400 --> 35:18.160
+ It seems like the conversion is pretty straightforward.
+
+35:18.160 --> 35:20.280
+ Do you think that's still important
+
+35:20.280 --> 35:22.920
+ given how quickly deep learning is changing?
+
+35:22.920 --> 35:26.440
+ Can you just, the things that you've learned,
+
+35:26.440 --> 35:29.320
+ can you just start over or is there pressure to not?
+
+35:29.320 --> 35:31.600
+ It's a tricky balance.
+
+35:31.600 --> 35:36.360
+ So if it was just a researcher writing a paper
+
+35:36.360 --> 35:39.400
+ who a year later will not look at that code again,
+
+35:39.400 --> 35:40.720
+ sure, it doesn't matter.
+
+35:41.600 --> 35:43.440
+ There are a lot of production systems
+
+35:43.440 --> 35:44.680
+ that rely on TensorFlow,
+
+35:44.680 --> 35:47.240
+ both at Google and across the world.
+
+35:47.240 --> 35:49.760
+ And people worry about this.
+
+35:49.760 --> 35:52.400
+ I mean, these systems run for a long time.
+
+35:53.440 --> 35:57.280
+ So it is important to keep that compatibility and so on.
+
+35:57.280 --> 35:59.720
+ And yes, it does come with a huge cost.
+
+35:59.720 --> 36:02.960
+ There's, we have to think about a lot of things
+
+36:02.960 --> 36:06.920
+ as we do new things and make new changes.
+
+36:06.920 --> 36:09.080
+ I think it's a trade off, right?
+
+36:09.080 --> 36:12.960
+ You can, you might slow certain kinds of things down,
+
+36:12.960 --> 36:14.560
+ but the overall value you're bringing
+
+36:14.560 --> 36:16.920
+ because of that is much bigger
+
+36:16.920 --> 36:20.520
+ because it's not just about breaking the person yesterday.
+
+36:20.520 --> 36:23.640
+ It's also about telling the person tomorrow
+
+36:23.640 --> 36:26.240
+ that, you know what, this is how we do things.
+
+36:26.240 --> 36:28.480
+ We're not gonna break you when you come on board
+
+36:28.480 --> 36:29.800
+ because there are lots of new people
+
+36:29.800 --> 36:31.400
+ who are also gonna come on board.
+
+36:31.400 --> 36:34.680
+ And, you know, one way I like to think about this,
+
+36:34.680 --> 36:37.960
+ and I always push the team to think about it as well,
+
+36:37.960 --> 36:39.560
+ when you wanna do new things,
+
+36:39.560 --> 36:42.040
+ you wanna start with a clean slate.
+
+36:42.040 --> 36:44.880
+ Design with a clean slate in mind,
+
+36:44.880 --> 36:46.160
+ and then we'll figure out
+
+36:46.160 --> 36:48.640
+ how to make sure all the other things work.
+
+36:48.640 --> 36:51.280
+ And yes, we do make compromises occasionally,
+
+36:52.160 --> 36:55.200
+ but unless you design with the clean slate
+
+36:55.200 --> 36:56.520
+ and not worry about that,
+
+36:56.520 --> 36:58.360
+ you'll never get to a good place.
+
+36:58.360 --> 37:02.560
+ Oh, that's brilliant, so even if you are responsible
+
+37:02.560 --> 37:04.080
+ when you're in the idea stage,
+
+37:04.080 --> 37:05.760
+ when you're thinking of new,
+
+37:05.760 --> 37:07.720
+ just put all that behind you.
+
+37:07.720 --> 37:09.600
+ Okay, that's really, really well put.
+
+37:09.600 --> 37:11.080
+ So I have to ask this
+
+37:11.080 --> 37:13.240
+ because a lot of students, developers ask me
+
+37:13.240 --> 37:16.320
+ how I feel about PyTorch versus TensorFlow.
+
+37:16.320 --> 37:18.280
+ So I've recently completely switched
+
+37:18.280 --> 37:20.920
+ my research group to TensorFlow.
+
+37:20.920 --> 37:23.280
+ I wish everybody would just use the same thing,
+
+37:23.280 --> 37:26.960
+ and TensorFlow is as close to that, I believe, as we have.
+
+37:26.960 --> 37:30.960
+ But do you enjoy competition?
+
+37:32.040 --> 37:34.320
+ So TensorFlow is leading in many ways,
+
+37:34.320 --> 37:36.760
+ on many dimensions in terms of ecosystem,
+
+37:36.760 --> 37:39.040
+ in terms of number of users,
+
+37:39.040 --> 37:41.200
+ momentum, power, production levels, so on,
+
+37:41.200 --> 37:46.000
+ but a lot of researchers are now also using PyTorch.
+
+37:46.000 --> 37:47.520
+ Do you enjoy that kind of competition
+
+37:47.520 --> 37:48.840
+ or do you just ignore it
+
+37:48.840 --> 37:52.320
+ and focus on making TensorFlow the best that it can be?
+
+37:52.320 --> 37:55.480
+ So just like research or anything people are doing,
+
+37:55.480 --> 37:58.120
+ it's great to get different kinds of ideas.
+
+37:58.120 --> 38:01.480
+ And when we started with TensorFlow,
+
+38:01.480 --> 38:03.280
+ like I was saying earlier,
+
+38:03.280 --> 38:05.240
+ one, it was very important
+
+38:05.240 --> 38:07.440
+ for us to also have production in mind.
+
+38:07.440 --> 38:09.000
+ We didn't want just research, right?
+
+38:09.000 --> 38:11.280
+ And that's why we chose certain things.
+
+38:11.280 --> 38:12.720
+ Now PyTorch came along and said,
+
+38:12.720 --> 38:14.880
+ you know what, I only care about research.
+
+38:14.880 --> 38:16.280
+ This is what I'm trying to do.
+
+38:16.280 --> 38:18.400
+ What's the best thing I can do for this?
+
+38:18.400 --> 38:20.880
+ And it started iterating and said,
+
+38:20.880 --> 38:22.560
+ okay, I don't need to worry about graphs.
+
+38:22.560 --> 38:24.080
+ Let me just run things.
+
+38:24.080 --> 38:27.440
+ And I don't care if it's not as fast as it can be,
+
+38:27.440 --> 38:30.480
+ but let me just make this part easy.
+
+38:30.480 --> 38:32.560
+ And there are things you can learn from that, right?
+
+38:32.560 --> 38:36.760
+ They, again, had the benefit of seeing what had come before,
+
+38:36.760 --> 38:40.520
+ but also exploring certain different kinds of spaces.
+
+38:40.520 --> 38:43.560
+ And they had some good things there,
+
+38:43.560 --> 38:46.680
+ building on say things like JNR and so on before that.
+
+38:46.680 --> 38:49.320
+ So competition is definitely interesting.
+
+38:49.320 --> 38:50.240
+ It made us, you know,
+
+38:50.240 --> 38:51.880
+ this is an area that we had thought about,
+
+38:51.880 --> 38:53.720
+ like I said, way early on.
+
+38:53.720 --> 38:56.600
+ Over time we had revisited this a couple of times,
+
+38:56.600 --> 38:59.000
+ should we add this again?
+
+38:59.000 --> 39:01.040
+ At some point we said, you know what,
+
+39:01.040 --> 39:02.880
+ it seems like this can be done well,
+
+39:02.880 --> 39:04.320
+ so let's try it again.
+
+39:04.320 --> 39:07.680
+ And that's how we started pushing on eager execution.
+
+39:07.680 --> 39:09.880
+ How do we combine those two together?
+
+39:09.880 --> 39:13.120
+ Which has finally come very well together in 2.0,
+
+39:13.120 --> 39:15.760
+ but it took us a while to get all the things together
+
+39:15.760 --> 39:16.600
+ and so on.
+
+39:16.600 --> 39:19.320
+ So let me ask, put another way,
+
+39:19.320 --> 39:21.800
+ I think eager execution is a really powerful thing
+
+39:21.800 --> 39:22.640
+ that was added.
+
+39:22.640 --> 39:24.440
+ Do you think it wouldn't have been,
+
+39:25.800 --> 39:28.360
+ you know, Muhammad Ali versus Frasier, right?
+
+39:28.360 --> 39:31.160
+ Do you think it wouldn't have been added as quickly
+
+39:31.160 --> 39:33.740
+ if PyTorch wasn't there?
+
+39:33.740 --> 39:35.400
+ It might have taken longer.
+
+39:35.400 --> 39:36.240
+ No longer?
+
+39:36.240 --> 39:37.080
+ Yeah, it was, I mean,
+
+39:37.080 --> 39:38.900
+ we had tried some variants of that before,
+
+39:38.900 --> 39:40.900
+ so I'm sure it would have happened,
+
+39:40.900 --> 39:42.220
+ but it might have taken longer.
+
+39:42.220 --> 39:44.080
+ I'm grateful that TensorFlow is finally
+
+39:44.080 --> 39:44.920
+ in the way they did.
+
+39:44.920 --> 39:47.740
+ It's doing some incredible work last couple years.
+
+39:47.740 --> 39:49.600
+ What other things that we didn't talk about
+
+39:49.600 --> 39:51.480
+ are you looking forward in 2.0?
+
+39:51.480 --> 39:54.040
+ That comes to mind.
+
+39:54.040 --> 39:56.520
+ So we talked about some of the ecosystem stuff,
+
+39:56.520 --> 40:00.000
+ making it easily accessible to Keras,
+
+40:00.000 --> 40:01.440
+ eager execution.
+
+40:01.440 --> 40:03.000
+ Is there other things that we missed?
+
+40:03.000 --> 40:07.500
+ Yeah, so I would say one is just where 2.0 is,
+
+40:07.500 --> 40:10.740
+ and you know, with all the things that we've talked about,
+
+40:10.740 --> 40:13.760
+ I think as we think beyond that,
+
+40:13.760 --> 40:16.600
+ there are lots of other things that it enables us to do
+
+40:16.600 --> 40:18.760
+ and that we're excited about.
+
+40:18.760 --> 40:20.720
+ So what it's setting us up for,
+
+40:20.720 --> 40:22.520
+ okay, here are these really clean APIs.
+
+40:22.520 --> 40:25.640
+ We've cleaned up the surface for what the users want.
+
+40:25.640 --> 40:28.320
+ What it also allows us to do a whole bunch of stuff
+
+40:28.320 --> 40:31.600
+ behind the scenes once we are ready with 2.0.
+
+40:31.600 --> 40:36.600
+ So for example, in TensorFlow with graphs
+
+40:36.740 --> 40:37.720
+ and all the things you could do,
+
+40:37.720 --> 40:40.600
+ you could always get a lot of good performance
+
+40:40.600 --> 40:43.280
+ if you spent the time to tune it, right?
+
+40:43.280 --> 40:47.720
+ And we've clearly shown that, lots of people do that.
+
+40:47.720 --> 40:52.720
+ With 2.0, with these APIs, where we are,
+
+40:53.040 --> 40:55.140
+ we can give you a lot of performance
+
+40:55.140 --> 40:57.040
+ just with whatever you do.
+
+40:57.040 --> 41:01.400
+ You know, because we see these, it's much cleaner.
+
+41:01.400 --> 41:03.740
+ We know most people are gonna do things this way.
+
+41:03.740 --> 41:05.520
+ We can really optimize for that
+
+41:05.520 --> 41:09.040
+ and get a lot of those things out of the box.
+
+41:09.040 --> 41:10.360
+ And it really allows us, you know,
+
+41:10.360 --> 41:13.880
+ both for single machine and distributed and so on,
+
+41:13.880 --> 41:17.200
+ to really explore other spaces behind the scenes
+
+41:17.200 --> 41:19.720
+ after 2.0 in the future versions as well.
+
+41:19.720 --> 41:23.040
+ So right now the team's really excited about that,
+
+41:23.040 --> 41:25.840
+ that over time I think we'll see that.
+
+41:25.840 --> 41:27.760
+ The other piece that I was talking about
+
+41:27.760 --> 41:31.640
+ in terms of just restructuring the monolithic thing
+
+41:31.640 --> 41:34.360
+ into more pieces and making it more modular,
+
+41:34.360 --> 41:36.840
+ I think that's gonna be really important
+
+41:36.840 --> 41:41.800
+ for a lot of the other people in the ecosystem,
+
+41:41.800 --> 41:44.840
+ other organizations and so on that wanted to build things.
+
+41:44.840 --> 41:46.400
+ Can you elaborate a little bit what you mean
+
+41:46.400 --> 41:50.720
+ by making TensorFlow ecosystem more modular?
+
+41:50.720 --> 41:55.040
+ So the way it's organized today is there's one,
+
+41:55.040 --> 41:56.320
+ there are lots of repositories
+
+41:56.320 --> 41:58.360
+ in the TensorFlow organization at GitHub.
+
+41:58.360 --> 42:01.120
+ The core one where we have TensorFlow,
+
+42:01.120 --> 42:04.120
+ it has the execution engine,
+
+42:04.120 --> 42:08.320
+ it has the key backends for CPUs and GPUs,
+
+42:08.320 --> 42:12.580
+ it has the work to do distributed stuff.
+
+42:12.580 --> 42:14.420
+ And all of these just work together
+
+42:14.420 --> 42:17.280
+ in a single library or binary.
+
+42:17.280 --> 42:18.840
+ There's no way to split them apart easily.
+
+42:18.840 --> 42:20.000
+ I mean, there are some interfaces,
+
+42:20.000 --> 42:21.640
+ but they're not very clean.
+
+42:21.640 --> 42:24.860
+ In a perfect world, you would have clean interfaces where,
+
+42:24.860 --> 42:27.760
+ okay, I wanna run it on my fancy cluster
+
+42:27.760 --> 42:29.400
+ with some custom networking,
+
+42:29.400 --> 42:31.000
+ just implement this and do that.
+
+42:31.000 --> 42:32.680
+ I mean, we kind of support that,
+
+42:32.680 --> 42:34.620
+ but it's hard for people today.
+
+42:35.520 --> 42:38.180
+ I think as we are starting to see more interesting things
+
+42:38.180 --> 42:39.440
+ in some of these spaces,
+
+42:39.440 --> 42:42.360
+ having that clean separation will really start to help.
+
+42:42.360 --> 42:47.360
+ And again, going to the large size of the ecosystem
+
+42:47.360 --> 42:50.140
+ and the different groups involved there,
+
+42:50.140 --> 42:52.580
+ enabling people to evolve
+
+42:52.580 --> 42:54.360
+ and push on things more independently
+
+42:54.360 --> 42:56.040
+ just allows it to scale better.
+
+42:56.040 --> 42:59.080
+ And by people, you mean individual developers and?
+
+42:59.080 --> 42:59.960
+ And organizations.
+
+42:59.960 --> 43:00.960
+ And organizations.
+
+43:00.960 --> 43:01.800
+ That's right.
+
+43:01.800 --> 43:04.240
+ So the hope is that everybody sort of major,
+
+43:04.240 --> 43:06.900
+ I don't know, Pepsi or something uses,
+
+43:06.900 --> 43:11.040
+ like major corporations go to TensorFlow to this kind of.
+
+43:11.040 --> 43:13.640
+ Yeah, if you look at enterprises like Pepsi or these,
+
+43:13.640 --> 43:15.800
+ I mean, a lot of them are already using TensorFlow.
+
+43:15.800 --> 43:18.920
+ They are not the ones that do the development
+
+43:18.920 --> 43:20.360
+ or changes in the core.
+
+43:20.360 --> 43:21.960
+ Some of them do, but a lot of them don't.
+
+43:21.960 --> 43:23.720
+ I mean, they touch small pieces.
+
+43:23.720 --> 43:25.660
+ There are lots of these,
+
+43:25.660 --> 43:27.660
+ some of them being, let's say, hardware vendors
+
+43:27.660 --> 43:28.960
+ who are building their custom hardware
+
+43:28.960 --> 43:30.840
+ and they want their own pieces.
+
+43:30.840 --> 43:34.160
+ Or some of them being bigger companies, say, IBM.
+
+43:34.160 --> 43:36.480
+ I mean, they're involved in some of our
+
+43:36.480 --> 43:38.100
+ special interest groups,
+
+43:38.100 --> 43:39.960
+ and they see a lot of users
+
+43:39.960 --> 43:42.620
+ who want certain things and they want to optimize for that.
+
+43:42.620 --> 43:44.440
+ So folks like that often.
+
+43:44.440 --> 43:46.360
+ Autonomous vehicle companies, perhaps.
+
+43:46.360 --> 43:48.160
+ Exactly, yes.
+
+43:48.160 --> 43:50.000
+ So, yeah, like I mentioned,
+
+43:50.000 --> 43:52.760
+ TensorFlow has been downloaded 41 million times,
+
+43:52.760 --> 43:56.480
+ 50,000 commits, almost 10,000 pull requests,
+
+43:56.480 --> 43:58.320
+ and 1,800 contributors.
+
+43:58.320 --> 44:02.120
+ So I'm not sure if you can explain it,
+
+44:02.120 --> 44:06.000
+ but what does it take to build a community like that?
+
+44:06.000 --> 44:09.160
+ In retrospect, what do you think,
+
+44:09.160 --> 44:11.180
+ what is the critical thing that allowed
+
+44:11.180 --> 44:12.640
+ for this growth to happen,
+
+44:12.640 --> 44:14.600
+ and how does that growth continue?
+
+44:14.600 --> 44:17.920
+ Yeah, yeah, that's an interesting question.
+
+44:17.920 --> 44:20.240
+ I wish I had all the answers there, I guess,
+
+44:20.240 --> 44:21.600
+ so you could replicate it.
+
+44:22.520 --> 44:25.560
+ I think there are a number of things
+
+44:25.560 --> 44:27.880
+ that need to come together, right?
+
+44:27.880 --> 44:32.480
+ One, just like any new thing,
+
+44:32.480 --> 44:35.920
+ it is about, there's a sweet spot of timing,
+
+44:35.920 --> 44:38.880
+ what's needed, does it grow with,
+
+44:38.880 --> 44:41.640
+ what's needed, so in this case, for example,
+
+44:41.640 --> 44:43.680
+ TensorFlow's not just grown because it was a good tool,
+
+44:43.680 --> 44:46.720
+ it's also grown with the growth of deep learning itself.
+
+44:46.720 --> 44:49.040
+ So those factors come into play.
+
+44:49.040 --> 44:50.360
+ Other than that, though,
+
+44:52.080 --> 44:55.240
+ I think just hearing, listening to the community,
+
+44:55.240 --> 44:57.040
+ what they do, what they need,
+
+44:57.040 --> 45:01.120
+ being open to, like in terms of external contributions,
+
+45:01.120 --> 45:04.560
+ we've spent a lot of time in making sure
+
+45:04.560 --> 45:06.880
+ we can accept those contributions well,
+
+45:06.880 --> 45:09.480
+ we can help the contributors in adding those,
+
+45:09.480 --> 45:11.320
+ putting the right process in place,
+
+45:11.320 --> 45:13.360
+ getting the right kind of community,
+
+45:13.360 --> 45:15.180
+ welcoming them and so on.
+
+45:16.160 --> 45:19.320
+ Like over the last year, we've really pushed on transparency,
+
+45:19.320 --> 45:22.280
+ that's important for an open source project.
+
+45:22.280 --> 45:23.800
+ People wanna know where things are going,
+
+45:23.800 --> 45:26.200
+ and we're like, okay, here's a process
+
+45:26.200 --> 45:29.360
+ where you can do that, here are our RFCs and so on.
+
+45:29.360 --> 45:32.920
+ So thinking through, there are lots of community aspects
+
+45:32.920 --> 45:35.460
+ that come into that you can really work on.
+
+45:35.460 --> 45:38.740
+ As a small project, it's maybe easy to do
+
+45:38.740 --> 45:42.180
+ because there's like two developers and you can do those.
+
+45:42.180 --> 45:46.980
+ As you grow, putting more of these processes in place,
+
+45:46.980 --> 45:49.140
+ thinking about the documentation,
+
+45:49.140 --> 45:51.940
+ thinking about what two developers care about,
+
+45:51.940 --> 45:55.180
+ what kind of tools would they want to use,
+
+45:55.180 --> 45:56.900
+ all of these come into play, I think.
+
+45:56.900 --> 45:58.420
+ So one of the big things I think
+
+45:58.420 --> 46:00.700
+ that feeds the TensorFlow fire
+
+46:00.700 --> 46:03.980
+ is people building something on TensorFlow,
+
+46:03.980 --> 46:07.700
+ and implement a particular architecture
+
+46:07.700 --> 46:09.500
+ that does something cool and useful,
+
+46:09.500 --> 46:11.100
+ and they put that on GitHub.
+
+46:11.100 --> 46:15.580
+ And so it just feeds this growth.
+
+46:15.580 --> 46:19.580
+ Do you have a sense that with 2.0 and 1.0
+
+46:19.580 --> 46:21.580
+ that there may be a little bit of a partitioning
+
+46:21.580 --> 46:24.100
+ like there is with Python 2 and 3,
+
+46:24.100 --> 46:26.040
+ that there'll be a code base
+
+46:26.040 --> 46:28.340
+ and in the older versions of TensorFlow,
+
+46:28.340 --> 46:31.140
+ they will not be as compatible easily?
+
+46:31.140 --> 46:35.620
+ Or are you pretty confident that this kind of conversion
+
+46:35.620 --> 46:37.980
+ is pretty natural and easy to do?
+
+46:37.980 --> 46:39.980
+ So we're definitely working hard
+
+46:39.980 --> 46:41.500
+ to make that very easy to do.
+
+46:41.500 --> 46:43.500
+ There's lots of tooling that we talked about
+
+46:43.500 --> 46:45.820
+ at the developer summit this week,
+
+46:45.820 --> 46:48.260
+ and we'll continue to invest in that tooling.
+
+46:48.260 --> 46:50.500
+ It's, you know, when you think
+
+46:50.500 --> 46:52.580
+ of these significant version changes,
+
+46:52.580 --> 46:53.580
+ that's always a risk,
+
+46:53.580 --> 46:55.740
+ and we are really pushing hard
+
+46:55.740 --> 46:58.100
+ to make that transition very, very smooth.
+
+46:58.100 --> 47:02.700
+ So I think, so at some level,
+
+47:02.700 --> 47:05.620
+ people wanna move and they see the value in the new thing.
+
+47:05.620 --> 47:07.740
+ They don't wanna move just because it's a new thing,
+
+47:07.740 --> 47:08.580
+ and some people do,
+
+47:08.580 --> 47:11.540
+ but most people want a really good thing.
+
+47:11.540 --> 47:13.820
+ And I think over the next few months,
+
+47:13.820 --> 47:15.460
+ as people start to see the value,
+
+47:15.460 --> 47:17.700
+ we'll definitely see that shift happening.
+
+47:17.700 --> 47:19.740
+ So I'm pretty excited and confident
+
+47:19.740 --> 47:21.680
+ that we will see people moving.
+
+47:22.540 --> 47:24.740
+ As you said earlier, this field is also moving rapidly,
+
+47:24.740 --> 47:26.780
+ so that'll help because we can do more things
+
+47:26.780 --> 47:29.500
+ and all the new things will clearly happen in 2.x,
+
+47:29.500 --> 47:32.300
+ so people will have lots of good reasons to move.
+
+47:32.300 --> 47:36.140
+ So what do you think TensorFlow 3.0 looks like?
+
+47:36.140 --> 47:40.340
+ Is there, are things happening so crazily
+
+47:40.340 --> 47:42.540
+ that even at the end of this year
+
+47:42.540 --> 47:44.340
+ seems impossible to plan for?
+
+47:45.300 --> 47:49.420
+ Or is it possible to plan for the next five years?
+
+47:49.420 --> 47:50.820
+ I think it's tricky.
+
+47:50.820 --> 47:54.540
+ There are some things that we can expect
+
+47:54.540 --> 47:57.900
+ in terms of, okay, change, yes, change is gonna happen.
+
+47:59.700 --> 48:01.660
+ Are there some things gonna stick around
+
+48:01.660 --> 48:03.740
+ and some things not gonna stick around?
+
+48:03.740 --> 48:08.140
+ I would say the basics of deep learning,
+
+48:08.140 --> 48:10.420
+ the, you know, say convolution models
+
+48:10.420 --> 48:12.700
+ or the basic kind of things,
+
+48:12.700 --> 48:16.300
+ they'll probably be around in some form still in five years.
+
+48:16.300 --> 48:18.620
+ Will RL and GAN stay?
+
+48:18.620 --> 48:21.180
+ Very likely, based on where they are.
+
+48:21.180 --> 48:22.860
+ Will we have new things?
+
+48:22.860 --> 48:24.660
+ Probably, but those are hard to predict.
+
+48:24.660 --> 48:29.660
+ And some directionally, some things that we can see is,
+
+48:30.620 --> 48:32.740
+ you know, in things that we're starting to do, right,
+
+48:32.740 --> 48:35.420
+ with some of our projects right now
+
+48:35.420 --> 48:39.140
+ is just 2.0 combining eager execution and graphs
+
+48:39.140 --> 48:41.460
+ where we're starting to make it more like
+
+48:41.460 --> 48:43.140
+ just your natural programming language.
+
+48:43.140 --> 48:45.660
+ You're not trying to program something else.
+
+48:45.660 --> 48:47.220
+ Similarly, with Swift for TensorFlow,
+
+48:47.220 --> 48:48.260
+ we're taking that approach.
+
+48:48.260 --> 48:50.020
+ Can you do something ground up, right?
+
+48:50.020 --> 48:52.100
+ So some of those ideas seem like, okay,
+
+48:52.100 --> 48:54.100
+ that's the right direction.
+
+48:54.100 --> 48:57.140
+ In five years, we expect to see more in that area.
+
+48:58.340 --> 49:00.060
+ Other things we don't know is,
+
+49:00.060 --> 49:03.180
+ will hardware accelerators be the same?
+
+49:03.180 --> 49:06.620
+ Will we be able to train with four bits
+
+49:06.620 --> 49:08.140
+ instead of 32 bits?
+
+49:09.020 --> 49:11.500
+ And I think the TPU side of things is exploring that.
+
+49:11.500 --> 49:13.940
+ I mean, TPU is already on version three.
+
+49:13.940 --> 49:17.540
+ It seems that the evolution of TPU and TensorFlow
+
+49:17.540 --> 49:22.540
+ are sort of, they're coevolving almost in terms of
+
+49:23.260 --> 49:25.740
+ both are learning from each other and from the community
+
+49:25.740 --> 49:27.980
+ and from the applications
+
+49:27.980 --> 49:29.740
+ where the biggest benefit is achieved.
+
+49:29.740 --> 49:30.580
+ That's right.
+
+49:30.580 --> 49:33.340
+ You've been trying to sort of, with Eager, with Keras,
+
+49:33.340 --> 49:34.940
+ to make TensorFlow as accessible
+
+49:34.940 --> 49:36.500
+ and easy to use as possible.
+
+49:36.500 --> 49:38.060
+ What do you think, for beginners,
+
+49:38.060 --> 49:40.020
+ is the biggest thing they struggle with?
+
+49:40.020 --> 49:42.100
+ Have you encountered that?
+
+49:42.100 --> 49:46.260
+ Or is basically what Keras is solving is that Eager,
+
+49:46.260 --> 49:47.420
+ like we talked about?
+
+49:47.420 --> 49:50.620
+ Yeah, for some of them, like you said, right,
+
+49:50.620 --> 49:53.620
+ the beginners want to just be able to take
+
+49:53.620 --> 49:54.900
+ some image model,
+
+49:54.900 --> 49:57.060
+ they don't care if it's Inception or ResNet
+
+49:57.060 --> 49:58.100
+ or something else,
+
+49:58.100 --> 50:00.820
+ and do some training or transfer learning
+
+50:00.820 --> 50:02.500
+ on their kind of model.
+
+50:02.500 --> 50:04.460
+ Being able to make that easy is important.
+
+50:04.460 --> 50:07.060
+ So in some ways,
+
+50:07.060 --> 50:09.380
+ if you do that by providing them simple models
+
+50:09.380 --> 50:11.420
+ with say, in hub or so on,
+
+50:11.420 --> 50:13.780
+ they don't care about what's inside that box,
+
+50:13.780 --> 50:15.180
+ but they want to be able to use it.
+
+50:15.180 --> 50:17.660
+ So we're pushing on, I think, different levels.
+
+50:17.660 --> 50:20.020
+ If you look at just a component that you get,
+
+50:20.020 --> 50:22.820
+ which has the layers already smooshed in,
+
+50:22.820 --> 50:25.260
+ the beginners probably just want that.
+
+50:25.260 --> 50:26.780
+ Then the next step is, okay,
+
+50:26.780 --> 50:29.100
+ look at building layers with Keras.
+
+50:29.100 --> 50:30.300
+ If you go out to research,
+
+50:30.300 --> 50:33.180
+ then they are probably writing custom layers themselves
+
+50:33.180 --> 50:34.460
+ or doing their own loops.
+
+50:34.460 --> 50:36.380
+ So there's a whole spectrum there.
+
+50:36.380 --> 50:38.660
+ And then providing the pre trained models
+
+50:38.660 --> 50:43.660
+ seems to really decrease the time from you trying to start.
+
+50:43.660 --> 50:46.860
+ You could basically in a Colab notebook
+
+50:46.860 --> 50:48.220
+ achieve what you need.
+
+50:49.140 --> 50:51.340
+ So I'm basically answering my own question
+
+50:51.340 --> 50:54.300
+ because I think what TensorFlow delivered on recently
+
+50:54.300 --> 50:56.980
+ is trivial for beginners.
+
+50:56.980 --> 51:00.780
+ So I was just wondering if there was other pain points
+
+51:00.780 --> 51:01.620
+ you're trying to ease,
+
+51:01.620 --> 51:02.540
+ but I'm not sure there would.
+
+51:02.540 --> 51:04.900
+ No, those are probably the big ones.
+
+51:04.900 --> 51:07.420
+ I see high schoolers doing a whole bunch of things now,
+
+51:07.420 --> 51:09.220
+ which is pretty amazing.
+
+51:09.220 --> 51:11.420
+ It's both amazing and terrifying.
+
+51:11.420 --> 51:12.700
+ Yes.
+
+51:12.700 --> 51:14.980
+ In a sense that when they grow up,
+
+51:15.940 --> 51:19.300
+ it's some incredible ideas will be coming from them.
+
+51:19.300 --> 51:21.860
+ So there's certainly a technical aspect to your work,
+
+51:21.860 --> 51:25.260
+ but you also have a management aspect to your role
+
+51:25.260 --> 51:27.980
+ with TensorFlow leading the project,
+
+51:27.980 --> 51:31.140
+ a large number of developers and people.
+
+51:31.140 --> 51:34.700
+ So what do you look for in a good team?
+
+51:34.700 --> 51:36.220
+ What do you think?
+
+51:36.220 --> 51:38.420
+ Google has been at the forefront of exploring
+
+51:38.420 --> 51:40.500
+ what it takes to build a good team
+
+51:40.500 --> 51:45.500
+ and TensorFlow is one of the most cutting edge technologies
+
+51:45.540 --> 51:46.380
+ in the world.
+
+51:46.380 --> 51:49.340
+ So in this context, what do you think makes for a good team?
+
+51:50.500 --> 51:53.180
+ It's definitely something I think a favorite about.
+
+51:53.180 --> 51:58.180
+ I think in terms of the team being able
+
+51:59.780 --> 52:01.180
+ to deliver something well,
+
+52:01.180 --> 52:04.780
+ one of the things that's important is a cohesion
+
+52:04.780 --> 52:05.820
+ across the team.
+
+52:05.820 --> 52:10.420
+ So being able to execute together in doing things
+
+52:10.420 --> 52:13.180
+ that's not an end, like at this scale,
+
+52:13.180 --> 52:15.460
+ an individual engineer can only do so much.
+
+52:15.460 --> 52:18.260
+ There's a lot more that they can do together,
+
+52:18.260 --> 52:21.780
+ even though we have some amazing superstars across Google
+
+52:21.780 --> 52:25.140
+ and in the team, but there's, you know,
+
+52:25.140 --> 52:27.380
+ often the way I see it as the product
+
+52:27.380 --> 52:29.140
+ of what the team generates is way larger
+
+52:29.140 --> 52:34.140
+ than the whole or the individual put together.
+
+52:34.460 --> 52:37.380
+ And so how do we have all of them work together,
+
+52:37.380 --> 52:40.060
+ the culture of the team itself,
+
+52:40.060 --> 52:42.020
+ hiring good people is important.
+
+52:43.100 --> 52:45.340
+ But part of that is it's not just that,
+
+52:45.340 --> 52:47.260
+ okay, we hire a bunch of smart people
+
+52:47.260 --> 52:49.740
+ and throw them together and let them do things.
+
+52:49.740 --> 52:52.980
+ It's also people have to care about what they're building,
+
+52:52.980 --> 52:57.380
+ people have to be motivated for the right kind of things.
+
+52:57.380 --> 52:59.840
+ That's often an important factor.
+
+53:01.500 --> 53:04.660
+ And, you know, finally, how do you put that together
+
+53:04.660 --> 53:08.860
+ with a somewhat unified vision of where we wanna go?
+
+53:08.860 --> 53:11.220
+ So are we all looking in the same direction
+
+53:11.220 --> 53:13.620
+ or each of us going all over?
+
+53:13.620 --> 53:16.100
+ And sometimes it's a mix.
+
+53:16.100 --> 53:20.580
+ Google's a very bottom up organization in some sense,
+
+53:21.460 --> 53:26.420
+ also research even more so, and that's how we started.
+
+53:26.420 --> 53:30.900
+ But as we've become this larger product and ecosystem,
+
+53:30.900 --> 53:33.180
+ I think it's also important to combine that well
+
+53:33.180 --> 53:38.020
+ with a mix of, okay, here's the direction we wanna go in.
+
+53:38.020 --> 53:39.860
+ There is exploration we'll do around that,
+
+53:39.860 --> 53:42.820
+ but let's keep staying in that direction,
+
+53:42.820 --> 53:44.460
+ not just all over the place.
+
+53:44.460 --> 53:46.860
+ And is there a way you monitor the health of the team?
+
+53:46.860 --> 53:51.860
+ Sort of like, is there a way you know you did a good job?
+
+53:51.980 --> 53:53.020
+ The team is good?
+
+53:53.020 --> 53:56.220
+ Like, I mean, you're sort of, you're saying nice things,
+
+53:56.220 --> 54:00.860
+ but it's sometimes difficult to determine how aligned.
+
+54:00.860 --> 54:01.700
+ Yes.
+
+54:01.700 --> 54:02.520
+ Because it's not binary.
+
+54:02.520 --> 54:06.740
+ It's not like there's tensions and complexities and so on.
+
+54:06.740 --> 54:09.460
+ And the other element of the mission of superstars,
+
+54:09.460 --> 54:11.820
+ there's so much, even at Google,
+
+54:11.820 --> 54:13.220
+ such a large percentage of work
+
+54:13.220 --> 54:16.020
+ is done by individual superstars too.
+
+54:16.020 --> 54:19.980
+ So there's a, and sometimes those superstars
+
+54:19.980 --> 54:23.280
+ can be against the dynamic of a team and those tensions.
+
+54:25.220 --> 54:26.580
+ I mean, I'm sure in TensorFlow it might be
+
+54:26.580 --> 54:28.900
+ a little bit easier because the mission of the project
+
+54:28.900 --> 54:31.740
+ is so sort of beautiful.
+
+54:31.740 --> 54:34.860
+ You're at the cutting edge, so it's exciting.
+
+54:34.860 --> 54:36.700
+ But have you had struggle with that?
+
+54:36.700 --> 54:38.380
+ Has there been challenges?
+
+54:38.380 --> 54:39.860
+ There are always people challenges
+
+54:39.860 --> 54:41.260
+ in different kinds of ways.
+
+54:41.260 --> 54:44.780
+ That said, I think we've been what's good
+
+54:44.780 --> 54:48.980
+ about getting people who care and are, you know,
+
+54:48.980 --> 54:50.420
+ have the same kind of culture,
+
+54:50.420 --> 54:53.460
+ and that's Google in general to a large extent.
+
+54:53.460 --> 54:56.140
+ But also, like you said, given that the project
+
+54:56.140 --> 54:58.780
+ has had so many exciting things to do,
+
+54:58.780 --> 55:00.760
+ there's been room for lots of people
+
+55:00.760 --> 55:02.460
+ to do different kinds of things and grow,
+
+55:02.460 --> 55:05.380
+ which does make the problem a bit easier, I guess.
+
+55:05.380 --> 55:09.940
+ And it allows people, depending on what they're doing,
+
+55:09.940 --> 55:13.140
+ if there's room around them, then that's fine.
+
+55:13.140 --> 55:18.140
+ But yes, we do care about whether a superstar or not,
+
+55:19.220 --> 55:22.580
+ that they need to work well with the team across Google.
+
+55:22.580 --> 55:23.680
+ That's interesting to hear.
+
+55:23.680 --> 55:26.500
+ So it's like superstar or not,
+
+55:26.500 --> 55:30.540
+ the productivity broadly is about the team.
+
+55:30.540 --> 55:31.540
+ Yeah, yeah.
+
+55:31.540 --> 55:32.980
+ I mean, they might add a lot of value,
+
+55:32.980 --> 55:35.740
+ but if they're hurting the team, then that's a problem.
+
+55:35.740 --> 55:39.060
+ So in hiring engineers, it's so interesting, right,
+
+55:39.060 --> 55:40.260
+ the hiring process.
+
+55:40.260 --> 55:41.860
+ What do you look for?
+
+55:41.860 --> 55:44.300
+ How do you determine a good developer
+
+55:44.300 --> 55:46.240
+ or a good member of a team
+
+55:46.240 --> 55:48.560
+ from just a few minutes or hours together?
+
+55:50.420 --> 55:52.260
+ Again, no magic answers, I'm sure.
+
+55:52.260 --> 55:55.340
+ Yeah, I mean, Google has a hiring process
+
+55:55.340 --> 55:59.660
+ that we've refined over the last 20 years, I guess,
+
+55:59.660 --> 56:02.220
+ and that you've probably heard and seen a lot about.
+
+56:02.220 --> 56:04.980
+ So we do work with the same hiring process
+
+56:04.980 --> 56:06.480
+ and that's really helped.
+
+56:08.340 --> 56:10.900
+ For me in particular, I would say,
+
+56:10.900 --> 56:14.220
+ in addition to the core technical skills,
+
+56:14.220 --> 56:17.580
+ what does matter is their motivation
+
+56:17.580 --> 56:19.600
+ in what they wanna do.
+
+56:19.600 --> 56:21.380
+ Because if that doesn't align well
+
+56:21.380 --> 56:22.980
+ with where we wanna go,
+
+56:22.980 --> 56:25.360
+ that's not gonna lead to long term success
+
+56:25.360 --> 56:26.860
+ for either them or the team.
+
+56:27.700 --> 56:30.020
+ And I think that becomes more important
+
+56:30.020 --> 56:31.480
+ the more senior the person is,
+
+56:31.480 --> 56:33.580
+ but it's important at every level.
+
+56:33.580 --> 56:34.940
+ Like even the junior most engineer,
+
+56:34.940 --> 56:36.380
+ if they're not motivated to do well
+
+56:36.380 --> 56:37.700
+ at what they're trying to do,
+
+56:37.700 --> 56:38.820
+ however smart they are,
+
+56:38.820 --> 56:40.380
+ it's gonna be hard for them to succeed.
+
+56:40.380 --> 56:44.540
+ Does the Google hiring process touch on that passion?
+
+56:44.540 --> 56:46.500
+ So like trying to determine,
+
+56:46.500 --> 56:48.500
+ because I think as far as I understand,
+
+56:48.500 --> 56:49.620
+ maybe you can speak to it,
+
+56:49.620 --> 56:53.380
+ that the Google hiring process sort of helps
+
+56:53.380 --> 56:56.380
+ in the initial like determines the skill set there,
+
+56:56.380 --> 56:57.940
+ is your puzzle solving ability,
+
+56:57.940 --> 56:59.920
+ problem solving ability good?
+
+56:59.920 --> 57:02.540
+ But like, I'm not sure,
+
+57:02.540 --> 57:05.040
+ but it seems that the determining
+
+57:05.040 --> 57:07.580
+ whether the person is like fire inside them,
+
+57:07.580 --> 57:09.060
+ that burns to do anything really,
+
+57:09.060 --> 57:09.900
+ it doesn't really matter.
+
+57:09.900 --> 57:11.540
+ It's just some cool stuff,
+
+57:11.540 --> 57:12.500
+ I'm gonna do it.
+
+57:15.340 --> 57:17.300
+ Is that something that ultimately ends up
+
+57:17.300 --> 57:18.820
+ when they have a conversation with you
+
+57:18.820 --> 57:22.640
+ or once it gets closer to the team?
+
+57:22.640 --> 57:25.420
+ So one of the things we do have as part of the process
+
+57:25.420 --> 57:27.180
+ is just a culture fit,
+
+57:27.180 --> 57:29.200
+ like part of the interview process itself,
+
+57:29.200 --> 57:31.020
+ in addition to just the technical skills
+
+57:31.020 --> 57:34.260
+ and each engineer or whoever the interviewer is,
+
+57:34.260 --> 57:38.340
+ is supposed to rate the person on the culture
+
+57:38.340 --> 57:40.000
+ and the culture fit with Google and so on.
+
+57:40.000 --> 57:42.180
+ So that is definitely part of the process.
+
+57:42.180 --> 57:45.860
+ Now, there are various kinds of projects
+
+57:45.860 --> 57:46.940
+ and different kinds of things.
+
+57:46.940 --> 57:48.820
+ So there might be variants
+
+57:48.820 --> 57:51.380
+ and of the kind of culture you want there and so on.
+
+57:51.380 --> 57:52.740
+ And yes, that does vary.
+
+57:52.740 --> 57:54.020
+ So for example,
+
+57:54.020 --> 57:56.980
+ TensorFlow has always been a fast moving project
+
+57:56.980 --> 57:59.380
+ and we want people who are comfortable with that.
+
+58:00.980 --> 58:02.700
+ But at the same time now, for example,
+
+58:02.700 --> 58:05.260
+ we are at a place where we are also very full fledged product
+
+58:05.260 --> 58:07.820
+ and we wanna make sure things that work
+
+58:07.820 --> 58:09.340
+ really, really work, right?
+
+58:09.340 --> 58:11.700
+ You can't cut corners all the time.
+
+58:11.700 --> 58:14.340
+ So balancing that out and finding the people
+
+58:14.340 --> 58:17.580
+ who are the right fit for those is important.
+
+58:17.580 --> 58:19.740
+ And I think those kinds of things do vary a bit
+
+58:19.740 --> 58:23.220
+ across projects and teams and product areas across Google.
+
+58:23.220 --> 58:25.260
+ And so you'll see some differences there
+
+58:25.260 --> 58:27.700
+ in the final checklist.
+
+58:27.700 --> 58:29.380
+ But a lot of the core culture,
+
+58:29.380 --> 58:32.220
+ it comes along with just the engineering excellence
+
+58:32.220 --> 58:33.040
+ and so on.
+
+58:34.740 --> 58:37.600
+ What is the hardest part of your job?
+
+58:39.780 --> 58:41.940
+ I'll take your pick, I guess.
+
+58:41.940 --> 58:44.460
+ It's fun, I would say, right?
+
+58:44.460 --> 58:45.540
+ Hard, yes.
+
+58:45.540 --> 58:47.280
+ I mean, lots of things at different times.
+
+58:47.280 --> 58:49.220
+ I think that does vary.
+
+58:49.220 --> 58:52.680
+ So let me clarify that difficult things are fun
+
+58:52.680 --> 58:53.980
+ when you solve them, right?
+
+58:53.980 --> 58:57.500
+ So it's fun in that sense.
+
+58:57.500 --> 59:02.500
+ I think the key to a successful thing across the board
+
+59:02.640 --> 59:05.380
+ and in this case, it's a large ecosystem now,
+
+59:05.380 --> 59:07.180
+ but even a small product,
+
+59:07.180 --> 59:09.820
+ is striking that fine balance
+
+59:09.820 --> 59:12.060
+ across different aspects of it.
+
+59:12.060 --> 59:13.940
+ Sometimes it's how fast do you go
+
+59:13.940 --> 59:17.060
+ versus how perfect it is.
+
+59:17.060 --> 59:21.460
+ Sometimes it's how do you involve this huge community?
+
+59:21.460 --> 59:23.640
+ Who do you involve or do you decide,
+
+59:23.640 --> 59:25.480
+ okay, now is not a good time to involve them
+
+59:25.480 --> 59:28.640
+ because it's not the right fit.
+
+59:30.220 --> 59:33.660
+ Sometimes it's saying no to certain kinds of things.
+
+59:33.660 --> 59:35.760
+ Those are often the hard decisions.
+
+59:36.860 --> 59:39.600
+ Some of them you make quickly
+
+59:39.600 --> 59:41.020
+ because you don't have the time.
+
+59:41.020 --> 59:43.220
+ Some of them you get time to think about them,
+
+59:43.220 --> 59:44.500
+ but they're always hard.
+
+59:44.500 --> 59:49.220
+ So both choices are pretty good, those decisions.
+
+59:49.220 --> 59:50.380
+ What about deadlines?
+
+59:50.380 --> 59:53.580
+ Is this, do you find TensorFlow,
+
+59:53.580 --> 59:58.220
+ to be driven by deadlines
+
+59:58.220 --> 1:00:00.400
+ to a degree that a product might?
+
+1:00:00.400 --> 1:00:04.940
+ Or is there still a balance to where it's less deadline?
+
+1:00:04.940 --> 1:00:06.740
+ You had the Dev Summit today
+
+1:00:06.740 --> 1:00:08.940
+ that came together incredibly.
+
+1:00:08.940 --> 1:00:11.460
+ Looked like there's a lot of moving pieces and so on.
+
+1:00:11.460 --> 1:00:15.140
+ So did that deadline make people rise to the occasion
+
+1:00:15.140 --> 1:00:18.420
+ releasing TensorFlow 2.0 alpha?
+
+1:00:18.420 --> 1:00:20.420
+ I'm sure that was done last minute as well.
+
+1:00:20.420 --> 1:00:25.420
+ I mean, up to the last point.
+
+1:00:25.620 --> 1:00:26.860
+ Again, it's one of those things
+
+1:00:26.860 --> 1:00:29.940
+ that you need to strike the good balance.
+
+1:00:29.940 --> 1:00:32.100
+ There's some value that deadlines bring
+
+1:00:32.100 --> 1:00:33.980
+ that does bring a sense of urgency
+
+1:00:33.980 --> 1:00:35.780
+ to get the right things together.
+
+1:00:35.780 --> 1:00:38.340
+ Instead of getting the perfect thing out,
+
+1:00:38.340 --> 1:00:41.320
+ you need something that's good and works well.
+
+1:00:41.320 --> 1:00:43.260
+ And the team definitely did a great job
+
+1:00:43.260 --> 1:00:44.100
+ in putting that together.
+
+1:00:44.100 --> 1:00:45.920
+ So I was very amazed and excited
+
+1:00:45.920 --> 1:00:47.820
+ by everything how that came together.
+
+1:00:48.740 --> 1:00:49.860
+ That said, across the year,
+
+1:00:49.860 --> 1:00:52.580
+ we try not to put out official deadlines.
+
+1:00:52.580 --> 1:00:57.020
+ We focus on key things that are important,
+
+1:00:57.020 --> 1:01:00.620
+ figure out how much of it's important.
+
+1:01:00.620 --> 1:01:03.900
+ And we are developing in the open,
+
+1:01:03.900 --> 1:01:05.820
+ both internally and externally,
+
+1:01:05.820 --> 1:01:07.980
+ everything's available to everybody.
+
+1:01:07.980 --> 1:01:11.220
+ So you can pick and look at where things are.
+
+1:01:11.220 --> 1:01:13.260
+ We do releases at a regular cadence.
+
+1:01:13.260 --> 1:01:16.180
+ So fine, if something doesn't necessarily end up
+
+1:01:16.180 --> 1:01:17.820
+ this month, it'll end up in the next release
+
+1:01:17.820 --> 1:01:18.780
+ in a month or two.
+
+1:01:18.780 --> 1:01:22.860
+ And that's okay, but we want to keep moving
+
+1:01:22.860 --> 1:01:25.060
+ as fast as we can in these different areas.
+
+1:01:26.500 --> 1:01:29.660
+ Because we can iterate and improve on things,
+
+1:01:29.660 --> 1:01:31.960
+ sometimes it's okay to put things out
+
+1:01:31.960 --> 1:01:32.980
+ that aren't fully ready.
+
+1:01:32.980 --> 1:01:34.580
+ We'll make sure it's clear that okay,
+
+1:01:34.580 --> 1:01:36.540
+ this is experimental, but it's out there
+
+1:01:36.540 --> 1:01:37.980
+ if you want to try and give feedback.
+
+1:01:37.980 --> 1:01:39.420
+ That's very, very useful.
+
+1:01:39.420 --> 1:01:42.540
+ I think that quick cycle and quick iteration is important.
+
+1:01:43.580 --> 1:01:46.940
+ That's what we often focus on rather than
+
+1:01:46.940 --> 1:01:49.220
+ here's a deadline where you get everything else.
+
+1:01:49.220 --> 1:01:52.860
+ Is 2.0, is there pressure to make that stable?
+
+1:01:52.860 --> 1:01:56.660
+ Or like, for example, WordPress 5.0 just came out
+
+1:01:57.780 --> 1:02:00.300
+ and there was no pressure to,
+
+1:02:00.300 --> 1:02:03.980
+ it was a lot of build updates delivered way too late,
+
+1:02:03.980 --> 1:02:05.980
+ but, and they said, okay, well,
+
+1:02:05.980 --> 1:02:07.440
+ but we're gonna release a lot of updates
+
+1:02:07.440 --> 1:02:09.660
+ really quickly to improve it.
+
+1:02:09.660 --> 1:02:12.220
+ Do you see TensorFlow 2.0 in that same kind of way
+
+1:02:12.220 --> 1:02:15.260
+ or is there this pressure to once it hits 2.0,
+
+1:02:15.260 --> 1:02:16.780
+ once you get to the release candidate
+
+1:02:16.780 --> 1:02:18.980
+ and then you get to the final,
+
+1:02:18.980 --> 1:02:22.460
+ that's gonna be the stable thing?
+
+1:02:22.460 --> 1:02:25.740
+ So it's gonna be stable in,
+
+1:02:25.740 --> 1:02:28.900
+ just like when NodeX was where every API that's there
+
+1:02:28.900 --> 1:02:31.080
+ is gonna remain in work.
+
+1:02:32.100 --> 1:02:34.820
+ It doesn't mean we can't change things under the covers.
+
+1:02:34.820 --> 1:02:36.740
+ It doesn't mean we can't add things.
+
+1:02:36.740 --> 1:02:39.200
+ So there's still a lot more for us to do
+
+1:02:39.200 --> 1:02:41.100
+ and we'll continue to have more releases.
+
+1:02:41.100 --> 1:02:42.640
+ So in that sense, there's still,
+
+1:02:42.640 --> 1:02:44.740
+ I don't think we'll be done in like two months
+
+1:02:44.740 --> 1:02:46.140
+ when we release this.
+
+1:02:46.140 --> 1:02:49.900
+ I don't know if you can say, but is there,
+
+1:02:49.900 --> 1:02:53.740
+ there's not external deadlines for TensorFlow 2.0,
+
+1:02:53.740 --> 1:02:57.060
+ but is there internal deadlines,
+
+1:02:57.060 --> 1:02:58.540
+ the artificial or otherwise,
+
+1:02:58.540 --> 1:03:00.860
+ that you're trying to set for yourself
+
+1:03:00.860 --> 1:03:03.100
+ or is it whenever it's ready?
+
+1:03:03.100 --> 1:03:05.660
+ So we want it to be a great product, right?
+
+1:03:05.660 --> 1:03:08.820
+ And that's a big important piece for us.
+
+1:03:09.900 --> 1:03:11.140
+ TensorFlow's already out there.
+
+1:03:11.140 --> 1:03:13.740
+ We have 41 million downloads for 1.0 X.
+
+1:03:13.740 --> 1:03:16.420
+ So it's not like we have to have this.
+
+1:03:16.420 --> 1:03:17.260
+ Yeah, exactly.
+
+1:03:17.260 --> 1:03:19.340
+ So it's not like, a lot of the features
+
+1:03:19.340 --> 1:03:21.180
+ that we've really polishing
+
+1:03:21.180 --> 1:03:23.580
+ and putting them together are there.
+
+1:03:23.580 --> 1:03:26.220
+ We don't have to rush that just because.
+
+1:03:26.220 --> 1:03:28.020
+ So in that sense, we wanna get it right
+
+1:03:28.020 --> 1:03:29.940
+ and really focus on that.
+
+1:03:29.940 --> 1:03:31.860
+ That said, we have said that we are looking
+
+1:03:31.860 --> 1:03:33.500
+ to get this out in the next few months,
+
+1:03:33.500 --> 1:03:34.500
+ in the next quarter.
+
+1:03:34.500 --> 1:03:37.100
+ And as far as possible,
+
+1:03:37.100 --> 1:03:39.780
+ we'll definitely try to make that happen.
+
+1:03:39.780 --> 1:03:44.340
+ Yeah, my favorite line was, spring is a relative concept.
+
+1:03:44.340 --> 1:03:45.180
+ I love it.
+
+1:03:45.180 --> 1:03:46.020
+ Yes.
+
+1:03:46.020 --> 1:03:47.700
+ Spoken like a true developer.
+
+1:03:47.700 --> 1:03:50.220
+ So something I'm really interested in
+
+1:03:50.220 --> 1:03:52.980
+ and your previous line of work is,
+
+1:03:52.980 --> 1:03:56.660
+ before TensorFlow, you led a team at Google on search ads.
+
+1:03:57.740 --> 1:04:01.860
+ I think this is a very interesting topic
+
+1:04:01.860 --> 1:04:04.020
+ on every level, on a technical level,
+
+1:04:04.980 --> 1:04:07.220
+ because at their best, ads connect people
+
+1:04:07.220 --> 1:04:09.420
+ to the things they want and need.
+
+1:04:09.420 --> 1:04:12.300
+ So, and at their worst, they're just these things
+
+1:04:12.300 --> 1:04:14.940
+ that annoy the heck out of you
+
+1:04:14.940 --> 1:04:17.340
+ to the point of ruining the entire user experience
+
+1:04:17.340 --> 1:04:19.140
+ of whatever you're actually doing.
+
+1:04:20.260 --> 1:04:22.180
+ So they have a bad rep, I guess.
+
+1:04:23.620 --> 1:04:28.100
+ And on the other end, so that this connecting users
+
+1:04:28.100 --> 1:04:29.660
+ to the thing they need and want
+
+1:04:29.660 --> 1:04:34.060
+ is a beautiful opportunity for machine learning to shine.
+
+1:04:34.060 --> 1:04:36.340
+ Like huge amounts of data that's personalized
+
+1:04:36.340 --> 1:04:37.860
+ and you kind of map to the thing
+
+1:04:37.860 --> 1:04:40.380
+ they actually want won't get annoyed.
+
+1:04:40.380 --> 1:04:43.220
+ So what have you learned from this,
+
+1:04:43.220 --> 1:04:45.140
+ Google that's leading the world in this aspect,
+
+1:04:45.140 --> 1:04:47.540
+ what have you learned from that experience
+
+1:04:47.540 --> 1:04:51.540
+ and what do you think is the future of ads?
+
+1:04:51.540 --> 1:04:52.540
+ Take you back to that.
+
+1:04:52.540 --> 1:04:55.220
+ Yeah, yes, it's been a while,
+
+1:04:55.220 --> 1:04:58.340
+ but I totally agree with what you said.
+
+1:04:59.700 --> 1:05:03.180
+ I think the search ads, the way it was always looked at
+
+1:05:03.180 --> 1:05:04.500
+ and I believe it still is,
+
+1:05:04.500 --> 1:05:08.100
+ is it's an extension of what search is trying to do.
+
+1:05:08.100 --> 1:05:10.580
+ And the goal is to make the information
+
+1:05:10.580 --> 1:05:13.900
+ and make the world's information accessible.
+
+1:05:14.740 --> 1:05:17.140
+ That's it's not just information,
+
+1:05:17.140 --> 1:05:20.780
+ but maybe products or other things that people care about.
+
+1:05:20.780 --> 1:05:23.860
+ And so it's really important for them to align
+
+1:05:23.860 --> 1:05:26.500
+ with what the users need.
+
+1:05:26.500 --> 1:05:30.940
+ And in search ads, there's a minimum quality level
+
+1:05:30.940 --> 1:05:32.300
+ before that ad would be shown.
+
+1:05:32.300 --> 1:05:34.060
+ If you don't have an ad that hits that quality,
+
+1:05:34.060 --> 1:05:35.980
+ but it will not be shown even if we have it
+
+1:05:35.980 --> 1:05:39.620
+ and okay, maybe we lose some money there, that's fine.
+
+1:05:39.620 --> 1:05:41.300
+ That is really, really important.
+
+1:05:41.300 --> 1:05:43.420
+ And I think that that is something I really liked
+
+1:05:43.420 --> 1:05:45.060
+ about being there.
+
+1:05:45.060 --> 1:05:48.180
+ Advertising is a key part.
+
+1:05:48.180 --> 1:05:51.740
+ I mean, as a model, it's been around for ages, right?
+
+1:05:51.740 --> 1:05:54.900
+ It's not a new model, it's been adapted to the web
+
+1:05:54.900 --> 1:05:57.500
+ and became a core part of search
+
+1:05:57.500 --> 1:06:00.780
+ and many other search engines across the world.
+
+1:06:00.780 --> 1:06:04.420
+ And I do hope, like you said,
+
+1:06:04.420 --> 1:06:06.700
+ there are aspects of ads that are annoying
+
+1:06:06.700 --> 1:06:10.260
+ and I go to a website and if it just keeps popping
+
+1:06:10.260 --> 1:06:12.540
+ an ad in my face not to let me read,
+
+1:06:12.540 --> 1:06:13.860
+ that's gonna be annoying clearly.
+
+1:06:13.860 --> 1:06:18.780
+ So I hope we can strike that balance
+
+1:06:18.780 --> 1:06:23.780
+ between showing a good ad where it's valuable to the user
+
+1:06:23.780 --> 1:06:29.740
+ and provides the monetization to the service.
+
+1:06:29.740 --> 1:06:32.460
+ And this might be search, this might be a website,
+
+1:06:32.460 --> 1:06:35.660
+ all of these, they do need the monetization
+
+1:06:35.660 --> 1:06:37.660
+ for them to provide that service.
+
+1:06:38.540 --> 1:06:41.940
+ But if it's done in a good balance between
+
+1:06:43.660 --> 1:06:46.820
+ showing just some random stuff that's distracting
+
+1:06:46.820 --> 1:06:49.660
+ versus showing something that's actually valuable.
+
+1:06:49.660 --> 1:06:54.660
+ So do you see it moving forward as to continue
+
+1:06:54.660 --> 1:06:59.660
+ being a model that funds businesses like Google,
+
+1:07:00.340 --> 1:07:04.380
+ that's a significant revenue stream?
+
+1:07:04.380 --> 1:07:07.420
+ Because that's one of the most exciting things
+
+1:07:07.420 --> 1:07:09.020
+ but also limiting things in the internet
+
+1:07:09.020 --> 1:07:11.500
+ is nobody wants to pay for anything.
+
+1:07:11.500 --> 1:07:14.660
+ And advertisements, again, coupled at their best,
+
+1:07:14.660 --> 1:07:16.660
+ are actually really useful and not annoying.
+
+1:07:16.660 --> 1:07:21.660
+ Do you see that continuing and growing and improving
+
+1:07:21.660 --> 1:07:26.140
+ or is there, do you see sort of more Netflix type models
+
+1:07:26.140 --> 1:07:28.420
+ where you have to start to pay for content?
+
+1:07:28.420 --> 1:07:29.780
+ I think it's a mix.
+
+1:07:29.780 --> 1:07:32.260
+ I think it's gonna take a long while for everything
+
+1:07:32.260 --> 1:07:35.580
+ to be paid on the internet, if at all, probably not.
+
+1:07:35.580 --> 1:07:37.220
+ I mean, I think there's always gonna be things
+
+1:07:37.220 --> 1:07:40.180
+ that are sort of monetized with things like ads.
+
+1:07:40.180 --> 1:07:42.220
+ But over the last few years, I would say
+
+1:07:42.220 --> 1:07:45.340
+ we've definitely seen that transition towards
+
+1:07:45.340 --> 1:07:48.660
+ more paid services across the web
+
+1:07:48.660 --> 1:07:50.420
+ and people are willing to pay for them
+
+1:07:50.420 --> 1:07:51.740
+ because they do see the value.
+
+1:07:51.740 --> 1:07:53.660
+ I mean, Netflix is a great example.
+
+1:07:53.660 --> 1:07:56.580
+ I mean, we have YouTube doing things.
+
+1:07:56.580 --> 1:07:58.780
+ People pay for the apps they buy.
+
+1:07:58.780 --> 1:08:03.140
+ More people I find are willing to pay for newspaper content
+
+1:08:03.140 --> 1:08:07.260
+ for the good news websites across the web.
+
+1:08:07.260 --> 1:08:08.900
+ That wasn't the case a few years,
+
+1:08:08.900 --> 1:08:11.060
+ even a few years ago, I would say.
+
+1:08:11.060 --> 1:08:13.340
+ And I just see that change in myself as well
+
+1:08:13.340 --> 1:08:14.860
+ and just lots of people around me.
+
+1:08:14.860 --> 1:08:17.220
+ So definitely hopeful that we'll transition
+
+1:08:17.220 --> 1:08:20.900
+ to that mix model where maybe you get
+
+1:08:20.900 --> 1:08:24.180
+ to try something out for free, maybe with ads,
+
+1:08:24.180 --> 1:08:27.420
+ but then there's a more clear revenue model
+
+1:08:27.420 --> 1:08:29.420
+ that sort of helps go beyond that.
+
+1:08:30.660 --> 1:08:35.660
+ So speaking of revenue, how is it that a person
+
+1:08:35.940 --> 1:08:39.460
+ can use the TPU in a Google call app for free?
+
+1:08:39.460 --> 1:08:43.980
+ So what's the, I guess the question is,
+
+1:08:43.980 --> 1:08:48.940
+ what's the future of TensorFlow in terms of empowering,
+
+1:08:48.940 --> 1:08:51.940
+ say, a class of 300 students?
+
+1:08:51.940 --> 1:08:56.940
+ And I'm asked by MIT, what is going to be the future
+
+1:08:56.940 --> 1:09:00.020
+ of them being able to do their homework in TensorFlow?
+
+1:09:00.020 --> 1:09:02.860
+ Like, where are they going to train these networks, right?
+
+1:09:02.860 --> 1:09:06.460
+ What's that future look like with TPUs,
+
+1:09:06.460 --> 1:09:08.980
+ with cloud services, and so on?
+
+1:09:08.980 --> 1:09:10.300
+ I think a number of things there.
+
+1:09:10.300 --> 1:09:12.660
+ I mean, any TensorFlow open source,
+
+1:09:12.660 --> 1:09:15.020
+ you can run it wherever, you can run it on your desktop
+
+1:09:15.020 --> 1:09:17.500
+ and your desktops always keep getting more powerful,
+
+1:09:17.500 --> 1:09:19.540
+ so maybe you can do more.
+
+1:09:19.540 --> 1:09:21.420
+ My phone is like, I don't know how many times
+
+1:09:21.420 --> 1:09:23.740
+ more powerful than my first desktop.
+
+1:09:23.740 --> 1:09:25.220
+ You'll probably train it on your phone though,
+
+1:09:25.220 --> 1:09:26.260
+ yeah, that's true.
+
+1:09:26.260 --> 1:09:28.460
+ Right, so in that sense, the power you have
+
+1:09:28.460 --> 1:09:30.620
+ in your hands is a lot more.
+
+1:09:31.500 --> 1:09:34.420
+ Clouds are actually very interesting from, say,
+
+1:09:34.420 --> 1:09:36.940
+ students or courses perspective,
+
+1:09:36.940 --> 1:09:40.060
+ because they make it very easy to get started.
+
+1:09:40.060 --> 1:09:42.740
+ I mean, Colab, the great thing about it is,
+
+1:09:42.740 --> 1:09:45.180
+ go to a website and it just works.
+
+1:09:45.180 --> 1:09:47.580
+ No installation needed, nothing to,
+
+1:09:47.580 --> 1:09:50.020
+ you're just there and things are working.
+
+1:09:50.020 --> 1:09:52.300
+ That's really the power of cloud as well.
+
+1:09:52.300 --> 1:09:55.340
+ And so I do expect that to grow.
+
+1:09:55.340 --> 1:09:57.940
+ Again, Colab is a free service.
+
+1:09:57.940 --> 1:10:00.900
+ It's great to get started, to play with things,
+
+1:10:00.900 --> 1:10:02.200
+ to explore things.
+
+1:10:03.140 --> 1:10:06.140
+ That said, with free, you can only get so much.
+
+1:10:06.140 --> 1:10:08.220
+ You'd be, yeah.
+
+1:10:08.220 --> 1:10:10.140
+ So just like we were talking about,
+
+1:10:10.140 --> 1:10:12.940
+ free versus paid, yeah, there are services
+
+1:10:12.940 --> 1:10:15.340
+ you can pay for and get a lot more.
+
+1:10:15.340 --> 1:10:17.740
+ Great, so if I'm a complete beginner
+
+1:10:17.740 --> 1:10:19.980
+ interested in machine learning and TensorFlow,
+
+1:10:19.980 --> 1:10:21.620
+ what should I do?
+
+1:10:21.620 --> 1:10:23.540
+ Probably start with going to our website
+
+1:10:23.540 --> 1:10:24.380
+ and playing there.
+
+1:10:24.380 --> 1:10:26.620
+ So just go to TensorFlow.org and start clicking on things.
+
+1:10:26.620 --> 1:10:28.500
+ Yep, check out tutorials and guides.
+
+1:10:28.500 --> 1:10:29.860
+ There's stuff you can just click there
+
+1:10:29.860 --> 1:10:31.340
+ and go to a Colab and do things.
+
+1:10:31.340 --> 1:10:34.100
+ No installation needed, you can get started right there.
+
+1:10:34.100 --> 1:10:36.740
+ Okay, awesome, Rajit, thank you so much for talking today.
+
+1:10:36.740 --> 1:10:38.340
+ Thank you, Lex, it was great.
+

@@ -1,0 +1,5993 @@
+WEBVTT
+
+00:00.000 --> 00:04.760
+ The following is a conversation with Neal Stephenson, a legendary science fiction writer
+
+00:04.760 --> 00:10.680
+ exploring ideas in mathematics, science, cryptography, money, linguistics, philosophy, and virtual
+
+00:10.680 --> 00:17.140
+ reality, from his early book Snow Crash to his new one called Termination Shock.
+
+00:17.140 --> 00:19.020
+ He doesn't just write novels.
+
+00:19.020 --> 00:25.100
+ He worked at the space company Blue Origin for many years, including technically being
+
+00:25.100 --> 00:27.180
+ Blue Origin's first employee.
+
+00:27.180 --> 00:33.280
+ He also was the chief futurist at the virtual reality company Magic Leap.
+
+00:33.280 --> 00:35.200
+ This is the Lex Friedman Podcast.
+
+00:35.200 --> 00:38.680
+ To support it, please check out our sponsors in the description.
+
+00:38.680 --> 00:43.560
+ And now, here's my conversation with Neal Stephenson.
+
+00:43.560 --> 00:50.840
+ You write both historical fiction, like World War II in Cryptonomicon, and science fiction,
+
+00:50.840 --> 00:53.240
+ looking both into the past and the future.
+
+00:53.240 --> 00:58.280
+ So let me ask, does history repeat itself, in which way does it repeat itself, in which
+
+00:58.280 --> 00:59.720
+ way does it not?
+
+00:59.720 --> 01:02.760
+ I'm afraid it repeats itself a lot.
+
+01:02.760 --> 01:05.920
+ So I think human nature kind of is what it is.
+
+01:05.920 --> 01:12.320
+ And so we tend to see similar behavior patterns emerging again and again.
+
+01:12.320 --> 01:20.120
+ And so it's kind of the exception rather than the rule when something new happens.
+
+01:20.120 --> 01:25.600
+ What role does technology play in the suppression or in revealing human nature?
+
+01:25.600 --> 01:33.720
+ Well, the standards of living, life expectancy, all that have gotten incredibly better within
+
+01:33.720 --> 01:36.800
+ the last, particularly the last hundred years.
+
+01:36.800 --> 01:44.200
+ I mean, just antibiotics, modern vaccines, electrification, the internet.
+
+01:44.200 --> 01:51.600
+ These are all improvements in most people's standard of living and health and longevity
+
+01:51.600 --> 01:57.440
+ that exceed anything that was seen before in human history.
+
+01:57.440 --> 02:02.800
+ So people are living longer, they're generally healthier, and so on.
+
+02:02.800 --> 02:09.520
+ But again, we still see a lot of the same behavior patterns, some of which are not very
+
+02:09.520 --> 02:10.520
+ attractive.
+
+02:10.520 --> 02:15.600
+ So some of it has to do with the constraints on resources, presumably with technology you
+
+02:15.600 --> 02:17.640
+ have less and less constraints on resources.
+
+02:17.640 --> 02:22.680
+ So we get to maybe emphasize the better angels of our nature.
+
+02:22.680 --> 02:30.520
+ And in so doing, does that not potentially fundamentally alter the sort of the experience
+
+02:30.520 --> 02:32.120
+ that we have of life on earth?
+
+02:32.120 --> 02:37.940
+ You know, until the last 10 or so years, I would have taken that view, I think.
+
+02:37.940 --> 02:49.000
+ But you know, people will find ways to be divisive and angry if it scratches a kind
+
+02:49.000 --> 02:51.840
+ of psychological itch that they have got.
+
+02:51.840 --> 02:57.640
+ And we used to look at the Weimar Republic, what happened in the economic collapse of
+
+02:57.640 --> 03:09.140
+ Germany prior to the rise of Hitler, World War II, and kind of explain Hitler, at least
+
+03:09.140 --> 03:17.120
+ partially by just the misery that people were living in at that time.
+
+03:17.120 --> 03:18.440
+ The economic collapse.
+
+03:18.440 --> 03:25.560
+ Yeah, hyperinflation and unemployment and the decline in standard of living.
+
+03:25.560 --> 03:29.360
+ And that sounds like a plausible explanation.
+
+03:29.360 --> 03:32.240
+ But there are economic troubles now for sure.
+
+03:32.240 --> 03:36.320
+ We had the bank collapse in 2008.
+
+03:36.320 --> 03:39.920
+ And there's stagnation in some people's standards of living.
+
+03:39.920 --> 03:44.180
+ But it's hard to explain what we've seen in this country in the last few years just strictly
+
+03:44.180 --> 03:49.440
+ on the basis of people are poor and angry and sad.
+
+03:49.440 --> 03:52.180
+ I think they want to be angry.
+
+03:52.180 --> 03:58.960
+ So without being political in a divisive kind of way, can we talk about the lessons you
+
+03:58.960 --> 04:01.400
+ can draw from World War II?
+
+04:01.400 --> 04:02.400
+ Sure.
+
+04:02.400 --> 04:09.100
+ This singular event in human history, it seems like, and yet, as you say, history rhymes
+
+04:09.100 --> 04:10.280
+ at the very least.
+
+04:10.280 --> 04:11.280
+ Yeah.
+
+04:11.280 --> 04:17.620
+ Being who I am, I tend to focus on the curious technological things that happened in conjunction
+
+04:17.620 --> 04:20.160
+ with that war.
+
+04:20.160 --> 04:22.720
+ Which may not be where you want to go.
+
+04:22.720 --> 04:23.720
+ Well, there's several things.
+
+04:23.720 --> 04:24.720
+ Sorry to interrupt.
+
+04:24.720 --> 04:30.400
+ So one in Cryptonomicon is more like the Alan Turing side of things, right?
+
+04:30.400 --> 04:35.240
+ And then there's the outside of technology.
+
+04:35.240 --> 04:38.240
+ First of all, there's the tools of war, which is a kind of technology.
+
+04:38.240 --> 04:41.840
+ But then there's just like the human nature, the nature of good and evil.
+
+04:41.840 --> 04:42.840
+ Yeah.
+
+04:42.840 --> 04:49.040
+ Well, so one of the things that emerges from the war and from the extermination camps is
+
+04:49.040 --> 04:55.200
+ that we were never allowed to have illusions anymore about human nature.
+
+04:55.200 --> 05:03.040
+ So you have to learn that lesson to be an educated person, and you have to know that
+
+05:03.040 --> 05:09.160
+ even in a supposedly enlightened, civilized society, people can become monsters quite
+
+05:09.160 --> 05:10.560
+ easily.
+
+05:10.560 --> 05:13.520
+ So that is for sure the big takeaway.
+
+05:13.520 --> 05:22.680
+ Do you agree with Solzhenitsyn about the line between good and evil runs through the heart
+
+05:22.680 --> 05:23.680
+ of every man?
+
+05:23.680 --> 05:24.680
+ Yeah.
+
+05:24.680 --> 05:26.720
+ That all of us are capable?
+
+05:26.720 --> 05:27.720
+ Great line.
+
+05:27.720 --> 05:28.720
+ Yeah.
+
+05:28.720 --> 05:29.720
+ Of evil?
+
+05:29.720 --> 05:35.480
+ I read a good chunk of the Gulag Archipelago when I was a teenager because my grandfather
+
+05:35.480 --> 05:41.040
+ had it in his house because he was one of these Americans who was obsessed with the
+
+05:41.040 --> 05:49.920
+ Soviet Union and the Soviet threat and wanted people to be aware of some of what had happened.
+
+05:49.920 --> 05:55.800
+ And so he had those books lying around and I would read them.
+
+05:55.800 --> 06:03.440
+ And it's a similar kind of parallel story to what happened in Germany during the war,
+
+06:03.440 --> 06:13.520
+ this creation of this system of camps and oppression and lots of troubling behavior.
+
+06:13.520 --> 06:22.440
+ To me it's a story of how fear and desperation combined with a charismatic leader can lead
+
+06:22.440 --> 06:23.920
+ to evil.
+
+06:23.920 --> 06:31.760
+ But it's also a story of bravery, of love, of brotherhood and sisterhood and basically
+
+06:31.760 --> 06:32.760
+ survival.
+
+06:32.760 --> 06:40.520
+ You have a man's search for meaning, which is the story of a man in a concentration camp
+
+06:40.520 --> 06:45.840
+ basically finding beauty in life even under most extreme conditions.
+
+06:45.840 --> 06:53.600
+ So to me World War II is not necessarily a bleak view of human nature.
+
+06:53.600 --> 07:02.640
+ It's a little moment of evil that revealed a much bigger good in humanity.
+
+07:02.640 --> 07:08.460
+ So I'm not so sure that it leads me to a pessimistic view of the world, the fact that somebody
+
+07:08.460 --> 07:14.040
+ like Hitler could happen, the fact that a lot of people could follow Hitler and get
+
+07:14.040 --> 07:20.920
+ excited and maybe even love the hate of the other for some moment of time.
+
+07:20.920 --> 07:28.000
+ I think all of us are capable of that, but I think all of us also have a capacity for
+
+07:28.000 --> 07:29.120
+ good.
+
+07:29.120 --> 07:36.360
+ And I think, I don't know what you think, but I think we have a greater desire for good
+
+07:36.360 --> 07:38.000
+ than evil.
+
+07:38.000 --> 07:44.600
+ And it seems like that's where technology is very useful as a guide, as a helping hand.
+
+07:44.600 --> 07:45.600
+ Okay.
+
+07:45.600 --> 07:48.600
+ Can you give me an example maybe?
+
+07:48.600 --> 07:54.200
+ So I give you examples of futuristic technologies and I can give you examples of current technologies.
+
+07:54.200 --> 08:04.640
+ Current technologies, knowledge in the form of very basic knowledge, which is like Wikipedia
+
+08:04.640 --> 08:12.000
+ and search the original dream of Google that I think is very much a success, which is making
+
+08:12.000 --> 08:15.240
+ the world's information accessible at your fingertips.
+
+08:15.240 --> 08:24.480
+ That kind of technology enables the natural, if this axiom, this assumption that people
+
+08:24.480 --> 08:31.040
+ want to do good is true, then letting them discover all of the information out there,
+
+08:31.040 --> 08:36.360
+ false information and true information, all of it, and let them explore that's going to
+
+08:36.360 --> 08:40.780
+ lead to a better world, to better people.
+
+08:40.780 --> 08:48.360
+ Fascist technologies is, I personally, I mentioned to you offline, sort of love artificial intelligence.
+
+08:48.360 --> 08:55.440
+ And so AI that's an assistant, that's a guide, like a mentor to you, that you can in the
+
+08:55.440 --> 09:02.160
+ way that Google searches, but smarter, where you can help send it out and say, this is
+
+09:02.160 --> 09:08.760
+ the direction in which I want to grow, not authoritarian lecturing down from the algorithm
+
+09:08.760 --> 09:16.320
+ of telling you this is how you should grow, but almost the opposite, where you use it
+
+09:16.320 --> 09:23.480
+ as an assistant, a servant in your journey towards knowledge.
+
+09:23.480 --> 09:27.240
+ That sounds like an easy thing, but it's actually from an AI perspective very difficult.
+
+09:27.240 --> 09:33.080
+ I mean, this is the theme of a book I wrote called The Diamond Age, which talks about
+
+09:33.080 --> 09:35.840
+ a book that essentially does that.
+
+09:35.840 --> 09:41.920
+ And I've been sort of watching people try to come at the problem of building that thing
+
+09:41.920 --> 09:47.800
+ from different directions for ever since the book came out, basically.
+
+09:47.800 --> 09:55.520
+ And so I kind of have, although I haven't worked on it myself, I do get a sense of the
+
+09:55.520 --> 10:01.920
+ level of difficulty in realizing that goal.
+
+10:01.920 --> 10:10.380
+ So that book is in the 90s, so as Google is coming to be, it's essentially not Google,
+
+10:10.380 --> 10:14.600
+ but the search engine, the initial search engines, which gave birth to Google essentially
+
+10:14.600 --> 10:15.600
+ in contrast.
+
+10:15.600 --> 10:16.600
+ Right.
+
+10:16.600 --> 10:17.600
+ Yeah.
+
+10:17.600 --> 10:18.600
+ Yeah.
+
+10:18.600 --> 10:24.880
+ That was still in the era of Alta Vista and Ask Jeeves and multiple different search engines.
+
+10:24.880 --> 10:28.160
+ And yeah, I'm pretty sure I had not heard of Google at that point.
+
+10:28.160 --> 10:30.200
+ That would have been 95, 96.
+
+10:30.200 --> 10:33.360
+ I think the book came out in 94.
+
+10:33.360 --> 10:39.520
+ And then, of course, the social networks followed, which is another form of guidance through
+
+10:39.520 --> 10:41.080
+ the space of information.
+
+10:41.080 --> 10:42.080
+ Yeah.
+
+10:42.080 --> 10:48.160
+ Well, what happens is that these things come along and then people find ways to game them.
+
+10:48.160 --> 10:55.620
+ And so I saw an interesting thread the other day pointing out that 20 years ago, if you
+
+10:55.620 --> 11:05.280
+ had Googled Pythagorean theorem, chances are you would have been taken directly to a page
+
+11:05.280 --> 11:07.560
+ explaining the Pythagorean theorem.
+
+11:07.560 --> 11:10.720
+ If you do it now, you're probably going to...
+
+11:10.720 --> 11:15.480
+ The top hits are going to be from somebody who's got an angle, who's got a scheme, right?
+
+11:15.480 --> 11:23.440
+ They're trying to sell you math tutoring or they're working some kind of marketing plan
+
+11:23.440 --> 11:25.020
+ on you.
+
+11:25.020 --> 11:33.000
+ So the traditional engines become actually less useful over time for their original educational
+
+11:33.000 --> 11:35.160
+ purpose.
+
+11:35.160 --> 11:41.200
+ That doesn't mean that they shouldn't be replaced by newer and better ones.
+
+11:41.200 --> 11:45.680
+ First of all, to defend the people with the angle, right?
+
+11:45.680 --> 11:50.520
+ They're trying to find business models to fund, oftentimes, which is funny you went
+
+11:50.520 --> 11:58.400
+ with Pythagorean, like you went at math, those greedy bastards, but it's great.
+
+11:58.400 --> 12:01.360
+ How can we monetize the Pythagorean theorem?
+
+12:01.360 --> 12:02.360
+ Yeah.
+
+12:02.360 --> 12:08.320
+ Well, I mean, education, right, is just to figure out like people who love math education,
+
+12:08.320 --> 12:17.280
+ for example, love it purely, not purely, but very often love it for itself, for just teaching
+
+12:17.280 --> 12:18.280
+ math.
+
+12:18.280 --> 12:19.280
+ Yeah.
+
+12:19.280 --> 12:23.520
+ Because, you know, when coming face to face with, for example, like the YouTube algorithm,
+
+12:23.520 --> 12:27.960
+ they start to try to figure out, okay, how can I make money off of this?
+
+12:27.960 --> 12:36.000
+ The primary goal is still that love of education, but they also want to make that love of education
+
+12:36.000 --> 12:38.320
+ their full time job.
+
+12:38.320 --> 12:45.160
+ But I see that sort of that dance of humanity with the algorithms as it finds this kind
+
+12:45.160 --> 12:52.200
+ of local pocket of optimality, or suboptimality, whatever, it gets stuck in it.
+
+12:52.200 --> 12:54.440
+ It's a pocket of some sort.
+
+12:54.440 --> 12:59.520
+ But I see that pocket as way better than what we had before in the 80s, right, or the 90s
+
+12:59.520 --> 13:00.520
+ before the internet.
+
+13:00.520 --> 13:06.000
+ But like, and now we're now, this is also human nature, we start writing very eloquent
+
+13:06.000 --> 13:11.640
+ articles about how this pocket is clearly a pocket, it's not very good, and we can imagine
+
+13:11.640 --> 13:17.280
+ much better lands far beyond, but the reality is it's better than before, and now we're
+
+13:17.280 --> 13:20.280
+ waiting for a new book.
+
+13:20.280 --> 13:21.280
+ Yeah.
+
+13:21.280 --> 13:25.680
+ And you have to wait either for lone geniuses or for some kind of momentum of a group of
+
+13:25.680 --> 13:31.520
+ geniuses that just say, enough is enough, I have an idea, this is how we get out.
+
+13:31.520 --> 13:37.360
+ And it's too easy to be sort of, I think, partially because you can get a lot of clicks
+
+13:37.360 --> 13:42.080
+ in your articles being cynical about being in this pocket, and we are forever stuck in
+
+13:42.080 --> 13:48.800
+ this pocket, and then coming up with this grandiose theory that humanity has finally,
+
+13:48.800 --> 13:54.960
+ like it's collapsing, stuck forever like a prison in this pocket, but reality, it's just
+
+13:54.960 --> 14:01.920
+ clickbait articles and books until one curious ant comes up with the next pocket.
+
+14:01.920 --> 14:06.700
+ Yeah, tunnels through the barrier or gets enough energy to jump over the barrier.
+
+14:06.700 --> 14:12.820
+ And eventually we'll be, as you've talked about, I mean, we'll colonize the solar system,
+
+14:12.820 --> 14:18.320
+ and then we'll be stuck in the solar system, and then people will say, well, we're screwed
+
+14:18.320 --> 14:24.600
+ because when the sun energy runs out, there's no way to get to the next solar system, and
+
+14:24.600 --> 14:25.600
+ so on.
+
+14:25.600 --> 14:28.840
+ It goes on until we colonize the entirety of the observable universe.
+
+14:28.840 --> 14:29.840
+ Yeah.
+
+14:29.840 --> 14:33.480
+ I think getting out of the solar system is going to be a hard one.
+
+14:33.480 --> 14:40.700
+ So can you, you mentioned this, can you elaborate why you think, back to sort of a serious question,
+
+14:40.700 --> 14:44.020
+ why do you think it's hard to get outside of our solar system?
+
+14:44.020 --> 14:46.640
+ It's just an energy calculation.
+
+14:46.640 --> 14:56.340
+ I mean, you can do it slowly whenever you want, but the idea of getting there in one
+
+14:56.340 --> 15:05.340
+ lifetime or a few lifetimes requires huge amounts of energy to accelerate.
+
+15:05.340 --> 15:10.340
+ And then as soon as you get halfway there, you need to expend an equal amount of energy
+
+15:10.340 --> 15:15.060
+ to decelerate, or you'll just go shooting by.
+
+15:15.060 --> 15:18.360
+ And so that means carrying a lot of energy.
+
+15:18.360 --> 15:26.740
+ And there's ideas like Yuri Milner, I think, is still funding the idea to use laser propulsion
+
+15:26.740 --> 15:32.420
+ to send something to another star system, a small object.
+
+15:32.420 --> 15:35.660
+ But it'll have no way to slow down, as far as I know.
+
+15:35.660 --> 15:39.180
+ They never talk about that part, like how do we slow down?
+
+15:39.180 --> 15:40.180
+ Yeah.
+
+15:40.180 --> 15:42.980
+ It's a quick flyby to take a good picture, I guess.
+
+15:42.980 --> 15:45.780
+ Yeah, you better take some good pictures on your way by.
+
+15:45.780 --> 15:49.440
+ So, and that's great if it happens, I'm not knocking it.
+
+15:49.440 --> 15:55.260
+ But the amount of energy that's needed is just staggering, and there's other issues
+
+15:55.260 --> 16:02.740
+ like just how do you maintain an ecosystem for that long in isolation?
+
+16:02.740 --> 16:05.180
+ How do you prevent people from going crazy?
+
+16:05.180 --> 16:09.940
+ What happens if you hit something while traveling at a significant fraction of the speed of
+
+16:09.940 --> 16:10.940
+ light?
+
+16:10.940 --> 16:18.580
+ So that's sort of some combination of expanding human lifespan, but also just good old fashioned,
+
+16:18.580 --> 16:20.860
+ stable society on a spaceship.
+
+16:20.860 --> 16:23.460
+ Yeah, yeah, the generation ship.
+
+16:23.460 --> 16:24.460
+ Yeah, yeah.
+
+16:24.460 --> 16:26.700
+ No, I think that's the only way.
+
+16:26.700 --> 16:31.780
+ It would have to keep going for a long time.
+
+16:31.780 --> 16:38.240
+ And they might get to where they're going and find a shitty solar system.
+
+16:38.240 --> 16:46.620
+ We can try to do some advanced survey, but if you get there and all the planets in that
+
+16:46.620 --> 16:52.860
+ solar system are just garbage planets, then it's kind of a big let down for this like
+
+16:52.860 --> 16:57.620
+ thousand year voyage that you've just been on, right?
+
+16:57.620 --> 17:07.060
+ So we have a pretty narrow range of parameters that we need to stay between in order to survive
+
+17:07.060 --> 17:12.660
+ in terms of the gravitational field that we can deal with.
+
+17:12.660 --> 17:19.360
+ So that sets a bound on the size of the planet and what we need in the way of temperature
+
+17:19.360 --> 17:21.740
+ and atmosphere and so on.
+
+17:21.740 --> 17:31.180
+ So when you look at all those complications, then basically building sort of exactly the
+
+17:31.180 --> 17:36.220
+ environment we want out of available materials in this solar system starts to look a hell
+
+17:36.220 --> 17:39.180
+ of a lot better.
+
+17:39.180 --> 17:47.340
+ It's hard to make an economic argument, let's say, for making that journey.
+
+17:47.340 --> 17:51.420
+ One of the things I like about the expanse is the fact that the people who are trying
+
+17:51.420 --> 17:57.420
+ to build the starship to go to the other solar system are doing it for religious reasons.
+
+17:57.420 --> 18:04.220
+ I think that's the only reason that you would do it because economically it just makes more
+
+18:04.220 --> 18:10.020
+ sense to build rotating cylindrical space habitats and make them perfect.
+
+18:10.020 --> 18:13.260
+ Well, isn't everything done for religious reasons?
+
+18:13.260 --> 18:16.580
+ Like why do we exploration?
+
+18:16.580 --> 18:20.180
+ Why do we go to the moon again and do the other things?
+
+18:20.180 --> 18:23.740
+ What does JFK said is not because they're easy, but because they're hard.
+
+18:23.740 --> 18:25.980
+ Isn't that kind of a religious reason?
+
+18:25.980 --> 18:31.100
+ I knew a veteran of the Apollo program who once said that the Apollo moon landings were
+
+18:31.100 --> 18:34.380
+ communism's greatest achievement.
+
+18:34.380 --> 18:40.500
+ Yeah, so the conflict between nations is a kind of...
+
+18:40.500 --> 18:43.740
+ Not exactly a religion, but it's what you're talking about.
+
+18:43.740 --> 18:49.940
+ Well, it's a struggle for meaning and that meaning isn't found in some kind of...
+
+18:49.940 --> 18:52.220
+ It's hard to find meaning in mathematics.
+
+18:52.220 --> 18:56.540
+ It's found in some kind of in music and religion, whatever, art.
+
+18:56.540 --> 19:02.900
+ Some people do, but those are probably not enough of them to...
+
+19:02.900 --> 19:08.600
+ People that find meaning in mathematics, they usually find meaning between the lines nevertheless,
+
+19:08.600 --> 19:15.780
+ not in the actual proving some kind of thing.
+
+19:15.780 --> 19:22.420
+ So from a cost perspective, do you actually see a possible future where we're building
+
+19:22.420 --> 19:31.420
+ these kind of generation ships and just why not launch them one a year out like wandering
+
+19:31.420 --> 19:36.280
+ ants out into the galaxy?
+
+19:36.280 --> 19:38.420
+ I have nothing against it.
+
+19:38.420 --> 19:46.220
+ It's just, like I said, it's got the motivation to do it has to come from some kind of spiritual
+
+19:46.220 --> 19:50.180
+ or kind of non tangible calculus.
+
+19:50.180 --> 19:54.940
+ So from a business model perspective, you don't think there's a business model there?
+
+19:54.940 --> 19:56.500
+ No, no way.
+
+19:56.500 --> 20:01.460
+ One of the many fascinating things you've done in your life, you were at the very beginning,
+
+20:01.460 --> 20:08.540
+ you were the person that convinced Jeff Bezos to start a spaceship company, a space company.
+
+20:08.540 --> 20:16.040
+ You were there at Blue Origin for a few years in the beginning working on alternate propulsion
+
+20:16.040 --> 20:22.180
+ systems and at least according to Wikipedia, alternate business models.
+
+20:22.180 --> 20:28.700
+ Yeah, I mean, to go back to the first thing you said, Jeff Bezos is not a guy who required
+
+20:28.700 --> 20:31.140
+ a lot of convincing.
+
+20:31.140 --> 20:36.140
+ He'd been thinking about it since he was five years old and it was an inevitability.
+
+20:36.140 --> 20:50.060
+ But the idea that kind of got hatched in 1999 was to just do some advanced scouting work,
+
+20:50.060 --> 20:55.340
+ explore the corners of the space of possibilities.
+
+20:55.340 --> 21:03.460
+ And so that was Blue Operations LLC, which was the precursor to Blue Origin.
+
+21:03.460 --> 21:08.820
+ And so it was a small staff of people that did that for a few years.
+
+21:08.820 --> 21:17.100
+ And I think it was about 2003, 2004 that it swung decisively towards the direction it's
+
+21:17.100 --> 21:24.580
+ been following ever since, which is using basically existing aerospace technologies
+
+21:24.580 --> 21:31.020
+ and models to make chemical fueled rockets for space tourism.
+
+21:31.020 --> 21:36.220
+ I believe and I continue to believe that the fact that we use chemical rockets is just
+
+21:36.220 --> 21:40.860
+ an accident of history that comes out of World War II.
+
+21:40.860 --> 21:48.760
+ So until World War II, rockets are being built on a small scale by people like Robert Goddard.
+
+21:48.760 --> 21:55.620
+ But then Hitler desperately wants to bomb London, but he can't quite reach it and the
+
+21:55.620 --> 21:58.580
+ Luftwaffe has been kind of neutralized.
+
+21:58.580 --> 22:07.580
+ So he decides he's going to lob warheads into it with rockets, which is a terrible misallocation
+
+22:07.580 --> 22:08.580
+ of resources.
+
+22:08.580 --> 22:10.920
+ It's a terrible idea.
+
+22:10.920 --> 22:17.780
+ So it only could have happened in a dictatorship controlled by a lunatic.
+
+22:17.780 --> 22:20.300
+ But that's the situation that existed.
+
+22:20.300 --> 22:25.420
+ So they built these rockets, that's the V2.
+
+22:25.420 --> 22:32.320
+ And then it's just a complete coincidence that that war ends with atomic bombs being
+
+22:32.320 --> 22:37.160
+ developed in a completely separate super weapon program.
+
+22:37.160 --> 22:44.140
+ And so suddenly the existence of the bombs creates a demand for rockets that didn't exist
+
+22:44.140 --> 22:50.420
+ before because if you've got atomic bombs, you need a way to deliver them.
+
+22:50.420 --> 22:56.700
+ You can do it with bombers, but it's a lot better to just hurl them to the other side
+
+22:56.700 --> 23:00.300
+ of the world on the top of a rocket.
+
+23:00.300 --> 23:06.100
+ So suddenly rockets, which had gotten a boost because of Hitler's V2 program, got a much
+
+23:06.100 --> 23:10.740
+ bigger boost during the 50s and 60s.
+
+23:10.740 --> 23:15.500
+ And it is a complete, you're right, for some reason I never thought of this, it is an accident
+
+23:15.500 --> 23:20.580
+ of history that nuclear weapons are developed at a similar time.
+
+23:20.580 --> 23:25.100
+ First of all, nuclear weapons didn't have to be developed at the same time as World
+
+23:25.100 --> 23:26.420
+ War II.
+
+23:26.420 --> 23:27.420
+ That's an accident in history.
+
+23:27.420 --> 23:34.060
+ And then the fact, okay, so then Hitler started using rockets, that's an accident of, okay,
+
+23:34.060 --> 23:35.060
+ that's fascinating.
+
+23:35.060 --> 23:38.620
+ That's a fascinating set of coincidences.
+
+23:38.620 --> 23:42.580
+ Yeah, which is true of a lot of technologies, by the way.
+
+23:42.580 --> 23:50.160
+ By the time these rockets are kind of working, we've got hydrogen bombs that are so big and
+
+23:50.160 --> 23:54.540
+ so devastating that nobody really wants to use them.
+
+23:54.540 --> 24:00.620
+ But it turns out you can fit a capsule with a couple of people in it into the socket on
+
+24:00.620 --> 24:08.140
+ the end of a missile that was made to hold a hydrogen bomb.
+
+24:08.140 --> 24:15.500
+ So we start doing that instead as a proxy for having a war.
+
+24:15.500 --> 24:22.460
+ I'd love to be in the meeting where the first guy brought that up as an idea.
+
+24:22.460 --> 24:23.460
+ It's probably a Russian.
+
+24:23.460 --> 24:25.980
+ Why don't we strap a person to the rocket?
+
+24:25.980 --> 24:26.980
+ Yeah, yeah.
+
+24:26.980 --> 24:30.100
+ Well, it probably was because they did it first, right?
+
+24:30.100 --> 24:31.100
+ The Russians did it first.
+
+24:31.100 --> 24:34.340
+ And they had perhaps less respect for sort of safety protocols.
+
+24:34.340 --> 24:35.340
+ Could be.
+
+24:35.340 --> 24:40.180
+ They were a little bit more willing to sacrifice the life of an astronaut or to risk the life
+
+24:40.180 --> 24:41.180
+ of an astronaut.
+
+24:41.180 --> 24:42.180
+ Could be.
+
+24:42.180 --> 24:43.180
+ Yeah, yeah.
+
+24:43.180 --> 24:47.500
+ This is basically the story of how through all of this competition and because of these
+
+24:47.500 --> 24:56.260
+ historical accidents, trillions of R&D dollars and rubles were put into development of chemical
+
+24:56.260 --> 25:02.120
+ rocket technology, which has now advanced to an incredibly high degree.
+
+25:02.120 --> 25:08.220
+ But there's other ways to make things go really fast, which is all that rockets do.
+
+25:08.220 --> 25:09.340
+ That's all orbit is.
+
+25:09.340 --> 25:12.620
+ It's just going really fast.
+
+25:12.620 --> 25:19.620
+ And because so many nerds are obsessed with space, people have been thinking about alternate
+
+25:19.620 --> 25:24.440
+ schemes for as long as they've been thinking about rockets.
+
+25:24.440 --> 25:33.020
+ And so one of the first things that I learned kind of trying to explore new possibilities
+
+25:33.020 --> 25:42.020
+ was that I could put all of my brainpower to work and be creative as I could and invent
+
+25:42.020 --> 25:46.540
+ some idea that I thought was new for making things go fast.
+
+25:46.540 --> 25:51.760
+ And I would always find out that some guy in Russia or somewhere had thought the same
+
+25:51.760 --> 25:57.620
+ idea up 50 years ago and figured out all the math.
+
+25:57.620 --> 26:03.940
+ And so at a certain point, you give up on trying to invent completely new ideas and
+
+26:03.940 --> 26:10.100
+ just go poking around trying to find those guys.
+
+26:10.100 --> 26:15.420
+ So there's a number of ideas that we looked at.
+
+26:15.420 --> 26:18.540
+ Some are crazier, some are less crazy.
+
+26:18.540 --> 26:23.740
+ And the direction that that company eventually took was chemical rockets.
+
+26:23.740 --> 26:26.660
+ Is there something you can comment on possible ideas?
+
+26:26.660 --> 26:34.380
+ So first of all, you could use nuclear, so nuclear propulsion.
+
+26:34.380 --> 26:35.380
+ Yeah.
+
+26:35.380 --> 26:40.860
+ So that's, I mean, you've probably heard of Project Orion, which was the...
+
+26:40.860 --> 26:50.180
+ Freeman Dyson and some of his collaborators had a scheme to power a large space vehicle
+
+26:50.180 --> 26:53.580
+ by detonating atomic bombs behind it.
+
+26:53.580 --> 26:58.700
+ And so one of the other people who was working at Blue Operations during this time was George
+
+26:58.700 --> 27:01.280
+ Dyson, the son of Freeman.
+
+27:01.280 --> 27:08.220
+ And so we knew all about Project Orion and he found an old film that they'd shot on a
+
+27:08.220 --> 27:16.420
+ beach in La Jolla of a prototype of this that was powered by like lumps of C4.
+
+27:16.420 --> 27:21.820
+ So that was an idea, but for a private company, obtaining a large number of atomic bombs was
+
+27:21.820 --> 27:23.420
+ probably out of scope.
+
+27:23.420 --> 27:27.340
+ So it was more of a theoretical thing.
+
+27:27.340 --> 27:38.420
+ There's a conceptually similar approach using lasers that Freeman worked on with Arthur
+
+27:38.420 --> 27:44.620
+ Kantrowitz and some others, where you take a pulsed laser and you fire it at a vehicle
+
+27:44.620 --> 27:47.480
+ that has a block of ice on the back.
+
+27:47.480 --> 27:55.600
+ And the pulse hits the ice and flashes off a layer of steam that becomes plasma.
+
+27:55.600 --> 27:58.420
+ And plasma is opaque because it conducts.
+
+27:58.420 --> 28:04.380
+ And so being opaque, it then absorbs all of the energy from the laser pulse and gets
+
+28:04.380 --> 28:10.060
+ really hot and just pushes on the back of the block of ice.
+
+28:10.060 --> 28:14.140
+ And then you wait a moment for that to dissipate and then you do it again.
+
+28:14.140 --> 28:19.140
+ So it would just kind of vibrate its way.
+
+28:19.140 --> 28:23.380
+ Like it sounds really violent, but Freeman said that if you were wearing like rubber
+
+28:23.380 --> 28:31.060
+ sold tennis shoes standing in this vehicle, you would just feel a mild vibration.
+
+28:31.060 --> 28:35.420
+ So there your source of energy is on the ground and you're getting higher specific impulse
+
+28:35.420 --> 28:39.480
+ than you could get by burning chemicals.
+
+28:39.480 --> 28:47.740
+ Jordan Kerr and others worked on another laser system, the late Dr. Jordan Kerr, that just
+
+28:47.740 --> 28:55.500
+ would heat up a heat exchanger by many converging solid state lasers from the ground.
+
+28:55.500 --> 29:05.180
+ And Kevin Parkin works on a similar scheme that just uses microwaves to do that.
+
+29:05.180 --> 29:07.420
+ We looked at tall towers.
+
+29:07.420 --> 29:13.940
+ I spent a while looking kind of semi seriously at giant bullwhips.
+
+29:13.940 --> 29:15.460
+ What's a bullwhip?
+
+29:15.460 --> 29:19.580
+ Just a whip, you have them here in Texas, right?
+
+29:19.580 --> 29:21.980
+ Yeah, I understand.
+
+29:21.980 --> 29:23.940
+ But how does that have to do with propulsion?
+
+29:23.940 --> 29:29.580
+ If you think about it, a whip is an incredibly simple primitive object that can break the
+
+29:29.580 --> 29:31.880
+ speed of sound.
+
+29:31.880 --> 29:39.860
+ So it's unbelievable in a way that for thousands of years, people with no technology have been
+
+29:39.860 --> 29:49.100
+ able to accelerate objects through the speed of sound just through an architectural trick.
+
+29:49.100 --> 29:58.940
+ Just the physics of a moving bend of material in a medium can do this.
+
+29:58.940 --> 30:02.300
+ So that's the thing I still think about from time to time.
+
+30:02.300 --> 30:10.940
+ You can use the same physics to make freestanding loops of chain or other flexible materials
+
+30:10.940 --> 30:14.700
+ that just kind of stand up under their own physics.
+
+30:14.700 --> 30:19.900
+ I mean, it's kind of awesome to imagine.
+
+30:19.900 --> 30:28.220
+ So imagine using the same kind of physics of a whip, but have at the end of it a spaceship.
+
+30:28.220 --> 30:34.220
+ That would detach at the moment of maximum velocity.
+
+30:34.220 --> 30:36.900
+ Why not?
+
+30:36.900 --> 30:37.900
+ Why wouldn't that?
+
+30:37.900 --> 30:43.260
+ So part of my motivation in studying that was to ask that question.
+
+30:43.260 --> 30:52.560
+ It was more almost a symbolic way of saying, look, there's all kinds of physics we haven't
+
+30:52.560 --> 30:55.200
+ explored yet.
+
+30:55.200 --> 31:01.500
+ It's no more crazy than the idea of chemical rockets.
+
+31:01.500 --> 31:08.100
+ It's just that more money's gone into chemical rockets, right?
+
+31:08.100 --> 31:14.440
+ Can I ask you a question on propulsion that's a little bit more out there?
+
+31:14.440 --> 31:21.860
+ So I don't know if you've seen quite a lot of recent articles and reports and so on about
+
+31:21.860 --> 31:26.660
+ UFOs, like the Tic Tac aircraft.
+
+31:26.660 --> 31:32.740
+ I keep seeing a lot of chatter about it, but I haven't gone deep into it.
+
+31:32.740 --> 31:42.420
+ So the DOD released footage filmed by pilots, and there's a lot of reports about objects
+
+31:42.420 --> 31:49.620
+ that moved in ways they haven't seen before that seem to defy the laws of physics if we
+
+31:49.620 --> 31:52.640
+ consider the aircraft that we have today.
+
+31:52.640 --> 32:02.420
+ So the reason I asked you that is because it kind of, to me, whatever the heck it is,
+
+32:02.420 --> 32:08.040
+ it's inspiring for the possibilities of ideas for propulsion.
+
+32:08.040 --> 32:15.020
+ If it's like secret projects from foreign nations or it's physical phenomena that we
+
+32:15.020 --> 32:20.500
+ don't yet understand, like ball lightning, all those kinds of things, or if it is aliens
+
+32:20.500 --> 32:23.740
+ or objects from an alien civilization.
+
+32:23.740 --> 32:28.980
+ I most likely believe if it's an object from an alien civilization, it's got to be like
+
+32:28.980 --> 32:32.660
+ a really dumb drone that just got lost.
+
+32:32.660 --> 32:37.100
+ It's definitely not like the pinnacle of intelligence.
+
+32:37.100 --> 32:42.180
+ It's like some teenager's science fair experiment.
+
+32:42.180 --> 32:47.660
+ Yeah, it just flew for a few centuries out and just landed, and then we humans are all
+
+32:47.660 --> 32:51.820
+ like really excited about this wild thing.
+
+32:51.820 --> 32:54.940
+ I mean, what do you think about those...
+
+32:54.940 --> 32:57.420
+ First of all, like the millions of reports of UFOs, right?
+
+32:57.420 --> 33:03.520
+ There's some psychology there that's deeply cultural, but also the possibility of aliens
+
+33:03.520 --> 33:05.020
+ having visited Earth.
+
+33:05.020 --> 33:09.420
+ Yeah, I mean, I'd like to see some better pictures.
+
+33:09.420 --> 33:14.300
+ For the reason I mentioned earlier, having to do with the difficulty of traveling between
+
+33:14.300 --> 33:19.460
+ star systems, it's really hard for me to believe it's aliens.
+
+33:19.460 --> 33:25.600
+ I just can't understand why you would go to all that trouble to transport something across
+
+33:25.600 --> 33:32.420
+ light years and then do what these UFOs are allegedly doing.
+
+33:32.420 --> 33:34.040
+ Like how is that interesting?
+
+33:34.040 --> 33:36.420
+ How does that justify the trip?
+
+33:36.420 --> 33:45.540
+ So if you travel across those kinds of distances, you would make a bigger splash.
+
+33:45.540 --> 33:51.340
+ First of all, I would expect that the arrival of these things would be something we'd notice.
+
+33:51.340 --> 33:58.300
+ It's got to decelerate into our solar system unless it got here really, really, really
+
+33:58.300 --> 33:59.300
+ slowly.
+
+33:59.300 --> 34:04.200
+ So I guess that's a possibility and just kind of snuck in.
+
+34:04.200 --> 34:08.020
+ So at the end, we would detect some kind of footprint in terms of energy.
+
+34:08.020 --> 34:09.080
+ You would think.
+
+34:09.080 --> 34:17.280
+ So I actually think your idea of a science fair project gone bad, it makes more sense
+
+34:17.280 --> 34:23.760
+ in that it would explain why if these things are alien technologies, they're just kind
+
+34:23.760 --> 34:32.300
+ of hanging around our aircraft carriers for no particular reason, like not trying to communicate.
+
+34:32.300 --> 34:39.420
+ Can you imagine a scenario where aliens have visited Earth or are visiting Earth and we
+
+34:39.420 --> 34:41.180
+ wouldn't notice it at all?
+
+34:41.180 --> 34:42.180
+ Oh, sure.
+
+34:42.180 --> 34:48.580
+ I mean, if they've got technology to get here, they've probably got technology to conceal
+
+34:48.580 --> 34:50.940
+ the fact that they're trying to conceal themselves.
+
+34:50.940 --> 34:56.380
+ I meant more like they're not trying to conceal themselves, but we're just our cognitive capabilities
+
+34:56.380 --> 35:00.940
+ are like too limited and we are not thinking big enough.
+
+35:00.940 --> 35:05.500
+ We're looking for little green men, we're looking for things that operate at a time
+
+35:05.500 --> 35:10.940
+ scale that's human like, you know.
+
+35:10.940 --> 35:13.260
+ I love thinking about ideas like that.
+
+35:13.260 --> 35:20.080
+ That's great science fiction novel fodder that the aliens are so different that we simply
+
+35:20.080 --> 35:22.540
+ don't see them.
+
+35:22.540 --> 35:29.860
+ Is there, in terms of language, do you think it would be difficult, not aliens visiting
+
+35:29.860 --> 35:34.140
+ us but traveling to other places to find a common language?
+
+35:34.140 --> 35:41.800
+ You've written about the importance of language in intelligent civilizations.
+
+35:41.800 --> 35:47.420
+ How difficult is the problem to bridge the gap between aliens and humans in terms of
+
+35:47.420 --> 35:50.100
+ language so we're not lost in translation?
+
+35:50.100 --> 35:54.460
+ Yeah, I mean, there's different takes on that depending on how biologically similar they
+
+35:54.460 --> 35:56.540
+ are to us, you know.
+
+35:56.540 --> 36:04.380
+ I mean, there's a school of thought that says, basically, advanced life has to be carbon
+
+36:04.380 --> 36:07.560
+ based for just reasons of chemistry.
+
+36:07.560 --> 36:14.460
+ So right away, if you impose that limitation, then you're kind of assuming something that's
+
+36:14.460 --> 36:17.660
+ starting to be biologically similar to us.
+
+36:17.660 --> 36:25.660
+ So if they're about as big as we are and they kind of move around in space, in a physical
+
+36:25.660 --> 36:32.840
+ body the way we do, then there's probably a way to solve that communication problem.
+
+36:32.840 --> 36:40.300
+ If they're beings of pure energy from Star Trek or something like that, then it's a different
+
+36:40.300 --> 36:41.300
+ story.
+
+36:41.300 --> 36:42.500
+ Well, I love thinking about that kind of stuff too.
+
+36:42.500 --> 36:47.700
+ I mean, consciousness itself may be alien.
+
+36:47.700 --> 36:55.140
+ I mean, it could be, like you said, beings of pure energy.
+
+36:55.140 --> 37:01.220
+ I think of life as just complex systems, and the kind of forms those complex systems can
+
+37:01.220 --> 37:06.900
+ take seems to be much larger than the particular biological systems we see here on Earth.
+
+37:06.900 --> 37:11.420
+ I have to ask a Twitter question about aliens.
+
+37:11.420 --> 37:12.420
+ You ready?
+
+37:12.420 --> 37:13.420
+ This is for Twitter.
+
+37:13.420 --> 37:14.420
+ I'm ready.
+
+37:14.420 --> 37:15.700
+ What would you expect from Twitter?
+
+37:15.700 --> 37:19.540
+ Can humans have sex with aliens?
+
+37:19.540 --> 37:20.540
+ Neil Stevenson.
+
+37:20.540 --> 37:24.540
+ You could pass.
+
+37:24.540 --> 37:25.900
+ I asked a language question.
+
+37:25.900 --> 37:26.900
+ Can they communicate?
+
+37:26.900 --> 37:27.900
+ Yeah.
+
+37:27.900 --> 37:30.980
+ Can they fall in love before sex?
+
+37:30.980 --> 37:33.660
+ That's how it works.
+
+37:33.660 --> 37:35.420
+ So which question am I answering?
+
+37:35.420 --> 37:37.820
+ The sex or the love?
+
+37:37.820 --> 37:45.300
+ I mean, it depends what is more fundamental to relations across intelligent species.
+
+37:45.300 --> 37:46.300
+ Yeah.
+
+37:46.300 --> 37:49.980
+ I mean, sex can mean a lot of things.
+
+37:49.980 --> 37:51.980
+ So I mean, if you're...
+
+37:51.980 --> 37:53.260
+ Your production, right?
+
+37:53.260 --> 38:02.660
+ You know, in Star Trek, in classic Star Trek, you had to really suspend your disbelief to
+
+38:02.660 --> 38:07.940
+ think that Spock was half Vulcan and half human, right?
+
+38:07.940 --> 38:15.900
+ Because that's just not going to work DNA wise.
+
+38:15.900 --> 38:26.820
+ So if by sex, you mean reproductive sex, then I would say no, unless you go to a panspermia
+
+38:26.820 --> 38:34.980
+ kind of theory, which is that, you know, humans were seeded onto the planet as part of a galactic,
+
+38:34.980 --> 38:40.100
+ you know, program of some sort.
+
+38:40.100 --> 38:44.500
+ And then we're just returning home, hanging out with our old relatives.
+
+38:44.500 --> 38:45.500
+ Distant cousins.
+
+38:45.500 --> 38:46.500
+ Yeah.
+
+38:46.500 --> 38:52.260
+ But that doesn't seem, you know, it doesn't seem plausible.
+
+38:52.260 --> 39:00.620
+ We know that humans had sex with Neanderthals, with Denisovans, so you could think of them
+
+39:00.620 --> 39:06.860
+ as aliens that came from our planet.
+
+39:06.860 --> 39:11.780
+ So that's a kind of data point, I guess.
+
+39:11.780 --> 39:19.700
+ But you know, if you broaden your definition of sex to mean any kind of gratifying physical
+
+39:19.700 --> 39:21.900
+ interaction then sure.
+
+39:21.900 --> 39:22.900
+ Right.
+
+39:22.900 --> 39:23.900
+ Dancing.
+
+39:23.900 --> 39:27.100
+ And that's how we get to love.
+
+39:27.100 --> 39:28.540
+ And love can take many forms.
+
+39:28.540 --> 39:30.260
+ Love can certainly take many forms.
+
+39:30.260 --> 39:36.260
+ I have to ask you, in terms of space, just looking at where Blue Origin is, looking at
+
+39:36.260 --> 39:43.780
+ where SpaceX is today, and maybe looking out 10, 20 years out from now, are you impressed
+
+39:43.780 --> 39:44.780
+ at what's happening?
+
+39:44.780 --> 39:47.460
+ We just saw William Shatner go up to space.
+
+39:47.460 --> 39:51.820
+ Yeah, I was just watching his video this morning before I came here.
+
+39:51.820 --> 39:52.820
+ Yeah.
+
+39:52.820 --> 39:54.700
+ Are you impressed at where things stand today?
+
+39:54.700 --> 39:55.700
+ Yeah.
+
+39:55.700 --> 40:03.660
+ I mean, SpaceX in particular has done things that are just unbelievable.
+
+40:03.660 --> 40:12.100
+ And I don't think anyone was anticipating 20 years ago, let's say, when this all started,
+
+40:12.100 --> 40:19.260
+ just the speed with which they'd be able to rack up these incredible achievements.
+
+40:19.260 --> 40:26.520
+ If you've kind of even seen a little bit of how the sausage is made and so the difficulty
+
+40:26.520 --> 40:36.820
+ of doing any kind of space travel, what they've achieved is just unbelievable.
+
+40:36.820 --> 40:40.980
+ What about maybe a question about Elon Musk?
+
+40:40.980 --> 40:50.140
+ Even more than Jeff Bezos, he has a very kind of ambitious vision of this project that we're
+
+40:50.140 --> 40:58.140
+ on as a species, of becoming a multi planetary species and becoming that quickly, as soon
+
+40:58.140 --> 41:01.300
+ as possible, landing on Mars, colonizing Mars.
+
+41:01.300 --> 41:03.100
+ What do you think of that project?
+
+41:03.100 --> 41:04.100
+ There's two questions to ask.
+
+41:04.100 --> 41:09.060
+ First, the question is, what do you think about the project of colonizing Mars?
+
+41:09.060 --> 41:19.420
+ And second, what do you think about a human being who is so unapologetically ambitious
+
+41:19.420 --> 41:23.420
+ at achieving the impossible, what a lot of people would say is impossible?
+
+41:23.420 --> 41:32.580
+ I think that colonizing Mars is the kind of goal that's easily stated.
+
+41:32.580 --> 41:34.340
+ It's catchy.
+
+41:34.340 --> 41:41.020
+ It's the kind of thing that can inspire people to get involved in a way that some other programs
+
+41:41.020 --> 41:42.020
+ might not.
+
+41:42.020 --> 41:45.740
+ So I think it's well chosen in that way.
+
+41:45.740 --> 41:54.260
+ I have technical questions about, there's a problem of perchlorates on the surface of
+
+41:54.260 --> 41:58.060
+ Mars that's going to be big trouble.
+
+41:58.060 --> 42:00.540
+ And there's radiation.
+
+42:00.540 --> 42:04.060
+ This is known.
+
+42:04.060 --> 42:05.460
+ What about business questions?
+
+42:05.460 --> 42:12.140
+ Do you think, because you mentioned sort of going outside of the solar system would best
+
+42:12.140 --> 42:15.620
+ be done for religious reasons.
+
+42:15.620 --> 42:17.820
+ What about colonizing Mars?
+
+42:17.820 --> 42:20.460
+ Can you spin it into a business proposition?
+
+42:20.460 --> 42:27.660
+ It's hard to think of a resource that's on Mars that could be brought back here cheaply
+
+42:27.660 --> 42:37.020
+ enough to compete with stuff we could just dig out of the ground here or grow here.
+
+42:37.020 --> 42:42.480
+ So I don't know if there is a business plan for that or if it's just strictly we're going
+
+42:42.480 --> 42:49.140
+ to go there and see what happens.
+
+42:49.140 --> 42:55.860
+ Maybe again we need communism to get us going, to give us a reason, a little bit of the competition.
+
+42:55.860 --> 43:02.180
+ Well there's plenty of people who are sufficiently excited by the colonize Mars vision that they're
+
+43:02.180 --> 43:12.180
+ willing to just go all in on it, even if there's not a business plan behind it.
+
+43:12.180 --> 43:17.540
+ But I think it's well chosen.
+
+43:17.540 --> 43:23.620
+ I think it's probably the only approach to take.
+
+43:23.620 --> 43:32.340
+ A lot of the, when white people came to this continent and started colonizing it, there
+
+43:32.340 --> 43:35.620
+ was not a lot of coherent planning.
+
+43:35.620 --> 43:40.860
+ What plans they did have turned out to be terrible plans.
+
+43:40.860 --> 43:47.660
+ Trying to come up with plans that extend decades into the future is a waste of time.
+
+43:47.660 --> 43:58.700
+ So do it for the kind of unexplainable love of the unknown, like the journey towards exploring
+
+43:58.700 --> 44:03.100
+ the unknown and just kind of keep going.
+
+44:03.100 --> 44:10.380
+ You saw it with Shatner and his reaction to the flight yesterday.
+
+44:10.380 --> 44:20.060
+ He, for him that trip was more than worth it just for these intangible reasons.
+
+44:20.060 --> 44:21.060
+ What did he say?
+
+44:21.060 --> 44:22.180
+ I haven't watched the video yet.
+
+44:22.180 --> 44:28.700
+ He was trying to express, talking a lot about the moment where suddenly you kind of rise
+
+44:28.700 --> 44:37.340
+ above the thin blue blanket of the atmosphere and you're up into the blackness.
+
+44:37.340 --> 44:41.060
+ And that had a huge impact on him.
+
+44:41.060 --> 44:45.860
+ So he was kind of, I wouldn't say groping for words because he was pretty eloquent,
+
+44:45.860 --> 44:52.980
+ but he was trying to express his feelings about that in a way that is pretty gripping
+
+44:52.980 --> 44:55.980
+ to watch.
+
+44:55.980 --> 45:00.660
+ So you worked on this kind of stuff, we can go back 10 years ago.
+
+45:00.660 --> 45:03.980
+ You wrote an essay called Innovation Starvation.
+
+45:03.980 --> 45:13.300
+ You worked on this kind of idea since then, kind of looking at maybe a little bit cynically
+
+45:13.300 --> 45:19.980
+ about our age today and our unwillingness to take on big risky projects.
+
+45:19.980 --> 45:23.540
+ So in the face of that, what do you think of people like Elon Musk?
+
+45:23.540 --> 45:31.620
+ Because to me, people like that are inspiring and gives you hope in the face of a more kind
+
+45:31.620 --> 45:36.300
+ of pessimistic perspective of our age.
+
+45:36.300 --> 45:45.900
+ Yeah, well he's clearly willing to tackle big ambitious projects without a lot of kind
+
+45:45.900 --> 45:52.540
+ of soul searching or trying to make up his mind, right?
+
+45:52.540 --> 45:58.020
+ It's just like, let's dig tunnels under cities.
+
+45:58.020 --> 45:59.020
+ Go.
+
+45:59.020 --> 46:02.620
+ Step one, make a joke about it on Twitter.
+
+46:02.620 --> 46:04.820
+ Step two, actually do it.
+
+46:04.820 --> 46:05.820
+ Yeah.
+
+46:05.820 --> 46:06.820
+ Yeah.
+
+46:06.820 --> 46:09.740
+ And I mean, things have slowed down quite a bit.
+
+46:09.740 --> 46:19.780
+ Our ability to build things at pace is a lot less than it was, and there's reasons for
+
+46:19.780 --> 46:20.780
+ that.
+
+46:20.780 --> 46:26.700
+ We're more concerned with safety and environmental impacts than people were when they were building
+
+46:26.700 --> 46:32.540
+ some of the great Publixworks projects of the mid 20th century.
+
+46:32.540 --> 46:36.880
+ But we're at the point now where even just maintaining the stuff that we've got is such
+
+46:36.880 --> 46:45.420
+ a huge project that we need to put big resources into it and good minds into it, or else we're
+
+46:45.420 --> 46:52.300
+ going to be losing things that we take for granted.
+
+46:52.300 --> 46:57.020
+ Do you think that there's a lot to be done in the digital space?
+
+46:57.020 --> 47:02.300
+ You mentioned sort of Wikipedia and knowledge, don't you think there could be a lot of flourishing
+
+47:02.300 --> 47:06.700
+ in the space of innovation, in terms of innovation in the digital space?
+
+47:06.700 --> 47:08.860
+ Yeah, I mean, I'd like to see that.
+
+47:08.860 --> 47:16.880
+ I think it's where a lot of the brainpower went during the last couple of generations,
+
+47:16.880 --> 47:24.700
+ because people who might previously have been building rockets or other kinds of hard technologies
+
+47:24.700 --> 47:33.620
+ ended up instead going into programming, computer science, which is understandable and great.
+
+47:33.620 --> 47:38.580
+ We've got structural problems right now in the way social media works that are pretty
+
+47:38.580 --> 47:46.060
+ severe, and so I certainly hope that we're not, 10 years from now, that we're not exactly
+
+47:46.060 --> 47:49.740
+ where we are today when it comes to that stuff.
+
+47:49.740 --> 47:51.780
+ We need to move on.
+
+47:51.780 --> 47:59.180
+ The beautiful thing about problems is they show you how not to do things, and they give
+
+47:59.180 --> 48:07.660
+ opportunity to new ideas to flourish and to beat out the ideas of the old, which is a
+
+48:07.660 --> 48:15.700
+ dream for me to see new social media that beats out the ways of the old.
+
+48:15.700 --> 48:21.700
+ So I tend to, you perhaps agree that it's not, that it's impossible to do social media
+
+48:21.700 --> 48:22.700
+ well.
+
+48:22.700 --> 48:23.700
+ Oh, not at all.
+
+48:23.700 --> 48:28.300
+ I mean, I listened to your interview with Jaren a couple of weeks ago, and I know Jaren,
+
+48:28.300 --> 48:31.520
+ and we've talked about this.
+
+48:31.520 --> 48:32.800
+ He went hard on me.
+
+48:32.800 --> 48:35.220
+ He basically said, like, it's impossible.
+
+48:35.220 --> 48:36.860
+ It was very nice.
+
+48:36.860 --> 48:42.600
+ Well, the last time I kind of paid attention to Jaren's thoughts on it, he was thinking
+
+48:42.600 --> 48:50.940
+ in terms of that basically there should be micro payments such that if I, by clicking
+
+48:50.940 --> 49:01.020
+ the like button on something, I'm essentially giving valuable intellectual property to Facebook
+
+49:01.020 --> 49:03.220
+ or Twitter or whatever.
+
+49:03.220 --> 49:08.980
+ It's not a very large amount of IP, but it's definitely a transfer of information that
+
+49:08.980 --> 49:12.060
+ when they aggregate it is beneficial to them.
+
+49:12.060 --> 49:20.980
+ So and now I do remember that he, on his interview with you, was talking about what, data unions
+
+49:20.980 --> 49:21.980
+ or?
+
+49:21.980 --> 49:22.980
+ Yeah.
+
+49:22.980 --> 49:28.780
+ Those are a lot of interesting ideas, but for me, the biggest disagreement was in the
+
+49:28.780 --> 49:30.880
+ level of cynicism.
+
+49:30.880 --> 49:36.820
+ He has a distrust and cynicism towards people in Silicon Valley being able to do these kinds
+
+49:36.820 --> 49:38.140
+ of things.
+
+49:38.140 --> 49:43.940
+ And I'm really, okay, when you have a large crowd of people that are doing things the
+
+49:43.940 --> 49:50.860
+ wrong way, you should nevertheless maintain optimism because what's important is to find
+
+49:50.860 --> 49:54.100
+ the one person in that room that's going to do things the right way.
+
+49:54.100 --> 49:57.780
+ Cynicism is going to completely silence out the whole room.
+
+49:57.780 --> 50:00.740
+ So he was saying, I've been here a long time.
+
+50:00.740 --> 50:01.740
+ Oh yeah.
+
+50:01.740 --> 50:09.060
+ I've known, you know, I understand like how these folks work, they think they're gods
+
+50:09.060 --> 50:15.340
+ and they know the right way to do things and they will tell you how to do those things.
+
+50:15.340 --> 50:20.460
+ And that kind of hubris is going to always lead you astray when you are the one who's
+
+50:20.460 --> 50:22.820
+ engineering the algorithms.
+
+50:22.820 --> 50:27.620
+ And there's a lot of deep truth to that because algorithms are powerful.
+
+50:27.620 --> 50:32.820
+ And many people when given power do not do the best of things.
+
+50:32.820 --> 50:38.620
+ I mean, most, what is it, the old Lincoln line, if you want to test the man's character,
+
+50:38.620 --> 50:39.620
+ give him power.
+
+50:39.620 --> 50:40.620
+ Yeah.
+
+50:40.620 --> 50:41.620
+ Yes.
+
+50:41.620 --> 50:46.100
+ But that doesn't mean that some people are not able to handle the power, that some people
+
+50:46.100 --> 50:51.020
+ are not able to come up with good ideas that create better social media.
+
+50:51.020 --> 50:58.060
+ Yeah, I didn't interpret Jaren's statements as being entirely cynical and hopeless.
+
+50:58.060 --> 51:03.540
+ He's definitely raising, you know, issues of concern.
+
+51:03.540 --> 51:07.220
+ But he wouldn't be out, you know, writing the books that he's written and talking about
+
+51:07.220 --> 51:09.500
+ this stuff if he didn't think there was a way.
+
+51:09.500 --> 51:11.460
+ If he didn't think there was hope, yeah.
+
+51:11.460 --> 51:15.380
+ And part of it, as you probably know with Jaren, he just loves a good argument.
+
+51:15.380 --> 51:16.380
+ Yeah.
+
+51:16.380 --> 51:19.740
+ He just loves to have a little bit of fun.
+
+51:19.740 --> 51:27.780
+ Well I have to ask you about, I mean, we talked about taking all big, bold, risky ideas.
+
+51:27.780 --> 51:33.100
+ So in your new book, Termination Shock, it's set here in Texas.
+
+51:33.100 --> 51:34.100
+ Part of it is, yeah.
+
+51:34.100 --> 51:35.100
+ Yeah.
+
+51:35.100 --> 51:36.100
+ Most of it.
+
+51:36.100 --> 51:37.100
+ Yeah.
+
+51:37.100 --> 51:38.100
+ It's a great place to set it.
+
+51:38.100 --> 51:43.460
+ So in it, the main character, TR McCooligan, a Texas billionaire oil man and truck stop
+
+51:43.460 --> 51:48.460
+ magnate, decides to solve climate change, to take on climate change by himself.
+
+51:48.460 --> 51:54.580
+ So this is an interesting philosophical exploration of how to solve climate change from a perspective
+
+51:54.580 --> 51:57.740
+ that's perhaps different than we've been thinking about.
+
+51:57.740 --> 52:04.980
+ I wouldn't use the word solve, but let's say ameliorate the temporary effects.
+
+52:04.980 --> 52:05.980
+ But please.
+
+52:05.980 --> 52:06.980
+ Take on.
+
+52:06.980 --> 52:07.980
+ Yeah.
+
+52:07.980 --> 52:08.980
+ Take on the challenge.
+
+52:08.980 --> 52:15.380
+ So it's very interesting, but as, so there's a gradual nature to this process.
+
+52:15.380 --> 52:28.340
+ And I mean, just like in your book, the power of innovation is something that has saved
+
+52:28.340 --> 52:30.900
+ us quite a few times in history.
+
+52:30.900 --> 52:34.620
+ So what role does that play in this gradual process?
+
+52:34.620 --> 52:35.620
+ Right.
+
+52:35.620 --> 52:43.900
+ So ultimately we don't solve the problem until we get the CO2 out of the atmosphere.
+
+52:43.900 --> 52:46.940
+ But that is going to take a while.
+
+52:46.940 --> 52:49.080
+ We're still adding more.
+
+52:49.080 --> 52:52.500
+ We haven't even started to reduce the amount.
+
+52:52.500 --> 52:58.920
+ So there's two possibilities inside to interrupt is reduce the amount that we're putting in
+
+52:58.920 --> 53:03.700
+ the atmosphere and two is removing what we got in the atmosphere.
+
+53:03.700 --> 53:04.700
+ We have to do both.
+
+53:04.700 --> 53:05.700
+ Right.
+
+53:05.700 --> 53:11.020
+ And those are two different kind of efforts in terms of like what's involved.
+
+53:11.020 --> 53:12.600
+ Because it stays up there.
+
+53:12.600 --> 53:19.140
+ So I think just last week, China announced that they're going to try to level off their
+
+53:19.140 --> 53:23.380
+ CO2 emissions in like 2030.
+
+53:23.380 --> 53:30.500
+ So 2031, they'll only put as much CO2 into the atmosphere as they did in 2030, which
+
+53:30.500 --> 53:36.820
+ is still a lot of CO2 in 2060, they're saying will be net zero.
+
+53:36.820 --> 53:42.780
+ So if everyone in the world does that and the PPM of CO2 in the atmosphere by then is
+
+53:42.780 --> 53:51.860
+ say 450 parts per million, it'll stay at 450 parts per million until we take it out.
+
+53:51.860 --> 53:54.820
+ And taking it out is hard.
+
+53:54.820 --> 53:58.340
+ It's a big, it took us a long time.
+
+53:58.340 --> 54:04.260
+ We had to empty out huge coal mines and oil reservoirs and burn all that stuff.
+
+54:04.260 --> 54:11.380
+ We had to chop down forests and dig up peat bogs in order to create all of that CO2.
+
+54:11.380 --> 54:19.660
+ And so we have to reverse all of those processes somehow in order to remove the CO2 and get
+
+54:19.660 --> 54:26.420
+ it back down, hopefully into the 200 and some parts per million range where it used to be.
+
+54:26.420 --> 54:32.320
+ So how about you get a single Texas billionaire to have a massive gun that blasts huge quantities
+
+54:32.320 --> 54:35.660
+ of sulfur into the upper atmosphere.
+
+54:35.660 --> 54:38.320
+ That's idea number one.
+
+54:38.320 --> 54:40.700
+ This is called solar geoengineering.
+
+54:40.700 --> 54:46.540
+ And it's a, we know that it's a possibility on a technical level because volcanoes have
+
+54:46.540 --> 54:49.060
+ been doing it forever.
+
+54:49.060 --> 54:55.240
+ So many times in human history, we've seen a volcanic eruption that was followed by a
+
+54:55.240 --> 54:59.120
+ global cooling trend that lasted for a couple of years.
+
+54:59.120 --> 55:06.420
+ And one of these things happened I think in the 60s or 70s in Indonesia and the Australians
+
+55:06.420 --> 55:11.780
+ sent a plane up into the stratosphere to take some samples of the plume.
+
+55:11.780 --> 55:17.700
+ And when it came back down, the windscreen of the plane had sort of a deposit on it.
+
+55:17.700 --> 55:26.260
+ So one of the Australian scientists licked it and reported that it was painfully acid.
+
+55:26.260 --> 55:31.940
+ So that was our first kind of clue that what was being injected into the stratosphere was
+
+55:31.940 --> 55:37.260
+ sulfur dioxide.
+
+55:37.260 --> 55:43.140
+ And so we know then Pinatubo came along in the 90s and did this experiment for us.
+
+55:43.140 --> 55:50.580
+ So we know that sulfur in the stratosphere, it forms little spherical droplets of sulfuric
+
+55:50.580 --> 55:58.100
+ acid after it combines with water and those bounce back some of the sun's rays and reduce
+
+55:58.100 --> 56:05.940
+ the amount of solar energy entering the troposphere, which is where we live.
+
+56:05.940 --> 56:10.820
+ So we know that it works and we also know that the stuff goes away after a couple of
+
+56:10.820 --> 56:12.380
+ years.
+
+56:12.380 --> 56:14.300
+ So it gradually washes out.
+
+56:14.300 --> 56:16.500
+ And so it's not a permanent thing.
+
+56:16.500 --> 56:22.620
+ The good news, bad news is it's not permanent.
+
+56:22.620 --> 56:28.220
+ So if you don't like what's happening, you can just stop and wait a couple of years and
+
+56:28.220 --> 56:31.260
+ you'll get back to where you started.
+
+56:31.260 --> 56:35.180
+ The bad news if you're in favor of this kind of thing is that you have to keep doing it
+
+56:35.180 --> 56:39.960
+ forever.
+
+56:39.960 --> 56:46.460
+ So this guy is one of those, he's read these papers, the TR, the character in the book.
+
+56:46.460 --> 56:54.020
+ He knows all this and all people who are familiar with climate science kind of know this.
+
+56:54.020 --> 56:57.100
+ It's a pretty well established fact.
+
+56:57.100 --> 57:05.780
+ And so he just decides he's going to take action unilaterally and do this.
+
+57:05.780 --> 57:11.220
+ And so there's different ways to get the sulfur up there, but because it's Texas, he builds
+
+57:11.220 --> 57:13.460
+ the biggest gun in the world.
+
+57:13.460 --> 57:18.900
+ It's just six barrels pointed straight up and he begins firing shells loaded with sulfur
+
+57:18.900 --> 57:20.420
+ into the stratosphere.
+
+57:20.420 --> 57:26.780
+ And so the book is about not so much that as how people react to his doing that, what
+
+57:26.780 --> 57:34.020
+ the political ramifications are around the world because this is an extremely controversial
+
+57:34.020 --> 57:37.820
+ idea and not everyone's on board with it.
+
+57:37.820 --> 57:45.460
+ And even if you are willing to consider using a technological intervention, the fact is
+
+57:45.460 --> 57:49.420
+ that it's going to have different effects on different parts of the world.
+
+57:49.420 --> 57:59.060
+ So some areas may suffer more negatives than positives and they're not going to be happy.
+
+57:59.060 --> 58:07.820
+ So what do you think, so in his case, in TR's case, he can get around getting permission
+
+58:07.820 --> 58:10.940
+ from governments.
+
+58:10.940 --> 58:19.340
+ If we were to look at us facing outside of the story, us facing climate change, where
+
+58:19.340 --> 58:21.020
+ do you think the solution will come from?
+
+58:21.020 --> 58:28.980
+ Governments working together or from bold billionaire Texans?
+
+58:28.980 --> 58:38.420
+ I'm pretty sure that this kind of intervention is never going to emerge from Western democracies.
+
+58:38.420 --> 58:42.940
+ This kind of, sorry, government coordinated, which option one?
+
+58:42.940 --> 58:43.940
+ Solar geoengineering.
+
+58:43.940 --> 58:44.940
+ Solar geoengineering.
+
+58:44.940 --> 58:45.940
+ Yeah.
+
+58:45.940 --> 58:51.740
+ From a government, from a, like those are, I want to sort of the distinction, one is
+
+58:51.740 --> 58:57.460
+ the idea, the technological idea you're talking about, but two is like who comes up with the
+
+58:57.460 --> 59:00.740
+ idea and agrees on it, governments or individuals.
+
+59:00.740 --> 59:01.740
+ Yeah.
+
+59:01.740 --> 59:07.220
+ If this were to happen, I think it would be either an individual or more likely just some
+
+59:07.220 --> 59:15.700
+ government somewhere that just decides it's in their interests to unilaterally do this.
+
+59:15.700 --> 59:24.240
+ And you know, that's not me advocating it, it's just, it would be comparatively so cheap
+
+59:24.240 --> 59:31.660
+ and easy to implement a solar geoengineering scheme that someone is probably going to do
+
+59:31.660 --> 59:34.740
+ it once things get bad enough.
+
+59:34.740 --> 59:39.980
+ But I don't think that governments will, or Western governments, just because they're
+
+59:39.980 --> 59:45.500
+ not, well, we've seen what happened with vaccines, right?
+
+59:45.500 --> 59:54.060
+ So getting people to take vaccinations or wear masks, you know, has turned out to be
+
+59:54.060 --> 59:59.500
+ incredibly hard, even though it might save those people's lives.
+
+59:59.500 --> 1:00:07.140
+ See, I blame, that's not Western, that's, I blame failure of leadership there, of leaders
+
+1:00:07.140 --> 1:00:13.180
+ being not coming off as authentic, not being inspiring, uniting, all those kinds of things.
+
+1:00:13.180 --> 1:00:14.180
+ I think that's possible.
+
+1:00:14.180 --> 1:00:20.220
+ I think it's just that we've gotten, the leaders we have right now aren't the right people
+
+1:00:20.220 --> 1:00:24.860
+ because we've lived through kind of a long stretch of relatively comfortable times.
+
+1:00:24.860 --> 1:00:31.020
+ And it feels like unfortunate if you just look at history, that hard times made great
+
+1:00:31.020 --> 1:00:40.060
+ leaders and easy times make like bureaucrats that are egotistical and greedy and not very
+
+1:00:40.060 --> 1:00:41.700
+ interesting and not very bold.
+
+1:00:41.700 --> 1:00:42.700
+ Yeah.
+
+1:00:42.700 --> 1:00:43.700
+ No, I think that's fair.
+
+1:00:43.700 --> 1:00:48.820
+ So, you know, we may be entering one of those interesting times, you know, in the Chinese
+
+1:00:48.820 --> 1:00:53.380
+ curse sense, yeah.
+
+1:00:53.380 --> 1:01:00.620
+ So I could be wrong, but I mean, there've been some efforts to explore solar geoengineering.
+
+1:01:00.620 --> 1:01:08.780
+ There was a plan to send up some balloons, high altitude balloons to take some measurements
+
+1:01:08.780 --> 1:01:17.620
+ in Scandinavia that got squashed by objections from people who lived up there who were just
+
+1:01:17.620 --> 1:01:22.500
+ opposed to the whole program on principle.
+
+1:01:22.500 --> 1:01:24.860
+ So we'll see a lot more of that.
+
+1:01:24.860 --> 1:01:31.380
+ And it's going to be a hard program to advocate for just because I think people don't quite
+
+1:01:31.380 --> 1:01:40.020
+ understand how much carbon dioxide is in the atmosphere and how far we are from even slowing
+
+1:01:40.020 --> 1:01:48.180
+ down the rate that we're adding more to say nothing of bringing that number down.
+
+1:01:48.180 --> 1:01:50.580
+ We're a long way out from that.
+
+1:01:50.580 --> 1:01:55.740
+ Do you see in terms of portfolio of solutions, us becoming a multi planetary species as part
+
+1:01:55.740 --> 1:01:57.340
+ of that?
+
+1:01:57.340 --> 1:02:05.820
+ Is this also being a motivator for investing some percent of GDP into becoming a multi
+
+1:02:05.820 --> 1:02:06.820
+ planetary species?
+
+1:02:06.820 --> 1:02:09.300
+ And what percent should that be, you think?
+
+1:02:09.300 --> 1:02:11.500
+ You know, in an indirect way, maybe.
+
+1:02:11.500 --> 1:02:16.940
+ I mean, you know what people will say, which is the same argument that has been leveled
+
+1:02:16.940 --> 1:02:22.620
+ against space exploration since the Apollo program, which is why don't we solve our problems
+
+1:02:22.620 --> 1:02:27.800
+ here on Earth before we spend money going into space.
+
+1:02:27.800 --> 1:02:32.220
+ So I've never been a believer in that argument.
+
+1:02:32.220 --> 1:02:42.900
+ I think there could be a sense in which the new perspective that could be obtained by
+
+1:02:42.900 --> 1:02:49.100
+ thinking about like if we're thinking about terraforming Mars, changing its atmosphere,
+
+1:02:49.100 --> 1:02:55.060
+ making it more amenable to life and survival.
+
+1:02:55.060 --> 1:03:00.940
+ You could see that maybe changing people's opinions about terraforming the Earth.
+
+1:03:00.940 --> 1:03:12.540
+ There are some dangerous consequences to this particular idea of blasting software of geoengineering.
+
+1:03:12.540 --> 1:03:18.780
+ What do you make of sort of big, bold ideas that are a double edged sword?
+
+1:03:18.780 --> 1:03:29.060
+ Are all ideas like this, all big ideas like this, they have the potential to have highly
+
+1:03:29.060 --> 1:03:34.180
+ beneficial consequences and a potential to have highly destructive consequences?
+
+1:03:34.180 --> 1:03:35.340
+ I wouldn't say all.
+
+1:03:35.340 --> 1:03:41.460
+ I think, you know, going back to what we were talking about earlier, how technology developed
+
+1:03:41.460 --> 1:03:48.240
+ in the 50s and 60s, there was a period of time there when people maybe had unrealistic
+
+1:03:48.240 --> 1:03:57.420
+ ideas about new technology and weren't sufficiently attentive to the possible downsides.
+
+1:03:57.420 --> 1:04:08.540
+ So we got, and there's a reason why, I mean, in the mid 20th century, we saw antibiotics,
+
+1:04:08.540 --> 1:04:18.340
+ we saw the polio vaccine, we saw just simple things like refrigerators in the home.
+
+1:04:18.340 --> 1:04:23.780
+ My grandmother to her dying day called the refrigerator the ice box because when she
+
+1:04:23.780 --> 1:04:26.940
+ grew up, it was a box with ice in it.
+
+1:04:26.940 --> 1:04:31.420
+ So you see all that change and it's largely for the benefit of people.
+
+1:04:31.420 --> 1:04:37.820
+ And so if somebody comes along and says, hey, we're going to build nuclear reactors to make
+
+1:04:37.820 --> 1:04:48.140
+ energy or here's a new chemical called DDT that's going to kill mosquitoes, then it's
+
+1:04:48.140 --> 1:04:55.580
+ easy to just buy into that and not be alert to the possible downsides.
+
+1:04:55.580 --> 1:05:02.620
+ And of course, we know that the way that those early reactors were built and the way that
+
+1:05:02.620 --> 1:05:13.180
+ the supply chain was built to create the fuel and deal with the waste was poorly thought
+
+1:05:13.180 --> 1:05:22.280
+ out and we're still dealing with the resulting problems at places like Hanford in the state
+
+1:05:22.280 --> 1:05:23.340
+ of Washington.
+
+1:05:23.340 --> 1:05:30.220
+ And we know that DDT, although it did kill a lot of insects, also had terrible effects
+
+1:05:30.220 --> 1:05:32.980
+ on bird populations.
+
+1:05:32.980 --> 1:05:40.460
+ So the kind of backlash that happened in the 70s that is still kind of going on is to sort
+
+1:05:40.460 --> 1:05:49.900
+ of assume that everything is a double edged sword and always to look for, we have to absolutely
+
+1:05:49.900 --> 1:05:57.940
+ convince ourselves that the downside isn't going to come back and bite us before we can
+
+1:05:57.940 --> 1:06:00.700
+ adopt any new technology.
+
+1:06:00.700 --> 1:06:09.380
+ And I think the people are overly sensitized to that now.
+
+1:06:09.380 --> 1:06:16.820
+ Yeah, it's funny, depending on the technology, people are a little bit too terrified of certain
+
+1:06:16.820 --> 1:06:20.380
+ technologies, like artificial intelligence is one.
+
+1:06:20.380 --> 1:06:27.580
+ My sense is that the things that they're afraid of aren't the things that are likely going
+
+1:06:27.580 --> 1:06:30.300
+ to happen in terms of negative things.
+
+1:06:30.300 --> 1:06:36.100
+ It's probably impossible to predict exactly the unintended negative consequences.
+
+1:06:36.100 --> 1:06:42.540
+ But what's also interesting is for AI as an example, people don't think enough about the
+
+1:06:42.540 --> 1:06:43.540
+ positive things.
+
+1:06:43.540 --> 1:06:45.540
+ I mean, the same is true with social media.
+
+1:06:45.540 --> 1:06:50.220
+ It's very popular now, for some reason, to talk about all the negative effects of social
+
+1:06:50.220 --> 1:06:51.220
+ media.
+
+1:06:51.220 --> 1:06:59.820
+ We've immediately forgotten how incredible it is to connect across the world.
+
+1:06:59.820 --> 1:07:04.300
+ There's a deep loneliness within all of us, we long to connect and social media, at least
+
+1:07:04.300 --> 1:07:08.940
+ in part, enables that even in its current state.
+
+1:07:08.940 --> 1:07:15.240
+ And all the negative things we see with social media currently are also in part just revealing
+
+1:07:15.240 --> 1:07:16.620
+ the basics of human nature.
+
+1:07:16.620 --> 1:07:20.180
+ It didn't make us worse, it's just bringing it to the surface.
+
+1:07:20.180 --> 1:07:23.220
+ And step one of solving a problem is bringing it to the surface.
+
+1:07:23.220 --> 1:07:31.300
+ The fact that there's a division, the fact that we're easily angered and upset and all
+
+1:07:31.300 --> 1:07:35.500
+ of that, the witch hunts, all those kinds of things, that's human nature and it just
+
+1:07:35.500 --> 1:07:40.880
+ reveals that allowing us to now work on it, it's therapy.
+
+1:07:40.880 --> 1:07:47.940
+ And so that's another example of a technology that's just, we're not considering the positive
+
+1:07:47.940 --> 1:07:51.340
+ effects now and in the future enough of.
+
+1:07:51.340 --> 1:07:56.340
+ I have to ask you about, there's a million things I can ask you about, but virtual reality,
+
+1:07:56.340 --> 1:07:59.940
+ I gotta ask you.
+
+1:07:59.940 --> 1:08:05.900
+ You've thought about virtual reality, mixed reality quite a bit.
+
+1:08:05.900 --> 1:08:11.380
+ What are the interesting trajectories you see for the proliferation of virtual reality
+
+1:08:11.380 --> 1:08:13.380
+ or mixed reality in the next few years?
+
+1:08:13.380 --> 1:08:19.460
+ Yeah, so I was at Magic Leap for, what, five years.
+
+1:08:19.460 --> 1:08:21.540
+ With the best title of all time.
+
+1:08:21.540 --> 1:08:22.540
+ Oh, thanks.
+
+1:08:22.540 --> 1:08:23.540
+ Chief Futurist?
+
+1:08:23.540 --> 1:08:24.540
+ Yeah.
+
+1:08:24.540 --> 1:08:25.540
+ Yeah.
+
+1:08:25.540 --> 1:08:32.780
+ And so I sort of had a little squad of people in Seattle doing what you might call content
+
+1:08:32.780 --> 1:08:43.180
+ R&D, so we're trying to make content for AR, but because it's such a new medium, it's more
+
+1:08:43.180 --> 1:08:48.620
+ of an engineering R&D project almost than a creative project.
+
+1:08:48.620 --> 1:09:00.720
+ So it was fascinating to see everything that goes into making an AR system that runs.
+
+1:09:00.720 --> 1:09:09.940
+ So AR, an AR device, if it's really gonna do AR, needs to be running Slam in real time.
+
+1:09:09.940 --> 1:09:11.940
+ And that alone is a big...
+
+1:09:11.940 --> 1:09:18.360
+ So for people who don't know, first of all, virtual reality is creating an almost fully
+
+1:09:18.360 --> 1:09:21.100
+ artificial world and putting you inside it.
+
+1:09:21.100 --> 1:09:29.160
+ Augmented reality, AR, is taking the real world and putting stuff on top of that real
+
+1:09:29.160 --> 1:09:33.660
+ world, and when you say Slam, that means in real time, the device needs to be able to
+
+1:09:33.660 --> 1:09:41.640
+ sense, accurately detect everything about that world sufficiently to be able to reconstruct
+
+1:09:41.640 --> 1:09:47.200
+ the 3D structure of it so you can put stuff on top of it.
+
+1:09:47.200 --> 1:09:53.100
+ And doing that in real time, presumably not just real time, but in a way that creates
+
+1:09:53.100 --> 1:10:00.900
+ a pleasant experience for the human perception system is, yeah, that's an engineering project.
+
+1:10:00.900 --> 1:10:01.900
+ Right.
+
+1:10:01.900 --> 1:10:07.640
+ Yeah, well said, and it's just one of the things that the system has to do.
+
+1:10:07.640 --> 1:10:13.460
+ It's also tracking your eyes so it knows what you're looking at, how far away what you're
+
+1:10:13.460 --> 1:10:18.760
+ looking at is.
+
+1:10:18.760 --> 1:10:26.060
+ It's performing all those functions, and it's got to keep doing that without burning up
+
+1:10:26.060 --> 1:10:35.640
+ the CPU or depleting the battery unreasonably fast, and that's just table stakes.
+
+1:10:35.640 --> 1:10:41.340
+ It's just the basic functions of the operating system, and then any content that you want
+
+1:10:41.340 --> 1:10:43.960
+ to add has to sit on top of that.
+
+1:10:43.960 --> 1:10:51.160
+ It's got to be rendered by the optics at a sufficiently low latency that it looks real
+
+1:10:51.160 --> 1:10:52.520
+ and you don't get sick.
+
+1:10:52.520 --> 1:11:02.600
+ So it's an amazing thing, and a magically shipped device that can do that in 2019.
+
+1:11:02.600 --> 1:11:08.360
+ And they're about to ship the ML2, but I don't know any more about that than anyone else
+
+1:11:08.360 --> 1:11:12.600
+ because I don't work there anymore.
+
+1:11:12.600 --> 1:11:19.000
+ Does it still, to some degree, boil down to a killer app, a content question?
+
+1:11:19.000 --> 1:11:21.560
+ Like you said, it's kind of a wide open space.
+
+1:11:21.560 --> 1:11:25.320
+ Nobody knows exactly what's going to be the compelling thing.
+
+1:11:25.320 --> 1:11:33.960
+ So doesn't a super compelling experience of some sort alleviate some of the need for engineering
+
+1:11:33.960 --> 1:11:34.960
+ perfection?
+
+1:11:34.960 --> 1:11:41.760
+ Well, there's a base layer of engineering that you have to have no matter what, but
+
+1:11:41.760 --> 1:11:47.400
+ you're certainly right that people, like in the early days of video games, put up with
+
+1:11:47.400 --> 1:11:53.080
+ kind of low frame rate and what we would now call crappy graphics because they were having
+
+1:11:53.080 --> 1:11:56.240
+ so much fun playing Doom or whatever.
+
+1:11:56.240 --> 1:11:57.240
+ Even Tetris.
+
+1:11:57.240 --> 1:11:59.720
+ Yeah, yeah.
+
+1:11:59.720 --> 1:12:01.620
+ So for sure that's true.
+
+1:12:01.620 --> 1:12:13.600
+ And so I was working on consumer facing content, there was a great team in Wellington, New
+
+1:12:13.600 --> 1:12:26.880
+ Zealand that made a game called Dr. Groydbrod's Invaders that realized the potential of AR
+
+1:12:26.880 --> 1:12:33.440
+ gaming in a way that I don't think anything else has before or since.
+
+1:12:33.440 --> 1:12:43.640
+ And so that was definitely the strategy until, what, April 2020, which is when the company
+
+1:12:43.640 --> 1:12:53.320
+ decided to pivot to commercial industrial applications instead.
+
+1:12:53.320 --> 1:13:02.120
+ And I haven't seen their financial projections, but I assume they had good reasons for making
+
+1:13:02.120 --> 1:13:05.920
+ that strategic decision.
+
+1:13:05.920 --> 1:13:13.040
+ It just means that it's no longer necessarily targeted at just end users who want to play
+
+1:13:13.040 --> 1:13:17.080
+ a game or be entertained.
+
+1:13:17.080 --> 1:13:24.080
+ That to me from a dreamer, futurist perspective is heartbreaking because I don't know necessarily
+
+1:13:24.080 --> 1:13:33.960
+ from in the VR space, but I see this kind of thing with robotics where to me the future
+
+1:13:33.960 --> 1:13:42.880
+ of robotics is consumer facing and a lot of great roboticists, Boston Dynamics and companies
+
+1:13:42.880 --> 1:13:50.360
+ like that are focused on sort of industrial applications for financial business reasons.
+
+1:13:50.360 --> 1:13:51.360
+ Yeah.
+
+1:13:51.360 --> 1:13:54.000
+ Now I can see the parallels for sure.
+
+1:13:54.000 --> 1:13:55.000
+ We'll see.
+
+1:13:55.000 --> 1:14:00.560
+ It was a fun project.
+
+1:14:00.560 --> 1:14:06.660
+ We worked on an app, for example, called Baby Goats, which just populated your room with
+
+1:14:06.660 --> 1:14:07.660
+ baby goats.
+
+1:14:07.660 --> 1:14:09.520
+ That seemed like a killer app right there.
+
+1:14:09.520 --> 1:14:14.680
+ No, we thought highly of the idea for sure.
+
+1:14:14.680 --> 1:14:22.860
+ But because of the SLAM, the system knew, for example, here's a table, here's a little
+
+1:14:22.860 --> 1:14:24.280
+ end table.
+
+1:14:24.280 --> 1:14:26.280
+ We know the heights.
+
+1:14:26.280 --> 1:14:33.100
+ We know how high our animated baby goat can jump.
+
+1:14:33.100 --> 1:14:40.000
+ So our engineers had to build a system for converting the SLAM primitives into game engine
+
+1:14:40.000 --> 1:14:49.760
+ objects that the AIs in the game could navigate around.
+
+1:14:49.760 --> 1:14:56.320
+ And that ended up shipping as more of a dev kit or a sort of how to a sample app than
+
+1:14:56.320 --> 1:15:00.320
+ as a finished consumer facing.
+
+1:15:00.320 --> 1:15:04.280
+ You mean the baby goat AI?
+
+1:15:04.280 --> 1:15:10.800
+ That seems to me like a world I could entertain myself for hours, just every day coming home
+
+1:15:10.800 --> 1:15:13.800
+ to see baby goats.
+
+1:15:13.800 --> 1:15:14.800
+ Yeah.
+
+1:15:14.800 --> 1:15:17.680
+ I mean, it was an ambient kind of...
+
+1:15:17.680 --> 1:15:21.360
+ It's not a thing that you would sit there and play like a video.
+
+1:15:21.360 --> 1:15:22.360
+ Just life.
+
+1:15:22.360 --> 1:15:23.360
+ Yeah.
+
+1:15:23.360 --> 1:15:24.360
+ Yeah.
+
+1:15:24.360 --> 1:15:25.360
+ But now there's baby goats.
+
+1:15:25.360 --> 1:15:29.120
+ I mean, what's the purpose of having dogs and cats in your life exactly?
+
+1:15:29.120 --> 1:15:30.840
+ It's kind of ambient.
+
+1:15:30.840 --> 1:15:34.780
+ They're not really helping you do anything, but it's enriching your life.
+
+1:15:34.780 --> 1:15:42.440
+ You can go and play fetch or something for a while if you want, but you don't have to.
+
+1:15:42.440 --> 1:15:48.160
+ So we worked on that in a bigger project that was more of a storytelling in a fictional
+
+1:15:48.160 --> 1:15:50.680
+ universe.
+
+1:15:50.680 --> 1:15:52.460
+ The hardware is worth a look.
+
+1:15:52.460 --> 1:15:57.680
+ There's still a belief, I just saw it this morning looking at Twitter, that the Magic
+
+1:15:57.680 --> 1:16:00.680
+ League never shipped anything.
+
+1:16:00.680 --> 1:16:07.840
+ But they've been, since 2019, you can go to their website and buy one of these devices
+
+1:16:07.840 --> 1:16:11.120
+ anytime you want to spend the money.
+
+1:16:11.120 --> 1:16:12.120
+ Yeah.
+
+1:16:12.120 --> 1:16:17.800
+ And the new one is coming out, I think in 2022, so in a few months.
+
+1:16:17.800 --> 1:16:24.400
+ What do you think, looking out 50 years from now, what wins?
+
+1:16:24.400 --> 1:16:30.600
+ Virtual reality, augmented reality, or physical reality?
+
+1:16:30.600 --> 1:16:32.240
+ What wins?
+
+1:16:32.240 --> 1:16:41.640
+ Meaning like, what do people that have financial resources enjoy spending most of their time
+
+1:16:41.640 --> 1:16:43.280
+ in?
+
+1:16:43.280 --> 1:16:49.840
+ I've always been a fan of AR and it's kind of an easy answer because if you're wearing
+
+1:16:49.840 --> 1:16:56.800
+ an AR device and you put a bag over your head, it becomes a VR device.
+
+1:16:56.800 --> 1:17:03.800
+ If you block out what's really there, then all you're seeing is a VR.
+
+1:17:03.800 --> 1:17:11.320
+ But you are, with AR, constrained to kind of operate in something that's similar to
+
+1:17:11.320 --> 1:17:12.320
+ physical reality.
+
+1:17:12.320 --> 1:17:13.320
+ Yeah.
+
+1:17:13.320 --> 1:17:15.760
+ With VR, you can go into fantastical worlds.
+
+1:17:15.760 --> 1:17:16.760
+ True.
+
+1:17:16.760 --> 1:17:17.760
+ True.
+
+1:17:17.760 --> 1:17:29.080
+ But there are still issues in those fantastical worlds with motion sickness.
+
+1:17:29.080 --> 1:17:37.760
+ If your body is experiencing acceleration, your inner ear, that differs from what your
+
+1:17:37.760 --> 1:17:43.440
+ eye thinks it's seeing, then you'll get sick, unless you're a very unusual person.
+
+1:17:43.440 --> 1:17:51.240
+ So it doesn't mean you can't do it, it's just a constraint that VR designers have to learn
+
+1:17:51.240 --> 1:17:52.240
+ to work with.
+
+1:17:52.240 --> 1:17:59.520
+ So do you think it's possible that in the future, we're living mostly in a virtual reality
+
+1:17:59.520 --> 1:18:00.520
+ world?
+
+1:18:00.520 --> 1:18:04.580
+ Like, we become more and more detached from physical reality?
+
+1:18:04.580 --> 1:18:12.400
+ For entertainment, maybe, for certain applications, I'm personally more, I mean, we have to make
+
+1:18:12.400 --> 1:18:17.920
+ a distinction between what I would personally find interesting and what might win in the
+
+1:18:17.920 --> 1:18:18.920
+ market.
+
+1:18:18.920 --> 1:18:24.040
+ So maybe some people, maybe lots of people, would like to spend a huge amount of time
+
+1:18:24.040 --> 1:18:26.680
+ in VR.
+
+1:18:26.680 --> 1:18:33.880
+ I'm personally more interested in enhancing the experience that I have of the physical
+
+1:18:33.880 --> 1:18:37.120
+ world, because the physical world's pretty cool, right?
+
+1:18:37.120 --> 1:18:42.440
+ There's a lot to be said for moving around in the real world.
+
+1:18:42.440 --> 1:18:49.400
+ And I ask you for you personally, to try to play devil's advocate, or to try to construct,
+
+1:18:49.400 --> 1:19:00.700
+ to imagine a VR world where you and Neal Stephenson wouldn't want to stay.
+
+1:19:00.700 --> 1:19:04.640
+ Not because the physical world all of a sudden became really bad, for some reason, like you're
+
+1:19:04.640 --> 1:19:06.120
+ trying to escape it.
+
+1:19:06.120 --> 1:19:10.720
+ Like, literally, it's just more enriching.
+
+1:19:10.720 --> 1:19:15.600
+ In the same way, like, there's a glimmer in your eye when you said you enjoy the physical
+
+1:19:15.600 --> 1:19:16.600
+ world.
+
+1:19:16.600 --> 1:19:21.360
+ Like, double up on that glimmer for the virtual reality.
+
+1:19:21.360 --> 1:19:23.240
+ Can you imagine such a world?
+
+1:19:23.240 --> 1:19:30.940
+ Well, like, I'll give maybe an example that's a bridge, which is that I like making things.
+
+1:19:30.940 --> 1:19:37.860
+ So I like working in a machine shop and making objects with 3D printers or machines or whatever.
+
+1:19:37.860 --> 1:19:45.160
+ And so I've had to learn how to get good at using a CAD program.
+
+1:19:45.160 --> 1:19:46.880
+ There's many to choose from.
+
+1:19:46.880 --> 1:19:51.160
+ I use one called Fusion 360.
+
+1:19:51.160 --> 1:20:01.540
+ And I can spend hours in that trying to create, imagine and create the things I want to create.
+
+1:20:01.540 --> 1:20:11.160
+ And it's not virtual reality exactly, but that whole time, my whole field of view is
+
+1:20:11.160 --> 1:20:18.080
+ occupied by this monitor that's showing me a window into a three dimensional space.
+
+1:20:18.080 --> 1:20:20.400
+ I'm rotating things around.
+
+1:20:20.400 --> 1:20:22.960
+ I'm imagining things.
+
+1:20:22.960 --> 1:20:23.960
+ I'm making things.
+
+1:20:23.960 --> 1:20:31.320
+ And so that is pretty close to being in virtual reality.
+
+1:20:31.320 --> 1:20:34.640
+ Does that thing have to exist for you to experience true joy?
+
+1:20:34.640 --> 1:20:38.000
+ Can you stay in Fusion 360 the whole time?
+
+1:20:38.000 --> 1:20:41.560
+ Do you have to 3D print it and touch it?
+
+1:20:41.560 --> 1:20:44.500
+ Yeah, I mean, that's my game.
+
+1:20:44.500 --> 1:20:45.920
+ That's what I'm up to.
+
+1:20:45.920 --> 1:20:54.280
+ But it happens that if you're building a virtual environment, if you're making a game level
+
+1:20:54.280 --> 1:21:00.000
+ or creating a virtual set for a film or TV production, the thing that you're designing
+
+1:21:00.000 --> 1:21:04.560
+ in the program may never physically exist.
+
+1:21:04.560 --> 1:21:11.840
+ And in fact, it's preferable that it doesn't because the whole point of that is to make
+
+1:21:11.840 --> 1:21:17.940
+ imaginary things that you couldn't build otherwise.
+
+1:21:17.940 --> 1:21:22.880
+ So I think lots of people spend a good chunk of their working hours in something that's
+
+1:21:22.880 --> 1:21:25.840
+ pretty close to VR.
+
+1:21:25.840 --> 1:21:30.360
+ It's just that currently the output device happens to be a rectangular object in front
+
+1:21:30.360 --> 1:21:31.860
+ of them.
+
+1:21:31.860 --> 1:21:39.040
+ You could replace that with a VR headset and they'd be doing the same stuff.
+
+1:21:39.040 --> 1:21:40.040
+ There's all kinds of interfaces.
+
+1:21:40.040 --> 1:21:44.080
+ For example, I enjoy listening to podcasts or audiobooks, but let's say actually podcasts
+
+1:21:44.080 --> 1:21:49.080
+ because there's an intimate human connection in a podcast.
+
+1:21:49.080 --> 1:21:50.080
+ It's one way.
+
+1:21:50.080 --> 1:21:54.320
+ But you get to learn about the person you're listening to and that's a real connection
+
+1:21:54.320 --> 1:21:55.320
+ and that's just audio.
+
+1:21:55.320 --> 1:21:58.240
+ For a lot of people, that's just audio.
+
+1:21:58.240 --> 1:22:05.880
+ And for me, that's just audio as a fan of people and you kind of a little bit are friends
+
+1:22:05.880 --> 1:22:06.880
+ with those people.
+
+1:22:06.880 --> 1:22:11.000
+ Yeah, they're in your life, you're listening to them, yeah.
+
+1:22:11.000 --> 1:22:18.600
+ And I mean, they're as far away from real as it gets.
+
+1:22:18.600 --> 1:22:21.040
+ There's not even a visual component.
+
+1:22:21.040 --> 1:22:22.040
+ It's just audio.
+
+1:22:22.040 --> 1:22:29.320
+ But they're as real, like if I was on a desert island, like my imagination, like this thing
+
+1:22:29.320 --> 1:22:33.200
+ works pretty good in terms of imagination.
+
+1:22:33.200 --> 1:22:40.600
+ It creates a very beautiful world with just audio.
+
+1:22:40.600 --> 1:22:42.440
+ Or even just reading books.
+
+1:22:42.440 --> 1:22:45.600
+ Exactly, reading books.
+
+1:22:45.600 --> 1:22:51.520
+ Even more so with reading books because there are certain mediums which stimulate the imagination
+
+1:22:51.520 --> 1:22:54.560
+ more.
+
+1:22:54.560 --> 1:22:59.520
+ When you present less, the imagination works more and that can create really enriching
+
+1:22:59.520 --> 1:23:02.160
+ experiences.
+
+1:23:02.160 --> 1:23:09.600
+ To me, the question is, can you do some of the amazing things that make life amazing
+
+1:23:09.600 --> 1:23:11.280
+ in virtual worlds?
+
+1:23:11.280 --> 1:23:14.720
+ It seems to me the answer there is obviously yes.
+
+1:23:14.720 --> 1:23:20.280
+ Even if I, like you, am attached to a lot of stuff in the physical world, I think I
+
+1:23:20.280 --> 1:23:27.120
+ can very readily imagine coming up with some of the same magical experiences in the virtual
+
+1:23:27.120 --> 1:23:34.520
+ world where you make friends and you can fall in love, where the source of love in your
+
+1:23:34.520 --> 1:23:43.280
+ life is to a much greater degree inside of a virtual world.
+
+1:23:43.280 --> 1:23:47.280
+ And then love means fulfillment, that means happiness, that's the thing you look forward
+
+1:23:47.280 --> 1:23:48.280
+ to.
+
+1:23:48.280 --> 1:23:53.960
+ And not some kind of dopamine rush type of love, but like long lasting like friendship.
+
+1:23:53.960 --> 1:23:54.960
+ Yeah, yeah.
+
+1:23:54.960 --> 1:23:55.960
+ The real deal.
+
+1:23:55.960 --> 1:23:56.960
+ Yeah.
+
+1:23:56.960 --> 1:24:02.280
+ The question is on what is there in the way of applications, the content, and can it feed
+
+1:24:02.280 --> 1:24:04.280
+ you those things?
+
+1:24:04.280 --> 1:24:11.320
+ Can it give you, like in my example of using the CAD program, it gives me the ability to
+
+1:24:11.320 --> 1:24:18.320
+ do something I enjoy, which is imagining things and making things in a particular way.
+
+1:24:18.320 --> 1:24:21.040
+ Can we psychoanalyze you for a second?
+
+1:24:21.040 --> 1:24:22.040
+ Sure.
+
+1:24:22.040 --> 1:24:23.640
+ What exactly do you enjoy?
+
+1:24:23.640 --> 1:24:29.560
+ Is there some component of you building the thing where you get to at least a little bit
+
+1:24:29.560 --> 1:24:32.320
+ share with others?
+
+1:24:32.320 --> 1:24:37.520
+ Like is there a human in the loop outside of you in that picture?
+
+1:24:37.520 --> 1:24:39.480
+ Will anyone ever see it?
+
+1:24:39.480 --> 1:24:40.480
+ Right.
+
+1:24:40.480 --> 1:24:48.360
+ There's a source of your enjoyment because I would argue that perhaps when like the turtles
+
+1:24:48.360 --> 1:24:52.720
+ all the way down, when you get to the bottom turtle, it has to do with other sharing with
+
+1:24:52.720 --> 1:24:53.720
+ other humans.
+
+1:24:53.720 --> 1:24:54.720
+ Yeah.
+
+1:24:54.720 --> 1:25:01.560
+ And if you can then put those humans inside the VR world, then you start to...
+
+1:25:01.560 --> 1:25:02.560
+ Then you can...
+
+1:25:02.560 --> 1:25:07.800
+ Okay, for example, you could do it in the physical world, the 3D printing, but you share
+
+1:25:07.800 --> 1:25:12.240
+ it in the virtual world and that's where the source of happiness is.
+
+1:25:12.240 --> 1:25:18.040
+ I think at least speaking for myself, I'm always thinking in terms of an audience and
+
+1:25:18.040 --> 1:25:24.760
+ at some level I feel like I'm doing this for someone or communicating to someone, even
+
+1:25:24.760 --> 1:25:33.600
+ if there's not a specific someone in mind, it could just be an abstract theoretical someone.
+
+1:25:33.600 --> 1:25:36.960
+ And it's like another app I spend a lot of time in is Mathematica.
+
+1:25:36.960 --> 1:25:37.960
+ Okay.
+
+1:25:37.960 --> 1:25:38.960
+ Yeah.
+
+1:25:38.960 --> 1:25:39.960
+ Incredible app.
+
+1:25:39.960 --> 1:25:40.960
+ Yeah.
+
+1:25:40.960 --> 1:25:41.960
+ Yeah.
+
+1:25:41.960 --> 1:25:44.320
+ And when I do a Mathematica notebook, if I'm trying to figure something out, I spend a
+
+1:25:44.320 --> 1:25:51.520
+ lot of time typing, just my stuff is just huge blocks of text, just me thinking out
+
+1:25:51.520 --> 1:25:57.280
+ loud and then some graphs and calculations and stuff.
+
+1:25:57.280 --> 1:26:06.520
+ Because to me, that act of explaining things and commenting helps me understand what I'm
+
+1:26:06.520 --> 1:26:07.520
+ doing.
+
+1:26:07.520 --> 1:26:12.080
+ And there's kind of an audience, amorphous audience in mind.
+
+1:26:12.080 --> 1:26:13.080
+ Yeah.
+
+1:26:13.080 --> 1:26:18.600
+ I mean, most of this stuff nobody will ever see and yet I'm creating it as if there were
+
+1:26:18.600 --> 1:26:27.920
+ an audience that might read this stuff because that's a necessary constraint that helps me
+
+1:26:27.920 --> 1:26:29.920
+ do a better job.
+
+1:26:29.920 --> 1:26:36.280
+ What's the, this might be a tricky question to answer, what comes to mind as a particularly
+
+1:26:36.280 --> 1:26:40.760
+ beautiful thing that you're proud of that you created inside Mathematica visualization
+
+1:26:40.760 --> 1:26:47.280
+ wise or something that just comes to memory if it's possible to retrieve?
+
+1:26:47.280 --> 1:26:58.080
+ So the thing I've spent the most amount of time on is I got obsessed a long time ago,
+
+1:26:58.080 --> 1:27:01.680
+ was trying to tile the globe with hexagons.
+
+1:27:01.680 --> 1:27:02.680
+ Yes.
+
+1:27:02.680 --> 1:27:03.680
+ And.
+
+1:27:03.680 --> 1:27:05.480
+ An actual globe?
+
+1:27:05.480 --> 1:27:06.680
+ Well, any spherical.
+
+1:27:06.680 --> 1:27:07.680
+ Any spherical.
+
+1:27:07.680 --> 1:27:08.680
+ Okay.
+
+1:27:08.680 --> 1:27:12.520
+ But with an eye towards putting it on the earth.
+
+1:27:12.520 --> 1:27:15.440
+ And so, and have it be recursive.
+
+1:27:15.440 --> 1:27:22.100
+ So you can have hexagons within hexagons, which is hard because and probably a bad idea
+
+1:27:22.100 --> 1:27:28.360
+ because you can't tile a hexagon with smaller hexagons.
+
+1:27:28.360 --> 1:27:30.800
+ They don't, they stick out.
+
+1:27:30.800 --> 1:27:31.800
+ Got it.
+
+1:27:31.800 --> 1:27:33.520
+ So they're, oh, they stick out.
+
+1:27:33.520 --> 1:27:37.880
+ So there's a, can you do some kind of fractal hexagon situation?
+
+1:27:37.880 --> 1:27:38.880
+ Yeah.
+
+1:27:38.880 --> 1:27:39.880
+ Yeah.
+
+1:27:39.880 --> 1:27:47.200
+ So it's that and people who know me are always, now make fun of me for this.
+
+1:27:47.200 --> 1:27:52.520
+ So they'll send me, if they see a picture with hexagons in it, they'll like send me
+
+1:27:52.520 --> 1:27:56.620
+ a link to make fun of me.
+
+1:27:56.620 --> 1:27:57.620
+ So as some.
+
+1:27:57.620 --> 1:28:00.280
+ One of those people, Roger Penrose or.
+
+1:28:00.280 --> 1:28:03.760
+ I think Roger's a little above my level.
+
+1:28:03.760 --> 1:28:08.640
+ He's into hexagons as well and tiling.
+
+1:28:08.640 --> 1:28:09.640
+ Yeah.
+
+1:28:09.640 --> 1:28:10.640
+ Yeah.
+
+1:28:10.640 --> 1:28:15.760
+ So I did a lot of that and I thought, you know, it was pretty cool, but there's some
+
+1:28:15.760 --> 1:28:19.960
+ like surprisingly intractable problems that keep coming up.
+
+1:28:19.960 --> 1:28:25.960
+ Like you've always got to have some pentagons.
+
+1:28:25.960 --> 1:28:31.880
+ Like if you start with the icosahedron, which is equilateral triangles, which is a logical
+
+1:28:31.880 --> 1:28:42.120
+ place to start, you can cover those with hexagons, but every vertex where the triangles come
+
+1:28:42.120 --> 1:28:44.800
+ together is a pentagon.
+
+1:28:44.800 --> 1:28:45.800
+ Has to be a pentagon.
+
+1:28:45.800 --> 1:28:46.800
+ Oh, interesting.
+
+1:28:46.800 --> 1:28:49.720
+ So it's all hexagons and then there's a pentagon at the intersections.
+
+1:28:49.720 --> 1:28:50.720
+ Yeah.
+
+1:28:50.720 --> 1:28:51.720
+ Yeah.
+
+1:28:51.720 --> 1:28:52.720
+ Cool.
+
+1:28:52.720 --> 1:28:53.720
+ How'd you figure that out?
+
+1:28:53.720 --> 1:28:54.720
+ Is that a known fact?
+
+1:28:54.720 --> 1:28:55.720
+ Well, it's just, if you look at a.
+
+1:28:55.720 --> 1:28:56.720
+ Yeah.
+
+1:28:56.720 --> 1:28:57.720
+ Like just by inspection.
+
+1:28:57.720 --> 1:28:58.720
+ It's an obvious thing.
+
+1:28:58.720 --> 1:28:59.720
+ Got it.
+
+1:28:59.720 --> 1:29:00.720
+ Yeah.
+
+1:29:00.720 --> 1:29:08.360
+ So any system that you come up with to do this has got to have this exceptions built
+
+1:29:08.360 --> 1:29:10.600
+ into it for those 12.
+
+1:29:10.600 --> 1:29:20.480
+ You could have quintillions of hexagons, but you've still got to have 12 pentagons somewhere.
+
+1:29:20.480 --> 1:29:26.920
+ So I've blown a hell of a lot of time on that over the years.
+
+1:29:26.920 --> 1:29:33.040
+ By the way, a lot of those kind of problems are very difficult to prove something about.
+
+1:29:33.040 --> 1:29:34.040
+ Yeah.
+
+1:29:34.040 --> 1:29:35.040
+ Yeah.
+
+1:29:35.040 --> 1:29:36.040
+ Yeah.
+
+1:29:36.040 --> 1:29:44.960
+ I think Uber did it because someone, one of my friends who knows of my interest in this
+
+1:29:44.960 --> 1:29:49.960
+ and who likes to give me a hard time sent me a link.
+
+1:29:49.960 --> 1:29:56.840
+ This is a couple of years ago to some code base that I think came out of Uber where they
+
+1:29:56.840 --> 1:29:59.400
+ had done this.
+
+1:29:59.400 --> 1:30:04.480
+ You break down the whole surface of the earth into little hexagons.
+
+1:30:04.480 --> 1:30:09.240
+ So that was a real knife through the heart.
+
+1:30:09.240 --> 1:30:14.220
+ But I'll probably come back to it someday.
+
+1:30:14.220 --> 1:30:19.280
+ Is there something special about hexagons or are you interested in all kinds of tiling?
+
+1:30:19.280 --> 1:30:29.160
+ Well, I'm interested in all kinds of tiling, but I know my limitations as a math guy.
+
+1:30:29.160 --> 1:30:34.600
+ So hexagons are about my speed.
+
+1:30:34.600 --> 1:30:36.760
+ Just sufficient amount of complexity.
+
+1:30:36.760 --> 1:30:37.760
+ Yeah.
+
+1:30:37.760 --> 1:30:38.760
+ Yeah.
+
+1:30:38.760 --> 1:30:41.960
+ But no, tiling is a really interesting problem.
+
+1:30:41.960 --> 1:30:48.160
+ Both two and three dimensional tiling problems are fascinating and they're one of those ancient
+
+1:30:48.160 --> 1:30:59.000
+ puzzles that has attracted brainiacs for centuries.
+
+1:30:59.000 --> 1:31:03.120
+ Let me ask you a little bit about AI.
+
+1:31:03.120 --> 1:31:10.640
+ What are some likely interesting trajectories for the proliferation of AI in society over
+
+1:31:10.640 --> 1:31:11.640
+ the next couple of decades?
+
+1:31:11.640 --> 1:31:14.080
+ Do you think about this kind of stuff?
+
+1:31:14.080 --> 1:31:20.380
+ I do not think about it a lot because it's a deep topic and I don't consider myself super
+
+1:31:20.380 --> 1:31:22.760
+ well informed about it.
+
+1:31:22.760 --> 1:31:28.880
+ And AI seems to be a term that is applied to a lot of different things.
+
+1:31:28.880 --> 1:31:36.440
+ So I've messed around just a tiny little bit with neural nets, with what's it called PCA,
+
+1:31:36.440 --> 1:31:38.420
+ principal component analysis.
+
+1:31:38.420 --> 1:31:48.520
+ So I guess I tend to think in terms of some granular bottom up ideas rather than big picture
+
+1:31:48.520 --> 1:31:49.520
+ top down.
+
+1:31:49.520 --> 1:31:50.520
+ Oh God.
+
+1:31:50.520 --> 1:31:55.800
+ So like very specific algorithms, like how are they going to, what problem are they going
+
+1:31:55.800 --> 1:32:01.080
+ to solve in society such that it has like a lot of big ripple effects.
+
+1:32:01.080 --> 1:32:08.120
+ I mean, we could talk a particular successful AI systems and success defined in different
+
+1:32:08.120 --> 1:32:09.880
+ ways of recent years.
+
+1:32:09.880 --> 1:32:15.320
+ So one is language models with GPT3.
+
+1:32:15.320 --> 1:32:19.840
+ Most importantly, they're self supervised, meaning they don't require much supervision
+
+1:32:19.840 --> 1:32:25.960
+ from humans, which means they can learn by just reading a huge amount of content created
+
+1:32:25.960 --> 1:32:26.960
+ by humans.
+
+1:32:26.960 --> 1:32:30.400
+ So read the internet and from that be able to generate text and do all kinds of things
+
+1:32:30.400 --> 1:32:31.840
+ like that.
+
+1:32:31.840 --> 1:32:34.120
+ It's possible they have a big enough neural network.
+
+1:32:34.120 --> 1:32:41.760
+ It's going to be able to have conversations with humans based on just reading human language.
+
+1:32:41.760 --> 1:32:42.760
+ That's an interesting idea.
+
+1:32:42.760 --> 1:32:49.520
+ To me, the very interesting idea that people don't think about it as AI because they're
+
+1:32:49.520 --> 1:32:53.640
+ kind of dumb currently is actual embodied robots.
+
+1:32:53.640 --> 1:33:01.920
+ So robotics like Boston Dynamics have downstairs and upstairs legged robots.
+
+1:33:01.920 --> 1:33:08.700
+ You know, the currently Boston Dynamics robots and most legged robots, most robots period
+
+1:33:08.700 --> 1:33:11.800
+ are pretty dumb.
+
+1:33:11.800 --> 1:33:15.920
+ Most of the challenges have to do with the actual, first of all, the engineering of making
+
+1:33:15.920 --> 1:33:20.760
+ the thing work, getting a sensor suite that allows you to do the same thing as with Magic
+
+1:33:20.760 --> 1:33:21.760
+ Leap.
+
+1:33:21.760 --> 1:33:29.360
+ It's like a layer of like, where am I and what am I looking at?
+
+1:33:29.360 --> 1:33:39.920
+ I don't need to deeply understand my surroundings at a level beyond of what will hurt if I run
+
+1:33:39.920 --> 1:33:40.920
+ into it.
+
+1:33:40.920 --> 1:33:41.920
+ Yeah, yeah.
+
+1:33:41.920 --> 1:33:43.640
+ But even that is hard.
+
+1:33:43.640 --> 1:33:44.640
+ That's hard.
+
+1:33:44.640 --> 1:33:51.920
+ But the thing that I think people don't in the robotics space explore enough is the human
+
+1:33:51.920 --> 1:34:00.560
+ robot interaction part of the picture, which is how it makes humans feel, how robots make
+
+1:34:00.560 --> 1:34:01.560
+ humans feel.
+
+1:34:01.560 --> 1:34:08.720
+ And I think that's going to have a very significant impact in the near future in society, which
+
+1:34:08.720 --> 1:34:17.480
+ is the more you integrate AI systems of whatever form into society where humans are in contact
+
+1:34:17.480 --> 1:34:19.640
+ with them regularly.
+
+1:34:19.640 --> 1:34:23.640
+ So that could be embodied robotics or that could be social media algorithms.
+
+1:34:23.640 --> 1:34:26.160
+ I think that has a very significant impact.
+
+1:34:26.160 --> 1:34:31.200
+ And people often think like AI needs to be super smart to have an impact.
+
+1:34:31.200 --> 1:34:37.200
+ I think it needs to be super integrated with society to have an impact and more and more
+
+1:34:37.200 --> 1:34:40.480
+ that's happening, even if they're dumb.
+
+1:34:40.480 --> 1:34:41.480
+ Yeah.
+
+1:34:41.480 --> 1:34:42.480
+ Yeah.
+
+1:34:42.480 --> 1:34:52.600
+ No, I mean, a lot of my exposure to robots is that I'm associated with a combat robotics
+
+1:34:52.600 --> 1:34:53.600
+ team.
+
+1:34:53.600 --> 1:34:55.960
+ And I've been to a few battle bots competitions.
+
+1:34:55.960 --> 1:35:01.760
+ And that's not like a lot of ways that's pretty far from the kind of robotics you're talking
+
+1:35:01.760 --> 1:35:06.200
+ about because these robots are remote controlled.
+
+1:35:06.200 --> 1:35:08.500
+ They're not autonomous.
+
+1:35:08.500 --> 1:35:17.160
+ And so they're pretty simple, but it's interesting to watch people's emotional reactions to different
+
+1:35:17.160 --> 1:35:18.160
+ robots.
+
+1:35:18.160 --> 1:35:26.840
+ So there was one that was in the last year's season, the 2020 season called Rusty that
+
+1:35:26.840 --> 1:35:32.920
+ was just like put together out of spare parts and it looked kind of cute and it became this
+
+1:35:32.920 --> 1:35:39.080
+ huge crowd favorite because you could see it was made of like salad bowls and random
+
+1:35:39.080 --> 1:35:43.360
+ pieces of hardware that this guy had like scavenged from his farm.
+
+1:35:43.360 --> 1:35:49.560
+ And so immediately people kind of fell in love with this one particular robot.
+
+1:35:49.560 --> 1:35:57.520
+ Whereas other robots might be like the bad guy, if you think of professional wrestling,
+
+1:35:57.520 --> 1:36:00.960
+ the heel and the baby face.
+
+1:36:00.960 --> 1:36:06.080
+ So people do, for reasons that are hard to understand, form these emotional reactions.
+
+1:36:06.080 --> 1:36:10.860
+ And we form narratives in the same way we do when we meet human beings, we tell stories
+
+1:36:10.860 --> 1:36:16.920
+ about these objects and they can be intelligent and they can be biological or they can be
+
+1:36:16.920 --> 1:36:19.760
+ almost close to inanimate objects.
+
+1:36:19.760 --> 1:36:21.680
+ That to me is kind of fascinating.
+
+1:36:21.680 --> 1:36:29.760
+ And if robots choose to lean into that, it creates an interesting world.
+
+1:36:29.760 --> 1:36:34.760
+ If they start using feedback loops to make themselves cuter.
+
+1:36:34.760 --> 1:36:41.040
+ Not just cuter, but everything that humans do, let's not speak harshly of robots, humans
+
+1:36:41.040 --> 1:36:42.040
+ do the same thing.
+
+1:36:42.040 --> 1:36:48.260
+ Oh no, I wasn't meaning it in a, but you're right, humans based on feedback will change
+
+1:36:48.260 --> 1:36:49.260
+ their appearance.
+
+1:36:49.260 --> 1:36:52.360
+ Yes, I do this on Instagram all the time, how do I look cuter?
+
+1:36:52.360 --> 1:36:54.880
+ That's the fundamental question I ask myself.
+
+1:36:54.880 --> 1:37:02.100
+ So why wouldn't a robot wanna, it's like oh wow, people really don't like the quad mount
+
+1:37:02.100 --> 1:37:08.640
+ machine gun on top of my turret, maybe I should get rid of that and people would feel more
+
+1:37:08.640 --> 1:37:10.680
+ at ease.
+
+1:37:10.680 --> 1:37:13.680
+ Or lean into it, be proud of it.
+
+1:37:13.680 --> 1:37:20.440
+ Like you won't take my gun, whatever the saying is, from my dead cold hands.
+
+1:37:20.440 --> 1:37:26.280
+ I mean their personality, adding personality such that you can start to heal, you can start
+
+1:37:26.280 --> 1:37:27.840
+ to weave narratives.
+
+1:37:27.840 --> 1:37:41.320
+ I think that's a fascinating place where there's this feedback loop, like you said, where AI,
+
+1:37:41.320 --> 1:37:46.000
+ especially when it's embodied, puts a mirror to ourselves.
+
+1:37:46.000 --> 1:37:52.840
+ Just like other humans, our close friends, they kind of teach us about ourselves.
+
+1:37:52.840 --> 1:37:57.360
+ We teach each other and through that process grow close.
+
+1:37:57.360 --> 1:38:06.200
+ And to me it's so fascinating to expand the space of deep meaningful interactions beyond
+
+1:38:06.200 --> 1:38:10.480
+ just humans.
+
+1:38:10.480 --> 1:38:18.080
+ That's the opportunity I see with robots and with AI systems and that's why I don't like,
+
+1:38:18.080 --> 1:38:22.280
+ my biggest problem with social media algorithms is the lack of transparency.
+
+1:38:22.280 --> 1:38:27.920
+ It's not the existence of the algorithms, it's, well there's many things.
+
+1:38:27.920 --> 1:38:28.920
+ One is the data.
+
+1:38:28.920 --> 1:38:33.280
+ Data should be controlled by people themselves.
+
+1:38:33.280 --> 1:38:36.320
+ But also the lack of transparency in how the algorithms work.
+
+1:38:36.320 --> 1:38:41.640
+ You change your perception of what's real in hidden ways.
+
+1:38:41.640 --> 1:38:42.640
+ In hidden ways.
+
+1:38:42.640 --> 1:38:43.640
+ Yeah.
+
+1:38:43.640 --> 1:38:47.680
+ Like you should be aware, just like when you take, I don't know, if you take psychedelics,
+
+1:38:47.680 --> 1:38:52.040
+ you should be aware that you took the psychedelics, it shouldn't be a surprise.
+
+1:38:52.040 --> 1:38:59.440
+ And second, you should become a student and a scholar and there should be research done,
+
+1:38:59.440 --> 1:39:05.920
+ there should be open conversation about how your perception has changed and then you become
+
+1:39:05.920 --> 1:39:13.360
+ your own guide in this world of altered perception because arguably none of it is real.
+
+1:39:13.360 --> 1:39:16.560
+ You get to choose the flavor of real.
+
+1:39:16.560 --> 1:39:22.720
+ I mean, this is something you explore quite a bit.
+
+1:39:22.720 --> 1:39:31.580
+ Do you yourself think that there is a bottom to it where there is reality, there's a base
+
+1:39:31.580 --> 1:39:39.840
+ layer of reality that physics can explore and our human perception sort of layer stuff?
+
+1:39:39.840 --> 1:39:44.920
+ Is there, let's go to Plato, is there such a thing as truth?
+
+1:39:44.920 --> 1:39:48.480
+ I lean towards the Platonic view of things.
+
+1:39:48.480 --> 1:39:56.640
+ So I believe that mathematical objects have a reality that it's not all made up by human
+
+1:39:56.640 --> 1:39:59.180
+ minds.
+
+1:39:59.180 --> 1:40:03.200
+ And I don't know where that reality comes from.
+
+1:40:03.200 --> 1:40:15.800
+ I can't explain it, but I do think that mathematical objects are discovered and not invented.
+
+1:40:15.800 --> 1:40:25.880
+ I did a lot of, not a lot, but I did some reading of Husserl when I was writing Anathem
+
+1:40:25.880 --> 1:40:34.120
+ and he's a 20th century phenomenologist and he's writing in the, he's writing at the same
+
+1:40:34.120 --> 1:40:43.040
+ time as scientists are starting to understand atoms and becoming aware that when we look
+
+1:40:43.040 --> 1:40:51.400
+ at this table, it's really just a slab of almost entirely vacuum and there's a very
+
+1:40:51.400 --> 1:41:00.080
+ sparse arrangement of tiny, tiny little particles there occupying that space that interact with
+
+1:41:00.080 --> 1:41:07.120
+ each other in such a way that our brains perceive this object.
+
+1:41:07.120 --> 1:41:20.400
+ So that's kind of the beginnings of phenomenology and his stuff is pretty hard to read.
+
+1:41:20.400 --> 1:41:27.800
+ You really have to take it in small bites and go a little bit at a time.
+
+1:41:27.800 --> 1:41:32.800
+ But he's trying to come to grips with these kinds of questions.
+
+1:41:32.800 --> 1:41:36.160
+ How did you come to grips with it?
+
+1:41:36.160 --> 1:41:38.000
+ Why does this table feel solid?
+
+1:41:38.000 --> 1:41:44.080
+ Well, I mean, we're an evolved system that there's, we have biological advantages in
+
+1:41:44.080 --> 1:41:46.820
+ knowing where solid objects are.
+
+1:41:46.820 --> 1:41:54.540
+ So we've got this system in our head that integrates our perceptions into this coherent
+
+1:41:54.540 --> 1:41:59.040
+ view of things.
+
+1:41:59.040 --> 1:42:06.600
+ One of the take homes that I like from Husserl is the idea of intersubjectivity and the idea
+
+1:42:06.600 --> 1:42:16.000
+ that the fundamental requirement for us to stay sane is for us to share our perceptions
+
+1:42:16.000 --> 1:42:23.960
+ and have them ratified by other, they don't even have to be people, but a prisoner in
+
+1:42:23.960 --> 1:42:32.440
+ solitary confinement might domesticate a mouse or even insects because they perceive the
+
+1:42:32.440 --> 1:42:41.040
+ same things that the prisoner perceives and so convince him that he's not just hallucinating.
+
+1:42:41.040 --> 1:42:49.320
+ Yeah, there's the establish a consensus, but see, that doesn't mean any of it is real.
+
+1:42:49.320 --> 1:42:52.600
+ You just establish a consensus.
+
+1:42:52.600 --> 1:43:05.080
+ It could be very distant from something that's real in an engineering sense of real.
+
+1:43:05.080 --> 1:43:07.840
+ Like you could build it using physics.
+
+1:43:07.840 --> 1:43:16.160
+ But I think that a valuable application for an AI robot would be just to do nothing except
+
+1:43:16.160 --> 1:43:17.160
+ that.
+
+1:43:17.160 --> 1:43:27.000
+ It just sits there and if you hear a door slam, you might turn to see what it is.
+
+1:43:27.000 --> 1:43:34.720
+ If the robot at the same time turns to look at the door slam, it's ratifying your perception.
+
+1:43:34.720 --> 1:43:42.920
+ But isn't that the basis of love is when the door slams, you both look, but for deeper
+
+1:43:42.920 --> 1:43:48.960
+ things, you both hear the same music and others don't.
+
+1:43:48.960 --> 1:43:52.160
+ I mean, isn't that what that means?
+
+1:43:52.160 --> 1:43:53.160
+ Yeah.
+
+1:43:53.160 --> 1:43:55.680
+ By love, I mean depth of human connection.
+
+1:43:55.680 --> 1:43:56.680
+ Yeah.
+
+1:43:56.680 --> 1:44:05.360
+ Yeah, you arrive at similar reactions without having to explicitly communicate it.
+
+1:44:05.360 --> 1:44:06.360
+ Yeah.
+
+1:44:06.360 --> 1:44:15.360
+ But we could start with a robot that listens explicitly for the slam doors or scary sounds.
+
+1:44:15.360 --> 1:44:24.920
+ I can think of an example of this is when I went to college, we'd be sitting at the
+
+1:44:24.920 --> 1:44:34.040
+ cafeteria, a bunch of people eating our dinner together that we had just met, let's say.
+
+1:44:34.040 --> 1:44:41.780
+ So a bunch of new people in your life and someone might make a funny remark or a not
+
+1:44:41.780 --> 1:44:48.160
+ so funny remark or something would happen and you might then at that moment make eye
+
+1:44:48.160 --> 1:44:54.040
+ contact with someone you didn't know at the other end of the table.
+
+1:44:54.040 --> 1:44:59.560
+ In that moment, you would realize this person is reacting.
+
+1:44:59.560 --> 1:45:01.720
+ This person heard what I heard.
+
+1:45:01.720 --> 1:45:04.880
+ They're reacting the way I reacted.
+
+1:45:04.880 --> 1:45:10.560
+ Nobody else appears to get the joke or to understand what just happened, but random
+
+1:45:10.560 --> 1:45:15.600
+ stranger down there and I, we have this connection and then you build on that.
+
+1:45:15.600 --> 1:45:22.120
+ So then the next time something happens, you automatically look at your new friend and
+
+1:45:22.120 --> 1:45:28.520
+ they look back at you and before you know it, you're hanging out together because you
+
+1:45:28.520 --> 1:45:34.400
+ know you've already established without even talking to each other that you're on the same
+
+1:45:34.400 --> 1:45:35.400
+ wavelength.
+
+1:45:35.400 --> 1:45:36.400
+ Yeah.
+
+1:45:36.400 --> 1:45:41.160
+ It's seemingly so simple, but so powerful that establishing that you're on the same
+
+1:45:41.160 --> 1:45:43.880
+ wavelength at some level.
+
+1:45:43.880 --> 1:45:48.080
+ There's no reason why you and a toaster can't have that.
+
+1:45:48.080 --> 1:45:49.560
+ I'm just saying.
+
+1:45:49.560 --> 1:45:52.760
+ Does this smell burned to you?
+
+1:45:52.760 --> 1:45:53.760
+ Exactly.
+
+1:45:53.760 --> 1:45:55.720
+ I think it's burnt.
+
+1:45:55.720 --> 1:45:59.000
+ If a toaster could just say that to you.
+
+1:45:59.000 --> 1:46:00.000
+ Yeah.
+
+1:46:00.000 --> 1:46:01.000
+ Yeah.
+
+1:46:01.000 --> 1:46:07.640
+ Cryptonomicon published in 1999, set in the late 90s and involves hackers who build essentially
+
+1:46:07.640 --> 1:46:08.640
+ cryptocurrency.
+
+1:46:08.640 --> 1:46:14.720
+ Bitcoin white paper came out in 2008.
+
+1:46:14.720 --> 1:46:23.360
+ So I have to kind of ask, from you looking at this layout of what's been happening in
+
+1:46:23.360 --> 1:46:32.120
+ cryptocurrency, the evolution of this technology, how has it rolled out differently than you
+
+1:46:32.120 --> 1:46:34.280
+ could have imagined in two ways?
+
+1:46:34.280 --> 1:46:42.360
+ One the technology itself and two the human side of things, the human stories of the hackers
+
+1:46:42.360 --> 1:46:48.800
+ and the financial folks and the powerful and the powerless, the human side of things.
+
+1:46:48.800 --> 1:46:49.800
+ Yeah.
+
+1:46:49.800 --> 1:46:55.720
+ Well, Cryptonomicon is pre Bitcoin, it's pre Satoshi, it's pre blockchain as you point
+
+1:46:55.720 --> 1:46:56.720
+ out.
+
+1:46:56.720 --> 1:47:05.200
+ So at that point I was kind of reacting to what I was seeing among people like the Bay
+
+1:47:05.200 --> 1:47:07.760
+ Area Cypherpunks in Berkeley.
+
+1:47:07.760 --> 1:47:17.840
+ There was a branch here in Austin as well and a lot of their thinking was based on the
+
+1:47:17.840 --> 1:47:26.200
+ idea that you would have to have a physical region of the earth that was free of government
+
+1:47:26.200 --> 1:47:28.720
+ interference.
+
+1:47:28.720 --> 1:47:34.580
+ You couldn't achieve that freedom by purely mathematical means on the network.
+
+1:47:34.580 --> 1:47:42.680
+ You actually had to have a room somewhere with servers in it that a government couldn't
+
+1:47:42.680 --> 1:47:44.880
+ come and meddle with.
+
+1:47:44.880 --> 1:47:50.560
+ And so a lot of ideation happened around that view of things that there were efforts to
+
+1:47:50.560 --> 1:47:53.280
+ figure out jurisdictions where this might work.
+
+1:47:53.280 --> 1:47:58.860
+ There was a lot of interest for a while in Anguilla, which is a Caribbean island that
+
+1:47:58.860 --> 1:48:02.360
+ had some unusual jurisdictional properties.
+
+1:48:02.360 --> 1:48:09.520
+ There was SeaLand, which is a platform in the North Sea.
+
+1:48:09.520 --> 1:48:14.200
+ And so there was a lot of effort that went into finding these physical locations that
+
+1:48:14.200 --> 1:48:17.360
+ were deemed kind of safe.
+
+1:48:17.360 --> 1:48:25.780
+ And that all goes away with blockchain, it's no longer necessary.
+
+1:48:25.780 --> 1:48:32.240
+ And so that really changes the picture in a lot of ways because you no longer have...
+
+1:48:32.240 --> 1:48:38.080
+ From a novelist point of view, the old system was a lot more fun to work with because it
+
+1:48:38.080 --> 1:48:44.240
+ gives you a situation where hackers are wandering around in strange parts of the world trying
+
+1:48:44.240 --> 1:48:46.300
+ to set up server rooms.
+
+1:48:46.300 --> 1:48:48.640
+ So that's a great storytelling thing.
+
+1:48:48.640 --> 1:48:54.680
+ There's still a little bit of that in the modern world, but it's just there's several
+
+1:48:54.680 --> 1:48:57.720
+ server rooms as opposed to one centralized one.
+
+1:48:57.720 --> 1:48:58.720
+ Yeah.
+
+1:48:58.720 --> 1:49:07.640
+ Whereas the new wrinkle is the need to do a lot of computation and to keep your GPUs
+
+1:49:07.640 --> 1:49:08.800
+ from melting down.
+
+1:49:08.800 --> 1:49:14.420
+ So people building things in Iceland or in shipping containers on the bottom of the ocean
+
+1:49:14.420 --> 1:49:16.920
+ or whatever.
+
+1:49:16.920 --> 1:49:17.920
+ So...
+
+1:49:17.920 --> 1:49:21.520
+ But there's still governments involved and there's still from a novelist perspective
+
+1:49:21.520 --> 1:49:28.600
+ interesting dynamics with big governments like China and more sort of renegade governments
+
+1:49:28.600 --> 1:49:34.960
+ from all over the world trying to contend with this idea of what to do in terms of control
+
+1:49:34.960 --> 1:49:41.200
+ and power over these kinds of centers that do the mining of the cryptocurrency.
+
+1:49:41.200 --> 1:49:42.200
+ Yeah.
+
+1:49:42.200 --> 1:49:46.440
+ So we're in a stage now that kind of goes beyond the initial...
+
+1:49:46.440 --> 1:49:47.800
+ Like there was...
+
+1:49:47.800 --> 1:49:54.980
+ The stuff I was describing in Cryptonomicon had a little bit of air about it of the underpants
+
+1:49:54.980 --> 1:50:03.120
+ gnomes in that we're gonna build this system and then we'll make money somehow.
+
+1:50:03.120 --> 1:50:08.680
+ But the intermediate step was left out.
+
+1:50:08.680 --> 1:50:11.680
+ And that is...
+
+1:50:11.680 --> 1:50:19.980
+ I think we're now sort of into that phase of the thing where Bitcoin, blockchain exists,
+
+1:50:19.980 --> 1:50:24.960
+ people know how it works, Bitcoin and other cryptocurrencies exist.
+
+1:50:24.960 --> 1:50:28.680
+ People are using them and it's sort of like, okay, what now?
+
+1:50:28.680 --> 1:50:31.840
+ Where does this all lead?
+
+1:50:31.840 --> 1:50:32.840
+ So...
+
+1:50:32.840 --> 1:50:35.040
+ Do you have a sense of where it all leads?
+
+1:50:35.040 --> 1:50:44.200
+ Like is it possible that the set of technology kind of continues to have transformational
+
+1:50:44.200 --> 1:50:52.840
+ effects on not just sort of finance but who gets to have power in this world?
+
+1:50:52.840 --> 1:50:55.680
+ So the decentralization of power.
+
+1:50:55.680 --> 1:50:56.920
+ Big questions, right?
+
+1:50:56.920 --> 1:51:03.520
+ So I guess there's a little bit of the cynic in me thinking that as soon as it becomes
+
+1:51:03.520 --> 1:51:10.080
+ important enough, the existing banks and people in power are gonna sort of control it.
+
+1:51:10.080 --> 1:51:16.760
+ I guess an easy answer is that maybe it won't be a big change in the end.
+
+1:51:16.760 --> 1:51:23.460
+ There's a utopian strain sometimes in the way people think about this that I'm not so
+
+1:51:23.460 --> 1:51:26.360
+ sure about.
+
+1:51:26.360 --> 1:51:32.960
+ There is a technological aspect to Bitcoin and other cryptocurrencies that make it a
+
+1:51:32.960 --> 1:51:41.680
+ little easier to pull along the utopian thread because it's harder for governments to control
+
+1:51:41.680 --> 1:51:42.680
+ Bitcoin.
+
+1:51:42.680 --> 1:51:48.200
+ I mean, they have much fewer options.
+
+1:51:48.200 --> 1:51:50.920
+ They can ban, they can make it illegal.
+
+1:51:50.920 --> 1:51:52.360
+ It's more difficult.
+
+1:51:52.360 --> 1:51:57.200
+ So technology here is on the side of the powerless, the voiceless, which is a very interesting
+
+1:51:57.200 --> 1:51:58.200
+ idea.
+
+1:51:58.200 --> 1:52:04.320
+ Of course, yes, it does have a utopian feel to it, but we have been making progress throughout
+
+1:52:04.320 --> 1:52:05.920
+ human history.
+
+1:52:05.920 --> 1:52:07.400
+ Maybe this is what progress looks like.
+
+1:52:07.400 --> 1:52:12.800
+ There will be the powerful and the greedy and the bureaucrats that take advantage of
+
+1:52:12.800 --> 1:52:19.240
+ it, skim off the top kind of thing, but maybe this does give more power to people that haven't
+
+1:52:19.240 --> 1:52:29.200
+ had power before in a good way, like distributing power and enabling sort of more greater resistance
+
+1:52:29.200 --> 1:52:36.600
+ to sort of dictatorships and authoritarian regimes, that kind of thing, and also enabling
+
+1:52:36.600 --> 1:52:40.400
+ all kinds of technologies built on top of it.
+
+1:52:40.400 --> 1:52:49.520
+ Ultimately, when you digitize money, money is a kind of speech, or it's a kind of mechanism
+
+1:52:49.520 --> 1:52:56.320
+ of how humans interact, and if you make that digital, more and more of the world moves
+
+1:52:56.320 --> 1:53:04.120
+ to the digital space, and then you can finally fully live in that virtual reality with the
+
+1:53:04.120 --> 1:53:05.120
+ toaster.
+
+1:53:05.120 --> 1:53:11.840
+ In a lot of ways, I think in that realm of technology that the money per se is one of
+
+1:53:11.840 --> 1:53:16.480
+ the less interesting things you can do with it, so I think cryptographically enforceable
+
+1:53:16.480 --> 1:53:24.120
+ contracts and organizations built on those, that seems to me like it's got more potential
+
+1:53:24.120 --> 1:53:33.680
+ for change just because we do already have money, and although it's an old system, it's
+
+1:53:33.680 --> 1:53:42.160
+ been digitized to a large extent by the stripes and the credit card companies of the world.
+
+1:53:42.160 --> 1:53:51.000
+ I also love the idea of connecting two smart contracts, connecting data, sort of making
+
+1:53:51.000 --> 1:53:58.120
+ it more formal, it's like Mathematica, more structured, the integration of data, of weather
+
+1:53:58.120 --> 1:54:06.960
+ data, of all kinds of data about the stuff in the world, so they can make contracts between
+
+1:54:06.960 --> 1:54:14.600
+ people that's grounded in data, and that's actually getting closer to something like
+
+1:54:14.600 --> 1:54:20.560
+ truth, because then you can make agreements based on actual data versus kind of perceptions
+
+1:54:20.560 --> 1:54:28.080
+ of data, and if you can formalize, like distribute the power of who gets to tell the story, and
+
+1:54:28.080 --> 1:54:35.000
+ that's an interesting kind of resistance against the powerful in the space of narrative.
+
+1:54:35.000 --> 1:54:42.520
+ Yeah, David Brin has been saying for a while that the only way to settle arguments across
+
+1:54:42.520 --> 1:54:52.720
+ the political divide is to make bets, so people can say the election was stolen, or whatever
+
+1:54:52.720 --> 1:55:02.760
+ controversial position they're taking, and they'll keep saying it until you wager real
+
+1:55:02.760 --> 1:55:07.240
+ money on it.
+
+1:55:07.240 --> 1:55:14.040
+ So maybe there's something there, if you could kind of turn that into a, put a user interface
+
+1:55:14.040 --> 1:55:15.040
+ on that.
+
+1:55:15.040 --> 1:55:25.040
+ Yeah, have a stake in your divisiveness, in your arguments.
+
+1:55:25.040 --> 1:55:27.160
+ Will Dogecoin take over the world?
+
+1:55:27.160 --> 1:55:28.280
+ Twitter question.
+
+1:55:28.280 --> 1:55:33.880
+ You know, I don't follow the different coins that much, so I don't, I mean I hear about
+
+1:55:33.880 --> 1:55:37.880
+ Dogecoin and I've kind of followed the story of it.
+
+1:55:37.880 --> 1:55:47.040
+ So the interesting aspect of Dogecoin is it, so in contrast to like Bitcoin and Ethereum,
+
+1:55:47.040 --> 1:55:52.880
+ which are these serious implementations of cryptocurrency that seek to solve some of
+
+1:55:52.880 --> 1:55:59.080
+ the problems that we're talking about with smart contracts and resist the banks and all
+
+1:55:59.080 --> 1:56:06.040
+ those kinds of things, Dogecoin operates more in the space of memes and humor, while still
+
+1:56:06.040 --> 1:56:09.000
+ doing some of the similar things.
+
+1:56:09.000 --> 1:56:20.040
+ And it presents to the world sort of a question of whether memes, whether humor, whether narrative
+
+1:56:20.040 --> 1:56:25.040
+ will go a long way in the future.
+
+1:56:25.040 --> 1:56:32.600
+ Like much farther than some kind of boring old grounded technologies.
+
+1:56:32.600 --> 1:56:35.440
+ Whether we'll be playing in the space of fun.
+
+1:56:35.440 --> 1:56:41.880
+ Like once we've built a base of comfort and stability and like a robust system where everyone
+
+1:56:41.880 --> 1:56:50.720
+ has shelter, everyone has food and the basic needs covered, are we going to then operate
+
+1:56:50.720 --> 1:56:53.880
+ in the space of fun?
+
+1:56:53.880 --> 1:56:55.280
+ That's what I think about Dogecoin.
+
+1:56:55.280 --> 1:57:02.300
+ Because it seems like fun spreads faster than anything else.
+
+1:57:02.300 --> 1:57:06.400
+ Fun of different kinds, and that could be bad fun and that could be good fun.
+
+1:57:06.400 --> 1:57:09.000
+ And so it's a battle of good fun versus bad fun.
+
+1:57:09.000 --> 1:57:14.200
+ It goes viral very, very quickly when you, if you post something that people find fun
+
+1:57:14.200 --> 1:57:15.200
+ to.
+
+1:57:15.200 --> 1:57:16.200
+ Yeah.
+
+1:57:16.200 --> 1:57:17.200
+ And that's what Dogecoin represents.
+
+1:57:17.200 --> 1:57:25.160
+ So there's like, so Bitcoin represents like financial, like serious financial instruments
+
+1:57:25.160 --> 1:57:27.240
+ and then Dogecoin represents fun.
+
+1:57:27.240 --> 1:57:33.900
+ And it's interesting to watch the battle go on on the internet to see which wins.
+
+1:57:33.900 --> 1:57:39.080
+ This is also like open question to me of what is the internet?
+
+1:57:39.080 --> 1:57:43.560
+ Because fun seems to prevail on the internet.
+
+1:57:43.560 --> 1:57:48.000
+ And is that a fundamental property of the internet moving forward when you look a hundred
+
+1:57:48.000 --> 1:57:53.640
+ years out, or is this a temporary thing that was true at the birth of the internet and
+
+1:57:53.640 --> 1:57:58.720
+ it's just true for a couple of decades until it fades away and the adults take over and
+
+1:57:58.720 --> 1:57:59.720
+ become serious again?
+
+1:57:59.720 --> 1:58:05.440
+ Well, I think the adults took over initially and then it was later on that people started
+
+1:58:05.440 --> 1:58:10.100
+ using it for fun, frivolous things like memes.
+
+1:58:10.100 --> 1:58:16.800
+ And that's, I think that's pretty much unstoppable, you know, because even people who are very
+
+1:58:16.800 --> 1:58:26.080
+ serious, you know, enjoy sending around a funny picture or something that amuses them.
+
+1:58:26.080 --> 1:58:27.080
+ Yeah.
+
+1:58:27.080 --> 1:58:30.480
+ I personally think we spoke about World War II.
+
+1:58:30.480 --> 1:58:35.960
+ I think memes will save the world and prevent all future wars.
+
+1:58:35.960 --> 1:58:41.060
+ You've been handwriting your work for the past 20 years since writing The Baroque Cycle.
+
+1:58:41.060 --> 1:58:44.140
+ What are the pros and cons of handwriting versus typing?
+
+1:58:44.140 --> 1:58:49.340
+ For me, I started it as an experiment when I started The Baroque Cycle because I had
+
+1:58:49.340 --> 1:58:54.640
+ noticed that sometimes if I was stuck having a hard time getting started, if I just picked
+
+1:58:54.640 --> 1:59:00.100
+ up a pen and started writing, it was easy to go.
+
+1:59:00.100 --> 1:59:04.040
+ So I just decided to keep with that.
+
+1:59:04.040 --> 1:59:08.240
+ If it got in my way, I didn't like it, I could always just go back to the word processor
+
+1:59:08.240 --> 1:59:09.240
+ and be fine.
+
+1:59:09.240 --> 1:59:11.160
+ But that never happened.
+
+1:59:11.160 --> 1:59:16.880
+ So there's a certain security that comes from knowing that it's ink on paper and there's
+
+1:59:16.880 --> 1:59:28.600
+ no operating system crash or software failure that can obliterate it.
+
+1:59:28.600 --> 1:59:31.880
+ It's a slower output technique.
+
+1:59:31.880 --> 1:59:39.520
+ And so a sentence or a paragraph spends a longer time in the buffer up here before it
+
+1:59:39.520 --> 1:59:43.800
+ gets committed to paper, whereas I can type really fast.
+
+1:59:43.800 --> 1:59:48.900
+ And so I can slam things out before I've really thought them through.
+
+1:59:48.900 --> 1:59:54.300
+ So I think the first draft quality ends up being higher.
+
+1:59:54.300 --> 2:00:00.840
+ And then editing, first draft of editing is just faster because instead of like trying
+
+2:00:00.840 --> 2:00:07.880
+ to move the cursor around or whatever or hitting the backspace key, I can just draw a line
+
+2:00:07.880 --> 2:00:14.600
+ through a word or a sentence or just around a whole paragraph and exit out.
+
+2:00:14.600 --> 2:00:18.880
+ And in doing so, I very quickly created an edit, but I've also left behind a record of
+
+2:00:18.880 --> 2:00:22.200
+ what the text was prior to the edit.
+
+2:00:22.200 --> 2:00:28.880
+ Of course, all the digital versions have those quote unquote features, but their experience
+
+2:00:28.880 --> 2:00:31.280
+ is different.
+
+2:00:31.280 --> 2:00:41.240
+ Is there a romance to just the physical, the touch of the pen to the paper doing what has
+
+2:00:41.240 --> 2:00:43.160
+ been done for centuries?
+
+2:00:43.160 --> 2:00:44.160
+ I think there is.
+
+2:00:44.160 --> 2:00:50.940
+ I think there's just the simplicity of it and not having any intermediary technology
+
+2:00:50.940 --> 2:01:01.840
+ beyond the pen and the paper is just very simple and clean and so I've got a bunch of
+
+2:01:01.840 --> 2:01:03.960
+ fountain pens.
+
+2:01:03.960 --> 2:01:10.680
+ I started buying fancy paper from Italy a few years ago because I thought I would be
+
+2:01:10.680 --> 2:01:19.920
+ more conservative with it, but it's still a trivial expenditure, so it doesn't really
+
+2:01:19.920 --> 2:01:24.280
+ alter my habits very much.
+
+2:01:24.280 --> 2:01:30.200
+ So all that said, once you do type stuff up, you use Emacs.
+
+2:01:30.200 --> 2:01:33.480
+ I use Emacs, obviously the superior editor.
+
+2:01:33.480 --> 2:01:34.480
+ Of course.
+
+2:01:34.480 --> 2:01:41.160
+ Let me just ask the ridiculous futuristic question because Emacs has been around forever.
+
+2:01:41.160 --> 2:01:52.200
+ Do you think in 100 years we will still have Emacs and Vim, or like pick a let's say 50,
+
+2:01:52.200 --> 2:01:53.200
+ 100 years.
+
+2:01:53.200 --> 2:01:54.200
+ Yeah, yeah, yeah.
+
+2:01:54.200 --> 2:02:00.980
+ No, I mean whenever you're doing anything in Linux, you're spending a lot of time editing
+
+2:02:00.980 --> 2:02:06.960
+ little config files and scripts and stuff and you need to be able to pop in and out
+
+2:02:06.960 --> 2:02:12.100
+ of editing those things and it needs to work.
+
+2:02:12.100 --> 2:02:19.680
+ Like even if the windowing GUI is dead and all you've got is like a command line, to
+
+2:02:19.680 --> 2:02:26.560
+ get out of that problem, you might need to enter an editor and alter a file.
+
+2:02:26.560 --> 2:02:34.280
+ So I think on that level, there will always have to be sort of very simple, well Emacs
+
+2:02:34.280 --> 2:02:37.060
+ isn't very simple, but you know what I mean.
+
+2:02:37.060 --> 2:02:44.080
+ There have to be basic editors that you can use from either the command line or a GUI
+
+2:02:44.080 --> 2:02:47.440
+ just for administering systems.
+
+2:02:47.440 --> 2:02:58.580
+ Now how widespread they'll be, there's a certain amount of, what's the story of the American
+
+2:02:58.580 --> 2:03:06.960
+ folktale of the hammer guy who drives the railroad spikes, John Henry, trying to keep
+
+2:03:06.960 --> 2:03:12.660
+ up with the steam hammer and eventually the steam hammer wins because he can't drive the
+
+2:03:12.660 --> 2:03:14.160
+ spikes fast enough.
+
+2:03:14.160 --> 2:03:25.360
+ So there's a sense in which Microsoft, who knows how much they've invested in code visual
+
+2:03:25.360 --> 2:03:29.880
+ studio or Apple with Xcode.
+
+2:03:29.880 --> 2:03:38.200
+ So they've put huge amounts of money into enhancing their IDEs and Emacs in theory can
+
+2:03:38.200 --> 2:03:47.000
+ duplicate all of those features by if you just have enough Linux hackers writing Emacs
+
+2:03:47.000 --> 2:04:00.600
+ Lisp macros, but at some point it's gonna be hard to maintain that level of, to keep
+
+2:04:00.600 --> 2:04:03.680
+ up feature for feature.
+
+2:04:03.680 --> 2:04:09.160
+ The interesting thing about Emacs just is it's lasted a long time and I think you talked
+
+2:04:09.160 --> 2:04:21.160
+ about that there's a certain fads certainly in the software engineering space and it's
+
+2:04:21.160 --> 2:04:28.760
+ interesting to think about technologies that sort of last for a very long time and just
+
+2:04:28.760 --> 2:04:33.440
+ kind of being in the, what is it, how do they get by?
+
+2:04:33.440 --> 2:04:41.240
+ It's like the cockroaches of software or the bacteria software or something like this base
+
+2:04:41.240 --> 2:04:47.520
+ thing that nobody, everybody's just became reliant on and they just outlast everything
+
+2:04:47.520 --> 2:04:52.880
+ else and slowly, slowly adjust with the times with a little bit of a delay, with a little
+
+2:04:52.880 --> 2:04:58.560
+ bit of customization by individuals kind of that, but they're always there in the shadows
+
+2:04:58.560 --> 2:05:01.360
+ and they outlast everybody else.
+
+2:05:01.360 --> 2:05:05.880
+ And I wonder if that might be the story for a lot of technologies, especially in the software
+
+2:05:05.880 --> 2:05:06.880
+ space.
+
+2:05:06.880 --> 2:05:14.040
+ Shell scripts, all that stuff, you can't run the modern world without a bunch of shell
+
+2:05:14.040 --> 2:05:18.880
+ scripts booting up machines and running things.
+
+2:05:18.880 --> 2:05:25.680
+ So that is gonna be a hard thing to replace.
+
+2:05:25.680 --> 2:05:29.200
+ And then tech for typesetting that you use, you said.
+
+2:05:29.200 --> 2:05:35.240
+ For when I want to print it out, yeah, I just have some simple macros that I use, but then
+
+2:05:35.240 --> 2:05:42.440
+ I have to, the publisher put their foot down and they want it in Word format now.
+
+2:05:42.440 --> 2:05:52.440
+ So years ago I wrote some macros to convert and this time, what did I do?
+
+2:05:52.440 --> 2:05:53.440
+ Copy paste?
+
+2:05:53.440 --> 2:05:57.440
+ No, I use sort of regular expressions.
+
+2:05:57.440 --> 2:06:05.680
+ So I was to do italics in, you put it in curly brackets and you do backslash IT and then
+
+2:06:05.680 --> 2:06:09.900
+ you type what you want to type and that's how you get italics in tech.
+
+2:06:09.900 --> 2:06:16.520
+ So you can create a regular expression that'll look for some text between curly brackets
+
+2:06:16.520 --> 2:06:24.800
+ preceded by backslash IT and then instead convert that to italics.
+
+2:06:24.800 --> 2:06:28.240
+ And Word will do that.
+
+2:06:28.240 --> 2:06:31.520
+ Word if you go deep enough into its search and replace UI.
+
+2:06:31.520 --> 2:06:34.160
+ You can do regular expressions.
+
+2:06:34.160 --> 2:06:35.160
+ Is just regfs.
+
+2:06:35.160 --> 2:06:36.160
+ Yeah.
+
+2:06:36.160 --> 2:06:38.160
+ It's funny that you did that.
+
+2:06:38.160 --> 2:06:39.160
+ Yeah.
+
+2:06:39.160 --> 2:06:45.840
+ I mean, I'm sure there's tools that help you with that kind of thing, but the task is sufficiently
+
+2:06:45.840 --> 2:06:51.240
+ simple to where you can do a much better job than anyone, anybody else's tool can.
+
+2:06:51.240 --> 2:06:52.240
+ Yeah, yeah.
+
+2:06:52.240 --> 2:06:53.240
+ So.
+
+2:06:53.240 --> 2:06:54.240
+ That's a fascinating process.
+
+2:06:54.240 --> 2:06:55.240
+ That's fine for me.
+
+2:06:55.240 --> 2:06:56.240
+ Yeah.
+
+2:06:56.240 --> 2:06:58.600
+ And it keeps you from messing around with formatting.
+
+2:06:58.600 --> 2:06:59.600
+ Yeah.
+
+2:06:59.600 --> 2:07:06.000
+ Like, Oh, what if I put this chapter heading, you know, in, you know, a sans serif font?
+
+2:07:06.000 --> 2:07:07.000
+ Yeah.
+
+2:07:07.000 --> 2:07:09.400
+ It's a, it's just classic wanking.
+
+2:07:09.400 --> 2:07:16.360
+ And so those options are closed off in what I'm doing.
+
+2:07:16.360 --> 2:07:20.960
+ Is there advice you could say, what does it take to write a great story?
+
+2:07:20.960 --> 2:07:28.080
+ The power of, of good yarns, good narratives to, um, pull people in is, is, uh, incredible.
+
+2:07:28.080 --> 2:07:36.800
+ And I think my sort of amateur theory is that it's an evolutionary development that if you're,
+
+2:07:36.800 --> 2:07:45.320
+ um, you know, uh, uh, cave person sitting around a fire in the rift valley a million
+
+2:07:45.320 --> 2:07:57.000
+ years ago, um, if you can tell the story of how you escaped from the hyenas, um, or how
+
+2:07:57.000 --> 2:08:02.480
+ uncle Bob, you know, didn't escape from the hyenas, and if the people listening to you
+
+2:08:02.480 --> 2:08:09.200
+ can take that in and they can build that scenario in their heads, like a kind of virtual reality
+
+2:08:09.200 --> 2:08:16.920
+ and see what you're describing, then you've just conferred an incredibly important advantage
+
+2:08:16.920 --> 2:08:19.040
+ on the people who've heard that story.
+
+2:08:19.040 --> 2:08:20.040
+ Yeah.
+
+2:08:20.040 --> 2:08:21.040
+ Right.
+
+2:08:21.040 --> 2:08:25.280
+ And so they know a bunch of stuff now about how to stay alive that they could not have
+
+2:08:25.280 --> 2:08:28.400
+ learned in any other way.
+
+2:08:28.400 --> 2:08:34.520
+ Um, I mean, animals who don't have speech though, they might warn each other, they might
+
+2:08:34.520 --> 2:08:42.800
+ make a sound that says danger, danger, um, but, uh, but as far as we know, they can't
+
+2:08:42.800 --> 2:08:44.560
+ tell more complicated stories.
+
+2:08:44.560 --> 2:08:47.520
+ So it's a part of us.
+
+2:08:47.520 --> 2:08:48.520
+ Yeah.
+
+2:08:48.520 --> 2:08:53.360
+ I, the, the, the collective intelligence seems to be one of the key characteristics of the,
+
+2:08:53.360 --> 2:09:00.180
+ of homo sapiens, the ability to share ideas and hold ideas together in our minds and storytelling
+
+2:09:00.180 --> 2:09:01.860
+ is the fundamental aspect of that.
+
+2:09:01.860 --> 2:09:08.440
+ Maybe even language itself is more fundamental because the language is required to do the
+
+2:09:08.440 --> 2:09:11.440
+ storytelling or maybe they evolve together.
+
+2:09:11.440 --> 2:09:12.680
+ Maybe they co evolve.
+
+2:09:12.680 --> 2:09:13.680
+ Yeah.
+
+2:09:13.680 --> 2:09:18.880
+ So I think that you've got to work with that and I think, uh, sometimes it seems like in
+
+2:09:18.880 --> 2:09:27.440
+ kind of, um, literary circles that having a lot of plot is a little bit frowned upon
+
+2:09:27.440 --> 2:09:35.040
+ as it's pulpy or it's exploitative, but, um, for me, I don't have any compunctions whatsoever
+
+2:09:35.040 --> 2:09:36.040
+ about that.
+
+2:09:36.040 --> 2:09:40.720
+ I like stories that, um, are grabby and fun and exciting to read.
+
+2:09:40.720 --> 2:09:46.480
+ And once you've got one of those going, once you've got a good yarn going that people will
+
+2:09:46.480 --> 2:09:52.000
+ enjoy reading, then you're free to do whatever you want, uh, in the frame of that story.
+
+2:09:52.000 --> 2:09:56.400
+ Um, but if you don't have that, um, then you got nothing.
+
+2:09:56.400 --> 2:10:02.800
+ What about having like, uh, which you do at a technological scientific rigor, like to
+
+2:10:02.800 --> 2:10:09.400
+ the, to the accuracy and as much as possible, how does that add to the, to, to Bob telling
+
+2:10:09.400 --> 2:10:12.640
+ the story or telling the story about Bob or on the campfire?
+
+2:10:12.640 --> 2:10:19.520
+ Well, the main thing that it does is, um, present, um, little details that you might
+
+2:10:19.520 --> 2:10:23.080
+ not have come up with on your own.
+
+2:10:23.080 --> 2:10:30.880
+ So if you're just sitting there freely imagining things, um, you, uh, you, your, your brain
+
+2:10:30.880 --> 2:10:36.320
+ probably isn't going to serve up the wealth of details and the resulting complications
+
+2:10:36.320 --> 2:10:42.560
+ and surprises that real, that the real world is constantly presenting us with.
+
+2:10:42.560 --> 2:10:49.780
+ And so, um, in my case, if I'm, um, trying to write a story about, you know, some that
+
+2:10:49.780 --> 2:10:56.080
+ involves some technology like a rocket or, uh, orbital maneuvers or whatever, then delving
+
+2:10:56.080 --> 2:11:02.760
+ into those details eventually is going to turn up some weird unexpected, you know, thing
+
+2:11:02.760 --> 2:11:09.640
+ that, uh, gives me material to work with, but also subliminally readers who see that
+
+2:11:09.640 --> 2:11:17.080
+ are going to be drawn in more, uh, because they're going to, uh, to, to find that, um,
+
+2:11:17.080 --> 2:11:21.880
+ oh, I didn't see that coming, you know, you know, it's got some of the complexity and
+
+2:11:21.880 --> 2:11:23.920
+ surprise value of the real world.
+
+2:11:23.920 --> 2:11:24.920
+ Yeah.
+
+2:11:24.920 --> 2:11:33.240
+ It does something, um, uh, Alex Garland, director who did, uh, who wrote, uh, directed Ex Machina.
+
+2:11:33.240 --> 2:11:41.920
+ I think about AI movies and the more care you take in making it accurate, the more compelling
+
+2:11:41.920 --> 2:11:44.320
+ the story becomes somehow.
+
+2:11:44.320 --> 2:11:47.200
+ I'm not, I'm not sure what that is.
+
+2:11:47.200 --> 2:11:52.960
+ Um, maybe because it becomes more real to the people writing the story, maybe it just
+
+2:11:52.960 --> 2:11:54.640
+ makes you a better writer.
+
+2:11:54.640 --> 2:12:00.880
+ The key to any storytelling is getting the, the readers to suspend their, their disbelief.
+
+2:12:00.880 --> 2:12:05.040
+ And there's all kinds of triggers and little tells that can break that.
+
+2:12:05.040 --> 2:12:06.040
+ Right.
+
+2:12:06.040 --> 2:12:09.240
+ Um, and once it's broken, it's really hard to get it back.
+
+2:12:09.240 --> 2:12:12.440
+ Uh, you know, a lot of times that's the end.
+
+2:12:12.440 --> 2:12:15.760
+ Everybody will just close the book and not pick it up.
+
+2:12:15.760 --> 2:12:22.480
+ Um, I gotta ask you, you've answered this question, but I gotta ask you the most impossible
+
+2:12:22.480 --> 2:12:30.240
+ question for an author to answer, but which Neal Stephenson book should one read first?
+
+2:12:30.240 --> 2:12:35.040
+ So when people ask me that, I usually ask them what they like to read, right?
+
+2:12:35.040 --> 2:12:42.360
+ Because, uh, I mean, there's the best known one is probably snow crash, but that's a cyber
+
+2:12:42.360 --> 2:12:43.360
+ punk novel.
+
+2:12:43.360 --> 2:12:46.480
+ That's at the same time, making fun of cyber punk.
+
+2:12:46.480 --> 2:12:53.800
+ Um, so it's kind of got some layers to it that, uh, might not seem so funny if you don't
+
+2:12:53.800 --> 2:12:57.000
+ have that, if you don't get the joke, right?
+
+2:12:57.000 --> 2:13:03.120
+ So, um, there's, uh, I've written, as you point out, I've written historical novels.
+
+2:13:03.120 --> 2:13:04.560
+ Some people like those.
+
+2:13:04.560 --> 2:13:06.520
+ Some people prefer those.
+
+2:13:06.520 --> 2:13:12.340
+ So if that's what you like, then kryptonomicon or the baroque cycle is where you would start
+
+2:13:12.340 --> 2:13:17.800
+ if you like sort of techno thrillers that are set in a modern day setting, but aren't
+
+2:13:17.800 --> 2:13:25.160
+ science fictiony per se, then, uh, Reamdy, um, is one of those.
+
+2:13:25.160 --> 2:13:29.440
+ And termination shock, um, is, is, is definitely one of those.
+
+2:13:29.440 --> 2:13:35.920
+ Um, so it just depends on, on, uh, what people like.
+
+2:13:35.920 --> 2:13:43.040
+ What, what, uh, when people a long time ago recommend I read snow crash, they said, uh,
+
+2:13:43.040 --> 2:13:47.920
+ it's the, it's Neil Stevenson light.
+
+2:13:47.920 --> 2:13:54.240
+ It's the, uh, like if you don't want to be overwhelmed by the depth, like the rigor book,
+
+2:13:54.240 --> 2:13:57.720
+ like that's a good, that's a good introduction to the man.
+
+2:13:57.720 --> 2:14:05.160
+ So essentially you broke it down by topics, but if you wanted to read all of them, what's
+
+2:14:05.160 --> 2:14:10.320
+ a good introduction to the, to the man, because obviously these worlds are very different.
+
+2:14:10.320 --> 2:14:12.920
+ The philosophies are very different.
+
+2:14:12.920 --> 2:14:17.640
+ What's a good introduction to the human?
+
+2:14:17.640 --> 2:14:23.240
+ People ask the same thing of Dostoyevsky, people, it's a, it's a hard one to answer.
+
+2:14:23.240 --> 2:14:26.920
+ Maybe seven eves because it's got big themes.
+
+2:14:26.920 --> 2:14:32.920
+ Um, it's, you know, it's about heavy, heavy things happening to the human race.
+
+2:14:32.920 --> 2:14:39.320
+ Uh, but hopefully the story is told through a cast of characters that, uh, people can
+
+2:14:39.320 --> 2:14:47.360
+ relate to, you know, and it moves along, uh, so, uh, it, it does go kind of deep eventually
+
+2:14:47.360 --> 2:14:54.320
+ on how rockets work and orbital mechanics and all that stuff, but, um, people were able
+
+2:14:54.320 --> 2:14:57.600
+ to get through it anyway, or some people just skip over that.
+
+2:14:57.600 --> 2:14:58.600
+ It's fine.
+
+2:14:58.600 --> 2:15:06.560
+ You know, um, as an author, let me ask you what books had a big impact on your life that
+
+2:15:06.560 --> 2:15:07.560
+ you've read.
+
+2:15:07.560 --> 2:15:14.040
+ Is there any that jumped to mind that, uh, you learned from as a writer, as a philosopher,
+
+2:15:14.040 --> 2:15:17.160
+ as a mathematician, as an engineer?
+
+2:15:17.160 --> 2:15:19.520
+ This is one of these questions where I always blank out.
+
+2:15:19.520 --> 2:15:26.000
+ And then when I'm walking out the door, I'll, I'll remember 12, so this is a random selection
+
+2:15:26.000 --> 2:15:27.680
+ that doesn't represent the top.
+
+2:15:27.680 --> 2:15:34.400
+ The top ones, um, well, I mentioned, you know, gulag archipelago and it's kind of a hefty
+
+2:15:34.400 --> 2:15:37.920
+ and dark, but, and then it has a personal connection as well.
+
+2:15:37.920 --> 2:15:38.920
+ Yeah.
+
+2:15:38.920 --> 2:15:44.040
+ Just like where you found the book to the part, the time in your life, where you found
+
+2:15:44.040 --> 2:15:45.620
+ it, who recommended it.
+
+2:15:45.620 --> 2:15:46.920
+ That's also part of the story.
+
+2:15:46.920 --> 2:15:47.920
+ Yeah.
+
+2:15:47.920 --> 2:15:54.200
+ So there's definitely that there's, you know, I, I circle back to Moby Dick a lot, um, because
+
+2:15:54.200 --> 2:15:59.620
+ we read it in a, uh, a really great English class I had in high school.
+
+2:15:59.620 --> 2:16:05.040
+ And I came in with an oppositional stance because I thought that the teacher was going
+
+2:16:05.040 --> 2:16:11.640
+ to try to talk me into having all kinds of highfalutin ideas about allegory and what
+
+2:16:11.640 --> 2:16:12.640
+ does this mean?
+
+2:16:12.640 --> 2:16:13.640
+ What's the symbolism?
+
+2:16:13.640 --> 2:16:20.960
+ And it turned out that, uh, it turned out to be a lot more interesting and satisfying
+
+2:16:20.960 --> 2:16:21.960
+ than that.
+
+2:16:21.960 --> 2:16:29.920
+ Um, what was the first powerful book you remember reading that like convinced you that this
+
+2:16:29.920 --> 2:16:32.440
+ form could have depth?
+
+2:16:32.440 --> 2:16:33.440
+ Hmm.
+
+2:16:33.440 --> 2:16:34.440
+ Was it Moby Dick?
+
+2:16:34.440 --> 2:16:35.440
+ Was it like in high school?
+
+2:16:35.440 --> 2:16:39.320
+ I'm trying to remember, well, Moby Dick was definitely a big one.
+
+2:16:39.320 --> 2:16:45.160
+ Um, I mean, I used to read a lot of classics comics when I was, I don't know if you've
+
+2:16:45.160 --> 2:16:53.080
+ seen these, it's a whole series of comic books that, um, uh, it was viral.
+
+2:16:53.080 --> 2:16:57.760
+ You could, uh, in the, in the back of each comic book was an order form.
+
+2:16:57.760 --> 2:17:03.240
+ You could check some boxes and fill out your address and mail it in and more would show
+
+2:17:03.240 --> 2:17:04.240
+ up.
+
+2:17:04.240 --> 2:17:10.040
+ And, but it was like, they would do the Count of Monte Cristo, you know, Moby Dick, you
+
+2:17:10.040 --> 2:17:17.240
+ know, Robert Louis Stevenson, Robinson Crusoe, you know, all this of classic books, uh, were,
+
+2:17:17.240 --> 2:17:19.480
+ they had put into comic book form.
+
+2:17:19.480 --> 2:17:21.040
+ That's amazing.
+
+2:17:21.040 --> 2:17:22.040
+ Yeah.
+
+2:17:22.040 --> 2:17:26.240
+ Reading Moby Dick, if you're nine years old is a tall order.
+
+2:17:26.240 --> 2:17:32.080
+ There's some very complicated sentences in there and a lot of digressions, but if you're
+
+2:17:32.080 --> 2:17:36.960
+ just looking at the comic books, like, holy shit, look at that whale, you know?
+
+2:17:36.960 --> 2:17:43.600
+ Um, and, um, and ultimately the power of the story doesn't need the complicated words.
+
+2:17:43.600 --> 2:17:47.720
+ It's, it's all about the man and the, and the whale.
+
+2:17:47.720 --> 2:17:48.720
+ Yeah.
+
+2:17:48.720 --> 2:17:49.720
+ Yeah.
+
+2:17:49.720 --> 2:17:52.600
+ So you could get kind of a grounding in a lot of classic works of literature without
+
+2:17:52.600 --> 2:17:57.560
+ actually reading them, which is, you know, it's great when you're nine years old.
+
+2:17:57.560 --> 2:18:01.540
+ So, so I read a lot of that stuff, uh, for sure.
+
+2:18:01.540 --> 2:18:07.240
+ The annotated Sherlock Holmes, um.
+
+2:18:07.240 --> 2:18:10.360
+ You mentioned David Deutsch too, as an inspiration for some of your work.
+
+2:18:10.360 --> 2:18:14.520
+ I mean, you've, you've obviously didn't like really a lot of research for the books you,
+
+2:18:14.520 --> 2:18:15.520
+ you do.
+
+2:18:15.520 --> 2:18:16.520
+ Roger Penrose.
+
+2:18:16.520 --> 2:18:22.900
+ What, uh, do you remember a book that made you want to become a writer or a moment that
+
+2:18:22.900 --> 2:18:23.900
+ made you become a writer?
+
+2:18:23.900 --> 2:18:31.520
+ I think like the, you know, the answer I usually give is that when I was in like fifth grade
+
+2:18:31.520 --> 2:18:40.040
+ and one of my friends came to school one day, he was wearing leather shoes, like dress shoes
+
+2:18:40.040 --> 2:18:44.520
+ and I hated dress shoes cause mine never fit.
+
+2:18:44.520 --> 2:18:45.880
+ And so they were uncomfortable.
+
+2:18:45.880 --> 2:18:50.420
+ I couldn't run, you know, they were cold, it was Iowa.
+
+2:18:50.420 --> 2:18:57.000
+ So I kind of said, I remember very clearly thinking, okay, I don't like where this is
+
+2:18:57.000 --> 2:18:58.000
+ going.
+
+2:18:58.000 --> 2:19:08.720
+ Like, does this mean that next year all of the kids are going to be wearing leather shoes?
+
+2:19:08.720 --> 2:19:12.640
+ So I need to find a job where I don't have to do that.
+
+2:19:12.640 --> 2:19:17.920
+ So that was like the first time I thought about trying to find such a job, you know,
+
+2:19:17.920 --> 2:19:18.920
+ being a writer.
+
+2:19:18.920 --> 2:19:24.680
+ And then, and then I just read a lot of, uh, just classic science fiction short stories
+
+2:19:24.680 --> 2:19:28.480
+ and started trying to write some of my own.
+
+2:19:28.480 --> 2:19:36.720
+ And there were just classic young adult stories like by Heinlein and the other classic names
+
+2:19:36.720 --> 2:19:37.720
+ that you think of.
+
+2:19:37.720 --> 2:19:42.160
+ But the Heinlein ones stuck, have stuck with me in a way that the others didn't.
+
+2:19:42.160 --> 2:19:54.440
+ What's the greatest science fiction book ever written, just removing your work from consideration?
+
+2:19:54.440 --> 2:19:56.400
+ I'm loving torturing you right now.
+
+2:19:56.400 --> 2:19:58.360
+ Greatest ever non Stevenson.
+
+2:19:58.360 --> 2:20:02.360
+ Do we include fantasy or does it have to be science fiction?
+
+2:20:02.360 --> 2:20:05.560
+ Oh, interesting fantasy.
+
+2:20:05.560 --> 2:20:07.600
+ Hmm.
+
+2:20:07.600 --> 2:20:09.640
+ I did not expect that twist.
+
+2:20:09.640 --> 2:20:13.680
+ Uh, well, for in a weird way, they're lumped together in people's minds, right?
+
+2:20:13.680 --> 2:20:17.680
+ So they are, but there, but there's also a boundary somehow.
+
+2:20:17.680 --> 2:20:18.680
+ Yeah.
+
+2:20:18.680 --> 2:20:20.480
+ I'm not sure what that is exactly.
+
+2:20:20.480 --> 2:20:21.480
+ Nobody is.
+
+2:20:21.480 --> 2:20:22.480
+ It's a mystery.
+
+2:20:22.480 --> 2:20:27.640
+ So, I mean, if we do include it, then it's easily the, the Lord of the rings.
+
+2:20:27.640 --> 2:20:34.960
+ But, um, I mean, greatness is a interesting quality to, uh, to try to define.
+
+2:20:34.960 --> 2:20:43.240
+ Um, and for me, a lot of the, the fun and the joy of such books is, is not in what you'd
+
+2:20:43.240 --> 2:20:46.860
+ call greatness, but just storytelling.
+
+2:20:46.860 --> 2:20:53.040
+ So I was always a big fan of has have space suit will travel, which is a Heinlein young
+
+2:20:53.040 --> 2:20:54.040
+ adult book.
+
+2:20:54.040 --> 2:20:56.480
+ It's just, uh, it's just a fun, good read.
+
+2:20:56.480 --> 2:21:01.220
+ Um, so, so fun is a big component.
+
+2:21:01.220 --> 2:21:02.220
+ Greatness is overrated.
+
+2:21:02.220 --> 2:21:08.040
+ Well, I don't know it's overrated, but it's just, you know, it's, it might be underdefined
+
+2:21:08.040 --> 2:21:10.120
+ to put it that way.
+
+2:21:10.120 --> 2:21:13.920
+ So how space it will travel now, I definitely have to read that one.
+
+2:21:13.920 --> 2:21:14.920
+ Yeah.
+
+2:21:14.920 --> 2:21:15.920
+ You mentioned Iowa.
+
+2:21:15.920 --> 2:21:20.680
+ It was, uh, there a couple of times I got to spend, uh, quite a bit of time with Dan
+
+2:21:20.680 --> 2:21:30.200
+ Gabel with Tom Brands who are wrestlers was, uh, is it now wrestling, martial arts, part
+
+2:21:30.200 --> 2:21:35.360
+ of your life, any part of your form formation of who you are as a human being?
+
+2:21:35.360 --> 2:21:36.360
+ I think so.
+
+2:21:36.360 --> 2:21:45.040
+ In a, it was a late, it was a late thing for me, but growing up in Ames, um, Dan Gabel
+
+2:21:45.040 --> 2:21:47.760
+ was, uh, a few years older than me.
+
+2:21:47.760 --> 2:21:54.180
+ And so sometimes we would go to the arena at the university and watch wrestling meets
+
+2:21:54.180 --> 2:21:58.980
+ and um, and this was before his Olympic career.
+
+2:21:58.980 --> 2:22:04.460
+ So everyone knew he was the star of that team and that he was the best, but people didn't
+
+2:22:04.460 --> 2:22:07.600
+ yet know he was the greatest of all time.
+
+2:22:07.600 --> 2:22:08.600
+ You saw Gabe.
+
+2:22:08.600 --> 2:22:14.280
+ So that was part, it's, it's funny is, uh, it feels like a small world that you would
+
+2:22:14.280 --> 2:22:20.400
+ be in the same space as Dan Gabel a hundred feet away, a little dot on the mat trouncing
+
+2:22:20.400 --> 2:22:23.560
+ his opponents, him and him and Chris Taylor.
+
+2:22:23.560 --> 2:22:30.680
+ So the other star was this 400 pound plus guy named Chris Taylor who, uh, also went
+
+2:22:30.680 --> 2:22:32.240
+ to the Olympics.
+
+2:22:32.240 --> 2:22:38.880
+ So yeah, people, you know, he was, he was a no, he was a, uh, athletic hero and wrestling
+
+2:22:38.880 --> 2:22:47.240
+ is there's certain States like Oklahoma, Pennsylvania, Iowa, where wrestling is the sport because
+
+2:22:47.240 --> 2:22:49.120
+ those are States of small towns.
+
+2:22:49.120 --> 2:22:55.640
+ And so if you're a small town is if you're like Dan Gabel, uh, and you have to be on
+
+2:22:55.640 --> 2:23:01.320
+ a football team with 20 other guys who are not Dan Gabel, then no matter how good you
+
+2:23:01.320 --> 2:23:04.600
+ are, your team might, might suck.
+
+2:23:04.600 --> 2:23:11.920
+ Uh, but if in a solo thing, you can, you can go to the Olympics.
+
+2:23:11.920 --> 2:23:16.200
+ So we did a lot of wrestling in our gym classes in school and I didn't like it.
+
+2:23:16.200 --> 2:23:22.400
+ And I think partly it's just that it was so, so competitive and the people who were cared
+
+2:23:22.400 --> 2:23:26.480
+ about it really cared about it a lot, you know?
+
+2:23:26.480 --> 2:23:31.300
+ And so it was, it was pretty tough and I didn't think I had the right body type.
+
+2:23:31.300 --> 2:23:36.600
+ But then when I was, uh, after college, I was in Iowa city for a few years when he was
+
+2:23:36.600 --> 2:23:43.720
+ coaching the, that the wrestling team there and the, he won like nine championships out
+
+2:23:43.720 --> 2:23:47.380
+ of 10 years, you know, during that, during that time.
+
+2:23:47.380 --> 2:23:53.720
+ So he was both the greatest individual wrestler of all time and like the greatest team coach.
+
+2:23:53.720 --> 2:24:02.280
+ Um, so I know I've never met him, but we've, uh, he's kind of been like in my sphere of
+
+2:24:02.280 --> 2:24:04.880
+ awareness since I was, you know, kind of my whole life.
+
+2:24:04.880 --> 2:24:10.200
+ And people would always tell stories about him, like I think he got arrested once for
+
+2:24:10.200 --> 2:24:15.720
+ some kind of, I don't know, minor offense in Ames.
+
+2:24:15.720 --> 2:24:17.600
+ And so he just basically stayed up all night.
+
+2:24:17.600 --> 2:24:23.320
+ He was in this cage in the jail, just stayed up all night doing pull ups on, you know,
+
+2:24:23.320 --> 2:24:24.320
+ it sounds about right.
+
+2:24:24.320 --> 2:24:25.320
+ Yeah.
+
+2:24:25.320 --> 2:24:30.080
+ And, uh, uh, so yeah.
+
+2:24:30.080 --> 2:24:35.980
+ So has that been, I mean, I was such an interesting place in the world and wrestling is just part
+
+2:24:35.980 --> 2:24:40.520
+ of that story.
+
+2:24:40.520 --> 2:24:41.960
+ Is that somewhere in there?
+
+2:24:41.960 --> 2:24:44.860
+ Does that resonate deeply with who you are?
+
+2:24:44.860 --> 2:24:48.960
+ It was a formative thing for me growing up there for sure.
+
+2:24:48.960 --> 2:24:57.160
+ It's just a, uh, you know, uh, uh, or at least used to be a very orderly place, high social
+
+2:24:57.160 --> 2:25:02.200
+ capital, very minimal class differences.
+
+2:25:02.200 --> 2:25:08.760
+ So like you'd have some people who would drive a Cadillac instead of a Chevy, but, uh, that
+
+2:25:08.760 --> 2:25:09.760
+ was it.
+
+2:25:09.760 --> 2:25:11.400
+ That was, you know, those were the rich people, right?
+
+2:25:11.400 --> 2:25:20.400
+ So, um, and a college town is always a different environment like, uh, you know, Austin, uh,
+
+2:25:20.400 --> 2:25:27.400
+ has some of this, um, so it was a pretty kind of utopian, uh, other than the weather and
+
+2:25:27.400 --> 2:25:33.440
+ a few other things, uh, environment to, to grow up in the, the martial art I ended up
+
+2:25:33.440 --> 2:25:39.400
+ doing is sword stuff, which is interesting because it uses a different feedback loop.
+
+2:25:39.400 --> 2:25:47.040
+ So when you're, if you're grappling, everything is through sense of touch and your sense of
+
+2:25:47.040 --> 2:25:50.840
+ touch is very old and simple, right?
+
+2:25:50.840 --> 2:25:55.840
+ Like earthworms don't have, don't even have eyes, but they can tell when they're being
+
+2:25:55.840 --> 2:25:56.840
+ touched, right?
+
+2:25:56.840 --> 2:25:59.480
+ So it's very fast.
+
+2:25:59.480 --> 2:26:10.360
+ Um, and uh, with, um, with a standoff or like boxing or some kinds of sword fighting, you're,
+
+2:26:10.360 --> 2:26:11.720
+ you're not touching the other person.
+
+2:26:11.720 --> 2:26:17.200
+ Most of the time, your, your, your visual system is doing something way more, it's doing
+
+2:26:17.200 --> 2:26:23.440
+ slam and trying to figure out what the other person is up to.
+
+2:26:23.440 --> 2:26:28.300
+ And so, um, that always felt more my speed.
+
+2:26:28.300 --> 2:26:36.040
+ So in an Olympic style fencing, you're, it doesn't start really until you're crossing
+
+2:26:36.040 --> 2:26:41.320
+ blades with the other person and now you're back to wrestling, you're feeling what they're
+
+2:26:41.320 --> 2:26:43.600
+ doing and it's all about that.
+
+2:26:43.600 --> 2:26:50.020
+ But some of the older sword arts, um, don't engage the blade that way.
+
+2:26:50.020 --> 2:26:59.440
+ You stand off at range and then you make cutting attacks and, um, and, uh, and so, so those
+
+2:26:59.440 --> 2:27:07.080
+ are all processed visually and I think I'm more of a slow thinker, so it works for me
+
+2:27:07.080 --> 2:27:08.080
+ better.
+
+2:27:08.080 --> 2:27:13.720
+ I mean, the same, it has the same, the artistry and the beauty of boxing, I suppose, just
+
+2:27:13.720 --> 2:27:18.680
+ like you said, is like, there's no, there's no contact and it's all processed visually
+
+2:27:18.680 --> 2:27:24.080
+ and I'm sure there's a dance of its own that, that depends on the characteristic of a sword
+
+2:27:24.080 --> 2:27:25.080
+ involved.
+
+2:27:25.080 --> 2:27:26.080
+ Yeah.
+
+2:27:26.080 --> 2:27:31.240
+ There is a set of, of stances and, and, uh, basic reactions that you try to learn that
+
+2:27:31.240 --> 2:27:37.400
+ are thought to be defensible, um, and, and safe or safer.
+
+2:27:37.400 --> 2:27:43.440
+ And so it tends to be a series of short engagements where you'll, you'll close in, you'll try
+
+2:27:43.440 --> 2:27:50.960
+ out your, your idea and it works or it doesn't, then you, you back off again.
+
+2:27:50.960 --> 2:27:56.360
+ It's interesting to think about like human history because martial arts, okay, that's
+
+2:27:56.360 --> 2:27:57.680
+ a thing.
+
+2:27:57.680 --> 2:28:07.040
+ But in terms of sword fighting, just the full range of humans that existed who mastered
+
+2:28:07.040 --> 2:28:11.840
+ sword fighting or sought the mastery of sword fighting, just to imagine the thousands of
+
+2:28:11.840 --> 2:28:18.480
+ people who, the heights they have achieved because the stakes are so incredibly high
+
+2:28:18.480 --> 2:28:19.760
+ to be good.
+
+2:28:19.760 --> 2:28:27.280
+ And it's the richest, most powerful people in those societies spending whatever it takes
+
+2:28:27.280 --> 2:28:33.060
+ to get the best gear and the best training because you're right, everything depends on
+
+2:28:33.060 --> 2:28:34.060
+ it.
+
+2:28:34.060 --> 2:28:35.060
+ And it's still life and death.
+
+2:28:35.060 --> 2:28:43.440
+ I mean, that, that's fascinating, um, that, that's fascinating and we perhaps have lost
+
+2:28:43.440 --> 2:28:46.280
+ that forever with greater weapons.
+
+2:28:46.280 --> 2:28:52.400
+ I mean, the artistry of sword fighting when it's life and death and you go into war, you
+
+2:28:52.400 --> 2:28:54.960
+ have the Miyamoto Musashi's of the world, right?
+
+2:28:54.960 --> 2:29:02.040
+ The, I don't know, there's a, there's a poetry to that, that there's a mastery to that that
+
+2:29:02.040 --> 2:29:05.640
+ I don't know if we could achieve with any other kind of martial art.
+
+2:29:05.640 --> 2:29:11.720
+ Well the, one of the good, you were talking earlier about the, the, the good effects of
+
+2:29:11.720 --> 2:29:15.680
+ the internet, social media that we sometimes overlook.
+
+2:29:15.680 --> 2:29:20.680
+ And, and one of those is that, um, there were all these isolated people around the world
+
+2:29:20.680 --> 2:29:26.960
+ who were interested in this, who found each other and kind of created a network of, of
+
+2:29:26.960 --> 2:29:28.960
+ people who help each other learn these things.
+
+2:29:28.960 --> 2:29:35.000
+ So that doesn't mean that anyone is, is up to the level of the you're talking about yet,
+
+2:29:35.000 --> 2:29:44.840
+ but um, but it is happening and um, and so, um, there's a, a, a large number of old treatises,
+
+2:29:44.840 --> 2:29:50.180
+ old written documents, uh, that have been dug up from libraries and, and people have
+
+2:29:50.180 --> 2:29:57.280
+ been going over these and translating them from old dialects of Italian and German, um,
+
+2:29:57.280 --> 2:30:03.600
+ to make sense of them and, and learning how to do these techniques with different, uh,
+
+2:30:03.600 --> 2:30:04.600
+ different weapons.
+
+2:30:04.600 --> 2:30:11.960
+ Um, actually there's a guy here in Austin named Damond Stith who does African, historical
+
+2:30:11.960 --> 2:30:14.120
+ African martial arts.
+
+2:30:14.120 --> 2:30:22.800
+ Um, also martial arts of, uh, of enslaved Africans who would learn machete fighting
+
+2:30:22.800 --> 2:30:26.200
+ techniques in the Caribbean, South America.
+
+2:30:26.200 --> 2:30:28.040
+ He's probably within a mile of us.
+
+2:30:28.040 --> 2:30:29.040
+ He's an amazing guy.
+
+2:30:29.040 --> 2:30:30.040
+ That's awesome.
+
+2:30:30.040 --> 2:30:31.040
+ I'm going to look him up.
+
+2:30:31.040 --> 2:30:32.040
+ Yeah.
+
+2:30:32.040 --> 2:30:34.240
+ Can I ask you for advice?
+
+2:30:34.240 --> 2:30:42.040
+ Can you give advice for young people, high school, college, you know, undergrads thinking
+
+2:30:42.040 --> 2:30:48.560
+ about their career, thinking about life, how to live a life that you'd be proud of?
+
+2:30:48.560 --> 2:30:53.480
+ You think quite a bit about like what it's required to be innovative in this world.
+
+2:30:53.480 --> 2:30:55.120
+ You think quite a bit about the future.
+
+2:30:55.120 --> 2:31:00.720
+ So if somebody wanted to be a person that makes a big impact from the future, what advice
+
+2:31:00.720 --> 2:31:02.840
+ would you give them?
+
+2:31:02.840 --> 2:31:12.280
+ I think a big part of it is finding the thing that you will do happily and, um, I don't
+
+2:31:12.280 --> 2:31:17.720
+ want to say obsessively because that sounds like maybe it's pathological, but, but if
+
+2:31:17.720 --> 2:31:22.560
+ you can find a thing that you'll, you know, you'll sit down, you'll start doing it and
+
+2:31:22.560 --> 2:31:27.080
+ hours later you kind of snap out of it, where did the time go?
+
+2:31:27.080 --> 2:31:35.720
+ Um, then, um, that's a really key discovery for anyone to make about themselves when they're
+
+2:31:35.720 --> 2:31:36.720
+ young.
+
+2:31:36.720 --> 2:31:42.800
+ Uh, because if you don't have that, um, it's hard to, uh, to figure out where you should
+
+2:31:42.800 --> 2:31:48.400
+ put your energies, you know, and as you might have the best intentions, you might say, I,
+
+2:31:48.400 --> 2:31:56.160
+ you know, I want world peace or whatever, uh, but, um, uh, at, at the end of the day,
+
+2:31:56.160 --> 2:32:01.560
+ what really matters is how do you spend your time and, and are you spending it in a way
+
+2:32:01.560 --> 2:32:09.880
+ that's productive, uh, and, um, uh, because it doesn't matter how smart you are or well
+
+2:32:09.880 --> 2:32:13.880
+ intentioned you are unless you've figured that out.
+
+2:32:13.880 --> 2:32:18.640
+ And so it's finding the thing in which you can sort of, you naturally lose yourself in.
+
+2:32:18.640 --> 2:32:25.960
+ The thing is, um, at least for me, there's a lot of things like that, but I first have
+
+2:32:25.960 --> 2:32:31.140
+ to overcome the initial hump of really sucking at that thing.
+
+2:32:31.140 --> 2:32:36.000
+ Like the fun starts a little bit after the first hump of really sucking and then you
+
+2:32:36.000 --> 2:32:37.960
+ could suck just regular.
+
+2:32:37.960 --> 2:32:38.960
+ Yeah.
+
+2:32:38.960 --> 2:32:39.960
+ Okay.
+
+2:32:39.960 --> 2:32:42.800
+ So often people, oftentimes people can give up too early, I think.
+
+2:32:42.800 --> 2:32:48.260
+ I mean, that's true with mathematics for me, it's for a lot of people is if you just give
+
+2:32:48.260 --> 2:32:54.320
+ it a chance to struggle, if you give yourself time to struggle, you'll find a way, you'll
+
+2:32:54.320 --> 2:32:58.720
+ find the thing within that thing that you can lose track of time with.
+
+2:32:58.720 --> 2:32:59.720
+ Yeah.
+
+2:32:59.720 --> 2:33:06.200
+ That's a key detail that, um, that's an important thing to add to, to what I said, which is
+
+2:33:06.200 --> 2:33:10.920
+ that, uh, this might not happen the first time you do a thing.
+
+2:33:10.920 --> 2:33:17.880
+ Maybe it will, but, um, uh, you might have to climb that learning curve and, um, if there's
+
+2:33:17.880 --> 2:33:24.080
+ pressures in your life that are making you feel bad about that, then, um, it might prevent
+
+2:33:24.080 --> 2:33:28.760
+ you from, from getting where you need to be.
+
+2:33:28.760 --> 2:33:35.800
+ Um, so there's some complexity there, uh, that make, can make this kind of non obvious.
+
+2:33:35.800 --> 2:33:42.400
+ Um, but, uh, that's what, that's why we need, you know, good teachers.
+
+2:33:42.400 --> 2:33:49.520
+ Um, you know, another beneficial thing, uh, of the internet is YouTube and being able
+
+2:33:49.520 --> 2:33:56.360
+ to learn things, how to do things on YouTube, the, the, the dude who made the YouTube video
+
+2:33:56.360 --> 2:34:03.160
+ doesn't care how many times you hit pause and rewind, um, they're never going to like
+
+2:34:03.160 --> 2:34:07.320
+ roll their eyes and, and be impatient with you.
+
+2:34:07.320 --> 2:34:15.760
+ Um, and sometimes, uh, spending a huge amount of time on one video or one book, like making
+
+2:34:15.760 --> 2:34:21.320
+ that the thing you just spent a huge amount of time on rereading, rereading, or rewatching,
+
+2:34:21.320 --> 2:34:30.160
+ rewatching that, that somehow really, um, solidifies your love for that thing.
+
+2:34:30.160 --> 2:34:34.160
+ And like the depth of understanding you start to gain and it's okay to stay with that.
+
+2:34:34.160 --> 2:34:39.120
+ I used to think like, there's all these books out there, so like, I need to keep reading
+
+2:34:39.120 --> 2:34:40.120
+ or keep reading.
+
+2:34:40.120 --> 2:34:48.480
+ But then I realized, um, I think it was somewhere in college, uh, uh, where you could just spend
+
+2:34:48.480 --> 2:34:50.960
+ your whole life with a single textbook.
+
+2:34:50.960 --> 2:34:55.080
+ There's nothing in that textbook to really, really stay.
+
+2:34:55.080 --> 2:35:00.360
+ Meisner, Thorne and Wheeler, Gravitation, you know, is, is one of those, or another one is,
+
+2:35:00.360 --> 2:35:06.160
+ um, The Road to Reality by Roger Penrose, which is just incredibly deep and it starts
+
+2:35:06.160 --> 2:35:12.040
+ with like two plus two equals four and it, at the end you're at the boundaries of, of
+
+2:35:12.040 --> 2:35:13.040
+ physics.
+
+2:35:13.040 --> 2:35:17.600
+ Uh, it's an amazing, amazing book.
+
+2:35:17.600 --> 2:35:19.720
+ Let me ask you the big ridiculous question.
+
+2:35:19.720 --> 2:35:20.720
+ Okay.
+
+2:35:20.720 --> 2:35:25.320
+ You've pondered some big ridiculous questions in your work.
+
+2:35:25.320 --> 2:35:27.480
+ What's the meaning of this whole thing?
+
+2:35:27.480 --> 2:35:28.480
+ What's the meaning of life?
+
+2:35:28.480 --> 2:35:29.480
+ Wow.
+
+2:35:29.480 --> 2:35:30.960
+ Human life.
+
+2:35:30.960 --> 2:35:37.600
+ Well, as far as I know, we're unique in the, the universe.
+
+2:35:37.600 --> 2:35:41.800
+ There's no evidence that there's anything else in the universe that's as complicated
+
+2:35:41.800 --> 2:35:44.040
+ as what's between our ears.
+
+2:35:44.040 --> 2:35:45.040
+ Might be.
+
+2:35:45.040 --> 2:35:53.920
+ I can't rule it out, but, um, so we appear to be pretty special and, um, so it's got
+
+2:35:53.920 --> 2:35:59.960
+ to have something to do with that and one of the reasons I like David Deutsch, in particular
+
+2:35:59.960 --> 2:36:06.360
+ his book, The Beginning of Infinity, um, is that he talks about the power of explanations
+
+2:36:06.360 --> 2:36:14.240
+ and the fact that, um, most civilizations are static that they've got a set of dogmas
+
+2:36:14.240 --> 2:36:21.800
+ that they arrive at somehow and they just pass those on from one, uh, generation to
+
+2:36:21.800 --> 2:36:24.520
+ the next and nothing changes.
+
+2:36:24.520 --> 2:36:32.000
+ But that huge changes have happened when people sort of follow whatever you want to call it,
+
+2:36:32.000 --> 2:36:38.280
+ the scientific method or enlightenment, uh, there's different ways of thinking about it,
+
+2:36:38.280 --> 2:36:45.160
+ but basically explanatory, it's, it's about the power of, of explanations and being able
+
+2:36:45.160 --> 2:36:52.440
+ to figure out why things are the way they are and that has created changes in our, um,
+
+2:36:52.440 --> 2:36:58.620
+ thinking and our way of life over the last few centuries that are explosive compared
+
+2:36:58.620 --> 2:37:05.740
+ to anything that came before and David sort of verges on classifying this as like a force
+
+2:37:05.740 --> 2:37:10.760
+ of nature in its potential transformative power.
+
+2:37:10.760 --> 2:37:17.720
+ If we keep going, um, you know, we could, uh, you know, if we figure out how to colonize
+
+2:37:17.720 --> 2:37:25.080
+ the universe like you were talking about earlier, how to spread to other star systems, um, then
+
+2:37:25.080 --> 2:37:29.520
+ it is effectively a force of nature.
+
+2:37:29.520 --> 2:37:34.520
+ This kind of drive to understand more and more and more, deeper and deeper and deeper
+
+2:37:34.520 --> 2:37:37.640
+ and to engineer stuff so that we can understand even more.
+
+2:37:37.640 --> 2:37:38.640
+ Yeah.
+
+2:37:38.640 --> 2:37:39.640
+ Yeah.
+
+2:37:39.640 --> 2:37:43.960
+ It's the, well, it's the old, the universe created us to understand itself.
+
+2:37:43.960 --> 2:37:46.920
+ Maybe that's the, uh, the whole purpose.
+
+2:37:46.920 --> 2:37:47.920
+ Yeah.
+
+2:37:47.920 --> 2:37:54.840
+ It is an interesting peculiar side effect of the way we've been created is we seem to
+
+2:37:54.840 --> 2:37:56.080
+ be conscious beings.
+
+2:37:56.080 --> 2:37:57.400
+ We seem to have little egos.
+
+2:37:57.400 --> 2:38:01.360
+ We seem to, uh, be born and die pretty quickly.
+
+2:38:01.360 --> 2:38:03.160
+ There's a bunch of drama.
+
+2:38:03.160 --> 2:38:09.360
+ We're all within ourselves pretty unique and we fall in love and start wars and there's
+
+2:38:09.360 --> 2:38:12.720
+ hate and all the, the full interesting dynamic of it.
+
+2:38:12.720 --> 2:38:19.040
+ So it's not just about the individual people, somehow like the concert that we played together.
+
+2:38:19.040 --> 2:38:20.040
+ Yeah.
+
+2:38:20.040 --> 2:38:21.040
+ Yeah.
+
+2:38:21.040 --> 2:38:22.040
+ Yeah.
+
+2:38:22.040 --> 2:38:23.040
+ So.
+
+2:38:23.040 --> 2:38:24.040
+ That's kind of interesting.
+
+2:38:24.040 --> 2:38:28.200
+ And there's a lot of peculiar aspects of that, that, um, I wonder if they're fundamental
+
+2:38:28.200 --> 2:38:33.560
+ or just quirks of evolution, whether it's, whether it's death, whether it's love, whether
+
+2:38:33.560 --> 2:38:40.280
+ all those things, I wonder if they're, um, from an engineer perspective when we're trying
+
+2:38:40.280 --> 2:38:47.560
+ to create that intelligent toaster that listens for the, for the slam door and this, and the
+
+2:38:47.560 --> 2:38:54.960
+ smell of burning toast, whether, uh, that toaster should be afraid of death and should
+
+2:38:54.960 --> 2:39:01.200
+ fall in love just like we do, you know, you're a fascinating human being.
+
+2:39:01.200 --> 2:39:03.280
+ You've impacted the lives of millions of people.
+
+2:39:03.280 --> 2:39:08.160
+ It's a huge honor that you would spend your valuable time with me today.
+
+2:39:08.160 --> 2:39:09.160
+ Thank you so much.
+
+2:39:09.160 --> 2:39:13.840
+ Thank you for coming down to beautiful, hot Texas.
+
+2:39:13.840 --> 2:39:15.320
+ And thank you for talking today.
+
+2:39:15.320 --> 2:39:19.080
+ It was a pleasure and I'm glad I came and did it.
+
+2:39:19.080 --> 2:39:23.180
+ Thanks for listening to this conversation with Neal Stephenson to support this podcast.
+
+2:39:23.180 --> 2:39:26.160
+ Please check out our sponsors in the description.
+
+2:39:26.160 --> 2:39:31.280
+ And now let me leave you with some words from Neal Stephenson himself in his novel, Snow
+
+2:39:31.280 --> 2:39:32.280
+ Crash.
+
+2:39:32.280 --> 2:39:37.940
+ The world is full of things more powerful than us, but if you know how to catch a ride,
+
+2:39:37.940 --> 2:39:40.240
+ you can go places.
+
+2:39:40.240 --> 2:39:53.560
+ Thanks for listening and hope to see you next time.
+

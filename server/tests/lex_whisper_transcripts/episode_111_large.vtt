@@ -1,0 +1,6440 @@
+WEBVTT
+
+00:00.000 --> 00:02.900
+ The following is a conversation with Richard Karp,
+
+00:02.900 --> 00:06.300
+ a professor at Berkeley and one of the most important figures
+
+00:06.300 --> 00:09.480
+ in the history of theoretical computer science.
+
+00:09.480 --> 00:12.640
+ In 1985, he received the Turing Award
+
+00:12.640 --> 00:15.120
+ for his research in the theory of algorithms,
+
+00:15.120 --> 00:18.380
+ including the development of the Admirons Karp algorithm
+
+00:18.380 --> 00:21.780
+ for solving the max flow problem on networks,
+
+00:21.780 --> 00:25.900
+ Hopcroft Karp algorithm for finding maximum cardinality
+
+00:25.900 --> 00:27.960
+ matchings in bipartite graphs,
+
+00:27.960 --> 00:30.960
+ and his landmark paper in complexity theory
+
+00:30.960 --> 00:35.260
+ called Reduceability Among Combinatorial Problems,
+
+00:35.260 --> 00:38.980
+ in which he proved 21 problems to be NP complete.
+
+00:38.980 --> 00:41.840
+ This paper was probably the most important catalyst
+
+00:41.840 --> 00:45.340
+ in the explosion of interest in the study of NP completeness
+
+00:45.340 --> 00:48.760
+ and the P versus NP problem in general.
+
+00:48.760 --> 00:50.180
+ Quick summary of the ads.
+
+00:50.180 --> 00:53.540
+ Two sponsors, 8sleep mattress and Cash App.
+
+00:53.540 --> 00:55.640
+ Please consider supporting this podcast
+
+00:55.640 --> 00:58.760
+ by going to 8sleep.com slash Lex
+
+00:58.760 --> 01:03.000
+ and downloading Cash App and using code LexPodcast.
+
+01:03.000 --> 01:04.560
+ Click the links, buy the stuff.
+
+01:04.560 --> 01:08.040
+ It really is the best way to support this podcast.
+
+01:08.040 --> 01:10.240
+ If you enjoy this thing, subscribe on YouTube,
+
+01:10.240 --> 01:12.440
+ review it with five stars on Apple Podcast,
+
+01:12.440 --> 01:13.800
+ support it on Patreon,
+
+01:13.800 --> 01:16.800
+ or connect with me on Twitter at Lex Friedman.
+
+01:16.800 --> 01:18.800
+ As usual, I'll do a few minutes of ads now
+
+01:18.800 --> 01:20.060
+ and never any ads in the middle
+
+01:20.060 --> 01:22.960
+ that can break the flow of the conversation.
+
+01:22.960 --> 01:27.340
+ This show is sponsored by 8sleep and its Pod Pro mattress
+
+01:27.340 --> 01:30.680
+ that you can check out at 8sleep.com slash Lex
+
+01:30.680 --> 01:32.960
+ to get $200 off.
+
+01:32.960 --> 01:35.880
+ It controls temperature with an app.
+
+01:35.880 --> 01:38.320
+ It can cool down to as low as 55 degrees
+
+01:38.320 --> 01:41.000
+ on each side of the bed separately.
+
+01:41.000 --> 01:43.520
+ Research shows that temperature has a big impact
+
+01:43.520 --> 01:45.000
+ on the quality of our sleep.
+
+01:45.000 --> 01:47.760
+ Anecdotally, it's been a game changer for me.
+
+01:47.760 --> 01:48.760
+ I love it.
+
+01:48.760 --> 01:50.160
+ It's been a couple of weeks now.
+
+01:50.160 --> 01:52.480
+ I've just been really enjoying it,
+
+01:52.480 --> 01:54.640
+ both in the fact that I'm getting better sleep
+
+01:54.640 --> 01:58.240
+ and that it's a smart mattress, essentially.
+
+01:58.240 --> 02:00.040
+ I kind of imagine this being the early days
+
+02:00.040 --> 02:02.800
+ of artificial intelligence being a part
+
+02:02.800 --> 02:04.320
+ of every aspect of our lives.
+
+02:04.320 --> 02:07.440
+ And certainly infusing AI in one of the most important
+
+02:07.440 --> 02:09.800
+ aspects of life, which is sleep,
+
+02:09.800 --> 02:13.120
+ I think has a lot of potential for being beneficial.
+
+02:13.120 --> 02:16.440
+ The Pod Pro is packed with sensors that track heart rate,
+
+02:16.440 --> 02:19.480
+ heart rate variability, and respiratory rate,
+
+02:19.480 --> 02:21.760
+ showing it all in their app.
+
+02:21.760 --> 02:24.320
+ The app's health metrics are amazing,
+
+02:24.320 --> 02:27.120
+ but the cooling alone is honestly worth the money.
+
+02:27.120 --> 02:29.280
+ I don't always sleep, but when I do,
+
+02:29.280 --> 02:31.960
+ I choose the 8th Sleep Pod Pro mattress.
+
+02:31.960 --> 02:36.960
+ Check it out at 8thSleep.com slash Lex to get $200 off.
+
+02:37.560 --> 02:39.040
+ And remember, just visiting the site
+
+02:39.040 --> 02:42.000
+ and considering the purchase helps convince the folks
+
+02:42.000 --> 02:44.840
+ at 8th Sleep that this silly old podcast
+
+02:44.840 --> 02:46.480
+ is worth sponsoring in the future.
+
+02:47.400 --> 02:50.520
+ This show is also presented by the great
+
+02:50.520 --> 02:53.000
+ and powerful Cash App,
+
+02:53.000 --> 02:55.320
+ the number one finance app in the App Store.
+
+02:55.320 --> 02:58.160
+ When you get it, use code LEXPODCAST.
+
+02:58.160 --> 03:00.120
+ Cash App lets you send money to friends,
+
+03:00.120 --> 03:02.520
+ buy Bitcoin, and invest in the stock market
+
+03:02.520 --> 03:04.640
+ with as little as $1.
+
+03:04.640 --> 03:06.720
+ It's one of the best designed interfaces
+
+03:06.720 --> 03:08.480
+ of an app that I've ever used.
+
+03:08.480 --> 03:12.320
+ To me, good design is when everything is easy and natural.
+
+03:12.320 --> 03:15.080
+ Bad design is when the app gets in the way,
+
+03:15.080 --> 03:16.560
+ either because it's buggy,
+
+03:16.560 --> 03:19.280
+ or because it tries too hard to be helpful.
+
+03:19.280 --> 03:21.560
+ I'm looking at you, Clippy, from Microsoft,
+
+03:21.560 --> 03:23.160
+ even though I love you.
+
+03:23.160 --> 03:25.480
+ Anyway, there's a big part of my brain and heart
+
+03:25.480 --> 03:27.400
+ that loves to design things
+
+03:27.400 --> 03:30.000
+ and also to appreciate great design by others.
+
+03:30.000 --> 03:32.440
+ So again, if you get Cash App from the App Store
+
+03:32.440 --> 03:35.600
+ or Google Play and use the code LEXPODCAST,
+
+03:35.600 --> 03:39.600
+ you get $10, and Cash App will also donate $10 to FIRST,
+
+03:39.600 --> 03:41.800
+ an organization that is helping to advance
+
+03:41.800 --> 03:43.480
+ robotics and STEM education
+
+03:43.480 --> 03:45.720
+ for young people around the world.
+
+03:45.720 --> 03:49.600
+ And now, here's my conversation with Richard Karp.
+
+03:50.520 --> 03:52.840
+ You wrote that at the age of 13,
+
+03:52.840 --> 03:55.240
+ you were first exposed to plane geometry
+
+03:55.240 --> 03:58.280
+ and was wonderstruck by the power and elegance
+
+03:58.280 --> 04:00.280
+ of form of proofs.
+
+04:00.280 --> 04:02.640
+ Are there problems, proofs, properties, ideas
+
+04:02.640 --> 04:04.960
+ in plane geometry that from that time
+
+04:04.960 --> 04:07.880
+ that you remember being mesmerized by
+
+04:07.880 --> 04:12.880
+ or just enjoying to go through to prove various aspects?
+
+04:12.880 --> 04:16.240
+ So Michael Rabin told me this story
+
+04:16.240 --> 04:20.360
+ about an experience he had when he was a young student
+
+04:20.360 --> 04:25.200
+ who was tossed out of his classroom for bad behavior
+
+04:25.200 --> 04:29.360
+ and was wandering through the corridors of his school
+
+04:29.360 --> 04:32.560
+ and came upon two older students
+
+04:32.560 --> 04:35.840
+ who were studying the problem of finding
+
+04:35.840 --> 04:42.920
+ the shortest distance between two nonoverlapping circles.
+
+04:42.920 --> 04:49.120
+ And Michael thought about it and said,
+
+04:49.120 --> 04:52.360
+ you take the straight line between the two centers
+
+04:52.360 --> 04:56.080
+ and the segment between the two circles is the shortest
+
+04:56.080 --> 04:58.600
+ because a straight line is the shortest distance
+
+04:58.600 --> 05:00.600
+ between the two centers.
+
+05:00.600 --> 05:03.640
+ And any other line connecting the circles
+
+05:03.640 --> 05:07.640
+ would be on a longer line.
+
+05:07.640 --> 05:10.360
+ And I thought, and he thought, and I agreed
+
+05:10.360 --> 05:14.600
+ that this was just elegance, the pure reasoning
+
+05:14.600 --> 05:17.600
+ could come up with such a result.
+
+05:17.600 --> 05:21.000
+ Certainly the shortest distance
+
+05:21.000 --> 05:24.600
+ from the two centers of the circles is a straight line.
+
+05:25.680 --> 05:29.680
+ Could you once again say what's the next step in that proof?
+
+05:29.680 --> 05:36.680
+ Well, any segment joining the two circles,
+
+05:36.680 --> 05:41.440
+ if you extend it by taking the radius on each side,
+
+05:41.440 --> 05:46.560
+ you get a path with three edges
+
+05:46.560 --> 05:49.240
+ which connects the two centers.
+
+05:49.240 --> 05:52.560
+ And this has to be at least as long as the shortest path,
+
+05:52.560 --> 05:53.760
+ which is the straight line.
+
+05:53.760 --> 05:54.800
+ The straight line, yeah.
+
+05:54.800 --> 05:58.480
+ Wow, yeah, that's quite simple.
+
+05:58.480 --> 06:00.800
+ So what is it about that elegance
+
+06:00.800 --> 06:04.640
+ that you just find compelling?
+
+06:04.640 --> 06:09.960
+ Well, just that you could establish a fact
+
+06:09.960 --> 06:14.960
+ about geometry beyond dispute by pure reasoning.
+
+06:18.960 --> 06:22.440
+ I also enjoy the challenge of solving puzzles
+
+06:22.440 --> 06:23.400
+ in plain geometry.
+
+06:23.400 --> 06:27.480
+ It was much more fun than the earlier mathematics courses
+
+06:27.480 --> 06:31.000
+ which were mostly about arithmetic operations
+
+06:31.000 --> 06:32.840
+ and manipulating them.
+
+06:32.840 --> 06:35.840
+ Was there something about geometry itself,
+
+06:35.840 --> 06:38.160
+ the slightly visual component of it?
+
+06:38.160 --> 06:40.200
+ Oh, yes, absolutely,
+
+06:40.200 --> 06:44.120
+ although I lacked three dimensional vision.
+
+06:44.120 --> 06:47.280
+ I wasn't very good at three dimensional vision.
+
+06:47.280 --> 06:49.680
+ You mean being able to visualize three dimensional objects?
+
+06:49.680 --> 06:54.280
+ Three dimensional objects or surfaces,
+
+06:54.280 --> 06:57.680
+ hyperplanes and so on.
+
+06:57.680 --> 07:01.680
+ So there I didn't have an intuition.
+
+07:01.680 --> 07:06.680
+ But for example, the fact that the sum of the angles
+
+07:06.960 --> 07:11.960
+ of a triangle is 180 degrees is proved convincingly.
+
+07:16.200 --> 07:19.520
+ And it comes as a surprise that that can be done.
+
+07:21.320 --> 07:23.480
+ Why is that surprising?
+
+07:23.480 --> 07:28.480
+ Well, it is a surprising idea, I suppose.
+
+07:30.600 --> 07:32.400
+ Why is that proved difficult?
+
+07:32.400 --> 07:34.200
+ It's not, that's the point.
+
+07:34.200 --> 07:36.440
+ It's so easy and yet it's so convincing.
+
+07:37.760 --> 07:41.880
+ Do you remember what is the proof that it adds up to 180?
+
+07:42.840 --> 07:47.840
+ You start at a corner and draw a line
+
+07:47.840 --> 07:52.840
+ parallel to the opposite side.
+
+07:56.160 --> 08:00.720
+ And that line sort of trisects the angle
+
+08:02.000 --> 08:04.360
+ between the other two sides.
+
+08:05.400 --> 08:10.400
+ And you get a half plane which has to add up to 180 degrees.
+
+08:10.400 --> 08:15.400
+ It has to add up to 180 degrees and it consists
+
+08:15.760 --> 08:20.760
+ in the angles by the equality of alternate angles.
+
+08:21.680 --> 08:22.520
+ What's it called?
+
+08:24.200 --> 08:27.200
+ You get a correspondence between the angles
+
+08:27.200 --> 08:31.960
+ created along the side of the triangle
+
+08:31.960 --> 08:34.680
+ and the three angles of the triangle.
+
+08:34.680 --> 08:38.960
+ Has geometry had an impact on when you look into the future
+
+08:38.960 --> 08:41.320
+ of your work with combinatorial algorithms?
+
+08:41.320 --> 08:45.240
+ Has it had some kind of impact in terms of, yeah,
+
+08:45.240 --> 08:48.680
+ being able, the puzzles, the visual aspects
+
+08:48.680 --> 08:51.400
+ that were first so compelling to you?
+
+08:51.400 --> 08:54.480
+ Not Euclidean geometry particularly.
+
+08:54.480 --> 08:59.480
+ I think I use tools like linear programming
+
+09:00.040 --> 09:01.880
+ and integer programming a lot.
+
+09:03.000 --> 09:08.000
+ But those require high dimensional visualization
+
+09:08.000 --> 09:12.200
+ and so I tend to go by the algebraic properties.
+
+09:13.200 --> 09:16.640
+ Right, you go by the linear algebra
+
+09:16.640 --> 09:19.560
+ and not by the visualization.
+
+09:19.560 --> 09:23.680
+ Well, the interpretation in terms of, for example,
+
+09:23.680 --> 09:26.360
+ finding the highest point on a polyhedron
+
+09:26.360 --> 09:31.120
+ as in linear programming is motivating.
+
+09:32.640 --> 09:37.560
+ But again, I don't have the high dimensional intuition
+
+09:37.560 --> 09:40.080
+ that would particularly inform me
+
+09:40.080 --> 09:43.840
+ so I sort of lean on the algebra.
+
+09:44.760 --> 09:46.080
+ So to linger on that point,
+
+09:46.080 --> 09:50.960
+ what kind of visualization do you do
+
+09:50.960 --> 09:53.240
+ when you're trying to think about,
+
+09:53.240 --> 09:55.400
+ we'll get to combinatorial algorithms,
+
+09:55.400 --> 09:57.240
+ but just algorithms in general.
+
+09:57.240 --> 09:58.080
+ Yeah.
+
+09:58.080 --> 09:59.760
+ What's inside your mind
+
+09:59.760 --> 10:02.240
+ when you're thinking about designing algorithms?
+
+10:02.240 --> 10:07.240
+ Or even just tackling any mathematical problem?
+
+10:09.440 --> 10:12.800
+ Well, I think that usually an algorithm
+
+10:12.800 --> 10:17.800
+ involves a repetition of some inner loop
+
+10:19.200 --> 10:24.200
+ and so I can sort of visualize the distance
+
+10:24.640 --> 10:29.640
+ from the desired solution as iteratively reducing
+
+10:29.640 --> 10:33.360
+ until you finally hit the exact solution.
+
+10:33.360 --> 10:35.640
+ And try to take steps that get you closer to the.
+
+10:35.640 --> 10:38.160
+ Try to take steps that get closer
+
+10:38.160 --> 10:41.280
+ and having the certainty of converging.
+
+10:41.280 --> 10:46.280
+ So it's basically the mechanics of the algorithm
+
+10:46.640 --> 10:48.080
+ is often very simple,
+
+10:49.320 --> 10:52.480
+ but especially when you're trying something out
+
+10:52.480 --> 10:53.320
+ on the computer.
+
+10:53.320 --> 10:57.080
+ So for example, I did some work
+
+10:57.080 --> 10:59.000
+ on the traveling salesman problem
+
+10:59.000 --> 11:03.080
+ and I could see there was a particular function
+
+11:03.080 --> 11:04.720
+ that had to be minimized
+
+11:04.720 --> 11:08.640
+ and it was fascinating to see the successive approaches
+
+11:08.640 --> 11:10.200
+ to the minimum, to the optimum.
+
+11:11.960 --> 11:13.040
+ You mean, so first of all,
+
+11:13.040 --> 11:16.360
+ traveling salesman problem is where you have to visit
+
+11:16.360 --> 11:21.320
+ every city without ever, the only ones.
+
+11:21.320 --> 11:22.480
+ Yeah, that's right.
+
+11:22.480 --> 11:25.120
+ Find the shortest path through a set of cities.
+
+11:25.120 --> 11:28.560
+ Yeah, which is sort of a canonical standard,
+
+11:28.560 --> 11:30.480
+ a really nice problem that's really hard.
+
+11:30.480 --> 11:32.640
+ Right, exactly, yes.
+
+11:32.640 --> 11:34.520
+ So can you say again what was nice
+
+11:34.520 --> 11:38.440
+ about being able to think about the objective function there
+
+11:38.440 --> 11:41.560
+ and maximizing it or minimizing it?
+
+11:41.560 --> 11:45.240
+ Well, just that as the algorithm proceeded,
+
+11:47.120 --> 11:49.680
+ you were making progress, continual progress,
+
+11:49.680 --> 11:54.000
+ and eventually getting to the optimum point.
+
+11:54.000 --> 11:57.120
+ So there's two parts, maybe.
+
+11:57.120 --> 11:58.400
+ Maybe you can correct me.
+
+11:58.400 --> 12:00.320
+ First is like getting an intuition
+
+12:00.320 --> 12:02.880
+ about what the solution would look like
+
+12:02.880 --> 12:05.560
+ and or even maybe coming up with a solution
+
+12:05.560 --> 12:07.280
+ and two is proving that this thing
+
+12:07.280 --> 12:09.880
+ is actually going to be pretty good.
+
+12:10.880 --> 12:13.600
+ What part is harder for you?
+
+12:13.600 --> 12:14.960
+ Where's the magic happen?
+
+12:14.960 --> 12:17.760
+ Is it in the first sets of intuitions
+
+12:17.760 --> 12:22.120
+ or is it in the messy details of actually showing
+
+12:22.120 --> 12:25.440
+ that it is going to get to the exact solution
+
+12:25.440 --> 12:30.440
+ and it's gonna run at a certain complexity?
+
+12:32.360 --> 12:34.760
+ Well, the magic is just the fact
+
+12:34.760 --> 12:39.760
+ that the gap from the optimum decreases monotonically
+
+12:42.240 --> 12:44.480
+ and you can see it happening
+
+12:44.480 --> 12:48.720
+ and various metrics of what's going on
+
+12:48.720 --> 12:53.680
+ are improving all along until finally you hit the optimum.
+
+12:53.680 --> 12:56.200
+ Perhaps later we'll talk about the assignment problem
+
+12:56.200 --> 12:58.480
+ and I can illustrate.
+
+12:58.480 --> 13:00.720
+ It illustrates a little better.
+
+13:00.720 --> 13:03.120
+ Now zooming out again, as you write,
+
+13:03.120 --> 13:06.880
+ Don Knuth has called attention to a breed of people
+
+13:06.880 --> 13:10.520
+ who derive great aesthetic pleasure
+
+13:10.520 --> 13:13.920
+ from contemplating the structure of computational processes.
+
+13:13.920 --> 13:16.600
+ So Don calls these folks geeks
+
+13:16.600 --> 13:18.600
+ and you write that you remember the moment
+
+13:18.600 --> 13:20.680
+ you realized you were such a person,
+
+13:20.680 --> 13:23.120
+ you were shown the Hungarian algorithm
+
+13:23.120 --> 13:25.720
+ to solve the assignment problem.
+
+13:25.720 --> 13:29.120
+ So perhaps you can explain what the assignment problem is
+
+13:29.120 --> 13:31.960
+ and what the Hungarian algorithm is.
+
+13:33.160 --> 13:35.440
+ So in the assignment problem,
+
+13:35.440 --> 13:40.280
+ you have n boys and n girls
+
+13:40.280 --> 13:45.280
+ and you are given the desirability of,
+
+13:45.280 --> 13:50.200
+ or the cost of matching the ith boy
+
+13:50.200 --> 13:52.640
+ with the jth girl for all i and j.
+
+13:52.640 --> 13:54.480
+ You're given a matrix of numbers
+
+13:55.600 --> 14:00.600
+ and you want to find the one to one matching
+
+14:02.040 --> 14:04.280
+ of the boys with the girls
+
+14:04.280 --> 14:08.720
+ such that the sum of the associated costs will be minimized.
+
+14:08.720 --> 14:13.240
+ So the best way to match the boys with the girls
+
+14:13.240 --> 14:16.440
+ or men with jobs or any two sets.
+
+14:16.440 --> 14:21.120
+ Any possible matching is possible or?
+
+14:21.120 --> 14:26.120
+ Yeah, all one to one correspondences are permissible.
+
+14:26.800 --> 14:29.440
+ If there is a connection that is not allowed,
+
+14:29.440 --> 14:32.120
+ then you can think of it as having an infinite cost.
+
+14:32.120 --> 14:32.960
+ I see, yeah.
+
+14:34.320 --> 14:39.320
+ So what you do is to depend on the observation
+
+14:39.320 --> 14:44.320
+ that the identity of the optimal assignment
+
+14:46.360 --> 14:49.360
+ or as we call it, the optimal permutation
+
+14:50.760 --> 14:53.760
+ is not changed if you subtract a constant
+
+14:57.640 --> 15:01.640
+ from any row or column of the matrix.
+
+15:01.640 --> 15:03.360
+ You can see that the comparison
+
+15:03.360 --> 15:06.480
+ between the different assignments is not changed by that.
+
+15:06.480 --> 15:11.480
+ Because if you decrease a particular row,
+
+15:11.480 --> 15:14.720
+ all the elements of a row by some constant,
+
+15:14.720 --> 15:19.720
+ all solutions decrease by an amount equal to that constant.
+
+15:21.120 --> 15:24.400
+ So the idea of the algorithm is to start with a matrix
+
+15:24.400 --> 15:29.400
+ of non negative numbers and keep subtracting
+
+15:31.240 --> 15:34.240
+ from rows or from columns.
+
+15:34.240 --> 15:38.680
+ Subtracting from rows or entire columns
+
+15:41.800 --> 15:44.800
+ in such a way that you subtract the same constant
+
+15:44.800 --> 15:46.960
+ from all the elements of that row or column
+
+15:48.440 --> 15:50.760
+ while maintaining the property
+
+15:50.760 --> 15:55.760
+ that all the elements are non negative.
+
+15:58.400 --> 15:59.280
+ Simple.
+
+15:59.280 --> 16:04.280
+ Yeah, and so what you have to do
+
+16:04.720 --> 16:09.720
+ is find small moves which will decrease the total cost
+
+16:13.440 --> 16:17.600
+ while subtracting constants from rows or columns.
+
+16:17.600 --> 16:19.480
+ And there's a particular way of doing that
+
+16:19.480 --> 16:22.200
+ by computing the kind of shortest path
+
+16:22.200 --> 16:24.000
+ through the elements in the matrix.
+
+16:24.000 --> 16:28.480
+ And you just keep going in this way
+
+16:28.480 --> 16:33.240
+ until you finally get a full permutation of zeros
+
+16:33.240 --> 16:34.920
+ while the matrix is non negative
+
+16:34.920 --> 16:37.480
+ and then you know that that has to be the cheapest.
+
+16:38.520 --> 16:42.560
+ Is that as simple as it sounds?
+
+16:42.560 --> 16:45.560
+ So the shortest path of the matrix part.
+
+16:45.560 --> 16:48.880
+ Yeah, the simplicity lies in how you find,
+
+16:48.880 --> 16:53.280
+ I oversimplified slightly what you,
+
+16:53.280 --> 16:56.440
+ you will end up subtracting a constant
+
+16:56.440 --> 16:59.120
+ from some rows or columns
+
+16:59.120 --> 17:04.200
+ and adding the same constant back to other rows and columns.
+
+17:04.200 --> 17:09.160
+ So as not to reduce any of the zero elements,
+
+17:09.160 --> 17:11.080
+ you leave them unchanged.
+
+17:11.080 --> 17:16.080
+ But each individual step modifies several rows and columns
+
+17:22.440 --> 17:26.600
+ by the same amount but overall decreases the cost.
+
+17:26.600 --> 17:29.800
+ So there's something about that elegance
+
+17:29.800 --> 17:32.240
+ that made you go aha, this is a beautiful,
+
+17:32.240 --> 17:35.680
+ like it's amazing that something like this,
+
+17:35.680 --> 17:38.080
+ something so simple can solve a problem like this.
+
+17:38.080 --> 17:39.760
+ Yeah, it's really cool.
+
+17:39.760 --> 17:42.280
+ If I had mechanical ability,
+
+17:42.280 --> 17:44.760
+ I would probably like to do woodworking
+
+17:44.760 --> 17:49.080
+ or other activities where you sort of shape something
+
+17:51.440 --> 17:55.440
+ into something beautiful and orderly
+
+17:55.440 --> 18:00.440
+ and there's something about the orderly systematic nature
+
+18:00.560 --> 18:05.520
+ of that iterative algorithm that is pleasing to me.
+
+18:05.520 --> 18:09.000
+ So what do you think about this idea of geeks
+
+18:09.000 --> 18:11.320
+ as Don Knuth calls them?
+
+18:11.320 --> 18:16.320
+ What do you think, is it something specific to a mindset
+
+18:16.520 --> 18:19.880
+ that allows you to discover the elegance
+
+18:19.880 --> 18:23.160
+ in computational processes or is this all of us,
+
+18:23.160 --> 18:25.280
+ can all of us discover this beauty?
+
+18:25.280 --> 18:26.680
+ Were you born this way?
+
+18:28.480 --> 18:29.320
+ I think so.
+
+18:29.320 --> 18:30.760
+ I always like to play with numbers.
+
+18:30.760 --> 18:35.760
+ I used to amuse myself by multiplying
+
+18:35.760 --> 18:39.320
+ by multiplying four digit decimal numbers in my head
+
+18:40.320 --> 18:44.440
+ and putting myself to sleep by starting with one
+
+18:44.440 --> 18:48.160
+ and doubling the number as long as I could go
+
+18:48.160 --> 18:52.720
+ and testing my memory, my ability to retain the information.
+
+18:52.720 --> 18:55.920
+ And I also read somewhere that you wrote
+
+18:55.920 --> 18:59.880
+ that you enjoyed showing off to your friends
+
+18:59.880 --> 19:03.360
+ by I believe multiplying four digit numbers.
+
+19:04.600 --> 19:05.440
+ Right.
+
+19:05.440 --> 19:07.040
+ Four digit numbers.
+
+19:07.040 --> 19:10.760
+ Yeah, I had a summer job at a beach resort
+
+19:10.760 --> 19:15.760
+ outside of Boston and the other employee,
+
+19:16.720 --> 19:20.160
+ I was the barker at a skee ball game.
+
+19:20.160 --> 19:21.000
+ Yeah.
+
+19:21.000 --> 19:26.000
+ I used to sit at a microphone saying come one,
+
+19:26.240 --> 19:28.200
+ come all, come in and play skee ball,
+
+19:28.200 --> 19:31.040
+ five cents to play, a nickel to win and so on.
+
+19:31.040 --> 19:33.840
+ That's what a barker, I wasn't sure if I should know
+
+19:33.840 --> 19:38.240
+ but barker, that's, so you're the charming,
+
+19:38.240 --> 19:41.200
+ outgoing person that's getting people to come in.
+
+19:41.200 --> 19:43.560
+ Yeah, well I wasn't particularly charming
+
+19:43.560 --> 19:46.160
+ but I could be very repetitious and loud.
+
+19:47.120 --> 19:52.120
+ And the other employees were sort of juvenile delinquents
+
+19:53.640 --> 19:58.640
+ who had no academic bent but somehow I found
+
+19:58.640 --> 20:03.400
+ that I could impress them by performing
+
+20:03.400 --> 20:06.640
+ this mental arithmetic.
+
+20:06.640 --> 20:08.280
+ Yeah, there's something to that.
+
+20:10.160 --> 20:13.920
+ Some of the most popular videos on the internet
+
+20:13.920 --> 20:18.000
+ is there's a YouTube channel called Numberphile
+
+20:18.000 --> 20:20.440
+ that shows off different mathematical ideas.
+
+20:20.440 --> 20:21.280
+ I see.
+
+20:21.280 --> 20:23.360
+ There's still something really profoundly interesting
+
+20:23.360 --> 20:27.160
+ to people about math, the beauty of it.
+
+20:27.160 --> 20:31.240
+ Something, even if they don't understand
+
+20:31.240 --> 20:33.640
+ the basic concept even being discussed,
+
+20:33.640 --> 20:35.040
+ there's something compelling to it.
+
+20:35.040 --> 20:37.160
+ What do you think that is?
+
+20:37.160 --> 20:40.520
+ Any lessons you drew from your early teen years
+
+20:40.520 --> 20:45.360
+ when you were showing off to your friends with the numbers?
+
+20:45.360 --> 20:47.640
+ Like what is it that attracts us
+
+20:47.640 --> 20:50.500
+ to the beauty of mathematics do you think?
+
+20:51.340 --> 20:54.560
+ The general population, not just the computer scientists
+
+20:54.560 --> 20:56.560
+ and mathematicians.
+
+20:56.560 --> 20:59.600
+ I think that you can do amazing things.
+
+20:59.600 --> 21:03.300
+ You can test whether large numbers are prime.
+
+21:04.440 --> 21:09.440
+ You can solve little puzzles
+
+21:09.560 --> 21:12.360
+ about cannibals and missionaries.
+
+21:13.360 --> 21:18.360
+ And that's a kind of achievement, it's puzzle solving.
+
+21:19.280 --> 21:22.720
+ And at a higher level, the fact that you can do
+
+21:22.720 --> 21:24.600
+ this reasoning that you can prove
+
+21:24.600 --> 21:28.960
+ in an absolutely ironclad way that some of the angles
+
+21:28.960 --> 21:31.520
+ of a triangle is 180 degrees.
+
+21:32.600 --> 21:35.300
+ Yeah, it's a nice escape from the messiness
+
+21:35.300 --> 21:38.080
+ of the real world where nothing can be proved.
+
+21:38.080 --> 21:41.320
+ So, and we'll talk about it, but sometimes the ability
+
+21:41.320 --> 21:43.520
+ to map the real world into such problems
+
+21:43.520 --> 21:47.080
+ where you can't prove it is a powerful step.
+
+21:47.080 --> 21:47.900
+ Yeah.
+
+21:47.900 --> 21:48.740
+ It's amazing that we can do it.
+
+21:48.740 --> 21:50.040
+ Of course, another attribute of geeks
+
+21:50.040 --> 21:53.620
+ is they're not necessarily endowed
+
+21:53.620 --> 21:57.220
+ with emotional intelligence, so they can live
+
+21:57.220 --> 21:59.960
+ in a world of abstractions without having
+
+21:59.960 --> 22:04.960
+ to master the complexities of dealing with people.
+
+22:06.620 --> 22:09.440
+ So just to link on the historical note,
+
+22:09.440 --> 22:13.200
+ as a PhD student in 1955, you joined the computational lab
+
+22:13.200 --> 22:17.040
+ at Harvard where Howard Aiken had built the Mark I
+
+22:17.040 --> 22:18.520
+ and the Mark IV computers.
+
+22:19.760 --> 22:22.000
+ Just to take a step back into that history,
+
+22:22.000 --> 22:23.920
+ what were those computers like?
+
+22:26.360 --> 22:31.160
+ The Mark IV filled a large room,
+
+22:31.160 --> 22:33.700
+ much bigger than this large office
+
+22:33.700 --> 22:36.880
+ that we were talking in now.
+
+22:36.880 --> 22:39.120
+ And you could walk around inside it.
+
+22:39.120 --> 22:43.340
+ There were rows of relays.
+
+22:43.340 --> 22:45.360
+ You could just walk around the interior
+
+22:45.360 --> 22:53.140
+ and the machine would sometimes fail because of bugs,
+
+22:53.140 --> 22:56.220
+ which literally meant flying creatures
+
+22:56.220 --> 22:57.920
+ landing on the switches.
+
+22:59.820 --> 23:04.820
+ So I never used that machine for any practical purpose.
+
+23:06.260 --> 23:11.260
+ The lab eventually acquired one of the earlier
+
+23:12.680 --> 23:14.600
+ commercial computers.
+
+23:14.600 --> 23:16.680
+ And this was already in the 60s?
+
+23:16.680 --> 23:19.840
+ No, in the mid 50s, or late 50s.
+
+23:19.840 --> 23:21.800
+ There was already commercial computers in the...
+
+23:21.800 --> 23:26.240
+ Yeah, we had a Univac, a Univac with 2,000 words of storage.
+
+23:27.280 --> 23:31.720
+ And so you had to work hard to allocate the memory properly
+
+23:31.720 --> 23:36.120
+ to also the excess time from one word to another
+
+23:36.120 --> 23:41.120
+ depended on the number of the particular words.
+
+23:41.120 --> 23:44.880
+ And so there was an art to sort of arranging
+
+23:44.880 --> 23:49.880
+ the storage allocation to make fetching data rapid.
+
+23:51.240 --> 23:54.960
+ Were you attracted to this actual physical world
+
+23:54.960 --> 23:58.140
+ implementation of mathematics?
+
+23:58.140 --> 24:01.400
+ So it's a mathematical machine that's actually doing
+
+24:01.400 --> 24:03.120
+ the math physically?
+
+24:03.120 --> 24:04.800
+ No, not at all.
+
+24:04.800 --> 24:09.400
+ I think I was attracted to the underlying algorithms.
+
+24:09.400 --> 24:12.880
+ But did you draw any inspiration?
+
+24:12.880 --> 24:17.240
+ So could you have imagined, like what did you imagine
+
+24:17.240 --> 24:20.120
+ was the future of these giant computers?
+
+24:20.120 --> 24:22.000
+ Could you have imagined that 60 years later
+
+24:22.000 --> 24:25.780
+ we'd have billions of these computers all over the world?
+
+24:25.780 --> 24:30.560
+ I couldn't imagine that, but there was a sense
+
+24:30.560 --> 24:35.560
+ in the laboratory that this was the wave of the future.
+
+24:36.120 --> 24:38.920
+ In fact, my mother influenced me.
+
+24:38.920 --> 24:42.320
+ She told me that data processing was gonna be really big
+
+24:42.320 --> 24:43.920
+ and I should get into it.
+
+24:43.920 --> 24:47.280
+ You're a smart woman.
+
+24:47.280 --> 24:49.080
+ Yeah, she was a smart woman.
+
+24:49.080 --> 24:53.080
+ And there was just a feeling that this was going
+
+24:53.080 --> 24:55.680
+ to change the world, but I didn't think of it
+
+24:55.680 --> 24:57.200
+ in terms of personal computing.
+
+24:57.200 --> 25:02.200
+ I had no anticipation that we would be walking around
+
+25:02.920 --> 25:06.120
+ with computers in our pockets or anything like that.
+
+25:06.120 --> 25:11.120
+ Did you see computers as tools, as mathematical mechanisms
+
+25:12.800 --> 25:16.540
+ to analyze sort of the theoretical computer science,
+
+25:16.540 --> 25:21.000
+ or as the AI folks, which is an entire other community
+
+25:21.000 --> 25:24.480
+ of dreamers, as something that could one day
+
+25:24.480 --> 25:26.840
+ have human level intelligence?
+
+25:26.840 --> 25:29.560
+ Well, AI wasn't very much on my radar.
+
+25:29.560 --> 25:33.200
+ I did read Turing's paper about the...
+
+25:33.200 --> 25:38.080
+ The Turing Test, Computing and Intelligence.
+
+25:38.080 --> 25:39.500
+ Yeah, the Turing test.
+
+25:40.520 --> 25:41.840
+ What'd you think about that paper?
+
+25:41.840 --> 25:43.740
+ Was that just like science fiction?
+
+25:45.600 --> 25:48.280
+ I thought that it wasn't a very good test
+
+25:48.280 --> 25:50.440
+ because it was too subjective.
+
+25:50.440 --> 25:55.280
+ So I didn't feel that the Turing test
+
+25:55.280 --> 25:58.400
+ was really the right way to calibrate
+
+25:58.400 --> 26:01.000
+ how intelligent an algorithm could be.
+
+26:01.000 --> 26:03.240
+ But to linger on that, do you think it's,
+
+26:03.240 --> 26:07.800
+ because you've come up with some incredible tests later on,
+
+26:07.800 --> 26:12.200
+ tests on algorithms, right, that are like strong,
+
+26:12.200 --> 26:15.320
+ reliable, robust across a bunch of different classes
+
+26:15.320 --> 26:20.020
+ of algorithms, but returning to this emotional mess
+
+26:20.020 --> 26:22.840
+ that is intelligence, do you think it's possible
+
+26:22.840 --> 26:26.420
+ to come up with a test that's as ironclad
+
+26:26.420 --> 26:31.320
+ as some of the computational complexity work?
+
+26:31.320 --> 26:32.800
+ Well, I think the greater question
+
+26:32.800 --> 26:37.800
+ is whether it's possible to achieve human level intelligence.
+
+26:38.720 --> 26:42.080
+ Right, so first of all, let me, at the philosophical level,
+
+26:42.080 --> 26:46.320
+ do you think it's possible to create algorithms
+
+26:46.320 --> 26:51.320
+ that reason and would seem to us
+
+26:51.320 --> 26:54.080
+ to have the same kind of intelligence as human beings?
+
+26:54.080 --> 26:56.680
+ It's an open question.
+
+26:58.160 --> 27:03.160
+ It seems to me that most of the achievements
+
+27:04.080 --> 27:09.080
+ have operate within a very limited set of ground rules
+
+27:11.840 --> 27:15.400
+ and for a very limited, precise task,
+
+27:15.400 --> 27:17.600
+ which is a quite different situation
+
+27:17.600 --> 27:22.340
+ from the processes that go on in the minds of humans,
+
+27:22.340 --> 27:25.040
+ which where they have to sort of function
+
+27:25.040 --> 27:30.040
+ in changing environments, they have emotions,
+
+27:30.120 --> 27:35.120
+ they have physical attributes for exploring
+
+27:37.920 --> 27:41.400
+ their environment, they have intuition,
+
+27:41.400 --> 27:46.400
+ they have desires, emotions, and I don't see anything
+
+27:46.400 --> 27:51.400
+ in the current achievements of what's called AI
+
+27:54.440 --> 27:56.940
+ that come close to that capability.
+
+27:56.940 --> 28:01.940
+ I don't think there's any computer program
+
+28:02.160 --> 28:05.720
+ which surpasses a six month old child
+
+28:05.720 --> 28:09.020
+ in terms of comprehension of the world.
+
+28:10.680 --> 28:15.560
+ Do you think this complexity of human intelligence,
+
+28:15.560 --> 28:17.080
+ all the cognitive abilities we have,
+
+28:17.080 --> 28:21.380
+ all the emotion, do you think that could be reduced one day
+
+28:21.380 --> 28:23.960
+ or just fundamentally can it be reduced
+
+28:23.960 --> 28:27.260
+ to a set of algorithms or an algorithm?
+
+28:27.260 --> 28:31.880
+ So can a Turing machine achieve human level intelligence?
+
+28:33.180 --> 28:35.940
+ I am doubtful about that.
+
+28:35.940 --> 28:38.640
+ I guess the argument in favor of it
+
+28:38.640 --> 28:45.640
+ is that the human brain seems to achieve what we call
+
+28:47.240 --> 28:50.760
+ intelligence cognitive abilities of different kinds.
+
+28:51.820 --> 28:54.300
+ And if you buy the premise that the human brain
+
+28:54.300 --> 28:58.600
+ is just an enormous interconnected set of switches,
+
+28:58.600 --> 29:03.120
+ so to speak, then in principle, you should be able
+
+29:03.120 --> 29:07.420
+ to diagnose what that interconnection structure is like,
+
+29:07.420 --> 29:09.400
+ characterize the individual switches,
+
+29:09.400 --> 29:12.920
+ and build a simulation outside.
+
+29:14.100 --> 29:17.640
+ But while that may be true in principle,
+
+29:17.640 --> 29:19.900
+ that cannot be the way we're eventually
+
+29:19.900 --> 29:21.720
+ gonna tackle this problem.
+
+29:25.960 --> 29:29.360
+ That does not seem like a feasible way to go about it.
+
+29:29.360 --> 29:32.480
+ So there is, however, an existence proof that
+
+29:32.480 --> 29:37.480
+ if you believe that the brain is just a network of neurons
+
+29:42.440 --> 29:45.240
+ operating by rules, I guess you could say
+
+29:45.240 --> 29:50.160
+ that that's an existence proof of the capabilities
+
+29:50.160 --> 29:55.100
+ of a mechanism, but it would be almost impossible
+
+29:55.100 --> 30:00.100
+ to acquire the information unless we got enough insight
+
+30:00.100 --> 30:02.780
+ into the operation of the brain.
+
+30:02.780 --> 30:04.300
+ But there's so much mystery there.
+
+30:04.300 --> 30:06.700
+ Do you think, what do you make of consciousness,
+
+30:06.700 --> 30:11.020
+ for example, as an example of something
+
+30:11.020 --> 30:13.180
+ we completely have no clue about?
+
+30:13.180 --> 30:15.940
+ The fact that we have this subjective experience.
+
+30:15.940 --> 30:19.780
+ Is it possible that this network of,
+
+30:19.780 --> 30:22.900
+ this circuit of switches is able to create
+
+30:22.900 --> 30:24.940
+ something like consciousness?
+
+30:24.940 --> 30:26.820
+ To know its own identity.
+
+30:26.820 --> 30:30.260
+ Yeah, to know the algorithm, to know itself.
+
+30:30.260 --> 30:32.100
+ To know itself.
+
+30:32.100 --> 30:35.340
+ I think if you try to define that rigorously,
+
+30:35.340 --> 30:36.660
+ you'd have a lot of trouble.
+
+30:36.660 --> 30:39.380
+ Yeah, that seems to be.
+
+30:39.380 --> 30:44.380
+ So I know that there are many who believe
+
+30:47.040 --> 30:52.040
+ that general intelligence can be achieved,
+
+30:52.620 --> 30:55.780
+ and there are even some who feel certain
+
+30:55.780 --> 30:59.180
+ that the singularity will come
+
+30:59.180 --> 31:01.740
+ and we will be surpassed by the machines
+
+31:01.740 --> 31:04.380
+ which will then learn more and more about themselves
+
+31:04.380 --> 31:08.640
+ and reduce humans to an inferior breed.
+
+31:08.640 --> 31:11.500
+ I am doubtful that this will ever be achieved.
+
+31:12.700 --> 31:17.020
+ Just for the fun of it, could you linger on why,
+
+31:17.020 --> 31:19.100
+ what's your intuition, why you're doubtful?
+
+31:19.100 --> 31:23.060
+ So there are quite a few people that are extremely worried
+
+31:23.060 --> 31:26.380
+ about this existential threat of artificial intelligence,
+
+31:26.380 --> 31:29.220
+ of us being left behind
+
+31:29.220 --> 31:32.340
+ by this super intelligent new species.
+
+31:32.340 --> 31:36.920
+ What's your intuition why that's not quite likely?
+
+31:37.860 --> 31:42.860
+ Just because none of the achievements in speech
+
+31:43.480 --> 31:48.480
+ or robotics or natural language processing
+
+31:48.580 --> 31:52.660
+ or creation of flexible computer assistants
+
+31:52.660 --> 31:56.460
+ or any of that comes anywhere near close
+
+31:56.460 --> 32:00.300
+ to that level of cognition.
+
+32:00.300 --> 32:02.260
+ What do you think about ideas of sort of,
+
+32:02.260 --> 32:05.340
+ if we look at Moore's Law and exponential improvement
+
+32:06.140 --> 32:09.300
+ to allow us, that would surprise us?
+
+32:09.300 --> 32:11.540
+ Sort of our intuition fall apart
+
+32:11.540 --> 32:14.660
+ with exponential improvement because, I mean,
+
+32:14.660 --> 32:16.060
+ we're not able to kind of,
+
+32:16.060 --> 32:18.260
+ we kind of think in linear improvement.
+
+32:18.260 --> 32:20.220
+ We're not able to imagine a world
+
+32:20.220 --> 32:25.220
+ that goes from the Mark I computer to an iPhone X.
+
+32:26.180 --> 32:27.540
+ Yeah.
+
+32:27.540 --> 32:31.260
+ So do you think we could be really surprised
+
+32:31.260 --> 32:33.420
+ by the exponential growth?
+
+32:33.420 --> 32:37.540
+ Or on the flip side, is it possible
+
+32:37.540 --> 32:42.220
+ that also intelligence is actually way, way, way, way harder,
+
+32:42.220 --> 32:47.100
+ even with exponential improvement to be able to crack?
+
+32:47.100 --> 32:50.300
+ I don't think any constant factor improvement
+
+32:50.300 --> 32:53.980
+ could change things.
+
+32:53.980 --> 32:58.100
+ I mean, given our current comprehension
+
+32:58.100 --> 33:03.100
+ of what cognition requires,
+
+33:04.940 --> 33:08.760
+ it seems to me that multiplying the speed of the switches
+
+33:08.760 --> 33:10.940
+ by a factor of a thousand or a million
+
+33:13.580 --> 33:16.600
+ will not be useful until we really understand
+
+33:16.600 --> 33:21.280
+ the organizational principle behind the network of switches.
+
+33:23.140 --> 33:25.420
+ Well, let's jump into the network of switches
+
+33:25.420 --> 33:28.060
+ and talk about combinatorial algorithms if we could.
+
+33:29.860 --> 33:31.700
+ Let's step back with the very basics.
+
+33:31.700 --> 33:33.700
+ What are combinatorial algorithms?
+
+33:33.700 --> 33:35.080
+ And what are some major examples
+
+33:35.080 --> 33:37.000
+ of problems they aim to solve?
+
+33:38.140 --> 33:43.140
+ A combinatorial algorithm is one which deals
+
+33:43.140 --> 33:48.140
+ with a system of discrete objects
+
+33:48.340 --> 33:52.300
+ that can occupy various states
+
+33:52.300 --> 33:57.300
+ or take on various values from a discrete set of values
+
+33:59.700 --> 34:02.700
+ and need to be arranged or selected
+
+34:06.620 --> 34:10.520
+ in such a way as to achieve some,
+
+34:10.520 --> 34:13.100
+ to minimize some cost function.
+
+34:13.100 --> 34:16.220
+ Or to prove the existence
+
+34:16.220 --> 34:19.980
+ of some combinatorial configuration.
+
+34:19.980 --> 34:24.980
+ So an example would be coloring the vertices of a graph.
+
+34:25.020 --> 34:25.960
+ What's a graph?
+
+34:27.280 --> 34:28.120
+ Let's step back.
+
+34:28.120 --> 34:33.120
+ So it's fun to ask one of the greatest
+
+34:34.780 --> 34:36.180
+ computer scientists of all time
+
+34:36.180 --> 34:39.260
+ the most basic questions in the beginning of most books.
+
+34:39.260 --> 34:41.420
+ But for people who might not know,
+
+34:41.420 --> 34:44.480
+ but in general how you think about it, what is a graph?
+
+34:44.480 --> 34:47.260
+ A graph, that's simple.
+
+34:47.260 --> 34:51.220
+ It's a set of points, certain pairs of which
+
+34:51.220 --> 34:54.120
+ are joined by lines called edges.
+
+34:55.060 --> 34:57.860
+ And they sort of represent the,
+
+34:58.740 --> 35:02.340
+ in different applications represent the interconnections
+
+35:02.340 --> 35:05.900
+ between discrete objects.
+
+35:05.900 --> 35:07.740
+ So they could be the interactions,
+
+35:07.740 --> 35:12.500
+ interconnections between switches in a digital circuit
+
+35:12.500 --> 35:16.380
+ or interconnections indicating the communication patterns
+
+35:16.380 --> 35:17.940
+ of a human community.
+
+35:19.300 --> 35:21.420
+ And they could be directed or undirected
+
+35:21.420 --> 35:25.540
+ and then as you've mentioned before, might have costs.
+
+35:25.540 --> 35:27.700
+ Right, they can be directed or undirected.
+
+35:27.700 --> 35:30.660
+ They can be, you can think of them as,
+
+35:30.660 --> 35:34.260
+ if you think, if a graph were representing
+
+35:34.260 --> 35:38.700
+ a communication network, then the edge could be undirected
+
+35:38.700 --> 35:41.780
+ meaning that information could flow along it
+
+35:41.780 --> 35:44.540
+ in both directions or it could be directed
+
+35:44.540 --> 35:46.980
+ with only one way communication.
+
+35:46.980 --> 35:49.740
+ A road system is another example of a graph
+
+35:49.740 --> 35:52.220
+ with weights on the edges.
+
+35:52.220 --> 35:57.220
+ And then a lot of problems of optimizing the efficiency
+
+35:57.220 --> 36:02.220
+ of such networks or learning about the performance
+
+36:04.660 --> 36:09.660
+ of such networks are the object of combinatorial algorithms.
+
+36:11.340 --> 36:15.620
+ So it could be scheduling classes at a school
+
+36:15.620 --> 36:20.620
+ where the vertices, the nodes of the network
+
+36:20.620 --> 36:25.620
+ are the individual classes and the edges indicate
+
+36:25.620 --> 36:28.580
+ the constraints which say that certain classes
+
+36:28.580 --> 36:30.860
+ cannot take place at the same time
+
+36:30.860 --> 36:34.980
+ or certain teachers are available only for certain classes,
+
+36:34.980 --> 36:36.300
+ et cetera.
+
+36:36.300 --> 36:41.300
+ Or I talked earlier about the assignment problem
+
+36:41.300 --> 36:43.060
+ of matching the boys with the girls
+
+36:43.060 --> 36:48.060
+ where you have there a graph with an edge
+
+36:48.060 --> 36:51.300
+ from each boy to each girl with a weight
+
+36:51.300 --> 36:53.460
+ indicating the cost.
+
+36:53.460 --> 36:58.460
+ Or in logical design of computers,
+
+36:58.460 --> 37:03.460
+ you might want to find a set of so called gates,
+
+37:04.300 --> 37:07.500
+ switches that perform logical functions
+
+37:07.500 --> 37:10.060
+ which can be interconnected to each other
+
+37:10.060 --> 37:13.740
+ and perform logical functions which can be interconnected
+
+37:13.740 --> 37:15.580
+ to realize some function.
+
+37:15.580 --> 37:20.580
+ So you might ask how many gates do you need
+
+37:22.460 --> 37:27.460
+ in order for a circuit to give a yes output
+
+37:33.220 --> 37:38.220
+ if at least a given number of its inputs are ones
+
+37:38.220 --> 37:42.980
+ and no if fewer are present.
+
+37:42.980 --> 37:46.580
+ My favorite's probably all the work with network flow.
+
+37:46.580 --> 37:50.780
+ So anytime you have, I don't know why it's so compelling
+
+37:50.780 --> 37:52.420
+ but there's something just beautiful about it.
+
+37:52.420 --> 37:54.340
+ It seems like there's so many applications
+
+37:54.340 --> 37:59.340
+ and communication networks and traffic flow
+
+38:00.700 --> 38:03.340
+ that you can map into these and then you could think
+
+38:03.340 --> 38:05.580
+ of pipes and water going through pipes
+
+38:05.580 --> 38:07.260
+ and you could optimize it in different ways.
+
+38:07.260 --> 38:11.140
+ There's something always visually and intellectually
+
+38:11.140 --> 38:12.340
+ compelling to me about it.
+
+38:12.340 --> 38:14.660
+ And of course you've done work there.
+
+38:15.940 --> 38:20.940
+ Yeah, so there the edges represent channels
+
+38:21.540 --> 38:24.540
+ along which some commodity can flow.
+
+38:24.540 --> 38:29.540
+ It might be gas, it might be water, it might be information.
+
+38:29.900 --> 38:33.900
+ Maybe supply chain as well like products being.
+
+38:33.900 --> 38:37.740
+ Products flowing from one operation to another.
+
+38:37.740 --> 38:41.140
+ And the edges have a capacity which is the rate
+
+38:41.140 --> 38:43.740
+ at which the commodity can flow.
+
+38:43.740 --> 38:48.740
+ And a central problem is to determine
+
+38:49.220 --> 38:51.700
+ given a network of these channels.
+
+38:51.700 --> 38:54.580
+ In this case the edges are communication channels.
+
+38:56.380 --> 39:01.380
+ The challenge is to find the maximum rate
+
+39:01.380 --> 39:05.460
+ at which the information can flow along these channels
+
+39:05.460 --> 39:09.060
+ to get from a source to a destination.
+
+39:09.060 --> 39:12.620
+ And that's a fundamental combinatorial problem
+
+39:12.620 --> 39:17.620
+ that I've worked on jointly with the scientist Jack Edmonds.
+
+39:19.780 --> 39:22.380
+ I think we're the first to give a formal proof
+
+39:22.380 --> 39:27.380
+ that this maximum flow problem through a network
+
+39:27.460 --> 39:30.660
+ can be solved in polynomial time.
+
+39:30.660 --> 39:33.900
+ Which I remember the first time I learned that.
+
+39:33.900 --> 39:38.900
+ Just learning that in maybe even grad school.
+
+39:39.740 --> 39:41.100
+ I don't think it was even undergrad.
+
+39:41.100 --> 39:43.380
+ No, algorithm, yeah.
+
+39:43.380 --> 39:48.380
+ Do network flows get taught in basic algorithms courses?
+
+39:50.100 --> 39:51.100
+ Yes, probably.
+
+39:51.100 --> 39:53.740
+ Okay, so yeah, I remember being very surprised
+
+39:53.740 --> 39:56.780
+ that max flow is a polynomial time algorithm.
+
+39:56.780 --> 39:59.900
+ That there's a nice fast algorithm that solves max flow.
+
+39:59.900 --> 40:04.900
+ So there is an algorithm named after you in Edmonds.
+
+40:06.540 --> 40:08.380
+ The Edmond Carp algorithm for max flow.
+
+40:08.380 --> 40:12.580
+ So what was it like tackling that problem
+
+40:12.580 --> 40:15.660
+ and trying to arrive at a polynomial time solution?
+
+40:15.660 --> 40:17.180
+ And maybe you can describe the algorithm.
+
+40:17.180 --> 40:19.900
+ Maybe you can describe what's the running time complexity
+
+40:19.900 --> 40:20.740
+ that you showed.
+
+40:20.740 --> 40:23.340
+ Yeah, well, first of all,
+
+40:23.340 --> 40:25.620
+ what is a polynomial time algorithm?
+
+40:25.620 --> 40:28.580
+ Perhaps we could discuss that.
+
+40:28.580 --> 40:31.580
+ So yeah, let's actually just even, yeah.
+
+40:31.580 --> 40:34.140
+ What is algorithmic complexity?
+
+40:34.140 --> 40:38.220
+ What are the major classes of algorithm complexity?
+
+40:38.220 --> 40:41.860
+ So in a problem like the assignment problem
+
+40:41.860 --> 40:46.860
+ or scheduling schools or any of these applications,
+
+40:48.820 --> 40:53.820
+ you have a set of input data which might, for example,
+
+40:53.820 --> 40:58.820
+ be a set of vertices connected by edges
+
+41:01.460 --> 41:06.380
+ with you're given for each edge the capacity of the edge.
+
+41:07.340 --> 41:12.220
+ And you have algorithms which are,
+
+41:12.220 --> 41:16.700
+ think of them as computer programs with operations
+
+41:16.700 --> 41:19.940
+ such as addition, subtraction, multiplication, division,
+
+41:19.940 --> 41:22.020
+ comparison of numbers, and so on.
+
+41:22.020 --> 41:26.940
+ And you're trying to construct an algorithm
+
+41:29.540 --> 41:33.860
+ based on those operations, which will determine
+
+41:33.860 --> 41:37.260
+ in a minimum number of computational steps
+
+41:37.260 --> 41:38.460
+ the answer to the problem.
+
+41:38.460 --> 41:41.100
+ In this case, the computational step
+
+41:41.100 --> 41:43.380
+ is one of those operations.
+
+41:43.380 --> 41:46.060
+ And the answer to the problem is let's say
+
+41:46.060 --> 41:50.420
+ the configuration of the network
+
+41:50.420 --> 41:52.540
+ that carries the maximum amount of flow.
+
+41:54.860 --> 41:58.340
+ And an algorithm is said to run in polynomial time
+
+41:59.940 --> 42:04.940
+ if as a function of the size of the input,
+
+42:04.980 --> 42:07.900
+ the number of vertices, the number of edges, and so on,
+
+42:09.180 --> 42:12.460
+ the number of basic computational steps grows
+
+42:12.460 --> 42:15.220
+ only as some fixed power of that size.
+
+42:15.220 --> 42:20.220
+ A linear algorithm would execute a number of steps
+
+42:21.940 --> 42:24.660
+ linearly proportional to the size.
+
+42:24.660 --> 42:27.700
+ Quadratic algorithm would be steps proportional
+
+42:27.700 --> 42:29.620
+ to the square of the size, and so on.
+
+42:30.660 --> 42:34.660
+ And algorithms whose running time is bounded
+
+42:34.660 --> 42:37.260
+ by some fixed power of the size
+
+42:37.260 --> 42:39.900
+ are called polynomial algorithms.
+
+42:39.900 --> 42:40.740
+ Yeah.
+
+42:40.740 --> 42:44.060
+ And that's supposed to be relatively fast class
+
+42:44.060 --> 42:44.900
+ of algorithms.
+
+42:44.900 --> 42:45.740
+ That's right.
+
+42:45.740 --> 42:49.500
+ Theoreticians take that to be the definition
+
+42:49.500 --> 42:53.300
+ of an algorithm being efficient.
+
+42:54.460 --> 42:57.940
+ And we're interested in which problems can be solved
+
+42:57.940 --> 43:02.300
+ by such efficient algorithms.
+
+43:02.300 --> 43:04.940
+ One can argue whether that's the right definition
+
+43:04.940 --> 43:08.100
+ of efficient because you could have an algorithm
+
+43:08.100 --> 43:11.420
+ whose running time is the 10,000th power
+
+43:11.420 --> 43:12.540
+ of the size of the input,
+
+43:12.540 --> 43:15.860
+ and that wouldn't be really efficient.
+
+43:15.860 --> 43:19.220
+ And in practice, it's oftentimes reducing
+
+43:19.220 --> 43:22.620
+ from an N squared algorithm to an N log N
+
+43:22.620 --> 43:26.940
+ or a linear time is practically the jump
+
+43:26.940 --> 43:30.260
+ that you wanna make to allow a real world system
+
+43:30.260 --> 43:31.220
+ to solve a problem.
+
+43:31.220 --> 43:33.260
+ Yeah, that's also true because especially
+
+43:33.260 --> 43:35.860
+ as we get very large networks,
+
+43:35.860 --> 43:38.060
+ the size can be in the millions,
+
+43:38.060 --> 43:43.060
+ and then anything above N log N
+
+43:43.700 --> 43:46.940
+ where N is the size would be too much
+
+43:46.940 --> 43:49.940
+ for a practical solution.
+
+43:49.940 --> 43:52.500
+ Okay, so that's polynomial time algorithms.
+
+43:52.500 --> 43:55.100
+ What other classes of algorithms are there?
+
+43:56.140 --> 44:01.100
+ What's, so that usually they designate polynomials
+
+44:01.100 --> 44:02.380
+ of the letter P.
+
+44:02.380 --> 44:03.220
+ Yeah.
+
+44:03.220 --> 44:06.180
+ There's also NP, NP complete and NP hard.
+
+44:06.180 --> 44:07.140
+ Yeah.
+
+44:07.140 --> 44:10.900
+ So can you try to disentangle those
+
+44:10.900 --> 44:14.260
+ by trying to define them simply?
+
+44:14.260 --> 44:16.940
+ Right, so a polynomial time algorithm
+
+44:16.940 --> 44:20.460
+ is one whose running time is bounded
+
+44:20.460 --> 44:22.700
+ by a polynomial in the size of the input.
+
+44:24.540 --> 44:29.380
+ Then the class of such algorithms is called P.
+
+44:29.380 --> 44:31.420
+ In the worst case, by the way, we should say, right?
+
+44:31.420 --> 44:32.260
+ Yeah.
+
+44:32.260 --> 44:33.100
+ So for every case of the problem.
+
+44:33.100 --> 44:34.300
+ Yes, that's right, and that's very important
+
+44:34.300 --> 44:39.300
+ that in this theory, when we measure the complexity
+
+44:39.500 --> 44:44.500
+ of an algorithm, we really measure the number of steps,
+
+44:45.020 --> 44:48.900
+ the growth of the number of steps in the worst case.
+
+44:48.900 --> 44:53.460
+ So you may have an algorithm that runs very rapidly
+
+44:53.460 --> 44:56.820
+ in most cases, but if there's any case
+
+44:56.820 --> 45:00.100
+ where it gets into a very long computation,
+
+45:00.100 --> 45:03.420
+ that would increase the computational complexity
+
+45:03.420 --> 45:04.420
+ by this measure.
+
+45:05.300 --> 45:07.340
+ And that's a very important issue
+
+45:07.340 --> 45:10.540
+ because there are, as we may discuss later,
+
+45:10.540 --> 45:13.220
+ there are some very important algorithms
+
+45:13.220 --> 45:15.500
+ which don't have a good standing
+
+45:15.500 --> 45:18.100
+ from the point of view of their worst case performance
+
+45:18.100 --> 45:19.700
+ and yet are very effective.
+
+45:20.620 --> 45:24.300
+ So theoreticians are interested in P,
+
+45:24.300 --> 45:27.500
+ the class of problem solvable in polynomial time.
+
+45:27.500 --> 45:32.500
+ Then there's NP, which is the class of problems
+
+45:34.500 --> 45:39.500
+ which may be hard to solve, but when confronted
+
+45:42.700 --> 45:46.620
+ with a solution, you can check it in polynomial time.
+
+45:46.620 --> 45:49.180
+ Let me give you an example there.
+
+45:49.180 --> 45:52.420
+ So if we look at the assignment problem,
+
+45:52.420 --> 45:55.940
+ so you have N boys, you have N girls,
+
+45:55.940 --> 45:58.740
+ the number of numbers that you need to write down
+
+45:58.740 --> 46:03.740
+ to specify the problem instance is N squared.
+
+46:03.740 --> 46:08.740
+ And the question is how many steps are needed to solve it?
+
+46:11.540 --> 46:15.660
+ And Jack Edmonds and I were the first to show
+
+46:15.660 --> 46:18.460
+ that it could be done in time and cubed.
+
+46:20.260 --> 46:23.900
+ Earlier algorithms required N to the fourth.
+
+46:23.900 --> 46:27.340
+ So as a polynomial function of the size of the input,
+
+46:27.340 --> 46:29.180
+ this is a fast algorithm.
+
+46:30.180 --> 46:34.100
+ Now to illustrate the class NP, the question is
+
+46:34.100 --> 46:38.940
+ how long would it take to verify
+
+46:38.940 --> 46:41.700
+ that a solution is optimal?
+
+46:42.700 --> 46:47.700
+ So for example, if the input was a graph,
+
+46:48.140 --> 46:53.140
+ we might want to find the largest clique in the graph
+
+46:53.140 --> 46:58.140
+ or a clique is a set of vertices such that any vertex,
+
+46:58.860 --> 47:03.860
+ each vertex in the set is adjacent to each of the others.
+
+47:03.980 --> 47:08.940
+ So the clique is a complete subgraph.
+
+47:08.940 --> 47:11.900
+ Yeah, so if it's a Facebook social network,
+
+47:11.900 --> 47:15.300
+ everybody's friends with everybody else, close clique.
+
+47:15.300 --> 47:17.300
+ No, that would be what's called a complete graph.
+
+47:17.300 --> 47:18.220
+ It would be.
+
+47:18.220 --> 47:20.660
+ No, I mean within that clique.
+
+47:20.660 --> 47:21.900
+ Within that clique, yeah.
+
+47:21.900 --> 47:25.580
+ Yeah, they're all friends.
+
+47:25.580 --> 47:27.820
+ So a complete graph is when?
+
+47:27.820 --> 47:28.820
+ Everybody is friendly.
+
+47:28.820 --> 47:31.340
+ As everybody is friends with everybody, yeah.
+
+47:31.340 --> 47:36.340
+ So the problem might be to determine whether
+
+47:36.340 --> 47:41.000
+ in a given graph there exists a clique of a certain size.
+
+47:43.020 --> 47:45.740
+ Now that turns out to be a very hard problem,
+
+47:45.740 --> 47:50.740
+ but if somebody hands you a clique and asks you to check
+
+47:50.740 --> 47:55.180
+ whether it is, hands you a set of vertices
+
+47:55.180 --> 47:57.380
+ and asks you to check whether it's a clique,
+
+47:58.900 --> 48:01.900
+ you could do that simply by exhaustively looking
+
+48:01.900 --> 48:05.220
+ at all of the edges between the vertices and the clique
+
+48:05.220 --> 48:08.020
+ and verifying that they're all there.
+
+48:08.020 --> 48:10.540
+ And that's a polynomial time algorithm.
+
+48:10.540 --> 48:11.540
+ That's a polynomial.
+
+48:11.540 --> 48:15.420
+ So the problem of finding the clique
+
+48:17.620 --> 48:19.300
+ appears to be extremely hard,
+
+48:19.300 --> 48:21.700
+ but the problem of verifying a clique
+
+48:22.980 --> 48:26.500
+ to see if it reaches a target number of vertices
+
+48:28.260 --> 48:31.700
+ is easy to verify.
+
+48:31.700 --> 48:35.740
+ So finding the clique is hard, checking it is easy.
+
+48:35.740 --> 48:39.020
+ Problems of that nature are called
+
+48:39.020 --> 48:42.460
+ nondeterministic polynomial time algorithms,
+
+48:42.460 --> 48:44.300
+ and that's the class NP.
+
+48:45.700 --> 48:48.360
+ And what about NP complete and NP hard?
+
+48:48.360 --> 48:50.900
+ Okay, let's talk about problems
+
+48:50.900 --> 48:53.800
+ where you're getting a yes or no answer
+
+48:53.800 --> 48:55.460
+ rather than a numerical value.
+
+48:55.460 --> 48:58.780
+ So either there is a perfect matching
+
+48:58.780 --> 49:03.780
+ of the boys with the girls or there isn't.
+
+49:04.180 --> 49:09.180
+ It's clear that every problem in P is also in NP.
+
+49:10.580 --> 49:12.580
+ If you can solve the problem exactly,
+
+49:12.580 --> 49:17.540
+ then you can certainly verify the solution.
+
+49:17.540 --> 49:22.540
+ On the other hand, there are problems in the class NP.
+
+49:23.820 --> 49:27.140
+ This is the class of problems that are easy to check,
+
+49:27.140 --> 49:29.700
+ although they may be hard to solve.
+
+49:29.700 --> 49:33.780
+ It's not at all clear that problems in NP lie in P.
+
+49:33.780 --> 49:36.220
+ So for example, if we're looking
+
+49:36.220 --> 49:39.300
+ at scheduling classes at a school,
+
+49:39.300 --> 49:44.300
+ the fact that you can verify when handed a schedule
+
+49:44.300 --> 49:47.980
+ for the school, whether it meets all the requirements,
+
+49:47.980 --> 49:51.380
+ that doesn't mean that you can find the schedule rapidly.
+
+49:51.380 --> 49:55.780
+ So intuitively, NP, nondeterministic polynomial checking
+
+49:55.780 --> 50:00.780
+ rather than finding, is going to be harder than,
+
+50:03.180 --> 50:06.140
+ is going to include, is easier.
+
+50:06.140 --> 50:08.820
+ Checking is easier, and therefore the class of problems
+
+50:08.820 --> 50:11.940
+ that can be checked appears to be much larger
+
+50:11.940 --> 50:14.620
+ than the class of problems that can be solved.
+
+50:14.620 --> 50:17.380
+ And then you keep adding appears to,
+
+50:17.380 --> 50:22.220
+ and sort of these additional words that designate
+
+50:22.220 --> 50:24.060
+ that we don't know for sure yet.
+
+50:24.060 --> 50:25.180
+ We don't know for sure.
+
+50:25.180 --> 50:28.140
+ So the theoretical question, which is considered
+
+50:28.140 --> 50:30.420
+ to be the most central problem
+
+50:30.420 --> 50:32.640
+ in theoretical computer science,
+
+50:32.640 --> 50:35.460
+ or at least computational complexity theory,
+
+50:36.380 --> 50:38.560
+ combinatorial algorithm theory,
+
+50:38.560 --> 50:42.720
+ the question is whether P is equal to NP.
+
+50:43.600 --> 50:46.300
+ If P were equal to NP, it would be amazing.
+
+50:46.300 --> 50:50.820
+ It would mean that every problem
+
+50:54.240 --> 50:56.920
+ where a solution can be rapidly checked
+
+50:58.080 --> 51:00.900
+ can actually be solved in polynomial time.
+
+51:00.900 --> 51:03.420
+ We don't really believe that's true.
+
+51:03.420 --> 51:05.780
+ If you're scheduling classes at a school,
+
+51:05.780 --> 51:10.780
+ we expect that if somebody hands you a satisfying schedule,
+
+51:13.020 --> 51:15.620
+ you can verify that it works.
+
+51:15.620 --> 51:17.140
+ That doesn't mean that you should be able
+
+51:17.140 --> 51:18.940
+ to find such a schedule.
+
+51:18.940 --> 51:23.940
+ So intuitively, NP encompasses a lot more problems than P.
+
+51:24.140 --> 51:28.020
+ So can we take a small tangent
+
+51:28.020 --> 51:30.460
+ and break apart that intuition?
+
+51:30.460 --> 51:34.540
+ So do you, first of all, think that the biggest
+
+51:34.540 --> 51:36.200
+ sort of open problem in computer science,
+
+51:36.200 --> 51:40.000
+ maybe mathematics, is whether P equals NP?
+
+51:40.000 --> 51:43.220
+ Do you think P equals NP,
+
+51:43.220 --> 51:46.300
+ or do you think P is not equal to NP?
+
+51:46.300 --> 51:48.820
+ If you had to bet all your money on it.
+
+51:48.820 --> 51:52.020
+ I would bet that P is unequal to NP,
+
+51:52.020 --> 51:54.280
+ simply because there are problems
+
+51:54.280 --> 51:55.940
+ that have been around for centuries
+
+51:55.940 --> 51:58.980
+ and have been studied intensively in mathematics,
+
+51:58.980 --> 52:02.060
+ and even more so in the last 50 years
+
+52:02.060 --> 52:05.600
+ since the P versus NP was stated.
+
+52:05.600 --> 52:10.180
+ And no polynomial time algorithms have been found
+
+52:10.180 --> 52:13.700
+ for these easy to check problems.
+
+52:13.700 --> 52:17.620
+ So one example is a problem that goes back
+
+52:17.620 --> 52:19.860
+ to the mathematician Gauss,
+
+52:19.860 --> 52:24.480
+ who was interested in factoring large numbers.
+
+52:24.480 --> 52:27.960
+ So we know what a number is prime
+
+52:27.960 --> 52:31.500
+ if it cannot be written as the product
+
+52:31.500 --> 52:35.100
+ of two or more numbers unequal to one.
+
+52:36.340 --> 52:41.340
+ So if we can factor a number like 91, it's seven times 13.
+
+52:43.820 --> 52:48.820
+ But if I give you 20 digit or 30 digit numbers,
+
+52:50.860 --> 52:52.540
+ you're probably gonna be at a loss
+
+52:52.540 --> 52:55.440
+ to have any idea whether they can be factored.
+
+52:56.840 --> 53:00.020
+ So the problem of factoring very large numbers
+
+53:00.020 --> 53:05.020
+ does not appear to have an efficient solution.
+
+53:06.960 --> 53:09.640
+ But once you have found the factors,
+
+53:11.680 --> 53:16.600
+ expressed the number as a product of two smaller numbers,
+
+53:16.600 --> 53:19.960
+ you can quickly verify that they are factors of the number.
+
+53:19.960 --> 53:22.400
+ And your intuition is a lot of people finding,
+
+53:23.540 --> 53:25.720
+ a lot of brilliant people have tried to find algorithms
+
+53:25.720 --> 53:26.960
+ for this one particular problem.
+
+53:26.960 --> 53:30.520
+ There's many others like it that are really well studied
+
+53:30.520 --> 53:33.960
+ and it would be great to find an efficient algorithm for.
+
+53:33.960 --> 53:38.960
+ Right, and in fact, we have some results
+
+53:40.320 --> 53:44.680
+ that I was instrumental in obtaining following up on work
+
+53:44.680 --> 53:46.840
+ by the mathematician Stephen Cook
+
+53:48.720 --> 53:53.720
+ to show that within the class NP of easy to check problems,
+
+53:53.720 --> 53:57.080
+ easy to check problems, there's a huge number
+
+53:57.080 --> 54:00.640
+ that are equivalent in the sense that either all of them
+
+54:00.640 --> 54:03.200
+ or none of them lie in P.
+
+54:03.200 --> 54:06.400
+ And this happens only if P is equal to NP.
+
+54:06.400 --> 54:11.240
+ So if P is unequal to NP, we would also know
+
+54:11.240 --> 54:16.240
+ that virtually all the standard combinatorial problems,
+
+54:16.240 --> 54:20.280
+ virtually all the standard combinatorial problems,
+
+54:20.280 --> 54:23.860
+ if P is unequal to NP, none of them can be solved
+
+54:23.860 --> 54:25.920
+ in polynomial time.
+
+54:25.920 --> 54:28.560
+ Can you explain how that's possible
+
+54:28.560 --> 54:32.280
+ to tie together so many problems in a nice bunch
+
+54:32.280 --> 54:36.560
+ that if one is proven to be efficient, then all are?
+
+54:36.560 --> 54:40.600
+ The first and most important stage of progress
+
+54:40.600 --> 54:45.600
+ was a result by Stephen Cook who showed that a certain problem
+
+54:49.680 --> 54:54.560
+ called the satisfiability problem of propositional logic
+
+54:55.880 --> 55:00.200
+ is as hard as any problem in the class P.
+
+55:00.200 --> 55:05.200
+ So the propositional logic problem is expressed
+
+55:05.200 --> 55:10.200
+ in terms of expressions involving the logical operations
+
+55:11.040 --> 55:16.040
+ and, or, and not operating on variables
+
+55:16.860 --> 55:19.240
+ that can be either true or false.
+
+55:19.240 --> 55:24.240
+ So an instance of the problem would be some formula
+
+55:24.560 --> 55:26.800
+ involving and, or, and not.
+
+55:28.240 --> 55:31.180
+ And the question would be whether there is an assignment
+
+55:31.180 --> 55:34.900
+ of truth values to the variables in the problem
+
+55:34.900 --> 55:37.400
+ that would make the formula true.
+
+55:37.400 --> 55:42.400
+ So for example, if I take the formula A or B
+
+55:42.920 --> 55:47.920
+ and A or not B and not A or B and not A or not B
+
+55:49.360 --> 55:51.280
+ and take the conjunction of all four
+
+55:51.280 --> 55:54.600
+ of those so called expressions,
+
+55:54.600 --> 55:59.080
+ you can determine that no assignment of truth values
+
+55:59.080 --> 56:03.920
+ to the variables A and B will allow that conjunction
+
+56:03.920 --> 56:08.920
+ of what are called clauses to be true.
+
+56:09.200 --> 56:14.200
+ So that's an example of a formula in propositional logic
+
+56:16.920 --> 56:21.920
+ involving expressions based on the operations and, or, and not.
+
+56:23.800 --> 56:27.280
+ That's an example of a problem which is not satisfiable.
+
+56:27.280 --> 56:29.280
+ There is no solution that satisfies
+
+56:29.280 --> 56:31.200
+ all of those constraints.
+
+56:31.200 --> 56:33.800
+ I mean that's like one of the cleanest and fundamental
+
+56:33.800 --> 56:35.320
+ problems in computer science.
+
+56:35.320 --> 56:37.680
+ It's like a nice statement of a really hard problem.
+
+56:37.680 --> 56:39.960
+ It's a nice statement of a really hard problem
+
+56:39.960 --> 56:44.960
+ and what Cook showed is that every problem in NP
+
+56:50.120 --> 56:53.560
+ can be reexpressed as an instance
+
+56:53.560 --> 56:56.080
+ of the satisfiability problem.
+
+56:56.080 --> 57:01.080
+ So to do that, he used the observation
+
+57:02.080 --> 57:04.160
+ that a very simple abstract machine
+
+57:04.160 --> 57:08.360
+ called the Turing machine can be used
+
+57:08.360 --> 57:12.400
+ to describe any algorithm.
+
+57:14.960 --> 57:17.800
+ An algorithm for any realistic computer
+
+57:17.800 --> 57:22.800
+ can be translated into an equivalent algorithm
+
+57:22.840 --> 57:25.840
+ on one of these Turing machines
+
+57:25.840 --> 57:27.960
+ which are extremely simple.
+
+57:27.960 --> 57:30.560
+ So a Turing machine, there's a tape and you can
+
+57:30.560 --> 57:33.360
+ Yeah, you have data on a tape
+
+57:33.360 --> 57:35.720
+ and you have basic instructions,
+
+57:35.720 --> 57:39.640
+ a finite list of instructions which say,
+
+57:39.640 --> 57:42.280
+ if you're reading a particular symbol on the tape
+
+57:43.520 --> 57:45.520
+ and you're in a particular state,
+
+57:45.520 --> 57:49.840
+ then you can move to a different state
+
+57:49.840 --> 57:51.400
+ and change the state of the number
+
+57:51.400 --> 57:53.760
+ or the element that you were looking at,
+
+57:53.760 --> 57:55.760
+ the cell of the tape that you were looking at.
+
+57:55.760 --> 57:58.560
+ And that was like a metaphor and a mathematical construct
+
+57:58.560 --> 57:59.880
+ that Turing put together
+
+57:59.880 --> 58:02.200
+ to represent all possible computation.
+
+58:02.200 --> 58:03.600
+ All possible computation.
+
+58:03.600 --> 58:06.240
+ Now, one of these so called Turing machines
+
+58:06.240 --> 58:09.320
+ is too simple to be useful in practice,
+
+58:09.320 --> 58:11.360
+ but for theoretical purposes,
+
+58:11.360 --> 58:15.880
+ we can depend on the fact that an algorithm
+
+58:15.880 --> 58:18.840
+ for any computer can be translated
+
+58:18.840 --> 58:21.320
+ into one that would run on a Turing machine.
+
+58:21.320 --> 58:24.920
+ And then using that fact,
+
+58:26.280 --> 58:29.240
+ he could sort of describe
+
+58:31.240 --> 58:35.640
+ any possible non deterministic polynomial time algorithm.
+
+58:35.640 --> 58:40.000
+ Any algorithm for a problem in NP
+
+58:40.000 --> 58:44.520
+ could be expressed as a sequence of moves
+
+58:44.520 --> 58:47.360
+ of the Turing machine described
+
+58:47.360 --> 58:51.520
+ in terms of reading a symbol on the tape
+
+58:54.160 --> 58:55.560
+ while you're in a given state
+
+58:55.560 --> 59:00.000
+ and moving to a new state and leaving behind a new symbol.
+
+59:00.000 --> 59:03.560
+ And given that fact
+
+59:03.560 --> 59:07.680
+ that any non deterministic polynomial time algorithm
+
+59:07.680 --> 59:12.680
+ can be described by a list of such instructions,
+
+59:12.920 --> 59:15.880
+ you could translate the problem
+
+59:15.880 --> 59:19.120
+ into the language of the satisfiability problem.
+
+59:19.120 --> 59:20.360
+ Is that amazing to you, by the way,
+
+59:20.360 --> 59:21.320
+ if you take yourself back
+
+59:21.320 --> 59:24.640
+ when you were first thinking about the space of problems?
+
+59:24.640 --> 59:26.720
+ How amazing is that?
+
+59:26.720 --> 59:27.920
+ It's astonishing.
+
+59:27.920 --> 59:30.320
+ When you look at Cook's proof,
+
+59:30.320 --> 59:34.520
+ it's not too difficult to sort of figure out
+
+59:34.520 --> 59:38.520
+ why this is so,
+
+59:38.520 --> 59:40.720
+ but the implications are staggering.
+
+59:40.720 --> 59:45.720
+ It tells us that this, of all the problems in NP,
+
+59:46.240 --> 59:49.720
+ all the problems where solutions are easy to check,
+
+59:49.720 --> 59:53.320
+ they can all be rewritten
+
+59:53.320 --> 59:57.760
+ in terms of the satisfiability problem.
+
+59:59.280 --> 1:00:04.000
+ Yeah, it's adding so much more weight
+
+1:00:04.000 --> 1:00:06.800
+ to the P equals NP question
+
+1:00:06.800 --> 1:00:10.600
+ because all it takes is to show that one algorithm
+
+1:00:10.600 --> 1:00:11.440
+ in this class.
+
+1:00:11.440 --> 1:00:13.760
+ So the P versus NP can be re expressed
+
+1:00:13.760 --> 1:00:17.600
+ as simply asking whether the satisfiability problem
+
+1:00:17.600 --> 1:00:21.480
+ of propositional logic is solvable in polynomial time.
+
+1:00:23.520 --> 1:00:25.120
+ But there's more.
+
+1:00:28.000 --> 1:00:30.360
+ I encountered Cook's paper
+
+1:00:30.360 --> 1:00:34.600
+ when he published it in a conference in 1971.
+
+1:00:34.600 --> 1:00:37.760
+ Yeah, so when I saw Cook's paper
+
+1:00:37.760 --> 1:00:42.760
+ and saw this reduction of each of the problems in NP
+
+1:00:44.440 --> 1:00:49.200
+ by a uniform method to the satisfiability problem
+
+1:00:49.200 --> 1:00:50.880
+ of propositional logic,
+
+1:00:52.600 --> 1:00:54.600
+ that meant that the satisfiability problem
+
+1:00:54.600 --> 1:00:57.720
+ was a universal combinatorial problem.
+
+1:00:59.320 --> 1:01:04.160
+ And it occurred to me through experience I had had
+
+1:01:04.160 --> 1:01:07.760
+ in trying to solve other combinatorial problems
+
+1:01:07.760 --> 1:01:10.440
+ that there were many other problems
+
+1:01:10.440 --> 1:01:14.640
+ which seemed to have that universal structure.
+
+1:01:16.040 --> 1:01:20.040
+ And so I began looking for reductions
+
+1:01:21.600 --> 1:01:26.080
+ from the satisfiability to other problems.
+
+1:01:26.080 --> 1:01:31.080
+ And one of the other problems
+
+1:01:31.760 --> 1:01:35.680
+ would be the so called integer programming problem
+
+1:01:35.680 --> 1:01:40.280
+ of determining whether there's a solution
+
+1:01:40.280 --> 1:01:45.280
+ to a set of linear inequalities involving integer variables.
+
+1:01:48.200 --> 1:01:49.560
+ Just like linear programming,
+
+1:01:49.560 --> 1:01:51.720
+ but there's a constraint that the variables
+
+1:01:51.720 --> 1:01:53.640
+ must remain integers.
+
+1:01:53.640 --> 1:01:56.400
+ In fact, must be the zero or one
+
+1:01:56.400 --> 1:01:58.520
+ could only take on those values.
+
+1:01:58.520 --> 1:02:00.800
+ And that makes the problem much harder.
+
+1:02:00.800 --> 1:02:03.680
+ Yes, that makes the problem much harder.
+
+1:02:03.680 --> 1:02:07.360
+ And it was not difficult to show
+
+1:02:07.360 --> 1:02:11.640
+ that the satisfiability problem can be restated
+
+1:02:11.640 --> 1:02:13.880
+ as an integer programming problem.
+
+1:02:13.880 --> 1:02:15.200
+ So can you pause on that?
+
+1:02:15.200 --> 1:02:19.080
+ Was that one of the first mappings that you tried to do?
+
+1:02:19.080 --> 1:02:20.440
+ And how hard is that mapping?
+
+1:02:20.440 --> 1:02:21.760
+ You said it wasn't hard to show,
+
+1:02:21.760 --> 1:02:26.760
+ but that's a big leap.
+
+1:02:27.440 --> 1:02:29.360
+ It is a big leap, yeah.
+
+1:02:29.360 --> 1:02:32.960
+ Well, let me give you another example.
+
+1:02:32.960 --> 1:02:35.160
+ Another problem in NP
+
+1:02:35.160 --> 1:02:39.560
+ is whether a graph contains a clique of a given size.
+
+1:02:42.960 --> 1:02:46.640
+ And now the question is,
+
+1:02:47.960 --> 1:02:51.200
+ can we reduce the propositional logic problem
+
+1:02:51.200 --> 1:02:55.480
+ to the problem of whether there's a clique
+
+1:02:55.480 --> 1:02:56.680
+ of a certain size?
+
+1:02:58.720 --> 1:03:01.280
+ Well, if you look at the propositional logic problem,
+
+1:03:01.280 --> 1:03:05.560
+ it can be expressed as a number of clauses,
+
+1:03:05.560 --> 1:03:08.200
+ each of which is a,
+
+1:03:11.080 --> 1:03:15.360
+ of the form A or B or C,
+
+1:03:15.360 --> 1:03:18.360
+ where A is either one of the variables in the problem
+
+1:03:18.360 --> 1:03:22.600
+ or the negation of one of the variables.
+
+1:03:22.600 --> 1:03:27.600
+ And an instance of the propositional logic problem
+
+1:03:30.200 --> 1:03:35.200
+ can be rewritten using operations of Boolean logic,
+
+1:03:37.000 --> 1:03:41.280
+ can be rewritten as the conjunction of a set of clauses,
+
+1:03:41.280 --> 1:03:43.680
+ the AND of a set of ORs,
+
+1:03:43.680 --> 1:03:48.680
+ where each clause is a disjunction, an OR of variables
+
+1:03:49.600 --> 1:03:51.520
+ or negated variables.
+
+1:03:53.880 --> 1:03:58.880
+ So the question in the satisfiability problem
+
+1:04:01.200 --> 1:04:05.960
+ is whether those clauses can be simultaneously satisfied.
+
+1:04:07.160 --> 1:04:09.080
+ Now, to satisfy all those clauses,
+
+1:04:09.080 --> 1:04:13.920
+ you have to find one of the terms in each clause,
+
+1:04:13.920 --> 1:04:18.920
+ which is going to be true in your truth assignment,
+
+1:04:20.800 --> 1:04:24.680
+ but you can't make the same variable both true and false.
+
+1:04:24.680 --> 1:04:29.600
+ So if you have the variable A in one clause
+
+1:04:29.600 --> 1:04:34.240
+ and you want to satisfy that clause by making A true,
+
+1:04:34.240 --> 1:04:38.360
+ you can't also make the complement of A true
+
+1:04:38.360 --> 1:04:39.720
+ in some other clause.
+
+1:04:39.720 --> 1:04:43.080
+ And so the goal is to make every single clause true
+
+1:04:43.080 --> 1:04:45.200
+ if it's possible to satisfy this,
+
+1:04:45.200 --> 1:04:47.920
+ and the way you make it true is at least...
+
+1:04:48.840 --> 1:04:52.480
+ One term in the clause must be true.
+
+1:04:52.480 --> 1:04:53.920
+ Got it.
+
+1:04:53.920 --> 1:04:58.400
+ So now we, to convert this problem
+
+1:04:58.400 --> 1:05:01.160
+ to something called the independent set problem,
+
+1:05:01.160 --> 1:05:06.160
+ where you're just sort of asking for a set of vertices
+
+1:05:06.160 --> 1:05:08.840
+ in a graph such that no two of them are adjacent,
+
+1:05:08.840 --> 1:05:10.960
+ sort of the opposite of the clique problem.
+
+1:05:14.920 --> 1:05:19.920
+ So we've seen that we can now express that as
+
+1:05:24.760 --> 1:05:29.760
+ finding a set of terms, one in each clause,
+
+1:05:29.760 --> 1:05:33.440
+ without picking both the variable
+
+1:05:33.440 --> 1:05:36.200
+ and the negation of that variable,
+
+1:05:36.200 --> 1:05:40.000
+ because if the variable is assigned the truth value,
+
+1:05:40.000 --> 1:05:43.080
+ the negated variable has to have the opposite truth value.
+
+1:05:44.080 --> 1:05:49.080
+ And so we can construct a graph where the vertices
+
+1:05:49.400 --> 1:05:54.400
+ are the terms in all of the clauses,
+
+1:05:54.400 --> 1:05:59.400
+ and you have an edge between two terms
+
+1:06:07.720 --> 1:06:12.720
+ if an edge between two occurrences of terms,
+
+1:06:14.480 --> 1:06:16.720
+ either if they're both in the same clause,
+
+1:06:16.720 --> 1:06:20.320
+ because you're only picking one element from each clause,
+
+1:06:20.320 --> 1:06:23.680
+ and also an edge between them if they represent
+
+1:06:23.680 --> 1:06:26.160
+ opposite values of the same variable,
+
+1:06:26.160 --> 1:06:29.560
+ because you can't make a variable both true and false.
+
+1:06:29.560 --> 1:06:31.880
+ And so you get a graph where you have
+
+1:06:31.880 --> 1:06:34.360
+ all of these occurrences of variables,
+
+1:06:34.360 --> 1:06:37.840
+ you have edges, which mean that you're not allowed
+
+1:06:37.840 --> 1:06:41.120
+ to choose both ends of the edge,
+
+1:06:41.120 --> 1:06:43.160
+ either because they're in the same clause
+
+1:06:43.160 --> 1:06:46.360
+ or they're negations of one another.
+
+1:06:46.360 --> 1:06:50.520
+ All right, and that's a, first of all, sort of to zoom out,
+
+1:06:50.520 --> 1:06:55.520
+ that's a really powerful idea that you can take a graph
+
+1:06:55.240 --> 1:07:00.240
+ and connect it to a logic equation somehow,
+
+1:07:00.240 --> 1:07:04.240
+ and do that mapping for all possible formulations
+
+1:07:04.240 --> 1:07:06.440
+ of a particular problem on a graph.
+
+1:07:06.440 --> 1:07:07.280
+ Yeah.
+
+1:07:07.280 --> 1:07:12.280
+ I mean, that still is hard for me to believe.
+
+1:07:12.280 --> 1:07:14.400
+ Yeah, it's hard for me to believe.
+
+1:07:14.400 --> 1:07:17.800
+ It's hard for me to believe that that's possible.
+
+1:07:17.800 --> 1:07:20.840
+ That they're, like, what do you make of that,
+
+1:07:20.840 --> 1:07:24.840
+ that there's such a union of,
+
+1:07:24.840 --> 1:07:28.800
+ there's such a friendship among all these problems across
+
+1:07:28.800 --> 1:07:33.800
+ that somehow are akin to combinatorial algorithms,
+
+1:07:33.880 --> 1:07:35.920
+ that they're all somehow related?
+
+1:07:35.920 --> 1:07:39.960
+ I know it can be proven, but what do you make of it,
+
+1:07:39.960 --> 1:07:41.720
+ that that's true?
+
+1:07:41.720 --> 1:07:46.720
+ Well, that they just have the same expressive power.
+
+1:07:46.800 --> 1:07:49.600
+ You can take any one of them
+
+1:07:49.600 --> 1:07:53.520
+ and translate it into the terms of the other.
+
+1:07:53.520 --> 1:07:55.600
+ The fact that they have the same expressive power
+
+1:07:55.600 --> 1:07:59.040
+ also somehow means that they can be translatable.
+
+1:07:59.040 --> 1:08:03.560
+ Right, and what I did in the 1971 paper
+
+1:08:03.560 --> 1:08:08.560
+ was to take 21 fundamental problems,
+
+1:08:08.560 --> 1:08:12.400
+ the commonly occurring problems of packing,
+
+1:08:12.400 --> 1:08:14.440
+ covering, matching, and so forth,
+
+1:08:15.920 --> 1:08:19.280
+ lying in the class NP,
+
+1:08:19.280 --> 1:08:21.920
+ and show that the satisfiability problem
+
+1:08:21.920 --> 1:08:24.320
+ can be reexpressed as any of those,
+
+1:08:24.320 --> 1:08:28.960
+ that any of those have the same expressive power.
+
+1:08:30.040 --> 1:08:32.000
+ And that was like throwing down the gauntlet
+
+1:08:32.000 --> 1:08:35.920
+ of saying there's probably many more problems like this.
+
+1:08:35.920 --> 1:08:36.760
+ Right.
+
+1:08:36.760 --> 1:08:39.680
+ Saying that, look, that they're all the same.
+
+1:08:39.680 --> 1:08:43.160
+ They're all the same, but not exactly.
+
+1:08:43.160 --> 1:08:46.560
+ They're all the same in terms of whether they are
+
+1:08:49.000 --> 1:08:51.640
+ rich enough to express any of the others.
+
+1:08:53.760 --> 1:08:55.320
+ But that doesn't mean that they have
+
+1:08:55.320 --> 1:08:57.800
+ the same computational complexity.
+
+1:08:57.800 --> 1:09:02.280
+ But what we can say is that either all of these problems
+
+1:09:02.280 --> 1:09:05.880
+ or none of them are solvable in polynomial time.
+
+1:09:05.880 --> 1:09:08.360
+ Yeah, so what is NP completeness
+
+1:09:08.360 --> 1:09:11.120
+ and NP hard as classes?
+
+1:09:11.120 --> 1:09:14.080
+ Oh, that's just a small technicality.
+
+1:09:14.080 --> 1:09:17.320
+ So when we're talking about decision problems,
+
+1:09:17.320 --> 1:09:21.000
+ that means that the answer is just yes or no.
+
+1:09:21.000 --> 1:09:23.360
+ There is a clique of size 15
+
+1:09:23.360 --> 1:09:25.560
+ or there's not a clique of size 15.
+
+1:09:26.800 --> 1:09:28.920
+ On the other hand, an optimization problem
+
+1:09:28.920 --> 1:09:33.200
+ would be asking find the largest clique.
+
+1:09:33.200 --> 1:09:35.040
+ The answer would not be yes or no.
+
+1:09:35.040 --> 1:09:36.520
+ It would be 15.
+
+1:09:39.600 --> 1:09:41.320
+ So when you're asking for the,
+
+1:09:42.960 --> 1:09:46.680
+ when you're putting a valuation on the different solutions
+
+1:09:46.680 --> 1:09:49.120
+ and you're asking for the one with the highest valuation,
+
+1:09:49.120 --> 1:09:51.440
+ that's an optimization problem.
+
+1:09:51.440 --> 1:09:52.920
+ And there's a very close affinity
+
+1:09:52.920 --> 1:09:55.480
+ between the two kinds of problems.
+
+1:09:55.480 --> 1:10:00.480
+ But the counterpart of being the hardest decision problem,
+
+1:10:02.360 --> 1:10:04.280
+ the hardest yes, no problem,
+
+1:10:04.280 --> 1:10:09.280
+ the counterpart of that is to minimize
+
+1:10:09.920 --> 1:10:13.440
+ or maximize an objective function.
+
+1:10:13.440 --> 1:10:16.440
+ And so a problem that's hardest in the class
+
+1:10:17.400 --> 1:10:19.960
+ when viewed in terms of optimization,
+
+1:10:19.960 --> 1:10:24.480
+ those are called NP hard rather than NP complete.
+
+1:10:24.480 --> 1:10:26.280
+ And NP complete is for decision problems.
+
+1:10:26.280 --> 1:10:28.740
+ And NP complete is for decision problems.
+
+1:10:28.740 --> 1:10:33.740
+ So if somebody shows that P equals NP,
+
+1:10:35.620 --> 1:10:39.460
+ what do you think that proof will look like
+
+1:10:39.460 --> 1:10:41.540
+ if you were to put on yourself,
+
+1:10:41.540 --> 1:10:45.340
+ if it's possible to show that as a proof
+
+1:10:45.340 --> 1:10:47.340
+ or to demonstrate an algorithm?
+
+1:10:49.100 --> 1:10:52.260
+ All I can say is that it will involve concepts
+
+1:10:52.260 --> 1:10:56.420
+ that we do not now have and approaches that we don't have.
+
+1:10:56.420 --> 1:10:58.620
+ Do you think those concepts are out there
+
+1:10:58.620 --> 1:11:02.000
+ in terms of inside complexity theory,
+
+1:11:02.000 --> 1:11:04.780
+ inside of computational analysis of algorithms?
+
+1:11:04.780 --> 1:11:05.860
+ Do you think there's concepts
+
+1:11:05.860 --> 1:11:07.940
+ that are totally outside of the box
+
+1:11:07.940 --> 1:11:09.180
+ that we haven't considered yet?
+
+1:11:09.180 --> 1:11:13.180
+ I think that if there is a proof that P is equal to NP
+
+1:11:13.180 --> 1:11:15.080
+ or that P is unequal to NP,
+
+1:11:17.820 --> 1:11:21.360
+ it'll depend on concepts that are now outside the box.
+
+1:11:22.320 --> 1:11:25.940
+ Now, if that's shown either way, P equals NP or P not,
+
+1:11:25.940 --> 1:11:28.260
+ well, actually P equals NP,
+
+1:11:28.260 --> 1:11:32.260
+ what impact, you kind of mentioned a little bit,
+
+1:11:32.260 --> 1:11:34.140
+ but can you linger on it?
+
+1:11:34.140 --> 1:11:36.780
+ What kind of impact would it have
+
+1:11:36.780 --> 1:11:38.340
+ on theoretical computer science
+
+1:11:38.340 --> 1:11:42.220
+ and perhaps software based systems in general?
+
+1:11:42.220 --> 1:11:46.260
+ Well, I think it would have enormous impact on the world
+
+1:11:46.260 --> 1:11:49.180
+ in either way case.
+
+1:11:49.180 --> 1:11:52.240
+ If P is unequal to NP, which is what we expect,
+
+1:11:53.280 --> 1:11:56.860
+ then we know that for the great majority
+
+1:11:56.860 --> 1:11:59.500
+ of the combinatorial problems that come up,
+
+1:11:59.500 --> 1:12:02.940
+ since they're known to be NP complete,
+
+1:12:02.940 --> 1:12:05.060
+ we're not going to be able to solve them
+
+1:12:05.060 --> 1:12:07.780
+ by efficient algorithms.
+
+1:12:07.780 --> 1:12:11.620
+ However, there's a little bit of hope
+
+1:12:11.620 --> 1:12:16.560
+ in that it may be that we can solve most instances.
+
+1:12:16.560 --> 1:12:19.860
+ All we know is that if a problem is not NP,
+
+1:12:19.860 --> 1:12:22.920
+ then it can't be solved efficiently on all instances.
+
+1:12:22.920 --> 1:12:27.920
+ But basically, if we find that P is unequal to NP,
+
+1:12:32.720 --> 1:12:35.320
+ it will mean that we can't expect always
+
+1:12:35.320 --> 1:12:38.680
+ to get the optimal solutions to these problems.
+
+1:12:38.680 --> 1:12:41.040
+ And we have to depend on heuristics
+
+1:12:41.040 --> 1:12:43.160
+ that perhaps work most of the time
+
+1:12:43.160 --> 1:12:47.160
+ or give us good approximate solutions, but not.
+
+1:12:47.160 --> 1:12:51.760
+ So we would turn our eye towards the heuristics
+
+1:12:51.760 --> 1:12:56.400
+ with a little bit more acceptance and comfort on our hearts.
+
+1:12:56.400 --> 1:12:57.560
+ Exactly.
+
+1:12:57.560 --> 1:13:01.060
+ Okay, so let me ask a romanticized question.
+
+1:13:02.100 --> 1:13:04.480
+ What to you is one of the most
+
+1:13:04.480 --> 1:13:08.180
+ or the most beautiful combinatorial algorithm
+
+1:13:08.180 --> 1:13:10.880
+ in your own life or just in general in the field
+
+1:13:10.880 --> 1:13:14.080
+ that you've ever come across or have developed yourself?
+
+1:13:14.080 --> 1:13:17.760
+ Oh, I like the stable matching problem
+
+1:13:17.760 --> 1:13:22.760
+ or the stable marriage problem very much.
+
+1:13:22.760 --> 1:13:25.120
+ What's the stable matching problem?
+
+1:13:25.120 --> 1:13:26.400
+ Yeah.
+
+1:13:26.400 --> 1:13:31.400
+ Imagine that you want to marry off N boys with N girls.
+
+1:13:37.120 --> 1:13:39.900
+ And each boy has an ordered list
+
+1:13:39.900 --> 1:13:42.320
+ of his preferences among the girls.
+
+1:13:42.320 --> 1:13:44.760
+ His first choice, his second choice,
+
+1:13:44.760 --> 1:13:46.200
+ through her, Nth choice.
+
+1:13:47.400 --> 1:13:52.400
+ And each girl also has an ordering of the boys,
+
+1:13:55.400 --> 1:13:57.560
+ his first choice, second choice, and so on.
+
+1:13:58.880 --> 1:14:03.480
+ And we'll say that a matching,
+
+1:14:03.480 --> 1:14:07.560
+ a one to one matching of the boys with the girls is stable
+
+1:14:07.560 --> 1:14:12.560
+ if there are no two couples in the matching
+
+1:14:15.120 --> 1:14:18.640
+ such that the boy in the first couple
+
+1:14:18.640 --> 1:14:23.200
+ prefers the girl in the second couple to her mate
+
+1:14:23.200 --> 1:14:27.040
+ and she prefers the boy to her current mate.
+
+1:14:27.040 --> 1:14:31.280
+ In other words, if the matching is stable
+
+1:14:31.280 --> 1:14:35.440
+ if there is no pair who want to run away with each other
+
+1:14:35.440 --> 1:14:37.800
+ leaving their partners behind.
+
+1:14:38.760 --> 1:14:39.600
+ Gosh, yeah.
+
+1:14:39.600 --> 1:14:40.440
+ Yeah.
+
+1:14:44.920 --> 1:14:49.100
+ Actually, this is relevant to matching residents
+
+1:14:49.100 --> 1:14:52.280
+ with hospitals and some other real life problems,
+
+1:14:52.280 --> 1:14:55.560
+ although not quite in the form that I described.
+
+1:14:56.960 --> 1:15:00.480
+ So it turns out that there is,
+
+1:15:00.480 --> 1:15:05.480
+ for any set of preferences, a stable matching exists.
+
+1:15:06.000 --> 1:15:11.000
+ And moreover, it can be computed
+
+1:15:11.000 --> 1:15:14.040
+ by a simple algorithm
+
+1:15:14.040 --> 1:15:19.040
+ in which each boy starts making proposals to girls.
+
+1:15:21.000 --> 1:15:23.940
+ And if the girl receives the proposal,
+
+1:15:23.940 --> 1:15:25.920
+ she accepts it tentatively,
+
+1:15:25.920 --> 1:15:30.920
+ but she can drop it later
+
+1:15:32.800 --> 1:15:35.740
+ if she gets a better proposal from her point of view.
+
+1:15:36.720 --> 1:15:39.000
+ And the boys start going down their lists
+
+1:15:39.000 --> 1:15:41.980
+ proposing to their first, second, third choices
+
+1:15:41.980 --> 1:15:46.980
+ until stopping when a proposal is accepted.
+
+1:15:50.400 --> 1:15:53.360
+ But the girls meanwhile are watching the proposals
+
+1:15:53.360 --> 1:15:55.380
+ that are coming into them.
+
+1:15:55.380 --> 1:15:58.640
+ And the girl will drop her current partner
+
+1:16:01.080 --> 1:16:03.520
+ if she gets a better proposal.
+
+1:16:03.520 --> 1:16:06.280
+ And the boys never go back through the list?
+
+1:16:06.280 --> 1:16:07.600
+ They never go back, yeah.
+
+1:16:07.600 --> 1:16:09.720
+ So once they've been denied.
+
+1:16:11.720 --> 1:16:12.800
+ They don't try again.
+
+1:16:12.800 --> 1:16:14.640
+ They don't try again
+
+1:16:14.640 --> 1:16:19.240
+ because the girls are always improving their status
+
+1:16:19.240 --> 1:16:22.800
+ as they receive better and better proposals.
+
+1:16:22.800 --> 1:16:25.560
+ The boys are going down their lists starting
+
+1:16:25.560 --> 1:16:28.600
+ with their top preferences.
+
+1:16:28.600 --> 1:16:33.600
+ And one can prove that the process will come to an end
+
+1:16:39.540 --> 1:16:43.440
+ where everybody will get matched with somebody
+
+1:16:43.440 --> 1:16:46.520
+ and you won't have any pair
+
+1:16:46.520 --> 1:16:50.360
+ that want to abscond from each other.
+
+1:16:50.360 --> 1:16:54.120
+ Do you find the proof or the algorithm itself beautiful?
+
+1:16:54.120 --> 1:16:56.720
+ Or is it the fact that with the simplicity
+
+1:16:56.720 --> 1:16:59.560
+ of just the two marching,
+
+1:16:59.560 --> 1:17:01.760
+ I mean the simplicity of the underlying rule
+
+1:17:01.760 --> 1:17:04.820
+ of the algorithm, is that the beautiful part?
+
+1:17:04.820 --> 1:17:06.280
+ Both I would say.
+
+1:17:07.560 --> 1:17:11.760
+ And you also have the observation that you might ask
+
+1:17:11.760 --> 1:17:14.680
+ who is better off, the boys who are doing the proposing
+
+1:17:14.680 --> 1:17:17.760
+ or the girls who are reacting to proposals.
+
+1:17:17.760 --> 1:17:20.080
+ And it turns out that it's the boys
+
+1:17:20.080 --> 1:17:22.920
+ who are doing the best.
+
+1:17:22.920 --> 1:17:25.840
+ That is, each boy is doing at least as well
+
+1:17:25.840 --> 1:17:30.480
+ as he could do in any other staple matching.
+
+1:17:30.480 --> 1:17:33.180
+ So there's a sort of lesson for the boys
+
+1:17:33.180 --> 1:17:36.080
+ that you should go out and be proactive
+
+1:17:36.080 --> 1:17:38.680
+ and make those proposals.
+
+1:17:38.680 --> 1:17:39.680
+ Go for broke.
+
+1:17:41.160 --> 1:17:44.280
+ I don't know if this is directly mappable philosophically
+
+1:17:44.280 --> 1:17:46.800
+ to our society, but certainly seems
+
+1:17:46.800 --> 1:17:48.160
+ like a compelling notion.
+
+1:17:48.160 --> 1:17:51.360
+ And like you said, there's probably a lot
+
+1:17:51.360 --> 1:17:54.600
+ of actual real world problems that this could be mapped to.
+
+1:17:54.600 --> 1:17:58.600
+ Yeah, well you get complications.
+
+1:17:58.600 --> 1:18:01.500
+ For example, what happens when a husband and wife
+
+1:18:01.500 --> 1:18:03.720
+ want to be assigned to the same hospital?
+
+1:18:03.720 --> 1:18:08.720
+ So you have to take those constraints into account.
+
+1:18:10.520 --> 1:18:13.120
+ And then the problem becomes NP hard.
+
+1:18:15.920 --> 1:18:18.040
+ Why is it a problem for the husband and wife
+
+1:18:18.040 --> 1:18:20.000
+ to be assigned to the same hospital?
+
+1:18:20.000 --> 1:18:22.480
+ No, it's desirable.
+
+1:18:22.480 --> 1:18:24.080
+ Or at least go to the same city.
+
+1:18:24.080 --> 1:18:29.080
+ So you can't, if you're assigning residents to hospitals.
+
+1:18:29.560 --> 1:18:32.080
+ And then you have some preferences
+
+1:18:32.080 --> 1:18:34.600
+ for the husband and the wife or for the hospitals.
+
+1:18:34.600 --> 1:18:37.080
+ The residents have their own preferences.
+
+1:18:39.920 --> 1:18:43.200
+ Residents both male and female have their own preferences.
+
+1:18:44.760 --> 1:18:47.720
+ The hospitals have their preferences.
+
+1:18:47.720 --> 1:18:52.720
+ But if resident A, the boy, is going to Philadelphia,
+
+1:18:55.960 --> 1:19:00.960
+ then you'd like his wife also to be assigned
+
+1:19:01.720 --> 1:19:04.440
+ to a hospital in Philadelphia.
+
+1:19:04.440 --> 1:19:08.000
+ Which step makes it a NP hard problem that you mentioned?
+
+1:19:08.000 --> 1:19:11.120
+ The fact that you have this additional constraint.
+
+1:19:11.120 --> 1:19:15.000
+ That it's not just the preferences of individuals,
+
+1:19:15.000 --> 1:19:19.840
+ but the fact that the two partners to a marriage
+
+1:19:19.840 --> 1:19:22.880
+ have to be assigned to the same place.
+
+1:19:22.880 --> 1:19:24.420
+ I'm being a little dense.
+
+1:19:29.320 --> 1:19:31.600
+ The perfect matching, no, not the perfect,
+
+1:19:31.600 --> 1:19:33.880
+ stable matching is what you referred to.
+
+1:19:33.880 --> 1:19:36.160
+ That's when two partners are trying to.
+
+1:19:36.160 --> 1:19:39.280
+ Okay, what's confusing you is that in the first
+
+1:19:39.280 --> 1:19:40.740
+ interpretation of the problem,
+
+1:19:40.740 --> 1:19:42.900
+ I had boys matching with girls.
+
+1:19:42.900 --> 1:19:44.220
+ Yes.
+
+1:19:44.220 --> 1:19:46.540
+ In the second interpretation,
+
+1:19:46.540 --> 1:19:49.660
+ you have humans matching with institutions.
+
+1:19:49.660 --> 1:19:51.100
+ With institutions.
+
+1:19:51.100 --> 1:19:54.380
+ I, and there's a coupling between within the,
+
+1:19:54.380 --> 1:19:56.020
+ gotcha, within the humans.
+
+1:19:56.020 --> 1:19:56.860
+ Yeah.
+
+1:19:56.860 --> 1:20:00.420
+ Any added little constraint will make it an NP hard problem.
+
+1:20:00.420 --> 1:20:01.560
+ Well, yeah.
+
+1:20:03.440 --> 1:20:05.060
+ Okay.
+
+1:20:05.060 --> 1:20:06.220
+ By the way, the algorithm you mentioned
+
+1:20:06.220 --> 1:20:07.860
+ wasn't one of yours or no?
+
+1:20:07.860 --> 1:20:11.420
+ No, no, that was due to Gale and Shapley
+
+1:20:11.420 --> 1:20:15.500
+ and my friend David Gale passed away
+
+1:20:15.500 --> 1:20:18.060
+ before he could get part of a Nobel Prize,
+
+1:20:18.060 --> 1:20:22.780
+ but his partner Shapley shared in a Nobel Prize
+
+1:20:22.780 --> 1:20:24.340
+ with somebody else for.
+
+1:20:24.340 --> 1:20:25.180
+ Economics?
+
+1:20:25.180 --> 1:20:27.220
+ For economics.
+
+1:20:28.460 --> 1:20:31.560
+ For ideas stemming from the stable matching idea.
+
+1:20:32.580 --> 1:20:35.220
+ So you've also have developed yourself
+
+1:20:35.220 --> 1:20:37.340
+ some elegant, beautiful algorithms.
+
+1:20:38.260 --> 1:20:39.720
+ Again, picking your children,
+
+1:20:39.720 --> 1:20:43.380
+ so the Robin Karp algorithm for string searching,
+
+1:20:43.380 --> 1:20:46.220
+ pattern matching, Edmund Karp algorithm for max flows
+
+1:20:46.220 --> 1:20:49.060
+ we mentioned, Hopcroft Karp algorithm for finding
+
+1:20:49.060 --> 1:20:52.180
+ maximum cardinality matchings in bipartite graphs.
+
+1:20:52.180 --> 1:20:55.460
+ Is there ones that stand out to you,
+
+1:20:55.460 --> 1:20:58.260
+ ones you're most proud of or just
+
+1:20:59.460 --> 1:21:01.740
+ whether it's beauty, elegance,
+
+1:21:01.740 --> 1:21:06.420
+ or just being the right discovery development
+
+1:21:06.420 --> 1:21:10.100
+ in your life that you're especially proud of?
+
+1:21:10.100 --> 1:21:12.180
+ I like the Rabin Karp algorithm
+
+1:21:12.180 --> 1:21:15.520
+ because it illustrates the power of randomization.
+
+1:21:17.540 --> 1:21:22.540
+ So the problem there
+
+1:21:23.100 --> 1:21:28.100
+ is to decide whether a given long string of symbols
+
+1:21:28.100 --> 1:21:33.100
+ is to decide whether a given long string of symbols
+
+1:21:34.340 --> 1:21:38.260
+ from some alphabet contains a given word,
+
+1:21:39.260 --> 1:21:41.500
+ whether a particular word occurs
+
+1:21:41.500 --> 1:21:43.940
+ within some very much longer word.
+
+1:21:45.500 --> 1:21:49.500
+ And so the idea of the algorithm
+
+1:21:52.340 --> 1:21:57.220
+ is to associate with the word that we're looking for,
+
+1:21:57.220 --> 1:22:02.220
+ a fingerprint, some number,
+
+1:22:02.820 --> 1:22:07.340
+ or some combinatorial object that describes that word,
+
+1:22:10.380 --> 1:22:13.580
+ and then to look for an occurrence of that same fingerprint
+
+1:22:13.580 --> 1:22:15.700
+ as you slide along the longer word.
+
+1:22:18.540 --> 1:22:23.540
+ And what we do is we associate with each word a number.
+
+1:22:23.540 --> 1:22:26.540
+ So first of all, we think of the letters
+
+1:22:26.540 --> 1:22:30.980
+ that occur in a word as the digits of, let's say,
+
+1:22:30.980 --> 1:22:34.980
+ decimal or whatever base here,
+
+1:22:36.780 --> 1:22:40.020
+ whatever number of different symbols there are.
+
+1:22:40.020 --> 1:22:42.340
+ That's the base of the numbers, yeah.
+
+1:22:42.340 --> 1:22:46.140
+ Right, so every word can then be thought of as a number
+
+1:22:46.140 --> 1:22:50.340
+ with the letters being the digits of that number.
+
+1:22:50.340 --> 1:22:55.340
+ And then we pick a random prime number in a certain range,
+
+1:22:55.540 --> 1:23:00.060
+ and we take that word viewed as a number,
+
+1:23:00.060 --> 1:23:05.060
+ and take the remainder on dividing that number by the prime.
+
+1:23:09.580 --> 1:23:11.820
+ So coming up with a nice hash function.
+
+1:23:11.820 --> 1:23:13.660
+ It's a kind of hash function.
+
+1:23:13.660 --> 1:23:17.700
+ Yeah, it gives you a little shortcut
+
+1:23:17.700 --> 1:23:22.500
+ for that particular word.
+
+1:23:22.500 --> 1:23:26.380
+ Yeah, so that's the...
+
+1:23:26.380 --> 1:23:31.060
+ It's very different than other algorithms of its kind
+
+1:23:31.060 --> 1:23:35.540
+ that we're trying to do search, string matching.
+
+1:23:35.540 --> 1:23:38.060
+ Yeah, which usually are combinatorial
+
+1:23:38.060 --> 1:23:42.620
+ and don't involve the idea of taking a random fingerprint.
+
+1:23:42.620 --> 1:23:43.580
+ Yes.
+
+1:23:43.580 --> 1:23:48.020
+ And doing the fingerprinting has two advantages.
+
+1:23:48.020 --> 1:23:51.580
+ One is that as we slide along the long word,
+
+1:23:51.580 --> 1:23:56.580
+ digit by digit, we keep a window of a certain size,
+
+1:23:57.460 --> 1:24:00.660
+ the size of the word we're looking for,
+
+1:24:00.660 --> 1:24:03.380
+ and we compute the fingerprint
+
+1:24:03.380 --> 1:24:07.620
+ of every stretch of that length.
+
+1:24:07.620 --> 1:24:11.260
+ And it turns out that just a couple of arithmetic operations
+
+1:24:11.260 --> 1:24:15.300
+ will take you from the fingerprint of one part
+
+1:24:15.300 --> 1:24:18.740
+ to what you get when you slide over by one position.
+
+1:24:19.860 --> 1:24:24.380
+ So the computation of all the fingerprints is simple.
+
+1:24:26.740 --> 1:24:31.740
+ And secondly, it's unlikely if the prime is chosen randomly
+
+1:24:32.780 --> 1:24:37.500
+ from a certain range that you will get two of the segments
+
+1:24:37.500 --> 1:24:39.980
+ in question having the same fingerprint.
+
+1:24:39.980 --> 1:24:41.660
+ Right.
+
+1:24:41.660 --> 1:24:43.940
+ And so there's a small probability of error
+
+1:24:43.940 --> 1:24:46.460
+ which can be checked after the fact,
+
+1:24:46.460 --> 1:24:48.700
+ and also the ease of doing the computation
+
+1:24:48.700 --> 1:24:51.580
+ because you're working with these fingerprints
+
+1:24:51.580 --> 1:24:54.620
+ which are remainder's modulo some big prime.
+
+1:24:55.620 --> 1:24:58.020
+ So that's the magical thing about randomized algorithms
+
+1:24:58.020 --> 1:25:02.420
+ is that if you add a little bit of randomness,
+
+1:25:02.420 --> 1:25:05.380
+ it somehow allows you to take a pretty naive approach,
+
+1:25:05.380 --> 1:25:10.380
+ a simple looking approach, and allow it to run extremely well.
+
+1:25:10.660 --> 1:25:14.340
+ So can you maybe take a step back and say
+
+1:25:14.340 --> 1:25:18.300
+ what is a randomized algorithm, this category of algorithms?
+
+1:25:18.300 --> 1:25:22.460
+ Well, it's just the ability to draw a random number
+
+1:25:22.460 --> 1:25:27.460
+ from such, from some range
+
+1:25:27.580 --> 1:25:32.260
+ or to associate a random number with some object
+
+1:25:32.260 --> 1:25:35.220
+ or to draw that random from some set.
+
+1:25:35.220 --> 1:25:40.220
+ So another example is very simple
+
+1:25:41.940 --> 1:25:45.340
+ if we're conducting a presidential election
+
+1:25:46.420 --> 1:25:50.380
+ and we would like to pick the winner.
+
+1:25:52.300 --> 1:25:57.300
+ In principle, we could draw a random sample
+
+1:25:57.300 --> 1:25:59.300
+ of all of the voters in the country.
+
+1:25:59.300 --> 1:26:04.300
+ And if it was of substantial size, say a few thousand,
+
+1:26:05.700 --> 1:26:08.940
+ then the most popular candidate in that group
+
+1:26:08.940 --> 1:26:12.280
+ would be very likely to be the correct choice
+
+1:26:12.280 --> 1:26:15.820
+ that would come out of counting all the millions of votes.
+
+1:26:15.820 --> 1:26:18.460
+ And of course we can't do this because first of all,
+
+1:26:18.460 --> 1:26:21.900
+ everybody has to feel that his or her vote counted.
+
+1:26:21.900 --> 1:26:25.300
+ And secondly, we can't really do a purely random sample
+
+1:26:25.300 --> 1:26:28.000
+ from that population.
+
+1:26:28.000 --> 1:26:30.060
+ And I guess thirdly, there could be a tie
+
+1:26:30.060 --> 1:26:34.100
+ in which case we wouldn't have a significant difference
+
+1:26:34.100 --> 1:26:36.380
+ between two candidates.
+
+1:26:36.380 --> 1:26:37.580
+ But those things aside,
+
+1:26:37.580 --> 1:26:40.500
+ if you didn't have all that messiness of human beings,
+
+1:26:40.500 --> 1:26:43.100
+ you could prove that that kind of random picking
+
+1:26:43.100 --> 1:26:43.940
+ would come up again.
+
+1:26:43.940 --> 1:26:48.020
+ You just said random picking would solve the problem
+
+1:26:48.020 --> 1:26:51.380
+ with a very low probability of error.
+
+1:26:51.380 --> 1:26:55.540
+ Another example is testing whether a number is prime.
+
+1:26:55.540 --> 1:27:00.300
+ So if I wanna test whether 17 is prime,
+
+1:27:01.760 --> 1:27:06.760
+ I could pick any number between one and 17,
+
+1:27:08.460 --> 1:27:12.340
+ raise it to the 16th power modulo 17,
+
+1:27:12.340 --> 1:27:15.060
+ and you should get back the original number.
+
+1:27:15.060 --> 1:27:19.620
+ That's a famous formula due to Fermat about,
+
+1:27:19.620 --> 1:27:21.240
+ it's called Fermat's Little Theorem,
+
+1:27:21.240 --> 1:27:26.240
+ that if you take any number a in the range
+
+1:27:29.340 --> 1:27:31.080
+ zero through n minus one,
+
+1:27:32.060 --> 1:27:37.060
+ and raise it to the n minus 1th power modulo n,
+
+1:27:38.260 --> 1:27:43.260
+ you'll get back the number a if a is prime.
+
+1:27:43.860 --> 1:27:45.900
+ So if you don't get back the number a,
+
+1:27:45.900 --> 1:27:48.300
+ that's a proof that a number is not prime.
+
+1:27:48.300 --> 1:27:53.300
+ And you can show that suitably defined
+
+1:27:57.420 --> 1:28:02.420
+ the probability that you will get a value unequaled,
+
+1:28:09.300 --> 1:28:14.300
+ you will get a violation of Fermat's result is very high.
+
+1:28:14.300 --> 1:28:18.580
+ And so this gives you a way of rapidly proving
+
+1:28:18.580 --> 1:28:20.020
+ that a number is not prime.
+
+1:28:21.020 --> 1:28:22.800
+ It's a little more complicated than that
+
+1:28:22.800 --> 1:28:26.300
+ because there are certain values of n
+
+1:28:26.300 --> 1:28:28.600
+ where something a little more elaborate has to be done,
+
+1:28:28.600 --> 1:28:30.180
+ but that's the basic idea.
+
+1:28:32.580 --> 1:28:34.900
+ Taking an identity that holds for primes,
+
+1:28:34.900 --> 1:28:39.460
+ and therefore, if it ever fails on any instance
+
+1:28:39.460 --> 1:28:43.460
+ for a non prime, you know that the number is not prime.
+
+1:28:43.460 --> 1:28:45.660
+ It's a quick choice, a fast choice,
+
+1:28:45.660 --> 1:28:47.740
+ fast proof that a number is not prime.
+
+1:28:48.740 --> 1:28:50.940
+ Can you maybe elaborate a little bit more
+
+1:28:50.940 --> 1:28:54.200
+ what's your intuition why randomness works so well
+
+1:28:54.200 --> 1:28:56.460
+ and results in such simple algorithms?
+
+1:28:57.500 --> 1:29:00.860
+ Well, the example of conducting an election
+
+1:29:00.860 --> 1:29:04.340
+ where you could take, in theory, you could take a sample
+
+1:29:04.340 --> 1:29:07.060
+ and depend on the validity of the sample
+
+1:29:07.060 --> 1:29:09.180
+ to really represent the whole
+
+1:29:09.180 --> 1:29:12.040
+ is just the basic fact of statistics,
+
+1:29:12.040 --> 1:29:14.860
+ which gives a lot of opportunities.
+
+1:29:17.780 --> 1:29:22.780
+ And I actually exploited that sort of random sampling idea
+
+1:29:23.180 --> 1:29:25.780
+ in designing an algorithm
+
+1:29:25.780 --> 1:29:30.100
+ for counting the number of solutions
+
+1:29:30.100 --> 1:29:33.820
+ that satisfy a particular formula
+
+1:29:33.820 --> 1:29:37.640
+ and propositional logic.
+
+1:29:37.640 --> 1:29:42.640
+ A particular, so some version of the satisfiability problem?
+
+1:29:44.380 --> 1:29:46.660
+ A version of the satisfiability problem.
+
+1:29:47.780 --> 1:29:49.420
+ Is there some interesting insight
+
+1:29:49.420 --> 1:29:50.460
+ that you wanna elaborate on,
+
+1:29:50.460 --> 1:29:53.300
+ like what some aspect of that algorithm
+
+1:29:53.300 --> 1:29:57.500
+ that might be useful to describe?
+
+1:29:57.500 --> 1:30:02.500
+ So you have a collection of formulas
+
+1:30:02.500 --> 1:30:07.500
+ and you want to count the number of solutions
+
+1:30:14.400 --> 1:30:18.960
+ that satisfy at least one of the formulas.
+
+1:30:20.440 --> 1:30:23.500
+ And you can count the number of solutions
+
+1:30:23.500 --> 1:30:27.360
+ that satisfy any particular one of the formulas,
+
+1:30:27.360 --> 1:30:29.960
+ but you have to account for the fact
+
+1:30:29.960 --> 1:30:33.720
+ that that solution might be counted many times
+
+1:30:33.720 --> 1:30:38.500
+ if it solves more than one of the formulas.
+
+1:30:40.880 --> 1:30:45.880
+ And so what you do is you sample from the formulas
+
+1:30:46.880 --> 1:30:49.480
+ according to the number of solutions
+
+1:30:49.480 --> 1:30:52.340
+ that satisfy each individual one.
+
+1:30:53.220 --> 1:30:55.680
+ In that way, you draw a random solution,
+
+1:30:55.680 --> 1:30:59.040
+ but then you correct by looking at
+
+1:30:59.040 --> 1:31:02.360
+ the number of formulas that satisfy that random solution
+
+1:31:04.480 --> 1:31:07.680
+ and don't double count.
+
+1:31:08.880 --> 1:31:11.640
+ So you can think of it this way.
+
+1:31:11.640 --> 1:31:15.120
+ So you have a matrix of zeros and ones
+
+1:31:16.040 --> 1:31:18.980
+ and you wanna know how many columns of that matrix
+
+1:31:18.980 --> 1:31:20.660
+ contain at least one one.
+
+1:31:22.400 --> 1:31:26.040
+ And you can count in each row how many ones there are.
+
+1:31:26.040 --> 1:31:29.440
+ So what you can do is draw from the rows
+
+1:31:29.440 --> 1:31:31.700
+ according to the number of ones.
+
+1:31:31.700 --> 1:31:34.880
+ If a row has more ones, it gets drawn more frequently.
+
+1:31:35.980 --> 1:31:39.880
+ But then if you draw from that row,
+
+1:31:39.880 --> 1:31:41.480
+ you have to go up the column
+
+1:31:41.480 --> 1:31:44.620
+ and looking at where that same one is repeated
+
+1:31:44.620 --> 1:31:49.620
+ in different rows and only count it as a success or a hit
+
+1:31:51.240 --> 1:31:54.380
+ if it's the earliest row that contains the one.
+
+1:31:54.380 --> 1:31:59.380
+ And that gives you a robust statistical estimate
+
+1:32:00.300 --> 1:32:02.020
+ of the total number of columns
+
+1:32:02.020 --> 1:32:04.540
+ that contain at least one of the ones.
+
+1:32:04.540 --> 1:32:09.020
+ So that is an example of the same principle
+
+1:32:09.020 --> 1:32:13.380
+ that was used in studying random sampling.
+
+1:32:13.380 --> 1:32:18.380
+ Another viewpoint is that if you have a phenomenon
+
+1:32:18.940 --> 1:32:21.400
+ that occurs almost all the time,
+
+1:32:21.400 --> 1:32:26.400
+ then if you sample one of the occasions where it occurs,
+
+1:32:28.780 --> 1:32:30.640
+ you're most likely to,
+
+1:32:30.640 --> 1:32:32.640
+ and you're looking for an occurrence,
+
+1:32:32.640 --> 1:32:34.880
+ a random occurrence is likely to work.
+
+1:32:34.880 --> 1:32:39.480
+ So that comes up in solving identities,
+
+1:32:39.480 --> 1:32:42.680
+ solving algebraic identities.
+
+1:32:42.680 --> 1:32:46.480
+ You get two formulas that may look very different.
+
+1:32:46.480 --> 1:32:49.000
+ You wanna know if they're really identical.
+
+1:32:49.000 --> 1:32:52.920
+ What you can do is just pick a random value
+
+1:32:52.920 --> 1:32:56.040
+ and evaluate the formulas at that value
+
+1:32:56.040 --> 1:32:58.840
+ and see if they agree.
+
+1:32:58.840 --> 1:33:02.000
+ And you depend on the fact
+
+1:33:02.000 --> 1:33:04.360
+ that if the formulas are distinct,
+
+1:33:04.360 --> 1:33:06.840
+ then they're gonna disagree a lot.
+
+1:33:06.840 --> 1:33:08.480
+ And so therefore, a random choice
+
+1:33:08.480 --> 1:33:10.640
+ will exhibit the disagreement.
+
+1:33:12.760 --> 1:33:15.160
+ If there are many ways for the two to disagree
+
+1:33:16.560 --> 1:33:18.560
+ and you only need to find one disagreement,
+
+1:33:18.560 --> 1:33:22.600
+ then random choice is likely to yield it.
+
+1:33:22.600 --> 1:33:24.560
+ And in general, so we've just talked
+
+1:33:24.560 --> 1:33:26.000
+ about randomized algorithms,
+
+1:33:26.000 --> 1:33:29.680
+ but we can look at the probabilistic analysis of algorithms.
+
+1:33:29.680 --> 1:33:32.040
+ And that gives us an opportunity to step back
+
+1:33:32.040 --> 1:33:35.600
+ and as you said, everything we've been talking about
+
+1:33:35.600 --> 1:33:38.000
+ is worst case analysis.
+
+1:33:38.000 --> 1:33:43.000
+ Could you maybe comment on the usefulness
+
+1:33:43.480 --> 1:33:45.400
+ and the power of worst case analysis
+
+1:33:45.400 --> 1:33:50.400
+ versus best case analysis, average case, probabilistic?
+
+1:33:51.160 --> 1:33:52.760
+ How do we think about the future
+
+1:33:52.760 --> 1:33:55.360
+ of theoretical computer science, computer science
+
+1:33:56.600 --> 1:33:59.080
+ in the kind of analysis we do of algorithms?
+
+1:33:59.080 --> 1:34:01.600
+ Does worst case analysis still have a place,
+
+1:34:01.600 --> 1:34:02.760
+ an important place?
+
+1:34:02.760 --> 1:34:04.600
+ Or do we want to try to move forward
+
+1:34:04.600 --> 1:34:07.240
+ towards kind of average case analysis?
+
+1:34:07.240 --> 1:34:09.320
+ And what are the challenges there?
+
+1:34:09.320 --> 1:34:11.560
+ So if worst case analysis shows
+
+1:34:11.560 --> 1:34:15.280
+ that an algorithm is always good,
+
+1:34:15.280 --> 1:34:16.120
+ that's fine.
+
+1:34:17.240 --> 1:34:22.240
+ If worst case analysis is used to show that the problem,
+
+1:34:25.520 --> 1:34:29.000
+ that the solution is not always good,
+
+1:34:29.000 --> 1:34:32.120
+ then you have to step back and do something else
+
+1:34:32.120 --> 1:34:34.960
+ to ask how often will you get a good solution?
+
+1:34:36.280 --> 1:34:38.040
+ Just to pause on that for a second,
+
+1:34:38.040 --> 1:34:40.160
+ that's so beautifully put
+
+1:34:40.160 --> 1:34:43.280
+ because I think we tend to judge algorithms.
+
+1:34:43.280 --> 1:34:45.440
+ We throw them in the trash
+
+1:34:45.440 --> 1:34:48.240
+ the moment their worst case is shown to be bad.
+
+1:34:48.240 --> 1:34:50.680
+ Right, and that's unfortunate.
+
+1:34:50.680 --> 1:34:55.680
+ I think a good example is going back
+
+1:34:56.880 --> 1:34:58.840
+ to the satisfiability problem.
+
+1:35:00.120 --> 1:35:03.560
+ There are very powerful programs called SAT solvers
+
+1:35:04.480 --> 1:35:09.480
+ which in practice fairly reliably solve instances
+
+1:35:09.920 --> 1:35:11.760
+ with many millions of variables
+
+1:35:11.760 --> 1:35:14.200
+ that arise in digital design
+
+1:35:14.200 --> 1:35:17.800
+ or in proving programs correct in other applications.
+
+1:35:20.200 --> 1:35:24.480
+ And so in many application areas,
+
+1:35:24.480 --> 1:35:27.760
+ even though satisfiability as we've already discussed
+
+1:35:27.760 --> 1:35:32.760
+ is NP complete, the SAT solvers will work so well
+
+1:35:34.840 --> 1:35:37.240
+ that the people in that discipline
+
+1:35:37.240 --> 1:35:40.040
+ tend to think of satisfiability as an easy problem.
+
+1:35:40.040 --> 1:35:45.040
+ So in other words, just for some reason
+
+1:35:45.160 --> 1:35:47.640
+ that we don't entirely understand,
+
+1:35:47.640 --> 1:35:50.480
+ the instances that people formulate
+
+1:35:50.480 --> 1:35:54.320
+ in designing digital circuits or other applications
+
+1:35:54.320 --> 1:35:59.320
+ are such that satisfiability is not hard to check
+
+1:36:04.440 --> 1:36:07.320
+ and even searching for a satisfying solution
+
+1:36:07.320 --> 1:36:10.240
+ can be done efficiently in practice.
+
+1:36:11.520 --> 1:36:13.200
+ And there are many examples.
+
+1:36:13.200 --> 1:36:17.240
+ For example, we talked about the traveling salesman problem.
+
+1:36:18.160 --> 1:36:21.320
+ So just to refresh our memories,
+
+1:36:21.320 --> 1:36:23.440
+ the problem is you've got a set of cities,
+
+1:36:23.440 --> 1:36:26.840
+ you have pairwise distances between cities
+
+1:36:28.560 --> 1:36:31.320
+ and you want to find a tour through all the cities
+
+1:36:31.320 --> 1:36:36.320
+ that minimizes the total cost of all the edges traversed,
+
+1:36:36.320 --> 1:36:38.800
+ all the trips between cities.
+
+1:36:38.800 --> 1:36:41.840
+ The problem is NP hard,
+
+1:36:41.840 --> 1:36:46.840
+ but people using integer programming codes
+
+1:36:46.960 --> 1:36:50.280
+ together with some other mathematical tricks
+
+1:36:51.400 --> 1:36:56.400
+ can solve geometric instances of the problem
+
+1:36:57.080 --> 1:36:59.640
+ where the cities are, let's say points in the plane
+
+1:37:01.000 --> 1:37:03.120
+ and get optimal solutions to problems
+
+1:37:03.120 --> 1:37:05.120
+ with tens of thousands of cities.
+
+1:37:05.120 --> 1:37:08.240
+ Actually, it'll take a few computer months
+
+1:37:08.240 --> 1:37:10.280
+ to solve a problem of that size,
+
+1:37:10.280 --> 1:37:13.200
+ but for problems of size a thousand or two,
+
+1:37:13.200 --> 1:37:16.320
+ it'll rapidly get optimal solutions,
+
+1:37:16.320 --> 1:37:19.000
+ provably optimal solutions,
+
+1:37:19.000 --> 1:37:23.000
+ even though again, we know that it's unlikely
+
+1:37:23.000 --> 1:37:25.760
+ that the traveling salesman problem
+
+1:37:25.760 --> 1:37:28.440
+ can be solved in polynomial time.
+
+1:37:28.440 --> 1:37:33.440
+ Are there methodologies like rigorous systematic methodologies
+
+1:37:33.440 --> 1:37:38.320
+ for, you said in practice.
+
+1:37:38.320 --> 1:37:40.040
+ In practice, this algorithm's pretty good.
+
+1:37:40.040 --> 1:37:42.160
+ Are there systematic ways of saying
+
+1:37:42.160 --> 1:37:43.800
+ in practice, this algorithm's pretty good?
+
+1:37:43.800 --> 1:37:46.080
+ So in other words, average case analysis.
+
+1:37:46.080 --> 1:37:49.060
+ Or you've also mentioned that average case
+
+1:37:49.060 --> 1:37:52.680
+ kind of requires you to understand what the typical case is,
+
+1:37:52.680 --> 1:37:55.480
+ typical instances, and that might be really difficult.
+
+1:37:55.480 --> 1:37:56.580
+ That's very difficult.
+
+1:37:56.580 --> 1:37:59.720
+ So after I did my original work
+
+1:37:59.720 --> 1:38:04.720
+ on showing all these problems through NP complete,
+
+1:38:06.600 --> 1:38:11.160
+ I looked around for a way to shed some positive light
+
+1:38:11.160 --> 1:38:13.800
+ on combinatorial algorithms.
+
+1:38:13.800 --> 1:38:16.800
+ And what I tried to do was to study problems,
+
+1:38:19.640 --> 1:38:24.600
+ behavior on the average or with high probability.
+
+1:38:24.600 --> 1:38:26.160
+ But I had to make some assumptions
+
+1:38:26.160 --> 1:38:29.720
+ about what's the probability space?
+
+1:38:29.720 --> 1:38:30.860
+ What's the sample space?
+
+1:38:30.860 --> 1:38:33.860
+ What do we mean by typical problems?
+
+1:38:33.860 --> 1:38:35.280
+ That's very hard to say.
+
+1:38:35.280 --> 1:38:37.680
+ So I took the easy way out
+
+1:38:37.680 --> 1:38:40.500
+ and made some very simplistic assumptions.
+
+1:38:40.500 --> 1:38:42.000
+ So I assumed, for example,
+
+1:38:42.000 --> 1:38:44.420
+ that if we were generating a graph
+
+1:38:44.420 --> 1:38:47.440
+ with a certain number of vertices and edges,
+
+1:38:47.440 --> 1:38:48.920
+ then we would generate the graph
+
+1:38:48.920 --> 1:38:53.840
+ by simply choosing one edge at a time at random
+
+1:38:53.840 --> 1:38:56.840
+ until we got the right number of edges.
+
+1:38:56.840 --> 1:38:59.800
+ That's a particular model of random graphs
+
+1:38:59.800 --> 1:39:02.040
+ that has been studied mathematically a lot.
+
+1:39:02.900 --> 1:39:05.120
+ And within that model,
+
+1:39:05.120 --> 1:39:07.560
+ I could prove all kinds of wonderful things,
+
+1:39:07.560 --> 1:39:10.640
+ I and others who also worked on this.
+
+1:39:10.640 --> 1:39:15.120
+ So we could show that we know exactly
+
+1:39:15.120 --> 1:39:16.760
+ how many edges there have to be
+
+1:39:16.760 --> 1:39:24.040
+ in order for there be a so called Hamiltonian circuit.
+
+1:39:24.040 --> 1:39:29.040
+ That's a cycle that visits each vertex exactly once.
+
+1:39:31.560 --> 1:39:35.240
+ We know that if the number of edges
+
+1:39:35.240 --> 1:39:37.520
+ is a little bit more than n log n,
+
+1:39:37.520 --> 1:39:39.160
+ where n is the number of vertices,
+
+1:39:39.160 --> 1:39:44.000
+ then such a cycle is very likely to exist.
+
+1:39:44.000 --> 1:39:45.680
+ And we can give a heuristic
+
+1:39:45.680 --> 1:39:47.880
+ that will find it with high probability.
+
+1:39:48.880 --> 1:39:53.880
+ And the community in which I was working
+
+1:39:54.880 --> 1:39:57.180
+ got a lot of results along these lines.
+
+1:39:58.520 --> 1:40:03.520
+ But the field tended to be rather lukewarm
+
+1:40:04.080 --> 1:40:07.340
+ about accepting these results as meaningful
+
+1:40:07.340 --> 1:40:09.880
+ because we were making such a simplistic assumption
+
+1:40:09.880 --> 1:40:13.960
+ about the kinds of graphs that we would be dealing with.
+
+1:40:13.960 --> 1:40:16.000
+ So we could show all kinds of wonderful things,
+
+1:40:16.000 --> 1:40:18.880
+ it was a great playground, I enjoyed doing it.
+
+1:40:18.880 --> 1:40:23.080
+ But after a while, I concluded that
+
+1:40:27.240 --> 1:40:29.040
+ it didn't have a lot of bite
+
+1:40:29.040 --> 1:40:31.640
+ in terms of the practical application.
+
+1:40:31.640 --> 1:40:33.480
+ Oh the, okay, so there's too much
+
+1:40:33.480 --> 1:40:35.280
+ into the world of toy problems.
+
+1:40:35.280 --> 1:40:36.120
+ Yeah.
+
+1:40:36.120 --> 1:40:36.960
+ That can, okay.
+
+1:40:36.960 --> 1:40:41.640
+ But all right, is there a way to find
+
+1:40:41.640 --> 1:40:45.120
+ nice representative real world impactful instances
+
+1:40:45.120 --> 1:40:48.840
+ of a problem on which demonstrate that an algorithm is good?
+
+1:40:48.840 --> 1:40:51.360
+ So this is kind of like the machine learning world,
+
+1:40:51.360 --> 1:40:54.200
+ that's kind of what they at his best tries to do
+
+1:40:54.200 --> 1:40:57.920
+ is find a data set from like the real world
+
+1:40:57.920 --> 1:41:02.040
+ and show the performance, all the conferences
+
+1:41:02.040 --> 1:41:04.480
+ are all focused on beating the performance
+
+1:41:04.480 --> 1:41:07.160
+ of on that real world data set.
+
+1:41:07.160 --> 1:41:11.680
+ Is there an equivalent in complexity analysis?
+
+1:41:11.680 --> 1:41:16.680
+ Not really, Don Knuth started to collect examples
+
+1:41:19.520 --> 1:41:21.640
+ of graphs coming from various places.
+
+1:41:21.640 --> 1:41:26.160
+ So he would have a whole zoo of different graphs
+
+1:41:26.160 --> 1:41:28.480
+ that he could choose from and he could study
+
+1:41:28.480 --> 1:41:31.640
+ the performance of algorithms on different types of graphs.
+
+1:41:31.640 --> 1:41:36.640
+ But there it's really important and compelling
+
+1:41:37.320 --> 1:41:40.000
+ to be able to define a class of graphs.
+
+1:41:41.320 --> 1:41:44.080
+ The actual act of defining a class of graphs
+
+1:41:44.080 --> 1:41:46.600
+ that you're interested in, it seems to be
+
+1:41:46.600 --> 1:41:49.480
+ a non trivial step if we're talking about instances
+
+1:41:49.480 --> 1:41:51.560
+ that we should care about in the real world.
+
+1:41:51.560 --> 1:41:55.880
+ Yeah, there's nothing available there
+
+1:41:55.880 --> 1:41:58.800
+ that would be analogous to the training set
+
+1:41:58.800 --> 1:42:02.360
+ for supervised learning where you sort of assume
+
+1:42:02.360 --> 1:42:05.520
+ that the world has given you a bunch
+
+1:42:05.520 --> 1:42:09.240
+ of examples to work with.
+
+1:42:10.200 --> 1:42:14.560
+ We don't really have that for problems,
+
+1:42:14.560 --> 1:42:18.200
+ for combinatorial problems on graphs and networks.
+
+1:42:18.200 --> 1:42:21.000
+ You know, there's been a huge growth,
+
+1:42:21.000 --> 1:42:23.960
+ a big growth of data sets available.
+
+1:42:23.960 --> 1:42:28.200
+ Do you think some aspect of theoretical computer science
+
+1:42:28.200 --> 1:42:30.640
+ might be contradicting my own question while saying it,
+
+1:42:30.640 --> 1:42:33.400
+ but will there be some aspect,
+
+1:42:33.400 --> 1:42:36.920
+ an empirical aspect of theoretical computer science
+
+1:42:36.920 --> 1:42:41.080
+ which will allow the fact that these data sets are huge,
+
+1:42:41.080 --> 1:42:43.280
+ we'll start using them for analysis.
+
+1:42:44.080 --> 1:42:46.920
+ Sort of, you know, if you want to say something
+
+1:42:46.920 --> 1:42:50.720
+ about a graph algorithm, you might take
+
+1:42:50.720 --> 1:42:55.160
+ a social network like Facebook and looking at subgraphs
+
+1:42:55.160 --> 1:42:58.560
+ of that and prove something about the Facebook graph
+
+1:42:58.560 --> 1:43:01.120
+ and be respected, and at the same time,
+
+1:43:01.120 --> 1:43:03.840
+ be respected in the theoretical computer science community.
+
+1:43:03.840 --> 1:43:06.240
+ That hasn't been achieved yet, I'm afraid.
+
+1:43:06.240 --> 1:43:10.960
+ Is that P equals NP, is that impossible?
+
+1:43:10.960 --> 1:43:14.560
+ Is it impossible to publish a successful paper
+
+1:43:14.560 --> 1:43:17.080
+ in the theoretical computer science community
+
+1:43:17.080 --> 1:43:22.080
+ that shows some performance on a real world data set?
+
+1:43:22.080 --> 1:43:25.320
+ Or is that really just those are two different worlds?
+
+1:43:25.320 --> 1:43:27.160
+ They haven't really come together.
+
+1:43:27.160 --> 1:43:31.160
+ I would say that there is a field
+
+1:43:31.160 --> 1:43:34.640
+ of experimental algorithmics where people,
+
+1:43:34.640 --> 1:43:39.320
+ sometimes they're given some family of examples.
+
+1:43:39.320 --> 1:43:41.960
+ Sometimes they just generate them at random
+
+1:43:41.960 --> 1:43:44.200
+ and they report on performance,
+
+1:43:45.920 --> 1:43:50.920
+ but there's no convincing evidence
+
+1:43:50.920 --> 1:43:55.920
+ that the sample is representative of anything at all.
+
+1:43:57.600 --> 1:44:00.760
+ So let me ask, in terms of breakthroughs
+
+1:44:00.760 --> 1:44:04.200
+ and open problems, what are the most compelling
+
+1:44:04.200 --> 1:44:07.000
+ open problems to you and what possible breakthroughs
+
+1:44:07.000 --> 1:44:08.280
+ do you see in the near term
+
+1:44:08.280 --> 1:44:11.900
+ in terms of theoretical computer science?
+
+1:44:13.720 --> 1:44:15.480
+ Well, there are all kinds of relationships
+
+1:44:15.480 --> 1:44:18.920
+ among complexity classes that can be studied,
+
+1:44:18.920 --> 1:44:22.960
+ just to mention one thing, I wrote a paper
+
+1:44:22.960 --> 1:44:27.480
+ with Richard Lipton in 1979,
+
+1:44:28.600 --> 1:44:30.920
+ where we asked the following question.
+
+1:44:34.520 --> 1:44:39.520
+ If you take a combinatorial problem in NP, let's say,
+
+1:44:39.520 --> 1:44:46.520
+ and you choose, and you pick the size of the problem,
+
+1:44:49.520 --> 1:44:54.520
+ say it's a traveling salesman problem, but of size 52,
+
+1:44:55.720 --> 1:45:00.240
+ and you ask, could you get an efficient,
+
+1:45:00.240 --> 1:45:05.240
+ a small Boolean circuit tailored for that size, 52,
+
+1:45:05.240 --> 1:45:08.240
+ where you could feed the edges of the graph
+
+1:45:08.240 --> 1:45:12.240
+ in as Boolean inputs and get, as an output,
+
+1:45:12.240 --> 1:45:13.560
+ the question of whether or not
+
+1:45:13.560 --> 1:45:15.640
+ there's a tour of a certain length.
+
+1:45:16.760 --> 1:45:19.600
+ And that would, in other words, briefly,
+
+1:45:19.600 --> 1:45:21.480
+ what you would say in that case
+
+1:45:21.480 --> 1:45:24.240
+ is that the problem has small circuits,
+
+1:45:24.240 --> 1:45:25.880
+ polynomial size circuits.
+
+1:45:28.200 --> 1:45:31.280
+ Now, we know that if P is equal to NP,
+
+1:45:31.280 --> 1:45:35.800
+ then, in fact, these problems will have small circuits,
+
+1:45:35.800 --> 1:45:37.400
+ but what about the converse?
+
+1:45:37.400 --> 1:45:39.240
+ Could a problem have small circuits,
+
+1:45:39.240 --> 1:45:43.440
+ meaning that an algorithm tailored to any particular size
+
+1:45:43.440 --> 1:45:48.440
+ could work well, and yet not be a polynomial time algorithm?
+
+1:45:48.440 --> 1:45:50.120
+ That is, you couldn't write it as a single,
+
+1:45:50.120 --> 1:45:52.960
+ uniform algorithm, good for all sizes.
+
+1:45:52.960 --> 1:45:55.800
+ Just to clarify, small circuits
+
+1:45:55.800 --> 1:45:57.720
+ for a problem of particular size,
+
+1:45:57.720 --> 1:46:02.200
+ by small circuits for a problem of particular size,
+
+1:46:02.200 --> 1:46:04.000
+ or even further constraint,
+
+1:46:04.000 --> 1:46:06.280
+ small circuit for a particular...
+
+1:46:07.480 --> 1:46:10.160
+ No, for all the inputs of that size.
+
+1:46:10.160 --> 1:46:13.680
+ Is that a trivial problem for a particular instance?
+
+1:46:13.680 --> 1:46:15.640
+ So, coming up, an automated way
+
+1:46:15.640 --> 1:46:17.960
+ of coming up with a circuit.
+
+1:46:17.960 --> 1:46:19.200
+ I guess that's just an answer.
+
+1:46:19.200 --> 1:46:22.040
+ That would be hard, yeah.
+
+1:46:22.040 --> 1:46:25.400
+ But there's the existential question.
+
+1:46:25.400 --> 1:46:29.000
+ Everybody talks nowadays about existential questions.
+
+1:46:29.000 --> 1:46:33.320
+ Existential challenges.
+
+1:46:35.640 --> 1:46:37.520
+ You could ask the question,
+
+1:46:38.880 --> 1:46:43.960
+ does the Hamiltonian circuit problem
+
+1:46:43.960 --> 1:46:48.960
+ have a small circuit for every size,
+
+1:46:49.440 --> 1:46:51.800
+ for each size, a different small circuit?
+
+1:46:51.800 --> 1:46:55.600
+ In other words, could you tailor solutions
+
+1:46:55.600 --> 1:47:00.560
+ depending on the size, and get polynomial size?
+
+1:47:00.560 --> 1:47:02.640
+ Even if P is not equal to NP.
+
+1:47:02.640 --> 1:47:03.480
+ Right.
+
+1:47:06.680 --> 1:47:08.600
+ That would be fascinating if that's true.
+
+1:47:08.600 --> 1:47:13.600
+ Yeah, what we proved is that if that were possible,
+
+1:47:14.760 --> 1:47:18.840
+ then something strange would happen in complexity theory.
+
+1:47:18.840 --> 1:47:23.840
+ Some high level class which I could briefly describe,
+
+1:47:26.800 --> 1:47:28.360
+ something strange would happen.
+
+1:47:28.360 --> 1:47:31.960
+ So, I'll take a stab at describing what I mean.
+
+1:47:31.960 --> 1:47:33.880
+ Sure, let's go there.
+
+1:47:33.880 --> 1:47:37.640
+ So, we have to define this hierarchy
+
+1:47:37.640 --> 1:47:41.440
+ in which the first level of the hierarchy is P,
+
+1:47:41.440 --> 1:47:44.080
+ and the second level is NP.
+
+1:47:44.080 --> 1:47:45.240
+ And what is NP?
+
+1:47:45.240 --> 1:47:48.200
+ NP involves statements of the form
+
+1:47:48.200 --> 1:47:52.320
+ there exists a something such that something holds.
+
+1:47:53.720 --> 1:47:58.720
+ So, for example, there exists the coloring
+
+1:47:59.960 --> 1:48:01.880
+ such that a graph can be colored
+
+1:48:01.880 --> 1:48:06.640
+ with only that number of colors.
+
+1:48:06.640 --> 1:48:09.120
+ Or there exists a Hamiltonian circuit.
+
+1:48:09.120 --> 1:48:10.800
+ There's a statement about this graph.
+
+1:48:10.800 --> 1:48:22.840
+ Yeah, so the NP deals with statements of that kind,
+
+1:48:22.840 --> 1:48:26.200
+ that there exists a solution.
+
+1:48:26.200 --> 1:48:32.600
+ Now, you could imagine a more complicated expression
+
+1:48:32.600 --> 1:48:38.600
+ which says for all x there exists a y
+
+1:48:38.600 --> 1:48:47.200
+ such that some proposition holds involving both x and y.
+
+1:48:47.200 --> 1:48:50.040
+ So, that would say, for example, in game theory,
+
+1:48:50.040 --> 1:48:54.920
+ for all strategies for the first player,
+
+1:48:54.920 --> 1:48:57.720
+ there exists a strategy for the second player
+
+1:48:57.720 --> 1:48:59.520
+ such that the first player wins.
+
+1:48:59.520 --> 1:49:03.360
+ That would be at the second level of the hierarchy.
+
+1:49:03.360 --> 1:49:06.000
+ The third level would be there exists an A
+
+1:49:06.000 --> 1:49:08.400
+ such that for all B there exists a C,
+
+1:49:08.400 --> 1:49:09.240
+ that something holds.
+
+1:49:09.240 --> 1:49:11.200
+ And you could imagine going higher and higher
+
+1:49:11.200 --> 1:49:12.680
+ in the hierarchy.
+
+1:49:12.680 --> 1:49:17.480
+ And you'd expect that the complexity classes
+
+1:49:17.480 --> 1:49:22.400
+ that correspond to those different cases
+
+1:49:22.400 --> 1:49:25.240
+ would get bigger and bigger.
+
+1:49:27.080 --> 1:49:28.240
+ What do you mean by bigger and bigger?
+
+1:49:28.240 --> 1:49:29.520
+ Sorry, sorry.
+
+1:49:29.520 --> 1:49:30.720
+ They'd get harder and harder to solve.
+
+1:49:30.720 --> 1:49:32.360
+ Harder and harder, right.
+
+1:49:32.360 --> 1:49:34.080
+ Harder and harder to solve.
+
+1:49:35.360 --> 1:49:37.720
+ And what Lipton and I showed was
+
+1:49:37.720 --> 1:49:41.560
+ that if NP had small circuits,
+
+1:49:41.560 --> 1:49:44.160
+ then this hierarchy would collapse down
+
+1:49:44.160 --> 1:49:46.200
+ to the second level.
+
+1:49:46.200 --> 1:49:48.400
+ In other words, you wouldn't get any more mileage
+
+1:49:48.400 --> 1:49:51.520
+ by complicating your expressions with three quantifiers
+
+1:49:51.520 --> 1:49:53.480
+ or four quantifiers or any number.
+
+1:49:55.400 --> 1:49:57.720
+ I'm not sure what to make of that exactly.
+
+1:49:57.720 --> 1:49:59.280
+ Well, I think it would be evidence
+
+1:49:59.280 --> 1:50:02.920
+ that NP doesn't have small circuits
+
+1:50:02.920 --> 1:50:07.080
+ because something so bizarre would happen.
+
+1:50:07.080 --> 1:50:09.000
+ But again, it's only evidence, not proof.
+
+1:50:09.000 --> 1:50:12.520
+ Well, yeah, that's not even evidence
+
+1:50:12.520 --> 1:50:16.960
+ because you're saying P is not equal to NP
+
+1:50:16.960 --> 1:50:19.560
+ because something bizarre has to happen.
+
+1:50:19.560 --> 1:50:24.560
+ I mean, that's proof by the lack of bizarreness
+
+1:50:25.120 --> 1:50:26.600
+ in our science.
+
+1:50:26.600 --> 1:50:31.400
+ But it seems like just the very notion
+
+1:50:31.400 --> 1:50:33.040
+ of P equals NP would be bizarre.
+
+1:50:33.040 --> 1:50:36.240
+ So any way you arrive at, there's no way.
+
+1:50:36.240 --> 1:50:38.440
+ You have to fight the dragon at some point.
+
+1:50:38.440 --> 1:50:39.280
+ Yeah, okay.
+
+1:50:39.280 --> 1:50:41.880
+ Well, anyway, for whatever it's worth,
+
+1:50:41.880 --> 1:50:43.320
+ that's what we proved.
+
+1:50:43.320 --> 1:50:44.160
+ Awesome.
+
+1:50:45.720 --> 1:50:49.400
+ So that's a potential space of interesting problems.
+
+1:50:49.400 --> 1:50:50.240
+ Yeah.
+
+1:50:50.240 --> 1:50:54.120
+ Let me ask you about this other world
+
+1:50:54.120 --> 1:50:57.280
+ that of machine learning, of deep learning.
+
+1:50:57.280 --> 1:50:59.640
+ What's your thoughts on the history
+
+1:50:59.640 --> 1:51:02.600
+ and the current progress of machine learning field
+
+1:51:02.600 --> 1:51:05.760
+ that's often progressed sort of separately
+
+1:51:05.760 --> 1:51:08.840
+ as a space of ideas and space of people
+
+1:51:08.840 --> 1:51:10.920
+ than the theoretical computer science
+
+1:51:10.920 --> 1:51:12.640
+ or just even computer science world?
+
+1:51:12.640 --> 1:51:15.680
+ Yeah, it's really very different
+
+1:51:15.680 --> 1:51:17.800
+ from the theoretical computer science world
+
+1:51:17.800 --> 1:51:22.280
+ because the results about it,
+
+1:51:22.280 --> 1:51:25.400
+ algorithmic performance tend to be empirical.
+
+1:51:25.400 --> 1:51:28.880
+ It's more akin to the world of SAT solvers
+
+1:51:28.880 --> 1:51:33.880
+ where we observe that for formulas arising in practice,
+
+1:51:33.880 --> 1:51:35.920
+ the solver does well.
+
+1:51:35.920 --> 1:51:38.520
+ So it's of that type.
+
+1:51:38.520 --> 1:51:43.520
+ We're moving into the empirical evaluation of algorithms.
+
+1:51:45.280 --> 1:51:47.800
+ Now, it's clear that there've been huge successes
+
+1:51:47.800 --> 1:51:52.720
+ in image processing, robotics,
+
+1:51:52.720 --> 1:51:55.400
+ natural language processing, a little less so,
+
+1:51:55.400 --> 1:52:00.400
+ but across the spectrum of game playing is another one.
+
+1:52:00.400 --> 1:52:05.400
+ There've been great successes and one of those effects
+
+1:52:07.320 --> 1:52:10.040
+ is that it's not too hard to become a millionaire
+
+1:52:10.040 --> 1:52:12.360
+ if you can get a reputation in machine learning
+
+1:52:12.360 --> 1:52:13.960
+ and there'll be all kinds of companies
+
+1:52:13.960 --> 1:52:16.360
+ that will be willing to offer you the moon
+
+1:52:16.360 --> 1:52:21.360
+ because they think that if they have AI at their disposal,
+
+1:52:23.360 --> 1:52:25.560
+ then they can solve all kinds of problems.
+
+1:52:25.560 --> 1:52:30.040
+ But there are limitations.
+
+1:52:30.040 --> 1:52:38.000
+ One is that the solutions that you get
+
+1:52:38.000 --> 1:52:44.800
+ to supervise learning problems
+
+1:52:44.800 --> 1:52:50.000
+ through convolutional neural networks
+
+1:52:50.000 --> 1:52:55.120
+ seem to perform amazingly well
+
+1:52:55.120 --> 1:52:59.120
+ even for inputs that are outside the training set.
+
+1:53:03.120 --> 1:53:06.240
+ But we don't have any theoretical understanding
+
+1:53:06.240 --> 1:53:07.520
+ of why that's true.
+
+1:53:09.360 --> 1:53:13.440
+ Secondly, the solutions, the networks that you get
+
+1:53:14.560 --> 1:53:16.560
+ are very hard to understand
+
+1:53:16.560 --> 1:53:18.840
+ and so very little insight comes out.
+
+1:53:19.960 --> 1:53:23.960
+ So yeah, yeah, they may seem to work on your training set
+
+1:53:23.960 --> 1:53:28.960
+ and you may be able to discover whether your photos occur
+
+1:53:28.960 --> 1:53:33.960
+ in a different sample of inputs or not,
+
+1:53:35.720 --> 1:53:37.520
+ but we don't really know what's going on.
+
+1:53:37.520 --> 1:53:41.680
+ We don't know the features that distinguish the photographs
+
+1:53:41.680 --> 1:53:46.680
+ or the objects are not easy to characterize.
+
+1:53:49.560 --> 1:53:51.160
+ Well, it's interesting because you mentioned
+
+1:53:51.160 --> 1:53:54.280
+ coming up with a small circuit to solve
+
+1:53:54.280 --> 1:53:56.360
+ a particular size problem.
+
+1:53:56.360 --> 1:53:59.880
+ It seems that neural networks are kind of small circuits.
+
+1:53:59.880 --> 1:54:01.360
+ In a way, yeah.
+
+1:54:01.360 --> 1:54:02.800
+ But they're not programs.
+
+1:54:02.800 --> 1:54:04.960
+ Sort of like the things you've designed
+
+1:54:04.960 --> 1:54:08.920
+ are algorithms, programs, algorithms.
+
+1:54:08.920 --> 1:54:12.600
+ Neural networks aren't able to develop algorithms
+
+1:54:12.600 --> 1:54:14.480
+ to solve a problem.
+
+1:54:14.480 --> 1:54:16.920
+ Well, they are algorithms.
+
+1:54:16.920 --> 1:54:18.520
+ It's just that they're...
+
+1:54:18.520 --> 1:54:23.520
+ But sort of, yeah, it could be a semantic question,
+
+1:54:25.280 --> 1:54:30.280
+ but there's not a algorithmic style manipulation
+
+1:54:31.120 --> 1:54:32.040
+ of the input.
+
+1:54:33.400 --> 1:54:35.320
+ Perhaps you could argue there is.
+
+1:54:35.320 --> 1:54:37.120
+ Yeah, well.
+
+1:54:37.120 --> 1:54:40.520
+ It feels a lot more like a function of the input.
+
+1:54:40.520 --> 1:54:41.720
+ Yeah, it's a function.
+
+1:54:41.720 --> 1:54:43.120
+ It's a computable function.
+
+1:54:43.120 --> 1:54:46.040
+ Once you have the network,
+
+1:54:46.040 --> 1:54:49.360
+ you can simulate it on a given input
+
+1:54:49.360 --> 1:54:51.320
+ and figure out the output.
+
+1:54:51.320 --> 1:54:56.320
+ But if you're trying to recognize images,
+
+1:54:58.720 --> 1:55:00.880
+ then you don't know what features of the image
+
+1:55:00.880 --> 1:55:05.880
+ are really being determinant of what the circuit is doing.
+
+1:55:09.440 --> 1:55:14.040
+ The circuit is sort of very intricate
+
+1:55:14.040 --> 1:55:19.040
+ and it's not clear that the simple characteristics
+
+1:55:21.000 --> 1:55:22.040
+ that you're looking for,
+
+1:55:22.040 --> 1:55:25.240
+ the edges of the objects or whatever they may be,
+
+1:55:26.120 --> 1:55:29.600
+ they're not emerging from the structure of the circuit.
+
+1:55:29.600 --> 1:55:31.120
+ Well, it's not clear to us humans,
+
+1:55:31.120 --> 1:55:33.040
+ but it's clear to the circuit.
+
+1:55:33.040 --> 1:55:34.880
+ Yeah, well, right.
+
+1:55:34.880 --> 1:55:39.880
+ I mean, it's not clear to sort of the elephant
+
+1:55:39.880 --> 1:55:44.600
+ how the human brain works,
+
+1:55:44.600 --> 1:55:46.880
+ but it's clear to us humans,
+
+1:55:46.880 --> 1:55:49.160
+ we can explain to each other our reasoning
+
+1:55:49.160 --> 1:55:50.760
+ and that's why the cognitive science
+
+1:55:50.760 --> 1:55:52.720
+ and psychology field exists.
+
+1:55:52.720 --> 1:55:56.280
+ Maybe the whole thing of being explainable to humans
+
+1:55:56.280 --> 1:55:57.720
+ is a little bit overrated.
+
+1:55:57.720 --> 1:55:59.760
+ Oh, maybe, yeah.
+
+1:55:59.760 --> 1:56:02.480
+ I guess you can say the same thing about our brain
+
+1:56:02.480 --> 1:56:06.160
+ that when we perform acts of cognition,
+
+1:56:06.160 --> 1:56:08.760
+ we have no idea how we do it really.
+
+1:56:08.760 --> 1:56:13.680
+ We do though, I mean, at least for the visual system,
+
+1:56:13.680 --> 1:56:15.200
+ the auditory system and so on,
+
+1:56:15.200 --> 1:56:19.240
+ we do get some understanding of the principles
+
+1:56:19.240 --> 1:56:20.200
+ that they operate under,
+
+1:56:20.200 --> 1:56:25.200
+ but for many deeper cognitive tasks, we don't have that.
+
+1:56:25.600 --> 1:56:26.640
+ That's right.
+
+1:56:26.640 --> 1:56:31.640
+ Let me ask, you've also been doing work on bioinformatics.
+
+1:56:33.000 --> 1:56:36.960
+ Does it amaze you that the fundamental building blocks?
+
+1:56:36.960 --> 1:56:39.840
+ So if we take a step back and look at us humans,
+
+1:56:39.840 --> 1:56:41.800
+ the building blocks used by evolution
+
+1:56:41.800 --> 1:56:44.640
+ to build us intelligent human beings
+
+1:56:44.640 --> 1:56:47.200
+ is all contained there in our DNA.
+
+1:56:48.320 --> 1:56:51.880
+ It's amazing and what's really amazing
+
+1:56:51.880 --> 1:56:56.880
+ is that we are beginning to learn how to edit DNA,
+
+1:57:00.920 --> 1:57:05.560
+ which is very, very, very fascinating.
+
+1:57:05.560 --> 1:57:10.560
+ This ability to take a sequence,
+
+1:57:15.240 --> 1:57:18.960
+ find it in the genome and do something to it.
+
+1:57:18.960 --> 1:57:21.320
+ I mean, that's really taking our biological systems
+
+1:57:21.320 --> 1:57:24.480
+ towards the world of algorithms.
+
+1:57:24.480 --> 1:57:27.160
+ Yeah, but it raises a lot of questions.
+
+1:57:30.000 --> 1:57:33.920
+ You have to distinguish between doing it on an individual
+
+1:57:33.920 --> 1:57:35.760
+ or doing it on somebody's germline,
+
+1:57:35.760 --> 1:57:38.880
+ which means that all of their descendants will be affected.
+
+1:57:40.280 --> 1:57:42.200
+ So that's like an ethical.
+
+1:57:42.200 --> 1:57:46.120
+ Yeah, so it raises very severe ethical questions.
+
+1:57:50.520 --> 1:57:52.800
+ And even doing it on individuals,
+
+1:57:56.800 --> 1:57:59.480
+ there's a lot of hubris involved
+
+1:57:59.480 --> 1:58:04.160
+ that you can assume that knocking out a particular gene
+
+1:58:04.160 --> 1:58:05.400
+ is gonna be beneficial
+
+1:58:05.400 --> 1:58:07.000
+ because you don't know what the side effects
+
+1:58:07.000 --> 1:58:08.040
+ are going to be.
+
+1:58:08.960 --> 1:58:13.960
+ So we have this wonderful new world of gene editing,
+
+1:58:20.200 --> 1:58:23.200
+ which is very, very impressive
+
+1:58:23.200 --> 1:58:27.280
+ and it could be used in agriculture,
+
+1:58:27.280 --> 1:58:31.320
+ it could be used in medicine in various ways.
+
+1:58:32.680 --> 1:58:35.480
+ But very serious ethical problems arise.
+
+1:58:37.240 --> 1:58:39.880
+ What are to you the most interesting places
+
+1:58:39.880 --> 1:58:44.560
+ where algorithms, sort of the ethical side
+
+1:58:44.560 --> 1:58:46.040
+ is an exceptionally challenging thing
+
+1:58:46.040 --> 1:58:48.040
+ that I think we're going to have to tackle
+
+1:58:48.040 --> 1:58:51.840
+ with all of genetic engineering.
+
+1:58:51.840 --> 1:58:53.760
+ But on the algorithmic side,
+
+1:58:53.760 --> 1:58:55.520
+ there's a lot of benefit that's possible.
+
+1:58:55.520 --> 1:59:00.280
+ So is there areas where you see exciting possibilities
+
+1:59:00.280 --> 1:59:03.360
+ for algorithms to help model, optimize,
+
+1:59:03.360 --> 1:59:05.120
+ study biological systems?
+
+1:59:06.720 --> 1:59:11.720
+ Yeah, I mean, we can certainly analyze genomic data
+
+1:59:12.480 --> 1:59:17.440
+ to figure out which genes are operative in the cell
+
+1:59:17.440 --> 1:59:18.800
+ and under what conditions
+
+1:59:18.800 --> 1:59:21.280
+ and which proteins affect one another,
+
+1:59:21.280 --> 1:59:26.120
+ which proteins physically interact.
+
+1:59:27.400 --> 1:59:30.680
+ We can sequence proteins and modify them.
+
+1:59:32.680 --> 1:59:33.840
+ Is there some aspect of that
+
+1:59:33.840 --> 1:59:35.920
+ that's a computer science problem
+
+1:59:35.920 --> 1:59:39.840
+ or is that still fundamentally a biology problem?
+
+1:59:39.840 --> 1:59:41.600
+ Well, it's a big data,
+
+1:59:41.600 --> 1:59:44.640
+ it's a statistical big data problem for sure.
+
+1:59:45.720 --> 1:59:49.280
+ So the biological data sets are increasing,
+
+1:59:49.280 --> 1:59:54.280
+ our ability to study our ancestry,
+
+1:59:55.680 --> 1:59:59.960
+ to study the tendencies towards disease,
+
+1:59:59.960 --> 2:00:04.960
+ to personalize treatment according to what's in our genomes
+
+2:00:06.960 --> 2:00:09.360
+ and what tendencies for disease we have,
+
+2:00:10.440 --> 2:00:13.960
+ to be able to predict what troubles might come upon us
+
+2:00:13.960 --> 2:00:16.120
+ in the future and anticipate them,
+
+2:00:16.120 --> 2:00:21.120
+ to understand whether you,
+
+2:00:24.360 --> 2:00:29.360
+ for a woman, whether her proclivity for breast cancer
+
+2:00:31.560 --> 2:00:33.680
+ is so strong enough that she would want
+
+2:00:33.680 --> 2:00:36.720
+ to take action to avoid it.
+
+2:00:37.680 --> 2:00:41.040
+ You dedicate your 1985 Turing Award lecture
+
+2:00:41.040 --> 2:00:42.600
+ to the memory of your father.
+
+2:00:42.600 --> 2:00:47.160
+ What's your fondest memory of your dad?
+
+2:00:53.040 --> 2:00:57.880
+ Seeing him standing in front of a class at the blackboard,
+
+2:00:57.880 --> 2:01:02.520
+ drawing perfect circles by hand
+
+2:01:03.960 --> 2:01:08.960
+ and showing his ability to attract the interest
+
+2:01:08.960 --> 2:01:13.960
+ of the motley collection of eighth grade students
+
+2:01:14.760 --> 2:01:15.800
+ that he was teaching.
+
+2:01:19.120 --> 2:01:21.640
+ When did you get a chance to see him
+
+2:01:21.640 --> 2:01:23.080
+ draw the perfect circles?
+
+2:01:24.280 --> 2:01:27.480
+ On rare occasions, I would get a chance
+
+2:01:27.480 --> 2:01:32.480
+ to sneak into his classroom and observe him.
+
+2:01:33.160 --> 2:01:36.320
+ And I think he was at his best in the classroom.
+
+2:01:36.320 --> 2:01:41.320
+ I think he really came to life and had fun,
+
+2:01:42.720 --> 2:01:47.720
+ not only teaching, but engaging in chit chat
+
+2:01:49.080 --> 2:01:52.280
+ with the students and ingratiating himself
+
+2:01:52.280 --> 2:01:53.800
+ with the students.
+
+2:01:53.800 --> 2:01:58.800
+ And what I inherited from that is the great desire
+
+2:02:00.040 --> 2:02:01.920
+ to be a teacher.
+
+2:02:01.920 --> 2:02:06.920
+ I retired recently and a lot of my former students came,
+
+2:02:08.320 --> 2:02:11.200
+ students with whom I had done research
+
+2:02:11.200 --> 2:02:14.760
+ or who had read my papers or who had been in my classes.
+
+2:02:15.680 --> 2:02:19.840
+ And when they talked about me,
+
+2:02:22.520 --> 2:02:27.520
+ they talked not about my 1979 paper or 1992 paper,
+
+2:02:27.520 --> 2:02:32.520
+ but about what came away in my classes.
+
+2:02:33.600 --> 2:02:36.400
+ And not just the details, but just the approach
+
+2:02:36.400 --> 2:02:39.400
+ and the manner of teaching.
+
+2:02:40.240 --> 2:02:43.600
+ And so I sort of take pride in the,
+
+2:02:43.600 --> 2:02:47.680
+ at least in my early years as a faculty member at Berkeley,
+
+2:02:47.680 --> 2:02:51.760
+ I was exemplary in preparing my lectures
+
+2:02:51.760 --> 2:02:56.760
+ and I always came in prepared to the teeth,
+
+2:02:56.760 --> 2:02:59.320
+ and able therefore to deviate according
+
+2:02:59.320 --> 2:03:01.200
+ to what happened in the class,
+
+2:03:01.200 --> 2:03:06.200
+ and to really provide a model for the students.
+
+2:03:08.760 --> 2:03:13.760
+ So is there advice you can give out for others
+
+2:03:14.640 --> 2:03:16.520
+ on how to be a good teacher?
+
+2:03:16.520 --> 2:03:19.000
+ So preparation is one thing you've mentioned,
+
+2:03:19.000 --> 2:03:20.440
+ being exceptionally well prepared,
+
+2:03:20.440 --> 2:03:21.520
+ but there are other things,
+
+2:03:21.520 --> 2:03:24.480
+ pieces of advice that you can impart?
+
+2:03:24.480 --> 2:03:27.400
+ Well, the top three would be preparation, preparation,
+
+2:03:27.400 --> 2:03:28.240
+ and preparation.
+
+2:03:29.760 --> 2:03:31.920
+ Why is preparation so important, I guess?
+
+2:03:32.840 --> 2:03:34.440
+ It's because it gives you the ease
+
+2:03:34.440 --> 2:03:38.680
+ to deal with any situation that comes up in the classroom.
+
+2:03:38.680 --> 2:03:43.680
+ And if you discover that you're not getting through one way,
+
+2:03:44.520 --> 2:03:45.880
+ you can do it another way.
+
+2:03:45.880 --> 2:03:47.320
+ If the students have questions,
+
+2:03:47.320 --> 2:03:49.000
+ you can handle the questions.
+
+2:03:49.000 --> 2:03:54.000
+ Ultimately, you're also feeling the crowd,
+
+2:03:54.000 --> 2:03:57.080
+ the students of what they're struggling with,
+
+2:03:57.080 --> 2:03:57.920
+ what they're picking up,
+
+2:03:57.920 --> 2:03:59.720
+ just looking at them through the questions,
+
+2:03:59.720 --> 2:04:01.440
+ but even just through their eyes.
+
+2:04:01.440 --> 2:04:02.280
+ Yeah, that's right.
+
+2:04:02.280 --> 2:04:05.400
+ And because of the preparation, you can dance.
+
+2:04:05.400 --> 2:04:09.800
+ You can dance, you can say it another way,
+
+2:04:09.800 --> 2:04:11.640
+ or give it another angle.
+
+2:04:11.640 --> 2:04:14.840
+ Are there, in particular, ideas and algorithms
+
+2:04:14.840 --> 2:04:17.080
+ of computer science that you find
+
+2:04:17.080 --> 2:04:19.920
+ were big aha moments for students,
+
+2:04:19.920 --> 2:04:22.760
+ where they, for some reason, once they got it,
+
+2:04:22.760 --> 2:04:24.720
+ it clicked for them and they fell in love
+
+2:04:24.720 --> 2:04:26.640
+ with computer science?
+
+2:04:26.640 --> 2:04:29.320
+ Or is it individual, is it different for everybody?
+
+2:04:29.320 --> 2:04:30.840
+ It's different for everybody.
+
+2:04:30.840 --> 2:04:32.720
+ You have to work differently with students.
+
+2:04:32.720 --> 2:04:37.720
+ Some of them just don't need much influence.
+
+2:04:40.120 --> 2:04:42.360
+ They're just running with what they're doing
+
+2:04:42.360 --> 2:04:44.800
+ and they just need an ear now and then.
+
+2:04:44.800 --> 2:04:47.200
+ Others need a little prodding.
+
+2:04:47.200 --> 2:04:50.880
+ Others need to be persuaded to collaborate among themselves
+
+2:04:50.880 --> 2:04:53.000
+ rather than working alone.
+
+2:04:53.000 --> 2:04:57.200
+ They have their personal ups and downs,
+
+2:04:57.200 --> 2:05:02.200
+ so you have to deal with each student as a human being
+
+2:05:03.000 --> 2:05:06.640
+ and bring out the best.
+
+2:05:06.640 --> 2:05:08.160
+ Humans are complicated.
+
+2:05:08.160 --> 2:05:09.240
+ Yeah.
+
+2:05:09.240 --> 2:05:11.240
+ Perhaps a silly question.
+
+2:05:11.240 --> 2:05:15.400
+ If you could relive a moment in your life outside of family
+
+2:05:15.400 --> 2:05:17.440
+ because it made you truly happy,
+
+2:05:17.440 --> 2:05:19.920
+ or perhaps because it changed the direction of your life
+
+2:05:19.920 --> 2:05:23.560
+ in a profound way, what moment would you pick?
+
+2:05:24.560 --> 2:05:28.240
+ I was kind of a lazy student as an undergraduate,
+
+2:05:28.240 --> 2:05:32.440
+ and even in my first year in graduate school.
+
+2:05:33.320 --> 2:05:37.280
+ And I think it was when I started doing research,
+
+2:05:37.280 --> 2:05:41.520
+ I had a couple of summer jobs where I was able to contribute
+
+2:05:41.520 --> 2:05:45.040
+ and I had an idea.
+
+2:05:45.040 --> 2:05:47.760
+ And then there was one particular course
+
+2:05:47.760 --> 2:05:50.480
+ on mathematical methods and operations research
+
+2:05:51.520 --> 2:05:53.600
+ where I just gobbled up the material
+
+2:05:53.600 --> 2:05:57.560
+ and I scored 20 points higher than anybody else in the class
+
+2:05:57.560 --> 2:06:00.680
+ then came to the attention of the faculty.
+
+2:06:00.680 --> 2:06:04.600
+ And it made me realize that I had some ability
+
+2:06:04.600 --> 2:06:05.920
+ that I was going somewhere.
+
+2:06:09.160 --> 2:06:11.360
+ You realize you're pretty good at this thing.
+
+2:06:12.360 --> 2:06:14.320
+ I don't think there's a better way to end it, Richard.
+
+2:06:14.320 --> 2:06:15.240
+ It was a huge honor.
+
+2:06:15.240 --> 2:06:18.240
+ Thank you for decades of incredible work.
+
+2:06:18.240 --> 2:06:19.080
+ Thank you for talking to me.
+
+2:06:19.080 --> 2:06:21.080
+ Thank you, it's been a great pleasure.
+
+2:06:21.080 --> 2:06:23.920
+ You're a superb interviewer.
+
+2:06:23.920 --> 2:06:25.800
+ I'll stop it.
+
+2:06:26.760 --> 2:06:29.640
+ Thanks for listening to this conversation with Richard Karp.
+
+2:06:29.640 --> 2:06:34.120
+ And thank you to our sponsors, 8sleep and Cash App.
+
+2:06:34.120 --> 2:06:35.880
+ Please consider supporting this podcast
+
+2:06:35.880 --> 2:06:39.160
+ by going to 8sleep.com slash Lex
+
+2:06:39.160 --> 2:06:41.920
+ to check out their awesome mattress
+
+2:06:41.920 --> 2:06:46.040
+ and downloading Cash App and using code LexPodcast.
+
+2:06:46.040 --> 2:06:48.320
+ Click the links, buy the stuff,
+
+2:06:48.320 --> 2:06:49.800
+ even just visiting the site
+
+2:06:49.800 --> 2:06:51.600
+ but also considering the purchase.
+
+2:06:51.600 --> 2:06:54.200
+ Helps them know that this podcast
+
+2:06:54.200 --> 2:06:55.840
+ is worth supporting in the future.
+
+2:06:55.840 --> 2:06:59.680
+ It really is the best way to support this journey I'm on.
+
+2:06:59.680 --> 2:07:02.040
+ If you enjoy this thing, subscribe on YouTube,
+
+2:07:02.040 --> 2:07:04.120
+ review it with Five Stars and Apple Podcast,
+
+2:07:04.120 --> 2:07:07.360
+ support it on Patreon, connect with me on Twitter
+
+2:07:07.360 --> 2:07:11.360
+ at Lex Friedman if you can figure out how to spell that.
+
+2:07:11.360 --> 2:07:16.000
+ And now let me leave you with some words from Isaac Asimov.
+
+2:07:16.000 --> 2:07:18.160
+ I do not fear computers.
+
+2:07:18.160 --> 2:07:19.800
+ I fear lack of them.
+
+2:07:19.800 --> 2:07:40.800
+ Thank you for listening and hope to see you next time.
+

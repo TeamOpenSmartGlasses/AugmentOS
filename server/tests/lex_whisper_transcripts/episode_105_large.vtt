@@ -1,0 +1,3731 @@
+WEBVTT
+
+00:00.000 --> 00:03.480
+ The following is a conversation with Bob Langer, professor at
+
+00:03.480 --> 00:06.960
+ MIT, and one of the most cited researchers in history,
+
+00:07.280 --> 00:11.120
+ specializing in biotechnology fields of drug delivery systems
+
+00:11.120 --> 00:15.600
+ and tissue engineering. He has bridged theory and practice by
+
+00:15.600 --> 00:19.200
+ being a key member and driving force in launching many
+
+00:19.200 --> 00:23.480
+ successful biotech companies out of MIT. This conversation was
+
+00:23.480 --> 00:27.400
+ recorded before the outbreak of the coronavirus pandemic. His
+
+00:27.400 --> 00:30.040
+ research and companies are at the forefront of developing
+
+00:30.040 --> 00:34.000
+ treatment for COVID 19, including a promising vaccine
+
+00:34.000 --> 00:39.320
+ candidate. Quick summary of the ads to sponsors cash app and
+
+00:39.320 --> 00:42.520
+ masterclass. Please consider supporting the podcast by
+
+00:42.520 --> 00:47.080
+ downloading cash app and using code Lex podcast and signing up
+
+00:47.080 --> 00:51.880
+ a masterclass.com slash Lex, click on the links by the stuff.
+
+00:52.120 --> 00:55.320
+ It really is the best way to support this podcast and in
+
+00:55.320 --> 00:59.960
+ general, the journey I'm on in my research and startup. This is
+
+00:59.960 --> 01:02.600
+ the artificial intelligence podcast. If you enjoy it,
+
+01:02.760 --> 01:05.560
+ subscribe on YouTube, review it with five stars and Apple
+
+01:05.560 --> 01:09.400
+ podcast supported on Patreon, or connect with me on Twitter at
+
+01:09.400 --> 01:13.800
+ Lex Friedman. As usual, I'll do a few minutes of ads now and
+
+01:13.800 --> 01:16.000
+ never any ads in the middle that can break the flow of the
+
+01:16.000 --> 01:20.880
+ conversation. This show is presented by cash app, the
+
+01:20.880 --> 01:24.560
+ number one finance app in the app store. When you get it, use
+
+01:24.560 --> 01:28.520
+ code Lex podcast cash app lets you send money to friends by
+
+01:28.520 --> 01:32.040
+ Bitcoin and invest in the stock market with as little as $1.
+
+01:32.480 --> 01:34.800
+ Since cash app allows you to send and receive money
+
+01:34.800 --> 01:37.960
+ digitally. Let me mention a surprising fact related to
+
+01:37.960 --> 01:41.440
+ physical money. Of all the currency in the world, roughly
+
+01:41.480 --> 01:46.480
+ 8% of it is actual physical money. The other 92% of money
+
+01:46.480 --> 01:50.480
+ only exists digitally. So again, if you get cash app from
+
+01:50.480 --> 01:54.440
+ the App Store, Google Play and use the code Lex podcast, you
+
+01:54.440 --> 01:58.760
+ get $10. And cash app will also donate $10 to first an
+
+01:58.760 --> 02:01.400
+ organization that is helping to advance robotics and STEM
+
+02:01.400 --> 02:05.600
+ education for young people around the world. This show is
+
+02:05.600 --> 02:10.120
+ sponsored by masterclass, sign up at masterclass.com slash Lex
+
+02:10.120 --> 02:14.000
+ to get a discount and to support this podcast. When I first
+
+02:14.000 --> 02:16.440
+ heard about masterclass, I thought it was too good to be
+
+02:16.440 --> 02:21.560
+ true. For $180 a year you get an all access pass to watch
+
+02:21.560 --> 02:25.640
+ courses from to list some of my favorites. Chris Hadfield on
+
+02:25.640 --> 02:28.720
+ space exploration near the grass Tyson on scientific thinking
+
+02:28.720 --> 02:32.720
+ and communication will write creator some city and Sims on
+
+02:32.720 --> 02:37.320
+ game design. Carlos Santana on guitar. Europa is probably one
+
+02:37.320 --> 02:40.560
+ of the most beautiful guitar instrumentals ever. Garak is
+
+02:40.560 --> 02:45.080
+ part of on chess, Daniel Negrano on poker and many more. Chris
+
+02:45.080 --> 02:48.200
+ Hadfield explaining how rockets work and experience of being
+
+02:48.200 --> 02:52.240
+ launched into space alone is worth the money. You can watch
+
+02:52.240 --> 02:56.160
+ it on basically any device. Once again, sign up a masterclass
+
+02:56.160 --> 03:01.160
+ dot com slash Lex to get a discount and to support this
+
+03:01.160 --> 03:06.320
+ podcast. And now here's my conversation with Bob Langer.
+
+03:07.600 --> 03:10.960
+ You have a bit of a love for magic. Do you see a connection
+
+03:10.960 --> 03:12.640
+ between magic and science?
+
+03:12.640 --> 03:17.920
+ I do. I think magic can surprise you. And, uh, you know, and I
+
+03:17.920 --> 03:20.720
+ think science can surprise you. And there's something magical
+
+03:20.720 --> 03:23.960
+ about, about science. I mean, making discoveries and things
+
+03:23.960 --> 03:26.800
+ like that. Yeah. So on the, and then on the magic side, is
+
+03:26.800 --> 03:30.160
+ there some kind of engineering scientific process to the tricks
+
+03:30.160 --> 03:34.440
+ themselves? Do you see, cause there's a duality to it. One is
+
+03:34.720 --> 03:39.280
+ you're the, um, you're, you're sort of the person inside that
+
+03:39.280 --> 03:42.480
+ knows how the whole thing works, how the universe of the magic
+
+03:42.480 --> 03:45.960
+ trick works. And then from the outside observer, which is kind
+
+03:45.960 --> 03:49.560
+ of the role of the scientists, you, the people that observe
+
+03:49.560 --> 03:52.920
+ the magic trick don't know at least initially anything that's
+
+03:52.920 --> 03:55.200
+ going on. Do you see that kind of duality?
+
+03:55.720 --> 03:58.560
+ Well, I think the duality that I see is fascination. You know,
+
+03:58.560 --> 04:03.160
+ I think of it, you know, when I watch magic myself, I'm always
+
+04:03.160 --> 04:06.280
+ fascinated by it. Sometimes it's a puzzle to think how it's done,
+
+04:06.280 --> 04:09.280
+ but just the sheer fact that something that you never thought
+
+04:09.280 --> 04:13.400
+ could happen does happen. And I think about that in science too,
+
+04:13.440 --> 04:17.360
+ you know, sometimes you, it's something that, that you might
+
+04:17.360 --> 04:21.320
+ dream about and hoping to discover, maybe you do in some
+
+04:21.320 --> 04:22.000
+ way or form.
+
+04:22.600 --> 04:26.200
+ What is the most amazing magic trick you've ever seen?
+
+04:26.880 --> 04:29.480
+ Well, there's one I like, which is called the invisible pack.
+
+04:30.000 --> 04:35.000
+ And the way it works is you have this pack and you hold it up.
+
+04:35.000 --> 04:40.200
+ Well, first you say to somebody, this is invisible and this deck
+
+04:40.200 --> 04:43.560
+ and you say, well, shuffle it. They shuffle it, but you know,
+
+04:43.560 --> 04:46.640
+ they're sort of make believe. And then you say, okay, I'd like
+
+04:46.640 --> 04:50.440
+ you to pick a card, any card and show it to me. And you show it
+
+04:50.440 --> 04:55.120
+ to me and I look at it. And let's say it's the three of
+
+04:55.120 --> 04:57.720
+ hearts. I said, we'll put it back in the deck. But what I'd
+
+04:57.720 --> 05:00.320
+ like you to do is turn it up upside down from every other
+
+05:00.320 --> 05:04.880
+ card in the deck. So they do that imaginary. And I say,
+
+05:04.880 --> 05:07.520
+ do you want to shuffle it again? And they shuffle it. And I said,
+
+05:07.520 --> 05:10.920
+ well, so there's still one card upside down from every other
+
+05:10.920 --> 05:12.840
+ card in the deck. I said, what is that? And they said, well,
+
+05:12.840 --> 05:15.960
+ three hearts. So what just so happens in my back pocket, I
+
+05:15.960 --> 05:18.880
+ have this deck, it's, you know, it's a real deck. I show it to
+
+05:18.880 --> 05:22.080
+ you and I just open it up. And there's just one card upside
+
+05:22.080 --> 05:23.920
+ down. And it's the three of hearts.
+
+05:27.000 --> 05:30.120
+ And, and you can do this trick.
+
+05:30.480 --> 05:33.120
+ I can, if I don't, I would have probably brought it.
+
+05:33.120 --> 05:37.320
+ All right. Well, beautiful. Let's get into the, into the
+
+05:37.320 --> 05:43.360
+ science. As of today, you have over 295,000 citations. An H
+
+05:43.360 --> 05:47.760
+ index of 269. You're one of the most cited people in history and
+
+05:47.760 --> 05:52.440
+ the most cited engineer in history. And yet nothing great,
+
+05:53.000 --> 05:57.120
+ I think is ever achieved without failure. So the interesting
+
+05:57.120 --> 06:01.320
+ part, what rejected papers, ideas, efforts in your life or
+
+06:01.320 --> 06:03.880
+ most painful, or had the biggest impact on your life?
+
+06:04.440 --> 06:07.200
+ Well, it's interesting. I mean, I've had plenty of rejection too,
+
+06:07.200 --> 06:11.640
+ you know, but I suppose one way I think about this is that when
+
+06:11.640 --> 06:14.360
+ I first started, and this certainly had an impact both
+
+06:14.360 --> 06:19.200
+ ways, you know, I first started, we made two big discoveries and
+
+06:19.200 --> 06:22.720
+ they were kind of interrelated. I mean, one was, I was trying to
+
+06:22.720 --> 06:25.520
+ isolate with my postdoctoral advisor, Judah Folkman,
+
+06:25.840 --> 06:29.560
+ substances that could stop blood vessels from growing and nobody
+
+06:29.560 --> 06:35.320
+ had done that before. And so that was part A, let's say part B
+
+06:35.320 --> 06:38.320
+ is we had to develop a way to study that. And what was
+
+06:38.320 --> 06:42.280
+ critical to study that was to have a way to slowly release
+
+06:42.520 --> 06:47.080
+ those substances for, you know, more than a day, you know, maybe
+
+06:47.080 --> 06:50.480
+ months. And that had never been done before either. So we
+
+06:50.480 --> 06:55.440
+ published the first one we sent to Nature, the journal, and they
+
+06:55.440 --> 06:59.920
+ rejected it. And then we sent it, we revised it, we sent it to
+
+06:59.920 --> 07:04.440
+ Science and they accepted it. And the other, the opposite
+
+07:04.440 --> 07:06.960
+ happened, we sent it to Science and they rejected it. And then
+
+07:06.960 --> 07:10.440
+ we sent it to Nature and they accepted it. But I have to tell
+
+07:10.440 --> 07:12.800
+ you, when we got the rejections, it was really upsetting. I
+
+07:12.800 --> 07:15.760
+ thought, you know, I'd done some really good work. And Dr.
+
+07:15.760 --> 07:19.920
+ Folkman thought we'd done some really good work. And, and, but
+
+07:19.920 --> 07:24.040
+ it was very depressing to, you know, get rejected like that.
+
+07:24.040 --> 07:27.360
+ If you can linger on just the feeling or the thought process
+
+07:27.400 --> 07:30.160
+ when you get the rejection, especially early on in your
+
+07:30.160 --> 07:39.400
+ career, what, I mean, you don't know, now people know you as a
+
+07:39.400 --> 07:42.800
+ brilliant scientist, but at the time, I'm sure you're full of
+
+07:42.800 --> 07:48.360
+ self doubt. And did you believe that maybe this idea is actually
+
+07:48.360 --> 07:51.760
+ quite terrible, that it could have been done much better? Or
+
+07:51.760 --> 07:54.280
+ is there underlying confidence? What was the feelings?
+
+07:54.760 --> 07:58.640
+ Well, you feel depressed and I felt the same way when I got
+
+07:58.640 --> 08:02.440
+ grants rejected, which I did a lot in the beginning. I guess
+
+08:02.440 --> 08:07.120
+ part of me, you know, you have multiple emotions. One is being
+
+08:07.120 --> 08:11.200
+ sad and being upset and also being maybe a little bit angry
+
+08:11.200 --> 08:14.600
+ because you didn't feel the reviewers didn't get it. But
+
+08:14.600 --> 08:17.280
+ then as I thought about it more, I thought, well, maybe I just
+
+08:17.280 --> 08:20.680
+ didn't explain it well enough. And you know, that, you know,
+
+08:20.680 --> 08:24.040
+ that you go through stages. And so you say, well, okay, I'll
+
+08:24.040 --> 08:26.920
+ explain it better next time. And certainly you get reviews and
+
+08:26.920 --> 08:29.920
+ when you get the reviews, you see what they either didn't like
+
+08:29.920 --> 08:32.560
+ or didn't understand. And then you try to incorporate that into
+
+08:32.560 --> 08:33.520
+ your next versions.
+
+08:34.520 --> 08:37.840
+ You've given advice to students to do something big, do
+
+08:37.840 --> 08:40.400
+ something that really can change the world rather than something
+
+08:40.400 --> 08:45.160
+ incremental. How did you yourself seek out such ideas? Is
+
+08:45.160 --> 08:49.720
+ there a process? Is there a sort of a rigorous process? Or is it
+
+08:49.720 --> 08:50.880
+ more spontaneous?
+
+08:51.320 --> 08:55.520
+ It's more spontaneous. I mean, part of its exposure to things,
+
+08:55.600 --> 08:58.960
+ part of its seeing other people, like I mentioned, Dr. Folkman,
+
+08:58.960 --> 09:02.000
+ he was my postdoctoral advisor, he was very good at that, you
+
+09:02.000 --> 09:05.200
+ could sort of see that he had big ideas. And I certainly met a
+
+09:05.200 --> 09:08.720
+ lot of people who didn't. And I think you could spot an idea
+
+09:08.720 --> 09:11.400
+ that might have potential when you see it, you know, because it
+
+09:11.400 --> 09:14.120
+ could have very broad implications, whereas a lot of
+
+09:14.120 --> 09:19.480
+ people might just keep doing derivative stuff. And so I
+
+09:19.480 --> 09:23.560
+ don't know. But it's not something that I've ever done.
+
+09:24.680 --> 09:26.160
+ Systematically, I don't think.
+
+09:26.680 --> 09:30.960
+ So in the space of ideas, how many are just when you see them?
+
+09:31.200 --> 09:34.320
+ It's just magic. It's something that you see that could be
+
+09:34.320 --> 09:37.880
+ impactful if you dig deeper.
+
+09:38.680 --> 09:42.080
+ Yeah, it's sort of hard to say because there's multiple levels
+
+09:42.080 --> 09:49.040
+ of ideas. One type of thing is like a new, you know, creation
+
+09:49.040 --> 09:51.480
+ that you could engineer tissues for the first time or make
+
+09:51.480 --> 09:54.640
+ dishes from scratch on the first time. But another thing is
+
+09:54.640 --> 09:58.480
+ really just deeply understanding something. And that's important
+
+09:58.480 --> 10:04.240
+ too. So and that may lead to other things. So sometimes you
+
+10:04.280 --> 10:07.440
+ could think of a new technology, or I thought of a new
+
+10:07.440 --> 10:11.600
+ technology. But other times, things came from just the
+
+10:11.600 --> 10:15.840
+ process of trying to discover things. So it's never and you
+
+10:15.840 --> 10:19.760
+ don't necessarily know, like people talk about aha moments,
+
+10:19.760 --> 10:23.320
+ but I don't know if I've, I mean, I certainly feel like I've
+
+10:23.320 --> 10:27.840
+ had some ideas that I really like. But it's taken me a long
+
+10:27.840 --> 10:32.720
+ time to go from the thought process of starting it to all of
+
+10:32.720 --> 10:35.120
+ a sudden, knowing that it might work.
+
+10:35.520 --> 10:39.200
+ So if you take drug delivery, for example, is the notion is
+
+10:39.200 --> 10:43.760
+ the initial notion, kind of a very general one, that we should
+
+10:43.760 --> 10:48.400
+ be able to do something like this. And then you start to ask
+
+10:48.400 --> 10:51.120
+ the questions of Well, how would you do it and then and then
+
+10:51.120 --> 10:52.400
+ digging and digging and digging?
+
+10:52.680 --> 10:54.840
+ I think that's right. I think it depends. I mean, there are
+
+10:54.840 --> 10:58.280
+ many different examples. The example I gave about delivering
+
+10:58.520 --> 11:01.880
+ large molecules, which we used to study these blood vessel
+
+11:01.880 --> 11:05.280
+ inhibitors. I mean, there, we had to invent something that
+
+11:05.280 --> 11:10.200
+ would do that. But other times, it's, it's, it's different.
+
+11:10.200 --> 11:13.000
+ Sometimes it's really understanding what goes on in
+
+11:13.000 --> 11:16.520
+ terms of understanding the mechanisms. And so it's, it's,
+
+11:16.560 --> 11:19.120
+ it's not a single thing. And there are many different parts
+
+11:19.120 --> 11:23.240
+ to it, you know, over the years, we've invented different or
+
+11:23.240 --> 11:27.680
+ discovered different principles for aerosols for delivering,
+
+11:27.720 --> 11:30.200
+ you know, genetic therapy agents, you know, all kinds of
+
+11:30.200 --> 11:30.680
+ things.
+
+11:31.600 --> 11:34.120
+ So let's explore some of the key ideas you've touched on in your
+
+11:34.120 --> 11:39.200
+ life. Let's start with the basics. Okay. So first, let me
+
+11:39.200 --> 11:42.640
+ ask, how complicated is the biology and chemistry of the
+
+11:42.640 --> 11:46.600
+ human body from the perspective of trying to affect some parts
+
+11:46.600 --> 11:50.560
+ of it in a positive way? So that you know, for me, especially
+
+11:50.560 --> 11:54.280
+ coming from the field of computer science and computer
+
+11:54.280 --> 11:57.720
+ engineering and robotics, it seems that the human body is
+
+11:57.720 --> 12:00.440
+ exceptionally complicated, and how the heck you can figure out
+
+12:00.440 --> 12:01.680
+ anything is amazing.
+
+12:02.120 --> 12:05.080
+ I agree with you. I think it's super complicated. I mean,
+
+12:05.080 --> 12:08.320
+ we're still just scratching the surface in many ways. But I feel
+
+12:08.320 --> 12:12.280
+ like we have made progress in different ways. And some of its
+
+12:12.280 --> 12:16.200
+ by really understanding things like we were just talking about
+
+12:16.440 --> 12:19.600
+ other times, you know, you might, or somebody might we or
+
+12:19.600 --> 12:23.480
+ others might invent technologies that might be helpful on
+
+12:23.520 --> 12:26.920
+ exploring that. And I think over many years, we've understood
+
+12:26.920 --> 12:29.200
+ things better and better, but we still have such a long ways to
+
+12:29.200 --> 12:29.520
+ go.
+
+12:29.640 --> 12:34.000
+ Are there? I mean, if you just look at the other things that
+
+12:35.480 --> 12:39.280
+ are there knobs that are reliably controllable about the
+
+12:39.280 --> 12:46.040
+ human body, if you consider is there is it? So if you start to
+
+12:46.040 --> 12:49.840
+ think about controlling various aspects of when we talk about
+
+12:49.880 --> 12:54.240
+ drug delivery a little bit, but controlling various aspects
+
+12:54.240 --> 12:57.800
+ chemically of the human body, is there a solid understanding
+
+12:57.800 --> 13:02.000
+ across the populations of humans that are solid, reliable knobs
+
+13:02.040 --> 13:02.920
+ that can be controlled?
+
+13:03.320 --> 13:06.680
+ I think that's hard to do. But on the other hand, whenever we
+
+13:06.680 --> 13:09.520
+ make a new drug or medical device, to a certain extent,
+
+13:09.520 --> 13:12.840
+ we're doing that, you know, in a small way, what you just said,
+
+13:12.840 --> 13:16.880
+ but I don't know that there are great knobs. I mean, and we're
+
+13:16.880 --> 13:20.160
+ learning about those knobs all the time. But if there's a
+
+13:20.160 --> 13:23.880
+ biological pathway or something that you can affect, or
+
+13:23.880 --> 13:26.960
+ understand, I mean, then that might be such a knob.
+
+13:27.640 --> 13:31.640
+ So what is a pharmaceutical drug? How do you do? How do you
+
+13:31.640 --> 13:34.720
+ discover a specific one? How do you test it? How do you
+
+13:34.720 --> 13:36.640
+ understand it? How do you ship it?
+
+13:36.840 --> 13:40.680
+ Yeah, well, I'll give an example, which goes back to
+
+13:40.680 --> 13:43.840
+ what I said before. So when I was doing my postdoctoral work
+
+13:43.840 --> 13:46.560
+ with Judah Folkman, we wanted to come up with drugs that would
+
+13:46.560 --> 13:49.760
+ stop blood vessels from growing or alternatively make them grow.
+
+13:50.280 --> 13:54.160
+ And actually, people didn't even believe that, that those things
+
+13:54.160 --> 13:55.920
+ could happen. But
+
+13:56.040 --> 13:58.560
+ could we pause on that for a second? Sure. What is a blood
+
+13:58.560 --> 14:01.920
+ vessel? What does it mean for a blood vessel to grow and shrink?
+
+14:01.920 --> 14:03.040
+ And why is that important?
+
+14:03.040 --> 14:08.360
+ Sure. So a blood vessel is could be an artery or vein or a
+
+14:08.360 --> 14:14.600
+ capillary. And it, you know, provides oxygen, it provides
+
+14:14.600 --> 14:19.960
+ nutrients gets rid of waste. So, you know, to different parts of
+
+14:19.960 --> 14:23.600
+ your body if you so so the blood vessels end up being very, very
+
+14:23.600 --> 14:29.920
+ important. And, you know, if you have cancer, blood vessels grow
+
+14:29.920 --> 14:32.680
+ into the tumor. And that's part of what enables the tumor to get
+
+14:32.680 --> 14:36.440
+ bigger. And that's also part of what enables the tumor to
+
+14:36.440 --> 14:39.600
+ metastasize and which means spread throughout the body and
+
+14:39.880 --> 14:42.760
+ ultimately kill somebody. So that was part of what we were
+
+14:42.760 --> 14:45.520
+ trying to do. We tried what we wanted to see if we could find
+
+14:45.680 --> 14:49.280
+ substances that could stop that from happening. So first, I
+
+14:49.280 --> 14:51.680
+ mean, there are many steps. First, we had to develop a bio
+
+14:51.680 --> 14:54.280
+ assay to study blood vessel growth. Again, there wasn't
+
+14:54.280 --> 14:57.960
+ one. That's where we needed the polymer systems because the
+
+14:57.960 --> 15:03.360
+ blood vessels grew slowly took months. That so after we had the
+
+15:03.360 --> 15:07.440
+ polymer system and we had the bio assay, then I isolated many
+
+15:07.440 --> 15:12.920
+ different molecules initially from cartilage. And almost all
+
+15:12.920 --> 15:17.080
+ of them didn't work. But we were fortunate we found one it wasn't
+
+15:17.080 --> 15:21.400
+ purified, but we found one that did work. And that paper that
+
+15:21.400 --> 15:24.960
+ was this paper I mentioned science in 1976. Those were
+
+15:24.960 --> 15:27.920
+ really the isolation of some of the very first angiogenesis and
+
+15:27.920 --> 15:29.000
+ blood vessel inhibitors.
+
+15:29.560 --> 15:34.000
+ So there's a lot of words there. Yeah, let's go. First of all,
+
+15:34.040 --> 15:38.680
+ polymer molecules, big, big molecules. So the what are
+
+15:38.680 --> 15:45.000
+ polymers? What's bio assay? What is the process of trying to
+
+15:45.000 --> 15:46.920
+ isolate this whole thing simplified to where you can
+
+15:46.920 --> 15:48.360
+ control and experiment with it?
+
+15:48.480 --> 15:54.960
+ Polymers are like plastics or like plastics or rubber. What
+
+15:54.960 --> 15:55.960
+ were some of the other questions?
+
+15:55.960 --> 15:59.000
+ Sorry, so a polymer, some plastics and rubber, and that
+
+15:59.000 --> 16:01.280
+ means something that has structure and that could be
+
+16:01.280 --> 16:02.840
+ useful for what?
+
+16:03.080 --> 16:05.680
+ Well, in this case, it would be something that could be useful
+
+16:05.680 --> 16:10.680
+ for delivering a molecule for a long time. So it could slowly
+
+16:10.680 --> 16:13.840
+ diffuse out of that at a controlled rate to where you
+
+16:13.840 --> 16:14.800
+ wanted it to go.
+
+16:15.080 --> 16:17.720
+ So then you would find the idea is that there would be a
+
+16:17.720 --> 16:22.760
+ particular blood vessels that you can target, say they're
+
+16:22.760 --> 16:26.600
+ connected somehow to a tumor that you could target and over
+
+16:27.200 --> 16:31.680
+ a long period of time to be able to place the polymer there
+
+16:31.680 --> 16:34.600
+ and it'd be delivering a certain kind of chemical.
+
+16:34.680 --> 16:37.920
+ That's correct. I think what you said is good. So so that it
+
+16:37.920 --> 16:41.520
+ would deliver the molecule or the chemical that would stop
+
+16:41.520 --> 16:44.120
+ the blood vessels from going over a long enough time so that
+
+16:44.120 --> 16:47.920
+ it really could happen. So that was sort of the what we call
+
+16:47.920 --> 16:50.240
+ the bio assay is the way that we would study that.
+
+16:50.240 --> 16:53.840
+ So, sorry, so what is a bio assay? Which part is the bio
+
+16:53.840 --> 16:54.320
+ assay?
+
+16:54.360 --> 16:58.840
+ All of it. In other words, the bio assay is the way you study
+
+17:00.080 --> 17:01.000
+ blood vessel growth.
+
+17:01.680 --> 17:05.000
+ The blood vessel growth and you can control that somehow with
+
+17:05.720 --> 17:08.080
+ is there an understanding what kind of chemicals could control
+
+17:08.080 --> 17:09.040
+ the growth of a blood vessel?
+
+17:09.040 --> 17:11.560
+ Sure. Well, now there is, but then when I started, there
+
+17:11.560 --> 17:14.600
+ wasn't and that that gets to your original question. So you
+
+17:14.600 --> 17:17.400
+ go through various steps. We did the first steps. We showed
+
+17:17.400 --> 17:20.240
+ that a such molecules existed and then we developed
+
+17:20.240 --> 17:24.920
+ techniques for studying them. And we even isolated fractions,
+
+17:24.920 --> 17:28.880
+ you know, groups of substances that would do it. But what
+
+17:28.880 --> 17:33.360
+ would happen over the next, we did that in 1976, we published
+
+17:33.360 --> 17:37.160
+ that what would happen over the next 28 years is other people
+
+17:37.160 --> 17:39.640
+ would follow in our footsteps. I mean, we tried to do some
+
+17:39.640 --> 17:43.760
+ stuff too, but ultimately to make a new drug takes billions
+
+17:43.760 --> 17:47.920
+ of dollars. So what happened was there were different growth
+
+17:47.920 --> 17:50.760
+ factors that people would isolate, sometimes using the
+
+17:50.760 --> 17:55.760
+ techniques that we developed. And then they would figure out
+
+17:55.760 --> 17:58.720
+ using some of those techniques, ways to stop those growth
+
+17:58.720 --> 18:02.400
+ factors and ways to stop the blood vessels from growing. That
+
+18:02.400 --> 18:05.040
+ like I say, it took 28 years, it took billions of dollars and
+
+18:05.040 --> 18:11.160
+ work by many companies like Genetec. But in 2004, 28 years
+
+18:11.160 --> 18:15.720
+ after we started, the first one of those Avastin got approved
+
+18:15.720 --> 18:20.920
+ by the FDA. And that's become, you know, one of the top
+
+18:20.920 --> 18:23.920
+ biotech selling drugs in history. And it's been approved
+
+18:23.920 --> 18:27.200
+ for all kinds of cancers and actually for many eye diseases
+
+18:27.200 --> 18:30.640
+ too, where you have abnormal blood vessel growth, macular.
+
+18:30.640 --> 18:38.480
+ So in general, one of the key ways you can alleviate, what's
+
+18:38.480 --> 18:41.960
+ the hope in terms of tumors associated with cancerous
+
+18:41.960 --> 18:46.640
+ tumors? What can you help by being able to control the
+
+18:46.640 --> 18:47.840
+ growth of vessels?
+
+18:47.840 --> 18:52.680
+ So if you cut off the blood supply, you cut off the, it's
+
+18:52.680 --> 18:56.600
+ kind of like a war almost, right? If the nutrition is going
+
+18:56.600 --> 19:01.480
+ to the tumor and you can cut it off, I mean, you starve the
+
+19:01.480 --> 19:05.240
+ tumor and it becomes very small, it may disappear or it's going
+
+19:05.240 --> 19:08.120
+ to be much more amenable to other therapies because it is
+
+19:08.120 --> 19:12.200
+ tiny, you know, like, you know, chemotherapy or immunotherapy
+
+19:12.200 --> 19:15.000
+ is going to be, have a much easier time against a small
+
+19:15.000 --> 19:16.000
+ tumor than a big one.
+
+19:16.000 --> 19:20.880
+ Is that an obvious idea? I mean, it seems like a very clever
+
+19:20.880 --> 19:23.880
+ strategy in this war against cancer.
+
+19:23.880 --> 19:27.480
+ Well, you know, in retrospect, it's an obvious idea, but when
+
+19:27.480 --> 19:31.880
+ Dr. Folkman, my boss first proposed it, it wasn't, a lot of
+
+19:31.880 --> 19:33.600
+ people didn't thought he was pretty crazy.
+
+19:33.600 --> 19:39.360
+ And so in what sense, if you can sort of linger on it, when
+
+19:39.360 --> 19:42.280
+ you're thinking about these ideas at the time, were you
+
+19:42.280 --> 19:43.560
+ feeling you're out in the dark?
+
+19:43.560 --> 19:46.760
+ So how much mystery is there about the whole thing?
+
+19:46.760 --> 19:50.520
+ How much just blind experimentation, if you can put
+
+19:50.520 --> 19:52.400
+ yourself in that mindset from years ago?
+
+19:52.400 --> 19:52.840
+ Yeah.
+
+19:52.840 --> 19:56.480
+ Well, there was, I mean, for me, actually, it wasn't just
+
+19:56.480 --> 19:56.960
+ the idea.
+
+19:56.960 --> 19:59.520
+ It was that I didn't know a lot of biology or biochemistry.
+
+19:59.520 --> 20:03.440
+ So I certainly felt I was in the dark, but I kept trying and
+
+20:03.440 --> 20:06.040
+ I kept trying to learn and I kept plugging.
+
+20:06.040 --> 20:08.520
+ But I mean, a lot of it was being in the dark.
+
+20:08.520 --> 20:11.320
+ So the human body is complicated, right?
+
+20:11.320 --> 20:12.280
+ We'll establish this.
+
+20:12.280 --> 20:16.680
+ Quantum mechanics in physics is a theory that works incredibly
+
+20:16.680 --> 20:19.720
+ well, but we don't really necessarily understand the underlying
+
+20:19.720 --> 20:20.360
+ nature of it.
+
+20:20.360 --> 20:25.280
+ So are drugs the same in that you're ultimately trying to
+
+20:25.280 --> 20:29.880
+ show that the thing works to do something that you try to do,
+
+20:29.880 --> 20:33.520
+ but you don't necessarily understand the fundamental
+
+20:33.520 --> 20:35.360
+ mechanisms by which it's doing it?
+
+20:35.360 --> 20:36.760
+ It really varies.
+
+20:36.760 --> 20:40.200
+ I think sometimes people do know them because they've figured
+
+20:40.200 --> 20:42.640
+ out pathways and ways to interfere with them.
+
+20:42.640 --> 20:45.160
+ Other times it is shooting in the dark.
+
+20:45.160 --> 20:46.640
+ It really has varied.
+
+20:46.640 --> 20:47.160
+ Okay.
+
+20:47.160 --> 20:49.960
+ And sometimes people make serendipitous discoveries and
+
+20:49.960 --> 20:51.840
+ they don't even realize what they did.
+
+20:51.840 --> 20:55.960
+ So what is the discovery process for a drug?
+
+20:55.960 --> 20:59.120
+ You said a bunch of people trying to work with this.
+
+20:59.120 --> 21:08.360
+ Is it a kind of a mix of serendipitous discovery and art,
+
+21:08.360 --> 21:12.840
+ or is there a systematic science to trying different chemical
+
+21:12.840 --> 21:16.960
+ reactions and how they affect whatever you're trying to do,
+
+21:16.960 --> 21:18.840
+ like shrink blood vessels?
+
+21:18.840 --> 21:22.480
+ Yeah, I don't think there's a single way to go about
+
+21:22.480 --> 21:25.320
+ something in terms of characterizing the entire drug
+
+21:25.320 --> 21:26.440
+ discovery process.
+
+21:26.440 --> 21:28.600
+ If I look at the blood vessel one,
+
+21:28.600 --> 21:34.400
+ yeah, there the first step was to have the kinds of theories
+
+21:34.400 --> 21:35.400
+ that Dr. Folkman had.
+
+21:35.400 --> 21:38.120
+ The second step was to have the techniques where you could
+
+21:38.120 --> 21:40.880
+ study blood vessel growth for the first time and at least
+
+21:40.880 --> 21:44.200
+ quantitate or semi quantitate it.
+
+21:44.200 --> 21:48.120
+ Third step was to find substances that would stop blood
+
+21:48.120 --> 21:49.680
+ vessels from growing.
+
+21:49.680 --> 21:54.440
+ Fourth step was to maybe purify those substances.
+
+21:54.440 --> 21:55.760
+ There are many other steps too.
+
+21:55.760 --> 21:57.680
+ I mean, before you have an effective drug,
+
+21:57.680 --> 21:58.800
+ you have to show that it's safe.
+
+21:58.800 --> 22:00.600
+ You have to show that it's effective.
+
+22:00.600 --> 22:01.880
+ And you start with animals.
+
+22:01.880 --> 22:03.600
+ You ultimately go to patients.
+
+22:03.600 --> 22:06.400
+ And there are multiple kinds of clinical trials you have to do.
+
+22:06.400 --> 22:08.720
+ If you step back, is it amazing to you
+
+22:08.720 --> 22:11.680
+ that we descendants of great apes
+
+22:11.680 --> 22:18.040
+ are able to create drugs, chemicals that
+
+22:18.040 --> 22:22.160
+ are able to improve some aspects of our bodies?
+
+22:22.160 --> 22:25.240
+ Or is it quite natural that we're
+
+22:25.240 --> 22:27.760
+ able to discover these kinds of things?
+
+22:27.760 --> 22:29.800
+ Well, at a high level, it is amazing.
+
+22:29.800 --> 22:31.600
+ I mean, evolution is amazing.
+
+22:31.600 --> 22:33.960
+ The way I look at your question, the fact
+
+22:33.960 --> 22:36.320
+ that we have evolved the way we've done,
+
+22:36.320 --> 22:38.600
+ I mean, it's pretty remarkable.
+
+22:38.600 --> 22:41.200
+ So let's talk about drug delivery.
+
+22:41.200 --> 22:43.640
+ What are the difficult problems in drug delivery?
+
+22:43.640 --> 22:48.240
+ What is drug delivery from starting
+
+22:48.240 --> 22:51.160
+ from your early seminal work in the field to today?
+
+22:51.160 --> 22:55.840
+ Well, drug delivery is getting a drug
+
+22:55.840 --> 22:57.960
+ to go where you want it, at the level you want it,
+
+22:57.960 --> 22:59.720
+ in a safe way.
+
+22:59.720 --> 23:02.040
+ Some of the big challenges, I mean, there are a lot.
+
+23:02.040 --> 23:06.520
+ I mean, I'd say one is, could you target the right cell?
+
+23:06.520 --> 23:08.240
+ Like, we talked about cancers or some way
+
+23:08.240 --> 23:11.880
+ to deliver a drug just to a cancer cell and no other cell.
+
+23:11.880 --> 23:14.640
+ Another challenge is to get drugs
+
+23:14.640 --> 23:15.840
+ across different barriers.
+
+23:15.840 --> 23:17.640
+ Like, could you ever give insulin orally?
+
+23:17.640 --> 23:21.320
+ Could you, or give it passively transdermally?
+
+23:21.320 --> 23:24.000
+ Can you get drugs across the blood brain barrier?
+
+23:24.000 --> 23:26.240
+ I mean, there are lots of big challenges.
+
+23:26.240 --> 23:29.040
+ Can you make smart drug delivery systems
+
+23:29.040 --> 23:32.400
+ that might respond to physiologic signals in the body?
+
+23:32.400 --> 23:33.240
+ Oh, interesting.
+
+23:33.240 --> 23:37.040
+ So smart, they have some kind of sense,
+
+23:37.040 --> 23:39.280
+ a chemical sensor, or is there something more
+
+23:39.280 --> 23:41.280
+ than a chemical sensor that's able to respond
+
+23:41.280 --> 23:43.120
+ to something in the body?
+
+23:43.120 --> 23:44.040
+ Could be either one.
+
+23:44.040 --> 23:48.600
+ I mean, one example might be if you were diabetic,
+
+23:48.600 --> 23:53.320
+ if you got more glucose, could you get more insulin?
+
+23:53.320 --> 23:57.040
+ But that's just an example.
+
+23:57.040 --> 23:59.480
+ Is there some way to control the actual mechanism
+
+23:59.480 --> 24:02.240
+ of delivery in response to what the body's doing?
+
+24:02.240 --> 24:03.200
+ Yes, there is.
+
+24:03.200 --> 24:05.000
+ I mean, one of the things that we've done
+
+24:05.000 --> 24:07.520
+ is encapsulate what are called beta cells.
+
+24:07.520 --> 24:09.840
+ Those are insulin producing cells in a way
+
+24:09.840 --> 24:11.800
+ that they're safe and protected.
+
+24:11.800 --> 24:15.280
+ And then what'll happen is glucose will go in
+
+24:15.280 --> 24:20.280
+ and the cells will make insulin.
+
+24:20.360 --> 24:22.120
+ And so that's an example.
+
+24:23.000 --> 24:25.880
+ So from an AI robotics perspective,
+
+24:25.880 --> 24:29.280
+ how close are these drug delivery systems
+
+24:29.280 --> 24:31.040
+ to something like a robot?
+
+24:31.040 --> 24:33.640
+ Or is it totally wrong to think about them
+
+24:33.640 --> 24:35.480
+ as intelligent agents?
+
+24:35.480 --> 24:39.600
+ And how much room is there to add that kind of intelligence
+
+24:39.600 --> 24:42.080
+ into these delivery systems, perhaps in the future?
+
+24:42.080 --> 24:45.280
+ Yeah, I think it depends on the particular delivery system.
+
+24:45.280 --> 24:47.040
+ Of course, one of the things people are concerned about
+
+24:47.040 --> 24:49.560
+ is cost, and if you add a lot of bells and whistles
+
+24:49.560 --> 24:51.400
+ to something, it'll cost more.
+
+24:51.400 --> 24:54.200
+ But I mean, we, for example, have made
+
+24:54.200 --> 24:55.920
+ what I'll call intelligent microchips
+
+24:55.920 --> 24:58.840
+ that can, where you can send a signal
+
+24:58.840 --> 25:01.840
+ and you'll release drug in response to that signal.
+
+25:01.840 --> 25:04.600
+ And I think systems like that microchip someday
+
+25:04.600 --> 25:06.040
+ have the potential to do what you and I
+
+25:06.040 --> 25:07.400
+ were just talking about,
+
+25:07.400 --> 25:09.480
+ that there could be a signal like glucose
+
+25:09.480 --> 25:11.600
+ and it could have some instruction to say
+
+25:11.600 --> 25:14.360
+ when there's more glucose, deliver more insulin.
+
+25:14.360 --> 25:16.000
+ So do you think it's possible that there,
+
+25:16.000 --> 25:19.640
+ that could be robotic type systems roaming our body
+
+25:19.640 --> 25:21.640
+ sort of long term and be able to deliver
+
+25:21.640 --> 25:23.600
+ certain kinds of drugs in the future?
+
+25:23.600 --> 25:26.320
+ You see, do you see that kind of future?
+
+25:26.320 --> 25:29.000
+ Someday, I don't think we're very close to it yet,
+
+25:29.000 --> 25:31.880
+ but someday, you know that that's nanotechnology
+
+25:31.880 --> 25:33.720
+ and that would mean even miniaturizing
+
+25:33.720 --> 25:35.760
+ some of the things that I just discussed.
+
+25:35.760 --> 25:37.800
+ And we're certainly not at that point yet,
+
+25:37.800 --> 25:40.120
+ but someday I expect we will be.
+
+25:40.120 --> 25:44.240
+ So some of it is just the shrinking of the technology.
+
+25:44.240 --> 25:47.280
+ That's a part of it, that's one of the things.
+
+25:47.280 --> 25:52.200
+ In general, what role do you see AI sort of,
+
+25:52.200 --> 25:55.160
+ there's a lot of work now with using data
+
+25:55.160 --> 25:57.200
+ to make intelligent, create systems
+
+25:57.200 --> 25:59.080
+ that make intelligent decisions.
+
+25:59.080 --> 26:04.080
+ Do you see any of that data driven kind of computing systems
+
+26:04.080 --> 26:09.080
+ having a role in any part of this,
+
+26:09.480 --> 26:13.320
+ into the delivery of drugs, the design of drugs
+
+26:13.320 --> 26:15.240
+ and any part of the chain?
+
+26:15.240 --> 26:18.080
+ I do, I think that AI can be useful
+
+26:18.080 --> 26:20.040
+ in a number of parts of the chain.
+
+26:20.040 --> 26:22.880
+ I mean, one, I think if you get a large amount
+
+26:22.880 --> 26:26.320
+ of information, you know, say you have some chemical data
+
+26:26.320 --> 26:29.040
+ because you've done high throughput screens
+
+26:29.040 --> 26:30.600
+ and let's, I'll just make this up,
+
+26:30.600 --> 26:33.560
+ but let's say I have a, I'm trying to come up with a drug
+
+26:33.560 --> 26:37.800
+ to treat disease X, whatever that disease is
+
+26:37.800 --> 26:42.800
+ and I have a test for that and hopefully a fast test
+
+26:43.520 --> 26:47.520
+ and let's say I test 10,000 chemical substances
+
+26:47.520 --> 26:49.960
+ and a couple work, most of them don't work,
+
+26:49.960 --> 26:52.640
+ some maybe work a little, but if I had a,
+
+26:52.640 --> 26:54.920
+ with the right kind of artificial intelligence,
+
+26:54.920 --> 26:57.160
+ maybe you could look at the chemical structures
+
+26:57.160 --> 26:58.480
+ and look at what works and see
+
+26:58.480 --> 26:59.760
+ if there's certain commonalities,
+
+26:59.760 --> 27:02.480
+ look at what doesn't work and see what commonalities
+
+27:02.480 --> 27:05.240
+ there are and then maybe use that somehow
+
+27:05.240 --> 27:07.040
+ to predict the next generation of things
+
+27:07.040 --> 27:08.520
+ that you would test.
+
+27:08.520 --> 27:10.760
+ As a tangent, what are your thoughts
+
+27:10.760 --> 27:14.840
+ on our society's relationship with pharmaceutical drugs?
+
+27:14.840 --> 27:17.400
+ Do we, and perhaps I apologize
+
+27:17.400 --> 27:19.880
+ if this is a philosophical broader question,
+
+27:19.880 --> 27:22.240
+ but do we over rely on them?
+
+27:22.240 --> 27:24.720
+ Do we improperly prescribe them?
+
+27:24.720 --> 27:26.560
+ In what ways is the system working well
+
+27:26.560 --> 27:28.040
+ and what way can it improve?
+
+27:28.040 --> 27:33.040
+ Well, I think pharmaceutical drugs are really important.
+
+27:33.040 --> 27:37.080
+ I mean, the life expectancy and life quality of people
+
+27:37.080 --> 27:40.200
+ over many, many years has increased tremendously
+
+27:40.200 --> 27:42.120
+ and I think that's a really good thing.
+
+27:42.120 --> 27:44.080
+ I think one thing that would also be good
+
+27:44.080 --> 27:45.920
+ is if we could extend that more and more
+
+27:45.920 --> 27:47.720
+ to people in the developing world,
+
+27:47.720 --> 27:49.920
+ which is something that our lab has been doing
+
+27:49.920 --> 27:52.240
+ with the Gates Foundation or trying to do.
+
+27:53.800 --> 27:55.800
+ So I think ways in which it could improve,
+
+27:55.800 --> 27:59.320
+ I mean, if there was some way to reduce costs,
+
+27:59.320 --> 28:01.680
+ that's certainly an issue people are concerned about.
+
+28:01.680 --> 28:05.280
+ If there was some way to help people in poor countries,
+
+28:05.280 --> 28:06.880
+ that would also be a good thing.
+
+28:06.880 --> 28:10.680
+ And then of course, we still need to make better drugs
+
+28:10.680 --> 28:12.360
+ for so many diseases.
+
+28:12.360 --> 28:14.200
+ I mean, cancer, diabetes.
+
+28:14.200 --> 28:17.680
+ I mean, there's heart disease and rare diseases.
+
+28:17.680 --> 28:20.360
+ There are many, many situations where it'd be great
+
+28:20.360 --> 28:22.880
+ if we could do better and help more people.
+
+28:22.880 --> 28:27.760
+ Can we talk about another exciting space,
+
+28:27.760 --> 28:29.520
+ which is tissue engineering?
+
+28:29.520 --> 28:32.360
+ What is tissue engineering or regenerative medicine?
+
+28:32.360 --> 28:35.440
+ Yeah, so that tissue engineering or regenerative medicine
+
+28:35.440 --> 28:38.880
+ have to do with building an organ or tissue from scratch.
+
+28:38.880 --> 28:41.880
+ So someday maybe we can build a liver
+
+28:43.080 --> 28:47.360
+ or make new cartilage and also would enable you
+
+28:47.360 --> 28:49.960
+ to someday create organs on a chip,
+
+28:49.960 --> 28:52.520
+ which we and others are trying to do,
+
+28:52.520 --> 28:54.520
+ which might lead to better drug testing
+
+28:54.520 --> 28:57.920
+ and maybe less testing on animals or people.
+
+28:57.920 --> 29:01.240
+ Organs on a chip, that sounds fascinating.
+
+29:01.240 --> 29:06.120
+ So what are the various ways to generate tissue?
+
+29:06.120 --> 29:08.320
+ And how do, so is it, you know,
+
+29:08.320 --> 29:10.600
+ the one is of course from stem cells.
+
+29:10.600 --> 29:11.960
+ Is there other methods?
+
+29:11.960 --> 29:14.240
+ What are the different possible flavors here?
+
+29:14.240 --> 29:17.440
+ Yeah, well, I think, I mean, there's multiple components.
+
+29:17.440 --> 29:19.800
+ One is having generally some type of scaffold.
+
+29:19.800 --> 29:23.800
+ That's what Jay Vacanti and I started many, many years ago.
+
+29:23.800 --> 29:26.160
+ And then on that scaffold,
+
+29:26.160 --> 29:28.360
+ you might put different cell types,
+
+29:28.360 --> 29:30.600
+ which could be a cartilage cell, a bone cell,
+
+29:30.600 --> 29:32.640
+ could be a stem cell that might differentiate
+
+29:32.640 --> 29:35.520
+ into different things, could be more than one cell.
+
+29:35.520 --> 29:37.520
+ And the scaffold, sorry to interrupt,
+
+29:37.520 --> 29:39.680
+ is kind of like a canvas that's a structure
+
+29:39.680 --> 29:43.000
+ that you can, on which the cells can grow?
+
+29:43.000 --> 29:44.960
+ I think that's a good explanation what you just did.
+
+29:44.960 --> 29:47.840
+ I'll have to use that, the canvas, that's good.
+
+29:47.840 --> 29:49.600
+ Yeah, so I think that that's fair.
+
+29:49.600 --> 29:52.600
+ You know, and the chip could be such a canvas.
+
+29:52.600 --> 29:55.440
+ Could be fibers that are made of plastics
+
+29:55.440 --> 29:57.080
+ that you'd put in the body someday.
+
+29:57.080 --> 29:59.840
+ And when you say chip, do you mean electronic chip?
+
+29:59.840 --> 30:00.680
+ Like a...
+
+30:00.680 --> 30:02.160
+ Not necessarily, it could be though.
+
+30:02.160 --> 30:04.820
+ But it doesn't have to be, it could just be a structure
+
+30:04.820 --> 30:08.400
+ that's not in vivo, so to speak,
+
+30:08.400 --> 30:10.920
+ that's, you know, that's outside the body.
+
+30:10.920 --> 30:11.760
+ So is there...
+
+30:11.760 --> 30:13.280
+ Canvas is not a bad word.
+
+30:13.280 --> 30:18.280
+ So is there a possibility to weave into this canvas
+
+30:20.200 --> 30:22.160
+ a computational component?
+
+30:22.160 --> 30:23.880
+ So if we talk about electronic chips,
+
+30:23.880 --> 30:28.000
+ some ability to sense, control,
+
+30:28.000 --> 30:31.320
+ some aspect of this growth process for the tissue.
+
+30:31.320 --> 30:33.340
+ I would say the answer to that is yes.
+
+30:33.340 --> 30:36.760
+ I think right now people are working mostly
+
+30:36.760 --> 30:40.660
+ on validating these kinds of chips for saying,
+
+30:40.660 --> 30:43.560
+ well, it does work as effectively,
+
+30:43.560 --> 30:47.220
+ or hopefully as just putting something in the body.
+
+30:47.220 --> 30:49.380
+ But I think someday what you suggested,
+
+30:49.380 --> 30:51.240
+ you certainly would be possible.
+
+30:51.240 --> 30:53.600
+ So what kind of tissues can we engineer today?
+
+30:53.600 --> 30:54.440
+ What would, yeah.
+
+30:54.440 --> 30:57.200
+ Yeah, well, so skin's already been made
+
+30:57.200 --> 30:58.780
+ and approved by the FDA.
+
+30:58.780 --> 31:00.860
+ There are advanced clinical trials,
+
+31:00.860 --> 31:03.020
+ like what are called phase three trials,
+
+31:03.020 --> 31:05.440
+ that are at complete or near completion
+
+31:05.440 --> 31:08.360
+ for making new blood vessels.
+
+31:08.360 --> 31:10.480
+ One of my former students, Laura Nicholson,
+
+31:10.480 --> 31:11.620
+ led a lot of that.
+
+31:13.240 --> 31:14.160
+ Oh, that's amazing.
+
+31:14.160 --> 31:16.240
+ So human skin can be grown.
+
+31:16.240 --> 31:20.480
+ That's already approved in the entire, the FDA process.
+
+31:20.480 --> 31:22.380
+ So that means what,
+
+31:23.600 --> 31:27.920
+ so one, that means you can grow that tissue
+
+31:27.920 --> 31:30.040
+ and do various kinds of experiments
+
+31:30.040 --> 31:34.200
+ in terms of drugs and so on.
+
+31:34.200 --> 31:35.760
+ But what does that, does that mean
+
+31:35.760 --> 31:38.040
+ that some kind of healing and treatment
+
+31:38.040 --> 31:41.240
+ of different conditions for unhuman beings?
+
+31:41.240 --> 31:43.560
+ Yes, I mean, they've been approved now for,
+
+31:43.560 --> 31:45.180
+ I mean, different groups have made them,
+
+31:45.180 --> 31:47.620
+ different companies and different professors,
+
+31:47.620 --> 31:50.600
+ but they've been approved for burn victims
+
+31:50.600 --> 31:53.240
+ and for patients with diabetic skin ulcers.
+
+31:53.240 --> 31:54.080
+ That's amazing.
+
+31:54.960 --> 31:59.540
+ Okay, so skin, what else?
+
+31:59.540 --> 32:01.940
+ Well, at different stages,
+
+32:01.940 --> 32:05.240
+ people are, like skin, blood vessels,
+
+32:05.240 --> 32:08.580
+ there's clinical trials going now for helping patients
+
+32:08.580 --> 32:12.320
+ hear better, for patients that might be paralyzed,
+
+32:12.320 --> 32:15.480
+ for patients that have different eye problems.
+
+32:15.480 --> 32:18.400
+ I mean, and different groups have worked on
+
+32:18.400 --> 32:20.840
+ just about everything, new liver, new kidneys.
+
+32:20.840 --> 32:24.480
+ I mean, there've been all kinds of work done in this area.
+
+32:24.480 --> 32:26.680
+ Some of it's early, but there's certainly
+
+32:26.680 --> 32:27.680
+ a lot of activity.
+
+32:27.680 --> 32:29.300
+ What about neural tissue?
+
+32:30.300 --> 32:31.480
+ Yeah.
+
+32:31.480 --> 32:34.160
+ The nervous system and even the brain.
+
+32:34.160 --> 32:36.200
+ Well, there've been people out of working on that too.
+
+32:36.200 --> 32:37.440
+ We've done a little bit with that,
+
+32:37.440 --> 32:40.360
+ but there are people who've done a lot on neural stem cells
+
+32:40.360 --> 32:43.280
+ and I know Evan Snyder, who's been one of our collaborators
+
+32:43.280 --> 32:46.200
+ on some of our spinal cord works done work like that
+
+32:46.200 --> 32:48.040
+ and there've been other people as well.
+
+32:48.040 --> 32:51.120
+ Is there challenges for the,
+
+32:51.120 --> 32:52.800
+ when it is part of the human body,
+
+32:52.800 --> 32:55.780
+ is there challenges to getting the body to accept
+
+32:55.780 --> 32:58.040
+ this new tissue that's being generated?
+
+32:58.040 --> 33:00.120
+ How do you solve that kind of challenge?
+
+33:00.120 --> 33:02.780
+ There can be problems with accepting it.
+
+33:02.780 --> 33:04.600
+ I think maybe in particular,
+
+33:04.600 --> 33:07.160
+ you might mean rejection by the body.
+
+33:07.160 --> 33:09.340
+ So there are multiple ways that people are trying
+
+33:09.340 --> 33:10.180
+ to deal with that.
+
+33:10.180 --> 33:14.680
+ One way is, which was what we've done with Dan Anderson,
+
+33:14.680 --> 33:16.060
+ who was one of my former postdocs
+
+33:16.060 --> 33:19.520
+ and I mentioned this a little bit before for a pancreas,
+
+33:19.520 --> 33:20.840
+ is encapsulating the cells.
+
+33:20.840 --> 33:25.840
+ So immune cells or antibodies can't get in and attack them.
+
+33:26.880 --> 33:28.920
+ So that's a way to protect them.
+
+33:28.920 --> 33:33.920
+ Other strategies could be making the cells non immunogenic,
+
+33:34.240 --> 33:36.960
+ which might be done by different either techniques
+
+33:36.960 --> 33:40.760
+ which might mask them or using some gene editing approaches.
+
+33:40.760 --> 33:42.160
+ So there are different ways that people
+
+33:42.160 --> 33:43.600
+ are trying to do that.
+
+33:43.600 --> 33:45.560
+ And of course, if you use the patient's own cells
+
+33:45.560 --> 33:50.240
+ or cells from a close relative, that might be another way.
+
+33:50.240 --> 33:52.720
+ It increases the likelihood that it'll get accepted
+
+33:52.720 --> 33:54.440
+ if you use the patient's own cells.
+
+33:54.440 --> 33:55.320
+ Yes.
+
+33:55.320 --> 33:57.700
+ And then finally, there's immunosuppressive drugs,
+
+33:57.700 --> 34:00.320
+ which will suppress the immune response.
+
+34:00.320 --> 34:03.940
+ That's right now what's done, say, for a liver transplant.
+
+34:03.940 --> 34:06.240
+ The fact that this whole thing works is fascinating,
+
+34:06.240 --> 34:09.880
+ at least from my outside perspective.
+
+34:09.880 --> 34:13.220
+ Will we one day be able to regenerate any organ
+
+34:13.220 --> 34:15.640
+ or part of the human body?
+
+34:15.640 --> 34:16.880
+ Any of you?
+
+34:16.880 --> 34:19.400
+ I mean, it's exciting to think about future possibilities
+
+34:19.400 --> 34:20.680
+ of tissue engineering.
+
+34:22.720 --> 34:25.100
+ Do you see some tissues more difficult than others?
+
+34:25.100 --> 34:27.000
+ What are the possibilities here?
+
+34:27.000 --> 34:29.160
+ Yeah, well, of course, I'm an optimist.
+
+34:29.160 --> 34:30.760
+ And I also feel the timeframe,
+
+34:30.760 --> 34:32.320
+ if we're talking about someday,
+
+34:32.320 --> 34:33.860
+ someday could be hundreds of years.
+
+34:33.860 --> 34:36.080
+ But I think that, yes, someday,
+
+34:36.080 --> 34:39.280
+ I think we will be able to regenerate many things.
+
+34:39.280 --> 34:41.840
+ And there are different strategies that one might use.
+
+34:41.840 --> 34:44.840
+ One might use some cells themselves.
+
+34:44.840 --> 34:47.600
+ One might use some molecules
+
+34:47.600 --> 34:49.700
+ that might help regenerate the cells.
+
+34:49.700 --> 34:51.920
+ And so I think there are different possibilities.
+
+34:51.920 --> 34:54.720
+ What do you think that means for longevity?
+
+34:54.720 --> 34:59.720
+ If we look maybe not someday, but 10, 20 years out,
+
+35:00.000 --> 35:01.840
+ the possibilities of tissue engineering,
+
+35:01.840 --> 35:04.440
+ the possibilities of the research that you're doing,
+
+35:04.440 --> 35:06.800
+ does it have a significant impact
+
+35:06.800 --> 35:10.040
+ on the longevity of human life?
+
+35:10.040 --> 35:11.120
+ I don't know that we'll see
+
+35:11.120 --> 35:12.800
+ a radical increase in longevity,
+
+35:12.800 --> 35:15.900
+ but I think that in certain areas,
+
+35:15.900 --> 35:19.420
+ we'll see people live better lives
+
+35:19.420 --> 35:21.700
+ and maybe somewhat longer lives.
+
+35:21.700 --> 35:25.740
+ What's the most beautiful scientific idea
+
+35:25.740 --> 35:28.220
+ in bioengineering that you've come across
+
+35:28.220 --> 35:29.820
+ in your years of research?
+
+35:30.740 --> 35:33.460
+ I apologize for the romantic question.
+
+35:33.460 --> 35:35.460
+ No, that's an interesting question.
+
+35:35.460 --> 35:37.900
+ I certainly think what's happening right now
+
+35:37.900 --> 35:39.580
+ with CRISPR is a beautiful idea.
+
+35:39.580 --> 35:42.100
+ That certainly wasn't my idea.
+
+35:42.100 --> 35:45.980
+ I mean, but I think it's very interesting here
+
+35:45.980 --> 35:48.820
+ what people have capitalized on
+
+35:48.820 --> 35:52.980
+ is that there's a mechanism by which bacteria
+
+35:52.980 --> 35:54.780
+ are able to destroy viruses.
+
+35:54.780 --> 35:58.620
+ And that understanding that leads to machinery
+
+35:58.620 --> 36:03.620
+ to sort of cut and paste genes and fix a cell.
+
+36:06.860 --> 36:09.380
+ So that kind of, do you see a promise
+
+36:09.380 --> 36:13.700
+ for that kind of ability to copy and paste?
+
+36:13.700 --> 36:16.860
+ I mean, like we said, the human body is complicated.
+
+36:16.860 --> 36:21.860
+ Is that, that seems exceptionally difficult to do.
+
+36:23.260 --> 36:25.220
+ I think it is exceptionally difficult to do,
+
+36:25.220 --> 36:27.940
+ but that doesn't mean that it won't be done.
+
+36:27.940 --> 36:30.460
+ There's a lot of companies and people trying to do it.
+
+36:30.460 --> 36:32.500
+ And I think in some areas it will be done.
+
+36:32.500 --> 36:36.300
+ Some of the ways that you might lower the bar
+
+36:36.300 --> 36:38.260
+ are not, are just taking,
+
+36:39.180 --> 36:40.900
+ like not necessarily doing it directly,
+
+36:40.900 --> 36:45.780
+ but you could take a cell that might be useful,
+
+36:45.780 --> 36:48.740
+ but you want to give it some cancer killing capabilities,
+
+36:48.740 --> 36:50.980
+ something like what's called a CAR T cell.
+
+36:50.980 --> 36:52.380
+ And that might be a different way
+
+36:52.380 --> 36:56.260
+ of somehow making a CAR T cell and maybe making it better.
+
+36:56.260 --> 36:58.460
+ So there might be sort of easier things
+
+36:58.460 --> 37:01.540
+ and rather than just fixing the whole body.
+
+37:01.540 --> 37:04.100
+ So the way a lot of things have moved with medicine
+
+37:04.100 --> 37:06.140
+ over time is stepwise.
+
+37:06.140 --> 37:10.260
+ So I can see things that might be easier to do
+
+37:10.260 --> 37:11.860
+ than say, fix a brain.
+
+37:11.860 --> 37:13.940
+ That would be very hard to do,
+
+37:13.940 --> 37:16.420
+ but maybe someday that'll happen too.
+
+37:16.420 --> 37:19.260
+ So in terms of stepwise, that's an interesting notion.
+
+37:19.260 --> 37:24.100
+ Do you see that if you look at medicine or bioengineering,
+
+37:25.180 --> 37:29.140
+ do you see that there is these big leaps
+
+37:29.140 --> 37:33.460
+ that happen every decade or so, or some distant period,
+
+37:33.460 --> 37:36.500
+ or is it a lot of incremental work?
+
+37:36.500 --> 37:39.020
+ Not, I don't mean to reduce its impact
+
+37:39.020 --> 37:40.060
+ by saying it's incremental,
+
+37:40.060 --> 37:45.060
+ but is there sort of phase shifts in the science,
+
+37:46.300 --> 37:48.220
+ big leaps?
+
+37:48.220 --> 37:49.700
+ I think there's both.
+
+37:49.700 --> 37:53.020
+ Every so often a new technique or a new technology comes out.
+
+37:54.300 --> 37:56.660
+ I mean, genetic engineering was an example.
+
+37:56.660 --> 37:58.820
+ I mentioned CRISPR.
+
+37:58.820 --> 38:01.300
+ I think every so often things happen
+
+38:01.300 --> 38:03.340
+ that make a big difference,
+
+38:03.340 --> 38:07.580
+ but still there's to try to really make progress,
+
+38:07.580 --> 38:09.820
+ make a new drug, make a new device.
+
+38:09.820 --> 38:11.100
+ There's a lot of things.
+
+38:11.100 --> 38:12.740
+ I don't know if I'd call them incremental,
+
+38:12.740 --> 38:15.780
+ but there's a lot, a lot of work that needs to be done.
+
+38:15.780 --> 38:16.940
+ Absolutely.
+
+38:16.940 --> 38:20.900
+ So you have over, numbers could be off,
+
+38:20.900 --> 38:22.020
+ but it's a big amount.
+
+38:22.020 --> 38:25.340
+ You have over 1,100 current or pending patents
+
+38:25.340 --> 38:27.260
+ that have been licensed, sublicensed
+
+38:27.260 --> 38:28.740
+ to over 300 companies.
+
+38:29.660 --> 38:33.980
+ What's your view, what in your view are the strengths
+
+38:33.980 --> 38:36.660
+ and what are the drawbacks of the patenting process?
+
+38:36.660 --> 38:39.260
+ Well, I think for the most part, there's strengths.
+
+38:39.260 --> 38:42.220
+ I think that if you didn't have patents,
+
+38:42.220 --> 38:43.540
+ especially in medicine,
+
+38:43.540 --> 38:45.940
+ you'd never get the funding that it takes
+
+38:45.940 --> 38:47.660
+ to make a new drug or a new device.
+
+38:47.660 --> 38:49.420
+ I mean, which according to Tufts,
+
+38:49.420 --> 38:52.700
+ to make a new drug costs over $2 billion right now.
+
+38:52.700 --> 38:55.780
+ And nobody would even come close to giving you that money,
+
+38:55.780 --> 39:00.780
+ any of that money, if it weren't for the patent system,
+
+39:00.780 --> 39:03.100
+ because then anybody else could do it.
+
+39:03.100 --> 39:08.100
+ That then leads to the negative though.
+
+39:08.300 --> 39:11.860
+ Sometimes somebody does have a very successful drug
+
+39:11.860 --> 39:14.380
+ and you certainly wanna try to make it available
+
+39:14.380 --> 39:15.860
+ to everybody.
+
+39:15.860 --> 39:20.860
+ And so the patent system allowed it to happen
+
+39:21.140 --> 39:23.820
+ in the first place, but maybe it'll impede it
+
+39:23.820 --> 39:26.700
+ after a little bit, or certainly to some people
+
+39:26.700 --> 39:31.220
+ or to some companies, once it is out there.
+
+39:31.220 --> 39:34.660
+ What's the, on the point of the cost,
+
+39:34.660 --> 39:37.620
+ what would you say is the most expensive part
+
+39:37.620 --> 39:40.980
+ of the $2 billion of making a drug?
+
+39:40.980 --> 39:42.900
+ Human clinical trials.
+
+39:42.900 --> 39:44.620
+ That is by far the most expensive.
+
+39:44.620 --> 39:47.540
+ In terms of money or pain or both?
+
+39:47.540 --> 39:50.660
+ Well, money, but pain goes, it's hard to know.
+
+39:50.660 --> 39:54.140
+ I mean, but usually proving things that are,
+
+39:54.140 --> 39:57.740
+ proving that something new is safe and effective in people
+
+39:57.740 --> 40:00.420
+ is almost always the biggest expense.
+
+40:00.420 --> 40:02.740
+ Could you linger on that for just a little longer
+
+40:02.740 --> 40:06.300
+ and describe what it takes to prove,
+
+40:06.300 --> 40:09.580
+ for people that don't know, in general,
+
+40:09.580 --> 40:12.940
+ what it takes to prove that something is effective on humans?
+
+40:12.940 --> 40:17.660
+ Well, you'd have to take a particular disease,
+
+40:17.660 --> 40:20.460
+ but the process is you start out with,
+
+40:20.460 --> 40:21.980
+ usually you start out with cells,
+
+40:21.980 --> 40:23.420
+ then you'd go to animal models.
+
+40:23.420 --> 40:25.780
+ Usually you have to do a couple animal models.
+
+40:25.780 --> 40:28.660
+ And of course the animal models aren't perfect for humans.
+
+40:28.660 --> 40:31.060
+ And then you have to do three sets of clinical trials
+
+40:31.060 --> 40:34.140
+ at a minimum, a phase one trial to show that it's safe
+
+40:34.140 --> 40:36.580
+ in small number of patients, a phase two trial
+
+40:36.580 --> 40:39.220
+ to show that it's effective in a small number of patients,
+
+40:39.220 --> 40:42.500
+ and a phase three trial to show that it's safe and effective
+
+40:42.500 --> 40:44.540
+ in a large number of patients.
+
+40:44.540 --> 40:46.900
+ And that could end up being hundreds
+
+40:46.900 --> 40:49.260
+ or thousands of patients.
+
+40:49.260 --> 40:52.620
+ And they have to be really carefully controlled studies.
+
+40:52.620 --> 40:55.060
+ And you'd have to manufacture the drug,
+
+40:55.060 --> 40:58.860
+ you'd have to really watch those patients.
+
+40:58.860 --> 41:03.140
+ You have to be very concerned that it is gonna be safe.
+
+41:03.140 --> 41:07.500
+ And then you look and see, does it treat the disease better
+
+41:07.500 --> 41:10.860
+ than whatever the gold standard was before that?
+
+41:10.860 --> 41:12.780
+ Assuming there was one.
+
+41:12.780 --> 41:14.420
+ That's a really interesting line.
+
+41:14.420 --> 41:17.980
+ Show that it's safe first, and then that it's effective.
+
+41:17.980 --> 41:19.220
+ First do no harm.
+
+41:19.220 --> 41:21.380
+ First do no harm, that's right.
+
+41:21.380 --> 41:26.140
+ So how, again, if you can linger in a little bit,
+
+41:26.140 --> 41:28.260
+ how does the patenting process work?
+
+41:29.140 --> 41:32.660
+ Yeah, well, you do a certain amount of research,
+
+41:32.660 --> 41:35.300
+ though that's not necessarily has to be the case.
+
+41:35.300 --> 41:36.820
+ But for us, usually it is.
+
+41:36.820 --> 41:39.100
+ Usually we do a certain amount of research
+
+41:40.420 --> 41:41.860
+ and make some findings.
+
+41:41.860 --> 41:46.380
+ And we had a hypothesis, let's say we prove it,
+
+41:46.380 --> 41:49.580
+ or we make some discovery, we invent some technique.
+
+41:49.580 --> 41:52.940
+ And then we write something up, what's called a disclosure.
+
+41:52.940 --> 41:55.620
+ We give it to MIT's technology transfer office.
+
+41:55.620 --> 41:57.820
+ They then give it to some patent attorneys,
+
+41:57.820 --> 42:00.900
+ and they use that plus talking to us
+
+42:00.900 --> 42:03.740
+ and work on writing a patent.
+
+42:03.740 --> 42:07.700
+ And then you go back and forth with the USPTO,
+
+42:07.700 --> 42:09.900
+ that's the United States Patent and Trademark Office.
+
+42:09.900 --> 42:14.340
+ And they may not allow it the first, second or third time,
+
+42:14.340 --> 42:17.140
+ but they will tell you why they don't.
+
+42:17.140 --> 42:18.180
+ And you may adjust it,
+
+42:18.180 --> 42:21.540
+ and maybe you'll eventually get it, and maybe you won't.
+
+42:21.540 --> 42:24.980
+ So you've been part of launching 40 companies
+
+42:24.980 --> 42:28.500
+ together worth, again, numbers could be outdated,
+
+42:28.500 --> 42:30.780
+ but an estimated $23 billion.
+
+42:33.260 --> 42:34.700
+ You've described your thoughts
+
+42:34.700 --> 42:36.980
+ on a formula for startup success.
+
+42:36.980 --> 42:38.940
+ So perhaps you can describe that formula
+
+42:38.940 --> 42:41.540
+ and in general describe what does it take
+
+42:41.540 --> 42:43.260
+ to build a successful startup?
+
+42:44.180 --> 42:46.540
+ Well, I'd break that down into a couple of categories.
+
+42:46.540 --> 42:48.660
+ And I'm a scientist and certainly
+
+42:48.660 --> 42:50.700
+ from the science standpoint, I'll go over that.
+
+42:50.700 --> 42:54.180
+ But I actually think that really the most important thing
+
+42:54.180 --> 42:57.660
+ is probably the business people that I work with.
+
+42:57.660 --> 43:01.580
+ And when I look back at the companies that have done well,
+
+43:01.580 --> 43:03.860
+ it's been because we've had great business people.
+
+43:03.860 --> 43:05.220
+ And when they haven't done as well,
+
+43:05.220 --> 43:06.940
+ we haven't had as good business people.
+
+43:06.940 --> 43:08.820
+ But from a science standpoint,
+
+43:08.820 --> 43:11.460
+ I think about that we've made some kind of discovery
+
+43:12.540 --> 43:15.340
+ that is almost what I'd call a platform
+
+43:15.340 --> 43:17.860
+ that you could use it for different things.
+
+43:17.860 --> 43:20.540
+ And certainly the drug delivery system example
+
+43:20.540 --> 43:22.660
+ that I gave earlier is a good example of that.
+
+43:22.660 --> 43:25.660
+ You could use it for drug A, B, C, D, E and so forth.
+
+43:27.100 --> 43:30.420
+ And that I'd like to think that we've taken it far enough
+
+43:30.420 --> 43:33.300
+ so that we've written at least one really good paper
+
+43:33.300 --> 43:35.420
+ in a top journal, hopefully a number
+
+43:36.340 --> 43:39.340
+ that we've reduced it to practice and animal models
+
+43:39.340 --> 43:44.340
+ that we've filed patents, maybe had issued patents
+
+43:45.380 --> 43:48.340
+ that have what I'll call very good and broad claims.
+
+43:48.340 --> 43:50.860
+ That's sort of the key on a patent.
+
+43:50.860 --> 43:54.180
+ And then in our case, a lot of times when we've done it,
+
+43:55.020 --> 43:57.780
+ a lot of times it's somebody in the lab
+
+43:57.780 --> 43:59.380
+ like a postdoc or graduate student
+
+43:59.380 --> 44:01.740
+ that spent a big part of their life doing it
+
+44:01.740 --> 44:03.740
+ and that they wanna work at that company
+
+44:03.740 --> 44:04.780
+ because they have this passion
+
+44:04.780 --> 44:06.580
+ that they wanna see something they did
+
+44:06.580 --> 44:09.380
+ make a difference in people's lives.
+
+44:09.380 --> 44:12.980
+ Maybe you can mention the business component.
+
+44:12.980 --> 44:15.300
+ It's funny to hear Grace had to say
+
+44:15.300 --> 44:17.940
+ that there's value to business folks.
+
+44:17.940 --> 44:18.780
+ Oh yeah, well.
+
+44:18.780 --> 44:20.420
+ That's not always said.
+
+44:20.420 --> 44:25.220
+ So what value, what business instinct is valuable
+
+44:25.220 --> 44:29.180
+ to make a startup successful, a company successful?
+
+44:29.180 --> 44:32.180
+ I think the business aspects are,
+
+44:32.180 --> 44:35.740
+ you have to be a good judge of people
+
+44:35.740 --> 44:37.700
+ so that you hire the right people.
+
+44:37.700 --> 44:40.460
+ You have to be strategic so you figure out
+
+44:40.460 --> 44:41.820
+ if you do have that platform
+
+44:41.820 --> 44:44.700
+ that could be used for all these different things.
+
+44:44.700 --> 44:47.620
+ And knowing that medical research is so expensive,
+
+44:47.620 --> 44:49.180
+ what thing are you gonna do first, second,
+
+44:49.180 --> 44:51.980
+ third, fourth and fifth?
+
+44:51.980 --> 44:53.660
+ I think you need to have a good,
+
+44:53.660 --> 44:57.220
+ what I'll call FDA regulatory clinical trial strategy.
+
+44:58.100 --> 45:01.580
+ I think you have to be able to raise money incredibly.
+
+45:01.580 --> 45:02.740
+ So there are a lot of things.
+
+45:02.740 --> 45:05.260
+ You have to be good with people, good manager of people.
+
+45:05.260 --> 45:08.460
+ So the money and the people part I get,
+
+45:08.460 --> 45:13.020
+ but the stuff before in terms of deciding the A, B, C, D,
+
+45:13.020 --> 45:16.660
+ if you have a platform which drugs to first take a testing,
+
+45:16.660 --> 45:18.900
+ you see nevertheless scientists
+
+45:18.900 --> 45:22.580
+ as not being always too good at that process.
+
+45:22.580 --> 45:24.260
+ Well, I think they're a part of the process,
+
+45:24.260 --> 45:28.180
+ but I'd say there's probably, I'm gonna just make this up,
+
+45:28.180 --> 45:31.780
+ but maybe six or seven criteria that you wanna use
+
+45:31.780 --> 45:33.300
+ and it's not just science.
+
+45:33.300 --> 45:35.180
+ I mean, the kinds of things that I would think about
+
+45:35.180 --> 45:37.900
+ is, is the market big or small?
+
+45:37.900 --> 45:41.260
+ Is the, are there good animal models for it
+
+45:41.260 --> 45:44.320
+ so that you could test it and it wouldn't take 50 years?
+
+45:45.560 --> 45:48.420
+ Are the clinical trials that could be set up
+
+45:48.420 --> 45:51.960
+ ones that have clear end points
+
+45:51.960 --> 45:53.700
+ where you can make a judgment?
+
+45:53.700 --> 45:58.700
+ And another issue would be competition.
+
+45:58.860 --> 46:00.420
+ Are there other ways that some companies
+
+46:00.420 --> 46:01.540
+ out there are doing it?
+
+46:01.540 --> 46:04.860
+ Another issue would be reimbursement.
+
+46:05.820 --> 46:07.540
+ You know, can it get reimbursed?
+
+46:07.540 --> 46:10.180
+ So a lot of things that you have manufacturing issues
+
+46:10.180 --> 46:11.860
+ you'd wanna consider.
+
+46:11.860 --> 46:13.700
+ So I think there are really a lot of things
+
+46:13.700 --> 46:15.540
+ that go into whether you,
+
+46:15.540 --> 46:17.740
+ what you do first, second, third, or fourth.
+
+46:19.300 --> 46:23.100
+ So you lead one of the largest academic labs in the world
+
+46:23.100 --> 46:27.020
+ with over $10 million in annual grants
+
+46:27.020 --> 46:28.520
+ and over a hundred researchers,
+
+46:28.520 --> 46:31.740
+ probably over a thousand since the lab's beginning.
+
+46:31.740 --> 46:36.740
+ Researchers can be individualistic and eccentric.
+
+46:37.100 --> 46:38.580
+ How do I put it nicely?
+
+46:38.580 --> 46:40.000
+ There you go, eccentric.
+
+46:40.000 --> 46:43.140
+ So what insights into research leadership can you give
+
+46:43.140 --> 46:45.340
+ having to run such a successful lab
+
+46:45.340 --> 46:47.320
+ with so much diverse talent?
+
+46:49.440 --> 46:50.780
+ Well, I don't know that I'm any expert.
+
+46:50.780 --> 46:53.500
+ I think that what you do to me,
+
+46:53.500 --> 46:54.900
+ I mean, I just want,
+
+46:54.900 --> 46:56.380
+ I mean, this is gonna sound very simplistic,
+
+46:56.380 --> 46:58.940
+ but I just want people in the lab to be happy,
+
+46:58.940 --> 47:00.260
+ to be doing things that I hope
+
+47:00.260 --> 47:02.700
+ will make the world a better place,
+
+47:02.700 --> 47:04.460
+ to be working on science
+
+47:04.460 --> 47:06.140
+ that can make the world a better place.
+
+47:06.140 --> 47:09.820
+ And I guess my feeling is if we're able to do that,
+
+47:11.300 --> 47:13.940
+ you know, it kind of runs itself.
+
+47:13.940 --> 47:17.360
+ So how do you make a researcher happy in general?
+
+47:17.360 --> 47:19.260
+ I think when people feel,
+
+47:19.260 --> 47:21.460
+ I mean, this is gonna sound like, again,
+
+47:21.460 --> 47:23.600
+ simplistic or maybe like motherhood and apple pie,
+
+47:23.600 --> 47:26.540
+ but I think if people feel they're working on something
+
+47:26.540 --> 47:30.180
+ really important that can affect many other people's lives
+
+47:30.180 --> 47:32.600
+ and they're making some progress,
+
+47:32.600 --> 47:34.100
+ they'll feel good about it
+
+47:34.100 --> 47:35.420
+ and they'll feel good about themselves
+
+47:35.420 --> 47:37.240
+ and they'll be happy.
+
+47:37.240 --> 47:39.820
+ But through brainstorming and so on,
+
+47:39.820 --> 47:43.940
+ what's your role and how difficult is it as a group
+
+47:43.940 --> 47:48.940
+ in this collaboration to arrive at these big questions
+
+47:49.420 --> 47:51.100
+ that might have impact?
+
+47:51.100 --> 47:54.620
+ Well, the big questions come from many different ways.
+
+47:54.620 --> 47:57.420
+ Sometimes it's trying to, things that I might think of
+
+47:57.420 --> 47:59.500
+ or somebody in the lab might think of,
+
+47:59.500 --> 48:00.900
+ which could be a new technique
+
+48:00.900 --> 48:02.900
+ or to understand something better.
+
+48:02.900 --> 48:05.560
+ But gee, we've had people like Bill Gates
+
+48:05.560 --> 48:07.180
+ and the Gates Foundation come to us
+
+48:07.180 --> 48:10.140
+ and Juvenile Diabetes Foundation come to us and say,
+
+48:10.140 --> 48:11.740
+ gee, could you help us on these things?
+
+48:11.740 --> 48:13.540
+ And I mean, that's good too.
+
+48:13.540 --> 48:15.500
+ It doesn't happen just one way.
+
+48:16.900 --> 48:20.800
+ And I mean, you've kind of mentioned it, happiness,
+
+48:20.800 --> 48:24.720
+ but is there something more,
+
+48:24.720 --> 48:26.440
+ how do you inspire a researcher
+
+48:26.440 --> 48:28.300
+ to do the best work of their life?
+
+48:28.300 --> 48:32.660
+ So you mentioned passion and passion is a kind of fire.
+
+48:32.660 --> 48:35.980
+ Do you see yourself having a role to keep that fire going,
+
+48:35.980 --> 48:39.900
+ to build it up, to inspire the researchers
+
+48:39.900 --> 48:42.840
+ through the pretty difficult process
+
+48:42.840 --> 48:47.840
+ of going from idea to big question, to big answer?
+
+48:47.840 --> 48:48.680
+ I think so.
+
+48:48.680 --> 48:52.680
+ I think I try to do that by talking to people
+
+48:52.680 --> 48:56.840
+ going over their ideas and their progress.
+
+48:56.840 --> 49:00.000
+ I try to do it as an individual.
+
+49:00.000 --> 49:01.880
+ Certainly when I talk about my own career,
+
+49:01.880 --> 49:04.640
+ I had my setbacks at different times
+
+49:04.640 --> 49:06.920
+ and people know that, that know me.
+
+49:06.920 --> 49:11.920
+ And you just try to keep pushing and so forth.
+
+49:12.080 --> 49:15.760
+ But yeah, I think I try to do that.
+
+49:15.760 --> 49:17.920
+ But yeah, I think I try to do that
+
+49:17.920 --> 49:20.960
+ as the one who leads the lab.
+
+49:20.960 --> 49:23.320
+ So you have this exceptionally successful lab
+
+49:23.320 --> 49:27.400
+ and one of the great institutions in the world, MIT.
+
+49:29.280 --> 49:32.680
+ And yet sort of, at least in my neck of the woods
+
+49:32.680 --> 49:35.220
+ in computer science and artificial intelligence,
+
+49:36.560 --> 49:39.680
+ a lot of the research is kind of,
+
+49:40.520 --> 49:43.060
+ a lot of the great researchers, not everyone,
+
+49:43.060 --> 49:46.920
+ but some are kind of going to industry.
+
+49:46.920 --> 49:49.680
+ A lot of the research is moving to industry.
+
+49:49.680 --> 49:52.600
+ What do you think about the future of science in general?
+
+49:52.600 --> 49:54.440
+ Is there drawbacks?
+
+49:54.440 --> 49:57.080
+ Is there strength to the academic environment
+
+49:58.200 --> 49:59.920
+ that you hope will persist?
+
+49:59.920 --> 50:02.120
+ How does it need to change?
+
+50:02.120 --> 50:04.200
+ What needs to stay the same?
+
+50:04.200 --> 50:05.920
+ What are your thoughts on this whole landscape
+
+50:05.920 --> 50:08.000
+ of science and its future?
+
+50:08.000 --> 50:10.400
+ Well, first I think going to industry is good,
+
+50:10.400 --> 50:12.840
+ but I think being in academia is good.
+
+50:12.840 --> 50:15.240
+ You know, I have lots of students who've done both
+
+50:15.240 --> 50:18.480
+ and they've had great careers doing both.
+
+50:18.480 --> 50:21.280
+ I think from an academic standpoint,
+
+50:21.280 --> 50:24.920
+ I mean, the biggest concern probably that people feel today,
+
+50:24.920 --> 50:26.560
+ you know, at a place like MIT
+
+50:26.560 --> 50:30.240
+ or other research heavy institutions is gonna be funding
+
+50:30.240 --> 50:34.060
+ and particular funding that's not super directed,
+
+50:34.060 --> 50:37.080
+ you know, so that you can do basic research.
+
+50:37.080 --> 50:39.360
+ I think that's probably the number one thing,
+
+50:39.360 --> 50:43.400
+ but you know, it would be great if we as a society
+
+50:43.400 --> 50:45.640
+ could come up with better ways to teach,
+
+50:45.640 --> 50:49.200
+ you know, so that people all over could learn better.
+
+50:50.160 --> 50:51.820
+ You know, so I think there are a number of things
+
+50:51.820 --> 50:54.020
+ that would be good to be able to do better.
+
+50:55.320 --> 50:58.900
+ So again, you're very successful in terms of funding,
+
+50:58.900 --> 51:01.980
+ but do you still feel the pressure of that,
+
+51:01.980 --> 51:04.640
+ of having to seek funding?
+
+51:04.640 --> 51:07.420
+ Does it affect the science or is it,
+
+51:07.420 --> 51:11.260
+ or can you simply focus on doing the best work of your life
+
+51:11.260 --> 51:14.040
+ and the funding comes along with that?
+
+51:14.040 --> 51:16.240
+ I'd say the last 10 or 15 years,
+
+51:16.240 --> 51:18.460
+ we've done pretty well funding,
+
+51:18.460 --> 51:19.760
+ but I always worry about it.
+
+51:19.760 --> 51:23.640
+ You know, it's like you're still operating
+
+51:23.640 --> 51:25.860
+ on more soft money than hard.
+
+51:25.860 --> 51:27.760
+ And so I always worry about it,
+
+51:27.760 --> 51:32.760
+ but we've been fortunate that places have come to us
+
+51:33.000 --> 51:34.880
+ like the Gates Foundation and others,
+
+51:34.880 --> 51:37.600
+ Juvenile Diabetes Foundation, some companies,
+
+51:37.600 --> 51:39.760
+ and they're willing to give us funding
+
+51:39.760 --> 51:42.200
+ and we've gotten government money as well.
+
+51:42.200 --> 51:44.760
+ We have a number of NIH grants and I've always had that
+
+51:44.760 --> 51:47.180
+ and that's important to me too.
+
+51:47.180 --> 51:51.480
+ So I worry about it, but you know,
+
+51:51.480 --> 51:53.760
+ I just view that as a part of the process.
+
+51:53.760 --> 51:57.440
+ Now, if you put yourself in the shoes of a philanthropist,
+
+51:57.440 --> 52:02.200
+ like say I gave you $100 billion right now,
+
+52:02.200 --> 52:05.560
+ but you couldn't spend it on your own research.
+
+52:05.560 --> 52:10.560
+ So how hard is it to decide which labs to invest in,
+
+52:12.800 --> 52:16.460
+ which ideas, which problems, which solutions?
+
+52:16.460 --> 52:19.120
+ You know, cause funding is so much,
+
+52:19.120 --> 52:22.960
+ such an important part of progression of science
+
+52:22.960 --> 52:24.560
+ in today's society.
+
+52:24.560 --> 52:26.720
+ So if you put yourself in the shoes of a philanthropist,
+
+52:26.720 --> 52:27.560
+ how hard is that problem?
+
+52:27.560 --> 52:29.320
+ How would you go about solving it?
+
+52:29.320 --> 52:32.400
+ Sure, well, I think what I do, the first thing is different
+
+52:32.400 --> 52:34.760
+ philanthropists have different visions.
+
+52:34.760 --> 52:37.620
+ And I think the first thing is to form a concrete vision
+
+52:37.620 --> 52:38.460
+ of what you want.
+
+52:38.460 --> 52:41.100
+ Some people, I mean, I'll just give you two examples
+
+52:41.100 --> 52:44.320
+ of people that I know.
+
+52:44.320 --> 52:47.480
+ David Koch was very interested in cancer research
+
+52:47.480 --> 52:51.640
+ and part of that was that he had prostate cancer.
+
+52:51.640 --> 52:55.440
+ And a number of people do that along those lines.
+
+52:55.440 --> 52:57.960
+ They've had somebody, they've either had cancer themselves
+
+52:57.960 --> 53:00.000
+ or somebody they loved had cancer
+
+53:00.000 --> 53:02.700
+ and they wanna put money into cancer research.
+
+53:02.700 --> 53:04.160
+ Bill Gates, on the other hand,
+
+53:04.160 --> 53:06.480
+ I think when he had got his fortune,
+
+53:06.480 --> 53:08.560
+ I mean, he thought about it and felt, well,
+
+53:08.560 --> 53:10.180
+ how could he have the greatest impact?
+
+53:10.180 --> 53:12.520
+ And he thought about, you know, helping people
+
+53:12.520 --> 53:15.660
+ in the developing world and medicines
+
+53:15.660 --> 53:18.040
+ and different things like that, like vaccines
+
+53:18.040 --> 53:20.160
+ that might be really helpful for people
+
+53:20.160 --> 53:21.120
+ in the developing world.
+
+53:21.120 --> 53:25.720
+ And so I think first you start out with that vision.
+
+53:25.720 --> 53:29.440
+ Once you start out with that vision, whatever vision it is,
+
+53:29.440 --> 53:33.760
+ then I think you try to ask the question,
+
+53:33.760 --> 53:38.360
+ who in the world does the best work if that was your goal?
+
+53:38.360 --> 53:40.240
+ I mean, but you really, I think have to have
+
+53:40.240 --> 53:41.060
+ a defined vision.
+
+53:41.060 --> 53:41.900
+ Vision first.
+
+53:41.900 --> 53:45.080
+ Yeah, and I think that's what people do.
+
+53:45.080 --> 53:48.360
+ I mean, I have never seen anybody do it otherwise.
+
+53:48.360 --> 53:49.760
+ I mean, and that, by the way,
+
+53:49.760 --> 53:53.280
+ may not be the best thing overall.
+
+53:53.280 --> 53:55.600
+ I mean, I think it's good that all those things happen,
+
+53:55.600 --> 53:57.800
+ but, you know, what you really want to do,
+
+53:57.800 --> 54:00.440
+ and I'll make a contrast in a second,
+
+54:00.440 --> 54:02.680
+ in addition to funding important areas,
+
+54:02.680 --> 54:07.680
+ like what both of those people did, is to help young people.
+
+54:07.760 --> 54:10.120
+ And they may be at odds with each other
+
+54:10.120 --> 54:13.080
+ because a far more, a lab like ours,
+
+54:13.080 --> 54:15.680
+ which is, you know, I'm older, is, you know,
+
+54:15.680 --> 54:18.680
+ might be very good at addressing some of those kinds
+
+54:18.680 --> 54:20.680
+ of problems, but, you know, I'm not young.
+
+54:20.680 --> 54:22.720
+ I train a lot of people who are young,
+
+54:22.720 --> 54:24.480
+ but it's not the same as helping somebody
+
+54:24.480 --> 54:26.480
+ who's an assistant professor someplace.
+
+54:26.480 --> 54:30.960
+ So I think what's, I think, been good about our thing,
+
+54:30.960 --> 54:33.280
+ our society, or things overall,
+
+54:33.280 --> 54:35.040
+ are that there are people who come at it
+
+54:35.040 --> 54:37.840
+ from different ways, and the combination,
+
+54:37.840 --> 54:40.380
+ the confluence of the government funding,
+
+54:40.380 --> 54:43.880
+ the certain foundations that fund things,
+
+54:43.880 --> 54:46.640
+ and other foundations that, you know,
+
+54:46.640 --> 54:48.280
+ want to see disease treated,
+
+54:48.280 --> 54:51.480
+ well, then they can go seek out people,
+
+54:51.480 --> 54:53.240
+ or they can put a request for proposals
+
+54:53.240 --> 54:54.680
+ and see who does the best.
+
+54:54.680 --> 54:58.000
+ You know, I'd say both David Koch and Bill Gates
+
+54:58.000 --> 54:58.960
+ did exactly that.
+
+54:58.960 --> 55:02.200
+ They sought out people, both of them, you know,
+
+55:02.200 --> 55:04.200
+ or their foundations that they were involved in,
+
+55:04.200 --> 55:05.820
+ sought out people like myself.
+
+55:07.480 --> 55:10.220
+ But they also had requests for proposals.
+
+55:11.400 --> 55:12.720
+ Now, you mentioned young people,
+
+55:12.720 --> 55:14.160
+ and that reminds me of something you said
+
+55:14.160 --> 55:17.720
+ in an interview of Written Somewhere,
+
+55:17.720 --> 55:21.840
+ that said some of your initial struggles
+
+55:21.840 --> 55:26.660
+ in terms of finding a faculty position, or so on,
+
+55:28.200 --> 55:30.120
+ that you didn't quite, for people,
+
+55:30.120 --> 55:33.000
+ fit into a particular bucket, a particular.
+
+55:33.000 --> 55:33.840
+ Right.
+
+55:35.000 --> 55:36.320
+ Can you speak to that?
+
+55:38.240 --> 55:41.760
+ How, do you see limitations to the academic system
+
+55:41.760 --> 55:44.120
+ that it does have such buckets?
+
+55:44.120 --> 55:49.120
+ Is there, how can we allow for people
+
+55:49.120 --> 55:54.120
+ who are brilliant, but outside the disciplines
+
+55:56.400 --> 55:59.600
+ of the previous decade?
+
+55:59.600 --> 56:01.320
+ Yeah, well, I think that's a great question.
+
+56:01.320 --> 56:03.620
+ I think that, I think the department heads
+
+56:03.620 --> 56:07.040
+ have to have a vision, you know, and some of them do.
+
+56:07.040 --> 56:11.040
+ Every so often, you know, there are institutes
+
+56:11.040 --> 56:13.400
+ or labs that do that.
+
+56:13.400 --> 56:17.480
+ I mean, at MIT, I think that's done sometimes.
+
+56:17.480 --> 56:21.240
+ I know mechanical engineering department just had a search,
+
+56:21.240 --> 56:25.440
+ and they hired Gio Traverso, who is one of my,
+
+56:25.440 --> 56:28.200
+ he was a fellow with me, but he's actually
+
+56:28.200 --> 56:32.000
+ a molecular biologist and a gastroenterologist.
+
+56:32.000 --> 56:34.200
+ And, you know, he's one of the best in the world,
+
+56:34.200 --> 56:37.240
+ but he's also done some great mechanical engineering
+
+56:37.240 --> 56:39.800
+ and designing some new pills and things like that.
+
+56:39.800 --> 56:43.880
+ And they picked him, and boy, I give them a lot of credit.
+
+56:43.880 --> 56:46.880
+ I mean, that's vision, to pick somebody.
+
+56:46.880 --> 56:49.880
+ And I think, you know, they'll be the richer four.
+
+56:49.880 --> 56:52.120
+ I think the Media Lab has certainly hired, you know,
+
+56:52.120 --> 56:55.400
+ people like Ed Boyden and others who have done,
+
+56:55.400 --> 56:56.820
+ you know, very different things.
+
+56:56.820 --> 57:00.480
+ And so I think that, you know, that's part of the vision
+
+57:00.480 --> 57:03.560
+ of the leadership who do things like that.
+
+57:03.560 --> 57:07.320
+ Do you think one day, you've mentioned David Koch and cancer,
+
+57:07.320 --> 57:10.520
+ do you think one day we'll cure cancer?
+
+57:10.520 --> 57:12.240
+ Yeah, I mean, of course, one day,
+
+57:12.240 --> 57:14.280
+ I don't know how long that day will come.
+
+57:14.280 --> 57:15.120
+ Soon.
+
+57:15.120 --> 57:17.520
+ Yeah, soon, soon, no, but I think.
+
+57:17.520 --> 57:19.200
+ So you think it is a grand challenge,
+
+57:19.200 --> 57:20.120
+ it is a grand challenge,
+
+57:20.120 --> 57:22.680
+ it's not just solvable within a few years.
+
+57:22.680 --> 57:24.460
+ No, I don't think very many things
+
+57:24.460 --> 57:25.940
+ are solvable in a few years.
+
+57:25.940 --> 57:28.580
+ There's some good ideas that people are working on,
+
+57:28.580 --> 57:31.100
+ but I mean, all cancers, that's pretty tough.
+
+57:32.160 --> 57:35.000
+ If we do get the cure, what will the cure look like?
+
+57:35.000 --> 57:37.260
+ Do you think which mechanisms,
+
+57:37.260 --> 57:40.200
+ which disciplines will help us arrive at that cure
+
+57:40.200 --> 57:42.680
+ from all the amazing work you've done
+
+57:42.680 --> 57:44.000
+ that has touched on cancer?
+
+57:44.000 --> 57:45.520
+ No, I think it'll be a combination
+
+57:45.520 --> 57:46.800
+ of biology and engineering.
+
+57:46.800 --> 57:50.440
+ I think it'll be biology to understand
+
+57:50.440 --> 57:54.040
+ the right genetic mechanisms to solve this problem
+
+57:54.040 --> 57:56.400
+ and maybe the right immunological mechanisms
+
+57:56.400 --> 58:00.400
+ and engineering in the sense of producing the molecules,
+
+58:00.400 --> 58:02.200
+ developing the right delivery systems,
+
+58:02.200 --> 58:04.560
+ targeting it or whatever else needs to be done.
+
+58:05.680 --> 58:08.920
+ Well, that's a beautiful vision for engineering.
+
+58:08.920 --> 58:11.880
+ So on a lighter topic, I've read that you love chocolate
+
+58:11.880 --> 58:16.880
+ and mentioned two places, Ben and Bill's Chocolate Aquarium
+
+58:16.920 --> 58:20.280
+ and the chocolate cookies, the Soho Globs
+
+58:20.280 --> 58:22.620
+ from Rosie's Bakery in Chestnut Hill.
+
+58:22.620 --> 58:25.400
+ I went to their website and I was trying
+
+58:25.400 --> 58:26.960
+ to finish a paper last night.
+
+58:26.960 --> 58:30.700
+ There's a deadline today and yet I was wasting
+
+58:30.700 --> 58:34.200
+ way too much time at 3 a.m. instead of writing the paper,
+
+58:34.200 --> 58:36.400
+ staring at the Rosie Baker's cookies,
+
+58:36.400 --> 58:38.320
+ which are just look incredible.
+
+58:38.320 --> 58:40.680
+ The Soho Globs just look incredible.
+
+58:40.680 --> 58:44.680
+ But for me, oatmeal white raisin cookies won my heart
+
+58:44.680 --> 58:46.460
+ just from the pictures.
+
+58:46.460 --> 58:49.040
+ Do you think one day we'll be able to engineer
+
+58:49.040 --> 58:52.900
+ the perfect cookie with the help of chemistry
+
+58:52.900 --> 58:55.440
+ and maybe a bit of data driven artificial intelligence
+
+58:55.440 --> 59:00.440
+ or is cookies something that's more art than engineering?
+
+59:02.480 --> 59:03.600
+ I think there's some of both.
+
+59:03.600 --> 59:06.040
+ I think engineering will probably help someday.
+
+59:06.960 --> 59:08.640
+ What about chocolate?
+
+59:08.640 --> 59:09.900
+ Same thing, same thing.
+
+59:09.900 --> 59:12.840
+ You'd have to go to see some of David Edwards stuff.
+
+59:12.840 --> 59:15.840
+ He was one of my postdocs and he's a professor at Harvard
+
+59:15.840 --> 59:18.520
+ but he also started Cafe Art Sciences
+
+59:18.520 --> 59:22.440
+ and it's just a really cool restaurant around here.
+
+59:22.440 --> 59:26.960
+ But he also has companies that do ways
+
+59:26.960 --> 59:30.360
+ of looking at fragrances and trying to use engineering
+
+59:30.360 --> 59:34.280
+ in new ways and so I think that's just an example.
+
+59:34.280 --> 59:38.200
+ But I expect someday that AI and engineering
+
+59:38.200 --> 59:40.920
+ will play a role in almost everything.
+
+59:40.920 --> 59:42.640
+ Including creating the perfect cookie.
+
+59:42.640 --> 59:43.480
+ Yes.
+
+59:43.480 --> 59:45.240
+ Well, I dream of that day as well.
+
+59:45.240 --> 59:47.760
+ So when you look back at your life,
+
+59:47.760 --> 59:50.640
+ having accomplished an incredible amount of positive impact
+
+59:50.640 --> 59:53.600
+ on the world through science and engineering,
+
+59:53.600 --> 59:56.320
+ what are you most proud of?
+
+59:56.320 --> 59:59.400
+ My students, I really feel when I look at that,
+
+59:59.400 --> 1:00:02.320
+ we've probably had close to 1,000 students
+
+1:00:02.320 --> 1:00:06.760
+ go through the lab and they've done incredibly well.
+
+1:00:06.760 --> 1:00:09.720
+ I think 18 are in the National Academy of Engineering,
+
+1:00:09.720 --> 1:00:12.280
+ 16 in the National Academy of Medicine.
+
+1:00:12.280 --> 1:00:15.280
+ I mean, they've been CEOs of companies,
+
+1:00:15.280 --> 1:00:19.460
+ presidents of universities and they've done,
+
+1:00:19.460 --> 1:00:21.200
+ I think eight are faculty at MIT,
+
+1:00:21.200 --> 1:00:22.940
+ maybe about 12 at Harvard.
+
+1:00:22.940 --> 1:00:25.680
+ I mean, so it really makes you feel good
+
+1:00:25.680 --> 1:00:28.780
+ to think that the people, they're not my children
+
+1:00:28.780 --> 1:00:31.200
+ but they're close to my children in a way
+
+1:00:31.200 --> 1:00:32.720
+ and it makes you feel really good
+
+1:00:32.720 --> 1:00:34.660
+ to see them have such great lives
+
+1:00:34.660 --> 1:00:36.800
+ and them do so much good and be happy.
+
+1:00:37.760 --> 1:00:40.080
+ Well, I think that's a perfect way to end it, Bob.
+
+1:00:40.080 --> 1:00:41.160
+ Thank you so much for talking to me.
+
+1:00:41.160 --> 1:00:41.980
+ My pleasure.
+
+1:00:41.980 --> 1:00:42.820
+ It was an honor.
+
+1:00:42.820 --> 1:00:43.660
+ Good questions.
+
+1:00:43.660 --> 1:00:44.480
+ Thank you.
+
+1:00:44.480 --> 1:00:48.000
+ Thanks for listening to this conversation with Bob Langer
+
+1:00:48.000 --> 1:00:52.120
+ and thank you to our sponsors, Cash App and Masterclass.
+
+1:00:52.120 --> 1:00:53.980
+ Please consider supporting the podcast
+
+1:00:53.980 --> 1:00:58.640
+ by downloading Cash App and using code LexPodcast
+
+1:00:58.640 --> 1:01:02.720
+ and signing up at masterclass.com slash Lex.
+
+1:01:02.720 --> 1:01:05.360
+ Click on the links, buy all the stuff.
+
+1:01:05.360 --> 1:01:07.240
+ It's the best way to support this podcast
+
+1:01:07.240 --> 1:01:11.240
+ and the journey I'm on in my research and startup.
+
+1:01:11.240 --> 1:01:13.840
+ If you enjoy this thing, subscribe on YouTube,
+
+1:01:13.840 --> 1:01:16.140
+ review it with 5,000 Apple Podcast,
+
+1:01:16.140 --> 1:01:19.080
+ support it on Patreon or connect with me on Twitter
+
+1:01:19.080 --> 1:01:24.080
+ at Lex Friedman, spelled without the E, just F R I D M A N.
+
+1:01:25.360 --> 1:01:28.080
+ And now let me leave you with some words from Bill Bryson
+
+1:01:28.080 --> 1:01:31.120
+ in his book, A Short History of Nearly Everything.
+
+1:01:31.120 --> 1:01:33.880
+ If this book has a lesson,
+
+1:01:33.880 --> 1:01:36.480
+ it is that we're awfully lucky to be here.
+
+1:01:36.480 --> 1:01:39.640
+ And by we, I mean every living thing.
+
+1:01:39.640 --> 1:01:42.500
+ To attain any kind of life in this universe of ours
+
+1:01:42.500 --> 1:01:44.800
+ appears to be quite an achievement.
+
+1:01:44.800 --> 1:01:47.460
+ As humans, we're doubly lucky, of course.
+
+1:01:47.460 --> 1:01:50.080
+ We enjoy not only the privilege of existence,
+
+1:01:50.080 --> 1:01:53.460
+ but also the singular ability to appreciate it
+
+1:01:53.460 --> 1:01:57.600
+ and even in a multitude of ways to make it better.
+
+1:01:57.600 --> 1:02:01.800
+ It is talent we have only barely begun to grasp.
+
+1:02:01.800 --> 1:02:28.800
+ Thank you for listening and hope to see you next time.
+

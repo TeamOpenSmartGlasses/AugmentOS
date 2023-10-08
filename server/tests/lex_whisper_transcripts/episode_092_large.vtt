@@ -1,0 +1,7544 @@
+WEBVTT
+
+00:00.000 --> 00:03.000
+ The following is a conversation with Harry Cliff,
+
+00:03.000 --> 00:05.760
+ a particle physicist at the University of Cambridge,
+
+00:05.760 --> 00:09.840
+ working on the Large Hadron Collider beauty experiment
+
+00:09.840 --> 00:13.000
+ that specializes in investigating the slight differences
+
+00:13.000 --> 00:15.280
+ between matter and antimatter
+
+00:15.280 --> 00:18.400
+ by studying a type of particle called the beauty quark
+
+00:18.400 --> 00:19.880
+ or b quark.
+
+00:19.880 --> 00:22.280
+ In this way, he's part of the group of physicists
+
+00:22.280 --> 00:25.120
+ who are searching for the evidence of new particles
+
+00:25.120 --> 00:26.920
+ that can answer some of the biggest questions
+
+00:26.920 --> 00:28.280
+ in modern physics.
+
+00:28.280 --> 00:31.840
+ He's also an exceptional communicator of science
+
+00:31.840 --> 00:34.880
+ with some of the clearest and most captivating explanations
+
+00:34.880 --> 00:37.440
+ of basic concepts in particle physicists
+
+00:37.440 --> 00:39.560
+ that I've ever heard.
+
+00:39.560 --> 00:42.960
+ So when I visited London, I knew I had to talk to him.
+
+00:42.960 --> 00:44.920
+ And we did this conversation
+
+00:44.920 --> 00:47.280
+ at the Royal Institute Lecture Theatre,
+
+00:47.280 --> 00:50.520
+ which has hosted lectures for over two centuries
+
+00:50.520 --> 00:52.120
+ from some of the greatest scientists
+
+00:52.120 --> 00:54.160
+ and science communicators in history,
+
+00:54.160 --> 00:57.680
+ from Michael Faraday to Carl Sagan.
+
+00:57.680 --> 00:59.080
+ This conversation was recorded
+
+00:59.080 --> 01:01.240
+ before the outbreak of the pandemic.
+
+01:01.240 --> 01:03.440
+ For everyone feeling the medical and psychological
+
+01:03.440 --> 01:05.440
+ and financial burden of this crisis,
+
+01:05.440 --> 01:07.360
+ I'm sending love your way.
+
+01:07.360 --> 01:08.400
+ Stay strong.
+
+01:08.400 --> 01:09.560
+ We're in this together.
+
+01:09.560 --> 01:11.160
+ We'll beat this thing.
+
+01:11.160 --> 01:13.840
+ This is the Artificial Intelligence Podcast.
+
+01:13.840 --> 01:15.920
+ If you enjoy it, subscribe on YouTube,
+
+01:15.920 --> 01:18.320
+ review it with five stars on Apple Podcast,
+
+01:18.320 --> 01:19.520
+ support it on Patreon,
+
+01:19.520 --> 01:21.400
+ or simply connect with me on Twitter
+
+01:21.400 --> 01:25.080
+ at Lex Friedman, spelled F R I D M A N.
+
+01:25.080 --> 01:27.120
+ As usual, I'll do a few minutes of ads now
+
+01:27.120 --> 01:28.400
+ and never any ads in the middle
+
+01:28.400 --> 01:30.560
+ that can break the flow of the conversation.
+
+01:30.560 --> 01:31.880
+ I hope that works for you
+
+01:31.880 --> 01:35.040
+ and doesn't hurt the listening experience.
+
+01:35.040 --> 01:36.480
+ Quick summary of the ads.
+
+01:36.480 --> 01:40.000
+ Two sponsors, ExpressVPN and Cash App.
+
+01:40.000 --> 01:41.680
+ Please consider supporting the podcast
+
+01:41.680 --> 01:46.680
+ by getting ExpressVPN at expressvpn.com slash lexpod
+
+01:46.720 --> 01:50.880
+ and downloading Cash App and using code lexpodcast.
+
+01:50.880 --> 01:52.800
+ This show is presented by Cash App,
+
+01:52.800 --> 01:55.200
+ the number one finance app in the App Store.
+
+01:55.200 --> 01:58.400
+ When you get it, use code lexpodcast.
+
+01:58.400 --> 02:01.280
+ Cash App lets you send money to friends, buy Bitcoin,
+
+02:01.280 --> 02:04.480
+ and invest in the stock market with as little as $1.
+
+02:04.480 --> 02:06.800
+ Since Cash App does fractional share trading,
+
+02:06.800 --> 02:09.600
+ let me mention that the order execution algorithm
+
+02:09.600 --> 02:11.000
+ that works behind the scenes
+
+02:11.000 --> 02:13.720
+ to create the abstraction of the fractional orders
+
+02:13.720 --> 02:15.800
+ is an algorithmic marvel.
+
+02:15.800 --> 02:17.720
+ So big props to the Cash App engineers
+
+02:17.720 --> 02:20.200
+ for solving a hard problem that in the end
+
+02:20.200 --> 02:22.680
+ provides an easy interface that takes a step up
+
+02:22.680 --> 02:25.720
+ to the next layer of abstraction over the stock market,
+
+02:25.720 --> 02:28.560
+ making trading more accessible for new investors
+
+02:28.560 --> 02:31.480
+ and diversification much easier.
+
+02:31.480 --> 02:34.840
+ So again, you get Cash App from the App Store or Google Play
+
+02:34.840 --> 02:38.400
+ and use the code lexpodcast, you get $10
+
+02:38.400 --> 02:41.520
+ and Cash App will also donate $10 to First,
+
+02:41.520 --> 02:43.960
+ an organization that is helping advance robotics
+
+02:43.960 --> 02:46.880
+ and STEM education for young people around the world.
+
+02:47.880 --> 02:50.720
+ This show is sponsored by ExpressVPN.
+
+02:50.720 --> 02:54.720
+ Get it at expressvpn.com slash lexpod
+
+02:54.720 --> 02:57.600
+ to get a discount and to support this podcast.
+
+02:57.600 --> 03:01.240
+ I've been using ExpressVPN for many years, I love it.
+
+03:01.240 --> 03:04.080
+ It's easy to use, press the big power on button
+
+03:04.080 --> 03:05.960
+ and your privacy is protected.
+
+03:05.960 --> 03:08.360
+ And if you like, you can make it look
+
+03:08.360 --> 03:11.360
+ like your location is anywhere else in the world.
+
+03:11.360 --> 03:13.880
+ I might be in Boston now, but I can make it look
+
+03:13.880 --> 03:17.700
+ like I'm in New York, London, Paris, or anywhere else.
+
+03:17.700 --> 03:20.180
+ This has a large number of obvious benefits.
+
+03:20.180 --> 03:23.380
+ Certainly, it allows you to access international versions
+
+03:23.380 --> 03:26.380
+ of streaming websites like the Japanese Netflix
+
+03:26.380 --> 03:28.460
+ or the UK Hulu.
+
+03:28.460 --> 03:31.380
+ ExpressVPN works on any device you can imagine.
+
+03:31.380 --> 03:35.780
+ I use it on Linux, shout out to Ubuntu, Windows, Android,
+
+03:35.780 --> 03:38.100
+ but it's available everywhere else too.
+
+03:38.100 --> 03:43.100
+ Once again, get it at expressvpn.com slash lexpod
+
+03:43.100 --> 03:46.580
+ to get a discount and to support this podcast.
+
+03:46.580 --> 03:50.980
+ And now, here's my conversation with Harry Kliff.
+
+03:51.900 --> 03:54.160
+ Let's start with probably one of the coolest things
+
+03:54.160 --> 03:56.140
+ that human beings have ever created,
+
+03:56.140 --> 03:58.980
+ the Large Hadron Collider, OHC.
+
+04:00.000 --> 04:00.940
+ What is it?
+
+04:00.940 --> 04:02.180
+ How does it work?
+
+04:02.180 --> 04:05.260
+ Okay, so it's essentially this gigantic
+
+04:05.260 --> 04:08.340
+ 27 kilometer circumference particle accelerator.
+
+04:08.340 --> 04:09.540
+ It's this big ring.
+
+04:09.540 --> 04:12.100
+ It's buried about 100 meters underneath the surface
+
+04:12.100 --> 04:14.700
+ in the countryside just outside Geneva in Switzerland.
+
+04:14.700 --> 04:17.060
+ And really what it's for, ultimately,
+
+04:17.060 --> 04:20.380
+ is to try to understand what are the basic building blocks
+
+04:20.380 --> 04:21.640
+ of the universe.
+
+04:21.640 --> 04:23.060
+ So you can think of it in a way
+
+04:23.060 --> 04:24.540
+ as like a gigantic microscope,
+
+04:24.540 --> 04:28.500
+ and the analogy is actually fairly precise, so.
+
+04:28.500 --> 04:30.060
+ Gigantic microscope.
+
+04:30.060 --> 04:32.580
+ Effectively, except it's a microscope
+
+04:32.580 --> 04:36.180
+ that looks at the structure of the vacuum.
+
+04:36.180 --> 04:39.520
+ In order for this kind of thing to study particles,
+
+04:40.500 --> 04:44.420
+ which are the microscopic entities, it has to be huge.
+
+04:44.420 --> 04:45.780
+ It's a gigantic microscope.
+
+04:45.780 --> 04:48.580
+ So what do you mean by studying vacuum?
+
+04:48.580 --> 04:51.960
+ Okay, so I mean, so particle physics as a field
+
+04:51.960 --> 04:53.460
+ is kind of badly named in a way,
+
+04:53.460 --> 04:56.620
+ because particles are not the fundamental ingredients
+
+04:56.620 --> 04:57.740
+ of the universe.
+
+04:57.740 --> 04:58.940
+ They're not fundamental at all.
+
+04:58.940 --> 05:00.180
+ So the things that we believe
+
+05:00.180 --> 05:02.340
+ are the real building blocks of the universe
+
+05:02.340 --> 05:05.420
+ are objects, invisible fluid like objects
+
+05:05.420 --> 05:07.420
+ called quantum fields.
+
+05:07.420 --> 05:10.200
+ So these are fields like the magnetic field
+
+05:10.200 --> 05:12.620
+ around a magnet that exists everywhere in space.
+
+05:12.620 --> 05:13.620
+ They're always there.
+
+05:13.620 --> 05:15.020
+ In fact, actually, it's funny that we're
+
+05:15.020 --> 05:15.860
+ in the Royal Institution,
+
+05:15.860 --> 05:19.000
+ because this is where the idea of the field
+
+05:19.000 --> 05:21.260
+ was effectively invented by Michael Faraday
+
+05:21.260 --> 05:23.840
+ doing experiments with magnets and coils of wire.
+
+05:23.840 --> 05:26.060
+ So he noticed that, you know,
+
+05:26.060 --> 05:28.420
+ it was a very famous experiment that he did
+
+05:28.420 --> 05:31.220
+ where he got a magnet and put on top of it a piece of paper
+
+05:31.220 --> 05:32.680
+ and then sprinkled iron filings.
+
+05:32.680 --> 05:34.620
+ And he found the iron filings arranged themselves
+
+05:34.620 --> 05:36.420
+ into these kind of loops,
+
+05:37.460 --> 05:40.300
+ which was actually mapping out the invisible influence
+
+05:40.300 --> 05:42.400
+ of this magnetic field, which is a thing, you know,
+
+05:42.400 --> 05:44.740
+ we've all experienced, we've all felt, held a magnet
+
+05:44.740 --> 05:46.500
+ or two poles of magnet and pushed them together
+
+05:46.500 --> 05:48.620
+ and felt this thing, this force pushing back.
+
+05:48.620 --> 05:51.020
+ So these are real physical objects.
+
+05:51.020 --> 05:53.820
+ And the way we think of particles in modern physics
+
+05:53.820 --> 05:56.660
+ is that they are essentially little vibrations,
+
+05:56.660 --> 06:00.260
+ little ripples in these otherwise invisible fields
+
+06:00.260 --> 06:01.420
+ that are everywhere.
+
+06:01.420 --> 06:03.260
+ They fill the whole universe.
+
+06:03.260 --> 06:05.860
+ You know, I don't, I apologize perhaps
+
+06:05.860 --> 06:07.420
+ for the ridiculous question.
+
+06:07.420 --> 06:10.240
+ Are you comfortable with the idea
+
+06:10.240 --> 06:14.140
+ of the fundamental nature of our reality being fields?
+
+06:14.140 --> 06:17.540
+ Because to me, particles, you know,
+
+06:17.540 --> 06:20.620
+ a bunch of different building blocks makes more sense
+
+06:20.620 --> 06:22.600
+ sort of intellectually, sort of visually,
+
+06:22.600 --> 06:26.680
+ like it seems to, I seem to be able to visualize
+
+06:26.680 --> 06:28.620
+ that kind of idea easier.
+
+06:28.620 --> 06:31.740
+ Are you comfortable psychologically with the idea
+
+06:31.740 --> 06:35.300
+ that the basic building block is not a block, but a field?
+
+06:35.300 --> 06:38.220
+ I think it's, I think it's quite a magical idea.
+
+06:38.220 --> 06:39.400
+ I find it quite appealing.
+
+06:39.400 --> 06:42.020
+ And it's, well, it comes from a misunderstanding
+
+06:42.020 --> 06:43.180
+ of what particles are.
+
+06:43.180 --> 06:45.460
+ So like when you, when we do science at school
+
+06:45.460 --> 06:46.740
+ and we draw a picture of an atom,
+
+06:46.740 --> 06:49.180
+ you draw like, you know, a nucleus with some protons
+
+06:49.180 --> 06:50.940
+ and neutrons, these little spheres in the middle,
+
+06:50.940 --> 06:53.540
+ and then you have some electrons that are like little flies
+
+06:53.540 --> 06:54.820
+ flying around the atom.
+
+06:54.820 --> 06:56.460
+ And that is a completely misleading picture
+
+06:56.460 --> 06:57.700
+ of what an atom is like.
+
+06:57.700 --> 06:58.540
+ It's nothing like that.
+
+06:58.540 --> 07:01.980
+ The electron is not like a little planet orbiting the atom.
+
+07:01.980 --> 07:05.900
+ It's this spread out, wibbly wobbly wave like thing.
+
+07:05.900 --> 07:07.420
+ And we know we've known that since, you know,
+
+07:07.420 --> 07:10.140
+ the early 20th century, thanks to quantum mechanics.
+
+07:10.140 --> 07:13.220
+ So when we, we, we carry on using this word particle
+
+07:13.220 --> 07:15.780
+ because sometimes when we do experiments,
+
+07:15.780 --> 07:17.980
+ particles do behave like they're little marbles
+
+07:17.980 --> 07:19.260
+ or little bullets, you know.
+
+07:19.260 --> 07:22.580
+ So in the LHC, when we collide particles together,
+
+07:22.580 --> 07:25.080
+ you'll get, you know, you'll get like hundreds of particles
+
+07:25.080 --> 07:26.300
+ all flying out through the detector
+
+07:26.300 --> 07:28.660
+ and they all take a trajectory and you can see
+
+07:28.660 --> 07:29.940
+ from the detector where they've gone
+
+07:29.940 --> 07:31.420
+ and they look like they're little bullets.
+
+07:31.420 --> 07:35.380
+ So they behave that way, you know, a lot of the time.
+
+07:35.380 --> 07:37.620
+ When you really study them carefully,
+
+07:37.620 --> 07:40.100
+ you'll see that they are not little spheres.
+
+07:40.100 --> 07:43.220
+ They are these ethereal disturbances
+
+07:43.220 --> 07:44.940
+ in these underlying fields.
+
+07:44.940 --> 07:48.460
+ So this is really how we think nature is,
+
+07:48.460 --> 07:51.640
+ which is surprising, but also I think kind of magic.
+
+07:51.640 --> 07:54.580
+ So, you know, we are, our bodies are basically made up
+
+07:54.580 --> 07:56.860
+ of like little knots of energy
+
+07:56.860 --> 08:00.280
+ in these invisible objects that are all around us.
+
+08:00.280 --> 08:05.280
+ And what is the story of the vacuum when it comes to LHC?
+
+08:07.760 --> 08:09.920
+ So why did you mention the word vacuum?
+
+08:09.920 --> 08:13.040
+ Okay, so if we just, if we go back to like the physics,
+
+08:13.040 --> 08:13.920
+ we do know.
+
+08:13.920 --> 08:16.320
+ So atoms are made of electrons,
+
+08:16.320 --> 08:18.260
+ which were discovered a hundred or so years ago.
+
+08:18.260 --> 08:20.000
+ And then in the nucleus of the atom,
+
+08:20.000 --> 08:21.720
+ you have two other types of particles.
+
+08:21.720 --> 08:23.480
+ There's an up, something called an up quark
+
+08:23.480 --> 08:24.420
+ and a down quark.
+
+08:24.420 --> 08:27.920
+ And those three particles make up every atom in the universe.
+
+08:27.920 --> 08:30.640
+ So we think of these as ripples in fields.
+
+08:30.640 --> 08:34.300
+ So there is something called the electron field
+
+08:34.300 --> 08:37.440
+ and every electron in the universe is a ripple moving
+
+08:37.440 --> 08:39.080
+ about in this electron field.
+
+08:39.080 --> 08:40.800
+ So the electron field is all around us, we can't see it,
+
+08:40.800 --> 08:42.920
+ but every electron in our body is a little ripple
+
+08:42.920 --> 08:45.600
+ in this thing that's there all the time.
+
+08:45.600 --> 08:46.960
+ And the quark fields are the same.
+
+08:46.960 --> 08:48.960
+ So there's an up quark field and an up quark
+
+08:48.960 --> 08:50.240
+ is a little ripple in the up quark field.
+
+08:50.240 --> 08:51.720
+ And the down quark is a little ripple
+
+08:51.720 --> 08:53.340
+ in something else called the down quark field.
+
+08:53.340 --> 08:55.000
+ So these fields are always there.
+
+08:55.000 --> 08:58.880
+ Now there are potentially, we know about a certain number
+
+08:58.880 --> 09:00.440
+ of fields in what we call the standard model
+
+09:00.440 --> 09:01.320
+ of particle physics.
+
+09:01.320 --> 09:04.040
+ And the most recent one we discovered was the Higgs field.
+
+09:04.040 --> 09:07.080
+ And the way we discovered the Higgs field
+
+09:07.080 --> 09:08.620
+ was to make a little ripple in it.
+
+09:08.620 --> 09:12.520
+ So what the LHC did, it fired two protons into each other,
+
+09:12.520 --> 09:14.920
+ very, very hard with enough energy
+
+09:14.920 --> 09:18.460
+ that you could create a disturbance in this Higgs field.
+
+09:18.460 --> 09:20.840
+ And that's what shows up as what we call the Higgs boson.
+
+09:20.840 --> 09:22.940
+ So this particle that everyone was going on about
+
+09:22.940 --> 09:25.800
+ eight or so years ago is proof really,
+
+09:25.800 --> 09:28.500
+ the particle in itself is, I mean, it's interesting,
+
+09:28.500 --> 09:30.620
+ but the thing that's really interesting is the field.
+
+09:30.620 --> 09:33.900
+ Because it's the Higgs field that we believe
+
+09:33.900 --> 09:38.280
+ is the reason that electrons and quarks have mass.
+
+09:38.280 --> 09:41.000
+ And it's that invisible field that's always there
+
+09:41.000 --> 09:42.480
+ that gives mass to the particles.
+
+09:42.480 --> 09:44.360
+ The Higgs boson is just our way
+
+09:44.360 --> 09:46.340
+ of checking it's there basically.
+
+09:46.340 --> 09:49.160
+ And so the Large Hadron Collider,
+
+09:49.160 --> 09:51.900
+ in order to get that ripple in the Higgs field,
+
+09:51.900 --> 09:54.380
+ it requires a huge amount of energy.
+
+09:54.380 --> 09:55.220
+ Yeah, I suppose.
+
+09:55.220 --> 09:57.000
+ And so that's why you need this huge,
+
+09:57.000 --> 09:58.360
+ that's why size matters here.
+
+09:58.360 --> 10:01.440
+ So maybe there's a million questions here,
+
+10:01.440 --> 10:02.640
+ but let's backtrack.
+
+10:02.640 --> 10:07.640
+ Why does size matter in the context of a particle collider?
+
+10:09.960 --> 10:14.960
+ So why does bigger allow you for higher energy collisions?
+
+10:15.760 --> 10:18.500
+ Right, so the reason, well, it's kind of simple really,
+
+10:18.500 --> 10:21.080
+ which is that there are two types of particle accelerator
+
+10:21.080 --> 10:21.920
+ that you can build.
+
+10:21.920 --> 10:23.640
+ One is circular, which is like the LHC,
+
+10:23.640 --> 10:25.680
+ the other is a great long line.
+
+10:25.680 --> 10:28.560
+ So the advantage of a circular machine
+
+10:28.560 --> 10:30.580
+ is that you can send particles around a ring
+
+10:30.580 --> 10:32.560
+ and you can give them a kick every time they go around.
+
+10:32.560 --> 10:34.700
+ So imagine you have a, there's actually a bit of the LHC,
+
+10:34.700 --> 10:36.800
+ that's about only 30 meters long,
+
+10:36.800 --> 10:38.720
+ where you have a bunch of metal boxes,
+
+10:38.720 --> 10:41.800
+ which have oscillating 2 million volt electric fields
+
+10:41.800 --> 10:44.360
+ inside them, which are timed so that when a proton
+
+10:44.360 --> 10:45.560
+ goes through one of these boxes,
+
+10:45.560 --> 10:48.240
+ the field it sees as it approaches is attractive.
+
+10:48.240 --> 10:49.200
+ And then as it leaves the box,
+
+10:49.200 --> 10:51.240
+ it flips and becomes repulsive
+
+10:51.240 --> 10:52.520
+ and the proton gets attracted
+
+10:52.520 --> 10:55.060
+ and kicked out the other side, so it gets a bit faster.
+
+10:55.060 --> 10:57.160
+ So you send it, and then you send it back round again.
+
+10:57.160 --> 10:59.440
+ And it's incredible, like the timing of that,
+
+10:59.440 --> 11:01.160
+ the synchronization, wait, really?
+
+11:01.160 --> 11:02.760
+ Yeah, yeah, yeah, yeah.
+
+11:02.760 --> 11:05.520
+ I think there's going to be a multiplicative effect
+
+11:05.520 --> 11:06.720
+ on the questions I have.
+
+11:06.720 --> 11:10.880
+ Is, okay, let me just take that attention for a second.
+
+11:12.520 --> 11:15.120
+ The orchestration of that, is that fundamentally
+
+11:15.120 --> 11:17.600
+ a hardware problem or a software problem?
+
+11:17.600 --> 11:20.120
+ Like what, how do you get that?
+
+11:20.120 --> 11:22.680
+ I mean, I should first of all say, I'm not an engineer.
+
+11:22.680 --> 11:24.640
+ So the guys, I did not build the LHC,
+
+11:24.640 --> 11:26.840
+ so they're people much, much better at this stuff than I.
+
+11:26.840 --> 11:28.240
+ For sure, but maybe.
+
+11:30.120 --> 11:33.680
+ But from your sort of intuition,
+
+11:33.680 --> 11:37.440
+ from the echoes of what you understand,
+
+11:37.440 --> 11:40.560
+ what you heard of how it's designed, what's your sense?
+
+11:40.560 --> 11:43.360
+ What's the engineering aspects of it?
+
+11:43.360 --> 11:45.400
+ The acceleration bit is not challenging.
+
+11:45.400 --> 11:47.120
+ Okay, I mean, okay, there's always challenges
+
+11:47.120 --> 11:50.280
+ with everything, but basically you have these,
+
+11:50.280 --> 11:53.600
+ the beams that go around the LHC, the beams of particles
+
+11:53.600 --> 11:55.480
+ are divided into little bunches.
+
+11:55.480 --> 11:57.800
+ So they're called, they're a bit like swarms of bees,
+
+11:57.800 --> 12:00.280
+ if you like, and there are around,
+
+12:00.280 --> 12:04.040
+ I think it's something of the order 2000 bunches
+
+12:04.040 --> 12:05.280
+ spaced around the ring.
+
+12:05.280 --> 12:07.800
+ And they, if you're at a given point on the ring,
+
+12:07.800 --> 12:10.120
+ counting bunches, you get 40 million bunches
+
+12:10.120 --> 12:11.240
+ passing you every second.
+
+12:11.240 --> 12:14.200
+ So they come in like cars going past
+
+12:14.200 --> 12:16.000
+ on a very fast motorway.
+
+12:16.000 --> 12:18.280
+ So you need to have, if you're an electric field
+
+12:18.280 --> 12:20.400
+ that you're using to accelerate the particles,
+
+12:20.400 --> 12:23.800
+ that needs to be timed so that as a bunch of protons arrives,
+
+12:23.800 --> 12:26.080
+ it's got the right sign to attract them
+
+12:26.080 --> 12:27.600
+ and then flips at the right moment.
+
+12:27.600 --> 12:29.600
+ But I think the voltage in those boxes
+
+12:29.600 --> 12:31.200
+ oscillates at hundreds of megahertz.
+
+12:31.200 --> 12:33.280
+ So the beams are like 40 megahertz,
+
+12:33.280 --> 12:35.200
+ but it's oscillating much more quickly than the beam.
+
+12:35.200 --> 12:37.640
+ So I think it's difficult engineering,
+
+12:37.640 --> 12:41.480
+ but in principle, it's not a really serious challenge.
+
+12:41.480 --> 12:42.320
+ The bigger problem.
+
+12:42.320 --> 12:44.600
+ There's probably engineers like screaming at you right now.
+
+12:44.600 --> 12:46.400
+ Probably, but I mean, okay.
+
+12:46.400 --> 12:47.880
+ So in terms of coming back to this thing,
+
+12:47.880 --> 12:48.760
+ why is it so big?
+
+12:48.760 --> 12:51.520
+ Well, the reason is you wanna get the particles
+
+12:51.520 --> 12:54.160
+ through that accelerating element over and over again.
+
+12:54.160 --> 12:55.280
+ So you wanna bring them back round.
+
+12:55.280 --> 12:56.320
+ So that's why it's round.
+
+12:56.320 --> 12:58.640
+ The question is why couldn't you make it smaller?
+
+12:58.640 --> 13:01.360
+ Well, the basic answer is that these particles
+
+13:01.360 --> 13:03.120
+ are going unbelievably quickly.
+
+13:03.120 --> 13:08.120
+ So they travel at 99.9999991% of the speed of light
+
+13:09.880 --> 13:11.360
+ in the LHC.
+
+13:11.360 --> 13:12.520
+ And if you think about, say,
+
+13:12.520 --> 13:16.040
+ driving your car around a corner at high speed,
+
+13:16.040 --> 13:19.520
+ if you go fast, you need a lot of friction in the tires
+
+13:19.520 --> 13:21.200
+ to make sure you don't slide off the road.
+
+13:21.200 --> 13:26.200
+ So the limiting factor is how powerful a magnet can you make
+
+13:26.560 --> 13:28.480
+ because what we do is magnets are used
+
+13:28.480 --> 13:30.960
+ to bend the particles around the ring.
+
+13:30.960 --> 13:33.120
+ And essentially the LHC, when it was designed,
+
+13:33.120 --> 13:35.200
+ was designed with the most powerful magnets
+
+13:35.200 --> 13:37.920
+ that could conceivably be built at the time.
+
+13:37.920 --> 13:40.400
+ And so that's your kind of limiting factor.
+
+13:40.400 --> 13:41.800
+ So if you wanted to make the machine smaller,
+
+13:41.800 --> 13:42.840
+ that means a tighter bend,
+
+13:42.840 --> 13:44.280
+ you need to have a more powerful magnet.
+
+13:44.280 --> 13:48.200
+ So it's this toss up between how strong are your magnets
+
+13:48.200 --> 13:49.920
+ versus how big a tunnel can you afford.
+
+13:49.920 --> 13:51.560
+ The bigger the tunnel, the weaker the magnets can be.
+
+13:51.560 --> 13:54.080
+ The smaller the tunnel, the stronger they've gotta be.
+
+13:54.080 --> 13:57.680
+ Okay, so maybe can we backtrack to the Standard Model
+
+13:57.680 --> 14:00.800
+ and say what kind of particles there are, period,
+
+14:00.800 --> 14:04.560
+ and maybe the history of kind of assembling
+
+14:04.560 --> 14:06.880
+ that the Standard Model of physics
+
+14:06.880 --> 14:10.400
+ and then how that leads up to the hopes and dreams
+
+14:10.400 --> 14:12.800
+ and the accomplishments of the Large Hadron Collider.
+
+14:12.800 --> 14:14.000
+ Yeah, sure, okay.
+
+14:14.000 --> 14:16.720
+ So all of 20th century physics in like five minutes.
+
+14:16.720 --> 14:17.560
+ Yeah, please.
+
+14:17.560 --> 14:21.280
+ Okay, so, okay, the story really begins properly.
+
+14:21.280 --> 14:24.760
+ End of the 19th century, the basic view of matter
+
+14:24.760 --> 14:26.720
+ is that matter is made of atoms
+
+14:26.720 --> 14:30.280
+ and the atoms are indestructible, immutable little spheres
+
+14:30.280 --> 14:31.480
+ like the things we were talking about
+
+14:31.480 --> 14:32.600
+ that don't really exist.
+
+14:32.600 --> 14:35.280
+ And there's one atom for every chemical element.
+
+14:35.280 --> 14:36.880
+ So there's an atom for hydrogen, for helium,
+
+14:36.880 --> 14:39.800
+ for carbon, for iron, et cetera, and they're all different.
+
+14:39.800 --> 14:41.880
+ Then in 1897, experiments done
+
+14:41.880 --> 14:43.280
+ at the Cavendish Laboratory in Cambridge,
+
+14:43.280 --> 14:45.840
+ which is where I'm still, where I'm based,
+
+14:45.840 --> 14:48.720
+ showed that there are actually smaller particles
+
+14:48.720 --> 14:51.640
+ inside the atom, which eventually became known as electrons.
+
+14:51.640 --> 14:53.200
+ So these are these negatively charged things
+
+14:53.200 --> 14:54.840
+ that go around the outside.
+
+14:54.840 --> 14:57.080
+ A few years later, Ernest Rutherford,
+
+14:57.080 --> 14:58.680
+ very famous nuclear physicist,
+
+14:58.680 --> 15:00.000
+ one of the pioneers of nuclear physics
+
+15:00.000 --> 15:03.480
+ shows that the atom has a tiny nugget in the center,
+
+15:03.480 --> 15:04.400
+ which we call the nucleus,
+
+15:04.400 --> 15:05.840
+ which is a positively charged object.
+
+15:05.840 --> 15:09.080
+ So then by like 1910, 11, we have this model of the atom
+
+15:09.080 --> 15:09.960
+ that we learn in school,
+
+15:09.960 --> 15:13.240
+ which is you've got a nucleus, electrons go around it.
+
+15:13.240 --> 15:16.280
+ Fast forward a few years, the nucleus,
+
+15:16.280 --> 15:18.480
+ people start doing experiments with radioactivity
+
+15:18.480 --> 15:20.840
+ where they use alpha particles
+
+15:20.840 --> 15:24.520
+ that are spat out of radioactive elements as bullets,
+
+15:24.520 --> 15:26.800
+ and they fire them at other atoms.
+
+15:26.800 --> 15:28.560
+ And by banging things into each other,
+
+15:28.560 --> 15:31.200
+ they see that they can knock bits out of the nucleus.
+
+15:31.200 --> 15:33.880
+ So these things come out called protons, first of all,
+
+15:33.880 --> 15:36.040
+ which are positively charged particles
+
+15:36.040 --> 15:38.800
+ about 2000 times heavier than the electron.
+
+15:38.800 --> 15:41.160
+ And then 10 years later, more or less,
+
+15:41.160 --> 15:43.880
+ a neutral particle is discovered called the neutron.
+
+15:43.880 --> 15:47.000
+ So those are the three basic building blocks of atoms.
+
+15:47.000 --> 15:49.400
+ You have protons and neutrons in the nucleus
+
+15:49.400 --> 15:51.800
+ that are stuck together by something called the strong force,
+
+15:51.800 --> 15:53.200
+ the strong nuclear force,
+
+15:53.200 --> 15:55.800
+ and you have electrons in orbit around that,
+
+15:55.800 --> 15:57.920
+ held in by the electromagnetic force,
+
+15:57.920 --> 16:00.440
+ which is one of the forces of nature.
+
+16:00.440 --> 16:03.840
+ That's sort of where we get to by like 1932, more or less.
+
+16:04.840 --> 16:07.440
+ Then what happens is physics is nice and neat.
+
+16:07.440 --> 16:09.520
+ In 1932, everything looks great, got three particles
+
+16:09.520 --> 16:11.160
+ and all the atoms are made of, that's fine.
+
+16:11.160 --> 16:13.960
+ But then cloud chamber experiments.
+
+16:13.960 --> 16:16.000
+ These are devices that can be used to,
+
+16:16.000 --> 16:18.600
+ the first device is capable of imaging subatomic particles
+
+16:18.600 --> 16:19.600
+ so you can see their tracks.
+
+16:19.600 --> 16:21.760
+ And they're used to study cosmic rays,
+
+16:21.760 --> 16:23.760
+ particles that come from outer space
+
+16:23.760 --> 16:25.640
+ and bang into the atmosphere.
+
+16:25.640 --> 16:28.120
+ And in these experiments,
+
+16:28.120 --> 16:29.840
+ people start to see a whole load of new particles.
+
+16:29.840 --> 16:31.560
+ So they discover for one thing antimatter,
+
+16:31.560 --> 16:34.440
+ which is the sort of a mirror image of the particles.
+
+16:34.440 --> 16:35.960
+ So we discovered that there's also,
+
+16:35.960 --> 16:37.440
+ as well as a negatively charged electron,
+
+16:37.440 --> 16:38.520
+ there's something called a positron,
+
+16:38.520 --> 16:40.480
+ which is a positively charged version of the electron.
+
+16:40.480 --> 16:43.240
+ And there's an antiproton, which is negatively charged.
+
+16:43.240 --> 16:45.600
+ And then a whole load of other weird particles
+
+16:45.600 --> 16:46.480
+ start to get discovered.
+
+16:46.480 --> 16:48.800
+ And no one really knows what they are.
+
+16:48.800 --> 16:50.960
+ This is known as the zoo of particles.
+
+16:50.960 --> 16:55.160
+ Are these discoveries from the first theoretical discoveries
+
+16:55.160 --> 16:58.360
+ or are they discoveries in an experiment?
+
+16:58.360 --> 17:01.120
+ So like, yeah, what's the process of discovery
+
+17:01.120 --> 17:03.280
+ for these early sets of particles?
+
+17:03.280 --> 17:04.120
+ It's a mixture.
+
+17:04.120 --> 17:06.040
+ The early stuff around the atom is really
+
+17:06.040 --> 17:07.200
+ experimentally driven.
+
+17:07.200 --> 17:09.000
+ It's not based on some theory.
+
+17:09.000 --> 17:11.640
+ It's exploration in the lab using equipment.
+
+17:11.640 --> 17:12.920
+ So it's really people just figuring out,
+
+17:12.920 --> 17:14.400
+ getting hands on with the phenomena,
+
+17:14.400 --> 17:16.000
+ figuring out what these things are.
+
+17:16.000 --> 17:17.600
+ And the theory comes a bit later.
+
+17:17.600 --> 17:18.880
+ That's not always the case.
+
+17:18.880 --> 17:22.480
+ So in the discovery of the anti electron, the positron,
+
+17:22.480 --> 17:26.160
+ that was predicted from quantum mechanics and relativity
+
+17:26.160 --> 17:30.320
+ by a very clever theoretical physicist called Paul Dirac,
+
+17:30.320 --> 17:33.240
+ who was probably the second brightest physicist
+
+17:33.240 --> 17:34.920
+ of the 20th century, apart from Einstein,
+
+17:34.920 --> 17:36.720
+ but isn't anywhere near as well known.
+
+17:36.720 --> 17:39.240
+ So he predicted the existence of the anti electron
+
+17:39.240 --> 17:41.880
+ from basically a combination of the theories
+
+17:41.880 --> 17:43.240
+ of quantum mechanics and relativity.
+
+17:43.240 --> 17:44.720
+ And it was discovered about a year after
+
+17:44.720 --> 17:46.000
+ he made the prediction.
+
+17:46.000 --> 17:49.160
+ What happens when an electron meets a positron?
+
+17:49.160 --> 17:50.680
+ They annihilate each other.
+
+17:50.680 --> 17:54.400
+ So when you bring a particle and its antiparticle together,
+
+17:54.400 --> 17:56.440
+ they react, well, they don't react,
+
+17:56.440 --> 17:58.520
+ they just wipe each other out and they turn,
+
+17:58.520 --> 18:00.040
+ their mass is turned into energy,
+
+18:00.040 --> 18:03.440
+ usually in the form of photons, so you get light produced.
+
+18:03.440 --> 18:06.920
+ So when you have that kind of situation,
+
+18:06.920 --> 18:08.880
+ why does the universe exist at all
+
+18:08.880 --> 18:10.320
+ if there's matter in any matter?
+
+18:10.320 --> 18:12.080
+ Oh God, now we're getting into the really big questions.
+
+18:12.080 --> 18:15.680
+ So, do you wanna go there now?
+
+18:15.680 --> 18:19.000
+ Let's, maybe let's go there later.
+
+18:19.000 --> 18:20.600
+ Cause that, I mean, that is a very big question.
+
+18:20.600 --> 18:23.720
+ Yeah, let's take it slow with the standard model.
+
+18:23.720 --> 18:28.240
+ So, okay, so there's matter and antimatter in the 30s.
+
+18:28.240 --> 18:29.520
+ So what else?
+
+18:29.520 --> 18:30.400
+ So matter and antimatter,
+
+18:30.400 --> 18:33.400
+ and then a load of new particles start turning up
+
+18:33.400 --> 18:36.880
+ in these cosmic ray experiments, first of all.
+
+18:36.880 --> 18:40.120
+ And they don't seem to be particles that make up atoms.
+
+18:40.120 --> 18:41.080
+ They're something else.
+
+18:41.080 --> 18:44.120
+ They all mostly interact with a strong nuclear force.
+
+18:44.120 --> 18:46.480
+ So they're a bit like protons and neutrons.
+
+18:46.480 --> 18:50.280
+ And by, in the 1960s in America, particularly,
+
+18:50.280 --> 18:52.320
+ but also in Europe and Russia,
+
+18:52.320 --> 18:54.160
+ scientists started to build particle accelerators.
+
+18:54.160 --> 18:55.800
+ So these are the forerunners of the LHC.
+
+18:55.800 --> 18:58.280
+ So big ring shaped machines that were, you know,
+
+18:58.280 --> 19:00.720
+ hundreds of meters long, which in those days was enormous.
+
+19:00.720 --> 19:02.760
+ You never, you know, most physics up until that point
+
+19:02.760 --> 19:04.840
+ had been done in labs, in universities, you know,
+
+19:04.840 --> 19:06.240
+ with small bits of kit.
+
+19:06.240 --> 19:07.160
+ So this is a big change.
+
+19:07.160 --> 19:08.920
+ And when these accelerators are built,
+
+19:08.920 --> 19:10.680
+ they start to find they can produce
+
+19:10.680 --> 19:12.160
+ even more of these particles.
+
+19:12.160 --> 19:16.440
+ So I don't know the exact numbers, but by around 1960,
+
+19:16.440 --> 19:19.320
+ there are of order a hundred of these things
+
+19:19.320 --> 19:20.160
+ that have been discovered.
+
+19:20.160 --> 19:22.720
+ And physicists are kind of tearing their hair out
+
+19:22.720 --> 19:25.040
+ because physics is all about simplification.
+
+19:25.040 --> 19:28.080
+ And suddenly what was simple has become messy
+
+19:28.080 --> 19:29.720
+ and complicated and everyone sort of wants
+
+19:29.720 --> 19:31.640
+ to understand what's going on.
+
+19:31.640 --> 19:34.600
+ As a quick kind of aside and probably really dumb question,
+
+19:34.600 --> 19:38.720
+ but how is it possible to take something like a,
+
+19:38.720 --> 19:43.720
+ like a photon or electron and be able to control it enough,
+
+19:44.000 --> 19:49.000
+ like to be able to do a controlled experiment
+
+19:49.000 --> 19:51.480
+ where you collide it against something else?
+
+19:51.480 --> 19:52.320
+ Yeah.
+
+19:52.320 --> 19:55.920
+ Is that, is that, that seems like an exceptionally difficult
+
+19:55.920 --> 19:59.520
+ engineering challenge because you mentioned vacuum too.
+
+19:59.520 --> 20:03.200
+ So you basically want to remove every other distraction
+
+20:03.200 --> 20:04.760
+ and really focus on this collision.
+
+20:04.760 --> 20:06.840
+ How difficult of an engineering challenge is that?
+
+20:06.840 --> 20:07.840
+ Just to get a sense.
+
+20:07.840 --> 20:09.680
+ And it is very hard.
+
+20:09.680 --> 20:10.920
+ I mean, in the early days,
+
+20:10.920 --> 20:12.960
+ particularly when the first accelerators are being built
+
+20:12.960 --> 20:17.880
+ in like 1932, Ernest Lawrence builds the first,
+
+20:17.880 --> 20:18.880
+ what we call a cyclotron,
+
+20:18.880 --> 20:21.760
+ which is like a little accelerator, this big or so.
+
+20:21.760 --> 20:22.600
+ There's another one.
+
+20:22.600 --> 20:23.420
+ Is it really that big?
+
+20:23.420 --> 20:24.260
+ There's a tiny little thing.
+
+20:24.260 --> 20:25.100
+ Yeah.
+
+20:25.100 --> 20:27.840
+ So most of the first accelerators
+
+20:27.840 --> 20:31.000
+ were what we call fixed target experiments.
+
+20:31.000 --> 20:34.100
+ So you had a ring, you accelerate particles around the ring
+
+20:34.100 --> 20:37.480
+ and then you fire them out the side into some target.
+
+20:37.480 --> 20:39.480
+ So that makes the kind of,
+
+20:39.480 --> 20:41.320
+ the colliding bit is relatively straightforward
+
+20:41.320 --> 20:42.360
+ because you just fire it,
+
+20:42.360 --> 20:43.660
+ whatever it is you want to fire it at.
+
+20:43.660 --> 20:46.200
+ The hard bit is the steering the beams
+
+20:46.200 --> 20:47.760
+ with the magnetic fields, getting, you know,
+
+20:47.760 --> 20:49.560
+ strong enough electric fields to accelerate them,
+
+20:49.560 --> 20:50.400
+ all that kind of stuff.
+
+20:50.400 --> 20:53.760
+ The first colliders where you have two beams
+
+20:53.760 --> 20:56.680
+ colliding head on, that comes later.
+
+20:56.680 --> 21:01.680
+ And I don't think it's done until maybe the 1980s.
+
+21:01.920 --> 21:05.360
+ I'm not entirely sure, but it's a much harder problem.
+
+21:05.360 --> 21:06.200
+ That's crazy.
+
+21:06.200 --> 21:09.880
+ Cause you have to like perfectly get them to hit each other.
+
+21:09.880 --> 21:13.120
+ I mean, we're talking about, I mean, what scale it takes,
+
+21:13.120 --> 21:18.120
+ what's the, I mean, the temporal thing is a giant mess,
+
+21:18.160 --> 21:23.160
+ but the spatially, like the size is tiny.
+
+21:23.160 --> 21:26.060
+ Well, to give you a sense of the LHC beams,
+
+21:26.060 --> 21:31.060
+ the cross sectional diameter is I think around a dozen
+
+21:31.620 --> 21:32.820
+ or so microns.
+
+21:32.820 --> 21:37.060
+ So, you know, 10 millionths of a meter.
+
+21:37.060 --> 21:39.900
+ And a beam, sorry, just to clarify,
+
+21:39.900 --> 21:41.340
+ a beam contains how many,
+
+21:41.340 --> 21:43.060
+ is it the bunches that you mentioned?
+
+21:43.060 --> 21:45.060
+ Is it multiple particles or is it just one particle?
+
+21:45.060 --> 21:45.900
+ Oh no, no.
+
+21:45.900 --> 21:48.920
+ The bunches contains say a hundred billion protons each.
+
+21:48.920 --> 21:51.020
+ So a bunch is, it's not really bunch shaped.
+
+21:51.020 --> 21:51.900
+ They're actually quite long.
+
+21:51.900 --> 21:53.660
+ They're like 30 centimeters long,
+
+21:53.660 --> 21:54.860
+ but thinner than a human hair.
+
+21:54.860 --> 21:58.420
+ So like very, very narrow, long sort of objects.
+
+21:58.420 --> 21:59.260
+ Those are the things.
+
+21:59.260 --> 22:02.260
+ So what happens in the LHC is you steer the beams
+
+22:02.260 --> 22:06.080
+ so that they cross in the middle of the detector.
+
+22:06.080 --> 22:08.540
+ So they basically have these swarms of protons
+
+22:08.540 --> 22:10.160
+ that are flying through each other.
+
+22:10.160 --> 22:12.180
+ And most of the, you have to have a hundred billion
+
+22:12.180 --> 22:14.500
+ coming one way, a hundred billion another way,
+
+22:14.500 --> 22:17.100
+ maybe 10 of them will hit each other.
+
+22:17.100 --> 22:17.940
+ Oh, okay.
+
+22:17.940 --> 22:19.400
+ So this, okay, that makes a lot more sense.
+
+22:19.400 --> 22:20.240
+ So that's nice.
+
+22:20.240 --> 22:21.980
+ But you're trying to use sort of,
+
+22:21.980 --> 22:24.560
+ it's like probabilistically, you're not.
+
+22:24.560 --> 22:26.100
+ You can't make a single particle collide
+
+22:26.100 --> 22:26.940
+ with a single other particle.
+
+22:26.940 --> 22:28.140
+ That's not an efficient way to do it.
+
+22:28.140 --> 22:30.980
+ You'd be waiting a very long time to get anything.
+
+22:30.980 --> 22:34.020
+ So you're basically, right.
+
+22:34.020 --> 22:37.460
+ You're relying on probability to be that some fraction
+
+22:37.460 --> 22:38.780
+ of them are gonna collide.
+
+22:38.780 --> 22:40.820
+ And then you know which,
+
+22:40.820 --> 22:44.340
+ because it's a swarm of the same kind of particle.
+
+22:44.340 --> 22:46.420
+ So it doesn't matter which ones hit each other exactly.
+
+22:46.420 --> 22:48.240
+ I mean, that's not to say it's not hard.
+
+22:48.240 --> 22:50.420
+ You've got to, one of the challenges
+
+22:50.420 --> 22:52.880
+ to make the collisions work is you have to squash
+
+22:52.880 --> 22:54.580
+ these beams to very, very,
+
+22:54.580 --> 22:56.020
+ basically the narrower they are the better
+
+22:56.020 --> 22:58.780
+ cause the higher chances of them colliding.
+
+22:58.780 --> 23:00.380
+ If you think about two flocks of birds
+
+23:00.380 --> 23:01.580
+ flying through each other,
+
+23:01.580 --> 23:03.660
+ the birds are all far apart in the flocks.
+
+23:03.660 --> 23:04.980
+ There's not much chance that they'll collide.
+
+23:04.980 --> 23:06.420
+ If they're all flying densely together,
+
+23:06.420 --> 23:08.360
+ then they're much more likely to collide with each other.
+
+23:08.360 --> 23:10.060
+ So that's the sort of problem.
+
+23:10.060 --> 23:12.060
+ And it's tuning those magnetic fields,
+
+23:12.060 --> 23:13.380
+ getting the magnetic fields powerful enough
+
+23:13.380 --> 23:15.220
+ that you squash the beams and focus them
+
+23:15.220 --> 23:16.900
+ so that you get enough collisions.
+
+23:16.900 --> 23:17.900
+ That's super cool.
+
+23:17.900 --> 23:20.360
+ Do you know how much software is involved here?
+
+23:20.360 --> 23:21.200
+ I mean, it's sort of,
+
+23:21.200 --> 23:23.600
+ I come from the software world and it's fascinating.
+
+23:24.780 --> 23:28.060
+ This seems like software is buggy and messy.
+
+23:28.060 --> 23:30.980
+ And so like, you almost don't want to rely
+
+23:30.980 --> 23:31.900
+ on software too much.
+
+23:31.900 --> 23:33.900
+ Like if you do, it has to be like low level,
+
+23:33.900 --> 23:36.340
+ like Fortran style programming.
+
+23:36.340 --> 23:37.540
+ Do you know how much software
+
+23:37.540 --> 23:39.500
+ is in a large Hadron Collider?
+
+23:39.500 --> 23:41.580
+ I mean, it depends at which level a lot.
+
+23:41.580 --> 23:43.640
+ I mean, the whole thing is obviously computer controlled.
+
+23:43.640 --> 23:45.460
+ So, I mean, I don't know a huge amount
+
+23:45.460 --> 23:49.340
+ about how the software for the actual accelerator works,
+
+23:49.340 --> 23:51.340
+ but I've been in the control center.
+
+23:51.340 --> 23:53.280
+ So at CERN, there's this big control room,
+
+23:53.280 --> 23:55.480
+ which is like a bit like a NASA mission control
+
+23:55.480 --> 23:57.760
+ with big banks of desks where the engineers sit
+
+23:57.760 --> 23:59.180
+ and they monitor the LHC.
+
+23:59.180 --> 24:00.860
+ Cause you obviously can't be in the tunnel
+
+24:00.860 --> 24:01.680
+ when it's running.
+
+24:01.680 --> 24:03.460
+ So everything's remote.
+
+24:03.460 --> 24:07.460
+ I mean, one sort of anecdote about the software side,
+
+24:07.460 --> 24:10.460
+ in 2008, when the LHC first switched on,
+
+24:10.460 --> 24:11.620
+ they had this big launch event
+
+24:11.620 --> 24:14.940
+ and then big press conference party
+
+24:14.940 --> 24:16.260
+ to inaugurate the machine.
+
+24:16.260 --> 24:18.300
+ And about 10 days after that,
+
+24:18.300 --> 24:19.580
+ they were doing some tests
+
+24:19.580 --> 24:22.100
+ and this dramatic event happened
+
+24:22.100 --> 24:24.180
+ where a huge explosion basically took place
+
+24:24.180 --> 24:26.880
+ in the tunnel that destroyed or damaged, badly damaged
+
+24:26.880 --> 24:29.880
+ about half a kilometer of the machine.
+
+24:29.880 --> 24:31.540
+ But the stories, the engineers
+
+24:31.540 --> 24:33.620
+ are in the control room that day.
+
+24:33.620 --> 24:35.300
+ One guy told me this story about,
+
+24:35.300 --> 24:37.700
+ basically all these screens they have in the control room
+
+24:37.700 --> 24:38.540
+ started going red.
+
+24:38.540 --> 24:42.300
+ So these alarms like kind of in software going off
+
+24:42.300 --> 24:43.500
+ and then they assume that there's something wrong
+
+24:43.500 --> 24:45.500
+ with the software, cause there's no way
+
+24:45.500 --> 24:48.700
+ something this catastrophic could have happened.
+
+24:48.700 --> 24:52.300
+ But I mean, when I worked on, when I was a PhD student,
+
+24:52.300 --> 24:56.060
+ one of my jobs was to help to maintain the software
+
+24:56.060 --> 24:59.140
+ that's used to control the detector that we work on.
+
+24:59.140 --> 25:01.180
+ And that was, it's relatively robust,
+
+25:01.180 --> 25:02.940
+ not such, you don't want it to be too fancy.
+
+25:02.940 --> 25:04.620
+ You don't want it to sort of fall over too easily.
+
+25:04.620 --> 25:07.040
+ The more clever stuff comes
+
+25:07.040 --> 25:08.500
+ when you're talking about analyzing the data
+
+25:08.500 --> 25:10.540
+ and that's where the sort of, you know.
+
+25:10.540 --> 25:11.740
+ Are we jumping around too much?
+
+25:11.740 --> 25:13.160
+ Do we finish with a standard model?
+
+25:13.160 --> 25:14.000
+ We didn't, no.
+
+25:14.000 --> 25:17.020
+ We didn't, so have we even started talking about quarks?
+
+25:17.020 --> 25:17.860
+ We haven't talked to them yet.
+
+25:17.860 --> 25:20.360
+ No, we got to the messy zoo of particles.
+
+25:20.360 --> 25:22.980
+ Let me, let's go back there if it's okay.
+
+25:22.980 --> 25:23.820
+ Okay, that's fine.
+
+25:23.820 --> 25:26.540
+ Can you take us to the rest of the history of physics
+
+25:26.540 --> 25:27.700
+ in the 20th century?
+
+25:27.700 --> 25:29.020
+ Okay, sure.
+
+25:29.020 --> 25:32.000
+ Okay, so circa 1960, you have this,
+
+25:32.000 --> 25:33.680
+ you have these a hundred or so particles.
+
+25:33.680 --> 25:35.540
+ It's a bit like the periodic table all over again.
+
+25:35.540 --> 25:37.860
+ So you've got like having a hundred elements,
+
+25:37.860 --> 25:39.260
+ it's sort of a bit like that.
+
+25:39.260 --> 25:41.500
+ And people start to try to impose some order.
+
+25:41.500 --> 25:46.140
+ So Murray Gellman, he's a theoretical physicist,
+
+25:46.140 --> 25:47.700
+ American from New York.
+
+25:47.700 --> 25:50.500
+ He realizes that there are these symmetries
+
+25:50.500 --> 25:53.340
+ in these particles that if you arrange them in certain ways,
+
+25:53.340 --> 25:54.380
+ they relate to each other.
+
+25:54.380 --> 25:56.060
+ And he uses these symmetry principles
+
+25:56.060 --> 25:58.260
+ to predict the existence of particles
+
+25:58.260 --> 25:59.220
+ that haven't been discovered,
+
+25:59.220 --> 26:01.060
+ which are then discovered in accelerators.
+
+26:01.060 --> 26:02.480
+ So this starts to suggest
+
+26:02.480 --> 26:04.500
+ there's not just random collections of crap.
+
+26:04.500 --> 26:06.460
+ There's like, you know, actually some order
+
+26:06.460 --> 26:08.740
+ to this underlying it.
+
+26:08.740 --> 26:13.280
+ A little bit later in 1960, again, around the 1960s,
+
+26:14.260 --> 26:17.860
+ he proposes along with another physicist called George Zweig
+
+26:17.860 --> 26:21.060
+ that these symmetries arise because
+
+26:21.060 --> 26:23.380
+ just like the patterns in the periodic table arise
+
+26:23.380 --> 26:26.420
+ because atoms are made of electrons and protons,
+
+26:26.420 --> 26:28.100
+ that these patterns are due to the fact
+
+26:28.100 --> 26:30.260
+ that these particles are made of smaller things.
+
+26:30.260 --> 26:31.900
+ And they are called quarks.
+
+26:31.900 --> 26:34.500
+ So these are the particles they're predicted from theory.
+
+26:34.500 --> 26:36.700
+ For a long time, no one really believes they're real.
+
+26:36.700 --> 26:39.180
+ A lot of people think that they're a kind of theoretical
+
+26:39.180 --> 26:41.480
+ convenience that happened to fit the data,
+
+26:41.480 --> 26:42.580
+ but there's no evidence.
+
+26:42.580 --> 26:45.460
+ No one's ever seen a quark in any experiment.
+
+26:45.460 --> 26:48.580
+ And lots of experiments are done to try to find quarks,
+
+26:48.580 --> 26:50.460
+ to try to knock a quark out of a...
+
+26:50.460 --> 26:52.860
+ So the idea, if protons and neutrons are made of quarks,
+
+26:52.860 --> 26:55.140
+ you should be able to knock a quark out and see the quark.
+
+26:55.140 --> 26:56.020
+ That never happens.
+
+26:56.020 --> 26:58.140
+ And we still have never actually managed to do that.
+
+26:58.140 --> 26:59.260
+ Wait, really?
+
+26:59.260 --> 27:00.100
+ No.
+
+27:00.100 --> 27:02.260
+ So the way that it's done in the end
+
+27:02.260 --> 27:04.620
+ is this machine that's built in California
+
+27:04.620 --> 27:08.860
+ at the Stanford Lab, Stanford Linear Accelerator,
+
+27:08.860 --> 27:10.540
+ which is essentially a gigantic,
+
+27:10.540 --> 27:12.460
+ three kilometer long electron gun.
+
+27:12.460 --> 27:16.260
+ It fires electrons, almost the speed of light, at protons.
+
+27:16.260 --> 27:17.860
+ And when you do these experiments,
+
+27:17.860 --> 27:20.100
+ what you find is at very high energy,
+
+27:20.100 --> 27:24.000
+ the electrons bounce off small, hard objects
+
+27:24.000 --> 27:25.420
+ inside the proton.
+
+27:25.420 --> 27:28.100
+ So it's a bit like taking an X ray of the proton.
+
+27:28.100 --> 27:31.580
+ You're firing these very light, high energy particles,
+
+27:31.580 --> 27:34.260
+ and they're pinging off little things inside the proton
+
+27:34.260 --> 27:36.260
+ that are like ball bearings, if you like.
+
+27:36.260 --> 27:38.220
+ So you actually, that way,
+
+27:38.220 --> 27:41.020
+ they resolve that there are three things
+
+27:41.020 --> 27:42.820
+ inside the proton, which are quarks,
+
+27:42.820 --> 27:45.480
+ the quarks that Gellman and Zweig had predicted.
+
+27:45.480 --> 27:47.900
+ So that's really the evidence that convinces people
+
+27:47.900 --> 27:49.400
+ that these things are real.
+
+27:49.400 --> 27:50.820
+ The fact that we've never seen one
+
+27:50.820 --> 27:51.980
+ in an experiment directly,
+
+27:51.980 --> 27:56.260
+ they're always stuck inside other particles.
+
+27:56.260 --> 27:58.180
+ And the reason for that is essentially
+
+27:58.180 --> 27:59.100
+ to do with a strong force.
+
+27:59.100 --> 28:01.700
+ The strong force is the force that holds quarks together.
+
+28:01.700 --> 28:04.020
+ And it's so strong that it's impossible
+
+28:04.020 --> 28:06.460
+ to actually liberate a quark.
+
+28:06.460 --> 28:08.260
+ So if you try and pull a quark out of a proton,
+
+28:08.260 --> 28:09.700
+ what actually ends up happening
+
+28:09.700 --> 28:14.260
+ is that you kind of create this spring like bond
+
+28:14.260 --> 28:15.100
+ in the strong force.
+
+28:15.100 --> 28:16.780
+ You imagine two quarks that are held together
+
+28:16.780 --> 28:18.540
+ by a very powerful spring.
+
+28:18.540 --> 28:19.940
+ You pull and pull and pull,
+
+28:19.940 --> 28:22.280
+ more and more energy gets stored in that bond,
+
+28:22.280 --> 28:23.420
+ like stretching a spring,
+
+28:23.420 --> 28:25.340
+ and eventually the tension gets so great,
+
+28:25.340 --> 28:28.700
+ the spring snaps, and the energy in that bond
+
+28:28.700 --> 28:30.660
+ gets turned into two new quarks
+
+28:30.660 --> 28:32.420
+ that go on the broken ends.
+
+28:32.420 --> 28:33.260
+ So you started with two quarks,
+
+28:33.260 --> 28:34.660
+ you end up with four quarks.
+
+28:34.660 --> 28:37.180
+ So you never actually get to take a quark out.
+
+28:37.180 --> 28:39.860
+ You just end up making loads more quarks in the process.
+
+28:39.860 --> 28:42.900
+ So how do we, again, forgive the dumb question,
+
+28:42.900 --> 28:44.880
+ how do we know quarks are real then?
+
+28:44.880 --> 28:48.100
+ Well, A, from these experiments where we can scatter,
+
+28:48.100 --> 28:49.700
+ you fire electrons into the protons.
+
+28:49.700 --> 28:52.620
+ They can burrow into the proton and knock off,
+
+28:52.620 --> 28:55.140
+ and they can bounce off these quarks.
+
+28:55.140 --> 28:56.460
+ So you can see from the angles,
+
+28:56.460 --> 28:58.100
+ the electrons come out.
+
+28:58.100 --> 28:59.120
+ I see, you can infer.
+
+28:59.120 --> 29:02.060
+ You can infer that these things are there.
+
+29:02.060 --> 29:03.620
+ The quark model can also be used.
+
+29:03.620 --> 29:05.340
+ It has a lot of successes that you can use it
+
+29:05.340 --> 29:07.500
+ to predict the existence of new particles
+
+29:07.500 --> 29:08.700
+ that hadn't been seen.
+
+29:08.700 --> 29:10.780
+ So, and it basically, there's lots of data
+
+29:10.780 --> 29:12.340
+ basically showing from, you know,
+
+29:12.340 --> 29:15.200
+ when we fire protons at each other at the LHC,
+
+29:16.420 --> 29:18.820
+ a lot of quarks get knocked all over the place.
+
+29:18.820 --> 29:20.540
+ And every time they try and escape from,
+
+29:20.540 --> 29:21.580
+ say, one of their protons,
+
+29:21.580 --> 29:25.580
+ they make a whole jet of quarks that go flying off,
+
+29:25.580 --> 29:28.560
+ bound up in other sorts of particles made of quarks.
+
+29:28.560 --> 29:30.740
+ So all the sort of the theoretical predictions
+
+29:30.740 --> 29:33.740
+ from the basic theory of the strong force and the quarks
+
+29:33.740 --> 29:35.380
+ all agrees with what we are seeing in experiments.
+
+29:35.380 --> 29:38.020
+ We've just never seen an actual quark on its own
+
+29:38.020 --> 29:39.280
+ because unfortunately it's impossible
+
+29:39.280 --> 29:41.140
+ to get them out on their own.
+
+29:41.140 --> 29:45.120
+ So quarks, these crazy smaller things
+
+29:45.120 --> 29:47.160
+ that are hard to imagine are real.
+
+29:47.160 --> 29:48.140
+ So what else?
+
+29:48.140 --> 29:49.780
+ What else is part of the story here?
+
+29:49.780 --> 29:52.100
+ So the other thing that's going on at the time,
+
+29:52.100 --> 29:57.100
+ around the 60s, is an attempt to understand the forces
+
+29:57.380 --> 30:00.220
+ that make these particles interact with each other.
+
+30:00.220 --> 30:01.780
+ So you have the electromagnetic force,
+
+30:01.780 --> 30:03.900
+ which is the force that was sort of discovered
+
+30:03.900 --> 30:07.140
+ to some extent in this room, or at least in this building.
+
+30:07.140 --> 30:10.020
+ So the first, what we call quantum field theory
+
+30:10.020 --> 30:13.380
+ of the electromagnetic force is developed
+
+30:13.380 --> 30:17.660
+ in the 1940s and 50s by Feynman,
+
+30:17.660 --> 30:19.740
+ Richard Feynman amongst other people,
+
+30:19.740 --> 30:22.020
+ Julian Schrodinger, Tom Onaga,
+
+30:22.020 --> 30:23.060
+ who come up with the first,
+
+30:23.060 --> 30:24.420
+ what we call a quantum field theory
+
+30:24.420 --> 30:25.740
+ of the electromagnetic force.
+
+30:25.740 --> 30:27.340
+ And this is where this description of,
+
+30:27.340 --> 30:28.360
+ which I gave you at the beginning,
+
+30:28.360 --> 30:30.820
+ that particles are ripples in fields.
+
+30:30.820 --> 30:33.900
+ Well, in this theory, the photon, the particle of light
+
+30:33.900 --> 30:36.340
+ is described as a ripple in this quantum field
+
+30:36.340 --> 30:38.720
+ called the electromagnetic field.
+
+30:38.720 --> 30:40.240
+ And the attempt then is made to try,
+
+30:40.240 --> 30:42.260
+ well, can we come up with a quantum field theory
+
+30:42.260 --> 30:45.140
+ of the other forces, of the strong force and the weak,
+
+30:45.140 --> 30:47.140
+ the third force, which we haven't discussed,
+
+30:47.140 --> 30:50.740
+ which is the weak force, which is a nuclear force.
+
+30:50.740 --> 30:52.640
+ We don't really experience it in our everyday lives,
+
+30:52.640 --> 30:54.960
+ but it's responsible for radioactive decay.
+
+30:54.960 --> 30:56.980
+ It's the force that allows, you know,
+
+30:56.980 --> 30:59.140
+ on a radioactive atom to turn
+
+30:59.140 --> 31:01.060
+ into a different element, for example.
+
+31:01.060 --> 31:03.420
+ And I don't know if you've explicitly mentioned,
+
+31:03.420 --> 31:06.100
+ but so there's technically four forces.
+
+31:06.100 --> 31:06.980
+ Yes.
+
+31:06.980 --> 31:09.900
+ I guess three of them would be in the standard model,
+
+31:09.900 --> 31:13.460
+ like the weak, the strong, and the electromagnetic,
+
+31:13.460 --> 31:14.540
+ and then there's gravity.
+
+31:14.540 --> 31:16.220
+ And there's gravity, which we don't worry about that,
+
+31:16.220 --> 31:17.040
+ because it's too hard.
+
+31:17.040 --> 31:17.880
+ It's too hard.
+
+31:17.880 --> 31:19.940
+ Well, no, maybe we bring that up at the end, but yeah.
+
+31:19.940 --> 31:22.340
+ Gravity, so far, we don't have a quantum theory of,
+
+31:22.340 --> 31:23.580
+ and if you can solve that problem,
+
+31:23.580 --> 31:25.140
+ you'll win a Nobel Prize.
+
+31:25.140 --> 31:26.340
+ Well, we're gonna have to bring up
+
+31:26.340 --> 31:28.140
+ the graviton at some point, I'm gonna ask you,
+
+31:28.140 --> 31:31.160
+ but let's leave that to the side for now.
+
+31:31.160 --> 31:36.160
+ So those three, okay, Feynman, electromagnetic force,
+
+31:36.500 --> 31:41.500
+ the quantum field, and where does the weak force come in?
+
+31:41.920 --> 31:43.580
+ So yeah, well, first of all,
+
+31:43.580 --> 31:44.780
+ I mean, the strong force is the easiest.
+
+31:44.780 --> 31:46.460
+ The strong force is a little bit
+
+31:46.460 --> 31:47.600
+ like the electromagnetic force.
+
+31:47.600 --> 31:49.140
+ It's a force that binds things together.
+
+31:49.140 --> 31:51.060
+ So that's the force that holds quarks together
+
+31:51.060 --> 31:52.860
+ inside the proton, for example.
+
+31:52.860 --> 31:55.960
+ So a quantum field theory of that force
+
+31:55.960 --> 31:58.900
+ is discovered in the, I think it's in the 60s,
+
+31:59.820 --> 32:01.460
+ and it predicts the existence
+
+32:01.460 --> 32:04.500
+ of new force particles called gluons.
+
+32:04.500 --> 32:06.940
+ So gluons are a bit like the photon.
+
+32:06.940 --> 32:09.500
+ The photon is the particle of electromagnetism.
+
+32:09.500 --> 32:13.540
+ Gluons are the particles of the strong force.
+
+32:13.540 --> 32:15.860
+ So just like there's an electromagnetic field,
+
+32:15.860 --> 32:17.540
+ there's something called a gluon field,
+
+32:17.540 --> 32:19.500
+ which is also all around us.
+
+32:19.500 --> 32:21.780
+ So some of these particles, I guess,
+
+32:21.780 --> 32:23.660
+ are the force carriers or whatever.
+
+32:23.660 --> 32:24.500
+ They carry the force.
+
+32:24.500 --> 32:25.980
+ It depends how you want to think about it.
+
+32:25.980 --> 32:28.460
+ I mean, really the field, the strong force field,
+
+32:28.460 --> 32:32.880
+ the gluon field is the thing that binds the quarks together.
+
+32:32.880 --> 32:35.460
+ The gluons are the little ripples in that field.
+
+32:35.460 --> 32:37.740
+ So that like, in the same way that the photon is a ripple
+
+32:37.740 --> 32:39.900
+ in the electromagnetic field.
+
+32:39.900 --> 32:43.620
+ But the thing that really does the binding is the field.
+
+32:43.620 --> 32:45.680
+ I mean, you may have heard people talk about things
+
+32:45.680 --> 32:48.600
+ like you've heard the phrase virtual particle.
+
+32:49.860 --> 32:52.460
+ So sometimes in some, if you hear people describing
+
+32:52.460 --> 32:54.900
+ how forces are exchanged between particles,
+
+32:54.900 --> 32:56.220
+ they quite often talk about the idea
+
+32:56.220 --> 32:59.180
+ that if you have an electron and another electron, say,
+
+32:59.180 --> 33:00.640
+ and they're repelling each other
+
+33:00.640 --> 33:03.060
+ through the electromagnetic force,
+
+33:03.060 --> 33:05.820
+ you can think of that as if they're exchanging photons.
+
+33:05.820 --> 33:07.060
+ So they're kind of firing photons
+
+33:07.060 --> 33:08.660
+ backwards and forwards between each other.
+
+33:08.660 --> 33:11.060
+ And that causes them to repel.
+
+33:11.060 --> 33:13.060
+ That photon is then a virtual particle.
+
+33:13.060 --> 33:14.460
+ Yes, that's what we call a virtual particle.
+
+33:14.460 --> 33:15.580
+ In other words, it's not a real thing,
+
+33:15.580 --> 33:16.820
+ it doesn't actually exist.
+
+33:16.820 --> 33:19.900
+ So it's an artifact of the way theorists do calculations.
+
+33:19.900 --> 33:22.140
+ So when they do calculations in quantum field theory,
+
+33:22.140 --> 33:24.460
+ rather than, no one's discovered a way
+
+33:24.460 --> 33:25.780
+ of just treating the whole field.
+
+33:25.780 --> 33:28.200
+ You have to break the field down into simpler things.
+
+33:28.200 --> 33:30.200
+ So you can basically treat the field
+
+33:30.200 --> 33:33.540
+ as if it's made up of lots of these virtual photons,
+
+33:33.540 --> 33:35.660
+ but there's no experiment that you can do
+
+33:35.660 --> 33:38.420
+ that can detect these particles being exchanged.
+
+33:38.420 --> 33:40.460
+ What's really happening in reality
+
+33:40.460 --> 33:43.280
+ is that the electromagnetic field is warped
+
+33:43.280 --> 33:46.240
+ by the charge of the electron and that causes the force.
+
+33:46.240 --> 33:49.300
+ But the way we do calculations involves particles.
+
+33:49.300 --> 33:50.840
+ So it's a bit confusing,
+
+33:50.840 --> 33:53.300
+ but it's really a mathematical technique.
+
+33:53.300 --> 33:55.740
+ It's not something that corresponds to reality.
+
+33:55.740 --> 33:58.260
+ I mean, that's part, I guess, of the Feynman diagrams.
+
+33:58.260 --> 33:59.100
+ Yes.
+
+33:59.100 --> 34:00.100
+ Is this these virtual particles, okay.
+
+34:00.100 --> 34:01.500
+ That's right, yeah.
+
+34:01.500 --> 34:03.800
+ Some of these have mass, some of them don't.
+
+34:06.380 --> 34:09.060
+ What does that even mean, not to have mass?
+
+34:09.060 --> 34:11.900
+ And maybe you can say which one of them have mass
+
+34:11.900 --> 34:12.860
+ and which don't.
+
+34:12.860 --> 34:14.140
+ Okay, so.
+
+34:14.140 --> 34:17.020
+ And why is mass important or relevant
+
+34:17.020 --> 34:22.020
+ in this field view of the universe?
+
+34:22.020 --> 34:23.700
+ Well, there are actually only two particles
+
+34:23.700 --> 34:25.500
+ in the standard model that don't have mass,
+
+34:25.500 --> 34:28.480
+ which are the photon and the gluons.
+
+34:28.480 --> 34:30.300
+ So they are massless particles,
+
+34:30.300 --> 34:32.960
+ but the electron, the quarks,
+
+34:32.960 --> 34:34.140
+ and there are a bunch of other particles
+
+34:34.140 --> 34:34.960
+ I haven't discussed.
+
+34:34.960 --> 34:36.380
+ There's something called a muon and a tau,
+
+34:36.380 --> 34:39.280
+ which are basically heavy versions of the electron
+
+34:39.280 --> 34:40.120
+ that are unstable.
+
+34:40.120 --> 34:41.380
+ You can make them in accelerators,
+
+34:41.380 --> 34:44.200
+ but they don't form atoms or anything.
+
+34:44.200 --> 34:45.600
+ They don't exist for long enough.
+
+34:45.600 --> 34:48.700
+ But all the matter particles, there are 12 of them,
+
+34:48.700 --> 34:51.940
+ six quarks and six, what we call leptons,
+
+34:51.940 --> 34:54.460
+ which includes the electron and its two heavy versions
+
+34:54.460 --> 34:57.380
+ and three neutrinos, all of them have mass.
+
+34:57.380 --> 34:59.500
+ And so do, this is the critical bit.
+
+34:59.500 --> 35:02.860
+ So the weak force, which is the third of these
+
+35:02.860 --> 35:06.240
+ quantum forces, which is one of the hardest to understand,
+
+35:07.540 --> 35:12.540
+ the force particles of that force have very large masses.
+
+35:13.860 --> 35:14.900
+ And there are three of them.
+
+35:14.900 --> 35:19.540
+ They're called the W plus, the W minus, and the Z boson.
+
+35:19.540 --> 35:23.000
+ And they have masses of between 80 and 90 times
+
+35:23.000 --> 35:24.580
+ that of the protons.
+
+35:24.580 --> 35:25.660
+ They're very heavy.
+
+35:25.660 --> 35:26.500
+ Wow.
+
+35:26.500 --> 35:27.320
+ They're very heavy things.
+
+35:27.320 --> 35:29.440
+ So they're what, the heaviest, I guess?
+
+35:29.440 --> 35:30.280
+ They're not the heaviest.
+
+35:30.280 --> 35:32.920
+ The heaviest particle is the top quark,
+
+35:32.920 --> 35:37.920
+ which has a mass of about 175 ish protons.
+
+35:38.460 --> 35:39.700
+ So that's really massive.
+
+35:39.700 --> 35:41.680
+ And we don't know why it's so massive,
+
+35:41.680 --> 35:43.160
+ but coming back to the weak force,
+
+35:43.160 --> 35:47.380
+ so the problem in the 60s and 70s was that
+
+35:47.380 --> 35:50.100
+ the reason that the electromagnetic force
+
+35:50.100 --> 35:51.900
+ is a force that we can experience in our everyday lives.
+
+35:51.900 --> 35:53.260
+ So if we have a magnet and a piece of metal,
+
+35:53.260 --> 35:55.420
+ you can hold it, you know, a meter apart
+
+35:55.420 --> 35:57.040
+ if it's powerful enough and you'll feel a force.
+
+35:57.040 --> 36:00.380
+ Whereas the weak force only becomes apparent
+
+36:00.380 --> 36:03.180
+ when you basically have two particles touching
+
+36:03.180 --> 36:05.340
+ at the scale of a nucleus.
+
+36:05.340 --> 36:06.980
+ So we just get to very short distances
+
+36:06.980 --> 36:09.620
+ before this force becomes manifest.
+
+36:09.620 --> 36:12.260
+ It's not, we don't get weak forces going on in this room.
+
+36:12.260 --> 36:14.060
+ We don't notice them.
+
+36:14.060 --> 36:15.860
+ And the reason for that is that the particle,
+
+36:15.860 --> 36:20.140
+ well, the field that transmits the weak force,
+
+36:20.140 --> 36:22.300
+ the particle that's associated with that field
+
+36:22.300 --> 36:23.380
+ has a very large mass,
+
+36:23.380 --> 36:26.240
+ which means that the field dies off very quickly.
+
+36:26.240 --> 36:28.360
+ So as you, whereas an electric charge,
+
+36:28.360 --> 36:30.640
+ if you were to look at the shape of the electromagnetic field,
+
+36:30.640 --> 36:32.140
+ it would fall off with this,
+
+36:32.140 --> 36:33.780
+ you have this thing called the inverse square law,
+
+36:33.780 --> 36:36.220
+ which is the idea that the force halves
+
+36:36.220 --> 36:38.740
+ every time you double the distance.
+
+36:38.740 --> 36:39.700
+ No, sorry, it doesn't half.
+
+36:39.700 --> 36:42.580
+ It quarters every time you double the distance
+
+36:42.580 --> 36:44.220
+ between say the two particles.
+
+36:44.220 --> 36:45.780
+ Whereas the weak force kind of,
+
+36:45.780 --> 36:47.300
+ you move a little bit away from the nucleus
+
+36:47.300 --> 36:49.400
+ and just disappears.
+
+36:49.400 --> 36:51.980
+ The reason for that is because these fields,
+
+36:51.980 --> 36:55.420
+ the particles that go with them have a very large mass.
+
+36:55.420 --> 36:59.860
+ But the problem that theorists faced in the 60s
+
+36:59.860 --> 37:04.300
+ was that if you tried to introduce massive force fields,
+
+37:04.300 --> 37:06.540
+ the theory gave you nonsensical answers.
+
+37:06.540 --> 37:08.700
+ So you'd end up with infinite results
+
+37:08.700 --> 37:11.140
+ for a lot of the calculations you tried to do.
+
+37:11.140 --> 37:13.660
+ So the basically, it seemed that quantum field theory
+
+37:13.660 --> 37:17.320
+ was incompatible with having massive particles,
+
+37:17.320 --> 37:18.700
+ not just the force particles actually,
+
+37:18.700 --> 37:21.900
+ but even the electron was a problem.
+
+37:21.900 --> 37:23.740
+ So this is where the Higgs
+
+37:23.740 --> 37:25.640
+ that we sort of alluded to comes in.
+
+37:25.640 --> 37:28.400
+ And the solution was to say, okay, well,
+
+37:28.400 --> 37:30.460
+ actually all the particles in the Standard Model are mass.
+
+37:30.460 --> 37:31.540
+ They have no mass.
+
+37:31.540 --> 37:33.340
+ So the quarks, the electron, they don't have a mass.
+
+37:33.340 --> 37:34.820
+ Neither do these weak particles.
+
+37:34.820 --> 37:36.740
+ They don't have mass either.
+
+37:36.740 --> 37:38.500
+ What happens is they actually acquire mass
+
+37:38.500 --> 37:40.420
+ through another process.
+
+37:40.420 --> 37:41.660
+ They get it from somewhere else.
+
+37:41.660 --> 37:43.780
+ They don't actually have it intrinsically.
+
+37:43.780 --> 37:46.500
+ So this idea that was introduced by,
+
+37:46.500 --> 37:47.740
+ well, Peter Higgs is the most famous,
+
+37:47.740 --> 37:49.380
+ but actually there are about six people
+
+37:49.380 --> 37:52.080
+ that came up with the idea more or less at the same time,
+
+37:52.080 --> 37:55.180
+ is that you introduce a new quantum field,
+
+37:55.180 --> 37:56.880
+ which is another one of these invisible things
+
+37:56.880 --> 37:58.100
+ that's everywhere.
+
+37:58.100 --> 38:01.500
+ And it's through the interaction with this field
+
+38:01.500 --> 38:02.660
+ that particles get mass.
+
+38:02.660 --> 38:07.380
+ So you can think of say an electron in the Higgs field,
+
+38:07.380 --> 38:10.900
+ the Higgs field kind of bunches around the electron.
+
+38:10.900 --> 38:12.900
+ It's sort of drawn towards the electron.
+
+38:12.900 --> 38:15.580
+ And that energy that's stored in that field
+
+38:15.580 --> 38:17.720
+ around the electron is what we see
+
+38:17.720 --> 38:19.320
+ as the mass of the electron.
+
+38:19.320 --> 38:21.740
+ But if you could somehow turn off the Higgs field,
+
+38:21.740 --> 38:23.880
+ then all the particles in nature would become massless
+
+38:23.880 --> 38:26.540
+ and fly around at the speed of light.
+
+38:26.540 --> 38:31.540
+ So this idea of the Higgs field allowed other people,
+
+38:32.540 --> 38:36.160
+ other theorists to come up with a, well,
+
+38:36.160 --> 38:39.500
+ it was another, basically a unified theory
+
+38:39.500 --> 38:41.580
+ of the electromagnetic force and the weak force.
+
+38:41.580 --> 38:43.060
+ So once you bring in the Higgs field,
+
+38:43.060 --> 38:45.620
+ you can combine two of the forces into one.
+
+38:45.620 --> 38:47.900
+ So it turns out the electromagnetic force
+
+38:47.900 --> 38:49.660
+ and the weak force are just two aspects
+
+38:49.660 --> 38:52.420
+ of the same fundamental force.
+
+38:52.420 --> 38:54.760
+ And at the LHC, we go to high enough energies
+
+38:54.760 --> 38:59.460
+ that you see these two forces unifying effectively.
+
+38:59.460 --> 39:04.260
+ So first of all, it started as a theoretical notion,
+
+39:04.260 --> 39:07.540
+ like this is some, and then, I mean,
+
+39:07.540 --> 39:10.660
+ wasn't the Higgs called the God particle at some point?
+
+39:10.660 --> 39:13.660
+ It was by a guy trying to sell popular science books, yeah.
+
+39:13.660 --> 39:17.880
+ Yeah, but I mean, I remember because when I was hearing it,
+
+39:17.880 --> 39:22.060
+ I thought it would, I mean, that would solve a lot of,
+
+39:22.060 --> 39:26.340
+ that unify a lot of our ideas of physics was my notion.
+
+39:26.340 --> 39:29.020
+ But maybe you can speak to that.
+
+39:29.020 --> 39:32.540
+ Is it as big of a leap as a God particle
+
+39:32.540 --> 39:37.340
+ or is it a Jesus particle, which, you know,
+
+39:37.340 --> 39:39.020
+ what's the big contribution of Higgs
+
+39:39.020 --> 39:40.780
+ in terms of this unification power?
+
+39:40.780 --> 39:42.940
+ Yeah, I mean, to understand that,
+
+39:42.940 --> 39:45.060
+ it maybe helps know the history a little bit.
+
+39:45.060 --> 39:47.740
+ So when the, what we call electroweak theory
+
+39:47.740 --> 39:50.580
+ was put together, which is where you unify electromagnetism
+
+39:50.580 --> 39:53.280
+ with the weak force and Higgs is involved in all of that.
+
+39:53.280 --> 39:55.420
+ So that theory, which was written in the mid 70s,
+
+39:55.420 --> 39:59.380
+ predicted the existence of four new particles,
+
+39:59.380 --> 40:01.780
+ the W plus boson, the W minus boson,
+
+40:01.780 --> 40:03.500
+ the Z boson and the Higgs boson.
+
+40:03.500 --> 40:04.780
+ So there were these four particles
+
+40:04.780 --> 40:06.020
+ that came with the theory,
+
+40:06.020 --> 40:07.500
+ that were predicted by the theory.
+
+40:07.500 --> 40:11.620
+ In 1983, 84, the W's and the Z particles
+
+40:11.620 --> 40:14.320
+ were discovered at an accelerator at CERN
+
+40:14.320 --> 40:15.980
+ called the super proton synchrotron,
+
+40:15.980 --> 40:19.240
+ which was a seven kilometer particle collider.
+
+40:19.240 --> 40:22.820
+ So three of the bits of this theory had already been found.
+
+40:22.820 --> 40:25.560
+ So people were pretty confident from the 80s
+
+40:25.560 --> 40:27.060
+ that the Higgs must exist
+
+40:27.060 --> 40:30.800
+ because it was a part of this family of particles
+
+40:30.800 --> 40:33.020
+ that this theoretical structure only works
+
+40:33.020 --> 40:34.460
+ if the Higgs is there.
+
+40:34.460 --> 40:36.540
+ So what then happens,
+
+40:36.540 --> 40:37.380
+ and so you've got this question about
+
+40:37.380 --> 40:39.420
+ why is the LHC the size it is?
+
+40:39.420 --> 40:41.500
+ Well, actually the tunnel that the LHC is in
+
+40:41.500 --> 40:42.780
+ was not built for the LHC.
+
+40:42.780 --> 40:45.140
+ It was built for a previous accelerator
+
+40:45.140 --> 40:48.740
+ called the large electron positron collider.
+
+40:48.740 --> 40:53.740
+ So that began operation in the late 80s, early 90s.
+
+40:53.800 --> 40:55.220
+ They basically, that's when they dug
+
+40:55.220 --> 40:56.420
+ the 27 kilometer tunnel.
+
+40:56.420 --> 40:58.020
+ They put this accelerator into it,
+
+40:58.020 --> 40:59.860
+ the collider that fires electrons
+
+40:59.860 --> 41:02.660
+ and anti electrons at each other, electrons and positrons.
+
+41:02.660 --> 41:05.180
+ So the purpose of that machine was,
+
+41:05.180 --> 41:06.700
+ well, it was actually to look for the Higgs.
+
+41:06.700 --> 41:08.700
+ That was one of the things it was trying to do.
+
+41:08.700 --> 41:11.380
+ It didn't have enough energy to do it in the end.
+
+41:11.380 --> 41:13.820
+ But the main thing it achieved was it studied
+
+41:13.820 --> 41:17.540
+ the W and the Z particles at very high precision.
+
+41:17.540 --> 41:19.300
+ So it made loads of these things.
+
+41:19.300 --> 41:20.540
+ Previously, you can only make a few of them
+
+41:20.540 --> 41:21.460
+ at the previous accelerator.
+
+41:21.460 --> 41:24.500
+ So you could study these really, really precisely.
+
+41:24.500 --> 41:25.680
+ And by studying their properties,
+
+41:25.680 --> 41:28.220
+ you could really test this electroweak theory
+
+41:28.220 --> 41:29.820
+ that had been invented in the 70s
+
+41:29.820 --> 41:31.260
+ and really make sure that it worked.
+
+41:31.260 --> 41:36.260
+ So actually by 1999, when this machine turned off,
+
+41:36.380 --> 41:39.500
+ people knew, well, okay, you never know
+
+41:39.500 --> 41:41.420
+ until you find the thing.
+
+41:41.420 --> 41:43.000
+ But people were really confident
+
+41:43.000 --> 41:44.800
+ this electroweak theory was right.
+
+41:44.800 --> 41:46.820
+ And that the Higgs almost,
+
+41:46.820 --> 41:49.860
+ the Higgs or something very like the Higgs had to exist
+
+41:49.860 --> 41:52.220
+ because otherwise the whole thing doesn't work.
+
+41:52.220 --> 41:54.000
+ It'd be really weird if you could discover
+
+41:54.000 --> 41:55.900
+ and these particles, they all behave exactly
+
+41:55.900 --> 41:57.320
+ as your theory tells you they should.
+
+41:57.320 --> 42:00.900
+ But somehow this key piece of the picture is not there.
+
+42:00.900 --> 42:03.920
+ So in a way, it depends how you look at it.
+
+42:03.920 --> 42:05.780
+ The discovery of the Higgs on its own
+
+42:07.020 --> 42:09.980
+ is obviously a huge achievement in many,
+
+42:09.980 --> 42:12.300
+ both experimentally and theoretically.
+
+42:12.300 --> 42:15.260
+ On the other hand, it's like having a jigsaw puzzle
+
+42:15.260 --> 42:17.100
+ where every piece has been filled in.
+
+42:17.100 --> 42:19.020
+ You have this beautiful image, there's one gap
+
+42:19.020 --> 42:22.860
+ and you kind of know that piece must be there somewhere.
+
+42:22.860 --> 42:27.860
+ So the discovery in itself, although it's important,
+
+42:29.020 --> 42:30.420
+ is not so interesting.
+
+42:30.420 --> 42:34.340
+ It's like a confirmation of the obvious at that point.
+
+42:34.340 --> 42:36.020
+ But what makes it interesting
+
+42:36.020 --> 42:38.080
+ is not that it just completes the standard model,
+
+42:38.080 --> 42:39.980
+ which is a theory that we've known
+
+42:39.980 --> 42:44.780
+ had the basic layout offs for 40 years or more now.
+
+42:44.780 --> 42:48.420
+ It's that the Higgs actually is a unique particle.
+
+42:48.420 --> 42:50.540
+ It's very different to any of the other particles
+
+42:50.540 --> 42:51.860
+ in the standard model.
+
+42:51.860 --> 42:55.260
+ And it's a theoretically very troublesome particle.
+
+42:55.260 --> 42:59.240
+ There are a lot of nasty things to do with the Higgs,
+
+42:59.240 --> 43:00.860
+ but also opportunities.
+
+43:00.860 --> 43:02.580
+ So that we basically, we don't really understand
+
+43:02.580 --> 43:06.260
+ how such an object can exist in the form that it does.
+
+43:06.260 --> 43:08.500
+ So there are lots of reasons for thinking
+
+43:08.500 --> 43:12.540
+ that the Higgs must come with a bunch of other particles
+
+43:12.540 --> 43:15.020
+ or that it's perhaps made of other things.
+
+43:15.020 --> 43:16.460
+ So it's not a fundamental particle,
+
+43:16.460 --> 43:17.940
+ that it's made of smaller things.
+
+43:17.940 --> 43:19.580
+ I can talk about that if you like a bit.
+
+43:19.580 --> 43:23.180
+ That's still a notion, so the Higgs
+
+43:23.180 --> 43:24.820
+ might not be a fundamental particle,
+
+43:24.820 --> 43:27.180
+ that there might be some, it might, oh man.
+
+43:27.180 --> 43:31.080
+ So that is an idea, it's not been demonstrated to be true.
+
+43:31.080 --> 43:33.820
+ But I mean, all of these ideas basically come
+
+43:33.820 --> 43:37.940
+ from the fact that this is a problem
+
+43:37.940 --> 43:40.100
+ that motivated a lot of development in physics
+
+43:40.100 --> 43:42.380
+ in the last 30 years or so.
+
+43:42.380 --> 43:44.780
+ And it's this basic fact that the Higgs field,
+
+43:44.780 --> 43:47.260
+ which is this field that's everywhere in the universe,
+
+43:47.260 --> 43:49.060
+ this is the thing that gives mass to the particles.
+
+43:49.060 --> 43:51.340
+ And the Higgs field is different from all the other fields
+
+43:51.340 --> 43:54.420
+ in that, let's say you take the electromagnetic field,
+
+43:54.420 --> 43:56.080
+ which is, if we actually were to measure
+
+43:56.080 --> 43:57.420
+ the electromagnetic field in this room,
+
+43:57.420 --> 43:58.900
+ we would measure all kinds of stuff going on
+
+43:58.900 --> 44:00.940
+ because there's light, there's gonna be microwaves
+
+44:00.940 --> 44:02.100
+ and radio waves and stuff.
+
+44:02.100 --> 44:04.940
+ But let's say we could go to a really, really remote part
+
+44:04.940 --> 44:07.660
+ of empty space and shield it and put a big box around it
+
+44:07.660 --> 44:10.060
+ and then measure the electromagnetic field in that box.
+
+44:10.060 --> 44:12.180
+ The field would be almost zero,
+
+44:12.180 --> 44:14.780
+ apart from some little quantum fluctuations,
+
+44:14.780 --> 44:16.980
+ but basically it goes to naught.
+
+44:16.980 --> 44:19.140
+ The Higgs field has a value everywhere.
+
+44:19.140 --> 44:20.700
+ So it's a bit like the whole,
+
+44:20.700 --> 44:23.440
+ it's like the entire space has got this energy
+
+44:23.440 --> 44:25.420
+ stored in the Higgs field, which is not zero,
+
+44:25.420 --> 44:28.860
+ it's finite, it's a bit like having the temperature
+
+44:28.860 --> 44:32.380
+ of space raised to some background temperature.
+
+44:33.900 --> 44:36.900
+ And it's that energy that gives mass to the particles.
+
+44:36.900 --> 44:40.460
+ So the reason that electrons and quarks have mass
+
+44:40.460 --> 44:42.440
+ is through the interaction with this energy
+
+44:42.440 --> 44:44.820
+ that's stored in the Higgs field.
+
+44:44.820 --> 44:49.820
+ Now, it turns out that the precise value this energy has
+
+44:50.620 --> 44:55.620
+ has to be very carefully tuned if you want a universe
+
+44:55.700 --> 44:58.140
+ where interesting stuff can happen.
+
+44:58.140 --> 45:00.660
+ So if you push the Higgs field down,
+
+45:00.660 --> 45:03.100
+ it has a tendency to collapse to,
+
+45:03.100 --> 45:04.020
+ well, there's a tendency,
+
+45:04.020 --> 45:05.620
+ if you do your sort of naive calculations,
+
+45:05.620 --> 45:08.260
+ there are basically two possible likely configurations
+
+45:08.260 --> 45:11.320
+ for the Higgs field, which is either it's zero everywhere,
+
+45:11.320 --> 45:12.480
+ in which case you have a universe
+
+45:12.480 --> 45:15.860
+ which is just particles with no mass that can't form atoms
+
+45:15.860 --> 45:18.060
+ and just fly about at the speed of light,
+
+45:18.060 --> 45:20.700
+ or it explodes to an enormous value,
+
+45:20.700 --> 45:21.820
+ what we call the Planck scale,
+
+45:21.820 --> 45:24.140
+ which is the scale of quantum gravity.
+
+45:24.140 --> 45:27.060
+ And at that point, if the Higgs field was that strong,
+
+45:27.060 --> 45:28.900
+ even an electron would become so massive
+
+45:28.900 --> 45:31.200
+ that it would collapse into a black hole.
+
+45:31.200 --> 45:33.100
+ And then you have a universe made of black holes
+
+45:33.100 --> 45:34.940
+ and nothing like us.
+
+45:34.940 --> 45:37.640
+ So it seems that the strength of the Higgs field
+
+45:37.640 --> 45:40.180
+ is to achieve the value that we see
+
+45:40.180 --> 45:42.900
+ requires what we call fine tuning of the laws of physics.
+
+45:42.900 --> 45:45.340
+ You have to fiddle around with the other fields
+
+45:45.340 --> 45:47.340
+ in the Standard Model and their properties
+
+45:47.340 --> 45:50.780
+ to just get it to this right sort of Goldilocks value
+
+45:50.780 --> 45:53.100
+ that allows atoms to exist.
+
+45:53.100 --> 45:54.580
+ This is deeply fishy.
+
+45:54.580 --> 45:57.380
+ People really dislike this.
+
+45:57.380 --> 45:59.420
+ Well, yeah, I guess, so what would be,
+
+45:59.420 --> 46:00.840
+ so two explanations.
+
+46:00.840 --> 46:03.060
+ One, there's a god that designed this perfectly,
+
+46:03.060 --> 46:05.580
+ and two is there's an infinite number
+
+46:05.580 --> 46:07.020
+ of alternate universes,
+
+46:07.020 --> 46:10.300
+ and we just happen to be in the one in which life
+
+46:10.300 --> 46:12.380
+ is possible, complexity.
+
+46:12.380 --> 46:15.540
+ So when you say, I mean, life, any kind of complexity,
+
+46:15.540 --> 46:19.980
+ that's not either complete chaos or black holes.
+
+46:21.500 --> 46:22.760
+ I mean, how does that make you feel?
+
+46:22.760 --> 46:23.600
+ What do you make of that?
+
+46:23.600 --> 46:25.260
+ That's such a fascinating notion
+
+46:25.260 --> 46:28.340
+ that this perfectly tuned field
+
+46:28.340 --> 46:31.120
+ that's the same everywhere is there.
+
+46:31.120 --> 46:33.140
+ What do you make of that?
+
+46:33.140 --> 46:34.200
+ Yeah, what do you make of that?
+
+46:34.200 --> 46:35.300
+ I mean, yeah, so you laid out
+
+46:35.300 --> 46:36.660
+ two of the possible explanations.
+
+46:36.660 --> 46:37.500
+ Really?
+
+46:37.500 --> 46:38.820
+ Some, well, yeah, I mean, well,
+
+46:38.820 --> 46:41.060
+ someone, some cosmic creator went,
+
+46:41.060 --> 46:43.140
+ yeah, let's fix that to be at the right level.
+
+46:43.140 --> 46:44.420
+ That's one possibility, I guess.
+
+46:44.420 --> 46:45.900
+ It's not a scientifically testable one,
+
+46:45.900 --> 46:48.740
+ but theoretically, I guess, it's possible.
+
+46:48.740 --> 46:50.860
+ Sorry to interrupt, but there could also be
+
+46:50.860 --> 46:53.460
+ not a designer, but couldn't there be just,
+
+46:54.540 --> 46:55.980
+ I guess I'm not sure what that would be,
+
+46:55.980 --> 46:58.240
+ but some kind of force that,
+
+46:58.240 --> 47:03.240
+ that some kind of mechanism
+
+47:03.240 --> 47:08.240
+ by which this kind of field is enforced
+
+47:09.840 --> 47:11.920
+ in order to create complexity,
+
+47:11.920 --> 47:16.280
+ basically forces that pull the universe
+
+47:16.280 --> 47:19.800
+ towards an interesting complexity.
+
+47:19.800 --> 47:21.360
+ I mean, yeah, I mean, there are people
+
+47:21.360 --> 47:22.280
+ who have those ideas.
+
+47:22.280 --> 47:23.600
+ I don't really subscribe to them.
+
+47:23.600 --> 47:25.520
+ As I'm saying, it sounds really stupid.
+
+47:25.520 --> 47:27.120
+ No, I mean, there are definitely people
+
+47:27.120 --> 47:29.400
+ that make those kind of arguments.
+
+47:29.400 --> 47:33.040
+ There's ideas that, I think it's Lee Smolin's idea,
+
+47:33.040 --> 47:38.040
+ or one, I think, that universes are born inside black holes.
+
+47:38.120 --> 47:40.280
+ And so, universes, they basically have
+
+47:40.280 --> 47:42.480
+ like Darwinian evolution of the universe,
+
+47:42.480 --> 47:44.800
+ where universes give birth to other universes.
+
+47:44.800 --> 47:46.720
+ And if universes where black holes can form
+
+47:46.720 --> 47:48.760
+ are more likely to give birth to more universes,
+
+47:48.760 --> 47:51.260
+ so you end up with universes which have similar laws.
+
+47:51.260 --> 47:52.600
+ I mean, I don't know, whatever.
+
+47:52.600 --> 47:57.080
+ Well, I talked to Lee recently on this podcast,
+
+47:57.080 --> 48:02.080
+ and he's a reminder to me that the physics community
+
+48:02.360 --> 48:05.600
+ has like so many interesting characters in it.
+
+48:05.600 --> 48:06.960
+ It's fascinating.
+
+48:06.960 --> 48:08.040
+ Anyway, sorry, so.
+
+48:08.040 --> 48:10.120
+ I mean, as an experimentalist, I tend to sort of think,
+
+48:10.120 --> 48:12.760
+ these are interesting ideas, but they're not really testable,
+
+48:12.760 --> 48:14.720
+ so I tend not to think about them very much.
+
+48:14.720 --> 48:17.600
+ So, I mean, going back to the science of this,
+
+48:17.600 --> 48:19.120
+ there is an explanation.
+
+48:19.120 --> 48:21.240
+ There is a possible solution to this problem of the Higgs,
+
+48:21.240 --> 48:25.200
+ which doesn't involve multiverses or creators fiddling about
+
+48:25.200 --> 48:26.560
+ with the laws of physics.
+
+48:26.560 --> 48:28.400
+ If the most popular solution
+
+48:28.400 --> 48:30.440
+ was something called supersymmetry,
+
+48:30.440 --> 48:34.800
+ which is a theory which involves a new type of symmetry
+
+48:34.800 --> 48:35.720
+ of the universe.
+
+48:35.720 --> 48:37.680
+ In fact, it's one of the last types of symmetries
+
+48:37.680 --> 48:38.560
+ that it's possible to have
+
+48:38.560 --> 48:40.400
+ that we haven't already seen in nature,
+
+48:40.400 --> 48:43.600
+ which is a symmetry between force particles
+
+48:43.600 --> 48:44.760
+ and matter particles.
+
+48:44.760 --> 48:47.880
+ So what we call fermions, which are the matter particles
+
+48:47.880 --> 48:49.920
+ and bosons, which are force particles.
+
+48:49.920 --> 48:52.600
+ And if you have supersymmetry, then there is a super partner
+
+48:52.600 --> 48:55.920
+ for every particle in the standard model.
+
+48:55.920 --> 48:57.520
+ And without going into the details,
+
+48:57.520 --> 48:59.320
+ the effect of this basically is that you have
+
+48:59.320 --> 49:01.320
+ a whole bunch of other fields,
+
+49:01.320 --> 49:04.240
+ and these fields cancel out the effect
+
+49:04.240 --> 49:05.680
+ of the standard model fields,
+
+49:05.680 --> 49:09.000
+ and they stabilize the Higgs field at a nice sensible value.
+
+49:09.000 --> 49:11.360
+ So in supersymmetry, you naturally,
+
+49:11.360 --> 49:14.280
+ without any tinkering about with the constants of nature
+
+49:14.280 --> 49:17.360
+ or anything, you get a Higgs field with a nice value,
+
+49:17.360 --> 49:18.960
+ which is the one we see.
+
+49:18.960 --> 49:20.200
+ So this is one of the,
+
+49:20.200 --> 49:22.000
+ and supersymmetry's also got lots of other things
+
+49:22.000 --> 49:22.840
+ going for it.
+
+49:22.840 --> 49:25.360
+ It predicts the existence of a dark matter particle,
+
+49:25.360 --> 49:27.000
+ which would be great.
+
+49:27.000 --> 49:30.120
+ It potentially suggests that the strong force
+
+49:30.120 --> 49:32.760
+ and the electroweak force unify at high energy.
+
+49:32.760 --> 49:35.360
+ So lots of reasons people thought this was a productive idea.
+
+49:35.360 --> 49:37.800
+ And when the LHC was, just before it was turned on,
+
+49:37.800 --> 49:39.600
+ there was a lot of hype, I guess,
+
+49:39.600 --> 49:42.440
+ a lot of an expectation that we would discover
+
+49:42.440 --> 49:44.280
+ these super partners because,
+
+49:44.280 --> 49:46.080
+ and particularly the main reason was
+
+49:46.080 --> 49:50.240
+ that if supersymmetry stabilizes the Higgs field
+
+49:50.240 --> 49:52.960
+ at this nice Goldilocks value,
+
+49:52.960 --> 49:55.760
+ these super particles should have a mass
+
+49:55.760 --> 49:58.520
+ around the energy that we're probing at the LHC,
+
+49:58.520 --> 49:59.920
+ around the energy of the Higgs.
+
+49:59.920 --> 50:01.520
+ So it was kind of thought, you discover the Higgs,
+
+50:01.520 --> 50:03.600
+ you probably discover super partners as well.
+
+50:03.600 --> 50:06.200
+ So once you start creating ripples in this Higgs field,
+
+50:06.200 --> 50:08.680
+ you should be able to see these kinds of,
+
+50:08.680 --> 50:09.520
+ you should be, yeah.
+
+50:09.520 --> 50:11.000
+ So the super fields would be there.
+
+50:11.000 --> 50:12.320
+ When I, at the very beginning I said,
+
+50:12.320 --> 50:13.720
+ we're probing the vacuum.
+
+50:13.720 --> 50:15.200
+ What I mean is really that, you know,
+
+50:15.200 --> 50:16.680
+ okay, let's say these super fields exist.
+
+50:16.680 --> 50:18.200
+ The vacuum contains super fields.
+
+50:18.200 --> 50:20.160
+ They're there, these supersymmetric fields.
+
+50:20.160 --> 50:22.640
+ If we hit them hard enough, we can make them vibrate.
+
+50:22.640 --> 50:24.840
+ We see super particles come flying out.
+
+50:24.840 --> 50:26.320
+ That's the sort of, that's the idea.
+
+50:26.320 --> 50:27.160
+ That's the whole, okay.
+
+50:27.160 --> 50:28.000
+ That's the whole point.
+
+50:29.600 --> 50:30.680
+ But we haven't.
+
+50:30.680 --> 50:31.520
+ But we haven't.
+
+50:31.520 --> 50:33.240
+ So, so far at least, I mean,
+
+50:33.240 --> 50:37.960
+ we've had now a decade of data taking at the LHC.
+
+50:38.920 --> 50:41.760
+ No signs of super partners have,
+
+50:41.760 --> 50:43.360
+ supersymmetric particles have been found.
+
+50:43.360 --> 50:46.000
+ In fact, no signs of any physics, any new particles
+
+50:46.000 --> 50:47.520
+ beyond the Standard Model have been found.
+
+50:47.520 --> 50:49.520
+ So supersymmetry is not the only thing that can do this.
+
+50:49.520 --> 50:51.440
+ There are other theories that involve
+
+50:51.440 --> 50:53.160
+ additional dimensions of space
+
+50:53.160 --> 50:55.680
+ or potentially involve the Higgs boson
+
+50:55.680 --> 50:56.920
+ being made of smaller things,
+
+50:56.920 --> 50:58.360
+ being made of other particles.
+
+50:58.360 --> 50:59.480
+ Yeah, that's an interesting, you know,
+
+50:59.480 --> 51:00.560
+ I haven't heard that before.
+
+51:00.560 --> 51:02.320
+ That's really, that's an interesting,
+
+51:02.320 --> 51:03.640
+ but can you maybe linger on that?
+
+51:03.640 --> 51:06.400
+ Like what, what could be,
+
+51:06.400 --> 51:08.880
+ what could the Higgs particle be made of?
+
+51:08.880 --> 51:11.560
+ Well, so the oldest, I think the original ideas about this
+
+51:11.560 --> 51:14.080
+ was these theories called technicolor,
+
+51:14.080 --> 51:17.320
+ which were basically like an analogy with the strong force.
+
+51:17.320 --> 51:21.440
+ So the idea was the Higgs boson was a bound state
+
+51:21.440 --> 51:24.480
+ of two very strongly interacting particles
+
+51:24.480 --> 51:25.560
+ that were a bit like quarks.
+
+51:25.560 --> 51:29.200
+ So like quarks, but I guess higher energy things
+
+51:29.200 --> 51:30.440
+ with a super strong force.
+
+51:30.440 --> 51:31.880
+ So not the strong force, but a new force
+
+51:31.880 --> 51:33.000
+ that was very strong.
+
+51:33.000 --> 51:36.480
+ And the Higgs was a bound state of these, these objects.
+
+51:36.480 --> 51:38.440
+ And the Higgs would in principle, if that was right,
+
+51:38.440 --> 51:42.400
+ would be the first in a series of technicolor particles.
+
+51:42.400 --> 51:45.560
+ Technicolor, I think not being a theorist,
+
+51:45.560 --> 51:48.120
+ but it's not, it's basically not done very well,
+
+51:48.120 --> 51:49.600
+ particularly since the LHC found the Higgs,
+
+51:49.600 --> 51:52.360
+ that kind of, it rules out, you know,
+
+51:52.360 --> 51:53.440
+ a lot of these technicolor theories,
+
+51:53.440 --> 51:55.440
+ but there are other things that are a bit like technicolor.
+
+51:55.440 --> 52:00.440
+ So there's a theory called partial composite,
+
+52:00.560 --> 52:02.560
+ which is an idea that some of my colleagues
+
+52:02.560 --> 52:04.360
+ at Cambridge have worked on,
+
+52:04.360 --> 52:06.840
+ which is a similar sort of idea that the Higgs
+
+52:06.840 --> 52:10.440
+ is a bound state of some strongly interacting particles,
+
+52:10.440 --> 52:13.000
+ and that the standard model particles themselves,
+
+52:13.000 --> 52:15.120
+ the more exotic ones like the top quark
+
+52:16.000 --> 52:20.480
+ are also sort of mixtures of these composite particles.
+
+52:20.480 --> 52:23.320
+ So it's a kind of an extension to the standard model,
+
+52:23.320 --> 52:25.280
+ which explains this problem
+
+52:25.280 --> 52:28.560
+ with the Higgs bosons, Goldilocks value,
+
+52:28.560 --> 52:31.160
+ but also helps us understand we have,
+
+52:31.160 --> 52:32.840
+ we're in a situation now, again,
+
+52:32.840 --> 52:34.480
+ a bit like the periodic table,
+
+52:34.480 --> 52:38.640
+ where we have six quarks, six leptons in this kind of,
+
+52:38.640 --> 52:40.000
+ you can arrange in this nice table
+
+52:40.000 --> 52:42.480
+ and you can see these columns where the patterns repeat
+
+52:42.480 --> 52:46.160
+ and you go, okay, maybe there's something deeper
+
+52:46.160 --> 52:47.640
+ going on here, you know,
+
+52:47.640 --> 52:49.640
+ and so this would potentially be something,
+
+52:49.640 --> 52:52.880
+ this partial composite theory could explain,
+
+52:52.880 --> 52:54.360
+ a sort of enlarge this picture
+
+52:54.360 --> 52:56.480
+ that allows us to see the whole symmetrical pattern
+
+52:56.480 --> 52:59.120
+ and understand what the ingredients, why do we have,
+
+52:59.120 --> 53:02.160
+ so one of the big questions in particle physics is,
+
+53:02.160 --> 53:06.240
+ why are there three copies of the matter particles?
+
+53:06.240 --> 53:07.920
+ So in what we call the first generation,
+
+53:07.920 --> 53:08.920
+ which is what we're made of,
+
+53:08.920 --> 53:11.760
+ there's the electron, the electron neutrino,
+
+53:11.760 --> 53:13.160
+ the up quark and the down quark,
+
+53:13.160 --> 53:15.640
+ they're the most common matter particles in the universe,
+
+53:15.640 --> 53:18.800
+ but then there are copies of these four particles
+
+53:18.800 --> 53:20.360
+ in the second and the third generations,
+
+53:20.360 --> 53:23.120
+ so things like nuons and top quarks and other stuff,
+
+53:23.120 --> 53:25.240
+ we don't know why, we see these patterns,
+
+53:25.240 --> 53:26.440
+ we have no idea where it comes from,
+
+53:26.440 --> 53:28.880
+ so that's another big question, you know,
+
+53:28.880 --> 53:32.920
+ can we find out the deeper order that explains
+
+53:32.920 --> 53:36.440
+ this particular periodic table of particles that we see?
+
+53:36.440 --> 53:40.240
+ Is it possible that the deeper order includes
+
+53:40.240 --> 53:42.400
+ like almost a single entity,
+
+53:42.400 --> 53:44.960
+ so like something that I guess like string theory
+
+53:44.960 --> 53:49.960
+ dreams about, is this essentially the dream,
+
+53:50.240 --> 53:54.120
+ is to discover something simple, beautiful and unifying?
+
+53:54.120 --> 53:55.640
+ Yeah, I mean, that is the dream,
+
+53:55.640 --> 53:59.480
+ and I think for some people, for a lot of people,
+
+53:59.480 --> 54:00.400
+ it still is the dream,
+
+54:00.400 --> 54:03.800
+ so there's a great book by Steven Weinberg,
+
+54:03.800 --> 54:05.760
+ who is one of the theoretical physicists
+
+54:05.760 --> 54:08.360
+ who was instrumental in building the Standard Model,
+
+54:08.360 --> 54:12.000
+ so he came up with some others with the electroweak theory,
+
+54:12.000 --> 54:14.560
+ the theory that unified electromagnetism and the weak force,
+
+54:14.560 --> 54:15.680
+ and he wrote this book,
+
+54:15.680 --> 54:18.080
+ I think it was towards the end of the 80s, early 90s,
+
+54:18.080 --> 54:20.000
+ called Dreams of a Final Theory,
+
+54:20.000 --> 54:22.920
+ which is a very lovely, quite short book
+
+54:22.920 --> 54:26.200
+ about this idea of a final unifying theory
+
+54:26.200 --> 54:27.560
+ that brings everything together,
+
+54:27.560 --> 54:29.440
+ and I think you get a sense reading his book
+
+54:29.440 --> 54:31.760
+ written at the end of the 80s, early 90s,
+
+54:31.760 --> 54:35.600
+ that there was this feeling that such a theory was coming,
+
+54:37.760 --> 54:39.200
+ and that was the time when string theory
+
+54:39.200 --> 54:41.960
+ was very exciting, so string theory,
+
+54:41.960 --> 54:44.080
+ there's been this thing called the superstring revolution,
+
+54:44.080 --> 54:46.080
+ and theoretical physicists were very excited,
+
+54:46.080 --> 54:47.960
+ they discovered these theoretical objects,
+
+54:47.960 --> 54:49.440
+ these little vibrating loops of string
+
+54:49.440 --> 54:52.440
+ that in principle not only was a quantum theory of gravity
+
+54:52.440 --> 54:54.840
+ but could explain all the particles in the Standard Model
+
+54:54.840 --> 54:55.760
+ and bring it all together,
+
+54:55.760 --> 54:59.520
+ and as you say, you have one object, the string,
+
+54:59.520 --> 55:02.560
+ and you can pluck it, and the way it vibrates
+
+55:02.560 --> 55:03.840
+ gives you these different notes,
+
+55:03.840 --> 55:05.960
+ each of which is a different particle,
+
+55:05.960 --> 55:08.160
+ so it's a very lovely idea,
+
+55:08.160 --> 55:11.920
+ but the problem is that, well, there's a few,
+
+55:11.920 --> 55:14.680
+ people discover that mathematics is very difficult,
+
+55:14.680 --> 55:17.640
+ so people have spent three decades or more
+
+55:17.640 --> 55:19.120
+ trying to understand string theory,
+
+55:19.120 --> 55:21.520
+ and I think if you spoke to most string theorists,
+
+55:21.520 --> 55:22.640
+ they would probably freely admit
+
+55:22.640 --> 55:24.920
+ that no one really knows what string theory is yet,
+
+55:24.920 --> 55:26.000
+ I mean, there's been a lot of work,
+
+55:26.000 --> 55:27.320
+ but it's not really understood,
+
+55:27.320 --> 55:31.240
+ and the other problem is that string theory
+
+55:31.240 --> 55:34.040
+ mostly makes predictions about physics
+
+55:34.040 --> 55:36.560
+ that occurs at energies far beyond
+
+55:36.560 --> 55:40.600
+ what we will ever be able to probe in the laboratory.
+
+55:40.600 --> 55:42.200
+ Yeah, probably ever.
+
+55:42.200 --> 55:44.840
+ By the way, so sorry to take a million tangents,
+
+55:44.840 --> 55:48.080
+ but is there room for complete innovation
+
+55:48.080 --> 55:50.240
+ of how to build a particle collider
+
+55:50.240 --> 55:52.720
+ that could give us an order of magnitude increase
+
+55:52.720 --> 55:55.200
+ in the kind of energies,
+
+55:55.200 --> 55:58.520
+ or do we need to keep just increasing the size of things?
+
+55:58.520 --> 56:00.920
+ I mean, maybe, yeah, I mean, there are ideas,
+
+56:00.920 --> 56:03.920
+ to give you a sense of the gulf that has to be bridged.
+
+56:03.920 --> 56:08.920
+ So the LHC collides particles at an energy
+
+56:09.320 --> 56:13.440
+ of what we call 14 tera electron volts,
+
+56:13.440 --> 56:15.040
+ so that's basically the equivalent
+
+56:15.040 --> 56:19.200
+ if you've accelerated a proton through 14 trillion volts.
+
+56:19.200 --> 56:20.520
+ That gets us to the energies
+
+56:20.520 --> 56:23.240
+ where the Higgs and these weak particles live.
+
+56:23.240 --> 56:24.480
+ They're very massive.
+
+56:24.480 --> 56:27.760
+ The scale where strings become manifest
+
+56:27.760 --> 56:29.320
+ is something called the Planck scale,
+
+56:29.320 --> 56:31.960
+ which I think is of the order 10 to the,
+
+56:31.960 --> 56:33.720
+ hang on, get this right,
+
+56:33.720 --> 56:35.840
+ it's 10 to the 18 giga electron volts,
+
+56:35.840 --> 56:40.840
+ so about 10 to the 15 tera electron volts.
+
+56:41.000 --> 56:44.760
+ So you're talking trillions of times more energy.
+
+56:44.760 --> 56:49.760
+ Yeah, 10 to the 15th or 10 to the 14th larger, I don't even.
+
+56:49.760 --> 56:50.840
+ It's of that order.
+
+56:50.840 --> 56:52.680
+ It's a very big number.
+
+56:52.680 --> 56:54.400
+ So we're not talking just an order
+
+56:54.400 --> 56:55.600
+ of magnitude increase in energy,
+
+56:55.600 --> 56:58.600
+ we're talking 14 orders of magnitude energy increase.
+
+56:58.600 --> 57:01.160
+ So to give you a sense of what that would look like,
+
+57:01.160 --> 57:03.000
+ were you to build a particle accelerator
+
+57:03.000 --> 57:04.760
+ with today's technology.
+
+57:04.760 --> 57:07.960
+ Bigger or smaller than our solar system?
+
+57:07.960 --> 57:09.120
+ The size of the galaxy.
+
+57:09.120 --> 57:10.040
+ The galaxy.
+
+57:10.040 --> 57:11.480
+ So you'd need to put a particle accelerator
+
+57:11.480 --> 57:14.560
+ that circled the Milky Way to get to the energies
+
+57:14.560 --> 57:17.600
+ where you would see strings if they exist.
+
+57:17.600 --> 57:20.400
+ So that is a fundamental problem,
+
+57:20.400 --> 57:22.600
+ which is that most of the predictions
+
+57:22.600 --> 57:26.040
+ of these unified theories, quantum theories of gravity,
+
+57:26.040 --> 57:29.200
+ only make statements that are testable at energies
+
+57:29.200 --> 57:31.160
+ that we will not be able to probe,
+
+57:32.200 --> 57:35.200
+ and barring some unbelievable,
+
+57:35.200 --> 57:37.160
+ completely unexpected technological
+
+57:37.160 --> 57:38.080
+ or scientific breakthrough,
+
+57:38.080 --> 57:40.000
+ which is almost impossible to imagine.
+
+57:40.000 --> 57:42.800
+ You never say never, but it seems very unlikely.
+
+57:42.800 --> 57:45.120
+ Yeah, I can just see the news story.
+
+57:45.120 --> 57:48.840
+ Elon Musk decides to build a particle collider
+
+57:48.840 --> 57:51.080
+ the size of our galaxy.
+
+57:51.080 --> 57:51.920
+ We'd have to get together
+
+57:51.920 --> 57:55.120
+ with all our galactic neighbors to pay for it, I think.
+
+57:55.120 --> 57:56.720
+ What is the exciting possibilities
+
+57:56.720 --> 57:58.960
+ of the Large Hadron Collider?
+
+57:58.960 --> 58:00.640
+ What is there to be discovered
+
+58:00.640 --> 58:04.160
+ in this order of magnitude of scale?
+
+58:04.160 --> 58:09.160
+ Is there other bigger efforts on the horizon in this space?
+
+58:09.800 --> 58:12.720
+ What are the open problems, the exciting possibilities?
+
+58:12.720 --> 58:14.560
+ You mentioned supersymmetry.
+
+58:14.560 --> 58:17.600
+ Yeah, so, well, there are lots of new ideas.
+
+58:17.600 --> 58:18.920
+ Well, there are lots of problems that we're facing.
+
+58:18.920 --> 58:20.160
+ So there's a problem with the Higgs field,
+
+58:20.160 --> 58:23.320
+ which supersymmetry was supposed to solve.
+
+58:23.320 --> 58:25.720
+ There's the fact that 95% of the universe
+
+58:25.720 --> 58:29.360
+ we know from cosmology, astrophysics, is invisible,
+
+58:29.360 --> 58:31.840
+ that it's made of dark matter and dark energy,
+
+58:31.840 --> 58:33.520
+ which are really just words
+
+58:33.520 --> 58:35.360
+ for things that we don't know what they are.
+
+58:35.360 --> 58:37.920
+ It's what Donald Rumsfeld called a known unknown.
+
+58:37.920 --> 58:39.880
+ So we know we don't know what they are.
+
+58:39.880 --> 58:42.480
+ Well, that's better than unknown unknown.
+
+58:42.480 --> 58:43.800
+ Yeah, well, there may be some unknown unknowns,
+
+58:43.800 --> 58:47.360
+ but by definition we don't know what those are, so, yeah.
+
+58:47.360 --> 58:52.360
+ But the hope is a particle accelerator
+
+58:52.480 --> 58:55.560
+ could help us make sense of dark energy, dark matter.
+
+58:55.560 --> 58:57.680
+ There's still, there's some hope for that?
+
+58:57.680 --> 58:58.760
+ There's hope for that, yeah.
+
+58:58.760 --> 59:01.400
+ So one of the hopes is the LHC could produce
+
+59:01.400 --> 59:03.800
+ a dark matter particle in its collisions.
+
+59:03.800 --> 59:08.360
+ And it may be that the LHC
+
+59:08.360 --> 59:09.920
+ will still discover new particles,
+
+59:09.920 --> 59:11.920
+ that it might still, supersymmetry could still be there.
+
+59:11.920 --> 59:14.320
+ It's just maybe more difficult to find
+
+59:14.320 --> 59:15.640
+ than we thought originally.
+
+59:15.640 --> 59:18.520
+ And dark matter particles might be being produced,
+
+59:18.520 --> 59:20.600
+ but we're just not looking in the right part of the data
+
+59:20.600 --> 59:22.120
+ for them, that's possible.
+
+59:22.120 --> 59:23.320
+ It might be that we need more data,
+
+59:23.320 --> 59:24.800
+ that these processes are very rare
+
+59:24.800 --> 59:26.600
+ and we need to collect lots and lots of data
+
+59:26.600 --> 59:27.600
+ before we see them.
+
+59:27.600 --> 59:29.880
+ But I think a lot of people would say now
+
+59:29.880 --> 59:33.720
+ that the chances of the LHC
+
+59:33.720 --> 59:36.000
+ directly discovering new particles
+
+59:36.000 --> 59:37.760
+ in the near future is quite slim.
+
+59:37.760 --> 59:40.800
+ It may be that we need a decade more data
+
+59:40.800 --> 59:43.920
+ before we can see something, or we may not see anything.
+
+59:43.920 --> 59:45.480
+ That's the, that's where we are.
+
+59:45.480 --> 59:48.960
+ So, I mean, the physics, the experiments that I work on,
+
+59:48.960 --> 59:50.760
+ so I work on a detector called LHCb,
+
+59:50.760 --> 59:52.760
+ which is one of these four big detectors
+
+59:52.760 --> 59:54.400
+ that are spaced around the ring.
+
+59:54.400 --> 59:57.520
+ And we do slightly different stuff to the big guys.
+
+59:57.520 --> 1:00:00.600
+ There's two big experiments called Atlas and CMS,
+
+1:00:00.600 --> 1:00:02.720
+ 3000 physicists and scientists
+
+1:00:02.720 --> 1:00:04.760
+ and computer scientists on them each.
+
+1:00:04.760 --> 1:00:06.080
+ They are the ones that discovered the Higgs
+
+1:00:06.080 --> 1:00:08.560
+ and they look for supersymmetry and dark matter and so on.
+
+1:00:08.560 --> 1:00:11.200
+ What we look at are standard model particles
+
+1:00:11.200 --> 1:00:14.880
+ called bequarks, which depending on your preferences,
+
+1:00:14.880 --> 1:00:16.600
+ either bottom or beauty,
+
+1:00:16.600 --> 1:00:18.800
+ we tend to say beauty because it sounds sexier.
+
+1:00:18.800 --> 1:00:20.440
+ Yeah, for sure.
+
+1:00:20.440 --> 1:00:22.680
+ But these particles are interesting
+
+1:00:22.680 --> 1:00:25.840
+ because they have, we can make lots of them.
+
+1:00:25.840 --> 1:00:28.880
+ We make billions or hundreds of billions of these things.
+
+1:00:28.880 --> 1:00:31.560
+ You can therefore measure their properties very precisely.
+
+1:00:31.560 --> 1:00:34.400
+ So you can make these really lovely precision measurements.
+
+1:00:34.400 --> 1:00:39.400
+ And what we are doing really is a sort of complimentary thing
+
+1:00:39.400 --> 1:00:41.920
+ to the other big experiments, which is they,
+
+1:00:41.920 --> 1:00:44.120
+ if you think of the sort of analogy they often use is,
+
+1:00:44.120 --> 1:00:45.800
+ if you imagine you're looking in, you're in the jungle
+
+1:00:45.800 --> 1:00:48.680
+ and you're looking for an elephant, say,
+
+1:00:48.680 --> 1:00:52.040
+ and you are a hunter and you're kind of like,
+
+1:00:52.040 --> 1:00:53.520
+ let's say there's the relevance, very rare.
+
+1:00:53.520 --> 1:00:55.440
+ You don't know where in the jungle, the jungle's big.
+
+1:00:55.440 --> 1:00:56.760
+ So there's two ways you go about this.
+
+1:00:56.760 --> 1:00:58.720
+ Either you can go wandering around the jungle
+
+1:00:58.720 --> 1:01:00.160
+ and try and find the elephant.
+
+1:01:00.160 --> 1:01:01.320
+ The problem is if the elephant,
+
+1:01:01.320 --> 1:01:02.720
+ if there's only one elephant and the jungle's big,
+
+1:01:02.720 --> 1:01:04.760
+ the chances of running into it are very small.
+
+1:01:04.760 --> 1:01:07.200
+ Or you could look on the ground
+
+1:01:07.200 --> 1:01:09.200
+ and see if you see footprints left by the elephant.
+
+1:01:09.200 --> 1:01:11.480
+ And if the elephant's moving around, you've got a chance,
+
+1:01:11.480 --> 1:01:12.320
+ that you're better chance maybe
+
+1:01:12.320 --> 1:01:13.880
+ of seeing the elephant's footprints.
+
+1:01:13.880 --> 1:01:16.080
+ If you see the footprints, you go, okay, there's an elephant.
+
+1:01:16.080 --> 1:01:18.320
+ I maybe don't know what kind of elephant it is,
+
+1:01:18.320 --> 1:01:20.000
+ but I got a sense there's something out there.
+
+1:01:20.000 --> 1:01:21.600
+ So that's sort of what we do.
+
+1:01:21.600 --> 1:01:23.040
+ We are the footprint people.
+
+1:01:23.040 --> 1:01:25.800
+ We are, we're looking for the footprints,
+
+1:01:25.800 --> 1:01:28.800
+ the impressions that quantum fields
+
+1:01:28.800 --> 1:01:32.600
+ that we haven't managed to directly create the particle of,
+
+1:01:32.600 --> 1:01:33.960
+ the effects these quantum fields have
+
+1:01:33.960 --> 1:01:35.560
+ on the ordinary standard model fields
+
+1:01:35.560 --> 1:01:36.480
+ that we already know about.
+
+1:01:36.480 --> 1:01:39.760
+ So these B particles, the way they behave
+
+1:01:39.760 --> 1:01:41.720
+ can be influenced by the presence of say,
+
+1:01:41.720 --> 1:01:45.200
+ super fields or dark matter fields or whatever you like.
+
+1:01:45.200 --> 1:01:48.640
+ And the way they decay and behave can be altered slightly
+
+1:01:48.640 --> 1:01:52.480
+ from what our theory tells us they ought to behave.
+
+1:01:52.480 --> 1:01:54.600
+ And it's easier to collect huge amounts of data
+
+1:01:54.600 --> 1:01:56.600
+ on B quarks.
+
+1:01:56.600 --> 1:01:58.440
+ We get billions and billions of these things.
+
+1:01:58.440 --> 1:02:00.280
+ You can make very precise measurements.
+
+1:02:00.280 --> 1:02:03.200
+ And the only place really at the LHC
+
+1:02:03.200 --> 1:02:05.200
+ or really in high energy physics at the moment
+
+1:02:05.200 --> 1:02:08.920
+ where there's fairly compelling evidence
+
+1:02:08.920 --> 1:02:10.960
+ that there might be something beyond the standard model
+
+1:02:10.960 --> 1:02:15.320
+ is in these B, these beauty quarks decays.
+
+1:02:15.320 --> 1:02:18.640
+ Just to clarify, which is the difference
+
+1:02:18.640 --> 1:02:20.320
+ between the different, the four experiments,
+
+1:02:20.320 --> 1:02:21.600
+ for example, that you mentioned,
+
+1:02:21.600 --> 1:02:24.760
+ is it the kind of particles that are being collided?
+
+1:02:24.760 --> 1:02:27.160
+ Is it the energies which they're collided?
+
+1:02:27.160 --> 1:02:28.960
+ What's the fundamental difference
+
+1:02:28.960 --> 1:02:30.440
+ between the different experiments?
+
+1:02:30.440 --> 1:02:32.280
+ The collisions are the same.
+
+1:02:32.280 --> 1:02:34.480
+ What's different is the design of the detectors.
+
+1:02:34.480 --> 1:02:37.040
+ So Atlas and CMS are called,
+
+1:02:37.040 --> 1:02:39.760
+ they're called what are called general purpose detectors.
+
+1:02:39.760 --> 1:02:42.360
+ And they are basically barrel shaped machines
+
+1:02:42.360 --> 1:02:44.440
+ and the collisions happen in the middle of the barrel
+
+1:02:44.440 --> 1:02:46.600
+ and the barrel captures all the particles
+
+1:02:46.600 --> 1:02:48.040
+ that go flying out in every direction.
+
+1:02:48.040 --> 1:02:49.840
+ So in a sphere effectively that can fly out
+
+1:02:49.840 --> 1:02:51.840
+ and it can record all of those particles.
+
+1:02:51.840 --> 1:02:54.720
+ And what's the, sorry to be interrupting,
+
+1:02:54.720 --> 1:02:57.440
+ but what's the mechanism of the recording?
+
+1:02:57.440 --> 1:02:59.520
+ Oh, so these detectors, if you've seen pictures of them,
+
+1:02:59.520 --> 1:03:03.080
+ they're huge, like Atlas is 25 meters high
+
+1:03:03.080 --> 1:03:06.440
+ and 45 meters long, they're vast machines,
+
+1:03:07.760 --> 1:03:09.600
+ instruments, I guess you should call them really.
+
+1:03:09.600 --> 1:03:11.760
+ They are, they're kind of like onions.
+
+1:03:11.760 --> 1:03:15.360
+ So they have layers, concentric layers of detectors,
+
+1:03:15.360 --> 1:03:16.480
+ different sorts of detectors.
+
+1:03:16.480 --> 1:03:18.160
+ So close into the beam pipe,
+
+1:03:18.160 --> 1:03:20.600
+ you have what are called usually made of silicon,
+
+1:03:20.600 --> 1:03:21.720
+ they're tracking detectors.
+
+1:03:21.720 --> 1:03:23.600
+ So they're little made of strips of silicon
+
+1:03:23.600 --> 1:03:24.960
+ or pixels of silicon.
+
+1:03:24.960 --> 1:03:26.800
+ And when a particle goes through the silicon,
+
+1:03:26.800 --> 1:03:28.520
+ it gives a little electrical signal
+
+1:03:28.520 --> 1:03:30.280
+ and you get these dots, electrical dots
+
+1:03:30.280 --> 1:03:31.440
+ through your detector, which allows you
+
+1:03:31.440 --> 1:03:34.120
+ to reconstruct the trajectory of the particle.
+
+1:03:34.120 --> 1:03:34.960
+ So that's the middle
+
+1:03:34.960 --> 1:03:36.280
+ and then the outsides of these detectors,
+
+1:03:36.280 --> 1:03:37.720
+ you have things called calorimeters,
+
+1:03:37.720 --> 1:03:39.600
+ which measure the energies of the particles
+
+1:03:39.600 --> 1:03:42.640
+ and the very edge you have things called muon chambers,
+
+1:03:42.640 --> 1:03:44.680
+ which basically these muon particles,
+
+1:03:44.680 --> 1:03:46.720
+ which are the heavy version of the electron,
+
+1:03:46.720 --> 1:03:48.440
+ they're like high velocity bullets
+
+1:03:48.440 --> 1:03:50.120
+ and they can get right to the edge of the detectors.
+
+1:03:50.120 --> 1:03:52.480
+ If you see something at the edge, that's a muon.
+
+1:03:52.480 --> 1:03:54.000
+ So that's broadly how they work.
+
+1:03:54.000 --> 1:03:55.720
+ And all of that is being recorded.
+
+1:03:55.720 --> 1:03:58.280
+ That's all being fed out to, you know, computers.
+
+1:03:58.280 --> 1:04:00.800
+ Data must be awesome, okay.
+
+1:04:00.800 --> 1:04:02.000
+ So LHCb is different.
+
+1:04:02.000 --> 1:04:04.680
+ So we, because we're looking for these be quarks,
+
+1:04:04.680 --> 1:04:07.960
+ be quarks tend to be produced along the beam line.
+
+1:04:07.960 --> 1:04:10.640
+ So in a collision, the be quark tend to fly
+
+1:04:10.640 --> 1:04:12.840
+ sort of close to the beam pipe.
+
+1:04:12.840 --> 1:04:15.520
+ So we built a detector that sort of pyramid cone shaped
+
+1:04:15.520 --> 1:04:18.120
+ basically, that just looks in one direction.
+
+1:04:18.120 --> 1:04:20.280
+ So we ignore, if you have your collision,
+
+1:04:20.280 --> 1:04:21.120
+ stuff goes everywhere.
+
+1:04:21.120 --> 1:04:23.400
+ We ignore all the stuff over here and going off sideways.
+
+1:04:23.400 --> 1:04:26.240
+ We're just looking in this little region
+
+1:04:26.240 --> 1:04:27.080
+ close to the beam pipe
+
+1:04:27.080 --> 1:04:28.720
+ where most of these be quarks are made.
+
+1:04:28.720 --> 1:04:33.720
+ So is there a different aspect of the sensors involved
+
+1:04:34.160 --> 1:04:37.600
+ in the collection of the be quark trajectories?
+
+1:04:37.600 --> 1:04:38.720
+ There are some differences.
+
+1:04:38.720 --> 1:04:40.840
+ So one of the differences is that,
+
+1:04:40.840 --> 1:04:42.600
+ one of the ways you know you've seen a be quark
+
+1:04:42.600 --> 1:04:44.880
+ is that be quarks are actually quite long lived
+
+1:04:44.880 --> 1:04:45.920
+ by particle standards.
+
+1:04:45.920 --> 1:04:49.120
+ So they live for 1.5 trillionths of a second,
+
+1:04:49.120 --> 1:04:50.600
+ which is if you're a fundamental particle
+
+1:04:50.600 --> 1:04:51.640
+ is a very long time.
+
+1:04:51.640 --> 1:04:54.600
+ Cause the Higgs boson, I think lives for about
+
+1:04:54.600 --> 1:04:57.240
+ a trillionth of a trillionth of a second,
+
+1:04:57.240 --> 1:04:58.400
+ or maybe even less than that.
+
+1:04:58.400 --> 1:05:00.760
+ So these are quite long lived things
+
+1:05:00.760 --> 1:05:02.600
+ and they will actually fly a little distance
+
+1:05:02.600 --> 1:05:03.440
+ before they decay.
+
+1:05:03.440 --> 1:05:06.280
+ So they will fly a few centimeters maybe if you're lucky,
+
+1:05:06.280 --> 1:05:07.920
+ then they'll decay into other stuff.
+
+1:05:07.920 --> 1:05:10.360
+ So what we need to do in the middle of the detector,
+
+1:05:10.360 --> 1:05:12.160
+ you wanna be able to see,
+
+1:05:12.160 --> 1:05:14.560
+ you have your place where the protons crash into each other
+
+1:05:14.560 --> 1:05:16.880
+ and that produces loads of particles that come flying out.
+
+1:05:16.880 --> 1:05:18.960
+ So you have loads of lines, loads of tracks
+
+1:05:18.960 --> 1:05:21.320
+ that point back to that proton collision.
+
+1:05:21.320 --> 1:05:23.400
+ And then you're looking for a couple of other tracks,
+
+1:05:23.400 --> 1:05:25.880
+ maybe two or three that point back to a different place
+
+1:05:25.880 --> 1:05:27.360
+ that's maybe a few centimeters away
+
+1:05:27.360 --> 1:05:28.400
+ from the proton collision.
+
+1:05:28.400 --> 1:05:31.560
+ And that's the sign that a little B particle has flown
+
+1:05:31.560 --> 1:05:33.240
+ a few centimeters and decayed somewhere else.
+
+1:05:33.240 --> 1:05:36.760
+ So we need to be able to very accurately resolve
+
+1:05:36.760 --> 1:05:39.480
+ the proton collision from the B particle decay.
+
+1:05:39.480 --> 1:05:42.360
+ So the middle of our detector is very sensitive
+
+1:05:42.360 --> 1:05:44.160
+ and it gets very close to the collision.
+
+1:05:44.160 --> 1:05:46.520
+ So you have this really beautiful delicate
+
+1:05:46.520 --> 1:05:48.360
+ silicon detector that sits,
+
+1:05:48.360 --> 1:05:52.360
+ I think it's seven millimeters from the beam.
+
+1:05:52.360 --> 1:05:53.920
+ And the LHC beam has as much energy
+
+1:05:53.920 --> 1:05:55.200
+ as a jumbo jet at takeoff.
+
+1:05:55.200 --> 1:05:57.360
+ So it's enough to melt a ton of copper.
+
+1:05:57.360 --> 1:05:59.840
+ So you have this furiously powerful thing sitting next
+
+1:05:59.840 --> 1:06:02.320
+ to this tiny delicate silicon sensor.
+
+1:06:03.360 --> 1:06:07.120
+ So those aspects of our detector that are specialized
+
+1:06:07.120 --> 1:06:09.840
+ to measure these particular B quarks
+
+1:06:09.840 --> 1:06:10.880
+ that we're interested in.
+
+1:06:10.880 --> 1:06:12.960
+ And is there, I mean, I remember seeing somewhere
+
+1:06:12.960 --> 1:06:15.360
+ that there's some mention of matter and antimatter
+
+1:06:15.360 --> 1:06:18.280
+ connected to the B, these beautiful quarks.
+
+1:06:18.280 --> 1:06:21.600
+ Is that, what's the connection?
+
+1:06:23.600 --> 1:06:25.880
+ Yeah, what's the connection there?
+
+1:06:25.880 --> 1:06:28.280
+ Yeah, so there is a connection, which is that
+
+1:06:29.600 --> 1:06:31.880
+ when you produce these B particles,
+
+1:06:31.880 --> 1:06:33.760
+ these particles, because you don't see the B quark,
+
+1:06:33.760 --> 1:06:35.400
+ you see the thing that B quark is inside.
+
+1:06:35.400 --> 1:06:37.960
+ So they're bound up inside what we call beauty particles,
+
+1:06:37.960 --> 1:06:40.640
+ where the B quark is joined together with another quark
+
+1:06:40.640 --> 1:06:43.400
+ or two, maybe two other quarks, depending on what it is.
+
+1:06:43.400 --> 1:06:46.160
+ They're a particular set of these B particles
+
+1:06:46.160 --> 1:06:49.480
+ that exhibit this property called oscillation.
+
+1:06:49.480 --> 1:06:52.280
+ So if you make a, for the sake of argument,
+
+1:06:52.280 --> 1:06:55.440
+ a matter version of one of these B particles,
+
+1:06:55.440 --> 1:06:58.840
+ as it travels, because of the magic of quantum mechanics,
+
+1:06:58.840 --> 1:07:01.040
+ it oscillates backwards and forwards
+
+1:07:01.040 --> 1:07:03.880
+ between its matter and antimatter versions.
+
+1:07:03.880 --> 1:07:06.720
+ So it does this weird flipping about backwards and forwards.
+
+1:07:06.720 --> 1:07:09.160
+ And what we can use this for is a laboratory
+
+1:07:09.160 --> 1:07:12.880
+ for testing the symmetry between matter and antimatter.
+
+1:07:12.880 --> 1:07:15.680
+ So if the symmetry between antimatter is precise,
+
+1:07:15.680 --> 1:07:20.040
+ it's exact, then we should see these B particles decaying
+
+1:07:20.040 --> 1:07:21.840
+ as often as matter, as they do as antimatter,
+
+1:07:21.840 --> 1:07:23.360
+ because this oscillation should be even.
+
+1:07:23.360 --> 1:07:26.000
+ It should spend as much time in each state.
+
+1:07:26.000 --> 1:07:29.000
+ But what we actually see is that one of the states,
+
+1:07:29.000 --> 1:07:31.720
+ it spends more time and it's more likely to decay
+
+1:07:31.720 --> 1:07:32.800
+ in one state than the other.
+
+1:07:32.800 --> 1:07:36.960
+ So this gives us a way of testing this fundamental symmetry
+
+1:07:36.960 --> 1:07:39.160
+ between matter and antimatter.
+
+1:07:39.160 --> 1:07:42.400
+ So what can you, sort of returning to the question
+
+1:07:42.400 --> 1:07:44.480
+ before about this fundamental symmetry,
+
+1:07:44.480 --> 1:07:46.520
+ it seems like if there's perfect symmetry
+
+1:07:46.520 --> 1:07:50.560
+ between matter and antimatter,
+
+1:07:50.560 --> 1:07:54.600
+ if we have the equal amount of each in our universe,
+
+1:07:54.600 --> 1:07:57.000
+ it would just destroy itself.
+
+1:07:57.000 --> 1:07:58.760
+ And just like you mentioned,
+
+1:07:58.760 --> 1:08:00.920
+ we seem to live in a very unlikely universe
+
+1:08:00.920 --> 1:08:03.520
+ where it doesn't destroy itself.
+
+1:08:03.520 --> 1:08:07.280
+ So do you have some intuition about why that is?
+
+1:08:07.280 --> 1:08:10.160
+ I mean, well, I'm not a theorist.
+
+1:08:10.160 --> 1:08:11.680
+ I don't have any particular ideas myself.
+
+1:08:11.680 --> 1:08:13.120
+ I mean, I sort of do measurements
+
+1:08:13.120 --> 1:08:14.200
+ to try and test these things,
+
+1:08:14.200 --> 1:08:16.000
+ but I mean, so the terms of the basic problem
+
+1:08:16.000 --> 1:08:17.800
+ is that in the Big Bang,
+
+1:08:17.800 --> 1:08:19.240
+ if you use the standard model to figure out
+
+1:08:19.240 --> 1:08:20.120
+ what ought to have happened,
+
+1:08:20.120 --> 1:08:21.640
+ you should have got equal amounts of matter
+
+1:08:21.640 --> 1:08:22.480
+ and antimatter made,
+
+1:08:22.480 --> 1:08:23.880
+ because whenever you make a particle
+
+1:08:23.880 --> 1:08:25.440
+ in our collisions, for example,
+
+1:08:25.440 --> 1:08:26.800
+ when we collide stuff together,
+
+1:08:26.800 --> 1:08:28.440
+ you make a particle, you make an antiparticle.
+
+1:08:28.440 --> 1:08:29.480
+ They always come together.
+
+1:08:29.480 --> 1:08:30.920
+ They always annihilate together.
+
+1:08:30.920 --> 1:08:33.440
+ So there's no way of making more matter than antimatter
+
+1:08:33.440 --> 1:08:35.040
+ that we've discovered so far.
+
+1:08:35.040 --> 1:08:36.080
+ So that means in the Big Bang,
+
+1:08:36.080 --> 1:08:38.200
+ you get equal amounts of matter and antimatter.
+
+1:08:38.200 --> 1:08:41.720
+ As the universe expands and cools down during the Big Bang,
+
+1:08:41.720 --> 1:08:43.240
+ not very long after the Big Bang,
+
+1:08:43.240 --> 1:08:45.040
+ I think a few seconds after the Big Bang,
+
+1:08:45.040 --> 1:08:47.280
+ you have this event called the Great Annihilation,
+
+1:08:47.280 --> 1:08:49.840
+ which is where all the particles and antiparticles
+
+1:08:49.840 --> 1:08:53.520
+ smack into each other, annihilate, turn into light mostly,
+
+1:08:53.520 --> 1:08:55.000
+ and you end up with a universe later on.
+
+1:08:55.000 --> 1:08:55.960
+ If that was what happened,
+
+1:08:55.960 --> 1:08:58.800
+ then the universe we live in today would be black and empty,
+
+1:08:58.800 --> 1:09:01.600
+ apart from some photons, that would be it.
+
+1:09:01.600 --> 1:09:03.560
+ So there is stuff in the universe.
+
+1:09:03.560 --> 1:09:04.960
+ It appears to be just made of matter.
+
+1:09:04.960 --> 1:09:08.200
+ So there's this big mystery as to how did this happen?
+
+1:09:08.200 --> 1:09:09.720
+ And there are various ideas,
+
+1:09:09.720 --> 1:09:13.520
+ which all involve sort of physics going on
+
+1:09:13.520 --> 1:09:17.040
+ in the first trillionth of a second or so of the Big Bang.
+
+1:09:17.040 --> 1:09:20.080
+ So it could be that one possibility
+
+1:09:20.080 --> 1:09:22.600
+ is that the Higgs field is somehow implicated in this,
+
+1:09:22.600 --> 1:09:25.360
+ that there was this event that took place
+
+1:09:25.360 --> 1:09:27.680
+ in the early universe where the Higgs field
+
+1:09:27.680 --> 1:09:31.400
+ basically switched on, it acquired its modern value.
+
+1:09:31.400 --> 1:09:33.480
+ And when that happened,
+
+1:09:33.480 --> 1:09:35.600
+ this caused all the particles to acquire mass
+
+1:09:35.600 --> 1:09:37.880
+ and the universe basically went through a phase transition
+
+1:09:37.880 --> 1:09:41.000
+ where you had a hot plasma of massless particles.
+
+1:09:41.000 --> 1:09:42.040
+ And then in that plasma,
+
+1:09:42.040 --> 1:09:44.760
+ it's almost like a gas turning into droplets of water.
+
+1:09:44.760 --> 1:09:47.960
+ You get kind of these little bubbles forming in the universe
+
+1:09:47.960 --> 1:09:50.760
+ where the Higgs field has acquired its modern value,
+
+1:09:50.760 --> 1:09:52.280
+ the particles have got mass.
+
+1:09:52.280 --> 1:09:55.200
+ And this phase transition in some models
+
+1:09:55.200 --> 1:09:57.960
+ can cause more matter than antimatter to be produced,
+
+1:09:57.960 --> 1:10:00.640
+ depending on how matter bounces off these bubbles
+
+1:10:00.640 --> 1:10:01.760
+ in the early universe.
+
+1:10:01.760 --> 1:10:02.760
+ So that's one idea.
+
+1:10:02.760 --> 1:10:04.680
+ There's other ideas to do with neutrinos,
+
+1:10:04.680 --> 1:10:06.360
+ that there are exotic types of neutrinos
+
+1:10:06.360 --> 1:10:09.280
+ that can decay in a biased way to just matter
+
+1:10:09.280 --> 1:10:10.200
+ and not to antimatter.
+
+1:10:10.200 --> 1:10:12.640
+ So, and people are trying to test these ideas.
+
+1:10:12.640 --> 1:10:14.280
+ That's what we're trying to do at LHCb.
+
+1:10:14.280 --> 1:10:15.720
+ There's neutrino experiments planned
+
+1:10:15.720 --> 1:10:17.560
+ that are trying to do these sorts of things as well.
+
+1:10:17.560 --> 1:10:19.560
+ So yeah, there are ideas, but at the moment,
+
+1:10:19.560 --> 1:10:22.920
+ no clear evidence for which of these ideas might be right.
+
+1:10:22.920 --> 1:10:25.520
+ So we're talking about some incredible ideas.
+
+1:10:25.520 --> 1:10:28.320
+ By the way, never heard anyone be so eloquent
+
+1:10:28.320 --> 1:10:31.680
+ about describing even just the standard model.
+
+1:10:31.680 --> 1:10:34.520
+ So I'm in awe just listening.
+
+1:10:34.520 --> 1:10:35.360
+ Oh, thank you.
+
+1:10:35.360 --> 1:10:38.080
+ Yeah, just having fun enjoying it.
+
+1:10:38.080 --> 1:10:40.280
+ So the, yes, the theoretical,
+
+1:10:40.280 --> 1:10:42.520
+ the particle physics is fascinating here.
+
+1:10:42.520 --> 1:10:44.680
+ To me, one of the most fascinating things
+
+1:10:44.680 --> 1:10:47.880
+ about the Large Hadron Collider is the human side of it.
+
+1:10:47.880 --> 1:10:51.520
+ That a bunch of sort of brilliant people
+
+1:10:51.520 --> 1:10:54.360
+ that probably have egos got together
+
+1:10:54.360 --> 1:10:57.720
+ and were collaborate together and countries,
+
+1:10:57.720 --> 1:11:00.000
+ I guess, collaborate together for the funds
+
+1:11:00.000 --> 1:11:03.000
+ and everything's just collaboration everywhere.
+
+1:11:03.000 --> 1:11:07.440
+ Cause you may be, I don't know what the right question here
+
+1:11:07.440 --> 1:11:09.680
+ to ask, but almost what's your intuition
+
+1:11:09.680 --> 1:11:11.840
+ about how it was possible to make this happen
+
+1:11:11.840 --> 1:11:14.360
+ and what are the lessons we should learn
+
+1:11:14.360 --> 1:11:16.080
+ for the future of human civilization
+
+1:11:16.080 --> 1:11:17.840
+ in terms of our scientific progress?
+
+1:11:17.840 --> 1:11:21.600
+ Cause it seems like this is a great, great illustration
+
+1:11:21.600 --> 1:11:24.640
+ of us working together to do something big.
+
+1:11:24.640 --> 1:11:27.040
+ Yeah, I think it's possibly the best example.
+
+1:11:27.040 --> 1:11:30.280
+ Maybe I can think of international collaboration
+
+1:11:30.280 --> 1:11:33.400
+ that isn't for some unpleasant purpose, basically.
+
+1:11:33.400 --> 1:11:37.400
+ You know, I mean, so when I started out in the field
+
+1:11:37.400 --> 1:11:39.720
+ in 2008 as a new PhD student,
+
+1:11:39.720 --> 1:11:41.480
+ the LHC was basically finished.
+
+1:11:41.480 --> 1:11:44.600
+ So I didn't have to go around asking for money for it
+
+1:11:44.600 --> 1:11:45.520
+ or trying to make the case.
+
+1:11:45.520 --> 1:11:48.760
+ So I have huge admiration for the people who managed that.
+
+1:11:48.760 --> 1:11:51.160
+ Cause this was a project that was first imagined
+
+1:11:51.160 --> 1:11:53.440
+ in the 1970s, in the late 70s
+
+1:11:53.440 --> 1:11:56.440
+ was when the first conversations about the LHC were mooted
+
+1:11:56.440 --> 1:12:00.800
+ and it took two and a half decades of campaigning
+
+1:12:00.800 --> 1:12:03.600
+ and fundraising and persuasion
+
+1:12:03.600 --> 1:12:05.200
+ until they started breaking ground
+
+1:12:05.200 --> 1:12:08.040
+ and building the thing in the early noughties in 2000.
+
+1:12:08.040 --> 1:12:11.280
+ So, I mean, I think the reason just from a sort of,
+
+1:12:11.280 --> 1:12:13.280
+ from the point of view of the sort of science,
+
+1:12:13.280 --> 1:12:14.120
+ the scientists there,
+
+1:12:14.120 --> 1:12:16.680
+ I think the reason it works ultimately
+
+1:12:16.680 --> 1:12:19.280
+ is that everywhere, everyone there is there
+
+1:12:19.280 --> 1:12:23.680
+ for the same reason, which is, well, in principle, at least
+
+1:12:23.680 --> 1:12:25.520
+ they're there because they're interested in the world.
+
+1:12:25.520 --> 1:12:27.400
+ They want to find out, you know,
+
+1:12:27.400 --> 1:12:29.360
+ what are the basic ingredients of our universe?
+
+1:12:29.360 --> 1:12:31.040
+ What are the laws of nature?
+
+1:12:31.040 --> 1:12:32.920
+ And so everyone is pulling in the same direction.
+
+1:12:32.920 --> 1:12:34.720
+ Now, of course, everyone has their own
+
+1:12:34.720 --> 1:12:35.680
+ things they're interested in.
+
+1:12:35.680 --> 1:12:37.360
+ Everyone has their own careers to consider.
+
+1:12:37.360 --> 1:12:38.800
+ And, you know, I wouldn't pretend that
+
+1:12:38.800 --> 1:12:40.760
+ there isn't also a lot of competition.
+
+1:12:40.760 --> 1:12:42.880
+ So there's this funny thing in these experiments
+
+1:12:42.880 --> 1:12:43.960
+ where your collaborators,
+
+1:12:43.960 --> 1:12:46.120
+ your 800 collaborators in LHCb,
+
+1:12:46.120 --> 1:12:47.320
+ but you're also competitors
+
+1:12:47.320 --> 1:12:49.920
+ because your academics in your various universities
+
+1:12:49.920 --> 1:12:51.520
+ and you want to be the one that gets the paper out
+
+1:12:51.520 --> 1:12:53.400
+ on the most exciting, you know, new measurements.
+
+1:12:53.400 --> 1:12:55.720
+ So there's this funny thing where you're kind of trying
+
+1:12:55.720 --> 1:12:58.440
+ to stake out your territory while also collaborating
+
+1:12:58.440 --> 1:13:00.920
+ and having to work together to make the experiments work.
+
+1:13:00.920 --> 1:13:03.560
+ And it does work amazingly well,
+
+1:13:03.560 --> 1:13:05.160
+ actually considering all of that.
+
+1:13:05.160 --> 1:13:06.760
+ And I think there was actually,
+
+1:13:06.760 --> 1:13:08.680
+ I think McKinsey or one of these big management
+
+1:13:08.680 --> 1:13:11.840
+ consultancy firms went into CERN maybe a decade or so ago
+
+1:13:11.840 --> 1:13:15.000
+ to try to understand how these organizations function.
+
+1:13:15.000 --> 1:13:16.040
+ Did they figure it out?
+
+1:13:16.040 --> 1:13:16.960
+ I don't think they could.
+
+1:13:16.960 --> 1:13:18.800
+ I mean, I think one of the things that's interesting,
+
+1:13:18.800 --> 1:13:19.800
+ one of the other interesting things
+
+1:13:19.800 --> 1:13:21.080
+ about these experiments is, you know,
+
+1:13:21.080 --> 1:13:24.960
+ they're big operations like say Atlas has 3000 people.
+
+1:13:24.960 --> 1:13:26.320
+ Now there was a person nominally
+
+1:13:26.320 --> 1:13:29.680
+ who was the head of Atlas, they're called the spokesperson.
+
+1:13:29.680 --> 1:13:32.360
+ And the spokesperson is elected by,
+
+1:13:32.360 --> 1:13:34.240
+ usually by the collaboration,
+
+1:13:34.240 --> 1:13:36.400
+ but they have no actual power really.
+
+1:13:36.400 --> 1:13:38.560
+ I mean, they can't fire anyone.
+
+1:13:38.560 --> 1:13:39.720
+ They're not anyone's boss.
+
+1:13:39.720 --> 1:13:43.360
+ So, you know, my boss is a professor at Cambridge,
+
+1:13:43.360 --> 1:13:45.120
+ not the head of my experiments.
+
+1:13:45.120 --> 1:13:47.520
+ The head of my experiment can't tell me what to do really.
+
+1:13:47.520 --> 1:13:50.200
+ And there's all these independent academics
+
+1:13:50.200 --> 1:13:52.400
+ who are their own bosses who, you know,
+
+1:13:52.400 --> 1:13:54.600
+ so that somehow it, nonetheless,
+
+1:13:54.600 --> 1:13:58.520
+ by kind of consensus and discussion and lots of meetings,
+
+1:13:58.520 --> 1:14:01.640
+ these things do happen and it does get done, but.
+
+1:14:01.640 --> 1:14:04.960
+ It's like the queen here in the UK is the spokesperson.
+
+1:14:04.960 --> 1:14:05.800
+ I guess so.
+
+1:14:05.800 --> 1:14:07.560
+ No actual power. Except we don't elect her, no.
+
+1:14:07.560 --> 1:14:08.880
+ No, we don't elect her.
+
+1:14:08.880 --> 1:14:10.480
+ But everybody seems to love her.
+
+1:14:10.480 --> 1:14:13.040
+ I don't know, from my outside perspective.
+
+1:14:16.240 --> 1:14:19.840
+ But yeah, giant egos, brilliant people.
+
+1:14:19.840 --> 1:14:22.920
+ And moving forward, do you think there's.
+
+1:14:22.920 --> 1:14:24.800
+ Actually, I would pick up one thing you said just there,
+
+1:14:24.800 --> 1:14:25.840
+ just the brilliant people thing.
+
+1:14:25.840 --> 1:14:28.240
+ Cause I'm not saying that people aren't great.
+
+1:14:28.240 --> 1:14:30.600
+ But I think there is this sort of impression
+
+1:14:30.600 --> 1:14:32.960
+ that physicists all have to be brilliant or geniuses,
+
+1:14:32.960 --> 1:14:34.160
+ which is not true actually.
+
+1:14:34.160 --> 1:14:37.520
+ And you know, you have to be relatively bright for sure.
+
+1:14:37.520 --> 1:14:39.120
+ But you know, a lot of people,
+
+1:14:39.120 --> 1:14:41.560
+ a lot of the most successful experimental physicists
+
+1:14:41.560 --> 1:14:43.960
+ are not necessarily the people with the biggest brains.
+
+1:14:43.960 --> 1:14:45.680
+ They're the people who, you know,
+
+1:14:45.680 --> 1:14:47.440
+ particularly one of the skills that's most important
+
+1:14:47.440 --> 1:14:49.560
+ in particle physics is the ability to work
+
+1:14:49.560 --> 1:14:51.320
+ with others and to collaborate and exchange ideas
+
+1:14:51.320 --> 1:14:52.360
+ and also to work hard.
+
+1:14:52.360 --> 1:14:55.520
+ And it's a sort of, often it's more a determination
+
+1:14:55.520 --> 1:14:57.520
+ or a sort of other set of skills.
+
+1:14:57.520 --> 1:15:00.320
+ It's not just being, you know, kind of some great brain.
+
+1:15:01.440 --> 1:15:02.280
+ Very true.
+
+1:15:02.280 --> 1:15:04.160
+ So, I mean, there's parallels to that
+
+1:15:04.160 --> 1:15:05.160
+ in the machine learning world.
+
+1:15:05.160 --> 1:15:08.200
+ If you wanna solve any real world problems,
+
+1:15:08.200 --> 1:15:11.200
+ which I see as the particle accelerators,
+
+1:15:11.200 --> 1:15:14.920
+ essentially a real world instantiation
+
+1:15:14.920 --> 1:15:16.720
+ of theoretical physics.
+
+1:15:16.720 --> 1:15:20.280
+ And for that, you have to not necessarily be brilliant,
+
+1:15:20.280 --> 1:15:25.280
+ but be sort of obsessed, systematic, rigorous,
+
+1:15:26.320 --> 1:15:29.840
+ sort of unborable, stubborn, all those kind of qualities
+
+1:15:29.840 --> 1:15:31.160
+ that make for a great engineer.
+
+1:15:31.160 --> 1:15:34.200
+ So, scientists purely speaking,
+
+1:15:34.200 --> 1:15:36.200
+ that practitioner of the scientific method.
+
+1:15:36.200 --> 1:15:37.400
+ So you're right.
+
+1:15:37.400 --> 1:15:39.800
+ But nevertheless, to me that's brilliant.
+
+1:15:39.800 --> 1:15:41.600
+ My dad's a physicist.
+
+1:15:41.600 --> 1:15:43.040
+ I argue with him all the time.
+
+1:15:43.040 --> 1:15:46.000
+ To me, engineering is the highest form of science.
+
+1:15:46.000 --> 1:15:48.360
+ And he thinks that's all nonsense,
+
+1:15:48.360 --> 1:15:50.640
+ that the real work is done by the theoretician.
+
+1:15:50.640 --> 1:15:54.320
+ So, in fact, we have arguments about like people
+
+1:15:54.320 --> 1:15:56.080
+ like Elon Musk, for example,
+
+1:15:56.080 --> 1:15:58.640
+ because I think his work is quite brilliant,
+
+1:15:58.640 --> 1:16:00.520
+ but he's fundamentally not coming up
+
+1:16:00.520 --> 1:16:02.480
+ with any serious breakthroughs.
+
+1:16:02.480 --> 1:16:07.080
+ He's just creating in this world, implementing,
+
+1:16:07.080 --> 1:16:09.640
+ like making ideas happen that have a huge impact.
+
+1:16:09.640 --> 1:16:12.200
+ To me, that's the Edison.
+
+1:16:12.200 --> 1:16:17.200
+ That to me is a brilliant work,
+
+1:16:17.400 --> 1:16:22.400
+ but to him, it's messy details
+
+1:16:22.840 --> 1:16:25.440
+ that somebody will figure out anyway.
+
+1:16:25.440 --> 1:16:26.640
+ I mean, I don't know whether you think
+
+1:16:26.640 --> 1:16:29.000
+ there is a actual difference in temperament
+
+1:16:29.000 --> 1:16:31.160
+ between say a physicist and an engineer,
+
+1:16:31.160 --> 1:16:33.000
+ whether it's just what you got interested in.
+
+1:16:33.000 --> 1:16:34.240
+ I don't know.
+
+1:16:34.240 --> 1:16:37.920
+ I mean, a lot of what experimental physicists do
+
+1:16:37.920 --> 1:16:40.040
+ is to some extent engineering.
+
+1:16:40.040 --> 1:16:40.880
+ I mean, it's not what I do.
+
+1:16:40.880 --> 1:16:42.120
+ I mostly do data stuff,
+
+1:16:42.120 --> 1:16:45.520
+ but a lot of people would be called electrical engineers,
+
+1:16:45.520 --> 1:16:46.960
+ but they trained as physicists,
+
+1:16:46.960 --> 1:16:48.880
+ but they learned electrical engineering, for example,
+
+1:16:48.880 --> 1:16:50.960
+ because they were building detectors.
+
+1:16:50.960 --> 1:16:52.880
+ So, there's not such a clear divide, I think.
+
+1:16:52.880 --> 1:16:53.720
+ Yeah, it's interesting.
+
+1:16:53.720 --> 1:16:55.600
+ I mean, but there does seem to be,
+
+1:16:55.600 --> 1:16:57.120
+ like you work with data.
+
+1:16:57.120 --> 1:16:59.920
+ There does seem to be a certain,
+
+1:16:59.920 --> 1:17:01.640
+ like I love data collection.
+
+1:17:01.640 --> 1:17:03.680
+ There might be an OCD element or something
+
+1:17:03.680 --> 1:17:06.600
+ that you're more naturally predisposed to
+
+1:17:06.600 --> 1:17:07.600
+ as opposed to theory.
+
+1:17:07.600 --> 1:17:08.880
+ Like I'm not afraid of data.
+
+1:17:08.880 --> 1:17:10.160
+ I love data.
+
+1:17:10.160 --> 1:17:11.680
+ And there's a lot of people in machine learning
+
+1:17:11.680 --> 1:17:14.360
+ who are more like,
+
+1:17:14.360 --> 1:17:16.920
+ they're basically afraid of data collection,
+
+1:17:16.920 --> 1:17:18.880
+ afraid of data sets, afraid of all of that.
+
+1:17:18.880 --> 1:17:20.720
+ They just want to stay in more than theoretical
+
+1:17:20.720 --> 1:17:22.800
+ and they're really good at it, space.
+
+1:17:22.800 --> 1:17:24.040
+ So, I don't know if that's the genetic,
+
+1:17:24.040 --> 1:17:28.280
+ that's your upbringing, the way you go to school,
+
+1:17:28.280 --> 1:17:33.280
+ but looking into the future of LHC and other colliders.
+
+1:17:33.400 --> 1:17:35.320
+ So, there's in America,
+
+1:17:35.320 --> 1:17:37.520
+ there's whatever it was called, the super,
+
+1:17:37.520 --> 1:17:38.360
+ there's a lot of super.
+
+1:17:38.360 --> 1:17:39.840
+ Superconducting super colliders.
+
+1:17:39.840 --> 1:17:40.840
+ Yeah, superconducting.
+
+1:17:40.840 --> 1:17:41.880
+ The desertron, yeah.
+
+1:17:41.880 --> 1:17:43.000
+ Desertron, yeah.
+
+1:17:43.000 --> 1:17:45.880
+ So, that was canceled, the construction of that.
+
+1:17:45.880 --> 1:17:46.720
+ Yeah.
+
+1:17:48.120 --> 1:17:50.880
+ Which is a sad thing,
+
+1:17:50.880 --> 1:17:54.160
+ but what do you think is the future of these efforts?
+
+1:17:54.160 --> 1:17:56.480
+ Will a bigger collider be built?
+
+1:17:56.480 --> 1:17:58.560
+ Will LHC be expanded?
+
+1:17:58.560 --> 1:17:59.920
+ What do you think?
+
+1:17:59.920 --> 1:18:03.360
+ Well, in the near future, the LHC is gonna get an upgrade.
+
+1:18:03.360 --> 1:18:04.840
+ So, that's pretty much confirmed.
+
+1:18:04.840 --> 1:18:07.160
+ I think it is confirmed, which is,
+
+1:18:07.160 --> 1:18:08.160
+ it's not an energy upgrade.
+
+1:18:08.160 --> 1:18:10.200
+ It's what we call a luminosity upgrade.
+
+1:18:10.200 --> 1:18:11.680
+ So, it basically means increasing
+
+1:18:11.680 --> 1:18:13.400
+ the data collection rates.
+
+1:18:13.400 --> 1:18:15.920
+ So, more collisions per second, basically,
+
+1:18:15.920 --> 1:18:18.160
+ because after a few years of data taking,
+
+1:18:18.160 --> 1:18:19.560
+ you get this law of diminishing returns
+
+1:18:19.560 --> 1:18:20.680
+ where each year's worth of data
+
+1:18:20.680 --> 1:18:21.960
+ is a smaller and smaller fraction
+
+1:18:21.960 --> 1:18:23.440
+ of the lot you've already got.
+
+1:18:23.440 --> 1:18:25.840
+ So, to get a real improvement in sensitivity,
+
+1:18:25.840 --> 1:18:27.200
+ you need to increase the data rate
+
+1:18:27.200 --> 1:18:28.280
+ by an order of magnitude.
+
+1:18:28.280 --> 1:18:30.520
+ So, that's what this upgrade is gonna do.
+
+1:18:30.520 --> 1:18:32.680
+ LHCb, at the moment, the whole detector
+
+1:18:32.680 --> 1:18:36.240
+ is basically being rebuilt to allow it to record data
+
+1:18:36.240 --> 1:18:38.000
+ at a much larger rate than we could before.
+
+1:18:38.000 --> 1:18:39.240
+ So, that will make us sensitive
+
+1:18:39.240 --> 1:18:40.680
+ to whole loads of new processes
+
+1:18:40.680 --> 1:18:42.200
+ that we weren't able to study before.
+
+1:18:42.200 --> 1:18:45.760
+ And I mentioned briefly these anomalies that we've seen.
+
+1:18:45.760 --> 1:18:49.040
+ So, we've seen a bunch of very intriguing anomalies
+
+1:18:49.040 --> 1:18:51.400
+ in these b quark decays,
+
+1:18:52.320 --> 1:18:55.480
+ which may be hinting at the first signs
+
+1:18:55.480 --> 1:18:57.360
+ of this kind of the elephant,
+
+1:18:57.360 --> 1:18:59.640
+ the signs of some new quantum field
+
+1:18:59.640 --> 1:19:01.200
+ or fields maybe beyond the standard model.
+
+1:19:01.200 --> 1:19:02.920
+ It's not yet at the statistical threshold
+
+1:19:02.920 --> 1:19:06.200
+ where you can say that you've observed something,
+
+1:19:06.200 --> 1:19:08.840
+ but there's lots of anomalies in many measurements
+
+1:19:08.840 --> 1:19:11.040
+ that all seem to be consistent with each other.
+
+1:19:11.040 --> 1:19:12.000
+ So, it's quite interesting.
+
+1:19:12.000 --> 1:19:13.600
+ So, the upgrade will allow us
+
+1:19:13.600 --> 1:19:15.840
+ to really home in on these things
+
+1:19:15.840 --> 1:19:17.360
+ and see whether these anomalies are real,
+
+1:19:17.360 --> 1:19:19.480
+ because if they are real,
+
+1:19:19.480 --> 1:19:20.880
+ and this kind of connects to your point
+
+1:19:20.880 --> 1:19:23.720
+ about the next generation of machines,
+
+1:19:23.720 --> 1:19:26.320
+ what we would have seen then is,
+
+1:19:26.320 --> 1:19:29.240
+ we would have seen the tail end of some quantum field
+
+1:19:29.240 --> 1:19:31.800
+ in influencing these b quarks.
+
+1:19:31.800 --> 1:19:34.520
+ What we then need to do is to build a bigger collider
+
+1:19:34.520 --> 1:19:37.480
+ to actually make the particle of that field.
+
+1:19:37.480 --> 1:19:40.240
+ So, if these things really do exist.
+
+1:19:40.240 --> 1:19:41.280
+ So, that would be one argument.
+
+1:19:41.280 --> 1:19:42.360
+ I mean, so at the moment,
+
+1:19:42.360 --> 1:19:44.000
+ Europe is going through this process
+
+1:19:44.000 --> 1:19:47.800
+ of thinking about the strategy for the future.
+
+1:19:47.800 --> 1:19:49.720
+ So, there are a number of different proposals on the table.
+
+1:19:49.720 --> 1:19:53.600
+ One is for a sort of higher energy upgrade of the LHC,
+
+1:19:53.600 --> 1:19:55.280
+ where you just build more powerful magnets
+
+1:19:55.280 --> 1:19:56.200
+ and put them in the same tunnel.
+
+1:19:56.200 --> 1:19:59.680
+ That's a sort of cheaper, less ambitious possibility.
+
+1:19:59.680 --> 1:20:00.840
+ Most people don't really like it
+
+1:20:00.840 --> 1:20:02.560
+ because it's sort of a bit of a dead end,
+
+1:20:02.560 --> 1:20:05.560
+ because once you've done that, there's nowhere to go.
+
+1:20:05.560 --> 1:20:06.840
+ There's a machine called Click,
+
+1:20:06.840 --> 1:20:08.960
+ which is a compact linear collider,
+
+1:20:08.960 --> 1:20:10.720
+ which is a electron positron collider
+
+1:20:10.720 --> 1:20:13.440
+ that uses a novel type of acceleration technology
+
+1:20:13.440 --> 1:20:15.520
+ to accelerate at shorter distances.
+
+1:20:15.520 --> 1:20:17.000
+ We're still talking kilometers long,
+
+1:20:17.000 --> 1:20:19.880
+ but not like 100 kilometers long.
+
+1:20:19.880 --> 1:20:22.480
+ And then probably the project that is,
+
+1:20:22.480 --> 1:20:23.920
+ I think getting the most support,
+
+1:20:23.920 --> 1:20:25.400
+ it'd be interesting to see what happens,
+
+1:20:25.400 --> 1:20:28.040
+ something called the Future Circular Collider,
+
+1:20:28.040 --> 1:20:32.040
+ which is a really ambitious longterm multi decade project
+
+1:20:32.040 --> 1:20:35.960
+ to build a 100 kilometer circumference tunnel
+
+1:20:35.960 --> 1:20:38.160
+ under the Geneva region.
+
+1:20:38.160 --> 1:20:40.720
+ The LHC would become a kind of feeding machine.
+
+1:20:40.720 --> 1:20:41.560
+ It would just feed.
+
+1:20:41.560 --> 1:20:44.080
+ So the same area, so it would be a feeder for the.
+
+1:20:44.080 --> 1:20:44.920
+ Yeah.
+
+1:20:44.920 --> 1:20:46.400
+ So it would kind of, the edge of this machine
+
+1:20:46.400 --> 1:20:47.640
+ would be where the LHC is,
+
+1:20:47.640 --> 1:20:49.120
+ but it would sort of go under Lake Geneva
+
+1:20:49.120 --> 1:20:51.560
+ and round to the Alps, basically,
+
+1:20:51.560 --> 1:20:52.920
+ up to the edge of the Geneva basin.
+
+1:20:52.920 --> 1:20:55.560
+ So it's basically the biggest tunnel you can fit
+
+1:20:55.560 --> 1:20:57.240
+ in the region based on the geology.
+
+1:20:57.240 --> 1:20:58.080
+ 100 kilometers.
+
+1:20:58.080 --> 1:20:58.920
+ Yeah, so it's big.
+
+1:20:58.920 --> 1:21:01.880
+ It'd be a long drive if your experiment's on one side.
+
+1:21:01.880 --> 1:21:03.080
+ You've got to go back to CERN for lunch,
+
+1:21:03.080 --> 1:21:04.280
+ so that would be a pain.
+
+1:21:04.280 --> 1:21:07.600
+ But you know, so this project is,
+
+1:21:07.600 --> 1:21:09.120
+ in principle, it's actually two accelerators.
+
+1:21:09.120 --> 1:21:09.960
+ The first thing you would do
+
+1:21:09.960 --> 1:21:11.720
+ is put an electron positron machine
+
+1:21:11.720 --> 1:21:14.360
+ in the 100 kilometer tunnel to study the Higgs.
+
+1:21:14.360 --> 1:21:15.440
+ So you'd make lots of Higgs bows
+
+1:21:15.440 --> 1:21:16.960
+ and study it really precisely
+
+1:21:16.960 --> 1:21:18.600
+ in the hope that you see it misbehaving
+
+1:21:18.600 --> 1:21:20.480
+ and doing something it's not supposed to.
+
+1:21:20.480 --> 1:21:22.880
+ And then in the much longer term,
+
+1:21:22.880 --> 1:21:24.840
+ 100, that machine gets taken out,
+
+1:21:24.840 --> 1:21:26.520
+ you put in a proton proton machine.
+
+1:21:26.520 --> 1:21:29.040
+ So it's like the LHC, but much bigger.
+
+1:21:29.040 --> 1:21:30.440
+ And that's the way you start going
+
+1:21:30.440 --> 1:21:32.400
+ and looking for dark matter,
+
+1:21:32.400 --> 1:21:35.960
+ or you're trying to recreate this phase transition
+
+1:21:35.960 --> 1:21:37.120
+ that I talked about in the early universe,
+
+1:21:37.120 --> 1:21:39.360
+ where you can see matter anti matter being made,
+
+1:21:39.360 --> 1:21:40.200
+ for example.
+
+1:21:40.200 --> 1:21:41.080
+ There's lots of things you can do with these machines.
+
+1:21:41.080 --> 1:21:43.560
+ The problem is that they will take,
+
+1:21:43.560 --> 1:21:45.440
+ you know, the most optimistic,
+
+1:21:45.440 --> 1:21:46.720
+ you're not gonna have any data
+
+1:21:46.720 --> 1:21:49.080
+ from any of these machines until 2040,
+
+1:21:49.080 --> 1:21:51.840
+ or, you know, because they take such a long time to build
+
+1:21:51.840 --> 1:21:52.920
+ and they're so expensive.
+
+1:21:52.920 --> 1:21:55.960
+ So you have, there'll be a process of R&D design,
+
+1:21:55.960 --> 1:21:57.960
+ but also the political case being made.
+
+1:21:57.960 --> 1:22:01.280
+ So LHC, what costs a few billion?
+
+1:22:01.280 --> 1:22:03.200
+ Depends how you count it.
+
+1:22:03.200 --> 1:22:05.440
+ I think most of the sort of more reasonable estimates
+
+1:22:05.440 --> 1:22:07.000
+ that take everything into account properly,
+
+1:22:07.000 --> 1:22:10.400
+ it's around the sort of 10, 11, 12 billion euro mark.
+
+1:22:10.400 --> 1:22:12.400
+ What would be the future, sorry,
+
+1:22:12.400 --> 1:22:13.240
+ I forgot the name already.
+
+1:22:13.240 --> 1:22:14.720
+ Future Circular Collider.
+
+1:22:14.720 --> 1:22:15.560
+ Future Circular Collider.
+
+1:22:15.560 --> 1:22:16.920
+ Presumably they won't call it that when it's built,
+
+1:22:16.920 --> 1:22:18.280
+ cause it won't be the future anymore.
+
+1:22:18.280 --> 1:22:20.680
+ But I don't know, I don't know what they'll call it then.
+
+1:22:20.680 --> 1:22:25.120
+ The very big Hadron Collider, I don't know.
+
+1:22:25.120 --> 1:22:28.840
+ But that will, now I should know the numbers,
+
+1:22:28.840 --> 1:22:31.160
+ but I think the whole project is estimated
+
+1:22:31.160 --> 1:22:32.880
+ at about 30 billion euros,
+
+1:22:32.880 --> 1:22:37.840
+ but that's money spent over between now and 2070 probably,
+
+1:22:37.840 --> 1:22:39.840
+ which is when the last bit of it
+
+1:22:39.840 --> 1:22:42.360
+ would be sort of finishing up, I guess.
+
+1:22:42.360 --> 1:22:46.560
+ So you're talking a half a century of science
+
+1:22:46.560 --> 1:22:48.720
+ coming out of this thing, shared by many countries.
+
+1:22:48.720 --> 1:22:51.200
+ So the actual cost, the arguments that are made
+
+1:22:51.200 --> 1:22:53.120
+ is that you could make this project fit
+
+1:22:53.120 --> 1:22:56.160
+ within the existing budget of CERN,
+
+1:22:56.160 --> 1:22:57.480
+ if you didn't do anything else.
+
+1:22:57.480 --> 1:23:00.520
+ And CERN, by the way, we didn't mention, what is CERN?
+
+1:23:00.520 --> 1:23:03.280
+ CERN is the European Organization for Nuclear Research.
+
+1:23:03.280 --> 1:23:05.240
+ It's an international organization
+
+1:23:05.240 --> 1:23:07.080
+ that was established in the 1950s
+
+1:23:07.080 --> 1:23:10.280
+ in the wake of the second world war as a kind of,
+
+1:23:10.280 --> 1:23:12.520
+ it was sort of like a scientific Marshall plan for Europe.
+
+1:23:12.520 --> 1:23:16.080
+ The idea was that you bring European science back together
+
+1:23:16.080 --> 1:23:17.320
+ for peaceful purposes,
+
+1:23:17.320 --> 1:23:20.000
+ because what happened in the forties was,
+
+1:23:20.000 --> 1:23:21.280
+ a lot of particular Jewish scientists,
+
+1:23:21.280 --> 1:23:22.640
+ but a lot of scientists from central Europe
+
+1:23:22.640 --> 1:23:25.000
+ had fled to the United States
+
+1:23:25.000 --> 1:23:27.240
+ and Europe had sort of seen this brain drain.
+
+1:23:27.240 --> 1:23:29.920
+ So there was a desire to bring the community back together
+
+1:23:29.920 --> 1:23:32.280
+ for a project that wasn't building nasty bombs,
+
+1:23:32.280 --> 1:23:34.280
+ but was doing something that was curiosity driven.
+
+1:23:34.280 --> 1:23:37.320
+ So, and that has continued since then.
+
+1:23:37.320 --> 1:23:38.840
+ So it's kind of a unique organization.
+
+1:23:38.840 --> 1:23:41.480
+ It's you, to be a member as a country,
+
+1:23:41.480 --> 1:23:43.040
+ you sort of sign up as a member
+
+1:23:43.040 --> 1:23:45.960
+ and then you have to pay a fraction of your GDP
+
+1:23:45.960 --> 1:23:47.360
+ each year as a subscription.
+
+1:23:47.360 --> 1:23:49.520
+ I mean, it's a very small fraction, relatively speaking.
+
+1:23:49.520 --> 1:23:51.480
+ I think it's like, I think the UK's contribution
+
+1:23:51.480 --> 1:23:54.840
+ is a hundred or 200 million quid or something like that.
+
+1:23:54.840 --> 1:23:57.480
+ Yeah, which is quite a lot, but not so.
+
+1:23:57.480 --> 1:23:58.400
+ That's fascinating.
+
+1:23:58.400 --> 1:24:00.040
+ I mean, just the whole thing that is possible,
+
+1:24:00.040 --> 1:24:01.240
+ it's beautiful.
+
+1:24:01.240 --> 1:24:02.240
+ It's a beautiful idea,
+
+1:24:02.240 --> 1:24:05.320
+ especially when there's no wars on the line,
+
+1:24:05.320 --> 1:24:06.560
+ it's not like we're freaking out,
+
+1:24:06.560 --> 1:24:08.880
+ as we're actually legitimately collaborating
+
+1:24:08.880 --> 1:24:09.880
+ to do good science.
+
+1:24:09.880 --> 1:24:11.880
+ One of the things I don't think we really mentioned
+
+1:24:11.880 --> 1:24:15.360
+ is on the final side, that sort of the data analysis side,
+
+1:24:15.360 --> 1:24:17.080
+ is there breakthroughs possible there
+
+1:24:17.080 --> 1:24:18.160
+ and the machine learning side,
+
+1:24:18.160 --> 1:24:22.680
+ like is there a lot more signal to be mined
+
+1:24:22.680 --> 1:24:25.400
+ in more effective ways from the actual raw data?
+
+1:24:25.400 --> 1:24:27.680
+ Yeah, a lot of people are looking into that.
+
+1:24:27.680 --> 1:24:31.600
+ I mean, so I use machine learning in my data analysis,
+
+1:24:31.600 --> 1:24:33.840
+ but pretty naughty, basic stuff,
+
+1:24:33.840 --> 1:24:35.440
+ cause I'm not a machine learning expert.
+
+1:24:35.440 --> 1:24:37.960
+ I'm just a physicist who had to learn to do this stuff
+
+1:24:37.960 --> 1:24:38.800
+ for my day job.
+
+1:24:38.800 --> 1:24:40.600
+ So what a lot of people do is they use
+
+1:24:40.600 --> 1:24:42.560
+ kind of off the shelf packages
+
+1:24:42.560 --> 1:24:46.240
+ that you can train to do signal noise.
+
+1:24:46.240 --> 1:24:48.280
+ Just clean up all the data.
+
+1:24:48.280 --> 1:24:50.040
+ But one of the big challenges,
+
+1:24:50.040 --> 1:24:52.720
+ the big challenge of the data is A, it's volume,
+
+1:24:52.720 --> 1:24:53.880
+ there's huge amounts of data.
+
+1:24:53.880 --> 1:24:56.480
+ So the LHC generates, now, okay,
+
+1:24:56.480 --> 1:24:57.920
+ I try to remember what the actual numbers are,
+
+1:24:57.920 --> 1:24:59.440
+ but if you, we don't record all our data,
+
+1:24:59.440 --> 1:25:02.240
+ we record a tiny fraction of the data.
+
+1:25:02.240 --> 1:25:04.920
+ It's like of order one 10,000th or something, I think.
+
+1:25:04.920 --> 1:25:05.880
+ Is that right?
+
+1:25:05.880 --> 1:25:07.040
+ Around that.
+
+1:25:07.040 --> 1:25:08.600
+ So most of it gets thrown away.
+
+1:25:08.600 --> 1:25:10.080
+ You couldn't record all the LHC data
+
+1:25:10.080 --> 1:25:11.480
+ cause it would fill up every computer in the world
+
+1:25:11.480 --> 1:25:13.680
+ in a matter of days, basically.
+
+1:25:13.680 --> 1:25:17.000
+ So there's this process that happens on live,
+
+1:25:17.000 --> 1:25:18.880
+ on the detector, something called a trigger,
+
+1:25:18.880 --> 1:25:21.360
+ which in real time, 40 million times every second
+
+1:25:21.360 --> 1:25:23.680
+ has to make a decision about whether this collision
+
+1:25:23.680 --> 1:25:26.400
+ is likely to contain an interesting object,
+
+1:25:26.400 --> 1:25:28.560
+ like a Higgs boson or a dark matter particle.
+
+1:25:28.560 --> 1:25:29.760
+ And it has to do that very fast.
+
+1:25:29.760 --> 1:25:33.240
+ And the software algorithms in the past
+
+1:25:33.240 --> 1:25:36.040
+ were quite relatively basic.
+
+1:25:36.040 --> 1:25:37.840
+ They did things like measure mementos
+
+1:25:37.840 --> 1:25:40.320
+ and energies of particles and put some requirements.
+
+1:25:40.320 --> 1:25:42.200
+ So you would say, if there's a particle
+
+1:25:42.200 --> 1:25:43.640
+ with an energy above some threshold,
+
+1:25:43.640 --> 1:25:44.840
+ then record this collision.
+
+1:25:44.840 --> 1:25:46.240
+ But if there isn't, don't.
+
+1:25:46.240 --> 1:25:47.960
+ Whereas now the attempt is get more and more
+
+1:25:47.960 --> 1:25:51.080
+ machine learning in at the earliest possible stage.
+
+1:25:51.080 --> 1:25:53.160
+ That's cool, at the stage of deciding
+
+1:25:53.160 --> 1:25:55.280
+ whether we want to keep this data or not.
+
+1:25:55.280 --> 1:25:57.640
+ But also maybe even lower down than that,
+
+1:25:57.640 --> 1:26:01.160
+ which is the point where there's this,
+
+1:26:01.160 --> 1:26:02.800
+ so generally how the data is reconstructed
+
+1:26:02.800 --> 1:26:06.280
+ is you start off with a set of digital hits
+
+1:26:06.280 --> 1:26:07.120
+ in your detector.
+
+1:26:07.120 --> 1:26:08.840
+ So channels saying, did you see something?
+
+1:26:08.840 --> 1:26:10.120
+ Did you not see something?
+
+1:26:10.120 --> 1:26:12.560
+ That has to be then turned into tracks,
+
+1:26:12.560 --> 1:26:14.040
+ particles going in different directions.
+
+1:26:14.040 --> 1:26:15.520
+ And that's done by using fits
+
+1:26:15.520 --> 1:26:17.200
+ that fit through the data points.
+
+1:26:17.200 --> 1:26:18.640
+ And then that's passed to the algorithms
+
+1:26:18.640 --> 1:26:20.520
+ that then go, is this interesting or not?
+
+1:26:20.520 --> 1:26:22.520
+ What'd be better is you could train machine learning
+
+1:26:22.520 --> 1:26:24.120
+ to just look at the raw hits,
+
+1:26:24.120 --> 1:26:26.360
+ the basic real base level information,
+
+1:26:26.360 --> 1:26:28.440
+ not have any of the reconstruction done.
+
+1:26:28.440 --> 1:26:31.040
+ And it just goes, and it can learn to do pattern recognition
+
+1:26:31.040 --> 1:26:34.240
+ on this strange three dimensional image that you get.
+
+1:26:34.240 --> 1:26:36.800
+ And potentially that's where you could get really big gains
+
+1:26:36.800 --> 1:26:38.760
+ because our triggers tend to be quite inefficient
+
+1:26:38.760 --> 1:26:41.880
+ because they don't have time to do
+
+1:26:41.880 --> 1:26:43.360
+ the full whiz bang processing
+
+1:26:43.360 --> 1:26:45.400
+ to get all the information out that we would like,
+
+1:26:45.400 --> 1:26:46.760
+ because you have to do the decision very quickly.
+
+1:26:46.760 --> 1:26:48.760
+ So if you can come up with some clever
+
+1:26:48.760 --> 1:26:50.080
+ machine learning technique,
+
+1:26:50.080 --> 1:26:52.000
+ then potentially you can massively increase
+
+1:26:52.000 --> 1:26:54.960
+ the amount of useful data you record
+
+1:26:54.960 --> 1:26:58.400
+ and get rid of more of the background
+
+1:26:58.400 --> 1:26:59.800
+ earlier in the process.
+
+1:26:59.800 --> 1:27:01.440
+ Yeah, to me, that's an exciting possibility
+
+1:27:01.440 --> 1:27:04.880
+ because then you don't have to build a sort of,
+
+1:27:04.880 --> 1:27:07.200
+ you can get a gain without having to.
+
+1:27:08.640 --> 1:27:10.360
+ Without having to build any hardware, I suppose.
+
+1:27:10.360 --> 1:27:11.200
+ Hardware, yeah.
+
+1:27:11.200 --> 1:27:13.960
+ Although you need lots of new GPU farms, I guess.
+
+1:27:13.960 --> 1:27:15.280
+ So hardware still helps.
+
+1:27:15.280 --> 1:27:20.280
+ But I got to talk to you,
+
+1:27:20.280 --> 1:27:22.840
+ sort of I'm not sure how to ask,
+
+1:27:22.840 --> 1:27:27.480
+ but you're clearly an incredible science communicator.
+
+1:27:27.480 --> 1:27:29.560
+ I don't know if that's the right term,
+
+1:27:29.560 --> 1:27:32.520
+ but you're basically a younger Neil deGrasse Tyson
+
+1:27:32.520 --> 1:27:33.680
+ with a British accent.
+
+1:27:33.680 --> 1:27:36.480
+ So, and you've, I mean,
+
+1:27:36.480 --> 1:27:39.160
+ can you say where we are today, actually?
+
+1:27:39.160 --> 1:27:42.560
+ Yeah, so today we're in the Royal Institution in London,
+
+1:27:42.560 --> 1:27:45.880
+ which is a very old organization.
+
+1:27:45.880 --> 1:27:47.760
+ It's been around for about 200 years now, I think.
+
+1:27:47.760 --> 1:27:49.800
+ Maybe even I should know when it was founded.
+
+1:27:49.800 --> 1:27:51.440
+ Sort of early 19th century,
+
+1:27:51.440 --> 1:27:55.880
+ it was set up to basically communicate science to the public.
+
+1:27:55.880 --> 1:27:57.560
+ So it was one of the first places in the world
+
+1:27:57.560 --> 1:28:01.240
+ where famous scientists would come and give talks.
+
+1:28:01.240 --> 1:28:05.440
+ So very famously Humphrey Davy, who you may know of,
+
+1:28:05.440 --> 1:28:07.560
+ who was the person who discovered nitrous oxide.
+
+1:28:07.560 --> 1:28:11.200
+ He was a very famous chemist and scientist.
+
+1:28:11.200 --> 1:28:12.720
+ Also discovered electrolysis.
+
+1:28:12.720 --> 1:28:13.920
+ So he used to do these fantastic,
+
+1:28:13.920 --> 1:28:15.040
+ he was a very charismatic speaker.
+
+1:28:15.040 --> 1:28:15.880
+ So he used to appear here.
+
+1:28:15.880 --> 1:28:18.440
+ There's a big desk that they usually have in the theater
+
+1:28:18.440 --> 1:28:21.160
+ and he would do demonstrations to the sort of the,
+
+1:28:21.160 --> 1:28:23.760
+ the folk of London back in the early 19th century.
+
+1:28:23.760 --> 1:28:25.200
+ And Michael Faraday, who I talked about,
+
+1:28:25.200 --> 1:28:27.280
+ who is the person who did so much work on electromagnetism,
+
+1:28:27.280 --> 1:28:28.400
+ he used, he lectured here.
+
+1:28:28.400 --> 1:28:29.880
+ He also did experiments in the basement.
+
+1:28:29.880 --> 1:28:31.240
+ So this place has got a long history
+
+1:28:31.240 --> 1:28:33.320
+ of both scientific research,
+
+1:28:33.320 --> 1:28:35.800
+ but also communication of scientific research.
+
+1:28:35.800 --> 1:28:38.040
+ So you gave a few lectures here.
+
+1:28:38.040 --> 1:28:39.320
+ How many, two?
+
+1:28:39.320 --> 1:28:41.080
+ I've given, yeah, I've given a couple of lectures
+
+1:28:41.080 --> 1:28:42.280
+ in this theater before, so.
+
+1:28:42.280 --> 1:28:46.000
+ I mean, that's, so people should definitely go watch online.
+
+1:28:46.000 --> 1:28:48.640
+ It's just the explanation of particle physics.
+
+1:28:48.640 --> 1:28:50.480
+ So all the, I mean, it's incredible.
+
+1:28:50.480 --> 1:28:53.360
+ Like your lectures are just incredible.
+
+1:28:53.360 --> 1:28:54.520
+ I can't sing it enough praise.
+
+1:28:54.520 --> 1:28:55.480
+ So it was awesome.
+
+1:28:55.480 --> 1:29:00.280
+ But maybe can you say, what did that feel like?
+
+1:29:00.280 --> 1:29:03.600
+ What does it feel like to lecture here, to talk about that?
+
+1:29:03.600 --> 1:29:06.440
+ And maybe from a different perspective,
+
+1:29:06.440 --> 1:29:09.360
+ more kind of like how the sausage is made is,
+
+1:29:09.360 --> 1:29:12.120
+ how do you prepare for that kind of thing?
+
+1:29:12.120 --> 1:29:14.320
+ How do you think about communication,
+
+1:29:14.320 --> 1:29:16.440
+ the process of communicating these ideas
+
+1:29:16.440 --> 1:29:18.480
+ in a way that's inspiring to,
+
+1:29:18.480 --> 1:29:21.200
+ what I would say your talks are inspiring
+
+1:29:21.200 --> 1:29:22.560
+ to like the general audience.
+
+1:29:22.560 --> 1:29:25.080
+ You don't actually have to be a scientist.
+
+1:29:25.080 --> 1:29:28.040
+ You can still be inspired without really knowing much of the,
+
+1:29:28.040 --> 1:29:30.720
+ you start from the very basics.
+
+1:29:30.720 --> 1:29:33.320
+ So what's the preparation process?
+
+1:29:33.320 --> 1:29:34.800
+ And then the romantic question is,
+
+1:29:34.800 --> 1:29:38.000
+ what did that feel like to perform here?
+
+1:29:38.000 --> 1:29:39.600
+ I mean, profession, yeah.
+
+1:29:39.600 --> 1:29:42.200
+ I mean, the process, I mean, the talk,
+
+1:29:42.200 --> 1:29:43.280
+ my favorite talk that I gave here
+
+1:29:43.280 --> 1:29:44.520
+ was one called Beyond the Higgs,
+
+1:29:44.520 --> 1:29:46.800
+ which you can find on the Royal Institute's YouTube channel,
+
+1:29:46.800 --> 1:29:48.280
+ which you should go and check out.
+
+1:29:48.280 --> 1:29:50.000
+ I mean, and their channel's got loads of great talks
+
+1:29:50.000 --> 1:29:51.760
+ with loads of great people as well.
+
+1:29:52.760 --> 1:29:55.160
+ I mean, that one, I'd sort of given a version of it
+
+1:29:55.160 --> 1:29:57.360
+ many times, so part of it is just practice, right?
+
+1:29:57.360 --> 1:29:59.000
+ And actually, I don't have some great theory
+
+1:29:59.000 --> 1:30:00.360
+ of how to communicate with people.
+
+1:30:00.360 --> 1:30:02.640
+ It's more just that I'm really interested
+
+1:30:02.640 --> 1:30:05.240
+ and excited by those ideas and I like talking about them.
+
+1:30:05.240 --> 1:30:07.280
+ And through the process of doing that,
+
+1:30:07.280 --> 1:30:09.640
+ I guess I figured out stories that work
+
+1:30:09.640 --> 1:30:10.840
+ and explanations that work.
+
+1:30:10.840 --> 1:30:12.920
+ When you say practice, you mean legitimately
+
+1:30:12.920 --> 1:30:14.960
+ just giving talks? Just giving talks, yeah.
+
+1:30:14.960 --> 1:30:17.240
+ I started off when I was a PhD student
+
+1:30:17.240 --> 1:30:20.040
+ doing talks in schools and I still do that as well
+
+1:30:20.040 --> 1:30:21.760
+ some of the time and doing things,
+
+1:30:21.760 --> 1:30:23.200
+ I've even done a bit of standup comedy,
+
+1:30:23.200 --> 1:30:25.240
+ which sort of went reasonably well,
+
+1:30:25.240 --> 1:30:26.280
+ even if it was terrifying.
+
+1:30:26.280 --> 1:30:27.480
+ And that's on YouTube as well.
+
+1:30:27.480 --> 1:30:29.240
+ That's also on, I wouldn't necessarily recommend
+
+1:30:29.240 --> 1:30:30.080
+ you check that out.
+
+1:30:30.080 --> 1:30:33.200
+ I'm gonna post the links several places
+
+1:30:33.200 --> 1:30:35.400
+ to make sure people click on it.
+
+1:30:35.400 --> 1:30:37.760
+ But it's basically, I kind of have a story in my head
+
+1:30:37.760 --> 1:30:41.720
+ and I kind of, I have to think about what I wanna say.
+
+1:30:41.720 --> 1:30:43.480
+ I usually have some images to support what I'm saying
+
+1:30:43.480 --> 1:30:44.440
+ and I get up and do it.
+
+1:30:44.440 --> 1:30:47.200
+ And it's not really, I wish there was some kind of,
+
+1:30:47.200 --> 1:30:48.640
+ I probably should have some proper process.
+
+1:30:48.640 --> 1:30:50.640
+ This is very sounds like I'm just making up as I go along
+
+1:30:50.640 --> 1:30:52.200
+ and I sort of am.
+
+1:30:52.200 --> 1:30:54.240
+ Well, I think the fundamental thing that you said,
+
+1:30:54.240 --> 1:30:58.320
+ I think it's like, I don't know if you know
+
+1:30:58.320 --> 1:31:01.120
+ who a guy named Joe Rogan is.
+
+1:31:01.120 --> 1:31:02.200
+ Yes, I do.
+
+1:31:02.200 --> 1:31:05.040
+ So he's also kind of sounds like you in a sense
+
+1:31:05.040 --> 1:31:08.560
+ that he's not very introspective about his process,
+
+1:31:08.560 --> 1:31:13.040
+ but he's an incredibly engaging conversationalist.
+
+1:31:13.040 --> 1:31:15.800
+ And I think one of the things that you and him share
+
+1:31:15.800 --> 1:31:19.920
+ that I could see is like a genuine curiosity
+
+1:31:19.920 --> 1:31:22.320
+ and passion for the topic.
+
+1:31:22.320 --> 1:31:26.840
+ I think that could be systematically cultivated.
+
+1:31:26.840 --> 1:31:28.200
+ I'm sure there's a process to it,
+
+1:31:28.200 --> 1:31:30.520
+ but you come to it naturally somehow.
+
+1:31:30.520 --> 1:31:31.920
+ I think maybe there's something else as well,
+
+1:31:31.920 --> 1:31:34.240
+ which is to understand something.
+
+1:31:34.240 --> 1:31:35.920
+ There's this quote by Feynman, which I really like,
+
+1:31:35.920 --> 1:31:38.240
+ which is what I cannot create, I do not understand.
+
+1:31:38.240 --> 1:31:43.200
+ So I'm not particularly super bright.
+
+1:31:43.200 --> 1:31:44.680
+ So for me to understand something,
+
+1:31:44.680 --> 1:31:47.240
+ I have to break it down into its simplest elements.
+
+1:31:47.240 --> 1:31:49.800
+ And if I can then tell people about that,
+
+1:31:49.800 --> 1:31:51.120
+ that helps me understand it as well.
+
+1:31:51.120 --> 1:31:55.480
+ So I've learned to understand physics a lot more
+
+1:31:55.480 --> 1:31:57.120
+ from the process of communicating,
+
+1:31:57.120 --> 1:32:00.640
+ because it forces you to really scrutinize the ideas
+
+1:32:00.640 --> 1:32:02.600
+ that you're communicating and it often makes you realize
+
+1:32:02.600 --> 1:32:06.000
+ you don't really understand the ideas you're talking about.
+
+1:32:06.000 --> 1:32:08.120
+ And I'm writing a book at the moment,
+
+1:32:08.120 --> 1:32:09.960
+ and I had this experience yesterday where I realized
+
+1:32:09.960 --> 1:32:12.600
+ I didn't really understand a pretty fundamental
+
+1:32:12.600 --> 1:32:14.480
+ theoretical aspect of my own subject.
+
+1:32:14.480 --> 1:32:15.960
+ And I had to go and I had to sort of spend
+
+1:32:15.960 --> 1:32:18.840
+ a couple of days reading textbooks and thinking about it
+
+1:32:18.840 --> 1:32:21.760
+ in order to make sure that the explanation I gave
+
+1:32:21.760 --> 1:32:24.800
+ captured the, got as close to what is actually happening
+
+1:32:24.800 --> 1:32:26.040
+ in the theory.
+
+1:32:26.040 --> 1:32:29.040
+ And to do that, you have to really understand it properly.
+
+1:32:29.040 --> 1:32:31.040
+ Yeah, and there's layers to understanding.
+
+1:32:31.040 --> 1:32:33.720
+ It seems like the more,
+
+1:32:33.720 --> 1:32:35.920
+ there must be some kind of Feynman law.
+
+1:32:35.920 --> 1:32:39.680
+ I mean, the more you understand sort of the simpler
+
+1:32:39.680 --> 1:32:44.680
+ you're able to really convey the essence of the idea, right?
+
+1:32:46.080 --> 1:32:51.080
+ So it's like this reverse effect that it's like
+
+1:32:52.480 --> 1:32:54.880
+ the more you understand, the simpler the final thing
+
+1:32:54.880 --> 1:32:56.280
+ that you actually convey.
+
+1:32:56.280 --> 1:32:58.800
+ And so the more accessible somehow it becomes.
+
+1:32:58.800 --> 1:33:01.960
+ That's why Feynman's lectures are really accessible.
+
+1:33:03.200 --> 1:33:04.880
+ It was just counterintuitive.
+
+1:33:04.880 --> 1:33:06.720
+ Yeah, although there are some ideas
+
+1:33:06.720 --> 1:33:09.400
+ that are very difficult to explain
+
+1:33:09.400 --> 1:33:12.240
+ no matter how well or badly you understand them.
+
+1:33:12.240 --> 1:33:15.280
+ Like I still can't really properly explain
+
+1:33:15.280 --> 1:33:16.440
+ the Higgs mechanism.
+
+1:33:16.440 --> 1:33:17.400
+ Yeah.
+
+1:33:17.400 --> 1:33:19.120
+ Because some of these ideas only exist
+
+1:33:19.120 --> 1:33:20.400
+ in mathematics really.
+
+1:33:21.680 --> 1:33:24.320
+ And the only way to really develop an understanding
+
+1:33:24.320 --> 1:33:29.080
+ is to go unfortunately to a graduate degree in physics.
+
+1:33:29.080 --> 1:33:31.880
+ But you can get kind of a flavor of what's happening,
+
+1:33:31.880 --> 1:33:33.520
+ I think, and it's trying to do that in a way
+
+1:33:33.520 --> 1:33:36.840
+ that isn't misleading, but always also intelligible.
+
+1:33:36.840 --> 1:33:39.760
+ So let me ask them the romantic question of
+
+1:33:39.760 --> 1:33:44.480
+ what to you is the most, perhaps an unfair question,
+
+1:33:44.480 --> 1:33:47.560
+ what is the most beautiful idea in physics?
+
+1:33:49.000 --> 1:33:52.680
+ One that fills you with awe is the most surprising,
+
+1:33:52.680 --> 1:33:54.760
+ the strangest, the weirdest.
+
+1:33:54.760 --> 1:33:57.600
+ There's a lot of different definitions of beauty.
+
+1:33:57.600 --> 1:33:59.320
+ And I'm sure there's several for you,
+
+1:33:59.320 --> 1:34:01.080
+ but is there something that just jumps to mind
+
+1:34:01.080 --> 1:34:04.520
+ that you think is just especially beautiful?
+
+1:34:07.080 --> 1:34:08.760
+ There's a specific thing and a more general thing.
+
+1:34:08.760 --> 1:34:10.040
+ So maybe the specific thing first,
+
+1:34:10.040 --> 1:34:12.400
+ which I can now first came across as an undergraduate.
+
+1:34:12.400 --> 1:34:13.440
+ I found this amazing.
+
+1:34:13.440 --> 1:34:17.120
+ So this idea that the forces of nature,
+
+1:34:17.120 --> 1:34:19.960
+ electromagnetism, strong force, the weak force,
+
+1:34:19.960 --> 1:34:24.720
+ they arise in our theories as a consequence of symmetries.
+
+1:34:24.720 --> 1:34:27.480
+ So symmetries in the laws of nature,
+
+1:34:27.480 --> 1:34:29.000
+ in the equations essentially
+
+1:34:29.000 --> 1:34:31.040
+ that used to describe these ideas,
+
+1:34:32.080 --> 1:34:34.440
+ the process whereby theories come up
+
+1:34:34.440 --> 1:34:36.600
+ with these sorts of models is they say,
+
+1:34:36.600 --> 1:34:39.920
+ imagine the universe obeys this particular type of symmetry.
+
+1:34:39.920 --> 1:34:42.240
+ It's a symmetry that isn't so far removed
+
+1:34:42.240 --> 1:34:44.880
+ from a geometrical symmetry, like the rotations of a cube.
+
+1:34:44.880 --> 1:34:46.360
+ It's not, you can't think of it quite that way,
+
+1:34:46.360 --> 1:34:49.040
+ but it's sort of a similar sort of idea.
+
+1:34:49.040 --> 1:34:51.880
+ And you say, okay, if the universe respects the symmetry,
+
+1:34:51.880 --> 1:34:54.720
+ you find that you have to introduce a force
+
+1:34:54.720 --> 1:34:57.960
+ which has the properties of electromagnetism
+
+1:34:57.960 --> 1:35:00.080
+ or a different symmetry, you get the strong force
+
+1:35:00.080 --> 1:35:01.800
+ or a different symmetry, you get the weak force.
+
+1:35:01.800 --> 1:35:05.160
+ So these interactions seem to come from some deeper,
+
+1:35:05.160 --> 1:35:06.280
+ it suggests that they come
+
+1:35:06.280 --> 1:35:07.960
+ from some deeper symmetry principle.
+
+1:35:07.960 --> 1:35:09.680
+ I mean, it depends a bit how you look at it
+
+1:35:09.680 --> 1:35:10.720
+ because it could be that we're actually
+
+1:35:10.720 --> 1:35:12.800
+ just recognizing symmetries in the things that we see,
+
+1:35:12.800 --> 1:35:15.160
+ but there's something rather lovely about that.
+
+1:35:15.160 --> 1:35:17.080
+ But I mean, I suppose a bigger thing that makes me wonder
+
+1:35:17.080 --> 1:35:20.200
+ is actually, if you look at the laws of nature,
+
+1:35:20.200 --> 1:35:22.680
+ how particles interact when you get really close down,
+
+1:35:22.680 --> 1:35:24.240
+ they're basically pretty simple things.
+
+1:35:24.240 --> 1:35:26.360
+ They bounce off each other by exchanging
+
+1:35:26.360 --> 1:35:27.840
+ through force fields and they move around
+
+1:35:27.840 --> 1:35:29.280
+ in very simple ways.
+
+1:35:29.280 --> 1:35:31.880
+ And somehow these basic ingredients,
+
+1:35:31.880 --> 1:35:34.560
+ these few particles that we know about in the forces
+
+1:35:34.560 --> 1:35:37.360
+ creates this universe, which is unbelievably complicated
+
+1:35:37.360 --> 1:35:39.520
+ and has things like you and me in it,
+
+1:35:39.520 --> 1:35:43.400
+ and the earth and stars that make matter in their cores
+
+1:35:43.400 --> 1:35:46.160
+ from the gravitational energy of their own bulk
+
+1:35:46.160 --> 1:35:47.600
+ that then gets sprayed into the universe
+
+1:35:47.600 --> 1:35:48.480
+ that forms other things.
+
+1:35:48.480 --> 1:35:52.880
+ I mean, the fact that there's this incredibly long story
+
+1:35:52.880 --> 1:35:55.920
+ that goes right back to the beginning,
+
+1:35:55.920 --> 1:35:58.240
+ and we can take this story right back to a trillionth
+
+1:35:58.240 --> 1:35:59.440
+ of a second after the Big Bang,
+
+1:35:59.440 --> 1:36:01.280
+ and we can trace the origins of the stuff
+
+1:36:01.280 --> 1:36:02.440
+ that we're made from.
+
+1:36:02.440 --> 1:36:05.040
+ And it all ultimately comes from these simple ingredients
+
+1:36:05.040 --> 1:36:06.560
+ with these simple rules.
+
+1:36:06.560 --> 1:36:08.720
+ And the fact you can generate such complexity from that
+
+1:36:08.720 --> 1:36:11.080
+ is really mysterious, I think, and strange.
+
+1:36:11.080 --> 1:36:12.920
+ And it's not even a question that physicists
+
+1:36:12.920 --> 1:36:15.760
+ can really tackle because we are sort of trying
+
+1:36:15.760 --> 1:36:19.080
+ to find these really elementary laws.
+
+1:36:19.080 --> 1:36:21.880
+ But it turns out that going from elementary laws
+
+1:36:21.880 --> 1:36:24.040
+ and a few particles to something even as complicated
+
+1:36:24.040 --> 1:36:26.600
+ as a molecule becomes very difficult.
+
+1:36:26.600 --> 1:36:28.640
+ So going from a molecule to a human being
+
+1:36:28.640 --> 1:36:31.960
+ is a problem that just can't be tackled,
+
+1:36:31.960 --> 1:36:34.040
+ at least not at the moment, so.
+
+1:36:34.040 --> 1:36:37.320
+ Yeah, the emergence of complexity from simple rules
+
+1:36:37.320 --> 1:36:40.600
+ is so beautiful and so mysterious.
+
+1:36:40.600 --> 1:36:43.600
+ And we don't have good mathematics
+
+1:36:43.600 --> 1:36:47.320
+ to even try to approach that emergent phenomena.
+
+1:36:47.320 --> 1:36:48.800
+ That's why we have chemistry and biology
+
+1:36:48.800 --> 1:36:52.040
+ and all the other subjects, yeah, okay.
+
+1:36:52.040 --> 1:36:55.880
+ I don't think there's a better way to end it, Harry.
+
+1:36:55.880 --> 1:36:59.040
+ I can't, I mean, I think I speak for a lot of people
+
+1:36:59.040 --> 1:37:01.880
+ that can't wait to see what happens
+
+1:37:01.880 --> 1:37:03.800
+ in the next five, 10, 20 years with you.
+
+1:37:03.800 --> 1:37:06.080
+ I think you're one of the great communicators of our time.
+
+1:37:06.080 --> 1:37:09.840
+ So I hope you continue that and I hope that grows.
+
+1:37:09.840 --> 1:37:12.280
+ And I'm definitely a huge fan.
+
+1:37:12.280 --> 1:37:13.960
+ So it was an honor to talk to you today.
+
+1:37:13.960 --> 1:37:14.800
+ Thanks so much, man.
+
+1:37:14.800 --> 1:37:16.360
+ It was really fun, thanks very much.
+
+1:37:16.360 --> 1:37:19.040
+ Thanks for listening to this conversation with Harry Kliff.
+
+1:37:19.040 --> 1:37:22.000
+ And thank you to our sponsors, ExpressVPN
+
+1:37:22.000 --> 1:37:23.240
+ and Cash App.
+
+1:37:23.240 --> 1:37:25.000
+ Please consider supporting the podcast
+
+1:37:25.000 --> 1:37:29.880
+ by getting ExpressVPN at expressvpn.com slash lexpod
+
+1:37:29.880 --> 1:37:34.160
+ and downloading Cash App and using code lexpodcast.
+
+1:37:34.160 --> 1:37:36.760
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:37:36.760 --> 1:37:39.240
+ review it with five stars on Apple Podcast,
+
+1:37:39.240 --> 1:37:41.880
+ support it on Patreon or simply connect with me
+
+1:37:41.880 --> 1:37:44.360
+ on Twitter at lexfreedman.
+
+1:37:45.440 --> 1:37:48.520
+ And now let me leave you with some words from Harry Kliff.
+
+1:37:48.520 --> 1:37:51.160
+ You and I are leftovers.
+
+1:37:51.160 --> 1:37:53.760
+ Every particle in our bodies is a survivor
+
+1:37:53.760 --> 1:37:57.080
+ from an almighty shootout between matter and antimatter
+
+1:37:57.080 --> 1:37:59.360
+ that happened a little after the Big Bang.
+
+1:37:59.360 --> 1:38:02.760
+ In fact, only one in a billion particles created
+
+1:38:02.760 --> 1:38:06.080
+ at the beginning of time have survived to the present day.
+
+1:38:06.080 --> 1:38:18.080
+ Thank you for listening and hope to see you next time.
+

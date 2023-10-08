@@ -1,0 +1,4412 @@
+WEBVTT
+
+00:00.000 --> 00:05.520
+ The following is a conversation with Ryan Schiller, creator of Librex, an anonymous
+
+00:05.520 --> 00:11.440
+ discussion feed for college communities starting at first with Yale, then the Ivy Leagues, and now
+
+00:11.440 --> 00:18.560
+ adding Stanford and MIT. Their mission is to give students a place to explore ideas and issues
+
+00:18.560 --> 00:24.880
+ in a positive way, but with much more personal and intellectual freedom than has defined college
+
+00:24.880 --> 00:31.760
+ campuses in recent history. I think this is a very difficult but worthy project. Quick thank you to
+
+00:31.760 --> 00:38.800
+ our sponsors, Allform, Magic Spoon, Better Help, and Brave. Click their links to support this
+
+00:38.800 --> 00:46.160
+ podcast. As a side note, let me say that Ryan is a young entrepreneur and genuine human being who
+
+00:46.160 --> 00:52.320
+ quickly won me over. He's inspiring in many ways, both in the struggle he had to overcome in his
+
+00:52.320 --> 00:58.800
+ personal life, but also in the fact that he did not know how to code, but saw a problem in this
+
+00:58.800 --> 01:05.600
+ world, in his community, that he cared about, and for that he learned to code and built a solution
+
+01:05.600 --> 01:11.840
+ in the best way he knew how. That's an important reminder for us humans. Let us not only complain
+
+01:11.840 --> 01:18.160
+ about the problems in the world, let us fix them. I also have to say that there's passion in Ryan's
+
+01:18.160 --> 01:24.160
+ eyes for really wanting to make a difference in the world. His story, his effort, gives me hope
+
+01:24.160 --> 01:30.400
+ for the future. There is hate in this world, but I believe there's much more love, and I believe
+
+01:30.400 --> 01:36.400
+ it's possible to build online platforms that connect us through our common humanity as we
+
+01:36.400 --> 01:44.320
+ explore difficult, personal, even painful ideas together. This is the Lex Friedman podcast,
+
+01:44.320 --> 01:51.040
+ and here is my conversation with Ryan Shiller. Let's start with the basics. What is Librex?
+
+01:51.600 --> 01:57.200
+ What are its founding story and founding principles? And looking to the future,
+
+01:57.200 --> 02:02.960
+ what do you hope to achieve with Librex? Sure, let me break that down. So what is Librex? Librex is
+
+02:02.960 --> 02:09.440
+ an anonymous discussion feed for college campuses. It's a place where people can have important and
+
+02:09.440 --> 02:14.640
+ unfettered discussions and open discourse about topics they care about, ideas that matter,
+
+02:14.640 --> 02:18.800
+ and they can do all of that completely anonymously with verified members of their
+
+02:18.800 --> 02:26.480
+ college community. And we exist both on each Ivy League campus, and we have an interivy community,
+
+02:26.480 --> 02:34.000
+ and actually this week we just opened to MIT and Stanford. No, really? MIT? Yes! So we have
+
+02:34.000 --> 02:40.160
+ MIT and Stanford communities, and I expect you to sign up for your MIT account and start posting.
+
+02:40.160 --> 02:46.080
+ What are, for people who are not familiar like me actually, which are the Ivy Leagues? Sure,
+
+02:46.080 --> 02:51.440
+ so we started at Yale, which is my, I don't know, can you call it alma mater? Because I haven't
+
+02:51.440 --> 02:57.280
+ technically graduated. Yeah, what's that called when you're actually still there? My university?
+
+02:57.280 --> 03:02.400
+ Yeah, I guess we'll just call it home. That's my home. Educational home. Started at my educational
+
+03:02.400 --> 03:08.240
+ home of Yale, and then we moved to, and we could get into the story of this eventually if you'd
+
+03:08.240 --> 03:14.240
+ like, and then we went to Dartmouth, and then quarantine hit. We opened to the rest of the
+
+03:14.240 --> 03:20.880
+ Ivy League, and now we have, and the Ivy League, for those who don't know, is Harvard, Yale,
+
+03:20.880 --> 03:27.360
+ Princeton, Dartmouth, Columbia, Cornell, Brown, and Penn. I got it all in one breath. What's the
+
+03:27.360 --> 03:34.400
+ younger side of the league? Penn? No. Columbia. I can't say that on camera. We'll edit it in post.
+
+03:34.400 --> 03:40.160
+ I don't know. I'll just say each of all eight of them, and then you can just like get it in.
+
+03:40.160 --> 03:44.240
+ Yeah. Penn, Harvard. There's actually a really nice software that people should check out,
+
+03:44.240 --> 03:50.160
+ like a service. It's using machine learning really nicely for podcast editing, where you can,
+
+03:50.160 --> 03:56.560
+ it learns the voice of the speaker, and it can change the words you said. It's like some deep
+
+03:56.560 --> 04:00.960
+ fake stuff. It's deep fake, but for positive applications. It's very interesting. It's like
+
+04:00.960 --> 04:05.120
+ the only deep fake positive application I've seen. I have a friend who's obsessed with deep fakes.
+
+04:05.120 --> 04:10.000
+ Yeah. What's great about, I think, deep fakes is that it's going to do the opposite of sort of
+
+04:10.000 --> 04:14.960
+ what's happening with our culture, where everyone will have plausible deniability. Yeah, exactly. I
+
+04:14.960 --> 04:21.520
+ mean, that's the hope for me is there's so many fake things out there that we're going to actually
+
+04:21.520 --> 04:29.120
+ be much more skeptical, and think, and take in multiple sources, and actually like reason,
+
+04:29.120 --> 04:34.640
+ like use common sense, and use like deep thinking to understand like what is true and what is not.
+
+04:34.640 --> 04:40.000
+ Because, you know, we used to have like traditional sources like the New York Times, and all these
+
+04:40.000 --> 04:45.200
+ kinds of publications that had a reputation. There are these institutions, and they're the source of
+
+04:45.200 --> 04:50.400
+ truth. And when you no longer can trust anything as a source of truth, you start to think on your
+
+04:50.400 --> 04:55.360
+ own. That gets part of the individual. That goes, that takes us way back to like where I came from,
+
+04:55.360 --> 05:00.320
+ the Soviet Union, where you can't really trust any one source of news. You have to think on your own.
+
+05:00.320 --> 05:04.960
+ You have to talk to your friends. Tremendous amount of intellectual autonomy, don't you think?
+
+05:04.960 --> 05:10.880
+ Think about the societal consequences. Absolutely. I mean, we see so much decentralization in all
+
+05:10.880 --> 05:18.720
+ aspects of our digital lives now, but this is like the decentralization of thought. Yes. You
+
+05:18.720 --> 05:25.600
+ could say it's sadly, or I don't think it's sad, is decentralization of truth, where like truth is a
+
+05:25.600 --> 05:32.160
+ clustering thing, where you have these like this point cloud of people just swimming around, like
+
+05:32.160 --> 05:39.280
+ billions of them, and they all have certain ideas. And what's thought of as truth is almost like a
+
+05:39.280 --> 05:44.160
+ clustering algorithm. When you just get a bunch of people that believe the same thing, that's truth.
+
+05:44.160 --> 05:49.680
+ But there's also another truth, and there may be like multiple truths, and it's almost will be like
+
+05:49.680 --> 05:57.760
+ a battle of truths. Maybe even the idea of truth will like lessen its power in society that there
+
+05:57.760 --> 06:04.400
+ is such a thing as a truth. Because like the downside of saying something is true is it's almost
+
+06:04.400 --> 06:11.040
+ the downside of what people like religious people call scientism, which is like once science has
+
+06:11.040 --> 06:18.000
+ declared something as true, you can't no longer question it. But the reality is science is a
+
+06:18.000 --> 06:23.600
+ moving mechanism. You constantly question, you constantly questioning, and maybe truth should be
+
+06:23.600 --> 06:32.960
+ renamed as a process, not a final destination. The whole point is to keep questioning, keep questioning,
+
+06:32.960 --> 06:40.080
+ keep discovering. Kind of like we're going backwards in time. So like back when people were
+
+06:40.080 --> 06:46.160
+ sort of finding their identities and we were less globalized, right? Like people would get together
+
+06:46.160 --> 06:50.960
+ and they'd get together around common value system, common morals, and a common place. And those would
+
+06:50.960 --> 06:56.080
+ be sort of these clusters of their truth, right? And so we have all these different civilizations
+
+06:56.080 --> 07:01.520
+ and societies across the world that created their own truths. We talk about the Jews and the
+
+07:01.520 --> 07:07.440
+ Talmud and Torah. We look at Buddhist texts. We can look at all sorts of different truths and how
+
+07:07.440 --> 07:12.240
+ many of them get at the same things, but many of them have different ideas or different articulations.
+
+07:12.240 --> 07:17.680
+ Yeah, Harari and sapiens, it rewinds that even farther back into like caveman times. That's the
+
+07:17.680 --> 07:22.400
+ thing that made us humans special, is who can develop these clusters of ideas, hold them in
+
+07:22.400 --> 07:27.520
+ their minds through stories, pass them on to each other, and it grows and grows. And finally, we have
+
+07:27.520 --> 07:37.440
+ Bitcoin. Which money is another belief system that has power only because we believe in it.
+
+07:37.440 --> 07:44.000
+ And is that truth? I don't know, but it has power. And it's carried in the minds of millions
+
+07:44.000 --> 07:51.680
+ and thereby has power. But back to Librex. So what's the founding story? What's the founding
+
+07:51.680 --> 07:58.000
+ principles of Librex? Sure. So I was on campus as a freshman, and I was talking to my friends.
+
+07:58.720 --> 08:04.480
+ Many of them felt like it was hard to raise your hand in class to ask a question. They really felt
+
+08:04.480 --> 08:08.320
+ like even outside the classroom, it was hard to be vulnerable. And the thing you have to understand
+
+08:08.320 --> 08:13.680
+ about Yale is it's not that big a place. Everyone knows someone who knows someone who knows you,
+
+08:13.680 --> 08:19.680
+ basically. And people come to these schools, first of all, they're home for people, and they want to
+
+08:19.680 --> 08:23.120
+ be themselves. They want to feel like they can be authentic. They want to make real friendships.
+
+08:23.120 --> 08:28.960
+ And second of all, it's a place where people go for intellectual vitality to explore important
+
+08:28.960 --> 08:35.840
+ ideas and to grow as thinkers. And fortunately, due to the culture, my friends expressed that
+
+08:35.840 --> 08:40.640
+ it was very difficult to do that. And I felt it, too. And then I couldn't talk to my professors.
+
+08:40.640 --> 08:46.240
+ And I remember I talked to one specific global affairs professor, and I was taking his class,
+
+08:46.240 --> 08:50.640
+ and his area of expertise was in the Middle Eastern conflict. And I went to him and I said,
+
+08:50.640 --> 08:57.040
+ Professor, we're almost finished this class. And we haven't even gotten to sort of the reason I
+
+08:57.040 --> 09:00.400
+ originally wanted to take the class was to hear about your perspective on the Middle Eastern
+
+09:00.400 --> 09:04.720
+ conflict. Because something I'd learned at Yale, and this is maybe the most important thing,
+
+09:04.720 --> 09:11.600
+ but I'll flush it out a bit. Something I've learned at Yale is that you can learn all sorts
+
+09:11.600 --> 09:17.120
+ of things from a textbook. And what you kind of go to Yale to do is to get the opinions of the
+
+09:17.120 --> 09:22.080
+ experts that go beyond the textbook and to have those more in depth conversations. And so that's
+
+09:22.080 --> 09:26.160
+ sort of the added value of going to a place like Yale and taking a course there as opposed to
+
+09:26.160 --> 09:29.040
+ just reading a textbook. But also interact with that opinion.
+
+09:29.040 --> 09:34.960
+ Exactly. To interact with that opinion, to hear it, to respond to it, to push back on it,
+
+09:34.960 --> 09:39.520
+ and to have that with some great minds. And there really are great minds at Yale,
+
+09:39.520 --> 09:43.360
+ don't get me wrong. It's still a place of tremendous brilliance.
+
+09:44.800 --> 09:48.960
+ So I'm talking to this professor, right? And I'm like, I haven't heard your area of expertise.
+
+09:48.960 --> 09:54.080
+ And I'm like, are we going to get to it? What's the deal? And this is during office hours,
+
+09:54.080 --> 09:59.680
+ mind you. So we're one on one. He says, Ryan, to be honest, I used to teach this area every
+
+09:59.680 --> 10:04.080
+ single year. In fact, I would do a section on it, which is like a small seminar, like breakaway
+
+10:04.080 --> 10:10.000
+ from the class where he would talk to the students in small groups and explain his perspective,
+
+10:10.000 --> 10:15.600
+ his research and have a real debate about it, like around a Harkness table. And he said,
+
+10:15.600 --> 10:22.800
+ I used to do this. And then about two years ago, a student reported me to the school and I realized
+
+10:22.800 --> 10:28.400
+ my job was at risk. And I realized the best course of action was basically just not to approach the
+
+10:28.400 --> 10:34.880
+ topic. And so now I just don't even mention it. And he's like, you can say whatever you want, but
+
+10:35.760 --> 10:40.000
+ I'm not going to be a part of it. And it's a real shame. It's a real loss to
+
+10:40.000 --> 10:45.920
+ all of the students who I think came to the school to learn from these brilliant professors.
+
+10:45.920 --> 10:53.920
+ In that context of these world experts, the problem seems to be that reporting mechanism
+
+10:54.960 --> 11:01.120
+ where there's a disproportionate power to a complaint of a young student, a complaint that
+
+11:01.120 --> 11:08.880
+ an idea is painful or an idea is disrespectful to, you know, or ideas creating an unsafe space.
+
+11:10.080 --> 11:15.520
+ And the conclusion of that, I mean, I'm not sure what to do with that because it's a
+
+11:15.520 --> 11:23.200
+ single reporting, maybe a couple, but that has more power than the idea itself. And that's
+
+11:23.200 --> 11:29.120
+ strange. I don't know how to fix that in the administration except to fire everybody. So like
+
+11:29.120 --> 11:34.960
+ this is to push back against this storyline that academia is somehow fundamentally broken.
+
+11:35.520 --> 11:42.320
+ I think we have to separate a lot of things out. Like one is you have to look at faculty and you
+
+11:42.320 --> 11:51.280
+ have to look at the administration. And like at MIT, for example, the administration does, tries
+
+11:51.280 --> 11:57.840
+ to do well, but they're the ones that often lack courage. They're often the ones who are the source
+
+11:57.840 --> 12:05.120
+ of the problem. When people criticize academia, and I'll just speak to myself, you know, I'm
+
+12:05.120 --> 12:11.760
+ willing to take heat for this, is they really are criticizing the administration, not the faculty
+
+12:11.760 --> 12:19.600
+ because the faculty oftentimes are the most brilliant, the bolder thinkers that you think.
+
+12:19.600 --> 12:25.200
+ Whenever you talk about we need like the truth to be spoken, the faculty are often the ones
+
+12:25.200 --> 12:30.560
+ who are in the possession of the deepest truths in their mind in that sense. And they also have
+
+12:30.560 --> 12:37.360
+ the capacity to truly educate in the way that you're saying. And so it's not broken, like
+
+12:37.360 --> 12:42.800
+ fundamentally, but there's stuff that like needs, that's not working that well. It needs to be fixed.
+
+12:42.800 --> 12:46.240
+ You kind of took my words. That's what I thought you were going to ask me if I think the Ivy League
+
+12:46.240 --> 12:50.720
+ is broken. That's totally, that's exactly it. So you don't think, yeah. So on the question,
+
+12:50.720 --> 12:55.680
+ do you think the Ivy League is broken? Like what, how do you think about it? The academia in general,
+
+12:55.680 --> 13:00.960
+ I suppose, but Ivy League still, I think it represents some of the best qualities of academia.
+
+13:00.960 --> 13:05.520
+ What more is there to say there? I think the Ivy League is producing tremendous thinkers to this
+
+13:05.520 --> 13:11.840
+ day. I think the culture has a lot that can be improved, but I have a lot of faith in the people
+
+13:11.840 --> 13:16.240
+ who are in these institutions. I think, like you said, the administration, and I have to be a
+
+13:16.240 --> 13:22.640
+ little careful because I've been in some of these committees and I've talked to the administration
+
+13:22.640 --> 13:27.600
+ about these sorts of things. I think they have a lot of stakeholders and unfortunately it makes
+
+13:27.600 --> 13:33.200
+ it difficult for them to always serve these brilliant faculty and the students in the way
+
+13:33.200 --> 13:38.960
+ that they would probably like to. Yeah. Okay. So this is me speaking, right? The administration,
+
+13:38.960 --> 13:43.760
+ I know the people, and they're oftentimes the faculty holding positions in these committees,
+
+13:43.760 --> 13:51.760
+ right? Yes. But it's in the role of quote unquote service. They're trying to do well.
+
+13:52.880 --> 13:59.520
+ They're trying to do good. But I think you could say it's the mechanism is not working,
+
+13:59.520 --> 14:10.560
+ but I could also say my personal opinion is they lack courage, and one, courage, and two,
+
+14:12.080 --> 14:19.120
+ grace when they walk through the fire. So courage is stepping into the fire,
+
+14:20.400 --> 14:29.040
+ and grace when you walk through the fire is like maintaining that like as opposed to being rude
+
+14:29.040 --> 14:33.920
+ and insensitive to the lived quote unquote experience of others or like, you know,
+
+14:33.920 --> 14:39.600
+ just not eloquent at all. Like as you step in and take the courageous step of talking and saying
+
+14:39.600 --> 14:44.480
+ the difficult thing, doing it well, like doing it skillfully. So both of those are important,
+
+14:44.480 --> 14:49.520
+ the courage and the skill to communicate difficult ideas, and they often lack them because they
+
+14:49.520 --> 14:56.320
+ weren't trained for it, I think. So you can blame the mechanisms that don't, that allow 19, 20 year
+
+14:56.320 --> 15:02.160
+ old students to have more power than the entire faculty, or you could just say that the faculty
+
+15:02.160 --> 15:08.000
+ need to step up and grow some guts and skill of graceful communication. And really administration.
+
+15:08.960 --> 15:13.360
+ Well, yeah. And the administration. That's right. That's the administration.
+
+15:13.360 --> 15:19.440
+ Because the faculty are sometimes some of the most brave outspoken people within the bounds
+
+15:19.440 --> 15:29.520
+ of their career. Yeah. So that takes a, that's like the founding kind of spark of a fire that
+
+15:30.480 --> 15:35.760
+ led you to then say, okay, so how can I help? Yeah. And I explored a lot. I explored a lot
+
+15:35.760 --> 15:41.360
+ of options. I wrote many articles to my friends, talked to them, and I realized it sort of needed
+
+15:41.360 --> 15:48.320
+ to be a cultural change. Sort of need to be bottom up, grassroots. Something, I knew the energy was
+
+15:48.320 --> 15:54.320
+ there because you just look at the most recent institutional assessment from Yale. This was
+
+15:55.040 --> 15:59.840
+ basically the number one thing that students, faculty, and alumni all pointed to, to the
+
+15:59.840 --> 16:05.120
+ administration was cultivating more conversations on campus and more difficult conversations on
+
+16:05.120 --> 16:16.080
+ campus. So the people on campus know it. And you look at a Gallup poll, 61% of students are on
+
+16:16.080 --> 16:23.280
+ Ivy League campuses, afraid to speak their minds because of the campus culture. The campus culture
+
+16:23.280 --> 16:28.960
+ is causing a sort of freezing effect on discourse. Can you pause on that again? So what percentage
+
+16:28.960 --> 16:35.040
+ of students feel afraid to speak their mind? 61% nationally. And then you're talking about,
+
+16:35.040 --> 16:40.800
+ you know, places, nothing like the Ivy League where I'd say, I'd imagine it would be even worse
+
+16:40.800 --> 16:47.840
+ because of just the way that these communities kind of come about and the sorts of people who
+
+16:47.840 --> 16:53.440
+ are attracted or are invited to these sorts of communities. That's nationwide that college
+
+16:53.440 --> 16:58.960
+ students, and it's going up, that college students are afraid to say what they believe because of
+
+16:58.960 --> 17:05.360
+ their campus climate. So it's a majority. It's not a conservative thing. It's not a liberal thing.
+
+17:05.360 --> 17:08.400
+ It's a group thing. We're all feeling it. The majority of us are feeling it.
+
+17:08.400 --> 17:12.320
+ And basically just, it doesn't even, you don't even necessarily
+
+17:13.120 --> 17:16.400
+ need to have anything to say. You just have a fear.
+
+17:17.040 --> 17:17.600
+ That's right.
+
+17:17.600 --> 17:23.520
+ So when you're like teaching, you know, metaphor is a really powerful thing to explain,
+
+17:23.520 --> 17:28.240
+ you know, and there's just the caution that you feel that's just horrible for humor. Now,
+
+17:28.240 --> 17:34.160
+ comedians have the freedom to just talk shit, which is why I really appreciate somebody who's
+
+17:34.160 --> 17:41.600
+ been a friend recently, Tim Dillon, who gives zero, pardon my French, fucks about anything,
+
+17:41.600 --> 17:46.960
+ which is very liberating, very important person to just tear down the powerful.
+
+17:46.960 --> 17:52.960
+ But, you know, inside the academia as an educator, as a teacher, as a professor,
+
+17:52.960 --> 17:57.680
+ you don't have the same freedom. So that fear is felt, I guess, by a majority of students.
+
+17:57.680 --> 18:00.880
+ And you were getting at something there too, which is that
+
+18:00.880 --> 18:04.480
+ if you're afraid to speak metaphorically, if you're afraid to speak imprecisely,
+
+18:05.200 --> 18:10.160
+ it can be very difficult to actually think at all and to think to the extremities of what you're
+
+18:10.160 --> 18:15.120
+ capable of, because these are the mechanisms we use when we don't have quite the precise
+
+18:15.120 --> 18:20.240
+ mathematical language to quite pinpoint what we're talking about yet. This is the beginning. This is
+
+18:20.240 --> 18:26.160
+ the creative step that leads to new knowledge. And so that really scares me is that if I'm not
+
+18:26.160 --> 18:30.880
+ allowed to sort of excavate these things, these ideas with people in the sort of messy, sloppy way
+
+18:30.880 --> 18:36.160
+ that we do as humans when we're first being creative, are we going to be able to continue
+
+18:36.160 --> 18:40.400
+ to innovate? Are we going to continue to be able to learn? And that's what really starts to scare me.
+
+18:41.280 --> 18:44.640
+ So you've explored a bunch of different ideas. You ordered a bunch of different stuff.
+
+18:45.680 --> 18:47.360
+ How did lead bricks come about?
+
+18:47.920 --> 18:53.040
+ Basically, it came to me that it had to be kind of a grassroots movement and it had to be something
+
+18:53.040 --> 18:58.720
+ that changed culturally. And it had to be relatively personal, people meeting people,
+
+18:58.720 --> 19:05.200
+ people finding out that, no, I'm not the only one on campus who feels this way. I feel alone. And
+
+19:05.200 --> 19:10.720
+ there are a lot of other people who feel alone. I believe this thing. And it's not as unpopular as
+
+19:10.720 --> 19:17.760
+ I thought. Basically, creating heterodoxy of thought. And it's creating that moment where
+
+19:17.760 --> 19:23.120
+ you realize that your politics are personal and that your politics are shared by a lot of people
+
+19:23.120 --> 19:30.400
+ on campus. And so I just started coding it. I didn't have much coding experience, but went
+
+19:30.400 --> 19:37.920
+ headfirst in and figured how hard could it be? I mean, this is really fascinating. So I talked to a
+
+19:37.920 --> 19:44.320
+ lot of software engineers, AI people. Obviously, that's where my passion, my interests are.
+
+19:44.320 --> 19:50.720
+ My focus has been throughout my life. The fascinating thing about your story, I think it
+
+19:50.720 --> 19:56.880
+ should be truly inspiring to people that want to change the world, is that you don't have a
+
+19:56.880 --> 20:05.120
+ background in programming. You don't have even maybe a technical background. So you saw a problem,
+
+20:06.160 --> 20:12.320
+ you explored different ideas, and then you just decided you're going to learn how to build an app
+
+20:12.320 --> 20:22.480
+ without a technical background. That's so bold. That is so beautiful, man. Can you take me through
+
+20:22.480 --> 20:29.120
+ the journey of deciding to do that, of learning to program without a programming background,
+
+20:29.120 --> 20:33.680
+ and building the app? Detail, how do you start?
+
+20:33.680 --> 20:42.960
+ Sure. You want to buy a Mac? I'm just going to go step by step. I'll be as dumb as possible.
+
+20:42.960 --> 20:48.240
+ Because it was truly leading by your feet.
+
+20:48.240 --> 20:49.680
+ So you need a computer for this?
+
+20:49.680 --> 20:54.800
+ Oh, yeah. I had a PC at the time, and I was Android at the time. And I realized it should
+
+20:54.800 --> 21:01.280
+ be an iOS app. And so that was a decision. But I knew kids these days, they're always on their
+
+21:01.280 --> 21:08.000
+ phone. And I wanted you to be able to say a passing thought in class. You're walking around,
+
+21:08.000 --> 21:11.520
+ and you have a thought, and you can express it. Or you're in the dining hall, and you have your
+
+21:11.520 --> 21:14.880
+ phone out, you can express it. So it was clear to me it should be an iOS app.
+
+21:14.880 --> 21:18.400
+ By the way, Android is great. Definitely check it out.
+
+21:18.400 --> 21:20.880
+ We also are now available on Android, but we'll get there,
+
+21:21.760 --> 21:27.920
+ for the new Android users from MIT, Stanford, or the Ivy League. So back to how it happened. So I
+
+21:27.920 --> 21:34.400
+ realized I need a Mac. So I went out and got a Mac. And I realized I need an iPhone for testing
+
+21:34.400 --> 21:41.600
+ eventually. Got an iPhone. So those were the real robot blocks to start with. From there, I mean,
+
+21:41.600 --> 21:45.440
+ there's almost too much information out there about programming. And the question is, where
+
+21:45.440 --> 21:52.640
+ do you start, and what's going to be useful to you? And my first thought was I should look at some
+
+21:52.640 --> 21:58.080
+ Yale classes. But it became very clear, very quickly, that that was not the right place to start.
+
+21:58.080 --> 22:01.440
+ That would probably be the right place to start if I wanted to get a job at Amazon,
+
+22:01.440 --> 22:07.760
+ but my goal was slightly different. And I definitely had it in mind that what I was
+
+22:07.760 --> 22:11.520
+ trying to make was I'm trying to prove out an idea. I'm not trying to make a finished product.
+
+22:11.520 --> 22:18.560
+ I'm just trying to get to the first step. Because I figured if I keep getting to the next step,
+
+22:18.560 --> 22:23.440
+ at least I won't die now. At least things will move forward. I'll learn new things. Maybe I'll
+
+22:23.440 --> 22:27.920
+ meet new people. I'll show a degree of seriousness about what I'm doing. And things will come
+
+22:27.920 --> 22:35.040
+ together. And that is, as you'll see, what ends up happening. So I start with Swift. And I find
+
+22:35.040 --> 22:39.360
+ this video from the Stanford professor that had a million views that was how to make, basically,
+
+22:39.360 --> 22:46.800
+ Swift apps perfect. And you just like, so you got this Mac, and you go to google.com,
+
+22:46.800 --> 22:55.840
+ and you type in Xcode. And then I type in on YouTube like Stanford, iOS, Swift, enter.
+
+22:57.040 --> 23:01.200
+ First YouTube video has a million views. I'm like, it has to be good at Stanford has a million
+
+23:01.200 --> 23:07.520
+ views. I got lucky. I mean, that turned out to be a very good video. It's basically like
+
+23:07.520 --> 23:12.160
+ introductory course to Swift. Yeah. I mean, you say introductory. I think most of the people in
+
+23:12.160 --> 23:18.000
+ that class probably had a much better background than I did software developers probably computer
+
+23:18.000 --> 23:23.520
+ scientists. And it was slow for me. I don't think I realized it fully at the time just how far
+
+23:23.520 --> 23:27.120
+ behind I was from the rest of the class because I was like, wow, it seems like people are picking
+
+23:27.120 --> 23:32.800
+ this up really quickly. So it took a little longer and you know, a lot of time on Stack Overflow.
+
+23:32.800 --> 23:38.880
+ But eventually I made a truly minimal viable product. The most minimal like we're talking,
+
+23:38.880 --> 23:44.560
+ you know, put text on screen, add text to screen, comment on top of text, you know,
+
+23:44.560 --> 23:52.000
+ make a post, make a response. And anyone with a Yale email can do this. And you plug it into
+
+23:52.720 --> 23:59.600
+ a certain cloud server and you verify people's accounts. And you you're off you have to figure
+
+23:59.600 --> 24:05.760
+ out how to like the whole idea of like having an account. So there's a permanence like you can
+
+24:05.760 --> 24:12.240
+ create an account with an email, verify it, verify it. OK, so that that's not, you know,
+
+24:12.240 --> 24:15.520
+ and that's literally how I thought about it. Right. Like, so what do I need to do? And I'm
+
+24:15.520 --> 24:21.120
+ like, well, first thing I need is a login page. And I'm like, how to make a login page in Swift.
+
+24:21.920 --> 24:25.520
+ I mean, it's that easy. If someone this has been done before, of course. And then the first page
+
+24:25.520 --> 24:30.400
+ that pops up is probably a pretty damn good page when it wasn't that bad. It wasn't perfect. But
+
+24:30.400 --> 24:35.920
+ like maybe it got me 80 percent of the way there. And then I came into some bugs and then, you know,
+
+24:35.920 --> 24:40.480
+ I asked Stack Overflow a few questions and then I got a little further and then I found some more
+
+24:40.480 --> 24:43.680
+ bugs. And then I'm like, maybe this isn't the right way to do. Maybe I should do it this way.
+
+24:43.680 --> 24:48.640
+ And I'm sure my code isn't great, but the goal isn't to make great code. The goal wasn't to
+
+24:48.640 --> 24:53.760
+ make scalable code. It was to understand, is this something my friends will use? Like,
+
+24:53.760 --> 24:58.720
+ what is the reaction going to be if I put it in their hands and am I capable of making this thing?
+
+24:58.720 --> 25:04.160
+ And that's awesome. And so you're focusing on the experience, like actually just really driving
+
+25:04.160 --> 25:08.560
+ towards that first step, figuring out the first step and really driving towards it. Of course,
+
+25:08.560 --> 25:13.680
+ you have to also figure out like this concept of like storage, like database.
+
+25:13.680 --> 25:14.640
+ You know something funny?
+
+25:14.640 --> 25:15.280
+ What's that?
+
+25:15.280 --> 25:19.280
+ I just made the database structure with no knowledge of databases whatsoever.
+
+25:19.840 --> 25:23.360
+ And I start showing it to my friends who have an experience in CS and they're like,
+
+25:23.360 --> 25:28.320
+ you used to heap. That's so interesting. You're like, why did you decide to store it in this way?
+
+25:28.320 --> 25:35.200
+ I'm like, bro, I don't even know what a heap is. I just did it because it works. Like I'm trying
+
+25:35.200 --> 25:39.360
+ to make calls and stuff. And they're like, yeah, they're like, the hierarchy is really like,
+
+25:39.360 --> 25:40.400
+ I'm like, what?
+
+25:40.400 --> 25:44.800
+ Well, there's a deep profound lesson in there that I don't know how much you've interacted
+
+25:44.800 --> 25:49.760
+ with computer science people since, but they tend to optimize and have these kinds of discussions.
+
+25:49.760 --> 25:55.040
+ And what leads, what results is over optimization. It's like worrying, is this really the right way
+
+25:55.040 --> 26:00.080
+ to do it? And then you go as opposed to doing the first thing on Stack Overflow, you go down this
+
+26:00.080 --> 26:06.640
+ like rabbit hole of what's the actual proper way to do it. And then you're like, you wake up five
+
+26:06.640 --> 26:13.120
+ years later working on Amazon because you've never finished the login page. Like it's kind of
+
+26:13.120 --> 26:20.880
+ hilarious, but that's a really deep lesson. Like just get it done. And there's like, what's a heap,
+
+26:20.880 --> 26:27.920
+ bro? Is the right, that should be a t shirt. That's really the right approach to building something
+
+26:27.920 --> 26:34.720
+ that ultimately creates an experience. And then you iterate eventually. That's how the great,
+
+26:34.720 --> 26:39.200
+ some of the greatest software products in this world have been built is you create it quickly
+
+26:39.760 --> 26:45.360
+ and then just iterate. What was, by the way, in your mind, the thing that you were chasing as a
+
+26:45.360 --> 26:52.960
+ prototype? Like what, what was the first step that it feels like something is working? Like did you
+
+26:52.960 --> 27:00.240
+ see you interacting with another friend? Yeah. I think the first step was like, it's one thing to
+
+27:00.240 --> 27:04.720
+ tell someone about an idea, but it's another thing to put in their hands and kind of see like the way
+
+27:04.720 --> 27:11.760
+ their, their eyes kind of look. And when I'd go, I'd walk around cross campus, which is part of
+
+27:11.760 --> 27:15.520
+ Yale, and I'd literally just go up to people and run up to them and be like, try this, try this,
+
+27:15.520 --> 27:19.360
+ you got to try this. This is pre quarantine, by the way, of course, this would never be the same
+
+27:19.360 --> 27:22.560
+ post quarantine, but like, you got to try this, you got to try this. Like, what is it? And I'd be
+
+27:22.560 --> 27:27.520
+ like, and I explain it's like an anonymous discussion feed for our Yale campus. And you see
+
+27:27.520 --> 27:32.560
+ their gears turning and they just, some people would be like, not interested. I'm like, fine,
+
+27:32.560 --> 27:38.160
+ not your target demographic. I get it. You'll come eventually. But some people like you could see it,
+
+27:38.160 --> 27:45.280
+ they got it. They're like, yes. And that's when I was like, okay, okay, there is, and you don't need,
+
+27:46.080 --> 27:53.280
+ I mean, you don't need 50% of people to like it. You need what, 5%, 10% to love it. And then
+
+27:53.280 --> 28:00.240
+ they'll tell 5%, 10%. Yeah, word of mouth. And you're good. Of course, the first version was
+
+28:00.240 --> 28:05.520
+ very, very crappy, but seeing people trying despite all the crappiness wasn't, it was sort of enough
+
+28:05.520 --> 28:12.560
+ to be the first step. And since then, all of my code has been stripped out. I now have friends
+
+28:12.560 --> 28:17.280
+ who basically have told me, don't bother with the coding part. You do the rest. You just make sure
+
+28:17.280 --> 28:22.000
+ that we can code because they want to code. Great. I mean, I'm not an engineer. I never intended to
+
+28:22.000 --> 28:27.280
+ be an engineer. And there's a lot to do that's not engineering. But the point was just to validate
+
+28:27.280 --> 28:33.760
+ the idea, so to speak. When was the moment that you felt like we've created something special?
+
+28:33.760 --> 28:43.120
+ Maybe a moment where you're proud of that this is, this has the potential to actually be the very
+
+28:44.320 --> 28:51.120
+ implementation of the idea that I initially had. There's so many little moments. It's like,
+
+28:51.120 --> 28:58.080
+ and I bet there'll still be moments in the future that make it hard to like totally say, like. Yeah,
+
+28:58.080 --> 29:04.800
+ we should say this is, this is still very early days of Librex. It's only been a year since we've
+
+29:04.800 --> 29:09.520
+ had like actual, like a lot of people on the app. Yeah. About a year. Oh wow. Okay. I mean,
+
+29:09.520 --> 29:14.000
+ there's some crazy moments I could talk about sort of going to Dartmouth because it's one thing to
+
+29:14.000 --> 29:20.320
+ like get some traction at your school. People know you and you know, it's your school, you know,
+
+29:20.320 --> 29:25.360
+ it's another thing to go to another school and where no one knows you and sign up 90% of the
+
+29:25.360 --> 29:31.440
+ campus overnight. Wow. So tell me that story. You're invading another territory. It was literally
+
+29:31.440 --> 29:37.840
+ like that. Did you buy it like a Dartmouth sweatshirt? Purposefully, I didn't want to fraud
+
+29:37.840 --> 29:43.520
+ anyone, but I was purposefully nondescript in my clothing. Yeah. No Yale stuff, no Dartmouth stuff.
+
+29:43.520 --> 29:54.080
+ Just blended. I'll go back there. So what happened was this was like March of last year. So almost,
+
+29:54.080 --> 30:00.880
+ almost a year ago today. And I really wanted to see if we could go from sort of one campus to two
+
+30:00.880 --> 30:10.160
+ campuses. So I didn't know anyone at Dartmouth's campus, but I kind of, I had some cold emails,
+
+30:10.160 --> 30:16.320
+ some warmish emails. And I went to people and I was like, basically, can I sleep on your floor for
+
+30:16.320 --> 30:21.120
+ two days during finals period? I had a lot of people who said, this is crazy. Like no one's
+
+30:21.120 --> 30:24.960
+ going to, no one wants to download an app during finals period, a social app during finals period.
+
+30:26.160 --> 30:31.040
+ But I emailed a few people. I was like, you know, can I sleep on your floor? And one of them
+
+30:31.040 --> 30:37.760
+ was crazy enough to say, sure, come to my, come to my dorm. I have a nice floor. And he ended up,
+
+30:37.760 --> 30:42.800
+ today, he's still really close. He's a really close friend. But anyway, I take a train,
+
+30:42.800 --> 30:50.160
+ knowing nothing about this guy besides his first and last name. And I arrive and Dartmouth is
+
+30:50.160 --> 30:56.560
+ really, really remote, way more remote than you think to the point where I'm like, he's like,
+
+30:56.560 --> 31:00.480
+ he warned me. He's a really hospitable guy. He warned me like, it's going to be hard to get to
+
+31:00.480 --> 31:04.400
+ campus from the train station because it's really remote. And I'm like, I'm sure it's fine. I'll
+
+31:04.400 --> 31:09.680
+ just get an Uber. There are no Ubers in Hanover. What do you think this is?
+
+31:09.680 --> 31:14.800
+ This is New Hampshire. So, Connecticut, I mean, Yale is pretty remote as well, no?
+
+31:14.800 --> 31:21.920
+ Yeah. Yale is, well, I mean, Yale is in New Haven, which is a real city. It has Ubers. It has food.
+
+31:21.920 --> 31:26.800
+ It has culture. It has a nightclub even. Like, we're talking about a real city. Like, it's not
+
+31:26.800 --> 31:32.880
+ New York. It's not Philadelphia, where I'm from, but it's a city. New Hampshire is something very
+
+31:32.880 --> 31:37.840
+ different. Yeah. Beautiful campus, I'm sure. Beautiful. Oh, my gosh. I could talk so much
+
+31:37.840 --> 31:42.880
+ about, I was blown away by Dartmouth. I started wondering like why I didn't apply.
+
+31:42.880 --> 31:49.680
+ Legitimately, between the people and the culture, it was a beautiful vacation. So,
+
+31:49.680 --> 31:54.960
+ I arrived there, no Uber, but eventually I call this guy who's like the only guy who can get you
+
+31:54.960 --> 32:00.160
+ to Dartmouth and it takes a couple hours, but we get there. I sleep on this guy's floor. I wake up.
+
+32:00.160 --> 32:03.760
+ I ask him if there's any printing. He's like, oh, Dartmouth happens to have free printing in
+
+32:03.760 --> 32:10.640
+ the copy room. I print out like 2000 posters until the guy in the copy room literally goes to me,
+
+32:10.640 --> 32:14.320
+ he's like, kid, I don't know what you're doing, but you need to get out of here. I'm like,
+
+32:15.200 --> 32:20.480
+ I'm going, I'm going. I found the limits. Yeah, I found the limit. I think a lot of startups
+
+32:20.480 --> 32:26.400
+ about finding the limits. That's a little piece of advice. Socially, he's like, you got to get
+
+32:26.400 --> 32:34.000
+ out of here. I then go to every single dorm door. I put a poster under every single dorm door,
+
+32:34.000 --> 32:40.080
+ advertising the app with a QR code. I walk around campus saying hi to everyone
+
+32:40.080 --> 32:44.320
+ and telling them about the app. I go from table to table in the cafeteria, introduce myself,
+
+32:44.320 --> 32:48.960
+ say hi and tell them to download the app. It's an exhausting day. So many steps,
+
+32:48.960 --> 32:53.200
+ so many crotching down to slip the poster under the dorm door. My legs were burning.
+
+32:54.640 --> 33:02.320
+ But by the end of it, 24 hours later, I'm sitting in a bus and I'm just pressing the refresh button
+
+33:02.320 --> 33:07.600
+ on the account creation panels. It's like going up by hundreds. And I'm like, oh my gosh.
+
+33:07.600 --> 33:14.400
+ The word of mouth is working in a sense. I mean, certainly your initial seed is powerful.
+
+33:14.400 --> 33:15.360
+ Just a piece.
+
+33:15.360 --> 33:20.320
+ Yeah, but then the word of mouth is what carries it forward. And what was the explanation you gave
+
+33:20.320 --> 33:26.320
+ to the app? Is anonymity a fundamental part of it? Like saying, this is a chance
+
+33:27.280 --> 33:30.960
+ for you to speak your mind about your experiences on campus.
+
+33:32.160 --> 33:37.360
+ Yeah, I think people get it. What I've realized is you don't need to tell people
+
+33:37.360 --> 33:39.200
+ why to try it. They know.
+
+33:40.880 --> 33:42.080
+ There's a hunger for this.
+
+33:42.080 --> 33:48.720
+ Exactly. So all I do is I'm very factual. I said, and this is where I kind of ended up coining the
+
+33:50.480 --> 33:55.040
+ line that I now used to say it because I said it so many times in those 24 hours.
+
+33:55.040 --> 33:59.760
+ I just said, it's an anonymous discussion feed for Dartmouth. And they're like, yes.
+
+34:02.480 --> 34:06.320
+ Like they've been waiting for it. Some people are more skeptical, but a lot of people were like,
+
+34:06.320 --> 34:11.520
+ great, I'm excited to try this. I'm excited to meet people and connect. And I mean,
+
+34:11.520 --> 34:17.040
+ the way Dartmouth is taken to is incredible. Everything from professors writing poems during
+
+34:17.040 --> 34:22.160
+ finals period to be like, good luck in finals period. You're going to rise like a Phoenix
+
+34:22.160 --> 34:29.040
+ or whatever to like, yeah, it's crazy. To I heard about two women meeting on Librex and
+
+34:29.040 --> 34:37.280
+ starting a finance club at Dartmouth to significant others meeting. There was an article recently
+
+34:37.280 --> 34:41.840
+ written up at Yale as well about two queer women who met on Librex and started a relationship,
+
+34:41.840 --> 34:47.600
+ which was pretty, it was pretty interesting to see people throwing parties pre COVID. Yeah.
+
+34:47.600 --> 34:51.440
+ It was just amazing to see how, when you allow people to be vulnerable and social,
+
+34:51.440 --> 34:54.960
+ they connect. People have this natural desire to connect.
+
+34:54.960 --> 35:00.480
+ Yeah. When, when you have, would have a natural desire to have a voice. And then when that voice
+
+35:01.520 --> 35:08.560
+ is, is paired with freedom, that you could truly express yourself and there's something
+
+35:08.560 --> 35:14.240
+ liberating about that. And in that sense, you're like, you're connecting as your true self,
+
+35:14.240 --> 35:19.040
+ whatever that is. What are the most powerful conversation you've seen on the app? You mentioned
+
+35:19.040 --> 35:23.680
+ like people connecting. The hard part of that, that is the sorting, you know, figuring out which
+
+35:23.680 --> 35:27.360
+ one, which one am I going to put at the top? Mental sorting out. Just something that stands
+
+35:27.360 --> 35:31.600
+ out to you. Sorry. I don't mean to do like the top 10 conversations ever of all time,
+
+35:31.600 --> 35:35.280
+ ever on the app. I just mean like stuff that you remember that stands out to you.
+
+35:35.280 --> 35:43.040
+ I remember this one really amazing comment from this. He was a Mexican international student
+
+35:43.760 --> 35:51.440
+ who spoke out and this, this, this post was super edgy, but yet it got hundreds and hundreds of
+
+35:51.440 --> 35:55.040
+ upvotes within the Yale community. It was a Yale community specific post. And we should point out
+
+35:55.040 --> 36:00.800
+ that there's a school specific community now and there's an all Ivy community. So this was
+
+36:00.800 --> 36:05.840
+ specifically in the Yale community. And this was a little while ago, but it stuck with me. This
+
+36:06.560 --> 36:13.040
+ Mexican international student comes to Yale and he starts talking about his experience
+
+36:13.040 --> 36:19.120
+ in the La Casa, which is the Mexican Latina X as they would say, cultural center at Yale,
+
+36:19.120 --> 36:26.720
+ and how he doesn't feel welcome there because he's Roman Catholic basically and international
+
+36:26.720 --> 36:31.680
+ and how he doesn't feel like he fits with their agenda. And as a result, this place that's
+
+36:31.680 --> 36:36.240
+ supposed to be home for him, he feels outcasted and feels more alone than he does anywhere else
+
+36:36.240 --> 36:42.400
+ on campus. That's powerful. That was powerful to me. Yeah. It's hearing someone, someone who should
+
+36:42.400 --> 36:50.240
+ be feeling supported by this culture say, actually, this is not doing anything for me. Like this is
+
+36:50.240 --> 36:58.160
+ not helping me. This is not where I feel at home. So what do you make of anonymity?
+
+36:59.520 --> 37:06.640
+ Because it seems to be a fundamental aspect of the power of the app, right? But at the same time,
+
+37:06.640 --> 37:13.200
+ anonymity on the internet, so it protects us, right? It gives us freedom to have a voice,
+
+37:14.000 --> 37:20.080
+ but it can also bring out the dark sides of human nature, like trolls or people who want
+
+37:20.080 --> 37:27.680
+ to be malicious, want to hurt others purely for the joy of hurting others, being cruel for fun
+
+37:28.320 --> 37:33.600
+ and going to the dark places. So like, what do you make of anonymity as a fundamental feature
+
+37:33.600 --> 37:38.960
+ of social interaction, like the pros and the cons? Yeah. Just to break that down a bit,
+
+37:38.960 --> 37:42.480
+ I would say a lot of those same things about a place like Twitter where people are very
+
+37:42.480 --> 37:49.280
+ unanonymous. Having said that, of course, there's a different sort of capacity people have when
+
+37:49.280 --> 37:55.440
+ they're anonymous, right? In all different sorts of ways. So what do I make of anonymity? I think
+
+37:55.440 --> 37:59.440
+ it can be incredibly liberating and allow people to be incredibly vulnerable and to connect in
+
+37:59.440 --> 38:04.240
+ different ways, both on politics, and there was a lot to talk about this year regarding politics,
+
+38:04.880 --> 38:09.680
+ and personally being vulnerable, talking about relationships and mental health.
+
+38:10.960 --> 38:13.760
+ I think it allows people to have a community that's not performative.
+
+38:14.800 --> 38:21.440
+ And of course, there's this other side where people can sometimes break rules or say things
+
+38:21.440 --> 38:25.200
+ that they wouldn't otherwise say that people don't always agree with or that people might
+
+38:25.200 --> 38:31.600
+ find repugnant. And to an extent, these can facilitate great conversations. And on the other
+
+38:31.600 --> 38:36.000
+ hand, we have to have moderation in place, and we have to have community guidelines to make sure
+
+38:36.000 --> 38:42.480
+ that the anonymity doesn't overwhelm the purpose, which is that anonymity, first of all, anonymity
+
+38:42.480 --> 38:48.560
+ is a tool in Librex. It was not the purpose of Librex. It is a way that we get towards these
+
+38:48.560 --> 38:55.600
+ authentic conversations given our campus climate. And second of all, I would say it's a spectrum.
+
+38:57.840 --> 39:05.680
+ It's not just Librex is anonymous because Librex isn't totally anonymous. Everyone's a verified
+
+39:05.680 --> 39:11.200
+ Ivy League student. You know exactly what school everyone goes to. You only have one account per
+
+39:11.200 --> 39:19.680
+ person at Yale. I mean, what that amounts to is people have more of an ownership in the community
+
+39:19.680 --> 39:22.160
+ and people know that they're connected and they have a common vernacular.
+
+39:23.040 --> 39:27.840
+ So the anonymity is a scale and it's a tool. But you can also trust, I mean, this is the
+
+39:27.840 --> 39:32.560
+ difference between Reddit anonymity, where you can easily create multiple accounts.
+
+39:33.920 --> 39:39.840
+ When you have only one account per person, or at least it's very difficult to create multiple
+
+39:39.840 --> 39:45.600
+ accounts, then you can trust that the anonymous person you're talking to is a human being.
+
+39:45.600 --> 39:46.640
+ Not a bot.
+
+39:46.640 --> 39:53.840
+ I try to be completely unanonymous now in my all public interactions. I try to be as real in every
+
+39:53.840 --> 39:58.160
+ way possible, like zero gap between private me and public me.
+
+39:59.200 --> 40:04.400
+ Why exactly did you, it seems like this is an intentional mission. What made you want to sort
+
+40:04.400 --> 40:09.760
+ of bridge that gap between the private sphere and public sphere? Because that's unique. I know a
+
+40:09.760 --> 40:12.400
+ lot of intellectuals who would make a different decision.
+
+40:13.040 --> 40:18.800
+ Yeah, interesting. I had a discussion with Naval about this, actually, with a few others that
+
+40:20.080 --> 40:22.880
+ have a very clear distinction between public and private.
+
+40:24.160 --> 40:27.840
+ Something I'm struggling with, by the way, personally, and thinking about.
+
+40:27.840 --> 40:40.960
+ So one on the very basic surface level is if you carry with yourself lies, small lies or big lies,
+
+40:41.840 --> 40:51.120
+ it's extra mental effort to remember what you're supposed to say and not supposed to say.
+
+40:51.920 --> 40:57.680
+ So that's on a very surface level of like, it's just easier to live life when you have
+
+40:57.680 --> 41:00.480
+ the smaller the gap between the private you and the public you.
+
+41:01.760 --> 41:08.240
+ And the second is, I think for me, from an engineering perspective,
+
+41:09.200 --> 41:15.920
+ like if I'm dishonest with others, I will too quickly become dishonest with myself.
+
+41:16.880 --> 41:22.080
+ And in so doing, I will not truly be able to think deeply about the world and come up
+
+41:22.080 --> 41:26.560
+ and build revolutionary ideas. There's something about honesty that feels like
+
+41:26.560 --> 41:31.760
+ it's that first principles thinking that's almost like overused as a term, but it feels like that
+
+41:31.760 --> 41:38.160
+ requires radical honesty, not radical asshole and lishness, but radical honesty with yourself,
+
+41:38.160 --> 41:44.960
+ with yourself. And it feels like it's difficult to be radically honest with yourself when you're
+
+41:44.960 --> 41:52.240
+ being dishonest with the public. And also I have a nice feature, honestly, that in this current
+
+41:52.240 --> 41:59.440
+ social context, so we can talk about race and gender and what are the other topics that are
+
+41:59.440 --> 42:00.240
+ touchy?
+
+41:52.240 --> 42:03.040
+ Ethnicity and nationality.
+
+42:03.040 --> 42:04.640
+ All those things. I mean, like.
+
+42:04.640 --> 42:05.840
+ Family structure.
+
+42:05.840 --> 42:11.840
+ Maybe I'm ineloquent in the way I speak about them, but I honestly, when I look in the mirror,
+
+42:12.480 --> 42:19.440
+ like I'm not deeply hateful of a particular race or even just hateful particular race.
+
+42:19.440 --> 42:36.720
+ I'm sure I'm biased and I've tried to like think about those biases and so on. And also, I don't have any
+
+42:36.720 --> 42:43.680
+ creepy shit in my closet. It seems like a lot of people did a lot of creepy stuff in their life.
+
+42:43.680 --> 43:12.800
+ I've gotten a bit of a platform. And I think it all started when I went to this female comedian, Whitney
+
+43:12.800 --> 43:42.720
+ Brown, and I was like, you know, I really value love, long term monogamy with like one person. And it's like, I
+
+43:42.720 --> 44:06.240
+ really value liberating as a human being. Forget public, all that. Because then I feel like I'm on sturdy ground when I say
+
+44:06.240 --> 44:12.240
+ difficult things. And at the same time, sorry, I'm ranting on this. I apologize.
+
+44:12.240 --> 44:23.920
+ Like I won't be able to fake it. Like they'll see it through. Yeah. So I feel like if you're not
+
+44:23.920 --> 44:30.800
+ lying about stuff, you have the freedom to truly be yourself. And the internet will figure it out.
+
+44:30.800 --> 44:35.680
+ Like we'll figure who you are. People have a natural tendency to be able to tell bullshit.
+
+44:35.680 --> 44:43.760
+ It makes sense from an evolutionary standpoint, right? Exactly. Like why? Why wouldn't, why, like, of all the things that we could evolve to be good at,
+
+44:45.600 --> 44:49.520
+ being able to detect honesty seems like one that would be particularly valuable,
+
+44:49.520 --> 44:54.160
+ especially in the sorts of societies we developed into. And then also from a selfish perspective,
+
+44:54.160 --> 45:01.360
+ like a success perspective, I think there's a lot of folks that have inspired me, like Elon is one of them,
+
+45:01.360 --> 45:09.920
+ that shows that there's a hunger for genuineness. Like you can build a business as a CEO and be
+
+45:09.920 --> 45:15.040
+ genuine and like real and do stupid shit every once in a while, as long as it's coming from the
+
+45:15.040 --> 45:19.680
+ same place of who you truly are. Like Elon is inspirational with that. And then there's a lot of
+
+45:19.680 --> 45:28.080
+ other people I admire that are counter inspirations in the sense like they're very formal. They hold
+
+45:28.080 --> 45:33.920
+ back a lot of themselves. And it's like, I know how brilliant those people are. And I think they're
+
+45:33.920 --> 45:41.120
+ not being as effective of leaders, public faces of companies as they could be. I mean, to be honest,
+
+45:41.120 --> 45:49.520
+ like not to throw shade, but I will, it's like Mark Zuckerberg is an example of that. Jack Dorsey is
+
+45:49.520 --> 45:54.000
+ also a bit of an example of that. I like Jack a lot. I've talked to him a lot. I will talk to him
+
+45:54.000 --> 46:03.360
+ more. I think he's a much more amazing person than he conveys through his public presentation. I think
+
+46:03.360 --> 46:08.400
+ a lot of that has to do with PR and marketing people having an effect. This is difficult. I think
+
+46:08.400 --> 46:13.200
+ it's really difficult. It's probably many of the same difficulties you will face as the pressures.
+
+46:14.800 --> 46:20.320
+ But it's hard to know what to do. But I think as much as possible as an individual, you should try
+
+46:20.320 --> 46:28.800
+ to be honest in the face of the world and the company that wants you to be more polished. And
+
+46:28.800 --> 46:33.760
+ that being more polished turns you into a politician and politician eventually turns into
+
+46:33.760 --> 46:37.760
+ being dishonest. Dishonest with the world and dishonest with yourself.
+
+46:37.760 --> 46:43.360
+ Something I noticed, which was of the people you mentioned, those things have had ramifications
+
+46:43.360 --> 46:51.760
+ in terms of letting things go too far or get out of hand. And you wonder, it's an aspect of lying,
+
+46:51.760 --> 46:57.920
+ right? You say one lie goes to another lie. You push it down. It doesn't matter. You can figure
+
+46:57.920 --> 47:04.000
+ it out later. You can figure it out later. Pretty soon, you've dug a pretty big hole. And I think
+
+47:04.000 --> 47:09.440
+ if we look at Twitter and we look at Facebook, I think it goes without saying what sorts of holes
+
+47:09.440 --> 47:14.400
+ have been dug because of, perhaps because of a lack of honesty that goes all the way up to the
+
+47:14.400 --> 47:20.640
+ leaders. So yeah, there's two problems within the company. It doesn't make you as effective of a
+
+47:20.640 --> 47:28.480
+ leader, I think. That's one. And two, for social media companies, I think people need to trust,
+
+47:28.480 --> 47:34.000
+ like it doesn't have to be the CEO, but it has to be like, this is how humans work. We want to look
+
+47:34.000 --> 47:43.040
+ to somebody we're like, I trust you. If you're going to use a social media platform, I think you
+
+47:43.040 --> 47:49.760
+ have to trust the set of individuals working at the top of that social. Something I realized
+
+47:49.760 --> 47:55.920
+ really quickly, one of the lessons throughout the startup was that people don't totally connect to
+
+47:55.920 --> 48:03.600
+ products as much as they connect to people. And I mean, I don't know how much you've spent on
+
+48:03.600 --> 48:11.520
+ Librex. You've only been here the last week, but I mean, I love the product. And one of the aspects
+
+48:11.520 --> 48:15.840
+ of me loving the product is that I was super active and I've been super active throughout the
+
+48:15.840 --> 48:22.000
+ entire time. And the amount of support I've received has made that very easy to do from
+
+48:22.000 --> 48:26.480
+ the community and the fact that I could, I mean, so I came to Boston for this interview, right?
+
+48:26.480 --> 48:34.560
+ Yeah. I came to Boston. I got off the train. It was around 5.30 PM. I checked Librex. Someone
+
+48:34.560 --> 48:38.800
+ is writing, hey, I'm in Boston. Does anyone want to get dinner? 30 minutes later, I'm getting
+
+48:38.800 --> 48:45.440
+ dinner with them. That's amazing. And I mean, it's incredible. First of all, as an entrepreneur,
+
+48:46.160 --> 48:52.080
+ the amount of stuff I learn from these people and when they reiterate and I hear that they got the
+
+48:52.080 --> 48:57.120
+ message through the product. I mean, that's incredibly validating, but also, I mean, I think
+
+48:57.120 --> 49:01.840
+ it's just important to be able to put a face to a brand and especially a brand that's built on trust
+
+49:02.960 --> 49:09.440
+ because fundamentally the users are trusting us with some really important discussions and some
+
+49:09.440 --> 49:13.840
+ really, and a movement to some degree. It's a community and a movement.
+
+49:13.840 --> 49:20.960
+ I'll tell you actually why I didn't use the app very much so far is there's something really
+
+49:20.960 --> 49:26.080
+ powerful about the way it's constructed, which I felt like a bit of an outsider, because I don't
+
+49:26.080 --> 49:32.720
+ know the communities. It felt like it's a really strong community around each of these places.
+
+49:34.000 --> 49:39.920
+ And so I felt like I was, it made me really wish there was an MIT one. And so there's
+
+49:39.920 --> 49:45.680
+ both discussions about the deep community issues within Columbia or Yale or so on,
+
+49:45.680 --> 49:52.240
+ and Dartmouth, and there's also the broader community of the Ivy Leagues that people are
+
+49:52.240 --> 49:57.200
+ discussing. But I could see that actually expanding more and more and more, but which is,
+
+49:57.200 --> 50:02.640
+ it's a powerful coupling, which is the feeling of like this little village, this little community
+
+50:02.640 --> 50:08.480
+ we're building together, but also the broader issues. So you could do both discussions.
+
+50:08.480 --> 50:16.560
+ One thing that was important to me is talking about social media as a concept. I think the way
+
+50:16.560 --> 50:23.360
+ people socialize is very much context dependent. So we're talking about people understanding each
+
+50:23.360 --> 50:31.440
+ other through language, through English. And these languages are constructed in a very nuanced way,
+
+50:31.440 --> 50:38.960
+ in a very sort of temperamental way, right? And you kind of need a similar context to be able to
+
+50:38.960 --> 50:45.520
+ have productive conversations. So to me, it's really important that these groups, they share
+
+50:45.520 --> 50:51.840
+ something in common, a really big lived experience, the Ivy League, or their school community. And
+
+50:51.840 --> 50:55.200
+ they have a similar vocabulary, they have a similar background, they know what's happening
+
+50:55.200 --> 51:00.480
+ in their community. And so having social media that is community connected to me was fundamental.
+
+51:00.480 --> 51:06.240
+ Like, you talk about anonymity. To me, community is the thing that when I think about Librex,
+
+51:06.240 --> 51:12.880
+ I think what makes it different. It's the fact that everyone knows what's going on. Everyone
+
+51:12.880 --> 51:18.000
+ comes from a similar context and people can socialize in a way where they understand each
+
+51:18.000 --> 51:22.080
+ other because they've been through, you used the word lived experience, they've been through so
+
+51:22.080 --> 51:23.920
+ many of the same lived experiences.
+
+51:23.920 --> 51:32.640
+ One clarification, is there an easy way, if you choose, to then connect in meat space,
+
+51:32.640 --> 51:33.680
+ in physical space?
+
+51:34.480 --> 51:41.280
+ So the, I guess the sort of magic of it, and I was talking to a bunch of Harvard Librexers who I
+
+51:41.280 --> 51:46.320
+ met off the app while I was in Boston. And every time they told me this is my favorite part of the
+
+51:46.320 --> 51:50.640
+ app, this is what I love about the app. We have this matching system, which is an anonymous direct
+
+51:50.640 --> 51:59.120
+ message that you can send to any poster. So, like, I was talking to this guy who, he was really
+
+51:59.120 --> 52:04.480
+ into coin collection. And he met other people who are really into coin collection through a post
+
+52:04.480 --> 52:09.200
+ and what they he would make a post about coin collection. And then someone would come to him
+
+52:09.200 --> 52:13.760
+ and they'd be like, and they could direct message him anonymously. And it would just show them that
+
+52:13.760 --> 52:18.960
+ his it would just show him their school. And then they could just text chat, totally anonymously,
+
+52:18.960 --> 52:22.000
+ direct message if he accepted the anonymous request.
+
+52:22.000 --> 52:23.760
+ Do they see the usernames, right?
+
+52:23.760 --> 52:30.400
+ There are no usernames on Librex. It's all just school's names. So he made this post about coin
+
+52:30.400 --> 52:34.000
+ collection. And he got a direct message.
+
+52:34.000 --> 52:35.360
+ Yeah, I guess so, right?
+
+52:35.360 --> 52:38.240
+ No usernames.
+
+52:38.240 --> 52:39.760
+ I was just looking at the text.
+
+52:39.760 --> 52:40.560
+ Yeah.
+
+52:40.560 --> 52:42.400
+ That's interesting. That's right.
+
+52:42.400 --> 52:44.320
+ And I can tell you, I can go into why.
+
+52:44.320 --> 52:46.320
+ That's really interesting.
+
+52:46.320 --> 52:47.360
+ Yeah, I can go into it.
+
+52:47.360 --> 52:49.360
+ So it truly is anonymous.
+
+52:49.360 --> 52:52.400
+ Well, I mean, it depends on what you mean by anonymous.
+
+52:52.400 --> 52:55.600
+ Exactly. It's a very different kind of anonymous.
+
+52:56.160 --> 53:01.760
+ And the reason that we made that decision is because we wanted people to connect to ideas.
+
+53:02.320 --> 53:05.520
+ We want people to connect to things in the moment. We don't want people to go,
+
+53:06.160 --> 53:10.880
+ oh, I know this guy. He said this other thing. And we didn't want people to feel like they were at
+
+53:10.880 --> 53:15.680
+ risk of being doxxed. So it's just these are small communities, right? We talked about this. Everyone
+
+53:15.680 --> 53:23.200
+ knows someone who knows you. And in 2021, it would not take much to be able to figure out who someone
+
+53:23.200 --> 53:29.440
+ might be just through a couple of posts. So it's both safety and about the ideas in terms of not
+
+53:29.440 --> 53:34.480
+ adding usernames. Anyway, we have this anonymous direct message system where you can direct
+
+53:34.480 --> 53:41.920
+ message the original poster of any post, the OP, if you're a Redditor, of any post. And that makes
+
+53:41.920 --> 53:46.720
+ it really easy to meet up because once you guys are one on one, you can exchange a number. You
+
+53:46.720 --> 53:53.440
+ can exchange a Snapchat. You can exchange an email. Probably not very often, but you could.
+
+53:53.440 --> 53:56.000
+ And then that's how people meet up. Matching.
+
+53:56.560 --> 54:01.920
+ And then a lot of people connect in this way. Let me just take a small step into the technical.
+
+54:01.920 --> 54:06.720
+ I read somewhere, I don't know if it's true, that one of the reasons you were rejected from YC,
+
+54:06.720 --> 54:14.160
+ Y Combinator, in the final rounds is because one of the principles is to refuse to sell user data.
+
+54:15.200 --> 54:21.680
+ Can you speak to that? Why do you think it's important not to sell user data?
+
+54:24.560 --> 54:30.400
+ Which draws a clear contrast between other, basically any other service on the internet.
+
+54:30.400 --> 54:37.360
+ I mean, to be honest, it's quite simple. I mean, we talk about this platform. People are talking
+
+54:37.360 --> 54:44.800
+ about their most intimate secrets, their political opinions. How are they feeling about what's going
+
+54:44.800 --> 54:54.080
+ on in their city during the summer? How are they feeling about the political cycle and also their
+
+54:54.080 --> 55:00.000
+ mental health, their relationships? These are some of the most intimate thoughts that people
+
+55:00.000 --> 55:06.480
+ were having. Point blank, I don't think it was ethical to pawn them off for a profit.
+
+55:07.440 --> 55:11.840
+ I didn't think it was moral. I don't think I could sleep at night if that was what I was doing,
+
+55:11.840 --> 55:19.360
+ is turning these people's most intimate beliefs and secrets into a currency that I bought and sold.
+
+55:20.320 --> 55:22.480
+ There's something very off about that.
+
+55:22.480 --> 55:30.000
+ Yeah, I tend to believe that there is some room, so like Facebook would just take that data and
+
+55:30.000 --> 55:35.440
+ sell it, right? But there's some room in transparency and giving people the choice
+
+55:35.440 --> 55:42.080
+ on which parts they can, I wouldn't even see it as sell, but like share with advertisers.
+
+55:42.080 --> 55:43.280
+ Are you going to give them a profit?
+
+55:44.080 --> 55:47.920
+ So right, you have to monetize, you have to create an entire system, you have to rethink
+
+55:47.920 --> 55:54.960
+ this whole thing, right? But as long as you give people control and are transparent and make it
+
+55:54.960 --> 55:59.520
+ easy, like I think it's really difficult to delete a Facebook account or like delete all your data.
+
+55:59.520 --> 56:01.520
+ I've tried, it's very difficult.
+
+56:03.280 --> 56:07.760
+ So like just make it easy and trust in that if you create a great product,
+
+56:07.760 --> 56:11.840
+ people are not going to do it. And if they do it, then they're not actually
+
+56:12.560 --> 56:14.800
+ a deep loving member of the community. What's that?
+
+56:14.800 --> 56:23.440
+ So we very quickly realized that user privacy was something that was not only a core value,
+
+56:23.440 --> 56:28.720
+ but was something that users really cared about. And we added this functionality. It's just a
+
+56:28.720 --> 56:35.440
+ button that says, forget me. You press it, like two clicks. It's not that hard. We just
+
+56:35.440 --> 56:40.480
+ remove your email from the database. You're good.
+
+56:40.480 --> 56:47.920
+ Beautiful. I think Facebook should have that. I honestly, so call me crazy, but maybe you can
+
+56:47.920 --> 56:53.200
+ actually speak to this, but I don't think Facebook, well now they would, but if they
+
+56:53.200 --> 56:59.680
+ did it earlier, they would lose that much money. If they allow like transparently tell people,
+
+56:59.680 --> 57:05.760
+ you could just delete everything. They also explained that like in ways that's going to
+
+57:05.760 --> 57:12.400
+ potentially like lessen your experience in the short term, like explain that. But then there
+
+57:12.400 --> 57:20.640
+ shouldn't be like multiple clicks of a button that don't make any sense. I'm trying to hold
+
+57:20.640 --> 57:25.200
+ back from ranting about Instagram because let me just say real quick, because I've been locked
+
+57:25.200 --> 57:31.760
+ out of Instagram for a month. And there's a whole group inside Facebook that are like supporters of
+
+57:31.760 --> 57:39.600
+ like Lex, help Lex. Free Lex? Free Lex. I wasn't blocked. It was just like a bug in the system.
+
+57:39.600 --> 57:44.960
+ Somebody was hammering the API with my account. And so they kept thinking I'm a bot. Anyway,
+
+57:44.960 --> 57:49.280
+ it's a bug. It happens to a lot of people, but like, first of all, I appreciate the love from
+
+57:49.280 --> 57:54.720
+ all the amazing engineers in Instagram and Facebook. All of those folks, the entire mechanism
+
+57:54.720 --> 58:00.560
+ though is somehow broken. I mean, I put that on the leadership, but it's also difficult to operate
+
+58:00.560 --> 58:06.080
+ a large company once it scales, all those kinds of things, but it should not be that difficult
+
+58:06.080 --> 58:14.960
+ to do some basic, basic things that you want to do, which is in the case of Facebook,
+
+58:15.520 --> 58:22.320
+ that's verify your identity to the app. And also in the case of Facebook, in the case of Librex,
+
+58:22.320 --> 58:31.360
+ like disappear if you choose. There's downsides to disappearing, but it should not be a difficult
+
+58:31.360 --> 58:40.320
+ process. And yeah, I think people are waking up to that. I think there's a lot of room for an app
+
+58:40.320 --> 58:47.520
+ like Librex with its foundational ideas to redefine what social media should look like.
+
+58:47.520 --> 58:53.920
+ You know, and like you said, I think beautifully, anonymity is not the core value. It's just a tool
+
+58:53.920 --> 59:00.800
+ you use. And who knows, maybe anonymity will not always be the tool you use. Like if you give
+
+59:00.800 --> 59:06.080
+ people the choice, who knows what this evolves from the login page you initially created.
+
+59:06.080 --> 59:10.640
+ The key thing is the founding principles. And again, who knows if you give people a really
+
+59:10.640 --> 59:15.920
+ nice way to monetize their data, maybe there'll no longer be a thing that you say, do not sell
+
+59:15.920 --> 59:22.240
+ user data. Yeah, all those kinds of things. But the basic principles should be there. And also
+
+59:22.240 --> 59:30.640
+ a good, simple interface design goes a really long way. Like simplicity and elegance, which
+
+59:30.640 --> 59:32.560
+ Librex currently is. Clubhouse is another app.
+
+59:32.560 --> 59:39.040
+ It's gotten a lot better, by the way. I don't mean to go too deep into the history, but the...
+
+59:39.040 --> 59:41.680
+ It was bad? I didn't look at the early pictures.
+
+59:41.680 --> 59:43.280
+ Oh, thank goodness.
+
+59:43.280 --> 59:47.840
+ I read somewhere that it was like a white screen, like with black.
+
+59:47.840 --> 59:57.760
+ The up and down buttons were like these big freaking boxes. And I could go on, but it was
+
+59:57.760 --> 1:00:05.760
+ my genius design skills. I almost failed art class when I was in first grade. And I think
+
+1:00:05.760 --> 1:00:10.640
+ I still have similar skills to my first grade self, but it's gotten a lot better. And thanks
+
+1:00:10.640 --> 1:00:14.240
+ to a lot of my friends who have sort of chipped in here and there.
+
+1:00:14.240 --> 1:00:20.720
+ Oh, I love the idea of a button that just forget me. I don't know. That's really moving,
+
+1:00:20.720 --> 1:00:28.160
+ actually. That's actually all people want, is they want, I think... Okay, I'll speak
+
+1:00:28.160 --> 1:00:34.800
+ to my experience. I would give so much more if I could just disappear if I needed to.
+
+1:00:34.800 --> 1:00:42.240
+ And I trusted the community. I trusted the founders and the principals. That's really
+
+1:00:42.240 --> 1:00:51.360
+ powerful, man. The trust and ease of escape. Yeah. You've also kind of mentioned moderation,
+
+1:00:51.360 --> 1:00:58.000
+ which is really interesting. So with this anonymity and this community, I don't know
+
+1:00:58.000 --> 1:01:01.200
+ if you've heard of the internet, but there's trolls on the internet.
+
+1:01:01.200 --> 1:01:01.760
+ So I've heard.
+
+1:01:01.760 --> 1:01:09.360
+ And even if they go to Yale and Dartmouth, there's still people that probably enjoy
+
+1:01:12.000 --> 1:01:19.520
+ sort of being the guerrilla warfare, counter revolutionary, and just like creating chaos
+
+1:01:19.520 --> 1:01:27.040
+ in a place of love. So how do you prevent chaos and hatred breaking out in Librex?
+
+1:01:27.040 --> 1:01:33.760
+ So the way I think about it is we have these principals. They're pretty simple and they're
+
+1:01:33.760 --> 1:01:38.560
+ pretty easy to enforce. And then beyond the principals, we have a set of moderators,
+
+1:01:38.560 --> 1:01:42.560
+ moderate from every single Ivy League school, a team of diverse moderators who enforce these
+
+1:01:42.560 --> 1:01:47.200
+ principals, but not only enforce the principals, but kind of clue us in to what's happening
+
+1:01:47.200 --> 1:01:52.720
+ in their community and how the real life context of their community translates to the Librex
+
+1:01:52.720 --> 1:01:59.680
+ context of their community. And beyond that, we have conversation with them about the
+
+1:01:59.680 --> 1:02:03.760
+ standards of the community. And we're constantly talking about what needs to be further
+
+1:02:03.760 --> 1:02:08.240
+ elucidated and what needs to be tweaked. And we're in constant communication with the
+
+1:02:08.240 --> 1:02:13.520
+ community. Now, if you want me to get into the principals that underlie Librex's moderation
+
+1:02:13.520 --> 1:02:14.000
+ policy.
+
+1:02:14.000 --> 1:02:17.760
+ Yeah, please. Maybe you can explain that there's moderators. What does that mean? How
+
+1:02:17.760 --> 1:02:20.880
+ are they chosen? And what are the principals under which they operate?
+
+1:02:20.880 --> 1:02:26.560
+ Sure. So how are the moderators chosen? The moderators are all volunteers. They're Librexers
+
+1:02:26.560 --> 1:02:33.840
+ who reach out to me and respond to the opportunity to become moderator. And the way they're
+
+1:02:33.840 --> 1:02:39.440
+ chosen is basically we want to make sure that they're in tune with their community. We want
+
+1:02:39.440 --> 1:02:43.440
+ to make sure they come from diverse backgrounds and we want to make sure that they sort of
+
+1:02:43.440 --> 1:02:47.840
+ understand what the community is about. And then we ask them some questions about how
+
+1:02:47.840 --> 1:02:52.560
+ they would deal with certain scenarios, ones that we've had in the past and we feel strongly
+
+1:02:52.560 --> 1:02:56.000
+ about. And then also ones that are a little more murky, where we want to see that they're
+
+1:02:56.000 --> 1:03:03.760
+ sort of thinking about these things in a critical way. And from there, we choose a set and they
+
+1:03:03.760 --> 1:03:10.000
+ have the power to take down posts. Of course, everything at the end of the day pens my
+
+1:03:10.000 --> 1:03:15.360
+ review, but they can take them down and we can reinstate them if it's a problem. But
+
+1:03:15.360 --> 1:03:20.560
+ they can take down posts and they can advocate for different moderation standards and different
+
+1:03:20.560 --> 1:03:21.600
+ moderation policies.
+
+1:03:22.320 --> 1:03:28.960
+ So for now, you're the Linus Torvalds of this community. So meaning like you're able to,
+
+1:03:29.680 --> 1:03:37.040
+ like people are actually able to like email you or like text you, contact you and get
+
+1:03:37.040 --> 1:03:42.080
+ a response. Like you respond to basically everybody. And then you're like really, you
+
+1:03:42.080 --> 1:03:47.600
+ know, you're, you're living that live on people's floor life currently. That's not
+
+1:03:47.600 --> 1:03:54.320
+ necessarily, this is the early days folks. I knew Ryan before he was a billionaire and
+
+1:03:54.320 --> 1:04:02.800
+ he was cool. And then he was in a mansion making meats on his barbecue. No. Okay. But
+
+1:04:02.800 --> 1:04:12.320
+ you know, how does it scale? Like what I suppose, how does it scale is the question. I
+
+1:04:12.320 --> 1:04:17.280
+ mean, with Linus, I don't know if you're familiar with the Linux open source community,
+
+1:04:17.280 --> 1:04:21.520
+ but he still stayed at the top for a while. It was really important. Like leadership there
+
+1:04:21.520 --> 1:04:26.240
+ was really important to drive that large scale, really productive open source community.
+
+1:04:26.240 --> 1:04:32.960
+ What do you see your role as Librex grows and in general, what are the mechanisms of
+
+1:04:32.960 --> 1:04:34.480
+ scaling here for moderation?
+
+1:04:35.360 --> 1:04:41.520
+ Where I see it, open discourse is fundamental to the purpose of the app, right? So as the,
+
+1:04:42.320 --> 1:04:49.760
+ I guess you could say founder, CEO, what have you, part of my purpose has to be to enforce
+
+1:04:49.760 --> 1:04:54.080
+ the vision, right? And part of the vision is open discourse. And that does come down
+
+1:04:54.080 --> 1:05:00.560
+ in part to reasonable moderation and community guided reasonable moderation. So I imagine
+
+1:05:00.560 --> 1:05:05.600
+ that will always be something that I'm intimately involved with to some degree. Now the
+
+1:05:05.600 --> 1:05:14.080
+ degree to which the way in which that manifests, I imagine will have to change, right? And
+
+1:05:14.080 --> 1:05:19.680
+ hopefully I'll be able to, just like you can hire a CTO, hopefully I'll be able to be
+
+1:05:19.680 --> 1:05:27.360
+ in integrated in hiring people who understand the way that we are sort of operating and
+
+1:05:27.360 --> 1:05:32.400
+ the reasonable standards of moderation. And there can be a sort of hierarchical structure.
+
+1:05:32.960 --> 1:05:38.720
+ But I think when you have a product whose key purpose is to allow people to have these
+
+1:05:38.720 --> 1:05:46.720
+ difficult conversations on campus that need to be had, I can never fully, I don't think
+
+1:05:46.720 --> 1:05:51.920
+ I can fully ever abdicate that responsibility. I think that would be like, I mean, that would
+
+1:05:51.920 --> 1:05:57.280
+ be like Bezos abdicating eCommerce, right? That's part of the job.
+
+1:05:57.280 --> 1:06:02.320
+ Yeah, of course you can run companies in different ways. I think because he might have
+
+1:06:02.320 --> 1:06:05.200
+ abdicated quite a bit of the details there.
+
+1:06:05.200 --> 1:06:06.240
+ It's hard for me to say.
+
+1:06:06.240 --> 1:06:10.400
+ Because Amazon does so many things. I think probably the better examples like Elon with
+
+1:06:10.400 --> 1:06:15.760
+ rockets, he's still at the core of the engineering. He's at the core of the engineering. There's
+
+1:06:15.760 --> 1:06:20.640
+ some fundamental questions. He probably does way too much of the engineering. He's the
+
+1:06:20.640 --> 1:06:28.000
+ lowest level detail. But you're saying the core things that make the app work is the
+
+1:06:28.000 --> 1:06:30.000
+ moderation of difficult conversations.
+
+1:06:30.000 --> 1:06:38.320
+ And by the way, I'm 21 years old. Let's remind everyone of that. If this thing does scale
+
+1:06:38.320 --> 1:06:44.720
+ and if this thing continues to be a positive force in a lot of people's lives, who knows
+
+1:06:44.720 --> 1:06:50.960
+ what will happen in the next, what I'll learn. I'm still growing definitely as a leader,
+
+1:06:50.960 --> 1:06:56.880
+ still growing as a thinker, still growing as a person. I can't pretend that I know how
+
+1:06:56.880 --> 1:07:03.520
+ to run a business that is worth up to $1 billion, whatever. I can't pretend I know how to run
+
+1:07:03.520 --> 1:07:07.680
+ a business that's going to have millions and millions of users. I expect that there are
+
+1:07:07.680 --> 1:07:11.840
+ going to be a lot of amazing people who will teach me and that a lot of people who have
+
+1:07:11.840 --> 1:07:17.840
+ already kind of stepped into my life and helped me out and taught me things. And I imagine
+
+1:07:17.840 --> 1:07:22.720
+ that I'll learn so much more. I just know that moderation is always going to be important
+
+1:07:22.720 --> 1:07:28.320
+ to me because I don't think Librex is Librex unless we have open discourse and moderation,
+
+1:07:28.960 --> 1:07:34.800
+ reasonable, open, light touch moderation is at the heart of creating that, right?
+
+1:07:35.920 --> 1:07:40.800
+ So as a creator of this kind of community in place with anonymity and difficult conversations,
+
+1:07:40.800 --> 1:07:48.160
+ what do you think about this touchy three words that people have been tossing around
+
+1:07:48.160 --> 1:07:52.000
+ and politicizing, I would say, but is at the core of the founding of this country, which
+
+1:07:52.000 --> 1:07:58.800
+ is the freedom of speech? How do you think about the freedom of speech, this particular
+
+1:07:58.800 --> 1:08:04.720
+ kind of freedom of expression? And do you think it's a fundamental human right? How
+
+1:08:04.720 --> 1:08:10.560
+ do you define it to yourself when you're thinking about it? I went down, especially
+
+1:08:10.560 --> 1:08:17.360
+ preparing for this conversation down a rabbit hole of like just how unclear it is philosophically
+
+1:08:17.360 --> 1:08:25.200
+ what is meant by this kind of freedom. It's not as easy as people think, but it's interesting
+
+1:08:25.200 --> 1:08:30.000
+ pragmatically speaking to hear how you think about it in the context of Librex.
+
+1:08:31.120 --> 1:08:37.040
+ Yeah, it's a tough one, right? There's a lot there. So I come from the background of being
+
+1:08:37.040 --> 1:08:44.000
+ a math major. Maybe it's important to start with that. And I found myself in the middle
+
+1:08:44.000 --> 1:08:49.520
+ of this question of freedom of speech. One of the wonderful things is that the Librex
+
+1:08:49.520 --> 1:08:56.160
+ community is filled with PhDs and governance majors who have taught me a ton about this
+
+1:08:56.160 --> 1:09:00.560
+ sort of thing. And I'm still learning. I'm still growing. I'm still probably going to
+
+1:09:00.560 --> 1:09:08.960
+ modify my perspective to some degree. Hopefully. Don't worry. I imagine I'll always support
+
+1:09:08.960 --> 1:09:16.480
+ free discourse. Like learning how to speak about stuff is critical here because it's like
+
+1:09:17.600 --> 1:09:23.040
+ I'm learning that this is like a minefield of conversations because the moment you say like
+
+1:09:23.040 --> 1:09:29.680
+ even saying freedom of speech is a complicated concept, people will be like, oh, we spotted
+
+1:09:29.680 --> 1:09:34.880
+ a communist. Like they'll say, there's nothing complicated about freedom. Freedom is freedom,
+
+1:09:34.880 --> 1:09:41.680
+ bro. It is complicated. First of all, if you talk about there's different definitions of freedom of
+
+1:09:41.680 --> 1:09:45.920
+ speech. If you want to go constitutionally, if you want to talk about the United States
+
+1:09:45.920 --> 1:09:52.560
+ specifically and what's legal, it's actually not as exciting and not as beautiful as what
+
+1:09:52.560 --> 1:09:59.760
+ people think of. It's complicated. I think there's ideals behind it that we want to see.
+
+1:09:59.760 --> 1:10:06.400
+ What does that actually materialize itself in the digital world where we're trying to communicate
+
+1:10:06.400 --> 1:10:14.800
+ in ways that allows for difficult conversations and also at the same time doesn't result in the
+
+1:10:14.800 --> 1:10:23.760
+ silencing of voices, not through like censorship, but through like just assholes being rude.
+
+1:10:23.760 --> 1:10:24.560
+ Spam.
+
+1:10:24.560 --> 1:10:27.200
+ Spam. So it could be just bots.
+
+1:10:27.200 --> 1:10:27.840
+ Racism.
+
+1:10:28.400 --> 1:10:29.040
+ Racism.
+
+1:10:29.840 --> 1:10:39.360
+ Going back to the name of the app, Librex. Libre, free. X was put onto for free exchange
+
+1:10:39.360 --> 1:10:45.680
+ and the free exchange of what my purpose was to create as much inner communication of ideas,
+
+1:10:46.400 --> 1:10:53.200
+ be them repugnant or otherwise as possible. And of course, to do that within legal bounds
+
+1:10:53.200 --> 1:10:58.240
+ and to do that without causing anyone to be harassed or doxxed. So to keep things
+
+1:10:58.240 --> 1:11:08.160
+ focused on the ideas, not the people. And then no BS crap stuff. And so to me,
+
+1:11:08.160 --> 1:11:13.840
+ the easiest way to moderate around that, because as you said, figuring out what is hateful and what
+
+1:11:13.840 --> 1:11:19.040
+ is hate speech is really hard, was to say no sweeping statements against core identity groups.
+
+1:11:21.120 --> 1:11:24.880
+ And that seems to work on the whole pretty well to be pretty light touch.
+
+1:11:25.680 --> 1:11:27.120
+ And it's hard to do though.
+
+1:11:27.120 --> 1:11:27.920
+ It's difficult.
+
+1:11:27.920 --> 1:11:30.080
+ We like to generalize, we humans.
+
+1:11:30.080 --> 1:11:33.680
+ It's difficult, but what it comes down to is be specific.
+
+1:11:33.680 --> 1:11:37.040
+ And when you think about what are sweeping statements against core identity groups,
+
+1:11:37.040 --> 1:11:42.320
+ oftentimes these are sort of hackneyed subjects. These are things that have been broached and
+
+1:11:43.600 --> 1:11:48.480
+ we've heard them before. They don't really lead anywhere productive. So it goes under
+
+1:11:48.480 --> 1:11:51.360
+ this principle of be specific in the ideas you're discussing.
+
+1:11:52.240 --> 1:11:57.360
+ So even for like positive and humorous stuff, you try to avoid generalizations.
+
+1:11:57.360 --> 1:11:58.720
+ Against core identity groups.
+
+1:11:58.720 --> 1:12:01.360
+ Core identity groups. Sorry, what are core identity groups?
+
+1:12:01.360 --> 1:12:02.640
+ We're talking, kind of like,
+
+1:12:02.640 --> 1:12:06.080
+ You know, race, religion.
+
+1:12:06.080 --> 1:12:11.520
+ Okay. Got it. Even positive stuff?
+
+1:12:11.520 --> 1:12:13.280
+ Well, against, negative.
+
+1:12:13.280 --> 1:12:16.320
+ Oh, against. Sorry, against, against. Okay.
+
+1:12:16.960 --> 1:12:23.280
+ Very, very, we've learned to be very specific. Very few words, but the community gets it, you know?
+
+1:12:23.280 --> 1:12:31.120
+ Yeah, they get it. I mean, this is the thing. The trouble with rules is as the community grows,
+
+1:12:31.120 --> 1:12:33.920
+ they'll figure out ways to manipulate the rules.
+
+1:12:33.920 --> 1:12:36.240
+ Absolutely. It's human nature. It's creativity.
+
+1:12:36.240 --> 1:12:36.480
+ Yeah.
+
+1:12:37.120 --> 1:12:38.880
+ Something beautiful about it, of course.
+
+1:12:40.320 --> 1:12:41.840
+ From an evolutionary perspective, yes.
+
+1:12:41.840 --> 1:12:45.360
+ Yeah, the fact that people are so creative and so looking to,
+
+1:12:46.240 --> 1:12:50.640
+ because people are genuinely interested in figuring out these things about social media.
+
+1:12:50.640 --> 1:12:56.640
+ And so they'll 100% see like, where's the edge? And I mean, part of that's maintaining some level
+
+1:12:56.640 --> 1:13:02.400
+ of vagueness in your rule set, which has its own set of questions and something we could think about.
+
+1:13:02.400 --> 1:13:06.160
+ And I'm not implying I have all the answers, but there is something really interesting about people
+
+1:13:06.160 --> 1:13:11.600
+ being so engaged that they're looking to figure out where are those edges and what does that mean?
+
+1:13:11.600 --> 1:13:13.040
+ What does that edge mean, you know?
+
+1:13:14.080 --> 1:13:17.680
+ Well, so one of the things I'm kind of thinking about,
+
+1:13:17.680 --> 1:13:22.000
+ like from an individual user of Librex or an individual user of the internet,
+
+1:13:22.000 --> 1:13:27.600
+ I think about like that one person that is on Reddit saying hateful stuff or positive stuff,
+
+1:13:27.600 --> 1:13:33.600
+ doesn't matter, or funny stuff. One of the things I think about is the trajectory of that individual
+
+1:13:33.600 --> 1:13:40.560
+ through life and how social media can help that person become the best version of themselves.
+
+1:13:41.440 --> 1:13:46.560
+ I don't mean from like an Orwellian sense, like educate them properly or something.
+
+1:13:46.560 --> 1:13:52.720
+ I just mean like, we're all, I believe, we're all fundamentally good. And I also believe
+
+1:13:53.760 --> 1:14:00.240
+ we all have the capacity to do, to create some amazing stuff in this world,
+
+1:14:01.200 --> 1:14:06.720
+ whether that's ideas or art or engineering, all those kinds of things, just to be amazing people.
+
+1:14:07.440 --> 1:14:13.520
+ And I kind of think about like, you know, a lot of social media mechanisms bring out the worst
+
+1:14:13.520 --> 1:14:22.720
+ in us. And I try to think like, in the long term, how can the social media or how can a website,
+
+1:14:22.720 --> 1:14:28.640
+ how can a tool that you create can make the best, like you take a trajectory that makes you better,
+
+1:14:28.640 --> 1:14:32.960
+ better and better and like the best version of yourself. So I think about that because like,
+
+1:14:33.760 --> 1:14:39.360
+ you know, Twitter can really take you down some dark trajectories. I've seen people just not being
+
+1:14:39.360 --> 1:14:43.440
+ the best version of themselves. Forget the cancel culture and all that kind of stuff. It's just like
+
+1:14:43.440 --> 1:14:49.040
+ they're not developing intellectually in the way that's going to make the best version of themselves.
+
+1:14:49.040 --> 1:14:55.760
+ I think Reddit, I'm not sure what I think about Reddit yet, because one positive side is all the
+
+1:14:55.760 --> 1:15:01.840
+ shit posting I read. It could be just like a release valve for some stress in life. And you
+
+1:15:01.840 --> 1:15:07.200
+ almost have like a parallel life where you're in meat space. You might be actually becoming
+
+1:15:07.200 --> 1:15:11.440
+ successful and so on and growing and so on, but you just need some times to be angry at somebody.
+
+1:15:11.440 --> 1:15:19.120
+ But I tend to not think that's possible. I think if you're shit posting, you're probably not
+
+1:15:19.120 --> 1:15:25.600
+ spending your time the best way you could. I don't know. I'm torn on that. But do you think
+
+1:15:25.600 --> 1:15:31.920
+ about that with Librex of creating a trajectory for the Yale, for the Dartmouth, for the students,
+
+1:15:31.920 --> 1:15:33.920
+ to where they grow intellectually?
+
+1:15:33.920 --> 1:15:41.760
+ One thing that I think about a lot is how do you incentivize positive content creation? How do you
+
+1:15:41.760 --> 1:15:50.640
+ incentivize really intellectual content creation? It's something that, frankly, I think about every
+
+1:15:50.640 --> 1:15:58.240
+ single day. And I think there are ways that... I mean, one thing that's great about humans is that
+
+1:15:58.240 --> 1:16:03.120
+ they can be incentivized, right? And I think there are ways that you can incentivize people to make
+
+1:16:03.120 --> 1:16:05.840
+ the right kind of content if that's your goal.
+
+1:16:06.720 --> 1:16:10.160
+ So you think such mechanisms exist for such incentivization?
+
+1:16:10.160 --> 1:16:13.680
+ I do. I don't want to let the cat out of the bag, so to speak.
+
+1:16:13.680 --> 1:16:16.560
+ Do you have already concrete ideas in your mind?
+
+1:16:16.560 --> 1:16:20.480
+ I have about three concrete ideas that I'm very, very optimistic about.
+
+1:16:22.160 --> 1:16:26.960
+ You don't even need to share them. I understand totally. But the fact that you have them,
+
+1:16:26.960 --> 1:16:33.920
+ that's really good. Because I feel like sometimes the downfall of the social media is that there's
+
+1:16:33.920 --> 1:16:42.720
+ literally not even a thinking or a discussion about the incentivization of positive long term
+
+1:16:43.680 --> 1:16:48.320
+ content creation. Twitter, I really was excited about this when they said like,
+
+1:16:48.880 --> 1:16:52.400
+ when Jack has talked about creating healthy conversations.
+
+1:16:52.400 --> 1:16:57.920
+ He does seem to care. I've listened to him. I mean, he has a very particular way of saying
+
+1:16:57.920 --> 1:17:01.920
+ things. But you get the impression that he's someone who actually cares about these things
+
+1:17:01.920 --> 1:17:03.520
+ within the limits of his power.
+
+1:17:03.520 --> 1:17:10.160
+ Yeah. And that's the question, the limits of the power. Librex is growing not just in the number
+
+1:17:10.160 --> 1:17:18.480
+ of communities, but also in the way you're incentivizing positive conversations, like coupled
+
+1:17:18.480 --> 1:17:22.560
+ with a moderation and so on. So you think there's a lot of innovation to be had in that area?
+
+1:17:22.560 --> 1:17:27.280
+ There's a tremendous amount. I think when you think about the reasons people post,
+
+1:17:27.920 --> 1:17:34.480
+ fundamentally, people want to make a positive impact on their community to some degree. Now,
+
+1:17:34.480 --> 1:17:39.440
+ there will always be bad actors. And part of the benefit of our moderation structure is that we
+
+1:17:39.440 --> 1:17:45.840
+ can limit some of those bad actors, no bot accounts, no brigading. At the same time,
+
+1:17:45.840 --> 1:17:50.720
+ the more you incentivize a certain type of behavior, the better it's going to be. And we
+
+1:17:50.720 --> 1:17:58.240
+ don't see it as our role as the platform to force the community in a direction. And frankly, I don't
+
+1:17:58.240 --> 1:18:03.520
+ think it would be good for anyone, the community or the conversations, if we forced a specific type
+
+1:18:03.520 --> 1:18:10.320
+ of conversation. We just need to make the tools to allow people to be good and to incentivize good
+
+1:18:10.320 --> 1:18:10.880
+ behavior.
+
+1:18:10.880 --> 1:18:19.600
+ Yeah, I believe that. You will not need to censor if you allow people at scale to be good. The good
+
+1:18:19.600 --> 1:18:21.440
+ will overpower the assholes.
+
+1:18:21.440 --> 1:18:25.120
+ That's my fundamental belief. I'm very optimistic about that.
+
+1:18:26.080 --> 1:18:32.400
+ But currently, Librex is small in the sense that it's a small set of communities that I believe.
+
+1:18:32.400 --> 1:18:38.400
+ And you mentioned to me offline that by design, you're scaling slowly and carefully.
+
+1:18:38.400 --> 1:18:38.960
+ That's right.
+
+1:18:38.960 --> 1:18:48.480
+ So how does Librex scale? Is it possible? Facebook also started with a small set of communities
+
+1:18:48.480 --> 1:18:55.280
+ that were schools, and then now grew to be basically the, if not one of the largest social
+
+1:18:55.280 --> 1:19:03.120
+ networks in the world. Do you see Librex as potentially scaling to be beyond even college
+
+1:19:03.120 --> 1:19:06.560
+ campuses, but encompassing the whole world?
+
+1:19:06.560 --> 1:19:17.440
+ It's a long timeline. I'll say this. This gets back to where did Facebook go wrong?
+
+1:19:17.440 --> 1:19:24.400
+ Because clearly, they did a lot right. And we can only speculate about what the objectives
+
+1:19:24.400 --> 1:19:30.160
+ were of the founders of Facebook. I'm sure they've said some things, but it's always
+
+1:19:30.160 --> 1:19:36.880
+ interesting to know what the mythology is versus what the truth is of the matter. So
+
+1:19:36.880 --> 1:19:42.240
+ perhaps they've been very successful. I mean, they've taken over the world to some extent.
+
+1:19:43.920 --> 1:19:49.440
+ At the same time, the goals of Librex are to create these positive communities and
+
+1:19:49.440 --> 1:19:54.000
+ these open conversations where people can have real conversation and connection in
+
+1:19:54.000 --> 1:20:00.720
+ their communities in a vulnerable and authentic way. And so to that end, which I imagine might
+
+1:20:00.720 --> 1:20:06.320
+ be different than the goals of a Facebook, for example, one thing that we want to do
+
+1:20:06.320 --> 1:20:13.760
+ is keep things intimate and community based. So each school is its own community. And perhaps
+
+1:20:13.760 --> 1:20:19.040
+ you could have a slightly broader community. Maybe you could have a, I know the California
+
+1:20:19.040 --> 1:20:24.880
+ system is an obvious one. Packed time might be an obvious one. And we can think about that. But
+
+1:20:24.880 --> 1:20:33.200
+ fundamentally, the unit of community is your school or your school community. So that's one
+
+1:20:33.200 --> 1:20:38.560
+ difference that I think will help us. The other thing is that we're scaling intentionally, meaning
+
+1:20:38.560 --> 1:20:44.320
+ that when we expand to a school, we have moderators in place. We have moderators who understand that
+
+1:20:44.320 --> 1:20:50.720
+ school's environment in a very personal level. And we're growing responsibly. We're growing as we're
+
+1:20:50.720 --> 1:20:58.960
+ ready, both technologically, but also socially. But as we think we have the tools to preserve
+
+1:20:58.960 --> 1:21:02.640
+ the community and to encourage the community to create the sort of content that we want them to
+
+1:21:02.640 --> 1:21:09.120
+ create. And there's a lot of ways to define community. So first of all, there's geographic
+
+1:21:09.120 --> 1:21:16.240
+ community as well. But the way you're kind of defining community with Yale and Dartmouth is the
+
+1:21:16.240 --> 1:21:24.640
+ email, right? That's what gives you, there's a power to the email in the sense that that's how
+
+1:21:24.640 --> 1:21:32.560
+ you can verify, efficiently verify yourself with being a single individual in the university. In
+
+1:21:32.560 --> 1:21:39.360
+ that same way, you can verify your employment at a company, for example, like Google, Microsoft,
+
+1:21:39.360 --> 1:21:45.360
+ Facebook. Do you see potentially taking on those communities? That'd be fascinating,
+
+1:21:45.920 --> 1:21:50.160
+ getting like anonymous community conversations inside Google.
+
+1:21:50.960 --> 1:21:57.280
+ 100% crossed my mind. To some extent, this is something where I understand the college
+
+1:21:57.280 --> 1:22:04.400
+ experience. I understand the need. And I've never worked at Google. I don't know if they would hire
+
+1:22:04.400 --> 1:22:14.080
+ me. Hopefully, maybe as a product manager. I think if there's a community that needs this product,
+
+1:22:14.080 --> 1:22:22.800
+ and has that will, which I think, especially as Librex continues to grow and expand and change
+
+1:22:22.800 --> 1:22:27.840
+ and learn. Because that's what we're doing is we're learning, right? With each community, it's not just
+
+1:22:27.840 --> 1:22:35.440
+ about growing. It's about learning from each of these communities and iterating. I think it's
+
+1:22:35.440 --> 1:22:40.160
+ quite likely there are going to be all sorts of communities that could use this tool to improve
+
+1:22:40.160 --> 1:22:48.400
+ their culture, so to speak. So forgive me, I'm not actually that knowledgeable about the history of
+
+1:22:48.400 --> 1:22:55.280
+ attempts of building social networks to solve the problem that you're solving. But I was made aware
+
+1:22:55.280 --> 1:23:05.760
+ that there was an app or at least a social network called Yik Yak that had a similar kind of
+
+1:23:07.440 --> 1:23:14.720
+ focus. I think the thing you've spoken about that differs between Librex and Yik Yak is that Yik Yak
+
+1:23:14.720 --> 1:23:21.520
+ was defined, am I pronouncing it right even? You good? I'm good. I met the founder so I can confirm.
+
+1:23:21.520 --> 1:23:29.840
+ Okay, you can confirm, cool. That it was constrained to a geographical area versus like to the actual
+
+1:23:29.840 --> 1:23:38.720
+ community and that somehow had fundamental like actual differences in social dynamics that resulted.
+
+1:23:38.720 --> 1:23:45.040
+ But can you speak to the history of Yik Yak? Like how does Librex differ? What lessons have you learned
+
+1:23:45.040 --> 1:23:50.160
+ from that? Oh, and I should say that I guess there was controversial, I don't know, I didn't look at
+
+1:23:50.160 --> 1:23:53.840
+ the details, but I'm guessing there's a bunch of racism and hate speech and all that kind of stuff
+
+1:23:53.840 --> 1:24:01.840
+ that emerged on Yik Yak. Okay, so that's an example of like, okay, here's how it goes wrong when you
+
+1:24:01.840 --> 1:24:09.760
+ have anonymity on college campuses. So how does Librex going to do better? Yeah, Yik Yak had a
+
+1:24:09.760 --> 1:24:14.720
+ lot of problems, content problems, but the content problems go deeper than maybe what the press would
+
+1:24:14.720 --> 1:24:21.680
+ reveal. There's a lot to say and part of it is parsing exactly what to talk about when it comes
+
+1:24:21.680 --> 1:24:27.440
+ to Yik Yak and when you talk about startups, I mean you know this, you know startups, and you
+
+1:24:27.440 --> 1:24:32.880
+ look at the postmortem, it's almost never what people think it is. And oftentimes these things
+
+1:24:32.880 --> 1:24:39.040
+ are somewhat unknowable and the degree to which people seeking confirmation bias to somebody,
+
+1:24:39.040 --> 1:24:44.720
+ seeking closure, look to find a singular attribute that caused the failure. It feels like the little
+
+1:24:44.720 --> 1:24:51.600
+ details often make all the difference. Yes, and I think the details are so little that as humans
+
+1:24:51.600 --> 1:24:58.560
+ we are not capable of parsing even what they are. But I'll tell you my perspective on it,
+
+1:24:58.560 --> 1:25:04.880
+ knowing that I am also a human with biases. In this particular case, very significant biases.
+
+1:25:08.720 --> 1:25:14.960
+ So I started building Librex for its own merits. At first I wasn't aware of Yik Yak, but as I started
+
+1:25:14.960 --> 1:25:20.080
+ to talk to people about this platform I was building, I was made aware of Yik Yak and I
+
+1:25:20.080 --> 1:25:28.000
+ built it from day one with a lot of the issues Yik Yak had in mind. So as you said, the one
+
+1:25:28.000 --> 1:25:33.680
+ difference between Yik Yak is the geographical versus community based aspect. Going along with
+
+1:25:33.680 --> 1:25:39.040
+ that, one thing I realized by researching social media sites is that the majority of
+
+1:25:39.920 --> 1:25:48.240
+ the negative content, the content that's terrible and breaking all the rules is created by really,
+
+1:25:48.240 --> 1:25:54.800
+ and the people who are not reformable, so to speak, the people who are not showing the best
+
+1:25:54.800 --> 1:26:02.960
+ part of the human experience. It's a really small minority, right? I remember, I was listening to
+
+1:26:02.960 --> 1:26:08.880
+ the founder of 4ChamMoot talk about this, how like one guy was able to basically destroy
+
+1:26:10.080 --> 1:26:16.160
+ like large swaths of his community. Yeah, that's part of what makes it exciting for that
+
+1:26:16.160 --> 1:26:22.080
+ minority is how much power they can have. So if you're predisposed to think in this way,
+
+1:26:22.080 --> 1:26:27.120
+ it's exciting that you can walk into, like I mentioned the party before, you have a party
+
+1:26:27.120 --> 1:26:35.120
+ of a lot of positive people and it feels, especially if you don't have much power in this
+
+1:26:35.120 --> 1:26:44.800
+ world, it feels exceptionally empowering to just, to destroy like the lives of many.
+
+1:26:44.800 --> 1:26:51.680
+ Yeah. And if you think this way, it's a problem. But I'm hopeful that you're right, that in most
+
+1:26:51.680 --> 1:26:56.480
+ cases it's going to be a minority of people. I think it is. And that's what the research has
+
+1:26:56.480 --> 1:27:04.320
+ showed. And one really powerful thing is that we can really actively control who comes in and out
+
+1:27:04.320 --> 1:27:10.080
+ of our community based on the.edu verification. And we can also control who's not in our community
+
+1:27:10.080 --> 1:27:16.400
+ because we have that lever where each account is associated with a.edu. So that's the first point
+
+1:27:16.400 --> 1:27:22.560
+ I would point out there. Second point is controlled expansion, meaning that we have community
+
+1:27:22.560 --> 1:27:29.040
+ moderation. We have this panel that allows the moderators to see all of the highly downloaded
+
+1:27:29.040 --> 1:27:34.240
+ content, all of the reported content, all the flagged content and look through it and decide
+
+1:27:34.240 --> 1:27:40.720
+ what they like and what's appropriate and what's not appropriate. And we have, we ping every
+
+1:27:40.720 --> 1:27:45.920
+ moderator when there's a report. So things are taken down pretty quickly. And we have our
+
+1:27:45.920 --> 1:27:51.600
+ standards and we have, I think above all of that, we have a mission and it's a community based
+
+1:27:51.600 --> 1:27:57.040
+ mission. Yik Yak was more of a fun app and by its own admission, it was a place where people could
+
+1:27:57.040 --> 1:28:05.920
+ enjoy themselves and could sort of yak. Yik Yak, chit chat. We have a bigger purpose than that,
+
+1:28:05.920 --> 1:28:11.920
+ frankly. And I think that shows in the people who self select to be on that app, to be on Librex
+
+1:28:11.920 --> 1:28:18.320
+ and to be on Yik Yak, respectively. The last thing I'll say is Yik Yak was very few characters. It
+
+1:28:18.320 --> 1:28:22.880
+ was a Twitter esque platform. And that doesn't allow for a tremendous amount of nuance. It
+
+1:28:22.880 --> 1:28:27.680
+ doesn't allow for a tremendous amount of conversation. Librex is much more long form.
+
+1:28:28.240 --> 1:28:36.160
+ And so the kind of posts that you'll get on Librex can span pages. What people are starting
+
+1:28:36.160 --> 1:28:41.520
+ to realize is that they can reach a lot more people at a lot more pertinent of a time a lot
+
+1:28:41.520 --> 1:28:47.440
+ more quickly by posting their thoughts on Librex than if they went to their school newspaper.
+
+1:28:47.440 --> 1:28:52.800
+ And I think the school newspapers might be a little worried about that. But more importantly,
+
+1:28:52.800 --> 1:28:57.520
+ we're connecting people in this way where long form communication with nuance that takes into
+
+1:28:57.520 --> 1:29:03.840
+ account everything that's happening in the community temporally is really available at
+
+1:29:03.840 --> 1:29:11.920
+ Librex and not really communicable in 240 or 480 or whatever the number of characters the yaks were
+
+1:29:11.920 --> 1:29:19.280
+ bound to. And I could talk about the history of Yik Yak if you want me to go further. They started,
+
+1:29:19.280 --> 1:29:25.440
+ I think they were at 12 schools. And then spring break hit. People told their friends,
+
+1:29:25.440 --> 1:29:30.560
+ look at this app. A thousand schools signed up and had active communities. They had a problem
+
+1:29:30.560 --> 1:29:36.000
+ on their hands. And then the high schools come on board. I think a lot of the things you said
+
+1:29:36.000 --> 1:29:42.880
+ ring true to me, but especially the vision one, which I do think having a vision in the leadership,
+
+1:29:42.880 --> 1:29:48.320
+ having a mission makes all the difference in the world. That's both for the engineers that
+
+1:29:48.320 --> 1:29:54.080
+ are building, like the team that's building the app, the moderation and users because they kind of,
+
+1:29:54.880 --> 1:30:02.480
+ the mission carries itself through the behavior of the people on the social network.
+
+1:30:02.480 --> 1:30:08.080
+ As a small tangent, let me ask you something about Parler, but it's less about Parler,
+
+1:30:08.080 --> 1:30:14.720
+ more about AWS. So AWS removed Parler from his platform, you know, for whatever reasons,
+
+1:30:14.720 --> 1:30:21.600
+ it doesn't really matter. But the fact that AWS would do this was really, really bothered me
+
+1:30:21.600 --> 1:30:29.440
+ personally, because I saw AWS as the computing infrastructure and I always thought that part
+
+1:30:29.440 --> 1:30:34.080
+ could not put a finger on its scale. And I don't know what your thoughts are. Like,
+
+1:30:34.080 --> 1:30:40.640
+ were you bothered by Parler being removed from AWS? And how does that affect how you think about
+
+1:30:40.640 --> 1:30:44.800
+ the computing infrastructure on which Librex is based?
+
+1:30:45.680 --> 1:30:52.160
+ I was bothered not so much by Parler specifically being taken out of AWS, but more the fact that
+
+1:30:52.160 --> 1:30:59.040
+ something that's like a highway, something that people rely on, that people build on top of, that
+
+1:30:59.040 --> 1:31:06.000
+ people assume is going to be somewhat position agnostic, like a road that people drive on, is
+
+1:31:06.720 --> 1:31:13.520
+ becoming ideologically sort of discriminatory. And of course, mind you, Amazon can do what it
+
+1:31:13.520 --> 1:31:18.720
+ wants. It's a private company and I support the rights of private companies. I just, on an ethical
+
+1:31:18.720 --> 1:31:27.520
+ and sort of a deep moral level, I wonder, like, at what point should a company sort of be agnostic
+
+1:31:27.520 --> 1:31:34.880
+ in that regard and let developers build on top of their infrastructure? And where does that
+
+1:31:34.880 --> 1:31:36.400
+ responsibility hold?
+
+1:31:36.400 --> 1:31:43.920
+ Yes, it makes you hope that there's going to be, from a capitalistic sense, competitors to AWS
+
+1:31:43.920 --> 1:31:49.040
+ would say, like, we're not going to put our finger on the scale. I mean, on the highway is a good
+
+1:31:49.040 --> 1:31:56.400
+ sort of example. It's like if a privately owned highway said, you know, we're no longer going to
+
+1:31:56.400 --> 1:32:03.600
+ allow, we're only going to allow electric vehicles. And a bunch of people in this world would be like,
+
+1:32:03.600 --> 1:32:12.480
+ yes, because electric is good for the environment. And, you know, I think that's a good example.
+
+1:32:12.480 --> 1:32:20.560
+ You know, yes, but then you have to consider the, like, the slippery slope nature of it, but also
+
+1:32:20.560 --> 1:32:25.920
+ like the negative impact on the lives of many others and what that means for innovation and for,
+
+1:32:25.920 --> 1:32:32.640
+ like, competition, again, in a capitalistic sense. So, there's some nature, there's some level to
+
+1:32:32.640 --> 1:32:40.320
+ this hierarchy of our existence that we should not allow to manipulate what's built on top of it. It
+
+1:32:40.320 --> 1:32:48.640
+ should be truly infrastructure. And it feels like compute is storage and compute is that layer. Like,
+
+1:32:48.640 --> 1:32:53.840
+ it shouldn't be messed with. I haven't seen anybody really complain about it, like, in terms
+
+1:32:53.840 --> 1:32:59.040
+ of government. And I'm not even sure government is the right mechanism through policy and regulation
+
+1:32:59.040 --> 1:33:06.160
+ to step in. Because again, they do a messy job of fixing things. But I do hope there's competitors
+
+1:33:06.160 --> 1:33:12.560
+ to AWS to make AWS then step up. Because I do think, you know, I'm a fan of AWS, except this.
+
+1:33:12.560 --> 1:33:13.360
+ Good service.
+
+1:33:13.360 --> 1:33:15.760
+ It's a good service until this.
+
+1:33:15.760 --> 1:33:18.880
+ Until, yeah, until they rip out the rug.
+
+1:33:20.320 --> 1:33:26.080
+ And the point is, it's not that necessarily their decision was a bad one with Parler,
+
+1:33:26.080 --> 1:33:32.640
+ in particular. It's that, like, the slippery slope nature of it, but also
+
+1:33:32.640 --> 1:33:38.400
+ the, it takes the good actors that are creating amazing products and makes them more fearful.
+
+1:33:38.400 --> 1:33:43.200
+ And when you're more fearful, it's the same reason that anonymity is a tool that you don't create
+
+1:33:43.200 --> 1:33:47.040
+ the best thing you could possibly create. When you're fearful, you don't create.
+
+1:33:47.040 --> 1:33:48.560
+ That's right.
+
+1:33:48.560 --> 1:33:54.000
+ I think we've kind of talked about it a little bit. But I wonder if we can kind of revisit it
+
+1:33:54.000 --> 1:34:00.400
+ a little bit. I talked to a guy named Ronald Sullivan, who's a faculty at Harvard, a law
+
+1:34:00.400 --> 1:34:07.680
+ professor. He was on the legal defense team. He was the lawyer for Harvey Weinstein and Aaron
+
+1:34:07.680 --> 1:34:13.440
+ Hernandez for the double murder case. So he takes on these really difficult cases of unpopular
+
+1:34:13.440 --> 1:34:20.400
+ figures because he believes like that's the way you test that we believe in the rule of law.
+
+1:34:20.400 --> 1:34:30.160
+ But he was, there's a big protest in Harvard to get him, basically censor him and to get him to
+
+1:34:30.160 --> 1:34:36.800
+ no longer be faculty dean, all those kinds of things. And it was by a minority of students, but
+
+1:34:38.160 --> 1:34:44.000
+ there's a huge blowback, obviously in the public, but also inside Harvard, like that's not okay.
+
+1:34:44.000 --> 1:34:48.640
+ He stands for the very principles at the founding of Harvard and at the principles of the founding
+
+1:34:48.640 --> 1:34:56.320
+ of this country and the law and so on. But the basic argument is that it was about safe spaces,
+
+1:34:57.360 --> 1:35:03.760
+ that it's unsafe to have somebody who is basically supporting Harvey Weinstein, right?
+
+1:35:05.760 --> 1:35:12.800
+ What do you think about this whole idea of safe spaces on college campuses? Because it feels like
+
+1:35:12.800 --> 1:35:18.000
+ the mission of Librex is pushing back against the idea of safe spaces.
+
+1:35:19.040 --> 1:35:23.360
+ I think safe spaces are fine when they're within people's private lives, within their homes,
+
+1:35:23.920 --> 1:35:28.880
+ within their religious organizations. I think the problem becomes when the institution starts
+
+1:35:28.880 --> 1:35:40.560
+ encouraging or backing safe spaces because what are people being safe from? And oftentimes,
+
+1:35:40.560 --> 1:35:47.680
+ it seems like there's this idea that the harm that's being attempted to be mitigated is the
+
+1:35:47.680 --> 1:35:51.360
+ harm of confronting opinions you disagree with, opinions you might find repugnant.
+
+1:35:52.560 --> 1:35:58.960
+ And if this is conflated with a need for safety, then that's where the idea of liberal arts
+
+1:35:58.960 --> 1:36:05.440
+ education sort of dies. Of course, it's complicated and we still want to have safe
+
+1:36:05.440 --> 1:36:11.280
+ intellectual environments. But the way that I hear the term safe space used today,
+
+1:36:11.840 --> 1:36:17.280
+ I think it doesn't really have a place within the intellectual context.
+
+1:36:17.280 --> 1:36:23.040
+ Yeah, it's funny. I mean, this is why Librex is really exciting, is it's pushing those
+
+1:36:23.040 --> 1:36:29.680
+ difficult conversations. And I'd love to see, ultimately, there does seem to be an asymmetry
+
+1:36:29.680 --> 1:36:39.120
+ of power that results in the concept of safe spaces and hate speech being redefined in the
+
+1:36:39.120 --> 1:36:44.000
+ slippery slope kind of way where it means basically anything you want it to mean. And
+
+1:36:44.880 --> 1:36:52.160
+ it basically is used to silence people, to silence people. They're like good, thoughtful experts.
+
+1:36:52.160 --> 1:37:00.640
+ Also, beyond that, I would say it has not just a pragmatic purpose, which is the silencing,
+
+1:37:00.640 --> 1:37:05.360
+ but also sort of an ideological purpose, which is, and a linguistic purpose, which is to
+
+1:37:05.360 --> 1:37:14.400
+ conflate words with unsafety and harm and violence, which is what you kind of see on a
+
+1:37:14.400 --> 1:37:20.320
+ cultural linguistic level is happening all around us right now is that this idea that words are harm
+
+1:37:20.320 --> 1:37:25.200
+ is a very dangerous and slippery concept. I mean, you don't have to slip that far to see
+
+1:37:25.200 --> 1:37:30.480
+ why that's a problem. Once we start making words into violence and we start criminalizing words,
+
+1:37:30.480 --> 1:37:37.680
+ we get into some really authoritarian territory, things that I think, I mean, myself and my
+
+1:37:37.680 --> 1:37:42.080
+ background, I don't know how much we have to go into it, but things that my ancestors
+
+1:37:42.080 --> 1:37:46.640
+ certainly would be worried about. What's your background?
+
+1:37:46.640 --> 1:37:52.160
+ I'm a child of Holocaust survivors and pro grom survivors, so.
+
+1:37:52.160 --> 1:37:56.560
+ Yeah, I mean, me as well from different directions. I come from the Soviet Union, so
+
+1:37:56.560 --> 1:38:03.120
+ there's, well, like in most of us, hate and love runs through our blood from our history.
+
+1:38:04.080 --> 1:38:07.840
+ You mentioned MIT is being added to Librex. Has it already been added?
+
+1:38:07.840 --> 1:38:09.840
+ Yes, it was added today.
+
+1:38:09.840 --> 1:38:16.400
+ Today, okay. So let me ask you, this is exciting because I don't know what your thoughts are about
+
+1:38:16.400 --> 1:38:21.840
+ this, but I'll tell you from my perspective, if you're, and a lot of MIT folks listen to this,
+
+1:38:22.480 --> 1:38:28.000
+ I would love it if you joined Librex. It'd be interesting to explore conversations
+
+1:38:29.040 --> 1:38:38.000
+ on several topics inside MIT, but one of the most moving that hasn't been discussed at all
+
+1:38:38.000 --> 1:38:46.240
+ at all, except in little flourishes here and there, is the topic of Jeffrey Epstein.
+
+1:38:47.840 --> 1:38:57.360
+ Now, there's been a huge amount of, like, impact that the connections of various faculty to Jeffrey
+
+1:38:57.360 --> 1:39:04.880
+ Epstein and the various things that have been said had on MIT, but it feels like the difficult
+
+1:39:04.880 --> 1:39:11.680
+ conversation haven't had been had. It's the administration trying to clean up and give a bunch
+
+1:39:11.680 --> 1:39:18.080
+ of BS to try to pretend, like, let's just hide this part. Like nothing is broken, nothing to see
+
+1:39:18.080 --> 1:39:25.760
+ here. Here's a bad dude that did some bad things and some faculty that kind of misbehaved a little
+
+1:39:25.760 --> 1:39:31.040
+ bit because they're a little bit clueless. Let's all look the other way. Harvard did this much
+
+1:39:31.040 --> 1:39:37.520
+ better, by the way. They completely, it's almost like people pretend like Harvard didn't have
+
+1:39:37.520 --> 1:39:45.280
+ anything to do with Jeffrey Epstein. But I think I'd be curious to hear what those conversations
+
+1:39:45.280 --> 1:39:55.040
+ are because there's conversations on the topic of like, well, obviously sort of sexual assault and
+
+1:39:55.040 --> 1:40:00.160
+ disrespecting women on any kind of level within academia, but just women in general.
+
+1:40:00.160 --> 1:40:05.840
+ That's an important topic to talk about, various, many sets of difficult conversations. And the
+
+1:40:05.840 --> 1:40:15.360
+ other topic is, you know, funding for research. Like how are, like, what are we okay taking money
+
+1:40:15.360 --> 1:40:20.160
+ from and what are we not okay taking money from? You know, there's a lot of just interesting
+
+1:40:20.160 --> 1:40:27.280
+ difficult conversations to be had. I've worked with people who, you know, refuse to take money
+
+1:40:27.280 --> 1:40:32.800
+ from DOD, Department of Defense, for example, because in some indirect or direct way, you're
+
+1:40:32.800 --> 1:40:37.520
+ funding military industrial complex, all those kinds of things. I think with Jeffrey Epstein,
+
+1:40:37.520 --> 1:40:44.400
+ it's even more stark, this contrast of like, well, what is and isn't ethical to take money from?
+
+1:40:44.960 --> 1:40:51.280
+ And I just think, forget academia, I think there's just a lot of interesting, deep human
+
+1:40:51.280 --> 1:40:55.760
+ discussions to be had. And they haven't been. And there's been somebody, I don't know if you're
+
+1:40:55.760 --> 1:41:02.160
+ familiar with Eric Weinstein, who has been outraged by the fact that nobody's talking about Jeffrey
+
+1:41:02.160 --> 1:41:08.960
+ Epstein. Nobody's having these difficult conversations. And Eric himself has had a sort of
+
+1:41:10.080 --> 1:41:16.960
+ complicated journey through academia, in the sense that he's a really kind of renegade thinker in
+
+1:41:16.960 --> 1:41:21.280
+ many kinds of ways. I'm not sure if you know who Eric is, by any chance. Heard the name. Okay. I
+
+1:41:21.280 --> 1:41:27.040
+ actually checked out ZEV. ZEV. It was heartening for me to see that I was not the youngest person
+
+1:41:28.560 --> 1:41:31.360
+ on this podcast. You're the second youngest. Second youngest.
+
+1:41:34.080 --> 1:41:45.440
+ That's hilarious. But Eric, he's kind of a renegade thinker. He's a mathematical physicist
+
+1:41:45.440 --> 1:41:52.560
+ with, I believe, a PhD at Harvard, and he spent some time at MIT and so on. But he speaks to the
+
+1:41:52.560 --> 1:41:58.240
+ fact that there's a culture of conformity and so on. And if you're somebody who's a bit outside of
+
+1:41:58.240 --> 1:42:02.800
+ the box, a bit weird, in whatever dimension of weird, that makes you actually kind of interesting
+
+1:42:03.440 --> 1:42:09.360
+ that the system kind of wants to make you an outcast, wants to throw you out. And so he kind
+
+1:42:09.360 --> 1:42:14.400
+ of opposes that whole idea. He's the perfect person to have conversations with in this kind
+
+1:42:14.400 --> 1:42:22.800
+ of Librex kind of context of anonymity. Because I'll tell you the few conversations that came across
+
+1:42:22.800 --> 1:42:30.160
+ and they were very quickly silenced. And I'm troubled by it. I'm not sure what to think of it.
+
+1:42:30.160 --> 1:42:39.200
+ Is there's a few threads inside MIT, like on a mailing list, discussing Marvin Minsky. I don't
+
+1:42:39.200 --> 1:42:44.560
+ know if you know who that is. He's an AI researcher. He's a seminal figure in AI before your time, but
+
+1:42:44.560 --> 1:42:50.720
+ one of the most important people in the history of artificial intelligence. And there was a
+
+1:42:50.720 --> 1:43:00.880
+ discussion on a thread that involved the interaction between Marvin Minsky and Jeffrey Epstein.
+
+1:43:01.600 --> 1:43:07.360
+ That conversation was quickly shut down. One person was pushed out of MIT, Richard Stallman,
+
+1:43:07.360 --> 1:43:13.120
+ who's one of the key figures in the, because of that, because he wanted some clarity about the
+
+1:43:13.120 --> 1:43:19.520
+ situation. But he also miss, he spoke, like we mentioned earlier, without grace, right?
+
+1:43:20.800 --> 1:43:27.280
+ But he was quickly punished by the administration because of a few people protesting. And just that
+
+1:43:27.280 --> 1:43:36.880
+ conversation, I guess what bothered me most is it didn't continue. It didn't expand. There was no
+
+1:43:36.880 --> 1:43:44.560
+ like complexity. And it was, there was a hunger that was clear behind that conversation, especially
+
+1:43:44.560 --> 1:43:49.840
+ sort of for me, I'd like to understand Marvin Minsky was one of the reasons I wanted to come
+
+1:43:49.840 --> 1:43:56.400
+ to MIT. He's passed away, but he's one of the key figures in the field that I deeply care about,
+
+1:43:56.400 --> 1:44:03.840
+ artificial intelligence. And I thought that his name was dragged through the mud,
+
+1:44:03.840 --> 1:44:11.280
+ through that situation, and without ever being like resolved. And so it's unclear to me, like,
+
+1:44:11.280 --> 1:44:18.400
+ what am I supposed to think about all this? And the only way to come to a conclusion there is to
+
+1:44:18.400 --> 1:44:22.880
+ keep talking. It's like the thing we started this conversation with about truth is like,
+
+1:44:24.000 --> 1:44:30.480
+ is conversation. So in that sense, I'd love if people on Librex, perhaps in other places,
+
+1:44:30.480 --> 1:44:36.800
+ but it seems like Librex is a nice platform to discuss Marvin Minsky, to discuss Jeffrey Epstein,
+
+1:44:36.800 --> 1:44:42.880
+ to learn from it, to grow from it, to see how we can make MIT better. As I'm still one of the
+
+1:44:42.880 --> 1:44:49.040
+ people, I've always dreamed of being at MIT and it was a dream come true in many ways. And I still
+
+1:44:49.040 --> 1:44:54.400
+ believe that MIT is one of the most special places in this world. Like many other universities,
+
+1:44:54.400 --> 1:45:01.360
+ universities in general is truly special, man. It hurts my heart when people speak poorly of
+
+1:45:01.360 --> 1:45:06.880
+ academia. I understand what they mean. They're very correct, but there is much more, in my opinion,
+
+1:45:06.880 --> 1:45:12.800
+ that's beautiful about academia than that's broken. I mean, I don't know if you have something to
+
+1:45:12.800 --> 1:45:18.560
+ comment. It doesn't necessarily need to be about Jeffrey Epstein, but there's these difficult things
+
+1:45:18.560 --> 1:45:26.080
+ that come up that test the academic community, right? That it feels like conversation is the
+
+1:45:26.080 --> 1:45:33.040
+ only way to resolve it. I think people have a natural need for closure. And it's not just,
+
+1:45:33.040 --> 1:45:38.880
+ I'm not as plugged into the, what academics are talking about as you would be Lux, but I even...
+
+1:45:38.880 --> 1:45:45.440
+ In case these days, no respect for Minsky. Exactly. I mean, especially in the AI community,
+
+1:45:45.440 --> 1:45:53.280
+ I'm not necessarily a programmer. But what I will say is that people come to Librex and
+
+1:45:53.280 --> 1:45:58.400
+ we always see a huge spike in users whenever there's a tragedy on campus or something where
+
+1:45:58.400 --> 1:46:05.280
+ people need closure. Recently, there was a suicide just the other day on Yale's campus,
+
+1:46:05.840 --> 1:46:13.200
+ and people were just coming to pay respects and to say, rest in peace, and speak also about
+
+1:46:13.200 --> 1:46:22.080
+ what might've led to an environment where people are drawn to these terrible results.
+
+1:46:23.440 --> 1:46:28.800
+ So just having a conversation is important there, because it brings closure.
+
+1:46:28.800 --> 1:46:34.480
+ People need the space, especially when no one wants to go out and put their head above,
+
+1:46:34.480 --> 1:46:41.520
+ be the longest blade of grass on that one because of the stigma. People need to be able to speak.
+
+1:46:41.520 --> 1:46:46.320
+ Yeah, that fear really bothers me, the fear that silences people. Like, were they self censor? Were
+
+1:46:46.320 --> 1:46:58.160
+ they self silence? Well, you've created an amazing place. I'm kind of interested in your struggle and
+
+1:46:58.160 --> 1:47:07.680
+ your journey of creating positive incentives, because it's a problem in a very different domain
+
+1:47:07.680 --> 1:47:16.960
+ that I'm also interested in. So I love robotics. I love human robot interaction. And so I believe
+
+1:47:16.960 --> 1:47:21.760
+ that most people are good and we can bring out the best in human nature. Social networks is a very
+
+1:47:21.760 --> 1:47:25.840
+ tricky space to do that in. So I'm glad you're taking on the problem and I'm glad you have the
+
+1:47:25.840 --> 1:47:33.600
+ mission that you do. I hope you succeed. But you mentioned offline that you used to be into chess.
+
+1:47:33.600 --> 1:47:37.920
+ Tell me about your journey through chess. Sure. I was a very competitive tournament player growing
+
+1:47:37.920 --> 1:47:45.280
+ up till about like 13. I got for the chess fans, I got to around 2000. USCF. So I was a competitive
+
+1:47:45.280 --> 1:47:53.360
+ player, especially my age group. And that actually led me to poker. I was I was playing a tournament.
+
+1:47:53.360 --> 1:47:57.040
+ And what happens is when you're like a very strong 13 year old and you're playing locally,
+
+1:47:57.040 --> 1:48:01.120
+ if you want a good match, you're gonna end up playing a lot of adults and you're gonna end up
+
+1:48:01.120 --> 1:48:04.960
+ playing if you want a good match, you're gonna end up playing a lot of adults. And I ended up
+
+1:48:04.960 --> 1:48:12.000
+ playing this mid 40s guy who we played a really strong game. He actually beat me. I still I still
+
+1:48:12.000 --> 1:48:16.720
+ remember the game and think I could I should have played that move instead of that one. But after
+
+1:48:16.720 --> 1:48:20.880
+ after the game, we had a postmortem. It was this me I think I was 13 at the time and this 40 year
+
+1:48:20.880 --> 1:48:26.240
+ old like hanging over this chessboard and looking over the moves. And even at that even at my age,
+
+1:48:26.240 --> 1:48:31.600
+ that this guy was absolutely brilliant. Yes. And after after the postmortem, not only by the way,
+
+1:48:31.600 --> 1:48:36.960
+ in chess, but just like in the way he articulates his thoughts, as some people are. After postmortem,
+
+1:48:36.960 --> 1:48:40.320
+ I went and looked him up online, I found out that he was a World Series of Poker Champion.
+
+1:48:41.520 --> 1:48:47.120
+ And his name is Bill Chen. Oh, wow. And I haven't really kept up with him, except one time there
+
+1:48:47.120 --> 1:48:53.520
+ was another chess tournament when I was around 14. And I followed him into an elevator as he was
+
+1:48:53.520 --> 1:48:57.680
+ leaving the chess hall, like pretending that I was going to go up just because I wanted to,
+
+1:48:57.680 --> 1:49:01.920
+ I just wanted to talk to him. And I suggested a sequel or some changes that he could that I
+
+1:49:01.920 --> 1:49:05.120
+ thought he could make for his book. And he was like, actually, I was thinking of doing the same
+
+1:49:05.120 --> 1:49:10.640
+ thing, which is incredibly validating to my 14 year old or 15 year old self. But I really haven't
+
+1:49:10.640 --> 1:49:15.920
+ kept up with him. So shout out to him. But and then that he wrote a book called the mathematics
+
+1:49:15.920 --> 1:49:21.680
+ of poker that I started reading. And that, first of all, kickstarted my interest in game theory.
+
+1:49:21.680 --> 1:49:28.320
+ And second of all, in poker. So it started from chess and then poker. And I started with Bitcoin
+
+1:49:28.320 --> 1:49:35.920
+ poker and had a lot of success with that met a lot of amazing friends. Learned a ton about I mean,
+
+1:49:35.920 --> 1:49:41.120
+ I think about entrepreneurship as well as taking risks, reasonable risks, positive expected value
+
+1:49:41.120 --> 1:49:48.960
+ risks. And also just growing as a person and mathematician. And what did you say Bitcoin
+
+1:49:48.960 --> 1:49:54.080
+ poker? Yeah, what's Bitcoin poker? So you have to understand I was 14 years old, right? Yes. So how
+
+1:49:54.080 --> 1:49:58.960
+ is a 14 year old with wonderful parents who care about him? Yeah. And probably don't want him
+
+1:49:59.760 --> 1:50:05.600
+ playing poker. Yeah. Going to start playing poker, because I wanted I wanted to challenge I love the
+
+1:50:05.600 --> 1:50:12.720
+ challenge of the competition. And I realized the answer is probably Bitcoin. Because the implications
+
+1:50:12.720 --> 1:50:17.840
+ of that. And they had they had these free roll tournaments, which for those who don't know what
+
+1:50:17.840 --> 1:50:22.080
+ free rolls are, there's these promotional tournaments that sites put on where they'll
+
+1:50:22.080 --> 1:50:27.280
+ put like a few dollars in and then 1000s of people sign up and the winners get like a dollar.
+
+1:50:27.280 --> 1:50:33.040
+ And I started there and I worked my way up. And that's amazing. What's your sense about from that
+
+1:50:33.040 --> 1:50:40.880
+ time to today of the growth of the cryptocurrency community? I'm actually having like four or five
+
+1:50:40.880 --> 1:50:47.840
+ conversations with Bitcoin proponents, Bitcoin maximalists, and like all these I'm just having
+
+1:50:47.840 --> 1:50:53.920
+ all these cryptocurrency conversations currently, because there's so many brilliant, like technically
+
+1:50:53.920 --> 1:50:58.960
+ brilliant, but also financially and philosophically brilliant people in those communities. It's
+
+1:50:58.960 --> 1:51:04.640
+ fascinating with the explosion of impact, like and also, if you look into the future, the possible
+
+1:51:04.640 --> 1:51:09.840
+ revolutionary impact on society in general, but what's your sense about this whole growth of
+
+1:51:09.840 --> 1:51:16.560
+ Bitcoin? I'm definitely less knowledgeable on the currency. Again, like programming, it was a means
+
+1:51:16.560 --> 1:51:22.080
+ to an end. Yes. Right. What I will say is that there was this amazing community that grew out of
+
+1:51:22.080 --> 1:51:28.720
+ it. And you'd have people who were willing to stake me or have me be their horse and they're my
+
+1:51:28.720 --> 1:51:37.280
+ backer. For having never met me for literally full Bitcoin tournaments, like full Bitcoin entry fee
+
+1:51:37.280 --> 1:51:42.000
+ tournaments, and I get a percentage of the profits and they get a percentage. And to have that level
+
+1:51:42.000 --> 1:51:48.640
+ of community for that degree of money, I mean, it gives you hope about the potential for, you know,
+
+1:51:48.640 --> 1:51:56.160
+ humans to act in mutual best interest with a degree of trust. Yeah, there's a really fascinating,
+
+1:51:56.160 --> 1:52:00.640
+ strong community there. But speaking of like bringing out the best of human nature,
+
+1:52:00.640 --> 1:52:07.840
+ it's a community that's currently struggling a little bit in terms of their ability to communicate
+
+1:52:07.840 --> 1:52:15.520
+ in a positive, inspiring way. Like the Bitcoin folks, and we talk about this a lot. I honestly
+
+1:52:15.520 --> 1:52:22.480
+ think they have a lot of love in their hearts and minds, but they just kind of naturally,
+
+1:52:22.480 --> 1:52:31.360
+ naturally, because the world has been like institutions and the centralized powers have been
+
+1:52:32.160 --> 1:52:39.360
+ sort of mocking and fighting them for many years that they've become sort of worn down and cynical.
+
+1:52:39.360 --> 1:52:44.560
+ And so they tend to be a little bit more aggressive and negative on the internet in the
+
+1:52:44.560 --> 1:52:49.280
+ way they communicate, especially on Twitter. And it's just created this whole community of
+
+1:52:49.280 --> 1:52:55.360
+ of basically being derisive and mocking and trolling and all this kind of stuff.
+
+1:52:55.360 --> 1:53:00.160
+ But people are trying to, you know, as the Bitcoin community grows, as the cryptocurrency community
+
+1:53:00.160 --> 1:53:05.840
+ grows, they're trying to revolutionize that aspect too. So they're trying to find the positive core
+
+1:53:05.840 --> 1:53:12.800
+ and grow and grow in that way. So it's fascinating because I think all of us are trying to find the
+
+1:53:12.800 --> 1:53:18.800
+ positive aspects of ourselves and trying to learn how to communicate in a positive way online.
+
+1:53:18.800 --> 1:53:22.480
+ It's like the internet hasn't been around. Social networks haven't been around that long. We're
+
+1:53:22.480 --> 1:53:28.080
+ trying to figure this thing out. Let me ask you the ridiculous question. I don't know if you
+
+1:53:28.080 --> 1:53:33.520
+ have an answer, but who is the greatest chess player of all time in your view? So since you
+
+1:53:33.520 --> 1:53:39.920
+ like chess. That's how you define it. But if you're talking about raw skill, like if you put everyone
+
+1:53:39.920 --> 1:53:44.560
+ across time into a torment together, Carlson would win. I don't think that's particularly
+
+1:53:44.560 --> 1:53:51.280
+ controversial. Oh, you mean like with the same exact skill level? Exactly. Now if you talk about
+
+1:53:51.280 --> 1:53:58.640
+ political importance, I think Bobby Fischer is, you know, he's the only one that people still,
+
+1:53:58.640 --> 1:54:02.720
+ when you go to someone on the street, they know Bobby Fischer because of what he represented,
+
+1:54:02.720 --> 1:54:08.160
+ right? Who do you think is more famous on the street? Garry Kasparov or Bobby Fischer?
+
+1:54:08.160 --> 1:54:12.880
+ Bobby Fischer. In America, Bobby Fischer. You think so? Yes. That's interesting. I think we're
+
+1:54:12.880 --> 1:54:17.360
+ gonna have to put that to the test. Yeah, maybe it's more reflective of the community that I was
+
+1:54:17.360 --> 1:54:22.720
+ a part of, but yeah. Oh, so in the community you're a part of like Young Minds playing chess,
+
+1:54:22.720 --> 1:54:27.440
+ Bobby Fischer was a superstar in terms of the roots. Yeah, I think so because he's American
+
+1:54:28.000 --> 1:54:35.520
+ and, you know, he stood up against the big bad Russians at the time and, you know, unfortunately
+
+1:54:35.520 --> 1:54:43.520
+ he had a very bad downfall. But, you know, for our geopolitical situation, he meant a lot. And then
+
+1:54:43.520 --> 1:54:49.280
+ if you talk about compared to contemporaries, actually, I would say Paul Morphy was a bit of
+
+1:54:49.280 --> 1:54:55.040
+ a throwback. He's one of those geniuses that was just head and shoulders above everyone else.
+
+1:54:56.320 --> 1:55:00.720
+ Is there somebody that inspired your own play, like as a Young Mind? Yeah, I really liked
+
+1:55:00.720 --> 1:55:08.960
+ Mikhail Tal. I think he was very aggressive, right? Yeah, very tactical. Which is funny because I
+
+1:55:10.080 --> 1:55:14.960
+ found that I was better at like sort of slow methodical play than quick tactics, but I just,
+
+1:55:14.960 --> 1:55:18.480
+ I mean, there's something beautiful about the creativity and that's something I always latched
+
+1:55:18.480 --> 1:55:23.600
+ onto as being a creative player, being a creative person. I mean, chess doesn't really reward
+
+1:55:23.600 --> 1:55:28.640
+ creativity as much as a lot of other things, especially entrepreneurial pursuits, which I
+
+1:55:28.640 --> 1:55:35.040
+ think is part of the reason why I sort of grew out of it. But I always was attracted to the
+
+1:55:35.040 --> 1:55:41.440
+ creativity that I did see in chess. So let me ask the flip, the other, because you said poker,
+
+1:55:41.440 --> 1:55:46.640
+ is there somebody that stands out to you as could be the greatest poker player of all time? Like
+
+1:55:46.640 --> 1:55:55.360
+ who do you admire? That's a more controversial one because these chess players are such like,
+
+1:55:55.360 --> 1:55:59.440
+ first of all, there's more an objective standard. And second of all, there's like,
+
+1:55:59.440 --> 1:56:04.720
+ they're like almost like cultural figures to me. Whereas poker players are more like live,
+
+1:56:05.280 --> 1:56:09.680
+ living. They feel more like, yeah, they feel more accessible. But they also have like
+
+1:56:09.680 --> 1:56:18.160
+ personalities in poker. They have vices, they have quirks, they have humor. Like,
+
+1:56:18.160 --> 1:56:23.360
+ I guess we've seen videos of them because it's such a recent development. I'll say one person
+
+1:56:23.360 --> 1:56:29.360
+ who I admire so much. And like, if I could like have a dinner list of people that I want to have
+
+1:56:29.360 --> 1:56:35.360
+ dinner with, like maybe it'll happen now, actually. I would love to have dinner with him. Phil
+
+1:56:35.360 --> 1:56:44.160
+ Galfond, who most people probably won't know. But on this podcast, but the way, first of all,
+
+1:56:44.160 --> 1:56:49.600
+ he democratized poker learning in like the mathematical nitty gritty, how do you get good
+
+1:56:49.600 --> 1:56:57.120
+ at poker type sense to the entire world in like an unprecedented way. He gave, he had this gift
+
+1:56:57.120 --> 1:57:01.040
+ that he had learned and distilled by working with some of the greatest poker minds. And he
+
+1:57:01.040 --> 1:57:09.440
+ just democratized it through his website. And I learned a ton from him. And not only that,
+
+1:57:09.440 --> 1:57:13.840
+ but you just listen to him think. And it's almost like a philosophical meditation,
+
+1:57:13.840 --> 1:57:18.240
+ the way that he breaks things down and thinks about these different elements and has such a
+
+1:57:18.240 --> 1:57:24.560
+ holistic thought process. It's like watching a genius work. And, you know, he's also just a nice,
+
+1:57:24.560 --> 1:57:30.560
+ fun, sociable guy that like, you can, you can imagine being at your dinner table. So all that
+
+1:57:30.560 --> 1:57:34.720
+ combined. Which is not true for a lot of poker players, right? A lot of them are dark souls.
+
+1:57:34.720 --> 1:57:41.360
+ To say the least, yes. I like, I really like the, what is he, Canadian Daniel Negrano.
+
+1:57:41.360 --> 1:57:45.760
+ He's also a nice guy. He's also a nice guy, but he's also somebody who's able to express his
+
+1:57:45.760 --> 1:57:51.040
+ thoughts about poker really well, but also in an entertaining way. He seems to be able to predict
+
+1:57:51.040 --> 1:57:57.040
+ cards better than anybody I've ever seen. Like what. Did you watch the challenge? Which challenge?
+
+1:57:57.040 --> 1:58:03.440
+ He, he lost like a million dollars recently to Doug Polk. He lost a million dollars to Doug Polk,
+
+1:58:03.440 --> 1:58:09.120
+ heads up online. It's really interesting. Yeah. It's, it's awesome to watch these guys work.
+
+1:58:09.120 --> 1:58:17.600
+ So I know you're 20, 21. 21. 21. So, so asking you for advice is, is a little bit funny, but,
+
+1:58:19.120 --> 1:58:25.280
+ but at the same time, not because you've created a social network. You've created a startup from
+
+1:58:25.280 --> 1:58:30.800
+ nothing as we talked about earlier, like without knowing how to program you've programmed. I mean,
+
+1:58:30.800 --> 1:58:34.720
+ you've taken this whole journey that a lot of people I think would be really inspired by.
+
+1:58:34.720 --> 1:58:40.000
+ So given that, and given the fact that 20 years from now, you probably laugh at the
+
+1:58:40.000 --> 1:58:44.720
+ advice you're going to give now. Absolutely. I hope so. If I don't laugh at the advice I give now,
+
+1:58:44.720 --> 1:58:51.840
+ something went desperately wrong, right? Yeah. So do you have advice for people that want to
+
+1:58:51.840 --> 1:58:58.400
+ follow in your footsteps and create a startup, whether it's in a software app domain or whether
+
+1:58:58.400 --> 1:59:05.280
+ it's anything else. So I'll speak specifically about social media apps. Yes. Try to keep it as
+
+1:59:05.280 --> 1:59:12.000
+ narrow as possible so I can laugh as little as possible when I'm 41. And what I would say is that
+
+1:59:13.120 --> 1:59:18.240
+ if you're like a 21, 22 year old, who's looking at me and being like, I want to do something like
+
+1:59:18.240 --> 1:59:25.920
+ this. What I would say is you probably know better than just about anyone. And if you have a feeling
+
+1:59:25.920 --> 1:59:31.120
+ in yourself that this is something that I have to do, and this is something I could imagine myself
+
+1:59:31.120 --> 1:59:35.680
+ doing for the next 10 years, because if you're successful, you are going to have to do it for
+
+1:59:35.680 --> 1:59:40.800
+ the next 10 years. And through the ups and the downs, through the amazing interviews with Lex,
+
+1:59:40.800 --> 1:59:47.520
+ and through the not so amazing articles you might have with other people, right? And you're going to
+
+1:59:47.520 --> 1:59:51.520
+ have to ride those highs and lows and you have to believe in what you're doing. But if you have that
+
+1:59:51.520 --> 1:59:58.160
+ feeling, what I would say is listen to as few people as possible, because people are experts
+
+1:59:58.160 --> 2:00:04.480
+ in domains. But when it comes to what's hot and what makes sense in a social context,
+
+2:00:05.920 --> 2:00:12.000
+ you are the authority as a young person who's going through these things and living in your
+
+2:00:12.000 --> 2:00:21.760
+ sort of milieu. And I mean, I've talked to, at this point, you know, so many experts, so many
+
+2:00:21.760 --> 2:00:29.280
+ investors, VCs. You'd be amazed at the advice I've gotten. Advice I've gotten.
+
+2:00:29.280 --> 2:00:32.240
+ So there's like a minefield of bad advice.
+
+2:00:32.240 --> 2:00:37.680
+ That's the hardest part, I think, for young people. And it's the thing, when people, like,
+
+2:00:37.680 --> 2:00:43.200
+ I help Yellies all the time who ask, like, I never turn down, when a founder asks me to have a
+
+2:00:43.200 --> 2:00:48.960
+ conversation, I never turn it down. I'm always there for them. And the number one thing I worry
+
+2:00:48.960 --> 2:00:55.840
+ about is that at Yale, we're taught implicitly and explicitly that you listen to the adult in the
+
+2:00:55.840 --> 2:01:02.720
+ room, you listen to the person with the highest, you know, pay grade. And it's devastating, because
+
+2:01:02.720 --> 2:01:10.640
+ that's how innovation dies. And, you know, yeah, it's intimidating to, like, you talk to VC who
+
+2:01:10.640 --> 2:01:16.720
+ probably means worth a billion dollars, a billion dollars, and they're going to tell you, you know,
+
+2:01:16.720 --> 2:01:21.600
+ all the, all the successful startups they have funders or even just a successful business owner,
+
+2:01:22.800 --> 2:01:28.480
+ uh, is going to tell you some advice and it's hard psychologically to think that they might be wrong.
+
+2:01:28.480 --> 2:01:31.680
+ Yeah, but you're saying that's the only way you succeed.
+
+2:01:31.680 --> 2:01:35.280
+ The only way you succeed, because if they knew what they were doing, they would have built it
+
+2:01:35.280 --> 2:01:41.520
+ themselves. Um, and what's especially hard is people go, oh, of course, you know,
+
+2:01:42.080 --> 2:01:45.440
+ I'll listen to people's, I'll listen to their advice, but I'll know why it's wrong.
+
+2:01:46.000 --> 2:01:50.240
+ And then I'll, and I'll do my own thing. And that sounds great in the abstract, but sometimes you
+
+2:01:50.240 --> 2:01:54.720
+ can't always even put your finger on why they're wrong. And I think to have the conviction,
+
+2:01:54.720 --> 2:02:01.680
+ to say, you're wrong and I can't tell you why, but I still think I'm right. It's a rare thing,
+
+2:02:01.680 --> 2:02:07.120
+ especially at like, it's very counterintuitive. And you might even say it's hubris or arrogant,
+
+2:02:07.680 --> 2:02:12.560
+ but I think it's necessary because a lot of these things are, they're not things that you can really
+
+2:02:13.760 --> 2:02:19.120
+ put into words until you see them in action. Like a lot of them are kind of happy accidents.
+
+2:02:19.120 --> 2:02:25.040
+ Yeah. It's been, it's been tough for me, like as a, as a person who, um, like I'm very empathetic.
+
+2:02:25.040 --> 2:02:33.200
+ So I, when people tell me stuff, I kind of want to understand them. And it's been a painful process,
+
+2:02:33.200 --> 2:02:38.400
+ especially people close to me, basically everything I've done, and especially in the
+
+2:02:38.400 --> 2:02:45.040
+ recent few years, a lot of people close to me said not to do, you know, and, uh, like,
+
+2:02:45.040 --> 2:02:54.400
+ my parents too, that's been a hard one is, is to basically acknowledge to myself that you don't know,
+
+2:02:55.440 --> 2:03:03.040
+ like, you, you don't, that everything you're going to say by way of advice for me is not going to be
+
+2:03:03.040 --> 2:03:10.160
+ helpful. Like, I love my parents very much, but like, they're just like, they don't get it.
+
+2:03:10.160 --> 2:03:16.480
+ And, and as you put it beautifully, it's very difficult to put your finger on exactly why,
+
+2:03:17.440 --> 2:03:23.440
+ because, uh, a lot of advice sounds reasonable. That's the worst kind. Yeah.
+
+2:03:25.440 --> 2:03:31.280
+ Uh, if it, if it sounds really good, that just means it's an earworm. Like, that's like a song
+
+2:03:31.280 --> 2:03:35.040
+ that you hear on the radio and then you're like, you're humming it in the car and it's like,
+
+2:03:35.040 --> 2:03:41.920
+ it's the same thing. The more, the better it sounds, the more skeptical. Yeah. Reason is a,
+
+2:03:41.920 --> 2:03:47.920
+ is a bad drug. Like, should be very careful because, like, you know, the things that seem
+
+2:03:47.920 --> 2:03:55.440
+ impossible, every, every major innovation, every major business seems impossible at birth. But
+
+2:03:55.440 --> 2:03:59.760
+ even not just the impossible things, I think, you know, you look at like love, for example,
+
+2:03:59.760 --> 2:04:07.760
+ it's very easy to give advice, to sort of point out all the ways you can go wrong or marriage,
+
+2:04:07.760 --> 2:04:13.840
+ all the divorces that people go through, all the pain of years that you go through the divorce,
+
+2:04:13.840 --> 2:04:19.280
+ like the system of marriage, the marriage industrial complex, all the money that's wasted,
+
+2:04:19.280 --> 2:04:24.640
+ all those kinds of things. But that advice is useless when you're in love. I guess the best
+
+2:04:24.640 --> 2:04:30.320
+ the point is to just pat the person on the back and say, go get him, kid. Like, what is it? Good
+
+2:04:30.320 --> 2:04:39.200
+ Will Hunting. I went to see about a girl. Yeah. That's a good movie. I love that movie. But yeah,
+
+2:04:39.200 --> 2:04:44.560
+ that, that's, that took me a long time to figure out. I'm still trying to fight through it,
+
+2:04:44.560 --> 2:04:53.120
+ but especially when you're young, that's hard. But, you know, it's, it's, it's, it's, it's, it's,
+
+2:04:53.120 --> 2:05:00.000
+ but, uh, nothing in life is, uh, worth accomplishing is easy. So,
+
+2:05:00.000 --> 2:05:03.440
+ but I think it's really interesting. You make that connection between like startup advice
+
+2:05:03.440 --> 2:05:09.040
+ and like your parents, because it's the exact same sort of mechanism where when you're young,
+
+2:05:09.040 --> 2:05:14.560
+ your parents are usually like, right. Right. And the experts are usually right. And, you know,
+
+2:05:14.560 --> 2:05:18.320
+ if you listen to them and you, you, you follow their orders, you're going to go to a school
+
+2:05:18.320 --> 2:05:25.360
+ like Yale and at a certain point stops making sense. And I've, I've seen my friends at Yale
+
+2:05:25.360 --> 2:05:28.960
+ go down paths because they just continued listening to their parents that
+
+2:05:29.840 --> 2:05:32.960
+ I know in their heart of hearts is not the right path for them.
+
+2:05:33.840 --> 2:05:42.320
+ Yeah. You know what? That's how I see like the education system. The whole point is to guide you
+
+2:05:42.320 --> 2:05:51.600
+ to a certain point in your life. And everybody's point is different. And your task is to,
+
+2:05:51.600 --> 2:05:57.040
+ at that point, to have a personal revolution and create your own path. But no one tells you that.
+
+2:05:57.040 --> 2:06:00.800
+ Nobody tells you that because they're, they want you to keep following the same path as they,
+
+2:06:00.800 --> 2:06:05.520
+ they're leading you towards. Like they're not going to say your whole job is to eventually
+
+2:06:05.520 --> 2:06:11.520
+ rebel. Yeah. That's how revolution, that's how rebellion works. You're not supposed to be told,
+
+2:06:11.520 --> 2:06:16.000
+ but that is the task. They can take you just like you said, and depending who you are,
+
+2:06:16.720 --> 2:06:21.520
+ they can take you really far. But at a certain point you have to rebel. That could be getting
+
+2:06:21.520 --> 2:06:25.760
+ your PhD, that could be in your undergrad, that could be high school. Yeah. It could be any point.
+
+2:06:25.760 --> 2:06:30.480
+ One thing that I think played a pretty pivotal role, and I've never really mentioned this,
+
+2:06:32.000 --> 2:06:37.120
+ he might not even know the person about to tell you about, in sort of me actually going out and
+
+2:06:37.120 --> 2:06:45.200
+ making Librex was that I was taking this graduate level math class, my sophomore year. And I met
+
+2:06:45.200 --> 2:06:53.200
+ this, I met this PhD student who was also in it and had considerable citations and also startup
+
+2:06:53.200 --> 2:06:59.040
+ experience. And I think he actually ended up being the CTO of a unicorn later on. I've sort of lost
+
+2:06:59.040 --> 2:07:06.640
+ touch with him, but we're still Facebook friends as it is in the 21st century. So, and I was in a
+
+2:07:06.640 --> 2:07:10.240
+ class and I was telling him, I really want to, I really want to make this thing, but I have no
+
+2:07:10.240 --> 2:07:18.400
+ technical background. And he, this guy's a computer genius. He worked under Dan Spielman at Yale. So
+
+2:07:19.280 --> 2:07:23.360
+ he's a good guy. Right. And we were doing some math together. We were doing something on
+
+2:07:23.360 --> 2:07:31.280
+ discrepancy for those of you who really care about math. So combinatorics. And he just turns to me,
+
+2:07:31.280 --> 2:07:35.360
+ he's like, I think you could do it. Like, what do you mean you think I could do? He's like,
+
+2:07:35.360 --> 2:07:40.320
+ I think you could do it. And I was like, really? But I respected this guy so much.
+
+2:07:41.120 --> 2:07:46.480
+ His name was Young Duck. Shout out to Young Duck. I respected this guy so much that I was like,
+
+2:07:46.480 --> 2:07:51.600
+ if Young Duck says I can do it and Young Duck is a legit genius and he knows, and he knows me,
+
+2:07:52.160 --> 2:07:55.280
+ because we were in two classes together and we'd spent a lot of time together.
+
+2:07:55.280 --> 2:07:59.120
+ If he thinks I can do it, then who am I to say I can't do it?
+
+2:07:59.120 --> 2:08:05.360
+ Yeah. You know, that's a lesson for mentorship is like, by the way, he has no idea probably.
+
+2:08:06.560 --> 2:08:10.720
+ Well, he might not even remember that interaction, which is funny. But the point is
+
+2:08:11.760 --> 2:08:19.760
+ that when a crazy young kid comes up to you with a crazy dream, you know, every once in a while,
+
+2:08:19.760 --> 2:08:25.440
+ you should just pat him on the back and say, I believe in you. Like you can do it. If they look
+
+2:08:25.440 --> 2:08:31.920
+ up to you, that means your words have power. And if you say, no, no, come on, be like reasonable,
+
+2:08:32.560 --> 2:08:39.040
+ like, you know, finish your schoolwork kind of thing. Like that's, that's unreasonable to take
+
+2:08:39.040 --> 2:08:43.440
+ that leap now. Just finish your education, blah, blah, blah, whatever, whatever the reasonable
+
+2:08:43.440 --> 2:08:50.080
+ advice is every once in a while, maybe often as a mentor, you should say, you know, go see about a
+
+2:08:50.080 --> 2:08:56.400
+ girl in California or whatever the equivalent is. That was my moment. That was my good will hunting
+
+2:08:56.400 --> 2:09:02.080
+ moment. That's your good will hunting moment. Man, I miss Robin Williams. I was a special guy.
+
+2:09:03.520 --> 2:09:08.640
+ People love it when I ask about book recommendations in general. Of course,
+
+2:09:08.640 --> 2:09:12.640
+ your journey is just beginning. But is there something that jumps out to you? Technical,
+
+2:09:12.640 --> 2:09:18.240
+ fiction, philosophical, sci fi, coloring books, blog posts you read somewhere
+
+2:09:18.240 --> 2:09:25.920
+ that had an impact on your life? Video games. Video games that you recommend to others. Minecraft,
+
+2:09:26.720 --> 2:09:31.760
+ manual. Manga. I mean, yeah, video, you could mention video games too,
+
+2:09:31.760 --> 2:09:35.040
+ if there's something that jumps out to you that just had like an impact.
+
+2:09:36.800 --> 2:09:43.440
+ I guess I'll say I really liked the book, The War of Art, which is a book about creative resistance
+
+2:09:43.440 --> 2:09:49.280
+ and the creative struggle and what it means to be creative. And part of what I see in this
+
+2:09:49.280 --> 2:09:55.040
+ conversation and what you're doing, Lex, is so much of The War of Art's idea is that you just
+
+2:09:55.040 --> 2:10:03.040
+ keep writing and writing and writing until you get to the new crap. And you just roll with it,
+
+2:10:03.040 --> 2:10:07.840
+ right? And that's sort of what happens when you have like three hour conversations with people is
+
+2:10:07.840 --> 2:10:14.320
+ you can only have so much scripted or societally constructed stuff until you get to the real you.
+
+2:10:15.120 --> 2:10:18.960
+ And you have to show up. I mean, that book is kind of painful.
+
+2:10:18.960 --> 2:10:22.480
+ It's really painful. And it's not something I would recommend for every part of it,
+
+2:10:22.480 --> 2:10:27.280
+ but for what it did in my life at the time. It also kind of normalized, I don't know,
+
+2:10:28.960 --> 2:10:35.520
+ part of my coming of age story is part of it's about realizing that I'm a creative person and
+
+2:10:35.520 --> 2:10:41.760
+ person who needs to create. That's sort of a God given thing, I think, for a lot of people.
+
+2:10:41.760 --> 2:10:46.240
+ But it's something that I don't really feel like I can live without. And part of it was realizing
+
+2:10:46.240 --> 2:10:50.160
+ that even within some of these more rigid structures, it's okay that I don't sort of
+
+2:10:50.880 --> 2:10:55.840
+ fit in with them. And to hear about the struggles of other creatives was something for my own
+
+2:10:55.840 --> 2:11:01.360
+ self esteem and my own growing up that was really important to me. So I don't think the book itself
+
+2:11:01.360 --> 2:11:06.160
+ might be perfect, but for what it did for my life, it was really impactful.
+
+2:11:06.960 --> 2:11:13.440
+ Yeah, I think exactly. The words may not be exactly right by way of advice, but I think
+
+2:11:13.440 --> 2:11:20.880
+ the journey that a lot of creatives take by reading that book is kind of profound. He also
+
+2:11:20.880 --> 2:11:26.800
+ has another one called Turning Pro, I think. I mean, he in general espouses like taking it
+
+2:11:26.800 --> 2:11:32.240
+ seriously. If you have a creative mind and you want to create something special in this world,
+
+2:11:32.800 --> 2:11:38.320
+ go do it. Don't show up. Look at that blank page.
+
+2:11:38.320 --> 2:11:45.600
+ So many people would tell me, would encourage me either blatantly or through implicit means
+
+2:11:45.600 --> 2:11:53.680
+ to basically take the Apple S seriously. It's a good signal, by the way. It's a good signal
+
+2:11:53.680 --> 2:11:58.160
+ because my really close friends, the ones who have always supported me, they never said that
+
+2:11:58.160 --> 2:12:03.280
+ because they got it. They understood that that was my path. And they might be skeptical. They might
+
+2:12:03.280 --> 2:12:09.120
+ be like, I mean, one of my friends I remember told me, I was always taken aback about why you
+
+2:12:09.120 --> 2:12:14.640
+ were so certain this would work out. And he's like, I finally got it once I saw it popping off,
+
+2:12:14.640 --> 2:12:20.720
+ but before that, I just didn't get it. But he still supported me. And I think it's a really
+
+2:12:20.720 --> 2:12:27.120
+ good signal. And actually just the fact of going through this process has made me socially feel so
+
+2:12:27.120 --> 2:12:31.840
+ much more connected. And I've somewhat consolidated my social life to some degree, but it's so much
+
+2:12:31.840 --> 2:12:36.800
+ more vulnerable, connected. And that's part of the creative process. I have to thank for that,
+
+2:12:36.800 --> 2:12:42.720
+ I think. There's something that's unstoppable about the creative mind. It's right there,
+
+2:12:42.720 --> 2:12:49.360
+ that fire. And I guess part of the thing that you're supposed to do is let that fire burn.
+
+2:12:49.360 --> 2:12:54.480
+ In whichever direction. And it's going to hurt. It's going to hurt. Fire will hurt.
+
+2:12:55.360 --> 2:12:58.560
+ But on the topic of video games, you mentioned the Stanley Parable offline.
+
+2:13:00.640 --> 2:13:04.720
+ You said you played some video games. Is there a video game that you especially love that you
+
+2:13:04.720 --> 2:13:10.880
+ recommend I play, for example? Yeah, I'll mention. It's actually really in keeping with what we've
+
+2:13:10.880 --> 2:13:16.560
+ been talking about. It's the Beginner's Guide, which was made by the same guy, Davey Rendon,
+
+2:13:16.560 --> 2:13:22.480
+ who made the Stanley Parable, which I briefly saw you. I just clicked the video and then I went to
+
+2:13:22.480 --> 2:13:32.480
+ sleep. It was like 2 a.m. But I briefly saw that you were looking at. And it's a game that is
+
+2:13:32.480 --> 2:13:40.000
+ better treated as art. And I think I won't claim to understand the creator, because that would be
+
+2:13:40.000 --> 2:13:48.640
+ a cardinal sin to me as a creative person. But it gets to the heart of a lot of the things that
+
+2:13:49.840 --> 2:13:54.960
+ we've been talking about, which is the creative mind. The game can be interpreted in a lot of
+
+2:13:54.960 --> 2:14:00.880
+ ways in a feminist way. It could be interpreted as a story of friends. It could be interpreted
+
+2:14:01.520 --> 2:14:07.520
+ as the story of critics versus a creative. The way I like to interpret it, and I don't want to
+
+2:14:07.520 --> 2:14:16.240
+ give away too much, is the story of the creative part of your mind that creates just for the sake
+
+2:14:16.240 --> 2:14:24.560
+ of creating. Meaning the part that creates for no rhyme or reason or clear meaning. It's almost
+
+2:14:24.560 --> 2:14:32.080
+ ethereal. Versus the part that's, you could call it the editor. You could call it the pragmatist.
+
+2:14:32.080 --> 2:14:38.640
+ You could call it the necessary force of ego in our lives. We can't totally be egoless, right?
+
+2:14:38.640 --> 2:14:45.360
+ But we need to be egoless to be creative. And how that sort of internal censure, what role does it
+
+2:14:45.360 --> 2:14:50.560
+ play? And how do we allow our creative minds to be creative? And yet, how do we still become useful?
+
+2:14:52.960 --> 2:14:55.760
+ And it's funny that a video game could have this in.
+
+2:14:55.760 --> 2:15:02.480
+ It's a fascinating tension, which reminds me about the ridiculous question that every once in a while
+
+2:15:02.480 --> 2:15:11.280
+ asks about meaning and death. So, this whole ride ends. You're at the beginning of the ride,
+
+2:15:11.280 --> 2:15:17.360
+ but it could end any day, actually. That's kind of the way human life works. You could die today,
+
+2:15:17.360 --> 2:15:22.000
+ you could die tomorrow. Do you think about your mortality? Do you think about death?
+
+2:15:22.000 --> 2:15:29.600
+ Do you meditate on it? And in that context, as the creative, but a pragmatist, too,
+
+2:15:29.600 --> 2:15:33.840
+ as running a startup, what do you think is the meaning of this whole thing?
+
+2:15:35.840 --> 2:15:46.880
+ Yeah, so, on mortality, right? About three years ago, four years ago now, I was excited to go to
+
+2:15:46.880 --> 2:15:53.360
+ Yale. I was playing six hours of squash a day, which squash is a sport I love so much. And I was
+
+2:15:53.360 --> 2:15:58.480
+ really getting a lot better. And I was even thinking I could maybe walk onto the Yale team.
+
+2:16:00.960 --> 2:16:11.280
+ And I woke up one day, I felt really, really sick. I went and I decided not to go squash that day.
+
+2:16:11.280 --> 2:16:20.640
+ I wanted to, I almost did. And you'll see how this story turns out. You'll decide if I made the right
+
+2:16:20.640 --> 2:16:25.840
+ choice. I decided not to go squash today. And I decided to get my driver's license, or I had to
+
+2:16:25.840 --> 2:16:31.440
+ get my driver's license because I wanted to get a driver's license before I went off to college,
+
+2:16:31.440 --> 2:16:35.840
+ because otherwise I might never get it. And I'm going back and I successfully got my driver's
+
+2:16:35.840 --> 2:16:44.160
+ license for Hashem. And I go back to my house and I decided I don't want to drive back because I
+
+2:16:44.160 --> 2:16:50.160
+ just feel so sick. Like things are spinning. I have the worst headache. I come home, I run back
+
+2:16:50.160 --> 2:16:55.840
+ right into my bed and feeling really sick to the point where I even like asked my mom who is a
+
+2:16:55.840 --> 2:17:00.160
+ doctor, I'm like, should I go to the hospital? And she's like, you can just wait it out and
+
+2:17:00.160 --> 2:17:08.320
+ she'll get better. And then, you know, and then at one point I look at my arms and they're like
+
+2:17:08.320 --> 2:17:14.240
+ covered in this like red splotchy stuff. Yeah. And I'm like, mom, I think. And she's like, yeah,
+
+2:17:14.240 --> 2:17:20.160
+ we have to go. And so I go there and they're like, you have scarlet fever. And they're like,
+
+2:17:20.160 --> 2:17:24.320
+ there's nothing we can do. You should probably just go back home. So I go back home. Six hours
+
+2:17:24.320 --> 2:17:30.880
+ later I wake up in the morning. They'd let me out at like 3 a.m. They let me, I come home in
+
+2:17:30.880 --> 2:17:37.440
+ the morning and I feel this, like a spear through my chest. And I never felt anything like it. And
+
+2:17:37.440 --> 2:17:41.280
+ I was, it was very disconcerting when you have a, cause we're all used to different sorts of pain,
+
+2:17:41.280 --> 2:17:46.240
+ right? And that was the sort of pain I never felt before. As far as an athlete, you're used to like,
+
+2:17:46.240 --> 2:17:51.280
+ you know, pain. So I told my parents and immediately we hop back in the car. We go up
+
+2:17:51.280 --> 2:17:55.600
+ to the same hospital I was at six hours ago. And they initially didn't want to let me in. And I
+
+2:17:55.600 --> 2:17:58.880
+ was like, I have chest pain. They're like, oh, come in. Cause they're like, you're a healthy guy,
+
+2:17:58.880 --> 2:18:02.800
+ wait your turn. And I'm like, no, you don't understand. I have like a pain in my chest.
+
+2:18:02.800 --> 2:18:07.840
+ And then they let me in. They start doing tests on me. They like put something like in my back,
+
+2:18:07.840 --> 2:18:12.720
+ which is really scary. It's a huge needle. And I'm smiling because it's like one of the ways
+
+2:18:12.720 --> 2:18:17.280
+ I reduce stress, I guess, or deal with this sort of thing and make light of it. But like,
+
+2:18:17.280 --> 2:18:22.480
+ you know, that, you know, it's definitely very scary in the moment, shocking and scary.
+
+2:18:22.480 --> 2:18:28.160
+ And they go and they, they do a bunch of tests and they determined that a virus like attacked
+
+2:18:28.160 --> 2:18:35.520
+ my heart and I had myocarditis and pericarditis. And they said I had maybe 25 to 35% chance at
+
+2:18:35.520 --> 2:18:43.600
+ one point of dying. And so I'm sitting in my, they admit me into the hospital. I'm in the bed,
+
+2:18:43.600 --> 2:18:51.680
+ in my bed for about three weeks. And I'm just, I'm just standing there. And I had this moment
+
+2:18:51.680 --> 2:19:01.440
+ also that I remember very specifically where I was in so much pain that like I was crying,
+
+2:19:01.440 --> 2:19:07.920
+ not out of like emotional standpoint, but actually just purely out of the pain itself. Like I could
+
+2:19:07.920 --> 2:19:12.880
+ feel my heart in my chest. And when I leaned back, I felt it touch my rib cage and feel horrible.
+
+2:19:12.880 --> 2:19:17.200
+ So I couldn't go to sleep and lean back. I had to lean forward all throughout the night. Right.
+
+2:19:17.200 --> 2:19:21.520
+ And I'm feeling my, and I'm feeling my chest. I'm feeling this terrible pain in my chest.
+
+2:19:21.520 --> 2:19:28.080
+ I'm crying unstoppably. And I mean, also maybe I should mention that at the time I was someone
+
+2:19:28.080 --> 2:19:33.600
+ who like refused to take in anything into my body that wasn't natural. And so a lot of the time I,
+
+2:19:33.600 --> 2:19:40.160
+ I tried to be unmedicated. Eventually I didn't allow them to add a little medication to my body,
+
+2:19:40.160 --> 2:19:46.560
+ but there's just so much uncertainty and pain. And the first time I had to come to terms with
+
+2:19:46.560 --> 2:19:52.080
+ mortality. First of all, I think you still should have gone and played squash. I mean, come on.
+
+2:19:52.080 --> 2:19:58.640
+ I mean, yeah. I thought you're serious about this. You still carry that with you sort of.
+
+2:20:01.440 --> 2:20:08.960
+ There is power to realizing the ride can end. Right. Very suddenly. Very suddenly. Yeah.
+
+2:20:08.960 --> 2:20:16.720
+ And painfully. And, you know, it, it has pragmatic application to like what you,
+
+2:20:16.720 --> 2:20:19.280
+ to trajectories you take through life. Right.
+
+2:20:19.280 --> 2:20:27.120
+ Something else that is worth noting is that I, for the next year, couldn't walk to my classes.
+
+2:20:27.840 --> 2:20:35.280
+ So I get to Yale, they put me in a medical single alone, and I have to get shuttled to all my
+
+2:20:35.280 --> 2:20:39.120
+ classes. I have to ask, I had to ask a few professors to even move classes so I could
+
+2:20:39.120 --> 2:20:46.080
+ actually get there. I can't move my book. I can't lift my book bags. I can't, I can't walk upstairs.
+
+2:20:48.080 --> 2:20:55.440
+ I spent like 12 hours a day in my dorm room, just like staring at the walls and more so. And more
+
+2:20:55.440 --> 2:21:05.520
+ than that, all this, like, you, I got to watch my body, like, deteriorate and like the muscle,
+
+2:21:05.520 --> 2:21:11.680
+ like fall off of it. Cause I was, I was taking these pills and they're kind of catabolic. And
+
+2:21:11.680 --> 2:21:18.960
+ for an 18 year old, I mean, I think every 18 year old has feelings about their body, man or woman.
+
+2:21:18.960 --> 2:21:24.720
+ And, you know, just seeing this, it's like, you're watching sort of death transpire. And it's like,
+
+2:21:24.720 --> 2:21:30.640
+ and you're also very fatigued because your heart's not at peak condition. And you're thinking about
+
+2:21:30.640 --> 2:21:34.240
+ the future and a lot of the things you enjoy have kind of been stripped away from you.
+
+2:21:35.520 --> 2:21:43.360
+ And I took up a meditation practice, like started with like five minutes a day. At my peak, I was at
+
+2:21:43.360 --> 2:21:50.240
+ like 40 minutes a day, kept it up consistently for about two years. And I started thinking about,
+
+2:21:50.240 --> 2:21:57.600
+ like, what do I want to do? And like, what do I care about? And to get to your point,
+
+2:21:57.600 --> 2:22:05.440
+ I think you were asking, like, how does this carry forward? Right? I think I realized that,
+
+2:22:05.440 --> 2:22:10.480
+ you know, there's an end and I realized that there are things I believe and things that I believe
+
+2:22:10.480 --> 2:22:15.520
+ that might not be so overtly popular, but that I truly think make the world a better place.
+
+2:22:15.520 --> 2:22:21.920
+ And in spite of, and then basically, if my conditions provided, I wanted to make something
+
+2:22:21.920 --> 2:22:27.280
+ that I wanted to do something that would make me feel sort of whole in that way.
+
+2:22:28.080 --> 2:22:31.920
+ Yeah. I mean, that's an amazing journey to take that time and to come out on the other end.
+
+2:22:33.280 --> 2:22:37.920
+ Now, man, that's amazing. I did not realize like that there was a long term struggle.
+
+2:22:37.920 --> 2:22:45.280
+ I think that's in the end, if you do succeed, will have a profound positive impact because
+
+2:22:45.280 --> 2:22:53.600
+ struggle is ultimately like humbling, but also empowering. So I'm glad to see that. But from the
+
+2:22:53.600 --> 2:22:58.240
+ perspective of the creator of the other ridiculous question about meaning, do you think about this
+
+2:22:58.240 --> 2:23:08.800
+ kind of stuff? Is that the, you know, the meaning of life for you, the meaning of life for us,
+
+2:23:08.800 --> 2:23:13.760
+ descendants of apes in general? The first thing I'd like to say is that I think part of like,
+
+2:23:13.760 --> 2:23:17.680
+ when we talk about the meaning of life, the part of it is the fact that we get to struggle with
+
+2:23:17.680 --> 2:23:25.200
+ this question and we get to do it together for a long time. And we sometimes, I think,
+
+2:23:25.200 --> 2:23:28.800
+ it's accepting that there's no meaning at all. And sometimes I think it's accepting that,
+
+2:23:29.840 --> 2:23:34.080
+ or even just parsing the phrase and thinking about the meaning of life. I sometimes I'm,
+
+2:23:34.080 --> 2:23:41.120
+ look, I'm very young. Again, I hope that anything I say now is going to be very different in the
+
+2:23:41.120 --> 2:23:49.040
+ future because I think life has so many meanings that it'll be crazy to see what I think in 20
+
+2:23:49.040 --> 2:23:50.400
+ years about the meaning of life.
+
+2:23:50.400 --> 2:23:57.040
+ Yeah, rise from the future, cut them some slack.
+
+2:23:57.040 --> 2:24:05.120
+ Please do. Perspective, perspective, perspective. Having said that, you know, I think part of what
+
+2:24:05.120 --> 2:24:09.040
+ brings meaning to my life is things like this, where we think about these things with people
+
+2:24:09.040 --> 2:24:14.000
+ who are really, really, really on the ball, and we get to connect with these people.
+
+2:24:14.800 --> 2:24:17.200
+ That certainly brings meaning to my life, human connection.
+
+2:24:17.200 --> 2:24:23.600
+ Yeah, this conversation is just another, like, echo of the thing you're trying to create
+
+2:24:24.240 --> 2:24:30.720
+ in a digital space, right? That's the same kind of magic. From what I understand about what you're
+
+2:24:30.720 --> 2:24:36.240
+ trying to create is the same reason I fell in love with the long form podcasting, like as a fan.
+
+2:24:36.240 --> 2:24:42.400
+ That's why I listen to long form podcasts. Is there something deeply human and genuine
+
+2:24:42.400 --> 2:24:49.040
+ about the interchange through their voice? But I do think that connection through text can be
+
+2:24:49.680 --> 2:24:55.280
+ even more powerful. Like I think about letters. I still write letters to Russia. You know,
+
+2:24:55.280 --> 2:25:03.360
+ there's something powerful in letters. When you put a lot of yourself in the words you say,
+
+2:25:03.360 --> 2:25:10.480
+ in the words you write, that's powerful. You can really communicate, not just the actual semantic
+
+2:25:10.480 --> 2:25:18.160
+ meaning of the words, but like a lot of who you are through those words and create real connection.
+
+2:25:18.160 --> 2:25:26.960
+ So I hope you succeed there. And listen, Ryan, I think this is an incredible conversation. I'm
+
+2:25:26.960 --> 2:25:33.760
+ glad that people like you are fighting the good fight for bringing out the best in human nature
+
+2:25:33.760 --> 2:25:40.800
+ in the digital space. I think that's a battleground where the good will win, like love will win. And
+
+2:25:40.800 --> 2:25:45.680
+ I'm glad you're creating technology that does just that. So thank you so much for wasting all
+
+2:25:45.680 --> 2:25:50.400
+ your time for coming down. I can't wait to see what you do in the future. Thanks for talking today.
+
+2:25:50.400 --> 2:25:56.560
+ Thank you for having me. Bam. How many finger guns have you gotten at the end of the podcast?
+
+2:25:56.560 --> 2:26:04.720
+ Zero. Two now. Thanks for listening to this conversation with Ryan Shiller. And thank you
+
+2:26:04.720 --> 2:26:12.080
+ to our sponsors, Allform, Magic Spoon, BetterHelp, and Brave. Click their links to support this
+
+2:26:12.080 --> 2:26:20.960
+ podcast. And now let me leave you with some words from George Washington on March 15, 1783.
+
+2:26:20.960 --> 2:26:28.640
+ If freedom of speech is taken away, then dumb and silent we may be led like sheep to the slaughter.
+
+2:26:28.640 --> 2:26:50.640
+ Thank you for listening and hope to see you next time.
+

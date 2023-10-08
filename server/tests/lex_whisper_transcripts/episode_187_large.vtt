@@ -1,0 +1,7631 @@
+WEBVTT
+
+00:00.000 --> 00:02.800
+ The following is a conversation with Frank Wilczek,
+
+00:02.800 --> 00:07.000
+ a theoretical physicist at MIT who won the Nobel Prize
+
+00:07.000 --> 00:09.620
+ for the co discovery of asymptotic freedom
+
+00:09.620 --> 00:12.160
+ in the theory of strong interaction.
+
+00:12.160 --> 00:14.040
+ Quick mention of our sponsors,
+
+00:14.040 --> 00:18.700
+ the Information, NetSuite, ExpressVPN, Blinkist,
+
+00:18.700 --> 00:20.420
+ and Aidsleep.
+
+00:20.420 --> 00:23.600
+ Check them out in the description to support this podcast.
+
+00:23.600 --> 00:26.900
+ As a side note, let me say a word about asymptotic freedom.
+
+00:26.900 --> 00:30.000
+ Protons and neutrons make up the nucleus of an atom.
+
+00:30.000 --> 00:31.800
+ Strong interaction is responsible
+
+00:31.800 --> 00:34.160
+ for the strong nuclear force that binds them.
+
+00:34.160 --> 00:37.700
+ But strong interaction also holds together the quarks
+
+00:37.700 --> 00:40.040
+ that make up the protons and neutrons.
+
+00:40.040 --> 00:43.240
+ Frank Wilczek, David Gross, and David Politzer
+
+00:43.240 --> 00:45.280
+ came up with a theory postulating
+
+00:45.280 --> 00:48.040
+ that when quarks come really close to one another,
+
+00:48.040 --> 00:51.440
+ the attraction abates and they behave like free particles.
+
+00:51.440 --> 00:54.420
+ This is called asymptotic freedom.
+
+00:54.420 --> 00:57.860
+ This happens at very, very high energies,
+
+00:57.860 --> 01:00.640
+ which is also where all the fun is.
+
+01:00.640 --> 01:02.880
+ This is the Lex Friedman Podcast,
+
+01:02.880 --> 01:06.540
+ and here is my conversation with Frank Wilczek.
+
+01:07.600 --> 01:10.960
+ What is the most beautiful idea in physics?
+
+01:10.960 --> 01:13.520
+ The most beautiful idea in physics
+
+01:13.520 --> 01:18.520
+ is that we can get a compact description of the world
+
+01:19.080 --> 01:22.760
+ that's very precise and very full
+
+01:22.760 --> 01:26.900
+ at the level of the operating system of the world.
+
+01:28.520 --> 01:32.100
+ That's an extraordinary gift.
+
+01:32.100 --> 01:37.100
+ And we get worried when we find discrepancies
+
+01:38.160 --> 01:41.080
+ between our description of the world
+
+01:41.080 --> 01:42.800
+ and what's actually observed
+
+01:43.760 --> 01:46.780
+ at the level even of a part in a billion.
+
+01:46.780 --> 01:49.440
+ You actually have this quote from Einstein
+
+01:49.440 --> 01:51.880
+ that the most incomprehensible thing
+
+01:51.880 --> 01:54.920
+ about the universe is that it is comprehensible,
+
+01:54.920 --> 01:55.760
+ something like that.
+
+01:55.760 --> 01:58.320
+ Yes, so that's the most beautiful surprise
+
+01:58.320 --> 02:03.320
+ that I think that really was to me the most profound result
+
+02:05.160 --> 02:08.640
+ of the scientific revolution of the 17th century
+
+02:08.640 --> 02:13.120
+ with the shining example of Newtonian physics
+
+02:13.120 --> 02:17.320
+ that you could aspire to completeness, precision,
+
+02:17.320 --> 02:20.120
+ and a concise description of the world,
+
+02:20.120 --> 02:21.360
+ of the operating system.
+
+02:21.360 --> 02:25.280
+ And it's gotten better and better over the years
+
+02:25.280 --> 02:27.920
+ and that's the continuing miracle.
+
+02:27.920 --> 02:30.880
+ Now, there are a lot of beautiful sub miracles too.
+
+02:30.880 --> 02:33.600
+ The form of the equations is governed
+
+02:33.600 --> 02:35.760
+ by high degrees of symmetry
+
+02:35.760 --> 02:39.000
+ and they have a very surprising kind
+
+02:39.000 --> 02:40.800
+ of mind expanding structure,
+
+02:40.800 --> 02:42.920
+ especially in quantum mechanics.
+
+02:42.920 --> 02:47.920
+ But if I had to say the single most beautiful revelation
+
+02:47.920 --> 02:52.920
+ is that, in fact, the world is comprehensible.
+
+02:53.640 --> 02:56.480
+ Would you say that's a fact or a hope?
+
+02:56.480 --> 02:58.160
+ It's a fact.
+
+02:58.160 --> 03:01.280
+ We can do, you can point to things like
+
+03:02.360 --> 03:07.360
+ the rise of gross national products per capita
+
+03:11.400 --> 03:14.220
+ around the world as a result of the scientific revolution.
+
+03:14.220 --> 03:15.720
+ You can see it all around you.
+
+03:15.720 --> 03:20.720
+ And recent developments with exponential production
+
+03:21.420 --> 03:26.420
+ of wealth, control of nature at a very profound level
+
+03:27.480 --> 03:31.800
+ where we do things like sense tiny, tiny, tiny, tiny
+
+03:31.800 --> 03:35.560
+ vibrations to tell that there are black holes
+
+03:35.560 --> 03:40.560
+ colliding far away or we test laws as I alluded to
+
+03:40.560 --> 03:45.400
+ whether it's part in a billion and do things
+
+03:45.400 --> 03:47.660
+ in what appear on the surface
+
+03:47.660 --> 03:49.820
+ to be entirely different conceptual universes.
+
+03:49.820 --> 03:52.040
+ I mean, on the one hand, pencil and paper
+
+03:52.040 --> 03:55.520
+ are nowadays computers that calculate abstractions
+
+03:55.520 --> 03:58.660
+ and on the other hand, magnets and accelerators
+
+03:58.660 --> 04:00.840
+ and detectors that look at the behavior
+
+04:00.840 --> 04:05.160
+ of fundamental particles and these different universes
+
+04:05.160 --> 04:08.200
+ have to agree or else we get very upset
+
+04:08.200 --> 04:12.760
+ and that's an amazing thing if you think about it.
+
+04:12.760 --> 04:17.760
+ And it's telling us that we do understand a lot
+
+04:18.040 --> 04:20.480
+ about nature at a very profound level
+
+04:21.400 --> 04:25.520
+ and there are still things we don't understand of course
+
+04:25.520 --> 04:28.940
+ but as we get better and better answers
+
+04:28.940 --> 04:32.720
+ and better and better ability to address difficult questions
+
+04:32.720 --> 04:35.560
+ we can ask more and more ambitious questions.
+
+04:35.560 --> 04:38.320
+ Well, I guess the hope part of that is because
+
+04:38.320 --> 04:40.280
+ we are surrounded by mystery.
+
+04:40.280 --> 04:45.040
+ So one way to say it, if you look at the growth GDP
+
+04:45.040 --> 04:47.200
+ over time that we figured out quite a lot
+
+04:47.200 --> 04:50.340
+ and we're able to improve the quality of life
+
+04:50.340 --> 04:53.160
+ because of that and we've figured out some fundamental things
+
+04:53.160 --> 04:55.400
+ about this universe but we still don't know
+
+04:55.400 --> 04:58.720
+ how much mystery there is and it's also possible
+
+04:58.720 --> 05:03.360
+ that there's some things that are in fact incomprehensible
+
+05:03.360 --> 05:07.400
+ to both our minds and the tools of science.
+
+05:07.400 --> 05:11.600
+ Like the sad thing is we may not know it
+
+05:11.600 --> 05:14.320
+ because in fact they are incomprehensible
+
+05:14.320 --> 05:16.480
+ and that's the open question is how much
+
+05:16.480 --> 05:18.180
+ of the universe is comprehensible?
+
+05:18.180 --> 05:23.180
+ If we figured out everything what's inside the black hole
+
+05:23.480 --> 05:26.760
+ and everything that happened at the moment of the Big Bang
+
+05:26.760 --> 05:28.880
+ does that still give us the key
+
+05:28.880 --> 05:30.740
+ to understanding the human mind
+
+05:30.740 --> 05:33.880
+ and the emergence of all the beautiful complexity
+
+05:33.880 --> 05:35.020
+ we see around us?
+
+05:35.020 --> 05:38.120
+ That's not like when I see these objects
+
+05:38.120 --> 05:41.480
+ like I don't know if you've seen them like cellular automata
+
+05:41.480 --> 05:44.920
+ all these kinds of objects where the from simple rules
+
+05:44.920 --> 05:48.920
+ emerges complexity, it makes you wonder maybe
+
+05:48.920 --> 05:52.400
+ it's not reducible to simple beautiful equations
+
+05:52.400 --> 05:54.900
+ the whole thing only parts of it.
+
+05:54.900 --> 05:57.680
+ That's the tension I was getting at with the hope.
+
+05:57.680 --> 06:00.240
+ Well, when we say the universe is comprehensible
+
+06:00.240 --> 06:04.980
+ we have to kind of draw careful distinctions
+
+06:04.980 --> 06:09.980
+ about or definitions about what we mean by that.
+
+06:12.640 --> 06:15.280
+ Both the universe and the kind of and the comprehensive.
+
+06:15.280 --> 06:20.280
+ Exactly, right so the so in certain areas
+
+06:22.160 --> 06:27.160
+ of understanding reality we've made extraordinary progress
+
+06:27.160 --> 06:32.160
+ I would say in understanding fundamental physical processes
+
+06:32.560 --> 06:35.780
+ and getting very precise equations that really work
+
+06:35.780 --> 06:40.560
+ and allow us to do the profound sculpting of matter
+
+06:40.560 --> 06:43.280
+ to make computers and iPhones and everything else
+
+06:43.280 --> 06:46.080
+ and they really work and they're extraordinary productions
+
+06:48.160 --> 06:51.720
+ on the other but and that's all based
+
+06:51.720 --> 06:53.120
+ on the laws of quantum mechanics
+
+06:53.120 --> 06:58.120
+ and they really work and they give us tremendous control
+
+06:59.760 --> 07:04.760
+ of nature on the other hand as we get better answers
+
+07:04.840 --> 07:07.260
+ we can also ask more ambitious questions
+
+07:07.260 --> 07:11.200
+ and there are certainly things that have been observed
+
+07:11.200 --> 07:15.360
+ even in what would be usually called the realm of physics
+
+07:15.360 --> 07:19.640
+ that aren't understood for instance there seems to be
+
+07:19.640 --> 07:21.840
+ another source of mass in the universe
+
+07:21.840 --> 07:25.120
+ the so called dark matter that we don't know what it is
+
+07:25.120 --> 07:29.600
+ and it's a very interesting question what it is then
+
+07:30.420 --> 07:34.040
+ but also as you were alluding to there's it's one thing
+
+07:34.040 --> 07:38.040
+ to know the basic equations it's another thing
+
+07:38.040 --> 07:42.280
+ to be able to solve them in important cases
+
+07:42.280 --> 07:45.520
+ so we run up against the limits of that
+
+07:45.520 --> 07:48.600
+ in things like chemistry where we'd like to be able
+
+07:48.600 --> 07:51.280
+ to design molecules and predict their behavior
+
+07:51.280 --> 07:54.480
+ from the equations we think the equations could do that
+
+07:54.480 --> 07:59.480
+ in principle but in practice it's very challenging
+
+07:59.880 --> 08:02.580
+ to solve them in all but very simple cases
+
+08:04.280 --> 08:07.200
+ and then there's the other thing which is that a lot
+
+08:07.200 --> 08:11.520
+ of what we're interested in is historically conditioned
+
+08:11.520 --> 08:15.460
+ it's not a matter of the fundamental equations
+
+08:15.460 --> 08:19.960
+ but about what has evolved or come out
+
+08:19.960 --> 08:23.640
+ of the early universe and formed into people and frogs
+
+08:23.640 --> 08:27.160
+ and societies and things and the laws of physics
+
+08:27.160 --> 08:30.160
+ the basic laws of physics only take you so far
+
+08:30.160 --> 08:32.680
+ in that it kind of provides a foundation
+
+08:32.680 --> 08:35.760
+ but doesn't really that you need entirely different concepts
+
+08:35.760 --> 08:39.780
+ to deal with those kind of systems
+
+08:39.780 --> 08:44.780
+ and one thing I can say about that is that the laws
+
+08:46.360 --> 08:48.920
+ themselves point out their limitations
+
+08:48.920 --> 08:53.360
+ that they kind of their laws for dynamical evolution
+
+08:53.360 --> 08:55.600
+ so they tell you what happens if you have
+
+08:55.600 --> 08:57.540
+ a certain starting point but they don't tell you
+
+08:57.540 --> 09:01.720
+ what the starting point should be at least yeah
+
+09:01.720 --> 09:05.000
+ and the other thing that emerges
+
+09:05.000 --> 09:09.600
+ from the equations themselves is the phenomena
+
+09:09.600 --> 09:14.600
+ of chaos and sensitivity to initial conditions
+
+09:14.600 --> 09:19.600
+ which tells us that you have that there are intrinsic
+
+09:20.760 --> 09:24.600
+ limitations on how well we can spell out the consequences
+
+09:24.600 --> 09:26.360
+ of the laws if we try to apply them.
+
+09:26.360 --> 09:28.900
+ It's the old apple pie if you want to what is it
+
+09:28.900 --> 09:32.520
+ make an apple pie from scratch you have to build
+
+09:32.520 --> 09:34.280
+ the universe or something like that.
+
+09:34.280 --> 09:37.280
+ Well you're much better off starting with apples
+
+09:37.280 --> 09:39.800
+ than starting with quarks let's put it that way.
+
+09:39.800 --> 09:42.320
+ In your book A Beautiful Question you ask
+
+09:42.320 --> 09:44.960
+ does the world embody beautiful ideas?
+
+09:44.960 --> 09:48.080
+ So the book is centered around this very interesting
+
+09:48.080 --> 09:50.520
+ question it's like Shakespeare you can like dig in
+
+09:50.520 --> 09:52.400
+ and read into all the different interpretations
+
+09:52.400 --> 09:56.280
+ of this question but at the high level what to use
+
+09:56.280 --> 09:59.520
+ the connection between beauty of the world
+
+09:59.520 --> 10:02.240
+ and physics of the world.
+
+10:02.240 --> 10:05.320
+ In a sense we now have a lot of insight into what
+
+10:05.320 --> 10:09.260
+ the laws are the form they take that allow us
+
+10:09.260 --> 10:13.080
+ to understand matter in great depth and control it
+
+10:13.080 --> 10:18.080
+ as we've discussed and it's an extraordinary thing
+
+10:19.460 --> 10:24.460
+ how mathematically ideal those equations turn out to be.
+
+10:26.620 --> 10:31.620
+ In the early days of Greek philosophy Plato had this model
+
+10:33.260 --> 10:37.020
+ of atoms built out of the five perfectly symmetrical
+
+10:37.020 --> 10:39.480
+ platonic solids so there was somehow the idea
+
+10:39.480 --> 10:44.000
+ that mathematical symmetry should govern the world
+
+10:44.000 --> 10:49.000
+ and we've out Platoed Plato by far in modern physics
+
+10:49.040 --> 10:52.320
+ because we have symmetries that are much more extensive
+
+10:52.320 --> 10:56.720
+ much more powerful that turn out to be the ingredients
+
+10:56.720 --> 10:59.160
+ out of which we construct our theory of the world
+
+10:59.160 --> 11:04.160
+ and it works and so that's certainly beautiful.
+
+11:04.160 --> 11:09.160
+ So the idea of symmetry which is a driving inspiration
+
+11:13.840 --> 11:18.800
+ in much of human art especially decorative art
+
+11:18.800 --> 11:22.420
+ like the Alhambra or wallpaper designs or things
+
+11:22.420 --> 11:26.680
+ you see around you everywhere also turns out to be
+
+11:26.680 --> 11:30.480
+ the dominant theme in modern fundamental physics
+
+11:30.480 --> 11:33.500
+ symmetry and its manifestations the laws turn out
+
+11:33.500 --> 11:36.600
+ to be very to have these tremendous amounts of symmetry
+
+11:36.600 --> 11:38.920
+ you can change the symbols and move them around
+
+11:38.920 --> 11:42.420
+ in different ways and they still have the same consequences.
+
+11:45.180 --> 11:50.180
+ So that's beautiful that these concepts that humans
+
+11:59.040 --> 12:03.220
+ find appealing also turn out to be the concepts
+
+12:03.220 --> 12:05.660
+ that govern how the world actually works.
+
+12:07.720 --> 12:09.080
+ I don't think that's an accident.
+
+12:09.080 --> 12:13.720
+ I think humans were evolved to be able to interact
+
+12:13.720 --> 12:17.740
+ with the world in ways that are advantageous
+
+12:17.740 --> 12:21.600
+ and to learn from it and so we are naturally evolved
+
+12:21.600 --> 12:24.880
+ or designed to enjoy beauty and it's a symmetry
+
+12:24.880 --> 12:29.880
+ and the world has it and that's why we resonate with it.
+
+12:29.880 --> 12:33.180
+ Well it's interesting that the ideas of symmetry
+
+12:33.180 --> 12:38.180
+ emerge at many levels of the hierarchy of the universe.
+
+12:40.860 --> 12:44.420
+ So you're talking about particles but it also is
+
+12:44.420 --> 12:47.280
+ at the level of chemistry and biology
+
+12:47.280 --> 12:52.280
+ and the fact that our cognitive sort of our perception
+
+12:55.060 --> 12:59.060
+ system and whatever our cognition is also finds
+
+12:59.060 --> 13:02.980
+ it appealing or somehow our sense of what is beautiful
+
+13:02.980 --> 13:05.180
+ is grounded in this idea of symmetry
+
+13:05.180 --> 13:06.760
+ or the breaking of symmetry.
+
+13:06.760 --> 13:09.540
+ Symmetry is at the core of our conception of beauty
+
+13:09.540 --> 13:11.620
+ whether it's the breaking or the non breaking
+
+13:11.620 --> 13:12.980
+ of the symmetry.
+
+13:12.980 --> 13:16.400
+ It makes you wonder why.
+
+13:17.740 --> 13:18.580
+ Why?
+
+13:20.340 --> 13:23.780
+ So I come from Russia and the question of Dostoevsky
+
+13:23.780 --> 13:27.020
+ he has said that beauty will save the world.
+
+13:27.020 --> 13:29.540
+ Maybe as a physicist you can tell me
+
+13:29.540 --> 13:31.380
+ what do you think he meant by that?
+
+13:31.380 --> 13:32.980
+ I don't know if it saves the world
+
+13:32.980 --> 13:35.700
+ but it does turn out to be a tremendous source
+
+13:35.700 --> 13:37.500
+ of insight into the world.
+
+13:37.500 --> 13:42.500
+ When we investigate kind of the most fundamental
+
+13:42.840 --> 13:46.100
+ interactions, things that are hard to access
+
+13:46.100 --> 13:48.460
+ because they occur at very short distances
+
+13:48.460 --> 13:53.460
+ between very special kinds of particles
+
+13:53.460 --> 13:58.460
+ whose properties are only revealed at high energies.
+
+14:01.280 --> 14:04.000
+ We don't have much to go on from everyday life
+
+14:04.000 --> 14:06.600
+ but so we have when we guess what the,
+
+14:06.600 --> 14:08.640
+ and the experiments are difficult to do
+
+14:08.640 --> 14:13.640
+ so you can't really follow a very wholly empirical procedure
+
+14:14.760 --> 14:19.760
+ to sort of in the Baconian style figure out the laws
+
+14:20.140 --> 14:23.200
+ kind of step by step just by accumulating a lot of data
+
+14:23.200 --> 14:25.960
+ what we actually do is guess.
+
+14:25.960 --> 14:29.440
+ And the guesses are kind of aesthetic really.
+
+14:29.440 --> 14:31.540
+ What would be a nice description
+
+14:31.540 --> 14:34.180
+ that's consistent with what we know
+
+14:34.180 --> 14:36.320
+ and then you try it out and see if it works
+
+14:36.320 --> 14:41.320
+ and by gosh it does in many profound cases.
+
+14:42.800 --> 14:46.080
+ So there's that but there's another source of symmetry
+
+14:46.080 --> 14:51.080
+ which I didn't talk so much about in a beautiful question
+
+14:51.080 --> 14:56.080
+ but does relate to your comments
+
+14:56.880 --> 15:01.880
+ and I think very much relates to the source of symmetry
+
+15:02.000 --> 15:07.000
+ that we find in biology and in our heads, you know,
+
+15:08.440 --> 15:13.440
+ in our brain which is that, well it is discussed a bit
+
+15:15.860 --> 15:20.480
+ in a beautiful question and also in fundamentals
+
+15:20.480 --> 15:25.480
+ is that when you have, symmetry is also a very important
+
+15:28.240 --> 15:30.340
+ means of construction.
+
+15:30.340 --> 15:34.540
+ So when you have for instance simple viruses
+
+15:34.540 --> 15:39.380
+ that need to construct their coat, their protein coat,
+
+15:39.380 --> 15:42.180
+ the coats often take the form of platonic solids
+
+15:43.500 --> 15:47.100
+ and the reason is that the viruses are really dumb
+
+15:47.100 --> 15:49.020
+ and they only know how to do one thing
+
+15:49.020 --> 15:51.620
+ so they make a pentagon then they make another pentagon
+
+15:51.620 --> 15:52.640
+ and they make another pentagon
+
+15:52.640 --> 15:55.420
+ and they all glue together in the same way
+
+15:55.420 --> 15:58.980
+ and that makes a very symmetrical object sort of.
+
+15:58.980 --> 16:02.060
+ So the rules of development when you have simple rules
+
+16:02.060 --> 16:07.060
+ and they work again and again, you get symmetrical patterns.
+
+16:07.060 --> 16:09.740
+ That's kind of, in fact it's a recipe also
+
+16:09.740 --> 16:14.740
+ for generating fractals, like the kind of broccoli
+
+16:14.740 --> 16:19.300
+ that has all this internal structure
+
+16:19.300 --> 16:20.740
+ and I wish I had a picture to show
+
+16:20.740 --> 16:23.740
+ but maybe people remember it from the supermarket
+
+16:26.660 --> 16:30.020
+ and you say how did a vegetable get so intelligent
+
+16:30.020 --> 16:31.620
+ to make such a beautiful object
+
+16:31.620 --> 16:33.480
+ with all this fractal structure
+
+16:33.480 --> 16:35.940
+ and the secret is stupidity.
+
+16:35.940 --> 16:38.560
+ You just do the same thing over and over again
+
+16:38.560 --> 16:43.100
+ and in our brains also, you know, we came out,
+
+16:43.100 --> 16:47.500
+ we start from single cells and they reproduce
+
+16:47.500 --> 16:51.840
+ and each one does basically roughly the same thing.
+
+16:54.140 --> 16:56.780
+ The program evolves in time, of course,
+
+16:56.780 --> 17:01.660
+ different modules get turned on and off,
+
+17:01.660 --> 17:03.460
+ different regions of the genetic code
+
+17:03.460 --> 17:06.700
+ get turned on and off but basically,
+
+17:06.700 --> 17:08.800
+ a lot of the same things are going on
+
+17:08.800 --> 17:09.740
+ and they're simple things
+
+17:09.740 --> 17:12.460
+ and so you produce the same patterns over and over again
+
+17:12.460 --> 17:14.540
+ and that's a recipe for producing symmetry
+
+17:14.540 --> 17:17.180
+ because you're getting the same thing in many, many places
+
+17:17.180 --> 17:20.860
+ and if you look at, for instance,
+
+17:20.860 --> 17:24.860
+ the beautiful drawings of Roman Icahal,
+
+17:24.860 --> 17:29.220
+ the great neuroanatomist who drew the structure
+
+17:29.220 --> 17:33.380
+ of different organs like the hippocampus,
+
+17:33.380 --> 17:37.860
+ you see it's very regular and very intricate
+
+17:37.860 --> 17:42.860
+ and it's symmetry in that sense
+
+17:43.940 --> 17:46.860
+ because it's many repeated units
+
+17:46.860 --> 17:49.620
+ that you can take from one place to the other
+
+17:49.620 --> 17:51.860
+ and see that they look more or less the same.
+
+17:51.860 --> 17:54.300
+ But what you're describing, this kind of beauty
+
+17:54.300 --> 17:58.940
+ that we're talking about now is a very small sample
+
+17:58.940 --> 18:01.860
+ in terms of space time in a very big world
+
+18:01.860 --> 18:06.860
+ in a very short, brief moment in this long history.
+
+18:08.260 --> 18:11.420
+ In your book, Fundamentals, 10 Keys to Reality,
+
+18:11.420 --> 18:13.460
+ I'd really recommend people read it.
+
+18:14.580 --> 18:19.580
+ You say that space and time are pretty big or very big.
+
+18:20.340 --> 18:21.660
+ How big are we talking about?
+
+18:21.660 --> 18:26.660
+ Can you tell a brief history of space and time?
+
+18:26.660 --> 18:30.660
+ It's easy to tell a brief history, but the details get very
+
+18:30.660 --> 18:33.780
+ involved, of course, but one thing I'd like to say
+
+18:33.780 --> 18:37.140
+ is that if you take a broad enough view,
+
+18:37.140 --> 18:38.820
+ the history of the universe is simpler
+
+18:38.820 --> 18:40.660
+ than the history of Sweden, say,
+
+18:40.660 --> 18:43.900
+ because your standards are lower.
+
+18:45.900 --> 18:49.620
+ But just to make it quantitative,
+
+18:49.620 --> 18:51.500
+ I'll just give a few highlights.
+
+18:51.500 --> 18:55.500
+ And it's a little bit easier to talk about time,
+
+18:55.500 --> 18:57.420
+ so let's start with that.
+
+18:57.420 --> 19:00.100
+ The Big Bang occurred, we think.
+
+19:00.100 --> 19:03.820
+ The universe was much hotter and denser and more uniform
+
+19:03.820 --> 19:07.060
+ about 13.8 billion years ago,
+
+19:07.060 --> 19:08.860
+ and that's what we call the Big Bang.
+
+19:10.740 --> 19:12.540
+ And it's been expanding and cooling,
+
+19:12.540 --> 19:16.100
+ the matter in it has been expanding and cooling ever since.
+
+19:16.100 --> 19:20.660
+ So in a real sense, the universe is 13.8 billion years old.
+
+19:20.660 --> 19:24.060
+ That's a big number, kind of hard to think about.
+
+19:24.060 --> 19:26.260
+ A nice way to think about it, though,
+
+19:26.260 --> 19:29.260
+ is to map it onto one year.
+
+19:29.260 --> 19:32.980
+ So let's say the universe just linearly mapped
+
+19:32.980 --> 19:37.620
+ the time intervals from 13.8 billion years onto one year.
+
+19:37.620 --> 19:42.620
+ So the Big Bang then is on January 1st at 12 a.m.
+
+19:43.980 --> 19:48.980
+ And you wait for quite a long time
+
+19:49.980 --> 19:51.660
+ before the dinosaurs emerge.
+
+19:51.660 --> 19:55.100
+ The dinosaurs emerge on Christmas, it turns out.
+
+19:55.100 --> 19:55.940
+ And...
+
+19:55.940 --> 19:57.900
+ 12 months, almost 12 months later.
+
+19:57.900 --> 19:59.220
+ Getting close to the end, yes.
+
+19:59.220 --> 20:01.060
+ Getting close to the end.
+
+20:01.060 --> 20:05.580
+ And the extinction event that let the mammals
+
+20:05.580 --> 20:08.900
+ and ultimately humans inherit the Earth
+
+20:08.900 --> 20:13.540
+ from the dinosaurs occurred on December 30th.
+
+20:13.540 --> 20:18.380
+ And all of human history is a small part of the last day.
+
+20:18.380 --> 20:23.380
+ And so, yes, so we're occupying only,
+
+20:23.380 --> 20:26.860
+ and a human lifetime is a very, very infinitesimal part
+
+20:26.860 --> 20:31.860
+ of this interval of these gigantic cosmic reaches of time.
+
+20:35.300 --> 20:39.300
+ And in space, we can tell a very similar story.
+
+20:39.300 --> 20:44.300
+ In fact, it's convenient to think that the size
+
+20:44.300 --> 20:48.820
+ of the universe is the distance that light can travel
+
+20:48.820 --> 20:50.700
+ in 13.8 billion years.
+
+20:50.700 --> 20:54.420
+ So it's 13.8 billion light years.
+
+20:54.420 --> 20:56.940
+ That's how far you can see out.
+
+20:56.940 --> 21:01.380
+ That's how far signals can reach us.
+
+21:01.380 --> 21:06.380
+ And that is a big distance.
+
+21:06.380 --> 21:13.380
+ That is a big distance because compared to that, the Earth
+
+21:14.780 --> 21:18.180
+ is a fraction of a light second.
+
+21:18.180 --> 21:21.580
+ So again, it's really, really big.
+
+21:21.580 --> 21:26.580
+ And so if we wanna think about the universe
+
+21:27.020 --> 21:29.380
+ as a whole in space and time,
+
+21:30.420 --> 21:35.060
+ we really need a different kind of imagination.
+
+21:35.060 --> 21:38.860
+ It's not something you can grasp
+
+21:41.900 --> 21:44.380
+ in terms of psychological time in a useful way.
+
+21:44.380 --> 21:47.460
+ You have to think, you have to use exponential notation
+
+21:47.460 --> 21:51.820
+ and abstract concepts to really get any hold
+
+21:51.820 --> 21:54.980
+ on these vast times and spaces.
+
+21:56.340 --> 21:58.140
+ On the other hand, let me hasten to add
+
+21:58.140 --> 22:00.460
+ that that doesn't make us small
+
+22:00.460 --> 22:05.460
+ or make the time that we have to us small.
+
+22:06.900 --> 22:10.660
+ Because again, looking at those pictures
+
+22:10.660 --> 22:15.500
+ of what our minds are and some of the components
+
+22:15.500 --> 22:18.620
+ of our minds, these beautiful drawings
+
+22:18.620 --> 22:21.180
+ of the cellular patterns inside the brain,
+
+22:21.180 --> 22:24.820
+ you see that there are many, many, many processing units.
+
+22:24.820 --> 22:29.740
+ And if you analyze how fast they operate,
+
+22:29.740 --> 22:31.660
+ I tried to estimate how many thoughts
+
+22:31.660 --> 22:33.340
+ a person can have in a lifetime.
+
+22:33.340 --> 22:34.740
+ That's kind of a fuzzy question,
+
+22:34.740 --> 22:36.740
+ but I'm very proud that I was able
+
+22:36.740 --> 22:39.460
+ to define it pretty precisely.
+
+22:39.460 --> 22:43.620
+ And it turns out we have time for billions
+
+22:43.620 --> 22:46.940
+ of meaningful thoughts in a lifetime.
+
+22:46.940 --> 22:48.540
+ So it's a lot.
+
+22:48.540 --> 22:51.820
+ We shouldn't think of ourselves as terribly small
+
+22:51.820 --> 22:53.300
+ either in space or in time,
+
+22:53.300 --> 22:57.460
+ because although we're small in those dimensions
+
+22:57.460 --> 23:01.380
+ compared to the universe, we're large compared
+
+23:01.380 --> 23:05.980
+ to meaningful units of processing information
+
+23:05.980 --> 23:10.200
+ and being able to conceptualize and understand things.
+
+23:11.620 --> 23:15.100
+ Yeah, but 99% of those thoughts are probably food,
+
+23:15.100 --> 23:16.820
+ sex, or internet related.
+
+23:16.820 --> 23:20.540
+ Well, yeah, well, they're not necessarily, that's right.
+
+23:20.540 --> 23:24.100
+ Only like point one is Nobel Prize winning ideas.
+
+23:24.100 --> 23:26.340
+ That's true, but there's more to life
+
+23:26.340 --> 23:27.740
+ than winning Nobel Prizes.
+
+23:27.740 --> 23:29.860
+ How did you do that calculate?
+
+23:29.860 --> 23:31.380
+ Can you maybe break that apart a little bit,
+
+23:31.380 --> 23:34.020
+ just kind of for fun, sort of an intuition
+
+23:34.020 --> 23:35.940
+ of how we calculate the number of thoughts?
+
+23:35.940 --> 23:37.900
+ The number of thoughts, right.
+
+23:37.900 --> 23:40.940
+ It's necessarily imprecise because a lot of things
+
+23:40.940 --> 23:43.260
+ are going on in different ways and what is a thought.
+
+23:43.260 --> 23:45.900
+ But there are several things that point
+
+23:45.900 --> 23:50.900
+ to more or less the same rate of being able
+
+23:50.900 --> 23:52.700
+ to have meaningful thoughts.
+
+23:52.700 --> 23:57.700
+ For instance, the one that I think is maybe
+
+23:57.700 --> 24:01.420
+ the most penetrating is how fast
+
+24:01.420 --> 24:04.420
+ we can process visual images.
+
+24:04.420 --> 24:05.720
+ How do we do that?
+
+24:07.820 --> 24:11.380
+ If you've ever watched old movies,
+
+24:11.380 --> 24:15.700
+ you can see that, well, any movie, in fact,
+
+24:15.700 --> 24:18.080
+ a motion picture is really not a motion picture.
+
+24:18.080 --> 24:20.540
+ It's a series of snapshots that are playing
+
+24:20.540 --> 24:25.120
+ one after the other and it's because our brains
+
+24:25.120 --> 24:26.540
+ also work that way.
+
+24:26.540 --> 24:29.940
+ We take snapshots of the world, integrate over a certain time
+
+24:29.940 --> 24:33.500
+ and then go on to the next one and then by post processing,
+
+24:33.500 --> 24:37.020
+ create the illusion of continuity and flow,
+
+24:37.020 --> 24:38.380
+ we can deal with that.
+
+24:38.380 --> 24:43.380
+ And if the flicker rate is too slow,
+
+24:44.540 --> 24:48.640
+ then you start to see that it's a series of snapshots
+
+24:48.640 --> 24:51.060
+ and you can ask, what is the crossover?
+
+24:51.060 --> 24:53.100
+ When does it change from being something
+
+24:53.100 --> 24:57.440
+ that is matched to our processing speed versus too fast?
+
+24:57.440 --> 25:00.460
+ And it turns out about 40 per second.
+
+25:00.460 --> 25:04.820
+ And then if you take 40 per second as how well,
+
+25:04.820 --> 25:06.900
+ how fast we can process visual images,
+
+25:06.900 --> 25:09.460
+ you get to several billions of thoughts.
+
+25:10.820 --> 25:14.700
+ If you, similarly, if you ask what are some
+
+25:14.700 --> 25:16.980
+ of the fastest things that people can do?
+
+25:16.980 --> 25:18.700
+ Well, they can play video games,
+
+25:18.700 --> 25:22.500
+ they can play the piano very fast if they're skilled at it.
+
+25:22.500 --> 25:25.320
+ And again, you get to similar units
+
+25:25.320 --> 25:27.260
+ or how fast can people talk?
+
+25:27.260 --> 25:28.420
+ You get to similar, you know,
+
+25:28.420 --> 25:30.140
+ within a couple of orders of magnitude,
+
+25:30.140 --> 25:33.020
+ you get more or less to the same idea.
+
+25:33.020 --> 25:38.020
+ So that's how you can say that there's billions
+
+25:38.660 --> 25:40.780
+ of meaningful, there's room for billions
+
+25:40.780 --> 25:42.140
+ of meaningful thoughts.
+
+25:42.140 --> 25:47.140
+ I won't argue for exactly two billion versus 1.8 billion.
+
+25:47.620 --> 25:49.100
+ It's not that kind of question,
+
+25:49.100 --> 25:52.820
+ but I think any estimate that's reasonable
+
+25:52.820 --> 25:57.820
+ will come out within, say, 100 billion and 100 million.
+
+25:58.180 --> 25:59.880
+ So it's a lot.
+
+26:01.700 --> 26:04.140
+ It would be interesting to map out
+
+26:04.140 --> 26:07.300
+ for an individual human being the landscape of thoughts
+
+26:07.300 --> 26:09.320
+ that they've sort of traveled.
+
+26:09.320 --> 26:12.960
+ If you think of thoughts as a set of trajectories,
+
+26:14.340 --> 26:16.400
+ what that landscape looks like.
+
+26:16.400 --> 26:19.620
+ I mean, I've been recently really thinking
+
+26:19.620 --> 26:24.620
+ about this Richard Dawkins idea of memes
+
+26:24.780 --> 26:27.840
+ and just all this ideas and the evolution of ideas
+
+26:27.840 --> 26:29.900
+ inside of one particular human mind
+
+26:30.780 --> 26:33.740
+ and how they're then changed and evolved
+
+26:33.740 --> 26:36.520
+ by interaction with other human beings.
+
+26:36.520 --> 26:38.100
+ It's interesting to think about.
+
+26:38.100 --> 26:41.500
+ So if you think the number is billions,
+
+26:41.500 --> 26:44.340
+ you think there's also social interaction.
+
+26:44.340 --> 26:48.660
+ So these aren't like there's interaction
+
+26:48.660 --> 26:50.740
+ in the same way you have interaction with particles.
+
+26:50.740 --> 26:53.500
+ There's interaction between human thoughts
+
+26:53.500 --> 26:56.380
+ that perhaps that interaction in itself
+
+26:56.380 --> 26:59.140
+ is fundamental to the process of thinking.
+
+26:59.140 --> 27:01.380
+ Like without social interaction,
+
+27:01.380 --> 27:04.100
+ we would be like stuck, like walking in a circle.
+
+27:04.100 --> 27:07.380
+ We need the perturbation of other humans
+
+27:07.380 --> 27:09.620
+ to create change and evolution.
+
+27:09.620 --> 27:13.300
+ Once you bring in concepts of interactions
+
+27:13.300 --> 27:15.880
+ and correlations and relations,
+
+27:15.880 --> 27:19.220
+ then you have what's called a combinatorial explosion
+
+27:20.260 --> 27:24.300
+ that the number of possibilities expands exponentially
+
+27:24.300 --> 27:28.900
+ technically with the number of things you're considering.
+
+27:28.900 --> 27:33.900
+ And it can easily rapidly outstrip these billions
+
+27:34.700 --> 27:36.740
+ of thoughts that we're talking about.
+
+27:36.740 --> 27:41.700
+ So we definitely cannot by brute force
+
+27:41.700 --> 27:44.460
+ master complex situations
+
+27:45.500 --> 27:48.920
+ or think of all the possibilities in a complex situations.
+
+27:48.920 --> 27:52.500
+ I mean, even something as relatively simple as chess
+
+27:53.500 --> 27:56.300
+ is still something that human beings
+
+27:56.300 --> 27:57.860
+ can't comprehend completely.
+
+27:57.860 --> 28:00.940
+ Even the best players lose, still sometimes lose
+
+28:00.940 --> 28:05.140
+ and they consistently lose to computers these days.
+
+28:05.140 --> 28:08.860
+ And in computer science, there's a concept of NP complete.
+
+28:08.860 --> 28:12.260
+ So large classes of problems when you scale them up
+
+28:12.260 --> 28:16.100
+ beyond a few individuals become intractable.
+
+28:16.100 --> 28:21.020
+ And so that in that sense, the world is inexhaustible.
+
+28:21.020 --> 28:25.920
+ And that makes it beautiful that we can make any laws
+
+28:25.920 --> 28:29.660
+ that generalize efficiently and well
+
+28:29.660 --> 28:32.780
+ can compress all of that combinatorial complexity
+
+28:32.780 --> 28:33.980
+ just like a simple rule.
+
+28:33.980 --> 28:35.380
+ That in itself is beautiful.
+
+28:35.380 --> 28:36.660
+ It's a happy situation.
+
+28:36.660 --> 28:41.660
+ And I think that we can find general principles
+
+28:43.300 --> 28:45.780
+ of sort of of the operating system
+
+28:45.780 --> 28:49.940
+ that are comprehensible, simple, extremely powerful
+
+28:49.940 --> 28:52.740
+ and let us control things very well
+
+28:52.740 --> 28:55.460
+ and ask profound questions.
+
+28:55.460 --> 28:56.380
+ And on the other hand,
+
+28:56.380 --> 28:59.100
+ that the world is going to be inexhaustible.
+
+28:59.100 --> 29:03.300
+ That once we start asking about relationships
+
+29:03.300 --> 29:06.940
+ and how they evolve and social interactions
+
+29:06.940 --> 29:10.620
+ and we'll never have a theory of everything
+
+29:10.620 --> 29:13.580
+ in any meaningful sense because that.
+
+29:13.580 --> 29:16.620
+ Of everything, everything, truly everything is.
+
+29:17.860 --> 29:19.940
+ Can I ask you about the Big Bang?
+
+29:19.940 --> 29:23.460
+ So we talked about the space and time are really big.
+
+29:24.380 --> 29:27.780
+ But then, and we humans give a lot of meaning
+
+29:27.780 --> 29:32.780
+ to the word space and time in our like daily lives.
+
+29:33.660 --> 29:37.300
+ But then can we talk about this moment of beginning
+
+29:37.300 --> 29:39.340
+ and how we're supposed to think about it?
+
+29:40.480 --> 29:42.460
+ That at the moment of the Big Bang,
+
+29:42.460 --> 29:46.660
+ everything was what, like infinitely small
+
+29:46.660 --> 29:48.740
+ and then it just blew up?
+
+29:48.740 --> 29:49.820
+ We have to be careful here
+
+29:49.820 --> 29:53.480
+ because there's a common misconception
+
+29:53.480 --> 29:58.480
+ that the Big Bang is like the explosion of a bomb
+
+29:58.580 --> 30:02.980
+ in empty space that fills up the surrounding place.
+
+30:02.980 --> 30:03.940
+ It is space.
+
+30:03.940 --> 30:05.300
+ It is, yeah.
+
+30:05.300 --> 30:08.960
+ As we understand it, it's the fact,
+
+30:08.960 --> 30:12.260
+ it's the fact or the hypothesis,
+
+30:12.260 --> 30:14.820
+ but well supported up to a point
+
+30:14.820 --> 30:19.820
+ that everywhere in the whole universe,
+
+30:19.820 --> 30:23.180
+ early in the history,
+
+30:24.180 --> 30:28.140
+ matter came together into a very hot, very dense,
+
+30:28.140 --> 30:29.940
+ if you run it backwards in time,
+
+30:29.940 --> 30:32.740
+ matter comes together into a very hot, very dense
+
+30:32.740 --> 30:36.260
+ and yet very homogeneous plasma
+
+30:36.260 --> 30:39.500
+ of all the different kinds of elementary particles
+
+30:39.500 --> 30:41.260
+ and quarks and anti quarks and gluons
+
+30:41.260 --> 30:43.340
+ and photons and electrons and anti electrons,
+
+30:43.340 --> 30:45.160
+ everything, all of that stuff.
+
+30:45.160 --> 30:46.940
+ Like really hot.
+
+30:46.940 --> 30:49.140
+ Really, really, really hot.
+
+30:49.140 --> 30:52.100
+ We're talking about way, way hotter
+
+30:52.100 --> 30:53.660
+ than the surface of the sun.
+
+30:56.140 --> 31:00.660
+ Well, in fact, if you take the equations as they come,
+
+31:00.660 --> 31:02.940
+ the prediction is that the temperature
+
+31:02.940 --> 31:04.020
+ just goes to infinity,
+
+31:04.020 --> 31:06.920
+ but then the equations break down.
+
+31:06.920 --> 31:10.620
+ We don't really, there are various,
+
+31:10.620 --> 31:12.980
+ the equations become infinity equals infinity,
+
+31:12.980 --> 31:15.120
+ so they don't feel that it's called a singularity.
+
+31:15.120 --> 31:16.240
+ We don't really know.
+
+31:16.240 --> 31:19.660
+ This is running the equations backwards,
+
+31:19.660 --> 31:21.780
+ so you can't really get a sensible idea
+
+31:21.780 --> 31:23.940
+ of what happened before the Big Bang.
+
+31:23.940 --> 31:25.660
+ So we need different equations
+
+31:25.660 --> 31:28.380
+ to address the very earliest moments.
+
+31:31.580 --> 31:35.660
+ But so things were hotter and denser.
+
+31:35.660 --> 31:40.140
+ We don't really know why things started out that way.
+
+31:40.140 --> 31:43.980
+ We have a lot of evidence that they did start out that way.
+
+31:43.980 --> 31:47.840
+ But since most of the,
+
+31:51.180 --> 31:55.420
+ we don't get to visit there and do controlled experiments.
+
+31:55.420 --> 31:59.580
+ Most of the record is very, very processed
+
+31:59.580 --> 32:04.580
+ and we have to use very subtle techniques
+
+32:05.560 --> 32:09.500
+ and powerful instruments to get information
+
+32:09.500 --> 32:11.140
+ that has survived.
+
+32:11.140 --> 32:14.220
+ Get closer and closer to the Big Bang.
+
+32:14.220 --> 32:16.460
+ Get closer and closer to the beginning of things.
+
+32:16.460 --> 32:21.460
+ And what's revealed there is that, as I said,
+
+32:22.900 --> 32:25.180
+ there undoubtedly was a period
+
+32:25.180 --> 32:26.940
+ when everything in the universe
+
+32:26.940 --> 32:30.900
+ that we have been able to look at and understand,
+
+32:30.900 --> 32:33.420
+ and that's consistent with everything,
+
+32:33.420 --> 32:41.420
+ is in a condition where it was much, much hotter
+
+32:41.420 --> 32:43.020
+ and much, much denser,
+
+32:44.220 --> 32:46.340
+ but still obeying the laws of physics
+
+32:46.340 --> 32:48.180
+ as we know them today.
+
+32:48.180 --> 32:51.100
+ And then you start with that.
+
+32:51.100 --> 32:53.180
+ So all the matter is in equilibrium.
+
+32:54.300 --> 32:57.960
+ And then with small quantum fluctuations
+
+32:57.960 --> 32:59.460
+ and run it forward,
+
+32:59.460 --> 33:04.020
+ and then it produces, at least in broad strokes,
+
+33:04.020 --> 33:06.620
+ the universe we see around us today.
+
+33:06.620 --> 33:09.180
+ Do you think we'll ever be able to,
+
+33:09.180 --> 33:12.640
+ with the tools of physics, with the way science is,
+
+33:12.640 --> 33:14.020
+ with the way the human mind is,
+
+33:14.020 --> 33:17.700
+ we'll ever be able to get to the moment of the Big Bang
+
+33:17.700 --> 33:21.700
+ in our understanding or even the moment before the Big Bang?
+
+33:21.700 --> 33:24.700
+ Can we understand what happened before the Big Bang?
+
+33:24.700 --> 33:29.700
+ I'm optimistic both that we'll be able to measure more,
+
+33:31.620 --> 33:33.460
+ so observe more,
+
+33:33.460 --> 33:36.640
+ and that we'll be able to figure out more.
+
+33:36.640 --> 33:40.660
+ So they're very, very tangible prospects
+
+33:40.660 --> 33:45.660
+ for observing the extremely early universe,
+
+33:45.660 --> 33:48.540
+ so even much earlier than we can observe now
+
+33:49.420 --> 33:52.220
+ through looking at gravitational waves.
+
+33:52.220 --> 33:55.700
+ Gravitational waves, since they interact so weakly
+
+33:55.700 --> 33:57.340
+ with ordinary matter,
+
+33:58.820 --> 34:03.660
+ sort of send a minimally processed signal from the Big Bang.
+
+34:03.660 --> 34:05.860
+ It's a very weak signal
+
+34:05.860 --> 34:07.380
+ because it's traveled a long way
+
+34:07.380 --> 34:09.460
+ and diffused over long spaces,
+
+34:09.460 --> 34:13.360
+ but people are gearing up to try to detect
+
+34:13.360 --> 34:15.220
+ gravitational waves that could have come
+
+34:15.220 --> 34:16.340
+ from the early universe.
+
+34:16.340 --> 34:19.140
+ Yeah, LIGO's an incredible engineering project.
+
+34:19.140 --> 34:24.140
+ It's the most sensitive, precise devices on Earth.
+
+34:24.660 --> 34:27.500
+ The fact that humans can build something like that
+
+34:27.500 --> 34:31.340
+ is truly awe inspiring from an engineering perspective.
+
+34:31.340 --> 34:34.820
+ Right, but these gravitational waves from the early universe
+
+34:34.820 --> 34:38.420
+ will probably be of a much longer wavelength
+
+34:38.420 --> 34:41.500
+ than LIGO is capable of sensing,
+
+34:41.500 --> 34:44.620
+ so there's a beautiful project
+
+34:44.620 --> 34:49.620
+ that's contemplated to put lasers
+
+34:51.120 --> 34:54.980
+ in different locations in the solar system.
+
+34:54.980 --> 34:56.420
+ We really, really separate it
+
+34:56.420 --> 34:59.900
+ by solar system scale differences,
+
+34:59.900 --> 35:03.400
+ like artificial planets or moons in different places
+
+35:03.400 --> 35:06.060
+ and see the tiny motions of those
+
+35:06.060 --> 35:07.220
+ relative to one another
+
+35:07.220 --> 35:10.100
+ as a signal of radiation from the Big Bang.
+
+35:10.100 --> 35:15.100
+ We can also maybe indirectly see the imprint
+
+35:15.300 --> 35:18.340
+ of gravitational waves from the early universe
+
+35:18.340 --> 35:23.040
+ on the photons, the microwave background radiation.
+
+35:23.040 --> 35:27.240
+ That is our present way of seeing into the earliest universe,
+
+35:27.240 --> 35:31.180
+ but those photons interact much more strongly with matter.
+
+35:31.180 --> 35:32.980
+ They're much more strongly processed,
+
+35:32.980 --> 35:37.980
+ so they don't give us directly such an unprocessed view
+
+35:37.980 --> 35:41.100
+ of the early universe, of the very early universe,
+
+35:41.100 --> 35:45.700
+ but if gravitational waves leave some imprint on that
+
+35:45.700 --> 35:49.380
+ as they move through, we could detect that too,
+
+35:49.380 --> 35:53.180
+ and people are trying, as we speak,
+
+35:53.180 --> 35:56.860
+ working very hard towards that goal.
+
+35:56.860 --> 35:58.980
+ It's so exciting to think about a sensor
+
+35:58.980 --> 36:01.180
+ the size of the solar system.
+
+36:01.180 --> 36:03.180
+ That would be a fantastic,
+
+36:03.180 --> 36:06.100
+ I mean, that would be a pinnacle artifact
+
+36:06.100 --> 36:08.100
+ of human endeavor to me.
+
+36:08.100 --> 36:11.900
+ It would be such an inspiring thing
+
+36:11.900 --> 36:14.220
+ that just we want to know,
+
+36:15.140 --> 36:17.460
+ and we go to these extraordinary lengths
+
+36:17.460 --> 36:20.860
+ of making gigantic things that are also very sophisticated
+
+36:20.860 --> 36:22.260
+ because what you're trying to do,
+
+36:22.260 --> 36:24.960
+ you have to understand how they move.
+
+36:24.960 --> 36:28.020
+ You have to understand the properties of light
+
+36:28.020 --> 36:30.900
+ that are being used, the interference between light,
+
+36:30.900 --> 36:34.180
+ and you have to be able to make the light with lasers
+
+36:34.180 --> 36:35.740
+ and understand the quantum theory
+
+36:35.740 --> 36:38.300
+ and get the timing exactly right.
+
+36:38.300 --> 36:40.100
+ It's an extraordinary endeavor
+
+36:40.100 --> 36:42.100
+ involving all kinds of knowledge
+
+36:42.100 --> 36:45.100
+ from the very small to the very large,
+
+36:45.100 --> 36:49.060
+ and all in the service of curiosity
+
+36:49.060 --> 36:51.380
+ and built on a grand scale, so.
+
+36:52.540 --> 36:57.540
+ Yeah, it would make me proud to be a human if we did that.
+
+36:58.340 --> 37:01.340
+ I love that you're inspired both by the power of theory
+
+37:01.340 --> 37:02.580
+ and the power of experiment.
+
+37:02.580 --> 37:07.580
+ So both, I think, are exceptionally impressive
+
+37:07.860 --> 37:10.500
+ that the human mind can come up with theories
+
+37:10.500 --> 37:13.200
+ that give us a peek into how the universe works,
+
+37:13.200 --> 37:16.900
+ but also construct tools that are way bigger
+
+37:16.900 --> 37:20.720
+ than the evolutionary origins we came from.
+
+37:20.720 --> 37:22.060
+ Right, and by the way,
+
+37:22.060 --> 37:25.740
+ the fact that we can design such things and they work
+
+37:25.740 --> 37:28.200
+ is an extraordinary demonstration
+
+37:28.200 --> 37:30.620
+ that we really do understand a lot.
+
+37:30.620 --> 37:33.260
+ And then in some ways.
+
+37:33.260 --> 37:36.220
+ And it's our ability to answer questions
+
+37:36.220 --> 37:37.820
+ that also leads us to be able
+
+37:37.820 --> 37:39.820
+ to address more ambitious questions.
+
+37:39.820 --> 37:44.180
+ So you mentioned at the Big Bang in the early days,
+
+37:45.140 --> 37:46.860
+ things are pretty homogeneous.
+
+37:46.860 --> 37:47.820
+ Yes.
+
+37:47.820 --> 37:51.660
+ But here we are, sitting on Earth,
+
+37:51.660 --> 37:56.660
+ two hairless apes, you could say, with microphones.
+
+37:57.040 --> 37:58.820
+ In talking about the brief history of things,
+
+37:58.820 --> 38:00.780
+ you said it's much harder to describe Sweden
+
+38:00.780 --> 38:03.780
+ than it is the universe.
+
+38:03.780 --> 38:05.340
+ So there's a lot of complexity.
+
+38:05.340 --> 38:07.420
+ There was a lot of interesting details here.
+
+38:07.420 --> 38:11.260
+ So how does this complexity come to be, do you think?
+
+38:11.260 --> 38:13.500
+ It seems like there's these pockets.
+
+38:13.500 --> 38:14.340
+ Yeah.
+
+38:14.340 --> 38:18.840
+ We don't know how rare of like where hairless apes emerge.
+
+38:18.840 --> 38:19.680
+ Yeah.
+
+38:19.680 --> 38:22.100
+ And then that came from the initial soup
+
+38:22.100 --> 38:23.500
+ that was homogeneous.
+
+38:23.500 --> 38:26.460
+ Was that an accident?
+
+38:26.460 --> 38:31.460
+ Well, we understand in broad outlines
+
+38:31.620 --> 38:33.660
+ how it could happen.
+
+38:33.660 --> 38:36.380
+ We certainly don't understand why it happened exactly
+
+38:36.380 --> 38:37.300
+ in the way it did.
+
+38:40.180 --> 38:42.620
+ Or there are certainly open questions
+
+38:42.620 --> 38:44.120
+ about the origins of life
+
+38:44.120 --> 38:47.940
+ and how inevitable the emergence of intelligence was
+
+38:47.940 --> 38:48.940
+ and how that happened.
+
+38:48.940 --> 38:52.180
+ But in the very broadest terms,
+
+38:52.180 --> 38:57.180
+ the universe early on was quite homogeneous,
+
+38:58.020 --> 39:00.160
+ but not completely homogeneous.
+
+39:01.020 --> 39:06.020
+ There were part in 10,000 fluctuations in density
+
+39:07.060 --> 39:09.540
+ within this primordial plasma.
+
+39:10.580 --> 39:15.580
+ And as time goes on, there's an instability
+
+39:16.860 --> 39:20.140
+ which causes those density contrasts to increase.
+
+39:20.140 --> 39:21.700
+ There's a gravitational instability
+
+39:21.700 --> 39:24.620
+ where it's denser, the gravitational attractions
+
+39:24.620 --> 39:25.580
+ are stronger.
+
+39:25.580 --> 39:27.300
+ And so that brings in more matter
+
+39:27.300 --> 39:29.780
+ and it gets even denser and so on and so on.
+
+39:29.780 --> 39:34.380
+ So there's a natural tendency of matter to clump
+
+39:34.380 --> 39:37.180
+ because of gravitational interactions.
+
+39:37.180 --> 39:39.860
+ And then the equation is complicated.
+
+39:39.860 --> 39:42.900
+ We have lots of things clumping together.
+
+39:43.980 --> 39:47.060
+ Then we know what the laws are,
+
+39:47.060 --> 39:50.020
+ but we have to a certain extent wave our hands
+
+39:50.020 --> 39:51.900
+ about what happens.
+
+39:51.900 --> 39:56.220
+ But basic understanding of chemistry
+
+39:56.220 --> 40:00.140
+ says that if things and the physics of radiation
+
+40:00.140 --> 40:02.840
+ tells us that as things start to clump together,
+
+40:02.840 --> 40:05.540
+ they can radiate, give off some energy.
+
+40:05.540 --> 40:07.900
+ So they don't just, they slow down.
+
+40:07.900 --> 40:09.300
+ As a result, they lose energy.
+
+40:09.300 --> 40:12.340
+ They can collaborate together, cool down,
+
+40:12.340 --> 40:16.220
+ form things like stars, form things like planets.
+
+40:16.220 --> 40:19.260
+ And so in broad terms, there's no mystery.
+
+40:19.260 --> 40:22.300
+ There's, that's what the scenario,
+
+40:22.300 --> 40:25.580
+ that's what the equations tell you should happen.
+
+40:25.580 --> 40:30.580
+ But because it's a process involving
+
+40:30.580 --> 40:33.720
+ many, many fundamental individual units,
+
+40:37.100 --> 40:40.620
+ the application of the laws that govern individual units
+
+40:40.620 --> 40:44.740
+ to these things is very delicate,
+
+40:46.100 --> 40:48.220
+ computationally very difficult.
+
+40:48.220 --> 40:52.020
+ And more profoundly, the equations have
+
+40:52.020 --> 40:54.260
+ this probability of chaos or sensitivity
+
+40:54.260 --> 40:57.380
+ to initial conditions, which tells you tiny differences
+
+40:57.380 --> 41:00.700
+ in the initial state can lead to enormous differences
+
+41:00.700 --> 41:02.440
+ in the subsequent behavior.
+
+41:02.440 --> 41:07.440
+ So physics, fundamental physics at some point says,
+
+41:08.340 --> 41:11.760
+ okay, chemists, biologists, this is your problem.
+
+41:11.760 --> 41:16.680
+ And then again, in broad terms,
+
+41:16.680 --> 41:21.680
+ we know how it's conceivable that the humans
+
+41:23.100 --> 41:28.140
+ and things like that, how complex structure can emerge.
+
+41:28.140 --> 41:33.140
+ It's a matter of having the right kind of temperature
+
+41:34.040 --> 41:36.300
+ and the right kind of stuff.
+
+41:36.300 --> 41:41.300
+ So you need to be able to make chemical bonds
+
+41:41.300 --> 41:42.860
+ that are reasonably stable
+
+41:42.860 --> 41:45.380
+ and be able to make complex structures.
+
+41:45.380 --> 41:48.700
+ And we're very fortunate that carbon has this ability
+
+41:48.700 --> 41:53.700
+ to make backbones and elaborate branchings and things.
+
+41:54.220 --> 41:57.580
+ So you can get complex things that we call biochemistry.
+
+41:57.580 --> 42:01.140
+ And yet the bonds can be broken a little bit
+
+42:01.140 --> 42:04.760
+ with the help of energetic injections from the sun.
+
+42:04.760 --> 42:07.440
+ So you have to have both the possibility of changing,
+
+42:07.440 --> 42:10.580
+ but also the useful degree of stability.
+
+42:10.580 --> 42:15.580
+ And we know at that very, very broad level, physics
+
+42:15.820 --> 42:17.780
+ can tell you that it's conceivable.
+
+42:17.780 --> 42:22.780
+ If you want to know what really happened,
+
+42:23.140 --> 42:26.260
+ what really can happen, then you have to work a bit,
+
+42:26.260 --> 42:27.100
+ go to chemistry.
+
+42:27.100 --> 42:29.820
+ If you want to know what actually happened,
+
+42:29.820 --> 42:32.260
+ then you really have to consult the fossil record
+
+42:32.260 --> 42:33.220
+ and biologists.
+
+42:33.220 --> 42:38.220
+ And so these ways of addressing the issue
+
+42:41.220 --> 42:43.400
+ are complimentary in a sense.
+
+42:43.400 --> 42:48.400
+ They use different kinds of concepts,
+
+42:49.660 --> 42:52.480
+ they use different languages
+
+42:52.480 --> 42:54.340
+ and they address different kinds of questions,
+
+42:54.340 --> 42:59.340
+ but they're not inconsistent, they're just complimentary.
+
+42:59.340 --> 43:03.740
+ It's kind of interesting to think about those early fluctuations
+
+43:03.740 --> 43:07.140
+ as our earliest ancestors.
+
+43:07.140 --> 43:08.180
+ Yes, that's right.
+
+43:08.180 --> 43:13.180
+ So it's amazing to think that this is the modern answer
+
+43:15.900 --> 43:20.900
+ to the, or the modern version of what the Hindu philosophers
+
+43:24.100 --> 43:25.740
+ had, that art thou.
+
+43:25.740 --> 43:30.480
+ If you ask what, okay, those little quantum fluctuations
+
+43:30.480 --> 43:34.480
+ in the early universe are the seeds out of which complexity,
+
+43:36.380 --> 43:40.900
+ including plausibly humans, really evolve.
+
+43:40.900 --> 43:42.260
+ You don't need anything else.
+
+43:42.260 --> 43:47.260
+ That brings up the question of asking for a friend here
+
+43:47.260 --> 43:52.140
+ if there's other pockets of complexity,
+
+43:52.140 --> 43:57.140
+ commonly called as alien intelligent civilizations out there.
+
+43:59.420 --> 44:00.900
+ Well, we don't know for sure,
+
+44:00.900 --> 44:05.740
+ but I have a strong suspicion that the answer is yes
+
+44:05.740 --> 44:10.740
+ because the one case we do have at hand to study
+
+44:13.500 --> 44:17.720
+ here on Earth, we sort of know what the conditions were
+
+44:17.720 --> 44:18.880
+ that were helpful to life,
+
+44:18.880 --> 44:21.700
+ the right kind of temperature, the right kind of star
+
+44:21.700 --> 44:24.260
+ that keeps, maintains that temperature for a long time,
+
+44:24.260 --> 44:26.420
+ the liquid environment of water.
+
+44:28.420 --> 44:33.420
+ And once those conditions emerged on Earth,
+
+44:33.800 --> 44:36.060
+ which was roughly four and a half billion years ago,
+
+44:36.060 --> 44:39.700
+ it wasn't very long before what we call life
+
+44:39.700 --> 44:41.580
+ started to leave relics.
+
+44:41.580 --> 44:46.580
+ So we can find forms of life, primitive forms of life
+
+44:47.060 --> 44:49.980
+ that are almost as old as the Earth itself
+
+44:49.980 --> 44:54.980
+ in the sense that once the Earth was turned
+
+44:55.180 --> 44:58.660
+ from a very hot boiling thing
+
+44:58.660 --> 45:02.340
+ and cooled off into a solid mass with water,
+
+45:02.340 --> 45:03.940
+ life emerged very, very quickly.
+
+45:03.940 --> 45:07.820
+ So it seems that these general conditions for life
+
+45:09.180 --> 45:13.860
+ are enough to make it happen relatively quickly.
+
+45:13.860 --> 45:18.860
+ Now, the other lesson I think that one can draw
+
+45:21.500 --> 45:24.580
+ from this one example, it's dangerous to draw lessons
+
+45:24.580 --> 45:27.620
+ from one example, but that's all we've got,
+
+45:27.620 --> 45:32.020
+ and that the emergence of intelligent life
+
+45:32.020 --> 45:34.220
+ is a different issue altogether.
+
+45:35.340 --> 45:40.340
+ That took a long time and seems to have been
+
+45:40.340 --> 45:45.340
+ pretty contingent for a long time.
+
+45:47.300 --> 45:50.580
+ Well, for most of the history of life,
+
+45:50.580 --> 45:54.060
+ it was single celled things.
+
+45:55.060 --> 45:58.020
+ Even multicellular life only rose
+
+45:58.020 --> 46:01.620
+ about 600 million years ago, so much after.
+
+46:01.620 --> 46:06.620
+ And then intelligence is kind of a luxury.
+
+46:12.540 --> 46:17.540
+ Many more kinds of creatures have big stomachs
+
+46:18.100 --> 46:20.220
+ than big brains.
+
+46:20.220 --> 46:25.180
+ In fact, most have no brains at all in any reasonable sense.
+
+46:25.180 --> 46:30.140
+ And the dinosaurs ruled for a long, long time
+
+46:30.140 --> 46:31.500
+ and some of them were pretty smart,
+
+46:31.500 --> 46:35.300
+ but they were at best bird brains
+
+46:35.300 --> 46:37.700
+ because birds came from the dinosaurs.
+
+46:37.700 --> 46:41.540
+ And it could have stayed that way.
+
+46:41.540 --> 46:46.260
+ And then the emergence of humans was very contingent
+
+46:46.260 --> 46:49.620
+ and kind of a very, very recent development
+
+46:49.620 --> 46:51.900
+ on evolutionary timescales.
+
+46:51.900 --> 46:55.100
+ And you can argue about the level of human intelligence,
+
+46:55.100 --> 46:58.460
+ but I think that's what we're talking about.
+
+46:58.460 --> 47:02.260
+ It's very impressive and can ask these kinds of questions
+
+47:02.260 --> 47:04.020
+ and discuss them intelligently.
+
+47:07.020 --> 47:12.020
+ So I guess my, so this is a long winded answer
+
+47:13.380 --> 47:16.940
+ or justification of my feeling
+
+47:16.940 --> 47:21.940
+ is that the conditions for life in some form
+
+47:21.940 --> 47:26.940
+ are probably satisfied many, many places
+
+47:28.700 --> 47:32.140
+ around the universe and even within our galaxy.
+
+47:33.260 --> 47:36.020
+ I'm not so sure about the emergence of intelligent life
+
+47:36.980 --> 47:41.500
+ or the emergence of technological civilizations.
+
+47:41.500 --> 47:46.500
+ That seems much more contingent and special.
+
+47:47.420 --> 47:50.380
+ And we might, it's conceivable to me
+
+47:50.380 --> 47:52.820
+ that we're the only example in the galaxy.
+
+47:54.460 --> 47:56.660
+ Although, yeah, I don't know one way or the other.
+
+47:56.660 --> 47:59.660
+ I have different opinions on different days of the week.
+
+47:59.660 --> 48:01.420
+ But one of the things that worries me
+
+48:01.420 --> 48:04.700
+ in the spirit of being humble,
+
+48:04.700 --> 48:08.060
+ that our particular kind of intelligence
+
+48:09.060 --> 48:10.700
+ is not very special.
+
+48:10.700 --> 48:13.700
+ So there's all kinds of different intelligences.
+
+48:13.700 --> 48:15.020
+ And even more broadly,
+
+48:15.020 --> 48:19.060
+ there could be many different kinds of life.
+
+48:19.060 --> 48:22.420
+ So the basic definition, and I just had,
+
+48:22.420 --> 48:24.860
+ I think somebody that you know, Sarah Walker,
+
+48:24.860 --> 48:27.260
+ I just had a very long conversation with her
+
+48:27.260 --> 48:29.380
+ about even just the very basic question
+
+48:29.380 --> 48:34.380
+ of trying to define what is life from a physics perspective.
+
+48:34.580 --> 48:36.060
+ Even that question within itself,
+
+48:36.060 --> 48:38.180
+ I think one of the most fundamental questions
+
+48:38.180 --> 48:41.100
+ in science and physics and everything
+
+48:41.100 --> 48:43.860
+ is just trying to get a hold,
+
+48:43.860 --> 48:45.500
+ trying to get some universal laws
+
+48:45.500 --> 48:47.420
+ around the ideas of what is life
+
+48:47.420 --> 48:49.660
+ because that kind of unlocks a bunch of things
+
+48:49.660 --> 48:52.460
+ around life, intelligence, consciousness,
+
+48:52.460 --> 48:53.420
+ all those kinds of things.
+
+48:53.420 --> 48:55.060
+ I agree with you in a sense,
+
+48:55.060 --> 48:56.580
+ but I think that's a dangerous question
+
+48:56.580 --> 49:01.580
+ because the answer can't be any more precise
+
+49:01.740 --> 49:02.940
+ than the question.
+
+49:02.940 --> 49:06.220
+ And the question, what is life,
+
+49:07.980 --> 49:11.340
+ kind of assumes that we have a definition of life
+
+49:11.340 --> 49:12.900
+ and that it's a natural phenomena
+
+49:12.900 --> 49:14.660
+ that can be distinguished.
+
+49:14.660 --> 49:17.580
+ But really there are edge cases like viruses
+
+49:17.580 --> 49:20.740
+ and some people would like to say
+
+49:20.740 --> 49:25.020
+ that electrons have consciousness.
+
+49:25.020 --> 49:28.700
+ So you can't, if you really have fuzzy concepts,
+
+49:28.700 --> 49:33.700
+ it's very hard to reach precise kinds of scientific answers.
+
+49:34.060 --> 49:37.020
+ But I think there's a very fruitful question
+
+49:37.020 --> 49:39.020
+ that's adjacent to it,
+
+49:39.020 --> 49:42.060
+ which has been pursued in different forms
+
+49:42.060 --> 49:44.980
+ for quite a while
+
+49:44.980 --> 49:47.820
+ and is now becoming very sophisticated
+
+49:47.820 --> 49:50.020
+ in reaching in new directions.
+
+49:50.020 --> 49:53.900
+ And that is, what are the states of matter
+
+49:53.900 --> 49:55.100
+ that are possible?
+
+49:55.100 --> 49:58.460
+ So in high school or grade school,
+
+49:58.460 --> 50:01.740
+ you learn about solids, liquids and gases,
+
+50:01.740 --> 50:04.700
+ but that really just scratches the surface
+
+50:04.700 --> 50:07.820
+ of different ways that are distinguishable,
+
+50:07.820 --> 50:12.820
+ that matter can form into macroscopically different,
+
+50:15.060 --> 50:17.420
+ meaningful patterns that we call phases.
+
+50:17.420 --> 50:19.460
+ And then there are precise definitions
+
+50:19.460 --> 50:21.660
+ of what we mean by phases of matter
+
+50:21.660 --> 50:26.100
+ and that have been worked out fruitful over the decades.
+
+50:26.100 --> 50:29.820
+ And we're discovering new states of matter all the time
+
+50:29.820 --> 50:33.260
+ and kind of having to work at what we mean by matter.
+
+50:33.260 --> 50:35.980
+ We're discovering the capabilities of matter
+
+50:35.980 --> 50:39.580
+ to organize in interesting ways.
+
+50:39.580 --> 50:44.580
+ And some of them, like liquid crystals,
+
+50:46.020 --> 50:49.060
+ are important ingredients of life.
+
+50:49.060 --> 50:51.740
+ Our cell membranes are liquid crystals,
+
+50:51.740 --> 50:54.100
+ and that's very important to the way they work.
+
+50:55.500 --> 50:57.340
+ Recently, there's been a development
+
+50:57.340 --> 51:01.500
+ in where we're talking about states of matter
+
+51:01.500 --> 51:06.500
+ that are not static, but that have dynamics,
+
+51:06.580 --> 51:09.620
+ that have characteristic patterns,
+
+51:09.620 --> 51:11.540
+ not only in space, but in time.
+
+51:11.540 --> 51:12.860
+ These are called time crystals,
+
+51:12.860 --> 51:14.460
+ and that's been a development
+
+51:14.460 --> 51:17.580
+ that's just in the last decade or so.
+
+51:17.580 --> 51:20.820
+ It's just really, really flourishing.
+
+51:20.820 --> 51:25.820
+ And so is there a state of matter
+
+51:25.820 --> 51:30.820
+ or a group of states of matter that corresponds to life?
+
+51:31.580 --> 51:34.460
+ Maybe, but the answer can't be any more definite
+
+51:34.460 --> 51:35.900
+ than the question.
+
+51:35.900 --> 51:38.620
+ I mean, I gotta push back on the,
+
+51:38.620 --> 51:39.940
+ those are just words.
+
+51:39.940 --> 51:41.980
+ I mean, I disagree with you.
+
+51:41.980 --> 51:45.940
+ The question points to a direction.
+
+51:45.940 --> 51:49.180
+ The answer might be able to be more precise
+
+51:49.180 --> 51:53.300
+ than the question, because just as you're saying,
+
+51:53.300 --> 51:56.660
+ there is a, we could be discovering
+
+51:56.660 --> 51:59.740
+ certain characteristics and patterns
+
+51:59.740 --> 52:02.860
+ that are associated with a certain type of matter,
+
+52:02.860 --> 52:04.420
+ macroscopically speaking,
+
+52:04.420 --> 52:09.420
+ and that we can then be able to post facto say,
+
+52:10.620 --> 52:14.420
+ this is, let's assign the word life to this kind of matter.
+
+52:14.420 --> 52:17.580
+ I agree with that completely, that's what that's,
+
+52:17.580 --> 52:19.780
+ but that's, so it's not a disagreement.
+
+52:19.780 --> 52:23.380
+ It's very frequent in physics that, or in science,
+
+52:23.380 --> 52:26.820
+ that words that are in common use
+
+52:26.820 --> 52:31.380
+ get refined and reprocessed into scientific terms
+
+52:31.380 --> 52:34.280
+ that's happened for things like force and energy.
+
+52:35.800 --> 52:38.780
+ And so we, in a way, we find out
+
+52:38.780 --> 52:43.780
+ what the useful definition is, or symmetry, for instance.
+
+52:43.900 --> 52:47.260
+ And the common usage may be quite different
+
+52:47.260 --> 52:48.460
+ from the scientific usage,
+
+52:48.460 --> 52:52.020
+ but the scientific usage is special
+
+52:52.020 --> 52:53.340
+ and takes on a life of its own,
+
+52:53.340 --> 52:57.700
+ and we find out what the useful version of it is,
+
+52:59.820 --> 53:02.060
+ the fruitful version of it is.
+
+53:02.060 --> 53:05.340
+ So I do think, so in that spirit,
+
+53:05.340 --> 53:10.340
+ I think if we can identify states of matter
+
+53:10.340 --> 53:15.340
+ or linked states of matter that can carry on processes
+
+53:18.540 --> 53:22.420
+ of self reproduction and development
+
+53:23.940 --> 53:27.380
+ and information processing,
+
+53:28.260 --> 53:33.260
+ we might be tempted to classify those things as life.
+
+53:34.260 --> 53:36.860
+ Well, can I ask you about the craziest one,
+
+53:36.860 --> 53:41.540
+ which is the one we know maybe least about,
+
+53:41.540 --> 53:42.700
+ which is consciousness.
+
+53:42.700 --> 53:44.940
+ Is it possible that there are certain kinds of matter
+
+53:44.940 --> 53:49.940
+ would be able to classify as conscious,
+
+53:50.340 --> 53:54.380
+ meaning like, so there's the panpsychists, right,
+
+53:54.380 --> 53:57.900
+ who are the philosophers who kind of try to imply
+
+53:57.900 --> 54:01.220
+ that all matter has some degree of consciousness,
+
+54:01.220 --> 54:04.220
+ and you can almost construct like a physics of consciousness.
+
+54:04.220 --> 54:09.220
+ Do you, again, we're in such early days of this,
+
+54:09.260 --> 54:13.100
+ but nevertheless, it seems useful to talk about it.
+
+54:13.100 --> 54:15.860
+ Is there some sense from a physics perspective
+
+54:15.860 --> 54:17.380
+ to make sense of consciousness?
+
+54:18.860 --> 54:19.700
+ Is there some hope?
+
+54:19.700 --> 54:24.700
+ Well, again, consciousness is a very imprecise word
+
+54:24.820 --> 54:28.620
+ and loaded with connotations that I think we should,
+
+54:28.620 --> 54:31.900
+ we don't wanna start a scientific analysis with that,
+
+54:31.900 --> 54:34.260
+ I don't think.
+
+54:34.260 --> 54:38.340
+ It's often been important in science
+
+54:38.340 --> 54:41.700
+ to start with simple cases and work up.
+
+54:43.020 --> 54:45.860
+ Consciousness, I think what most people think of
+
+54:45.860 --> 54:47.740
+ when you talk about consciousness is,
+
+54:47.740 --> 54:52.740
+ okay, what am I doing in the world?
+
+54:52.980 --> 54:53.900
+ This is my experience.
+
+54:53.900 --> 54:57.180
+ I have a rich inner life and experience,
+
+54:57.180 --> 54:59.900
+ and where is that in the equations?
+
+54:59.900 --> 55:02.220
+ And I think that's a great question,
+
+55:02.220 --> 55:03.420
+ a great, great question,
+
+55:03.420 --> 55:07.740
+ and actually, I think I'm gearing up to spend part of,
+
+55:07.740 --> 55:10.980
+ I mean, to try to address that in coming years.
+
+55:10.980 --> 55:12.660
+ One version of asking that question,
+
+55:12.660 --> 55:14.420
+ just as you said now,
+
+55:14.420 --> 55:19.060
+ is what is the simplest formulation of that to study?
+
+55:19.060 --> 55:20.740
+ I think I'm much more comfortable
+
+55:20.740 --> 55:23.780
+ with the idea of studying self awareness
+
+55:23.780 --> 55:25.420
+ as opposed to consciousness,
+
+55:25.420 --> 55:30.260
+ because that sort of gets rid of the mystical aura of the thing.
+
+55:30.260 --> 55:33.780
+ And self awareness is in simple,
+
+55:33.780 --> 55:38.780
+ you know, I think contiguous at least
+
+55:38.980 --> 55:41.580
+ with ideas about feedback.
+
+55:41.580 --> 55:45.380
+ So if you have a system that looks at its own state
+
+55:45.380 --> 55:48.820
+ and responds to it, that's a kind of self awareness.
+
+55:50.820 --> 55:54.460
+ And more sophisticated versions
+
+55:54.460 --> 55:57.380
+ could be like in information processing things,
+
+55:57.380 --> 56:00.540
+ computers that look into their own internal state
+
+56:00.540 --> 56:02.060
+ and do something about it.
+
+56:03.220 --> 56:08.220
+ And I think that could also be done in neural nets.
+
+56:08.300 --> 56:10.260
+ This is called recurrent neural nets,
+
+56:10.260 --> 56:12.860
+ which are hard to understand and kind of a frontier.
+
+56:15.340 --> 56:18.340
+ So I think understanding those
+
+56:18.340 --> 56:23.340
+ and gradually building up a kind of profound ability
+
+56:26.500 --> 56:31.500
+ to conceptualize different levels of self awareness.
+
+56:32.220 --> 56:33.540
+ What do you have to not know?
+
+56:33.540 --> 56:34.620
+ And what do you have to know?
+
+56:34.620 --> 56:36.740
+ And when do you know that you don't know it?
+
+56:36.740 --> 56:38.180
+ Or when do you, what do you think you know
+
+56:38.180 --> 56:39.220
+ that you don't really know?
+
+56:39.220 --> 56:44.220
+ And these, I think clarifying those issues,
+
+56:44.220 --> 56:47.300
+ when we clarify those issues
+
+56:47.300 --> 56:51.420
+ and get a rich theory around self awareness,
+
+56:51.420 --> 56:55.780
+ I think that will illuminate the questions
+
+56:55.780 --> 56:58.180
+ about consciousness in a way that, you know,
+
+56:58.180 --> 57:00.860
+ scratching your chin and talking about qualia
+
+57:00.860 --> 57:04.260
+ and blah, blah, blah, blah is never gonna do.
+
+57:04.260 --> 57:06.860
+ Well, I also have a different approach to the whole thing.
+
+57:06.860 --> 57:09.060
+ So there's, from a robotics perspective,
+
+57:09.060 --> 57:13.260
+ you can engineer things that exhibit qualities
+
+57:13.260 --> 57:18.260
+ of consciousness without understanding how things work.
+
+57:19.780 --> 57:24.780
+ And from that perspective, you, it's like a back door,
+
+57:25.620 --> 57:28.020
+ like enter through the psychology door.
+
+57:28.020 --> 57:32.180
+ Precisely, I think we're on the same wavelength here.
+
+57:32.180 --> 57:35.300
+ I think that, and let me just add one comment,
+
+57:35.300 --> 57:40.300
+ which is I think we should try to understand consciousness
+
+57:40.300 --> 57:45.300
+ as we experience it as, in evolutionary terms,
+
+57:48.940 --> 57:53.020
+ and ask ourselves, why, why does it happen?
+
+57:53.020 --> 57:54.380
+ This thing seems useful.
+
+57:54.380 --> 57:55.220
+ Why is it useful?
+
+57:55.220 --> 57:56.340
+ Why is it useful?
+
+57:56.340 --> 57:57.180
+ Interesting question.
+
+57:57.180 --> 58:01.540
+ I think we've got a conscious eyewatch here.
+
+58:01.540 --> 58:02.380
+ Interesting question.
+
+58:02.380 --> 58:03.500
+ Thank you, Siri.
+
+58:03.500 --> 58:04.340
+ Okay.
+
+58:08.100 --> 58:09.660
+ I'll get back to you later.
+
+58:09.660 --> 58:14.660
+ The, and I think what we're gonna,
+
+58:14.820 --> 58:18.500
+ I'm morally certain that what's gonna emerge
+
+58:18.500 --> 58:21.500
+ from analyzing recurrent neural nets
+
+58:21.500 --> 58:26.380
+ and robotic design and advanced computer design
+
+58:26.380 --> 58:31.380
+ is that having this kind of looking at the internal state
+
+58:33.940 --> 58:38.420
+ in a structured way that doesn't look at everything,
+
+58:38.420 --> 58:40.580
+ this guy's has, it's encapsulated,
+
+58:40.580 --> 58:42.260
+ looks at highly processed information,
+
+58:42.260 --> 58:44.380
+ is very selective and makes choices
+
+58:44.380 --> 58:45.620
+ without knowing how they're made.
+
+58:45.620 --> 58:47.360
+ There's, there'll also be an unconscious.
+
+58:47.360 --> 58:49.460
+ I think that that is gonna be,
+
+58:49.460 --> 58:51.940
+ turn out to be really essential
+
+58:51.940 --> 58:55.460
+ to doing efficient information processing.
+
+58:55.460 --> 58:59.340
+ And that's why it evolved,
+
+58:59.340 --> 59:03.420
+ because it's, it's, it's, it's helpful in,
+
+59:03.420 --> 59:06.240
+ because brains come at a high cost.
+
+59:06.240 --> 59:09.480
+ So there has to be, there has to be a good why.
+
+59:09.480 --> 59:10.960
+ And there's a reason, yeah.
+
+59:10.960 --> 59:15.960
+ They're rare in evolution and big brains
+
+59:16.640 --> 59:19.920
+ are rare in evolution and they, they come at a big cost.
+
+59:19.920 --> 59:22.480
+ You mean, if you, you, they, they,
+
+59:22.480 --> 59:25.960
+ they have high metabolic demands.
+
+59:27.160 --> 59:30.640
+ They require, you know, very active lifestyle,
+
+59:30.640 --> 59:35.640
+ warm bloodedness and take, take away from the ability
+
+59:36.880 --> 59:39.160
+ to support metabolism of digestion.
+
+59:39.160 --> 59:42.280
+ And so, so it's, it's, it comes at a high cost.
+
+59:42.280 --> 59:44.320
+ It has to, it has to pay back.
+
+59:44.320 --> 59:47.160
+ Yeah, I think it has a lot of value in social interaction.
+
+59:47.160 --> 59:49.600
+ So I actually am spending the rest of the day today
+
+59:49.600 --> 59:54.600
+ and with our friends that are,
+
+59:54.960 --> 59:58.280
+ our legged friends in robotic form at Boston Dynamics.
+
+59:58.280 --> 1:00:03.280
+ And I think, so my probably biggest passion
+
+1:00:03.760 --> 1:00:05.760
+ is human robot interaction.
+
+1:00:05.760 --> 1:00:09.480
+ And it seems that consciousness from the perspective
+
+1:00:09.480 --> 1:00:12.920
+ of the robot is very useful to improve
+
+1:00:12.920 --> 1:00:15.260
+ the human robot interaction experience.
+
+1:00:16.560 --> 1:00:18.520
+ The first, the display of consciousness,
+
+1:00:18.520 --> 1:00:20.200
+ but then to me, there's a gray area
+
+1:00:20.200 --> 1:00:23.620
+ between the display of consciousness and consciousness itself.
+
+1:00:23.620 --> 1:00:24.920
+ If you think of consciousness
+
+1:00:24.920 --> 1:00:26.900
+ from an evolutionary perspective,
+
+1:00:26.900 --> 1:00:29.880
+ it seems like a useful tool in human communication, so.
+
+1:00:29.880 --> 1:00:32.040
+ Yes, it's certainly, well,
+
+1:00:32.040 --> 1:00:35.240
+ whatever consciousness is will turn out to be.
+
+1:00:35.240 --> 1:00:39.680
+ I think addressing it through its use
+
+1:00:39.680 --> 1:00:42.060
+ and working up from simple cases
+
+1:00:42.060 --> 1:00:45.680
+ and also working up from engineering experience
+
+1:00:45.680 --> 1:00:48.760
+ in trying to do efficient computation,
+
+1:00:48.760 --> 1:00:53.380
+ including efficient management of social interactions
+
+1:00:53.380 --> 1:00:56.260
+ is going to really shed light on these questions.
+
+1:00:56.260 --> 1:00:59.680
+ As I said, in a way that sort of musing abstractly
+
+1:00:59.680 --> 1:01:01.640
+ about consciousness never would.
+
+1:01:01.640 --> 1:01:04.060
+ So as I mentioned, I talked to Sarah Walker
+
+1:01:04.060 --> 1:01:07.560
+ and first of all, she says, hi, spoke very highly of you.
+
+1:01:07.560 --> 1:01:12.400
+ One of her concerns about physics and physicists and humans
+
+1:01:12.400 --> 1:01:16.960
+ is that we may not fully understand the system
+
+1:01:16.960 --> 1:01:18.980
+ that we're inside of.
+
+1:01:18.980 --> 1:01:22.880
+ Meaning like, there may be limits
+
+1:01:22.880 --> 1:01:24.440
+ to the kind of physics we do
+
+1:01:24.440 --> 1:01:28.760
+ in trying to understand the system of which we're part of.
+
+1:01:28.760 --> 1:01:33.760
+ So like, the observer is also the observed.
+
+1:01:33.920 --> 1:01:36.720
+ In that sense, it seems like
+
+1:01:39.600 --> 1:01:42.760
+ our tools of understanding the world,
+
+1:01:42.760 --> 1:01:44.840
+ I mean, this is mostly centered around the questions
+
+1:01:44.840 --> 1:01:47.520
+ of what is life, trying to understand the patterns
+
+1:01:47.520 --> 1:01:51.320
+ that are characteristic of life and intelligence,
+
+1:01:51.320 --> 1:01:53.280
+ all those kinds of things.
+
+1:01:53.280 --> 1:01:57.320
+ We're not using the right tools because we're in the system.
+
+1:01:57.320 --> 1:02:01.320
+ Is there something that resonates with you there?
+
+1:02:01.320 --> 1:02:02.160
+ Almost like...
+
+1:02:02.160 --> 1:02:07.160
+ Well, yes, we have limitations, of course,
+
+1:02:08.520 --> 1:02:11.720
+ in the amount of information we can process.
+
+1:02:12.680 --> 1:02:16.800
+ On the other hand, we can get help from our Silicon friends
+
+1:02:16.800 --> 1:02:21.420
+ and we can get help from all kinds of instruments
+
+1:02:21.420 --> 1:02:24.220
+ that make up for our perceptual deficits.
+
+1:02:25.040 --> 1:02:30.040
+ And we can use, at a conceptual level,
+
+1:02:30.520 --> 1:02:32.760
+ we can use different kinds of concepts
+
+1:02:32.760 --> 1:02:35.360
+ to address different kinds of questions.
+
+1:02:35.360 --> 1:02:40.280
+ So I'm not sure exactly what problem she's talking about.
+
+1:02:40.280 --> 1:02:45.280
+ It's a problem akin to an organism living in a 2D plane
+
+1:02:45.600 --> 1:02:47.800
+ trying to understand a three dimensional world.
+
+1:02:47.800 --> 1:02:48.920
+ Well, we can do that.
+
+1:02:48.920 --> 1:02:53.360
+ I mean, in fact, for practical purposes,
+
+1:02:53.360 --> 1:02:55.840
+ most of our experience is two dimensional.
+
+1:02:55.840 --> 1:02:57.680
+ It's hard to move vertically.
+
+1:02:57.680 --> 1:03:00.400
+ And yet we've produced conceptually
+
+1:03:00.400 --> 1:03:01.800
+ a three dimensional symmetry
+
+1:03:01.800 --> 1:03:04.440
+ and in fact, four dimensional space time.
+
+1:03:05.440 --> 1:03:10.440
+ So by thinking in appropriate ways and using instruments
+
+1:03:10.520 --> 1:03:14.860
+ and getting consistent accounts and rich accounts,
+
+1:03:14.860 --> 1:03:19.200
+ we find out what concepts are necessary.
+
+1:03:22.080 --> 1:03:25.960
+ And I don't see any end in sight of the process
+
+1:03:25.960 --> 1:03:30.960
+ or any showstoppers because, let me give you an example.
+
+1:03:32.200 --> 1:03:35.400
+ I mean, for instance, QCD,
+
+1:03:35.400 --> 1:03:37.360
+ our theory of the strong interaction,
+
+1:03:37.360 --> 1:03:40.360
+ has nice equations, which I helped to discover.
+
+1:03:40.360 --> 1:03:41.280
+ What's QCD?
+
+1:03:41.280 --> 1:03:42.880
+ Quantum chromodynamics.
+
+1:03:42.880 --> 1:03:47.480
+ So it's our theory of the strong interaction,
+
+1:03:47.480 --> 1:03:51.400
+ the interaction that is responsible for nuclear physics.
+
+1:03:51.400 --> 1:03:53.120
+ So it's the interaction that governs
+
+1:03:53.120 --> 1:03:55.340
+ how quarks and gluons interact with each other
+
+1:03:55.340 --> 1:03:59.360
+ and make protons and neutrons
+
+1:03:59.360 --> 1:04:03.120
+ and all the strong, the related particles
+
+1:04:03.120 --> 1:04:05.360
+ and many things in physics.
+
+1:04:05.360 --> 1:04:07.960
+ It's one of the four basic forces of nature
+
+1:04:07.960 --> 1:04:09.800
+ as we presently understand it.
+
+1:04:09.800 --> 1:04:14.800
+ And so we have beautiful equations,
+
+1:04:15.800 --> 1:04:20.800
+ which we can test in very special circumstances
+
+1:04:22.620 --> 1:04:25.680
+ using at high energies, at accelerators.
+
+1:04:25.680 --> 1:04:28.700
+ So we're certain that these equations are correct.
+
+1:04:28.700 --> 1:04:30.520
+ Prizes are given for it and so on.
+
+1:04:30.520 --> 1:04:32.760
+ And people try to knock it down and they can't.
+
+1:04:32.760 --> 1:04:37.760
+ Yeah, but the situations in which we can calculate
+
+1:04:43.020 --> 1:04:46.280
+ the consequences of these equations are very limited.
+
+1:04:46.280 --> 1:04:51.280
+ So for instance, no one has been able to demonstrate
+
+1:04:52.080 --> 1:04:57.080
+ that this theory, which is built on quarks and gluons,
+
+1:04:58.520 --> 1:05:01.080
+ which no one, which you don't observe,
+
+1:05:01.080 --> 1:05:03.360
+ actually produces protons and neutrons
+
+1:05:03.360 --> 1:05:04.560
+ and the things you do observe.
+
+1:05:04.560 --> 1:05:06.760
+ This is called the problem of confinement.
+
+1:05:07.640 --> 1:05:11.000
+ So no one's been able to prove that analytically
+
+1:05:11.000 --> 1:05:13.520
+ in a way that a human can understand.
+
+1:05:13.520 --> 1:05:16.640
+ On the other hand, we can take these equations
+
+1:05:16.640 --> 1:05:20.400
+ to a computer, to gigantic computers and compute.
+
+1:05:20.400 --> 1:05:25.440
+ And by God, you get the world from it.
+
+1:05:25.440 --> 1:05:30.440
+ So these equations in a way that we don't understand
+
+1:05:32.120 --> 1:05:36.760
+ in terms of human concepts, we can't do the calculations,
+
+1:05:36.760 --> 1:05:39.020
+ but our machines can do them.
+
+1:05:39.020 --> 1:05:43.480
+ So with the help of what I like to call our silicon friends
+
+1:05:43.480 --> 1:05:46.600
+ and their descendants in the future,
+
+1:05:46.600 --> 1:05:50.720
+ we can understand in a different way
+
+1:05:50.720 --> 1:05:53.000
+ that allows us to understand more.
+
+1:05:53.000 --> 1:05:56.480
+ But I don't think we'll ever, no human is ever going
+
+1:05:56.480 --> 1:06:00.560
+ to be able to solve those equations in the same way.
+
+1:06:00.560 --> 1:06:04.760
+ So, but I think that's, you know,
+
+1:06:04.760 --> 1:06:09.560
+ when we find limitations to our natural abilities,
+
+1:06:09.560 --> 1:06:12.880
+ we can try to find workarounds.
+
+1:06:12.880 --> 1:06:15.160
+ And sometimes that's appropriate concepts.
+
+1:06:15.160 --> 1:06:17.320
+ Sometimes it's appropriate instruments.
+
+1:06:17.320 --> 1:06:19.800
+ Sometimes it's a combination of the two.
+
+1:06:19.800 --> 1:06:24.800
+ But I think it's premature to get defeatist about it.
+
+1:06:26.220 --> 1:06:31.220
+ I don't see any logical contradiction
+
+1:06:32.480 --> 1:06:35.040
+ or paradox or limitation
+
+1:06:35.040 --> 1:06:38.320
+ that will bring this process to a halt.
+
+1:06:38.320 --> 1:06:40.960
+ Well, I think the idea is to continue thinking
+
+1:06:40.960 --> 1:06:42.880
+ outside the box in different directions,
+
+1:06:42.880 --> 1:06:45.880
+ meaning just like how the math allows us
+
+1:06:45.880 --> 1:06:47.280
+ to think in multiple dimensions
+
+1:06:47.280 --> 1:06:52.280
+ outside of our perception system, sort of thinking,
+
+1:06:54.240 --> 1:06:55.720
+ you know, coming up with new tools
+
+1:06:55.720 --> 1:06:58.320
+ of mathematics or computation or all those kinds of things
+
+1:06:58.320 --> 1:07:03.320
+ to take different perspectives on our universe.
+
+1:07:04.220 --> 1:07:05.440
+ Well, I'm all for that.
+
+1:07:05.440 --> 1:07:08.840
+ You know, and I kind of have even elevated into a principle
+
+1:07:08.840 --> 1:07:11.520
+ which is of complementarity following Bohr
+
+1:07:11.520 --> 1:07:16.520
+ that you need different ways of thinking
+
+1:07:16.520 --> 1:07:18.600
+ even about the same things
+
+1:07:18.600 --> 1:07:21.080
+ in order to do justice to their reality
+
+1:07:21.080 --> 1:07:23.880
+ and answer different kinds of questions about them.
+
+1:07:23.880 --> 1:07:27.480
+ I mean, we've several times alluded to the fact
+
+1:07:27.480 --> 1:07:30.280
+ that human beings are hard to understand
+
+1:07:30.280 --> 1:07:34.560
+ and the concepts that you use to understand human beings
+
+1:07:34.560 --> 1:07:37.640
+ if you wanna prescribe drugs for them
+
+1:07:37.640 --> 1:07:42.560
+ or see what's gonna happen if they move very fast
+
+1:07:42.560 --> 1:07:45.160
+ or are exposed to radiation.
+
+1:07:45.160 --> 1:07:47.200
+ And so that requires one kind of thinking
+
+1:07:47.200 --> 1:07:52.080
+ that's very physical based on the fact
+
+1:07:52.080 --> 1:07:55.480
+ that the materials that were made out of.
+
+1:07:55.480 --> 1:07:57.680
+ On the other hand, if you want to understand
+
+1:07:57.680 --> 1:07:59.440
+ how a person's going to behave
+
+1:07:59.440 --> 1:08:01.280
+ in a different kind of situation,
+
+1:08:02.960 --> 1:08:06.120
+ you need entirely different concepts from psychology
+
+1:08:06.120 --> 1:08:08.480
+ and there's nothing wrong with that.
+
+1:08:08.480 --> 1:08:09.760
+ You can have very different ways
+
+1:08:09.760 --> 1:08:11.840
+ of addressing the same material
+
+1:08:11.840 --> 1:08:14.920
+ that are useful for different purposes, right?
+
+1:08:14.920 --> 1:08:16.120
+ Can you describe this idea
+
+1:08:16.120 --> 1:08:18.920
+ which is fascinating of complementarity a little bit?
+
+1:08:18.920 --> 1:08:23.920
+ Sort of first of all, what state is the principle?
+
+1:08:25.960 --> 1:08:26.800
+ What is it?
+
+1:08:26.800 --> 1:08:29.160
+ And second of all, what are good examples
+
+1:08:29.160 --> 1:08:30.960
+ starting from quantum mechanics?
+
+1:08:30.960 --> 1:08:32.720
+ You used to mention psychology.
+
+1:08:32.720 --> 1:08:33.560
+ Let's talk about this more.
+
+1:08:33.560 --> 1:08:34.920
+ It's like in your new book
+
+1:08:34.920 --> 1:08:37.120
+ one of the most fascinating ideas actually.
+
+1:08:38.000 --> 1:08:40.280
+ I think it's a wonderful, yeah.
+
+1:08:40.280 --> 1:08:43.160
+ To me it's, well, it's the culminating chapter of the book
+
+1:08:43.160 --> 1:08:48.160
+ and I think since the whole book is about the big lessons
+
+1:08:48.920 --> 1:08:52.520
+ or big takeaways from profound understanding
+
+1:08:52.520 --> 1:08:55.520
+ of the physical world that we've achieved,
+
+1:08:56.600 --> 1:08:59.000
+ including that it's mysterious in some ways,
+
+1:09:01.040 --> 1:09:06.040
+ this was the final overarching lesson, complementarity.
+
+1:09:06.040 --> 1:09:11.040
+ Lesson, complementarity and it's a approach.
+
+1:09:16.960 --> 1:09:18.520
+ So unlike some of these other things
+
+1:09:18.520 --> 1:09:20.640
+ which are just facts about the world,
+
+1:09:20.640 --> 1:09:22.480
+ like the world is both big and small
+
+1:09:22.480 --> 1:09:26.320
+ and different sizes and is big but we're not small,
+
+1:09:26.320 --> 1:09:28.440
+ things we talked about earlier
+
+1:09:28.440 --> 1:09:30.800
+ and the fact that the universe is comprehensible
+
+1:09:30.800 --> 1:09:33.600
+ and how complexity could emerge from simplicity
+
+1:09:33.600 --> 1:09:37.880
+ and so those things are in the broad sense
+
+1:09:37.880 --> 1:09:39.760
+ facts about the world.
+
+1:09:39.760 --> 1:09:42.560
+ Complementarity is more an attitude towards the world
+
+1:09:42.560 --> 1:09:46.320
+ than encouraged by the facts about the world.
+
+1:09:46.320 --> 1:09:51.320
+ And it's the concept or the approach
+
+1:09:54.320 --> 1:09:59.320
+ or the realization that it can be appropriate
+
+1:09:59.680 --> 1:10:02.880
+ and useful and inevitable and unavoidable
+
+1:10:02.880 --> 1:10:07.880
+ to use very different descriptions of the same object
+
+1:10:08.440 --> 1:10:11.680
+ or the same system or the same situation
+
+1:10:12.960 --> 1:10:15.520
+ to answer different kinds of questions
+
+1:10:15.520 --> 1:10:17.960
+ that may be very different
+
+1:10:17.960 --> 1:10:22.560
+ and even mutually uninterpretable,
+
+1:10:22.560 --> 1:10:27.720
+ immutually incomprehensible.
+
+1:10:27.720 --> 1:10:28.960
+ But both correct somehow.
+
+1:10:28.960 --> 1:10:32.720
+ But both correct and sources of different kinds of insight
+
+1:10:32.720 --> 1:10:33.880
+ which is so weird.
+
+1:10:34.800 --> 1:10:36.640
+ But it seems to work in so many cases.
+
+1:10:36.640 --> 1:10:41.080
+ It works in many cases and I think it's a deep fact
+
+1:10:41.080 --> 1:10:44.600
+ about the world and how we should approach it.
+
+1:10:44.600 --> 1:10:49.600
+ It's most rigorous form where it's actually a theorem
+
+1:10:50.960 --> 1:10:53.520
+ if quantum mechanics is correct,
+
+1:10:53.520 --> 1:10:55.360
+ occurs in quantum mechanics
+
+1:10:55.360 --> 1:11:00.360
+ where the primary description of the world
+
+1:11:00.360 --> 1:11:03.400
+ is in terms of wave functions.
+
+1:11:03.400 --> 1:11:04.720
+ But let's not talk about the world.
+
+1:11:04.720 --> 1:11:07.480
+ Let's just talk about a particle, an electron.
+
+1:11:09.480 --> 1:11:12.600
+ The primary description of that electron
+
+1:11:12.600 --> 1:11:14.440
+ is its wave function.
+
+1:11:14.440 --> 1:11:18.720
+ And the wave function can be used to predict
+
+1:11:19.920 --> 1:11:21.840
+ where it's gonna be.
+
+1:11:21.840 --> 1:11:24.200
+ If you observe, it'll be in different places
+
+1:11:24.200 --> 1:11:27.520
+ with different probabilities or how fast it's moving.
+
+1:11:27.520 --> 1:11:31.280
+ And it'll also be moving in different ways
+
+1:11:31.280 --> 1:11:32.760
+ with different probabilities.
+
+1:11:32.760 --> 1:11:35.240
+ That's what quantum mechanics says.
+
+1:11:35.240 --> 1:11:38.920
+ And you can predict either set of probabilities
+
+1:11:38.920 --> 1:11:40.160
+ if you know what's gonna happen
+
+1:11:40.160 --> 1:11:45.160
+ if I make an observation of the position or the velocity.
+
+1:11:48.840 --> 1:11:51.600
+ So the wave function gives you ways of doing both of those.
+
+1:11:51.600 --> 1:11:54.480
+ But to do it, to get those predictions,
+
+1:11:54.480 --> 1:11:57.320
+ you have to process the wave function in different ways.
+
+1:11:57.320 --> 1:11:59.120
+ You process it one way for position
+
+1:11:59.120 --> 1:12:01.520
+ and in a different way for momentum.
+
+1:12:01.520 --> 1:12:05.400
+ And those ways are mathematically incompatible.
+
+1:12:05.400 --> 1:12:08.480
+ It's like you have a stone
+
+1:12:08.480 --> 1:12:11.120
+ and you can sculpt it into a Venus de Milo
+
+1:12:11.120 --> 1:12:14.360
+ or you can sculpt it into David, but you can't do both.
+
+1:12:18.040 --> 1:12:20.680
+ And that's an example of complementarity.
+
+1:12:20.680 --> 1:12:22.560
+ To answer different kinds of questions,
+
+1:12:22.560 --> 1:12:25.920
+ you have to analyze the system in different ways
+
+1:12:25.920 --> 1:12:29.200
+ that are mutually incompatible,
+
+1:12:29.200 --> 1:12:32.800
+ but both valid to answer different kinds of questions.
+
+1:12:32.800 --> 1:12:34.880
+ So in that case, it's a theorem,
+
+1:12:34.880 --> 1:12:38.920
+ but I think it's a much more widespread phenomena
+
+1:12:38.920 --> 1:12:40.440
+ that applies to many cases
+
+1:12:40.440 --> 1:12:42.400
+ where we can't prove it as a theorem,
+
+1:12:42.400 --> 1:12:46.520
+ but it's a piece of wisdom, if you like,
+
+1:12:46.520 --> 1:12:51.520
+ and appears to be a very important insight.
+
+1:12:53.000 --> 1:12:53.840
+ And if you ignore it,
+
+1:12:53.840 --> 1:12:58.840
+ you can get very confused and misguided.
+
+1:13:02.640 --> 1:13:06.960
+ Do you think this is a useful hack
+
+1:13:06.960 --> 1:13:10.560
+ for ideas that we don't fully understand?
+
+1:13:10.560 --> 1:13:13.720
+ Or is this somehow a fundamental property
+
+1:13:13.720 --> 1:13:16.760
+ of all or many ideas,
+
+1:13:16.760 --> 1:13:19.360
+ that you can take multiple perspectives
+
+1:13:19.360 --> 1:13:20.820
+ and they're both true?
+
+1:13:20.820 --> 1:13:24.420
+ Well, I think it's both.
+
+1:13:24.420 --> 1:13:26.040
+ So it's both the answer to all questions.
+
+1:13:26.040 --> 1:13:27.400
+ Yes, that's right.
+
+1:13:27.400 --> 1:13:28.920
+ It's not either or, it's both.
+
+1:13:28.920 --> 1:13:32.760
+ It's paralyzing to think that we live in a world
+
+1:13:32.760 --> 1:13:37.440
+ that's fundamentally surrounded by complementary ideas.
+
+1:13:39.540 --> 1:13:44.040
+ Because we somehow want to attach ourselves
+
+1:13:44.040 --> 1:13:45.720
+ to absolute truths,
+
+1:13:45.720 --> 1:13:48.440
+ and absolute truths certainly don't like the idea
+
+1:13:48.440 --> 1:13:50.080
+ of complementarity.
+
+1:13:50.080 --> 1:13:53.160
+ Yes, Einstein was very uncomfortable with complementarity.
+
+1:13:53.160 --> 1:13:55.280
+ And in a broad sense,
+
+1:13:55.280 --> 1:13:57.420
+ the famous Bohr Einstein debates
+
+1:13:59.120 --> 1:14:00.760
+ revolved around this question
+
+1:14:00.760 --> 1:14:03.040
+ of whether the complementarity
+
+1:14:03.040 --> 1:14:08.040
+ that is a foundational feature of quantum mechanics,
+
+1:14:08.320 --> 1:14:09.240
+ as we have it,
+
+1:14:10.620 --> 1:14:15.620
+ is a permanent feature of the universe
+
+1:14:16.680 --> 1:14:19.040
+ and our description of nature.
+
+1:14:19.040 --> 1:14:22.960
+ And so far, quantum mechanics wins.
+
+1:14:22.960 --> 1:14:26.480
+ And it's gone from triumph to triumph.
+
+1:14:26.480 --> 1:14:28.720
+ Whether complementarity is rock bottom,
+
+1:14:28.720 --> 1:14:31.560
+ I guess, you can never be sure.
+
+1:14:31.560 --> 1:14:34.220
+ I mean, but it looks awfully good
+
+1:14:34.220 --> 1:14:35.560
+ and it's been very successful.
+
+1:14:35.560 --> 1:14:40.400
+ And certainly, complementarity has been extremely useful
+
+1:14:40.400 --> 1:14:43.460
+ and fruitful in that domain,
+
+1:14:43.460 --> 1:14:48.460
+ including some of Einstein's attempts to challenge it
+
+1:14:50.780 --> 1:14:55.460
+ with the famous Einstein Podolsky Rosen experiment
+
+1:14:55.460 --> 1:14:57.380
+ turned out to be confirmations
+
+1:14:57.380 --> 1:15:02.380
+ that have been useful in themselves.
+
+1:15:03.300 --> 1:15:05.180
+ But so thinking about these things was fruitful,
+
+1:15:05.180 --> 1:15:07.920
+ but not in the way that Einstein hoped.
+
+1:15:07.920 --> 1:15:12.920
+ Yeah, so as I said, in the case of quantum mechanics
+
+1:15:19.640 --> 1:15:24.640
+ and this dilemma or dichotomy
+
+1:15:26.200 --> 1:15:29.280
+ between processing the wave function in different ways,
+
+1:15:29.280 --> 1:15:30.120
+ it's a theorem.
+
+1:15:30.120 --> 1:15:31.200
+ They're mutually incompatible
+
+1:15:31.200 --> 1:15:32.880
+ and the physical correlate of that
+
+1:15:32.880 --> 1:15:35.080
+ is the Heisenberg uncertainty principle
+
+1:15:35.080 --> 1:15:38.880
+ you can't have position and momentum determined at once.
+
+1:15:41.600 --> 1:15:46.600
+ But in other cases, like one that I like to think about
+
+1:15:48.120 --> 1:15:50.120
+ or like to point out as an example
+
+1:15:50.120 --> 1:15:52.980
+ is free will and determinism.
+
+1:15:52.980 --> 1:15:57.240
+ It's much less of a theorem
+
+1:15:57.240 --> 1:16:02.240
+ and more a kind of way of thinking about things
+
+1:16:06.240 --> 1:16:10.680
+ that I think is reassuring
+
+1:16:10.680 --> 1:16:15.680
+ and avoids a lot of unnecessary quarreling and confusion.
+
+1:16:16.040 --> 1:16:17.480
+ The quarreling I'm okay with
+
+1:16:17.480 --> 1:16:18.960
+ and the confusion I'm okay with,
+
+1:16:18.960 --> 1:16:21.640
+ I mean, people debate about difficult ideas,
+
+1:16:21.640 --> 1:16:24.560
+ but the question is whether it could be
+
+1:16:24.560 --> 1:16:26.880
+ almost a fundamental truth.
+
+1:16:26.880 --> 1:16:28.280
+ I think it is a fundamental truth.
+
+1:16:28.280 --> 1:16:32.640
+ That free will is both an illusion and not.
+
+1:16:32.640 --> 1:16:34.240
+ Yes, I think that's correct.
+
+1:16:35.960 --> 1:16:39.280
+ There's a reason why people say quantum mechanics is weird
+
+1:16:39.280 --> 1:16:42.840
+ and complementarity is a big part of that.
+
+1:16:45.320 --> 1:16:48.760
+ To say that our actual whole world is weird,
+
+1:16:48.760 --> 1:16:52.140
+ the whole hierarchy of the universe is weird
+
+1:16:52.140 --> 1:16:54.440
+ in this kind of particular way,
+
+1:16:54.440 --> 1:16:59.440
+ and it's quite profound, but it's also humbling
+
+1:17:03.240 --> 1:17:06.720
+ because it's like we're never going to be on sturdy ground
+
+1:17:06.720 --> 1:17:09.280
+ in the way that humans like to be.
+
+1:17:09.280 --> 1:17:13.760
+ It's like you have to embrace that this whole thing
+
+1:17:13.760 --> 1:17:18.080
+ is like unsteady mess.
+
+1:17:18.080 --> 1:17:21.560
+ It's one of many lessons in humility
+
+1:17:21.560 --> 1:17:26.560
+ that we run into in profound understanding of the world.
+
+1:17:28.600 --> 1:17:30.720
+ The Copernican revolution was one,
+
+1:17:30.720 --> 1:17:35.200
+ that the earth is not the center of the universe.
+
+1:17:35.200 --> 1:17:36.960
+ Darwinian evolution is another,
+
+1:17:36.960 --> 1:17:53.960
+ that humans are not the pinnacle of God's creation and the apparent result
+
+1:17:53.960 --> 1:17:57.640
+ of deep understanding of physical reality,
+
+1:17:57.640 --> 1:18:05.520
+ that mind emerges from matter and there's no call
+
+1:18:05.520 --> 1:18:07.960
+ on special life forces or souls.
+
+1:18:09.360 --> 1:18:11.440
+ These are all lessons in humility,
+
+1:18:11.440 --> 1:18:19.120
+ and I actually find complementarity a liberating concept.
+
+1:18:19.120 --> 1:18:21.560
+ It's, okay, you know, we...
+
+1:18:21.560 --> 1:18:22.640
+ Yeah, it is in a way.
+
+1:18:22.640 --> 1:18:28.080
+ That is what I remember.
+
+1:18:28.080 --> 1:18:30.880
+ There's a story about Dr. Johnson,
+
+1:18:30.880 --> 1:18:32.640
+ and he's talking with Boswell,
+
+1:18:32.640 --> 1:18:36.400
+ and Boswell was, they were discussing a sermon
+
+1:18:36.400 --> 1:18:37.800
+ that they'd both heard,
+
+1:18:37.800 --> 1:18:43.600
+ and the sort of culmination of the sermon was the speaker saying,
+
+1:18:43.600 --> 1:18:45.440
+ I accept the universe.
+
+1:18:45.440 --> 1:18:50.720
+ And Dr. Johnson said, well, damn well better.
+
+1:18:50.720 --> 1:18:55.720
+ And there's a certain joy in accepting the universe
+
+1:18:55.720 --> 1:18:57.760
+ because it's mind expanding.
+
+1:18:57.760 --> 1:19:10.160
+ And to me, complementarity also suggests tolerance,
+
+1:19:10.160 --> 1:19:15.880
+ suggests opportunities for understanding things
+
+1:19:15.880 --> 1:19:22.760
+ in different ways that add to rather than detract
+
+1:19:22.760 --> 1:19:25.120
+ from understanding.
+
+1:19:25.120 --> 1:19:29.960
+ So I think it's an opportunity for mind expansion
+
+1:19:29.960 --> 1:19:33.160
+ and demanding that there's only one way
+
+1:19:33.160 --> 1:19:36.720
+ to think about things can be very limiting.
+
+1:19:36.720 --> 1:19:38.840
+ On the free will one, that's a trippy one, though.
+
+1:19:38.840 --> 1:19:43.520
+ To think like I am the decider of my own actions
+
+1:19:43.520 --> 1:19:49.760
+ and at the same time I'm not is tricky to think about,
+
+1:19:49.760 --> 1:19:53.840
+ but there does seem to be some kind of profound truth in that.
+
+1:19:53.840 --> 1:19:56.880
+ I get, well, I think it is tied up.
+
+1:19:56.880 --> 1:20:00.320
+ It will turn out to be tied up when we understand things better
+
+1:20:00.320 --> 1:20:04.640
+ with these issues of self awareness and where we get,
+
+1:20:04.640 --> 1:20:06.960
+ what we perceive as making choices,
+
+1:20:06.960 --> 1:20:12.120
+ what does that really mean and what's going on under the hood.
+
+1:20:12.120 --> 1:20:15.000
+ But I'm speculating about a future understanding
+
+1:20:15.000 --> 1:20:17.000
+ that's not in place at present.
+
+1:20:17.000 --> 1:20:19.960
+ Your sense there will always be,
+
+1:20:19.960 --> 1:20:22.880
+ like as you dig into the self awareness thing,
+
+1:20:22.880 --> 1:20:24.600
+ there'll always be some places
+
+1:20:24.600 --> 1:20:26.640
+ where complementarity is gonna show up.
+
+1:20:26.640 --> 1:20:28.040
+ Oh, definitely, yeah.
+
+1:20:28.040 --> 1:20:31.560
+ I mean, there will be, how should I say?
+
+1:20:31.560 --> 1:20:33.720
+ There'll be kind of a God's eye view
+
+1:20:33.720 --> 1:20:37.400
+ which sees everything that's going on
+
+1:20:37.400 --> 1:20:40.120
+ in the computer or the brain.
+
+1:20:40.120 --> 1:20:42.280
+ And then there's the brain's own view
+
+1:20:42.280 --> 1:20:46.240
+ or the central processor or whatever it is,
+
+1:20:46.240 --> 1:20:50.760
+ what we call the self, the consciousness,
+
+1:20:50.760 --> 1:20:53.480
+ that's only aware of a very small part of it.
+
+1:20:53.480 --> 1:20:54.800
+ And those are very different.
+
+1:20:54.800 --> 1:20:59.720
+ Those are, so the God's eye view can be deterministic
+
+1:20:59.720 --> 1:21:04.720
+ while the self view sees free will.
+
+1:21:07.880 --> 1:21:11.440
+ I'm pretty sure that's how it's gonna work out actually.
+
+1:21:11.440 --> 1:21:15.160
+ But as it stands, free will is a concept
+
+1:21:15.160 --> 1:21:19.280
+ that we definitely, at least I feel I definitely experience,
+
+1:21:19.280 --> 1:21:21.600
+ I can choose to do one thing then another.
+
+1:21:21.600 --> 1:21:24.920
+ And other people I think are sufficiently similar to me
+
+1:21:24.920 --> 1:21:28.420
+ that I trust that they feel the same way.
+
+1:21:30.640 --> 1:21:33.600
+ And it's an essential concept in psychology
+
+1:21:33.600 --> 1:21:35.680
+ and law and so forth.
+
+1:21:35.680 --> 1:21:40.680
+ But at the same time, I think that mind emerges from matter
+
+1:21:42.520 --> 1:21:47.360
+ and that there's an alternative description of matter
+
+1:21:47.360 --> 1:21:51.160
+ that's up to subtleties about quantum mechanics,
+
+1:21:51.160 --> 1:21:53.960
+ which I don't think are relevant here,
+
+1:21:53.960 --> 1:21:56.180
+ really is deterministic.
+
+1:21:56.180 --> 1:21:57.960
+ Let me ask you about some particles.
+
+1:21:57.960 --> 1:21:59.200
+ Okay.
+
+1:21:59.200 --> 1:22:00.880
+ First the absurd question,
+
+1:22:00.880 --> 1:22:04.980
+ almost like a question that like Plato would ask.
+
+1:22:04.980 --> 1:22:07.740
+ What is the smallest thing in the universe?
+
+1:22:08.840 --> 1:22:13.520
+ As far as we know, the fundamental particles
+
+1:22:13.520 --> 1:22:17.480
+ out of which we build our most successful description
+
+1:22:17.480 --> 1:22:20.040
+ of nature are points.
+
+1:22:20.040 --> 1:22:24.880
+ They don't have any internal structure.
+
+1:22:27.000 --> 1:22:29.980
+ So that's as small as can be.
+
+1:22:31.960 --> 1:22:34.000
+ So what does that mean operationally?
+
+1:22:34.000 --> 1:22:39.000
+ That means that they obey equations that describe entities
+
+1:22:39.000 --> 1:22:44.000
+ that are singular concentrations of energy,
+
+1:22:46.240 --> 1:22:47.720
+ momentum, angular momentum,
+
+1:22:47.720 --> 1:22:50.080
+ the things that particles have,
+
+1:22:50.080 --> 1:22:53.460
+ but localized at individual points.
+
+1:22:53.460 --> 1:22:57.960
+ Now that mathematical structure
+
+1:22:57.960 --> 1:23:01.420
+ is only revealed partially in the world
+
+1:23:01.420 --> 1:23:04.600
+ because to process the wave function
+
+1:23:04.600 --> 1:23:09.360
+ in a way that accesses information about the precise
+
+1:23:09.360 --> 1:23:12.080
+ position of things, you have to apply a lot of energy
+
+1:23:12.080 --> 1:23:14.960
+ and that's an idealization
+
+1:23:14.960 --> 1:23:16.720
+ and you can apply infinite amount of energy
+
+1:23:16.720 --> 1:23:19.880
+ to determine a precise position.
+
+1:23:19.880 --> 1:23:22.440
+ But at the mathematical level,
+
+1:23:23.560 --> 1:23:26.560
+ we build the world out of particles that are points.
+
+1:23:26.560 --> 1:23:29.280
+ So do they actually exist and what are we talking about?
+
+1:23:29.280 --> 1:23:30.120
+ Oh, they exist.
+
+1:23:30.120 --> 1:23:33.000
+ So let me ask sort of do quarks exist?
+
+1:23:33.000 --> 1:23:36.200
+ Yes, do electrons exist?
+
+1:23:36.200 --> 1:23:37.720
+ Yes, do photons exist?
+
+1:23:37.720 --> 1:23:38.540
+ Yes.
+
+1:23:38.540 --> 1:23:39.720
+ But what does it mean for them to exist?
+
+1:23:39.720 --> 1:23:43.520
+ Okay, so well, the hard answer to that,
+
+1:23:43.520 --> 1:23:48.520
+ the precise answer is that we construct the world
+
+1:23:49.000 --> 1:23:51.880
+ out of equations that contain entities
+
+1:23:51.880 --> 1:23:56.720
+ that are reproducible,
+
+1:23:56.720 --> 1:24:00.860
+ that exist in vast numbers throughout the universe,
+
+1:24:00.860 --> 1:24:05.860
+ that have definite properties of mass,
+
+1:24:05.900 --> 1:24:10.900
+ spin and a few others that we call electrons
+
+1:24:13.420 --> 1:24:17.220
+ and what an electron is is defined by the equations
+
+1:24:17.220 --> 1:24:19.920
+ that it satisfies theoretically
+
+1:24:19.920 --> 1:24:24.160
+ and we find that there are many, many exemplars
+
+1:24:24.160 --> 1:24:28.860
+ of that entity in the physical world.
+
+1:24:28.860 --> 1:24:31.300
+ So in the case of electrons,
+
+1:24:31.300 --> 1:24:34.260
+ we can isolate them and study them
+
+1:24:34.260 --> 1:24:36.740
+ and individual ones in great detail
+
+1:24:36.740 --> 1:24:41.100
+ and we can check that they all actually are identical
+
+1:24:42.100 --> 1:24:45.420
+ and that's why chemistry works and yes.
+
+1:24:45.420 --> 1:24:49.820
+ So in that case, it's very tangible.
+
+1:24:49.820 --> 1:24:51.020
+ Similarly with photons,
+
+1:24:51.020 --> 1:24:55.180
+ you can study them individually, the units of light
+
+1:24:55.180 --> 1:24:59.900
+ and nowadays, it's very practical
+
+1:24:59.900 --> 1:25:01.560
+ to study individual photons
+
+1:25:01.560 --> 1:25:05.660
+ and determine their spin and their other basic properties
+
+1:25:05.660 --> 1:25:10.660
+ and check out the equations in great detail.
+
+1:25:11.100 --> 1:25:13.480
+ For quarks and gluons,
+
+1:25:13.480 --> 1:25:16.780
+ which are the other two main ingredients
+
+1:25:16.780 --> 1:25:21.780
+ of our model of matter that's so successful,
+
+1:25:22.300 --> 1:25:23.580
+ it's a little more complicated
+
+1:25:23.580 --> 1:25:28.320
+ because the quarks and gluons that appear in our equations
+
+1:25:29.300 --> 1:25:33.340
+ don't appear directly as particles you can isolate
+
+1:25:33.340 --> 1:25:35.720
+ and study individually.
+
+1:25:35.720 --> 1:25:40.720
+ They always occur within what are called bound states
+
+1:25:41.820 --> 1:25:43.980
+ or structures like protons.
+
+1:25:43.980 --> 1:25:48.060
+ A proton, roughly speaking, is composed of three quarks
+
+1:25:48.060 --> 1:25:50.620
+ and a lot of gluons but we can detect them
+
+1:25:50.620 --> 1:25:54.420
+ in a remarkably direct way actually nowadays,
+
+1:25:54.420 --> 1:25:57.280
+ whereas at relatively low energies,
+
+1:25:58.200 --> 1:26:00.820
+ the behavior of quarks is complicated.
+
+1:26:00.820 --> 1:26:05.500
+ At high energies, they can propagate through space
+
+1:26:05.500 --> 1:26:10.500
+ relatively freely for a while and we can see their tracks.
+
+1:26:11.740 --> 1:26:14.820
+ So ultimately, they get recaptured into protons
+
+1:26:14.820 --> 1:26:17.940
+ and other mesons and funny things
+
+1:26:17.940 --> 1:26:21.020
+ but for a short time, they propagate freely
+
+1:26:21.020 --> 1:26:25.260
+ and while that happens, we can take snapshots
+
+1:26:25.260 --> 1:26:27.440
+ and see their manifestations.
+
+1:26:29.620 --> 1:26:31.700
+ Actually, this kind of thing is exactly
+
+1:26:31.700 --> 1:26:33.140
+ what I got the Nobel Prize for,
+
+1:26:33.140 --> 1:26:35.060
+ predicting that this would work.
+
+1:26:35.060 --> 1:26:36.540
+ And similarly for gluons,
+
+1:26:36.540 --> 1:26:41.540
+ although you can't isolate them as individual particles
+
+1:26:41.660 --> 1:26:43.900
+ and study them in the same way that we study electrons,
+
+1:26:43.900 --> 1:26:48.900
+ say, you can use them theoretically as entities
+
+1:26:51.820 --> 1:26:54.820
+ out of which you build tangible things
+
+1:26:57.060 --> 1:26:58.500
+ that we actually do observe
+
+1:26:59.560 --> 1:27:03.820
+ but also you can, at accelerators at high energy,
+
+1:27:03.820 --> 1:27:06.340
+ you can liberate them for brief periods of time
+
+1:27:06.340 --> 1:27:10.860
+ and study and get convincing evidence
+
+1:27:10.860 --> 1:27:15.460
+ that they leave tracks and you can get convincing evidence
+
+1:27:15.460 --> 1:27:17.900
+ that they were there and have the properties
+
+1:27:17.900 --> 1:27:19.580
+ that we wanted them to have.
+
+1:27:19.580 --> 1:27:21.260
+ Can we talk about asymptotic freedom,
+
+1:27:21.260 --> 1:27:24.020
+ this very idea that you won the Nobel Prize for?
+
+1:27:24.020 --> 1:27:25.300
+ Yeah.
+
+1:27:25.300 --> 1:27:29.660
+ So it describes a very weird effect to me,
+
+1:27:30.820 --> 1:27:33.220
+ the weird in the following way.
+
+1:27:33.220 --> 1:27:38.220
+ So the way I think of most forces or interactions,
+
+1:27:38.220 --> 1:27:43.220
+ the closer you are, the stronger the effect,
+
+1:27:43.820 --> 1:27:46.300
+ the stronger the force, right?
+
+1:27:46.300 --> 1:27:50.540
+ With quarks, the close they are,
+
+1:27:50.540 --> 1:27:53.900
+ the less so the strong interaction.
+
+1:27:53.900 --> 1:27:58.600
+ And in fact, they're basically act like free particles
+
+1:27:58.600 --> 1:28:00.700
+ when they're very close.
+
+1:28:00.700 --> 1:28:01.900
+ That's right, yes.
+
+1:28:01.900 --> 1:28:04.540
+ But this requires a huge amount of energy.
+
+1:28:04.540 --> 1:28:09.540
+ Like can you describe me why, how does this even work?
+
+1:28:11.740 --> 1:28:12.580
+ How weird it is?
+
+1:28:12.580 --> 1:28:17.580
+ A proper description must bring in quantum mechanics
+
+1:28:18.220 --> 1:28:20.620
+ and relativity and it's,
+
+1:28:21.660 --> 1:28:25.460
+ so a proper description and equations,
+
+1:28:25.460 --> 1:28:29.860
+ so a proper description really is probably more
+
+1:28:29.860 --> 1:28:34.140
+ than we have time for and require quite a bit of patience
+
+1:28:34.140 --> 1:28:35.980
+ on your part, but.
+
+1:28:35.980 --> 1:28:37.700
+ How does relativity come into play?
+
+1:28:37.700 --> 1:28:39.220
+ Wait, wait a minute.
+
+1:28:39.220 --> 1:28:44.220
+ Relativity is important because when we talk about
+
+1:28:48.980 --> 1:28:51.580
+ trying to think about short distances,
+
+1:28:51.580 --> 1:28:55.060
+ we have to think about very large momenta
+
+1:28:55.060 --> 1:28:56.580
+ and very large momenta are connected
+
+1:28:56.580 --> 1:28:59.180
+ to very large energy in relativity.
+
+1:28:59.180 --> 1:29:02.460
+ And so the connection between how things behave
+
+1:29:02.460 --> 1:29:06.180
+ at short distances and how things behave at high energy
+
+1:29:06.180 --> 1:29:09.340
+ really is connected through relativity
+
+1:29:09.340 --> 1:29:13.000
+ in sort of a slightly backhanded way.
+
+1:29:13.000 --> 1:29:16.180
+ Quantum mechanics indicates that short,
+
+1:29:16.180 --> 1:29:18.980
+ to get to analyze short distances,
+
+1:29:20.120 --> 1:29:25.120
+ you need to bring in probes that carry a lot of momentum.
+
+1:29:26.460 --> 1:29:29.140
+ This again is related to uncertainty
+
+1:29:29.140 --> 1:29:31.980
+ because it's the fact that you have to bring in
+
+1:29:31.980 --> 1:29:36.060
+ a lot of momentum that interferes with the possibility
+
+1:29:36.060 --> 1:29:40.220
+ of determining position and momentum at the same time.
+
+1:29:40.220 --> 1:29:41.980
+ If you want to determine position,
+
+1:29:41.980 --> 1:29:45.140
+ you have to use instruments that bring in a lot of momentum.
+
+1:29:45.140 --> 1:29:48.580
+ And because of that, those same instruments
+
+1:29:48.580 --> 1:29:50.060
+ can't also measure momentum
+
+1:29:50.060 --> 1:29:52.460
+ because they're disturbing the momentum that,
+
+1:29:53.620 --> 1:29:56.220
+ and then the momentum brings in energy and yeah.
+
+1:29:56.220 --> 1:29:59.540
+ So that there's also the effect that asymptotic freedom
+
+1:29:59.540 --> 1:30:04.540
+ comes from the possibility of spontaneously making
+
+1:30:08.460 --> 1:30:12.140
+ quarks and gluons for short amounts of time
+
+1:30:12.140 --> 1:30:15.480
+ that fluctuate into existence and out of existence.
+
+1:30:16.600 --> 1:30:21.600
+ And the fact that that can be done
+
+1:30:21.860 --> 1:30:23.800
+ with a very little amount of energy
+
+1:30:23.800 --> 1:30:26.660
+ and uncertainty and energy translates
+
+1:30:26.660 --> 1:30:27.620
+ into uncertainty and time.
+
+1:30:27.620 --> 1:30:31.460
+ So if you do that for a short time, you can do that.
+
+1:30:31.460 --> 1:30:34.040
+ Well, it's all comes in a package.
+
+1:30:35.340 --> 1:30:39.500
+ So I told you it would take a while to really explain,
+
+1:30:39.500 --> 1:30:44.100
+ but the results can be understood.
+
+1:30:44.100 --> 1:30:48.100
+ I mean, we can state the results pretty simply, I think.
+
+1:30:48.100 --> 1:30:53.100
+ So in everyday life, we do encounter some forces
+
+1:30:53.100 --> 1:30:56.380
+ that increase with distance
+
+1:30:56.380 --> 1:30:59.320
+ and kind of turn off at short distances.
+
+1:30:59.320 --> 1:31:02.140
+ That's the way rubber bands work, if you think about it,
+
+1:31:02.140 --> 1:31:06.980
+ or if you pull them hard, they resist,
+
+1:31:06.980 --> 1:31:11.620
+ but they get flabby if the rubber band is not pulled.
+
+1:31:12.940 --> 1:31:17.660
+ And so there are, that can happen in the physical world,
+
+1:31:17.660 --> 1:31:19.860
+ but what's really difficult is to see
+
+1:31:19.860 --> 1:31:21.820
+ how that could be a fundamental force
+
+1:31:21.820 --> 1:31:24.400
+ that's consistent with everything else we know.
+
+1:31:24.400 --> 1:31:28.500
+ And that's what asymptotic freedom is.
+
+1:31:28.500 --> 1:31:33.500
+ It says that there's a very particular kind
+
+1:31:33.620 --> 1:31:37.480
+ of fundamental force that involves special particles
+
+1:31:37.480 --> 1:31:40.340
+ called gluons with very special properties
+
+1:31:40.340 --> 1:31:43.080
+ that enables that kind of behavior.
+
+1:31:43.080 --> 1:31:47.380
+ So there were experiment, at the time we did our work,
+
+1:31:47.380 --> 1:31:49.300
+ there were experimental indications
+
+1:31:49.300 --> 1:31:54.180
+ that quarks and gluons did have this kind of property,
+
+1:31:54.180 --> 1:31:56.780
+ but there were no equations
+
+1:31:56.780 --> 1:31:59.600
+ that were capable of capturing it.
+
+1:31:59.600 --> 1:32:02.580
+ And we found the equations and showed how they work
+
+1:32:02.580 --> 1:32:06.240
+ and showed how they, that they were basically unique.
+
+1:32:06.240 --> 1:32:08.300
+ And this led to a complete theory
+
+1:32:08.300 --> 1:32:09.980
+ of how the strong interaction works,
+
+1:32:09.980 --> 1:32:14.220
+ which is the quantum chromodynamics we mentioned earlier.
+
+1:32:14.220 --> 1:32:19.220
+ And so that's the phenomenon that quarks and gluons
+
+1:32:23.140 --> 1:32:26.500
+ interact very, very weakly when they're close together.
+
+1:32:26.500 --> 1:32:29.100
+ That's connected through relativity
+
+1:32:29.100 --> 1:32:32.520
+ with the fact that they also interact very, very weakly
+
+1:32:32.520 --> 1:32:34.000
+ at high energies.
+
+1:32:34.000 --> 1:32:36.680
+ So if you have, so at high energies,
+
+1:32:37.740 --> 1:32:42.220
+ the simplicity of the fundamental interaction gets revealed.
+
+1:32:42.220 --> 1:32:43.820
+ At the time we did our work,
+
+1:32:43.820 --> 1:32:46.580
+ the clues were very subtle,
+
+1:32:46.580 --> 1:32:50.140
+ but nowadays at what are now high energy accelerators,
+
+1:32:50.140 --> 1:32:51.100
+ it's all obvious.
+
+1:32:51.100 --> 1:32:52.900
+ So we would have had a much,
+
+1:32:52.900 --> 1:32:55.540
+ well, somebody would have had a much easier time
+
+1:32:55.540 --> 1:32:57.700
+ 20 years later, looking at the data,
+
+1:32:57.700 --> 1:32:59.940
+ you can sort of see the quarks and gluons.
+
+1:32:59.940 --> 1:33:02.140
+ As I mentioned, they leave these short tracks
+
+1:33:02.140 --> 1:33:04.380
+ that would have been much, much easier,
+
+1:33:04.380 --> 1:33:08.700
+ but from fundamental, from indirect clues,
+
+1:33:08.700 --> 1:33:10.260
+ we were able to piece together enough
+
+1:33:10.260 --> 1:33:13.240
+ to make that behavior a prediction
+
+1:33:13.240 --> 1:33:15.900
+ rather than a post diction, right?
+
+1:33:15.900 --> 1:33:17.960
+ So it becomes obvious at high energies.
+
+1:33:17.960 --> 1:33:19.240
+ It becomes very obvious.
+
+1:33:19.240 --> 1:33:21.560
+ When we first did this work,
+
+1:33:21.560 --> 1:33:24.820
+ it was frontiers of high energy physics
+
+1:33:24.820 --> 1:33:27.780
+ and at big international conferences,
+
+1:33:27.780 --> 1:33:30.900
+ there would always be sessions on testing QCD
+
+1:33:30.900 --> 1:33:34.380
+ and whether this proposed description
+
+1:33:34.380 --> 1:33:37.660
+ of the strong interaction was in fact correct and so forth.
+
+1:33:37.660 --> 1:33:39.740
+ And it was very exciting.
+
+1:33:39.740 --> 1:33:44.740
+ But nowadays the same kind of work,
+
+1:33:44.740 --> 1:33:48.920
+ but much more precise with calculations
+
+1:33:48.920 --> 1:33:50.700
+ to more accuracy and experiments
+
+1:33:50.700 --> 1:33:53.500
+ that are much more precise
+
+1:33:54.380 --> 1:33:57.160
+ and comparisons that are very precise.
+
+1:33:57.160 --> 1:33:59.100
+ Now it's called calculating backgrounds
+
+1:33:59.100 --> 1:34:03.040
+ because people take this for granted
+
+1:34:03.040 --> 1:34:06.660
+ and wanna see deviations from the theory,
+
+1:34:06.660 --> 1:34:09.740
+ which would be the new discoveries.
+
+1:34:09.740 --> 1:34:11.700
+ Yeah, the cutting edge becomes a foundation
+
+1:34:11.700 --> 1:34:13.100
+ and the foundation becomes boring.
+
+1:34:13.100 --> 1:34:13.940
+ Yes.
+
+1:34:15.340 --> 1:34:19.100
+ Is there some, for basic explanation purposes,
+
+1:34:19.100 --> 1:34:23.300
+ is there something to be said about strong interactions
+
+1:34:23.300 --> 1:34:26.260
+ in the context of the strong nuclear force
+
+1:34:26.260 --> 1:34:30.800
+ for the attraction between protons and neutrons
+
+1:34:30.800 --> 1:34:35.340
+ versus the interaction between quarks within protons?
+
+1:34:35.340 --> 1:34:40.340
+ Well, quarks and gluons have the same relation
+
+1:34:40.620 --> 1:34:43.700
+ basically to nuclear physics
+
+1:34:43.700 --> 1:34:46.700
+ as electrons and photons have
+
+1:34:46.700 --> 1:34:49.780
+ to atomic and molecular physics.
+
+1:34:49.780 --> 1:34:54.780
+ So atoms and photons are the dynamic entities
+
+1:34:56.780 --> 1:35:01.580
+ that really come into play in chemistry and atomic physics.
+
+1:35:01.580 --> 1:35:03.220
+ Of course, you have to have the atomic nuclei,
+
+1:35:03.220 --> 1:35:07.060
+ but those are small and relatively inert,
+
+1:35:07.060 --> 1:35:09.440
+ really the dynamical part.
+
+1:35:09.440 --> 1:35:12.100
+ And for most purposes of chemistry,
+
+1:35:12.100 --> 1:35:14.200
+ you just say that you have this tiny little nucleus,
+
+1:35:14.200 --> 1:35:17.120
+ which QCD gives you.
+
+1:35:17.120 --> 1:35:17.960
+ Don't worry about it.
+
+1:35:17.960 --> 1:35:19.700
+ It just, it's there.
+
+1:35:19.700 --> 1:35:22.660
+ The real action is the electrons moving around
+
+1:35:22.660 --> 1:35:24.460
+ and exchanging and things like that.
+
+1:35:26.900 --> 1:35:29.340
+ Okay, but we want it to understand the nucleus too.
+
+1:35:29.340 --> 1:35:34.340
+ And so atoms are sort of quantum mechanical clouds
+
+1:35:36.000 --> 1:35:38.880
+ of electrons held together by electrical forces,
+
+1:35:38.880 --> 1:35:39.780
+ which is photons.
+
+1:35:39.780 --> 1:35:40.820
+ And then this radiation,
+
+1:35:40.820 --> 1:35:43.300
+ which is another aspect of photons.
+
+1:35:43.300 --> 1:35:44.560
+ That's where all the fun happens
+
+1:35:44.560 --> 1:35:45.900
+ is the electrons and the photons.
+
+1:35:45.900 --> 1:35:47.000
+ Yeah, that's right.
+
+1:35:47.000 --> 1:35:49.160
+ And the nucleus are kind of the,
+
+1:35:51.180 --> 1:35:53.920
+ well, they give the positive charge
+
+1:35:53.920 --> 1:35:55.760
+ and most of the mass of matter,
+
+1:35:55.760 --> 1:36:00.760
+ but they don't, since they're so heavy,
+
+1:36:01.180 --> 1:36:03.800
+ they don't move very much in chemistry.
+
+1:36:03.800 --> 1:36:07.920
+ And I'm oversimplifying drastically.
+
+1:36:07.920 --> 1:36:12.240
+ They're not contributing much to the interaction in chemistry.
+
+1:36:12.240 --> 1:36:13.680
+ For most purposes in chemistry,
+
+1:36:13.680 --> 1:36:16.120
+ you can just idealize them as concentrations
+
+1:36:16.120 --> 1:36:18.720
+ of positive mass and charge that are,
+
+1:36:20.720 --> 1:36:22.120
+ you don't have to look inside,
+
+1:36:22.120 --> 1:36:24.260
+ but people are curious what's inside.
+
+1:36:24.260 --> 1:36:29.260
+ And that was a big thing on the agenda
+
+1:36:29.280 --> 1:36:32.520
+ of 20th century physics starting in the 19,
+
+1:36:32.520 --> 1:36:34.520
+ well, starting with the 20th century
+
+1:36:34.520 --> 1:36:38.240
+ and unfolding throughout of trying to understand
+
+1:36:38.240 --> 1:36:41.600
+ what forces held the atomic nucleus together,
+
+1:36:41.600 --> 1:36:42.700
+ what it was and so.
+
+1:36:44.640 --> 1:36:49.640
+ Anyway, the story that emerges from QCD
+
+1:36:49.640 --> 1:36:54.640
+ is that very similar to the way that,
+
+1:36:55.560 --> 1:36:57.120
+ well, broadly similar to the way
+
+1:36:57.120 --> 1:37:01.080
+ that clouds of electrons held together
+
+1:37:01.080 --> 1:37:04.480
+ by electrical forces give you atoms
+
+1:37:04.480 --> 1:37:07.320
+ and ultimately molecules.
+
+1:37:08.960 --> 1:37:13.740
+ Protons and neutrons are like atoms
+
+1:37:13.740 --> 1:37:17.820
+ made now out of quarks, quark clouds held together
+
+1:37:17.820 --> 1:37:20.960
+ by gluons, which are like the photons
+
+1:37:20.960 --> 1:37:23.580
+ that give the electric forces,
+
+1:37:23.580 --> 1:37:26.480
+ but this is giving a different force, the strong force.
+
+1:37:26.480 --> 1:37:31.480
+ And the residual forces between protons and neutrons
+
+1:37:31.800 --> 1:37:36.800
+ that are leftover from the basic binding
+
+1:37:37.600 --> 1:37:40.120
+ are like the residual forces between atoms
+
+1:37:40.120 --> 1:37:43.560
+ that give molecules, but in the case of protons and neutrons,
+
+1:37:43.560 --> 1:37:45.400
+ it gives you atomic nuclei.
+
+1:37:45.400 --> 1:37:48.400
+ So again, for definitional purposes,
+
+1:37:48.400 --> 1:37:51.000
+ QCD, quantum chromodynamics,
+
+1:37:51.000 --> 1:37:54.040
+ is basically the physics of strong interaction.
+
+1:37:54.040 --> 1:37:56.580
+ Yeah, we understand, we now would understand,
+
+1:37:56.580 --> 1:37:58.680
+ I think most physicists would say
+
+1:37:58.680 --> 1:38:02.000
+ it's the theory of quarks and gluons
+
+1:38:02.000 --> 1:38:03.160
+ and how they interact.
+
+1:38:04.280 --> 1:38:07.840
+ But it's a very precise, and I think it's fair to say,
+
+1:38:07.840 --> 1:38:11.920
+ very beautiful theory based on mathematical symmetry
+
+1:38:11.920 --> 1:38:16.600
+ of a high order, and another thing that's beautiful
+
+1:38:16.600 --> 1:38:19.200
+ about it is that it's kind of
+
+1:38:22.160 --> 1:38:26.280
+ in the same family as electrodynamics.
+
+1:38:26.280 --> 1:38:31.200
+ The conceptual structure of the equations are very similar.
+
+1:38:31.200 --> 1:38:34.880
+ They're based on having particles that respond to charge
+
+1:38:34.880 --> 1:38:37.160
+ in a very symmetric way.
+
+1:38:37.160 --> 1:38:39.660
+ In the case of electrodynamics,
+
+1:38:39.660 --> 1:38:42.040
+ it's photons that respond to electric charge.
+
+1:38:42.040 --> 1:38:44.520
+ In the case of quantum chromodynamics,
+
+1:38:44.520 --> 1:38:47.520
+ there are three kinds of charge that we call colors,
+
+1:38:47.520 --> 1:38:49.320
+ but they're nothing like colors.
+
+1:38:49.320 --> 1:38:51.900
+ They really are like different kinds of charge.
+
+1:38:51.900 --> 1:38:54.560
+ But they rhyme with the same kind of,
+
+1:38:54.560 --> 1:38:56.600
+ like it's similar kind of dynamics.
+
+1:38:56.600 --> 1:38:57.920
+ Similar kind of dynamics.
+
+1:38:57.920 --> 1:39:02.920
+ I'd like to say that QCD is like QED on steroids.
+
+1:39:02.920 --> 1:39:05.920
+ And instead of one photon, you have eight gluons.
+
+1:39:05.920 --> 1:39:09.200
+ Instead of one charge, you have three color charges.
+
+1:39:09.200 --> 1:39:13.120
+ But there's a strong family resemblance between them.
+
+1:39:13.120 --> 1:39:16.880
+ But the context in which QCD does this thing
+
+1:39:16.880 --> 1:39:19.360
+ is it's much higher energies.
+
+1:39:19.360 --> 1:39:20.480
+ Like that's where it comes to life.
+
+1:39:20.480 --> 1:39:22.320
+ Well, it's a stronger force,
+
+1:39:22.320 --> 1:39:27.320
+ so that to access how it works and kind of pry things apart,
+
+1:39:28.160 --> 1:39:30.360
+ you have to inject more energy.
+
+1:39:30.360 --> 1:39:35.320
+ And so that gives us, in some sense,
+
+1:39:35.320 --> 1:39:39.440
+ a hint of how things were in the earlier universe.
+
+1:39:39.440 --> 1:39:41.120
+ Yeah, well, in that regard,
+
+1:39:41.120 --> 1:39:43.760
+ asymptotic freedom is a tremendous blessing
+
+1:39:43.760 --> 1:39:48.280
+ because it means things get simpler at high energy.
+
+1:39:48.280 --> 1:39:50.040
+ The universe was born free.
+
+1:39:50.040 --> 1:39:50.880
+ Born free.
+
+1:39:50.880 --> 1:39:52.640
+ That's very good, yes.
+
+1:39:52.640 --> 1:39:53.560
+ Universe was born.
+
+1:39:53.560 --> 1:39:56.560
+ So in atomic physics,
+
+1:39:56.560 --> 1:39:59.360
+ a similar thing happens in the theory of stars.
+
+1:39:59.360 --> 1:40:03.380
+ Stars are hot enough that the interactions
+
+1:40:03.380 --> 1:40:07.520
+ between electrons and photons, they're liberated.
+
+1:40:07.520 --> 1:40:08.680
+ They don't form atoms anymore.
+
+1:40:08.680 --> 1:40:09.640
+ They make a plasma,
+
+1:40:09.640 --> 1:40:12.320
+ which in some ways is simpler to understand.
+
+1:40:12.320 --> 1:40:14.640
+ You don't have complicated chemistry.
+
+1:40:14.640 --> 1:40:18.120
+ And in the early universe, according to QCD,
+
+1:40:18.120 --> 1:40:20.480
+ similarly atomic nuclei dissolved
+
+1:40:20.480 --> 1:40:22.880
+ and take the constituent quarks and gluons,
+
+1:40:22.880 --> 1:40:24.480
+ which are moving around very fast
+
+1:40:24.480 --> 1:40:27.020
+ and interacting in relatively simple ways.
+
+1:40:27.020 --> 1:40:30.560
+ And so this opened up the early universe
+
+1:40:30.560 --> 1:40:33.560
+ to scientific calculation.
+
+1:40:33.560 --> 1:40:35.840
+ Can I ask you about some other weird particles
+
+1:40:35.840 --> 1:40:37.920
+ that make up our universe?
+
+1:40:37.920 --> 1:40:39.740
+ What are axions?
+
+1:40:39.740 --> 1:40:42.640
+ And what is the strong CP problem?
+
+1:40:42.640 --> 1:40:47.640
+ Okay, so let me start with what the strong CP problem is.
+
+1:40:49.040 --> 1:40:53.720
+ First of all, well, C is charge conjugation,
+
+1:40:53.720 --> 1:40:57.600
+ which is the transformation,
+
+1:40:57.600 --> 1:40:59.940
+ the notional transformation, if you like,
+
+1:40:59.940 --> 1:41:03.360
+ that changes all particles into their antiparticles.
+
+1:41:03.360 --> 1:41:08.360
+ And the concept of C symmetry,
+
+1:41:09.140 --> 1:41:12.240
+ charge conjugation symmetry, is that if you do that,
+
+1:41:13.280 --> 1:41:15.440
+ you find the same laws that would work.
+
+1:41:16.760 --> 1:41:20.720
+ So the laws are symmetric if the behavior
+
+1:41:20.720 --> 1:41:22.800
+ that particles exhibit is the same
+
+1:41:22.800 --> 1:41:27.160
+ as the behavior you get with all their antiparticles.
+
+1:41:27.160 --> 1:41:31.360
+ And then P is parity,
+
+1:41:31.360 --> 1:41:35.260
+ which is also called spatial inversion.
+
+1:41:35.260 --> 1:41:39.040
+ It's basically looking at a mirror universe
+
+1:41:39.040 --> 1:41:41.960
+ and saying that the laws that are obeyed
+
+1:41:41.960 --> 1:41:44.160
+ in a mirror universe, when you look,
+
+1:41:44.160 --> 1:41:46.780
+ that the mirror images obey the same laws
+
+1:41:46.780 --> 1:41:50.480
+ as the sources of their images.
+
+1:41:50.480 --> 1:41:52.840
+ There's no way of telling left from right, for instance,
+
+1:41:52.840 --> 1:41:55.640
+ that the laws don't distinguish between left and right.
+
+1:41:55.640 --> 1:42:00.380
+ Now, in the mid 20th century,
+
+1:42:00.380 --> 1:42:03.620
+ people discovered that both of those are not quite true.
+
+1:42:05.160 --> 1:42:08.960
+ Really, the equation that the mirror universe,
+
+1:42:08.960 --> 1:42:13.960
+ the universe that you see in a mirror
+
+1:42:15.360 --> 1:42:18.480
+ is not gonna obey the same laws
+
+1:42:18.480 --> 1:42:23.480
+ as the universe that we actually interpret.
+
+1:42:23.480 --> 1:42:26.880
+ You would be able to tell
+
+1:42:26.880 --> 1:42:28.980
+ if you did the right kind of experiments,
+
+1:42:28.980 --> 1:42:31.520
+ which was the mirror and which was the real thing.
+
+1:42:33.700 --> 1:42:34.840
+ Anyway, that.
+
+1:42:34.840 --> 1:42:36.080
+ That's the parity and they show
+
+1:42:36.080 --> 1:42:37.920
+ that the parity doesn't necessarily hold.
+
+1:42:37.920 --> 1:42:39.080
+ It doesn't quite hold.
+
+1:42:41.200 --> 1:42:45.680
+ Examining what the exceptions are turned out to be,
+
+1:42:45.680 --> 1:42:47.400
+ to lead to all kinds of insight
+
+1:42:47.400 --> 1:42:49.840
+ about the nature of fundamental interactions,
+
+1:42:49.840 --> 1:42:51.640
+ especially properties of neutrinos
+
+1:42:51.640 --> 1:42:53.840
+ and the weak interaction, it's a long story.
+
+1:42:53.840 --> 1:42:55.480
+ But it's a very, it's a.
+
+1:42:55.480 --> 1:42:57.680
+ So you just define the C and the P,
+
+1:42:57.680 --> 1:42:59.480
+ the conjugation, the charge conjugation.
+
+1:42:59.480 --> 1:43:00.880
+ Now that I've done that, I wanna.
+
+1:43:00.880 --> 1:43:01.720
+ What's the problem?
+
+1:43:01.720 --> 1:43:02.560
+ Shove them off.
+
+1:43:02.560 --> 1:43:04.040
+ Okay, great.
+
+1:43:04.040 --> 1:43:06.520
+ Because it's easier to talk about T,
+
+1:43:06.520 --> 1:43:08.920
+ which is time reversal symmetry.
+
+1:43:08.920 --> 1:43:13.200
+ We have very good reasons to think CPT
+
+1:43:13.200 --> 1:43:17.180
+ is an accurate symmetry of nature.
+
+1:43:17.180 --> 1:43:19.400
+ It's on the same level as relativity
+
+1:43:19.400 --> 1:43:20.960
+ and quantum mechanics, basically.
+
+1:43:20.960 --> 1:43:22.600
+ So that better be true.
+
+1:43:23.960 --> 1:43:24.800
+ Or else we.
+
+1:43:24.800 --> 1:43:26.000
+ So it's symmetric when you.
+
+1:43:26.000 --> 1:43:26.840
+ When you do.
+
+1:43:26.840 --> 1:43:28.000
+ When you do conjugation parity and time.
+
+1:43:28.000 --> 1:43:30.960
+ And time and space reversal.
+
+1:43:30.960 --> 1:43:32.320
+ If you do all three,
+
+1:43:32.320 --> 1:43:35.320
+ then you get the same physical consequences.
+
+1:43:35.320 --> 1:43:39.700
+ Now, so, but that means that CP is equivalent to T.
+
+1:43:39.700 --> 1:43:41.640
+ But what's observed in the world
+
+1:43:41.640 --> 1:43:45.640
+ is that T is not quite an accurate symmetry of nature,
+
+1:43:45.640 --> 1:43:46.720
+ either.
+
+1:43:46.720 --> 1:43:51.720
+ So most phenomena of, at the fundamental level.
+
+1:43:52.320 --> 1:43:54.700
+ So interactions among elementary particles
+
+1:43:54.700 --> 1:43:57.540
+ and the basic gravitational interaction.
+
+1:43:59.240 --> 1:44:02.420
+ If you ran them backwards in time,
+
+1:44:03.520 --> 1:44:05.400
+ you'd get the same laws.
+
+1:44:05.400 --> 1:44:08.920
+ So if, again, going back.
+
+1:44:08.920 --> 1:44:11.500
+ This time we don't talk about a mirror,
+
+1:44:11.500 --> 1:44:13.220
+ but we talk about a movie.
+
+1:44:13.220 --> 1:44:17.940
+ If you take a movie and then run it backwards,
+
+1:44:18.820 --> 1:44:20.340
+ that's the time reversal.
+
+1:44:21.360 --> 1:44:23.400
+ It's good to think about a mirror in time.
+
+1:44:23.400 --> 1:44:25.220
+ Yeah, it's like a mirror in time.
+
+1:44:25.220 --> 1:44:29.120
+ If you run the movie backwards,
+
+1:44:29.120 --> 1:44:30.680
+ it would look very strange
+
+1:44:30.680 --> 1:44:32.800
+ if you were looking at complicated objects
+
+1:44:32.800 --> 1:44:37.360
+ and a Charlie Chaplin movie or whatever.
+
+1:44:37.360 --> 1:44:40.240
+ It would look very strange if you ran it backwards in time.
+
+1:44:40.240 --> 1:44:43.800
+ But at the level of basic interactions,
+
+1:44:43.800 --> 1:44:46.000
+ if you were able to look at the atoms
+
+1:44:46.000 --> 1:44:49.960
+ and the quarks involved, they would obey the same laws.
+
+1:44:49.960 --> 1:44:53.360
+ They do a very good approximation, but not exactly.
+
+1:44:53.360 --> 1:44:55.960
+ So this is not exactly, that means you could tell.
+
+1:44:55.960 --> 1:44:59.800
+ You could tell, but you'd have to do very, very
+
+1:44:59.800 --> 1:45:04.680
+ subtle experiments with at high energy accelerators
+
+1:45:04.680 --> 1:45:06.760
+ to take a movie that looked different
+
+1:45:06.760 --> 1:45:08.760
+ when you ran it backwards.
+
+1:45:08.760 --> 1:45:13.760
+ This was a discovery by two great physicists
+
+1:45:13.800 --> 1:45:18.800
+ named Jim Cronin and Val Fitch in the mid 1960s.
+
+1:45:20.600 --> 1:45:22.520
+ Previous to that, over all the centuries
+
+1:45:22.520 --> 1:45:25.260
+ of development of physics with all its precise laws,
+
+1:45:25.260 --> 1:45:28.920
+ they did seem to have this gratuitous property
+
+1:45:30.120 --> 1:45:33.040
+ that they look the same if you run the equations backwards.
+
+1:45:33.040 --> 1:45:35.320
+ It's kind of an embarrassing property actually
+
+1:45:35.320 --> 1:45:38.560
+ because life isn't like that.
+
+1:45:38.560 --> 1:45:41.880
+ So empirical reality does not have this imagery
+
+1:45:41.880 --> 1:45:42.900
+ in any obvious way.
+
+1:45:42.900 --> 1:45:44.960
+ And yet the laws did.
+
+1:45:44.960 --> 1:45:46.320
+ It's almost like the laws of physics
+
+1:45:46.320 --> 1:45:48.740
+ are missing something fundamental about life
+
+1:45:48.740 --> 1:45:51.400
+ if it holds that property, right?
+
+1:45:51.400 --> 1:45:54.360
+ Well, that's the embarrassing nature of it.
+
+1:45:54.360 --> 1:45:55.240
+ Yeah, it's embarrassing.
+
+1:45:55.240 --> 1:46:00.240
+ Well, people worked hard at what's,
+
+1:46:01.080 --> 1:46:04.840
+ this is a problem that's thought to belong
+
+1:46:04.840 --> 1:46:07.160
+ to the foundations of statistical mechanics
+
+1:46:07.160 --> 1:46:10.560
+ or the foundations of thermodynamics
+
+1:46:10.560 --> 1:46:14.960
+ to understand how behavior,
+
+1:46:14.960 --> 1:46:18.780
+ which is grossly not symmetric
+
+1:46:18.780 --> 1:46:21.280
+ with respect to reversing the direction of time
+
+1:46:21.280 --> 1:46:24.360
+ in large objects, how that can emerge from equations
+
+1:46:24.360 --> 1:46:28.120
+ which are symmetric with respect to changing
+
+1:46:28.120 --> 1:46:31.080
+ the direction of time to a very good approximation.
+
+1:46:31.080 --> 1:46:33.200
+ And that's still an interesting endeavor.
+
+1:46:33.200 --> 1:46:35.200
+ That's interesting.
+
+1:46:35.200 --> 1:46:38.640
+ And actually it's an exciting frontier of physics now
+
+1:46:38.640 --> 1:46:40.200
+ to sort of explore the boundary
+
+1:46:40.200 --> 1:46:42.360
+ between when that's true and when it's not true.
+
+1:46:42.360 --> 1:46:44.520
+ When you get to smaller objects
+
+1:46:44.520 --> 1:46:46.680
+ and exceptions like time crystals.
+
+1:46:47.600 --> 1:46:49.480
+ I definitely have to ask you about time crystals
+
+1:46:49.480 --> 1:46:50.320
+ in a second here.
+
+1:46:50.320 --> 1:46:53.680
+ But so the CP problem and T,
+
+1:46:53.680 --> 1:46:55.680
+ so there's all of these.
+
+1:46:55.680 --> 1:46:57.580
+ We're in danger of infinite regress,
+
+1:46:57.580 --> 1:46:59.240
+ but we have to convert soon.
+
+1:46:59.240 --> 1:47:00.080
+ So.
+
+1:47:00.080 --> 1:47:02.160
+ Can't possibly be turtles all the way down.
+
+1:47:02.160 --> 1:47:03.440
+ We're gonna get to the bottom turtle.
+
+1:47:03.440 --> 1:47:06.280
+ So it became,
+
+1:47:06.280 --> 1:47:08.880
+ so it got to be a real,
+
+1:47:08.880 --> 1:47:11.200
+ I mean, it's a really puzzling thing
+
+1:47:11.200 --> 1:47:15.340
+ why the laws should have this very odd property
+
+1:47:15.340 --> 1:47:16.840
+ that we don't need.
+
+1:47:16.840 --> 1:47:20.000
+ And in fact, it's kind of an embarrassment
+
+1:47:20.000 --> 1:47:22.180
+ in addressing empirical reality.
+
+1:47:22.180 --> 1:47:24.680
+ But it seemed to be almost,
+
+1:47:24.680 --> 1:47:26.960
+ it seemed to be exactly true for a long time.
+
+1:47:26.960 --> 1:47:29.280
+ And then almost true.
+
+1:47:29.280 --> 1:47:33.760
+ And in way, almost true is even,
+
+1:47:33.760 --> 1:47:35.600
+ is more disturbing than exactly true
+
+1:47:35.600 --> 1:47:37.400
+ because exactly true,
+
+1:47:37.400 --> 1:47:39.800
+ it could have been just a fundamental feature of the world.
+
+1:47:39.800 --> 1:47:42.300
+ And at some level you just have to take it as it is.
+
+1:47:42.300 --> 1:47:47.300
+ And if it's a beautiful, easily articulatable regularity,
+
+1:47:47.720 --> 1:47:48.700
+ you could say that, okay,
+
+1:47:48.700 --> 1:47:51.760
+ that's fine as a fundamental law of nature.
+
+1:47:51.760 --> 1:47:53.440
+ But to say that it's approximately true,
+
+1:47:53.440 --> 1:47:56.400
+ but not exactly, that's weird.
+
+1:47:56.400 --> 1:48:00.920
+ So, and then, so there was great progress
+
+1:48:00.920 --> 1:48:05.220
+ in the late part of the 20th century
+
+1:48:06.860 --> 1:48:09.260
+ in getting to an understanding
+
+1:48:09.260 --> 1:48:11.680
+ of fundamental interactions in general
+
+1:48:11.680 --> 1:48:13.680
+ that shed light on this issue.
+
+1:48:14.800 --> 1:48:19.800
+ It turns out that the basic principles of relativity
+
+1:48:20.900 --> 1:48:22.240
+ and quantum mechanics,
+
+1:48:22.240 --> 1:48:27.240
+ plus the kind of high degree of symmetry that we found,
+
+1:48:27.520 --> 1:48:28.960
+ the so called gauge symmetry
+
+1:48:28.960 --> 1:48:31.980
+ that characterizes the fundamental interactions,
+
+1:48:31.980 --> 1:48:33.800
+ when you put all that together,
+
+1:48:33.800 --> 1:48:36.560
+ it's a very, very constraining framework.
+
+1:48:37.620 --> 1:48:40.560
+ And it has some indirect consequences
+
+1:48:42.500 --> 1:48:45.960
+ because the possible interactions are so constrained.
+
+1:48:45.960 --> 1:48:48.640
+ And one of the indirect consequences
+
+1:48:48.640 --> 1:48:53.640
+ is that the possibilities for violating the symmetry
+
+1:48:54.360 --> 1:48:57.920
+ between forwards and backwards in time are very limited.
+
+1:48:57.920 --> 1:48:59.400
+ They're basically only two.
+
+1:49:01.040 --> 1:49:05.120
+ And one of them occurs and leads to a very rich theory
+
+1:49:05.120 --> 1:49:07.600
+ that explains the Cronin Fish experiment
+
+1:49:07.600 --> 1:49:09.700
+ and a lot of things that have been done subsequently
+
+1:49:09.700 --> 1:49:13.680
+ has been used to make all kinds of successful predictions.
+
+1:49:13.680 --> 1:49:18.680
+ So that's turned out to be a very rich interaction.
+
+1:49:19.000 --> 1:49:23.160
+ It's esoteric and the effects only show up at accelerators
+
+1:49:23.160 --> 1:49:24.360
+ and are small and so on,
+
+1:49:24.360 --> 1:49:26.480
+ but they might've been very important in the early universe
+
+1:49:26.480 --> 1:49:29.760
+ and lead to them be connected to the asymmetry
+
+1:49:29.760 --> 1:49:32.560
+ between matter and antimatter in the present universe.
+
+1:49:32.560 --> 1:49:35.420
+ And so, but that's another digression.
+
+1:49:36.380 --> 1:49:40.080
+ The point is that that was fine.
+
+1:49:40.080 --> 1:49:41.620
+ That was a triumph to say
+
+1:49:41.620 --> 1:49:44.920
+ that there was one possible kind of interaction
+
+1:49:44.920 --> 1:49:47.320
+ that would violate time reversal symmetry.
+
+1:49:47.320 --> 1:49:49.500
+ And sure enough, there it is.
+
+1:49:49.500 --> 1:49:54.500
+ But the other kind doesn't occur.
+
+1:49:54.760 --> 1:49:55.920
+ So we still got a problem.
+
+1:49:55.920 --> 1:49:57.040
+ Why doesn't it occur?
+
+1:49:59.800 --> 1:50:01.800
+ So we're close to really finally understanding
+
+1:50:01.800 --> 1:50:04.760
+ this profound gratuitous feature of the world
+
+1:50:04.760 --> 1:50:08.380
+ that is almost but not quite symmetric
+
+1:50:08.380 --> 1:50:12.240
+ under reversing the direction of time, but not quite there.
+
+1:50:12.240 --> 1:50:17.080
+ And to understand that last bit
+
+1:50:18.520 --> 1:50:21.820
+ is a challenging frontier of physics today.
+
+1:50:22.880 --> 1:50:27.520
+ And we have a promising proposal for how it works,
+
+1:50:27.520 --> 1:50:29.940
+ which is a kind of theory of evolution.
+
+1:50:31.360 --> 1:50:35.600
+ So there's this possible interaction,
+
+1:50:35.600 --> 1:50:37.320
+ which we call a coupling,
+
+1:50:37.320 --> 1:50:39.120
+ and there's a numerical quantity
+
+1:50:39.120 --> 1:50:41.480
+ that tells us how strong that is.
+
+1:50:41.480 --> 1:50:43.640
+ And traditionally in physics,
+
+1:50:43.640 --> 1:50:46.400
+ we think of these kinds of numerical quantities
+
+1:50:46.400 --> 1:50:51.400
+ as constants of nature that you just have to put them in.
+
+1:50:54.220 --> 1:50:57.040
+ From experiment, they have a certain value and that's it.
+
+1:50:57.040 --> 1:51:01.760
+ And who am I to question what God doing?
+
+1:51:01.760 --> 1:51:02.720
+ They're just constant.
+
+1:51:02.720 --> 1:51:04.620
+ Well, they seem to be just constants.
+
+1:51:04.620 --> 1:51:06.060
+ I'm just wondering.
+
+1:51:06.060 --> 1:51:10.340
+ But in this case,
+
+1:51:10.340 --> 1:51:15.140
+ it's been fruitful to think and work out a theory
+
+1:51:15.140 --> 1:51:20.140
+ where that strength of interaction
+
+1:51:22.260 --> 1:51:23.900
+ is actually not a constant.
+
+1:51:23.900 --> 1:51:27.220
+ It's a fun, it's a field.
+
+1:51:27.220 --> 1:51:31.560
+ It's a, fields are the fundamental ingredients
+
+1:51:31.560 --> 1:51:32.420
+ of modern physics.
+
+1:51:32.420 --> 1:51:34.060
+ Like there's an electron field,
+
+1:51:34.060 --> 1:51:35.180
+ there's a photon field,
+
+1:51:35.180 --> 1:51:37.180
+ which is also called the electromagnetic field.
+
+1:51:37.180 --> 1:51:39.240
+ And so all of these particles
+
+1:51:39.240 --> 1:51:41.700
+ are manifestations of different fields.
+
+1:51:41.700 --> 1:51:45.300
+ And there could be a field,
+
+1:51:45.300 --> 1:51:47.740
+ something that depends on space and time.
+
+1:51:47.740 --> 1:51:52.740
+ So a dynamical entity instead of just a constant here.
+
+1:51:53.100 --> 1:51:57.660
+ And if you do things in a nice way,
+
+1:51:57.660 --> 1:51:58.720
+ that's very symmetric,
+
+1:51:58.720 --> 1:52:02.200
+ very much suggested aesthetically by the theory.
+
+1:52:02.200 --> 1:52:05.160
+ But the theory we do have,
+
+1:52:05.160 --> 1:52:10.080
+ then you find that you get a field
+
+1:52:11.160 --> 1:52:15.580
+ which as it evolves from the early universe,
+
+1:52:17.240 --> 1:52:20.840
+ settles down to a value
+
+1:52:22.160 --> 1:52:27.160
+ that's just right to make the laws
+
+1:52:27.160 --> 1:52:32.160
+ very nearly exact, invariant or symmetric
+
+1:52:32.240 --> 1:52:33.640
+ with respect to reversal of time.
+
+1:52:33.640 --> 1:52:34.760
+ It might appear as a constant,
+
+1:52:34.760 --> 1:52:36.640
+ but it's actually a field that evolved over time.
+
+1:52:36.640 --> 1:52:38.500
+ It evolved over time, okay.
+
+1:52:38.500 --> 1:52:42.160
+ But when you examine this proposal in detail,
+
+1:52:42.160 --> 1:52:47.160
+ you find that it hasn't quite settled down to exactly zero.
+
+1:52:47.240 --> 1:52:48.720
+ There it's still,
+
+1:52:48.720 --> 1:52:52.040
+ the field is still moving around a little bit.
+
+1:52:52.040 --> 1:52:55.660
+ And because the motion is so,
+
+1:52:55.660 --> 1:52:59.460
+ the motion is so difficult.
+
+1:52:59.460 --> 1:53:00.820
+ The material is so rigid.
+
+1:53:00.820 --> 1:53:01.660
+ And this material,
+
+1:53:01.660 --> 1:53:03.980
+ the field that fills all space is so rigid.
+
+1:53:03.980 --> 1:53:07.200
+ Even small amounts of motion can involve lots of energy.
+
+1:53:08.200 --> 1:53:13.200
+ And that energy takes the form of particles,
+
+1:53:14.740 --> 1:53:16.740
+ fields that are in motion
+
+1:53:16.740 --> 1:53:18.500
+ are always associated with particles.
+
+1:53:18.500 --> 1:53:20.500
+ And those are the axioms.
+
+1:53:20.500 --> 1:53:23.380
+ And if you calculate how much energy
+
+1:53:23.380 --> 1:53:26.620
+ is in these residual oscillations,
+
+1:53:26.620 --> 1:53:30.260
+ this axiom gas that fills all the universe,
+
+1:53:30.260 --> 1:53:32.300
+ if this fundamental theory is correct,
+
+1:53:32.300 --> 1:53:36.460
+ you get just the right amount
+
+1:53:36.460 --> 1:53:39.300
+ to make the dark matter that astronomers want.
+
+1:53:39.300 --> 1:53:41.780
+ And it has just the right properties.
+
+1:53:41.780 --> 1:53:44.260
+ So I'd love to believe that.
+
+1:53:44.260 --> 1:53:47.680
+ So that might be a thing that unlocks,
+
+1:53:47.680 --> 1:53:50.180
+ might be the key to understanding dark matter.
+
+1:53:50.180 --> 1:53:51.540
+ Yeah, I'd like to think so.
+
+1:53:51.540 --> 1:53:53.380
+ And many, many physicists are coming around
+
+1:53:53.380 --> 1:53:54.220
+ to this point of view,
+
+1:53:54.220 --> 1:53:58.100
+ which I've been a voice in the wilderness.
+
+1:53:58.100 --> 1:54:00.620
+ I was a voice in the wilderness for a long time,
+
+1:54:00.620 --> 1:54:04.620
+ but now it's become very popular, maybe even dominant.
+
+1:54:04.620 --> 1:54:05.460
+ So almost like,
+
+1:54:05.460 --> 1:54:10.460
+ so this axion particle slash field
+
+1:54:10.660 --> 1:54:13.980
+ would be the thing that explains dark matter.
+
+1:54:13.980 --> 1:54:14.820
+ It explains, yeah,
+
+1:54:14.820 --> 1:54:17.940
+ would solve this fundamental question of finally,
+
+1:54:17.940 --> 1:54:22.940
+ of why the laws are almost, but not quite exactly the same
+
+1:54:24.620 --> 1:54:26.540
+ if you run them backwards in time.
+
+1:54:26.540 --> 1:54:30.380
+ And then seemingly in a totally different
+
+1:54:30.380 --> 1:54:31.880
+ conceptual universe,
+
+1:54:32.740 --> 1:54:35.300
+ it would also provide,
+
+1:54:35.300 --> 1:54:38.020
+ give us an understanding of the dark matter.
+
+1:54:38.020 --> 1:54:41.580
+ That's not what it was designed for.
+
+1:54:41.580 --> 1:54:45.060
+ And the theory wasn't proposed with that in mind,
+
+1:54:45.060 --> 1:54:47.940
+ but when you work out the equations, that's what you get.
+
+1:54:47.940 --> 1:54:49.060
+ That's always a good sign.
+
+1:54:49.060 --> 1:54:49.900
+ Yes.
+
+1:54:51.020 --> 1:54:53.840
+ I think I vaguely read somewhere
+
+1:54:53.840 --> 1:54:58.840
+ that there may be early experimental validation of axion.
+
+1:54:59.600 --> 1:55:03.120
+ Is that, am I reading the wrong?
+
+1:55:03.120 --> 1:55:05.580
+ Well, there've been quite a few false alarms
+
+1:55:05.580 --> 1:55:08.100
+ and I think there are some of them still,
+
+1:55:08.100 --> 1:55:10.100
+ people desperately wanna find this thing.
+
+1:55:10.100 --> 1:55:15.100
+ And, but I don't think any of them are convincing
+
+1:55:15.300 --> 1:55:16.140
+ at this point,
+
+1:55:16.140 --> 1:55:20.460
+ but there are very ambitious experiments
+
+1:55:20.460 --> 1:55:23.000
+ and kind of new,
+
+1:55:23.000 --> 1:55:24.940
+ you have to design new kinds of antennas
+
+1:55:24.940 --> 1:55:28.340
+ that are capable of detecting these predicted particles.
+
+1:55:28.340 --> 1:55:29.900
+ And it's very difficult.
+
+1:55:29.900 --> 1:55:31.380
+ They interact very, very weakly.
+
+1:55:31.380 --> 1:55:33.740
+ If it were easy, it would have been done already.
+
+1:55:33.740 --> 1:55:37.060
+ But I think there's good hope
+
+1:55:37.060 --> 1:55:40.980
+ that we can get down to the required sensitivity
+
+1:55:40.980 --> 1:55:43.180
+ and actually test whether these ideas are right
+
+1:55:44.740 --> 1:55:47.420
+ in coming years or maybe decades.
+
+1:55:47.420 --> 1:55:50.460
+ And then understand one of the big mysteries,
+
+1:55:50.460 --> 1:55:53.940
+ like literally big in terms of its fraction
+
+1:55:53.940 --> 1:55:55.460
+ of the universe is dark matter.
+
+1:55:55.460 --> 1:55:56.620
+ Yes.
+
+1:55:56.620 --> 1:55:59.020
+ Let me ask you about, you mentioned a few times,
+
+1:55:59.020 --> 1:56:00.020
+ time crystals.
+
+1:56:01.920 --> 1:56:02.860
+ What are they?
+
+1:56:02.860 --> 1:56:05.340
+ These things are, it's a very beautiful idea
+
+1:56:05.340 --> 1:56:08.820
+ when we start to treat space and time
+
+1:56:10.100 --> 1:56:13.740
+ as similar frameworks.
+
+1:56:13.740 --> 1:56:14.580
+ Yes, right.
+
+1:56:14.580 --> 1:56:15.420
+ Physical phenomena.
+
+1:56:15.420 --> 1:56:17.500
+ Right, that's what motivated it.
+
+1:56:17.500 --> 1:56:19.220
+ First of all, what are crystals?
+
+1:56:19.220 --> 1:56:20.060
+ Yeah.
+
+1:56:20.060 --> 1:56:20.900
+ And what are time crystals?
+
+1:56:20.900 --> 1:56:24.540
+ Okay, so crystals are orderly arrangements
+
+1:56:24.540 --> 1:56:27.340
+ of atoms in space.
+
+1:56:27.340 --> 1:56:30.740
+ And many materials,
+
+1:56:30.740 --> 1:56:35.740
+ if you cool them down gently, will form crystals.
+
+1:56:38.580 --> 1:56:43.580
+ And so we say that that's a state of matter
+
+1:56:43.900 --> 1:56:45.940
+ that forms spontaneously.
+
+1:56:45.940 --> 1:56:50.220
+ And an important feature of that state of matter
+
+1:56:50.220 --> 1:56:53.900
+ is that the end result, the crystal,
+
+1:56:53.900 --> 1:56:58.900
+ has less symmetry than the equations
+
+1:57:01.460 --> 1:57:03.100
+ that give rise to the crystal.
+
+1:57:03.100 --> 1:57:07.500
+ So the equations, the basic equations of physics
+
+1:57:09.260 --> 1:57:12.740
+ are the same if you move a little bit.
+
+1:57:12.740 --> 1:57:15.620
+ So you can move, they're homogeneous,
+
+1:57:15.620 --> 1:57:16.820
+ but crystals aren't.
+
+1:57:16.820 --> 1:57:18.540
+ The atoms are in particular place,
+
+1:57:18.540 --> 1:57:20.260
+ so they have less symmetry.
+
+1:57:20.260 --> 1:57:25.260
+ And time crystals are the same thing in time, basically.
+
+1:57:27.060 --> 1:57:30.220
+ But of course, so it's not positions of atoms,
+
+1:57:30.220 --> 1:57:35.220
+ but it's orderly behavior that certain states of matter
+
+1:57:38.220 --> 1:57:41.020
+ will arrange themselves into spontaneously
+
+1:57:41.020 --> 1:57:44.780
+ if you treat them gently
+
+1:57:44.780 --> 1:57:46.780
+ and let them do what they want to do.
+
+1:57:46.780 --> 1:57:50.040
+ But repeat in that same way indefinitely.
+
+1:57:50.040 --> 1:57:51.460
+ That's the crystalline form.
+
+1:57:51.460 --> 1:57:54.940
+ You can also have time liquids,
+
+1:57:54.940 --> 1:57:57.420
+ or you can have all kinds of other states of matter.
+
+1:57:57.420 --> 1:57:58.960
+ You can also have space time crystals
+
+1:57:58.960 --> 1:58:03.740
+ where the pattern only repeats if with each step of time,
+
+1:58:03.740 --> 1:58:07.300
+ you also move at a certain direction in space.
+
+1:58:07.300 --> 1:58:12.300
+ So yeah, basically it's states of matter
+
+1:58:12.680 --> 1:58:17.680
+ that displace structure in time spontaneously.
+
+1:58:17.680 --> 1:58:21.120
+ So here's the difference.
+
+1:58:21.120 --> 1:58:22.800
+ When it happens in time,
+
+1:58:24.900 --> 1:58:27.800
+ it sure looks a lot like it's motion,
+
+1:58:27.800 --> 1:58:29.480
+ and if it repeats indefinitely,
+
+1:58:29.480 --> 1:58:32.040
+ it sure looks a lot like perpetual motion.
+
+1:58:32.040 --> 1:58:32.880
+ Yeah.
+
+1:58:32.880 --> 1:58:35.080
+ Like looks like free lunch.
+
+1:58:35.080 --> 1:58:39.280
+ And I was told that there's no such thing as free lunch.
+
+1:58:39.280 --> 1:58:42.480
+ Does this violate laws of thermodynamics?
+
+1:58:42.480 --> 1:58:45.640
+ No, but it requires a critical examination
+
+1:58:45.640 --> 1:58:47.920
+ of the laws of thermodynamics.
+
+1:58:47.920 --> 1:58:49.840
+ I mean, let me say on background
+
+1:58:49.840 --> 1:58:51.560
+ that the laws of thermodynamics
+
+1:58:51.560 --> 1:58:55.420
+ are not fundamental laws of physics.
+
+1:58:55.420 --> 1:58:56.760
+ There are things we prove
+
+1:58:58.920 --> 1:59:01.160
+ under certain circumstances emerge
+
+1:59:01.160 --> 1:59:03.400
+ from the fundamental laws of physics.
+
+1:59:03.400 --> 1:59:06.680
+ They're not, we don't posit them separately.
+
+1:59:06.680 --> 1:59:08.300
+ They're meant to be deduced,
+
+1:59:08.300 --> 1:59:10.600
+ and they can be deduced under limited circumstances,
+
+1:59:10.600 --> 1:59:12.820
+ but not necessarily universally.
+
+1:59:12.820 --> 1:59:15.560
+ And we're finding some of the subtleties
+
+1:59:15.560 --> 1:59:18.360
+ and sort of accept edge cases
+
+1:59:18.360 --> 1:59:21.060
+ where they don't apply in a straightforward way.
+
+1:59:22.600 --> 1:59:23.560
+ And this is one.
+
+1:59:25.200 --> 1:59:27.680
+ So time crystals do obey,
+
+1:59:27.680 --> 1:59:30.400
+ do have this structure in time,
+
+1:59:30.400 --> 1:59:31.980
+ but it's not a free lunch
+
+1:59:31.980 --> 1:59:35.740
+ because although in a sense, things are moving,
+
+1:59:36.680 --> 1:59:39.100
+ they're already doing what they want to do.
+
+1:59:39.100 --> 1:59:40.400
+ They're in the,
+
+1:59:40.400 --> 1:59:44.080
+ so if you want to extract energy from it,
+
+1:59:44.080 --> 1:59:44.920
+ you're gonna be foiled
+
+1:59:44.920 --> 1:59:47.880
+ because there's no spare energy there.
+
+1:59:50.360 --> 1:59:53.900
+ So you can add energy to it and kind of disturb it,
+
+1:59:53.900 --> 1:59:58.380
+ but you can't extract energy from this motion
+
+1:59:58.380 --> 2:00:00.400
+ because it's gonna, it wants to do,
+
+2:00:00.400 --> 2:00:03.420
+ that's the lowest energy configuration that there is,
+
+2:00:03.420 --> 2:00:06.120
+ so you can't get further energy out of it.
+
+2:00:06.120 --> 2:00:08.680
+ So in theory, I guess perpetual motion,
+
+2:00:10.200 --> 2:00:13.080
+ you would be able to extract energy from it
+
+2:00:13.080 --> 2:00:15.080
+ if such a thing was to be created,
+
+2:00:15.080 --> 2:00:17.080
+ you can then milk it for energy.
+
+2:00:17.080 --> 2:00:20.320
+ Well, what's usually meant
+
+2:00:20.320 --> 2:00:23.040
+ in the literature of perpetual motion
+
+2:00:23.040 --> 2:00:27.560
+ is a kind of macroscopic motion
+
+2:00:27.560 --> 2:00:29.400
+ that you could extract energy from
+
+2:00:29.400 --> 2:00:33.540
+ and somehow it would crank back up.
+
+2:00:33.540 --> 2:00:35.160
+ That's not the case here.
+
+2:00:35.160 --> 2:00:36.760
+ If you want to extract energy,
+
+2:00:38.400 --> 2:00:42.160
+ this motion is not something you can extract energy from.
+
+2:00:42.160 --> 2:00:45.400
+ If you intervene in the behavior,
+
+2:00:45.400 --> 2:00:48.960
+ you can change it, but only by injecting energy,
+
+2:00:48.960 --> 2:00:51.120
+ not by taking away energy.
+
+2:00:51.120 --> 2:00:54.160
+ You mentioned that a theory of everything
+
+2:00:54.160 --> 2:00:56.480
+ may be quite difficult to come by.
+
+2:00:56.480 --> 2:00:58.520
+ A theory of everything broadly defined
+
+2:00:58.520 --> 2:01:00.760
+ meaning like truly a theory of everything,
+
+2:01:00.760 --> 2:01:03.120
+ but let's look at a more narrow theory of everything,
+
+2:01:03.120 --> 2:01:07.160
+ which is the way it's used often in physics
+
+2:01:07.160 --> 2:01:12.160
+ is a theory that unifies our current laws of physics,
+
+2:01:16.400 --> 2:01:19.480
+ general relativity, quantum field theory.
+
+2:01:19.480 --> 2:01:22.680
+ Do you have thoughts on this dream
+
+2:01:22.680 --> 2:01:25.380
+ of a theory of everything in physics?
+
+2:01:25.380 --> 2:01:26.640
+ How close are we?
+
+2:01:26.640 --> 2:01:29.480
+ Is there any promising ideas out there in your view?
+
+2:01:29.480 --> 2:01:31.120
+ Well, it would be nice to have.
+
+2:01:32.380 --> 2:01:34.080
+ It would be aesthetically pleasing.
+
+2:01:35.480 --> 2:01:36.780
+ Will it be useful?
+
+2:01:36.780 --> 2:01:38.520
+ No, probably not.
+
+2:01:38.520 --> 2:01:43.220
+ Well, I shouldn't, it's dangerous to say that,
+
+2:01:43.220 --> 2:01:45.040
+ but probably not.
+
+2:01:45.040 --> 2:01:50.040
+ I think we, certainly not in the foreseeable future.
+
+2:01:52.160 --> 2:01:54.240
+ Maybe to understand black holes.
+
+2:01:54.240 --> 2:01:57.520
+ Yeah, but that's, yes, maybe to understand black holes,
+
+2:01:57.520 --> 2:02:00.400
+ but that's not useful.
+
+2:02:00.400 --> 2:02:02.700
+ That's my book.
+
+2:02:02.700 --> 2:02:04.960
+ And well, not only, I mean,
+
+2:02:04.960 --> 2:02:08.320
+ to understand it's worse,
+
+2:02:08.320 --> 2:02:09.520
+ it's not useful in the sense
+
+2:02:09.520 --> 2:02:12.880
+ that we're not gonna be basing any technology anytime soon
+
+2:02:12.880 --> 2:02:16.020
+ on black holes, but it's more severe than that,
+
+2:02:16.020 --> 2:02:19.840
+ I would say it's that the kinds of questions
+
+2:02:19.840 --> 2:02:24.200
+ about black holes that we can't answer
+
+2:02:24.200 --> 2:02:26.480
+ within the framework of existing theory
+
+2:02:28.720 --> 2:02:33.480
+ are ones that are not going to be susceptible
+
+2:02:33.480 --> 2:02:37.620
+ to astronomical observation in the foreseeable future.
+
+2:02:37.620 --> 2:02:41.480
+ They're questions about very, very small black holes
+
+2:02:41.480 --> 2:02:44.960
+ when quantum effects come into play
+
+2:02:46.720 --> 2:02:48.000
+ so that black holes are,
+
+2:02:50.280 --> 2:02:54.900
+ not black holes, they're emitting this discovery
+
+2:02:54.900 --> 2:02:57.100
+ of Hawking called Hawking radiation,
+
+2:02:57.100 --> 2:03:01.040
+ which for astronomical black holes is a tiny, tiny effect
+
+2:03:01.040 --> 2:03:03.600
+ that no one has ever observed, it's a prediction
+
+2:03:03.600 --> 2:03:04.440
+ that's never been checked.
+
+2:03:04.440 --> 2:03:06.720
+ So like supermassive black holes, that doesn't apply?
+
+2:03:06.720 --> 2:03:11.240
+ No, no, the predicted rate of radiation
+
+2:03:11.240 --> 2:03:13.600
+ from those black holes is so tiny
+
+2:03:13.600 --> 2:03:15.480
+ that it's absolutely unobservable
+
+2:03:15.480 --> 2:03:17.920
+ and is overwhelmed by all kinds of other effects.
+
+2:03:21.480 --> 2:03:24.420
+ So it's not practical in the sense of technology,
+
+2:03:24.420 --> 2:03:26.400
+ it's not even practical in the sense
+
+2:03:26.400 --> 2:03:31.400
+ of application to astronomy, our existing theory
+
+2:03:33.080 --> 2:03:37.800
+ of general relativity and quantum theory
+
+2:03:37.800 --> 2:03:41.680
+ and our theory of the different fundamental forces
+
+2:03:41.680 --> 2:03:46.680
+ is perfectly adequate to all problems of technology,
+
+2:03:46.680 --> 2:03:51.680
+ of technology, for sure, and almost all problems
+
+2:03:58.080 --> 2:04:03.080
+ of astrophysics and cosmology that appear
+
+2:04:03.080 --> 2:04:06.560
+ except with the notable exception
+
+2:04:06.560 --> 2:04:09.480
+ of the extremely early universe, if you want to ask,
+
+2:04:09.480 --> 2:04:11.120
+ what happened before the Big Bang
+
+2:04:11.120 --> 2:04:13.020
+ or what happened right at the Big Bang,
+
+2:04:13.020 --> 2:04:17.300
+ which would be a great thing to understand, of course.
+
+2:04:17.300 --> 2:04:19.140
+ Yes. We don't, but.
+
+2:04:19.140 --> 2:04:21.100
+ But what about the engineering question?
+
+2:04:21.100 --> 2:04:23.900
+ So if we look at space travel,
+
+2:04:23.900 --> 2:04:28.420
+ so I think you've spoken with him, Eric Weinstein.
+
+2:04:28.420 --> 2:04:31.900
+ Oh, yeah. Really, you know,
+
+2:04:31.900 --> 2:04:36.020
+ he says things like we want to get off this planet.
+
+2:04:36.020 --> 2:04:39.140
+ His intuition is almost motivated
+
+2:04:39.140 --> 2:04:42.300
+ for the engineering project of space exploration
+
+2:04:42.300 --> 2:04:44.700
+ in order for us to crack this problem
+
+2:04:44.700 --> 2:04:47.460
+ of becoming a multi planetary species,
+
+2:04:47.460 --> 2:04:49.320
+ we have to solve the physics problem.
+
+2:04:49.320 --> 2:04:51.460
+ His intuition is like, if we figure out this,
+
+2:04:51.460 --> 2:04:55.020
+ what he calls the source code, which is like,
+
+2:04:55.980 --> 2:05:00.660
+ like a theory of everything might give us clues
+
+2:05:00.660 --> 2:05:04.260
+ on how to start hacking the fabric of reality,
+
+2:05:04.260 --> 2:05:06.460
+ like getting shortcuts, right?
+
+2:05:06.460 --> 2:05:08.820
+ It might. I can't say that, you know,
+
+2:05:08.820 --> 2:05:10.100
+ I can't say that it won't,
+
+2:05:10.100 --> 2:05:15.100
+ but I can say that in the 1970s and early 1980s,
+
+2:05:16.380 --> 2:05:21.380
+ we achieved huge steps in understanding matter.
+
+2:05:23.860 --> 2:05:28.780
+ QCD, much better understanding of the weak interaction,
+
+2:05:28.780 --> 2:05:32.460
+ much better understanding of quantum mechanics in general.
+
+2:05:32.460 --> 2:05:36.460
+ And it's had minimal impact on technology.
+
+2:05:36.460 --> 2:05:38.180
+ On rocket design, on propulsion.
+
+2:05:38.180 --> 2:05:42.620
+ On rocket design, on anything, any technology whatsoever.
+
+2:05:42.620 --> 2:05:46.360
+ And now we're talking about much more esoteric things.
+
+2:05:46.360 --> 2:05:48.800
+ And since I don't know what they are,
+
+2:05:48.800 --> 2:05:51.180
+ I can't say for sure that they won't affect technology,
+
+2:05:51.180 --> 2:05:52.700
+ but I'm very, very skeptical
+
+2:05:52.700 --> 2:05:55.000
+ that they would affect technology.
+
+2:05:57.780 --> 2:05:59.680
+ Because, you know, to access them,
+
+2:05:59.680 --> 2:06:02.460
+ you need very exotic circumstances
+
+2:06:02.460 --> 2:06:04.620
+ to make new kinds of particles with high energy.
+
+2:06:04.620 --> 2:06:07.860
+ You need accelerators that are very expensive
+
+2:06:07.860 --> 2:06:09.780
+ and you don't produce many of them, and so forth.
+
+2:06:09.780 --> 2:06:13.060
+ You know, it's just, it's a pipe dream, I think.
+
+2:06:13.060 --> 2:06:15.380
+ Yeah, about space exploration.
+
+2:06:15.380 --> 2:06:18.140
+ I'm not sure exactly what he has in mind,
+
+2:06:18.140 --> 2:06:23.140
+ but to me, it's more a problem of,
+
+2:06:26.700 --> 2:06:29.380
+ I don't know, something between biology and...
+
+2:06:29.380 --> 2:06:34.380
+ And information processing.
+
+2:06:34.380 --> 2:06:36.980
+ Processing, what you mean, how should I...
+
+2:06:37.980 --> 2:06:42.140
+ I think human bodies are not well adapted to space.
+
+2:06:43.700 --> 2:06:46.380
+ Even Mars, which is the closest thing
+
+2:06:46.380 --> 2:06:49.140
+ to a kind of human environment
+
+2:06:49.140 --> 2:06:51.140
+ that we're gonna find anywhere close by.
+
+2:06:52.340 --> 2:06:55.880
+ Very, very difficult to maintain humans on Mars.
+
+2:06:57.300 --> 2:07:02.300
+ And it's gonna be very expensive and very unstable.
+
+2:07:02.300 --> 2:07:07.300
+ But I think, however, if we take a broader view
+
+2:07:09.520 --> 2:07:14.520
+ of what it means to bring human civilization
+
+2:07:17.460 --> 2:07:20.660
+ outside of the Earth, if we're satisfied
+
+2:07:20.660 --> 2:07:25.380
+ with sending mines out there that we can converse with
+
+2:07:25.380 --> 2:07:29.180
+ and actuators that we can manipulate
+
+2:07:29.180 --> 2:07:33.780
+ and sensors that we can get feedback from,
+
+2:07:33.780 --> 2:07:37.180
+ I think that's where it's at.
+
+2:07:37.180 --> 2:07:41.580
+ And I think that's so much more realistic.
+
+2:07:41.580 --> 2:07:45.820
+ And I think that's the long term future
+
+2:07:45.820 --> 2:07:48.180
+ of space exploration.
+
+2:07:48.180 --> 2:07:50.660
+ It's not hauling human bodies all over the place.
+
+2:07:50.660 --> 2:07:52.840
+ That's just silly.
+
+2:07:54.100 --> 2:07:56.780
+ It's possible that human bodies...
+
+2:07:56.780 --> 2:07:59.100
+ So like you said, it's a biology problem.
+
+2:07:59.100 --> 2:08:03.540
+ What's possible is that we extend human life span
+
+2:08:03.540 --> 2:08:07.540
+ in some way, we have to look at a bigger picture.
+
+2:08:07.540 --> 2:08:09.420
+ It could be just like you're saying,
+
+2:08:09.420 --> 2:08:12.420
+ by sending robots with actuators
+
+2:08:12.420 --> 2:08:16.540
+ and kind of extending our limbs.
+
+2:08:16.540 --> 2:08:19.180
+ But it could also be extending some aspect of our minds,
+
+2:08:19.180 --> 2:08:20.380
+ some information, all those kinds of things.
+
+2:08:20.380 --> 2:08:23.820
+ And it could be cyborgs, it could be, it could be...
+
+2:08:23.820 --> 2:08:26.620
+ No, we're talking, not getting the fun.
+
+2:08:26.620 --> 2:08:31.620
+ It could be, you know, it could be human brains
+
+2:08:32.140 --> 2:08:34.340
+ or cells that realize something
+
+2:08:34.340 --> 2:08:36.860
+ like human brain architecture
+
+2:08:36.860 --> 2:08:41.860
+ within artificial environments,
+
+2:08:42.580 --> 2:08:44.860
+ you know, shells, if you like,
+
+2:08:44.860 --> 2:08:47.780
+ that are more adapted to the conditions of space.
+
+2:08:47.780 --> 2:08:52.780
+ And that, yeah, so that's entirely man machine hybrids,
+
+2:08:52.780 --> 2:08:57.780
+ as well as sort of remote outposts
+
+2:08:57.940 --> 2:08:59.220
+ that we can communicate with.
+
+2:08:59.220 --> 2:09:01.660
+ I think those will happen.
+
+2:09:02.500 --> 2:09:05.300
+ Yeah, to me, there's some sense in which,
+
+2:09:05.300 --> 2:09:07.340
+ as opposed to understanding the physics
+
+2:09:07.340 --> 2:09:12.340
+ of the fundamental fabric of the universe,
+
+2:09:15.100 --> 2:09:17.380
+ I think getting to the physics of life,
+
+2:09:17.380 --> 2:09:18.740
+ the physics of intelligence,
+
+2:09:18.740 --> 2:09:20.860
+ the physics of consciousness will,
+
+2:09:20.860 --> 2:09:25.860
+ the physics of information that brings,
+
+2:09:27.900 --> 2:09:29.380
+ from which life emerges,
+
+2:09:29.380 --> 2:09:32.140
+ that will allow us to do space exploration.
+
+2:09:32.140 --> 2:09:34.700
+ Yeah, well, I think physics in the larger sense
+
+2:09:34.700 --> 2:09:36.860
+ has a lot to contribute here.
+
+2:09:36.860 --> 2:09:39.980
+ Not the physics of finding fundamental new laws
+
+2:09:39.980 --> 2:09:44.820
+ in the sense of another quark or axions even.
+
+2:09:44.820 --> 2:09:49.820
+ But physics in the sense of,
+
+2:09:51.460 --> 2:09:53.500
+ physics has a lot of experience
+
+2:09:53.500 --> 2:09:56.660
+ in analyzing complex situations
+
+2:09:56.660 --> 2:09:58.260
+ and analyzing new states of matter
+
+2:09:58.260 --> 2:10:00.180
+ and devising new kinds of instruments
+
+2:10:00.180 --> 2:10:01.580
+ that do clever things.
+
+2:10:01.580 --> 2:10:05.940
+ Physics in that sense has enormous amounts
+
+2:10:05.940 --> 2:10:09.980
+ to contribute to this kind of endeavor.
+
+2:10:09.980 --> 2:10:13.180
+ But I don't think that looking
+
+2:10:13.180 --> 2:10:16.620
+ for a so called theory of everything
+
+2:10:16.620 --> 2:10:19.020
+ has much to do with it at all.
+
+2:10:19.020 --> 2:10:24.020
+ What advice would you give to a young person today
+
+2:10:24.820 --> 2:10:26.380
+ with a bit of fire in their eyes,
+
+2:10:26.380 --> 2:10:28.100
+ high school student, college student,
+
+2:10:28.100 --> 2:10:30.460
+ thinking about what to do with their life,
+
+2:10:30.460 --> 2:10:35.060
+ maybe advice about career or bigger advice
+
+2:10:35.060 --> 2:10:36.220
+ about life in general?
+
+2:10:37.460 --> 2:10:38.900
+ Well, first read fundamentals
+
+2:10:38.900 --> 2:10:43.900
+ because there I've tried to give some coherent deep advice.
+
+2:10:45.780 --> 2:10:50.140
+ That's fundamentals, 10 keys to reality by Frank Kulczyk.
+
+2:10:50.140 --> 2:10:50.980
+ So that's a good place to start.
+
+2:10:50.980 --> 2:10:52.260
+ Available everywhere.
+
+2:10:52.260 --> 2:10:55.180
+ If you wanna learn what I can tell you.
+
+2:10:56.820 --> 2:10:57.740
+ Is there an audio book?
+
+2:10:57.740 --> 2:10:58.580
+ I read that ebook.
+
+2:10:58.580 --> 2:10:59.420
+ Yes, there is an audio book.
+
+2:10:59.420 --> 2:11:00.860
+ There's an audio book, that's awesome.
+
+2:11:00.860 --> 2:11:05.220
+ I think it's, I can give three pieces of wise advice
+
+2:11:05.220 --> 2:11:08.340
+ that I think are generally applicable.
+
+2:11:08.340 --> 2:11:11.780
+ One is to cast a wide net,
+
+2:11:13.580 --> 2:11:18.580
+ to really look around and see what looks promising,
+
+2:11:19.460 --> 2:11:22.460
+ what catches your imagination and promising.
+
+2:11:25.860 --> 2:11:28.380
+ Yeah, and those, you have to balance those two things.
+
+2:11:28.380 --> 2:11:30.060
+ You could have things that catch your imagination,
+
+2:11:30.060 --> 2:11:32.420
+ but don't look promising in the sense
+
+2:11:32.420 --> 2:11:34.580
+ that the questions aren't ripe or,
+
+2:11:34.580 --> 2:11:37.900
+ and things that you,
+
+2:11:37.900 --> 2:11:42.340
+ and part of what makes things attractive is that,
+
+2:11:42.340 --> 2:11:43.940
+ whether you thought you liked them or not,
+
+2:11:43.940 --> 2:11:45.980
+ is if you can see that there's ferment
+
+2:11:45.980 --> 2:11:47.660
+ and new ideas coming up that become,
+
+2:11:47.660 --> 2:11:49.420
+ that's attractive in itself.
+
+2:11:49.420 --> 2:11:52.340
+ So when I started out, I thought I was,
+
+2:11:52.340 --> 2:11:53.580
+ and when I was an undergraduate,
+
+2:11:53.580 --> 2:11:55.420
+ I intended to study philosophy
+
+2:11:55.420 --> 2:11:57.660
+ or questions of how mind emerges from matter.
+
+2:11:57.660 --> 2:12:00.300
+ But I thought that that wasn't really right.
+
+2:12:00.300 --> 2:12:01.260
+ Timing isn't right yet.
+
+2:12:01.260 --> 2:12:03.020
+ The right, the timing wasn't right
+
+2:12:03.020 --> 2:12:05.220
+ for the kind of mathematical thinking
+
+2:12:05.220 --> 2:12:10.220
+ and conceptualization that I really enjoy and am good at.
+
+2:12:12.340 --> 2:12:17.260
+ But, so that's one thing, cast a wide net, look around.
+
+2:12:18.780 --> 2:12:23.780
+ And that's a pretty easy thing to do today
+
+2:12:25.260 --> 2:12:27.060
+ because of the internet.
+
+2:12:27.060 --> 2:12:30.060
+ You can look at all kinds of things.
+
+2:12:30.060 --> 2:12:30.940
+ You have to be careful though
+
+2:12:30.940 --> 2:12:33.460
+ because there's a lot of crap also.
+
+2:12:33.460 --> 2:12:36.620
+ But you can sort of tell the difference
+
+2:12:36.620 --> 2:12:38.780
+ if you do a little digging.
+
+2:12:42.460 --> 2:12:44.940
+ So don't settle on just,
+
+2:12:44.940 --> 2:12:46.780
+ what your thesis advisor tells you to do
+
+2:12:46.780 --> 2:12:49.100
+ or what your teacher tells you to do.
+
+2:12:49.100 --> 2:12:54.100
+ Look for yourself and get a sense of what seems promising,
+
+2:12:54.100 --> 2:12:59.100
+ not what seemed promising 10 years ago or, so that's one.
+
+2:13:03.620 --> 2:13:08.620
+ Another thing is to, is kind of complimentary to that.
+
+2:13:09.980 --> 2:13:11.740
+ Well, they're all complimentary.
+
+2:13:12.860 --> 2:13:17.860
+ Complimentary to that is to read history
+
+2:13:18.260 --> 2:13:19.860
+ and read the masters,
+
+2:13:19.860 --> 2:13:22.300
+ the history of ideas and masters of ideas.
+
+2:13:22.300 --> 2:13:27.300
+ I'd benefited enormously from, as early in my career,
+
+2:13:28.420 --> 2:13:33.420
+ from reading in physics, Einstein in the original
+
+2:13:34.420 --> 2:13:39.420
+ and Feynman's lectures as they were coming out and Darwin.
+
+2:13:39.620 --> 2:13:43.540
+ You know, these, you can learn what it, and Galileo,
+
+2:13:43.540 --> 2:13:46.700
+ you can learn what it is to wrestle with difficult ideas
+
+2:13:46.700 --> 2:13:48.180
+ and how great minds did that.
+
+2:13:48.180 --> 2:13:51.220
+ You can learn a lot about style,
+
+2:13:51.220 --> 2:13:56.220
+ how to write your ideas up and express them in clear ways.
+
+2:13:57.740 --> 2:14:00.180
+ And also just a couple of that with,
+
+2:14:00.180 --> 2:14:02.300
+ I also enjoy reading biographies.
+
+2:14:02.300 --> 2:14:04.660
+ And biographies, yes, similarly, right, yeah.
+
+2:14:04.660 --> 2:14:08.100
+ So it gives you the context of the human being
+
+2:14:08.100 --> 2:14:08.940
+ that created those ideas.
+
+2:14:08.940 --> 2:14:11.860
+ Right, and brings it down to earth in the sense that,
+
+2:14:11.860 --> 2:14:14.100
+ you know, it was really human beings who did this.
+
+2:14:14.100 --> 2:14:17.180
+ It's not, and they made mistakes.
+
+2:14:17.180 --> 2:14:22.180
+ And yeah, I also got inspiration from Bertrand Russell
+
+2:14:22.980 --> 2:14:25.460
+ who was a big hero and H.G. Wells and yeah.
+
+2:14:25.460 --> 2:14:30.460
+ So read the masters, make contact with great minds.
+
+2:14:31.420 --> 2:14:33.900
+ And when you are sort of narrowing down on a subject,
+
+2:14:33.900 --> 2:14:35.460
+ learn about the history of the subject
+
+2:14:35.460 --> 2:14:38.380
+ because that really puts in context
+
+2:14:38.380 --> 2:14:43.380
+ what you're trying to do and also gives a sense of community
+
+2:14:43.980 --> 2:14:46.020
+ and grandeur to the whole enterprise.
+
+2:14:46.020 --> 2:14:48.900
+ And then the third piece of advice
+
+2:14:48.900 --> 2:14:51.860
+ is complimentary to both those,
+
+2:14:51.860 --> 2:14:56.860
+ which is sort of to get the basics under control
+
+2:14:58.860 --> 2:15:00.420
+ as soon as possible.
+
+2:15:00.420 --> 2:15:04.220
+ So if you wanna do theoretical work in science,
+
+2:15:04.220 --> 2:15:08.420
+ you know, you have to learn calculus,
+
+2:15:08.420 --> 2:15:11.600
+ multivariable calculus, complex variables, group theory.
+
+2:15:11.600 --> 2:15:15.300
+ Nowadays, you have to be highly computer literate
+
+2:15:15.300 --> 2:15:16.540
+ if you want to do experimental work.
+
+2:15:16.540 --> 2:15:17.980
+ You also have to be computer literate
+
+2:15:17.980 --> 2:15:19.660
+ and you have to learn about electronics
+
+2:15:19.660 --> 2:15:22.260
+ and optics and instruments.
+
+2:15:22.260 --> 2:15:26.860
+ So get that under control as soon as possible
+
+2:15:26.860 --> 2:15:31.860
+ because it's like learning a language to produce great works
+
+2:15:32.640 --> 2:15:35.580
+ and express yourself fluently and with confidence.
+
+2:15:37.980 --> 2:15:39.460
+ It should be your native language.
+
+2:15:39.460 --> 2:15:41.420
+ These things should be like your native language.
+
+2:15:41.420 --> 2:15:44.660
+ So you're not wondering what is the derivative?
+
+2:15:44.660 --> 2:15:49.660
+ This is just part of your, it's in your bones,
+
+2:15:50.300 --> 2:15:53.380
+ so to speak, and the sooner that you can do that,
+
+2:15:53.380 --> 2:15:55.060
+ then the better.
+
+2:15:55.060 --> 2:15:57.980
+ So all those things can be done in parallel and should be.
+
+2:16:01.760 --> 2:16:04.520
+ You've accomplished some incredible things in your life,
+
+2:16:04.520 --> 2:16:09.520
+ but the sad thing about this thing we have is it ends.
+
+2:16:09.520 --> 2:16:14.520
+ Do you think about your mortality?
+
+2:16:15.240 --> 2:16:16.440
+ Are you afraid of death?
+
+2:16:19.000 --> 2:16:20.440
+ Well, afraid is the wrong word.
+
+2:16:20.440 --> 2:16:23.960
+ I mean, I wish it weren't going to happen
+
+2:16:23.960 --> 2:16:25.760
+ and I'd like to, but.
+
+2:16:27.000 --> 2:16:28.040
+ Do you think about it?
+
+2:16:28.040 --> 2:16:30.460
+ I, you know, occasionally I think about,
+
+2:16:30.460 --> 2:16:32.400
+ well, I think about it very operationally
+
+2:16:32.400 --> 2:16:35.480
+ in the sense that there's always a trade off
+
+2:16:35.480 --> 2:16:39.480
+ between exploration and exploitation.
+
+2:16:39.480 --> 2:16:42.580
+ This is a classic subject in computer science,
+
+2:16:42.580 --> 2:16:46.280
+ actually in machine learning that when you're
+
+2:16:46.280 --> 2:16:50.600
+ in an unusual circumstance, you want to explore
+
+2:16:50.600 --> 2:16:54.700
+ to see what the landscape is and what, and gather data.
+
+2:16:54.700 --> 2:16:57.680
+ But then at some point you want to use that,
+
+2:16:57.680 --> 2:17:00.000
+ make, decide, make choices and say,
+
+2:17:00.000 --> 2:17:02.040
+ this is what I'm going to do and exploit the knowledge
+
+2:17:02.040 --> 2:17:03.360
+ you've accumulated.
+
+2:17:03.360 --> 2:17:08.360
+ And the longer the period of exploitation you anticipate,
+
+2:17:10.480 --> 2:17:14.600
+ the more exploration you should do in new directions.
+
+2:17:14.600 --> 2:17:18.760
+ And so for me, I've had to sort of adjust the balance
+
+2:17:18.760 --> 2:17:21.760
+ of exploration and exploitation and.
+
+2:17:25.880 --> 2:17:28.180
+ That's it, you've explored quite a lot.
+
+2:17:28.180 --> 2:17:31.960
+ Yeah, well, I haven't shut off the exploitation at all.
+
+2:17:31.960 --> 2:17:34.000
+ I'm still hoping for. The exploration.
+
+2:17:34.000 --> 2:17:35.200
+ The exploration, right.
+
+2:17:35.200 --> 2:17:38.280
+ I'm still hoping for 10 or 15 years
+
+2:17:38.280 --> 2:17:39.560
+ of top flight performance.
+
+2:17:39.560 --> 2:17:44.560
+ But the, several years ago now when I was 50 years old,
+
+2:17:47.480 --> 2:17:49.540
+ I was at the Institute for Advanced Study
+
+2:17:49.540 --> 2:17:52.500
+ and my office was right under Freeman Dyson's office
+
+2:17:52.500 --> 2:17:53.920
+ and we were kind of friendly.
+
+2:17:53.920 --> 2:17:58.760
+ And, you know, he found out it was my 50th birthday
+
+2:17:58.760 --> 2:18:00.960
+ and said, congratulations.
+
+2:18:00.960 --> 2:18:05.040
+ And you should feel liberated because no one expects much
+
+2:18:05.040 --> 2:18:07.480
+ of a 50 year old theoretical physicist.
+
+2:18:07.480 --> 2:18:10.120
+ And he, and he obviously had felt liberated
+
+2:18:10.120 --> 2:18:13.160
+ by reaching a certain age.
+
+2:18:13.160 --> 2:18:15.680
+ And yeah, there is something to that.
+
+2:18:15.680 --> 2:18:19.280
+ I feel, you know, I feel I don't have to catch,
+
+2:18:19.280 --> 2:18:21.640
+ I don't have to keep in touch
+
+2:18:21.640 --> 2:18:25.000
+ with the latest hypertechnical developments
+
+2:18:25.000 --> 2:18:27.600
+ in particle physics or string theory or something.
+
+2:18:27.600 --> 2:18:31.560
+ I, because I'm not gonna, I'm really not gonna
+
+2:18:31.560 --> 2:18:33.280
+ be exploiting that.
+
+2:18:33.280 --> 2:18:37.640
+ But I, but where I am exploring in these directions
+
+2:18:37.640 --> 2:18:40.120
+ of machine learning and things like that.
+
+2:18:40.120 --> 2:18:43.040
+ And, but then, but I'm also concentrating
+
+2:18:43.040 --> 2:18:46.480
+ within physics on exploiting directions
+
+2:18:46.480 --> 2:18:48.000
+ that I've already established
+
+2:18:48.000 --> 2:18:50.040
+ and the laws that we already have
+
+2:18:50.040 --> 2:18:52.260
+ and doing things like,
+
+2:18:52.260 --> 2:18:57.260
+ I'm very actively involved in trying to design,
+
+2:18:58.300 --> 2:19:02.620
+ helping people, experimentalists and engineers even
+
+2:19:02.620 --> 2:19:07.620
+ to design antennas that are capable of detecting axions.
+
+2:19:08.300 --> 2:19:10.980
+ So there, and that's, there we're deep
+
+2:19:10.980 --> 2:19:13.140
+ in the exploitation stage.
+
+2:19:13.140 --> 2:19:14.940
+ It's not a matter of finding the new laws,
+
+2:19:14.940 --> 2:19:17.860
+ but of really, you know, using the laws we have
+
+2:19:17.860 --> 2:19:20.860
+ to kind of finish the story off.
+
+2:19:20.860 --> 2:19:24.660
+ So it's complicated, but I'm, you know,
+
+2:19:25.500 --> 2:19:27.900
+ I'm very happy with my life right now
+
+2:19:27.900 --> 2:19:31.700
+ and I'm enjoying it and I don't wanna cloud that
+
+2:19:31.700 --> 2:19:36.700
+ by thinking too much that it's gonna come to an end.
+
+2:19:39.780 --> 2:19:42.060
+ You know, it's a gift I didn't earn.
+
+2:19:42.060 --> 2:19:45.100
+ Is there a good thing to say about
+
+2:19:45.100 --> 2:19:50.100
+ why this gift that you've gotten
+
+2:19:50.280 --> 2:19:53.120
+ and didn't deserve is so damn enjoyable?
+
+2:19:53.120 --> 2:19:57.240
+ So like, what's the meaning of this thing, of life?
+
+2:19:57.240 --> 2:20:01.600
+ To me, interacting with people I love, my family,
+
+2:20:01.600 --> 2:20:04.920
+ and I have a very wide circle of friends now
+
+2:20:04.920 --> 2:20:08.960
+ and I'm trying to produce some institutions
+
+2:20:08.960 --> 2:20:12.000
+ that will survive me as well as my work
+
+2:20:12.000 --> 2:20:17.000
+ and it's just, it's, how should I say?
+
+2:20:18.760 --> 2:20:23.760
+ It's a positive feedback loop when you do something
+
+2:20:24.720 --> 2:20:28.360
+ and people appreciate it and then you wanna do more
+
+2:20:28.360 --> 2:20:32.220
+ and you get rewarded and it's just, how should I say?
+
+2:20:32.220 --> 2:20:34.040
+ This is another gift that I didn't earn
+
+2:20:34.040 --> 2:20:37.520
+ and don't understand, but I have a dopamine system
+
+2:20:37.520 --> 2:20:42.280
+ and yeah, I'm happy to use it.
+
+2:20:42.280 --> 2:20:47.280
+ It seems to get energized by the creative process,
+
+2:20:47.360 --> 2:20:48.920
+ by the process of exploration.
+
+2:20:48.920 --> 2:20:49.760
+ Very much so.
+
+2:20:49.760 --> 2:20:54.240
+ And all of that started from the little fluctuations
+
+2:20:56.160 --> 2:20:58.640
+ shortly after the Big Bang.
+
+2:20:58.640 --> 2:21:01.640
+ Frank, well, whatever those initial conditions
+
+2:21:01.640 --> 2:21:04.600
+ and fluctuations did that created you, I'm glad they did.
+
+2:21:04.600 --> 2:21:07.640
+ This is, thank you for all the work you've done,
+
+2:21:07.640 --> 2:21:09.280
+ for the many people you've inspired,
+
+2:21:09.280 --> 2:21:12.740
+ for the many, of the billion, most of your ideas
+
+2:21:12.740 --> 2:21:15.080
+ were pretty useless of the several billions,
+
+2:21:16.480 --> 2:21:20.040
+ as it is for all humans, but you had quite a few
+
+2:21:20.040 --> 2:21:23.140
+ truly special ideas and thank you for bringing those
+
+2:21:23.140 --> 2:21:25.680
+ to the world and thank you for wasting your valuable time
+
+2:21:25.680 --> 2:21:27.760
+ with me today, it's truly an honor.
+
+2:21:27.760 --> 2:21:31.840
+ It's been a joy and I hope people enjoy it
+
+2:21:31.840 --> 2:21:36.840
+ and I think the kind of mind expansion that I've enjoyed
+
+2:21:37.120 --> 2:21:41.240
+ by interacting with physical reality at this deep level,
+
+2:21:41.240 --> 2:21:45.540
+ I think can be conveyed to and enjoyed by many, many people
+
+2:21:45.540 --> 2:21:48.040
+ and that's one of my missions in life, to share it.
+
+2:21:48.040 --> 2:21:49.360
+ Beautiful.
+
+2:21:49.360 --> 2:21:50.880
+ Thanks for listening to this conversation
+
+2:21:50.880 --> 2:21:54.040
+ with Frank Wilczek and thank you to The Information,
+
+2:21:54.040 --> 2:21:58.500
+ NatSuite, ExpressVPN, Blinkist and 8sleep.
+
+2:21:58.500 --> 2:22:01.720
+ Check them out in the description to support this podcast
+
+2:22:01.720 --> 2:22:03.320
+ and now let me leave you with some words
+
+2:22:03.320 --> 2:22:08.100
+ from Albert Einstein, nothing happens until something moves.
+
+2:22:08.100 --> 2:22:31.100
+ Thanks for listening and hope to see you next time.
+

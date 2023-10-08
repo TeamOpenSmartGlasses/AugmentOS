@@ -1,0 +1,2603 @@
+WEBVTT
+
+00:00.000 --> 00:05.680
+ The following is a conversation with Guido van Rossum, creator of Python, one of the most popular
+
+00:05.680 --> 00:11.120
+ programming languages in the world, used in almost any application that involves computers
+
+00:11.120 --> 00:17.760
+ from web back end development to psychology, neuroscience, computer vision, robotics, deep
+
+00:17.760 --> 00:24.560
+ learning, natural language processing, and almost any subfield of AI. This conversation is part of
+
+00:24.560 --> 00:29.280
+ MIT course on artificial general intelligence and the artificial intelligence podcast.
+
+00:29.280 --> 00:36.080
+ If you enjoy it, subscribe on YouTube, iTunes, or your podcast provider of choice, or simply connect
+
+00:36.080 --> 00:44.720
+ with me on Twitter at Lex Friedman, spelled F R I D. And now, here's my conversation with Guido van
+
+00:44.720 --> 00:53.120
+ Rossum. You were born in the Netherlands in 1956. Your parents and the world around you was deeply
+
+00:53.120 --> 01:00.080
+ deeply impacted by World War Two, as was my family from the Soviet Union. So with that context,
+
+01:02.000 --> 01:07.360
+ what is your view of human nature? Are some humans inherently good,
+
+01:07.360 --> 01:12.240
+ and some inherently evil? Or do we all have both good and evil within us?
+
+01:12.240 --> 01:23.920
+ Guido van Rossum Ouch, I did not expect such a deep one. I, I guess we all have good and evil
+
+01:24.880 --> 01:31.440
+ potential in us. And a lot of it depends on circumstances and context.
+
+01:31.440 --> 01:38.800
+ Peter Bell out of that world, at least on the Soviet Union side in Europe, sort of out of
+
+01:38.800 --> 01:46.480
+ suffering, out of challenge, out of that kind of set of traumatic events, often emerges beautiful
+
+01:46.480 --> 01:53.200
+ art, music, literature. In an interview I read or heard, you said you enjoyed Dutch literature
+
+01:54.320 --> 01:59.760
+ when you were a child. Can you tell me about the books that had an influence on you in your
+
+01:59.760 --> 02:01.520
+ childhood? Guido van Rossum
+
+02:01.520 --> 02:09.120
+ Well, with as a teenager, my favorite writer was my favorite Dutch author was a guy named Willem
+
+02:09.120 --> 02:19.440
+ Frederik Hermans, who's writing, certainly his early novels were all about sort of
+
+02:19.440 --> 02:30.480
+ ambiguous things that happened during World War Two. I think he was a young adult during that time.
+
+02:31.600 --> 02:40.800
+ And he wrote about it a lot, and very interesting, very good books, I thought, I think.
+
+02:40.800 --> 02:42.560
+ Peter Bell In a nonfiction way?
+
+02:42.560 --> 02:46.400
+ Guido van Rossum No, it was all fiction, but it was
+
+02:46.400 --> 02:52.640
+ very much set in the ambiguous world of resistance against the Germans,
+
+02:54.560 --> 03:03.840
+ where often you couldn't tell whether someone was truly in the resistance or really a spy for the
+
+03:03.840 --> 03:11.280
+ Germans. And some of the characters in his novels sort of crossed that line, and you never really
+
+03:11.280 --> 03:13.840
+ find out what exactly happened.
+
+03:13.840 --> 03:16.880
+ Peter Bell And in his novels, there's always a
+
+03:16.880 --> 03:22.160
+ good guy and a bad guy, the nature of good and evil. Is it clear there's a hero?
+
+03:22.160 --> 03:25.120
+ Guido van Rossum No, his heroes are often more,
+
+03:25.120 --> 03:34.000
+ his main characters are often anti heroes. And so they're not very heroic. They're often,
+
+03:36.640 --> 03:40.800
+ they fail at some level to accomplish their lofty goals.
+
+03:40.800 --> 03:43.040
+ Peter Bell And looking at the trajectory
+
+03:43.040 --> 03:48.880
+ through the rest of your life, has literature, Dutch or English or translation had an impact
+
+03:50.560 --> 03:54.160
+ outside the technical world that you existed in?
+
+03:54.160 --> 03:59.920
+ Guido van Rossum I still read novels.
+
+04:00.640 --> 04:05.200
+ I don't think that it impacts me that much directly.
+
+04:05.200 --> 04:07.280
+ Peter Bell It doesn't impact your work.
+
+04:07.280 --> 04:10.080
+ Guido van Rossum It's a separate world.
+
+04:10.080 --> 04:17.440
+ My work is highly technical and sort of the world of art and literature doesn't really
+
+04:17.440 --> 04:19.120
+ directly have any bearing on it.
+
+04:19.120 --> 04:22.400
+ Peter Bell You don't think there's a creative element
+
+04:22.400 --> 04:26.880
+ to the design? You know, some would say design of a language is art.
+
+04:26.880 --> 04:32.160
+ Guido van Rossum I'm not disagreeing with that.
+
+04:32.160 --> 04:39.360
+ I'm just saying that sort of I don't feel direct influences from more traditional art
+
+04:39.360 --> 04:40.880
+ on my own creativity.
+
+04:40.880 --> 04:43.280
+ Peter Bell Right. Of course, you don't feel doesn't mean
+
+04:43.280 --> 04:46.000
+ it's not somehow deeply there in your subconscious.
+
+04:46.000 --> 04:48.240
+ Guido van Rossum Who knows?
+
+04:48.240 --> 04:51.200
+ Peter Bell Who knows? So let's go back to your early
+
+04:51.200 --> 04:57.440
+ teens. Your hobbies were building electronic circuits, building mechanical models.
+
+04:57.440 --> 05:06.080
+ What if you can just put yourself back in the mind of that young Guido 12, 13, 14, was
+
+05:06.080 --> 05:12.240
+ that grounded in a desire to create a system? So to create something? Or was it more just
+
+05:12.240 --> 05:14.720
+ tinkering? Just the joy of puzzle solving?
+
+05:14.720 --> 05:18.720
+ Guido van Rossum I think it was more the latter, actually.
+
+05:18.720 --> 05:29.920
+ I maybe towards the end of my high school period, I felt confident enough that that
+
+05:29.920 --> 05:39.120
+ I designed my own circuits that were sort of interesting somewhat. But a lot of that
+
+05:39.120 --> 05:46.000
+ time, I literally just took a model kit and follow the instructions, putting the things
+
+05:46.000 --> 05:51.680
+ together. I mean, I think the first few years that I built electronics kits, I really did
+
+05:51.680 --> 05:59.760
+ not have enough understanding of sort of electronics to really understand what I was doing. I mean,
+
+05:59.760 --> 06:06.480
+ I could debug it, and I could sort of follow the instructions very carefully, which has
+
+06:06.480 --> 06:14.560
+ always stayed with me. But I had a very naive model of, like, how do I build a circuit?
+
+06:14.560 --> 06:22.800
+ Of, like, how a transistor works? And I don't think that in those days, I had any understanding
+
+06:22.800 --> 06:32.560
+ of coils and capacitors, which actually sort of was a major problem when I started to build
+
+06:32.560 --> 06:39.840
+ more complex digital circuits, because I was unaware of the sort of the analog part of
+
+06:39.840 --> 06:50.080
+ the – how they actually work. And I would have things that – the schematic looked
+
+06:50.080 --> 06:57.440
+ – everything looked fine, and it didn't work. And what I didn't realize was that
+
+06:57.440 --> 07:02.720
+ there was some megahertz level oscillation that was throwing the circuit off, because
+
+07:02.720 --> 07:13.360
+ I had a sort of – two wires were too close, or the switches were kind of poorly built.
+
+07:13.360 --> 07:19.280
+ But through that time, I think it's really interesting and instructive to think about,
+
+07:19.280 --> 07:24.600
+ because echoes of it are in this time now. So in the 1970s, the personal computer was
+
+07:24.600 --> 07:33.200
+ being born. So did you sense, in tinkering with these circuits, did you sense the encroaching
+
+07:33.200 --> 07:39.320
+ revolution in personal computing? So if at that point, we would sit you down and ask
+
+07:39.320 --> 07:46.040
+ you to predict the 80s and the 90s, do you think you would be able to do so successfully
+
+07:46.040 --> 07:55.560
+ to unroll the process that's happening? No, I had no clue. I remember, I think, in
+
+07:55.560 --> 08:03.060
+ the summer after my senior year – or maybe it was the summer after my junior year – well,
+
+08:03.060 --> 08:11.600
+ at some point, I think, when I was 18, I went on a trip to the Math Olympiad in Eastern
+
+08:11.600 --> 08:16.920
+ Europe, and there was like – I was part of the Dutch team, and there were other nerdy
+
+08:16.920 --> 08:23.040
+ kids that sort of had different experiences, and one of them told me about this amazing
+
+08:23.040 --> 08:31.840
+ thing called a computer. And I had never heard that word. My own explorations in electronics
+
+08:31.840 --> 08:40.420
+ were sort of about very simple digital circuits, and I had sort of – I had the idea that
+
+08:40.420 --> 08:49.760
+ I somewhat understood how a digital calculator worked. And so there is maybe some echoes
+
+08:49.760 --> 08:56.440
+ of computers there, but I never made that connection. I didn't know that when my parents
+
+08:56.440 --> 09:03.520
+ were paying for magazine subscriptions using punched cards, that there was something called
+
+09:03.520 --> 09:08.260
+ a computer that was involved that read those cards and transferred the money between accounts.
+
+09:08.260 --> 09:15.880
+ I was also not really interested in those things. It was only when I went to university
+
+09:15.880 --> 09:23.120
+ to study math that I found out that they had a computer, and students were allowed to use
+
+09:23.120 --> 09:24.120
+ it.
+
+09:24.120 --> 09:27.800
+ And there were some – you're supposed to talk to that computer by programming it.
+
+09:27.800 --> 09:29.920
+ What did that feel like, finding –
+
+09:29.920 --> 09:35.440
+ Yeah, that was the only thing you could do with it. The computer wasn't really connected
+
+09:35.440 --> 09:41.400
+ to the real world. The only thing you could do was sort of – you typed your program
+
+09:41.400 --> 09:47.840
+ on a bunch of punched cards. You gave the punched cards to the operator, and an hour
+
+09:47.840 --> 09:55.520
+ later the operator gave you back your printout. And so all you could do was write a program
+
+09:55.520 --> 10:04.080
+ that did something very abstract. And I don't even remember what my first forays into programming
+
+10:04.080 --> 10:13.440
+ were, but they were sort of doing simple math exercises and just to learn how a programming
+
+10:13.440 --> 10:15.560
+ language worked.
+
+10:15.560 --> 10:21.680
+ Did you sense, okay, first year of college, you see this computer, you're able to have
+
+10:21.680 --> 10:29.420
+ a program and it generates some output. Did you start seeing the possibility of this,
+
+10:29.420 --> 10:34.920
+ or was it a continuation of the tinkering with circuits? Did you start to imagine that
+
+10:34.920 --> 10:42.460
+ one, the personal computer, but did you see it as something that is a tool, like a word
+
+10:42.460 --> 10:47.160
+ processing tool, maybe for gaming or something? Or did you start to imagine that it could
+
+10:47.160 --> 10:53.860
+ be going to the world of robotics, like the Frankenstein picture that you could create
+
+10:53.860 --> 10:59.640
+ an artificial being? There's like another entity in front of you. You did not see the
+
+10:59.640 --> 11:00.640
+ computer.
+
+11:00.640 --> 11:05.840
+ I don't think I really saw it that way. I was really more interested in the tinkering.
+
+11:05.840 --> 11:14.920
+ It's maybe not a sort of a complete coincidence that I ended up sort of creating a programming
+
+11:14.920 --> 11:20.360
+ language which is a tool for other programmers. I've always been very focused on the sort
+
+11:20.360 --> 11:28.920
+ of activity of programming itself and not so much what happens with the program you
+
+11:28.920 --> 11:29.920
+ write.
+
+11:29.920 --> 11:30.920
+ Right.
+
+11:30.920 --> 11:37.800
+ I do remember, and I don't remember, maybe in my second or third year, probably my second
+
+11:37.800 --> 11:46.680
+ actually, someone pointed out to me that there was this thing called Conway's Game of Life.
+
+11:46.680 --> 11:50.480
+ You're probably familiar with it. I think –
+
+11:50.480 --> 11:53.200
+ In the 70s, I think is when they came up with it.
+
+11:53.200 --> 12:00.840
+ So there was a Scientific American column by someone who did a monthly column about
+
+12:00.840 --> 12:06.580
+ mathematical diversions. I'm also blanking out on the guy's name. It was very famous
+
+12:06.580 --> 12:12.440
+ at the time and I think up to the 90s or so. And one of his columns was about Conway's
+
+12:12.440 --> 12:18.160
+ Game of Life and he had some illustrations and he wrote down all the rules and sort of
+
+12:18.160 --> 12:23.720
+ there was the suggestion that this was philosophically interesting, that that was why Conway had
+
+12:23.720 --> 12:31.480
+ called it that. And all I had was like the two pages photocopy of that article. I don't
+
+12:31.480 --> 12:40.200
+ even remember where I got it. But it spoke to me and I remember implementing a version
+
+12:40.200 --> 12:49.000
+ of that game for the batch computer we were using where I had a whole Pascal program that
+
+12:49.000 --> 12:56.480
+ sort of read an initial situation from input and read some numbers that said do so many
+
+12:56.480 --> 13:05.960
+ generations and print every so many generations and then out would come pages and pages of
+
+13:05.960 --> 13:08.480
+ sort of things.
+
+13:08.480 --> 13:18.360
+ I remember much later I've done a similar thing using Python but that original version
+
+13:18.360 --> 13:27.700
+ I wrote at the time I found interesting because I combined it with some trick I had learned
+
+13:27.700 --> 13:36.000
+ during my electronics hobbyist times. I essentially first on paper I designed a simple circuit
+
+13:36.000 --> 13:45.780
+ built out of logic gates that took nine bits of input which is sort of the cell and its
+
+13:45.780 --> 13:54.040
+ neighbors and produced a new value for that cell and it's like a combination of a half
+
+13:54.040 --> 14:01.040
+ adder and some other clipping. It's actually a full adder. And so I had worked that out
+
+14:01.040 --> 14:10.520
+ and then I translated that into a series of Boolean operations on Pascal integers where
+
+14:10.520 --> 14:21.740
+ you could use the integers as bitwise values. And so I could basically generate 60 bits
+
+14:21.740 --> 14:28.800
+ of a generation in like eight instructions or so.
+
+14:28.800 --> 14:29.800
+ Nice.
+
+14:29.800 --> 14:32.560
+ So I was proud of that.
+
+14:32.560 --> 14:38.120
+ It's funny that you mentioned, so for people who don't know Conway's Game of Life, it's
+
+14:38.120 --> 14:44.840
+ a cellular automata where there's single compute units that kind of look at their neighbors
+
+14:44.840 --> 14:50.080
+ and figure out what they look like in the next generation based on the state of their
+
+14:50.080 --> 14:57.840
+ neighbors and this is deeply distributed system in concept at least. And then there's simple
+
+14:57.840 --> 15:04.400
+ rules that all of them follow and somehow out of this simple rule when you step back
+
+15:04.400 --> 15:13.160
+ and look at what occurs, it's beautiful. There's an emergent complexity. Even though the underlying
+
+15:13.160 --> 15:17.440
+ rules are simple, there's an emergent complexity. Now the funny thing is you've implemented
+
+15:17.440 --> 15:23.660
+ this and the thing you're commenting on is you're proud of a hack you did to make it
+
+15:23.660 --> 15:30.800
+ run efficiently. When you're not commenting on, it's a beautiful implementation, you're
+
+15:30.800 --> 15:36.780
+ not commenting on the fact that there's an emergent complexity that you've coded a simple
+
+15:36.780 --> 15:42.960
+ program and when you step back and you print out the following generation after generation,
+
+15:42.960 --> 15:48.400
+ that's stuff that you may have not predicted would happen is happening.
+
+15:48.400 --> 15:53.600
+ And is that magic? I mean, that's the magic that all of us feel when we program. When
+
+15:53.600 --> 15:59.240
+ you create a program and then you run it and whether it's Hello World or it shows something
+
+15:59.240 --> 16:03.840
+ on screen, if there's a graphical component, are you seeing the magic in the mechanism
+
+16:03.840 --> 16:05.200
+ of creating that?
+
+16:05.200 --> 16:14.440
+ I think I went back and forth. As a student, we had an incredibly small budget of computer
+
+16:14.440 --> 16:20.280
+ time that we could use. It was actually measured. I once got in trouble with one of my professors
+
+16:20.280 --> 16:29.640
+ because I had overspent the department's budget. It's a different story.
+
+16:29.640 --> 16:36.900
+ I actually wanted the efficient implementation because I also wanted to explore what would
+
+16:36.900 --> 16:48.560
+ happen with a larger number of generations and a larger size of the board. Once the implementation
+
+16:48.560 --> 16:57.000
+ was flawless, I would feed it different patterns and then I think maybe there was a follow
+
+16:57.000 --> 17:03.620
+ up article where there were patterns that were like gliders, patterns that repeated
+
+17:03.620 --> 17:13.200
+ themselves after a number of generations but translated one or two positions to the right
+
+17:13.200 --> 17:21.720
+ or up or something like that. I remember things like glider guns. Well, you can Google Conway's
+
+17:21.720 --> 17:27.560
+ Game of Life. People still go aww and ooh over it.
+
+17:27.560 --> 17:32.680
+ For a reason because it's not really well understood why. I mean, this is what Stephen
+
+17:32.680 --> 17:40.240
+ Wolfram is obsessed about. We don't have the mathematical tools to describe the kind of
+
+17:40.240 --> 17:45.120
+ complexity that emerges in these kinds of systems. The only way you can do is to run
+
+17:45.120 --> 17:47.120
+ it.
+
+17:47.120 --> 17:55.720
+ I'm not convinced that it's sort of a problem that lends itself to classic mathematical
+
+17:55.720 --> 17:59.920
+ analysis.
+
+17:59.920 --> 18:05.120
+ One theory of how you create an artificial intelligence or artificial being is you kind
+
+18:05.120 --> 18:10.120
+ of have to, same with the Game of Life, you kind of have to create a universe and let
+
+18:10.120 --> 18:17.520
+ it run. That creating it from scratch in a design way, coding up a Python program that
+
+18:17.520 --> 18:22.760
+ creates a fully intelligent system may be quite challenging. You might need to create
+
+18:22.760 --> 18:27.120
+ a universe just like the Game of Life.
+
+18:27.120 --> 18:33.200
+ You might have to experiment with a lot of different universes before there is a set
+
+18:33.200 --> 18:41.480
+ of rules that doesn't essentially always just end up repeating itself in a trivial
+
+18:41.480 --> 18:42.480
+ way.
+
+18:42.480 --> 18:49.840
+ Yeah, and Stephen Wolfram works with these simple rules, says that it's kind of surprising
+
+18:49.840 --> 18:55.280
+ how quickly you find rules that create interesting things. You shouldn't be able to, but somehow
+
+18:55.280 --> 19:02.120
+ you do. And so maybe our universe is laden with rules that will create interesting things
+
+19:02.120 --> 19:07.440
+ that might not look like humans, but emergent phenomena that's interesting may not be as
+
+19:07.440 --> 19:09.440
+ difficult to create as we think.
+
+19:09.440 --> 19:10.440
+ Sure.
+
+19:10.440 --> 19:17.440
+ But let me sort of ask, at that time, some of the world, at least in popular press, was
+
+19:17.440 --> 19:25.680
+ kind of captivated, perhaps at least in America, by the idea of artificial intelligence, that
+
+19:25.680 --> 19:33.240
+ these computers would be able to think pretty soon. And did that touch you at all? In science
+
+19:33.240 --> 19:37.800
+ fiction or in reality in any way?
+
+19:37.800 --> 19:49.000
+ I didn't really start reading science fiction until much, much later. I think as a teenager
+
+19:49.000 --> 19:54.520
+ I read maybe one bundle of science fiction stories.
+
+19:54.520 --> 19:57.960
+ Was it in the background somewhere, like in your thoughts?
+
+19:57.960 --> 20:04.720
+ That sort of the using computers to build something intelligent always felt to me, because
+
+20:04.720 --> 20:12.920
+ I felt I had so much understanding of what actually goes on inside a computer. I knew
+
+20:12.920 --> 20:22.880
+ how many bits of memory it had and how difficult it was to program. And sort of, I didn't believe
+
+20:22.880 --> 20:30.560
+ at all that you could just build something intelligent out of that, that would really
+
+20:30.560 --> 20:40.600
+ sort of satisfy my definition of intelligence. I think the most influential thing that I
+
+20:40.600 --> 20:48.680
+ read in my early twenties was Gödel Escherbach. That was about consciousness, and that was
+
+20:48.680 --> 20:54.040
+ a big eye opener in some sense.
+
+20:54.040 --> 21:00.760
+ In what sense? So, on your own brain, did you at the time or do you now see your own
+
+21:00.760 --> 21:07.720
+ brain as a computer? Or is there a total separation of the way? So yeah, you're very pragmatically
+
+21:07.720 --> 21:14.600
+ practically know the limits of memory, the limits of this sequential computing or weakly
+
+21:14.600 --> 21:21.000
+ paralyzed computing, and you just know what we have now, and it's hard to see how it creates.
+
+21:21.000 --> 21:29.920
+ But it's also easy to see, it was in the 40s, 50s, 60s, and now at least similarities between
+
+21:29.920 --> 21:31.680
+ the brain and our computers.
+
+21:31.680 --> 21:43.200
+ Oh yeah, I mean, I totally believe that brains are computers in some sense. I mean, the rules
+
+21:43.200 --> 21:51.200
+ they use to play by are pretty different from the rules we can sort of implement in our
+
+21:51.200 --> 22:02.960
+ current hardware, but I don't believe in, like, a separate thing that infuses us with
+
+22:02.960 --> 22:10.480
+ intelligence or consciousness or any of that. There's no soul, I've been an atheist
+
+22:10.480 --> 22:18.800
+ probably from when I was 10 years old, just by thinking a bit about math and the universe,
+
+22:18.800 --> 22:26.640
+ and well, my parents were atheists. Now, I know that you could be an atheist and still
+
+22:26.640 --> 22:34.080
+ believe that there is something sort of about intelligence or consciousness that cannot
+
+22:34.080 --> 22:44.560
+ possibly emerge from a fixed set of rules. I am not in that camp. I totally see that,
+
+22:44.560 --> 22:53.680
+ sort of, given how many millions of years evolution took its time, DNA is a particular
+
+22:53.680 --> 23:07.040
+ machine that sort of encodes information and an unlimited amount of information in chemical
+
+23:07.040 --> 23:12.320
+ form and has figured out a way to replicate itself.
+
+23:12.320 --> 23:16.880
+ I thought that that was, maybe it's 300 million years ago, but I thought it was closer
+
+23:16.880 --> 23:25.120
+ to half a billion years ago, that that's sort of originated and it hasn't really changed,
+
+23:25.120 --> 23:32.040
+ that the sort of the structure of DNA hasn't changed ever since. That is like our binary
+
+23:32.040 --> 23:35.200
+ code that we have in hardware. I mean...
+
+23:35.200 --> 23:39.760
+ The basic programming language hasn't changed, but maybe the programming itself...
+
+23:39.760 --> 23:48.320
+ Obviously, it did sort of, it happened to be a set of rules that was good enough to
+
+23:48.320 --> 23:59.520
+ sort of develop endless variability and sort of the idea of self replicating molecules
+
+23:59.520 --> 24:05.360
+ competing with each other for resources and one type eventually sort of always taking
+
+24:05.360 --> 24:12.320
+ over. That happened before there were any fossils, so we don't know how that exactly
+
+24:12.320 --> 24:17.920
+ happened, but I believe it's clear that that did happen.
+
+24:17.920 --> 24:25.360
+ Can you comment on consciousness and how you see it? Because I think we'll talk about
+
+24:25.360 --> 24:30.080
+ programming quite a bit. We'll talk about, you know, intelligence connecting to programming
+
+24:30.080 --> 24:38.080
+ fundamentally, but consciousness is this whole other thing. Do you think about it often as
+
+24:38.080 --> 24:45.440
+ a developer of a programming language and as a human?
+
+24:45.440 --> 24:55.000
+ Those are pretty sort of separate topics. Sort of my line of work working with programming
+
+24:55.000 --> 25:02.720
+ does not involve anything that goes in the direction of developing intelligence or consciousness,
+
+25:02.720 --> 25:13.880
+ but sort of privately as an avid reader of popular science writing, I have some thoughts
+
+25:13.880 --> 25:25.680
+ which is mostly that I don't actually believe that consciousness is an all or nothing thing.
+
+25:25.680 --> 25:35.960
+ I have a feeling that, and I forget what I read that influenced this, but I feel that
+
+25:35.960 --> 25:41.400
+ if you look at a cat or a dog or a mouse, they have some form of intelligence. If you
+
+25:41.400 --> 25:54.040
+ look at a fish, it has some form of intelligence, and that evolution just took a long time,
+
+25:54.040 --> 26:01.320
+ but I feel that the sort of evolution of more and more intelligence that led to sort of
+
+26:01.320 --> 26:12.920
+ the human form of intelligence followed the evolution of the senses, especially the visual
+
+26:12.920 --> 26:20.480
+ sense. I mean, there is an enormous amount of processing that's needed to interpret
+
+26:20.480 --> 26:28.240
+ a scene, and humans are still better at that than computers are.
+
+26:28.240 --> 26:39.660
+ And I have a feeling that there is a sort of, the reason that like mammals in particular
+
+26:39.660 --> 26:47.960
+ developed the levels of consciousness that they have and that eventually sort of going
+
+26:47.960 --> 26:55.360
+ from intelligence to self awareness and consciousness has to do with sort of being a robot that
+
+26:55.360 --> 26:58.920
+ has very highly developed senses.
+
+26:58.920 --> 27:04.760
+ Has a lot of rich sensory information coming in, so that's a really interesting thought
+
+27:04.760 --> 27:14.200
+ that whatever that basic mechanism of DNA, whatever that basic building blocks of programming,
+
+27:14.200 --> 27:21.080
+ if you just add more abilities, more high resolution sensors, more sensors, you just
+
+27:21.080 --> 27:26.760
+ keep stacking those things on top that this basic programming in trying to survive develops
+
+27:26.760 --> 27:35.000
+ very interesting things that start to us humans to appear like intelligence and consciousness.
+
+27:35.000 --> 27:42.280
+ As far as robots go, I think that the self driving cars have that sort of the greatest
+
+27:42.280 --> 27:50.400
+ opportunity of developing something like that, because when I drive myself, I don't just
+
+27:50.400 --> 27:53.800
+ pay attention to the rules of the road.
+
+27:53.800 --> 28:01.220
+ I also look around and I get clues from that, oh, this is a shopping district, oh, here's
+
+28:01.220 --> 28:08.960
+ an old lady crossing the street, oh, here is someone carrying a pile of mail, there's
+
+28:08.960 --> 28:14.040
+ a mailbox, I bet you they're going to cross the street to reach that mailbox.
+
+28:14.040 --> 28:17.520
+ And I slow down, and I don't even think about that.
+
+28:17.520 --> 28:25.780
+ And so, there is so much where you turn your observations into an understanding of what
+
+28:25.780 --> 28:32.680
+ other consciousnesses are going to do, or what other systems in the world are going
+
+28:32.680 --> 28:37.400
+ to be, oh, that tree is going to fall.
+
+28:37.400 --> 28:46.800
+ I see sort of, I see much more of, I expect somehow that if anything is going to become
+
+28:46.800 --> 28:55.520
+ unconscious, it's going to be the self driving car and not the network of a bazillion computers
+
+28:55.520 --> 29:03.160
+ in a Google or Amazon data center that are all networked together to do whatever they
+
+29:03.160 --> 29:04.160
+ do.
+
+29:04.160 --> 29:09.640
+ So, in that sense, so you actually highlight, because that's what I work in Thomas Vehicles,
+
+29:09.640 --> 29:15.600
+ you highlight the big gap between what we currently can't do and what we truly need
+
+29:15.600 --> 29:18.500
+ to be able to do to solve the problem.
+
+29:18.500 --> 29:24.600
+ Under that formulation, then consciousness and intelligence is something that basically
+
+29:24.600 --> 29:30.020
+ a system should have in order to interact with us humans, as opposed to some kind of
+
+29:30.020 --> 29:35.280
+ abstract notion of a consciousness.
+
+29:35.280 --> 29:39.200
+ Consciousness is something that you need to have to be able to empathize, to be able to
+
+29:39.200 --> 29:47.440
+ fear, understand what the fear of death is, all these aspects that are important for interacting
+
+29:47.440 --> 29:56.160
+ with pedestrians, you need to be able to do basic computation based on our human desires
+
+29:56.160 --> 29:57.160
+ and thoughts.
+
+29:57.160 --> 30:02.280
+ And if you sort of, yeah, if you look at the dog, the dog clearly knows, I mean, I'm
+
+30:02.280 --> 30:07.340
+ not the dog owner, but I have friends who have dogs, the dogs clearly know what the
+
+30:07.340 --> 30:11.400
+ humans around them are going to do, or at least they have a model of what those humans
+
+30:11.400 --> 30:14.160
+ are going to do and they learn.
+
+30:14.160 --> 30:19.060
+ Some dogs know when you're going out and they want to go out with you, they're sad when
+
+30:19.060 --> 30:26.080
+ you leave them alone, they cry, they're afraid because they were mistreated when they were
+
+30:26.080 --> 30:31.040
+ younger.
+
+30:31.040 --> 30:39.280
+ We don't assign sort of consciousness to dogs, or at least not all that much, but I also
+
+30:39.280 --> 30:42.500
+ don't think they have none of that.
+
+30:42.500 --> 30:50.360
+ So I think it's consciousness and intelligence are not all or nothing.
+
+30:50.360 --> 30:52.780
+ The spectrum is really interesting.
+
+30:52.780 --> 30:58.760
+ But in returning to programming languages and the way we think about building these
+
+30:58.760 --> 31:03.260
+ kinds of things, about building intelligence, building consciousness, building artificial
+
+31:03.260 --> 31:04.260
+ beings.
+
+31:04.260 --> 31:10.920
+ So I think one of the exciting ideas came in the 17th century and with Leibniz, Hobbes,
+
+31:10.920 --> 31:18.520
+ Descartes, where there's this feeling that you can convert all thought, all reasoning,
+
+31:18.520 --> 31:24.480
+ all the thing that we find very special in our brains, you can convert all of that into
+
+31:24.480 --> 31:25.480
+ logic.
+
+31:25.480 --> 31:30.400
+ So you can formalize it, formal reasoning, and then once you formalize everything, all
+
+31:30.400 --> 31:34.400
+ of knowledge, then you can just calculate and that's what we're doing with our brains
+
+31:34.400 --> 31:35.400
+ is we're calculating.
+
+31:35.400 --> 31:40.240
+ So there's this whole idea that this is possible, that this we can actually program.
+
+31:40.240 --> 31:46.520
+ But they weren't aware of the concept of pattern matching in the sense that we are aware of
+
+31:46.520 --> 31:47.640
+ it now.
+
+31:47.640 --> 31:57.640
+ They sort of thought they had discovered incredible bits of mathematics like Newton's calculus
+
+31:57.640 --> 32:06.840
+ and their sort of idealism, their sort of extension of what they could do with logic
+
+32:06.840 --> 32:18.000
+ and math sort of went along those lines and they thought there's like, yeah, logic.
+
+32:18.000 --> 32:22.020
+ There's like a bunch of rules and a bunch of input.
+
+32:22.020 --> 32:28.600
+ They didn't realize that how you recognize a face is not just a bunch of rules but is
+
+32:28.600 --> 32:39.160
+ a shit ton of data plus a circuit that sort of interprets the visual clues and the context
+
+32:39.160 --> 32:49.400
+ and everything else and somehow can massively parallel pattern match against stored rules.
+
+32:49.400 --> 32:56.320
+ I mean, if I see you tomorrow here in front of the Dropbox office, I might recognize you.
+
+32:56.320 --> 33:01.320
+ Even if I'm wearing a different shirt, yeah, but if I see you tomorrow in a coffee shop
+
+33:01.320 --> 33:06.640
+ in Belmont, I might have no idea that it was you or on the beach or whatever.
+
+33:06.640 --> 33:10.160
+ I make those kind of mistakes myself all the time.
+
+33:10.160 --> 33:16.320
+ I see someone that I only know as like, oh, this person is a colleague of my wife's and
+
+33:16.320 --> 33:20.860
+ then I see them at the movies and I didn't recognize them.
+
+33:20.860 --> 33:29.320
+ But do you see those, you call it pattern matching, do you see that rules is unable
+
+33:29.320 --> 33:32.380
+ to encode that?
+
+33:32.380 --> 33:36.320
+ Everything you see, all the pieces of information you look around this room, I'm wearing a black
+
+33:36.320 --> 33:41.720
+ shirt, I have a certain height, I'm a human, all these, there's probably tens of thousands
+
+33:41.720 --> 33:45.680
+ of facts you pick up moment by moment about this scene.
+
+33:45.680 --> 33:50.000
+ You take them for granted and you aggregate them together to understand the scene.
+
+33:50.000 --> 33:53.800
+ You don't think all of that could be encoded to where at the end of the day, you can just
+
+33:53.800 --> 33:57.440
+ put it all on the table and calculate?
+
+33:57.440 --> 33:58.840
+ I don't know what that means.
+
+33:58.840 --> 34:08.680
+ I mean, yes, in the sense that there is no actual magic there, but there are enough layers
+
+34:08.680 --> 34:17.640
+ of abstraction from the facts as they enter my eyes and my ears to the understanding of
+
+34:17.640 --> 34:29.240
+ the scene that I don't think that AI has really covered enough of that distance.
+
+34:29.240 --> 34:37.800
+ It's like if you take a human body and you realize it's built out of atoms, well, that
+
+34:37.800 --> 34:41.960
+ is a uselessly reductionist view, right?
+
+34:41.960 --> 34:46.380
+ The body is built out of organs, the organs are built out of cells, the cells are built
+
+34:46.380 --> 34:53.240
+ out of proteins, the proteins are built out of amino acids, the amino acids are built
+
+34:53.240 --> 34:58.040
+ out of atoms and then you get to quantum mechanics.
+
+34:58.040 --> 34:59.920
+ So that's a very pragmatic view.
+
+34:59.920 --> 35:03.720
+ I mean, obviously as an engineer, I agree with that kind of view, but you also have
+
+35:03.720 --> 35:13.160
+ to consider the Sam Harris view of, well, intelligence is just information processing.
+
+35:13.160 --> 35:17.320
+ Like you said, you take in sensory information, you do some stuff with it and you come up
+
+35:17.320 --> 35:20.760
+ with actions that are intelligent.
+
+35:20.760 --> 35:22.480
+ That makes it sound so easy.
+
+35:22.480 --> 35:24.280
+ I don't know who Sam Harris is.
+
+35:24.280 --> 35:26.400
+ Oh, well, it's a philosopher.
+
+35:26.400 --> 35:29.680
+ So like this is how philosophers often think, right?
+
+35:29.680 --> 35:33.760
+ And essentially that's what Descartes was, is wait a minute, if there is, like you said,
+
+35:33.760 --> 35:39.320
+ no magic, so he basically says it doesn't appear like there's any magic, but we know
+
+35:39.320 --> 35:44.280
+ so little about it that it might as well be magic.
+
+35:44.280 --> 35:47.800
+ So just because we know that we're made of atoms, just because we know we're made
+
+35:47.800 --> 35:53.280
+ of organs, the fact that we know very little how to get from the atoms to organs in a way
+
+35:53.280 --> 36:00.400
+ that's recreatable means that you shouldn't get too excited just yet about the fact that
+
+36:00.400 --> 36:02.240
+ you figured out that we're made of atoms.
+
+36:02.240 --> 36:11.920
+ Right, and the same about taking facts as our sensory organs take them in and turning
+
+36:11.920 --> 36:19.820
+ that into reasons and actions, that sort of, there are a lot of abstractions that we haven't
+
+36:19.820 --> 36:23.960
+ quite figured out how to deal with those.
+
+36:23.960 --> 36:37.440
+ I mean, sometimes, I don't know if I can go on a tangent or not, so if I take a simple
+
+36:37.440 --> 36:45.640
+ program that parses, say I have a compiler that parses a program, in a sense the input
+
+36:45.640 --> 36:55.640
+ routine of that compiler, of that parser, is a sensing organ, and it builds up a mighty
+
+36:55.640 --> 37:01.960
+ complicated internal representation of the program it just saw, it doesn't just have
+
+37:01.960 --> 37:08.200
+ a linear sequence of bytes representing the text of the program anymore, it has an abstract
+
+37:08.200 --> 37:15.480
+ syntax tree, and I don't know how many of your viewers or listeners are familiar with
+
+37:15.480 --> 37:18.680
+ compiler technology, but there's…
+
+37:18.680 --> 37:21.880
+ Fewer and fewer these days, right?
+
+37:21.880 --> 37:24.920
+ That's also true, probably.
+
+37:24.920 --> 37:30.360
+ People want to take a shortcut, but there's sort of, this abstraction is a data structure
+
+37:30.360 --> 37:37.480
+ that the compiler then uses to produce outputs that is relevant, like a translation of that
+
+37:37.480 --> 37:47.880
+ program to machine code that can be executed by hardware, and then that data structure
+
+37:47.880 --> 37:50.600
+ gets thrown away.
+
+37:50.600 --> 38:02.560
+ When a fish or a fly sees, sort of gets visual impulses, I'm sure it also builds up some
+
+38:02.560 --> 38:10.000
+ data structure, and for the fly that may be very minimal, a fly may have only a few, I
+
+38:10.000 --> 38:17.680
+ mean, in the case of a fly's brain, I could imagine that there are few enough layers of
+
+38:17.680 --> 38:24.040
+ abstraction that it's not much more than when it's darker here than it is here, well
+
+38:24.040 --> 38:29.880
+ it can sense motion, because a fly sort of responds when you move your arm towards it,
+
+38:29.880 --> 38:39.240
+ so clearly its visual processing is intelligent, well, not intelligent, but it has an abstraction
+
+38:39.240 --> 38:46.440
+ for motion, and we still have similar things in, but much more complicated in our brains,
+
+38:46.440 --> 38:50.400
+ I mean, otherwise you couldn't drive a car if you couldn't, if you didn't have an
+
+38:50.400 --> 38:53.480
+ incredibly good abstraction for motion.
+
+38:53.480 --> 38:59.160
+ Yeah, in some sense, the same abstraction for motion is probably one of the primary
+
+38:59.160 --> 39:05.080
+ sources of our, of information for us, we just know what to do, I think we know what
+
+39:05.080 --> 39:08.280
+ to do with that, we've built up other abstractions on top.
+
+39:08.280 --> 39:14.120
+ We build much more complicated data structures based on that, and we build more persistent
+
+39:14.120 --> 39:20.320
+ data structures, sort of after some processing, some information sort of gets stored in our
+
+39:20.320 --> 39:27.240
+ memory pretty much permanently, and is available on recall, I mean, there are some things that
+
+39:27.240 --> 39:34.040
+ you sort of, you're conscious that you're remembering it, like, you give me your phone
+
+39:34.040 --> 39:39.560
+ number, I, well, at my age I have to write it down, but I could imagine, I could remember
+
+39:39.560 --> 39:46.240
+ those seven numbers, or ten digits, and reproduce them in a while, if I sort of repeat them
+
+39:46.240 --> 39:53.320
+ to myself a few times, so that's a fairly conscious form of memorization.
+
+39:53.320 --> 39:57.800
+ On the other hand, how do I recognize your face, I have no idea.
+
+39:57.800 --> 40:04.080
+ My brain has a whole bunch of specialized hardware that knows how to recognize faces,
+
+40:04.080 --> 40:10.200
+ I don't know how much of that is sort of coded in our DNA, and how much of that is
+
+40:10.200 --> 40:17.960
+ trained over and over between the ages of zero and three, but somehow our brains know
+
+40:17.960 --> 40:26.000
+ how to do lots of things like that, that are useful in our interactions with other humans,
+
+40:26.000 --> 40:29.880
+ without really being conscious of how it's done anymore.
+
+40:29.880 --> 40:36.200
+ Right, so our actual day to day lives, we're operating at the very highest level of abstraction,
+
+40:36.200 --> 40:39.760
+ we're just not even conscious of all the little details underlying it.
+
+40:39.760 --> 40:43.360
+ There's compilers on top of, it's like turtles on top of turtles, or turtles all the way
+
+40:43.360 --> 40:48.200
+ down, there's compilers all the way down, but that's essentially, you say that there's
+
+40:48.200 --> 40:54.920
+ no magic, that's what I, what I was trying to get at, I think, is with Descartes started
+
+40:54.920 --> 40:59.600
+ this whole train of saying that there's no magic, I mean, there's all this beforehand.
+
+40:59.600 --> 41:06.120
+ Well didn't Descartes also have the notion though that the soul and the body were fundamentally
+
+41:06.120 --> 41:07.120
+ separate?
+
+41:07.120 --> 41:11.800
+ Separate, yeah, I think he had to write in God in there for political reasons, so I don't
+
+41:11.800 --> 41:17.880
+ know actually, I'm not a historian, but there's notions in there that all of reasoning, all
+
+41:17.880 --> 41:20.120
+ of human thought can be formalized.
+
+41:20.120 --> 41:28.480
+ I think that continued in the 20th century with Russell and with Gadot's incompleteness
+
+41:28.480 --> 41:33.120
+ theorem, this debate of what are the limits of the things that could be formalized, that's
+
+41:33.120 --> 41:37.960
+ where the Turing machine came along, and this exciting idea, I mean, underlying a lot of
+
+41:37.960 --> 41:43.160
+ computing that you can do quite a lot with a computer.
+
+41:43.160 --> 41:47.640
+ You can encode a lot of the stuff we're talking about in terms of recognizing faces and so
+
+41:47.640 --> 41:53.960
+ on, theoretically, in an algorithm that can then run on a computer.
+
+41:53.960 --> 42:05.040
+ And in that context, I'd like to ask programming in a philosophical way, what does it mean
+
+42:05.040 --> 42:06.480
+ to program a computer?
+
+42:06.480 --> 42:13.360
+ So you said you write a Python program or compiled a C++ program that compiles to some
+
+42:13.360 --> 42:21.200
+ byte code, it's forming layers, you're programming a layer of abstraction that's higher, how
+
+42:21.200 --> 42:24.920
+ do you see programming in that context?
+
+42:24.920 --> 42:29.800
+ Can it keep getting higher and higher levels of abstraction?
+
+42:29.800 --> 42:35.960
+ I think at some point the higher levels of abstraction will not be called programming
+
+42:35.960 --> 42:44.720
+ and they will not resemble what we call programming at the moment.
+
+42:44.720 --> 42:52.080
+ There will not be source code, I mean, there will still be source code sort of at a lower
+
+42:52.080 --> 42:59.320
+ level of the machine, just like there are still molecules and electrons and sort of
+
+42:59.320 --> 43:09.120
+ proteins in our brains, but, and so there's still programming and system administration
+
+43:09.120 --> 43:15.960
+ and who knows what, to keep the machine running, but what the machine does is a different level
+
+43:15.960 --> 43:23.060
+ of abstraction in a sense, and as far as I understand the way that for the last decade
+
+43:23.060 --> 43:28.440
+ or more people have made progress with things like facial recognition or the self driving
+
+43:28.440 --> 43:38.200
+ cars is all by endless, endless amounts of training data where at least as a lay person,
+
+43:38.200 --> 43:47.420
+ and I feel myself totally as a lay person in that field, it looks like the researchers
+
+43:47.420 --> 43:57.400
+ who publish the results don't necessarily know exactly how their algorithms work, and
+
+43:57.400 --> 44:04.840
+ I often get upset when I sort of read a sort of a fluff piece about Facebook in the newspaper
+
+44:04.840 --> 44:12.680
+ or social networks and they say, well, algorithms, and that's like a totally different interpretation
+
+44:12.680 --> 44:19.240
+ of the word algorithm, because for me, the way I was trained or what I learned when I
+
+44:19.240 --> 44:25.920
+ was eight or ten years old, an algorithm is a set of rules that you completely understand
+
+44:25.920 --> 44:30.720
+ that can be mathematically analyzed and you can prove things.
+
+44:30.720 --> 44:37.840
+ You can like prove that Aristotelian sieve produces all prime numbers and only prime
+
+44:37.840 --> 44:38.840
+ numbers.
+
+44:38.840 --> 44:39.840
+ Yeah.
+
+44:39.840 --> 44:44.360
+ So I don't know if you know who Andrej Karpathy is, I'm afraid not.
+
+44:44.360 --> 44:51.980
+ So he's a head of AI at Tesla now, but he was at Stanford before and he has this cheeky
+
+44:51.980 --> 44:56.480
+ way of calling this concept software 2.0.
+
+44:56.480 --> 45:00.120
+ So let me disentangle that for a second.
+
+45:00.120 --> 45:06.080
+ So kind of what you're referring to is the traditional, the algorithm, the concept of
+
+45:06.080 --> 45:09.560
+ an algorithm, something that's there, it's clear, you can read it, you understand it,
+
+45:09.560 --> 45:14.800
+ you can prove it's functioning as kind of software 1.0.
+
+45:14.800 --> 45:21.920
+ And what software 2.0 is, is exactly what you described, which is you have neural networks,
+
+45:21.920 --> 45:26.600
+ which is a type of machine learning that you feed a bunch of data and that neural network
+
+45:26.600 --> 45:30.200
+ learns to do a function.
+
+45:30.200 --> 45:35.220
+ All you specify is the inputs and the outputs you want and you can't look inside.
+
+45:35.220 --> 45:37.040
+ You can't analyze it.
+
+45:37.040 --> 45:41.920
+ All you can do is train this function to map the inputs to the outputs by giving a lot
+
+45:41.920 --> 45:42.920
+ of data.
+
+45:42.920 --> 45:47.040
+ And that's as programming becomes getting a lot of data.
+
+45:47.040 --> 45:48.920
+ That's what programming is.
+
+45:48.920 --> 45:52.120
+ Well, that would be programming 2.0.
+
+45:52.120 --> 45:53.800
+ To programming 2.0.
+
+45:53.800 --> 45:55.600
+ I wouldn't call that programming.
+
+45:55.600 --> 45:57.480
+ It's just a different activity.
+
+45:57.480 --> 46:02.640
+ Just like building organs out of cells is not called chemistry.
+
+46:02.640 --> 46:09.680
+ Well, so let's just step back and think sort of more generally, of course.
+
+46:09.680 --> 46:18.080
+ But you know, it's like as a parent teaching your kids, things can be called programming.
+
+46:18.080 --> 46:22.720
+ In that same sense, that's how programming is being used.
+
+46:22.720 --> 46:27.080
+ You're providing them data, examples, use cases.
+
+46:27.080 --> 46:36.680
+ So imagine writing a function not by, not with for loops and clearly readable text,
+
+46:36.680 --> 46:42.760
+ but more saying, well, here's a lot of examples of what this function should take.
+
+46:42.760 --> 46:47.860
+ And here's a lot of examples of when it takes those functions, it should do this.
+
+46:47.860 --> 46:50.280
+ And then figure out the rest.
+
+46:50.280 --> 46:52.640
+ So that's the 2.0 concept.
+
+46:52.640 --> 46:58.560
+ And so the question I have for you is like, it's a very fuzzy way.
+
+46:58.560 --> 47:01.680
+ This is the reality of a lot of these pattern recognition systems and so on.
+
+47:01.680 --> 47:05.400
+ It's a fuzzy way of quote unquote programming.
+
+47:05.400 --> 47:09.160
+ What do you think about this kind of world?
+
+47:09.160 --> 47:13.640
+ Should it be called something totally different than programming?
+
+47:13.640 --> 47:21.000
+ If you're a software engineer, does that mean you're designing systems that are very, can
+
+47:21.000 --> 47:28.140
+ be systematically tested, evaluated, they have a very specific specification and then this
+
+47:28.140 --> 47:33.520
+ other fuzzy software 2.0 world, machine learning world, that's something else totally?
+
+47:33.520 --> 47:41.000
+ Or is there some intermixing that's possible?
+
+47:41.000 --> 47:48.600
+ Well the question is probably only being asked because we don't quite know what that software
+
+47:48.600 --> 47:51.400
+ 2.0 actually is.
+
+47:51.400 --> 48:02.960
+ And I think there is a truism that every task that AI has tackled in the past, at some point
+
+48:02.960 --> 48:09.160
+ we realized how it was done and then it was no longer considered part of artificial intelligence
+
+48:09.160 --> 48:15.200
+ because it was no longer necessary to use that term.
+
+48:15.200 --> 48:21.600
+ It was just, oh now we know how to do this.
+
+48:21.600 --> 48:30.320
+ And a new field of science or engineering has been developed and I don't know if sort
+
+48:30.320 --> 48:39.000
+ of every form of learning or sort of controlling computer systems should always be called programming.
+
+48:39.000 --> 48:43.720
+ So I don't know, maybe I'm focused too much on the terminology.
+
+48:43.720 --> 48:56.200
+ But I expect that there just will be different concepts where people with sort of different
+
+48:56.200 --> 49:07.920
+ education and a different model of what they're trying to do will develop those concepts.
+
+49:07.920 --> 49:17.240
+ I guess if you could comment on another way to put this concept is, I think the kind of
+
+49:17.240 --> 49:23.480
+ functions that neural networks provide is things as opposed to being able to upfront
+
+49:23.480 --> 49:28.720
+ prove that this should work for all cases you throw at it.
+
+49:28.720 --> 49:32.320
+ All you're able, it's the worst case analysis versus average case analysis.
+
+49:32.320 --> 49:39.800
+ All you're able to say is it seems on everything we've tested to work 99.9% of the time, but
+
+49:39.800 --> 49:44.160
+ we can't guarantee it and it fails in unexpected ways.
+
+49:44.160 --> 49:48.080
+ We can't even give you examples of how it fails in unexpected ways, but it's like really
+
+49:48.080 --> 49:50.120
+ good most of the time.
+
+49:50.120 --> 50:00.720
+ Is there no room for that in current ways we think about programming?
+
+50:00.720 --> 50:11.080
+ programming 1.0 is actually sort of getting to that point too, where the sort of the ideal
+
+50:11.080 --> 50:21.120
+ of a bug free program has been abandoned long ago by most software developers.
+
+50:21.120 --> 50:30.120
+ We only care about bugs that manifest themselves often enough to be annoying.
+
+50:30.120 --> 50:40.680
+ And we're willing to take the occasional crash or outage or incorrect result for granted
+
+50:40.680 --> 50:47.600
+ because we can't possibly, we don't have enough programmers to make all the code bug free
+
+50:47.600 --> 50:50.200
+ and it would be an incredibly tedious business.
+
+50:50.200 --> 50:56.320
+ And if you try to throw formal methods at it, it becomes even more tedious.
+
+50:56.320 --> 51:05.520
+ So every once in a while the user clicks on a link and somehow they get an error and the
+
+51:05.520 --> 51:07.360
+ average user doesn't panic.
+
+51:07.360 --> 51:14.840
+ They just click again and see if it works better the second time, which often magically
+
+51:14.840 --> 51:21.600
+ it does, or they go up and they try some other way of performing their tasks.
+
+51:21.600 --> 51:29.880
+ So that's sort of an end to end recovery mechanism and inside systems there is all
+
+51:29.880 --> 51:39.120
+ sorts of retries and timeouts and fallbacks and I imagine that that sort of biological
+
+51:39.120 --> 51:46.320
+ systems are even more full of that because otherwise they wouldn't survive.
+
+51:46.320 --> 51:54.160
+ Do you think programming should be taught and thought of as exactly what you just said?
+
+51:54.160 --> 52:01.560
+ I come from this kind of, you're always denying that fact always.
+
+52:01.560 --> 52:12.680
+ In sort of basic programming education, the sort of the programs you're having students
+
+52:12.680 --> 52:23.480
+ write are so small and simple that if there is a bug you can always find it and fix it.
+
+52:23.480 --> 52:29.720
+ Because the sort of programming as it's being taught in some, even elementary, middle schools,
+
+52:29.720 --> 52:36.680
+ in high school, introduction to programming classes in college typically, it's programming
+
+52:36.680 --> 52:38.920
+ in the small.
+
+52:38.920 --> 52:47.560
+ Very few classes sort of actually teach software engineering, building large systems.
+
+52:47.560 --> 52:51.360
+ Every summer here at Dropbox we have a large number of interns.
+
+52:51.360 --> 52:56.720
+ Every tech company on the West Coast has the same thing.
+
+52:56.720 --> 53:02.520
+ These interns are always amazed because this is the first time in their life that they
+
+53:02.520 --> 53:12.920
+ see what goes on in a really large software development environment.
+
+53:12.920 --> 53:20.280
+ Everything they've learned in college was almost always about a much smaller scale and
+
+53:20.280 --> 53:27.840
+ somehow that difference in scale makes a qualitative difference in how you do things and how you
+
+53:27.840 --> 53:29.600
+ think about it.
+
+53:29.600 --> 53:36.300
+ If you then take a few steps back into decades, 70s and 80s, when you were first thinking
+
+53:36.300 --> 53:41.840
+ about Python or just that world of programming languages, did you ever think that there would
+
+53:41.840 --> 53:46.720
+ be systems as large as underlying Google, Facebook, and Dropbox?
+
+53:46.720 --> 53:51.440
+ Did you, when you were thinking about Python?
+
+53:51.440 --> 53:57.520
+ I was actually always caught by surprise by sort of this, yeah, pretty much every stage
+
+53:57.520 --> 53:59.680
+ of computing.
+
+53:59.680 --> 54:07.280
+ So maybe just because you've spoken in other interviews, but I think the evolution of programming
+
+54:07.280 --> 54:13.080
+ languages are fascinating and it's especially because it leads from my perspective towards
+
+54:13.080 --> 54:15.640
+ greater and greater degrees of intelligence.
+
+54:15.640 --> 54:21.880
+ I learned the first programming language I played with in Russia was with the Turtle
+
+54:21.880 --> 54:22.880
+ logo.
+
+54:22.880 --> 54:24.840
+ Logo, yeah.
+
+54:24.840 --> 54:29.960
+ And if you look, I just have a list of programming languages, all of which I've now played with
+
+54:29.960 --> 54:30.960
+ a little bit.
+
+54:30.960 --> 54:36.640
+ I mean, they're all beautiful in different ways from Fortran, Cobalt, Lisp, Algol 60,
+
+54:36.640 --> 54:46.160
+ Basic, Logo again, C, as a few, the object oriented came along in the 60s, Simula, Pascal,
+
+54:46.160 --> 54:47.560
+ Smalltalk.
+
+54:47.560 --> 54:48.560
+ All of that leads.
+
+54:48.560 --> 54:49.560
+ They're all the classics.
+
+54:49.560 --> 54:50.560
+ The classics.
+
+54:50.560 --> 54:51.560
+ Yeah.
+
+54:51.560 --> 54:52.560
+ The classic hits, right?
+
+54:52.560 --> 54:58.280
+ Steam, that's built on top of Lisp.
+
+54:58.280 --> 55:05.900
+ On the database side, SQL, C++, and all of that leads up to Python, Pascal too, and that's
+
+55:05.900 --> 55:10.960
+ before Python, MATLAB, these kind of different communities, different languages.
+
+55:10.960 --> 55:13.240
+ So can you talk about that world?
+
+55:13.240 --> 55:18.680
+ I know that sort of Python came out of ABC, which I actually never knew that language.
+
+55:18.680 --> 55:24.400
+ I just, having researched this conversation, went back to ABC and it looks remarkably,
+
+55:24.400 --> 55:31.240
+ it has a lot of annoying qualities, but underneath those, like all caps and so on, but underneath
+
+55:31.240 --> 55:35.720
+ that, there's elements of Python that are quite, they're already there.
+
+55:35.720 --> 55:37.540
+ That's where I got all the good stuff.
+
+55:37.540 --> 55:38.540
+ All the good stuff.
+
+55:38.540 --> 55:41.580
+ So, but in that world, you're swimming these programming languages, were you focused on
+
+55:41.580 --> 55:48.080
+ just the good stuff in your specific circle, or did you have a sense of what is everyone
+
+55:48.080 --> 55:49.080
+ chasing?
+
+55:49.080 --> 55:57.000
+ You said that every programming language is built to scratch an itch.
+
+55:57.000 --> 55:59.920
+ Were you aware of all the itches in the community?
+
+55:59.920 --> 56:05.080
+ And if not, or if yes, I mean, what itch were you trying to scratch with Python?
+
+56:05.080 --> 56:12.040
+ Well, I'm glad I wasn't aware of all the itches because I would probably not have been able
+
+56:12.040 --> 56:14.040
+ to do anything.
+
+56:14.040 --> 56:19.760
+ I mean, if you're trying to solve every problem at once, you'll solve nothing.
+
+56:19.760 --> 56:23.880
+ Well, yeah, it's too overwhelming.
+
+56:23.880 --> 56:28.360
+ And so I had a very, very focused problem.
+
+56:28.360 --> 56:41.880
+ I wanted a programming language that sat somewhere in between shell scripting and C. And now,
+
+56:41.880 --> 56:48.720
+ arguably, there is like, one is higher level, one is lower level.
+
+56:48.720 --> 56:56.760
+ And Python is sort of a language of an intermediate level, although it's still pretty much at
+
+56:56.760 --> 57:00.560
+ the high level end.
+
+57:00.560 --> 57:11.200
+ I was thinking about much more about, I want a tool that I can use to be more productive
+
+57:11.200 --> 57:16.640
+ as a programmer in a very specific environment.
+
+57:16.640 --> 57:22.280
+ And I also had given myself a time budget for the development of the tool.
+
+57:22.280 --> 57:29.340
+ And that was sort of about three months for both the design, like thinking through what
+
+57:29.340 --> 57:38.900
+ are all the features of the language syntactically and semantically, and how do I implement the
+
+57:38.900 --> 57:43.680
+ whole pipeline from parsing the source code to executing it.
+
+57:43.680 --> 57:51.440
+ So I think both with the timeline and the goals, it seems like productivity was at the
+
+57:51.440 --> 57:54.040
+ core of it as a goal.
+
+57:54.040 --> 58:01.280
+ So like, for me in the 90s, and the first decade of the 21st century, I was always doing
+
+58:01.280 --> 58:07.620
+ machine learning, AI programming for my research was always in C++.
+
+58:07.620 --> 58:14.240
+ And then the other people who are a little more mechanical engineering, electrical engineering,
+
+58:14.240 --> 58:15.240
+ are MATLABby.
+
+58:15.240 --> 58:18.520
+ They're a little bit more MATLAB focused.
+
+58:18.520 --> 58:21.200
+ Those are the world, and maybe a little bit Java too.
+
+58:21.200 --> 58:29.160
+ But people who are more interested in emphasizing the object oriented nature of things.
+
+58:29.160 --> 58:34.920
+ So within the last 10 years or so, especially with the oncoming of neural networks and these
+
+58:34.920 --> 58:41.360
+ packages that are built on Python to interface with neural networks, I switched to Python
+
+58:41.360 --> 58:47.120
+ and it's just, I've noticed a significant boost that I can't exactly, because I don't
+
+58:47.120 --> 58:52.840
+ think about it, but I can't exactly put into words why I'm just much, much more productive.
+
+58:52.840 --> 58:56.400
+ Just being able to get the job done much, much faster.
+
+58:56.400 --> 59:01.880
+ So how do you think, whatever that qualitative difference is, I don't know if it's quantitative,
+
+59:01.880 --> 59:07.280
+ it could be just a feeling, I don't know if I'm actually more productive, but how
+
+59:07.280 --> 59:08.280
+ do you think about...
+
+59:08.280 --> 59:09.280
+ You probably are.
+
+59:09.280 --> 59:10.280
+ Yeah.
+
+59:10.280 --> 59:11.880
+ Well, that's right.
+
+59:11.880 --> 59:15.400
+ I think there's elements, let me just speak to one aspect that I think that was affecting
+
+59:15.400 --> 59:26.160
+ my productivity is C++ was, I really enjoyed creating performant code and creating a beautiful
+
+59:26.160 --> 59:31.000
+ structure where everything that, you know, this kind of going into this, especially with
+
+59:31.000 --> 59:37.080
+ the newer and newer standards of templated programming of just really creating this beautiful
+
+59:37.080 --> 59:42.000
+ formal structure that I found myself spending most of my time doing that as opposed to getting
+
+59:42.000 --> 59:47.520
+ it, parsing a file and extracting a few keywords or whatever the task was trying to do.
+
+59:47.520 --> 59:49.980
+ So what is it about Python?
+
+59:49.980 --> 59:54.520
+ How do you think of productivity in general as you were designing it now, sort of through
+
+59:54.520 --> 1:00:00.120
+ the decades, last three decades, what do you think it means to be a productive programmer?
+
+1:00:00.120 --> 1:00:03.560
+ And how did you try to design it into the language?
+
+1:00:03.560 --> 1:00:10.400
+ There are different tasks and as a programmer, it's useful to have different tools available
+
+1:00:10.400 --> 1:00:13.940
+ that sort of are suitable for different tasks.
+
+1:00:13.940 --> 1:00:25.600
+ So I still write C code, I still write shell code, but I write most of my things in Python.
+
+1:00:25.600 --> 1:00:33.000
+ Why do I still use those other languages, because sometimes the task just demands it.
+
+1:00:33.000 --> 1:00:39.000
+ And well, I would say most of the time the task actually demands a certain language because
+
+1:00:39.000 --> 1:00:45.600
+ the task is not write a program that solves problem X from scratch, but it's more like
+
+1:00:45.600 --> 1:00:56.680
+ fix a bug in existing program X or add a small feature to an existing large program.
+
+1:00:56.680 --> 1:01:10.160
+ But even if you're not constrained in your choice of language by context like that, there
+
+1:01:10.160 --> 1:01:21.360
+ is still the fact that if you write it in a certain language, then you have this balance
+
+1:01:21.360 --> 1:01:31.840
+ between how long does it take you to write the code and how long does the code run?
+
+1:01:31.840 --> 1:01:42.760
+ And when you're in the phase of exploring solutions, you often spend much more time
+
+1:01:42.760 --> 1:01:50.720
+ writing the code than running it because every time you've run it, you see that the output
+
+1:01:50.720 --> 1:01:58.480
+ is not quite what you wanted and you spend some more time coding.
+
+1:01:58.480 --> 1:02:06.760
+ And a language like Python just makes that iteration much faster because there are fewer
+
+1:02:06.760 --> 1:02:19.480
+ details that you have to get right before your program compiles and runs.
+
+1:02:19.480 --> 1:02:26.400
+ There are libraries that do all sorts of stuff for you, so you can sort of very quickly take
+
+1:02:26.400 --> 1:02:36.320
+ a bunch of existing components, put them together, and get your prototype application running.
+
+1:02:36.320 --> 1:02:42.860
+ Just like when I was building electronics, I was using a breadboard most of the time,
+
+1:02:42.860 --> 1:02:51.320
+ so I had this sprawl out circuit that if you shook it, it would stop working because it
+
+1:02:51.320 --> 1:02:58.800
+ was not put together very well, but it functioned and all I wanted was to see that it worked
+
+1:02:58.800 --> 1:03:05.000
+ and then move on to the next schematic or design or add something to it.
+
+1:03:05.000 --> 1:03:10.500
+ Once you've sort of figured out, oh, this is the perfect design for my radio or light
+
+1:03:10.500 --> 1:03:15.800
+ sensor or whatever, then you can say, okay, how do we design a PCB for this?
+
+1:03:15.800 --> 1:03:19.920
+ How do we solder the components in a small space?
+
+1:03:19.920 --> 1:03:32.840
+ How do we make it so that it is robust against, say, voltage fluctuations or mechanical disruption?
+
+1:03:32.840 --> 1:03:37.320
+ I know nothing about that when it comes to designing electronics, but I know a lot about
+
+1:03:37.320 --> 1:03:40.400
+ that when it comes to writing code.
+
+1:03:40.400 --> 1:03:46.080
+ So the initial steps are efficient, fast, and there's not much stuff that gets in the
+
+1:03:46.080 --> 1:03:56.680
+ way, but you're kind of describing, like Darwin described the evolution of species, right?
+
+1:03:56.680 --> 1:04:00.520
+ You're observing of what is true about Python.
+
+1:04:00.520 --> 1:04:07.800
+ Now if you take a step back, if the act of creating languages is art and you had three
+
+1:04:07.800 --> 1:04:15.640
+ months to do it, initial steps, so you just specified a bunch of goals, sort of things
+
+1:04:15.640 --> 1:04:19.400
+ that you observe about Python, perhaps you had those goals, but how do you create the
+
+1:04:19.400 --> 1:04:25.600
+ rules, the syntactic structure, the features that result in those?
+
+1:04:25.600 --> 1:04:29.880
+ So I have in the beginning and I have follow up questions about through the evolution of
+
+1:04:29.880 --> 1:04:35.440
+ Python too, but in the very beginning when you were sitting there creating the lexical
+
+1:04:35.440 --> 1:04:37.440
+ analyzer or whatever.
+
+1:04:37.440 --> 1:04:47.240
+ Python was still a big part of it because I sort of, I said to myself, I don't want
+
+1:04:47.240 --> 1:04:53.640
+ to have to design everything from scratch, I'm going to borrow features from other languages
+
+1:04:53.640 --> 1:04:54.640
+ that I like.
+
+1:04:54.640 --> 1:04:55.640
+ Oh, interesting.
+
+1:04:55.640 --> 1:04:58.360
+ So you basically, exactly, you first observe what you like.
+
+1:04:58.360 --> 1:05:05.240
+ Yeah, and so that's why if you're 17 years old and you want to sort of create a programming
+
+1:05:05.240 --> 1:05:11.600
+ language, you're not going to be very successful at it because you have no experience with
+
+1:05:11.600 --> 1:05:24.300
+ other languages, whereas I was in my, let's say mid 30s, I had written parsers before,
+
+1:05:24.300 --> 1:05:30.880
+ so I had worked on the implementation of ABC, I had spent years debating the design of ABC
+
+1:05:30.880 --> 1:05:37.520
+ with its authors, with its designers, I had nothing to do with the design, it was designed
+
+1:05:37.520 --> 1:05:42.080
+ fully as it ended up being implemented when I joined the team.
+
+1:05:42.080 --> 1:05:51.440
+ But so you borrow ideas and concepts and very concrete sort of local rules from different
+
+1:05:51.440 --> 1:05:58.920
+ languages like the indentation and certain other syntactic features from ABC, but I chose
+
+1:05:58.920 --> 1:06:07.960
+ to borrow string literals and how numbers work from C and various other things.
+
+1:06:07.960 --> 1:06:13.800
+ So in then, if you take that further, so yet you've had this funny sounding, but I think
+
+1:06:13.800 --> 1:06:21.000
+ surprisingly accurate and at least practical title of benevolent dictator for life for
+
+1:06:21.000 --> 1:06:25.240
+ quite, you know, for the last three decades or whatever, or no, not the actual title,
+
+1:06:25.240 --> 1:06:27.940
+ but functionally speaking.
+
+1:06:27.940 --> 1:06:34.280
+ So you had to make decisions, design decisions.
+
+1:06:34.280 --> 1:06:41.960
+ Can you maybe, let's take Python 2, so releasing Python 3 as an example.
+
+1:06:41.960 --> 1:06:47.240
+ It's not backward compatible to Python 2 in ways that a lot of people know.
+
+1:06:47.240 --> 1:06:50.640
+ So what was that deliberation, discussion, decision like?
+
+1:06:50.640 --> 1:06:51.640
+ Yeah.
+
+1:06:51.640 --> 1:06:54.520
+ What was the psychology of that experience?
+
+1:06:54.520 --> 1:06:58.520
+ Do you regret any aspects of how that experience undergone that?
+
+1:06:58.520 --> 1:07:03.040
+ Well, yeah, so it was a group process really.
+
+1:07:03.040 --> 1:07:11.880
+ At that point, even though I was BDFL in name and certainly everybody sort of respected
+
+1:07:11.880 --> 1:07:22.160
+ my position as the creator and the current sort of owner of the language design, I was
+
+1:07:22.160 --> 1:07:26.560
+ looking at everyone else for feedback.
+
+1:07:26.560 --> 1:07:35.280
+ Sort of Python 3.0 in some sense was sparked by other people in the community pointing
+
+1:07:35.280 --> 1:07:46.360
+ out, oh, well, there are a few issues that sort of bite users over and over.
+
+1:07:46.360 --> 1:07:48.920
+ Can we do something about that?
+
+1:07:48.920 --> 1:07:56.360
+ And for Python 3, we took a number of those Python words as they were called at the time
+
+1:07:56.360 --> 1:08:04.800
+ and we said, can we try to sort of make small changes to the language that address those
+
+1:08:04.800 --> 1:08:06.560
+ words?
+
+1:08:06.560 --> 1:08:15.360
+ And we had sort of in the past, we had always taken backwards compatibility very seriously.
+
+1:08:15.360 --> 1:08:20.420
+ And so many Python words in earlier versions had already been resolved because they could
+
+1:08:20.420 --> 1:08:29.740
+ be resolved while maintaining backwards compatibility or sort of using a very gradual path of evolution
+
+1:08:29.740 --> 1:08:31.960
+ of the language in a certain area.
+
+1:08:31.960 --> 1:08:39.760
+ And so we were stuck with a number of words that were widely recognized as problems, not
+
+1:08:39.760 --> 1:08:47.680
+ like roadblocks, but nevertheless sort of things that some people trip over and you know that
+
+1:08:47.680 --> 1:08:52.080
+ that's always the same thing that people trip over when they trip.
+
+1:08:52.080 --> 1:08:58.480
+ And we could not think of a backwards compatible way of resolving those issues.
+
+1:08:58.480 --> 1:09:01.920
+ But it's still an option to not resolve the issues, right?
+
+1:09:01.920 --> 1:09:07.920
+ And so yes, for a long time, we had sort of resigned ourselves to, well, okay, the language
+
+1:09:07.920 --> 1:09:13.400
+ is not going to be perfect in this way and that way and that way.
+
+1:09:13.400 --> 1:09:19.440
+ And we sort of, certain of these, I mean, there are still plenty of things where you
+
+1:09:19.440 --> 1:09:32.680
+ can say, well, that particular detail is better in Java or in R or in Visual Basic or whatever.
+
+1:09:32.680 --> 1:09:37.960
+ And we're okay with that because, well, we can't easily change it.
+
+1:09:37.960 --> 1:09:38.960
+ It's not too bad.
+
+1:09:38.960 --> 1:09:47.180
+ We can do a little bit with user education or we can have a static analyzer or warnings
+
+1:09:47.180 --> 1:09:49.440
+ in the parse or something.
+
+1:09:49.440 --> 1:09:54.880
+ But there were things where we thought, well, these are really problems that are not going
+
+1:09:54.880 --> 1:09:55.880
+ away.
+
+1:09:55.880 --> 1:10:00.840
+ They are getting worse in the future.
+
+1:10:00.840 --> 1:10:03.040
+ We should do something about that.
+
+1:10:03.040 --> 1:10:05.640
+ But ultimately there is a decision to be made, right?
+
+1:10:05.640 --> 1:10:13.320
+ So was that the toughest decision in the history of Python you had to make as the benevolent
+
+1:10:13.320 --> 1:10:15.180
+ dictator for life?
+
+1:10:15.180 --> 1:10:20.160
+ Or if not, what are there, maybe even on the smaller scale, what was the decision where
+
+1:10:20.160 --> 1:10:22.040
+ you were really torn up about?
+
+1:10:22.040 --> 1:10:25.800
+ Well, the toughest decision was probably to resign.
+
+1:10:25.800 --> 1:10:28.120
+ All right, let's go there.
+
+1:10:28.120 --> 1:10:29.360
+ Hold on a second then.
+
+1:10:29.360 --> 1:10:33.200
+ Let me just, because in the interest of time too, because I have a few cool questions for
+
+1:10:33.200 --> 1:10:38.160
+ you and let's touch a really important one because it was quite dramatic and beautiful
+
+1:10:38.160 --> 1:10:40.400
+ in certain kinds of ways.
+
+1:10:40.400 --> 1:10:47.320
+ In July this year, three months ago, you wrote, now that PEP 572 is done, I don't ever want
+
+1:10:47.320 --> 1:10:52.680
+ to have to fight so hard for a PEP and find that so many people despise my decisions.
+
+1:10:52.680 --> 1:10:56.240
+ I would like to remove myself entirely from the decision process.
+
+1:10:56.240 --> 1:11:01.520
+ I'll still be there for a while as an ordinary core developer and I'll still be available
+
+1:11:01.520 --> 1:11:05.440
+ to mentor people, possibly more available.
+
+1:11:05.440 --> 1:11:11.000
+ But I'm basically giving myself a permanent vacation from being BDFL, benevolent dictator
+
+1:11:11.000 --> 1:11:12.000
+ for life.
+
+1:11:12.000 --> 1:11:14.240
+ And you all will be on your own.
+
+1:11:14.240 --> 1:11:19.720
+ First of all, it's almost Shakespearean.
+
+1:11:19.720 --> 1:11:22.300
+ I'm not going to appoint a successor.
+
+1:11:22.300 --> 1:11:24.640
+ So what are you all going to do?
+
+1:11:24.640 --> 1:11:29.240
+ Create a democracy, anarchy, a dictatorship, a federation?
+
+1:11:29.240 --> 1:11:34.560
+ So that was a very dramatic and beautiful set of statements.
+
+1:11:34.560 --> 1:11:40.080
+ It's almost, it's open ended nature called the community to create a future for Python.
+
+1:11:40.080 --> 1:11:43.280
+ It's just kind of a beautiful aspect to it.
+
+1:11:43.280 --> 1:11:48.320
+ So what, and dramatic, you know, what was making that decision like?
+
+1:11:48.320 --> 1:11:54.560
+ What was on your heart, on your mind, stepping back now a few months later?
+
+1:11:54.560 --> 1:12:02.940
+ I'm glad you liked the writing because it was actually written pretty quickly.
+
+1:12:02.940 --> 1:12:14.240
+ It was literally something like after months and months of going around in circles, I had
+
+1:12:14.240 --> 1:12:26.240
+ finally approved PEP572, which I had a big hand in its design, although I didn't initiate
+
+1:12:26.240 --> 1:12:27.760
+ it originally.
+
+1:12:27.760 --> 1:12:36.320
+ I sort of gave it a bunch of nudges in a direction that would be better for the language.
+
+1:12:36.320 --> 1:12:40.320
+ So sorry, just to ask, is async IO, that's the one or no?
+
+1:12:40.320 --> 1:12:49.320
+ PEP572 was actually a small feature, which is assignment expressions.
+
+1:12:49.320 --> 1:12:58.200
+ That had been, there was just a lot of debate where a lot of people claimed that they knew
+
+1:12:58.200 --> 1:13:04.800
+ what was Pythonic and what was not Pythonic, and they knew that this was going to destroy
+
+1:13:04.800 --> 1:13:06.080
+ the language.
+
+1:13:06.080 --> 1:13:11.800
+ This was like a violation of Python's most fundamental design philosophy, and I thought
+
+1:13:11.800 --> 1:13:17.200
+ that was all bullshit because I was in favor of it, and I would think I know something
+
+1:13:17.200 --> 1:13:19.120
+ about Python's design philosophy.
+
+1:13:19.120 --> 1:13:26.340
+ So I was really tired and also stressed of that thing, and literally after sort of announcing
+
+1:13:26.340 --> 1:13:34.560
+ I was going to accept it, a certain Wednesday evening I had finally sent the email, it's
+
+1:13:34.560 --> 1:13:35.560
+ accepted.
+
+1:13:35.560 --> 1:13:38.920
+ I can just go implement it.
+
+1:13:38.920 --> 1:13:44.120
+ So I went to bed feeling really relieved, that's behind me.
+
+1:13:44.120 --> 1:13:54.320
+ And I wake up Thursday morning, 7 a.m., and I think, well, that was the last one that's
+
+1:13:54.320 --> 1:14:03.880
+ going to be such a terrible debate, and that's the last time that I let myself be so stressed
+
+1:14:03.880 --> 1:14:06.520
+ out about a pep decision.
+
+1:14:06.520 --> 1:14:07.920
+ I should just resign.
+
+1:14:07.920 --> 1:14:15.520
+ I've been sort of thinking about retirement for half a decade, I've been joking and sort
+
+1:14:15.520 --> 1:14:22.460
+ of mentioning retirement, sort of telling the community at some point in the future
+
+1:14:22.460 --> 1:14:29.400
+ I'm going to retire, don't take that FL part of my title too literally.
+
+1:14:29.400 --> 1:14:32.080
+ And I thought, okay, this is it.
+
+1:14:32.080 --> 1:14:39.200
+ I'm done, I had the day off, I wanted to have a good time with my wife, we were going to
+
+1:14:39.200 --> 1:14:48.480
+ a little beach town nearby, and in I think maybe 15, 20 minutes I wrote that thing that
+
+1:14:48.480 --> 1:14:51.320
+ you just called Shakespearean.
+
+1:14:51.320 --> 1:15:01.560
+ The funny thing is I didn't even realize what a monumental decision it was, because
+
+1:15:01.560 --> 1:15:09.200
+ five minutes later I read that link to my message back on Twitter, where people were
+
+1:15:09.200 --> 1:15:15.280
+ already discussing on Twitter, Guido resigned as the BDFL.
+
+1:15:15.280 --> 1:15:22.440
+ And I had posted it on an internal forum that I thought was only read by core developers,
+
+1:15:22.440 --> 1:15:28.520
+ so I thought I would at least have one day before the news would sort of get out.
+
+1:15:28.520 --> 1:15:36.200
+ The on your own aspects had also an element of quite, it was quite a powerful element
+
+1:15:36.200 --> 1:15:43.080
+ of the uncertainty that lies ahead, but can you also just briefly talk about, for example
+
+1:15:43.080 --> 1:15:49.920
+ I play guitar as a hobby for fun, and whenever I play people are super positive, super friendly,
+
+1:15:49.920 --> 1:15:52.680
+ they're like, this is awesome, this is great.
+
+1:15:52.680 --> 1:15:57.520
+ But sometimes I enter as an outside observer, I enter the programming community and there
+
+1:15:57.520 --> 1:16:05.560
+ seems to sometimes be camps on whatever the topic, and the two camps, the two or plus
+
+1:16:05.560 --> 1:16:11.700
+ camps, are often pretty harsh at criticizing the opposing camps.
+
+1:16:11.700 --> 1:16:14.880
+ As an onlooker, I may be totally wrong on this, but what do you think of this?
+
+1:16:14.880 --> 1:16:19.760
+ Yeah, holy wars are sort of a favorite activity in the programming community.
+
+1:16:19.760 --> 1:16:22.120
+ And what is the psychology behind that?
+
+1:16:22.120 --> 1:16:25.120
+ Is that okay for a healthy community to have?
+
+1:16:25.120 --> 1:16:29.760
+ Is that a productive force ultimately for the evolution of a language?
+
+1:16:29.760 --> 1:16:39.080
+ Well, if everybody is patting each other on the back and never telling the truth, it would
+
+1:16:39.080 --> 1:16:40.840
+ not be a good thing.
+
+1:16:40.840 --> 1:16:52.760
+ I think there is a middle ground where sort of being nasty to each other is not okay,
+
+1:16:52.760 --> 1:17:01.760
+ but there is a middle ground where there is healthy ongoing criticism and feedback that
+
+1:17:01.760 --> 1:17:04.780
+ is very productive.
+
+1:17:04.780 --> 1:17:07.760
+ And you mean at every level you see that.
+
+1:17:07.760 --> 1:17:17.760
+ I mean, someone proposes to fix a very small issue in a code base, chances are that some
+
+1:17:17.760 --> 1:17:27.080
+ reviewer will sort of respond by saying, well, actually, you can do it better the other way.
+
+1:17:27.080 --> 1:17:34.360
+ When it comes to deciding on the future of the Python core developer community, we now
+
+1:17:34.360 --> 1:17:41.160
+ have, I think, five or six competing proposals for a constitution.
+
+1:17:41.160 --> 1:17:48.040
+ So that future, do you have a fear of that future, do you have a hope for that future?
+
+1:17:48.040 --> 1:17:51.280
+ I'm very confident about that future.
+
+1:17:51.280 --> 1:17:58.920
+ By and large, I think that the debate has been very healthy and productive.
+
+1:17:58.920 --> 1:18:07.680
+ And I actually, when I wrote that resignation email, I knew that Python was in a very good
+
+1:18:07.680 --> 1:18:16.840
+ spot and that the Python core developer community, the group of 50 or 100 people who sort of
+
+1:18:16.840 --> 1:18:24.720
+ write or review most of the code that goes into Python, those people get along very well
+
+1:18:24.720 --> 1:18:27.680
+ most of the time.
+
+1:18:27.680 --> 1:18:40.120
+ A large number of different areas of expertise are represented, different levels of experience
+
+1:18:40.120 --> 1:18:45.440
+ in the Python core dev community, different levels of experience completely outside it
+
+1:18:45.440 --> 1:18:53.040
+ in software development in general, large systems, small systems, embedded systems.
+
+1:18:53.040 --> 1:19:03.880
+ So I felt okay resigning because I knew that the community can really take care of itself.
+
+1:19:03.880 --> 1:19:12.360
+ And out of a grab bag of future feature developments, let me ask if you can comment, maybe on all
+
+1:19:12.360 --> 1:19:19.120
+ very quickly, concurrent programming, parallel computing, async IO.
+
+1:19:19.120 --> 1:19:24.880
+ These are things that people have expressed hope, complained about, whatever, have discussed
+
+1:19:24.880 --> 1:19:25.880
+ on Reddit.
+
+1:19:25.880 --> 1:19:32.200
+ Async IO, so the parallelization in general, packaging, I was totally clueless on this.
+
+1:19:32.200 --> 1:19:38.600
+ I just used pip to install stuff, but apparently there's pipenv, poetry, there's these dependency
+
+1:19:38.600 --> 1:19:41.300
+ packaging systems that manage dependencies and so on.
+
+1:19:41.300 --> 1:19:45.520
+ They're emerging and there's a lot of confusion about what's the right thing to use.
+
+1:19:45.520 --> 1:19:56.360
+ Then also functional programming, are we going to get more functional programming or not,
+
+1:19:56.360 --> 1:19:59.040
+ this kind of idea.
+
+1:19:59.040 --> 1:20:08.280
+ And of course the GIL connected to the parallelization, I suppose, the global interpreter lock problem.
+
+1:20:08.280 --> 1:20:12.800
+ Can you just comment on whichever you want to comment on?
+
+1:20:12.800 --> 1:20:25.440
+ Well, let's take the GIL and parallelization and async IO as one topic.
+
+1:20:25.440 --> 1:20:35.820
+ I'm not that hopeful that Python will develop into a sort of high concurrency, high parallelism
+
+1:20:35.820 --> 1:20:37.960
+ language.
+
+1:20:37.960 --> 1:20:44.800
+ That's sort of the way the language is designed, the way most users use the language, the way
+
+1:20:44.800 --> 1:20:50.280
+ the language is implemented, all make that a pretty unlikely future.
+
+1:20:50.280 --> 1:20:56.040
+ So you think it might not even need to, really the way people use it, it might not be something
+
+1:20:56.040 --> 1:20:58.160
+ that should be of great concern.
+
+1:20:58.160 --> 1:21:05.620
+ I think async IO is a special case because it sort of allows overlapping IO and only
+
+1:21:05.620 --> 1:21:18.160
+ IO and that is a sort of best practice of supporting very high throughput IO, many connections
+
+1:21:18.160 --> 1:21:21.680
+ per second.
+
+1:21:21.680 --> 1:21:22.780
+ I'm not worried about that.
+
+1:21:22.780 --> 1:21:25.280
+ I think async IO will evolve.
+
+1:21:25.280 --> 1:21:27.440
+ There are a couple of competing packages.
+
+1:21:27.440 --> 1:21:36.800
+ We have some very smart people who are sort of pushing us to make async IO better.
+
+1:21:36.800 --> 1:21:43.800
+ Parallel computing, I think that Python is not the language for that.
+
+1:21:43.800 --> 1:21:53.560
+ There are ways to work around it, but you can't expect to write an algorithm in Python
+
+1:21:53.560 --> 1:21:57.440
+ and have a compiler automatically parallelize that.
+
+1:21:57.440 --> 1:22:03.520
+ What you can do is use a package like NumPy and there are a bunch of other very powerful
+
+1:22:03.520 --> 1:22:12.480
+ packages that sort of use all the CPUs available because you tell the package, here's the data,
+
+1:22:12.480 --> 1:22:19.040
+ here's the abstract operation to apply over it, go at it, and then we're back in the C++
+
+1:22:19.040 --> 1:22:20.040
+ world.
+
+1:22:20.040 --> 1:22:24.600
+ Those packages are themselves implemented usually in C++.
+
+1:22:24.600 --> 1:22:28.000
+ That's where TensorFlow and all these packages come in, where they parallelize across GPUs,
+
+1:22:28.000 --> 1:22:30.480
+ for example, they take care of that for you.
+
+1:22:30.480 --> 1:22:36.600
+ In terms of packaging, can you comment on the future of packaging in Python?
+
+1:22:36.600 --> 1:22:42.640
+ Packaging has always been my least favorite topic.
+
+1:22:42.640 --> 1:22:55.600
+ It's a really tough problem because the OS and the platform want to own packaging, but
+
+1:22:55.600 --> 1:23:01.000
+ their packaging solution is not specific to a language.
+
+1:23:01.000 --> 1:23:07.480
+ If you take Linux, there are two competing packaging solutions for Linux or for Unix
+
+1:23:07.480 --> 1:23:15.000
+ in general, but they all work across all languages.
+
+1:23:15.000 --> 1:23:24.760
+ Several languages like Node, JavaScript, Ruby, and Python all have their own packaging solutions
+
+1:23:24.760 --> 1:23:29.480
+ that only work within the ecosystem of that language.
+
+1:23:29.480 --> 1:23:31.920
+ What should you use?
+
+1:23:31.920 --> 1:23:34.560
+ That is a tough problem.
+
+1:23:34.560 --> 1:23:43.520
+ My own approach is I use the system packaging system to install Python, and I use the Python
+
+1:23:43.520 --> 1:23:49.280
+ packaging system then to install third party Python packages.
+
+1:23:49.280 --> 1:23:51.480
+ That's what most people do.
+
+1:23:51.480 --> 1:23:56.400
+ Ten years ago, Python packaging was really a terrible situation.
+
+1:23:56.400 --> 1:24:05.360
+ Nowadays, pip is the future, there is a separate ecosystem for numerical and scientific Python
+
+1:24:05.360 --> 1:24:08.200
+ based on Anaconda.
+
+1:24:08.200 --> 1:24:09.760
+ Those two can live together.
+
+1:24:09.760 --> 1:24:13.600
+ I don't think there is a need for more than that.
+
+1:24:13.600 --> 1:24:14.600
+ That's packaging.
+
+1:24:14.600 --> 1:24:18.720
+ Well, at least for me, that's where I've been extremely happy.
+
+1:24:18.720 --> 1:24:22.320
+ I didn't even know this was an issue until it was brought up.
+
+1:24:22.320 --> 1:24:27.600
+ In the interest of time, let me sort of skip through a million other questions I have.
+
+1:24:27.600 --> 1:24:32.880
+ So I watched the five and a half hour oral history that you've done with the Computer
+
+1:24:32.880 --> 1:24:37.600
+ History Museum, and the nice thing about it, it gave this, because of the linear progression
+
+1:24:37.600 --> 1:24:44.480
+ of the interview, it gave this feeling of a life, you know, a life well lived with interesting
+
+1:24:44.480 --> 1:24:52.160
+ things in it, sort of a pretty, I would say a good spend of this little existence we have
+
+1:24:52.160 --> 1:24:53.160
+ on Earth.
+
+1:24:53.160 --> 1:24:59.840
+ So, outside of your family, looking back, what about this journey are you really proud
+
+1:24:59.840 --> 1:25:00.840
+ of?
+
+1:25:00.840 --> 1:25:07.040
+ Are there moments that stand out, accomplishments, ideas?
+
+1:25:07.040 --> 1:25:14.040
+ Is it the creation of Python itself that stands out as a thing that you look back and say,
+
+1:25:14.040 --> 1:25:16.480
+ damn, I did pretty good there?
+
+1:25:16.480 --> 1:25:25.520
+ Well, I would say that Python is definitely the best thing I've ever done, and I wouldn't
+
+1:25:25.520 --> 1:25:36.560
+ sort of say just the creation of Python, but the way I sort of raised Python, like a baby.
+
+1:25:36.560 --> 1:25:42.480
+ I didn't just conceive a child, but I raised a child, and now I'm setting the child free
+
+1:25:42.480 --> 1:25:50.200
+ in the world, and I've set up the child to sort of be able to take care of himself, and
+
+1:25:50.200 --> 1:25:52.640
+ I'm very proud of that.
+
+1:25:52.640 --> 1:25:56.740
+ And as the announcer of Monty Python's Flying Circus used to say, and now for something
+
+1:25:56.740 --> 1:26:02.280
+ completely different, do you have a favorite Monty Python moment, or a moment in Hitchhiker's
+
+1:26:02.280 --> 1:26:07.720
+ Guide, or any other literature show or movie that cracks you up when you think about it?
+
+1:26:07.720 --> 1:26:11.320
+ You can always play me the dead parrot sketch.
+
+1:26:11.320 --> 1:26:13.680
+ Oh, that's brilliant.
+
+1:26:13.680 --> 1:26:14.680
+ That's my favorite as well.
+
+1:26:14.680 --> 1:26:15.680
+ It's pushing up the daisies.
+
+1:26:15.680 --> 1:26:20.680
+ Okay, Greta, thank you so much for talking with me today.
+
+1:26:20.680 --> 1:26:44.080
+ Lex, this has been a great conversation.
+

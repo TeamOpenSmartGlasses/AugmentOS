@@ -1,0 +1,5300 @@
+WEBVTT
+
+00:00.000 --> 00:03.080
+ The following is a conversation with Carl Friston,
+
+00:03.080 --> 00:06.960
+ one of the greatest neuroscientists in history.
+
+00:06.960 --> 00:10.320
+ Cited over 245,000 times,
+
+00:10.320 --> 00:13.580
+ known for many influential ideas in brain imaging,
+
+00:13.580 --> 00:16.520
+ neuroscience, and theoretical neurobiology,
+
+00:16.520 --> 00:19.820
+ including especially the fascinating idea
+
+00:19.820 --> 00:23.280
+ of the free energy principle for action and perception.
+
+00:24.200 --> 00:28.040
+ Carl's mix of humor, brilliance, and kindness,
+
+00:28.040 --> 00:31.160
+ to me, are inspiring and captivating.
+
+00:31.160 --> 00:34.120
+ This was a huge honor and a pleasure.
+
+00:34.120 --> 00:36.800
+ This is the Artificial Intelligence Podcast.
+
+00:36.800 --> 00:38.920
+ If you enjoy it, subscribe on YouTube,
+
+00:38.920 --> 00:41.280
+ review it with five stars on Apple Podcast,
+
+00:41.280 --> 00:42.560
+ support it on Patreon,
+
+00:42.560 --> 00:44.560
+ or simply connect with me on Twitter,
+
+00:44.560 --> 00:48.100
+ at Lex Friedman, spelled F R I D M A N.
+
+00:48.100 --> 00:50.480
+ As usual, I'll do a few minutes of ads now,
+
+00:50.480 --> 00:52.040
+ and never any ads in the middle
+
+00:52.040 --> 00:54.220
+ that can break the flow of the conversation.
+
+00:54.220 --> 00:55.540
+ I hope that works for you,
+
+00:55.540 --> 00:58.280
+ and doesn't hurt the listening experience.
+
+00:58.280 --> 01:00.880
+ This show is presented by Cash App,
+
+01:00.880 --> 01:03.200
+ the number one finance app in the App Store.
+
+01:03.200 --> 01:06.280
+ When you get it, use code LEXPODCAST.
+
+01:06.280 --> 01:09.400
+ Cash App lets you send money to friends by Bitcoin,
+
+01:09.400 --> 01:12.860
+ and invest in the stock market with as little as $1.
+
+01:12.860 --> 01:14.480
+ Since Cash App allows you to send
+
+01:14.480 --> 01:16.200
+ and receive money digitally,
+
+01:16.200 --> 01:20.200
+ let me mention a surprising fact related to physical money.
+
+01:20.200 --> 01:22.000
+ Of all the currency in the world,
+
+01:22.000 --> 01:25.640
+ roughly 8% of it is actual physical money.
+
+01:25.640 --> 01:29.920
+ The other 92% of money only exists digitally.
+
+01:29.920 --> 01:32.260
+ So again, if you get Cash App from the App Store,
+
+01:32.260 --> 01:37.040
+ Google Play, and use the code LEXPODCAST, you get $10,
+
+01:37.040 --> 01:39.880
+ and Cash App will also donate $10 to FIRST,
+
+01:39.880 --> 01:42.640
+ an organization that is helping to advance robotics
+
+01:42.640 --> 01:45.780
+ and STEM education for young people around the world.
+
+01:45.780 --> 01:50.020
+ And now, here's my conversation with Carl Friston.
+
+01:50.020 --> 01:53.380
+ How much of the human brain do we understand
+
+01:53.380 --> 01:56.580
+ from the low level of neuronal communication
+
+01:56.580 --> 02:01.580
+ to the functional level to the highest level,
+
+02:01.660 --> 02:04.940
+ maybe the psychiatric disorder level?
+
+02:04.940 --> 02:06.420
+ Well, we're certainly in a better position
+
+02:06.420 --> 02:08.080
+ than we were last century.
+
+02:08.980 --> 02:10.440
+ How far we've got to go, I think,
+
+02:10.440 --> 02:12.640
+ is almost an unanswerable question.
+
+02:13.520 --> 02:16.040
+ So you'd have to set the parameters,
+
+02:16.040 --> 02:20.140
+ you know, what constitutes understanding, what level
+
+02:20.140 --> 02:21.740
+ of understanding do you want?
+
+02:21.740 --> 02:25.380
+ I think we've made enormous progress
+
+02:25.380 --> 02:27.820
+ in terms of broad brush principles.
+
+02:29.140 --> 02:32.460
+ Whether that affords a detailed cartography
+
+02:32.460 --> 02:35.380
+ of the functional anatomy of the brain and what it does,
+
+02:35.380 --> 02:38.140
+ right down to the microcircuitry and the neurons,
+
+02:38.140 --> 02:42.220
+ that's probably out of reach at the present time.
+
+02:42.220 --> 02:44.900
+ So the cartography, so mapping the brain,
+
+02:44.900 --> 02:47.440
+ do you think mapping of the brain,
+
+02:47.440 --> 02:50.380
+ the detailed, perfect imaging of it,
+
+02:50.380 --> 02:54.100
+ does that get us closer to understanding
+
+02:54.100 --> 02:56.060
+ of the mind, of the brain?
+
+02:56.060 --> 02:59.100
+ So how far does it get us if we have
+
+02:59.100 --> 03:01.580
+ that perfect cartography of the brain?
+
+03:01.580 --> 03:03.060
+ I think there are lower bounds on that.
+
+03:03.060 --> 03:04.860
+ It's a really interesting question.
+
+03:06.340 --> 03:09.220
+ And it would determine the sort of scientific career
+
+03:09.220 --> 03:11.640
+ you'd pursue if you believe that knowing
+
+03:11.640 --> 03:16.020
+ every dendritic connection, every sort of microscopic,
+
+03:16.020 --> 03:18.740
+ synaptic structure right down to the molecular level
+
+03:18.740 --> 03:22.260
+ was gonna give you the right kind of information
+
+03:22.260 --> 03:25.340
+ to understand the computational anatomy,
+
+03:25.340 --> 03:27.180
+ then you'd choose to be a microscopist
+
+03:27.180 --> 03:32.180
+ and you would study little cubic millimeters of brain
+
+03:32.340 --> 03:33.500
+ for the rest of your life.
+
+03:33.500 --> 03:35.300
+ If on the other hand you were interested
+
+03:35.300 --> 03:40.300
+ in holistic functions and a sort of functional anatomy
+
+03:40.300 --> 03:44.100
+ of the sort that a neuropsychologist would understand,
+
+03:44.100 --> 03:46.380
+ you'd study brain lesions and strokes,
+
+03:46.380 --> 03:48.460
+ just looking at the whole person.
+
+03:48.460 --> 03:50.900
+ So again, it comes back to at what level
+
+03:50.900 --> 03:52.980
+ do you want understanding?
+
+03:52.980 --> 03:56.140
+ I think there are principled reasons not to go too far.
+
+03:57.900 --> 04:01.660
+ If you commit to a view of the brain
+
+04:01.660 --> 04:06.660
+ as a machine that's performing a form of inference
+
+04:06.660 --> 04:11.660
+ and representing things, that level of understanding
+
+04:15.980 --> 04:20.540
+ is necessarily cast in terms of probability densities
+
+04:20.540 --> 04:24.180
+ and ensemble densities, distributions.
+
+04:24.180 --> 04:27.120
+ And what that tells you is that you don't really want
+
+04:27.120 --> 04:30.500
+ to look at the atoms to understand the thermodynamics
+
+04:30.500 --> 04:34.420
+ of probabilistic descriptions of how the brain works.
+
+04:34.420 --> 04:38.620
+ So I personally wouldn't look at the molecules
+
+04:38.620 --> 04:41.700
+ or indeed the single neurons in the same way
+
+04:41.700 --> 04:44.060
+ if I wanted to understand the thermodynamics
+
+04:44.060 --> 04:47.220
+ of some non equilibrium steady state of a gas
+
+04:47.220 --> 04:49.980
+ or an active material, I wouldn't spend my life
+
+04:49.980 --> 04:54.200
+ looking at the individual molecules
+
+04:54.200 --> 04:55.420
+ that constitute that ensemble.
+
+04:55.420 --> 04:57.500
+ I'd look at their collective behavior.
+
+04:57.500 --> 05:00.140
+ On the other hand, if you go too coarse grain,
+
+05:00.140 --> 05:03.900
+ you're gonna miss some basic canonical principles
+
+05:03.900 --> 05:06.300
+ of connectivity and architectures.
+
+05:06.300 --> 05:10.020
+ I'm thinking here this bit colloquial,
+
+05:10.020 --> 05:13.540
+ but this current excitement about high field
+
+05:13.540 --> 05:17.240
+ magnetic resonance imaging at seven Tesla, why?
+
+05:17.240 --> 05:19.460
+ Well, it gives us for the first time the opportunity
+
+05:19.460 --> 05:22.740
+ to look at the brain in action at the level
+
+05:22.740 --> 05:24.700
+ of a few millimeters that distinguish
+
+05:24.700 --> 05:27.260
+ between different layers of the cortex
+
+05:27.260 --> 05:32.260
+ that may be very important in terms of evincing
+
+05:32.260 --> 05:35.260
+ generic principles of conical microcircuitry
+
+05:35.260 --> 05:37.620
+ that are replicated throughout the brain
+
+05:37.620 --> 05:39.120
+ that may tell us something fundamental
+
+05:39.120 --> 05:41.140
+ about message passing in the brain
+
+05:41.140 --> 05:44.260
+ and these density dynamics or neuronal
+
+05:44.260 --> 05:46.820
+ or some more population dynamics
+
+05:46.820 --> 05:49.420
+ that underwrite our brain function.
+
+05:49.420 --> 05:52.960
+ So somewhere between a millimeter and a meter.
+
+05:53.920 --> 05:57.440
+ Lingering for a bit on the big questions if you allow me,
+
+05:58.340 --> 06:01.940
+ what to use the most beautiful or surprising characteristic
+
+06:01.940 --> 06:03.420
+ of the human brain?
+
+06:03.420 --> 06:06.780
+ I think it's hierarchical and recursive aspect.
+
+06:06.780 --> 06:08.680
+ It's recurrent aspect.
+
+06:08.680 --> 06:10.820
+ Of the structure or of the actual
+
+06:10.820 --> 06:12.920
+ representation of power of the brain?
+
+06:12.920 --> 06:15.380
+ Well, I think one speaks to the other.
+
+06:15.380 --> 06:18.420
+ I was actually answering in a dull minded way
+
+06:18.420 --> 06:20.380
+ from the point of view of purely its anatomy
+
+06:20.380 --> 06:22.980
+ and its structural aspects.
+
+06:22.980 --> 06:26.740
+ I mean, there are many marvelous organs in the body.
+
+06:26.740 --> 06:28.460
+ Let's take your liver for example.
+
+06:28.460 --> 06:32.660
+ Without it, you wouldn't be around for very long
+
+06:32.660 --> 06:35.980
+ and it does some beautiful and delicate biochemistry
+
+06:35.980 --> 06:40.980
+ and homeostasis and evolved with a finesse
+
+06:41.140 --> 06:43.020
+ that would easily parallel the brain
+
+06:43.020 --> 06:45.140
+ but it doesn't have a beautiful anatomy.
+
+06:45.140 --> 06:47.020
+ It has a simple anatomy which is attractive
+
+06:47.020 --> 06:48.940
+ in a minimalist sense but it doesn't have
+
+06:48.940 --> 06:52.820
+ that crafted structure of sparse connectivity
+
+06:52.820 --> 06:55.380
+ and that recurrence and that specialization
+
+06:55.380 --> 06:56.380
+ that the brain has.
+
+06:56.380 --> 06:58.300
+ So you said a lot of interesting terms here.
+
+06:58.300 --> 07:00.700
+ So the recurrence, the sparsity,
+
+07:00.700 --> 07:03.540
+ but you also started by saying hierarchical.
+
+07:03.540 --> 07:08.540
+ So I've never thought of our brain as hierarchical.
+
+07:11.260 --> 07:14.300
+ Sort of I always thought it's just like a giant mess,
+
+07:14.300 --> 07:16.740
+ interconnected mess where it's very difficult
+
+07:16.740 --> 07:18.180
+ to figure anything out.
+
+07:18.180 --> 07:21.860
+ But in what sense do you see the brain as hierarchical?
+
+07:21.860 --> 07:24.220
+ Well, I see it, it's not a magic soup.
+
+07:24.220 --> 07:28.700
+ Which of course is what I used to think
+
+07:28.700 --> 07:33.380
+ before I studied medicine and the like.
+
+07:34.460 --> 07:38.740
+ So a lot of those terms imply each other.
+
+07:38.740 --> 07:41.700
+ So hierarchies, if you just think about
+
+07:41.700 --> 07:43.540
+ the nature of a hierarchy,
+
+07:43.540 --> 07:46.020
+ how would you actually build one?
+
+07:46.020 --> 07:48.300
+ And what you would have to do is basically
+
+07:48.300 --> 07:51.140
+ carefully remove the right connections
+
+07:51.140 --> 07:54.740
+ that destroy the completely connected soups
+
+07:54.740 --> 07:56.100
+ that you might have in mind.
+
+07:56.100 --> 08:00.140
+ So a hierarchy is in and of itself defined
+
+08:00.140 --> 08:03.180
+ by a sparse and particular connectivity structure.
+
+08:04.420 --> 08:07.500
+ I'm not committing to any particular form of hierarchy.
+
+08:08.380 --> 08:10.140
+ But your sense is there is some.
+
+08:10.140 --> 08:11.420
+ Oh, absolutely, yeah.
+
+08:11.420 --> 08:14.220
+ In virtue of the fact that there is a sparsity
+
+08:14.220 --> 08:19.220
+ of connectivity, not necessarily of a qualitative sort,
+
+08:19.220 --> 08:20.460
+ but certainly of a quantitative sort.
+
+08:20.460 --> 08:25.460
+ So it is demonstrably so that the further apart
+
+08:27.460 --> 08:29.220
+ two parts of the brain are,
+
+08:29.220 --> 08:32.260
+ the less likely they are to be wired,
+
+08:32.260 --> 08:35.820
+ to possess axonal processes, neuronal processes
+
+08:35.820 --> 08:39.100
+ that directly communicate one message
+
+08:39.100 --> 08:41.140
+ or messages from one part of that brain
+
+08:41.140 --> 08:42.660
+ to the other part of the brain.
+
+08:42.660 --> 08:44.780
+ So we know there's a sparse connectivity.
+
+08:45.820 --> 08:50.300
+ And furthermore, on the basis of anatomical connectivity
+
+08:50.300 --> 08:55.300
+ in traces studies, we know that that sparsity
+
+08:57.580 --> 09:00.980
+ underwrites a hierarchical and very structured
+
+09:00.980 --> 09:05.980
+ sort of connectivity that might be best understood
+
+09:07.140 --> 09:09.380
+ like a little bit like an onion.
+
+09:09.380 --> 09:14.380
+ There is a concentric, sometimes referred to as centripetal
+
+09:15.540 --> 09:17.500
+ by people like Marcel Masulam,
+
+09:17.500 --> 09:19.340
+ hierarchical organization to the brain.
+
+09:19.340 --> 09:23.860
+ So you can think of the brain as in a rough sense,
+
+09:23.860 --> 09:28.060
+ like an onion, and all the sensory information
+
+09:28.060 --> 09:31.260
+ and all the afferent outgoing messages
+
+09:31.260 --> 09:33.500
+ that supply commands to your muscles
+
+09:33.500 --> 09:37.100
+ or to your secretory organs come from the surface.
+
+09:37.100 --> 09:40.140
+ So there's a massive exchange interface
+
+09:40.140 --> 09:43.020
+ with the world out there on the surface.
+
+09:43.020 --> 09:45.140
+ And then underneath, there's a little layer
+
+09:45.140 --> 09:49.380
+ that sits and looks at the exchange on the surface.
+
+09:49.380 --> 09:51.380
+ And then underneath that, there's a layer
+
+09:51.380 --> 09:53.380
+ right the way down to the very center,
+
+09:53.380 --> 09:55.740
+ to the deepest part of the onion.
+
+09:55.740 --> 09:58.700
+ That's what I mean by a hierarchical organization.
+
+09:58.700 --> 10:02.020
+ There's a discernible structure defined
+
+10:02.020 --> 10:04.860
+ by the sparsity of connections
+
+10:04.860 --> 10:08.620
+ that lends the architecture a hierarchical structure
+
+10:08.620 --> 10:12.780
+ that tells one a lot about the kinds of representations
+
+10:12.780 --> 10:13.620
+ and messages.
+
+10:13.620 --> 10:15.620
+ Coming back to your earlier question,
+
+10:15.620 --> 10:18.260
+ is this about the representational capacity
+
+10:19.140 --> 10:20.420
+ or is it about the anatomy?
+
+10:20.420 --> 10:23.460
+ Well, one underwrites the other.
+
+10:24.580 --> 10:26.380
+ If one simply thinks of the brain
+
+10:26.380 --> 10:29.100
+ as a message passing machine,
+
+10:29.100 --> 10:32.580
+ a process that is in the service of doing something,
+
+10:33.460 --> 10:37.500
+ then the circuitry and the connectivity
+
+10:37.500 --> 10:42.500
+ that shape that message passing also dictate its function.
+
+10:42.500 --> 10:44.980
+ So you've done a lot of amazing work
+
+10:44.980 --> 10:46.660
+ in a lot of directions.
+
+10:46.660 --> 10:49.260
+ So let's look at one aspect of that,
+
+10:49.260 --> 10:51.060
+ of looking into the brain
+
+10:51.060 --> 10:53.300
+ and trying to study this onion structure.
+
+10:54.980 --> 10:57.660
+ What can we learn about the brain by imaging it?
+
+10:57.660 --> 11:00.860
+ Which is one way to sort of look at the anatomy of it.
+
+11:00.860 --> 11:04.700
+ Broadly speaking, what are the methods of imaging,
+
+11:04.700 --> 11:07.620
+ but even bigger, what can we learn about it?
+
+11:07.620 --> 11:12.620
+ Right, so well, most human neuroimaging
+
+11:13.820 --> 11:17.540
+ that you might see in science journals
+
+11:18.980 --> 11:22.540
+ that speaks to the way the brain works,
+
+11:22.540 --> 11:24.340
+ measures brain activity over time.
+
+11:24.340 --> 11:26.020
+ So that's the first thing to say,
+
+11:26.020 --> 11:30.020
+ that we're effectively looking at fluctuations
+
+11:30.020 --> 11:32.580
+ in neuronal responses,
+
+11:32.580 --> 11:36.140
+ usually in response to some sensory input
+
+11:36.140 --> 11:40.660
+ or some instruction, some task.
+
+11:40.660 --> 11:42.260
+ Not necessarily, there's a lot of interest
+
+11:42.260 --> 11:43.620
+ in just looking at the brain
+
+11:44.740 --> 11:46.860
+ in terms of resting state, endogenous,
+
+11:46.860 --> 11:48.940
+ or intrinsic activity.
+
+11:48.940 --> 11:50.780
+ But crucially, at every point,
+
+11:50.780 --> 11:52.460
+ looking at these fluctuations,
+
+11:52.460 --> 11:56.380
+ either induced or intrinsic in the neural activity,
+
+11:57.340 --> 11:59.020
+ and understanding them at two levels.
+
+11:59.020 --> 12:03.540
+ So normally, people would recourse
+
+12:03.540 --> 12:06.260
+ to two principles of brain organization
+
+12:06.260 --> 12:07.420
+ that are complementary.
+
+12:07.420 --> 12:10.460
+ One, functional specialization or segregation.
+
+12:10.460 --> 12:11.860
+ So what does that mean?
+
+12:11.860 --> 12:16.300
+ It simply means that there are certain parts of the brain
+
+12:16.300 --> 12:19.580
+ that may be specialized for certain kinds of processing.
+
+12:19.580 --> 12:21.900
+ For example, visual motion,
+
+12:21.900 --> 12:26.060
+ our ability to recognize or to perceive movement
+
+12:26.060 --> 12:27.780
+ in the visual world.
+
+12:27.780 --> 12:31.100
+ And furthermore, that specialized processing
+
+12:31.100 --> 12:34.540
+ may be spatially or anatomically segregated,
+
+12:34.540 --> 12:37.060
+ leading to functional segregation.
+
+12:37.060 --> 12:40.900
+ Which means that if I were to compare your brain activity
+
+12:40.900 --> 12:45.220
+ during a period of viewing a static image,
+
+12:45.220 --> 12:49.260
+ and then compare that to the responses of fluctuations
+
+12:49.260 --> 12:52.660
+ in the brain when you were exposed to a moving image,
+
+12:52.660 --> 12:54.900
+ say a flying bird,
+
+12:54.900 --> 12:56.300
+ we'd expect to see
+
+12:56.300 --> 13:01.620
+ restricted, segregated differences in activity.
+
+13:01.620 --> 13:03.780
+ And those are basically the hotspots
+
+13:03.780 --> 13:06.780
+ that you see in the statistical parametric maps
+
+13:06.780 --> 13:08.900
+ that test for the significance of the responses
+
+13:08.900 --> 13:11.060
+ that are circumscribed.
+
+13:11.060 --> 13:13.740
+ So now, basically, we're talking about
+
+13:13.740 --> 13:19.300
+ some people have perhaps unkindly called a neocartography.
+
+13:19.300 --> 13:24.420
+ This is a phrenology augmented by modern day neuroimaging,
+
+13:24.420 --> 13:28.980
+ basically finding blobs or bumps on the brain
+
+13:28.980 --> 13:30.860
+ that do this or do that,
+
+13:30.860 --> 13:33.100
+ and trying to understand the cartography
+
+13:33.100 --> 13:35.700
+ of that functional specialization.
+
+13:35.700 --> 13:38.860
+ So how much is there such,
+
+13:38.860 --> 13:43.220
+ this is such a beautiful sort of ideal to strive for.
+
+13:43.220 --> 13:46.860
+ We humans, scientists, would like this,
+
+13:46.860 --> 13:48.980
+ to hope that there's a beautiful structure to this
+
+13:48.980 --> 13:51.420
+ where it's, like you said, there's segregated regions
+
+13:51.420 --> 13:54.100
+ that are responsible for the different function.
+
+13:54.100 --> 13:57.100
+ How much hope is there to find such regions
+
+13:57.100 --> 14:00.420
+ in terms of looking at the progress of studying the brain?
+
+14:00.420 --> 14:02.740
+ Oh, I think enormous progress has been made
+
+14:02.740 --> 14:04.860
+ in the past 20 or 30 years.
+
+14:06.860 --> 14:08.940
+ So this is beyond incremental.
+
+14:08.940 --> 14:11.940
+ At the advent of brain imaging,
+
+14:11.940 --> 14:14.820
+ the very notion of functional segregation
+
+14:14.820 --> 14:18.900
+ was just a hypothesis based upon a century,
+
+14:18.900 --> 14:21.420
+ if not more, of careful neuropsychology,
+
+14:21.420 --> 14:24.660
+ looking at people who had lost via insult
+
+14:24.660 --> 14:29.300
+ or traumatic brain injury particular parts of the brain,
+
+14:29.300 --> 14:30.780
+ and then saying, well, they can't do this
+
+14:30.780 --> 14:32.060
+ or they can't do that.
+
+14:32.060 --> 14:34.100
+ For example, losing the visual cortex
+
+14:34.100 --> 14:35.620
+ and not being able to see,
+
+14:35.620 --> 14:39.580
+ or losing particular parts of the visual cortex
+
+14:39.580 --> 14:44.060
+ or regions known as V5
+
+14:44.060 --> 14:47.980
+ or the middle temporal region, MT,
+
+14:47.980 --> 14:49.580
+ and noticing that they selectively
+
+14:49.580 --> 14:51.460
+ could not see moving things.
+
+14:51.460 --> 14:55.140
+ And so that created the hypothesis
+
+14:55.140 --> 14:59.700
+ that perhaps visual movement processing
+
+14:59.700 --> 15:02.740
+ was located in this functionally segregated area.
+
+15:02.740 --> 15:05.700
+ And you could then go and put invasive electrodes
+
+15:05.700 --> 15:08.260
+ in animal models and say, yes, indeed,
+
+15:08.260 --> 15:10.500
+ we can excite activity here.
+
+15:10.500 --> 15:13.980
+ We can form receptive fields that are sensitive to
+
+15:13.980 --> 15:16.220
+ or defined in terms of visual motion.
+
+15:16.220 --> 15:18.340
+ But at no point could you exclude the possibility
+
+15:18.340 --> 15:20.020
+ that everywhere else in the brain
+
+15:20.020 --> 15:23.140
+ was also very interested in visual motion.
+
+15:23.140 --> 15:24.900
+ By the way, I apologize to interrupt,
+
+15:24.900 --> 15:26.980
+ but a tiny little tangent.
+
+15:26.980 --> 15:31.180
+ You said animal models, just out of curiosity,
+
+15:31.180 --> 15:34.460
+ from your perspective, how different is the human brain
+
+15:34.460 --> 15:35.460
+ versus the other animals
+
+15:35.460 --> 15:38.980
+ in terms of our ability to study the brain?
+
+15:38.980 --> 15:43.620
+ Well, clearly, the further away you go from a human brain,
+
+15:43.620 --> 15:45.740
+ the greater the differences,
+
+15:45.740 --> 15:48.940
+ but not as remarkable as you might think.
+
+15:48.940 --> 15:53.180
+ So people will choose their level of approximation
+
+15:53.180 --> 15:54.300
+ to the human brain,
+
+15:54.300 --> 15:56.540
+ depending upon the kinds of questions
+
+15:56.540 --> 15:57.380
+ that they want to answer.
+
+15:57.380 --> 16:00.620
+ So if you're talking about sort of canonical principles
+
+16:00.620 --> 16:02.780
+ of microcircuitry, it might be perfectly okay
+
+16:02.780 --> 16:04.540
+ to look at a mouse, indeed.
+
+16:04.540 --> 16:07.220
+ You could even look at flies, worms.
+
+16:08.100 --> 16:09.740
+ If, on the other hand, you wanted to look at
+
+16:09.740 --> 16:13.100
+ the finer details of organization of visual cortex
+
+16:13.100 --> 16:17.420
+ and V1, V2, these are designated patches of cortex
+
+16:17.420 --> 16:20.660
+ that may do different things, indeed, do.
+
+16:20.660 --> 16:23.340
+ You'd probably want to use a primate
+
+16:23.340 --> 16:25.980
+ that looked a little bit more like a human,
+
+16:26.940 --> 16:28.260
+ because there are lots of ethical issues
+
+16:28.260 --> 16:32.780
+ in terms of the use of nonhuman primates
+
+16:32.780 --> 16:37.500
+ to answer questions about human anatomy.
+
+16:37.500 --> 16:39.060
+ But I think most people assume
+
+16:39.060 --> 16:43.300
+ that most of the important principles are conserved
+
+16:43.300 --> 16:48.020
+ in a continuous way, right from, well, yes,
+
+16:48.020 --> 16:53.020
+ worms right through to you and me.
+
+16:53.260 --> 16:56.900
+ So now returning to, so that was the early sort of ideas
+
+16:56.900 --> 17:00.820
+ of studying the functional regions of the brain
+
+17:00.820 --> 17:02.860
+ by if there's some damage to it,
+
+17:02.860 --> 17:06.140
+ to try to infer that that part of the brain
+
+17:06.140 --> 17:09.100
+ might be somewhat responsible for this type of function.
+
+17:09.100 --> 17:11.140
+ So where does that lead us?
+
+17:11.140 --> 17:12.980
+ What are the next steps beyond that?
+
+17:12.980 --> 17:16.140
+ Right, well, I'll just actually just reverse a bit,
+
+17:16.140 --> 17:17.860
+ come back to your sort of notion
+
+17:17.860 --> 17:19.580
+ that the brain is a magic soup.
+
+17:19.580 --> 17:22.580
+ That was actually a very prominent idea at one point,
+
+17:23.780 --> 17:27.140
+ notions such as Lashley's law of mass action
+
+17:28.140 --> 17:33.140
+ inherited from the observation that for certain animals,
+
+17:33.140 --> 17:36.020
+ if you just took out spoonfuls of the brain,
+
+17:36.020 --> 17:38.220
+ it didn't matter where you took these spoonfuls out,
+
+17:38.220 --> 17:40.420
+ they always showed the same kinds of deficits.
+
+17:40.420 --> 17:44.540
+ So it was very difficult to infer functional specialization
+
+17:44.540 --> 17:48.300
+ purely on the basis of lesion deficit studies.
+
+17:49.260 --> 17:50.820
+ But once we had the opportunity
+
+17:50.820 --> 17:52.380
+ to look at the brain lighting up
+
+17:52.380 --> 17:57.740
+ and it's literally it's sort of excitement, neuronal excitement
+
+17:57.740 --> 18:01.100
+ when looking at this versus that,
+
+18:01.100 --> 18:03.260
+ one was able to say, yes, indeed,
+
+18:03.260 --> 18:05.020
+ these functionally specialized responses
+
+18:05.020 --> 18:08.780
+ are very restricted and they're here or they're over there.
+
+18:08.780 --> 18:11.340
+ If I do this, then this part of the brain lights up.
+
+18:11.340 --> 18:16.340
+ And that became doable in the early 90s.
+
+18:16.900 --> 18:19.100
+ In fact, shortly before with the advent
+
+18:19.100 --> 18:21.060
+ of positron emission tomography.
+
+18:21.060 --> 18:23.420
+ And then functional magnetic resonance imaging
+
+18:23.420 --> 18:26.700
+ came along in the early 90s.
+
+18:26.700 --> 18:29.780
+ And since that time, there has been an explosion
+
+18:29.780 --> 18:34.780
+ of discovery, refinement, confirmation.
+
+18:36.300 --> 18:38.940
+ There are people who believe that it's all in the anatomy.
+
+18:38.940 --> 18:40.260
+ If you understand the anatomy,
+
+18:40.260 --> 18:43.260
+ then you understand the function at some level.
+
+18:43.260 --> 18:45.780
+ And many, many hypotheses were predicated
+
+18:45.780 --> 18:49.980
+ on a deep understanding of the anatomy and the connectivity,
+
+18:49.980 --> 18:51.260
+ but they were all confirmed
+
+18:51.260 --> 18:55.140
+ and taken much further with neuroimaging.
+
+18:55.140 --> 18:57.580
+ So that's what I meant by we've made an enormous amount
+
+18:57.580 --> 19:01.180
+ of progress in this century indeed,
+
+19:01.180 --> 19:03.940
+ and in relation to the previous century,
+
+19:03.940 --> 19:08.940
+ by looking at these functionally selective responses.
+
+19:09.620 --> 19:11.100
+ But that wasn't the whole story.
+
+19:11.100 --> 19:13.580
+ So there's this sort of near phrenology,
+
+19:13.580 --> 19:15.620
+ but finding bumps and hot spots in the brain
+
+19:15.620 --> 19:16.700
+ that did this or that.
+
+19:17.620 --> 19:20.020
+ The bigger question was, of course,
+
+19:20.020 --> 19:22.140
+ the functional integration.
+
+19:22.140 --> 19:26.980
+ How all of these regionally specific responses
+
+19:26.980 --> 19:29.860
+ were orchestrated, how they were distributed,
+
+19:29.860 --> 19:32.700
+ how did they relate to distributed processing
+
+19:32.700 --> 19:35.580
+ and indeed representations in the brain.
+
+19:35.580 --> 19:39.540
+ So then you turn to the more challenging issue
+
+19:39.540 --> 19:42.660
+ of the integration, the connectivity.
+
+19:42.660 --> 19:44.980
+ And then we come back to this beautiful,
+
+19:44.980 --> 19:49.060
+ sparse, recurrent, hierarchical connectivity
+
+19:49.060 --> 19:51.140
+ that seems characteristic of the brain
+
+19:51.140 --> 19:53.620
+ and probably not many other organs.
+
+19:53.620 --> 19:58.260
+ But nevertheless, we come back to this challenge
+
+19:58.260 --> 20:01.100
+ of trying to figure out how everything is integrated.
+
+20:01.100 --> 20:02.820
+ But what's your feeling?
+
+20:02.820 --> 20:04.220
+ What's the general consensus?
+
+20:04.220 --> 20:07.820
+ Have we moved away from the magic soup view of the brain?
+
+20:07.820 --> 20:10.620
+ So there is a deep structure to it.
+
+20:11.940 --> 20:14.460
+ And then maybe a further question.
+
+20:14.460 --> 20:16.820
+ You said some people believe that the structure
+
+20:16.820 --> 20:19.180
+ is most of it, that you can really get
+
+20:19.180 --> 20:20.220
+ at the core of the function
+
+20:20.220 --> 20:22.540
+ by just deeply understanding the structure.
+
+20:22.540 --> 20:25.180
+ Where do you sit on that, do you?
+
+20:25.180 --> 20:28.260
+ I think it's got some mileage to it, yes, yeah.
+
+20:28.260 --> 20:30.300
+ So it's a worthy pursuit of going,
+
+20:31.180 --> 20:34.780
+ of studying through imaging and all the different methods
+
+20:34.780 --> 20:36.260
+ to actually study the structure.
+
+20:36.260 --> 20:38.340
+ No, absolutely, yeah, yeah.
+
+20:38.340 --> 20:41.180
+ Sorry, I'm just noting, you were accusing me
+
+20:41.180 --> 20:42.460
+ of using lots of long words
+
+20:42.460 --> 20:44.300
+ and then you introduced one there, which is deep,
+
+20:44.300 --> 20:45.380
+ which is interesting.
+
+20:46.340 --> 20:50.420
+ Because deep is the sort of millennial equivalent
+
+20:50.420 --> 20:51.660
+ of hierarchical.
+
+20:51.660 --> 20:53.860
+ So if you've put deep in front of anything,
+
+20:53.860 --> 20:57.620
+ not only are you very millennial and very trending,
+
+20:57.620 --> 21:01.540
+ but you're also implying a hierarchical architecture.
+
+21:01.540 --> 21:05.260
+ So it is a depth, which is, for me, the beautiful thing.
+
+21:05.260 --> 21:07.380
+ That's right, the word deep kind of,
+
+21:07.380 --> 21:10.260
+ yeah, exactly, it implies hierarchy.
+
+21:10.260 --> 21:11.500
+ I didn't even think about that.
+
+21:11.500 --> 21:14.620
+ That indeed, the implicit meaning
+
+21:14.620 --> 21:16.820
+ of the word deep is hierarchy.
+
+21:16.820 --> 21:18.340
+ Yep. Yeah.
+
+21:18.340 --> 21:22.380
+ So deep inside the onion is the center of your soul.
+
+21:22.380 --> 21:23.500
+ Beautifully put.
+
+21:23.500 --> 21:26.780
+ Maybe briefly, if you could paint a picture
+
+21:26.780 --> 21:30.980
+ of the kind of methods of neuroimaging,
+
+21:30.980 --> 21:33.420
+ maybe the history which you were a part of,
+
+21:33.420 --> 21:35.180
+ from statistical parametric mapping.
+
+21:35.180 --> 21:37.940
+ I mean, just what's out there that's interesting
+
+21:37.940 --> 21:40.540
+ for people maybe outside the field
+
+21:40.540 --> 21:43.460
+ to understand of what are the actual methodologies
+
+21:43.460 --> 21:45.340
+ of looking inside the human brain?
+
+21:45.340 --> 21:47.420
+ Right, well, you can answer that question
+
+21:47.420 --> 21:48.300
+ from two perspectives.
+
+21:48.300 --> 21:49.900
+ Basically, it's the modality.
+
+21:49.900 --> 21:52.580
+ What kind of signal are you measuring?
+
+21:52.580 --> 21:55.460
+ And they can range from,
+
+21:55.460 --> 21:56.860
+ and let's limit ourselves
+
+21:56.860 --> 22:01.060
+ to sort of imaging based noninvasive techniques.
+
+22:01.060 --> 22:03.020
+ So you've essentially got brain scanners,
+
+22:03.020 --> 22:05.340
+ and brain scanners can either measure
+
+22:05.340 --> 22:07.660
+ the structural attributes, the amount of water,
+
+22:07.660 --> 22:09.300
+ the amount of fat, or the amount of iron
+
+22:09.300 --> 22:10.380
+ in different parts of the brain,
+
+22:10.380 --> 22:11.620
+ and you can make lots of inferences
+
+22:11.620 --> 22:15.460
+ about the structure of the organ of the sort
+
+22:15.460 --> 22:17.780
+ that you might have produced from an X ray,
+
+22:17.780 --> 22:21.340
+ but a very nuanced X ray that is looking
+
+22:21.340 --> 22:24.380
+ at this kind of property or that kind of property.
+
+22:24.380 --> 22:27.860
+ So looking at the anatomy noninvasively
+
+22:27.860 --> 22:30.140
+ would be the first sort of neuroimaging
+
+22:30.140 --> 22:32.180
+ that people might want to employ.
+
+22:32.180 --> 22:34.940
+ Then you move on to the kinds of measurements
+
+22:34.940 --> 22:38.100
+ that reflect dynamic function,
+
+22:38.100 --> 22:42.020
+ and the most prevalent of those fall into two camps.
+
+22:42.020 --> 22:46.460
+ You've got these metabolic, sometimes hemodynamic,
+
+22:46.460 --> 22:48.940
+ blood related signals.
+
+22:48.940 --> 22:53.460
+ So these metabolic and or hemodynamic signals
+
+22:53.460 --> 22:58.380
+ are basically proxies for elevated activity
+
+22:58.380 --> 23:03.380
+ and message passing and neuronal dynamics
+
+23:03.460 --> 23:05.340
+ in particular parts of the brain.
+
+23:05.340 --> 23:07.660
+ Characteristically though, the time constants
+
+23:07.660 --> 23:11.420
+ of these hemodynamic or metabolic responses
+
+23:11.420 --> 23:14.300
+ to neural activity are much longer
+
+23:14.300 --> 23:15.820
+ than the neural activity itself.
+
+23:15.820 --> 23:18.020
+ And this is referring,
+
+23:19.020 --> 23:20.580
+ forgive me for the dumb questions,
+
+23:20.580 --> 23:22.940
+ but this would be referring to blood,
+
+23:22.940 --> 23:24.260
+ like the flow of blood.
+
+23:24.260 --> 23:25.100
+ Absolutely, absolutely.
+
+23:25.100 --> 23:26.500
+ So there's a ton of,
+
+23:26.500 --> 23:29.420
+ it seems like there's a ton of blood vessels in the brain.
+
+23:29.420 --> 23:30.260
+ Yeah.
+
+23:30.260 --> 23:33.700
+ So what's the interaction between the flow of blood
+
+23:33.700 --> 23:35.980
+ and the function of the neurons?
+
+23:35.980 --> 23:37.420
+ Is there an interplay there or?
+
+23:37.420 --> 23:42.420
+ Yup, yup, and that interplay accounts for several careers
+
+23:42.780 --> 23:46.180
+ of world renowned scientists, yes, absolutely.
+
+23:47.220 --> 23:49.140
+ So this is known as neurovascular coupling,
+
+23:49.140 --> 23:50.180
+ is exactly what you said.
+
+23:50.180 --> 23:52.300
+ It's how does the neural activity,
+
+23:52.300 --> 23:54.620
+ the neuronal infrastructure, the actual message passing
+
+23:54.620 --> 23:59.620
+ that we think underlies our capacity to perceive and act,
+
+24:01.060 --> 24:06.060
+ how is that coupled to the vascular responses
+
+24:06.060 --> 24:09.900
+ that supply the energy for that neural processing?
+
+24:09.900 --> 24:13.380
+ So there's a delicate web of large vessels,
+
+24:13.380 --> 24:16.420
+ arteries and veins, that gets progressively finer
+
+24:16.420 --> 24:18.860
+ and finer in detail until it perfuses
+
+24:18.860 --> 24:20.420
+ at a microscopic level,
+
+24:20.420 --> 24:23.780
+ the machinery where little neurons lie.
+
+24:23.780 --> 24:26.520
+ So coming back to this sort of onion perspective,
+
+24:27.420 --> 24:30.500
+ we were talking before using the onion as a metaphor
+
+24:30.500 --> 24:32.460
+ for a deep hierarchical structure,
+
+24:32.460 --> 24:36.220
+ but also I think it's just anatomically quite
+
+24:36.220 --> 24:37.780
+ a useful metaphor.
+
+24:37.780 --> 24:40.140
+ All the action, all the heavy lifting
+
+24:40.140 --> 24:41.660
+ in terms of neural computation is done
+
+24:41.660 --> 24:43.940
+ on the surface of the brain,
+
+24:43.940 --> 24:47.380
+ and then the interior of the brain is constituted
+
+24:47.380 --> 24:52.380
+ by fatty wires, essentially, axonal processes
+
+24:52.980 --> 24:55.940
+ that are enshrouded by myelin sheaths.
+
+24:55.940 --> 24:59.620
+ And these, when you dissect them, they look fatty and white,
+
+24:59.620 --> 25:01.240
+ and so it's called white matter,
+
+25:01.240 --> 25:04.100
+ as opposed to the actual neuro pill,
+
+25:04.100 --> 25:07.220
+ which does the computation constituted largely by neurons,
+
+25:07.220 --> 25:08.700
+ and that's known as gray matter.
+
+25:08.700 --> 25:13.260
+ So the gray matter is a surface or a skin
+
+25:13.260 --> 25:16.260
+ that sits on top of this big ball,
+
+25:16.260 --> 25:17.780
+ now we are talking magic soup,
+
+25:17.780 --> 25:20.860
+ but a big ball of connections like spaghetti,
+
+25:20.860 --> 25:23.100
+ very carefully structured with sparse connectivity
+
+25:23.100 --> 25:25.760
+ that preserves this deep hierarchical structure,
+
+25:25.760 --> 25:28.300
+ but all the action takes place on the surface,
+
+25:28.300 --> 25:33.300
+ on the cortex of the onion, and that means
+
+25:34.180 --> 25:38.560
+ that you have to supply the right amount of blood flow,
+
+25:38.560 --> 25:41.100
+ the right amount of nutrient,
+
+25:41.100 --> 25:45.240
+ which is rapidly absorbed and used by neural cells
+
+25:45.240 --> 25:46.820
+ that don't have the same capacity
+
+25:46.820 --> 25:48.780
+ that your leg muscles would have
+
+25:48.780 --> 25:52.500
+ to basically spend their energy budget
+
+25:52.500 --> 25:55.000
+ and then claim it back later.
+
+25:55.000 --> 25:58.420
+ So one peculiar thing about cerebral metabolism,
+
+25:58.420 --> 26:01.440
+ brain metabolism, is it really needs to be driven
+
+26:01.440 --> 26:03.060
+ in the moment, which means you basically
+
+26:03.060 --> 26:04.860
+ have to turn on the taps.
+
+26:04.860 --> 26:08.700
+ So if there's lots of neural activity
+
+26:08.700 --> 26:10.780
+ in one part of the brain, a little patch
+
+26:10.780 --> 26:14.100
+ of a few millimeters, even less possibly,
+
+26:14.100 --> 26:16.060
+ you really do have to water that piece
+
+26:16.060 --> 26:18.420
+ of the garden now and quickly,
+
+26:18.420 --> 26:21.540
+ and by quickly I mean within a couple of seconds.
+
+26:21.540 --> 26:26.060
+ So that contains a lot of, hence the imaging
+
+26:26.060 --> 26:28.260
+ could tell you a story of what's happening.
+
+26:28.260 --> 26:32.240
+ Absolutely, but it is slightly compromised
+
+26:32.240 --> 26:33.460
+ in terms of the resolution.
+
+26:33.460 --> 26:37.580
+ So the deployment of these little microvessels
+
+26:37.580 --> 26:42.380
+ that water the garden to enable the neural activity
+
+26:42.380 --> 26:45.320
+ to play out, the spatial resolution
+
+26:45.320 --> 26:48.020
+ is in order of a few millimeters,
+
+26:48.020 --> 26:50.380
+ and crucially, the temporal resolution
+
+26:50.380 --> 26:52.220
+ is the order of a few seconds.
+
+26:52.220 --> 26:54.420
+ So you can't get right down and dirty
+
+26:54.420 --> 26:57.400
+ into the actual spatial and temporal scale
+
+26:57.400 --> 26:59.920
+ of neural activity in and of itself.
+
+26:59.920 --> 27:00.860
+ To do that, you'd have to turn
+
+27:00.860 --> 27:02.580
+ to the other big imaging modality,
+
+27:02.580 --> 27:05.580
+ which is the recording of electromagnetic signals
+
+27:05.580 --> 27:07.740
+ as they're generated in real time.
+
+27:07.740 --> 27:10.320
+ So here, the temporal bandwidth, if you like,
+
+27:10.320 --> 27:12.960
+ or the low limit on the temporal resolution
+
+27:12.960 --> 27:17.960
+ is incredibly small, talking about milliseconds.
+
+27:17.960 --> 27:22.960
+ And then you can get into the phasic fast responses
+
+27:23.520 --> 27:27.440
+ that is in and of itself the neural activity,
+
+27:27.440 --> 27:32.440
+ and start to see the succession or cascade
+
+27:32.780 --> 27:35.220
+ of hierarchical recurrent message passing
+
+27:35.220 --> 27:37.140
+ evoked by a particular stimulus.
+
+27:37.140 --> 27:39.400
+ But the problem is you're looking
+
+27:39.400 --> 27:42.440
+ at electromagnetic signals that have passed
+
+27:42.440 --> 27:45.640
+ through an enormous amount of magic soup
+
+27:45.640 --> 27:49.480
+ or spaghetti of collectivity, and through the scalp
+
+27:49.480 --> 27:52.920
+ and the skull, and it's become spatially very diffuse.
+
+27:52.920 --> 27:54.940
+ So it's very difficult to know where you are.
+
+27:54.940 --> 27:58.600
+ So you've got this sort of catch 22.
+
+27:58.600 --> 28:00.280
+ You can either use an imaging modality
+
+28:00.280 --> 28:02.840
+ that tells you within millimeters
+
+28:02.840 --> 28:04.440
+ which part of the brain is activated,
+
+28:04.440 --> 28:05.800
+ but you don't know when,
+
+28:05.800 --> 28:10.800
+ or you've got these electromagnetic EEG, MEG setups
+
+28:10.800 --> 28:15.800
+ that tell you to within a few milliseconds
+
+28:15.840 --> 28:19.240
+ when something has responded, but you're not aware.
+
+28:19.240 --> 28:22.520
+ So you've got these two complementary measures,
+
+28:22.520 --> 28:25.840
+ either indirect via the blood flow,
+
+28:25.840 --> 28:28.780
+ or direct via the electromagnetic signals
+
+28:28.780 --> 28:31.080
+ caused by neural activity.
+
+28:31.080 --> 28:33.360
+ These are the two big imaging devices.
+
+28:33.360 --> 28:36.960
+ And then the second level of responding to your question,
+
+28:36.960 --> 28:39.440
+ what are the, from the outside,
+
+28:39.440 --> 28:44.240
+ what are the big ways of using this technology?
+
+28:44.240 --> 28:47.160
+ So once you've chosen the kind of neural imaging
+
+28:47.160 --> 28:50.240
+ that you want to use to answer your set questions,
+
+28:50.240 --> 28:52.200
+ and sometimes it would have to be both,
+
+28:53.360 --> 28:57.540
+ then you've got a whole raft of analyses,
+
+28:57.540 --> 29:01.920
+ time series analyses usually, that you can bring to bear
+
+29:01.920 --> 29:04.360
+ in order to answer your questions
+
+29:04.360 --> 29:07.000
+ or address your hypothesis about those data.
+
+29:07.000 --> 29:08.920
+ And interestingly, they both fall
+
+29:08.920 --> 29:11.320
+ into the same two camps we were talking about before,
+
+29:11.320 --> 29:14.800
+ this dialectic between specialization and integration,
+
+29:14.800 --> 29:17.120
+ differentiation and integration.
+
+29:17.120 --> 29:20.880
+ So it's the cartography, the blobology analyses.
+
+29:20.880 --> 29:23.220
+ I apologize, I probably shouldn't interrupt so much,
+
+29:23.220 --> 29:27.080
+ but just heard a fun word, the blah.
+
+29:27.080 --> 29:27.920
+ Blobology.
+
+29:27.920 --> 29:29.160
+ Blobology.
+
+29:29.160 --> 29:33.000
+ It's a neologism, which means the study of blobs.
+
+29:33.000 --> 29:34.720
+ So nothing bob.
+
+29:34.720 --> 29:36.640
+ Are you being witty and humorous,
+
+29:36.640 --> 29:39.640
+ or does the word blobology ever appear
+
+29:39.640 --> 29:40.760
+ in a textbook somewhere?
+
+29:40.760 --> 29:43.320
+ It would appear in a popular book.
+
+29:43.320 --> 29:47.960
+ It would not appear in a worthy specialist journal.
+
+29:47.960 --> 29:48.960
+ Yeah, I thought so.
+
+29:48.960 --> 29:53.560
+ It's the fond word for the study of literally little blobs
+
+29:53.560 --> 29:56.160
+ on brain maps showing activations.
+
+29:56.160 --> 29:59.500
+ So the kind of thing that you'd see in the newspapers
+
+29:59.500 --> 30:04.080
+ on ABC or BBC reporting the latest finding
+
+30:04.080 --> 30:05.320
+ from brain imaging.
+
+30:05.320 --> 30:10.080
+ Interestingly though, the maths involved
+
+30:10.080 --> 30:15.080
+ in that stream of analysis does actually call upon
+
+30:15.340 --> 30:17.640
+ the mathematics of blobs.
+
+30:17.640 --> 30:21.800
+ So seriously, they're actually called Euler characteristics
+
+30:21.800 --> 30:26.800
+ and they have a lot of fancy names in mathematics.
+
+30:27.500 --> 30:28.920
+ We'll talk about it, about your ideas
+
+30:28.920 --> 30:30.400
+ in free energy principle.
+
+30:30.400 --> 30:33.320
+ I mean, there's echoes of blobs there
+
+30:33.320 --> 30:36.720
+ when you consider sort of entities,
+
+30:36.720 --> 30:38.000
+ mathematically speaking.
+
+30:38.000 --> 30:39.400
+ Yes, absolutely.
+
+30:40.800 --> 30:43.080
+ Well, circumscribed, well defined,
+
+30:43.080 --> 30:48.080
+ you entities of, well, from the free energy point of view,
+
+30:48.120 --> 30:50.280
+ entities of anything, but from the point of view
+
+30:50.280 --> 30:55.280
+ of the analysis, the cartography of the brain,
+
+30:55.800 --> 30:59.200
+ these are the entities that constitute the evidence
+
+30:59.200 --> 31:01.680
+ for this functional segregation.
+
+31:01.680 --> 31:04.500
+ You have segregated this function in this blob
+
+31:04.500 --> 31:06.760
+ and it is not outside of the blob.
+
+31:06.760 --> 31:10.200
+ And that's basically the, if you were a map maker
+
+31:10.200 --> 31:14.080
+ of America and you did not know its structure,
+
+31:14.080 --> 31:16.400
+ the first thing were you doing constituting
+
+31:16.400 --> 31:19.140
+ or creating a map would be to identify the cities,
+
+31:19.140 --> 31:22.000
+ for example, or the mountains or the rivers.
+
+31:22.000 --> 31:26.920
+ All of these uniquely spatially localizable features,
+
+31:26.920 --> 31:30.680
+ possibly topological features have to be placed somewhere
+
+31:30.680 --> 31:33.520
+ because that requires a mathematics of identifying
+
+31:33.520 --> 31:36.080
+ what does a city look like on a satellite image
+
+31:36.080 --> 31:37.400
+ or what does a river look like
+
+31:37.400 --> 31:39.120
+ or what does a mountain look like?
+
+31:39.120 --> 31:42.240
+ What would it, you know, what data features
+
+31:42.240 --> 31:46.520
+ would evidence that particular top,
+
+31:46.520 --> 31:48.560
+ you know, that particular thing
+
+31:48.560 --> 31:50.400
+ that you wanted to put on the map?
+
+31:50.400 --> 31:52.760
+ And they normally are characterized
+
+31:52.760 --> 31:54.320
+ in terms of literally these blobs
+
+31:54.320 --> 31:57.000
+ or these sort of, another way of looking at this
+
+31:57.000 --> 32:01.560
+ is that a certain statistical measure
+
+32:01.560 --> 32:04.000
+ of the degree of activation crosses a threshold
+
+32:04.000 --> 32:06.520
+ and in crossing that threshold
+
+32:06.520 --> 32:09.600
+ in the spatially restricted part of the brain,
+
+32:09.600 --> 32:11.040
+ it creates a blob.
+
+32:11.040 --> 32:14.000
+ And that's basically what statistical parametric mapping does.
+
+32:14.000 --> 32:18.580
+ It's basically mathematically finessed blobology.
+
+32:19.840 --> 32:20.920
+ Okay, so those are the,
+
+32:20.920 --> 32:24.000
+ you kind of described these two methodologies for,
+
+32:24.000 --> 32:26.920
+ one is temporally noisy, one is spatially noisy
+
+32:26.920 --> 32:28.360
+ and you kind of have to play and figure out
+
+32:28.360 --> 32:30.060
+ what can be useful.
+
+32:31.400 --> 32:33.000
+ It'd be great if you can sort of comment.
+
+32:33.000 --> 32:34.920
+ I got a chance recently to spend a day
+
+32:34.920 --> 32:37.200
+ at a company called Neuralink
+
+32:37.200 --> 32:39.420
+ that uses brain computer interfaces
+
+32:39.420 --> 32:42.720
+ and their dream is to, well,
+
+32:42.720 --> 32:45.200
+ there's a bunch of sort of dreams,
+
+32:45.200 --> 32:47.380
+ but one of them is to understand the brain
+
+32:47.380 --> 32:51.520
+ by sort of, you know, getting in there
+
+32:51.520 --> 32:53.800
+ past the so called sort of factory wall,
+
+32:53.800 --> 32:55.200
+ getting in there and be able to listen,
+
+32:55.200 --> 32:57.160
+ communicate both directions.
+
+32:57.160 --> 32:59.360
+ What are your thoughts about this,
+
+32:59.360 --> 33:01.040
+ the future of this kind of technology
+
+33:01.040 --> 33:02.360
+ of brain computer interfaces
+
+33:02.360 --> 33:06.920
+ to be able to now have a window
+
+33:06.920 --> 33:08.500
+ or direct contact within the brain
+
+33:08.500 --> 33:10.040
+ to be able to measure some of the signals,
+
+33:10.040 --> 33:11.320
+ to be able to sense signals,
+
+33:11.320 --> 33:15.040
+ to understand some of the functionality of the brain?
+
+33:15.040 --> 33:17.760
+ Ambivalent, my sense is ambivalent.
+
+33:17.760 --> 33:19.920
+ So it's a mixture of good and bad
+
+33:19.920 --> 33:21.420
+ and I acknowledge that freely.
+
+33:22.400 --> 33:24.760
+ So the good bits, if you just look at the legacy
+
+33:24.760 --> 33:29.240
+ of that kind of reciprocal but invasive
+
+33:29.240 --> 33:31.160
+ your brain stimulation,
+
+33:31.160 --> 33:33.160
+ I didn't paint a complete picture
+
+33:33.160 --> 33:34.680
+ when I was talking about sort of the ways
+
+33:34.680 --> 33:37.080
+ we understand the brain prior to neuroimaging.
+
+33:37.080 --> 33:39.680
+ It wasn't just lesion deficit studies.
+
+33:39.680 --> 33:41.380
+ Some of the early work, in fact,
+
+33:41.380 --> 33:43.500
+ literally 100 years from where we're sitting
+
+33:43.500 --> 33:45.240
+ at the institution of neurology,
+
+33:45.240 --> 33:50.000
+ was done by stimulating the brain of say dogs
+
+33:50.000 --> 33:51.880
+ and looking at how they responded
+
+33:51.880 --> 33:56.400
+ with their muscles or with their salivation
+
+33:56.400 --> 34:00.920
+ and imputing what that part of the brain must be doing.
+
+34:00.920 --> 34:05.920
+ If I stimulate it and I vote this kind of response,
+
+34:06.000 --> 34:07.240
+ then that tells me quite a lot
+
+34:07.240 --> 34:09.080
+ about the functional specialization.
+
+34:09.080 --> 34:12.280
+ So there's a long history of brain stimulation
+
+34:12.280 --> 34:16.840
+ which continues to enjoy a lot of attention nowadays.
+
+34:16.840 --> 34:17.720
+ Positive attention.
+
+34:17.720 --> 34:19.600
+ Oh yes, absolutely.
+
+34:19.600 --> 34:22.160
+ You know, deep brain stimulation for Parkinson's disease
+
+34:22.160 --> 34:23.600
+ is now a standard treatment
+
+34:23.600 --> 34:25.560
+ and also a wonderful vehicle
+
+34:25.560 --> 34:29.000
+ to try and understand the neuronal dynamics
+
+34:29.000 --> 34:31.960
+ underlying movement disorders like Parkinson's disease.
+
+34:33.120 --> 34:37.920
+ Even interest in magnetic stimulation,
+
+34:37.920 --> 34:39.240
+ stimulating the magnetic fields
+
+34:39.240 --> 34:43.320
+ and will it work in people who are depressed, for example.
+
+34:43.320 --> 34:45.700
+ Quite a crude level of understanding what you're doing,
+
+34:45.700 --> 34:49.080
+ but there is historical evidence
+
+34:49.080 --> 34:51.800
+ that these kinds of brute force interventions
+
+34:51.800 --> 34:53.380
+ do change things.
+
+34:53.380 --> 34:56.000
+ They, you know, it's a little bit like banging the TV
+
+34:56.000 --> 34:58.240
+ when the valves aren't working properly,
+
+34:58.240 --> 35:00.720
+ but it's still, it works.
+
+35:00.720 --> 35:04.480
+ So, you know, there is a long history.
+
+35:04.480 --> 35:06.820
+ Brain computer interfacing or BCI,
+
+35:08.700 --> 35:11.000
+ I think is a beautiful example of that.
+
+35:11.000 --> 35:12.720
+ It's sort of carved out its own niche
+
+35:12.720 --> 35:14.420
+ and its own aspirations
+
+35:14.420 --> 35:19.420
+ and there've been enormous advances within limits.
+
+35:20.800 --> 35:23.960
+ Advances in terms of our ability to understand
+
+35:25.480 --> 35:28.740
+ how the brain, the embodied brain,
+
+35:29.720 --> 35:31.520
+ engages with the world.
+
+35:32.480 --> 35:34.760
+ I'm thinking here of sensory substitution,
+
+35:34.760 --> 35:37.240
+ the augmenting our sensory capacities
+
+35:37.240 --> 35:40.820
+ by giving ourselves extra ways of sensing
+
+35:40.820 --> 35:42.260
+ and sampling the world,
+
+35:42.260 --> 35:47.260
+ ranging from sort of trying to replace lost visual signals
+
+35:48.300 --> 35:50.380
+ through to giving people completely new signals.
+
+35:50.380 --> 35:55.380
+ So, one of the, I think, most engaging examples of this
+
+35:57.100 --> 36:00.660
+ is equipping people with a sense of magnetic fields.
+
+36:00.660 --> 36:03.620
+ So you can actually give them magnetic sensors
+
+36:03.620 --> 36:05.460
+ that enable them to feel,
+
+36:05.460 --> 36:08.980
+ should we say, tactile pressure around their tummy,
+
+36:08.980 --> 36:13.100
+ where they are in relation to the magnetic field of the Earth.
+
+36:13.100 --> 36:17.660
+ And after a few weeks, they take it for granted.
+
+36:17.660 --> 36:19.340
+ They integrate it, they embody this,
+
+36:19.340 --> 36:22.340
+ simulate this new sensory information
+
+36:22.340 --> 36:25.420
+ into the way that they literally feel their world,
+
+36:25.420 --> 36:29.300
+ but now equipped with this sense of magnetic direction.
+
+36:29.300 --> 36:31.020
+ So that tells you something
+
+36:31.020 --> 36:32.980
+ about the brain's plastic potential
+
+36:32.980 --> 36:37.980
+ to remodel and its plastic capacity
+
+36:37.980 --> 36:42.980
+ to suddenly try to explain the sensory data at hand
+
+36:43.640 --> 36:48.440
+ by augmenting the sensory sphere
+
+36:48.440 --> 36:50.680
+ and the kinds of things that you can measure.
+
+36:51.600 --> 36:54.720
+ Clearly, that's purely for entertainment
+
+36:54.720 --> 36:58.800
+ and understanding the nature and the power of our brains.
+
+37:00.120 --> 37:03.400
+ I would imagine that most BCI is pitched
+
+37:03.400 --> 37:08.400
+ at solving clinical and human problems
+
+37:08.600 --> 37:12.240
+ such as locked in syndrome, such as paraplegia,
+
+37:12.240 --> 37:16.120
+ or replacing lost sensory capacities
+
+37:16.120 --> 37:18.960
+ like blindness and deafness.
+
+37:18.960 --> 37:23.960
+ So then we come to the negative part of my ambivalence,
+
+37:24.240 --> 37:25.480
+ the other side of it.
+
+37:26.960 --> 37:30.960
+ So I don't want to be deflationary
+
+37:30.960 --> 37:33.400
+ because much of my deflationary comments
+
+37:33.400 --> 37:37.120
+ is probably large out of ignorance than anything else.
+
+37:37.120 --> 37:42.120
+ But generally speaking, the bandwidth
+
+37:42.480 --> 37:44.360
+ and the bit rates that you get
+
+37:44.360 --> 37:49.160
+ from brain computer interfaces as we currently know them,
+
+37:49.160 --> 37:51.460
+ we're talking about bits per second.
+
+37:51.460 --> 37:55.600
+ So that would be like me only being able to communicate
+
+37:55.600 --> 38:00.600
+ with any world or with you using very, very, very slow Morse code.
+
+38:06.560 --> 38:11.560
+ And it is not even within an order of magnitude
+
+38:13.440 --> 38:18.440
+ near what we actually need for an inactive realization
+
+38:18.600 --> 38:21.280
+ of what people aspire to when they think about
+
+38:21.280 --> 38:26.280
+ sort of curing people with paraplegia or replacing sight
+
+38:28.760 --> 38:30.280
+ despite heroic efforts.
+
+38:30.280 --> 38:33.760
+ So one has to ask, is there a lower bound
+
+38:33.760 --> 38:38.760
+ on the kinds of recurrent information exchange
+
+38:41.040 --> 38:46.040
+ between a brain and some augmented or artificial interface?
+
+38:46.040 --> 38:51.040
+ And then we come back to, interestingly,
+
+38:51.620 --> 38:52.820
+ what I was talking about before,
+
+38:52.820 --> 38:56.460
+ which is if you're talking about function
+
+38:56.460 --> 39:00.220
+ in terms of inference, and I presume we'll get to that
+
+39:00.220 --> 39:01.900
+ later on in terms of the free energy principle,
+
+39:01.900 --> 39:05.140
+ then at the moment, there may be fundamental reasons
+
+39:05.140 --> 39:06.400
+ to assume that is the case.
+
+39:06.400 --> 39:08.540
+ We're talking about ensemble activity.
+
+39:08.540 --> 39:13.540
+ We're talking about basically, for example,
+
+39:13.540 --> 39:18.540
+ let's paint the challenge facing brain computer interfacing
+
+39:20.800 --> 39:24.520
+ in terms of controlling another system
+
+39:24.520 --> 39:27.080
+ that is highly and deeply structured,
+
+39:27.080 --> 39:30.560
+ very relevant to our lives, very nonlinear,
+
+39:30.560 --> 39:34.360
+ that rests upon the kind of nonequilibrium
+
+39:34.360 --> 39:37.400
+ steady states and dynamics that the brain does,
+
+39:37.400 --> 39:39.540
+ the weather, all right?
+
+39:39.540 --> 39:44.540
+ So imagine you had some very aggressive satellites
+
+39:45.840 --> 39:48.280
+ that could produce signals that could perturb
+
+39:48.280 --> 39:53.000
+ some little parts of the weather system.
+
+39:53.000 --> 39:55.140
+ And then what you're asking now is,
+
+39:55.140 --> 39:58.320
+ can I meaningfully get into the weather
+
+39:58.320 --> 40:01.300
+ and change it meaningfully and make the weather respond
+
+40:01.300 --> 40:03.360
+ in a way that I want it to?
+
+40:03.360 --> 40:06.600
+ You're talking about chaos control on a scale
+
+40:06.600 --> 40:08.860
+ which is almost unimaginable.
+
+40:08.860 --> 40:11.120
+ So there may be fundamental reasons
+
+40:11.120 --> 40:16.120
+ why BCI, as you might read about it in a science fiction novel,
+
+40:18.480 --> 40:22.920
+ aspirational BCI may never actually work
+
+40:22.920 --> 40:26.920
+ in the sense that to really be integrated
+
+40:26.920 --> 40:31.920
+ and be part of the system is a requirement
+
+40:32.160 --> 40:35.240
+ that requires you to have evolved with that system,
+
+40:35.240 --> 40:40.240
+ that you have to be part of a very delicately structured,
+
+40:43.320 --> 40:48.000
+ deeply structured, dynamic, ensemble activity
+
+40:48.000 --> 40:51.600
+ that is not like rewiring a broken computer
+
+40:51.600 --> 40:54.660
+ or plugging in a peripheral interface adapter.
+
+40:54.660 --> 40:58.140
+ It is much more like getting into the weather patterns
+
+40:58.140 --> 41:00.680
+ or, come back to your magic soup,
+
+41:00.680 --> 41:02.420
+ getting into the active matter
+
+41:02.420 --> 41:07.140
+ and meaningfully relate that to the outside world.
+
+41:07.140 --> 41:09.920
+ So I think there are enormous challenges there.
+
+41:09.920 --> 41:13.260
+ So I think the example of the weather is a brilliant one.
+
+41:13.260 --> 41:15.300
+ And I think you paint a really interesting picture
+
+41:15.300 --> 41:17.420
+ and it wasn't as negative as I thought.
+
+41:17.420 --> 41:19.920
+ It's essentially saying that it might be
+
+41:19.920 --> 41:22.140
+ incredibly challenging, including the low bound
+
+41:22.140 --> 41:23.640
+ of the bandwidth and so on.
+
+41:23.640 --> 41:26.900
+ I kind of, so just to full disclosure,
+
+41:26.900 --> 41:28.680
+ I come from the machine learning world.
+
+41:28.680 --> 41:32.760
+ So my natural thought is the hardest part
+
+41:32.760 --> 41:34.820
+ is the engineering challenge of controlling the weather,
+
+41:34.820 --> 41:37.560
+ of getting those satellites up and running and so on.
+
+41:37.560 --> 41:42.220
+ And once they are, then the rest is fundamentally
+
+41:42.220 --> 41:46.860
+ the same approaches that allow you to win in the game of Go
+
+41:46.860 --> 41:49.580
+ will allow you to potentially play in this soup,
+
+41:49.580 --> 41:51.000
+ in this chaos.
+
+41:51.000 --> 41:54.500
+ So I have a hope that sort of machine learning methods
+
+41:54.500 --> 41:58.820
+ will help us play in this soup.
+
+41:58.820 --> 42:03.820
+ But perhaps you're right that it is a biology
+
+42:04.220 --> 42:08.660
+ and the brain is just an incredible system
+
+42:08.660 --> 42:12.220
+ that may be almost impossible to get in.
+
+42:12.220 --> 42:15.780
+ But for me, what seems impossible
+
+42:15.780 --> 42:19.780
+ is the incredible mess of blood vessels
+
+42:19.780 --> 42:22.300
+ that you also described without,
+
+42:22.300 --> 42:24.620
+ we also value the brain.
+
+42:24.620 --> 42:27.100
+ You can't make any mistakes, you can't damage things.
+
+42:27.100 --> 42:31.340
+ So to me, that engineering challenge seems nearly impossible.
+
+42:31.340 --> 42:35.900
+ One of the things I was really impressed by at Neuralink
+
+42:35.900 --> 42:39.660
+ is just talking to brilliant neurosurgeons
+
+42:39.660 --> 42:43.340
+ and the roboticists that made me realize
+
+42:43.340 --> 42:45.860
+ that even though it seems impossible,
+
+42:45.860 --> 42:48.620
+ if anyone can do it, it's some of these world class
+
+42:48.620 --> 42:50.800
+ engineers that are trying to take it on.
+
+42:50.800 --> 42:55.800
+ So I think the conclusion of our discussion here
+
+42:55.860 --> 43:00.860
+ of this part is basically that the problem is really hard
+
+43:00.980 --> 43:02.580
+ but hopefully not impossible.
+
+43:02.580 --> 43:03.800
+ Absolutely.
+
+43:03.800 --> 43:07.260
+ So if it's okay, let's start with the basics.
+
+43:07.260 --> 43:12.180
+ So you've also formulated a fascinating principle,
+
+43:12.180 --> 43:13.500
+ the free energy principle.
+
+43:13.500 --> 43:15.340
+ Could we maybe start at the basics
+
+43:15.340 --> 43:19.660
+ and what is the free energy principle?
+
+43:19.660 --> 43:22.260
+ Well, in fact, the free energy principle
+
+43:23.700 --> 43:28.700
+ inherits a lot from the building
+
+43:29.220 --> 43:31.240
+ of these data analytic approaches
+
+43:31.240 --> 43:34.180
+ to these very high dimensional time series
+
+43:34.180 --> 43:35.960
+ you get from the brain.
+
+43:35.960 --> 43:37.940
+ So I think it's interesting to acknowledge that.
+
+43:37.940 --> 43:39.980
+ And in particular, the analysis tools
+
+43:39.980 --> 43:43.100
+ that try to address the other side,
+
+43:43.100 --> 43:44.360
+ which is a functional integration,
+
+43:44.360 --> 43:46.060
+ so the connectivity analyses.
+
+43:46.060 --> 43:51.060
+ So on the one hand, but I should also acknowledge
+
+43:51.920 --> 43:55.360
+ it inherits an awful lot from machine learning as well.
+
+43:55.360 --> 44:00.360
+ So the free energy principle is just a formal statement
+
+44:02.600 --> 44:07.600
+ that the existential imperatives for any system
+
+44:08.500 --> 44:11.380
+ that manages to survive in a changing world
+
+44:11.380 --> 44:16.380
+ can be cast as an inference problem
+
+44:18.900 --> 44:21.240
+ in the sense that you can interpret
+
+44:21.240 --> 44:25.720
+ the probability of existing as the evidence that you exist.
+
+44:25.720 --> 44:29.460
+ And if you can write down that problem of existence
+
+44:29.460 --> 44:30.900
+ as a statistical problem,
+
+44:30.900 --> 44:33.940
+ then you can use all the maths that has been developed
+
+44:33.940 --> 44:38.940
+ for inference to understand and characterize
+
+44:38.940 --> 44:42.960
+ the ensemble dynamics that must be in play
+
+44:42.960 --> 44:45.560
+ in the service of that inference.
+
+44:45.560 --> 44:48.240
+ So technically, what that means is
+
+44:48.240 --> 44:51.160
+ you can always interpret anything that exists
+
+44:52.160 --> 44:55.660
+ in virtue of being separate from the environment
+
+44:55.660 --> 45:00.660
+ in which it exists as trying to minimize
+
+45:02.100 --> 45:03.600
+ variational free energy.
+
+45:03.600 --> 45:05.560
+ And if you're from the machine learning community,
+
+45:05.560 --> 45:09.200
+ you will know that as a negative evidence lower bound
+
+45:09.200 --> 45:13.120
+ or a negative elbow, which is the same as saying
+
+45:13.120 --> 45:16.400
+ you're trying to maximize or it will look as if
+
+45:16.400 --> 45:19.720
+ all your dynamics are trying to maximize
+
+45:19.720 --> 45:24.000
+ the complement of that which is the marginal likelihood
+
+45:24.000 --> 45:26.480
+ or the evidence for your own existence.
+
+45:26.480 --> 45:30.120
+ So that's basically the free energy principle.
+
+45:30.120 --> 45:34.120
+ But to even take a sort of a small step backwards,
+
+45:34.120 --> 45:37.120
+ you said the existential imperative.
+
+45:38.360 --> 45:40.120
+ There's a lot of beautiful poetic words here,
+
+45:40.120 --> 45:45.120
+ but to put it crudely, it's a fascinating idea
+
+45:46.840 --> 45:49.520
+ of basically just of trying to describe
+
+45:49.520 --> 45:51.800
+ if you're looking at a blob,
+
+45:51.800 --> 45:54.320
+ how do you know this thing is alive?
+
+45:54.320 --> 45:55.680
+ What does it mean to be alive?
+
+45:55.680 --> 45:57.520
+ What does it mean to exist?
+
+45:57.520 --> 45:59.440
+ And so you can look at the brain,
+
+45:59.440 --> 46:00.720
+ you can look at parts of the brain,
+
+46:00.720 --> 46:02.840
+ or this is just a general principle
+
+46:02.840 --> 46:07.240
+ that applies to almost any system.
+
+46:07.240 --> 46:10.160
+ That's just a fascinating sort of philosophically
+
+46:10.160 --> 46:13.120
+ at every level question and a methodology
+
+46:13.120 --> 46:14.360
+ to try to answer that question.
+
+46:14.360 --> 46:16.040
+ What does it mean to be alive?
+
+46:16.040 --> 46:21.040
+ So that's a huge endeavor and it's nice
+
+46:21.480 --> 46:23.200
+ that there's at least some,
+
+46:23.200 --> 46:25.480
+ from some perspective, a clean answer.
+
+46:25.480 --> 46:30.280
+ So maybe can you talk about that optimization view of it?
+
+46:30.280 --> 46:33.520
+ So what's trying to be minimized, maximized?
+
+46:33.520 --> 46:36.840
+ A system that's alive, what is it trying to minimize?
+
+46:36.840 --> 46:39.360
+ Right, you've made a big move there.
+
+46:40.600 --> 46:44.000
+ First of all, it's good to make big moves.
+
+46:45.960 --> 46:50.960
+ But you've assumed that the thing exists
+
+46:52.000 --> 46:54.680
+ in a state that could be living or nonliving.
+
+46:54.680 --> 46:57.960
+ So I may ask you, what licenses you
+
+46:57.960 --> 47:00.120
+ to say that something exists?
+
+47:00.120 --> 47:02.280
+ That's why I use the word existential.
+
+47:02.280 --> 47:05.440
+ It's beyond living, it's just existence.
+
+47:05.440 --> 47:08.000
+ So if you drill down onto the definition
+
+47:08.000 --> 47:13.000
+ of things that exist, then they have certain properties
+
+47:13.520 --> 47:16.400
+ if you borrow the maths
+
+47:16.400 --> 47:19.360
+ from nonequilibrium steady state physics
+
+47:19.360 --> 47:24.360
+ that enable you to interpret their existence
+
+47:26.240 --> 47:29.280
+ in terms of this optimization procedure.
+
+47:29.280 --> 47:32.160
+ So it's good you introduced the word optimization.
+
+47:32.160 --> 47:36.000
+ So what the free energy principle
+
+47:36.000 --> 47:39.800
+ in its sort of most ambitious,
+
+47:39.800 --> 47:44.720
+ but also most deflationary and simplest, says
+
+47:44.720 --> 47:47.200
+ is that if something exists,
+
+47:47.200 --> 47:51.440
+ then it must, by the mathematics
+
+47:51.440 --> 47:55.120
+ of nonequilibrium steady state,
+
+47:55.120 --> 47:59.600
+ exhibit properties that make it look
+
+47:59.600 --> 48:03.680
+ as if it is optimizing a particular quantity.
+
+48:03.680 --> 48:06.120
+ And it turns out that particular quantity
+
+48:06.120 --> 48:08.520
+ happens to be exactly the same
+
+48:08.520 --> 48:11.360
+ as the evidence lower bound in machine learning
+
+48:11.360 --> 48:15.280
+ or Bayesian model evidence in Bayesian statistics.
+
+48:15.280 --> 48:18.800
+ Or, and then I can list a whole other list
+
+48:18.800 --> 48:23.480
+ of ways of understanding this key quantity,
+
+48:23.480 --> 48:28.480
+ which is a bound on surprise or self information
+
+48:29.120 --> 48:31.000
+ if you have information theory.
+
+48:31.000 --> 48:34.080
+ There are a number of different perspectives
+
+48:34.080 --> 48:34.920
+ on this quantity.
+
+48:34.920 --> 48:36.920
+ It's just basically the log probability
+
+48:36.920 --> 48:40.120
+ of being in a particular state.
+
+48:40.120 --> 48:42.840
+ I'm telling this story as an honest,
+
+48:42.840 --> 48:44.560
+ an attempt to answer your question.
+
+48:45.640 --> 48:49.280
+ And I'm answering it as if I was pretending
+
+48:49.280 --> 48:52.400
+ to be a physicist who was trying to understand
+
+48:52.400 --> 48:57.120
+ the fundaments of nonequilibrium steady state.
+
+48:58.040 --> 48:59.640
+ And I shouldn't really be doing that
+
+48:59.640 --> 49:02.240
+ because the last time I was taught physics,
+
+49:02.240 --> 49:03.760
+ I was in my 20s.
+
+49:03.760 --> 49:04.720
+ What kind of systems,
+
+49:04.720 --> 49:06.400
+ when you think about the free energy principle,
+
+49:06.400 --> 49:08.640
+ what kind of systems are you imagining
+
+49:08.640 --> 49:11.640
+ as a sort of more specific kind of case study?
+
+49:11.640 --> 49:15.720
+ Yeah, I'm imagining a range of systems,
+
+49:15.720 --> 49:22.720
+ but at its simplest, a single celled organism
+
+49:23.400 --> 49:26.120
+ that can be identified from its eco niche
+
+49:26.120 --> 49:27.680
+ or its environment.
+
+49:27.680 --> 49:31.480
+ So at its simplest, that's basically
+
+49:31.480 --> 49:33.840
+ what I always imagined in my head.
+
+49:33.840 --> 49:36.680
+ And you may ask, well, is there any,
+
+49:36.680 --> 49:41.680
+ how on earth can you even elaborate questions
+
+49:41.680 --> 49:46.680
+ about the existence of a single drop of oil, for example?
+
+49:48.000 --> 49:49.440
+ But there are deep questions there.
+
+49:49.440 --> 49:52.560
+ Why doesn't the oil, why doesn't the thing,
+
+49:52.560 --> 49:55.160
+ the interface between the drop of oil
+
+49:55.160 --> 49:57.480
+ that contains an interior
+
+49:57.480 --> 50:00.320
+ and the thing that is not the drop of oil,
+
+50:00.320 --> 50:03.880
+ which is the solvent in which it is immersed,
+
+50:03.880 --> 50:07.080
+ how does that interface persist over time?
+
+50:07.080 --> 50:10.400
+ Why doesn't the oil just dissolve into solvent?
+
+50:10.400 --> 50:16.160
+ So what special properties of the exchange
+
+50:16.160 --> 50:18.200
+ between the surface of the oil drop
+
+50:18.200 --> 50:22.000
+ and the external states in which it's immersed,
+
+50:22.000 --> 50:24.040
+ if you're a physicist, say it would be the heat bath.
+
+50:24.040 --> 50:28.280
+ You've got a physical system, an ensemble again,
+
+50:28.280 --> 50:30.320
+ we're talking about density dynamics, ensemble dynamics,
+
+50:30.320 --> 50:35.840
+ an ensemble of atoms or molecules immersed in the heat bath.
+
+50:35.840 --> 50:38.760
+ But the question is, how did the heat bath get there?
+
+50:38.760 --> 50:41.360
+ And why does it not dissolve?
+
+50:41.360 --> 50:42.800
+ How is it maintaining itself?
+
+50:42.800 --> 50:43.640
+ Exactly.
+
+50:43.640 --> 50:44.480
+ What actions is it?
+
+50:44.480 --> 50:47.520
+ I mean, it's such a fascinating idea of a drop of oil
+
+50:47.520 --> 50:50.000
+ and I guess it would dissolve in water,
+
+50:50.000 --> 50:51.680
+ it wouldn't dissolve in water.
+
+50:51.680 --> 50:52.520
+ So what?
+
+50:52.520 --> 50:53.840
+ Precisely, so why not?
+
+50:53.840 --> 50:54.680
+ So why not?
+
+50:54.680 --> 50:55.520
+ Why not?
+
+50:55.520 --> 50:57.000
+ And how do you mathematically describe,
+
+50:57.000 --> 50:58.680
+ I mean, it's such a beautiful idea.
+
+50:58.680 --> 51:02.120
+ And also the idea of like, where does the thing,
+
+51:02.120 --> 51:07.120
+ where does the drop of oil end and where does it begin?
+
+51:07.120 --> 51:10.400
+ Right, so I mean, you're asking deep questions,
+
+51:10.400 --> 51:12.520
+ deep in a nonmillennial sense here.
+
+51:12.520 --> 51:16.280
+ In a hierarchical sense.
+
+51:16.280 --> 51:21.280
+ But what you can do, so this is the deflationary part of it.
+
+51:21.720 --> 51:23.920
+ Can I just qualify my answer by saying that normally
+
+51:23.920 --> 51:24.760
+ when I'm asked this question,
+
+51:24.760 --> 51:26.640
+ I answer from the point of view of a psychologist,
+
+51:26.640 --> 51:29.080
+ we talk about predictive processing and predictive coding
+
+51:29.080 --> 51:31.640
+ and the brain as an inference machine,
+
+51:31.640 --> 51:33.920
+ but you haven't asked me from that perspective,
+
+51:33.920 --> 51:36.240
+ I'm answering from the point of view of a physicist.
+
+51:36.240 --> 51:41.000
+ So the question is not so much why,
+
+51:41.000 --> 51:44.440
+ but if it exists, what properties must it display?
+
+51:44.440 --> 51:46.880
+ So that's the deflationary part of the free energy principle.
+
+51:46.880 --> 51:50.800
+ The free energy principle does not supply an answer
+
+51:50.800 --> 51:54.520
+ as to why, it's saying if something exists,
+
+51:54.520 --> 51:57.720
+ then it must display these properties.
+
+51:57.720 --> 52:01.560
+ That's the sort of thing that's on offer.
+
+52:01.560 --> 52:05.240
+ And it so happens that these properties it must display
+
+52:05.240 --> 52:10.240
+ are actually intriguing and have this inferential gloss,
+
+52:10.880 --> 52:14.920
+ this sort of self evidencing gloss that inherits on the fact
+
+52:14.920 --> 52:19.720
+ that the very preservation of the boundary
+
+52:19.720 --> 52:22.640
+ between the oil drop and the not oil drop
+
+52:22.640 --> 52:26.160
+ requires an optimization of a particular function
+
+52:26.160 --> 52:30.600
+ or a functional that defines the presence
+
+52:30.600 --> 52:33.040
+ or the existence of this oil drop,
+
+52:33.040 --> 52:36.160
+ which is why I started with existential imperatives.
+
+52:36.160 --> 52:39.520
+ It is a necessary condition for existence
+
+52:39.520 --> 52:42.880
+ that this must occur because the boundary
+
+52:42.880 --> 52:46.040
+ basically defines the thing that's existing.
+
+52:46.040 --> 52:47.960
+ So it is that self assembly aspect
+
+52:47.960 --> 52:53.080
+ it's that you were hinting at in biology,
+
+52:53.080 --> 52:55.720
+ sometimes known as autopoiesis
+
+52:56.880 --> 53:00.160
+ in computational chemistry with self assembly.
+
+53:00.160 --> 53:03.600
+ It's the, what does it look like?
+
+53:03.600 --> 53:06.040
+ Sorry, how would you describe things
+
+53:06.040 --> 53:08.640
+ that configure themselves out of nothing?
+
+53:08.640 --> 53:12.000
+ The way they clearly demarcate themselves
+
+53:12.000 --> 53:16.680
+ from the states or the soup in which they are immersed.
+
+53:18.240 --> 53:20.920
+ So from the point of view of computational chemistry,
+
+53:20.920 --> 53:23.440
+ for example, you would just understand that
+
+53:23.440 --> 53:25.440
+ as a configuration of a macro molecule
+
+53:25.440 --> 53:28.920
+ to minimize its free energy, its thermodynamic free energy.
+
+53:28.920 --> 53:31.480
+ It's exactly the same principle that we've been talking about
+
+53:31.480 --> 53:35.040
+ that thermodynamic free energy is just the negative elbow.
+
+53:35.040 --> 53:38.200
+ It's the same mathematical construct.
+
+53:38.200 --> 53:42.520
+ So the very emergence of existence, of structure, of form
+
+53:42.520 --> 53:45.040
+ that can be distinguished from the environment
+
+53:45.040 --> 53:47.280
+ or the thing that is not the thing
+
+53:49.240 --> 53:54.240
+ necessitates the existence of an objective function
+
+53:56.120 --> 53:58.160
+ that it looks as if it is minimizing.
+
+53:58.160 --> 54:00.280
+ It's finding a free energy minima.
+
+54:00.280 --> 54:04.880
+ And so just to clarify, I'm trying to wrap my head around.
+
+54:04.880 --> 54:09.560
+ So the free energy principle says that if something exists,
+
+54:09.560 --> 54:11.520
+ these are the properties it should display.
+
+54:11.520 --> 54:12.520
+ Yeah.
+
+54:12.520 --> 54:17.520
+ So what that means is we can't just look,
+
+54:17.520 --> 54:21.320
+ we can't just go into a soup and there's no mechanism.
+
+54:21.320 --> 54:23.480
+ Free energy principle doesn't give us a mechanism
+
+54:23.480 --> 54:25.680
+ to find the things that exist.
+
+54:25.680 --> 54:28.680
+ Is that what's implying, is being implied
+
+54:28.680 --> 54:33.200
+ that you can kind of use it to reason,
+
+54:33.200 --> 54:36.040
+ to think about like, study a particular system
+
+54:36.040 --> 54:39.120
+ and say, does this exhibit these qualities?
+
+54:40.600 --> 54:42.400
+ That's an excellent question.
+
+54:42.400 --> 54:44.680
+ But to answer that, I'd have to return
+
+54:44.680 --> 54:46.240
+ to your previous question about what's the difference
+
+54:46.240 --> 54:48.520
+ between living and nonliving things.
+
+54:48.520 --> 54:51.880
+ Yes, well, actually, sorry.
+
+54:51.880 --> 54:54.080
+ So yeah, maybe we can go there.
+
+54:54.080 --> 54:57.160
+ Maybe we can go there, you kind of drew a line
+
+54:57.160 --> 54:58.960
+ and forgive me for the stupid questions,
+
+54:58.960 --> 55:02.560
+ but you kind of drew a line between living and existing.
+
+55:02.560 --> 55:07.200
+ Is there an interesting sort of distinction?
+
+55:07.200 --> 55:08.760
+ Yeah, I think there is.
+
+55:09.600 --> 55:14.600
+ So things do exist, grains of sand,
+
+55:15.240 --> 55:19.480
+ rocks on the moon, trees, you.
+
+55:19.480 --> 55:24.480
+ So all of these things can be separated from the environment
+
+55:24.960 --> 55:26.320
+ in which they are immersed.
+
+55:26.320 --> 55:28.200
+ And therefore, they must at some level
+
+55:28.200 --> 55:31.320
+ be optimizing their free energy,
+
+55:32.320 --> 55:36.200
+ taking this sort of model evidence interpretation
+
+55:36.200 --> 55:38.160
+ of this quantity that basically means
+
+55:38.160 --> 55:39.640
+ they're self evidencing.
+
+55:39.640 --> 55:42.840
+ Another nice little twist of phrase here
+
+55:42.840 --> 55:45.520
+ is that you are your own existence proof,
+
+55:45.520 --> 55:48.880
+ statistically speaking, which I don't think
+
+55:48.880 --> 55:51.800
+ I said that, somebody did, but I love that phrase.
+
+55:53.480 --> 55:55.600
+ You are your own existence proof.
+
+55:55.600 --> 55:58.040
+ Yeah, so it's so existential, isn't it?
+
+55:59.280 --> 56:01.440
+ I'm gonna have to think about that for a few days.
+
+56:01.440 --> 56:06.080
+ That's a beautiful line.
+
+56:06.080 --> 56:09.760
+ So the step through to answer your question
+
+56:09.760 --> 56:11.560
+ about what's it good for,
+
+56:13.840 --> 56:15.760
+ we'll go along the following lines.
+
+56:15.760 --> 56:18.720
+ First of all, you have to define what it means
+
+56:18.720 --> 56:22.040
+ to exist, which now, as you've rightly pointed out,
+
+56:22.040 --> 56:25.000
+ you have to define what probabilistic properties
+
+56:25.000 --> 56:27.440
+ must the states of something possess
+
+56:27.440 --> 56:30.600
+ so it knows where it finishes.
+
+56:30.600 --> 56:32.720
+ And then you write that down in terms
+
+56:32.720 --> 56:36.000
+ of statistical dependencies, again, sparsity.
+
+56:36.000 --> 56:39.680
+ Again, it's not what's connected or what's correlated
+
+56:39.680 --> 56:43.720
+ or what depends upon, it's what's not correlated
+
+56:43.720 --> 56:45.960
+ and what doesn't depend upon something.
+
+56:45.960 --> 56:49.680
+ Again, it comes down to the deep structures,
+
+56:49.680 --> 56:50.920
+ not in this instance, hierarchical,
+
+56:50.920 --> 56:54.040
+ but the structures that emerge
+
+56:54.040 --> 56:56.920
+ from removing connectivity and dependency.
+
+56:56.920 --> 57:00.160
+ And in this instance, basically being able
+
+57:00.160 --> 57:02.720
+ to identify the surface of the oil drop
+
+57:02.720 --> 57:06.480
+ from the water in which it is immersed.
+
+57:06.480 --> 57:09.120
+ And when you do that, you start to realize,
+
+57:09.120 --> 57:12.720
+ well, there are actually four kinds of states
+
+57:12.720 --> 57:15.680
+ in any given universe that contains anything.
+
+57:15.680 --> 57:18.840
+ The things that are internal to the surface,
+
+57:18.840 --> 57:20.680
+ the things that are external to the surface
+
+57:20.680 --> 57:22.560
+ and the surface in and of itself,
+
+57:22.560 --> 57:24.040
+ which is why I use a metaphor,
+
+57:24.040 --> 57:25.440
+ a little single celled organism
+
+57:25.440 --> 57:27.080
+ that has an interior and exterior
+
+57:27.080 --> 57:29.520
+ and then the surface of the cell.
+
+57:29.520 --> 57:32.720
+ And that's mathematically a Markov blanket.
+
+57:32.720 --> 57:34.960
+ Just to pause, I'm in awe of this concept
+
+57:34.960 --> 57:36.560
+ that there's the stuff outside the surface,
+
+57:36.560 --> 57:38.960
+ stuff inside the surface and the surface itself,
+
+57:38.960 --> 57:40.240
+ the Markov blanket.
+
+57:40.240 --> 57:43.680
+ It's just the most beautiful kind of notion
+
+57:43.680 --> 57:46.160
+ about trying to explore what it means
+
+57:46.160 --> 57:48.240
+ to exist mathematically.
+
+57:48.240 --> 57:50.720
+ I apologize, it's just a beautiful idea.
+
+57:50.720 --> 57:53.080
+ But it came out of California, so that's.
+
+57:53.080 --> 57:54.000
+ I changed my mind.
+
+57:54.000 --> 57:55.080
+ I take it all back.
+
+57:55.080 --> 57:59.440
+ So anyway, so you were just talking
+
+57:59.440 --> 58:01.280
+ about the surface, about the Markov blanket.
+
+58:01.280 --> 58:04.680
+ So this surface or these blanket states
+
+58:04.680 --> 58:09.680
+ that are the, because they are now defined
+
+58:09.680 --> 58:14.680
+ in relation to these independencies
+
+58:17.560 --> 58:21.560
+ and what different states internal blanket
+
+58:21.560 --> 58:23.840
+ or external states can,
+
+58:23.840 --> 58:25.280
+ which ones can influence each other
+
+58:25.280 --> 58:27.760
+ and which cannot influence each other.
+
+58:27.760 --> 58:30.960
+ You can now apply standard results
+
+58:30.960 --> 58:33.600
+ that you would find in non equilibrium physics
+
+58:33.600 --> 58:37.880
+ or steady state or thermodynamics or hydrodynamics,
+
+58:37.880 --> 58:41.640
+ usually out of equilibrium solutions
+
+58:41.640 --> 58:43.200
+ and apply them to this partition.
+
+58:43.200 --> 58:48.120
+ And what it looks like is if all the normal gradient flows
+
+58:48.120 --> 58:52.080
+ that you would associate with any non equilibrium system
+
+58:52.080 --> 58:57.080
+ apply in such a way that part of the Markov blanket
+
+58:57.600 --> 59:01.560
+ and the internal states seem to be hill climbing
+
+59:01.560 --> 59:05.840
+ or doing a gradient descent on the same quantity.
+
+59:05.840 --> 59:09.360
+ And that means that you can now describe
+
+59:09.360 --> 59:13.120
+ the very existence of this oil drop.
+
+59:13.120 --> 59:16.000
+ You can write down the existence of this oil drop
+
+59:16.000 --> 59:20.600
+ in terms of flows, dynamics, equations of motion,
+
+59:20.600 --> 59:24.160
+ where the blanket states or part of them,
+
+59:24.160 --> 59:28.040
+ we call them active states and the internal states
+
+59:28.040 --> 59:32.680
+ now seem to be and must be trying to look
+
+59:32.680 --> 59:35.480
+ as if they're minimizing the same function,
+
+59:35.480 --> 59:39.280
+ which is a low probability of occupying these states.
+
+59:39.280 --> 59:44.040
+ Interesting thing is that what would they be called
+
+59:44.040 --> 59:45.680
+ if you were trying to describe these things?
+
+59:45.680 --> 59:50.080
+ So what we're talking about are internal states,
+
+59:50.080 --> 59:52.040
+ external states and blanket states.
+
+59:52.040 --> 59:54.080
+ Now let's carve the blanket states
+
+59:54.080 --> 59:57.200
+ into two sensory states and active states.
+
+59:57.200 --> 59:59.520
+ Operationally, it has to be the case
+
+59:59.520 --> 1:00:01.720
+ that in order for this carving up
+
+1:00:01.720 --> 1:00:04.440
+ into different sets of states to exist,
+
+1:00:04.440 --> 1:00:06.800
+ the active states, the Markov blanket
+
+1:00:06.800 --> 1:00:09.800
+ cannot be influenced by the external states.
+
+1:00:09.800 --> 1:00:11.560
+ And we already know that the internal states
+
+1:00:11.560 --> 1:00:13.640
+ can't be influenced by the external states
+
+1:00:13.640 --> 1:00:15.720
+ because the blanket separates them.
+
+1:00:15.720 --> 1:00:16.560
+ So what does that mean?
+
+1:00:16.560 --> 1:00:19.280
+ Well, it means the active states, the internal states
+
+1:00:19.280 --> 1:00:23.440
+ are now jointly not influenced by external states.
+
+1:00:23.440 --> 1:00:26.120
+ They only have autonomous dynamics.
+
+1:00:26.120 --> 1:00:30.000
+ So now you've got a picture of an oil drop
+
+1:00:30.000 --> 1:00:34.040
+ that has autonomy, it has autonomous states,
+
+1:00:34.040 --> 1:00:35.440
+ it has autonomous states in the sense
+
+1:00:35.440 --> 1:00:38.320
+ that there must be some parts of the surface of the oil drop
+
+1:00:38.320 --> 1:00:40.400
+ that are not influenced by the external states
+
+1:00:40.400 --> 1:00:41.880
+ and all the interior.
+
+1:00:41.880 --> 1:00:44.520
+ And together, those two states endow
+
+1:00:44.520 --> 1:00:47.640
+ even a little oil drop with autonomous states
+
+1:00:47.640 --> 1:00:51.360
+ that look as if they are optimizing
+
+1:00:51.360 --> 1:00:55.200
+ their variational free energy or their negative elbow,
+
+1:00:56.200 --> 1:00:57.840
+ their moral evidence.
+
+1:00:59.400 --> 1:01:03.240
+ And that would be an interesting intellectual exercise.
+
+1:01:03.240 --> 1:01:05.600
+ And you could say, you could even go into the realms
+
+1:01:05.600 --> 1:01:08.160
+ of panpsychism, that everything that exists
+
+1:01:08.160 --> 1:01:12.080
+ is implicitly making inferences on self evidencing.
+
+1:01:13.000 --> 1:01:17.040
+ Now we make the next move, but what about living things?
+
+1:01:17.040 --> 1:01:19.200
+ I mean, so let me ask you,
+
+1:01:19.200 --> 1:01:21.600
+ what's the difference between an oil drop
+
+1:01:21.600 --> 1:01:26.600
+ and a little tadpole or a little lava or a plankton?
+
+1:01:27.200 --> 1:01:29.640
+ The picture was just painted of an oil drop.
+
+1:01:30.720 --> 1:01:32.840
+ Just immediately in a matter of minutes
+
+1:01:32.840 --> 1:01:35.200
+ took me into the world of panpsychism,
+
+1:01:35.200 --> 1:01:38.040
+ where you've just convinced me,
+
+1:01:38.040 --> 1:01:41.240
+ made me feel like an oil drop is a living,
+
+1:01:41.240 --> 1:01:43.400
+ it's certainly an autonomous system,
+
+1:01:43.400 --> 1:01:44.720
+ but almost a living system.
+
+1:01:44.720 --> 1:01:48.960
+ So it has sensory capabilities and acting capabilities
+
+1:01:48.960 --> 1:01:50.600
+ and it maintains something.
+
+1:01:50.600 --> 1:01:53.920
+ So what is the difference between that
+
+1:01:53.920 --> 1:01:56.120
+ and something that we traditionally
+
+1:01:56.120 --> 1:01:57.680
+ think of as a living system?
+
+1:01:59.880 --> 1:02:02.200
+ That it could die or it can't,
+
+1:02:02.200 --> 1:02:05.240
+ I mean, yeah, mortality, I'm not exactly sure.
+
+1:02:05.240 --> 1:02:07.400
+ I'm not sure what the right answer there is
+
+1:02:08.640 --> 1:02:09.640
+ because they can move,
+
+1:02:09.640 --> 1:02:11.840
+ like movement seems like an essential element
+
+1:02:11.840 --> 1:02:13.520
+ to being able to act in the environment,
+
+1:02:13.520 --> 1:02:15.800
+ but the oil drop is doing that.
+
+1:02:15.800 --> 1:02:16.640
+ So I don't know.
+
+1:02:16.640 --> 1:02:18.120
+ Is it?
+
+1:02:18.120 --> 1:02:19.720
+ The oil drop will be moved,
+
+1:02:19.720 --> 1:02:22.640
+ but does it in and of itself move autonomously?
+
+1:02:22.640 --> 1:02:26.880
+ Well, the surface is performing actions
+
+1:02:26.880 --> 1:02:29.680
+ that maintain its structure.
+
+1:02:29.680 --> 1:02:30.800
+ Yeah, you're being too clever.
+
+1:02:30.800 --> 1:02:34.560
+ I was, I had in mind a passive little oil drop
+
+1:02:34.560 --> 1:02:37.680
+ that's sitting there at the bottom
+
+1:02:37.680 --> 1:02:39.240
+ on the top of a glass of water.
+
+1:02:39.240 --> 1:02:40.600
+ Sure, I guess.
+
+1:02:40.600 --> 1:02:42.200
+ What I'm trying to say is you're absolutely right.
+
+1:02:42.200 --> 1:02:44.400
+ You've nailed it.
+
+1:02:44.400 --> 1:02:45.880
+ It's movement.
+
+1:02:45.880 --> 1:02:47.200
+ So where does that movement come from?
+
+1:02:47.200 --> 1:02:49.400
+ If it comes from the inside,
+
+1:02:49.400 --> 1:02:52.000
+ then you've got, I think, something that's living.
+
+1:02:53.320 --> 1:02:54.680
+ What do you mean from the inside?
+
+1:02:54.680 --> 1:02:58.840
+ What I mean is that the internal states
+
+1:02:58.840 --> 1:03:01.040
+ that can influence the active states,
+
+1:03:01.040 --> 1:03:02.600
+ where the active states can influence,
+
+1:03:02.600 --> 1:03:05.120
+ but they're not influenced by the external states,
+
+1:03:05.120 --> 1:03:07.160
+ can cause movement.
+
+1:03:07.160 --> 1:03:10.440
+ So there are two types of oil drops, if you like.
+
+1:03:10.440 --> 1:03:12.800
+ There are oil drops where the internal states
+
+1:03:12.800 --> 1:03:17.800
+ are so random that they average themselves away,
+
+1:03:20.320 --> 1:03:23.800
+ and the thing cannot, on average,
+
+1:03:23.800 --> 1:03:25.960
+ when you do the averaging, move.
+
+1:03:25.960 --> 1:03:29.400
+ So a nice example of that would be the Sun.
+
+1:03:29.400 --> 1:03:31.160
+ The Sun certainly has internal states.
+
+1:03:31.160 --> 1:03:34.360
+ There's lots of intrinsic autonomous activity going on,
+
+1:03:34.360 --> 1:03:35.840
+ but because it's not coordinated,
+
+1:03:35.840 --> 1:03:38.080
+ because it doesn't have the deep, in the millennial sense,
+
+1:03:38.080 --> 1:03:40.960
+ the hierarchical structure that the brain does,
+
+1:03:40.960 --> 1:03:45.800
+ there is no overall mode or pattern or organization
+
+1:03:45.800 --> 1:03:48.160
+ that expresses itself on the surface
+
+1:03:48.160 --> 1:03:50.080
+ that allows it to actually swim.
+
+1:03:51.400 --> 1:03:54.080
+ It can certainly have a very active surface,
+
+1:03:54.080 --> 1:03:58.280
+ but en masse, at the scale of the actual surface of the Sun,
+
+1:03:58.280 --> 1:04:02.920
+ the average position of that surface cannot, in itself, move,
+
+1:04:02.920 --> 1:04:06.680
+ because the internal dynamics are more like a hot gas.
+
+1:04:06.680 --> 1:04:08.480
+ They are literally like a hot gas,
+
+1:04:08.480 --> 1:04:11.440
+ whereas your internal dynamics are much more structured
+
+1:04:11.440 --> 1:04:12.880
+ and deeply structured,
+
+1:04:12.880 --> 1:04:16.440
+ and now you can express on your active states
+
+1:04:16.440 --> 1:04:19.720
+ with your muscles and your secretory organs,
+
+1:04:19.720 --> 1:04:22.920
+ your autonomic nervous system and its effectors,
+
+1:04:22.920 --> 1:04:26.760
+ you can actually move, and that's all you can do.
+
+1:04:26.760 --> 1:04:28.240
+ And that's something which,
+
+1:04:28.240 --> 1:04:30.440
+ if you haven't thought of it like this before,
+
+1:04:30.440 --> 1:04:32.440
+ I think it's nice to just realize
+
+1:04:32.440 --> 1:04:37.040
+ there is no other way that you can change the universe
+
+1:04:37.040 --> 1:04:39.240
+ other than simply moving.
+
+1:04:39.240 --> 1:04:43.840
+ Whether that moving is articulating with my voice box
+
+1:04:43.840 --> 1:04:46.600
+ or walking around or squeezing juices
+
+1:04:46.600 --> 1:04:48.720
+ out of my secretory organs,
+
+1:04:48.720 --> 1:04:51.960
+ there's only one way you can change the universe.
+
+1:04:51.960 --> 1:04:53.240
+ It's moving.
+
+1:04:53.240 --> 1:04:58.600
+ And the fact that you do so nonrandomly makes you alive.
+
+1:04:58.600 --> 1:05:00.600
+ Yeah, so it's that nonrandomness.
+
+1:05:00.600 --> 1:05:04.840
+ And that would be manifested,
+
+1:05:04.840 --> 1:05:07.800
+ we realize, in terms of essentially swimming,
+
+1:05:07.800 --> 1:05:10.480
+ essentially moving, changing one's shape,
+
+1:05:10.480 --> 1:05:15.760
+ a morphogenesis that is dynamic and possibly adaptive.
+
+1:05:15.760 --> 1:05:17.920
+ So that's what I was trying to get at
+
+1:05:17.920 --> 1:05:19.160
+ between the difference between the oil drop
+
+1:05:19.160 --> 1:05:21.000
+ and the little tadpole.
+
+1:05:21.000 --> 1:05:23.000
+ The tadpole is moving around.
+
+1:05:23.000 --> 1:05:26.920
+ Its active states are actually changing the external states.
+
+1:05:26.920 --> 1:05:28.480
+ And there's now a cycle,
+
+1:05:28.480 --> 1:05:30.400
+ an action perception cycle, if you like,
+
+1:05:30.400 --> 1:05:34.040
+ a recurrent dynamic that's going on
+
+1:05:34.040 --> 1:05:39.360
+ that depends upon this deeply structured autonomous behavior
+
+1:05:39.360 --> 1:05:44.600
+ that rests upon internal dynamics
+
+1:05:44.600 --> 1:05:48.880
+ that are not only modeling
+
+1:05:48.880 --> 1:05:53.800
+ the data impressed upon their surface or the blanket states,
+
+1:05:53.800 --> 1:05:58.800
+ but they are actively resampling those data by moving.
+
+1:05:58.800 --> 1:06:03.920
+ They're moving towards chemical gradients and chemotaxis.
+
+1:06:03.920 --> 1:06:08.280
+ So they've gone beyond just being good little models
+
+1:06:08.280 --> 1:06:11.120
+ of the kind of world they live in.
+
+1:06:11.120 --> 1:06:15.960
+ For example, an oil droplet could, in a panpsychic sense,
+
+1:06:15.960 --> 1:06:18.440
+ be construed as a little being
+
+1:06:18.440 --> 1:06:20.720
+ that has now perfectly inferred.
+
+1:06:20.720 --> 1:06:23.800
+ It's a passive, nonliving oil drop
+
+1:06:23.800 --> 1:06:25.600
+ living in a bowl of water.
+
+1:06:25.600 --> 1:06:27.960
+ No problem.
+
+1:06:27.960 --> 1:06:31.040
+ But to now equip that oil drop with the ability to go out
+
+1:06:31.040 --> 1:06:34.040
+ and test that hypothesis about different states of beings.
+
+1:06:34.040 --> 1:06:36.920
+ So it can actually push its surface over there, over there,
+
+1:06:36.920 --> 1:06:38.680
+ and test for chemical gradients,
+
+1:06:38.680 --> 1:06:42.880
+ or then you start to move to a much more lifelike form.
+
+1:06:42.880 --> 1:06:44.920
+ This is all fun, theoretically interesting,
+
+1:06:44.920 --> 1:06:47.000
+ but it actually is quite important
+
+1:06:47.000 --> 1:06:49.800
+ in terms of reflecting what I have seen
+
+1:06:49.800 --> 1:06:53.120
+ since the turn of the millennium,
+
+1:06:53.120 --> 1:06:56.600
+ which is this move towards an inactive
+
+1:06:56.600 --> 1:07:00.760
+ and embodied understanding of intelligence.
+
+1:07:00.760 --> 1:07:03.760
+ And you say you're from machine learning.
+
+1:07:03.760 --> 1:07:05.720
+ So what that means,
+
+1:07:05.720 --> 1:07:10.680
+ the central importance of movement,
+
+1:07:10.680 --> 1:07:14.000
+ I think has yet to really hit machine learning.
+
+1:07:14.000 --> 1:07:20.400
+ It certainly has now diffused itself throughout robotics.
+
+1:07:20.400 --> 1:07:23.200
+ And perhaps you could say certain problems in active vision
+
+1:07:23.200 --> 1:07:25.360
+ where you actually have to move the camera
+
+1:07:25.360 --> 1:07:27.240
+ to sample this and that.
+
+1:07:27.240 --> 1:07:31.600
+ But machine learning of the data mining deep learning sort
+
+1:07:31.600 --> 1:07:34.000
+ simply hasn't contended with this issue.
+
+1:07:34.000 --> 1:07:37.240
+ What it's done, instead of dealing with the movement problem
+
+1:07:37.240 --> 1:07:39.160
+ and the active sampling of data,
+
+1:07:39.160 --> 1:07:40.720
+ it's just said, we don't need to worry about,
+
+1:07:40.720 --> 1:07:43.120
+ we can see all the data because we've got big data.
+
+1:07:43.120 --> 1:07:45.120
+ So we can ignore movement.
+
+1:07:45.120 --> 1:07:50.920
+ So that for me is an important omission
+
+1:07:50.920 --> 1:07:52.200
+ in current machine learning.
+
+1:07:52.200 --> 1:07:54.800
+ The current machine learning is much more like the oil drop.
+
+1:07:54.800 --> 1:07:55.960
+ Yes.
+
+1:07:55.960 --> 1:07:59.480
+ But an oil drop that enjoys exposure
+
+1:07:59.480 --> 1:08:03.600
+ to nearly all the data that it will ever need to be exposed to,
+
+1:08:03.600 --> 1:08:05.760
+ as opposed to the tadpoles swimming out
+
+1:08:05.760 --> 1:08:07.360
+ to find the right data.
+
+1:08:07.360 --> 1:08:10.320
+ For example, it likes food.
+
+1:08:10.320 --> 1:08:11.240
+ That's a good hypothesis.
+
+1:08:11.240 --> 1:08:12.080
+ Let's test it out.
+
+1:08:12.080 --> 1:08:15.720
+ Let's go and move and ingest food, for example,
+
+1:08:15.720 --> 1:08:18.680
+ and see is that evidence that I'm the kind of thing
+
+1:08:18.680 --> 1:08:20.400
+ that likes this kind of food.
+
+1:08:20.400 --> 1:08:24.000
+ So the next natural question, and forgive this question,
+
+1:08:24.000 --> 1:08:27.120
+ but if we think of sort of even artificial intelligence
+
+1:08:27.120 --> 1:08:29.440
+ systems, which I just painted a beautiful picture
+
+1:08:29.440 --> 1:08:32.840
+ of existence and life.
+
+1:08:32.840 --> 1:08:39.920
+ So do you ascribe, do you find within this framework
+
+1:08:39.920 --> 1:08:45.240
+ a possibility of defining consciousness
+
+1:08:45.240 --> 1:08:47.360
+ or exploring the idea of consciousness?
+
+1:08:47.360 --> 1:08:52.760
+ Like what, you know, self awareness
+
+1:08:52.760 --> 1:08:55.160
+ and expand it to consciousness?
+
+1:08:55.160 --> 1:08:56.160
+ Yeah.
+
+1:08:56.160 --> 1:08:58.840
+ How can we start to think about consciousness
+
+1:08:58.840 --> 1:08:59.720
+ within this framework?
+
+1:08:59.720 --> 1:09:00.920
+ Is it possible?
+
+1:09:00.920 --> 1:09:03.160
+ Well, yeah, I think it's possible to think about it,
+
+1:09:03.160 --> 1:09:04.320
+ whether you'll get it.
+
+1:09:04.320 --> 1:09:06.400
+ Get anywhere is another question.
+
+1:09:06.400 --> 1:09:10.320
+ And again, I'm not sure that I'm licensed
+
+1:09:10.320 --> 1:09:12.760
+ to answer that question.
+
+1:09:12.760 --> 1:09:15.120
+ I think you'd have to speak to a qualified philosopher
+
+1:09:15.120 --> 1:09:17.320
+ to get a definitive answer to that.
+
+1:09:17.320 --> 1:09:19.680
+ But certainly, there's a lot of interest
+
+1:09:19.680 --> 1:09:23.400
+ in using not just these ideas, but related ideas
+
+1:09:23.400 --> 1:09:27.960
+ from information theory to try and tie down
+
+1:09:27.960 --> 1:09:34.080
+ the maths and the calculus and the geometry of consciousness,
+
+1:09:34.080 --> 1:09:39.720
+ either in terms of sort of a minimal consciousness,
+
+1:09:39.720 --> 1:09:42.440
+ even less than a minimal selfhood.
+
+1:09:42.440 --> 1:09:48.320
+ And what I'm talking about is the ability, effectively,
+
+1:09:48.320 --> 1:09:52.440
+ to plan, to have agency.
+
+1:09:52.440 --> 1:09:57.760
+ So you could argue that a virus does have a form of agency
+
+1:09:57.760 --> 1:10:00.360
+ in virtue of the way that it selectively
+
+1:10:00.360 --> 1:10:05.880
+ finds hosts and cells to live in and moves around.
+
+1:10:05.880 --> 1:10:09.280
+ But you wouldn't endow it with the capacity
+
+1:10:09.280 --> 1:10:14.880
+ to think about planning and moving in a purposeful way
+
+1:10:14.880 --> 1:10:17.280
+ where it countenances the future.
+
+1:10:17.280 --> 1:10:18.680
+ Whereas you might an ant.
+
+1:10:18.680 --> 1:10:22.040
+ You might think an ant's not quite as unconscious
+
+1:10:22.040 --> 1:10:24.280
+ as a virus.
+
+1:10:24.280 --> 1:10:26.160
+ It certainly seems to have a purpose.
+
+1:10:26.160 --> 1:10:29.680
+ It talks to its friends en route during its foraging.
+
+1:10:29.680 --> 1:10:37.160
+ It has a different kind of autonomy, which is biotic,
+
+1:10:37.160 --> 1:10:38.720
+ but beyond a virus.
+
+1:10:38.720 --> 1:10:41.400
+ So there's something about, so there's
+
+1:10:41.400 --> 1:10:45.680
+ some line that has to do with the complexity of planning
+
+1:10:45.680 --> 1:10:48.000
+ that may contain an answer.
+
+1:10:48.000 --> 1:10:49.960
+ I mean, it would be beautiful if we
+
+1:10:49.960 --> 1:10:55.480
+ can find a line beyond which we could say a being is conscious.
+
+1:10:55.480 --> 1:10:56.560
+ Yes, it will be.
+
+1:10:56.560 --> 1:11:00.800
+ These are wonderful lines that we've drawn with existence,
+
+1:11:00.800 --> 1:11:02.680
+ life, and consciousness.
+
+1:11:02.680 --> 1:11:05.320
+ Yes, it will be very nice.
+
+1:11:05.320 --> 1:11:07.280
+ One little wrinkle there, and this
+
+1:11:07.280 --> 1:11:09.400
+ is something I've only learned in the past few months,
+
+1:11:09.400 --> 1:11:12.400
+ is the philosophical notion of vagueness.
+
+1:11:12.400 --> 1:11:14.840
+ So you're saying it would be wonderful to draw a line.
+
+1:11:14.840 --> 1:11:18.080
+ I had always assumed that that line at some point
+
+1:11:18.080 --> 1:11:22.720
+ would be drawn until about four months ago,
+
+1:11:22.720 --> 1:11:24.880
+ and the philosopher taught me about vagueness.
+
+1:11:24.880 --> 1:11:26.720
+ So I don't know if you've come across this,
+
+1:11:26.720 --> 1:11:28.440
+ but it's a technical concept.
+
+1:11:28.440 --> 1:11:33.480
+ And I think most revealingly illustrated with,
+
+1:11:33.480 --> 1:11:37.120
+ at what point does a pile of sand become a pile?
+
+1:11:37.120 --> 1:11:41.620
+ Is it one grain, two grains, three grains, or four grains?
+
+1:11:41.620 --> 1:11:44.200
+ So at what point would you draw the line
+
+1:11:44.200 --> 1:11:51.320
+ between being a pile of sand and a collection of grains of sand?
+
+1:11:51.320 --> 1:11:53.520
+ In the same way, is it right to ask,
+
+1:11:53.520 --> 1:11:55.560
+ where would I draw the line between conscious
+
+1:11:55.560 --> 1:11:56.740
+ and unconscious?
+
+1:11:56.740 --> 1:11:59.680
+ And it might be a vague concept.
+
+1:11:59.680 --> 1:12:02.920
+ Having said that, I agree with you entirely.
+
+1:12:02.920 --> 1:12:06.480
+ Systems that have the ability to plan.
+
+1:12:06.480 --> 1:12:08.440
+ So just technically, what that means
+
+1:12:08.440 --> 1:12:13.880
+ is your inferential self evidencing,
+
+1:12:13.880 --> 1:12:19.880
+ by which I simply mean the thermodynamics and gradient
+
+1:12:19.880 --> 1:12:22.960
+ flows that underwrite the preservation of your oil
+
+1:12:22.960 --> 1:12:29.080
+ droplet like form, can be described
+
+1:12:29.080 --> 1:12:32.560
+ as an optimization of log Bayesian model
+
+1:12:32.560 --> 1:12:36.680
+ evidence, your elbow.
+
+1:12:36.680 --> 1:12:39.760
+ That self evidencing must be evidence
+
+1:12:39.760 --> 1:12:44.000
+ for a model of what's causing the sensory impressions
+
+1:12:44.000 --> 1:12:47.040
+ on the sensory part of your surface or your Markov
+
+1:12:47.040 --> 1:12:48.520
+ blanket.
+
+1:12:48.520 --> 1:12:51.160
+ If that model is capable of planning,
+
+1:12:51.160 --> 1:12:53.800
+ it must include a model of the future consequences
+
+1:12:53.800 --> 1:12:56.800
+ of your active states or your action, just planning.
+
+1:12:56.800 --> 1:12:59.200
+ So we're now in the game of planning as inference.
+
+1:12:59.200 --> 1:13:00.620
+ Now notice what we've made, though.
+
+1:13:00.620 --> 1:13:04.400
+ We've made quite a big move away from big data and machine
+
+1:13:04.400 --> 1:13:08.520
+ learning, because again, it's the consequences of moving.
+
+1:13:08.520 --> 1:13:11.600
+ It's the consequences of selecting those data or those
+
+1:13:11.600 --> 1:13:14.240
+ data or looking over there.
+
+1:13:14.240 --> 1:13:17.420
+ And that tells you immediately that even
+
+1:13:17.420 --> 1:13:22.760
+ to be a contender for a conscious artifact or a strong
+
+1:13:22.760 --> 1:13:26.760
+ AI or generalized, I don't know what that's called nowadays,
+
+1:13:26.760 --> 1:13:29.280
+ then you've got to have movement in the game.
+
+1:13:29.280 --> 1:13:32.560
+ And furthermore, you've got to have a generative model
+
+1:13:32.560 --> 1:13:34.920
+ of the sort you might find in, say, a variational auto
+
+1:13:34.920 --> 1:13:39.840
+ encoder that is thinking about the future conditioned
+
+1:13:39.840 --> 1:13:41.900
+ upon different courses of action.
+
+1:13:41.900 --> 1:13:44.400
+ Now that brings a number of things to the table, which
+
+1:13:44.400 --> 1:13:46.280
+ now you start to think, well, those
+
+1:13:46.280 --> 1:13:47.400
+ have got all the right ingredients
+
+1:13:47.400 --> 1:13:48.640
+ to talk about consciousness.
+
+1:13:48.640 --> 1:13:51.600
+ I've now got to select among a number of different courses
+
+1:13:51.600 --> 1:13:54.920
+ of action into the future as part of planning.
+
+1:13:54.920 --> 1:13:56.440
+ I've now got free will.
+
+1:13:56.440 --> 1:13:59.440
+ The act of selecting this course of action or that policy
+
+1:13:59.440 --> 1:14:02.480
+ or that policy or that action suddenly
+
+1:14:02.480 --> 1:14:04.720
+ makes me into an inference machine,
+
+1:14:04.720 --> 1:14:09.480
+ a self evidencing artifact that now
+
+1:14:09.480 --> 1:14:12.480
+ looks as if it's selecting amongst different alternative
+
+1:14:12.480 --> 1:14:15.480
+ ways forward, as I actively swim here or swim there
+
+1:14:15.480 --> 1:14:17.920
+ or look over here, look over there.
+
+1:14:17.920 --> 1:14:19.920
+ So I think you've now got to a situation
+
+1:14:19.920 --> 1:14:22.240
+ if there is planning in the mix.
+
+1:14:22.240 --> 1:14:25.200
+ You're now getting much closer to that line
+
+1:14:25.200 --> 1:14:27.360
+ if that line were ever to exist.
+
+1:14:27.360 --> 1:14:32.400
+ I don't think it gets you quite as far as self aware, though.
+
+1:14:32.400 --> 1:14:39.680
+ And then you have to, I think, grapple with the question,
+
+1:14:39.680 --> 1:14:43.160
+ how would formally write down a calculus or a maths
+
+1:14:43.160 --> 1:14:44.620
+ of self awareness?
+
+1:14:44.620 --> 1:14:47.840
+ I don't think it's impossible to do.
+
+1:14:47.840 --> 1:14:51.400
+ But I think there would be pressure on you
+
+1:14:51.400 --> 1:14:53.360
+ to actually commit to a formal definition of what
+
+1:14:53.360 --> 1:14:55.920
+ you mean by self awareness.
+
+1:14:55.920 --> 1:15:00.480
+ I think most people that I know would probably
+
+1:15:00.480 --> 1:15:07.000
+ say that a goldfish, a pet fish, was not self aware.
+
+1:15:07.000 --> 1:15:10.600
+ They would probably argue about their favorite cat,
+
+1:15:10.600 --> 1:15:14.000
+ but would be quite happy to say that their mom was self aware.
+
+1:15:14.000 --> 1:15:15.480
+ So.
+
+1:15:15.480 --> 1:15:17.400
+ I mean, but that might very well connect
+
+1:15:17.400 --> 1:15:20.960
+ to some level of complexity with planning.
+
+1:15:20.960 --> 1:15:26.520
+ It seems like self awareness is essential for complex planning.
+
+1:15:26.520 --> 1:15:27.240
+ Yeah.
+
+1:15:27.240 --> 1:15:28.080
+ Do you want to take that further?
+
+1:15:28.080 --> 1:15:29.880
+ Because I think you're absolutely right.
+
+1:15:29.880 --> 1:15:31.400
+ Again, the line is unclear, but it
+
+1:15:31.400 --> 1:15:36.400
+ seems like integrating yourself into the world,
+
+1:15:36.400 --> 1:15:42.320
+ into your planning, is essential for constructing complex plans.
+
+1:15:42.320 --> 1:15:43.080
+ Yes.
+
+1:15:43.080 --> 1:15:43.720
+ Yeah.
+
+1:15:43.720 --> 1:15:47.440
+ So mathematically describing that in the same elegant way
+
+1:15:47.440 --> 1:15:51.120
+ as you have with the free energy principle might be difficult.
+
+1:15:51.120 --> 1:15:53.360
+ Well, yes and no.
+
+1:15:53.360 --> 1:15:55.360
+ I don't think that, well, perhaps we should just,
+
+1:15:55.360 --> 1:15:57.000
+ can we just go back?
+
+1:15:57.000 --> 1:15:58.720
+ That's a very important answer you gave.
+
+1:15:58.720 --> 1:16:01.880
+ And I think if I just unpacked it,
+
+1:16:01.880 --> 1:16:06.480
+ you'd see the truisms that you've just exposed for us.
+
+1:16:06.480 --> 1:16:10.400
+ But let me, sorry, I'm mindful that I didn't answer
+
+1:16:10.400 --> 1:16:11.360
+ your question before.
+
+1:16:11.360 --> 1:16:13.880
+ Well, what's the free energy principle good for?
+
+1:16:13.880 --> 1:16:15.680
+ Is it just a pretty theoretical exercise
+
+1:16:15.680 --> 1:16:17.880
+ to explain nonequilibrium steady states?
+
+1:16:17.880 --> 1:16:19.400
+ Yes, it is.
+
+1:16:19.400 --> 1:16:21.360
+ It does nothing more for you than that.
+
+1:16:21.360 --> 1:16:24.040
+ It can be regarded, it's going to sound very arrogant,
+
+1:16:24.040 --> 1:16:27.880
+ but it is of the sort of theory of natural selection,
+
+1:16:27.880 --> 1:16:32.800
+ or a hypothesis of natural selection.
+
+1:16:32.800 --> 1:16:37.200
+ Beautiful, undeniably true, but tells you
+
+1:16:37.200 --> 1:16:42.040
+ absolutely nothing about why you have legs and eyes.
+
+1:16:42.040 --> 1:16:44.720
+ It tells you nothing about the actual phenotype,
+
+1:16:44.720 --> 1:16:48.080
+ and it wouldn't allow you to build something.
+
+1:16:48.080 --> 1:16:51.120
+ So the free energy principle by itself
+
+1:16:51.120 --> 1:16:54.880
+ is as vacuous as most tautological theories.
+
+1:16:54.880 --> 1:16:56.200
+ And by tautological, of course,
+
+1:16:56.200 --> 1:16:58.800
+ I'm talking to the theory of natural,
+
+1:16:58.800 --> 1:17:00.080
+ the survival of the fittest.
+
+1:17:00.080 --> 1:17:01.760
+ What's the fittest of those that survive?
+
+1:17:01.760 --> 1:17:02.600
+ Why do they cycle?
+
+1:17:02.600 --> 1:17:03.440
+ It's the fitter.
+
+1:17:03.440 --> 1:17:05.640
+ It just goes around in circles.
+
+1:17:05.640 --> 1:17:08.560
+ In a sense, the free energy principle has that same
+
+1:17:08.560 --> 1:17:11.480
+ deflationary tautology under the hood.
+
+1:17:15.000 --> 1:17:17.680
+ It's a characteristic of things that exist.
+
+1:17:17.680 --> 1:17:18.520
+ Why do they exist?
+
+1:17:18.520 --> 1:17:19.720
+ Because they minimize their free energy.
+
+1:17:19.720 --> 1:17:21.400
+ Why do they minimize their free energy?
+
+1:17:21.400 --> 1:17:22.440
+ Because they exist.
+
+1:17:22.440 --> 1:17:24.720
+ And you just keep on going round and round and round.
+
+1:17:24.720 --> 1:17:28.080
+ But the practical thing,
+
+1:17:28.080 --> 1:17:32.680
+ which you don't get from natural selection,
+
+1:17:32.680 --> 1:17:35.680
+ but you could say has now manifest in things
+
+1:17:35.680 --> 1:17:38.160
+ like differential evolution or genetic algorithms
+
+1:17:38.160 --> 1:17:41.320
+ and MCMC, for example, in machine learning.
+
+1:17:41.320 --> 1:17:43.240
+ The practical thing you can get is,
+
+1:17:43.240 --> 1:17:45.440
+ if it looks as if things that exist
+
+1:17:45.440 --> 1:17:49.400
+ are trying to have density dynamics
+
+1:17:49.400 --> 1:17:51.560
+ and look as though they're optimizing
+
+1:17:51.560 --> 1:17:53.320
+ a variational free energy,
+
+1:17:53.320 --> 1:17:55.200
+ and a variational free energy has to be
+
+1:17:55.200 --> 1:17:57.280
+ a functional of a generative model,
+
+1:17:57.280 --> 1:18:01.720
+ a probabilistic description of causes and consequences,
+
+1:18:01.720 --> 1:18:04.560
+ causes out there, consequences in the sensorium
+
+1:18:04.560 --> 1:18:07.080
+ on the sensory parts of the Markov blanket,
+
+1:18:07.080 --> 1:18:08.680
+ then it should, in theory, be possible
+
+1:18:08.680 --> 1:18:10.400
+ to write down the generative model,
+
+1:18:10.400 --> 1:18:11.840
+ work out the gradients,
+
+1:18:11.840 --> 1:18:15.920
+ and then cause it to autonomously self evidence.
+
+1:18:15.920 --> 1:18:18.160
+ So you should be able to write down oil droplets.
+
+1:18:18.160 --> 1:18:20.080
+ You should be able to create artifacts
+
+1:18:20.080 --> 1:18:24.240
+ where you have supplied the objective function
+
+1:18:24.240 --> 1:18:25.560
+ that supplies the gradients,
+
+1:18:25.560 --> 1:18:28.320
+ that supplies the self organizing dynamics
+
+1:18:28.320 --> 1:18:30.280
+ to non equilibrium steady state.
+
+1:18:30.280 --> 1:18:32.680
+ So there is actually a practical application
+
+1:18:32.680 --> 1:18:34.120
+ of the free energy principle
+
+1:18:34.120 --> 1:18:37.800
+ when you can write down your required evidence
+
+1:18:37.800 --> 1:18:40.400
+ in terms of, well, when you can write down
+
+1:18:40.400 --> 1:18:43.720
+ the generative model that is the thing
+
+1:18:43.720 --> 1:18:44.800
+ that has the evidence.
+
+1:18:44.800 --> 1:18:46.760
+ The probability of these sensory data
+
+1:18:46.760 --> 1:18:50.880
+ or this data, given that model,
+
+1:18:50.880 --> 1:18:54.200
+ is effectively the thing that the elbow
+
+1:18:54.200 --> 1:18:57.400
+ or the variational free energy bounds or approximates.
+
+1:18:57.400 --> 1:19:00.800
+ That means that you can actually write down the model
+
+1:19:01.720 --> 1:19:04.640
+ and the kind of thing that you want to engineer,
+
+1:19:04.640 --> 1:19:07.840
+ the kind of AGI or artificial general intelligence
+
+1:19:10.440 --> 1:19:14.480
+ that you want to manifest probabilistically,
+
+1:19:14.480 --> 1:19:16.720
+ and then you engineer, a lot of hard work,
+
+1:19:16.720 --> 1:19:19.760
+ but you would engineer a robot and a computer
+
+1:19:19.760 --> 1:19:23.400
+ to perform a gradient descent on that objective function.
+
+1:19:23.400 --> 1:19:26.160
+ So it does have a practical implication.
+
+1:19:26.160 --> 1:19:27.440
+ Now, why am I wittering on about that?
+
+1:19:27.440 --> 1:19:28.880
+ It did seem relevant to, yes.
+
+1:19:28.880 --> 1:19:32.920
+ So what kinds of, so the answer to,
+
+1:19:32.920 --> 1:19:34.240
+ would it be easier or would it be hard?
+
+1:19:34.240 --> 1:19:36.200
+ Well, mathematically, it's easy.
+
+1:19:36.200 --> 1:19:38.000
+ I've just told you all you need to do
+
+1:19:38.000 --> 1:19:43.000
+ is write down your perfect artifact,
+
+1:19:43.880 --> 1:19:45.280
+ probabilistically, in the form
+
+1:19:45.280 --> 1:19:46.480
+ of a probabilistic generative model,
+
+1:19:46.480 --> 1:19:48.800
+ a probability distribution over the causes
+
+1:19:48.800 --> 1:19:52.520
+ and consequences of the world
+
+1:19:52.520 --> 1:19:54.680
+ in which this thing is immersed.
+
+1:19:54.680 --> 1:19:58.040
+ And then you just engineer a computer and a robot
+
+1:19:58.040 --> 1:20:00.800
+ to perform a gradient descent on that objective function.
+
+1:20:00.800 --> 1:20:01.640
+ No problem.
+
+1:20:02.720 --> 1:20:04.160
+ But of course, the big problem
+
+1:20:04.160 --> 1:20:05.960
+ is writing down the generative model.
+
+1:20:05.960 --> 1:20:08.040
+ So that's where the heavy lifting comes in.
+
+1:20:08.040 --> 1:20:12.160
+ So it's the form and the structure of that generative model
+
+1:20:12.160 --> 1:20:15.640
+ which basically defines the artifact that you will create
+
+1:20:15.640 --> 1:20:19.600
+ or, indeed, the kind of artifact that has self awareness.
+
+1:20:19.600 --> 1:20:22.080
+ So that's where all the hard work comes,
+
+1:20:22.080 --> 1:20:24.640
+ very much like natural selection doesn't tell you
+
+1:20:24.640 --> 1:20:27.000
+ in the slightest why you have eyes.
+
+1:20:27.000 --> 1:20:29.480
+ So you have to drill down on the actual phenotype,
+
+1:20:29.480 --> 1:20:31.480
+ the actual generative model.
+
+1:20:31.480 --> 1:20:36.360
+ So with that in mind, what did you tell me
+
+1:20:36.360 --> 1:20:40.720
+ that tells me immediately the kinds of generative models
+
+1:20:40.720 --> 1:20:43.480
+ I would have to write down in order to have self awareness?
+
+1:20:43.480 --> 1:20:48.200
+ What you said to me was I have to have a model
+
+1:20:48.200 --> 1:20:50.440
+ that is effectively fit for purpose
+
+1:20:50.440 --> 1:20:53.680
+ for this kind of world in which I operate.
+
+1:20:53.680 --> 1:20:55.880
+ And if I now make the observation
+
+1:20:55.880 --> 1:20:59.120
+ that this kind of world is effectively largely populated
+
+1:20:59.120 --> 1:21:01.360
+ by other things like me, i.e. you,
+
+1:21:02.360 --> 1:21:04.200
+ then it makes enormous sense
+
+1:21:04.200 --> 1:21:07.280
+ that if I can develop a hypothesis
+
+1:21:07.280 --> 1:21:11.520
+ that we are similar kinds of creatures,
+
+1:21:11.520 --> 1:21:13.640
+ in fact, the same kind of creature,
+
+1:21:13.640 --> 1:21:16.320
+ but I am me and you are you,
+
+1:21:16.320 --> 1:21:21.320
+ then it becomes, again, mandated to have a sense of self.
+
+1:21:21.440 --> 1:21:23.640
+ So if I live in a world
+
+1:21:23.640 --> 1:21:26.560
+ that is constituted by things like me,
+
+1:21:26.560 --> 1:21:29.520
+ basically a social world, a community,
+
+1:21:29.520 --> 1:21:32.320
+ then it becomes necessary now for me to infer
+
+1:21:32.320 --> 1:21:34.400
+ that it's me talking and not you talking.
+
+1:21:34.400 --> 1:21:37.280
+ I wouldn't need that if I was on Mars by myself
+
+1:21:37.280 --> 1:21:40.040
+ or if I was in the jungle as a feral child.
+
+1:21:40.040 --> 1:21:43.120
+ If there was nothing like me around,
+
+1:21:43.120 --> 1:21:46.200
+ there would be no need to have an inference
+
+1:21:46.200 --> 1:21:49.160
+ at a hypothesis, oh yes, it is me
+
+1:21:49.160 --> 1:21:51.240
+ that is experiencing or causing these sounds
+
+1:21:51.240 --> 1:21:52.360
+ and it is not you.
+
+1:21:52.360 --> 1:21:54.680
+ It's only when there's ambiguity in play
+
+1:21:54.680 --> 1:21:58.240
+ induced by the fact that there are others in that world.
+
+1:21:58.240 --> 1:22:03.240
+ So I think that the special thing about self aware artifacts
+
+1:22:03.520 --> 1:22:08.280
+ is that they have learned to, or they have acquired,
+
+1:22:08.280 --> 1:22:11.680
+ or at least are equipped with, possibly by evolution,
+
+1:22:11.680 --> 1:22:14.560
+ generative models that allow for the fact
+
+1:22:14.560 --> 1:22:17.360
+ there are lots of copies of things like them around,
+
+1:22:17.360 --> 1:22:20.600
+ and therefore they have to work out it's you and not me.
+
+1:22:20.600 --> 1:22:23.280
+ That's brilliant.
+
+1:22:23.280 --> 1:22:24.560
+ I've never thought of that.
+
+1:22:24.560 --> 1:22:28.160
+ I never thought of that, that the purpose
+
+1:22:28.160 --> 1:22:31.360
+ of the really usefulness of consciousness
+
+1:22:31.360 --> 1:22:34.200
+ or self awareness in the context of planning
+
+1:22:34.200 --> 1:22:36.920
+ existing in the world is so you can operate
+
+1:22:36.920 --> 1:22:39.240
+ with other things like you, and like you could,
+
+1:22:39.240 --> 1:22:40.800
+ it doesn't have to necessarily be human.
+
+1:22:40.800 --> 1:22:43.480
+ It could be other kind of similar creatures.
+
+1:22:43.480 --> 1:22:46.080
+ Absolutely, well, we view a lot of our attributes
+
+1:22:46.080 --> 1:22:47.880
+ into our pets, don't we?
+
+1:22:47.880 --> 1:22:49.920
+ Or we try to make our robots humanoid.
+
+1:22:49.920 --> 1:22:51.840
+ And I think there's a deep reason for that,
+
+1:22:51.840 --> 1:22:54.680
+ that it's just much easier to read the world
+
+1:22:54.680 --> 1:22:56.240
+ if you can make the simplifying assumption
+
+1:22:56.240 --> 1:23:00.040
+ that basically you're me, and it's just your turn to talk.
+
+1:23:00.040 --> 1:23:01.520
+ I mean, when we talk about planning,
+
+1:23:01.520 --> 1:23:04.200
+ when you talk specifically about planning,
+
+1:23:04.200 --> 1:23:07.800
+ the highest, if you like, manifestation or realization
+
+1:23:07.800 --> 1:23:09.600
+ of that planning is what we're doing now.
+
+1:23:09.600 --> 1:23:12.560
+ I mean, the human condition doesn't get any higher
+
+1:23:12.560 --> 1:23:16.800
+ than this talking about the philosophy of existence
+
+1:23:16.800 --> 1:23:17.920
+ and the conversation.
+
+1:23:17.920 --> 1:23:22.920
+ But in that conversation, there is a beautiful art
+
+1:23:23.760 --> 1:23:28.120
+ of turn taking and mutual inference, theory of mind.
+
+1:23:28.120 --> 1:23:29.680
+ I have to know when you wanna listen.
+
+1:23:29.680 --> 1:23:31.120
+ I have to know when you want to interrupt.
+
+1:23:31.120 --> 1:23:32.520
+ I have to make sure that you're online.
+
+1:23:32.520 --> 1:23:34.360
+ I have to have a model in my head
+
+1:23:34.360 --> 1:23:35.800
+ of your model in your head.
+
+1:23:35.800 --> 1:23:38.320
+ That's the highest, the most sophisticated form
+
+1:23:38.320 --> 1:23:40.160
+ of generative model, where the generative model
+
+1:23:40.160 --> 1:23:41.360
+ actually has a generative model
+
+1:23:41.360 --> 1:23:42.800
+ of somebody else's generative model.
+
+1:23:42.800 --> 1:23:47.080
+ And I think that, and what we are doing now evinces
+
+1:23:47.080 --> 1:23:49.160
+ the kinds of generative models
+
+1:23:49.160 --> 1:23:51.280
+ that would support self awareness,
+
+1:23:51.280 --> 1:23:54.640
+ because without that, we'd both be talking over each other,
+
+1:23:54.640 --> 1:23:57.440
+ or we'd be singing together in a choir.
+
+1:23:58.320 --> 1:24:01.280
+ That's not a brilliant analogy for what I'm trying to say,
+
+1:24:01.280 --> 1:24:05.160
+ but yeah, we wouldn't have this discourse.
+
+1:24:05.160 --> 1:24:06.000
+ We wouldn't have this.
+
+1:24:06.000 --> 1:24:06.840
+ Yeah, the dance of it.
+
+1:24:06.840 --> 1:24:07.680
+ Yeah, that's right.
+
+1:24:07.680 --> 1:24:12.680
+ As I interrupt, I mean, that's beautifully put.
+
+1:24:12.680 --> 1:24:17.360
+ I'll re listen to this conversation many times.
+
+1:24:17.360 --> 1:24:21.600
+ There's so much poetry in this, and mathematics.
+
+1:24:21.600 --> 1:24:26.240
+ Let me ask the silliest, or perhaps the biggest question
+
+1:24:26.240 --> 1:24:28.880
+ as a last kind of question.
+
+1:24:29.840 --> 1:24:33.360
+ We've talked about living in existence
+
+1:24:33.360 --> 1:24:35.120
+ and the objective function under which
+
+1:24:35.120 --> 1:24:37.480
+ these objects would operate.
+
+1:24:37.480 --> 1:24:39.720
+ What do you think is the objective function
+
+1:24:39.720 --> 1:24:41.560
+ of our existence?
+
+1:24:41.560 --> 1:24:44.160
+ What's the meaning of life?
+
+1:24:44.160 --> 1:24:47.160
+ What do you think is the, for you, perhaps,
+
+1:24:47.160 --> 1:24:50.200
+ the purpose, the source of fulfillment,
+
+1:24:50.200 --> 1:24:53.080
+ the source of meaning for your existence,
+
+1:24:53.080 --> 1:24:57.640
+ as one blob in this soup?
+
+1:24:57.640 --> 1:25:00.480
+ I'm tempted to answer that, again, as a physicist,
+
+1:25:00.480 --> 1:25:03.040
+ until it's the free energy I expect
+
+1:25:03.040 --> 1:25:05.480
+ consequent upon my behavior.
+
+1:25:05.480 --> 1:25:08.400
+ So technically, we could get a really interesting
+
+1:25:08.400 --> 1:25:10.720
+ conversation about what that comprises
+
+1:25:10.720 --> 1:25:13.160
+ in terms of searching for information,
+
+1:25:13.160 --> 1:25:16.560
+ resolving uncertainty about the kind of thing that I am.
+
+1:25:16.560 --> 1:25:20.240
+ But I suspect that you want a slightly more personal
+
+1:25:20.240 --> 1:25:25.120
+ and fun answer, but which can be consistent with that.
+
+1:25:25.120 --> 1:25:30.120
+ And I think it's reassuringly simple
+
+1:25:30.320 --> 1:25:35.320
+ and hops back to what you were taught as a child,
+
+1:25:36.520 --> 1:25:39.520
+ that you have certain beliefs about the kind of creature
+
+1:25:39.520 --> 1:25:41.840
+ and the kind of person you are.
+
+1:25:41.840 --> 1:25:44.840
+ And all that self evidencing means,
+
+1:25:44.840 --> 1:25:46.840
+ all that minimizing variational free energy
+
+1:25:46.840 --> 1:25:50.000
+ in an inactive and embodied way,
+
+1:25:50.000 --> 1:25:53.640
+ means is fulfilling the beliefs about
+
+1:25:53.640 --> 1:25:55.720
+ what kind of thing you are.
+
+1:25:55.720 --> 1:25:58.040
+ And of course, we're all given those scripts,
+
+1:25:58.040 --> 1:26:01.240
+ those narratives, at a very early age,
+
+1:26:01.240 --> 1:26:04.280
+ usually in the form of bedtime stories or fairy stories
+
+1:26:04.280 --> 1:26:07.160
+ that I'm a princess and I'm gonna meet a beast
+
+1:26:07.160 --> 1:26:09.360
+ who's gonna transform and he's gonna be a prince.
+
+1:26:09.360 --> 1:26:11.880
+ And so the narratives are all around you
+
+1:26:11.880 --> 1:26:14.560
+ from your parents to the friends
+
+1:26:14.560 --> 1:26:17.680
+ to the society feeds these stories.
+
+1:26:17.680 --> 1:26:21.000
+ And then your objective function is to fulfill.
+
+1:26:21.000 --> 1:26:24.240
+ Exactly, that narrative that has been encultured
+
+1:26:24.240 --> 1:26:27.160
+ by your immediate family, but as you say,
+
+1:26:27.160 --> 1:26:29.600
+ also the sort of the culture in which you grew up
+
+1:26:29.600 --> 1:26:30.880
+ and you create for yourself.
+
+1:26:30.880 --> 1:26:33.440
+ I mean, again, because of this active inference,
+
+1:26:33.440 --> 1:26:36.680
+ this inactive aspect of self evidencing,
+
+1:26:36.680 --> 1:26:40.960
+ not only am I modeling my environment,
+
+1:26:40.960 --> 1:26:44.040
+ my eco niche, my external states out there,
+
+1:26:44.040 --> 1:26:46.520
+ but I'm actively changing them all the time
+
+1:26:46.520 --> 1:26:49.840
+ and doing the same back, we're doing it together.
+
+1:26:49.840 --> 1:26:53.680
+ So there's a synchrony that means that I'm creating
+
+1:26:53.680 --> 1:26:56.800
+ my own culture over different timescales.
+
+1:26:56.800 --> 1:27:00.800
+ So the question now is for me being very selfish,
+
+1:27:00.800 --> 1:27:02.240
+ what scripts were I given?
+
+1:27:02.240 --> 1:27:06.160
+ It basically was a mixture between Einstein and shark homes.
+
+1:27:06.160 --> 1:27:08.840
+ So I smoke as heavily as possible,
+
+1:27:09.880 --> 1:27:12.560
+ try to avoid too much interpersonal contact,
+
+1:27:15.280 --> 1:27:20.280
+ enjoy the fantasy that you're a popular scientist
+
+1:27:21.000 --> 1:27:23.400
+ who's gonna make a difference in a slightly quirky way.
+
+1:27:23.400 --> 1:27:25.200
+ So that's what I grew up on.
+
+1:27:25.200 --> 1:27:28.320
+ My father was an engineer and loved science
+
+1:27:28.320 --> 1:27:33.320
+ and he loved sort of things like Sir Arthur Edmonds,
+
+1:27:33.320 --> 1:27:37.440
+ Spacetime and Gravitation, which was the first
+
+1:27:37.440 --> 1:27:40.800
+ understandable version of general relativity.
+
+1:27:41.800 --> 1:27:45.840
+ So all the fairy stories I was told as I was growing up
+
+1:27:45.840 --> 1:27:47.680
+ were all about these characters.
+
+1:27:48.640 --> 1:27:50.600
+ I'm keeping the Hobbit out of this
+
+1:27:50.600 --> 1:27:53.280
+ because that doesn't quite fit my narrative.
+
+1:27:53.280 --> 1:27:56.240
+ There's a journey of exploration, I suppose, of sorts.
+
+1:27:56.240 --> 1:28:01.240
+ So yeah, I've just grown up to be what I imagine
+
+1:28:01.240 --> 1:28:05.720
+ a mild mannered Sherlock Holmes slash Albert Einstein
+
+1:28:05.720 --> 1:28:07.960
+ would do in my shoes.
+
+1:28:07.960 --> 1:28:10.080
+ And you did it elegantly and beautifully.
+
+1:28:10.080 --> 1:28:12.440
+ Carl was a huge honor talking today, it was fun.
+
+1:28:12.440 --> 1:28:13.560
+ Thank you so much for your time.
+
+1:28:13.560 --> 1:28:15.560
+ No, thank you. Appreciate it.
+
+1:28:15.560 --> 1:28:17.240
+ Thank you for listening to this conversation
+
+1:28:17.240 --> 1:28:19.280
+ with Carl Friston and thank you
+
+1:28:19.280 --> 1:28:21.320
+ to our presenting sponsor, Cash App.
+
+1:28:21.320 --> 1:28:23.080
+ Please consider supporting the podcast
+
+1:28:23.080 --> 1:28:27.080
+ by downloading Cash App and using code LexPodcast.
+
+1:28:27.080 --> 1:28:29.720
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:28:29.720 --> 1:28:32.040
+ review it with five stars on Apple Podcast,
+
+1:28:32.040 --> 1:28:35.440
+ support on Patreon, or simply connect with me on Twitter
+
+1:28:35.440 --> 1:28:37.480
+ at LexFriedman.
+
+1:28:37.480 --> 1:28:40.640
+ And now let me leave you with some words from Carl Friston.
+
+1:28:41.520 --> 1:28:44.600
+ Your arm moves because you predict it will
+
+1:28:44.600 --> 1:28:48.040
+ and your motor system seeks to minimize prediction error.
+
+1:28:48.040 --> 1:29:01.040
+ Thank you for listening and hope to see you next time.
+

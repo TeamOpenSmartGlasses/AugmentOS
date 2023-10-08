@@ -1,0 +1,6584 @@
+WEBVTT
+
+00:00.000 --> 00:02.920
+ The following is a conversation with David Chalmers.
+
+00:02.920 --> 00:05.360
+ He's a philosopher and cognitive scientist
+
+00:05.360 --> 00:08.080
+ specializing in the areas of philosophy of mind,
+
+00:08.080 --> 00:11.040
+ philosophy of language, and consciousness.
+
+00:11.040 --> 00:13.320
+ He's perhaps best known for formulating
+
+00:13.320 --> 00:15.160
+ the hard problem of consciousness,
+
+00:15.160 --> 00:17.720
+ which could be stated as why does the feeling
+
+00:17.720 --> 00:20.160
+ which accompanies awareness of sensory information
+
+00:20.160 --> 00:21.720
+ exist at all?
+
+00:22.720 --> 00:25.520
+ Consciousness is almost entirely a mystery.
+
+00:25.520 --> 00:28.640
+ Many people who worry about AI safety and ethics
+
+00:28.640 --> 00:31.840
+ believe that, in some form, consciousness can
+
+00:31.840 --> 00:35.480
+ and should be engineered into AI systems of the future.
+
+00:35.480 --> 00:38.360
+ So while there's much mystery, disagreement,
+
+00:38.360 --> 00:40.920
+ discoveries yet to be made about consciousness,
+
+00:40.920 --> 00:44.360
+ these conversations, while fundamentally philosophical
+
+00:44.360 --> 00:47.200
+ in nature, may nevertheless be very important
+
+00:47.200 --> 00:50.300
+ for engineers of modern AI systems to engage in.
+
+00:51.140 --> 00:53.900
+ This is the Artificial Intelligence Podcast.
+
+00:53.900 --> 00:56.200
+ If you enjoy it, subscribe on YouTube,
+
+00:56.200 --> 00:58.000
+ give it five stars on Apple Podcast,
+
+00:58.000 --> 01:00.360
+ support it on Patreon, or simply connect with me
+
+01:00.360 --> 01:04.520
+ on Twitter at Lex Friedman, spelled F R I D M A N.
+
+01:05.480 --> 01:08.360
+ As usual, I'll do one or two minutes of ads now
+
+01:08.360 --> 01:09.680
+ and never any ads in the middle
+
+01:09.680 --> 01:11.920
+ that can break the flow of the conversation.
+
+01:11.920 --> 01:13.240
+ I hope that works for you
+
+01:13.240 --> 01:15.600
+ and doesn't hurt the listening experience.
+
+01:15.600 --> 01:17.560
+ This show is presented by Cash App,
+
+01:17.560 --> 01:19.840
+ the number one finance app in the App Store.
+
+01:19.840 --> 01:23.280
+ When you get it, use code LEXBODCAST.
+
+01:23.280 --> 01:25.480
+ Cash App lets you send money to friends,
+
+01:25.480 --> 01:27.920
+ buy Bitcoin, and invest in the stock market
+
+01:27.920 --> 01:29.880
+ with as little as one dollar.
+
+01:29.880 --> 01:32.640
+ Brokerage services are provided by Cash App Investing,
+
+01:32.640 --> 01:36.000
+ subsidiary of Square, and member SIPC.
+
+01:36.000 --> 01:38.320
+ Since Cash App does fractional share trading,
+
+01:38.320 --> 01:40.880
+ let me mention that the order execution algorithm
+
+01:40.880 --> 01:43.600
+ that works behind the scenes to create the abstraction
+
+01:43.600 --> 01:46.760
+ of fractional orders is an algorithmic marvel.
+
+01:46.760 --> 01:49.200
+ So big props to the Cash App engineers
+
+01:49.200 --> 01:51.640
+ for solving a hard problem that, in the end,
+
+01:51.640 --> 01:54.240
+ provides an easy interface that takes a step up
+
+01:54.240 --> 01:57.120
+ to the next layer of abstraction over the stock market,
+
+01:57.120 --> 01:59.960
+ making trading more accessible for new investors
+
+01:59.960 --> 02:02.800
+ and diversification much easier.
+
+02:02.800 --> 02:05.160
+ If you get Cash App from the App Store or Google Play
+
+02:05.160 --> 02:08.840
+ and use the code LEXBODCAST, you'll get $10,
+
+02:08.840 --> 02:11.680
+ and Cash App will also donate $10 to FIRST,
+
+02:11.680 --> 02:13.480
+ one of my favorite organizations
+
+02:13.480 --> 02:16.680
+ that is helping to advance robotics and STEM education
+
+02:16.680 --> 02:18.680
+ for young people around the world.
+
+02:18.680 --> 02:22.200
+ And now, here's my conversation with David Chalmers.
+
+02:23.160 --> 02:25.960
+ Do you think we're living in a simulation?
+
+02:25.960 --> 02:27.440
+ I don't rule it out.
+
+02:27.440 --> 02:29.720
+ There's probably gonna be a lot of simulations
+
+02:29.720 --> 02:31.240
+ in the history of the cosmos.
+
+02:32.200 --> 02:34.720
+ If the simulation is designed well enough,
+
+02:34.720 --> 02:39.720
+ it'll be indistinguishable from a non simulated reality.
+
+02:39.800 --> 02:43.200
+ And although we could keep searching for evidence
+
+02:43.200 --> 02:46.000
+ that we're not in a simulation,
+
+02:46.000 --> 02:48.600
+ any of that evidence in principle could be simulated.
+
+02:48.600 --> 02:50.560
+ So I think it's a possibility.
+
+02:50.560 --> 02:53.000
+ But do you think the thought experiment is interesting
+
+02:53.000 --> 02:56.480
+ or useful to calibrate how we think
+
+02:56.480 --> 02:58.720
+ about the nature of reality?
+
+02:58.720 --> 03:01.000
+ Yeah, I definitely think it's interesting and useful.
+
+03:01.000 --> 03:03.640
+ In fact, I'm actually writing a book about this right now,
+
+03:03.640 --> 03:05.960
+ all about the simulation idea,
+
+03:05.960 --> 03:07.160
+ using it to shed light
+
+03:07.160 --> 03:10.320
+ on a whole bunch of philosophical questions.
+
+03:10.320 --> 03:13.120
+ So the big one is how do we know anything
+
+03:13.120 --> 03:15.520
+ about the external world?
+
+03:15.520 --> 03:19.440
+ Descartes said, maybe you're being fooled by an evil demon
+
+03:19.440 --> 03:21.840
+ who's stimulating your brain into thinking,
+
+03:21.840 --> 03:25.840
+ all this stuff is real when in fact, it's all made up.
+
+03:25.840 --> 03:28.080
+ Well, the modern version of that is,
+
+03:28.080 --> 03:30.840
+ how do you know you're not in a simulation?
+
+03:30.840 --> 03:33.680
+ Then the thought is, if you're in a simulation,
+
+03:33.680 --> 03:34.560
+ none of this is real.
+
+03:34.560 --> 03:37.560
+ So that's teaching you something about knowledge.
+
+03:37.560 --> 03:39.440
+ How do you know about the external world?
+
+03:39.440 --> 03:41.080
+ I think there's also really interesting questions
+
+03:41.080 --> 03:43.840
+ about the nature of reality right here.
+
+03:43.840 --> 03:46.840
+ If we are in a simulation, is all this real?
+
+03:46.840 --> 03:48.120
+ Is there really a table here?
+
+03:48.120 --> 03:49.240
+ Is it really a microphone?
+
+03:49.240 --> 03:50.800
+ Do I really have a body?
+
+03:50.800 --> 03:54.160
+ The standard view would be, no, we don't.
+
+03:54.160 --> 03:55.560
+ None of this would be real.
+
+03:55.560 --> 03:56.840
+ My view is actually that's wrong.
+
+03:56.840 --> 03:59.360
+ And even if we are in a simulation, all of this is real.
+
+03:59.360 --> 04:01.400
+ That's why I called this reality 2.0.
+
+04:01.400 --> 04:04.120
+ New version of reality, different version of reality,
+
+04:04.120 --> 04:05.400
+ still reality.
+
+04:05.400 --> 04:08.440
+ So what's the difference between quote unquote,
+
+04:08.440 --> 04:12.520
+ real world and the world that we perceive?
+
+04:12.520 --> 04:17.160
+ So we interact with the world by perceiving it.
+
+04:17.160 --> 04:22.160
+ It only really exists through the window
+
+04:22.960 --> 04:25.840
+ of our perception system and in our mind.
+
+04:25.840 --> 04:27.400
+ So what's the difference between something
+
+04:27.400 --> 04:30.440
+ that's quote unquote real, that exists perhaps
+
+04:30.440 --> 04:35.440
+ without us being there, and the world as you perceive it?
+
+04:36.440 --> 04:39.160
+ Well the world as we perceive it is a very simplified
+
+04:39.160 --> 04:42.800
+ and distorted version of what's going on underneath.
+
+04:42.800 --> 04:45.240
+ We already know that from just thinking about science.
+
+04:45.240 --> 04:48.800
+ You don't see too many obviously quantum mechanical effects
+
+04:48.800 --> 04:51.680
+ in what we perceive, but we still know quantum mechanics
+
+04:51.680 --> 04:53.720
+ is going on under all things.
+
+04:53.720 --> 04:55.320
+ So I like to think the world we perceive
+
+04:55.320 --> 05:00.320
+ is this very kind of simplified picture of colors
+
+05:00.920 --> 05:04.640
+ and shapes existing in space and so on.
+
+05:04.640 --> 05:07.080
+ We know there's a, that's what the philosopher
+
+05:07.080 --> 05:09.760
+ Wilfred Sellers called the manifest image.
+
+05:09.760 --> 05:11.560
+ The world as it seems to us, we already know
+
+05:11.560 --> 05:14.720
+ underneath all that is a very different scientific image
+
+05:14.720 --> 05:19.520
+ with atoms or quantum wave functions or super strings
+
+05:19.520 --> 05:22.360
+ or whatever the latest thing is.
+
+05:22.360 --> 05:24.880
+ And that's the ultimate scientific reality.
+
+05:24.880 --> 05:28.400
+ So I think of the simulation idea as basically
+
+05:28.400 --> 05:31.080
+ another hypothesis about what the ultimate
+
+05:31.080 --> 05:34.480
+ say quasi scientific or metaphysical reality
+
+05:34.480 --> 05:37.680
+ is going on underneath the world of the manifest image.
+
+05:37.680 --> 05:41.280
+ The world of the manifest image is this very simple thing
+
+05:41.280 --> 05:43.240
+ that we interact with that's neutral
+
+05:43.240 --> 05:46.480
+ on the underlying stuff of reality.
+
+05:46.480 --> 05:48.880
+ Science can help tell us about that.
+
+05:48.880 --> 05:51.400
+ Maybe philosophy can help tell us about that too.
+
+05:51.400 --> 05:53.400
+ And if we eventually take the red pill
+
+05:53.400 --> 05:54.880
+ and find out we're in a simulation,
+
+05:54.880 --> 05:56.760
+ my view is that's just another view
+
+05:56.760 --> 05:58.760
+ about what reality is made of.
+
+05:58.760 --> 06:00.960
+ The philosopher Immanuel Kant said,
+
+06:00.960 --> 06:02.760
+ what is the nature of the thing in itself?
+
+06:02.760 --> 06:05.400
+ I've got a glass here and it's got all these,
+
+06:05.400 --> 06:07.960
+ it appears to me a certain way, a certain shape,
+
+06:07.960 --> 06:10.200
+ it's liquid, it's clear.
+
+06:10.200 --> 06:13.080
+ And he said, what is the nature of the thing
+
+06:13.080 --> 06:14.160
+ in itself?
+
+06:14.160 --> 06:15.480
+ Well, I think of the simulation idea,
+
+06:15.480 --> 06:18.640
+ it's a hypothesis about the nature of the thing in itself.
+
+06:18.640 --> 06:20.560
+ It turns out if we're in a simulation,
+
+06:20.560 --> 06:22.640
+ the thing in itself nature of this glass,
+
+06:22.640 --> 06:25.000
+ it's okay, it's actually a bunch of data structures
+
+06:25.000 --> 06:28.360
+ running on a computer in the next universe up.
+
+06:28.360 --> 06:30.320
+ Yeah, that's what people tend to do
+
+06:30.320 --> 06:31.560
+ when they think about simulation.
+
+06:31.560 --> 06:34.520
+ They think about our modern computers
+
+06:34.520 --> 06:39.520
+ and somehow trivially crudely just scaled up in some sense.
+
+06:39.520 --> 06:44.440
+ But do you think the simulation,
+
+06:44.440 --> 06:47.520
+ I mean, in order to actually simulate
+
+06:47.520 --> 06:50.400
+ something as complicated as our universe
+
+06:50.400 --> 06:53.040
+ that's made up of molecules and atoms
+
+06:53.040 --> 06:57.200
+ and particles and quarks and maybe even strings,
+
+06:57.200 --> 06:59.160
+ all of that would require something
+
+06:59.160 --> 07:03.280
+ just infinitely many orders of magnitude more
+
+07:03.280 --> 07:06.160
+ of scale and complexity.
+
+07:06.160 --> 07:11.160
+ Do you think we're even able to even like conceptualize
+
+07:12.280 --> 07:16.000
+ what it would take to simulate our universe?
+
+07:16.000 --> 07:18.680
+ Or does it just slip into this idea
+
+07:18.680 --> 07:21.600
+ that you basically have to build a universe,
+
+07:21.600 --> 07:24.360
+ something so big to simulate it?
+
+07:24.360 --> 07:26.960
+ Does it get this into this fuzzy area
+
+07:26.960 --> 07:28.840
+ that's not useful at all?
+
+07:28.840 --> 07:30.720
+ Yeah, well, I mean, our universe
+
+07:30.720 --> 07:33.280
+ is obviously incredibly complicated.
+
+07:33.280 --> 07:37.640
+ And for us within our universe to build a simulation
+
+07:37.640 --> 07:40.680
+ of a universe as complicated as ours
+
+07:40.680 --> 07:42.360
+ is gonna have obvious problems here.
+
+07:42.360 --> 07:44.000
+ If the universe is finite,
+
+07:44.000 --> 07:45.720
+ there's just no way that's gonna work.
+
+07:45.720 --> 07:48.040
+ Maybe there's some cute way to make it work
+
+07:48.040 --> 07:51.160
+ if the universe is infinite,
+
+07:51.160 --> 07:53.600
+ maybe an infinite universe could somehow simulate
+
+07:53.600 --> 07:57.120
+ a copy of itself, but that's gonna be hard.
+
+07:57.120 --> 07:59.760
+ Nonetheless, just that we are in a simulation,
+
+07:59.760 --> 08:01.080
+ I think there's no particular reason
+
+08:01.080 --> 08:04.000
+ why we have to think the simulating universe
+
+08:04.000 --> 08:06.160
+ has to be anything like ours.
+
+08:06.160 --> 08:09.000
+ You've said before that it might be,
+
+08:09.960 --> 08:12.640
+ so you could think of it in turtles all the way down.
+
+08:12.640 --> 08:15.800
+ You could think of the simulating universe
+
+08:15.800 --> 08:17.720
+ different than ours, but we ourselves
+
+08:17.720 --> 08:20.240
+ could also create another simulating universe.
+
+08:20.240 --> 08:21.640
+ So you said that there could be these
+
+08:21.640 --> 08:24.160
+ kind of levels of universes.
+
+08:24.160 --> 08:27.080
+ And you've also mentioned this hilarious idea,
+
+08:27.080 --> 08:29.080
+ maybe tongue in cheek, maybe not,
+
+08:29.080 --> 08:31.800
+ that there may be simulations within simulations,
+
+08:31.800 --> 08:33.840
+ arbitrarily stacked levels,
+
+08:33.840 --> 08:37.760
+ and that there may be, that we may be in level 42.
+
+08:37.760 --> 08:38.600
+ Oh yeah.
+
+08:38.600 --> 08:40.640
+ Along those stacks, referencing Hitchhiker's Guide
+
+08:40.640 --> 08:41.800
+ to the Universe.
+
+08:41.800 --> 08:45.840
+ If we're indeed in a simulation within a simulation
+
+08:45.840 --> 08:50.840
+ at level 42, what do you think level zero looks like?
+
+08:51.520 --> 08:52.360
+ The originating universe.
+
+08:52.360 --> 08:55.160
+ I would expect that level zero is truly enormous.
+
+08:55.160 --> 08:57.680
+ I mean, not just, if it's finite,
+
+08:57.680 --> 09:01.800
+ at some extraordinarily large finite capacity,
+
+09:01.800 --> 09:03.160
+ much more likely it's infinite.
+
+09:03.160 --> 09:06.800
+ Maybe it's got some very high cardinality
+
+09:06.800 --> 09:11.360
+ that enables it to support just any number of simulations.
+
+09:11.360 --> 09:14.360
+ So high degree of infinity at level zero,
+
+09:14.360 --> 09:18.880
+ slightly smaller degree of infinity at level one.
+
+09:18.880 --> 09:21.480
+ So by the time you get down to us at level 42,
+
+09:21.480 --> 09:25.080
+ maybe there's plenty of room for lots of simulations
+
+09:25.080 --> 09:27.800
+ of finite capacity.
+
+09:29.280 --> 09:34.280
+ If the top universe is only a small finite capacity,
+
+09:34.360 --> 09:36.960
+ then obviously that's gonna put very, very serious limits
+
+09:36.960 --> 09:40.280
+ on how many simulations you're gonna be able to get running.
+
+09:40.280 --> 09:42.720
+ So I think we can certainly confidently say
+
+09:42.720 --> 09:44.320
+ that if we're at level 42,
+
+09:44.320 --> 09:47.120
+ then the top level's pretty damn big.
+
+09:47.120 --> 09:49.120
+ So it gets more and more constrained
+
+09:49.120 --> 09:52.200
+ as we get down levels, more and more simplified
+
+09:52.200 --> 09:54.600
+ and constrained and limited in resources.
+
+09:54.600 --> 09:56.560
+ Yeah, we still have plenty of capacity here.
+
+09:56.560 --> 09:58.320
+ What was it Feynman said?
+
+09:58.320 --> 10:01.040
+ He said there's plenty of room at the bottom.
+
+10:01.040 --> 10:04.600
+ We're still a number of levels above the degree
+
+10:04.600 --> 10:06.960
+ where there's room for fundamental computing,
+
+10:06.960 --> 10:08.400
+ physical computing capacity,
+
+10:08.400 --> 10:11.080
+ quantum computing capacity at the bottom level.
+
+10:11.080 --> 10:13.440
+ So we've got plenty of room to play with
+
+10:13.440 --> 10:15.520
+ and we probably have plenty of room
+
+10:15.520 --> 10:19.120
+ for simulations of pretty sophisticated universes,
+
+10:19.120 --> 10:22.800
+ perhaps none as complicated as our universe,
+
+10:22.800 --> 10:25.280
+ unless our universe is infinite,
+
+10:25.280 --> 10:27.280
+ but still at the very least
+
+10:27.280 --> 10:29.160
+ for pretty serious finite universes,
+
+10:29.160 --> 10:31.800
+ but maybe universes somewhat simpler than ours,
+
+10:31.800 --> 10:35.200
+ unless of course we're prepared to take certain shortcuts
+
+10:35.200 --> 10:36.080
+ in the simulation,
+
+10:36.080 --> 10:38.720
+ which might then increase the capacity significantly.
+
+10:38.720 --> 10:42.240
+ Do you think the human mind, us people,
+
+10:42.240 --> 10:44.700
+ in terms of the complexity of simulation
+
+10:44.700 --> 10:47.240
+ is at the height of what the simulation
+
+10:47.240 --> 10:48.620
+ might be able to achieve?
+
+10:48.620 --> 10:51.280
+ Like if you look at incredible entities
+
+10:51.280 --> 10:54.920
+ that could be created in this universe of ours,
+
+10:54.920 --> 10:56.840
+ do you have an intuition about
+
+10:56.840 --> 11:00.600
+ how incredible human beings are on that scale?
+
+11:00.600 --> 11:02.400
+ I think we're pretty impressive,
+
+11:02.400 --> 11:03.920
+ but we're not that impressive.
+
+11:03.920 --> 11:06.040
+ Are we above average?
+
+11:06.040 --> 11:09.020
+ I mean, I think human beings are at a certain point
+
+11:09.020 --> 11:11.400
+ in the scale of intelligence,
+
+11:11.400 --> 11:14.280
+ which made many things possible.
+
+11:14.280 --> 11:19.280
+ You get through evolution, through single cell organisms,
+
+11:19.280 --> 11:22.720
+ through fish and mammals and primates,
+
+11:22.720 --> 11:24.160
+ and something happens.
+
+11:24.160 --> 11:25.800
+ Once you get to human beings,
+
+11:25.800 --> 11:27.600
+ we've just reached that level
+
+11:27.600 --> 11:29.460
+ where we get to develop language,
+
+11:29.460 --> 11:31.600
+ we get to develop certain kinds of culture,
+
+11:31.600 --> 11:34.920
+ and we get to develop certain kinds of collective thinking
+
+11:34.920 --> 11:38.380
+ that has enabled all this amazing stuff to happen,
+
+11:38.380 --> 11:40.800
+ science and literature and engineering
+
+11:40.800 --> 11:43.680
+ and culture and so on.
+
+11:43.680 --> 11:46.160
+ So we had just at the beginning of that
+
+11:46.160 --> 11:47.640
+ on the evolutionary threshold,
+
+11:47.640 --> 11:49.720
+ it's kind of like we just got there,
+
+11:49.720 --> 11:54.440
+ who knows, a few thousand or tens of thousands of years ago.
+
+11:54.440 --> 11:56.460
+ So we're probably just at the very beginning
+
+11:56.460 --> 11:57.720
+ for what's possible there.
+
+11:57.720 --> 12:01.080
+ So I'm inclined to think among the scale
+
+12:01.080 --> 12:02.400
+ of intelligent beings,
+
+12:02.400 --> 12:05.140
+ we're somewhere very near the bottom.
+
+12:05.140 --> 12:06.320
+ I would expect that, for example,
+
+12:06.320 --> 12:08.800
+ if we're in a simulation,
+
+12:08.800 --> 12:10.960
+ then the simulators who created us
+
+12:10.960 --> 12:14.000
+ have got the capacity to be far more sophisticated.
+
+12:14.000 --> 12:15.400
+ If we're at level 42,
+
+12:15.400 --> 12:17.760
+ who knows what the ones at level zero are like.
+
+12:19.120 --> 12:22.760
+ It's also possible that this is the epitome
+
+12:22.760 --> 12:24.540
+ of what is possible to achieve.
+
+12:24.540 --> 12:27.320
+ So we as human beings see ourselves maybe as flawed,
+
+12:27.320 --> 12:29.720
+ see all the constraints, all the limitations,
+
+12:29.720 --> 12:32.400
+ but maybe that's the magical, the beautiful thing.
+
+12:32.400 --> 12:36.020
+ Maybe those limitations are the essential elements
+
+12:36.020 --> 12:39.020
+ for an interesting sort of that edge of chaos,
+
+12:39.020 --> 12:41.040
+ that interesting existence,
+
+12:41.040 --> 12:43.380
+ that if you make us much more intelligent,
+
+12:43.380 --> 12:46.980
+ if you make us much more powerful
+
+12:46.980 --> 12:50.360
+ in any kind of dimension of performance,
+
+12:50.360 --> 12:52.540
+ maybe you lose something fundamental
+
+12:52.540 --> 12:55.120
+ that makes life worth living.
+
+12:55.120 --> 12:57.940
+ So you kind of have this optimistic view
+
+12:57.940 --> 13:00.140
+ that we're this little baby,
+
+13:00.140 --> 13:03.020
+ that then there's so much growth and potential,
+
+13:03.020 --> 13:05.820
+ but this could also be it.
+
+13:05.820 --> 13:09.620
+ This is the most amazing thing is us.
+
+13:09.620 --> 13:11.260
+ Maybe what you're saying is consistent
+
+13:11.260 --> 13:12.100
+ with what I'm saying.
+
+13:12.100 --> 13:14.420
+ I mean, we could still have levels of intelligence
+
+13:14.420 --> 13:15.700
+ far beyond us,
+
+13:15.700 --> 13:17.740
+ but maybe those levels of intelligence on your view
+
+13:17.740 --> 13:19.020
+ would be kind of boring.
+
+13:19.020 --> 13:21.440
+ And we kind of get so good at everything
+
+13:21.440 --> 13:24.240
+ that life suddenly becomes uni dimensional.
+
+13:24.240 --> 13:26.900
+ So we're just inhabiting this one spot
+
+13:26.900 --> 13:30.740
+ of like maximal romanticism in the history of evolution.
+
+13:30.740 --> 13:32.180
+ You get to humans and it's like, yeah,
+
+13:32.180 --> 13:34.980
+ and then years to come, our super intelligent descendants
+
+13:34.980 --> 13:37.580
+ are gonna look back at us and say,
+
+13:37.580 --> 13:39.740
+ those were the days when they just hit
+
+13:39.740 --> 13:42.580
+ the point of inflection and life was interesting.
+
+13:42.580 --> 13:43.420
+ I am an optimist.
+
+13:43.420 --> 13:47.100
+ So I'd like to think that if there is super intelligent
+
+13:47.100 --> 13:49.420
+ somewhere in the future,
+
+13:49.420 --> 13:51.860
+ they'll figure out how to make life super interesting
+
+13:51.860 --> 13:52.940
+ and super romantic.
+
+13:52.940 --> 13:54.600
+ Well, you know what they're gonna do.
+
+13:54.600 --> 13:56.460
+ So what they're gonna do is they realize
+
+13:56.460 --> 13:58.740
+ how boring life is when you're super intelligent.
+
+13:58.740 --> 14:02.580
+ So they create a new level of assimilation
+
+14:02.580 --> 14:05.740
+ and sort of live through the things they've created
+
+14:05.740 --> 14:09.220
+ by watching them stumble about
+
+14:09.220 --> 14:10.500
+ in their flawed ways.
+
+14:10.500 --> 14:13.780
+ So maybe that's, so you create a new level of assimilation
+
+14:13.780 --> 14:17.860
+ every time you get really bored with how smart and.
+
+14:17.860 --> 14:19.060
+ This would be kind of sad though,
+
+14:19.060 --> 14:20.780
+ because if we showed the peak of their existence
+
+14:20.780 --> 14:23.420
+ would be like watching simulations for entertainment.
+
+14:23.420 --> 14:26.540
+ Not like saying the peak of our existence now is Netflix.
+
+14:26.540 --> 14:27.660
+ No, it's all right.
+
+14:27.660 --> 14:31.180
+ A flip side of that could be the peak of our existence
+
+14:31.180 --> 14:34.260
+ for many people having children and watching them grow.
+
+14:34.260 --> 14:35.780
+ That becomes very meaningful.
+
+14:35.780 --> 14:38.580
+ Okay, you create a simulation that's like creating a family.
+
+14:38.580 --> 14:40.860
+ Creating like, well, any kind of creation
+
+14:40.860 --> 14:43.780
+ is kind of a powerful act.
+
+14:43.780 --> 14:46.220
+ Do you think it's easier to simulate the mind
+
+14:46.220 --> 14:47.760
+ or the universe?
+
+14:47.760 --> 14:51.960
+ So I've heard several people, including Nick Bostrom,
+
+14:51.960 --> 14:54.620
+ think about ideas of maybe you don't need
+
+14:54.620 --> 14:55.600
+ to simulate the universe,
+
+14:55.600 --> 14:57.440
+ you can just simulate the human mind.
+
+14:57.440 --> 15:00.380
+ Or in general, just the distinction
+
+15:00.380 --> 15:02.600
+ between simulating the entirety of it,
+
+15:02.600 --> 15:04.600
+ the entirety of the physical world,
+
+15:04.600 --> 15:06.080
+ or just simulating the mind.
+
+15:06.080 --> 15:09.740
+ Which one do you see as more challenging?
+
+15:09.740 --> 15:12.380
+ Well, I think in some sense, the answer is obvious.
+
+15:12.380 --> 15:15.060
+ It has to be simpler to simulate the mind
+
+15:15.060 --> 15:16.500
+ than to simulate the universe,
+
+15:16.500 --> 15:18.500
+ because the mind is part of the universe.
+
+15:18.500 --> 15:20.540
+ And in order to fully simulate the universe,
+
+15:20.540 --> 15:22.620
+ you're gonna have to simulate the mind.
+
+15:22.620 --> 15:25.320
+ So unless we're talking about partial simulations.
+
+15:25.320 --> 15:27.580
+ And I guess the question is which comes first?
+
+15:27.580 --> 15:29.800
+ Does the mind come before the universe
+
+15:29.800 --> 15:32.560
+ or does the universe come before the mind?
+
+15:32.560 --> 15:36.620
+ So the mind could just be an emergent phenomena
+
+15:36.620 --> 15:37.960
+ in this universe.
+
+15:37.960 --> 15:42.020
+ So simulation is an interesting thing
+
+15:42.020 --> 15:47.020
+ that it's not like creating a simulation perhaps
+
+15:47.380 --> 15:50.380
+ requires you to program every single thing
+
+15:50.380 --> 15:51.780
+ that happens in it.
+
+15:51.780 --> 15:54.220
+ It's just defining a set of initial conditions
+
+15:54.220 --> 15:57.820
+ and rules based on which it behaves.
+
+15:59.600 --> 16:01.940
+ Simulating the mind requires you
+
+16:01.940 --> 16:03.840
+ to have a little bit more,
+
+16:05.160 --> 16:07.300
+ we're now in a little bit of a crazy land,
+
+16:07.300 --> 16:10.260
+ but it requires you to understand
+
+16:10.260 --> 16:11.840
+ the fundamentals of cognition,
+
+16:11.840 --> 16:13.660
+ perhaps of consciousness,
+
+16:13.660 --> 16:16.640
+ of perception of everything like that,
+
+16:16.640 --> 16:21.640
+ that's not created through some kind of emergence
+
+16:23.340 --> 16:25.880
+ from basic physics laws,
+
+16:25.880 --> 16:27.940
+ but more requires you to actually understand
+
+16:27.940 --> 16:29.820
+ the fundamentals of the mind.
+
+16:29.820 --> 16:31.660
+ How about if we said to simulate the brain?
+
+16:31.660 --> 16:32.500
+ The brain.
+
+16:32.500 --> 16:33.940
+ Rather than the mind.
+
+16:33.940 --> 16:36.060
+ So the brain is just a big physical system.
+
+16:36.060 --> 16:38.620
+ The universe is a giant physical system.
+
+16:38.620 --> 16:40.100
+ To simulate the universe at the very least,
+
+16:40.100 --> 16:42.640
+ you're gonna have to simulate the brains
+
+16:42.640 --> 16:46.140
+ as well as all the other physical systems within it.
+
+16:46.140 --> 16:50.920
+ And it's not obvious that the problems are any worse
+
+16:50.920 --> 16:53.580
+ for the brain than for,
+
+16:53.580 --> 16:56.040
+ it's a particularly complex physical system.
+
+16:56.040 --> 16:58.600
+ But if we can simulate arbitrary physical systems,
+
+16:58.600 --> 16:59.880
+ we can simulate brains.
+
+16:59.880 --> 17:02.100
+ There is this further question of whether,
+
+17:02.100 --> 17:03.980
+ when you simulate a brain,
+
+17:03.980 --> 17:07.340
+ will that bring along all the features of the mind with it?
+
+17:07.340 --> 17:08.880
+ Like will you get consciousness?
+
+17:08.880 --> 17:09.980
+ Will you get thinking?
+
+17:09.980 --> 17:11.600
+ Will you get free will?
+
+17:11.600 --> 17:12.540
+ And so on.
+
+17:12.540 --> 17:16.200
+ And that's something philosophers have argued over
+
+17:16.200 --> 17:17.060
+ for years.
+
+17:17.060 --> 17:20.060
+ My own view is if you simulate the brain well enough,
+
+17:20.060 --> 17:22.620
+ that will also simulate the mind.
+
+17:22.620 --> 17:24.860
+ But yeah, there's plenty of people who would say no.
+
+17:24.860 --> 17:27.140
+ You'd merely get like a zombie system,
+
+17:27.140 --> 17:31.300
+ a simulation of a brain without any true consciousness.
+
+17:31.300 --> 17:33.420
+ But for you, you put together a brain,
+
+17:33.420 --> 17:36.320
+ the consciousness comes with it, arise.
+
+17:36.320 --> 17:38.640
+ Yeah, I don't think it's obvious.
+
+17:38.640 --> 17:39.660
+ That's your intuition.
+
+17:39.660 --> 17:41.320
+ My view is roughly that yeah,
+
+17:41.320 --> 17:43.100
+ what is responsible for consciousness,
+
+17:43.100 --> 17:46.960
+ it's in the patterns of information processing and so on
+
+17:46.960 --> 17:50.460
+ rather than say the biology that it's made of.
+
+17:50.460 --> 17:51.780
+ There's certainly plenty of people out there
+
+17:51.780 --> 17:54.520
+ who think consciousness has to be say biological.
+
+17:54.520 --> 17:57.300
+ So if you merely replicate the patterns of information
+
+17:57.300 --> 17:59.680
+ processing in a nonbiological substrate,
+
+17:59.680 --> 18:02.440
+ you'll miss what's crucial for consciousness.
+
+18:02.440 --> 18:04.320
+ I mean, I just don't think there's any particular reason
+
+18:04.320 --> 18:07.380
+ to think that biology is special here.
+
+18:07.380 --> 18:09.620
+ You can imagine substituting the biology
+
+18:09.620 --> 18:13.700
+ for nonbiological systems, say silicon circuits
+
+18:13.700 --> 18:15.120
+ that play the same role.
+
+18:15.120 --> 18:17.620
+ The behavior will continue to be the same.
+
+18:17.620 --> 18:21.300
+ And I think just thinking about what is the true,
+
+18:21.300 --> 18:22.300
+ when I think about the connection,
+
+18:22.300 --> 18:25.540
+ the isomorphisms between consciousness and the brain,
+
+18:25.540 --> 18:28.300
+ the deepest connections to me seem to connect consciousness
+
+18:28.300 --> 18:30.300
+ to patterns of information processing,
+
+18:30.300 --> 18:32.380
+ not to specific biology.
+
+18:32.380 --> 18:35.180
+ So I at least adopted as my working hypothesis
+
+18:35.180 --> 18:38.180
+ that basically it's the computation and the information
+
+18:38.180 --> 18:39.580
+ that matters for consciousness.
+
+18:39.580 --> 18:41.820
+ Same time, we don't understand consciousness,
+
+18:41.820 --> 18:43.700
+ so all this could be wrong.
+
+18:43.700 --> 18:48.180
+ So the computation, the flow, the processing,
+
+18:48.180 --> 18:49.840
+ manipulation of information,
+
+18:49.840 --> 18:54.440
+ the process is where the consciousness,
+
+18:54.440 --> 18:56.480
+ the software is where the consciousness comes from,
+
+18:56.480 --> 18:57.860
+ not the hardware.
+
+18:57.860 --> 18:59.200
+ Roughly the software, yeah.
+
+18:59.200 --> 19:01.800
+ The patterns of information processing at least
+
+19:01.800 --> 19:05.720
+ in the hardware, which we could view as software.
+
+19:05.720 --> 19:07.360
+ It may not be something you can just like program
+
+19:07.360 --> 19:11.360
+ and load and erase and so on in the way we can
+
+19:11.360 --> 19:14.000
+ with ordinary software, but it's something at the level
+
+19:14.000 --> 19:16.240
+ of information processing rather than at the level
+
+19:16.240 --> 19:17.960
+ of implementation.
+
+19:17.960 --> 19:22.480
+ So on that, what do you think of the experience of self,
+
+19:22.480 --> 19:26.040
+ just the experience of the world in a virtual world,
+
+19:26.040 --> 19:27.920
+ in virtual reality?
+
+19:27.920 --> 19:31.400
+ Is it possible that we can create sort of
+
+19:33.480 --> 19:36.760
+ offsprings of our consciousness by existing
+
+19:36.760 --> 19:38.840
+ in a virtual world long enough?
+
+19:38.840 --> 19:43.840
+ So yeah, can we be conscious in the same kind
+
+19:44.520 --> 19:47.640
+ of deep way that we are in this real world
+
+19:47.640 --> 19:51.120
+ by hanging out in a virtual world?
+
+19:51.120 --> 19:54.160
+ Yeah, well, the kind of virtual worlds we have now
+
+19:54.160 --> 19:58.040
+ are interesting but limited in certain ways.
+
+19:58.040 --> 20:01.680
+ In particular, they rely on us having a brain and so on,
+
+20:01.680 --> 20:03.560
+ which is outside the virtual world.
+
+20:03.560 --> 20:07.520
+ Maybe I'll strap on my VR headset or just hang out
+
+20:07.520 --> 20:12.520
+ in a virtual world on a screen, but my brain
+
+20:12.920 --> 20:16.560
+ and then my physical environment might be simulated
+
+20:16.560 --> 20:18.560
+ if I'm in a virtual world, but right now,
+
+20:18.560 --> 20:21.320
+ there's no attempt to simulate my brain.
+
+20:21.320 --> 20:24.120
+ There might be some non player characters
+
+20:24.120 --> 20:27.440
+ in these virtual worlds that have simulated
+
+20:27.440 --> 20:29.040
+ cognitive systems of certain kinds
+
+20:29.040 --> 20:31.280
+ that dictate their behavior, but mostly,
+
+20:31.280 --> 20:33.080
+ they're pretty simple right now.
+
+20:33.080 --> 20:34.640
+ I mean, some people are trying to combine,
+
+20:34.640 --> 20:36.900
+ put a bit of AI in their non player characters
+
+20:36.900 --> 20:41.340
+ to make them smarter, but for now,
+
+20:41.340 --> 20:43.720
+ inside virtual world, the actual thinking
+
+20:43.720 --> 20:46.000
+ is interestingly distinct from the physics
+
+20:46.000 --> 20:47.180
+ of those virtual worlds.
+
+20:47.180 --> 20:48.920
+ In a way, actually, I like to think this is kind of
+
+20:48.920 --> 20:50.480
+ reminiscent of the way that Descartes
+
+20:50.480 --> 20:52.280
+ thought our physical world was.
+
+20:52.280 --> 20:54.400
+ There's physics, and there's the mind,
+
+20:54.400 --> 20:55.240
+ and they're separate.
+
+20:55.240 --> 20:58.800
+ Now we think the mind is somehow connected
+
+20:58.800 --> 21:01.100
+ to physics pretty deeply, but in these virtual worlds,
+
+21:01.100 --> 21:03.000
+ there's a physics of a virtual world,
+
+21:03.000 --> 21:04.840
+ and then there's this brain which is totally
+
+21:04.840 --> 21:06.880
+ outside the virtual world that controls it
+
+21:06.880 --> 21:10.520
+ and interacts it when anyone exercises agency
+
+21:10.520 --> 21:12.360
+ in a video game, that's actually somebody
+
+21:12.360 --> 21:14.920
+ outside the virtual world moving a controller,
+
+21:14.920 --> 21:16.680
+ controlling the interaction of things
+
+21:16.680 --> 21:18.240
+ inside the virtual world.
+
+21:18.240 --> 21:20.460
+ So right now, in virtual worlds,
+
+21:20.460 --> 21:22.360
+ the mind is somehow outside the world,
+
+21:22.360 --> 21:25.040
+ but you could imagine in the future,
+
+21:25.040 --> 21:29.080
+ once we have developed serious AI,
+
+21:29.080 --> 21:31.560
+ artificial general intelligence, and so on,
+
+21:31.560 --> 21:34.440
+ then we could come to virtual worlds
+
+21:34.440 --> 21:35.720
+ which have enough sophistication,
+
+21:35.720 --> 21:38.040
+ you could actually simulate a brain
+
+21:38.040 --> 21:42.920
+ or have a genuine AGI, which would then presumably
+
+21:42.920 --> 21:45.880
+ be able to act in equally sophisticated ways,
+
+21:45.880 --> 21:47.880
+ maybe even more sophisticated ways,
+
+21:47.880 --> 21:50.520
+ inside the virtual world to how it might
+
+21:50.520 --> 21:52.400
+ in the physical world, and then the question's
+
+21:52.400 --> 21:56.040
+ gonna come along, that would be kind of a VR,
+
+21:56.040 --> 21:59.520
+ virtual world internal intelligence,
+
+21:59.520 --> 22:01.720
+ and then the question is could they have consciousness,
+
+22:01.720 --> 22:04.720
+ experience, intelligence, free will,
+
+22:04.720 --> 22:06.520
+ all the things that we have, and again,
+
+22:06.520 --> 22:08.840
+ my view is I don't see why not.
+
+22:08.840 --> 22:13.160
+ To linger on it a little bit, I find virtual reality really
+
+22:13.160 --> 22:15.880
+ incredibly powerful, just even the crude virtual reality
+
+22:15.880 --> 22:20.880
+ we have now of perhaps there's psychological effects
+
+22:21.800 --> 22:23.960
+ that make some people more amenable
+
+22:23.960 --> 22:26.260
+ to virtual worlds than others, but I find myself
+
+22:26.260 --> 22:28.360
+ wanting to stay in virtual worlds for the most part.
+
+22:28.360 --> 22:29.200
+ You do?
+
+22:29.200 --> 22:30.020
+ Yes.
+
+22:30.020 --> 22:32.080
+ With a headset or on a desktop?
+
+22:32.080 --> 22:33.020
+ No, with a headset.
+
+22:33.020 --> 22:35.640
+ Really interesting, because I am totally addicted
+
+22:35.640 --> 22:40.640
+ to using the internet and things on a desktop,
+
+22:40.680 --> 22:43.040
+ but when it comes to VR, with a headset,
+
+22:43.040 --> 22:46.140
+ I don't typically use it for more than 10 or 20 minutes.
+
+22:46.140 --> 22:48.760
+ There's something just slightly aversive about it, I find,
+
+22:48.760 --> 22:52.120
+ so I don't, right now, even though I have Oculus Rift
+
+22:52.120 --> 22:55.800
+ and Oculus Quest and HTC Vive and Samsung, this and that.
+
+22:55.800 --> 22:57.360
+ You just don't wanna stay in that world for long.
+
+22:57.360 --> 22:58.760
+ Not for extended periods.
+
+22:58.760 --> 23:01.000
+ You actually find yourself hanging out in that.
+
+23:01.000 --> 23:03.660
+ Something about, it's both a combination
+
+23:03.660 --> 23:08.000
+ of just imagination and considering the possibilities
+
+23:08.000 --> 23:10.640
+ of where this goes in the future.
+
+23:10.640 --> 23:15.640
+ It feels like I want to almost prepare my brain for it.
+
+23:17.000 --> 23:19.680
+ I wanna explore sort of Disneyland
+
+23:19.680 --> 23:23.700
+ when it's first being built in the early days,
+
+23:23.700 --> 23:27.400
+ and it feels like I'm walking around
+
+23:27.400 --> 23:31.420
+ almost imagining the possibilities,
+
+23:31.420 --> 23:33.840
+ and something through that process allows my mind
+
+23:33.840 --> 23:36.020
+ to really enter into that world,
+
+23:36.020 --> 23:41.020
+ but you say that the brain is external to that virtual world.
+
+23:41.940 --> 23:46.600
+ It is, strictly speaking, true, but...
+
+23:46.600 --> 23:50.600
+ If you're in VR and you do brain surgery on an avatar,
+
+23:50.600 --> 23:51.800
+ and you're gonna open up that skull,
+
+23:51.800 --> 23:53.000
+ what are you gonna find?
+
+23:53.000 --> 23:53.840
+ Sorry, nothing there.
+
+23:53.840 --> 23:54.680
+ Nothing.
+
+23:54.680 --> 23:55.880
+ The brain is elsewhere.
+
+23:55.880 --> 23:59.520
+ You don't think it's possible to kind of separate them,
+
+23:59.520 --> 24:02.040
+ and I don't mean in a sense like Descartes,
+
+24:02.960 --> 24:06.720
+ like a hard separation, but basically,
+
+24:06.720 --> 24:09.600
+ do you think it's possible with the brain outside
+
+24:09.600 --> 24:13.240
+ of the virtual rhythm, when you're wearing a headset,
+
+24:14.920 --> 24:19.840
+ create a new consciousness for prolonged periods of time?
+
+24:19.840 --> 24:24.660
+ Really feel, like really, like forget
+
+24:24.660 --> 24:26.280
+ that your brain is outside.
+
+24:26.280 --> 24:27.800
+ So this is, okay, this is gonna be the case
+
+24:27.800 --> 24:29.200
+ where the brain is still outside.
+
+24:29.200 --> 24:30.040
+ It's still outside.
+
+24:30.040 --> 24:32.120
+ But could living in the VR, I mean,
+
+24:32.120 --> 24:35.120
+ we already find this, right, with video games.
+
+24:35.120 --> 24:35.960
+ Exactly.
+
+24:35.960 --> 24:39.200
+ They're completely immersive, and you get taken up
+
+24:39.200 --> 24:40.640
+ by living in those worlds,
+
+24:40.640 --> 24:43.200
+ and it becomes your reality for a while.
+
+24:43.200 --> 24:44.760
+ So they're not completely immersive,
+
+24:44.760 --> 24:46.040
+ they're just very immersive.
+
+24:46.040 --> 24:46.880
+ Completely immersive.
+
+24:46.880 --> 24:48.800
+ You don't forget the external world, no.
+
+24:48.800 --> 24:50.920
+ Exactly, so that's what I'm asking.
+
+24:50.920 --> 24:52.220
+ Do you think it's almost possible
+
+24:52.220 --> 24:55.700
+ to really forget the external world?
+
+24:55.700 --> 24:58.440
+ Really, really immerse yourself.
+
+24:58.440 --> 24:59.840
+ To forget completely?
+
+24:59.840 --> 25:00.680
+ Why would we forget?
+
+25:00.680 --> 25:02.200
+ We got pretty good memories.
+
+25:02.200 --> 25:06.000
+ Maybe you can stop paying attention to the external world,
+
+25:06.000 --> 25:07.540
+ but this already happens a lot.
+
+25:07.540 --> 25:10.000
+ I go to work, and maybe I'm not paying attention
+
+25:10.000 --> 25:11.080
+ to my home life.
+
+25:11.080 --> 25:14.520
+ I go to a movie, and I'm immersed in that.
+
+25:14.520 --> 25:17.100
+ So that degree of immersion, absolutely.
+
+25:17.100 --> 25:19.640
+ But we still have the capacity to remember it,
+
+25:19.640 --> 25:21.960
+ to completely forget the external world.
+
+25:21.960 --> 25:23.920
+ I'm thinking that would probably take some,
+
+25:23.920 --> 25:25.760
+ I don't know, some pretty serious drugs or something
+
+25:25.760 --> 25:27.600
+ to make your brain do that.
+
+25:27.600 --> 25:28.960
+ Is that possible?
+
+25:28.960 --> 25:31.040
+ So, I mean, I guess what I'm getting at
+
+25:31.040 --> 25:35.640
+ is consciousness truly a property
+
+25:35.640 --> 25:38.520
+ that's tied to the physical brain?
+
+25:41.040 --> 25:45.000
+ Or can you create sort of different offspring,
+
+25:45.000 --> 25:47.600
+ copies of consciousnesses based on the worlds
+
+25:47.600 --> 25:48.540
+ that you enter?
+
+25:49.400 --> 25:51.560
+ Well, the way we're doing it now,
+
+25:51.560 --> 25:54.900
+ at least with a standard VR, there's just one brain.
+
+25:54.900 --> 25:56.640
+ Interacts with the physical world.
+
+25:56.640 --> 25:59.360
+ Plays a video game, puts on a video headset,
+
+25:59.360 --> 26:01.720
+ interacts with this virtual world.
+
+26:01.720 --> 26:04.800
+ And I think we'd typically say there's one consciousness here
+
+26:04.800 --> 26:07.520
+ that nonetheless undergoes different environments,
+
+26:07.520 --> 26:11.880
+ takes on different characters in different environments.
+
+26:11.880 --> 26:13.160
+ This is already something that happens
+
+26:13.160 --> 26:14.320
+ in the nonvirtual world.
+
+26:14.320 --> 26:17.480
+ I might interact one way in my home life,
+
+26:17.480 --> 26:21.200
+ my work life, my social life, and so on.
+
+26:21.200 --> 26:23.960
+ So at the very least, that will happen
+
+26:23.960 --> 26:25.780
+ in a virtual world very naturally.
+
+26:25.780 --> 26:30.360
+ People sometimes adopt the character of avatars
+
+26:30.360 --> 26:32.400
+ very different from themselves,
+
+26:32.400 --> 26:34.800
+ maybe even a different gender, different race,
+
+26:34.800 --> 26:37.000
+ different social background.
+
+26:37.000 --> 26:38.800
+ So that much is certainly possible.
+
+26:38.800 --> 26:41.160
+ I would see that as a single consciousness
+
+26:41.160 --> 26:43.360
+ is taking on different personas.
+
+26:43.360 --> 26:46.280
+ If you want literal splitting of consciousness
+
+26:46.280 --> 26:47.400
+ into multiple copies,
+
+26:47.400 --> 26:50.640
+ I think it's gonna take something more radical than that.
+
+26:50.640 --> 26:54.360
+ Like maybe you can run different simulations of your brain
+
+26:54.360 --> 26:56.080
+ in different realities
+
+26:56.080 --> 26:57.880
+ and then expose them to different histories.
+
+26:57.880 --> 27:00.160
+ And then you'd split yourself
+
+27:00.160 --> 27:01.900
+ into 10 different simulated copies,
+
+27:01.900 --> 27:04.120
+ which then undergo different environments
+
+27:04.120 --> 27:05.680
+ and then ultimately do become 10
+
+27:05.680 --> 27:07.720
+ very different consciousnesses.
+
+27:07.720 --> 27:08.600
+ Maybe that could happen,
+
+27:08.600 --> 27:10.440
+ but now we're not talking about something
+
+27:10.440 --> 27:12.240
+ that's possible in the near term.
+
+27:12.240 --> 27:14.040
+ We're gonna have to have brain simulations
+
+27:14.040 --> 27:16.260
+ and AGI for that to happen.
+
+27:17.400 --> 27:18.240
+ Got it.
+
+27:18.240 --> 27:20.200
+ So before any of that happens,
+
+27:20.200 --> 27:23.760
+ it's fundamentally you see it as a singular consciousness,
+
+27:23.760 --> 27:26.400
+ even though it's experiencing different environments,
+
+27:26.400 --> 27:27.780
+ virtual or not,
+
+27:27.780 --> 27:30.480
+ it's still connected to same set of memories,
+
+27:30.480 --> 27:32.760
+ same set of experiences and therefore,
+
+27:32.760 --> 27:37.760
+ one sort of joint conscious system.
+
+27:38.240 --> 27:40.560
+ Yeah, or at least no more multiple
+
+27:40.560 --> 27:42.140
+ than the kind of multiple consciousness
+
+27:42.140 --> 27:45.000
+ that we get from inhabiting different environments
+
+27:45.000 --> 27:46.720
+ in a non virtual world.
+
+27:46.720 --> 27:48.760
+ So you said as a child,
+
+27:48.760 --> 27:53.440
+ you were a music color synesthete.
+
+27:53.440 --> 27:55.380
+ So where songs had colors for you.
+
+27:56.440 --> 27:59.760
+ So what songs had what colors?
+
+27:59.760 --> 28:00.960
+ You know, this is funny.
+
+28:00.960 --> 28:04.040
+ I didn't pay much attention to this at the time,
+
+28:04.040 --> 28:05.340
+ but I'd listen to a piece of music
+
+28:05.340 --> 28:07.560
+ and I'd get some kind of imagery
+
+28:07.560 --> 28:11.400
+ of a kind of color.
+
+28:11.400 --> 28:16.120
+ The weird thing is mostly they were kind of murky,
+
+28:16.120 --> 28:18.560
+ dark greens and olive browns
+
+28:18.560 --> 28:21.600
+ and the colors weren't all that interesting.
+
+28:21.600 --> 28:22.520
+ I don't know what the reason is.
+
+28:22.520 --> 28:25.280
+ I mean, my theory is that maybe it's like different chords
+
+28:25.280 --> 28:27.720
+ and tones provided different colors
+
+28:27.720 --> 28:29.280
+ and they all tended to get mixed together
+
+28:29.280 --> 28:33.200
+ into these somewhat uninteresting browns and greens.
+
+28:33.200 --> 28:35.480
+ But every now and then there'd be something
+
+28:35.480 --> 28:37.360
+ that had a really pure color.
+
+28:37.360 --> 28:39.360
+ So there's just a few that I remember.
+
+28:39.360 --> 28:42.440
+ There was a Here, There and Everywhere by the Beatles
+
+28:42.440 --> 28:46.360
+ was bright red and has this very distinctive tonality
+
+28:46.360 --> 28:49.680
+ and it's called structure at the beginning.
+
+28:49.680 --> 28:50.880
+ So that was bright red.
+
+28:50.880 --> 28:53.960
+ There was this song by the Alan Parsons Project
+
+28:53.960 --> 28:58.960
+ called Ammonia Avenue that was kind of a pure, a pure blue.
+
+28:59.720 --> 29:02.080
+ Anyway, I've got no idea how this happened.
+
+29:02.080 --> 29:03.120
+ I didn't even pay that much attention
+
+29:03.120 --> 29:05.400
+ until it went away when I was about 20.
+
+29:05.400 --> 29:07.480
+ This synesthesia often goes away.
+
+29:07.480 --> 29:10.960
+ So is it purely just the perception of a particular color
+
+29:10.960 --> 29:14.320
+ or was there a positive or negative experience?
+
+29:14.320 --> 29:16.400
+ Like was blue associated with a positive
+
+29:16.400 --> 29:17.920
+ and red with a negative?
+
+29:17.920 --> 29:20.960
+ Or is it simply the perception of color
+
+29:20.960 --> 29:23.440
+ associated with some characteristic of the song?
+
+29:23.440 --> 29:25.760
+ For me, I don't remember a lot of association
+
+29:25.760 --> 29:28.320
+ with emotion or with value.
+
+29:28.320 --> 29:30.920
+ It was just this kind of weird and interesting fact.
+
+29:30.920 --> 29:32.360
+ I mean, at the beginning, I thought this was something
+
+29:32.360 --> 29:35.000
+ that happened to everyone, songs of colors.
+
+29:35.000 --> 29:39.040
+ Maybe I mentioned it once or twice and people said, nope.
+
+29:40.240 --> 29:42.560
+ I thought it was kind of cool when there was one
+
+29:42.560 --> 29:44.680
+ that had one of these especially pure colors,
+
+29:44.680 --> 29:48.200
+ but only much later once I became a grad student
+
+29:48.200 --> 29:50.600
+ thinking about the mind that I read about this phenomenon
+
+29:50.600 --> 29:53.960
+ called synesthesia and I was like, hey, that's what I had.
+
+29:53.960 --> 29:56.560
+ And now I occasionally talk about it in my classes,
+
+29:56.560 --> 29:58.600
+ in intro class and it still happens sometimes.
+
+29:58.600 --> 30:01.120
+ A student comes up and says, hey, I have that.
+
+30:01.120 --> 30:01.960
+ I never knew about that.
+
+30:01.960 --> 30:03.280
+ I never knew it had a name.
+
+30:04.520 --> 30:08.080
+ You said that it went away at age 20 or so.
+
+30:08.080 --> 30:13.080
+ And that you have a journal entry from around then saying,
+
+30:13.080 --> 30:15.240
+ songs don't have colors anymore.
+
+30:15.240 --> 30:16.080
+ What happened?
+
+30:16.080 --> 30:16.920
+ What happened?
+
+30:16.920 --> 30:18.800
+ Yeah, it was definitely sad that it was gone.
+
+30:18.800 --> 30:20.680
+ In retrospect, it was like, hey, that's cool.
+
+30:20.680 --> 30:21.920
+ The colors have gone.
+
+30:21.920 --> 30:25.000
+ Yeah, can you think about that for a little bit?
+
+30:25.000 --> 30:27.000
+ Do you miss those experiences?
+
+30:27.000 --> 30:31.720
+ Because it's a fundamentally different set of experiences
+
+30:31.720 --> 30:33.320
+ that you no longer have.
+
+30:35.120 --> 30:38.360
+ Or is it just a nice thing to have had?
+
+30:38.360 --> 30:40.640
+ You don't see them as that fundamentally different
+
+30:40.640 --> 30:43.680
+ than you visiting a new country and experiencing
+
+30:43.680 --> 30:44.960
+ new environments.
+
+30:44.960 --> 30:47.440
+ I guess for me, when I had these experiences,
+
+30:47.440 --> 30:48.960
+ they were somewhat marginal.
+
+30:48.960 --> 30:51.640
+ They were like a little bonus kind of experience.
+
+30:51.640 --> 30:55.120
+ I know there are people who have much more serious forms
+
+30:55.120 --> 30:58.800
+ of synesthesia than this for whom it's absolutely central
+
+30:58.800 --> 30:59.640
+ to their lives.
+
+30:59.640 --> 31:01.800
+ I know people who, when they experience new people,
+
+31:01.800 --> 31:04.760
+ they have colors, maybe they have tastes and so on.
+
+31:04.760 --> 31:08.320
+ Every time they see writing, it has colors.
+
+31:08.320 --> 31:09.640
+ Some people, whenever they hear music,
+
+31:09.640 --> 31:14.640
+ it's got a certain really rich color pattern.
+
+31:15.040 --> 31:17.440
+ For some synesthetes, it's absolutely central.
+
+31:17.440 --> 31:20.200
+ I think if they lost it, they'd be devastated.
+
+31:20.200 --> 31:23.760
+ Again, for me, it was a very, very mild form
+
+31:23.760 --> 31:25.560
+ of synesthesia, and it's like, yeah,
+
+31:25.560 --> 31:27.360
+ it's like those interesting experiences
+
+31:29.440 --> 31:31.560
+ you might get under different altered states
+
+31:31.560 --> 31:33.360
+ of consciousness and so on.
+
+31:33.360 --> 31:36.200
+ It's kind of cool, but not necessarily
+
+31:36.200 --> 31:39.280
+ the single most important experiences in your life.
+
+31:39.280 --> 31:40.120
+ Got it.
+
+31:40.120 --> 31:43.920
+ So let's try to go to the very simplest question
+
+31:43.920 --> 31:45.120
+ that you've answered many a time,
+
+31:45.120 --> 31:48.560
+ but perhaps the simplest things can help us reveal,
+
+31:48.560 --> 31:51.680
+ even in time, some new ideas.
+
+31:51.680 --> 31:55.640
+ So what, in your view, is consciousness?
+
+31:55.640 --> 31:56.840
+ What is qualia?
+
+31:56.840 --> 32:00.680
+ What is the hard problem of consciousness?
+
+32:00.680 --> 32:03.360
+ Consciousness, I mean, the word is used many ways,
+
+32:03.360 --> 32:06.240
+ but the kind of consciousness that I'm interested in
+
+32:06.240 --> 32:10.000
+ is basically subjective experience,
+
+32:10.000 --> 32:14.360
+ what it feels like from the inside to be a human being
+
+32:14.360 --> 32:16.160
+ or any other conscious being.
+
+32:16.160 --> 32:19.720
+ I mean, there's something it's like to be me right now.
+
+32:19.720 --> 32:23.520
+ I have visual images that I'm experiencing.
+
+32:23.520 --> 32:25.600
+ I'm hearing my voice.
+
+32:25.600 --> 32:29.120
+ I've got maybe some emotional tone.
+
+32:29.120 --> 32:31.640
+ I've got a stream of thoughts running through my head.
+
+32:31.640 --> 32:33.600
+ These are all things that I experience
+
+32:33.600 --> 32:36.240
+ from the first person point of view.
+
+32:36.240 --> 32:39.120
+ I've sometimes called this the inner movie in the mind.
+
+32:39.120 --> 32:41.600
+ It's not a perfect metaphor.
+
+32:41.600 --> 32:44.200
+ It's not like a movie in every way,
+
+32:44.200 --> 32:45.640
+ and it's very rich.
+
+32:45.640 --> 32:49.360
+ But yeah, it's just direct, subjective experience.
+
+32:49.360 --> 32:51.360
+ And I call that consciousness,
+
+32:51.360 --> 32:54.600
+ or sometimes philosophers use the word qualia,
+
+32:54.600 --> 32:55.480
+ which you suggested.
+
+32:55.480 --> 32:57.040
+ People tend to use the word qualia
+
+32:57.040 --> 33:00.400
+ for things like the qualities of things like colors,
+
+33:00.400 --> 33:02.280
+ redness, the experience of redness
+
+33:02.280 --> 33:04.640
+ versus the experience of greenness,
+
+33:04.640 --> 33:08.800
+ the experience of one taste or one smell versus another,
+
+33:08.800 --> 33:10.920
+ the experience of the quality of pain.
+
+33:10.920 --> 33:12.680
+ And yeah, a lot of consciousness
+
+33:12.680 --> 33:17.000
+ is the experience of those qualities.
+
+33:17.000 --> 33:18.240
+ Well, consciousness is bigger,
+
+33:18.240 --> 33:21.040
+ the entirety of any kinds of experiences.
+
+33:21.040 --> 33:23.880
+ Consciousness of thinking is not obviously qualia.
+
+33:23.880 --> 33:26.440
+ It's not like specific qualities like redness or greenness,
+
+33:26.440 --> 33:29.200
+ but still I'm thinking about my hometown.
+
+33:29.200 --> 33:31.680
+ I'm thinking about what I'm gonna do later on.
+
+33:31.680 --> 33:34.160
+ Maybe there's still something running through my head,
+
+33:34.160 --> 33:36.320
+ which is subjective experience.
+
+33:36.320 --> 33:39.960
+ Maybe it goes beyond those qualities or qualia.
+
+33:39.960 --> 33:43.000
+ Philosophers sometimes use the word phenomenal consciousness
+
+33:43.000 --> 33:44.680
+ for consciousness in this sense.
+
+33:44.680 --> 33:47.480
+ I mean, people also talk about access consciousness,
+
+33:47.480 --> 33:50.280
+ being able to access information in your mind,
+
+33:50.280 --> 33:52.080
+ reflective consciousness,
+
+33:52.080 --> 33:53.920
+ being able to think about yourself.
+
+33:53.920 --> 33:55.920
+ But it looks like the really mysterious one,
+
+33:55.920 --> 33:57.240
+ the one that really gets people going
+
+33:57.240 --> 33:58.880
+ is phenomenal consciousness.
+
+33:58.880 --> 34:02.760
+ The fact that there's subjective experience
+
+34:02.760 --> 34:05.120
+ and all this feels like something at all.
+
+34:05.120 --> 34:08.880
+ And then the hard problem is how is it that,
+
+34:08.880 --> 34:11.520
+ why is it that there is phenomenal consciousness at all?
+
+34:11.520 --> 34:15.600
+ And how is it that physical processes in a brain
+
+34:15.600 --> 34:19.400
+ could give you subjective experience?
+
+34:19.400 --> 34:21.680
+ It looks like on the face of it,
+
+34:21.680 --> 34:23.920
+ you'd have all this big complicated physical system
+
+34:23.920 --> 34:27.240
+ in a brain running without a given
+
+34:27.240 --> 34:28.480
+ subjective experience at all.
+
+34:28.480 --> 34:30.840
+ And yet we do have subjective experience.
+
+34:30.840 --> 34:33.200
+ So the hard problem is just explain that.
+
+34:34.160 --> 34:35.960
+ Explain how that comes about.
+
+34:35.960 --> 34:37.560
+ We haven't been able to build machines
+
+34:37.560 --> 34:41.320
+ where a red light goes on that says it's not conscious.
+
+34:41.320 --> 34:45.720
+ So how do we actually create that?
+
+34:45.720 --> 34:47.360
+ Or how do humans do it?
+
+34:47.360 --> 34:49.000
+ And how do we ourselves do it?
+
+34:49.000 --> 34:51.720
+ We do every now and then create machines that can do this.
+
+34:51.720 --> 34:55.600
+ We create babies that are conscious.
+
+34:55.600 --> 34:56.560
+ They've got these brains.
+
+34:56.560 --> 34:58.440
+ That brain does produce consciousness.
+
+34:58.440 --> 35:00.680
+ But even though we can create it,
+
+35:00.680 --> 35:02.880
+ we still don't understand why it happens.
+
+35:02.880 --> 35:05.440
+ Maybe eventually we'll be able to create machines,
+
+35:05.440 --> 35:07.840
+ which as a matter of fact, AI machines,
+
+35:07.840 --> 35:10.280
+ which as a matter of fact are conscious.
+
+35:10.280 --> 35:13.760
+ But that won't necessarily make the hard problem go away
+
+35:13.760 --> 35:15.480
+ any more than it does with babies.
+
+35:15.480 --> 35:17.480
+ Cause we still wanna know how and why is it
+
+35:17.480 --> 35:19.680
+ that these processes give you consciousness?
+
+35:19.680 --> 35:22.160
+ You just made me realize for a second,
+
+35:22.160 --> 35:27.160
+ maybe it's a totally dumb realization, but nevertheless,
+
+35:28.520 --> 35:31.840
+ that as a useful way to think about
+
+35:31.840 --> 35:35.760
+ the creation of consciousness is looking at a baby.
+
+35:35.760 --> 35:37.520
+ So that there's a certain point
+
+35:38.480 --> 35:40.880
+ at which that baby is not conscious.
+
+35:44.400 --> 35:47.160
+ The baby starts from maybe, I don't know,
+
+35:47.160 --> 35:49.600
+ from a few cells, right?
+
+35:49.600 --> 35:52.760
+ There's a certain point at which it becomes consciousness,
+
+35:52.760 --> 35:54.920
+ arrives, it's conscious.
+
+35:54.920 --> 35:56.880
+ Of course, we can't know exactly that line,
+
+35:56.880 --> 36:01.000
+ but that's a useful idea that we do create consciousness.
+
+36:02.280 --> 36:04.560
+ Again, a really dumb thing for me to say,
+
+36:04.560 --> 36:07.000
+ but not until now did I realize
+
+36:07.000 --> 36:09.640
+ we do engineer consciousness.
+
+36:09.640 --> 36:12.240
+ We get to watch the process happen.
+
+36:12.240 --> 36:16.200
+ We don't know which point it happens or where it is,
+
+36:16.200 --> 36:19.200
+ but we do see the birth of consciousness.
+
+36:19.200 --> 36:21.080
+ Yeah, I mean, there's a question, of course,
+
+36:21.080 --> 36:25.000
+ is whether babies are conscious when they're born.
+
+36:25.000 --> 36:26.320
+ And it used to be, it seems,
+
+36:26.320 --> 36:28.240
+ at least some people thought they weren't,
+
+36:28.240 --> 36:30.520
+ which is why they didn't give anesthetics
+
+36:30.520 --> 36:33.160
+ to newborn babies when they circumcised them.
+
+36:33.160 --> 36:36.600
+ And so now people think, oh, that would be incredibly cruel.
+
+36:36.600 --> 36:38.760
+ Of course, babies feel pain.
+
+36:38.760 --> 36:42.120
+ And now the dominant view is that the babies can feel pain.
+
+36:42.120 --> 36:45.840
+ Actually, my partner Claudia works on this whole issue
+
+36:45.840 --> 36:48.160
+ of whether there's consciousness in babies
+
+36:48.160 --> 36:49.720
+ and of what kind.
+
+36:49.720 --> 36:52.200
+ And she certainly thinks that newborn babies
+
+36:53.280 --> 36:55.480
+ come into the world with some degree of consciousness.
+
+36:55.480 --> 36:57.320
+ Of course, then you can just extend the question backwards
+
+36:57.320 --> 36:59.320
+ to fetuses and suddenly you're into
+
+36:59.320 --> 37:02.120
+ politically controversial territory.
+
+37:02.120 --> 37:06.840
+ But the question also arises in the animal kingdom.
+
+37:06.840 --> 37:08.640
+ Where does consciousness start or stop?
+
+37:08.640 --> 37:11.080
+ Is there a line in the animal kingdom
+
+37:11.960 --> 37:14.720
+ where the first conscious organisms are?
+
+37:15.920 --> 37:16.920
+ It's interesting, over time,
+
+37:16.920 --> 37:18.240
+ people are becoming more and more liberal
+
+37:18.240 --> 37:21.080
+ about ascribing consciousness to animals.
+
+37:21.080 --> 37:24.520
+ People used to think maybe only mammals could be conscious.
+
+37:24.520 --> 37:27.440
+ Now most people seem to think, sure, fish are conscious.
+
+37:27.440 --> 37:28.760
+ They can feel pain.
+
+37:28.760 --> 37:31.000
+ And now we're arguing over insects.
+
+37:31.000 --> 37:33.440
+ You'll find people out there who say plants
+
+37:33.440 --> 37:35.600
+ have some degree of consciousness.
+
+37:35.600 --> 37:37.840
+ So, you know, who knows where it's gonna end.
+
+37:37.840 --> 37:39.360
+ The far end of this chain is the view
+
+37:39.360 --> 37:43.320
+ that every physical system has some degree of consciousness.
+
+37:43.320 --> 37:45.960
+ Philosophers call that panpsychism.
+
+37:45.960 --> 37:48.320
+ You know, I take that view.
+
+37:48.320 --> 37:50.920
+ I mean, that's a fascinating way to view reality.
+
+37:50.920 --> 37:52.840
+ So if you could talk about,
+
+37:52.840 --> 37:56.520
+ if you can linger on panpsychism for a little bit,
+
+37:56.520 --> 37:58.400
+ what does it mean?
+
+37:58.400 --> 38:00.960
+ So it's not just plants are conscious.
+
+38:00.960 --> 38:02.480
+ I mean, it's that consciousness
+
+38:02.480 --> 38:05.360
+ is a fundamental fabric of reality.
+
+38:05.360 --> 38:07.360
+ What does that mean to you?
+
+38:07.360 --> 38:09.640
+ How are we supposed to think about that?
+
+38:09.640 --> 38:12.120
+ Well, we're used to the idea that some things in the world
+
+38:12.120 --> 38:15.240
+ are fundamental, right, in physics.
+
+38:15.240 --> 38:16.080
+ Like what?
+
+38:16.080 --> 38:18.800
+ We take things like space or time or space time,
+
+38:18.800 --> 38:23.120
+ mass, charges, fundamental properties of the universe.
+
+38:23.120 --> 38:25.440
+ You don't reduce them to something simpler.
+
+38:25.440 --> 38:26.920
+ You take those for granted.
+
+38:26.920 --> 38:30.120
+ You've got some laws that connect them.
+
+38:30.120 --> 38:33.800
+ Here is how mass and space and time evolve.
+
+38:33.800 --> 38:36.600
+ Theories like relativity or quantum mechanics
+
+38:36.600 --> 38:39.960
+ or some future theory that will unify them both.
+
+38:39.960 --> 38:42.520
+ But everyone says you gotta take some things as fundamental.
+
+38:42.520 --> 38:44.600
+ And if you can't explain one thing,
+
+38:44.600 --> 38:47.120
+ in terms of the previous fundamental things,
+
+38:47.120 --> 38:48.240
+ you have to expand.
+
+38:49.240 --> 38:51.640
+ Maybe something like this happened with Maxwell.
+
+38:52.800 --> 38:54.160
+ He ended up with fundamental principles
+
+38:54.160 --> 38:57.480
+ of electromagnetism and took charge as fundamental
+
+38:57.480 --> 39:00.120
+ because it turned out that was the best way to explain it.
+
+39:00.120 --> 39:02.840
+ So I at least take seriously the possibility
+
+39:02.840 --> 39:06.080
+ something like that could happen with consciousness.
+
+39:06.080 --> 39:07.600
+ Take it as a fundamental property,
+
+39:07.600 --> 39:10.120
+ like space, time, and mass.
+
+39:10.120 --> 39:13.760
+ And instead of trying to explain consciousness wholly
+
+39:13.760 --> 39:17.480
+ in terms of the evolution of space, time, and mass,
+
+39:17.480 --> 39:20.000
+ and so on, take it as a primitive
+
+39:20.000 --> 39:23.000
+ and then connect it to everything else
+
+39:23.000 --> 39:25.200
+ by some fundamental laws.
+
+39:25.200 --> 39:27.120
+ Because there's this basic problem
+
+39:27.120 --> 39:29.080
+ that the physics we have now looks great
+
+39:29.080 --> 39:31.800
+ for solving the easy problems of consciousness,
+
+39:31.800 --> 39:33.240
+ which are all about behavior.
+
+39:35.280 --> 39:37.440
+ They give us a complicated structure and dynamics.
+
+39:37.440 --> 39:39.640
+ They tell us how things are gonna behave,
+
+39:39.640 --> 39:43.160
+ what kind of observable behavior they'll produce,
+
+39:43.160 --> 39:46.400
+ which is great for the problems of explaining how we walk
+
+39:46.400 --> 39:48.600
+ and how we talk and so on.
+
+39:48.600 --> 39:50.640
+ Those are the easy problems of consciousness.
+
+39:50.640 --> 39:52.560
+ But the hard problem was this problem
+
+39:52.560 --> 39:55.360
+ about subjective experience just doesn't look
+
+39:55.360 --> 39:57.000
+ like that kind of problem about structure,
+
+39:57.000 --> 39:58.800
+ dynamics, how things behave.
+
+39:58.800 --> 40:01.320
+ So it's hard to see how existing physics
+
+40:01.320 --> 40:04.680
+ is gonna give you a full explanation of that.
+
+40:04.680 --> 40:08.000
+ Certainly trying to get a physics view of consciousness,
+
+40:08.000 --> 40:10.960
+ yes, there has to be a connecting point
+
+40:10.960 --> 40:12.600
+ and it could be at the very axiomatic
+
+40:12.600 --> 40:14.120
+ at the very beginning level.
+
+40:14.120 --> 40:19.120
+ But first of all, there's a crazy idea
+
+40:21.960 --> 40:25.760
+ that sort of everything has properties of consciousness.
+
+40:27.640 --> 40:30.080
+ At that point, the word consciousness
+
+40:30.080 --> 40:33.000
+ is already beyond the reach of our current understanding.
+
+40:33.000 --> 40:35.800
+ Like far, because it's so far from,
+
+40:35.800 --> 40:38.760
+ at least for me, maybe you can correct me,
+
+40:38.760 --> 40:43.760
+ as far from the experiences that I have as a human being.
+
+40:45.680 --> 40:47.360
+ To say that everything is conscious,
+
+40:47.360 --> 40:52.360
+ that means that basically another way to put that,
+
+40:52.840 --> 40:56.840
+ if that's true, then we understand almost nothing
+
+40:56.840 --> 41:00.120
+ about that fundamental aspect of the world.
+
+41:00.120 --> 41:02.760
+ How do you feel about saying an ant is conscious?
+
+41:02.760 --> 41:04.040
+ Do you get the same reaction to that
+
+41:04.040 --> 41:05.760
+ or is that something you can understand?
+
+41:05.760 --> 41:06.880
+ I can understand ant,
+
+41:06.880 --> 41:10.680
+ I can understand an atom, a particle.
+
+41:10.680 --> 41:12.120
+ Plants?
+
+41:12.120 --> 41:16.640
+ Plant, so I'm comfortable with living things on Earth
+
+41:16.640 --> 41:20.840
+ being conscious because there's some kind of agency
+
+41:22.040 --> 41:25.200
+ where they're similar size to me
+
+41:26.480 --> 41:30.800
+ and they can be born and they can die.
+
+41:30.800 --> 41:34.400
+ And that is understandable intuitively.
+
+41:34.400 --> 41:36.720
+ Of course, you anthropomorphize,
+
+41:36.720 --> 41:39.040
+ you put yourself in the place of the plant,
+
+41:41.720 --> 41:43.240
+ but I can understand it.
+
+41:43.240 --> 41:47.600
+ I mean, I'm not like, I don't believe actually
+
+41:47.600 --> 41:49.600
+ that plants are conscious or that plants suffer,
+
+41:49.600 --> 41:52.960
+ but I can understand that kind of belief, that kind of idea.
+
+41:52.960 --> 41:54.920
+ How do you feel about robots?
+
+41:54.920 --> 41:56.760
+ Like the kind of robots we have now?
+
+41:56.760 --> 41:58.880
+ If I told you like that a Roomba
+
+41:58.880 --> 42:00.400
+ had some degree of consciousness
+
+42:02.280 --> 42:06.120
+ or some deep neural network.
+
+42:06.120 --> 42:08.440
+ I could understand that a Roomba has consciousness.
+
+42:08.440 --> 42:10.640
+ I just had spent all day at I, robot.
+
+42:12.600 --> 42:15.200
+ And I mean, I personally love robots
+
+42:15.200 --> 42:16.960
+ and I have a deep connection with robots.
+
+42:16.960 --> 42:20.040
+ So I can, I also probably anthropomorphize them.
+
+42:20.040 --> 42:23.880
+ There's something about the physical object.
+
+42:23.880 --> 42:26.800
+ So there's a difference than a neural network,
+
+42:26.800 --> 42:28.960
+ a neural network running a software.
+
+42:28.960 --> 42:31.040
+ To me, the physical object,
+
+42:31.040 --> 42:32.680
+ something about the human experience
+
+42:32.680 --> 42:36.920
+ allows me to really see that physical object as an entity.
+
+42:36.920 --> 42:40.920
+ And if it moves and moves in a way that it,
+
+42:40.920 --> 42:43.440
+ there's a, like I didn't program it,
+
+42:44.400 --> 42:49.400
+ where it feels that it's acting based on its own perception.
+
+42:49.680 --> 42:53.440
+ And yes, self awareness and consciousness,
+
+42:53.440 --> 42:55.440
+ even if it's a Roomba,
+
+42:55.440 --> 43:00.440
+ then you start to assign it some agency, some consciousness.
+
+43:00.440 --> 43:03.800
+ So, but to say that panpsychism,
+
+43:03.800 --> 43:06.920
+ that consciousness is a fundamental property of reality
+
+43:08.440 --> 43:11.360
+ is a much bigger statement.
+
+43:11.360 --> 43:13.600
+ That it's like turtles all the way.
+
+43:13.600 --> 43:16.080
+ It's like every, it's, it doesn't end.
+
+43:16.080 --> 43:18.360
+ The whole thing is, so like how,
+
+43:18.360 --> 43:20.140
+ I know it's full of mystery,
+
+43:21.120 --> 43:23.880
+ but if you can linger on it,
+
+43:23.880 --> 43:27.600
+ like how would it, how do you think about reality
+
+43:27.600 --> 43:31.840
+ if consciousness is a fundamental part of its fabric?
+
+43:31.840 --> 43:33.300
+ The way you get there is from thinking,
+
+43:33.300 --> 43:36.520
+ can we explain consciousness given the existing fundamentals?
+
+43:36.520 --> 43:41.120
+ And then if you can't, as at least right now, it looks like,
+
+43:41.120 --> 43:42.320
+ then you've got to add something.
+
+43:42.320 --> 43:44.920
+ It doesn't follow that you have to add consciousness.
+
+43:44.920 --> 43:47.000
+ Here's another interesting possibility is,
+
+43:47.000 --> 43:48.020
+ well, we'll add something else.
+
+43:48.020 --> 43:51.640
+ Let's call it proto consciousness or X.
+
+43:51.640 --> 43:56.120
+ And then it turns out space, time, mass plus X
+
+43:56.120 --> 43:58.920
+ will somehow collectively give you the possibility
+
+43:58.920 --> 44:00.200
+ for consciousness.
+
+44:00.200 --> 44:01.780
+ Why don't rule out that view?
+
+44:01.780 --> 44:04.760
+ Either I call that pan proto psychism,
+
+44:04.760 --> 44:06.240
+ because maybe there's some other property,
+
+44:06.240 --> 44:08.880
+ proto consciousness at the bottom level.
+
+44:08.880 --> 44:10.480
+ And if you can't imagine there's actually
+
+44:10.480 --> 44:12.800
+ genuine consciousness at the bottom level,
+
+44:12.800 --> 44:14.100
+ I think we should be open to the idea
+
+44:14.100 --> 44:16.160
+ there's this other thing X.
+
+44:16.160 --> 44:19.960
+ Maybe we can't imagine that somehow gives you consciousness.
+
+44:19.960 --> 44:22.360
+ But if we are playing along with the idea
+
+44:22.360 --> 44:24.320
+ that there really is genuine consciousness
+
+44:24.320 --> 44:25.360
+ at the bottom level, of course,
+
+44:25.360 --> 44:28.280
+ this is going to be way out and speculative,
+
+44:28.280 --> 44:32.040
+ but at least in, say, if it was classical physics,
+
+44:32.040 --> 44:33.480
+ then we'd have to, you'd end up saying,
+
+44:33.480 --> 44:35.280
+ well, every little atom, every little,
+
+44:35.280 --> 44:37.640
+ with a bunch of particles in space time,
+
+44:37.640 --> 44:41.560
+ each of these particles has some kind of consciousness
+
+44:41.560 --> 44:44.560
+ whose structure mirrors maybe their physical properties,
+
+44:44.560 --> 44:49.080
+ like its mass, its charge, its velocity, and so on.
+
+44:49.080 --> 44:50.320
+ The structure of its consciousness
+
+44:50.320 --> 44:52.280
+ would roughly correspond to that.
+
+44:52.280 --> 44:55.440
+ And the physical interactions between particles,
+
+44:55.440 --> 44:58.280
+ I mean, there's this old worry about physics.
+
+44:58.280 --> 44:59.560
+ I mentioned this before in this issue
+
+44:59.560 --> 45:01.120
+ about the manifest image.
+
+45:01.120 --> 45:02.080
+ We don't really find out
+
+45:02.080 --> 45:04.560
+ about the intrinsic nature of things.
+
+45:04.560 --> 45:07.440
+ Physics tells us about how a particle relates
+
+45:07.440 --> 45:09.320
+ to other particles and interacts.
+
+45:09.320 --> 45:12.840
+ It doesn't tell us about what the particle is in itself.
+
+45:12.840 --> 45:14.600
+ That was Kant's thing in itself.
+
+45:14.600 --> 45:15.680
+ So here's a view.
+
+45:17.880 --> 45:20.840
+ The nature in itself of a particle is something mental.
+
+45:20.840 --> 45:22.840
+ A particle is actually a conscious,
+
+45:22.840 --> 45:24.520
+ a little conscious subject
+
+45:24.520 --> 45:27.320
+ with properties of its consciousness
+
+45:27.320 --> 45:29.160
+ that correspond to its physical properties.
+
+45:29.160 --> 45:32.640
+ The laws of physics are actually ultimately relating
+
+45:32.640 --> 45:34.560
+ these properties of conscious subjects.
+
+45:34.560 --> 45:36.640
+ So in this view, a Newtonian world
+
+45:36.640 --> 45:38.200
+ actually would be a vast collection
+
+45:38.200 --> 45:41.240
+ of little conscious subjects at the bottom level,
+
+45:41.240 --> 45:44.960
+ way, way simpler than we are without free will
+
+45:44.960 --> 45:47.280
+ or rationality or anything like that.
+
+45:47.280 --> 45:48.800
+ But that's what the universe would be like.
+
+45:48.800 --> 45:51.360
+ Now, of course, that's a vastly speculative view.
+
+45:51.360 --> 45:53.600
+ No particular reason to think it's correct.
+
+45:53.600 --> 45:56.480
+ Furthermore, non Newtonian physics,
+
+45:56.480 --> 45:58.960
+ say quantum mechanical wave function,
+
+45:58.960 --> 46:00.120
+ suddenly it starts to look different.
+
+46:00.120 --> 46:02.600
+ It's not a vast collection of conscious subjects.
+
+46:02.600 --> 46:05.360
+ Maybe there's ultimately one big wave function
+
+46:05.360 --> 46:06.760
+ for the whole universe.
+
+46:06.760 --> 46:08.440
+ Corresponding to that might be something more
+
+46:08.440 --> 46:12.280
+ like a single conscious mind
+
+46:12.280 --> 46:13.840
+ whose structure corresponds
+
+46:13.840 --> 46:16.280
+ to the structure of the wave function.
+
+46:16.280 --> 46:19.160
+ People sometimes call this cosmo psychism.
+
+46:19.160 --> 46:20.880
+ And now, of course, we're in the realm
+
+46:20.880 --> 46:23.200
+ of extremely speculative philosophy.
+
+46:23.200 --> 46:25.160
+ There's no direct evidence for this,
+
+46:25.160 --> 46:27.320
+ but yeah, but if you want a picture
+
+46:27.320 --> 46:29.280
+ of what that universe would be like,
+
+46:29.280 --> 46:31.680
+ think, yeah, giant cosmic mind
+
+46:31.680 --> 46:33.920
+ with enough richness and structure among it
+
+46:33.920 --> 46:36.520
+ to replicate all the structure of physics.
+
+46:36.520 --> 46:39.720
+ I think therefore I am at the level of particles
+
+46:39.720 --> 46:40.960
+ and with quantum mechanics
+
+46:40.960 --> 46:42.640
+ at the level of the wave function.
+
+46:42.640 --> 46:47.640
+ It's kind of an exciting, beautiful possibility,
+
+46:49.440 --> 46:51.960
+ of course, way out of reach of physics currently.
+
+46:51.960 --> 46:55.040
+ It is interesting that some neuroscientists
+
+46:55.040 --> 46:58.680
+ are beginning to take panpsychism seriously,
+
+46:58.680 --> 47:02.880
+ that you find consciousness even in very simple systems.
+
+47:02.880 --> 47:05.560
+ So for example, the integrated information theory
+
+47:05.560 --> 47:07.360
+ of consciousness, a lot of neuroscientists
+
+47:07.360 --> 47:08.200
+ are taking seriously.
+
+47:08.200 --> 47:09.920
+ Actually, I just got this new book
+
+47:09.920 --> 47:11.720
+ by Christoph Koch just came in,
+
+47:11.720 --> 47:13.680
+ The Feeling of Life Itself,
+
+47:13.680 --> 47:17.200
+ why consciousness is widespread, but can't be computed.
+
+47:17.200 --> 47:20.560
+ He likes, he basically endorses a panpsychist view
+
+47:20.560 --> 47:22.280
+ where you get consciousness
+
+47:22.280 --> 47:24.520
+ with the degree of information processing
+
+47:24.520 --> 47:26.960
+ or integrated information processing in a simple,
+
+47:26.960 --> 47:29.520
+ in a system and even very, very simple systems,
+
+47:29.520 --> 47:32.720
+ like a couple of particles will have some degree of this.
+
+47:32.720 --> 47:35.240
+ So he ends up with some degree of consciousness
+
+47:35.240 --> 47:36.080
+ in all matter.
+
+47:36.080 --> 47:38.680
+ And the claim is that this theory
+
+47:38.680 --> 47:40.520
+ can actually explain a bunch of stuff
+
+47:40.520 --> 47:43.600
+ about the connection between the brain and consciousness.
+
+47:43.600 --> 47:45.360
+ Now, that's very controversial.
+
+47:45.360 --> 47:46.920
+ I think it's very, very early days
+
+47:46.920 --> 47:48.120
+ in the science of consciousness.
+
+47:48.120 --> 47:50.840
+ It's interesting that it's not just philosophy
+
+47:50.840 --> 47:52.680
+ that might lead you in this direction,
+
+47:52.680 --> 47:55.280
+ but there are ways of thinking quasi scientifically
+
+47:55.280 --> 47:56.480
+ that lead you there too.
+
+47:57.400 --> 48:01.200
+ But maybe it's different than panpsychism.
+
+48:01.200 --> 48:02.040
+ What do you think?
+
+48:02.040 --> 48:06.960
+ So Alan Watts has this quote that I'd like to ask you about.
+
+48:06.960 --> 48:10.440
+ The quote is, through our eyes,
+
+48:10.440 --> 48:12.760
+ the universe is perceiving itself.
+
+48:12.760 --> 48:14.640
+ Through our ears, the universe is listening
+
+48:14.640 --> 48:16.120
+ to its harmonies.
+
+48:16.120 --> 48:18.040
+ We are the witnesses through which the universe
+
+48:18.040 --> 48:21.400
+ becomes conscious of its glory, of its magnificence.
+
+48:22.440 --> 48:24.800
+ So that's not panpsychism.
+
+48:24.800 --> 48:29.800
+ Do you think that we are essentially the tools,
+
+48:30.480 --> 48:35.480
+ the senses the universe created to be conscious of itself?
+
+48:35.480 --> 48:37.520
+ It's an interesting idea.
+
+48:37.520 --> 48:40.520
+ Of course, if you went for the giant cosmic mind view,
+
+48:40.520 --> 48:43.360
+ then the universe was conscious all along.
+
+48:43.360 --> 48:44.200
+ It didn't need us.
+
+48:44.200 --> 48:48.120
+ We're just little components of the universal consciousness.
+
+48:48.120 --> 48:50.800
+ Likewise, if you believe in panpsychism,
+
+48:50.800 --> 48:52.840
+ then there was some little degree of consciousness
+
+48:52.840 --> 48:54.680
+ at the bottom level all along.
+
+48:54.680 --> 48:58.240
+ And we were just a more complex form of consciousness.
+
+48:58.240 --> 49:02.040
+ So I think maybe the quote you mentioned works better.
+
+49:02.040 --> 49:05.120
+ If you're not a panpsychist, you're not a cosmo psychist,
+
+49:05.120 --> 49:07.240
+ you think consciousness just exists
+
+49:07.240 --> 49:09.360
+ at this intermediate level.
+
+49:09.360 --> 49:12.320
+ And of course, that's the Orthodox view.
+
+49:12.320 --> 49:14.680
+ That you would say is the common view?
+
+49:14.680 --> 49:19.680
+ So is your own view with panpsychism a rare view?
+
+49:19.880 --> 49:22.160
+ I think it's generally regarded certainly
+
+49:22.160 --> 49:26.480
+ as a speculative view held by a fairly small minority
+
+49:26.480 --> 49:30.000
+ of at least theorists, most philosophers
+
+49:30.000 --> 49:33.040
+ and most scientists who think about consciousness
+
+49:33.040 --> 49:34.600
+ are not panpsychists.
+
+49:34.600 --> 49:36.240
+ There's been a bit of a movement in that direction
+
+49:36.240 --> 49:37.920
+ the last 10 years or so.
+
+49:37.920 --> 49:38.960
+ It seems to be quite popular,
+
+49:38.960 --> 49:41.600
+ especially among the younger generation,
+
+49:41.600 --> 49:43.960
+ but it's still very definitely a minority view.
+
+49:43.960 --> 49:47.120
+ Many people think it's totally batshit crazy
+
+49:47.120 --> 49:48.320
+ to use the technical term.
+
+49:48.320 --> 49:51.360
+ But the philosophical term.
+
+49:51.360 --> 49:53.400
+ So the Orthodox view, I think is still consciousness
+
+49:53.400 --> 49:55.160
+ is something that humans have
+
+49:55.160 --> 49:59.000
+ and some good number of nonhuman animals have,
+
+49:59.000 --> 50:02.720
+ and maybe AIs might have one day, but it's restricted.
+
+50:02.720 --> 50:04.400
+ On that view, then there was no consciousness
+
+50:04.400 --> 50:05.840
+ at the start of the universe.
+
+50:05.840 --> 50:07.200
+ There may be none at the end,
+
+50:07.200 --> 50:09.920
+ but it is this thing which happened at some point
+
+50:09.920 --> 50:13.160
+ in the history of the universe, consciousness developed.
+
+50:13.160 --> 50:17.440
+ And yes, that's a very amazing event on this view
+
+50:17.440 --> 50:20.280
+ because many people are inclined to think consciousness
+
+50:20.280 --> 50:23.160
+ is what somehow gives meaning to our lives.
+
+50:23.160 --> 50:25.760
+ Without consciousness, there'd be no meaning,
+
+50:25.760 --> 50:29.720
+ no true value, no good versus bad and so on.
+
+50:29.720 --> 50:32.200
+ So with the advent of consciousness,
+
+50:32.200 --> 50:36.000
+ suddenly the universe went from meaningless
+
+50:36.000 --> 50:38.760
+ to somehow meaningful.
+
+50:38.760 --> 50:39.840
+ Why did this happen?
+
+50:39.840 --> 50:42.200
+ I guess the quote you mentioned was somehow,
+
+50:42.200 --> 50:44.360
+ this was somehow destined to happen
+
+50:44.360 --> 50:47.360
+ because the universe needed to have consciousness
+
+50:47.360 --> 50:49.280
+ within it to have value and have meaning.
+
+50:49.280 --> 50:52.680
+ And maybe you could combine that with a theistic view
+
+50:52.680 --> 50:54.640
+ or a teleological view.
+
+50:54.640 --> 50:58.440
+ The universe was inexorably evolving towards consciousness.
+
+50:58.440 --> 51:01.440
+ Actually, my colleague here at NYU, Tom Nagel,
+
+51:01.440 --> 51:04.200
+ wrote a book called Mind and Cosmos a few years ago
+
+51:04.200 --> 51:06.080
+ where he argued for this teleological view
+
+51:06.080 --> 51:09.040
+ of evolution toward consciousness,
+
+51:09.040 --> 51:12.640
+ saying this led the problems for Darwinism.
+
+51:12.640 --> 51:15.120
+ It's got him on, this is very, very controversial.
+
+51:15.120 --> 51:16.640
+ Most people didn't agree.
+
+51:16.640 --> 51:20.080
+ I don't myself agree with this teleological view,
+
+51:20.080 --> 51:24.120
+ but it is at least a beautiful speculative view
+
+51:24.120 --> 51:26.160
+ of the cosmos.
+
+51:26.160 --> 51:30.640
+ What do you think people experience?
+
+51:30.640 --> 51:32.920
+ What do they seek when they believe in God
+
+51:32.920 --> 51:34.720
+ from this kind of perspective?
+
+51:36.200 --> 51:41.200
+ I'm not an expert on thinking about God and religion.
+
+51:41.440 --> 51:43.880
+ I'm not myself religious at all.
+
+51:43.880 --> 51:46.720
+ When people sort of pray, communicate with God,
+
+51:46.720 --> 51:48.120
+ which whatever form,
+
+51:48.120 --> 51:51.640
+ I'm not speaking to sort of the practices
+
+51:51.640 --> 51:53.800
+ and the rituals of religion.
+
+51:53.800 --> 51:56.960
+ I mean the actual experience of that people
+
+51:56.960 --> 52:00.920
+ really have a deep connection with God in some cases.
+
+52:00.920 --> 52:05.920
+ What do you think that experience is?
+
+52:06.280 --> 52:08.680
+ It's so common, at least throughout the history
+
+52:08.680 --> 52:13.680
+ of civilization, that it seems like we seek that.
+
+52:16.360 --> 52:17.960
+ At the very least, it is an interesting
+
+52:17.960 --> 52:19.600
+ conscious experience that people have
+
+52:19.600 --> 52:24.600
+ when they experience religious awe or prayer and so on.
+
+52:24.600 --> 52:27.200
+ Neuroscientists have tried to examine
+
+52:27.200 --> 52:30.160
+ what bits of the brain are active and so on.
+
+52:30.160 --> 52:32.120
+ But yeah, there's this deeper question
+
+52:32.120 --> 52:34.800
+ of what are people looking for when they're doing this?
+
+52:34.800 --> 52:38.440
+ And like I said, I've got no real expertise on this,
+
+52:38.440 --> 52:40.920
+ but it does seem that one thing people are after
+
+52:40.920 --> 52:43.240
+ is a sense of meaning and value,
+
+52:43.240 --> 52:48.160
+ a sense of connection to something greater than themselves
+
+52:48.160 --> 52:50.280
+ that will give their lives meaning and value.
+
+52:50.280 --> 52:52.600
+ And maybe the thought is if there is a God,
+
+52:52.600 --> 52:56.120
+ then God somehow is a universal consciousness
+
+52:56.120 --> 53:00.000
+ who has invested this universe with meaning
+
+53:01.080 --> 53:05.680
+ and somehow connection to God might give your life meaning.
+
+53:05.680 --> 53:09.840
+ I guess I can kind of see the attractions of that,
+
+53:09.840 --> 53:13.000
+ but it still makes me wonder why is it exactly
+
+53:13.000 --> 53:15.920
+ that a universal consciousness, God,
+
+53:15.920 --> 53:18.480
+ would be needed to give the world meaning?
+
+53:18.480 --> 53:21.760
+ If universal consciousness can give the world meaning,
+
+53:21.760 --> 53:25.280
+ why can't local consciousness give the world meaning too?
+
+53:25.280 --> 53:28.480
+ So I think my consciousness gives my world meaning.
+
+53:28.480 --> 53:31.080
+ Is the origin of meaning for your world.
+
+53:31.080 --> 53:33.840
+ Yeah, I experience things as good or bad,
+
+53:33.840 --> 53:37.480
+ happy, sad, interesting, important.
+
+53:37.480 --> 53:40.560
+ So my consciousness invests this world with meaning.
+
+53:40.560 --> 53:42.160
+ Without any consciousness,
+
+53:42.160 --> 53:45.320
+ maybe it would be a bleak, meaningless universe.
+
+53:45.320 --> 53:47.680
+ But I don't see why I need someone else's consciousness
+
+53:47.680 --> 53:51.480
+ or even God's consciousness to give this universe meaning.
+
+53:51.480 --> 53:53.160
+ Here we are, local creatures
+
+53:53.160 --> 53:55.160
+ with our own subjective experiences.
+
+53:55.160 --> 53:58.920
+ I think we can give the universe meaning ourselves.
+
+53:58.920 --> 54:02.000
+ I mean, maybe to some people that feels inadequate.
+
+54:02.000 --> 54:04.920
+ Our own local consciousness is somehow too puny
+
+54:04.920 --> 54:07.320
+ and insignificant to invest any of this
+
+54:07.320 --> 54:09.320
+ with cosmic significance.
+
+54:09.320 --> 54:13.680
+ And maybe God gives you a sense of cosmic significance,
+
+54:13.680 --> 54:15.720
+ but I'm just speculating here.
+
+54:15.720 --> 54:19.280
+ So it's a really interesting idea
+
+54:19.280 --> 54:23.560
+ that consciousness is the thing that makes life meaningful.
+
+54:24.800 --> 54:29.800
+ If you could maybe just briefly explore that for a second.
+
+54:30.400 --> 54:33.760
+ So I suspect just from listening to you now,
+
+54:33.760 --> 54:37.400
+ you mean in an almost trivial sense,
+
+54:37.400 --> 54:42.320
+ just the day to day experiences of life have,
+
+54:42.320 --> 54:46.920
+ because of you attach identity to it,
+
+54:46.920 --> 54:51.920
+ they become, I guess I wanna ask something
+
+54:54.600 --> 54:57.120
+ I would always wanted to ask
+
+54:57.120 --> 55:01.920
+ a legit world renowned philosopher.
+
+55:01.920 --> 55:03.440
+ What is the meaning of life?
+
+55:05.200 --> 55:08.080
+ So I suspect you don't mean consciousness gives
+
+55:08.080 --> 55:11.280
+ any kind of greater meaning to it all.
+
+55:11.280 --> 55:13.360
+ And more to day to day.
+
+55:13.360 --> 55:16.240
+ But is there a greater meaning to it all?
+
+55:16.240 --> 55:20.920
+ I think life has meaning for us because we are conscious.
+
+55:20.920 --> 55:24.120
+ So without consciousness, no meaning,
+
+55:24.120 --> 55:27.280
+ consciousness invests our life with meaning.
+
+55:27.280 --> 55:30.680
+ So consciousness is the source of the meaning of life,
+
+55:30.680 --> 55:33.320
+ but I wouldn't say consciousness itself
+
+55:33.320 --> 55:34.760
+ is the meaning of life.
+
+55:34.760 --> 55:36.960
+ I'd say what's meaningful in life
+
+55:36.960 --> 55:40.000
+ is basically what we find meaningful,
+
+55:40.000 --> 55:42.640
+ what we experience as meaningful.
+
+55:42.640 --> 55:46.280
+ So if you find meaning and fulfillment and value
+
+55:46.280 --> 55:49.080
+ in say, intellectual work, like understanding,
+
+55:49.080 --> 55:51.720
+ then that's a very significant part
+
+55:51.720 --> 55:53.200
+ of the meaning of life for you.
+
+55:53.200 --> 55:55.680
+ If you find that in social connections
+
+55:55.680 --> 55:57.400
+ or in raising a family,
+
+55:57.400 --> 55:58.960
+ then that's the meaning of life for you.
+
+55:58.960 --> 56:02.080
+ The meaning kind of comes from what you value
+
+56:02.080 --> 56:04.040
+ as a conscious creature.
+
+56:04.040 --> 56:05.280
+ So I think there's no, on this view,
+
+56:05.280 --> 56:07.480
+ there's no universal solution.
+
+56:08.640 --> 56:10.160
+ No universal answer to the question,
+
+56:10.160 --> 56:11.480
+ what is the meaning of life?
+
+56:11.480 --> 56:13.520
+ The meaning of life is where you find it
+
+56:13.520 --> 56:14.600
+ as a conscious creature,
+
+56:14.600 --> 56:18.040
+ but it's consciousness that somehow makes value possible.
+
+56:18.040 --> 56:21.000
+ Experiencing some things as good or as bad
+
+56:21.000 --> 56:22.840
+ or as meaningful,
+
+56:22.840 --> 56:24.600
+ something comes from within consciousness.
+
+56:24.600 --> 56:28.760
+ So you think consciousness is a crucial component,
+
+56:28.760 --> 56:33.520
+ ingredient of assigning value to things?
+
+56:33.520 --> 56:36.080
+ I mean, it's kind of a fairly strong intuition
+
+56:36.080 --> 56:37.520
+ that without consciousness,
+
+56:37.520 --> 56:39.920
+ there wouldn't really be any value
+
+56:39.920 --> 56:44.600
+ if we just had a purely universe of unconscious creatures.
+
+56:44.600 --> 56:47.680
+ Would anything be better or worse than anything else?
+
+56:47.680 --> 56:50.320
+ Certainly when it comes to ethical dilemmas,
+
+56:50.320 --> 56:53.160
+ you know about the old trolley problem.
+
+56:53.160 --> 56:56.240
+ Do you kill one person
+
+56:56.240 --> 56:59.600
+ or do you switch to the other track to kill five?
+
+56:59.600 --> 57:01.680
+ Well, I've got a variant on this,
+
+57:01.680 --> 57:03.440
+ the zombie trolley problem,
+
+57:03.440 --> 57:06.720
+ where there's a one conscious being on one track
+
+57:06.720 --> 57:09.120
+ and five humanoid zombies.
+
+57:09.120 --> 57:12.880
+ Let's make them robots who are not conscious
+
+57:12.880 --> 57:15.520
+ on the other track.
+
+57:15.520 --> 57:16.640
+ Do you, given that choice,
+
+57:16.640 --> 57:17.920
+ do you kill the one conscious being
+
+57:17.920 --> 57:21.040
+ or the five unconscious robots?
+
+57:21.040 --> 57:23.360
+ Most people have a fairly clear intuition here.
+
+57:23.360 --> 57:25.560
+ Kill the unconscious beings
+
+57:25.560 --> 57:28.720
+ because they basically, they don't have a meaningful life.
+
+57:28.720 --> 57:33.720
+ They're not really persons, conscious beings at all.
+
+57:33.760 --> 57:36.640
+ We don't have good intuition
+
+57:36.640 --> 57:41.640
+ about something like an unconscious being.
+
+57:42.040 --> 57:46.720
+ So in philosophical terms, you referred to as a zombie.
+
+57:46.720 --> 57:51.120
+ It's a useful thought experiment construction
+
+57:51.120 --> 57:54.920
+ in philosophical terms, but we don't yet have them.
+
+57:55.880 --> 58:00.240
+ So that's kind of what we may be able to create with robots.
+
+58:00.240 --> 58:05.240
+ And I don't necessarily know what that even means.
+
+58:05.240 --> 58:07.280
+ Yeah, they're merely hypothetical.
+
+58:07.280 --> 58:09.640
+ For now, they're just a thought experiment.
+
+58:09.640 --> 58:11.040
+ They may never be possible.
+
+58:11.040 --> 58:13.480
+ I mean, the extreme case of a zombie
+
+58:13.480 --> 58:16.400
+ is a being which is physically, functionally,
+
+58:16.400 --> 58:19.520
+ behaviorally identical to me, but not conscious.
+
+58:19.520 --> 58:20.560
+ That's a mere,
+
+58:20.560 --> 58:23.520
+ I don't think that could ever be built in this universe.
+
+58:23.520 --> 58:24.840
+ The question is just could we,
+
+58:24.840 --> 58:27.000
+ does that hypothetically make sense?
+
+58:27.000 --> 58:29.360
+ That's kind of a useful contrast class
+
+58:29.360 --> 58:31.800
+ to raise questions like, why aren't we zombies?
+
+58:31.800 --> 58:33.840
+ How does it come about that we're conscious?
+
+58:33.840 --> 58:34.960
+ And we're not like that.
+
+58:34.960 --> 58:38.640
+ But there are less extreme versions of this like robots,
+
+58:38.640 --> 58:41.560
+ which are maybe not physically identical to us,
+
+58:41.560 --> 58:43.360
+ maybe not even functionally identical to us.
+
+58:43.360 --> 58:45.360
+ Maybe they've got a different architecture,
+
+58:45.360 --> 58:47.720
+ but they can do a lot of sophisticated things,
+
+58:47.720 --> 58:51.160
+ maybe carry on a conversation, but they're not conscious.
+
+58:51.160 --> 58:52.160
+ And that's not so far out.
+
+58:52.160 --> 58:54.920
+ We've got simple computer systems,
+
+58:54.920 --> 58:57.400
+ at least tending in that direction now.
+
+58:57.400 --> 59:01.120
+ And presumably this is gonna get more and more sophisticated
+
+59:01.120 --> 59:05.320
+ over years to come where we may have some pretty,
+
+59:05.320 --> 59:07.240
+ it's at least quite straightforward to conceive
+
+59:07.240 --> 59:11.160
+ of some pretty sophisticated robot systems
+
+59:11.160 --> 59:14.800
+ that can use language and be fairly high functioning
+
+59:14.800 --> 59:16.400
+ without consciousness at all.
+
+59:16.400 --> 59:17.800
+ Then I stipulate that.
+
+59:17.800 --> 59:21.600
+ I mean, we've caused, there's this tricky question
+
+59:21.600 --> 59:23.680
+ of how you would know whether they're conscious.
+
+59:23.680 --> 59:25.000
+ But let's say we've somehow solved that.
+
+59:25.000 --> 59:27.120
+ And we know that these high functioning robots
+
+59:27.120 --> 59:27.960
+ aren't conscious.
+
+59:27.960 --> 59:30.240
+ Then the question is, do they have moral status?
+
+59:30.240 --> 59:31.840
+ Does it matter how we treat them?
+
+59:33.480 --> 59:35.760
+ What does moral status mean, sir?
+
+59:35.760 --> 59:37.160
+ Basically it's that question.
+
+59:37.160 --> 59:38.480
+ Can they suffer?
+
+59:38.480 --> 59:41.040
+ Does it matter how we treat them?
+
+59:41.040 --> 59:46.040
+ For example, if I mistreat this glass, this cup
+
+59:46.040 --> 59:49.760
+ by shattering it, then that's bad.
+
+59:49.760 --> 59:50.600
+ Why is it bad though?
+
+59:50.600 --> 59:51.440
+ It's gonna make a mess.
+
+59:51.440 --> 59:53.600
+ It's gonna be annoying for me and my partner.
+
+59:53.600 --> 59:55.920
+ And so it's not bad for the cup.
+
+59:55.920 --> 59:59.560
+ No one would say the cup itself has moral status.
+
+59:59.560 --> 1:00:04.560
+ Hey, you hurt the cup and that's doing it a moral harm.
+
+1:00:07.680 --> 1:00:09.880
+ Likewise, plants, well, again, if they're not conscious,
+
+1:00:09.880 --> 1:00:11.960
+ most people think by uprooting a plant,
+
+1:00:11.960 --> 1:00:13.520
+ you're not harming it.
+
+1:00:13.520 --> 1:00:16.160
+ But if a being is conscious on the other hand,
+
+1:00:16.160 --> 1:00:17.200
+ then you are harming it.
+
+1:00:17.200 --> 1:00:22.200
+ So Siri, or I dare not say the name of Alexa.
+
+1:00:24.960 --> 1:00:28.600
+ Anyway, so we don't think we're morally harming Alexa
+
+1:00:28.600 --> 1:00:30.440
+ by turning her off or disconnecting her
+
+1:00:30.440 --> 1:00:34.080
+ or even destroying her, whether it's the system
+
+1:00:34.080 --> 1:00:36.160
+ or the underlying software system,
+
+1:00:36.160 --> 1:00:39.040
+ because we don't really think she's conscious.
+
+1:00:39.040 --> 1:00:42.400
+ On the other hand, you move to like the disembodied being
+
+1:00:42.400 --> 1:00:45.520
+ in the movie, her, Samantha,
+
+1:00:45.520 --> 1:00:47.480
+ I guess she was kind of presented as conscious.
+
+1:00:47.480 --> 1:00:49.760
+ And then if you destroyed her,
+
+1:00:49.760 --> 1:00:51.760
+ you'd certainly be committing a serious harm.
+
+1:00:51.760 --> 1:00:55.200
+ So I think our strong sense is if a being is conscious
+
+1:00:55.200 --> 1:00:57.440
+ and can undergo subjective experiences,
+
+1:00:57.440 --> 1:01:00.360
+ then it matters morally how we treat them.
+
+1:01:00.360 --> 1:01:03.040
+ So if a robot is conscious, it matters,
+
+1:01:03.040 --> 1:01:05.360
+ but if a robot is not conscious,
+
+1:01:05.360 --> 1:01:07.160
+ then they're basically just meat or a machine
+
+1:01:07.160 --> 1:01:10.360
+ and it doesn't matter.
+
+1:01:10.360 --> 1:01:13.000
+ So I think at least maybe how we think about this stuff
+
+1:01:13.000 --> 1:01:13.960
+ is fundamentally wrong,
+
+1:01:13.960 --> 1:01:15.480
+ but I think a lot of people
+
+1:01:15.480 --> 1:01:17.200
+ who think about this stuff seriously,
+
+1:01:17.200 --> 1:01:18.320
+ including people who think about,
+
+1:01:18.320 --> 1:01:20.800
+ say the moral treatment of animals and so on,
+
+1:01:20.800 --> 1:01:23.360
+ come to the view that consciousness
+
+1:01:23.360 --> 1:01:25.760
+ is ultimately kind of the line between systems
+
+1:01:25.760 --> 1:01:29.320
+ that where we have to take them into account
+
+1:01:29.320 --> 1:01:32.240
+ and thinking morally about how we act
+
+1:01:32.240 --> 1:01:34.440
+ and systems for which we don't.
+
+1:01:34.440 --> 1:01:38.560
+ And I think I've seen you the writer talk about
+
+1:01:38.560 --> 1:01:41.800
+ the demonstration of consciousness from a system like that,
+
+1:01:41.800 --> 1:01:46.800
+ from a system like Alexa or a conversational agent
+
+1:01:48.120 --> 1:01:51.160
+ that what you would be looking for
+
+1:01:51.160 --> 1:01:54.600
+ is kind of at the very basic level
+
+1:01:54.600 --> 1:01:58.160
+ for the system to have an awareness
+
+1:01:58.160 --> 1:02:00.440
+ that I'm just a program
+
+1:02:00.440 --> 1:02:03.880
+ and yet, why do I experience this?
+
+1:02:03.880 --> 1:02:06.160
+ Or not to have that experience,
+
+1:02:06.160 --> 1:02:08.000
+ but to communicate that to you.
+
+1:02:08.000 --> 1:02:10.680
+ So that's what us humans would sound like.
+
+1:02:10.680 --> 1:02:13.000
+ If you all of a sudden woke up one day,
+
+1:02:13.000 --> 1:02:15.600
+ like Kafka, right, in a body of a bug or something,
+
+1:02:15.600 --> 1:02:18.320
+ but in a computer, you all of a sudden realized
+
+1:02:18.320 --> 1:02:19.720
+ you don't have a body
+
+1:02:19.720 --> 1:02:22.480
+ and yet you were feeling what you were feeling,
+
+1:02:22.480 --> 1:02:25.080
+ you would probably say those kinds of things.
+
+1:02:25.920 --> 1:02:29.520
+ So do you think a system essentially becomes conscious
+
+1:02:29.520 --> 1:02:33.080
+ by convincing us that it's conscious
+
+1:02:34.400 --> 1:02:36.200
+ through the words that I just mentioned?
+
+1:02:36.200 --> 1:02:40.080
+ So by being confused about the fact
+
+1:02:40.080 --> 1:02:45.000
+ that why am I having these experiences?
+
+1:02:45.000 --> 1:02:45.840
+ So basically.
+
+1:02:45.840 --> 1:02:48.080
+ I don't think this is what makes you conscious,
+
+1:02:48.080 --> 1:02:50.240
+ but I do think being puzzled about consciousness
+
+1:02:50.240 --> 1:02:53.280
+ is a very good sign that a system is conscious.
+
+1:02:53.280 --> 1:02:55.600
+ So if I encountered a robot
+
+1:02:55.600 --> 1:02:58.640
+ that actually seemed to be genuinely puzzled
+
+1:02:58.640 --> 1:03:01.280
+ by its own mental states
+
+1:03:01.280 --> 1:03:04.000
+ and saying, yeah, I have all these weird experiences
+
+1:03:04.000 --> 1:03:06.320
+ and I don't see how to explain them.
+
+1:03:06.320 --> 1:03:08.720
+ I know I'm just a set of silicon circuits,
+
+1:03:08.720 --> 1:03:11.600
+ but I don't see how that would give you my consciousness.
+
+1:03:11.600 --> 1:03:13.840
+ I would at least take that as some evidence
+
+1:03:13.840 --> 1:03:16.720
+ that there's some consciousness going on there.
+
+1:03:16.720 --> 1:03:19.440
+ I don't think a system needs to be puzzled
+
+1:03:19.440 --> 1:03:21.760
+ about consciousness to be conscious.
+
+1:03:21.760 --> 1:03:24.000
+ Many people aren't puzzled by their consciousness.
+
+1:03:24.000 --> 1:03:26.320
+ Animals don't seem to be puzzled at all.
+
+1:03:26.320 --> 1:03:28.000
+ I still think they're conscious.
+
+1:03:28.000 --> 1:03:30.680
+ So I don't think that's a requirement on consciousness,
+
+1:03:30.680 --> 1:03:33.360
+ but I do think if we're looking for signs
+
+1:03:33.360 --> 1:03:37.000
+ for consciousness, say in AI systems,
+
+1:03:37.000 --> 1:03:39.120
+ one of the things that will help convince me
+
+1:03:39.120 --> 1:03:42.920
+ that an AI system is conscious is if it shows signs of,
+
+1:03:44.080 --> 1:03:47.360
+ if it shows signs of introspectively recognizing something
+
+1:03:47.360 --> 1:03:51.280
+ like consciousness and finding this philosophically puzzling
+
+1:03:51.280 --> 1:03:54.200
+ in the way that we do.
+
+1:03:54.200 --> 1:03:55.920
+ It's such an interesting thought, though,
+
+1:03:55.920 --> 1:03:57.920
+ because a lot of people sort of would,
+
+1:03:57.920 --> 1:04:02.160
+ at the Shao level, criticize the Turing test for language.
+
+1:04:02.160 --> 1:04:07.160
+ It's essentially what I heard Dan Dennett
+
+1:04:07.600 --> 1:04:09.800
+ criticize it in this kind of way,
+
+1:04:09.800 --> 1:04:13.280
+ which is it really puts a lot of emphasis on lying.
+
+1:04:13.280 --> 1:04:17.080
+ Yeah, and being able to imitate
+
+1:04:17.080 --> 1:04:20.480
+ human beings, yeah, there's this cartoon
+
+1:04:20.480 --> 1:04:23.240
+ of the AI system studying for the Turing test.
+
+1:04:23.240 --> 1:04:26.680
+ It's gotta read this book called Talk Like a Human.
+
+1:04:26.680 --> 1:04:28.360
+ It's like, man, why do I have to waste my time
+
+1:04:28.360 --> 1:04:30.480
+ learning how to imitate humans?
+
+1:04:30.480 --> 1:04:32.280
+ Maybe the AI system is gonna be way beyond
+
+1:04:32.280 --> 1:04:33.800
+ the hard problem of consciousness,
+
+1:04:33.800 --> 1:04:34.760
+ and it's gonna be just like,
+
+1:04:34.760 --> 1:04:36.400
+ why do I need to waste my time pretending
+
+1:04:36.400 --> 1:04:39.000
+ that I recognize the hard problem of consciousness
+
+1:04:40.120 --> 1:04:42.160
+ in order for people to recognize me as conscious?
+
+1:04:42.160 --> 1:04:45.000
+ Yeah, it just feels like, I guess the question is,
+
+1:04:45.000 --> 1:04:48.320
+ do you think we can ever really create
+
+1:04:48.320 --> 1:04:49.440
+ a test for consciousness?
+
+1:04:49.440 --> 1:04:53.920
+ Because it feels like we're very human centric,
+
+1:04:53.920 --> 1:04:57.600
+ and so the only way we would be convinced
+
+1:04:57.600 --> 1:05:00.880
+ that something is conscious is basically
+
+1:05:00.880 --> 1:05:05.520
+ the thing demonstrates the illusion of consciousness,
+
+1:05:06.440 --> 1:05:10.320
+ that we can never really know whether it's conscious or not,
+
+1:05:10.320 --> 1:05:14.800
+ and in fact, that almost feels like it doesn't matter then,
+
+1:05:14.800 --> 1:05:18.560
+ or does it still matter to you that something is conscious
+
+1:05:18.560 --> 1:05:20.720
+ or it demonstrates consciousness?
+
+1:05:20.720 --> 1:05:22.840
+ You still see that fundamental distinction.
+
+1:05:22.840 --> 1:05:24.880
+ I think to a lot of people,
+
+1:05:24.880 --> 1:05:27.400
+ whether a system is conscious or not
+
+1:05:27.400 --> 1:05:28.920
+ matters hugely for many things,
+
+1:05:28.920 --> 1:05:33.080
+ like how we treat it, can it suffer, and so on,
+
+1:05:33.080 --> 1:05:35.080
+ but still, that leaves open the question,
+
+1:05:35.080 --> 1:05:36.800
+ how can we ever know?
+
+1:05:36.800 --> 1:05:38.480
+ And it's true that it's awfully hard
+
+1:05:38.480 --> 1:05:40.600
+ to see how we can know for sure
+
+1:05:40.600 --> 1:05:42.360
+ whether a system is conscious.
+
+1:05:42.360 --> 1:05:44.880
+ I suspect that sociologically,
+
+1:05:44.880 --> 1:05:46.280
+ the thing that's gonna convince us
+
+1:05:46.280 --> 1:05:50.080
+ that a system is conscious is, in part,
+
+1:05:50.080 --> 1:05:53.880
+ things like social interaction, conversation, and so on,
+
+1:05:53.880 --> 1:05:56.040
+ where they seem to be conscious,
+
+1:05:56.040 --> 1:05:57.680
+ they talk about their conscious states
+
+1:05:57.680 --> 1:06:00.040
+ or just talk about being happy or sad
+
+1:06:00.040 --> 1:06:02.800
+ or finding things meaningful or being in pain.
+
+1:06:02.800 --> 1:06:06.640
+ That will tend to convince us if we don't,
+
+1:06:06.640 --> 1:06:08.360
+ if a system genuinely seems to be conscious,
+
+1:06:08.360 --> 1:06:10.000
+ we don't treat it as such,
+
+1:06:10.000 --> 1:06:11.960
+ eventually it's gonna seem like a strange form
+
+1:06:11.960 --> 1:06:14.720
+ of racism or speciesism or somehow,
+
+1:06:14.720 --> 1:06:16.320
+ not to acknowledge them as conscious.
+
+1:06:16.320 --> 1:06:17.760
+ I truly believe that, by the way.
+
+1:06:17.760 --> 1:06:20.440
+ I believe that there is going to be
+
+1:06:21.280 --> 1:06:23.240
+ something akin to the Civil Rights Movement,
+
+1:06:23.240 --> 1:06:24.720
+ but for robots.
+
+1:06:25.680 --> 1:06:30.000
+ I think the moment you have a Roomba say,
+
+1:06:30.000 --> 1:06:32.840
+ please don't kick me, that hurts, just say it.
+
+1:06:32.840 --> 1:06:33.840
+ Yeah.
+
+1:06:33.840 --> 1:06:37.440
+ I think that will fundamentally change
+
+1:06:37.440 --> 1:06:40.320
+ the fabric of our society.
+
+1:06:40.320 --> 1:06:41.160
+ I think you're probably right,
+
+1:06:41.160 --> 1:06:42.200
+ although it's gonna be very tricky
+
+1:06:42.200 --> 1:06:44.920
+ because, just say we've got the technology
+
+1:06:44.920 --> 1:06:47.240
+ where these conscious beings can just be created
+
+1:06:47.240 --> 1:06:51.820
+ and multiplied by the thousands by flicking a switch.
+
+1:06:54.280 --> 1:06:55.920
+ The legal status is gonna be different,
+
+1:06:55.920 --> 1:06:58.100
+ but ultimately their moral status ought to be the same,
+
+1:06:58.100 --> 1:07:02.880
+ and yeah, the civil rights issue is gonna be a huge mess.
+
+1:07:03.680 --> 1:07:06.680
+ So if one day somebody clones you,
+
+1:07:06.680 --> 1:07:10.520
+ another very real possibility.
+
+1:07:10.520 --> 1:07:13.760
+ In fact, I find the conversation between
+
+1:07:13.760 --> 1:07:18.760
+ two copies of David Chalmers quite interesting.
+
+1:07:21.400 --> 1:07:22.240
+ Very thought.
+
+1:07:22.240 --> 1:07:25.120
+ Who is this idiot?
+
+1:07:25.120 --> 1:07:26.520
+ He's not making any sense.
+
+1:07:26.520 --> 1:07:30.880
+ So what, do you think he would be conscious?
+
+1:07:32.320 --> 1:07:34.480
+ I do think he would be conscious.
+
+1:07:34.480 --> 1:07:35.760
+ I do think in some sense,
+
+1:07:35.760 --> 1:07:37.000
+ I'm not sure it would be me,
+
+1:07:37.000 --> 1:07:39.960
+ there would be two different beings at this point.
+
+1:07:39.960 --> 1:07:41.240
+ I think they'd both be conscious
+
+1:07:41.240 --> 1:07:45.800
+ and they both have many of the same mental properties.
+
+1:07:45.800 --> 1:07:49.400
+ I think they both in a way have the same moral status.
+
+1:07:49.400 --> 1:07:51.560
+ It'd be wrong to hurt either of them
+
+1:07:51.560 --> 1:07:54.560
+ or to kill them and so on.
+
+1:07:54.560 --> 1:07:55.960
+ Still, there's some sense in which probably
+
+1:07:55.960 --> 1:07:58.480
+ their legal status would have to be different.
+
+1:07:58.480 --> 1:08:01.600
+ If I'm the original and that one's just a clone,
+
+1:08:01.600 --> 1:08:03.280
+ then creating a clone of me,
+
+1:08:03.280 --> 1:08:05.000
+ presumably the clone doesn't, for example,
+
+1:08:05.000 --> 1:08:08.600
+ automatically own the stuff that I own
+
+1:08:08.600 --> 1:08:13.600
+ or I've got a certain connect,
+
+1:08:14.400 --> 1:08:16.400
+ the things that the people I interact with,
+
+1:08:16.400 --> 1:08:19.120
+ my family, my partner and so on,
+
+1:08:19.120 --> 1:08:21.120
+ I'm gonna somehow be connected to them
+
+1:08:21.120 --> 1:08:24.560
+ in a way in which the clone isn't, so.
+
+1:08:24.560 --> 1:08:26.400
+ Because you came slightly first?
+
+1:08:26.400 --> 1:08:27.240
+ Yeah.
+
+1:08:27.240 --> 1:08:30.040
+ Because a clone would argue that they have
+
+1:08:31.320 --> 1:08:33.680
+ really as much of a connection.
+
+1:08:33.680 --> 1:08:35.600
+ They have all the memories of that connection.
+
+1:08:35.600 --> 1:08:37.920
+ Then a way you might say it's kind of unfair
+
+1:08:37.920 --> 1:08:38.920
+ to discriminate against them,
+
+1:08:38.920 --> 1:08:40.080
+ but say you've got an apartment
+
+1:08:40.080 --> 1:08:41.440
+ that only one person can live in
+
+1:08:41.440 --> 1:08:44.000
+ or a partner who only one person can be with.
+
+1:08:44.000 --> 1:08:47.320
+ But why should it be you, the original?
+
+1:08:47.320 --> 1:08:49.080
+ It's an interesting philosophical question,
+
+1:08:49.080 --> 1:08:51.960
+ but you might say because I actually have this history,
+
+1:08:53.160 --> 1:08:56.880
+ if I am the same person as the one that came before
+
+1:08:56.880 --> 1:08:58.480
+ and the clone is not,
+
+1:08:58.480 --> 1:09:01.000
+ then I have this history that the clone doesn't.
+
+1:09:01.000 --> 1:09:03.880
+ Of course, there's also the question,
+
+1:09:03.880 --> 1:09:05.840
+ isn't the clone the same person too?
+
+1:09:05.840 --> 1:09:07.560
+ This is a question about personal identity.
+
+1:09:07.560 --> 1:09:10.720
+ If I continue and I create a clone over there,
+
+1:09:10.720 --> 1:09:14.120
+ I wanna say this one is me and this one is someone else.
+
+1:09:14.120 --> 1:09:17.960
+ But you could take the view that a clone is equally me.
+
+1:09:17.960 --> 1:09:20.120
+ Of course, in a movie like Star Trek
+
+1:09:20.120 --> 1:09:21.320
+ where they have a teletransporter
+
+1:09:21.320 --> 1:09:23.480
+ basically creates clones all the time.
+
+1:09:23.480 --> 1:09:25.960
+ They treat the clones as if they're the original person.
+
+1:09:25.960 --> 1:09:29.240
+ Of course, they destroy the original body in Star Trek.
+
+1:09:29.240 --> 1:09:31.000
+ So there's only one left around
+
+1:09:31.000 --> 1:09:32.720
+ and only very occasionally do things go wrong
+
+1:09:32.720 --> 1:09:34.680
+ and you get two copies of Captain Kirk.
+
+1:09:35.840 --> 1:09:37.800
+ But somehow our legal system at the very least
+
+1:09:37.800 --> 1:09:40.640
+ is gonna have to sort out some of these issues
+
+1:09:40.640 --> 1:09:42.200
+ and that maybe that's what's moral
+
+1:09:42.200 --> 1:09:45.920
+ and what's legally acceptable are gonna come apart.
+
+1:09:47.360 --> 1:09:50.720
+ What question would you ask a clone of yourself?
+
+1:09:52.160 --> 1:09:56.120
+ Is there something useful you can find out from him
+
+1:09:56.120 --> 1:10:00.600
+ about the fundamentals of consciousness even?
+
+1:10:00.600 --> 1:10:03.840
+ I mean, kind of in principle,
+
+1:10:03.840 --> 1:10:06.720
+ I know that if it's a perfect clone,
+
+1:10:06.720 --> 1:10:09.080
+ it's gonna behave just like me.
+
+1:10:09.080 --> 1:10:11.360
+ So I'm not sure I'm gonna be able to,
+
+1:10:11.360 --> 1:10:13.160
+ I can discover whether it's a perfect clone
+
+1:10:13.160 --> 1:10:15.240
+ by seeing whether it answers like me.
+
+1:10:15.240 --> 1:10:18.000
+ But otherwise I know what I'm gonna find is a being
+
+1:10:18.000 --> 1:10:19.440
+ which is just like me,
+
+1:10:19.440 --> 1:10:21.960
+ except that it's just undergone this great shock
+
+1:10:21.960 --> 1:10:24.480
+ of discovering that it's a clone.
+
+1:10:24.480 --> 1:10:26.520
+ So just say you woke me up tomorrow and said,
+
+1:10:26.520 --> 1:10:29.120
+ hey Dave, sorry to tell you this,
+
+1:10:29.120 --> 1:10:31.880
+ but you're actually the clone
+
+1:10:31.880 --> 1:10:34.280
+ and you provided me really convincing evidence,
+
+1:10:34.280 --> 1:10:36.920
+ showed me the film of my being cloned
+
+1:10:36.920 --> 1:10:41.360
+ and then all wrapped in here being here and waking up.
+
+1:10:41.360 --> 1:10:42.440
+ So you proved to me I'm a clone,
+
+1:10:42.440 --> 1:10:44.560
+ well, yeah, okay, I would find that shocking
+
+1:10:44.560 --> 1:10:46.480
+ and who knows how I would react to this.
+
+1:10:46.480 --> 1:10:48.640
+ So maybe by talking to the clone,
+
+1:10:48.640 --> 1:10:50.880
+ I'd find something about my own psychology
+
+1:10:50.880 --> 1:10:52.600
+ that I can't find out so easily,
+
+1:10:52.600 --> 1:10:55.440
+ like how I'd react upon discovering that I'm a clone.
+
+1:10:55.440 --> 1:10:57.840
+ I could certainly ask the clone if it's conscious
+
+1:10:57.840 --> 1:10:59.840
+ and what his consciousness is like and so on,
+
+1:10:59.840 --> 1:11:02.680
+ but I guess I kind of know if it's a perfect clone,
+
+1:11:02.680 --> 1:11:04.520
+ it's gonna behave roughly like me.
+
+1:11:04.520 --> 1:11:06.200
+ Of course, at the beginning,
+
+1:11:06.200 --> 1:11:07.040
+ there'll be a question
+
+1:11:07.040 --> 1:11:08.880
+ about whether a perfect clone is possible.
+
+1:11:08.880 --> 1:11:11.120
+ So I may wanna ask it lots of questions
+
+1:11:11.120 --> 1:11:12.400
+ to see if it's consciousness
+
+1:11:12.400 --> 1:11:14.600
+ and the way it talks about its consciousness
+
+1:11:14.600 --> 1:11:17.560
+ and the way it reacts to things in general is likely.
+
+1:11:17.560 --> 1:11:22.400
+ And that will occupy us for a while.
+
+1:11:22.400 --> 1:11:25.840
+ So basic unit testing on the early models.
+
+1:11:25.840 --> 1:11:28.520
+ So if it's a perfect clone,
+
+1:11:28.520 --> 1:11:30.760
+ you say that it's gonna behave exactly like you.
+
+1:11:30.760 --> 1:11:32.520
+ So that takes us to free will.
+
+1:11:35.640 --> 1:11:37.400
+ Is there free will?
+
+1:11:37.400 --> 1:11:41.440
+ Are we able to make decisions that are not predetermined
+
+1:11:41.440 --> 1:11:44.880
+ from the initial conditions of the universe?
+
+1:11:44.880 --> 1:11:46.680
+ You know, philosophers do this annoying thing
+
+1:11:46.680 --> 1:11:48.720
+ of saying it depends what you mean.
+
+1:11:48.720 --> 1:11:52.360
+ So in this case, yeah, it really depends on what you mean,
+
+1:11:52.360 --> 1:11:54.480
+ by free will.
+
+1:11:54.480 --> 1:11:58.680
+ If you mean something which was not determined in advance,
+
+1:11:58.680 --> 1:12:00.560
+ could never have been determined,
+
+1:12:00.560 --> 1:12:02.240
+ then I don't know we have free will.
+
+1:12:02.240 --> 1:12:03.640
+ I mean, there's quantum mechanics
+
+1:12:03.640 --> 1:12:06.160
+ and who's to say if that opens up some room,
+
+1:12:06.160 --> 1:12:09.560
+ but I'm not sure we have free will in that sense.
+
+1:12:09.560 --> 1:12:12.280
+ But I'm also not sure that's the kind of free will
+
+1:12:12.280 --> 1:12:13.840
+ that really matters.
+
+1:12:13.840 --> 1:12:15.720
+ You know, what matters to us
+
+1:12:15.720 --> 1:12:17.160
+ is being able to do what we want
+
+1:12:17.160 --> 1:12:19.800
+ and to create our own futures.
+
+1:12:19.800 --> 1:12:21.520
+ We've got this distinction between having our lives
+
+1:12:21.520 --> 1:12:26.520
+ be under our control and under someone else's control.
+
+1:12:26.680 --> 1:12:29.440
+ We've got the sense of actions that we are responsible for
+
+1:12:29.440 --> 1:12:31.160
+ versus ones that we're not.
+
+1:12:31.160 --> 1:12:33.760
+ I think you can make those distinctions
+
+1:12:33.760 --> 1:12:36.400
+ even in a deterministic universe.
+
+1:12:36.400 --> 1:12:38.280
+ And this is what people call the compatibilist view
+
+1:12:38.280 --> 1:12:41.240
+ of free will, where it's compatible with determinism.
+
+1:12:41.240 --> 1:12:42.880
+ So I think for many purposes,
+
+1:12:42.880 --> 1:12:45.520
+ the kind of free will that matters
+
+1:12:45.520 --> 1:12:48.080
+ is something we can have in a deterministic universe.
+
+1:12:48.080 --> 1:12:50.440
+ And I can't see any reason in principle
+
+1:12:50.440 --> 1:12:54.440
+ why an AI system couldn't have free will of that kind.
+
+1:12:54.440 --> 1:12:55.840
+ If you mean super duper free will,
+
+1:12:55.840 --> 1:12:57.720
+ the ability to violate the laws of physics
+
+1:12:57.720 --> 1:13:01.760
+ and doing things that in principle could not be predicted.
+
+1:13:01.760 --> 1:13:04.680
+ I don't know, maybe no one has that kind of free will.
+
+1:13:04.680 --> 1:13:09.680
+ What's the connection between the reality of free will
+
+1:13:10.040 --> 1:13:11.400
+ and the experience of it,
+
+1:13:11.400 --> 1:13:15.240
+ the subjective experience in your view?
+
+1:13:15.240 --> 1:13:17.000
+ So how does consciousness connect
+
+1:13:17.000 --> 1:13:22.000
+ to the reality and the experience of free will?
+
+1:13:22.240 --> 1:13:24.800
+ It's certainly true that when we make decisions
+
+1:13:24.800 --> 1:13:26.200
+ and when we choose and so on,
+
+1:13:26.200 --> 1:13:28.440
+ we feel like we have an open future.
+
+1:13:28.440 --> 1:13:32.440
+ Feel like I could do this, I could go into philosophy
+
+1:13:32.440 --> 1:13:36.080
+ or I could go into math, I could go to a movie tonight,
+
+1:13:36.080 --> 1:13:38.080
+ I could go to a restaurant.
+
+1:13:39.280 --> 1:13:42.600
+ So we experience these things as if the future is open.
+
+1:13:42.600 --> 1:13:44.520
+ And maybe we experience ourselves
+
+1:13:44.520 --> 1:13:49.520
+ as exerting a kind of effect on the future
+
+1:13:50.040 --> 1:13:51.680
+ that somehow picking out one path
+
+1:13:51.680 --> 1:13:54.200
+ from many paths were previously open.
+
+1:13:54.200 --> 1:13:56.080
+ And you might think that actually
+
+1:13:56.080 --> 1:13:58.080
+ if we're in a deterministic universe,
+
+1:13:58.080 --> 1:13:59.880
+ there's a sense of which objectively
+
+1:13:59.880 --> 1:14:03.720
+ those paths weren't really open all along,
+
+1:14:03.720 --> 1:14:05.800
+ but subjectively they were open.
+
+1:14:05.800 --> 1:14:07.320
+ And that's, I think that's what really matters
+
+1:14:07.320 --> 1:14:09.440
+ in making a decisions where our experience
+
+1:14:09.440 --> 1:14:14.320
+ of making a decision is choosing a path for ourselves.
+
+1:14:14.320 --> 1:14:18.120
+ I mean, in general, our introspective models of the mind,
+
+1:14:18.120 --> 1:14:20.600
+ I think are generally very distorted representations
+
+1:14:20.600 --> 1:14:21.600
+ of the mind.
+
+1:14:21.600 --> 1:14:24.200
+ So it may well be that our experience of ourself
+
+1:14:24.200 --> 1:14:27.600
+ in making a decision, our experience of what's going on
+
+1:14:27.600 --> 1:14:31.000
+ doesn't terribly well mirror what's going on.
+
+1:14:31.000 --> 1:14:33.160
+ I mean, maybe there are antecedents in the brain
+
+1:14:33.160 --> 1:14:35.200
+ way before anything came into consciousness
+
+1:14:37.760 --> 1:14:39.000
+ and so on.
+
+1:14:39.000 --> 1:14:41.720
+ Those aren't represented in our introspective model.
+
+1:14:41.720 --> 1:14:45.880
+ So in general, our experience of perception,
+
+1:14:46.960 --> 1:14:50.600
+ so I experience a perceptual image of the external world.
+
+1:14:50.600 --> 1:14:53.360
+ It's not a terribly good model of what's actually going on
+
+1:14:53.360 --> 1:14:55.640
+ in my visual cortex and so on,
+
+1:14:55.640 --> 1:14:57.080
+ which has all these layers and so on.
+
+1:14:57.080 --> 1:14:59.800
+ It's just one little snapshot of one bit of that.
+
+1:14:59.800 --> 1:15:02.440
+ So in general, introspective models
+
+1:15:02.440 --> 1:15:05.240
+ are very over oversimplified.
+
+1:15:05.240 --> 1:15:07.200
+ And it wouldn't be surprising
+
+1:15:07.200 --> 1:15:09.160
+ if that was true of free will as well.
+
+1:15:09.160 --> 1:15:12.640
+ This also incidentally can be applied to consciousness itself.
+
+1:15:12.640 --> 1:15:13.960
+ There is this very interesting view
+
+1:15:13.960 --> 1:15:17.520
+ that consciousness itself is an introspective illusion.
+
+1:15:17.520 --> 1:15:19.440
+ In fact, we're not conscious,
+
+1:15:19.440 --> 1:15:24.280
+ but the brain just has these introspective models of itself
+
+1:15:24.280 --> 1:15:27.160
+ or oversimplifies everything and represents itself
+
+1:15:27.160 --> 1:15:31.040
+ as having these special properties of consciousness.
+
+1:15:31.040 --> 1:15:33.840
+ It's a really simple way to kind of keep track of itself
+
+1:15:33.840 --> 1:15:34.680
+ and so on.
+
+1:15:34.680 --> 1:15:36.920
+ And then on the illusionist view,
+
+1:15:36.920 --> 1:15:39.880
+ yeah, that's just an illusion.
+
+1:15:39.880 --> 1:15:42.240
+ I find this view, when I find it implausible,
+
+1:15:42.240 --> 1:15:44.840
+ I do find it very attractive in some ways,
+
+1:15:44.840 --> 1:15:46.640
+ because it's easy to tell some story
+
+1:15:46.640 --> 1:15:50.120
+ about how the brain would create introspective models
+
+1:15:50.120 --> 1:15:53.120
+ of its own consciousness, of its own free will
+
+1:15:53.120 --> 1:15:55.480
+ as a way of simplifying itself.
+
+1:15:55.480 --> 1:15:57.680
+ I mean, it's a similar way when we perceive
+
+1:15:57.680 --> 1:16:00.040
+ the external world, we perceive it as having these colors
+
+1:16:00.040 --> 1:16:02.720
+ that maybe it doesn't really have,
+
+1:16:02.720 --> 1:16:04.280
+ but of course that's a really useful way
+
+1:16:04.280 --> 1:16:06.440
+ of keeping tracks, of keeping track.
+
+1:16:06.440 --> 1:16:08.960
+ Did you say that you find it not very plausible?
+
+1:16:08.960 --> 1:16:11.880
+ Because I find it both plausible
+
+1:16:11.880 --> 1:16:14.120
+ and attractive in some sense,
+
+1:16:14.120 --> 1:16:18.920
+ because I mean, that kind of view
+
+1:16:18.920 --> 1:16:23.920
+ is one that has the minimum amount of mystery around it.
+
+1:16:25.040 --> 1:16:28.960
+ You can kind of understand that kind of view.
+
+1:16:28.960 --> 1:16:31.960
+ Everything else says we don't understand
+
+1:16:31.960 --> 1:16:33.920
+ so much of this picture.
+
+1:16:33.920 --> 1:16:36.800
+ No, it is very attractive, I recently wrote an article
+
+1:16:36.800 --> 1:16:38.600
+ about this kind of issue called
+
+1:16:38.600 --> 1:16:41.280
+ the meta problem of consciousness.
+
+1:16:41.280 --> 1:16:43.200
+ The hard problem is how does a brain
+
+1:16:43.200 --> 1:16:44.200
+ give you consciousness?
+
+1:16:44.200 --> 1:16:46.720
+ The meta problem is why are we puzzled
+
+1:16:46.720 --> 1:16:49.600
+ by the hard problem of consciousness?
+
+1:16:49.600 --> 1:16:50.960
+ Because being puzzled by it,
+
+1:16:50.960 --> 1:16:53.000
+ that's ultimately a bit of behavior.
+
+1:16:53.000 --> 1:16:54.880
+ We might be able to explain that bit of behavior
+
+1:16:54.880 --> 1:16:57.560
+ as one of the easy problems, consciousness.
+
+1:16:57.560 --> 1:17:00.560
+ So maybe there'll be some computational model
+
+1:17:00.560 --> 1:17:03.440
+ that explains why we're puzzled by consciousness.
+
+1:17:03.440 --> 1:17:05.800
+ The meta problem has come up with that model.
+
+1:17:05.800 --> 1:17:07.880
+ And I've been thinking about that a lot lately.
+
+1:17:07.880 --> 1:17:09.560
+ There's some interesting stories you can tell
+
+1:17:09.560 --> 1:17:13.600
+ about why the right kind of computational system
+
+1:17:13.600 --> 1:17:17.640
+ might develop these introspective models of itself
+
+1:17:17.640 --> 1:17:20.680
+ that attributed itself, these special properties.
+
+1:17:21.560 --> 1:17:25.320
+ So that meta problem is a research program for everyone.
+
+1:17:25.320 --> 1:17:27.000
+ And then if you've got attraction
+
+1:17:27.000 --> 1:17:31.320
+ to sort of simple views, desert landscapes and so on,
+
+1:17:31.320 --> 1:17:32.240
+ then you can go all the way
+
+1:17:32.240 --> 1:17:34.240
+ with what people call illusionism
+
+1:17:34.240 --> 1:17:37.760
+ and say, in fact, consciousness itself is not real.
+
+1:17:37.760 --> 1:17:42.400
+ What is real is just these introspective models
+
+1:17:42.400 --> 1:17:45.040
+ we have that tell us that we're conscious.
+
+1:17:46.000 --> 1:17:49.600
+ So the view is very simple, very attractive, very powerful.
+
+1:17:49.600 --> 1:17:51.240
+ The trouble is, of course, it has to say
+
+1:17:51.240 --> 1:17:55.160
+ that deep down, consciousness is not real.
+
+1:17:55.160 --> 1:17:57.960
+ We're not actually experiencing right now.
+
+1:17:57.960 --> 1:17:59.960
+ And it looks like it's just contradicting
+
+1:17:59.960 --> 1:18:02.360
+ a fundamental datum of our existence.
+
+1:18:02.360 --> 1:18:06.080
+ And this is why most people find this view crazy.
+
+1:18:06.080 --> 1:18:08.760
+ Just as they find panpsychism crazy in one way,
+
+1:18:08.760 --> 1:18:13.240
+ people find illusionism crazy in another way.
+
+1:18:13.240 --> 1:18:18.000
+ But I mean, so yes, it has to deny
+
+1:18:18.000 --> 1:18:20.640
+ this fundamental datum of our existence.
+
+1:18:20.640 --> 1:18:24.680
+ Now, that makes the view sort of frankly unbelievable
+
+1:18:24.680 --> 1:18:25.520
+ for most people.
+
+1:18:25.520 --> 1:18:28.200
+ On the other hand, the view developed right
+
+1:18:28.200 --> 1:18:31.280
+ might be able to explain why we find it unbelievable.
+
+1:18:31.280 --> 1:18:34.280
+ Because these models are so deeply hardwired into our head.
+
+1:18:34.280 --> 1:18:36.000
+ And they're all integrated.
+
+1:18:36.000 --> 1:18:38.480
+ You can't escape the illusion.
+
+1:18:38.480 --> 1:18:40.720
+ And it's a crazy possibility.
+
+1:18:40.720 --> 1:18:43.640
+ Is it possible that the entirety of the universe,
+
+1:18:43.640 --> 1:18:46.760
+ our planet, all the people in New York,
+
+1:18:46.760 --> 1:18:48.520
+ all the organisms on our planet,
+
+1:18:49.800 --> 1:18:54.440
+ including me here today, are not real in that sense?
+
+1:18:54.440 --> 1:18:59.440
+ They're all part of an illusion inside of Dave Chalmers's head.
+
+1:18:59.800 --> 1:19:02.320
+ I think all this could be a simulation.
+
+1:19:02.320 --> 1:19:04.960
+ No, but not just a simulation.
+
+1:19:04.960 --> 1:19:09.200
+ Because the simulation kind of is outside of you.
+
+1:19:09.200 --> 1:19:10.120
+ A dream?
+
+1:19:10.120 --> 1:19:12.040
+ What if it's all an illusion?
+
+1:19:12.040 --> 1:19:14.560
+ Yes, a dream that you're experiencing.
+
+1:19:14.560 --> 1:19:18.880
+ That's, it's all in your mind, right?
+
+1:19:18.880 --> 1:19:23.040
+ Is that, can you take illusionism that far?
+
+1:19:23.040 --> 1:19:26.840
+ Well, there's illusionism about the external world
+
+1:19:26.840 --> 1:19:28.440
+ and illusionism about consciousness.
+
+1:19:28.440 --> 1:19:30.200
+ And these might go in different.
+
+1:19:30.200 --> 1:19:31.800
+ Illusionism about the external world
+
+1:19:31.800 --> 1:19:34.120
+ kind of takes you back to Descartes.
+
+1:19:34.120 --> 1:19:37.400
+ And yeah, could all this be produced by an evil demon?
+
+1:19:37.400 --> 1:19:39.560
+ Descartes himself also had the dream argument.
+
+1:19:39.560 --> 1:19:42.040
+ He said, how do you know you're not dreaming right now?
+
+1:19:42.040 --> 1:19:43.720
+ How do you know this is not an amazing dream?
+
+1:19:43.720 --> 1:19:46.320
+ And it's at least a possibility that yeah,
+
+1:19:46.320 --> 1:19:49.840
+ this could be some super duper complex dream
+
+1:19:49.840 --> 1:19:51.640
+ in the next universe up.
+
+1:19:51.640 --> 1:19:56.320
+ I guess though, my attitude is that just as,
+
+1:19:57.200 --> 1:20:00.520
+ when Descartes thought that if the evil demon was doing it,
+
+1:20:00.520 --> 1:20:01.440
+ it's not real.
+
+1:20:01.440 --> 1:20:04.360
+ A lot of people these days say if a simulation is doing it,
+
+1:20:04.360 --> 1:20:05.560
+ it's not real.
+
+1:20:05.560 --> 1:20:08.040
+ As I was saying before, I think even if it's a simulation,
+
+1:20:08.040 --> 1:20:09.400
+ that doesn't stop this from being real.
+
+1:20:09.400 --> 1:20:11.440
+ It just tells us what the world is made of.
+
+1:20:11.440 --> 1:20:12.960
+ Likewise, if it's a dream,
+
+1:20:12.960 --> 1:20:15.840
+ it could turn out that all this is like my dream
+
+1:20:15.840 --> 1:20:19.080
+ created by my brain in the next universe up.
+
+1:20:19.080 --> 1:20:21.920
+ My own view is that wouldn't stop this physical world
+
+1:20:21.920 --> 1:20:22.760
+ from being real.
+
+1:20:22.760 --> 1:20:26.040
+ It would turn out this cup at the most fundamental level
+
+1:20:26.040 --> 1:20:28.880
+ was made of a bit of say my consciousness
+
+1:20:28.880 --> 1:20:31.920
+ in the dreaming mind at the next level up.
+
+1:20:31.920 --> 1:20:35.400
+ Maybe that would give you a kind of weird kind of panpsychism
+
+1:20:35.400 --> 1:20:39.360
+ about reality, but it wouldn't show that the cup isn't real.
+
+1:20:39.360 --> 1:20:42.120
+ It would just tell us it's ultimately made of processes
+
+1:20:42.120 --> 1:20:43.200
+ in my dreaming mind.
+
+1:20:43.200 --> 1:20:48.200
+ So I'd resist the idea that if the physical world is a dream,
+
+1:20:48.200 --> 1:20:50.640
+ then it's an illusion.
+
+1:20:50.640 --> 1:20:52.200
+ That's right.
+
+1:20:52.200 --> 1:20:54.960
+ By the way, perhaps you have an interesting thought
+
+1:20:54.960 --> 1:20:55.800
+ about it.
+
+1:20:55.800 --> 1:21:00.320
+ Why is Descartes demon or genius considered evil?
+
+1:21:02.200 --> 1:21:04.560
+ Why couldn't have been a benevolent one
+
+1:21:04.560 --> 1:21:05.840
+ that had the same powers?
+
+1:21:05.840 --> 1:21:08.800
+ Yeah, I mean, Descartes called it the malign genie,
+
+1:21:08.800 --> 1:21:12.240
+ the evil genie or evil genius.
+
+1:21:12.240 --> 1:21:14.280
+ Malign, I guess was the word.
+
+1:21:14.280 --> 1:21:15.880
+ But yeah, it's an interesting question.
+
+1:21:15.880 --> 1:21:20.600
+ I mean, a later philosophy, Barclay said,
+
+1:21:20.600 --> 1:21:25.400
+ no, in fact, all this is done by God.
+
+1:21:25.400 --> 1:21:30.400
+ God actually supplies you all of these perceptions
+
+1:21:30.400 --> 1:21:33.880
+ and ideas and that's how physical reality is sustained.
+
+1:21:33.880 --> 1:21:36.840
+ And interestingly, Barclay's God is doing something
+
+1:21:36.840 --> 1:21:38.160
+ that doesn't look so different
+
+1:21:38.160 --> 1:21:41.200
+ from what Descartes evil demon was doing.
+
+1:21:41.200 --> 1:21:43.560
+ It's just that Descartes thought it was deception
+
+1:21:43.560 --> 1:21:46.240
+ and Barclay thought it was not.
+
+1:21:46.240 --> 1:21:49.360
+ And I'm actually more sympathetic to Barclay here.
+
+1:21:51.000 --> 1:21:54.800
+ Yeah, this evil demon may be trying to deceive you,
+
+1:21:54.800 --> 1:21:56.800
+ but I think, okay, well, the evil demon
+
+1:21:56.800 --> 1:22:01.200
+ may just be working under a false philosophical theory.
+
+1:22:01.200 --> 1:22:02.800
+ It thinks it's deceiving you, it's wrong.
+
+1:22:02.800 --> 1:22:04.200
+ It's like there's machines in the matrix.
+
+1:22:04.200 --> 1:22:06.120
+ They thought they were deceiving you
+
+1:22:06.120 --> 1:22:07.040
+ that all this stuff is real.
+
+1:22:07.040 --> 1:22:11.600
+ I think, no, if we're in a matrix, it's all still real.
+
+1:22:11.600 --> 1:22:15.080
+ Yeah, the philosopher O.K. Bousma had a nice story
+
+1:22:15.080 --> 1:22:19.000
+ about this about 50 years ago, about Descartes evil demon,
+
+1:22:19.000 --> 1:22:21.600
+ where he said this demon spends all its time
+
+1:22:21.600 --> 1:22:24.560
+ trying to fool people, but fails
+
+1:22:24.560 --> 1:22:26.600
+ because somehow all the demon ends up doing
+
+1:22:26.600 --> 1:22:30.160
+ is constructing realities for people.
+
+1:22:30.160 --> 1:22:33.000
+ So yeah, I think that maybe it's a very natural
+
+1:22:33.000 --> 1:22:35.040
+ to take this view that if we're in a simulation
+
+1:22:35.040 --> 1:22:38.560
+ or evil demon scenario or something,
+
+1:22:38.560 --> 1:22:40.640
+ then none of this is real.
+
+1:22:40.640 --> 1:22:43.760
+ But I think it may be ultimately a philosophical mistake,
+
+1:22:43.760 --> 1:22:46.640
+ especially if you take on board sort of the view of reality
+
+1:22:46.640 --> 1:22:50.000
+ where what matters to reality is really its structure,
+
+1:22:50.000 --> 1:22:52.800
+ something like its mathematical structure and so on,
+
+1:22:52.800 --> 1:22:54.600
+ which seems to be the view that a lot of people take
+
+1:22:54.600 --> 1:22:56.360
+ from contemporary physics.
+
+1:22:56.360 --> 1:22:57.960
+ And it looks like you can find
+
+1:22:57.960 --> 1:23:01.320
+ all that mathematical structure in a simulation,
+
+1:23:01.320 --> 1:23:03.520
+ maybe even in a dream and so on.
+
+1:23:03.520 --> 1:23:05.400
+ So as long as that structure is real,
+
+1:23:05.400 --> 1:23:08.640
+ I would say that's enough for the physical world to be real.
+
+1:23:08.640 --> 1:23:10.040
+ Yeah, the physical world may turn out
+
+1:23:10.040 --> 1:23:13.120
+ to be somewhat more intangible than we had thought
+
+1:23:13.120 --> 1:23:15.240
+ and have a surprising nature of it.
+
+1:23:15.240 --> 1:23:18.120
+ We're already gotten very used to that from modern science.
+
+1:23:19.560 --> 1:23:21.120
+ See, you've kind of alluded
+
+1:23:21.120 --> 1:23:23.160
+ that you don't have to have consciousness
+
+1:23:23.160 --> 1:23:25.440
+ for high levels of intelligence,
+
+1:23:25.440 --> 1:23:29.840
+ but to create truly general intelligence systems,
+
+1:23:29.840 --> 1:23:32.320
+ AGI systems at human level intelligence
+
+1:23:32.320 --> 1:23:34.960
+ and perhaps super human level intelligence,
+
+1:23:34.960 --> 1:23:37.040
+ you've talked about that you feel like
+
+1:23:37.040 --> 1:23:38.960
+ that kind of thing might be very far away,
+
+1:23:38.960 --> 1:23:43.440
+ but nevertheless, when we reached that point,
+
+1:23:43.440 --> 1:23:46.040
+ do you think consciousness
+
+1:23:46.040 --> 1:23:49.440
+ from an engineering perspective is needed
+
+1:23:49.440 --> 1:23:53.400
+ or at least highly beneficial for creating an AGI system?
+
+1:23:54.440 --> 1:23:57.680
+ Yeah, no one knows what consciousness is for functionally.
+
+1:23:57.680 --> 1:24:00.880
+ So right now there's no specific thing we can point to
+
+1:24:00.880 --> 1:24:05.160
+ and say, you need consciousness for that.
+
+1:24:05.160 --> 1:24:06.560
+ So my inclination is to believe
+
+1:24:06.560 --> 1:24:09.320
+ that in principle AGI is possible.
+
+1:24:09.320 --> 1:24:11.240
+ The very least I don't see why
+
+1:24:11.240 --> 1:24:13.240
+ someone couldn't simulate a brain,
+
+1:24:13.240 --> 1:24:16.120
+ ultimately have a computational system
+
+1:24:16.120 --> 1:24:18.240
+ that produces all of our behavior.
+
+1:24:18.240 --> 1:24:19.440
+ And if that's possible,
+
+1:24:19.440 --> 1:24:22.800
+ I'm sure vastly many other computational systems
+
+1:24:22.800 --> 1:24:27.160
+ of equal or greater sophistication are possible
+
+1:24:27.160 --> 1:24:29.400
+ with all of our cognitive functions and more.
+
+1:24:29.400 --> 1:24:31.160
+ My inclination is to think that
+
+1:24:32.280 --> 1:24:35.400
+ once you've got all these cognitive functions,
+
+1:24:35.400 --> 1:24:39.720
+ perception, attention, reasoning,
+
+1:24:39.720 --> 1:24:44.440
+ introspection, language, emotion, and so on,
+
+1:24:44.440 --> 1:24:49.160
+ it's very likely you'll have consciousness as well.
+
+1:24:49.160 --> 1:24:50.600
+ So at least it's very hard for me to see
+
+1:24:50.600 --> 1:24:52.720
+ how you'd have a system that had all those things
+
+1:24:52.720 --> 1:24:55.640
+ while bypassing somehow conscious.
+
+1:24:55.640 --> 1:25:00.160
+ So just naturally it's integrated quite naturally.
+
+1:25:00.160 --> 1:25:02.960
+ There's a lot of overlap about the kind of function
+
+1:25:02.960 --> 1:25:04.840
+ that required to achieve each of those things
+
+1:25:04.840 --> 1:25:07.640
+ that's, so you can't disentangle them
+
+1:25:07.640 --> 1:25:08.480
+ even when you're recreating.
+
+1:25:08.480 --> 1:25:09.680
+ It seems to, at least in us,
+
+1:25:09.680 --> 1:25:13.320
+ but we don't know what the causal role of consciousness
+
+1:25:13.320 --> 1:25:14.600
+ in the physical world, what it does.
+
+1:25:14.600 --> 1:25:15.960
+ I mean, just say it turns out
+
+1:25:15.960 --> 1:25:17.720
+ consciousness does something very specific
+
+1:25:17.720 --> 1:25:20.560
+ in the physical world like collapsing wave functions
+
+1:25:20.560 --> 1:25:24.240
+ as on one common interpretation of quantum mechanics.
+
+1:25:24.240 --> 1:25:25.680
+ Then ultimately we might find some place
+
+1:25:25.680 --> 1:25:27.560
+ where it actually makes a difference
+
+1:25:27.560 --> 1:25:28.680
+ and we could say, ah,
+
+1:25:28.680 --> 1:25:30.520
+ here is where in collapsing wave functions
+
+1:25:30.520 --> 1:25:32.760
+ it's driving the behavior of a system.
+
+1:25:32.760 --> 1:25:37.080
+ And maybe it could even turn out that for AGI,
+
+1:25:37.080 --> 1:25:39.200
+ you'd need something playing that.
+
+1:25:39.200 --> 1:25:41.200
+ I mean, if you wanted to connect this to free will,
+
+1:25:41.200 --> 1:25:43.520
+ some people think consciousness collapsing wave functions,
+
+1:25:43.520 --> 1:25:47.640
+ that would be how the conscious mind exerts effect
+
+1:25:47.640 --> 1:25:50.440
+ on the physical world and exerts its free will.
+
+1:25:50.440 --> 1:25:53.520
+ And maybe it could turn out that any AGI
+
+1:25:53.520 --> 1:25:56.680
+ that didn't utilize that mechanism would be limited
+
+1:25:56.680 --> 1:25:59.760
+ in the kinds of functionality that it had.
+
+1:25:59.760 --> 1:26:02.240
+ I don't myself find that plausible.
+
+1:26:02.240 --> 1:26:05.000
+ I think probably that functionality could be simulated.
+
+1:26:05.000 --> 1:26:07.760
+ But you can imagine once we had a very specific idea
+
+1:26:07.760 --> 1:26:10.440
+ about the role of consciousness in the physical world,
+
+1:26:10.440 --> 1:26:14.080
+ this would have some impact on the capacity of AGI's.
+
+1:26:14.080 --> 1:26:17.880
+ And if it was a role that could not be duplicated elsewhere,
+
+1:26:17.880 --> 1:26:22.560
+ then we'd have to find some way to either
+
+1:26:22.560 --> 1:26:24.640
+ get consciousness in the system to play that role
+
+1:26:24.640 --> 1:26:25.520
+ or to simulate it.
+
+1:26:25.520 --> 1:26:29.080
+ If we can isolate a particular role to consciousness,
+
+1:26:29.080 --> 1:26:33.920
+ of course, it seems like an incredibly difficult thing.
+
+1:26:35.120 --> 1:26:39.600
+ Do you have worries about existential threats
+
+1:26:39.600 --> 1:26:44.600
+ of conscious intelligent beings that are not us?
+
+1:26:46.240 --> 1:26:49.440
+ So certainly, I'm sure you're worried about us
+
+1:26:50.640 --> 1:26:52.840
+ from an existential threat perspective,
+
+1:26:52.840 --> 1:26:55.400
+ but outside of us, AI systems.
+
+1:26:55.400 --> 1:26:56.440
+ There's a couple of different kinds
+
+1:26:56.440 --> 1:26:58.160
+ of existential threats here.
+
+1:26:58.160 --> 1:27:01.400
+ One is an existential threat to consciousness generally.
+
+1:27:01.400 --> 1:27:04.000
+ I mean, yes, I care about humans
+
+1:27:04.000 --> 1:27:05.960
+ and the survival of humans and so on,
+
+1:27:05.960 --> 1:27:10.360
+ but just say it turns out that eventually we're replaced
+
+1:27:10.360 --> 1:27:12.680
+ by some artificial beings that aren't humans,
+
+1:27:12.680 --> 1:27:15.480
+ but are somehow our successors.
+
+1:27:15.480 --> 1:27:16.800
+ They still have good lives.
+
+1:27:16.800 --> 1:27:19.200
+ They still do interesting and wonderful things
+
+1:27:19.200 --> 1:27:20.600
+ with the universe.
+
+1:27:20.600 --> 1:27:23.440
+ I don't think that's not so bad.
+
+1:27:23.440 --> 1:27:24.560
+ That's just our successors.
+
+1:27:24.560 --> 1:27:26.480
+ We were one stage in evolution.
+
+1:27:26.480 --> 1:27:29.720
+ Something different, maybe better came next.
+
+1:27:29.720 --> 1:27:33.280
+ If on the other hand, all of consciousness was wiped out,
+
+1:27:33.280 --> 1:27:36.760
+ that would be a very serious moral disaster.
+
+1:27:36.760 --> 1:27:40.880
+ One way that could happen is by all intelligent life
+
+1:27:40.880 --> 1:27:42.080
+ being wiped out.
+
+1:27:42.080 --> 1:27:43.320
+ And many people think that, yeah,
+
+1:27:43.320 --> 1:27:47.680
+ once you get to humans and AIs and amazing sophistication
+
+1:27:47.680 --> 1:27:51.000
+ where everyone has got the ability to create weapons
+
+1:27:51.000 --> 1:27:55.560
+ that can destroy the whole universe just by pressing a button,
+
+1:27:55.560 --> 1:28:00.560
+ then maybe it's inevitable all intelligent life will die out.
+
+1:28:00.640 --> 1:28:03.720
+ That would certainly be a disaster.
+
+1:28:03.720 --> 1:28:06.040
+ And we've got to think very hard about how to avoid that.
+
+1:28:06.040 --> 1:28:08.040
+ But yeah, another interesting kind of disaster
+
+1:28:08.040 --> 1:28:12.160
+ is that maybe intelligent life is not wiped out,
+
+1:28:12.160 --> 1:28:14.920
+ but all consciousness is wiped out.
+
+1:28:14.920 --> 1:28:16.480
+ So just say your thought,
+
+1:28:16.480 --> 1:28:18.000
+ unlike what I was saying a moment ago,
+
+1:28:18.000 --> 1:28:21.400
+ that there are two different kinds of intelligent systems,
+
+1:28:21.400 --> 1:28:25.400
+ some which are conscious and some which are not.
+
+1:28:25.400 --> 1:28:28.840
+ And just say it turns out that we create AGI
+
+1:28:28.840 --> 1:28:30.800
+ with a high degree of intelligence,
+
+1:28:30.800 --> 1:28:34.080
+ meaning high degree of sophistication and its behavior,
+
+1:28:34.080 --> 1:28:37.080
+ but with no consciousness at all.
+
+1:28:37.080 --> 1:28:39.680
+ That AGI could take over the world maybe,
+
+1:28:39.680 --> 1:28:42.760
+ but then there'd be no consciousness in this world.
+
+1:28:42.760 --> 1:28:44.400
+ This would be a world of zombies.
+
+1:28:44.400 --> 1:28:47.000
+ Some people have called this the zombie apocalypse
+
+1:28:48.160 --> 1:28:50.240
+ because it's an apocalypse for consciousness.
+
+1:28:50.240 --> 1:28:51.200
+ Consciousness is gone.
+
+1:28:51.200 --> 1:28:53.120
+ You've merely got this super intelligent,
+
+1:28:53.120 --> 1:28:54.560
+ nonconscious robots.
+
+1:28:54.560 --> 1:28:58.040
+ And I would say that's a moral disaster in the same way,
+
+1:28:58.040 --> 1:28:59.840
+ in almost the same way that the world
+
+1:28:59.840 --> 1:29:02.240
+ with no intelligent life is a moral disaster.
+
+1:29:02.240 --> 1:29:06.720
+ All value and meaning may be gone from that world.
+
+1:29:06.720 --> 1:29:09.000
+ So these are both threats to watch out for.
+
+1:29:09.000 --> 1:29:11.720
+ Now, my own view is if you get super intelligence,
+
+1:29:11.720 --> 1:29:13.720
+ you're almost certainly gonna bring consciousness with it.
+
+1:29:13.720 --> 1:29:15.840
+ So I hope that's not gonna happen.
+
+1:29:15.840 --> 1:29:18.400
+ But of course, I don't understand consciousness.
+
+1:29:18.400 --> 1:29:20.240
+ No one understands consciousness.
+
+1:29:20.240 --> 1:29:21.680
+ This is one reason for,
+
+1:29:21.680 --> 1:29:23.400
+ this is one reason at least among many
+
+1:29:23.400 --> 1:29:25.520
+ for thinking very seriously about consciousness
+
+1:29:25.520 --> 1:29:27.960
+ and thinking about the kind of future
+
+1:29:27.960 --> 1:29:32.960
+ we want to create in a world with humans and or AIs.
+
+1:29:33.160 --> 1:29:35.760
+ How do you feel about the possibility
+
+1:29:35.760 --> 1:29:39.920
+ if consciousness so naturally does come with AGI systems
+
+1:29:39.920 --> 1:29:42.600
+ that we are just a step in the evolution?
+
+1:29:42.600 --> 1:29:47.240
+ That we will be just something, a blimp on the record
+
+1:29:47.240 --> 1:29:49.040
+ that'll be studied in books
+
+1:29:49.040 --> 1:29:51.720
+ by the AGI systems centuries from now?
+
+1:29:51.720 --> 1:29:55.400
+ I mean, I think I'd probably be okay with that,
+
+1:29:55.400 --> 1:29:58.480
+ especially if somehow humans are continuous with AGI.
+
+1:29:58.480 --> 1:30:01.560
+ I mean, I think something like this is inevitable.
+
+1:30:01.560 --> 1:30:03.960
+ The very least humans are gonna be transformed.
+
+1:30:03.960 --> 1:30:06.480
+ We're gonna be augmented by technology.
+
+1:30:06.480 --> 1:30:08.840
+ It's already happening in all kinds of ways.
+
+1:30:08.840 --> 1:30:11.520
+ We're gonna be transformed by technology
+
+1:30:11.520 --> 1:30:13.160
+ where our brains are gonna be uploaded
+
+1:30:13.160 --> 1:30:15.880
+ and computationally enhanced.
+
+1:30:15.880 --> 1:30:18.040
+ And eventually that line between what's a human
+
+1:30:18.040 --> 1:30:23.040
+ and what's an AI may be kind of hard to draw.
+
+1:30:23.400 --> 1:30:24.800
+ How much does it matter, for example,
+
+1:30:24.800 --> 1:30:28.680
+ that some future being a thousand years from now
+
+1:30:28.680 --> 1:30:32.120
+ that somehow descended from us actually still has biology?
+
+1:30:32.120 --> 1:30:34.200
+ I think it would be nice if you kind of point
+
+1:30:34.200 --> 1:30:36.160
+ to its cognitive system, point to some parts
+
+1:30:36.160 --> 1:30:40.840
+ that had some roots in us and trace a continuous line there.
+
+1:30:40.840 --> 1:30:43.720
+ That would be selfishly nice for me to think that,
+
+1:30:43.720 --> 1:30:46.480
+ okay, I'm connected to this thread line
+
+1:30:46.480 --> 1:30:48.120
+ through the future of the world,
+
+1:30:48.120 --> 1:30:50.600
+ but if it turns out, okay, there's a jump there.
+
+1:30:50.600 --> 1:30:53.760
+ They found a better way to design cognitive systems.
+
+1:30:53.760 --> 1:30:55.440
+ They designed a wholly new kind of thing.
+
+1:30:55.440 --> 1:30:59.800
+ And the only line is some causal chain of designing
+
+1:30:59.800 --> 1:31:03.120
+ and systems that design better systems.
+
+1:31:03.120 --> 1:31:04.800
+ Is that so much worse?
+
+1:31:04.800 --> 1:31:05.640
+ I don't know.
+
+1:31:05.640 --> 1:31:08.360
+ We're still at least part of a causal chain of design.
+
+1:31:08.360 --> 1:31:09.560
+ And yes, they're not humans,
+
+1:31:09.560 --> 1:31:11.640
+ but still they're our successes.
+
+1:31:11.640 --> 1:31:14.440
+ So, I mean, ultimately I think it's probably inevitable
+
+1:31:14.440 --> 1:31:16.760
+ that something like that will happen.
+
+1:31:16.760 --> 1:31:19.920
+ And at least we were part of the process.
+
+1:31:19.920 --> 1:31:23.400
+ It'd be nice if they still cared enough about us
+
+1:31:23.400 --> 1:31:28.240
+ to maybe to engage with our arguments.
+
+1:31:28.240 --> 1:31:30.080
+ I'm really hoping that the AGI's are gonna solve
+
+1:31:30.080 --> 1:31:31.760
+ all the problems of philosophy.
+
+1:31:31.760 --> 1:31:35.040
+ They'll come back and read all this crappy work
+
+1:31:35.040 --> 1:31:36.480
+ for the 20th and 21st century,
+
+1:31:36.480 --> 1:31:37.680
+ hard problem of consciousness.
+
+1:31:37.680 --> 1:31:39.960
+ And here is why they got it wrong.
+
+1:31:39.960 --> 1:31:41.000
+ And so, and if that happened,
+
+1:31:41.000 --> 1:31:42.360
+ then I'd really feel like I was part of
+
+1:31:42.360 --> 1:31:44.960
+ at least an intellectual process over centuries.
+
+1:31:44.960 --> 1:31:45.960
+ And that would be kind of cool.
+
+1:31:45.960 --> 1:31:48.520
+ Well, I'm pretty sure they would clone
+
+1:31:48.520 --> 1:31:50.960
+ or they would recreate David Chalmers
+
+1:31:50.960 --> 1:31:52.480
+ and for the fun of it,
+
+1:31:52.480 --> 1:31:55.160
+ sort of bring back other philosophers.
+
+1:31:55.160 --> 1:31:56.200
+ Yeah, bring back Descartes.
+
+1:31:56.200 --> 1:31:58.800
+ Descartes and just put them in a room and just watch.
+
+1:31:58.800 --> 1:32:02.040
+ It'll be a Netflix of the future show
+
+1:32:02.040 --> 1:32:04.600
+ where you bring philosophers from different human,
+
+1:32:04.600 --> 1:32:07.680
+ 100% human philosophers from previous generations,
+
+1:32:07.680 --> 1:32:09.440
+ put them in a room and see them.
+
+1:32:09.440 --> 1:32:11.160
+ I am totally up for that.
+
+1:32:11.160 --> 1:32:14.040
+ Simulators, AGI's of the future,
+
+1:32:14.040 --> 1:32:17.680
+ if you're watching this podcast, do that.
+
+1:32:17.680 --> 1:32:20.880
+ I would like to be recreated and ending out with Descartes.
+
+1:32:20.880 --> 1:32:22.640
+ Where Descartes would be the first,
+
+1:32:22.640 --> 1:32:26.120
+ if you could hang out as part of such a TV show
+
+1:32:26.120 --> 1:32:30.880
+ with a philosopher that's no longer with us from long ago,
+
+1:32:30.880 --> 1:32:33.200
+ who would you choose?
+
+1:32:33.200 --> 1:32:34.760
+ Descartes would have to be right up there.
+
+1:32:34.760 --> 1:32:36.840
+ Oh, actually a couple of months ago,
+
+1:32:36.840 --> 1:32:39.000
+ I got to have a conversation with Descartes,
+
+1:32:39.000 --> 1:32:40.760
+ an actor who's actually a philosopher
+
+1:32:40.760 --> 1:32:42.800
+ came out on stage playing Descartes.
+
+1:32:42.800 --> 1:32:43.880
+ I didn't know this was gonna happen.
+
+1:32:43.880 --> 1:32:46.200
+ And I just after I gave a talk
+
+1:32:46.200 --> 1:32:50.120
+ and told me about how my ideas were crap
+
+1:32:50.120 --> 1:32:51.560
+ and all derived from him.
+
+1:32:51.560 --> 1:32:53.440
+ And so we had a long argument.
+
+1:32:53.440 --> 1:32:54.680
+ This was great.
+
+1:32:54.680 --> 1:32:57.400
+ I would love to see what Descartes would think about AI,
+
+1:32:57.400 --> 1:32:59.520
+ for example, and the modern neuroscience.
+
+1:32:59.520 --> 1:33:01.800
+ And so I suspect not too much would surprise him,
+
+1:33:01.800 --> 1:33:05.420
+ but yeah, William James,
+
+1:33:07.120 --> 1:33:08.720
+ for a psychologist of consciousness,
+
+1:33:08.720 --> 1:33:13.720
+ I think James was probably the richest.
+
+1:33:14.000 --> 1:33:17.120
+ But, oh, there are Immanuel Kant.
+
+1:33:17.120 --> 1:33:19.120
+ I never really understood what he was up to
+
+1:33:19.120 --> 1:33:22.760
+ if I got to actually talk to him about some of this.
+
+1:33:22.760 --> 1:33:25.720
+ Hey, there was Princess Elizabeth who talked with Descartes
+
+1:33:25.720 --> 1:33:28.760
+ and who really got at the problems
+
+1:33:28.760 --> 1:33:32.800
+ of how Descartes ideas of a nonphysical mind
+
+1:33:32.800 --> 1:33:37.240
+ interacting with the physical body couldn't really work.
+
+1:33:37.240 --> 1:33:39.040
+ She's been kind of, most philosophers
+
+1:33:39.040 --> 1:33:40.040
+ think she's been proved right.
+
+1:33:40.040 --> 1:33:42.560
+ So maybe put me in a room with Descartes
+
+1:33:42.560 --> 1:33:45.160
+ and Princess Elizabeth and we can all argue it out.
+
+1:33:47.840 --> 1:33:49.360
+ What kind of future?
+
+1:33:49.360 --> 1:33:53.280
+ So we talked about zombies, a concerning future,
+
+1:33:53.280 --> 1:33:56.180
+ but what kind of future excites you?
+
+1:33:56.180 --> 1:33:59.480
+ What do you think if we look forward sort of,
+
+1:34:00.480 --> 1:34:02.160
+ we're at the very early stages
+
+1:34:02.160 --> 1:34:04.080
+ of understanding consciousness.
+
+1:34:04.080 --> 1:34:05.840
+ And we're now at the early stages
+
+1:34:05.840 --> 1:34:10.120
+ of being able to engineer complex, interesting systems
+
+1:34:10.120 --> 1:34:11.560
+ that have degrees of intelligence.
+
+1:34:11.560 --> 1:34:14.240
+ And maybe one day we'll have degrees of consciousness,
+
+1:34:14.240 --> 1:34:17.120
+ maybe be able to upload brains,
+
+1:34:17.120 --> 1:34:20.000
+ all those possibilities, virtual reality.
+
+1:34:20.000 --> 1:34:22.640
+ Is there a particular aspect to this future world
+
+1:34:22.640 --> 1:34:24.020
+ that just excites you?
+
+1:34:24.880 --> 1:34:26.360
+ Well, I think there are lots of different aspects.
+
+1:34:26.360 --> 1:34:29.480
+ I mean, frankly, I want it to hurry up and happen.
+
+1:34:29.480 --> 1:34:33.120
+ It's like, yeah, we've had some progress lately in AI and VR,
+
+1:34:33.120 --> 1:34:35.960
+ but in the grand scheme of things, it's still kind of slow.
+
+1:34:35.960 --> 1:34:38.200
+ The changes are not yet transformative.
+
+1:34:38.200 --> 1:34:42.080
+ And I'm in my fifties, I've only got so long left.
+
+1:34:42.080 --> 1:34:45.640
+ I'd like to see really serious AI in my lifetime
+
+1:34:45.640 --> 1:34:48.240
+ and really serious virtual worlds.
+
+1:34:48.240 --> 1:34:49.680
+ Cause yeah, once people,
+
+1:34:49.680 --> 1:34:52.040
+ I would like to be able to hang out in a virtual reality,
+
+1:34:52.040 --> 1:34:56.520
+ which is richer than this reality
+
+1:34:56.520 --> 1:35:00.320
+ to really get to inhabit fundamentally different kinds
+
+1:35:00.320 --> 1:35:02.160
+ of spaces.
+
+1:35:02.160 --> 1:35:05.000
+ Well, I would very much like to be able to upload
+
+1:35:05.000 --> 1:35:07.680
+ my mind onto a computer.
+
+1:35:07.680 --> 1:35:10.280
+ So maybe I don't have to die.
+
+1:35:11.440 --> 1:35:14.200
+ If this is maybe gradually replaced my neurons
+
+1:35:14.200 --> 1:35:17.360
+ with a Silicon chips and inhabit a computer.
+
+1:35:17.360 --> 1:35:19.320
+ Selfishly, that would be wonderful.
+
+1:35:19.320 --> 1:35:24.320
+ I suspect I'm not gonna quite get there in my lifetime,
+
+1:35:24.400 --> 1:35:26.520
+ but once that's possible,
+
+1:35:26.520 --> 1:35:28.000
+ then you've got the possibility of transforming
+
+1:35:28.000 --> 1:35:30.200
+ your consciousness in remarkable ways,
+
+1:35:30.200 --> 1:35:32.400
+ augmenting it, enhancing it.
+
+1:35:33.280 --> 1:35:34.440
+ So let me ask then,
+
+1:35:34.440 --> 1:35:38.040
+ if such a system is a possibility within your lifetime
+
+1:35:39.560 --> 1:35:42.800
+ and you were given the opportunity to become immortal
+
+1:35:44.200 --> 1:35:49.200
+ in this kind of way, would you choose to be immortal?
+
+1:35:50.800 --> 1:35:52.400
+ Yes, I totally would.
+
+1:35:52.400 --> 1:35:54.880
+ I know some people say they couldn't,
+
+1:35:54.880 --> 1:35:59.800
+ it'd be awful to be immortal, be so boring or something.
+
+1:35:59.800 --> 1:36:04.800
+ I don't see, I really don't see why this might be.
+
+1:36:04.800 --> 1:36:07.200
+ I mean, even if it's just ordinary life that continues,
+
+1:36:07.200 --> 1:36:09.520
+ ordinary life is not so bad.
+
+1:36:09.520 --> 1:36:12.840
+ But furthermore, I kind of suspect that,
+
+1:36:12.840 --> 1:36:16.120
+ if the universe is gonna go on forever or indefinitely,
+
+1:36:16.120 --> 1:36:19.240
+ it's gonna continue to be interesting.
+
+1:36:19.240 --> 1:36:22.120
+ I don't think your view was that we just have to get
+
+1:36:22.120 --> 1:36:24.160
+ this one romantic point of interest now
+
+1:36:24.160 --> 1:36:26.160
+ and afterwards it's all gonna be boring,
+
+1:36:26.160 --> 1:36:28.440
+ super intelligent stasis.
+
+1:36:28.440 --> 1:36:30.000
+ I guess my vision is more like,
+
+1:36:30.000 --> 1:36:32.640
+ no, it's gonna continue to be infinitely interesting.
+
+1:36:32.640 --> 1:36:36.120
+ Something like as you go up the set theoretic hierarchy,
+
+1:36:36.120 --> 1:36:41.120
+ you go from the finite cardinals to Aleph zero
+
+1:36:42.520 --> 1:36:46.000
+ and then through there to all the Aleph one and Aleph two
+
+1:36:46.000 --> 1:36:49.840
+ and maybe the continuum and you keep taking power sets
+
+1:36:49.840 --> 1:36:51.920
+ and in set theory, they've got these results
+
+1:36:51.920 --> 1:36:54.760
+ that actually all this is fundamentally unpredictable.
+
+1:36:54.760 --> 1:36:57.360
+ It doesn't follow any simple computational patterns.
+
+1:36:57.360 --> 1:36:58.920
+ There's new levels of creativity
+
+1:36:58.920 --> 1:37:01.880
+ as the set theoretic universe expands and expands.
+
+1:37:01.880 --> 1:37:03.320
+ I guess that's my future.
+
+1:37:03.320 --> 1:37:04.840
+ That's my vision of the future.
+
+1:37:04.840 --> 1:37:06.000
+ That's my optimistic vision
+
+1:37:06.000 --> 1:37:08.040
+ of the future of super intelligence.
+
+1:37:08.040 --> 1:37:09.760
+ It will keep expanding and keep growing,
+
+1:37:09.760 --> 1:37:12.880
+ but still being fundamentally unpredictable at many points.
+
+1:37:12.880 --> 1:37:15.280
+ I mean, yes, this creates all kinds of worries
+
+1:37:15.280 --> 1:37:18.960
+ like couldn't all be fragile and be destroyed at any point.
+
+1:37:18.960 --> 1:37:21.160
+ So we're gonna need a solution to that problem.
+
+1:37:21.160 --> 1:37:23.360
+ But if we get to stipulate that I'm immortal,
+
+1:37:23.360 --> 1:37:25.960
+ well, I hope that I'm not just immortal and stuck
+
+1:37:25.960 --> 1:37:27.880
+ in the single world forever,
+
+1:37:27.880 --> 1:37:30.960
+ but I'm immortal and get to take part in this process
+
+1:37:30.960 --> 1:37:34.560
+ of going through infinitely rich, created futures.
+
+1:37:34.560 --> 1:37:36.480
+ Rich, unpredictable, exciting.
+
+1:37:36.480 --> 1:37:39.880
+ Well, I think I speak for a lot of people in saying,
+
+1:37:39.880 --> 1:37:41.840
+ I hope you do become immortal and there'll be
+
+1:37:41.840 --> 1:37:43.680
+ that Netflix show, The Future,
+
+1:37:43.680 --> 1:37:46.360
+ where you get to argue with Descartes,
+
+1:37:47.480 --> 1:37:49.800
+ perhaps for all eternity.
+
+1:37:49.800 --> 1:37:51.480
+ So David, it was an honor.
+
+1:37:51.480 --> 1:37:52.920
+ Thank you so much for talking today.
+
+1:37:52.920 --> 1:37:55.040
+ Thanks, it was a pleasure.
+
+1:37:55.040 --> 1:37:57.160
+ Thanks for listening to this conversation
+
+1:37:57.160 --> 1:38:00.040
+ and thank you to our presenting sponsor, Cash App.
+
+1:38:00.040 --> 1:38:02.680
+ Download it, use code LexPodcast,
+
+1:38:02.680 --> 1:38:05.440
+ you'll get $10 and $10 will go to FIRST,
+
+1:38:05.440 --> 1:38:08.680
+ an organization that inspires and educates young minds
+
+1:38:08.680 --> 1:38:12.120
+ to become science and technology innovators of tomorrow.
+
+1:38:12.120 --> 1:38:14.920
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:38:14.920 --> 1:38:16.760
+ give it five stars on Apple Podcast,
+
+1:38:16.760 --> 1:38:19.200
+ follow on Spotify, support it on Patreon,
+
+1:38:19.200 --> 1:38:22.240
+ or simply connect with me on Twitter at Lex Friedman.
+
+1:38:23.120 --> 1:38:24.960
+ And now let me leave you with some words
+
+1:38:24.960 --> 1:38:26.960
+ from David Chalmers.
+
+1:38:26.960 --> 1:38:30.760
+ Materialism is a beautiful and compelling view of the world,
+
+1:38:30.760 --> 1:38:32.240
+ but to account for consciousness,
+
+1:38:32.240 --> 1:38:35.240
+ we have to go beyond the resources it provides.
+
+1:38:35.240 --> 1:38:54.240
+ Thank you for listening and hope to see you next time.
+

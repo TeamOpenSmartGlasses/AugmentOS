@@ -1,0 +1,3692 @@
+WEBVTT
+
+00:00.000 --> 00:03.520
+ The following is a conversation with Eric Weinstein.
+
+00:03.520 --> 00:08.820
+ He's a mathematician, economist, physicist, and the managing director of Teal Capital.
+
+00:08.820 --> 00:14.500
+ He coined the term, and you can say, is the founder of the intellectual dark web, which
+
+00:14.500 --> 00:19.920
+ is a loosely assembled group of public intellectuals that includes Sam Harris, Jordan Peterson,
+
+00:19.920 --> 00:24.920
+ Steven Pinker, Joe Rogan, Michael Shermer, and a few others.
+
+00:24.920 --> 00:30.340
+ This conversation is part of the Artificial Intelligence Podcast at MIT and beyond.
+
+00:30.340 --> 00:36.280
+ If you enjoy it, subscribe on YouTube, iTunes, or simply connect with me on Twitter at Lex
+
+00:36.280 --> 00:39.320
+ Friedman, spelled F R I D.
+
+00:39.320 --> 00:44.600
+ And now, here's my conversation with Eric Weinstein.
+
+00:44.600 --> 00:46.400
+ Are you nervous about this?
+
+00:46.400 --> 00:47.400
+ Scared shitless.
+
+00:47.400 --> 00:48.400
+ Okay.
+
+00:48.400 --> 00:54.660
+ You mentioned Kung Fu Panda as one of your favorite movies.
+
+00:54.660 --> 00:58.180
+ It has the usual profound master student dynamic going on.
+
+00:58.180 --> 01:04.080
+ So who was, who has been a teacher that significantly influenced the direction of your thinking
+
+01:04.080 --> 01:05.080
+ and life's work?
+
+01:05.080 --> 01:08.080
+ So if you're the Kung Fu Panda, who was your Shifu?
+
+01:08.080 --> 01:12.240
+ Oh, well, it's interesting because I didn't see Shifu as being the teacher.
+
+01:12.240 --> 01:13.240
+ Who was the teacher?
+
+01:13.240 --> 01:15.500
+ Oogway, Master Oogway.
+
+01:15.500 --> 01:16.500
+ The turtle.
+
+01:16.500 --> 01:17.500
+ Oh, the turtle.
+
+01:17.500 --> 01:18.500
+ Right.
+
+01:18.500 --> 01:21.260
+ They only meet twice in the entire film.
+
+01:21.260 --> 01:25.180
+ And the first conversation sort of doesn't count.
+
+01:25.180 --> 01:33.100
+ So the magic of the film, in fact, its point is that the teaching that really matters is
+
+01:33.100 --> 01:40.140
+ transferred during a single conversation and it's very brief.
+
+01:40.140 --> 01:42.660
+ And so who played that role in my life?
+
+01:42.660 --> 01:51.220
+ I would say, uh, either, uh, my grandfather, uh, Harry Rubin and his wife, Sophie Rubin,
+
+01:51.220 --> 01:54.300
+ my grandmother, or Tom Lehrer.
+
+01:54.300 --> 01:56.100
+ Tom Lehrer?
+
+01:56.100 --> 01:57.460
+ Yeah.
+
+01:57.460 --> 01:58.460
+ In which way?
+
+01:58.460 --> 02:05.380
+ If you give a child Tom Lehrer records, what you do is you destroy their ability to be
+
+02:05.380 --> 02:08.660
+ taken over by later malware.
+
+02:08.660 --> 02:17.420
+ And it's so irreverent, so witty, so clever, so obscene that it destroys the ability to
+
+02:17.420 --> 02:19.380
+ lead a normal life for many people.
+
+02:19.380 --> 02:27.060
+ So if I meet somebody who's usually really shifted from any kind of neurotypical presentation,
+
+02:27.060 --> 02:31.100
+ I'll often ask them, uh, are you a Tom Lehrer fan?
+
+02:31.100 --> 02:34.220
+ And the odds that they will respond are quite high.
+
+02:34.220 --> 02:38.280
+ Tom Lehrer is, uh, poisoning pigeons in the park, Tom Lehrer.
+
+02:38.280 --> 02:39.280
+ That's very interesting.
+
+02:39.280 --> 02:44.120
+ There are a small number of Tom Lehrer songs that broke into the general population, poisoning
+
+02:44.120 --> 02:48.140
+ pigeons in the park, the element song, and perhaps the Vatican rag.
+
+02:48.140 --> 02:53.180
+ Uh, so when you meet somebody who knows those songs but doesn't know, oh, you're judging
+
+02:53.180 --> 02:55.220
+ me right now, aren't you?
+
+02:55.220 --> 02:56.220
+ Harshly.
+
+02:56.220 --> 03:00.340
+ Uh, no, but you're a Russian, so I doubt as the, you know, Nikolai Ivanovich Lubachevsky,
+
+03:00.340 --> 03:01.340
+ that song.
+
+03:01.340 --> 03:02.340
+ Yeah.
+
+03:02.340 --> 03:06.100
+ Um, so that was a song about plagiarism that was in fact plagiarized, which most people
+
+03:06.100 --> 03:11.540
+ don't know from Danny Kay, uh, where Danny Kay did a song called Stanislavsky of the
+
+03:11.540 --> 03:13.340
+ Muskie arts.
+
+03:13.340 --> 03:19.120
+ And so Tom Lehrer did this brilliant job of plagiarizing a song about and making it about
+
+03:19.120 --> 03:24.860
+ plagiarism and then making it about this mathematician who worked in non Euclidean geometry.
+
+03:24.860 --> 03:27.580
+ That was like, uh, giving heroin to a child.
+
+03:27.580 --> 03:33.660
+ It was extremely addictive and eventually led me to a lot of different places, one of
+
+03:33.660 --> 03:36.620
+ which may have been a PhD in mathematics.
+
+03:36.620 --> 03:41.700
+ And he was also at least a lecturer in mathematics, I believe at Harvard, something like that.
+
+03:41.700 --> 03:42.700
+ Yeah.
+
+03:42.700 --> 03:43.700
+ I just had dinner with him.
+
+03:43.700 --> 03:51.740
+ In fact, uh, when my son turned 13, we didn't tell him, but, um, his bar mitzvah present
+
+03:51.740 --> 03:54.700
+ was dinner with his hero, Tom Lehrer.
+
+03:54.700 --> 04:01.020
+ And Tom Lehrer was 88 years old, sharp as a tack, irreverent and funny as hell.
+
+04:01.020 --> 04:05.860
+ And just, you know, there are very few people in this world that you have to meet while
+
+04:05.860 --> 04:07.020
+ they're still here.
+
+04:07.020 --> 04:09.420
+ And that was definitely one for our family.
+
+04:09.420 --> 04:16.700
+ So that wit is a reflection of intelligence in some kind of deep way, like where that
+
+04:16.700 --> 04:20.260
+ would be a good test of intelligence, whether you're a Tom Lehrer fan.
+
+04:20.260 --> 04:27.500
+ So what do you think that is about wit, about that kind of humor, ability to see the absurdity
+
+04:27.500 --> 04:28.500
+ in existence?
+
+04:28.500 --> 04:33.540
+ Well, do you think that's connected to intelligence or are we just two Jews on a mic that appreciate
+
+04:33.540 --> 04:34.540
+ that kind of humor?
+
+04:34.540 --> 04:37.580
+ No, I think that it's absolutely connected to intelligence.
+
+04:37.580 --> 04:40.140
+ So you can, you can see it.
+
+04:40.140 --> 04:45.260
+ There's a place where Tom Lehrer decides that he's going to lampoon Gilbert of Gilbert and
+
+04:45.260 --> 04:49.540
+ Sullivan and he's going to outdo Gilbert with clever, meaningless wordplay.
+
+04:49.540 --> 04:55.540
+ And he has, forget the, well, let's see, he's doing Clementine as if Gilbert and Sullivan
+
+04:55.540 --> 04:56.540
+ wrote it.
+
+04:56.540 --> 05:00.540
+ That I misunderstood depressed her young sister named Mr. This Mr. Depester, she tried pestering
+
+05:00.540 --> 05:04.940
+ sisters of festering blister you best to resist or say I, the sister persisted the Mr. Resisted
+
+05:04.940 --> 05:07.900
+ I kissed her all loyalty slip when he said, when she said I could have her, her sister's
+
+05:07.900 --> 05:10.860
+ cadaver must surely have turned in its crypt.
+
+05:10.860 --> 05:11.980
+ That's so dense.
+
+05:11.980 --> 05:19.180
+ It's so insane that that's clearly intelligence because it's hard to construct something like
+
+05:19.180 --> 05:20.180
+ that.
+
+05:20.180 --> 05:26.380
+ If I look at my favorite Tom Lehrer, Tom Lehrer lyric, you know, there's a perfectly absurd
+
+05:26.380 --> 05:30.300
+ one, which is once all the Germans were warlike and mean, but that couldn't happen again.
+
+05:30.300 --> 05:34.740
+ We taught them a lesson in 1918 and they've hardly bothered us since then, right?
+
+05:34.740 --> 05:36.900
+ That is a different kind of intelligence.
+
+05:36.900 --> 05:41.780
+ You know, you're taking something that is so horrific and you're, you're sort of making
+
+05:41.780 --> 05:47.780
+ it palatable and funny and demonstrating also, um, just your humanity.
+
+05:47.780 --> 05:53.660
+ I mean, I think the thing that came through as, as Tom Lehrer wrote all of these terrible,
+
+05:53.660 --> 05:59.340
+ horrible lines was just what a sensitive and beautiful soul he was, who was channeling
+
+05:59.340 --> 06:02.820
+ pain through humor and through grace.
+
+06:02.820 --> 06:07.900
+ I've seen throughout Europe, throughout Russia, that same kind of humor emerged from the generation
+
+06:07.900 --> 06:09.260
+ of world war II.
+
+06:09.260 --> 06:14.660
+ It seemed like that humor is required to somehow deal with the pain and the suffering of that,
+
+06:14.660 --> 06:16.700
+ that war created.
+
+06:16.700 --> 06:19.700
+ You do need the environment to create the broad Slavic soul.
+
+06:19.700 --> 06:30.780
+ I don't think that many Americans really appreciate, um, Russian humor, how you had to joke during
+
+06:30.780 --> 06:35.700
+ the time of, let's say article 58 under Stalin, you had to be very, very careful.
+
+06:35.700 --> 06:40.500
+ You know, the concept of a Russian satirical magazine like Crocodile, uh, doesn't make
+
+06:40.500 --> 06:41.500
+ sense.
+
+06:41.500 --> 06:48.680
+ So you have this cross cultural problem that there are certain areas of human experience
+
+06:48.680 --> 06:51.420
+ that it would be better to know nothing about.
+
+06:51.420 --> 06:56.780
+ And quite unfortunately, Eastern Europe knows a great deal about them, which makes the,
+
+06:56.780 --> 07:02.940
+ you know, the songs of Vladimir Vysotsky so potent, the, uh, you know, the pros of Pushkin,
+
+07:02.940 --> 07:09.020
+ whatever it is, uh, you have to appreciate the depth of the Eastern European experience.
+
+07:09.020 --> 07:14.160
+ And I would think that perhaps Americans knew something like this around the time of the
+
+07:14.160 --> 07:22.580
+ civil war or merit maybe, um, you know, under slavery and Jim Crow or even the, uh, harsh
+
+07:22.580 --> 07:28.500
+ tyranny of, uh, the coal and steel employers during the labor wars.
+
+07:28.500 --> 07:34.940
+ Um, but in general, I would say it's hard for us to understand and imagine the collective
+
+07:34.940 --> 07:40.660
+ culture unless we have the system of selective pressures that, for example, uh, Russians
+
+07:40.660 --> 07:41.660
+ were subjected to.
+
+07:41.660 --> 07:49.820
+ Yeah, so if there's one good thing that comes out of war, it's literature, art, and humor
+
+07:49.820 --> 07:50.820
+ and music.
+
+07:50.820 --> 07:52.380
+ Oh, I don't think so.
+
+07:52.380 --> 07:57.660
+ I think almost everything is good about war except for death and destruction.
+
+07:57.660 --> 07:59.380
+ Right.
+
+07:59.380 --> 08:02.720
+ Without the death, it would bring, uh, the romance of it.
+
+08:02.720 --> 08:03.720
+ The whole thing is nice.
+
+08:03.720 --> 08:07.900
+ Well, this is why we're always caught up in war and we have this very ambiguous relationship
+
+08:07.900 --> 08:15.820
+ to it is that it makes life real and pressing and meaningful and at an unacceptable price
+
+08:15.820 --> 08:17.820
+ and the price has never been higher.
+
+08:17.820 --> 08:22.860
+ So just jump in, uh, into AI a little bit.
+
+08:22.860 --> 08:28.740
+ You, uh, in one of the conversations you had or one of the videos, you described that one
+
+08:28.740 --> 08:34.480
+ of the things AI systems can't do and biological systems can is self replicate in the physical
+
+08:34.480 --> 08:35.480
+ world.
+
+08:35.480 --> 08:37.400
+ Oh no, no.
+
+08:37.400 --> 08:38.700
+ In the physical world.
+
+08:38.700 --> 08:45.020
+ Well, yes, the physical robots can't self replicate, but the fit, but you, this is a
+
+08:45.020 --> 08:50.940
+ very tricky point, which is that the only thing that we've been able to create that's
+
+08:50.940 --> 08:57.440
+ really complex that has an analog of our reproductive system is software.
+
+08:57.440 --> 09:01.220
+ But nevertheless, software replicates itself.
+
+09:01.220 --> 09:05.820
+ Uh, if we're speaking strictly for the replication in this kind of digital space.
+
+09:05.820 --> 09:08.700
+ So let me just to begin, let me ask a question.
+
+09:08.700 --> 09:15.140
+ Do you see a protective barrier or a gap between the physical world and the digital world?
+
+09:15.140 --> 09:16.580
+ Let's not call it digital.
+
+09:16.580 --> 09:20.900
+ Let's call it the logical world versus the physical world.
+
+09:20.900 --> 09:21.900
+ Why logical?
+
+09:21.900 --> 09:28.080
+ Well, because even though we had, let's say Einstein's brain preserved, uh, it was meaningless
+
+09:28.080 --> 09:33.720
+ to us as a physical object because we couldn't do anything with what was stored in it at
+
+09:33.720 --> 09:35.660
+ a logical level.
+
+09:35.660 --> 09:40.380
+ And so the idea that something may be stored logically and that it may be stored physically,
+
+09:40.380 --> 09:45.740
+ uh, are not necessarily, uh, we don't always benefit from synonymizing.
+
+09:45.740 --> 09:51.060
+ I'm not suggesting that there isn't a material basis to the logical world, but that it does
+
+09:51.060 --> 09:58.260
+ warrant identification with a separate layer that need not invoke logic gates and zeros
+
+09:58.260 --> 09:59.700
+ and ones.
+
+09:59.700 --> 10:03.660
+ And uh, so connecting those two worlds, the logical world and the physical world, or maybe
+
+10:03.660 --> 10:09.380
+ just connecting to the logical world inside our brain, Einstein's brain.
+
+10:09.380 --> 10:14.740
+ You mentioned the idea of out, outtelligence.
+
+10:14.740 --> 10:15.960
+ Artificial outtelligence.
+
+10:15.960 --> 10:16.960
+ Artificial outtelligence.
+
+10:16.960 --> 10:17.960
+ Yes.
+
+10:17.960 --> 10:22.660
+ This is the only essay that John Brockman ever invited me to write that he refused to
+
+10:22.660 --> 10:24.660
+ publish in Edge.
+
+10:24.660 --> 10:25.660
+ Why?
+
+10:25.660 --> 10:30.660
+ Well, maybe it wasn't, it wasn't well written, um, but I don't know.
+
+10:30.660 --> 10:36.820
+ The idea is quite compelling is quite unique and new and at least from my view of a stance
+
+10:36.820 --> 10:38.700
+ point, maybe you can explain it.
+
+10:38.700 --> 10:39.700
+ Sure.
+
+10:39.700 --> 10:45.360
+ What I was thinking about is why it is that we're waiting to be terrified by artificial
+
+10:45.360 --> 10:53.480
+ general intelligence when in fact, artificial life, uh, is terrifying in and of itself and
+
+10:53.480 --> 10:54.620
+ it's already here.
+
+10:54.620 --> 11:00.280
+ So in order to have a system of selective pressures, you need three distinct elements.
+
+11:00.280 --> 11:04.400
+ You need variation within a population.
+
+11:04.400 --> 11:08.580
+ You need heritability and you need differential success.
+
+11:08.580 --> 11:16.140
+ So what's really unique and I've made this point, I think elsewhere about software is
+
+11:16.140 --> 11:19.380
+ that if you think about what humans know how to build, that's impressive.
+
+11:19.380 --> 11:25.340
+ So I always take a car and I say, does it have an analog of each of the physical physiological
+
+11:25.340 --> 11:26.340
+ systems?
+
+11:26.340 --> 11:27.340
+ Does it have a skeletal structure?
+
+11:27.340 --> 11:28.340
+ That's its frame.
+
+11:28.340 --> 11:30.380
+ Does it have a neurological structure?
+
+11:30.380 --> 11:35.740
+ Has an on board computer, has a digestive system.
+
+11:35.740 --> 11:38.520
+ The one thing it doesn't have is a reproductive system.
+
+11:38.520 --> 11:47.460
+ But if you can call spawn on a process, effectively you do have a reproductive system and that
+
+11:47.460 --> 11:53.460
+ means that you can create something with variation, heritability and differential success.
+
+11:53.460 --> 12:01.420
+ Now the next step in the chain of thinking was where do we see inanimate, non intelligent
+
+12:01.420 --> 12:05.700
+ life outwitting intelligent life?
+
+12:05.700 --> 12:11.500
+ And um, I have two favorite systems and I try to stay on them so that we don't get distracted.
+
+12:11.500 --> 12:16.980
+ One of which is the Ofres orchid, um, subspecies or subclade.
+
+12:16.980 --> 12:17.980
+ I don't know what to call it.
+
+12:17.980 --> 12:18.980
+ There's a type of flower.
+
+12:18.980 --> 12:23.940
+ Yeah, it's a type of flower that mimics the female of a pollinator species in order to
+
+12:23.940 --> 12:27.460
+ dupe the males into, uh, engaging.
+
+12:27.460 --> 12:31.980
+ It was called pseudo copulation with the fake female, which is usually represented by the
+
+12:31.980 --> 12:34.040
+ lowest pedal.
+
+12:34.040 --> 12:37.420
+ And there's also a pheromone component to fool the males into thinking they have a mating
+
+12:37.420 --> 12:38.420
+ opportunity.
+
+12:38.420 --> 12:42.820
+ But the flower doesn't have to give up energy energy in the form of nectar as a lure because
+
+12:42.820 --> 12:45.320
+ it's tricking the males.
+
+12:45.320 --> 12:53.660
+ The other system is a particular species, uh, of muscle lampicillus in the clear streams
+
+12:53.660 --> 13:02.060
+ of Missouri and it fools bass into biting a fleshy lip that contain its young.
+
+13:02.060 --> 13:07.100
+ And when the bass see this fleshy lip, which looks exactly like a species of fish that
+
+13:07.100 --> 13:13.420
+ the bass like to eat, the, uh, the young explode and clamp onto the gills and parasitize the
+
+13:13.420 --> 13:20.860
+ bass and also lose the best redistribute them as they eventually release both of these systems.
+
+13:20.860 --> 13:31.700
+ You have a highly intelligent dupe being fooled by a lower life form and what is sculpting
+
+13:31.700 --> 13:34.780
+ these, these convincing lures.
+
+13:34.780 --> 13:41.540
+ It's the intelligence of previously duped targets for these strategies.
+
+13:41.540 --> 13:48.980
+ So when the target is smart enough to avoid the strategy, uh, those weaker mimics, uh,
+
+13:48.980 --> 13:49.980
+ fall off.
+
+13:49.980 --> 13:52.780
+ They have terminal lines and only the better ones survive.
+
+13:52.780 --> 14:00.820
+ So it's an arms race between the target species, uh, that is being parasitized, getting smarter
+
+14:00.820 --> 14:09.000
+ and this other less intelligent or non intelligent object getting as if smarter.
+
+14:09.000 --> 14:13.700
+ And so what you see is, is that artificial intelligence, artificial general intelligence
+
+14:13.700 --> 14:17.260
+ is not needed to parasitize us.
+
+14:17.260 --> 14:22.120
+ It's simply sufficient for us to outwit ourselves.
+
+14:22.120 --> 14:27.100
+ So you could have a program, let's say, you know, one of these Nigerian scams, um, that
+
+14:27.100 --> 14:36.060
+ writes letters and uses whoever sends it Bitcoin, uh, to figure out which aspects of the program
+
+14:36.060 --> 14:38.900
+ should be kept, which should be varied and thrown away.
+
+14:38.900 --> 14:43.340
+ And you don't need it to be in any way intelligent in order to have a really nightmarish scenario
+
+14:43.340 --> 14:46.740
+ of being parasitized by something that has no idea what it's doing.
+
+14:46.740 --> 14:49.400
+ So you, you, you phrased a few concepts really eloquently.
+
+14:49.400 --> 14:53.060
+ So let me try to, uh, as a few directions this goes.
+
+14:53.060 --> 14:58.180
+ So one first, first of all, in the way we write software today, it's not common that
+
+14:58.180 --> 15:01.180
+ we allow it to self modify.
+
+15:01.180 --> 15:02.180
+ But we do have that ability.
+
+15:02.180 --> 15:05.220
+ Now we have the ability, it's just not common.
+
+15:05.220 --> 15:06.220
+ It's not just common.
+
+15:06.220 --> 15:13.100
+ So, so your, your thought is that that is a serious worry.
+
+15:13.100 --> 15:15.400
+ If there becomes, uh,
+
+15:15.400 --> 15:18.540
+ Self modifying code is, is available now.
+
+15:18.540 --> 15:21.220
+ So there's, there's different types of self modification, right?
+
+15:21.220 --> 15:28.500
+ There's a personalization, you know, your email app, your Gmail is a self modifying
+
+15:28.500 --> 15:32.420
+ to you after you log in or whatever you can think of it that way.
+
+15:32.420 --> 15:39.620
+ But ultimately it's central, all the information is centralized, but you're thinking of ideas
+
+15:39.620 --> 15:45.460
+ where you're completely, so this is an unique entity, uh, operating under selective pressures
+
+15:45.460 --> 15:46.460
+ and it changes.
+
+15:46.460 --> 15:52.520
+ Well, you just, if you think about the fact that our immune systems, uh, don't know what's
+
+15:52.520 --> 15:58.740
+ coming at them next, but they have a small set of spanning components and if it's, if
+
+15:58.740 --> 16:06.660
+ it's a sufficiently expressive system in that any shape, uh, or binding region can be approximated,
+
+16:06.660 --> 16:13.100
+ uh, with, with the Lego that is present, um, then you can have confidence that you don't
+
+16:13.100 --> 16:20.580
+ need to know what's coming at you because the combinatorics, um, are sufficient to reach
+
+16:20.580 --> 16:22.660
+ any configuration needed.
+
+16:22.660 --> 16:25.380
+ Uh, so that's a beautiful thing.
+
+16:25.380 --> 16:30.700
+ Well, terrifying thing to worry about because it's so within our reach.
+
+16:30.700 --> 16:34.140
+ Whatever I suggest these things, I do always have a concern as to whether or not I will
+
+16:34.140 --> 16:37.020
+ bring them into being by talking about them.
+
+16:37.020 --> 16:43.300
+ So, uh, there's this thing from open AI, uh, next, next week to talk to the founder of
+
+16:43.300 --> 16:50.060
+ open AI, uh, this idea that, uh, their text generation, the new, uh, the new stuff they
+
+16:50.060 --> 16:54.400
+ have for generating texts is they didn't want to bring it, they didn't want to release it
+
+16:54.400 --> 16:57.420
+ because they're worried about the.
+
+16:57.420 --> 17:00.660
+ I'm delighted to hear that, but they're going to end up releasing.
+
+17:00.660 --> 17:01.660
+ Yes.
+
+17:01.660 --> 17:06.160
+ So that's the thing is I think talking about it, um, well, at least from my end, I'm more
+
+17:06.160 --> 17:14.100
+ a proponent of technology preventing tech, uh, so further innovation, preventing the
+
+17:14.100 --> 17:16.100
+ detrimental effects of innovation.
+
+17:16.100 --> 17:22.300
+ Well, we're at a, we're sort of tumbling down a hill at accelerating speed.
+
+17:22.300 --> 17:27.020
+ So whether or not we're proponents or it doesn't, it doesn't really, it may not matter, but
+
+17:27.020 --> 17:33.580
+ I, well, I do feel that there are people who've held things back and, uh, you know, died poor
+
+17:33.580 --> 17:35.380
+ than they might've otherwise been.
+
+17:35.380 --> 17:37.380
+ We don't even know their names.
+
+17:37.380 --> 17:43.740
+ I don't think that we should discount the idea that having the smartest people showing
+
+17:43.740 --> 17:50.820
+ off how smart they are by what they've developed may be a terminal process.
+
+17:50.820 --> 17:57.240
+ I'm very mindful in particular of a beautiful letter that Edward Teller of all people wrote
+
+17:57.240 --> 18:02.060
+ to Leo Zillard and where Zillard was trying to figure out how to control the use of atomic
+
+18:02.060 --> 18:08.020
+ weaponry at the end of world war II and teller rather strangely because many of us view him
+
+18:08.020 --> 18:15.060
+ as a monster, um, showed some, a very advanced moral thinking talking about the slim chance
+
+18:15.060 --> 18:19.100
+ we have for survival and that the only hope is to make Warren thinkable.
+
+18:19.100 --> 18:24.900
+ I do think that not enough of us feel in our gut what it is we are playing with when we
+
+18:24.900 --> 18:26.660
+ are working on technical problems.
+
+18:26.660 --> 18:31.500
+ And I would recommend to anyone who hasn't seen it, a movie called the bridge over the
+
+18:31.500 --> 18:38.260
+ bridge on the river Kwai about, I believe captured British POWs who just in a desire
+
+18:38.260 --> 18:43.180
+ to do a bridge well, end up over collaborating with their Japanese captors.
+
+18:43.180 --> 18:51.100
+ Well now you're making me a question the unrestricted open discussion of ideas and AI.
+
+18:51.100 --> 18:55.980
+ I'm not saying I know the answer, I'm just saying that I could make a decent case for
+
+18:55.980 --> 19:00.020
+ either our need to talk about this and to become technologically focused on containing
+
+19:00.020 --> 19:06.840
+ it or need to stop talking about this and try to hope that the relatively small number
+
+19:06.840 --> 19:11.100
+ of highly adept individuals who are looking at these problems is small enough that we
+
+19:11.100 --> 19:14.060
+ should in fact be talking about how to contain them.
+
+19:14.060 --> 19:20.380
+ Well the way ideas, the way innovation happens, what new ideas develop, Newton with calculus,
+
+19:20.380 --> 19:26.940
+ whether if he was silent, the idea would be, would emerge elsewhere in the case of Newton
+
+19:26.940 --> 19:27.940
+ of course.
+
+19:27.940 --> 19:34.980
+ But in the case of AI, how small is the set of individuals out of which such ideas would
+
+19:34.980 --> 19:35.980
+ arise?
+
+19:35.980 --> 19:42.060
+ Well the idea is that the researchers we know and those that we don't know who may live
+
+19:42.060 --> 19:47.100
+ in countries that don't wish us to know what level they're currently at are very disciplined
+
+19:47.100 --> 19:50.540
+ in keeping these things to themselves.
+
+19:50.540 --> 19:57.180
+ Of course I will point out that there's a religious school in Kerala that developed
+
+19:57.180 --> 20:05.980
+ something very close to the calculus, certainly in terms of infinite series in I guess religious
+
+20:05.980 --> 20:10.420
+ prayer and rhyme and prose.
+
+20:10.420 --> 20:16.300
+ So it's not that Newton had any ability to hold that back and I don't really believe
+
+20:16.300 --> 20:17.580
+ that we have an ability to hold it back.
+
+20:17.580 --> 20:23.020
+ I do think that we could change the proportion of the time we spend worrying about the effects
+
+20:23.020 --> 20:26.420
+ of what if we are successful rather than simply trying to succeed and hope that we'll be able
+
+20:26.420 --> 20:27.900
+ to contain things later.
+
+20:27.900 --> 20:29.300
+ Beautifully put.
+
+20:29.300 --> 20:35.660
+ So on the idea of intelligence, what form, treading cautiously as we've agreed as we
+
+20:35.660 --> 20:38.060
+ tumbled down the hill, what form...
+
+20:38.060 --> 20:39.620
+ We can't stop ourselves, can we?
+
+20:39.620 --> 20:42.000
+ We cannot.
+
+20:42.000 --> 20:43.540
+ What form do you see it taking?
+
+20:43.540 --> 20:52.040
+ So one example, Facebook, Google, do want to, I don't know a better word, you want to
+
+20:52.040 --> 20:59.580
+ influence users to behave a certain way and so that's one kind of example of how intelligence
+
+20:59.580 --> 21:05.940
+ is systems perhaps modifying the behavior of these intelligent human beings in order
+
+21:05.940 --> 21:08.460
+ to sell more product of different kinds.
+
+21:08.460 --> 21:13.060
+ But do you see other examples of this actually emerging in...
+
+21:13.060 --> 21:18.680
+ Just take any parasitic system, make sure that there's some way in which that there's
+
+21:18.680 --> 21:25.180
+ differential success, heritability, and variation.
+
+21:25.180 --> 21:29.380
+ And those are the magic ingredients and if you really wanted to build a nightmare machine,
+
+21:29.380 --> 21:36.780
+ make sure that the system that expresses the variability has a spanning set so that it
+
+21:36.780 --> 21:41.920
+ can learn to arbitrary levels by making it sufficiently expressive.
+
+21:41.920 --> 21:43.240
+ That's your nightmare.
+
+21:43.240 --> 21:49.060
+ So it's your nightmare, but it could also be, it's a really powerful mechanism by which
+
+21:49.060 --> 21:52.360
+ to create, well, powerful systems.
+
+21:52.360 --> 21:59.100
+ So are you more worried about the negative direction that might go versus the positive?
+
+21:59.100 --> 22:05.140
+ So you said parasitic, but that doesn't necessarily need to be what the system converges towards.
+
+22:05.140 --> 22:07.780
+ It could be, what is it?
+
+22:07.780 --> 22:13.700
+ And the dividing line between parasitism and symbiosis is not so clear.
+
+22:13.700 --> 22:15.060
+ That's what they tell me about marriage.
+
+22:15.060 --> 22:17.540
+ I'm still single, so I don't know.
+
+22:17.540 --> 22:27.580
+ Well yeah, we could go into that too, but no, I think we have to appreciate, are you
+
+22:27.580 --> 22:30.660
+ infected by your own mitochondria?
+
+22:30.660 --> 22:31.660
+ Right.
+
+22:31.660 --> 22:32.660
+ Right?
+
+22:32.660 --> 22:33.660
+ Yeah.
+
+22:33.660 --> 22:42.580
+ So in marriage, you fear the loss of independence, but even though the American therapeutic community
+
+22:42.580 --> 22:47.420
+ may be very concerned about codependence, what's to say that codependence isn't what's
+
+22:47.420 --> 22:52.780
+ necessary to have a stable relationship in which to raise children who are maximally
+
+22:52.780 --> 22:57.260
+ case selected and require incredible amounts of care because you have to wait 13 years
+
+22:57.260 --> 23:00.700
+ before there's any reproductive payout and most of us don't want our 13 year olds having
+
+23:00.700 --> 23:01.700
+ kids.
+
+23:01.700 --> 23:08.940
+ That's a very tricky situation to analyze and I would say that predators and parasites
+
+23:08.940 --> 23:14.020
+ drive much of our evolution and I don't know whether to be angry at them or thank them.
+
+23:14.020 --> 23:19.620
+ Well ultimately, I mean nobody knows the meaning of life or what even happiness is, but there
+
+23:19.620 --> 23:20.620
+ is some metrics.
+
+23:20.620 --> 23:21.620
+ They didn't tell you?
+
+23:21.620 --> 23:22.620
+ They didn't.
+
+23:22.620 --> 23:23.620
+ They didn't.
+
+23:23.620 --> 23:29.460
+ That's why all the poetry and books are about, you know, there's some metrics under which
+
+23:29.460 --> 23:35.060
+ you can kind of measure how good it is that these AI systems are roaming about.
+
+23:35.060 --> 23:44.380
+ So you're more nervous about software than you are optimistic about ideas of, yeah, self
+
+23:44.380 --> 23:45.380
+ replicating largely.
+
+23:45.380 --> 23:50.420
+ I don't think we've really felt where we are.
+
+23:50.420 --> 23:57.660
+ You know, occasionally we get a wake up, 9 11 was so anomalous compared to everything
+
+23:57.660 --> 24:03.540
+ else we've experienced on American soil that it came to us as a complete shock that that
+
+24:03.540 --> 24:05.060
+ was even a possibility.
+
+24:05.060 --> 24:11.620
+ What it really was was a highly creative and determined R and D team deep in the bowels
+
+24:11.620 --> 24:18.200
+ of Afghanistan showing us that we had certain exploits that we were open to that nobody
+
+24:18.200 --> 24:19.380
+ had chosen to express.
+
+24:19.380 --> 24:23.700
+ I can think of several of these things that I don't talk about publicly that just seem
+
+24:23.700 --> 24:32.140
+ to have to do with, um, how relatively unimaginative those who wish to cause havoc and destruction
+
+24:32.140 --> 24:33.860
+ have been up until now.
+
+24:33.860 --> 24:43.780
+ But the great mystery of our time of this particular little era is how remarkably stable
+
+24:43.780 --> 24:50.780
+ we've been since 1945 when we demonstrated the ability to use a nuclear weapons in anger.
+
+24:50.780 --> 24:58.440
+ And we don't know why things like that haven't happened since then.
+
+24:58.440 --> 25:03.780
+ We've had several close calls, we've had mistakes, we've had a brinksmanship.
+
+25:03.780 --> 25:09.820
+ And what's now happened is that we've settled into a sense that, Oh, it's, it'll always
+
+25:09.820 --> 25:10.820
+ be nothing.
+
+25:10.820 --> 25:20.260
+ It's been so long since something was at that level of danger that we've got a wrong idea
+
+25:20.260 --> 25:21.260
+ in our head.
+
+25:21.260 --> 25:25.500
+ And that's why when I went on the Ben Shapiro show, I talked about the need to resume above
+
+25:25.500 --> 25:30.460
+ ground testing of nuclear devices because we have people whose developmental experience
+
+25:30.460 --> 25:37.580
+ suggests that when let's say Donald Trump and North Korea engage on Twitter, Oh, it's
+
+25:37.580 --> 25:38.580
+ nothing.
+
+25:38.580 --> 25:39.580
+ It's just posturing.
+
+25:39.580 --> 25:41.140
+ Everybody's just in it for money.
+
+25:41.140 --> 25:46.860
+ There's, there's an, a sense that people are in a video game mode, which has been the right
+
+25:46.860 --> 25:49.500
+ call since 1945.
+
+25:49.500 --> 25:51.140
+ We've been mostly in video game mode.
+
+25:51.140 --> 25:52.140
+ It's amazing.
+
+25:52.140 --> 25:57.140
+ So you're worried about a generation which has not seen any existential.
+
+25:57.140 --> 25:58.300
+ We've lived under it.
+
+25:58.300 --> 26:00.260
+ You see, you're younger.
+
+26:00.260 --> 26:05.860
+ I don't know if, if, and again, you came from, from Moscow.
+
+26:05.860 --> 26:13.540
+ There was a TV show called the day after that had a huge effect on a generation growing
+
+26:13.540 --> 26:21.020
+ up in the U S and it talked about what life would be like after a nuclear exchange.
+
+26:21.020 --> 26:27.500
+ We have not gone through an embodied experience collectively where we've thought about this.
+
+26:27.500 --> 26:32.780
+ And I think it's one of the most irresponsible things that the elders among us have done,
+
+26:32.780 --> 26:41.820
+ which is to provide this beautiful garden in which the thorns are cut off of the, of
+
+26:41.820 --> 26:47.860
+ the Rose bushes and all of the edges are rounded and sanded.
+
+26:47.860 --> 26:52.140
+ And so people have developed this, this totally unreal idea, which is everything's going to
+
+26:52.140 --> 26:54.240
+ be just fine.
+
+26:54.240 --> 27:01.180
+ And do I think that my leading concern is AGI or my leading concern is a thermonuclear
+
+27:01.180 --> 27:04.060
+ exchange or gene drives or any one of these things?
+
+27:04.060 --> 27:11.780
+ I don't know, but I know that our time here in this very long experiment here is finite
+
+27:11.780 --> 27:19.340
+ because the toys that we've built are so impressive and the wisdom to accompany them has not materialized.
+
+27:19.340 --> 27:24.300
+ And I think it's, we actually got a wisdom uptick since 1945.
+
+27:24.300 --> 27:29.980
+ We had a lot of dangerous skilled players on the world stage who nevertheless, no matter
+
+27:29.980 --> 27:38.140
+ how bad they were managed to not embroil us in something that we couldn't come back from
+
+27:38.140 --> 27:39.140
+ the cold war.
+
+27:39.140 --> 27:46.660
+ Yeah, and the distance from the cold war, you know, I'm very mindful of a, there was
+
+27:46.660 --> 27:54.980
+ a Russian tradition actually of on your wedding day, going to visit a memorial to those who
+
+27:54.980 --> 27:55.980
+ gave their lives.
+
+27:55.980 --> 28:02.800
+ Can you imagine this where you, on the happiest day of your life, you go and you pay homage
+
+28:02.800 --> 28:08.980
+ to the people who fought and died in the battle of Stalingrad.
+
+28:08.980 --> 28:13.460
+ I'm not a huge fan of communism, I got to say, but there were a couple of things that
+
+28:13.460 --> 28:18.860
+ the Russians did that were really positive in the Soviet era.
+
+28:18.860 --> 28:25.060
+ And I think trying to let people know how serious life actually is, is the Russian model
+
+28:25.060 --> 28:28.660
+ of seriousness is better than the American model.
+
+28:28.660 --> 28:34.340
+ And maybe like you mentioned, there was a small echo of that after 9 11.
+
+28:34.340 --> 28:36.180
+ But we wouldn't let it form.
+
+28:36.180 --> 28:42.860
+ We talk about 9 11, but it's 9 12 that really moved the needle when we were all just there
+
+28:42.860 --> 28:46.140
+ and nobody wanted to speak.
+
+28:46.140 --> 28:55.580
+ We witnessed something super serious and we didn't want to run to our computers and blast
+
+28:55.580 --> 28:59.260
+ out our deep thoughts and our feelings.
+
+28:59.260 --> 29:05.740
+ And it was profound because we woke up briefly, you know, I talk about the gated institutional
+
+29:05.740 --> 29:08.980
+ narrative that sort of programs our lives.
+
+29:08.980 --> 29:15.260
+ I've seen it break three times in my life, one of which was the election of Donald Trump.
+
+29:15.260 --> 29:21.300
+ Another time was the fall of Lehman Brothers when everybody who knew that Bear Stearns
+
+29:21.300 --> 29:27.380
+ wasn't that important knew that Lehman Brothers met AIG was next.
+
+29:27.380 --> 29:29.460
+ And the other one was 9 11.
+
+29:29.460 --> 29:35.260
+ And so if I'm 53 years old and I only remember three times that the global narrative was
+
+29:35.260 --> 29:42.980
+ really interrupted, that tells you how much we've been on top of developing events.
+
+29:42.980 --> 29:46.580
+ You know, I mean we had the Murrow federal building explosion, but it didn't cause the
+
+29:46.580 --> 29:47.580
+ narrative to break.
+
+29:47.580 --> 29:49.580
+ It wasn't profound enough.
+
+29:49.580 --> 29:58.820
+ Around 9 12 we started to wake up out of our slumber and the powers that be did not want
+
+29:58.820 --> 29:59.820
+ to coming together.
+
+29:59.820 --> 30:03.780
+ They, you know, the admonition was go shopping.
+
+30:03.780 --> 30:07.820
+ And the powers that be was what is that force as opposed to blaming individuals?
+
+30:07.820 --> 30:08.920
+ We don't know.
+
+30:08.920 --> 30:13.460
+ So whatever that, whatever that force is, there's a component of it that's emergent
+
+30:13.460 --> 30:15.780
+ and there's a component of it that's deliberate.
+
+30:15.780 --> 30:18.840
+ So give yourself a portfolio with two components.
+
+30:18.840 --> 30:23.900
+ Some amount of it is emergent, but some amount of it is also an understanding that if people
+
+30:23.900 --> 30:27.880
+ come together, they become an incredible force.
+
+30:27.880 --> 30:34.660
+ And what you're seeing right now I think is there are forces that are trying to come together
+
+30:34.660 --> 30:39.500
+ and there are forces that are trying to push things apart.
+
+30:39.500 --> 30:43.540
+ And you know, one of them is the globalist narrative versus the national narrative where
+
+30:43.540 --> 30:50.080
+ to the global, uh, globalist perspective, uh, the nation nations are bad things in essence
+
+30:50.080 --> 30:56.300
+ that they're temporary, they're nationalistic, they're jingoistic, it's all negative to people
+
+30:56.300 --> 30:59.420
+ in the national, more in the national idiom, they're saying, look, this is where I pay
+
+30:59.420 --> 31:00.420
+ my taxes.
+
+31:00.420 --> 31:02.660
+ This is where I do my army service.
+
+31:02.660 --> 31:04.340
+ This is where I have a vote.
+
+31:04.340 --> 31:06.180
+ This is where I have a passport.
+
+31:06.180 --> 31:10.220
+ Who the hell are you to tell me that because you've moved into someplace that you can make
+
+31:10.220 --> 31:15.580
+ money globally, that you've chosen to abandon other people to whom you have a special and
+
+31:15.580 --> 31:16.580
+ elevated duty.
+
+31:16.580 --> 31:22.140
+ And I think that these competing narratives have been pushing towards the global perspective,
+
+31:22.140 --> 31:27.660
+ uh, from the elite and a larger and larger number of disenfranchised people are saying,
+
+31:27.660 --> 31:32.060
+ hey, I actually live in a, in a place and I have laws and I speak a language, I have
+
+31:32.060 --> 31:33.660
+ a culture.
+
+31:33.660 --> 31:40.300
+ And who are you to tell me that because you can profit in some far away land that my obligations
+
+31:40.300 --> 31:43.260
+ to my fellow countrymen are so, so much diminished.
+
+31:43.260 --> 31:47.940
+ So these tensions between nations and so on, ultimately you see being proud of your country
+
+31:47.940 --> 31:53.700
+ and so on, which creates potentially the kind of things that led to wars and so on.
+
+31:53.700 --> 31:58.420
+ They, they ultimately, it is human nature and it is good for us for wake up calls of
+
+31:58.420 --> 31:59.420
+ different kinds.
+
+31:59.420 --> 32:05.020
+ Well, I think that these are tensions and my point isn't, I mean, nationalism run amok
+
+32:05.020 --> 32:09.980
+ is a nightmare and internationalism run amok is a nightmare.
+
+32:09.980 --> 32:16.820
+ And the problem is we're trying to push these pendulums, uh, to some place where they're
+
+32:16.820 --> 32:24.260
+ somewhat balanced, where we, we have a higher duty of care to those, uh, who share our log,
+
+32:24.260 --> 32:30.940
+ our laws and our citizenship, but we don't forget our duties of care to the global system.
+
+32:30.940 --> 32:37.660
+ I would think this is elementary, but the problem that we're facing concerns the ability
+
+32:37.660 --> 32:45.540
+ for some to profit at the, by abandoning their obligations, uh, to others within their system.
+
+32:45.540 --> 32:48.580
+ And that's what we've had for decades.
+
+32:48.580 --> 32:50.220
+ You mentioned nuclear weapons.
+
+32:50.220 --> 32:55.860
+ I was hoping to get answers from you since one of the many things you've done as a economics
+
+32:55.860 --> 33:00.500
+ and maybe you can understand human behavior of why the heck we haven't blown each other
+
+33:00.500 --> 33:01.500
+ up yet.
+
+33:01.500 --> 33:02.500
+ But okay.
+
+33:02.500 --> 33:03.500
+ So, uh, we'll get back.
+
+33:03.500 --> 33:04.500
+ I don't know the answer.
+
+33:04.500 --> 33:05.500
+ Yes.
+
+33:05.500 --> 33:06.500
+ It's a, it's a fast.
+
+33:06.500 --> 33:07.500
+ It's really important to say that we really don't know.
+
+33:07.500 --> 33:09.500
+ A mild uptick in wisdom.
+
+33:09.500 --> 33:10.820
+ A mild uptick in wisdom.
+
+33:10.820 --> 33:17.300
+ Well, Steven Pinker, who I've talked with has a lot of really good ideas about why,
+
+33:17.300 --> 33:20.060
+ but I don't trust his optimism.
+
+33:20.060 --> 33:24.860
+ Listen, I'm Russian, so I never trust a guy who was that optimistic.
+
+33:24.860 --> 33:25.860
+ No, no, no.
+
+33:25.860 --> 33:31.260
+ It's just that you're talking about a guy who's looking at a system in which more and
+
+33:31.260 --> 33:37.740
+ more of the kinetic energy like war has been turned into potential energy, like unused
+
+33:37.740 --> 33:38.740
+ nuclear weapons.
+
+33:38.740 --> 33:39.740
+ Beautifully put.
+
+33:39.740 --> 33:42.900
+ You know, now I'm looking at that system and I'm saying, okay, well, if you don't have
+
+33:42.900 --> 33:46.060
+ a potential energy term, then everything's just getting better and better.
+
+33:46.060 --> 33:47.060
+ Yeah.
+
+33:47.060 --> 33:48.060
+ Wow.
+
+33:48.060 --> 33:49.060
+ That's beautifully put.
+
+33:49.060 --> 33:50.060
+ Only a physicist could.
+
+33:50.060 --> 33:51.060
+ Okay.
+
+33:51.060 --> 33:52.060
+ I'm not a physicist.
+
+33:52.060 --> 33:55.060
+ Is that a dirty word?
+
+33:55.060 --> 33:56.060
+ No, no.
+
+33:56.060 --> 33:57.060
+ I wish I were a physicist.
+
+33:57.060 --> 33:58.060
+ Me too.
+
+33:58.060 --> 33:59.060
+ My dad's a physicist.
+
+33:59.060 --> 34:02.900
+ I'm trying to live up that probably for the rest of my life.
+
+34:02.900 --> 34:04.500
+ He's probably gonna listen to this too.
+
+34:04.500 --> 34:05.500
+ So.
+
+34:05.500 --> 34:06.500
+ He did.
+
+34:06.500 --> 34:07.500
+ Yeah.
+
+34:07.500 --> 34:13.940
+ So your friend, Sam Harris, uh, worries a lot about the existential threat of AI.
+
+34:13.940 --> 34:18.060
+ Not in the way that you've described, but in the more, well, he hangs out with Elon.
+
+34:18.060 --> 34:20.380
+ I don't know Elon.
+
+34:20.380 --> 34:30.020
+ So are you worried about that kind of, uh, you know, about the, um, about either robotic
+
+34:30.020 --> 34:35.660
+ systems or, you know, traditionally defined AI systems essentially becoming a super intelligent,
+
+34:35.660 --> 34:40.700
+ much more intelligent than human beings and, uh, getting, well, they already are and they're
+
+34:40.700 --> 34:47.420
+ not when, when seen as a, um, a collective, you mean, well, I mean, I, I can mean all
+
+34:47.420 --> 34:54.420
+ sorts of things, but certainly many of the things that we thought were peculiar to general
+
+34:54.420 --> 34:57.340
+ intelligence or do not require general intelligence.
+
+34:57.340 --> 35:04.160
+ So that's been one of the big awakenings that you can write a pretty convincing sports story
+
+35:04.160 --> 35:10.700
+ from stats alone, uh, without needing to have watched the game.
+
+35:10.700 --> 35:13.900
+ So you know, is it possible to write lively pros about politics?
+
+35:13.900 --> 35:17.580
+ Yeah, no, not yet.
+
+35:17.580 --> 35:20.480
+ So we were sort of all over the map.
+
+35:20.480 --> 35:24.020
+ One of the, one of the things about chess that you'll, there's a question I once asked
+
+35:24.020 --> 35:29.220
+ on Quora that didn't get a lot of response, which was what is the greatest brilliancy
+
+35:29.220 --> 35:32.860
+ ever produced by a computer in a chess game, which was different than the question of what
+
+35:32.860 --> 35:35.540
+ is the greatest game ever played.
+
+35:35.540 --> 35:39.180
+ So if you think about brilliancies is what really animates many of us to think of chess
+
+35:39.180 --> 35:42.240
+ as an art form.
+
+35:42.240 --> 35:47.380
+ Those are those moves and combinations that just show such flair, panache and, and, and
+
+35:47.380 --> 35:50.500
+ in soul, um, computers weren't really great at that.
+
+35:50.500 --> 35:56.820
+ They were great positional monsters and you know, recently we, we've started seeing brilliancies
+
+35:56.820 --> 35:57.820
+ and so.
+
+35:57.820 --> 36:03.100
+ The grandmasters have identified with, uh, with alpha zero that things were quite brilliant.
+
+36:03.100 --> 36:04.100
+ Yeah.
+
+36:04.100 --> 36:06.780
+ So that's, that's, that's a, you know, that's an example of something we don't think that
+
+36:06.780 --> 36:12.220
+ that's AGI, but in a very restricted set, a set of rules like chess, you're starting
+
+36:12.220 --> 36:15.980
+ to see poetry, uh, of a high order.
+
+36:15.980 --> 36:22.740
+ And, and so I'm not, I don't like the idea that we're waiting for AGI, AGI is sort of
+
+36:22.740 --> 36:29.780
+ slowly infiltrating our lives in the same way that I don't think a worm should be, you
+
+36:29.780 --> 36:34.760
+ know, the C elegans shouldn't be treated as non conscious because it only has 300 neurons.
+
+36:34.760 --> 36:39.080
+ Maybe it just has a very low level of consciousness because we don't understand what these things
+
+36:39.080 --> 36:40.860
+ mean as they scale up.
+
+36:40.860 --> 36:43.700
+ So am I worried about this general phenomena?
+
+36:43.700 --> 36:44.700
+ Sure.
+
+36:44.700 --> 36:48.240
+ But I think that one of the things that's happening is that a lot of us are fretting
+
+36:48.240 --> 36:53.620
+ about this, uh, in part because of human needs.
+
+36:53.620 --> 36:56.220
+ We've always been worried about the Golem, right?
+
+36:56.220 --> 37:01.660
+ Well, the Golem is the artificially created life, you know, it's like Frankenstein.
+
+37:01.660 --> 37:02.660
+ Yeah, sure.
+
+37:02.660 --> 37:10.760
+ It's a Jewish version and, um, Frankenberg, Frankenstein, yeah, that's makes sense, right?
+
+37:10.760 --> 37:16.920
+ So the, uh, but we've always been worried about creating something like this and it's
+
+37:16.920 --> 37:23.460
+ getting closer and closer and there are ways in which
+
+37:23.460 --> 37:27.260
+ we have to realize that the whole thing is kind of, the whole thing that we've experienced
+
+37:27.260 --> 37:32.140
+ are the context of our lives is almost certainly coming to an end.
+
+37:32.140 --> 37:37.700
+ And I don't mean to suggest that, uh, we won't survive.
+
+37:37.700 --> 37:39.060
+ I don't know.
+
+37:39.060 --> 37:43.900
+ And I don't mean to suggest that it's coming tomorrow and it could be 300, 500 years, but
+
+37:43.900 --> 37:49.600
+ there's no plan that I'm aware of if we have three rocks that we could possibly inhabit
+
+37:49.600 --> 37:58.300
+ that are, uh, sensible within current technological dreams, the earth, the moon and Mars.
+
+37:58.300 --> 38:04.860
+ And we have a very competitive civilization that is still forced into violence to sort
+
+38:04.860 --> 38:06.860
+ out disputes that cannot be arbitrated.
+
+38:06.860 --> 38:13.000
+ It is not clear to me that we have a longterm future until we get to the next stage, which
+
+38:13.000 --> 38:18.180
+ is to figure out whether or not the Einsteinian speed limit can be broken.
+
+38:18.180 --> 38:21.620
+ And that requires our source code.
+
+38:21.620 --> 38:25.720
+ Our source code, the stuff in our brains to figure out what do you mean by our source
+
+38:25.720 --> 38:26.720
+ code?
+
+38:26.720 --> 38:30.940
+ The source code of the context, whatever it is that produces the quarks, the electrons,
+
+38:30.940 --> 38:31.940
+ the neutrinos.
+
+38:31.940 --> 38:33.380
+ Oh, our source code.
+
+38:33.380 --> 38:34.380
+ I got it.
+
+38:34.380 --> 38:35.380
+ So this is,
+
+38:35.380 --> 38:38.100
+ You're talking about stuff that's written in a higher level language.
+
+38:38.100 --> 38:39.100
+ Yeah.
+
+38:39.100 --> 38:40.100
+ Yeah.
+
+38:40.100 --> 38:41.100
+ That's right.
+
+38:41.100 --> 38:42.100
+ You're talking about the low level, the bits.
+
+38:42.100 --> 38:43.100
+ Yeah.
+
+38:43.100 --> 38:46.600
+ That's what is currently keeping us here.
+
+38:46.600 --> 38:53.500
+ We can't even imagine, you know, we have harebrained schemes for staying within the Einsteinian
+
+38:53.500 --> 38:54.500
+ speed limit.
+
+38:54.500 --> 38:58.780
+ Uh, you know, maybe if we could just drug ourselves and go into a suspended state or
+
+38:58.780 --> 39:03.620
+ we could have multiple generations of that, I think all that stuff is pretty silly, but
+
+39:03.620 --> 39:07.740
+ I think it's also pretty silly to imagine that our wisdom is going to increase to the
+
+39:07.740 --> 39:14.140
+ point that we can have the toys we have and, uh, we're not going to use them for 500 years.
+
+39:14.140 --> 39:18.700
+ Speaking of Einstein, I had a profound breakthrough when I realized you're just one letter away
+
+39:18.700 --> 39:19.700
+ from the guy.
+
+39:19.700 --> 39:22.740
+ Yeah, but I'm also one letter away from Feinstein.
+
+39:22.740 --> 39:25.740
+ It's, well, you get to pick.
+
+39:25.740 --> 39:26.740
+ Okay.
+
+39:26.740 --> 39:32.620
+ So unified theory, you know, you've worked, uh, you, you enjoy the beauty of geometry.
+
+39:32.620 --> 39:34.420
+ I don't actually know if you enjoy it.
+
+39:34.420 --> 39:35.980
+ You certainly are quite good at it.
+
+39:35.980 --> 39:36.980
+ I tremble before it.
+
+39:36.980 --> 39:42.180
+ If you're religious, that is one of the, I don't have to be religious.
+
+39:42.180 --> 39:43.180
+ It's just so beautiful.
+
+39:43.180 --> 39:44.180
+ You will tremble anyway.
+
+39:44.180 --> 39:50.940
+ I mean, I just read Einstein's biography and one of the ways, uh, one of the things you've
+
+39:50.940 --> 39:59.060
+ done is try to explore a unified theory, uh, talking about a 14 dimensional observers that
+
+39:59.060 --> 40:02.220
+ has the 4d space time continuum embedded in it.
+
+40:02.220 --> 40:09.260
+ I, I'm just curious how you think and how philosophically at a high level about something
+
+40:09.260 --> 40:17.000
+ more than four dimensions, uh, how do you try to, what, what does it make you feel?
+
+40:17.000 --> 40:23.460
+ Talking in the mathematical world about dimensions that are greater than the ones we can perceive.
+
+40:23.460 --> 40:27.140
+ Is there something that you take away that's more than just the math?
+
+40:27.140 --> 40:32.700
+ Well, first of all, stick out your tongue at me.
+
+40:32.700 --> 40:33.700
+ Okay.
+
+40:33.700 --> 40:41.260
+ Now on the front of that time, yeah, there was a sweet receptor and next to that were
+
+40:41.260 --> 40:45.460
+ salt receptors and two different sides, a little bit farther back.
+
+40:45.460 --> 40:48.300
+ There were sour receptors and you wouldn't show me the back of your tongue where your
+
+40:48.300 --> 40:50.300
+ bitter receptor was.
+
+40:50.300 --> 40:51.300
+ Show the good side always.
+
+40:51.300 --> 40:52.300
+ Okay.
+
+40:52.300 --> 40:58.820
+ So you had four dimensions of taste receptors, but you also had pain receptors on that tongue
+
+40:58.820 --> 41:01.240
+ and probably heat receptors on that time.
+
+41:01.240 --> 41:05.400
+ So let's assume that you had one of each, that would be six dimensions.
+
+41:05.400 --> 41:12.260
+ So when you eat something, you eat a slice of pizza and it's got some, some, uh, some
+
+41:12.260 --> 41:17.740
+ hot pepper on it, maybe some jalapeno, you're having a six dimensional experience, dude.
+
+41:17.740 --> 41:23.900
+ Do you think we overemphasize the value of time as one of the dimensions or space?
+
+41:23.900 --> 41:27.580
+ Well, we certainly overemphasize the value of time cause we like things to start and
+
+41:27.580 --> 41:30.660
+ end or we really don't like things to end, but they seem to.
+
+41:30.660 --> 41:37.020
+ Well, what if you flipped one of the spatial dimensions into being a temporal dimension?
+
+41:37.020 --> 41:41.660
+ And you and I were to meet in New York city and say, well, where, where and when should
+
+41:41.660 --> 41:42.660
+ we meet?
+
+41:42.660 --> 41:50.580
+ What about, I'll meet you on a 36 in Lexington at two in the afternoon and uh, 11 oclock
+
+41:50.580 --> 41:53.300
+ in the morning.
+
+41:53.300 --> 41:55.300
+ That would be very confusing.
+
+41:55.300 --> 41:59.340
+ Well, so it's convenient for us to think about time, you mean.
+
+41:59.340 --> 42:03.580
+ We happen to be in a delicious situation in which we have three dimensions of space and
+
+42:03.580 --> 42:07.960
+ one of time and they're woven together in this sort of strange fabric where we can trade
+
+42:07.960 --> 42:11.820
+ off a little space for a little time, but we still only have one dimension that is picked
+
+42:11.820 --> 42:13.480
+ out relative to the other three.
+
+42:13.480 --> 42:15.660
+ It's very much Gladys Knight and the pips.
+
+42:15.660 --> 42:17.700
+ So which one developed for who?
+
+42:17.700 --> 42:22.820
+ Do we develop for these dimensions or did the dimensions or were they always there and
+
+42:22.820 --> 42:23.820
+ it doesn't?
+
+42:23.820 --> 42:27.300
+ Well, do you imagine that there isn't a place where there are four temporal dimensions or
+
+42:27.300 --> 42:31.820
+ two and two of space and time or three of time and one of space and then would time
+
+42:31.820 --> 42:33.960
+ not be playing the role of space?
+
+42:33.960 --> 42:37.580
+ Why do you imagine that the sector that you're in is all that there is?
+
+42:37.580 --> 42:40.820
+ I certainly do not, but I can't imagine otherwise.
+
+42:40.820 --> 42:46.180
+ I mean, I haven't done ayahuasca or any of those drugs that hope to one day, but instead
+
+42:46.180 --> 42:49.660
+ of doing ayahuasca, you could just head over to building two.
+
+42:49.660 --> 42:50.780
+ That's where the mathematicians are?
+
+42:50.780 --> 42:52.260
+ Yeah, that's where they hang.
+
+42:52.260 --> 42:53.260
+ Just to look at some geometry.
+
+42:53.260 --> 42:55.620
+ Well, just ask about pseudo Ramanian geometry.
+
+42:55.620 --> 42:57.620
+ That's what you're interested in.
+
+42:57.620 --> 42:58.620
+ Okay.
+
+42:58.620 --> 43:01.660
+ Or you could talk to a shaman and end up in Peru.
+
+43:01.660 --> 43:03.140
+ And then it's an extra money for that trip.
+
+43:03.140 --> 43:06.460
+ Yeah, but you won't be able to do any calculations if that's how you choose to go about it.
+
+43:06.460 --> 43:09.100
+ Well, a different kind of calculation, so to speak.
+
+43:09.100 --> 43:10.100
+ Yeah.
+
+43:10.100 --> 43:14.020
+ One of my favorite people, Edward Frankel, Berkeley professor, author of Love and Math,
+
+43:14.020 --> 43:20.260
+ great title for a book, said that you are quite a remarkable intellect to come up with
+
+43:20.260 --> 43:25.660
+ such beautiful original ideas in terms of unified theory and so on, but you're working
+
+43:25.660 --> 43:28.260
+ outside academia.
+
+43:28.260 --> 43:33.940
+ So one question in developing ideas that are truly original, truly interesting, what's
+
+43:33.940 --> 43:39.660
+ the difference between inside academia and outside academia when it comes to developing
+
+43:39.660 --> 43:40.660
+ such ideas?
+
+43:40.660 --> 43:41.860
+ Oh, it's a terrible choice.
+
+43:41.860 --> 43:43.260
+ Terrible choice.
+
+43:43.260 --> 43:55.220
+ So if you do it inside of academics, you are forced to constantly show great loyalty to
+
+43:55.220 --> 44:03.020
+ the consensus and you distinguish yourself with small, almost microscopic heresies to
+
+44:03.020 --> 44:07.220
+ make your reputation in general.
+
+44:07.220 --> 44:14.180
+ And you have very competent people and brilliant people who are working together, who form
+
+44:14.180 --> 44:22.780
+ very deep social networks and have a very high level of behavior, at least within mathematics
+
+44:22.780 --> 44:27.880
+ and at least technically within physics, theoretical physics.
+
+44:27.880 --> 44:35.260
+ When you go outside, you meet lunatics and crazy people, madmen.
+
+44:35.260 --> 44:41.220
+ And these are people who do not usually subscribe to the consensus position and almost always
+
+44:41.220 --> 44:44.360
+ lose their way.
+
+44:44.360 --> 44:52.380
+ And the key question is, will progress likely come from someone who has miraculously managed
+
+44:52.380 --> 44:59.100
+ to stay within the system and is able to take on a larger amount of heresy that is sort
+
+44:59.100 --> 45:01.260
+ of unthinkable?
+
+45:01.260 --> 45:07.860
+ In which case, that will be fascinating, or is it more likely that somebody will maintain
+
+45:07.860 --> 45:15.780
+ a level of discipline from outside of academics and be able to make use of the freedom that
+
+45:15.780 --> 45:21.500
+ comes from not having to constantly affirm your loyalty to the consensus of your field?
+
+45:21.500 --> 45:28.460
+ So you've characterized in ways that academia in this particular sense is declining.
+
+45:28.460 --> 45:34.900
+ You posted a plot, the older population of the faculty is getting larger, the younger
+
+45:34.900 --> 45:37.260
+ is getting smaller and so on.
+
+45:37.260 --> 45:40.540
+ So which direction of the two are you more hopeful about?
+
+45:40.540 --> 45:42.660
+ Well, the baby boomers can't hang on forever.
+
+45:42.660 --> 45:46.440
+ First of all, in general, true, and second of all, in academia.
+
+45:46.440 --> 45:51.540
+ But that's really what this time is about.
+
+45:51.540 --> 45:57.180
+ We're used to financial bubbles that last a few years in length and then pop.
+
+45:57.180 --> 46:04.020
+ The baby boomer bubble is this really long lived thing, and all of the ideology, all
+
+46:04.020 --> 46:07.260
+ of the behavior patterns, the norms.
+
+46:07.260 --> 46:11.660
+ For example, string theory is an almost entirely baby boomer phenomenon.
+
+46:11.660 --> 46:16.620
+ It was something that baby boomers were able to do because it required a very high level
+
+46:16.620 --> 46:20.620
+ of mathematical ability.
+
+46:20.620 --> 46:24.260
+ You don't think of string theory as an original idea?
+
+46:24.260 --> 46:29.900
+ Oh, I mean, it was original to Veneziano, probably is older than the baby boomers.
+
+46:29.900 --> 46:32.780
+ And there are people who are younger than the baby boomers who are still doing string
+
+46:32.780 --> 46:33.780
+ theory.
+
+46:33.780 --> 46:37.920
+ And I'm not saying that nothing discovered within the large string theoretic complex
+
+46:37.920 --> 46:38.920
+ is wrong.
+
+46:38.920 --> 46:39.920
+ Quite the contrary.
+
+46:39.920 --> 46:44.500
+ A lot of brilliant mathematics and a lot of the structure of physics was elucidated by
+
+46:44.500 --> 46:46.940
+ string theorists.
+
+46:46.940 --> 46:51.560
+ What do I think of the deliverable nature of this product that will not ship called
+
+46:51.560 --> 46:52.560
+ string theory?
+
+46:52.560 --> 46:57.540
+ I think that it is largely an affirmative action program for highly mathematically and
+
+46:57.540 --> 47:03.240
+ geometrically talented baby boomer physics physicists so that they can say that they're
+
+47:03.240 --> 47:10.480
+ working on something within the constraints of what they will say is quantum gravity.
+
+47:10.480 --> 47:15.460
+ Now there are other schemes, you know, there's like asymptotic safety, there are other things
+
+47:15.460 --> 47:17.100
+ that you could imagine doing.
+
+47:17.100 --> 47:26.780
+ I don't think much of any of the major programs, but to have inflicted this level of loyalty
+
+47:26.780 --> 47:27.780
+ through a shibboleth.
+
+47:27.780 --> 47:29.420
+ Well, surely you don't question X.
+
+47:29.420 --> 47:32.380
+ Well, I question almost everything in the string program.
+
+47:32.380 --> 47:34.300
+ And that's why I got out of physics.
+
+47:34.300 --> 47:39.060
+ When you called me a physicist, it was a great honor, but the reason I didn't become a physicist
+
+47:39.060 --> 47:41.340
+ wasn't that I fell in love with mathematics.
+
+47:41.340 --> 47:49.060
+ I said, wow, in 1984, 1983, I saw the field going mad and I saw that mathematics, which
+
+47:49.060 --> 47:52.980
+ has all sorts of problems, was not going insane.
+
+47:52.980 --> 47:57.500
+ And so instead of studying things within physics, I thought it was much safer to study the same
+
+47:57.500 --> 47:59.900
+ objects within mathematics.
+
+47:59.900 --> 48:01.220
+ There's a huge price to pay for that.
+
+48:01.220 --> 48:03.740
+ You lose physical intuition.
+
+48:03.740 --> 48:08.260
+ But the point is, is that it wasn't a North Korean reeducation camp either.
+
+48:08.260 --> 48:15.500
+ Are you hopeful about cracking open the Einstein unified theory in a way that has been really,
+
+48:15.500 --> 48:21.420
+ really understanding whether this, uh, uniting everything together with quantum theory and
+
+48:21.420 --> 48:22.420
+ so on?
+
+48:22.420 --> 48:28.340
+ I mean, I'm trying to play this role myself to do it to the extent of handing it over
+
+48:28.340 --> 48:34.300
+ to the more responsible, more professional, more competent community.
+
+48:34.300 --> 48:40.540
+ Um, so I think that they're wrong about a great number of their belief structures, but
+
+48:40.540 --> 48:45.660
+ I do believe, I mean, I have a really profound love, hate relationship with this group of
+
+48:45.660 --> 48:46.660
+ people.
+
+48:46.660 --> 48:51.780
+ I think the physics side, cause the mathematicians actually seem to be much more open minded
+
+48:51.780 --> 48:55.940
+ and uh, well they are and they aren't, they're open minded about anything that looks like
+
+48:55.940 --> 48:56.940
+ great math.
+
+48:56.940 --> 48:57.940
+ Right.
+
+48:57.940 --> 48:58.940
+ Right.
+
+48:58.940 --> 49:01.820
+ They'll study something that isn't very important physics, but if it's beautiful mathematics,
+
+49:01.820 --> 49:07.780
+ then they'll have a, they have great intuition about these things as good as the mathematicians
+
+49:07.780 --> 49:08.780
+ are.
+
+49:08.780 --> 49:12.780
+ And I might even intellectually at some horsepower level, give them the edge.
+
+49:12.780 --> 49:16.700
+ The theoretical theoretical physics community is bar none.
+
+49:16.700 --> 49:22.020
+ The most profound intellectual community that we have ever created.
+
+49:22.020 --> 49:23.700
+ It is the number one.
+
+49:23.700 --> 49:28.460
+ There's nobody in second place as far as I'm concerned, like in their spare time and the
+
+49:28.460 --> 49:30.620
+ spare time they invented molecular biology.
+
+49:30.620 --> 49:33.180
+ What, what was the origin of molecular biology?
+
+49:33.180 --> 49:34.700
+ You're saying something like Francis Crick.
+
+49:34.700 --> 49:39.180
+ I mean, a lot of, a lot of the early molecular biologists were physicists.
+
+49:39.180 --> 49:40.180
+ Yeah.
+
+49:40.180 --> 49:44.420
+ I mean, you know, Schrodinger wrote what is life and that was highly inspirational.
+
+49:44.420 --> 49:53.340
+ I mean, you have to appreciate that there is no community like the basic research community
+
+49:53.340 --> 49:59.380
+ in theoretical physics and it's not something I'm highly critical of these guys.
+
+49:59.380 --> 50:08.420
+ I think that they would just wasted the decades of time with a near religious devotion to
+
+50:08.420 --> 50:13.340
+ their misconception of where the problems were in physics.
+
+50:13.340 --> 50:20.060
+ But this has been the greatest intellectual collapse ever witnessed within academics.
+
+50:20.060 --> 50:22.300
+ You see it as a collapse or just a lull?
+
+50:22.300 --> 50:26.020
+ Oh, I'm terrified that we're about to lose the vitality.
+
+50:26.020 --> 50:29.340
+ We can't afford to pay these people.
+
+50:29.340 --> 50:33.420
+ We can't afford to give them an accelerator just to play with in case they find something
+
+50:33.420 --> 50:35.300
+ at the next energy level.
+
+50:35.300 --> 50:38.420
+ These people created our economy.
+
+50:38.420 --> 50:41.900
+ They gave us the rad lab and radar.
+
+50:41.900 --> 50:45.620
+ They gave us two atomic devices to end world war two.
+
+50:45.620 --> 50:51.700
+ They created the semiconductor and the transistor to power our economy through Moore's law.
+
+50:51.700 --> 50:57.360
+ As a positive externality of particle accelerators, they created the worldwide web and we have
+
+50:57.360 --> 51:02.420
+ the insolence to say, why should we fund you with our taxpayer dollars?
+
+51:02.420 --> 51:08.860
+ No, the question is, are you enjoying your physics dollars?
+
+51:08.860 --> 51:15.780
+ These guys signed the world's worst licensing agreement and if they simply charged for every
+
+51:15.780 --> 51:23.540
+ time you used a transistor or a URL or enjoyed the piece that they have provided during this
+
+51:23.540 --> 51:29.140
+ period of time through the terrible weapons that they developed or your communications
+
+51:29.140 --> 51:34.060
+ devices, all of the things that power our economy, I really think came out of physics,
+
+51:34.060 --> 51:37.020
+ even to the extent the chemistry came out of physics and molecular biology came out
+
+51:37.020 --> 51:38.020
+ of physics.
+
+51:38.020 --> 51:42.780
+ So, first of all, you have to know that I'm very critical of this community.
+
+51:42.780 --> 51:45.180
+ Second of all, it is our most important community.
+
+51:45.180 --> 51:46.180
+ We have neglected it.
+
+51:46.180 --> 51:47.660
+ We've abused it.
+
+51:47.660 --> 51:49.820
+ We don't take it seriously.
+
+51:49.820 --> 51:55.780
+ We don't even care to get them to rehab after a couple of generations of failure, right?
+
+51:55.780 --> 52:01.060
+ No one, I think the youngest person to have really contributed to the standard model of
+
+52:01.060 --> 52:05.780
+ theoretical level was born in 1951, right?
+
+52:05.780 --> 52:15.020
+ Frank Wilczek and almost nothing has happened that in theoretical physics after 1973, 74
+
+52:15.020 --> 52:21.780
+ that sent somebody to Stockholm for theoretical development that predicted experiment.
+
+52:21.780 --> 52:24.580
+ So we have to understand that we are doing this to ourselves.
+
+52:24.580 --> 52:31.340
+ Now, with that said, these guys have behaved abysmally in my opinion because they haven't
+
+52:31.340 --> 52:35.540
+ owned up to where they actually are, what problems they're really facing, how definite
+
+52:35.540 --> 52:37.380
+ they can actually be.
+
+52:37.380 --> 52:40.820
+ They haven't shared some of their most brilliant discoveries, which are desperately needed
+
+52:40.820 --> 52:45.740
+ in other fields like gauge theory, which at least the mathematicians can, can share, which
+
+52:45.740 --> 52:49.180
+ is an upgrade of the differential calculus of Newton and Leibniz.
+
+52:49.180 --> 52:53.100
+ And they haven't shared the importance of renormalization theory.
+
+52:53.100 --> 52:57.940
+ Even though this should be standard operating procedure for people across the sciences dealing
+
+52:57.940 --> 53:01.180
+ with different layers and different levels of phenomena.
+
+53:01.180 --> 53:06.240
+ And by shared, you mean communicated in such a way that it disseminates throughout the
+
+53:06.240 --> 53:07.240
+ different sizes.
+
+53:07.240 --> 53:12.180
+ These guys are sitting, both theoretical physicists and mathematicians are sitting on top of a
+
+53:12.180 --> 53:16.420
+ giant stockpile of intellectual gold, right?
+
+53:16.420 --> 53:19.740
+ They have so many things that have not been manifested anywhere.
+
+53:19.740 --> 53:25.260
+ I was just on Twitter, I think I mentioned the Habermann switch pitch that shows the
+
+53:25.260 --> 53:28.980
+ self duality of the tetrahedron realized as a linkage mechanism.
+
+53:28.980 --> 53:36.540
+ Now this is like a triviality and it makes an amazing toy that's, you know, built a market,
+
+53:36.540 --> 53:38.460
+ hopefully a fortune for Chuck Habermann.
+
+53:38.460 --> 53:44.740
+ Well, you have no idea how much great stuff that these priests have in their monastery.
+
+53:44.740 --> 53:47.540
+ So it's truly a love and hate relationship for you.
+
+53:47.540 --> 53:48.540
+ Yeah.
+
+53:48.540 --> 53:49.540
+ Well, it sounds like it's more on the love side.
+
+53:49.540 --> 53:54.740
+ This building that we're in right here is the building in which I really put together
+
+53:54.740 --> 54:00.180
+ the conspiracy between the National Academy of Sciences and the National Science Foundation
+
+54:00.180 --> 54:04.400
+ through the government university industry research round table to destroy the bargaining
+
+54:04.400 --> 54:10.980
+ power of American academics, uh, using foreign labor with, uh, on microfeature in the base.
+
+54:10.980 --> 54:11.980
+ Oh yeah.
+
+54:11.980 --> 54:13.220
+ That was done here in this building.
+
+54:13.220 --> 54:14.220
+ Isn't that weird?
+
+54:14.220 --> 54:19.220
+ And I'm, I'm truly speaking with a revolutionary and a radical, uh, no, no, no, no, no, no,
+
+54:19.220 --> 54:20.220
+ no, no, no, no, no, no.
+
+54:20.220 --> 54:25.220
+ At an intellectual level, I am absolutely garden variety.
+
+54:25.220 --> 54:27.660
+ I'm just straight down the middle.
+
+54:27.660 --> 54:33.660
+ The system that we are in this, this university is functionally insane.
+
+54:33.660 --> 54:34.660
+ Yeah.
+
+54:34.660 --> 54:41.140
+ Harvard is functionally insane and we don't understand that when we get these things wrong,
+
+54:41.140 --> 54:43.660
+ the financial crisis made this very clear.
+
+54:43.660 --> 54:49.340
+ There was a long period where every grownup, everybody with a tie, uh, who spoke in a,
+
+54:49.340 --> 54:54.820
+ you know, in Barrett, baritone tones, uh, with, with the right degree at the end of
+
+54:54.820 --> 54:55.820
+ their name.
+
+54:55.820 --> 54:56.820
+ Yeah.
+
+54:56.820 --> 54:59.420
+ Uh, we're talking about how we banished volunteer volatility.
+
+54:59.420 --> 55:01.100
+ We were in the great moderation.
+
+55:01.100 --> 55:02.260
+ Okay.
+
+55:02.260 --> 55:04.100
+ They were all crazy.
+
+55:04.100 --> 55:05.100
+ And who was, who was right?
+
+55:05.100 --> 55:08.460
+ It was like Nassim Taleb, Nouriel Roubini.
+
+55:08.460 --> 55:13.980
+ Now what happens is, is that they claimed the market went crazy, but the market didn't
+
+55:13.980 --> 55:14.980
+ go crazy.
+
+55:14.980 --> 55:18.620
+ The market had been crazy and what happened is, is that it suddenly went sane.
+
+55:18.620 --> 55:21.660
+ Well, that's where we are with academics.
+
+55:21.660 --> 55:25.500
+ Academics right now is mad as a hatter and it's, it's absolutely evident.
+
+55:25.500 --> 55:27.000
+ I can show you graph after graph.
+
+55:27.000 --> 55:28.500
+ I can show you the internal discussions.
+
+55:28.500 --> 55:30.900
+ I can show you the conspiracies.
+
+55:30.900 --> 55:35.380
+ Barrett's dealing with one right now over, uh, it's admissions policies for people, uh,
+
+55:35.380 --> 55:38.300
+ of color, uh, who happened to come from Asia.
+
+55:38.300 --> 55:41.420
+ All of this madness is necessary to keep the game going.
+
+55:41.420 --> 55:46.940
+ What we're talking about just on, well, we're on the topic of revolutionaries is we're talking
+
+55:46.940 --> 55:50.060
+ about the danger of an outbreak of sanity.
+
+55:50.060 --> 55:51.060
+ Yeah.
+
+55:51.060 --> 55:57.020
+ You're, you're the guy pointing out the elephant in the room here and the elephant has no clothes.
+
+55:57.020 --> 55:59.540
+ Is that how that goes?
+
+55:59.540 --> 56:07.980
+ I was going to talk a little bit to, uh, Joe Rogan about this, ran out of time, but I think
+
+56:07.980 --> 56:13.420
+ you're, you have some, you, just listening to you, you could probably speak really eloquently
+
+56:13.420 --> 56:16.580
+ to academia on the difference between the different fields.
+
+56:16.580 --> 56:21.740
+ So you think there's a difference between science, engineering, and then the humanities
+
+56:21.740 --> 56:25.940
+ in academia in terms of tolerance that they're willing to tolerate?
+
+56:25.940 --> 56:33.020
+ So from my perspective, I thought computer science and maybe engineering is more tolerant
+
+56:33.020 --> 56:38.580
+ to radical ideas, but that's perhaps innocent of me is that I always, you know, all the
+
+56:38.580 --> 56:42.380
+ battles going on now are a little bit more on the humanity side and gender studies and
+
+56:42.380 --> 56:43.380
+ so on.
+
+56:43.380 --> 56:48.140
+ Have you seen the, uh, American mathematical society's publication of an essay called get
+
+56:48.140 --> 56:49.140
+ out the way?
+
+56:49.140 --> 56:50.140
+ I have not.
+
+56:50.140 --> 56:55.100
+ What's, what's the idea is that white men who hold, uh, positions.
+
+56:55.100 --> 56:56.540
+ Yeah.
+
+56:56.540 --> 57:01.300
+ Within universities and mathematics should vacate their positions so that young black
+
+57:01.300 --> 57:04.020
+ women can take over something like this.
+
+57:04.020 --> 57:07.240
+ That's in terms of diversity, which I also want to ask you about, but in terms of diversity
+
+57:07.240 --> 57:14.980
+ of strictly ideas, do you think, cause you're basically saying physics as a community has
+
+57:14.980 --> 57:21.460
+ become a little bit intolerant to some degree to new radical ideas, or at least you, uh,
+
+57:21.460 --> 57:26.940
+ you said it's changed a little bit recently, which is that even string theory is now admitting,
+
+57:26.940 --> 57:32.960
+ okay, we don't look very promising in the short term, right?
+
+57:32.960 --> 57:39.860
+ So the question is what compiles if you want to take the computer science metaphor, what
+
+57:39.860 --> 57:42.060
+ will get you into a journal?
+
+57:42.060 --> 57:47.060
+ Will you spend your life trying to push some paper into a journal or will it be accepted
+
+57:47.060 --> 57:48.060
+ easily?
+
+57:48.060 --> 57:56.660
+ What about the characteristics of the submitter and what gets taken up and what does not?
+
+57:56.660 --> 58:01.780
+ All of these fields are experiencing pressure because no field is performing so brilliantly
+
+58:01.780 --> 58:11.320
+ well, um, that it's revolutionizing our way of speaking and thinking in the ways in which
+
+58:11.320 --> 58:12.900
+ we've become accustomed.
+
+58:12.900 --> 58:19.340
+ But don't you think even in theoretical physics, a lot of times, even with theories like string
+
+58:19.340 --> 58:24.180
+ theory, you could speak to this, it does eventually lead to what are the ways that this theory
+
+58:24.180 --> 58:25.660
+ would be testable.
+
+58:25.660 --> 58:31.960
+ Yeah, ultimately, although look, there's this thing about popper and the scientific method
+
+58:31.960 --> 58:36.400
+ that's a cancer and a disease and the minds of very smart people.
+
+58:36.400 --> 58:39.860
+ That's not really how most of the stuff gets worked out.
+
+58:39.860 --> 58:41.340
+ It's how it gets checked.
+
+58:41.340 --> 58:47.380
+ All right, so, and there is a dialogue between theory and experiment, but everybody should
+
+58:47.380 --> 58:56.980
+ read Paul directs 1963 American scientific American article where he, he, you know, it's
+
+58:56.980 --> 58:57.980
+ very interesting.
+
+58:57.980 --> 59:03.160
+ He talks about it as if it was about the Schrodinger equation and Schrodinger's failure to advance
+
+59:03.160 --> 59:06.340
+ his own work because of his failure to account for some phenomenon.
+
+59:06.340 --> 59:10.400
+ The key point is that if your theory is a slight bit off, it won't agree with experiment,
+
+59:10.400 --> 59:12.940
+ but it doesn't mean that the theory is actually wrong.
+
+59:12.940 --> 59:18.700
+ Um, but direct could as easily have been talking about his own equation in which he predicted
+
+59:18.700 --> 59:22.460
+ that the electrons should have an antiparticle.
+
+59:22.460 --> 59:26.820
+ And since the only positively charged particle that was known at the time was the proton,
+
+59:26.820 --> 59:30.780
+ Heisenberg pointed out, well, shouldn't your antiparticle, the proton have the same mass
+
+59:30.780 --> 59:33.660
+ as the electron and doesn't that invalidate your theory?
+
+59:33.660 --> 59:38.860
+ So I think the direct was actually being quite potentially quite sneaky, um, and, uh, talking
+
+59:38.860 --> 59:42.980
+ about the fact that he had been pushed off of his own theory to some extent by Heisenberg.
+
+59:42.980 --> 59:51.580
+ Um, but look, we've fetishized the scientific method and popper and falsification, um, because
+
+59:51.580 --> 59:55.580
+ it protects us from crazy ideas entering the field.
+
+59:55.580 --> 59:58.420
+ So you know, it's a question of balancing type one and type two error.
+
+59:58.420 --> 1:00:01.560
+ And we're pretty, we were pretty maxed out in one direction.
+
+1:00:01.560 --> 1:00:08.020
+ The opposite of that, let me say what comforts me sort of biology or engineering, uh, at
+
+1:00:08.020 --> 1:00:10.860
+ the end of the day, does the thing work?
+
+1:00:10.860 --> 1:00:11.860
+ Yeah.
+
+1:00:11.860 --> 1:00:15.580
+ You can test the crazies away and the crazy.
+
+1:00:15.580 --> 1:00:19.700
+ Well see now you're saying, but some ideas are truly crazy and some are, are actually
+
+1:00:19.700 --> 1:00:20.700
+ correct.
+
+1:00:20.700 --> 1:00:24.140
+ So, well there's pre correct currently crazy.
+
+1:00:24.140 --> 1:00:25.140
+ Yeah.
+
+1:00:25.140 --> 1:00:26.140
+ Right.
+
+1:00:26.140 --> 1:00:30.020
+ And so you don't want to get rid of everybody who's pre correct and currently crazy.
+
+1:00:30.020 --> 1:00:37.020
+ Um, the problem is, is that we don't have standards in general for trying to determine
+
+1:00:37.020 --> 1:00:42.180
+ who has to be put to the sword in terms of their career and who has to be protected,
+
+1:00:42.180 --> 1:00:47.940
+ uh, as some sort of giant time suck pain in the ass, uh, who may change everything.
+
+1:00:47.940 --> 1:00:48.940
+ Do you think that's possible?
+
+1:00:48.940 --> 1:00:51.180
+ Uh, creating a mechanism of those select?
+
+1:00:51.180 --> 1:00:53.860
+ Well, you're not going to like the answer, but here it comes.
+
+1:00:53.860 --> 1:00:54.860
+ Oh boy.
+
+1:00:54.860 --> 1:00:59.440
+ It has to do with very human elements.
+
+1:00:59.440 --> 1:01:02.580
+ We're trying to do this at the level of like rules and fairness.
+
+1:01:02.580 --> 1:01:10.980
+ That's not going to work cause the only thing that really understands this, you read the
+
+1:01:10.980 --> 1:01:11.980
+ double helix?
+
+1:01:11.980 --> 1:01:12.980
+ It's a book.
+
+1:01:12.980 --> 1:01:16.140
+ Oh, you have to read this book.
+
+1:01:16.140 --> 1:01:22.060
+ Not only did Jim Watson, uh, half discover this three dimensional structure of DNA, he's
+
+1:01:22.060 --> 1:01:28.420
+ also one hell of a writer before he became an ass, uh, that no, he's tried to destroy
+
+1:01:28.420 --> 1:01:29.620
+ his own reputation.
+
+1:01:29.620 --> 1:01:33.060
+ I knew about the ass, I didn't know about the good writer.
+
+1:01:33.060 --> 1:01:36.180
+ Jim Watson is one of the most important people now living.
+
+1:01:36.180 --> 1:01:42.140
+ And uh, as I've said before, Jim Watson is too important, a legacy to be left to Jim
+
+1:01:42.140 --> 1:01:43.140
+ Watson.
+
+1:01:43.140 --> 1:01:49.500
+ Um, yeah, that book tells you more about what actually moves the dial, right?
+
+1:01:49.500 --> 1:01:53.700
+ There's another story about him, which I don't, don't agree with, which is that he stole everything
+
+1:01:53.700 --> 1:01:54.700
+ from Rosalind Franklin.
+
+1:01:54.700 --> 1:01:58.840
+ I mean the, the problems that he had with Rosalind Franklin are real, but we should
+
+1:01:58.840 --> 1:02:04.260
+ actually honor that tension in our history by delving into it rather than having a simple
+
+1:02:04.260 --> 1:02:05.260
+ solution.
+
+1:02:05.260 --> 1:02:10.180
+ Jim Watson talks about Francis Crick being a pain in the ass that everybody secretly
+
+1:02:10.180 --> 1:02:12.840
+ knew was super brilliant.
+
+1:02:12.840 --> 1:02:19.260
+ And there's an encounter between, uh, Chargaff, uh, who came up with the equimolar relations
+
+1:02:19.260 --> 1:02:25.140
+ between the nucleotides who should have gotten the structure of DNA and Watson and Crick.
+
+1:02:25.140 --> 1:02:30.900
+ And you know, he talks about missing a shiver in the heartbeat of biology and stuff is so
+
+1:02:30.900 --> 1:02:31.900
+ gorgeous.
+
+1:02:31.900 --> 1:02:35.220
+ It just makes you tremble even thinking about it.
+
+1:02:35.220 --> 1:02:42.980
+ Um, look, we know very often who is to be feared and we need to fund the people that
+
+1:02:42.980 --> 1:02:45.160
+ we fear.
+
+1:02:45.160 --> 1:02:49.740
+ The people who are wasting our time need to be excluded from the conversation.
+
+1:02:49.740 --> 1:02:54.980
+ You see, and you know, maybe we'll make some errors in both directions.
+
+1:02:54.980 --> 1:02:58.200
+ But we have known our own people.
+
+1:02:58.200 --> 1:03:02.500
+ We know the pains in the asses that might work out and we know the people who are really
+
+1:03:02.500 --> 1:03:06.780
+ just blowhards who really have very little to contribute most of the time.
+
+1:03:06.780 --> 1:03:10.140
+ It's not a hundred percent, but you're not going to get there with rules.
+
+1:03:10.140 --> 1:03:11.140
+ Right.
+
+1:03:11.140 --> 1:03:12.620
+ It's a using some kind of instinct.
+
+1:03:12.620 --> 1:03:18.500
+ I mean, I, to be honest, I'm going to make you roll your eyes for a second, but uh, and
+
+1:03:18.500 --> 1:03:21.760
+ the first time I heard that there is a large community of people who believe the earth
+
+1:03:21.760 --> 1:03:27.980
+ is flat actually made me pause and ask myself the question, why would there be such a community?
+
+1:03:27.980 --> 1:03:28.980
+ Yeah.
+
+1:03:28.980 --> 1:03:30.260
+ Is it possible the earth is flat?
+
+1:03:30.260 --> 1:03:33.140
+ So I had to like, wait a minute.
+
+1:03:33.140 --> 1:03:37.620
+ I mean, then you go through a thinking process that I think is really healthy.
+
+1:03:37.620 --> 1:03:39.580
+ It ultimately ends up being a geometry thing.
+
+1:03:39.580 --> 1:03:43.340
+ I think, uh, it's an interesting, it's an interesting thought experiment at the very
+
+1:03:43.340 --> 1:03:44.340
+ least.
+
+1:03:44.340 --> 1:03:46.540
+ Well, I don't, I do a different version of it.
+
+1:03:46.540 --> 1:03:48.460
+ I say, why is this community stable?
+
+1:03:48.460 --> 1:03:49.460
+ Yeah.
+
+1:03:49.460 --> 1:03:51.020
+ That's a good, uh, way to analyze it.
+
+1:03:51.020 --> 1:03:56.020
+ Well, interesting that whatever we've done has not erased the community.
+
+1:03:56.020 --> 1:04:00.660
+ So you know, they're taking a long shot bet that won't pan out, you know, maybe we just
+
+1:04:00.660 --> 1:04:04.580
+ haven't thought enough about the rationality of the square root of two and somebody brilliant
+
+1:04:04.580 --> 1:04:05.580
+ will figure it out.
+
+1:04:05.580 --> 1:04:11.540
+ Maybe we will eventually land one day on the surface of Jupiter and explore it, right?
+
+1:04:11.540 --> 1:04:14.220
+ These are crazy things that will never happen.
+
+1:04:14.220 --> 1:04:17.580
+ So much of social media operates by AI algorithms.
+
+1:04:17.580 --> 1:04:21.980
+ You talked about this a little bit, uh, recommending the content you see.
+
+1:04:21.980 --> 1:04:28.180
+ So on this idea of radical thought, how much should AI show you things you disagree with
+
+1:04:28.180 --> 1:04:34.460
+ on Twitter and so on in a Twitter word verse in this question?
+
+1:04:34.460 --> 1:04:35.460
+ Yeah.
+
+1:04:35.460 --> 1:04:36.460
+ Yeah.
+
+1:04:36.460 --> 1:04:37.460
+ Cause you don't know the answer?
+
+1:04:37.460 --> 1:04:38.460
+ No, no, no, no.
+
+1:04:38.460 --> 1:04:44.460
+ Look, we've been, they've pushed out this cognitive Lego to us that will just lead to
+
+1:04:44.460 --> 1:04:45.940
+ madness.
+
+1:04:45.940 --> 1:04:49.460
+ It's good to be challenged with things that you disagree with.
+
+1:04:49.460 --> 1:04:53.900
+ The answer is no, it's good to be challenged with interesting things with which you currently
+
+1:04:53.900 --> 1:04:56.700
+ disagree, but that might be true.
+
+1:04:56.700 --> 1:05:00.380
+ So I don't really care about whether or not I disagree with something or don't disagree.
+
+1:05:00.380 --> 1:05:05.460
+ I need to know why that particular disagreeable thing is being pushed out.
+
+1:05:05.460 --> 1:05:07.140
+ Is it because it's likely to be true?
+
+1:05:07.140 --> 1:05:09.900
+ Is it because, is there some reason?
+
+1:05:09.900 --> 1:05:14.380
+ Because I can write, I can write a computer generator, uh, to come up with an infinite
+
+1:05:14.380 --> 1:05:17.740
+ number of disagreeable statements that nobody needs to look at.
+
+1:05:17.740 --> 1:05:22.920
+ So please, before you push things at me that are disagreeable, tell me why.
+
+1:05:22.920 --> 1:05:26.220
+ There is an aspect in which that question is quite dumb, especially because it's being
+
+1:05:26.220 --> 1:05:34.140
+ used to, uh, almost, um, uh, very generically by these different networks to say, well,
+
+1:05:34.140 --> 1:05:35.620
+ we're trying to work this out.
+
+1:05:35.620 --> 1:05:43.100
+ But you know, basically, uh, how much do you see the value of seeing things, uh, you don't
+
+1:05:43.100 --> 1:05:47.660
+ like, not you disagree with, because it's very difficult to know exactly what you articulated,
+
+1:05:47.660 --> 1:05:53.460
+ which is, uh, the stuff that's important for you to consider that you disagree with.
+
+1:05:53.460 --> 1:05:55.040
+ That's really hard to figure out.
+
+1:05:55.040 --> 1:05:57.240
+ The bottom line is this stuff you don't like.
+
+1:05:57.240 --> 1:06:03.040
+ If you're a, uh, uh, Hillary Clinton supporter, you may not want to, it might not make you
+
+1:06:03.040 --> 1:06:05.980
+ feel good to see anything about Donald Trump.
+
+1:06:05.980 --> 1:06:08.420
+ That's the only thing algorithms can really optimize for currently.
+
+1:06:08.420 --> 1:06:09.420
+ They really can't.
+
+1:06:09.420 --> 1:06:10.660
+ Now they can do better.
+
+1:06:10.660 --> 1:06:11.660
+ This is where we're.
+
+1:06:11.660 --> 1:06:12.660
+ You think so?
+
+1:06:12.660 --> 1:06:21.660
+ No, we're engaged in some moronic back and forth where I have no idea why people who
+
+1:06:21.660 --> 1:06:27.580
+ are capable of building Google, Facebook, Twitter are having us in these incredibly
+
+1:06:27.580 --> 1:06:28.940
+ low level discussions.
+
+1:06:28.940 --> 1:06:31.260
+ Do they not know any smart people?
+
+1:06:31.260 --> 1:06:36.140
+ Do they not have the phone numbers of people who can elevate these discussions?
+
+1:06:36.140 --> 1:06:41.220
+ They do, but this, they're optimizing for a different thing and they're pushing those
+
+1:06:41.220 --> 1:06:42.500
+ people out of those rooms.
+
+1:06:42.500 --> 1:06:47.140
+ They're, they're optimizing for things we can't see.
+
+1:06:47.140 --> 1:06:48.580
+ And yes, profit is there.
+
+1:06:48.580 --> 1:06:54.620
+ Nobody, nobody's questioning that, but they're also optimizing for things like political
+
+1:06:54.620 --> 1:06:57.640
+ control or the fact that they're doing business in Pakistan.
+
+1:06:57.640 --> 1:07:01.300
+ And so they don't want to talk about all the things that they're going to be bending to
+
+1:07:01.300 --> 1:07:03.340
+ in Pakistan.
+
+1:07:03.340 --> 1:07:06.860
+ So we're involved in a fake discussion.
+
+1:07:06.860 --> 1:07:07.960
+ You think so?
+
+1:07:07.960 --> 1:07:11.340
+ You think these conversations at that depth are happening inside Google?
+
+1:07:11.340 --> 1:07:15.820
+ You don't think they have some basic metrics under user engagements?
+
+1:07:15.820 --> 1:07:18.320
+ You're having a fake conversation with us guys.
+
+1:07:18.320 --> 1:07:19.860
+ We know you're having a fake conversation.
+
+1:07:19.860 --> 1:07:23.700
+ I do not wish to be part of your fake conversation.
+
+1:07:23.700 --> 1:07:28.980
+ You know how to cool, you know, these units, you know, high availability, like nobody's
+
+1:07:28.980 --> 1:07:29.980
+ business.
+
+1:07:29.980 --> 1:07:31.780
+ My Gmail never goes down.
+
+1:07:31.780 --> 1:07:32.780
+ Almost.
+
+1:07:32.780 --> 1:07:38.380
+ So you think just because they can do incredible work on the software side with infrastructure,
+
+1:07:38.380 --> 1:07:46.420
+ they can also deal with some of these difficult questions about human behavior, human understanding.
+
+1:07:46.420 --> 1:07:47.420
+ You're not.
+
+1:07:47.420 --> 1:07:53.900
+ I mean, I've seen the, I've seen the developers screens that people take shots of inside of
+
+1:07:53.900 --> 1:07:55.380
+ Google.
+
+1:07:55.380 --> 1:07:58.540
+ And I've heard stories inside of Facebook and Apple.
+
+1:07:58.540 --> 1:08:00.720
+ We're not, we're engaged.
+
+1:08:00.720 --> 1:08:04.100
+ They're engaging us in the wrong conversations.
+
+1:08:04.100 --> 1:08:06.220
+ We are not at this low level.
+
+1:08:06.220 --> 1:08:08.260
+ Here's one of my favorite questions.
+
+1:08:08.260 --> 1:08:17.340
+ Why is every piece of hardware that I purchase in tech space equipped as a listening device?
+
+1:08:17.340 --> 1:08:19.780
+ Where's my physical shutter to cover my lens?
+
+1:08:19.780 --> 1:08:26.060
+ We had this in the 1970s, cameras that had lens caps, you know, how much would it cost
+
+1:08:26.060 --> 1:08:29.900
+ to have a security model pay five extra bucks?
+
+1:08:29.900 --> 1:08:33.100
+ Why is my indicator light software controlled?
+
+1:08:33.100 --> 1:08:37.980
+ Why when my camera is on, do I not see that the light is on by putting it as something
+
+1:08:37.980 --> 1:08:39.780
+ that cannot be bypassed?
+
+1:08:39.780 --> 1:08:45.460
+ Why have you set up my, all of my devices at some difficulty to yourselves as listening
+
+1:08:45.460 --> 1:08:47.780
+ devices and we don't even talk about this.
+
+1:08:47.780 --> 1:08:50.820
+ This is, this thing is total fucking bullshit.
+
+1:08:50.820 --> 1:08:55.420
+ Well, I hope these discussions are happening about privacy.
+
+1:08:55.420 --> 1:08:57.100
+ Is there a more difficult thing you're giving them credit for?
+
+1:08:57.100 --> 1:08:59.140
+ It's not just privacy.
+
+1:08:59.140 --> 1:09:01.140
+ It's about social control.
+
+1:09:01.140 --> 1:09:03.700
+ We're talking about social control.
+
+1:09:03.700 --> 1:09:07.260
+ Why do I not have controls over my own levers?
+
+1:09:07.260 --> 1:09:11.780
+ Just have a really cute UI where I can switch, I can dial things or I can at least see what
+
+1:09:11.780 --> 1:09:13.460
+ the algorithms are.
+
+1:09:13.460 --> 1:09:17.540
+ You think that there is some deliberate choices being made here.
+
+1:09:17.540 --> 1:09:21.700
+ There's emergence and there is intention.
+
+1:09:21.700 --> 1:09:23.000
+ There are two dimensions.
+
+1:09:23.000 --> 1:09:29.260
+ The vector does not collapse onto either axis, but the idea that anybody who suggests that
+
+1:09:29.260 --> 1:09:34.580
+ intention is completely absent is a child.
+
+1:09:34.580 --> 1:09:38.820
+ That's really beautifully put and uh, like many things you've said is going to make me
+
+1:09:38.820 --> 1:09:40.900
+ can I turn this around slightly?
+
+1:09:40.900 --> 1:09:41.900
+ Yeah.
+
+1:09:41.900 --> 1:09:45.660
+ I sit down with you and you say that you're obsessed with my feed.
+
+1:09:45.660 --> 1:09:47.740
+ I don't even know what my feed is.
+
+1:09:47.740 --> 1:09:49.700
+ What are you seeing that I'm not?
+
+1:09:49.700 --> 1:09:54.860
+ I was obsessively looking through your feed on Twitter because it was really enjoyable
+
+1:09:54.860 --> 1:09:58.300
+ because there's the Tom layer element is the humor in it.
+
+1:09:58.300 --> 1:10:03.180
+ By the way, that feed is Eric R. Weinstein on Twitter at Eric R. Weinstein.
+
+1:10:03.180 --> 1:10:06.720
+ No, but seriously, why?
+
+1:10:06.720 --> 1:10:10.180
+ Why did I find it enjoyable or what was I seeing?
+
+1:10:10.180 --> 1:10:11.180
+ What are you looking for?
+
+1:10:11.180 --> 1:10:13.020
+ Why are we doing this?
+
+1:10:13.020 --> 1:10:14.780
+ What is this podcast about?
+
+1:10:14.780 --> 1:10:16.460
+ I know you've got all these interesting people.
+
+1:10:16.460 --> 1:10:18.900
+ I'm just some guy who's sort of a podcast guest.
+
+1:10:18.900 --> 1:10:21.420
+ Sort of a podcast.
+
+1:10:21.420 --> 1:10:22.420
+ You're not even wearing a tie.
+
+1:10:22.420 --> 1:10:25.740
+ I mean, it's not even a serious interview.
+
+1:10:25.740 --> 1:10:34.540
+ I'm searching for meaning, for happiness, for a dopamine rush, so short term, long term.
+
+1:10:34.540 --> 1:10:37.340
+ And how are you finding your way to me?
+
+1:10:37.340 --> 1:10:41.460
+ I don't honestly know what I'm doing to reach you.
+
+1:10:41.460 --> 1:10:48.000
+ The representing ideas which feel common sense to me and not many people are speaking.
+
+1:10:48.000 --> 1:10:54.700
+ So it's kind of like the intellectual dark web folks, right?
+
+1:10:54.700 --> 1:11:00.580
+ These folks from Sam Harris to Jordan Peterson to yourself are saying things where you're
+
+1:11:00.580 --> 1:11:05.420
+ like saying, look, there's an elephant and he's not wearing any clothes.
+
+1:11:05.420 --> 1:11:09.580
+ And I say, yeah, yeah, let's have more of that conversation.
+
+1:11:09.580 --> 1:11:10.940
+ That's how I'm finding you.
+
+1:11:10.940 --> 1:11:14.700
+ I'm desperate to try to change the conversation we're having.
+
+1:11:14.700 --> 1:11:17.340
+ I'm very worried we've got an election in 2020.
+
+1:11:17.340 --> 1:11:23.960
+ I don't think we can afford four more years of a misinterpreted message, which is what
+
+1:11:23.960 --> 1:11:25.820
+ Donald Trump was.
+
+1:11:25.820 --> 1:11:28.420
+ And I don't want the destruction of our institutions.
+
+1:11:28.420 --> 1:11:30.740
+ They all seem hell bent on destroying themselves.
+
+1:11:30.740 --> 1:11:34.920
+ So I'm trying to save theoretical physics, trying to save the New York Times, trying
+
+1:11:34.920 --> 1:11:38.320
+ to save our various processes.
+
+1:11:38.320 --> 1:11:44.540
+ And I think it feels delusional to me that this is falling to a tiny group of people
+
+1:11:44.540 --> 1:11:49.780
+ who are willing to speak out without getting so freaked out that everything they say will
+
+1:11:49.780 --> 1:11:52.980
+ be misinterpreted and that their lives will be ruined through the process.
+
+1:11:52.980 --> 1:11:57.580
+ I mean, I think we're in an absolutely bananas period of time and I don't believe it should
+
+1:11:57.580 --> 1:12:02.580
+ fall to such a tiny number of shoulders to shoulder this way.
+
+1:12:02.580 --> 1:12:08.140
+ So I have to ask you on the capitalism side, you mentioned that technology is killing capitalism
+
+1:12:08.140 --> 1:12:15.240
+ or it has effects that are unintended, well, not unintended, but not what economists would
+
+1:12:15.240 --> 1:12:18.740
+ predict or speak of capitalism creating.
+
+1:12:18.740 --> 1:12:23.540
+ I just want to talk to you about in general, the effect of even then artificial intelligence
+
+1:12:23.540 --> 1:12:28.980
+ or technology automation taking away jobs and these kinds of things and what you think
+
+1:12:28.980 --> 1:12:34.240
+ is the way to alleviate that, whether the Andrew Ng presidential candidate with universal
+
+1:12:34.240 --> 1:12:38.780
+ basic income, UBI, what are your thoughts there?
+
+1:12:38.780 --> 1:12:41.940
+ How do we fight off the negative effects of technology that...
+
+1:12:41.940 --> 1:12:43.980
+ All right, you're a software guy, right?
+
+1:12:43.980 --> 1:12:44.980
+ Yep.
+
+1:12:44.980 --> 1:12:52.180
+ A human being is a worker is an old idea, a human being has a worker is a different
+
+1:12:52.180 --> 1:12:53.180
+ object, right?
+
+1:12:53.180 --> 1:12:54.180
+ Yeah.
+
+1:12:54.180 --> 1:12:59.420
+ So if you think about object oriented programming as a paradigm, a human being has a worker
+
+1:12:59.420 --> 1:13:01.940
+ and a human being has a soul.
+
+1:13:01.940 --> 1:13:07.740
+ We're talking about the fact that for a period of time, the worker that a human being has
+
+1:13:07.740 --> 1:13:11.700
+ was in a position to feed the soul that a human being has.
+
+1:13:11.700 --> 1:13:18.300
+ However, we have two separate claims on the value in society.
+
+1:13:18.300 --> 1:13:23.460
+ One is as a worker and the other is as a soul and the soul needs sustenance, it needs dignity,
+
+1:13:23.460 --> 1:13:27.500
+ it needs meaning, it needs purpose.
+
+1:13:27.500 --> 1:13:34.700
+ As long as your means of support is not highly repetitive, I think you have a while to go
+
+1:13:34.700 --> 1:13:37.020
+ before you need to start worrying.
+
+1:13:37.020 --> 1:13:41.820
+ And if what you do is highly repetitive and it's not terribly generative, you are in the
+
+1:13:41.820 --> 1:13:46.080
+ cross hairs of for loops and while loops.
+
+1:13:46.080 --> 1:13:51.940
+ And that's what computers excel at, repetitive behavior and when I say repetitive, I may
+
+1:13:51.940 --> 1:13:55.340
+ mean things that have never happened through combinatorial possibilities, but as long as
+
+1:13:55.340 --> 1:13:59.080
+ it has a looped characteristic to it, you're in trouble.
+
+1:13:59.080 --> 1:14:07.240
+ We are seeing a massive push towards socialism because capitalists are slow to address the
+
+1:14:07.240 --> 1:14:13.700
+ fact that a worker may not be able to make claims, a relatively undistinguished median
+
+1:14:13.700 --> 1:14:20.900
+ member of our society is still has needs to reproduce, needs to have to dignity.
+
+1:14:20.900 --> 1:14:28.900
+ And when capitalism abandons the median individual or the bottom 10th or whatever it's going
+
+1:14:28.900 --> 1:14:32.780
+ to do, it's flirting with revolution.
+
+1:14:32.780 --> 1:14:37.660
+ And what concerns me is that the capitalists aren't sufficiently capitalistic to understand
+
+1:14:37.660 --> 1:14:39.380
+ this.
+
+1:14:39.380 --> 1:14:45.200
+ You really want to court authoritarian control in our society because you can't see that
+
+1:14:45.200 --> 1:14:50.020
+ people may not be able to defend themselves in the marketplace because the marginal product
+
+1:14:50.020 --> 1:14:55.140
+ of their labor was too low to feed their dignity as a soul.
+
+1:14:55.140 --> 1:15:02.320
+ So my great concern is that our free society has to do with the fact that we are self organized.
+
+1:15:02.320 --> 1:15:06.520
+ I remember looking down from my office in Manhattan when Lehman brothers collapsed and
+
+1:15:06.520 --> 1:15:12.000
+ thinking who's going to tell all these people that they need to show up at work when they
+
+1:15:12.000 --> 1:15:17.520
+ don't have a financial system to incentivize them to show up at work.
+
+1:15:17.520 --> 1:15:22.040
+ So my complaint is first of all, not with the socialists, but with the capitalists,
+
+1:15:22.040 --> 1:15:24.640
+ which is you guys are being idiots.
+
+1:15:24.640 --> 1:15:30.780
+ You're courting revolution by continuing to harp on the same old ideas that, well, you
+
+1:15:30.780 --> 1:15:32.820
+ know, try, try harder, bootstrap yourself.
+
+1:15:32.820 --> 1:15:38.000
+ Yeah, to an extent that works to an extent, but we are clearly headed in a place that
+
+1:15:38.000 --> 1:15:45.540
+ there's nothing that ties together our need to contribute and our need to consume.
+
+1:15:45.540 --> 1:15:49.540
+ And that may not be provided by capitalism because it may have been a temporary phenomena.
+
+1:15:49.540 --> 1:15:55.480
+ So check out my article on anthropic capitalism and the new gimmick economy.
+
+1:15:55.480 --> 1:16:00.320
+ I think people are late getting the wake up call and we would be doing a better job saving
+
+1:16:00.320 --> 1:16:05.840
+ capitalism from itself because I don't want this done under authoritarian control.
+
+1:16:05.840 --> 1:16:11.080
+ And the more we insist that everybody who's not thriving in our society during their reproductive
+
+1:16:11.080 --> 1:16:15.280
+ years in order to have a family is failing at a personal level.
+
+1:16:15.280 --> 1:16:18.840
+ I mean, what a disgusting thing that we're saying.
+
+1:16:18.840 --> 1:16:23.440
+ What horrible message who, who the hell have we become that we've so bought into the Chicago
+
+1:16:23.440 --> 1:16:28.220
+ model that we can't see the humanity that we're destroying in that process.
+
+1:16:28.220 --> 1:16:31.240
+ And it's, I hate, I hate the thought of communism.
+
+1:16:31.240 --> 1:16:32.240
+ I really do.
+
+1:16:32.240 --> 1:16:34.640
+ My family has flirted with it decades past.
+
+1:16:34.640 --> 1:16:39.820
+ It's a wrong, bad idea, but we are going to need to figure out how to make sure that those
+
+1:16:39.820 --> 1:16:45.160
+ souls are nourished and respected and capitalism better have an answer.
+
+1:16:45.160 --> 1:16:48.120
+ And I'm betting on capitalism, but I've got to tell you, I'm pretty disappointed with
+
+1:16:48.120 --> 1:16:49.120
+ my team.
+
+1:16:49.120 --> 1:16:52.200
+ So you're still on the capitalism team.
+
+1:16:52.200 --> 1:16:55.280
+ You just, uh, there's a theme here.
+
+1:16:55.280 --> 1:16:56.280
+ Radical capitalism.
+
+1:16:56.280 --> 1:16:57.280
+ Hyper capitalism.
+
+1:16:57.280 --> 1:16:58.280
+ Yeah.
+
+1:16:58.280 --> 1:17:02.060
+ I want, I think hyper capitalism is going to have to be coupled to hyper socialism.
+
+1:17:02.060 --> 1:17:07.600
+ You need to allow the most productive people to create wonders and you've got to stop bogging
+
+1:17:07.600 --> 1:17:11.040
+ them down with all of these extra nice requirements.
+
+1:17:11.040 --> 1:17:13.360
+ You know, nice is dead.
+
+1:17:13.360 --> 1:17:14.760
+ Good has a future.
+
+1:17:14.760 --> 1:17:18.680
+ Nice doesn't have a future because nice ends up with, with gulags.
+
+1:17:18.680 --> 1:17:21.080
+ Damn, that's a good line.
+
+1:17:21.080 --> 1:17:22.080
+ Okay.
+
+1:17:22.080 --> 1:17:23.080
+ Last question.
+
+1:17:23.080 --> 1:17:30.520
+ You tweeted today a simple, quite insightful equation saying, uh, imagine that every unit
+
+1:17:30.520 --> 1:17:35.760
+ F of fame you picked up as stalkers and H haters.
+
+1:17:35.760 --> 1:17:39.640
+ So I imagine S and H are dependent on your path to fame perhaps a little bit.
+
+1:17:39.640 --> 1:17:40.640
+ Well, it's not as simple.
+
+1:17:40.640 --> 1:17:44.520
+ I mean, people always take these things literally when you have like 280 characters to explain
+
+1:17:44.520 --> 1:17:45.520
+ yourself.
+
+1:17:45.520 --> 1:17:50.520
+ So you mean that that's not a mathematical, uh, no, there's no law.
+
+1:17:50.520 --> 1:17:51.520
+ Oh, okay.
+
+1:17:51.520 --> 1:17:52.520
+ All right.
+
+1:17:52.520 --> 1:17:56.760
+ So I put the word imagine because I still have a mathematician's desire for precision.
+
+1:17:56.760 --> 1:18:00.880
+ Imagine that this were true, but it was a beautiful way to imagine that there is a law
+
+1:18:00.880 --> 1:18:03.720
+ that has those variables in it.
+
+1:18:03.720 --> 1:18:06.880
+ And uh, you've become quite famous these days.
+
+1:18:06.880 --> 1:18:12.640
+ So how do you yourself optimize that equation with the peculiar kind of fame that you have
+
+1:18:12.640 --> 1:18:13.720
+ gathered along the way?
+
+1:18:13.720 --> 1:18:14.760
+ I want to be kinder.
+
+1:18:14.760 --> 1:18:16.160
+ I want to be kinder to myself.
+
+1:18:16.160 --> 1:18:17.380
+ I want to be kinder to others.
+
+1:18:17.380 --> 1:18:24.920
+ I want to be able to have heart, compassion, or these things are really important.
+
+1:18:24.920 --> 1:18:28.960
+ And uh, I have a pretty spectrumy kind of approach to analysis.
+
+1:18:28.960 --> 1:18:29.960
+ I'm quite literal.
+
+1:18:29.960 --> 1:18:32.920
+ I can go full rain man on you at any given moment.
+
+1:18:32.920 --> 1:18:33.920
+ No, I can't.
+
+1:18:33.920 --> 1:18:34.920
+ I can't.
+
+1:18:34.920 --> 1:18:37.960
+ Uh, it's facultative autism if you like, and people are gonna get angry because they want
+
+1:18:37.960 --> 1:18:39.960
+ autism to be respected.
+
+1:18:39.960 --> 1:18:47.000
+ So when you see me coding or you see me doing mathematics, I'm, you know, I speak with speech
+
+1:18:47.000 --> 1:18:54.360
+ apnea, uh, be right down to dinner, you know, we have to try to integrate ourselves and
+
+1:18:54.360 --> 1:19:00.920
+ those tensions between, you know, it's sort of back to us as a worker and us as a soul.
+
+1:19:00.920 --> 1:19:06.000
+ Many of us are optimizing one to the, at the expense of the other.
+
+1:19:06.000 --> 1:19:11.720
+ And I struggle with social media and I struggle with people making threats against our families
+
+1:19:11.720 --> 1:19:15.840
+ and I struggle with, um, just how much pain people are in.
+
+1:19:15.840 --> 1:19:21.960
+ And if there's one message I would like to push out there, um, you're responsible, everybody,
+
+1:19:21.960 --> 1:19:27.640
+ all of us, myself included with struggling, struggle, struggle mightily because you, it's
+
+1:19:27.640 --> 1:19:30.880
+ nobody else's job to do your struggle for you.
+
+1:19:30.880 --> 1:19:34.360
+ Now with that said, if you're struggling and you're trying and you're trying to figure
+
+1:19:34.360 --> 1:19:38.640
+ out how to better yourself and where you failed and where you've let down your family, your
+
+1:19:38.640 --> 1:19:43.520
+ friends, your workers, all this kind of stuff, give yourself a break.
+
+1:19:43.520 --> 1:19:48.880
+ You know, if, if, if it's not working out, I have a lifelong relationship with failure
+
+1:19:48.880 --> 1:19:49.880
+ and success.
+
+1:19:49.880 --> 1:19:56.300
+ There's been no period of my life where both haven't been present in one form or another.
+
+1:19:56.300 --> 1:20:00.680
+ And I do wish to say that a lot of times people think this is glamorous.
+
+1:20:00.680 --> 1:20:04.640
+ I'm about to go, you know, do a show with Sam Harris.
+
+1:20:04.640 --> 1:20:07.360
+ People are going to listen in on two guys having a conversation on stage.
+
+1:20:07.360 --> 1:20:10.180
+ It's completely crazy when I'm always trying to figure out how to make sure that those
+
+1:20:10.180 --> 1:20:12.600
+ people get maximum value.
+
+1:20:12.600 --> 1:20:18.360
+ And uh, that's why I'm doing this podcast, you know, just give yourself a break.
+
+1:20:18.360 --> 1:20:20.580
+ You owe us, you owe us your struggle.
+
+1:20:20.580 --> 1:20:26.200
+ You don't owe your family or your coworkers or your lovers or your family members success.
+
+1:20:26.200 --> 1:20:31.420
+ Um, as long as you're in there and you're picking yourself up, recognize that this,
+
+1:20:31.420 --> 1:20:37.040
+ this new situation with the economy that doesn't have the juice to sustain our institutions
+
+1:20:37.040 --> 1:20:41.780
+ has caused the people who've risen to the top of those institutions to get quite brutal
+
+1:20:41.780 --> 1:20:43.800
+ and cruel.
+
+1:20:43.800 --> 1:20:45.400
+ Everybody is lying at the moment.
+
+1:20:45.400 --> 1:20:47.280
+ Nobody's really a truth teller.
+
+1:20:47.280 --> 1:20:50.280
+ Um, try to keep your humanity about you.
+
+1:20:50.280 --> 1:20:55.200
+ Try to recognize that if you're failing, if things aren't where you want them to be and
+
+1:20:55.200 --> 1:20:57.800
+ you're struggling and you're trying to figure out what you're doing wrong, which you could
+
+1:20:57.800 --> 1:21:01.360
+ do, it's not necessarily all your fault.
+
+1:21:01.360 --> 1:21:02.960
+ We are in a global situation.
+
+1:21:02.960 --> 1:21:08.640
+ I have not met the people who are honest, kind, good, successful.
+
+1:21:08.640 --> 1:21:13.040
+ Nobody that I've met is checking all the boxes.
+
+1:21:13.040 --> 1:21:14.580
+ Nobody's getting all tens.
+
+1:21:14.580 --> 1:21:18.960
+ So I just think that's an important message that doesn't get pushed out enough.
+
+1:21:18.960 --> 1:21:24.040
+ Either people want to hold society responsible for their failures, which is not reasonable.
+
+1:21:24.040 --> 1:21:27.740
+ You have to struggle, you have to try, or they want to say you're a hundred percent
+
+1:21:27.740 --> 1:21:31.960
+ responsible for your failures, which is total nonsense.
+
+1:21:31.960 --> 1:21:32.960
+ Beautifully put.
+
+1:21:32.960 --> 1:21:33.960
+ Eric, thank you so much for talking today.
+
+1:21:33.960 --> 1:21:55.560
+ Thanks for having me, buddy.
+

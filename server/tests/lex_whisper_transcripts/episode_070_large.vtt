@@ -1,0 +1,6389 @@
+WEBVTT
+
+00:00.000 --> 00:03.020
+ The following is a conversation with Jim Keller,
+
+00:03.020 --> 00:05.560
+ legendary microprocessor engineer
+
+00:05.560 --> 00:09.340
+ who has worked at AMD, Apple, Tesla, and now Intel.
+
+00:10.160 --> 00:13.520
+ He's known for his work on AMD K7, K8, K12,
+
+00:13.520 --> 00:18.120
+ and Zen microarchitectures, Apple A4 and A5 processors,
+
+00:18.120 --> 00:20.080
+ and coauthor of the specification
+
+00:20.080 --> 00:23.040
+ for the x8664 instruction set
+
+00:23.040 --> 00:26.120
+ and hypertransport interconnect.
+
+00:26.120 --> 00:28.440
+ He's a brilliant first principles engineer
+
+00:28.440 --> 00:30.040
+ and out of the box thinker,
+
+00:30.040 --> 00:33.480
+ and just an interesting and fun human being to talk to.
+
+00:33.480 --> 00:36.480
+ This is the Artificial Intelligence Podcast.
+
+00:36.480 --> 00:38.860
+ If you enjoy it, subscribe on YouTube,
+
+00:38.860 --> 00:40.840
+ give it five stars on Apple Podcast,
+
+00:40.840 --> 00:43.500
+ follow on Spotify, support it on Patreon,
+
+00:43.500 --> 00:45.600
+ or simply connect with me on Twitter,
+
+00:45.600 --> 00:49.560
+ at Lex Friedman, spelled F R I D M A N.
+
+00:49.560 --> 00:51.040
+ I recently started doing ads
+
+00:51.040 --> 00:52.600
+ at the end of the introduction.
+
+00:52.600 --> 00:55.560
+ I'll do one or two minutes after introducing the episode
+
+00:55.560 --> 00:57.100
+ and never any ads in the middle
+
+00:57.100 --> 00:59.400
+ that can break the flow of the conversation.
+
+00:59.400 --> 01:00.780
+ I hope that works for you
+
+01:00.780 --> 01:04.040
+ and doesn't hurt the listening experience.
+
+01:04.040 --> 01:06.160
+ This show is presented by Cash App,
+
+01:06.160 --> 01:08.640
+ the number one finance app in the App Store.
+
+01:08.640 --> 01:11.440
+ I personally use Cash App to send money to friends,
+
+01:11.440 --> 01:13.200
+ but you can also use it to buy, sell,
+
+01:13.200 --> 01:15.600
+ and deposit Bitcoin in just seconds.
+
+01:15.600 --> 01:18.480
+ Cash App also has a new investing feature.
+
+01:18.480 --> 01:21.440
+ You can buy fractions of a stock, say $1 worth,
+
+01:21.440 --> 01:23.540
+ no matter what the stock price is.
+
+01:23.540 --> 01:26.480
+ Broker services are provided by Cash App Investing,
+
+01:26.480 --> 01:29.740
+ a subsidiary of Square and member SIPC.
+
+01:29.740 --> 01:32.040
+ I'm excited to be working with Cash App
+
+01:32.040 --> 01:35.440
+ to support one of my favorite organizations called First,
+
+01:35.440 --> 01:38.960
+ best known for their FIRST Robotics and Lego competitions.
+
+01:38.960 --> 01:42.240
+ They educate and inspire hundreds of thousands of students
+
+01:42.240 --> 01:45.360
+ in over 110 countries and have a perfect rating
+
+01:45.360 --> 01:46.720
+ at Charity Navigator,
+
+01:46.720 --> 01:48.000
+ which means that donated money
+
+01:48.000 --> 01:50.760
+ is used to maximum effectiveness.
+
+01:50.760 --> 01:53.480
+ When you get Cash App from the App Store or Google Play
+
+01:53.480 --> 01:56.280
+ and use code LEXPODCAST,
+
+01:56.280 --> 02:00.280
+ you'll get $10 and Cash App will also donate $10 to FIRST,
+
+02:00.280 --> 02:02.120
+ which again is an organization
+
+02:02.120 --> 02:04.920
+ that I've personally seen inspire girls and boys
+
+02:04.920 --> 02:08.060
+ to dream of engineering a better world.
+
+02:08.060 --> 02:11.460
+ And now here's my conversation with Jim Keller.
+
+02:12.560 --> 02:14.520
+ What are the differences and similarities
+
+02:14.520 --> 02:17.200
+ between the human brain and a computer
+
+02:17.200 --> 02:19.260
+ with the microprocessor at its core?
+
+02:19.260 --> 02:22.260
+ Let's start with the philosophical question perhaps.
+
+02:22.260 --> 02:25.400
+ Well, since people don't actually understand
+
+02:25.400 --> 02:29.200
+ how human brains work, I think that's true.
+
+02:29.200 --> 02:30.560
+ I think that's true.
+
+02:30.560 --> 02:32.600
+ So it's hard to compare them.
+
+02:32.600 --> 02:37.260
+ Computers are, you know, there's really two things.
+
+02:37.260 --> 02:40.480
+ There's memory and there's computation, right?
+
+02:40.480 --> 02:43.920
+ And to date, almost all computer architectures
+
+02:43.920 --> 02:47.600
+ are global memory, which is a thing, right?
+
+02:47.600 --> 02:49.360
+ And then computation where you pull data
+
+02:49.360 --> 02:52.440
+ and you do relatively simple operations on it
+
+02:52.440 --> 02:53.900
+ and write data back.
+
+02:53.900 --> 02:57.760
+ So it's decoupled in modern computers.
+
+02:57.760 --> 02:59.840
+ And you think in the human brain,
+
+02:59.840 --> 03:02.600
+ everything's a mesh, a mess that's combined together?
+
+03:02.600 --> 03:04.840
+ What people observe is there's, you know,
+
+03:04.840 --> 03:06.500
+ some number of layers of neurons
+
+03:06.500 --> 03:09.120
+ which have local and global connections
+
+03:09.120 --> 03:12.840
+ and information is stored in some distributed fashion
+
+03:13.700 --> 03:18.280
+ and people build things called neural networks in computers
+
+03:18.280 --> 03:21.200
+ where the information is distributed
+
+03:21.200 --> 03:22.840
+ in some kind of fashion.
+
+03:22.840 --> 03:25.520
+ You know, there's a mathematics behind it.
+
+03:25.520 --> 03:29.220
+ I don't know that the understanding of that is super deep.
+
+03:29.220 --> 03:31.160
+ The computations we run on those
+
+03:31.160 --> 03:33.440
+ are straightforward computations.
+
+03:33.440 --> 03:35.520
+ I don't believe anybody has said
+
+03:35.520 --> 03:37.880
+ a neuron does this computation.
+
+03:37.880 --> 03:42.880
+ So to date, it's hard to compare them, I would say.
+
+03:44.120 --> 03:48.800
+ So let's get into the basics before we zoom back out.
+
+03:48.800 --> 03:51.020
+ How do you build a computer from scratch?
+
+03:51.020 --> 03:52.760
+ What is a microprocessor?
+
+03:52.760 --> 03:54.120
+ What is a microarchitecture?
+
+03:54.120 --> 03:56.640
+ What's an instruction set architecture?
+
+03:56.640 --> 03:59.460
+ Maybe even as far back as what is a transistor?
+
+04:01.040 --> 04:05.040
+ So the special charm of computer engineering
+
+04:05.040 --> 04:08.400
+ is there's a relatively good understanding
+
+04:08.400 --> 04:10.480
+ of abstraction layers.
+
+04:10.480 --> 04:12.280
+ So down at the bottom, you have atoms
+
+04:12.280 --> 04:15.480
+ and atoms get put together in materials like silicon
+
+04:15.480 --> 04:19.440
+ or dope silicon or metal and we build transistors.
+
+04:19.440 --> 04:23.680
+ On top of that, we build logic gates, right?
+
+04:23.680 --> 04:27.360
+ And then functional units, like an adder or a subtractor
+
+04:27.360 --> 04:28.800
+ or an instruction parsing unit.
+
+04:28.800 --> 04:32.320
+ And then we assemble those into processing elements.
+
+04:32.320 --> 04:37.240
+ Modern computers are built out of probably 10 to 20
+
+04:37.240 --> 04:40.960
+ locally organic processing elements
+
+04:40.960 --> 04:42.640
+ or coherent processing elements.
+
+04:42.640 --> 04:46.640
+ And then that runs computer programs, right?
+
+04:46.640 --> 04:49.800
+ So there's abstraction layers and then software,
+
+04:49.800 --> 04:51.760
+ there's an instruction set you run
+
+04:51.760 --> 04:56.440
+ and then there's assembly language C, C++, Java, JavaScript.
+
+04:56.440 --> 04:58.680
+ There's abstraction layers,
+
+04:58.680 --> 05:02.520
+ essentially from the atom to the data center, right?
+
+05:02.520 --> 05:05.100
+ So when you build a computer,
+
+05:06.760 --> 05:08.560
+ first there's a target, like what's it for?
+
+05:08.560 --> 05:09.960
+ Like how fast does it have to be?
+
+05:09.960 --> 05:12.200
+ Which today there's a whole bunch of metrics
+
+05:12.200 --> 05:13.840
+ about what that is.
+
+05:13.840 --> 05:17.040
+ And then in an organization of 1,000 people
+
+05:17.040 --> 05:22.040
+ who build a computer, there's lots of different disciplines
+
+05:22.240 --> 05:24.120
+ that you have to operate on.
+
+05:24.120 --> 05:25.480
+ Does that make sense?
+
+05:25.480 --> 05:27.120
+ And so...
+
+05:27.120 --> 05:29.280
+ So there's a bunch of levels of abstraction
+
+05:30.780 --> 05:35.720
+ in an organization like Intel and in your own vision,
+
+05:35.720 --> 05:37.600
+ there's a lot of brilliance that comes in
+
+05:37.600 --> 05:39.700
+ at every one of those layers.
+
+05:39.700 --> 05:41.680
+ Some of it is science, some of it is engineering,
+
+05:41.680 --> 05:45.440
+ some of it is art, what's the most,
+
+05:45.440 --> 05:46.380
+ if you could pick favorites,
+
+05:46.380 --> 05:49.440
+ what's the most important, your favorite layer
+
+05:49.440 --> 05:51.100
+ on these layers of abstractions?
+
+05:51.100 --> 05:53.940
+ Where does the magic enter this hierarchy?
+
+05:55.360 --> 05:57.120
+ I don't really care.
+
+05:57.120 --> 06:00.740
+ That's the fun, you know, I'm somewhat agnostic to that.
+
+06:00.740 --> 06:05.520
+ So I would say for relatively long periods of time,
+
+06:05.520 --> 06:08.040
+ instruction sets are stable.
+
+06:08.040 --> 06:12.000
+ So the x86 instruction set, the ARM instruction set.
+
+06:12.000 --> 06:13.360
+ What's an instruction set?
+
+06:13.360 --> 06:16.120
+ So it says, how do you encode the basic operations?
+
+06:16.120 --> 06:20.140
+ Load, store, multiply, add, subtract, conditional, branch.
+
+06:20.140 --> 06:23.800
+ You know, there aren't that many interesting instructions.
+
+06:23.800 --> 06:26.160
+ Look, if you look at a program and it runs,
+
+06:26.160 --> 06:29.840
+ you know, 90% of the execution is on 25 opcodes,
+
+06:29.840 --> 06:31.680
+ you know, 25 instructions.
+
+06:31.680 --> 06:33.900
+ And those are stable, right?
+
+06:33.900 --> 06:35.460
+ What does it mean, stable?
+
+06:35.460 --> 06:38.120
+ Intel architecture's been around for 25 years.
+
+06:38.120 --> 06:38.960
+ It works.
+
+06:38.960 --> 06:39.800
+ It works.
+
+06:39.800 --> 06:42.520
+ And that's because the basics, you know,
+
+06:42.520 --> 06:45.280
+ are defined a long time ago, right?
+
+06:45.280 --> 06:49.480
+ Now, the way an old computer ran is you fetched
+
+06:49.480 --> 06:52.960
+ instructions and you executed them in order.
+
+06:52.960 --> 06:56.120
+ Do the load, do the add, do the compare.
+
+06:57.140 --> 06:59.760
+ The way a modern computer works is you fetch
+
+06:59.760 --> 07:03.240
+ large numbers of instructions, say 500.
+
+07:03.240 --> 07:06.240
+ And then you find the dependency graph
+
+07:06.240 --> 07:07.920
+ between the instructions.
+
+07:07.920 --> 07:12.300
+ And then you execute in independent units
+
+07:12.300 --> 07:14.420
+ those little micrographs.
+
+07:15.280 --> 07:17.760
+ So a modern computer, like people like to say,
+
+07:17.760 --> 07:20.720
+ computers should be simple and clean.
+
+07:20.720 --> 07:22.400
+ But it turns out the market for simple,
+
+07:22.400 --> 07:26.240
+ clean, slow computers is zero, right?
+
+07:26.240 --> 07:29.560
+ We don't sell any simple, clean computers.
+
+07:29.560 --> 07:33.560
+ No, you can, how you build it can be clean,
+
+07:33.560 --> 07:36.680
+ but the computer people want to buy,
+
+07:36.680 --> 07:40.440
+ that's, say, in a phone or a data center,
+
+07:40.440 --> 07:42.680
+ fetches a large number of instructions,
+
+07:42.680 --> 07:45.600
+ computes the dependency graph,
+
+07:45.600 --> 07:49.160
+ and then executes it in a way that gets the right answers.
+
+07:49.160 --> 07:50.880
+ And optimizes that graph somehow.
+
+07:50.880 --> 07:53.520
+ Yeah, they run deeply out of order.
+
+07:53.520 --> 07:57.580
+ And then there's semantics around how memory ordering works
+
+07:57.580 --> 07:58.420
+ and other things work.
+
+07:58.420 --> 08:01.960
+ So the computer sort of has a bunch of bookkeeping tables
+
+08:01.960 --> 08:05.520
+ that says what order should these operations finish in
+
+08:05.520 --> 08:07.800
+ or appear to finish in?
+
+08:07.800 --> 08:10.720
+ But to go fast, you have to fetch a lot of instructions
+
+08:10.720 --> 08:12.720
+ and find all the parallelism.
+
+08:12.720 --> 08:15.480
+ Now, there's a second kind of computer,
+
+08:15.480 --> 08:17.560
+ which we call GPUs today.
+
+08:17.560 --> 08:19.640
+ And I call it the difference.
+
+08:19.640 --> 08:21.880
+ There's found parallelism, like you have a program
+
+08:21.880 --> 08:24.120
+ with a lot of dependent instructions.
+
+08:24.120 --> 08:26.120
+ You fetch a bunch and then you go figure out
+
+08:26.120 --> 08:29.400
+ the dependency graph and you issue instructions out of order.
+
+08:29.400 --> 08:32.960
+ That's because you have one serial narrative to execute,
+
+08:32.960 --> 08:35.840
+ which, in fact, can be done out of order.
+
+08:35.840 --> 08:37.080
+ Did you call it a narrative?
+
+08:37.080 --> 08:37.920
+ Yeah.
+
+08:37.920 --> 08:38.760
+ Oh, wow.
+
+08:38.760 --> 08:40.700
+ Yeah, so humans think of serial narrative.
+
+08:40.700 --> 08:42.960
+ So read a book, right?
+
+08:42.960 --> 08:45.760
+ There's a sentence after sentence after sentence,
+
+08:45.760 --> 08:46.840
+ and there's paragraphs.
+
+08:46.840 --> 08:49.360
+ Now, you could diagram that.
+
+08:49.360 --> 08:51.820
+ Imagine you diagrammed it properly and you said,
+
+08:52.680 --> 08:55.640
+ which sentences could be read in any order,
+
+08:55.640 --> 08:59.060
+ any order without changing the meaning, right?
+
+08:59.960 --> 09:02.520
+ That's a fascinating question to ask of a book, yeah.
+
+09:02.520 --> 09:04.400
+ Yeah, you could do that, right?
+
+09:04.400 --> 09:06.280
+ So some paragraphs could be reordered,
+
+09:06.280 --> 09:08.400
+ some sentences can be reordered.
+
+09:08.400 --> 09:13.400
+ You could say, he is tall and smart and X, right?
+
+09:15.640 --> 09:18.220
+ And it doesn't matter the order of tall and smart.
+
+09:19.840 --> 09:22.920
+ But if you say the tall man is wearing a red shirt,
+
+09:22.920 --> 09:27.920
+ what colors, you can create dependencies, right?
+
+09:28.440 --> 09:32.000
+ And so GPUs, on the other hand,
+
+09:32.000 --> 09:35.320
+ run simple programs on pixels,
+
+09:35.320 --> 09:36.880
+ but you're given a million of them.
+
+09:36.880 --> 09:40.160
+ And the first order, the screen you're looking at
+
+09:40.160 --> 09:42.200
+ doesn't care which order you do it in.
+
+09:42.200 --> 09:44.480
+ So I call that given parallelism.
+
+09:44.480 --> 09:48.280
+ Simple narratives around the large numbers of things
+
+09:48.280 --> 09:49.400
+ where you can just say,
+
+09:49.400 --> 09:52.320
+ it's parallel because you told me it was.
+
+09:52.320 --> 09:57.320
+ So found parallelism where the narrative is sequential,
+
+09:57.680 --> 10:01.800
+ but you discover like little pockets of parallelism versus.
+
+10:01.800 --> 10:03.980
+ Turns out large pockets of parallelism.
+
+10:03.980 --> 10:05.880
+ Large, so how hard is it to discover?
+
+10:05.880 --> 10:06.960
+ Well, how hard is it?
+
+10:06.960 --> 10:08.800
+ That's just transistor count, right?
+
+10:08.800 --> 10:11.160
+ So once you crack the problem, you say,
+
+10:11.160 --> 10:13.440
+ here's how you fetch 10 instructions at a time.
+
+10:13.440 --> 10:16.360
+ Here's how you calculate the dependencies between them.
+
+10:16.360 --> 10:18.480
+ Here's how you describe the dependencies.
+
+10:18.480 --> 10:20.660
+ Here's, you know, these are pieces, right?
+
+10:20.660 --> 10:25.580
+ So once you describe the dependencies,
+
+10:25.580 --> 10:27.580
+ then it's just a graph.
+
+10:27.580 --> 10:30.180
+ Sort of, it's an algorithm that finds,
+
+10:31.140 --> 10:31.960
+ what is that?
+
+10:31.960 --> 10:34.620
+ I'm sure there's a graph theoretical answer here
+
+10:34.620 --> 10:35.860
+ that's solvable.
+
+10:35.860 --> 10:40.700
+ In general, programs, modern programs
+
+10:40.700 --> 10:42.220
+ that human beings write,
+
+10:42.220 --> 10:45.820
+ how much found parallelism is there in them?
+
+10:45.820 --> 10:47.260
+ What does 10X mean?
+
+10:47.260 --> 10:52.180
+ So if you execute it in order, you would get
+
+10:52.180 --> 10:53.940
+ what's called cycles per instruction,
+
+10:53.940 --> 10:57.140
+ and it would be about, you know,
+
+10:57.140 --> 11:00.020
+ three instructions, three cycles per instruction
+
+11:00.020 --> 11:02.780
+ because of the latency of the operations and stuff.
+
+11:02.780 --> 11:05.220
+ And in a modern computer, excuse it,
+
+11:05.220 --> 11:08.700
+ but like 0.2, 0.25 cycles per instruction.
+
+11:08.700 --> 11:11.820
+ So it's about, we today find 10X.
+
+11:11.820 --> 11:13.020
+ And there's two things.
+
+11:13.020 --> 11:17.380
+ One is the found parallelism in the narrative, right?
+
+11:17.380 --> 11:21.380
+ And the other is the predictability of the narrative, right?
+
+11:21.380 --> 11:25.540
+ So certain operations say, do a bunch of calculations,
+
+11:25.540 --> 11:28.900
+ and if greater than one, do this, else do that.
+
+11:30.380 --> 11:33.180
+ That decision is predicted in modern computers
+
+11:33.180 --> 11:36.220
+ to high 90% accuracy.
+
+11:36.220 --> 11:38.740
+ So branches happen a lot.
+
+11:38.740 --> 11:40.420
+ So imagine you have a decision
+
+11:40.420 --> 11:41.780
+ to make every six instructions,
+
+11:41.780 --> 11:43.740
+ which is about the average, right?
+
+11:43.740 --> 11:45.440
+ But you want to fetch 500 instructions,
+
+11:45.440 --> 11:48.420
+ figure out the graph, and execute them all in parallel.
+
+11:48.420 --> 11:51.580
+ That means you have, let's say,
+
+11:51.580 --> 11:54.980
+ if you fetch 600 instructions and it's every six,
+
+11:54.980 --> 11:56.940
+ you have to fetch, you have to predict
+
+11:56.940 --> 11:59.380
+ 99 out of 100 branches correctly
+
+12:00.260 --> 12:02.340
+ for that window to be effective.
+
+12:02.340 --> 12:06.860
+ Okay, so parallelism, you can't parallelize branches.
+
+12:06.860 --> 12:07.700
+ Or you can.
+
+12:07.700 --> 12:08.660
+ No, you can predict.
+
+12:08.660 --> 12:09.500
+ You can predict.
+
+12:09.500 --> 12:10.580
+ What does predicted branch mean?
+
+12:10.580 --> 12:11.420
+ What does predicted branch mean?
+
+12:11.420 --> 12:13.580
+ So imagine you do a computation over and over.
+
+12:13.580 --> 12:14.940
+ You're in a loop.
+
+12:14.940 --> 12:19.420
+ So while n is greater than one, do.
+
+12:19.420 --> 12:21.220
+ And you go through that loop a million times.
+
+12:21.220 --> 12:22.660
+ So every time you look at the branch,
+
+12:22.660 --> 12:25.740
+ you say, it's probably still greater than one.
+
+12:25.740 --> 12:27.820
+ And you're saying you could do that accurately.
+
+12:27.820 --> 12:28.660
+ Very accurately.
+
+12:28.660 --> 12:29.500
+ Modern computers.
+
+12:29.500 --> 12:30.500
+ My mind is blown.
+
+12:30.500 --> 12:31.460
+ How the heck do you do that?
+
+12:31.460 --> 12:32.620
+ Wait a minute.
+
+12:32.620 --> 12:33.820
+ Well, you want to know?
+
+12:33.820 --> 12:35.500
+ This is really sad.
+
+12:35.500 --> 12:38.700
+ 20 years ago, you simply recorded
+
+12:38.700 --> 12:40.620
+ which way the branch went last time
+
+12:40.620 --> 12:42.780
+ and predicted the same thing.
+
+12:42.780 --> 12:43.620
+ Right.
+
+12:43.620 --> 12:44.460
+ Okay.
+
+12:44.460 --> 12:46.140
+ What's the accuracy of that?
+
+12:46.140 --> 12:48.100
+ 85%.
+
+12:48.100 --> 12:51.780
+ So then somebody said, hey, let's keep a couple of bits
+
+12:51.780 --> 12:54.980
+ and have a little counter so when it predicts one way,
+
+12:54.980 --> 12:56.740
+ we count up and then pins.
+
+12:56.740 --> 12:58.060
+ So say you have a three bit counter.
+
+12:58.060 --> 13:00.740
+ So you count up and then you count down.
+
+13:00.740 --> 13:03.260
+ And you can use the top bit as the signed bit
+
+13:03.260 --> 13:05.020
+ so you have a signed two bit number.
+
+13:05.020 --> 13:07.500
+ So if it's greater than one, you predict taken.
+
+13:07.500 --> 13:11.460
+ And less than one, you predict not taken, right?
+
+13:11.460 --> 13:14.100
+ Or less than zero, whatever the thing is.
+
+13:14.100 --> 13:16.140
+ And that got us to 92%.
+
+13:16.140 --> 13:17.300
+ Oh.
+
+13:17.300 --> 13:19.540
+ Okay, no, it gets better.
+
+13:19.540 --> 13:22.900
+ This branch depends on how you got there.
+
+13:22.900 --> 13:25.540
+ So if you came down the code one way,
+
+13:25.540 --> 13:28.420
+ you're talking about Bob and Jane, right?
+
+13:28.420 --> 13:30.460
+ And then said, does Bob like Jane?
+
+13:30.460 --> 13:31.300
+ It went one way.
+
+13:31.300 --> 13:32.900
+ But if you're talking about Bob and Jill,
+
+13:32.900 --> 13:33.940
+ does Bob like Jane?
+
+13:33.940 --> 13:35.540
+ You go a different way.
+
+13:35.540 --> 13:36.940
+ Right, so that's called history.
+
+13:36.940 --> 13:38.940
+ So you take the history and a counter.
+
+13:40.020 --> 13:43.420
+ That's cool, but that's not how anything works today.
+
+13:43.420 --> 13:46.420
+ They use something that looks a little like a neural network.
+
+13:48.060 --> 13:51.340
+ So modern, you take all the execution flows.
+
+13:52.260 --> 13:56.140
+ And then you do basically deep pattern recognition
+
+13:56.140 --> 13:58.540
+ of how the program is executing.
+
+13:59.940 --> 14:03.740
+ And you do that multiple different ways.
+
+14:03.740 --> 14:07.620
+ And you have something that chooses what the best result is.
+
+14:07.620 --> 14:10.460
+ There's a little supercomputer inside the computer.
+
+14:10.460 --> 14:11.860
+ That's trying to predict branching.
+
+14:11.860 --> 14:14.340
+ That calculates which way branches go.
+
+14:14.340 --> 14:17.300
+ So the effective window that it's worth finding grass
+
+14:17.300 --> 14:18.340
+ in gets bigger.
+
+14:19.260 --> 14:21.860
+ Why was that gonna make me sad?
+
+14:21.860 --> 14:22.940
+ Because that's amazing.
+
+14:22.940 --> 14:24.420
+ It's amazingly complicated.
+
+14:24.420 --> 14:25.260
+ Oh, well.
+
+14:25.260 --> 14:27.100
+ Well, here's the funny thing.
+
+14:27.100 --> 14:31.740
+ So to get to 85% took 1,000 bits.
+
+14:31.740 --> 14:36.740
+ To get to 99% takes tens of megabits.
+
+14:38.860 --> 14:42.700
+ So this is one of those, to get the result,
+
+14:42.700 --> 14:47.700
+ to get from a window of say 50 instructions to 500,
+
+14:47.780 --> 14:49.500
+ it took three orders of magnitude
+
+14:49.500 --> 14:51.580
+ or four orders of magnitude more bits.
+
+14:52.700 --> 14:55.460
+ Now if you get the prediction of a branch wrong,
+
+14:55.460 --> 14:56.300
+ what happens then?
+
+14:56.300 --> 14:57.380
+ You flush the pipe.
+
+14:57.380 --> 14:59.540
+ You flush the pipe, so it's just the performance cost.
+
+14:59.540 --> 15:00.820
+ But it gets even better.
+
+15:00.820 --> 15:01.660
+ Yeah.
+
+15:01.660 --> 15:03.860
+ So we're starting to look at stuff that says,
+
+15:03.860 --> 15:06.700
+ so they executed down this path,
+
+15:06.700 --> 15:09.260
+ and then you had two ways to go.
+
+15:09.260 --> 15:12.500
+ But far away, there's something that doesn't matter
+
+15:12.500 --> 15:13.620
+ which path you went.
+
+15:14.660 --> 15:17.660
+ So you took the wrong path.
+
+15:17.660 --> 15:19.300
+ You executed a bunch of stuff.
+
+15:20.580 --> 15:21.700
+ Then you had the mispredicting.
+
+15:21.700 --> 15:22.540
+ You backed it up.
+
+15:22.540 --> 15:25.500
+ You remembered all the results you already calculated.
+
+15:25.500 --> 15:27.660
+ Some of those are just fine.
+
+15:27.660 --> 15:30.260
+ Like if you read a book and you misunderstand a paragraph,
+
+15:30.260 --> 15:32.500
+ your understanding of the next paragraph
+
+15:32.500 --> 15:35.740
+ sometimes is invariant to that understanding.
+
+15:35.740 --> 15:37.600
+ Sometimes it depends on it.
+
+15:38.540 --> 15:43.260
+ And you can kind of anticipate that invariance.
+
+15:43.260 --> 15:47.380
+ Yeah, well, you can keep track of whether the data changed.
+
+15:47.380 --> 15:49.220
+ And so when you come back through a piece of code,
+
+15:49.220 --> 15:51.860
+ should you calculate it again or do the same thing?
+
+15:51.860 --> 15:55.620
+ Okay, how much of this is art and how much of it is science?
+
+15:55.620 --> 15:59.100
+ Because it sounds pretty complicated.
+
+15:59.100 --> 16:00.660
+ Well, how do you describe a situation?
+
+16:00.660 --> 16:02.620
+ So imagine you come to a point in the road
+
+16:02.620 --> 16:05.140
+ where you have to make a decision, right?
+
+16:05.140 --> 16:07.060
+ And you have a bunch of knowledge about which way to go.
+
+16:07.060 --> 16:08.940
+ Maybe you have a map.
+
+16:08.940 --> 16:11.580
+ So you wanna go the shortest way,
+
+16:11.580 --> 16:13.180
+ or do you wanna go the fastest way,
+
+16:13.180 --> 16:14.820
+ or do you wanna take the nicest road?
+
+16:14.820 --> 16:17.860
+ So there's some set of data.
+
+16:17.860 --> 16:19.660
+ So imagine you're doing something complicated
+
+16:19.660 --> 16:21.820
+ like building a computer.
+
+16:21.820 --> 16:24.340
+ And there's hundreds of decision points,
+
+16:24.340 --> 16:27.760
+ all with hundreds of possible ways to go.
+
+16:27.760 --> 16:30.940
+ And the ways you pick interact in a complicated way.
+
+16:32.220 --> 16:33.480
+ Right.
+
+16:33.480 --> 16:35.700
+ And then you have to pick the right spot.
+
+16:35.700 --> 16:36.520
+ Right, so that's.
+
+16:36.520 --> 16:37.580
+ So that's art or science, I don't know.
+
+16:37.580 --> 16:38.940
+ You avoided the question.
+
+16:38.940 --> 16:41.380
+ You just described the Robert Frost problem
+
+16:41.380 --> 16:42.620
+ of road less taken.
+
+16:43.660 --> 16:45.760
+ I described the Robert Frost problem?
+
+16:45.760 --> 16:49.480
+ That's what we do as computer designers.
+
+16:49.480 --> 16:50.420
+ It's all poetry.
+
+16:50.420 --> 16:51.260
+ Okay.
+
+16:51.260 --> 16:52.100
+ Great.
+
+16:52.100 --> 16:54.220
+ Yeah, I don't know how to describe that
+
+16:54.220 --> 16:56.440
+ because some people are very good
+
+16:56.440 --> 16:57.940
+ at making those intuitive leaps.
+
+16:57.940 --> 17:00.560
+ It seems like just combinations of things.
+
+17:00.560 --> 17:02.180
+ Some people are less good at it,
+
+17:02.180 --> 17:05.580
+ but they're really good at evaluating the alternatives.
+
+17:05.580 --> 17:09.260
+ Right, and everybody has a different way to do it.
+
+17:09.260 --> 17:11.860
+ And some people can't make those leaps,
+
+17:11.860 --> 17:14.300
+ but they're really good at analyzing it.
+
+17:14.300 --> 17:16.020
+ So when you see computers are designed
+
+17:16.020 --> 17:19.260
+ by teams of people who have very different skill sets.
+
+17:19.260 --> 17:24.260
+ And a good team has lots of different kinds of people.
+
+17:24.460 --> 17:26.260
+ I suspect you would describe some of them
+
+17:26.260 --> 17:29.340
+ as artistic, but not very many.
+
+17:30.420 --> 17:32.060
+ Unfortunately, or fortunately.
+
+17:32.060 --> 17:33.680
+ Fortunately.
+
+17:33.680 --> 17:36.460
+ Well, you know, computer design's hard.
+
+17:36.460 --> 17:39.460
+ It's 99% perspiration.
+
+17:40.380 --> 17:43.300
+ And the 1% inspiration is really important.
+
+17:44.140 --> 17:45.860
+ But you still need the 99.
+
+17:45.860 --> 17:47.340
+ Yeah, you gotta do a lot of work.
+
+17:47.340 --> 17:50.780
+ And then there are interesting things to do
+
+17:50.780 --> 17:52.760
+ at every level of that stack.
+
+17:52.760 --> 17:55.720
+ So at the end of the day,
+
+17:55.720 --> 17:58.880
+ if you run the same program multiple times,
+
+17:58.880 --> 18:01.460
+ does it always produce the same result?
+
+18:01.460 --> 18:04.720
+ Is there some room for fuzziness there?
+
+18:04.720 --> 18:05.840
+ That's a math problem.
+
+18:06.720 --> 18:08.560
+ So if you run a correct C program,
+
+18:08.560 --> 18:11.480
+ the definition is every time you run it,
+
+18:11.480 --> 18:12.480
+ you get the same answer.
+
+18:12.480 --> 18:14.480
+ Yeah, well that's a math statement.
+
+18:14.480 --> 18:17.440
+ But that's a language definitional statement.
+
+18:17.440 --> 18:19.800
+ So for years when people did,
+
+18:19.800 --> 18:22.920
+ when we first did 3D acceleration of graphics,
+
+18:24.600 --> 18:27.280
+ you could run the same scene multiple times
+
+18:27.280 --> 18:28.760
+ and get different answers.
+
+18:28.760 --> 18:29.760
+ Right.
+
+18:29.760 --> 18:32.360
+ Right, and then some people thought that was okay
+
+18:32.360 --> 18:34.560
+ and some people thought it was a bad idea.
+
+18:34.560 --> 18:39.240
+ And then when the HPC world used GPUs for calculations,
+
+18:39.240 --> 18:41.200
+ they thought it was a really bad idea.
+
+18:41.200 --> 18:44.440
+ Okay, now in modern AI stuff,
+
+18:44.440 --> 18:48.120
+ people are looking at networks
+
+18:48.120 --> 18:51.040
+ where the precision of the data is low enough
+
+18:51.040 --> 18:53.640
+ that the data is somewhat noisy.
+
+18:53.640 --> 18:57.280
+ And the observation is the input data is unbelievably noisy.
+
+18:57.280 --> 19:00.240
+ So why should the calculation be not noisy?
+
+19:00.240 --> 19:02.200
+ And people have experimented with algorithms
+
+19:02.200 --> 19:05.920
+ that say can get faster answers by being noisy.
+
+19:05.920 --> 19:08.240
+ Like as a network starts to converge,
+
+19:08.240 --> 19:09.560
+ if you look at the computation graph,
+
+19:09.560 --> 19:12.160
+ it starts out really wide and then it gets narrower.
+
+19:12.160 --> 19:14.440
+ And you can say is that last little bit that important
+
+19:14.440 --> 19:17.680
+ or should I start the graph on the next rev
+
+19:17.680 --> 19:21.280
+ before we whittle it all the way down to the answer, right?
+
+19:21.280 --> 19:24.040
+ So you can create algorithms that are noisy.
+
+19:24.040 --> 19:25.440
+ Now if you're developing something
+
+19:25.440 --> 19:27.440
+ and every time you run it, you get a different answer,
+
+19:27.440 --> 19:29.280
+ it's really annoying.
+
+19:29.280 --> 19:33.920
+ And so most people think even today,
+
+19:33.920 --> 19:36.720
+ every time you run the program, you get the same answer.
+
+19:36.720 --> 19:38.360
+ No, I know, but the question is
+
+19:38.360 --> 19:42.400
+ that's the formal definition of a programming language.
+
+19:42.400 --> 19:44.520
+ There is a definition of languages
+
+19:44.520 --> 19:45.760
+ that don't get the same answer,
+
+19:45.760 --> 19:49.520
+ but people who use those, you always want something
+
+19:49.520 --> 19:51.600
+ because you get a bad answer and then you're wondering
+
+19:51.600 --> 19:54.440
+ is it because of something in the algorithm
+
+19:54.440 --> 19:55.360
+ or because of this?
+
+19:55.360 --> 19:57.140
+ And so everybody wants a little switch that says
+
+19:57.140 --> 20:00.280
+ no matter what, do it deterministically.
+
+20:00.280 --> 20:02.400
+ And it's really weird because almost everything
+
+20:02.400 --> 20:05.320
+ going into modern calculations is noisy.
+
+20:05.320 --> 20:08.240
+ So why do the answers have to be so clear?
+
+20:08.240 --> 20:09.600
+ Right, so where do you stand?
+
+20:09.600 --> 20:12.500
+ I design computers for people who run programs.
+
+20:12.500 --> 20:16.880
+ So if somebody says I want a deterministic answer,
+
+20:16.880 --> 20:18.400
+ like most people want that.
+
+20:18.400 --> 20:20.180
+ Can you deliver a deterministic answer,
+
+20:20.180 --> 20:21.440
+ I guess is the question.
+
+20:21.440 --> 20:22.280
+ Like when you.
+
+20:22.280 --> 20:24.040
+ Yeah, hopefully, sure.
+
+20:24.040 --> 20:27.280
+ What people don't realize is you get a deterministic answer
+
+20:27.280 --> 20:31.100
+ even though the execution flow is very undeterministic.
+
+20:31.100 --> 20:33.100
+ So you run this program 100 times,
+
+20:33.100 --> 20:36.080
+ it never runs the same way twice, ever.
+
+20:36.080 --> 20:37.960
+ And the answer, it arrives at the same answer.
+
+20:37.960 --> 20:39.200
+ But it gets the same answer every time.
+
+20:39.200 --> 20:42.000
+ It's just amazing.
+
+20:42.000 --> 20:47.000
+ Okay, you've achieved, in the eyes of many people,
+
+20:49.600 --> 20:53.000
+ legend status as a chip art architect.
+
+20:53.000 --> 20:56.400
+ What design creation are you most proud of?
+
+20:56.400 --> 20:59.440
+ Perhaps because it was challenging,
+
+20:59.440 --> 21:01.820
+ because of its impact, or because of the set
+
+21:01.820 --> 21:06.820
+ of brilliant ideas that were involved in bringing it to life?
+
+21:06.840 --> 21:10.080
+ I find that description odd.
+
+21:10.080 --> 21:12.480
+ And I have two small children, and I promise you,
+
+21:14.360 --> 21:15.960
+ they think it's hilarious.
+
+21:15.960 --> 21:16.800
+ This question.
+
+21:16.800 --> 21:17.620
+ Yeah.
+
+21:17.620 --> 21:18.460
+ I do it for them.
+
+21:18.460 --> 21:22.460
+ So I'm really interested in building computers.
+
+21:23.320 --> 21:27.640
+ And I've worked with really, really smart people.
+
+21:27.640 --> 21:29.200
+ I'm not unbelievably smart.
+
+21:30.040 --> 21:32.100
+ I'm fascinated by how they go together,
+
+21:32.100 --> 21:37.100
+ both as a thing to do and as an endeavor that people do.
+
+21:38.260 --> 21:40.000
+ How people and computers go together?
+
+21:40.000 --> 21:40.840
+ Yeah.
+
+21:40.840 --> 21:43.020
+ Like how people think and build a computer.
+
+21:44.180 --> 21:47.800
+ And I find sometimes that the best computer architects
+
+21:47.800 --> 21:49.200
+ aren't that interested in people,
+
+21:49.200 --> 21:51.780
+ or the best people managers aren't that good
+
+21:51.780 --> 21:53.260
+ at designing computers.
+
+21:54.400 --> 21:56.840
+ So the whole stack of human beings is fascinating.
+
+21:56.840 --> 21:58.840
+ So the managers, the individual engineers.
+
+21:58.840 --> 21:59.920
+ Yeah, yeah.
+
+21:59.920 --> 22:02.360
+ Yeah, I said I realized after a lot of years
+
+22:02.360 --> 22:04.400
+ of building computers, where you sort of build them
+
+22:04.400 --> 22:06.960
+ out of transistors, logic gates, functional units,
+
+22:06.960 --> 22:09.760
+ computational elements, that you could think of people
+
+22:09.760 --> 22:12.640
+ the same way, so people are functional units.
+
+22:12.640 --> 22:14.560
+ And then you could think of organizational design
+
+22:14.560 --> 22:16.920
+ as a computer architecture problem.
+
+22:16.920 --> 22:19.280
+ And then it was like, oh, that's super cool,
+
+22:19.280 --> 22:20.680
+ because the people are all different,
+
+22:20.680 --> 22:23.680
+ just like the computational elements are all different.
+
+22:23.680 --> 22:25.440
+ And they like to do different things.
+
+22:25.440 --> 22:29.200
+ And so I had a lot of fun reframing
+
+22:29.200 --> 22:31.300
+ how I think about organizations.
+
+22:31.300 --> 22:35.980
+ Just like with computers, we were saying execution paths,
+
+22:35.980 --> 22:37.820
+ you can have a lot of different paths that end up
+
+22:37.820 --> 22:41.660
+ at the same good destination.
+
+22:41.660 --> 22:45.840
+ So what have you learned about the human abstractions
+
+22:45.840 --> 22:48.920
+ from individual functional human units
+
+22:48.920 --> 22:51.920
+ to the broader organization?
+
+22:51.920 --> 22:55.080
+ What does it take to create something special?
+
+22:55.080 --> 22:58.780
+ Well, most people don't think simple enough.
+
+23:00.320 --> 23:02.800
+ All right, so the difference between a recipe
+
+23:02.800 --> 23:04.160
+ and the understanding.
+
+23:04.160 --> 23:09.160
+ There's probably a philosophical description of this.
+
+23:09.160 --> 23:11.480
+ So imagine you're gonna make a loaf of bread.
+
+23:11.480 --> 23:14.040
+ The recipe says get some flour, add some water,
+
+23:14.040 --> 23:16.800
+ add some yeast, mix it up, let it rise,
+
+23:16.800 --> 23:19.400
+ put it in a pan, put it in the oven.
+
+23:19.400 --> 23:20.240
+ It's a recipe.
+
+23:21.320 --> 23:24.720
+ Understanding bread, you can understand biology,
+
+23:24.720 --> 23:29.720
+ supply chains, grain grinders, yeast, physics,
+
+23:29.720 --> 23:34.720
+ thermodynamics, there's so many levels of understanding.
+
+23:37.240 --> 23:40.220
+ And then when people build and design things,
+
+23:40.220 --> 23:43.660
+ they frequently are executing some stack of recipes.
+
+23:45.160 --> 23:46.920
+ And the problem with that is the recipes
+
+23:46.920 --> 23:48.880
+ all have limited scope.
+
+23:48.880 --> 23:50.640
+ Like if you have a really good recipe book
+
+23:50.640 --> 23:52.280
+ for making bread, it won't tell you anything
+
+23:52.280 --> 23:53.680
+ about how to make an omelet.
+
+23:54.840 --> 23:57.320
+ But if you have a deep understanding of cooking,
+
+23:57.320 --> 24:02.320
+ right, than bread, omelets, you know, sandwich,
+
+24:03.680 --> 24:07.680
+ you know, there's a different way of viewing everything.
+
+24:07.680 --> 24:12.680
+ And most people, when you get to be an expert at something,
+
+24:13.020 --> 24:16.380
+ you know, you're hoping to achieve deeper understanding,
+
+24:16.380 --> 24:19.920
+ not just a large set of recipes to go execute.
+
+24:20.860 --> 24:22.800
+ And it's interesting to walk groups of people
+
+24:22.800 --> 24:27.600
+ because executing recipes is unbelievably efficient
+
+24:27.600 --> 24:29.160
+ if it's what you want to do.
+
+24:30.500 --> 24:33.520
+ If it's not what you want to do, you're really stuck.
+
+24:34.800 --> 24:36.600
+ And that difference is crucial.
+
+24:36.600 --> 24:39.480
+ And everybody has a balance of, let's say,
+
+24:39.480 --> 24:40.960
+ deeper understanding of recipes.
+
+24:40.960 --> 24:43.760
+ And some people are really good at recognizing
+
+24:43.760 --> 24:46.360
+ when the problem is to understand something deeply.
+
+24:47.720 --> 24:49.040
+ Does that make sense?
+
+24:49.040 --> 24:52.800
+ It totally makes sense, does every stage of development,
+
+24:52.800 --> 24:55.560
+ deep understanding on the team needed?
+
+24:55.560 --> 24:58.640
+ Oh, this goes back to the art versus science question.
+
+24:58.640 --> 24:59.480
+ Sure.
+
+24:59.480 --> 25:01.240
+ If you constantly unpack everything
+
+25:01.240 --> 25:04.200
+ for deeper understanding, you never get anything done.
+
+25:04.200 --> 25:06.880
+ And if you don't unpack understanding when you need to,
+
+25:06.880 --> 25:08.480
+ you'll do the wrong thing.
+
+25:09.480 --> 25:12.040
+ And then at every juncture, like human beings
+
+25:12.040 --> 25:15.240
+ are these really weird things because everything you tell them
+
+25:15.240 --> 25:18.320
+ has a million possible outputs, right?
+
+25:18.320 --> 25:21.080
+ And then they all interact in a hilarious way.
+
+25:21.080 --> 25:21.920
+ Yeah, it's very interesting.
+
+25:21.920 --> 25:24.240
+ And then having some intuition about what you tell them,
+
+25:24.240 --> 25:26.680
+ what you do, when do you intervene, when do you not,
+
+25:26.680 --> 25:28.720
+ it's complicated.
+
+25:28.720 --> 25:29.760
+ Right, so.
+
+25:29.760 --> 25:33.200
+ It's essentially computationally unsolvable.
+
+25:33.200 --> 25:35.320
+ Yeah, it's an intractable problem, sure.
+
+25:36.640 --> 25:37.960
+ Humans are a mess.
+
+25:37.960 --> 25:41.800
+ But with deep understanding,
+
+25:41.800 --> 25:44.560
+ do you mean also sort of fundamental questions
+
+25:44.560 --> 25:49.560
+ of things like what is a computer?
+
+25:51.360 --> 25:55.000
+ Or why, like the why questions,
+
+25:55.000 --> 25:58.760
+ why are we even building this, like of purpose?
+
+25:58.760 --> 26:02.200
+ Or do you mean more like going towards
+
+26:02.200 --> 26:04.280
+ the fundamental limits of physics,
+
+26:04.280 --> 26:07.480
+ sort of really getting into the core of the science?
+
+26:07.480 --> 26:11.360
+ In terms of building a computer, think a little simpler.
+
+26:11.360 --> 26:14.640
+ So common practice is you build a computer,
+
+26:14.640 --> 26:17.760
+ and then when somebody says, I wanna make it 10% faster,
+
+26:17.760 --> 26:19.240
+ you'll go in and say, all right,
+
+26:19.240 --> 26:20.840
+ I need to make this buffer bigger,
+
+26:20.840 --> 26:23.000
+ and maybe I'll add an add unit.
+
+26:23.000 --> 26:25.360
+ Or I have this thing that's three instructions wide,
+
+26:25.360 --> 26:27.600
+ I'm gonna make it four instructions wide.
+
+26:27.600 --> 26:30.480
+ And what you see is each piece
+
+26:30.480 --> 26:34.240
+ gets incrementally more complicated, right?
+
+26:34.240 --> 26:37.080
+ And then at some point you hit this limit,
+
+26:37.080 --> 26:39.040
+ like adding another feature or buffer
+
+26:39.040 --> 26:41.200
+ doesn't seem to make it any faster.
+
+26:41.200 --> 26:42.040
+ And then people will say,
+
+26:42.040 --> 26:45.400
+ well, that's because it's a fundamental limit.
+
+26:45.400 --> 26:46.960
+ And then somebody else will look at it and say,
+
+26:46.960 --> 26:49.440
+ well, actually the way you divided the problem up
+
+26:49.440 --> 26:52.000
+ and the way the different features are interacting
+
+26:52.000 --> 26:55.040
+ is limiting you, and it has to be rethought, rewritten.
+
+26:56.280 --> 26:58.160
+ So then you refactor it and rewrite it,
+
+26:58.160 --> 27:00.960
+ and what people commonly find is the rewrite
+
+27:00.960 --> 27:03.600
+ is not only faster, but half as complicated.
+
+27:03.600 --> 27:05.080
+ From scratch? Yes.
+
+27:05.080 --> 27:08.920
+ So how often in your career, but just have you seen
+
+27:08.920 --> 27:11.560
+ is needed, maybe more generally,
+
+27:11.560 --> 27:14.280
+ to just throw the whole thing out and start over?
+
+27:14.280 --> 27:17.040
+ This is where I'm on one end of it,
+
+27:17.040 --> 27:19.120
+ every three to five years.
+
+27:19.120 --> 27:21.120
+ Which end are you on?
+
+27:21.120 --> 27:22.720
+ Rewrite more often.
+
+27:22.720 --> 27:25.200
+ Rewrite, and three to five years is?
+
+27:25.200 --> 27:27.000
+ If you wanna really make a lot of progress
+
+27:27.000 --> 27:28.960
+ on computer architecture, every five years
+
+27:28.960 --> 27:30.520
+ you should do one from scratch.
+
+27:31.960 --> 27:36.920
+ So where does the x86.64 standard come in?
+
+27:36.920 --> 27:38.960
+ How often do you?
+
+27:38.960 --> 27:42.360
+ I was the coauthor of that spec in 98.
+
+27:42.360 --> 27:43.880
+ That's 20 years ago.
+
+27:43.880 --> 27:45.880
+ Yeah, so that's still around.
+
+27:45.880 --> 27:48.280
+ The instruction set itself has been extended
+
+27:48.280 --> 27:50.000
+ quite a few times.
+
+27:50.000 --> 27:52.520
+ And instruction sets are less interesting
+
+27:52.520 --> 27:54.760
+ than the implementation underneath.
+
+27:54.760 --> 27:58.680
+ There's been, on x86 architecture, Intel's designed a few,
+
+27:58.680 --> 28:02.520
+ AIM designed a few very different architectures.
+
+28:02.520 --> 28:06.520
+ And I don't wanna go into too much of the detail
+
+28:06.520 --> 28:10.640
+ about how often, but there's a tendency
+
+28:10.640 --> 28:12.560
+ to rewrite it every 10 years,
+
+28:12.560 --> 28:14.240
+ and it really should be every five.
+
+28:15.200 --> 28:17.880
+ So you're saying you're an outlier in that sense.
+
+28:17.880 --> 28:19.080
+ Rewrite more often.
+
+28:19.080 --> 28:20.080
+ Rewrite more often.
+
+28:20.080 --> 28:20.920
+ Well, and here's the problem.
+
+28:20.920 --> 28:22.120
+ Isn't that scary?
+
+28:22.120 --> 28:23.680
+ Yeah, of course.
+
+28:23.680 --> 28:25.200
+ Well, scary to who?
+
+28:25.200 --> 28:28.200
+ To everybody involved, because like you said,
+
+28:28.200 --> 28:30.680
+ repeating the recipe is efficient.
+
+28:30.680 --> 28:34.160
+ Companies wanna make money.
+
+28:34.160 --> 28:36.360
+ No, individual engineers wanna succeed,
+
+28:36.360 --> 28:39.000
+ so you wanna incrementally improve,
+
+28:39.000 --> 28:41.280
+ increase the buffer from three to four.
+
+28:41.280 --> 28:42.720
+ Well, this is where you get
+
+28:42.720 --> 28:45.440
+ into the diminishing return curves.
+
+28:45.440 --> 28:46.920
+ I think Steve Jobs said this, right?
+
+28:46.920 --> 28:49.880
+ So every, you have a project, and you start here,
+
+28:49.880 --> 28:52.360
+ and it goes up, and you have diminishing return.
+
+28:52.360 --> 28:54.760
+ And to get to the next level, you have to do a new one,
+
+28:54.760 --> 28:57.640
+ and the initial starting point will be lower
+
+28:57.640 --> 29:01.840
+ than the old optimization point, but it'll get higher.
+
+29:01.840 --> 29:03.560
+ So now you have two kinds of fear,
+
+29:03.560 --> 29:07.520
+ short term disaster and long term disaster.
+
+29:07.520 --> 29:08.600
+ And you're, you're haunted.
+
+29:08.600 --> 29:12.160
+ So grown ups, right, like, you know,
+
+29:12.160 --> 29:15.240
+ people with a quarter by quarter business objective
+
+29:15.240 --> 29:17.840
+ are terrified about changing everything.
+
+29:17.840 --> 29:21.040
+ And people who are trying to run a business
+
+29:21.040 --> 29:23.960
+ or build a computer for a long term objective
+
+29:23.960 --> 29:27.200
+ know that the short term limitations block them
+
+29:27.200 --> 29:29.360
+ from the long term success.
+
+29:29.360 --> 29:32.720
+ So if you look at leaders of companies
+
+29:32.720 --> 29:35.200
+ that had really good long term success,
+
+29:35.200 --> 29:39.000
+ every time they saw that they had to redo something, they did.
+
+29:39.000 --> 29:41.040
+ And so somebody has to speak up.
+
+29:41.040 --> 29:43.080
+ Or you do multiple projects in parallel,
+
+29:43.080 --> 29:46.720
+ like you optimize the old one while you build a new one.
+
+29:46.720 --> 29:48.200
+ But the marketing guys are always like,
+
+29:48.200 --> 29:49.960
+ make promise me that the new computer
+
+29:49.960 --> 29:52.720
+ is faster on every single thing.
+
+29:52.720 --> 29:53.920
+ And the computer architect says,
+
+29:53.920 --> 29:56.720
+ well, the new computer will be faster on the average,
+
+29:56.720 --> 29:59.480
+ but there's a distribution of results and performance,
+
+29:59.480 --> 30:01.920
+ and you'll have some outliers that are slower.
+
+30:01.920 --> 30:02.760
+ And that's very hard,
+
+30:02.760 --> 30:05.280
+ because they have one customer who cares about that one.
+
+30:05.280 --> 30:08.960
+ So speaking of the long term, for over 50 years now,
+
+30:08.960 --> 30:12.880
+ Moore's Law has served, for me and millions of others,
+
+30:12.880 --> 30:16.640
+ as an inspiring beacon of what kind of amazing future
+
+30:16.640 --> 30:18.040
+ brilliant engineers can build.
+
+30:18.040 --> 30:19.360
+ Yep.
+
+30:19.360 --> 30:21.880
+ I'm just making your kids laugh all of today.
+
+30:21.880 --> 30:23.480
+ That was great.
+
+30:23.480 --> 30:27.560
+ So first, in your eyes, what is Moore's Law,
+
+30:27.560 --> 30:29.920
+ if you could define for people who don't know?
+
+30:29.920 --> 30:34.280
+ Well, the simple statement was, from Gordon Moore,
+
+30:34.280 --> 30:37.880
+ was double the number of transistors every two years.
+
+30:37.880 --> 30:39.320
+ Something like that.
+
+30:39.320 --> 30:43.240
+ And then my operational model is,
+
+30:43.240 --> 30:45.840
+ we increase the performance of computers
+
+30:45.840 --> 30:48.520
+ by two X every two or three years.
+
+30:48.520 --> 30:51.400
+ And it's wiggled around substantially over time.
+
+30:51.400 --> 30:55.160
+ And also, in how we deliver, performance has changed.
+
+30:55.160 --> 31:00.160
+ But the foundational idea was
+
+31:00.480 --> 31:02.920
+ two X to transistors every two years.
+
+31:02.920 --> 31:05.760
+ The current cadence is something like,
+
+31:05.760 --> 31:10.040
+ they call it a shrink factor, like 0.6 every two years,
+
+31:10.040 --> 31:11.920
+ which is not 0.5.
+
+31:11.920 --> 31:13.800
+ But that's referring strictly, again,
+
+31:13.800 --> 31:15.360
+ to the original definition of just.
+
+31:15.360 --> 31:16.680
+ A transistor count.
+
+31:16.680 --> 31:18.060
+ A shrink factor's just getting them
+
+31:18.060 --> 31:19.040
+ smaller and smaller and smaller.
+
+31:19.040 --> 31:21.760
+ Well, it's for a constant chip area.
+
+31:21.760 --> 31:24.200
+ If you make the transistors smaller by 0.6,
+
+31:24.200 --> 31:27.200
+ then you get one over 0.6 more transistors.
+
+31:27.200 --> 31:29.140
+ So can you linger on it a little longer?
+
+31:29.140 --> 31:31.680
+ What's a broader, what do you think should be
+
+31:31.680 --> 31:33.920
+ the broader definition of Moore's Law?
+
+31:33.920 --> 31:37.920
+ When you mentioned how you think of performance,
+
+31:37.920 --> 31:41.480
+ just broadly, what's a good way to think about Moore's Law?
+
+31:42.360 --> 31:45.600
+ Well, first of all, I've been aware
+
+31:45.600 --> 31:47.220
+ of Moore's Law for 30 years.
+
+31:48.160 --> 31:49.100
+ In which sense?
+
+31:49.100 --> 31:52.920
+ Well, I've been designing computers for 40.
+
+31:52.920 --> 31:56.040
+ You're just watching it before your eyes kind of thing.
+
+31:56.040 --> 31:58.160
+ And somewhere where I became aware of it,
+
+31:58.160 --> 31:59.800
+ I was also informed that Moore's Law
+
+31:59.800 --> 32:02.240
+ was gonna die in 10 to 15 years.
+
+32:02.240 --> 32:03.940
+ And then I thought that was true at first.
+
+32:03.940 --> 32:07.320
+ But then after 10 years, it was gonna die in 10 to 15 years.
+
+32:07.320 --> 32:09.800
+ And then at one point, it was gonna die in five years.
+
+32:09.800 --> 32:11.320
+ And then it went back up to 10 years.
+
+32:11.320 --> 32:13.440
+ And at some point, I decided not to worry
+
+32:13.440 --> 32:16.680
+ about that particular prognostication
+
+32:16.680 --> 32:19.640
+ for the rest of my life, which is fun.
+
+32:19.640 --> 32:21.560
+ And then I joined Intel and everybody said
+
+32:21.560 --> 32:22.840
+ Moore's Law is dead.
+
+32:22.840 --> 32:23.720
+ And I thought that's sad,
+
+32:23.720 --> 32:25.640
+ because it's the Moore's Law company.
+
+32:25.640 --> 32:26.920
+ And it's not dead.
+
+32:26.920 --> 32:29.200
+ And it's always been gonna die.
+
+32:29.200 --> 32:33.360
+ And humans like these apocryphal kind of statements,
+
+32:33.360 --> 32:36.280
+ like we'll run out of food, or we'll run out of air,
+
+32:36.280 --> 32:39.960
+ or we'll run out of room, or we'll run out of something.
+
+32:39.960 --> 32:41.920
+ Right, but it's still incredible
+
+32:41.920 --> 32:44.640
+ that it's lived for as long as it has.
+
+32:44.640 --> 32:47.640
+ And yes, there's many people who believe now
+
+32:47.640 --> 32:50.180
+ that Moore's Law is dead.
+
+32:50.180 --> 32:52.840
+ You know, they can join the last 50 years
+
+32:52.840 --> 32:53.680
+ of people who had the same idea.
+
+32:53.680 --> 32:55.400
+ Yeah, there's a long tradition.
+
+32:55.400 --> 33:00.400
+ But why do you think, if you can try to understand it,
+
+33:00.840 --> 33:03.080
+ why do you think it's not dead?
+
+33:03.080 --> 33:06.600
+ Well, let's just think, people think Moore's Law
+
+33:06.600 --> 33:09.160
+ is one thing, transistors get smaller.
+
+33:09.160 --> 33:10.200
+ But actually, under the sheet,
+
+33:10.200 --> 33:12.520
+ there's literally thousands of innovations.
+
+33:12.520 --> 33:14.120
+ And almost all those innovations
+
+33:14.120 --> 33:17.360
+ have their own diminishing return curves.
+
+33:17.360 --> 33:19.400
+ So if you graph it, it looks like a cascade
+
+33:19.400 --> 33:21.440
+ of diminishing return curves.
+
+33:21.440 --> 33:22.660
+ I don't know what to call that.
+
+33:22.660 --> 33:26.480
+ But the result is an exponential curve.
+
+33:26.480 --> 33:27.940
+ Well, at least it has been.
+
+33:27.940 --> 33:30.920
+ So, and we keep inventing new things.
+
+33:30.920 --> 33:32.960
+ So if you're an expert in one of the things
+
+33:32.960 --> 33:35.920
+ on a diminishing return curve, right,
+
+33:35.920 --> 33:38.480
+ and you can see it's plateau,
+
+33:38.480 --> 33:42.220
+ you will probably tell people, well, this is done.
+
+33:42.220 --> 33:43.640
+ Meanwhile, some other pile of people
+
+33:43.640 --> 33:46.400
+ are doing something different.
+
+33:46.400 --> 33:48.280
+ So that's just normal.
+
+33:48.280 --> 33:50.400
+ So then there's the observation of
+
+33:50.400 --> 33:54.060
+ how small could a switching device be?
+
+33:54.060 --> 33:55.760
+ So a modern transistor is something like
+
+33:55.760 --> 33:59.900
+ a thousand by a thousand by a thousand atoms, right?
+
+33:59.900 --> 34:04.680
+ And you get quantum effects down around two to 10 atoms.
+
+34:04.680 --> 34:06.280
+ So you can imagine the transistor
+
+34:06.280 --> 34:08.240
+ as small as 10 by 10 by 10.
+
+34:08.240 --> 34:12.080
+ So that's a million times smaller.
+
+34:12.080 --> 34:14.500
+ And then the quantum computational people
+
+34:14.500 --> 34:17.480
+ are working away at how to use quantum effects.
+
+34:17.480 --> 34:18.320
+ So.
+
+34:20.000 --> 34:21.920
+ A thousand by a thousand by a thousand.
+
+34:21.920 --> 34:22.760
+ Atoms.
+
+34:23.740 --> 34:26.640
+ That's a really clean way of putting it.
+
+34:26.640 --> 34:28.840
+ Well, a fan, like a modern transistor,
+
+34:28.840 --> 34:32.060
+ if you look at the fan, it's like 120 atoms wide,
+
+34:32.060 --> 34:33.360
+ but we can make that thinner.
+
+34:33.360 --> 34:35.700
+ And then there's a gate wrapped around it,
+
+34:35.700 --> 34:36.600
+ and then there's spacing.
+
+34:36.600 --> 34:38.800
+ There's a whole bunch of geometry.
+
+34:38.800 --> 34:42.040
+ And a competent transistor designer
+
+34:42.040 --> 34:47.040
+ could count both atoms in every single direction.
+
+34:48.000 --> 34:50.480
+ Like there's techniques now to already put down atoms
+
+34:50.480 --> 34:52.000
+ in a single atomic layer.
+
+34:53.080 --> 34:55.840
+ And you can place atoms if you want to.
+
+34:55.840 --> 34:59.600
+ It's just from a manufacturing process,
+
+34:59.600 --> 35:01.320
+ if placing an atom takes 10 minutes
+
+35:01.320 --> 35:05.640
+ and you need to put 10 to the 23rd atoms together
+
+35:05.640 --> 35:08.800
+ to make a computer, it would take a long time.
+
+35:08.800 --> 35:13.340
+ So the methods are both shrinking things
+
+35:13.340 --> 35:15.060
+ and then coming up with effective ways
+
+35:15.060 --> 35:17.900
+ to control what's happening.
+
+35:17.900 --> 35:20.060
+ Manufacture stably and cheaply.
+
+35:20.060 --> 35:21.400
+ Yeah.
+
+35:21.400 --> 35:23.840
+ So the innovation stock's pretty broad.
+
+35:23.840 --> 35:26.880
+ There's equipment, there's optics, there's chemistry,
+
+35:26.880 --> 35:29.240
+ there's physics, there's material science,
+
+35:29.240 --> 35:31.960
+ there's metallurgy, there's lots of ideas
+
+35:31.960 --> 35:33.720
+ about when you put different materials together,
+
+35:33.720 --> 35:35.520
+ how do they interact, are they stable,
+
+35:35.520 --> 35:40.520
+ is it stable over temperature, like are they repeatable?
+
+35:40.880 --> 35:45.000
+ There's like literally thousands of technologies involved.
+
+35:45.000 --> 35:46.960
+ But just for the shrinking, you don't think
+
+35:46.960 --> 35:50.960
+ we're quite yet close to the fundamental limits of physics?
+
+35:50.960 --> 35:53.800
+ I did a talk on Moore's Law and I asked for a roadmap
+
+35:53.800 --> 35:56.560
+ to a path of 100 and after two weeks,
+
+35:56.560 --> 35:58.880
+ they said we only got to 50.
+
+35:58.880 --> 35:59.720
+ 100 what, sorry?
+
+35:59.720 --> 36:00.560
+ 100 X shrink.
+
+36:00.560 --> 36:01.940
+ 100 X shrink?
+
+36:01.940 --> 36:02.780
+ We only got to 50.
+
+36:02.780 --> 36:05.720
+ And I said, why don't you give it another two weeks?
+
+36:05.720 --> 36:09.680
+ Well, here's the thing about Moore's Law, right?
+
+36:09.680 --> 36:14.180
+ So I believe that the next 10 or 20 years
+
+36:14.180 --> 36:16.360
+ of shrinking is gonna happen, right?
+
+36:16.360 --> 36:20.920
+ Now, as a computer designer, you have two stances.
+
+36:20.920 --> 36:23.040
+ You think it's going to shrink, in which case
+
+36:23.040 --> 36:26.160
+ you're designing and thinking about architecture
+
+36:26.160 --> 36:29.020
+ in a way that you'll use more transistors.
+
+36:29.020 --> 36:32.880
+ Or conversely, not be swamped by the complexity
+
+36:32.880 --> 36:36.120
+ of all the transistors you get, right?
+
+36:36.120 --> 36:39.320
+ You have to have a strategy, you know?
+
+36:39.320 --> 36:42.100
+ So you're open to the possibility and waiting
+
+36:42.100 --> 36:44.160
+ for the possibility of a whole new army
+
+36:44.160 --> 36:45.960
+ of transistors ready to work.
+
+36:45.960 --> 36:50.380
+ I'm expecting more transistors every two or three years
+
+36:50.380 --> 36:54.360
+ by a number large enough that how you think about design,
+
+36:54.360 --> 36:57.200
+ how you think about architecture has to change.
+
+36:57.200 --> 37:01.080
+ Like, imagine you build buildings out of bricks,
+
+37:01.080 --> 37:03.240
+ and every year the bricks are half the size,
+
+37:04.520 --> 37:05.880
+ or every two years.
+
+37:05.880 --> 37:08.360
+ Well, if you kept building bricks the same way,
+
+37:08.360 --> 37:10.440
+ so many bricks per person per day,
+
+37:11.280 --> 37:13.600
+ the amount of time to build a building
+
+37:13.600 --> 37:16.980
+ would go up exponentially, right?
+
+37:16.980 --> 37:19.200
+ But if you said, I know that's coming,
+
+37:19.200 --> 37:22.360
+ so now I'm gonna design equipment that moves bricks faster,
+
+37:22.360 --> 37:24.440
+ uses them better, because maybe you're getting something
+
+37:24.440 --> 37:27.520
+ out of the smaller bricks, more strength, thinner walls,
+
+37:27.520 --> 37:30.360
+ you know, less material, efficiency out of that.
+
+37:30.360 --> 37:33.260
+ So once you have a roadmap with what's gonna happen,
+
+37:33.260 --> 37:36.520
+ transistors, we're gonna get more of them,
+
+37:36.520 --> 37:38.760
+ then you design all this collateral around it
+
+37:38.760 --> 37:42.440
+ to take advantage of it, and also to cope with it.
+
+37:42.440 --> 37:43.760
+ Like, that's the thing people don't understand.
+
+37:43.760 --> 37:46.120
+ It's like, if I didn't believe in Moore's Law,
+
+37:46.120 --> 37:48.760
+ and then Moore's Law transistors showed up,
+
+37:48.760 --> 37:50.440
+ my design teams would all drown.
+
+37:50.440 --> 37:55.440
+ So what's the hardest part of this inflow
+
+37:56.180 --> 37:57.380
+ of new transistors?
+
+37:57.380 --> 37:59.500
+ I mean, even if you just look historically,
+
+37:59.500 --> 38:03.740
+ throughout your career, what's the thing,
+
+38:03.740 --> 38:06.980
+ what fundamentally changes when you add more transistors
+
+38:06.980 --> 38:10.800
+ in the task of designing an architecture?
+
+38:10.800 --> 38:12.500
+ Well, there's two constants, right?
+
+38:12.500 --> 38:14.160
+ One is people don't get smarter.
+
+38:16.100 --> 38:17.300
+ By the way, there's some science showing
+
+38:17.300 --> 38:20.340
+ that we do get smarter because of nutrition or whatever.
+
+38:21.260 --> 38:22.100
+ Sorry to bring that up.
+
+38:22.100 --> 38:22.940
+ Blend effect.
+
+38:22.940 --> 38:23.760
+ Yes.
+
+38:23.760 --> 38:24.600
+ Yeah, I'm familiar with it.
+
+38:24.600 --> 38:26.300
+ Nobody understands it, nobody knows if it's still going on.
+
+38:26.300 --> 38:27.180
+ So that's a...
+
+38:27.180 --> 38:28.540
+ Or whether it's real or not.
+
+38:28.540 --> 38:30.220
+ But yeah, it's a...
+
+38:30.220 --> 38:31.300
+ I sort of...
+
+38:31.300 --> 38:32.140
+ Anyway, but not exponentially.
+
+38:32.140 --> 38:33.480
+ I would believe for the most part,
+
+38:33.480 --> 38:35.500
+ people aren't getting much smarter.
+
+38:35.500 --> 38:37.540
+ The evidence doesn't support it, that's right.
+
+38:37.540 --> 38:40.100
+ And then teams can't grow that much.
+
+38:40.100 --> 38:40.940
+ Right.
+
+38:40.940 --> 38:43.380
+ Right, so human beings, you know,
+
+38:43.380 --> 38:45.780
+ we're really good in teams of 10,
+
+38:45.780 --> 38:48.180
+ you know, up to teams of 100, they can know each other.
+
+38:48.180 --> 38:50.840
+ Beyond that, you have to have organizational boundaries.
+
+38:50.840 --> 38:51.940
+ So you're kind of, you have,
+
+38:51.940 --> 38:54.680
+ those are pretty hard constraints, right?
+
+38:54.680 --> 38:56.420
+ So then you have to divide and conquer,
+
+38:56.420 --> 38:57.940
+ like as the designs get bigger,
+
+38:57.940 --> 39:00.260
+ you have to divide it into pieces.
+
+39:00.260 --> 39:03.220
+ You know, the power of abstraction layers is really high.
+
+39:03.220 --> 39:06.120
+ We used to build computers out of transistors.
+
+39:06.120 --> 39:08.900
+ Now we have a team that turns transistors into logic cells
+
+39:08.900 --> 39:10.700
+ and another team that turns them into functional units,
+
+39:10.700 --> 39:13.180
+ another one that turns them into computers, right?
+
+39:13.180 --> 39:16.100
+ So we have abstraction layers in there
+
+39:16.100 --> 39:21.100
+ and you have to think about when do you shift gears on that.
+
+39:21.380 --> 39:24.340
+ We also use faster computers to build faster computers.
+
+39:24.340 --> 39:27.820
+ So some algorithms run twice as fast on new computers,
+
+39:27.820 --> 39:30.460
+ but a lot of algorithms are N squared.
+
+39:30.460 --> 39:33.600
+ So, you know, a computer with twice as many transistors
+
+39:33.600 --> 39:36.540
+ and it might take four times as long to run.
+
+39:36.540 --> 39:39.380
+ So you have to refactor the software.
+
+39:39.380 --> 39:41.040
+ Like simply using faster computers
+
+39:41.040 --> 39:43.100
+ to build bigger computers doesn't work.
+
+39:44.180 --> 39:46.260
+ So you have to think about all these things.
+
+39:46.260 --> 39:47.900
+ So in terms of computing performance
+
+39:47.900 --> 39:49.300
+ and the exciting possibility
+
+39:49.300 --> 39:51.580
+ that more powerful computers bring,
+
+39:51.580 --> 39:55.220
+ is shrinking the thing which you've been talking about,
+
+39:57.020 --> 39:59.880
+ for you, one of the biggest exciting possibilities
+
+39:59.880 --> 40:01.540
+ of advancement in performance?
+
+40:01.540 --> 40:03.940
+ Or is there other directions that you're interested in,
+
+40:03.940 --> 40:08.940
+ like in the direction of sort of enforcing given parallelism
+
+40:08.940 --> 40:12.180
+ or like doing massive parallelism
+
+40:12.180 --> 40:15.020
+ in terms of many, many CPUs,
+
+40:15.020 --> 40:17.660
+ you know, stacking CPUs on top of each other,
+
+40:17.660 --> 40:20.780
+ that kind of parallelism or any kind of parallelism?
+
+40:20.780 --> 40:22.220
+ Well, think about it a different way.
+
+40:22.220 --> 40:25.220
+ So old computers, you know, slow computers,
+
+40:25.220 --> 40:30.220
+ you said A equal B plus C times D, pretty simple, right?
+
+40:30.580 --> 40:33.480
+ And then we made faster computers with vector units
+
+40:33.480 --> 40:38.480
+ and you can do proper equations and matrices, right?
+
+40:38.480 --> 40:41.080
+ And then modern like AI computations
+
+40:41.080 --> 40:43.400
+ or like convolutional neural networks,
+
+40:43.400 --> 40:47.080
+ where you convolve one large data set against another.
+
+40:47.080 --> 40:51.140
+ And so there's sort of this hierarchy of mathematics,
+
+40:51.140 --> 40:54.060
+ you know, from simple equation to linear equations,
+
+40:54.060 --> 40:58.760
+ to matrix equations, to deeper kind of computation.
+
+40:58.760 --> 41:00.600
+ And the data sets are getting so big
+
+41:00.600 --> 41:04.360
+ that people are thinking of data as a topology problem.
+
+41:04.360 --> 41:07.960
+ You know, data is organized in some immense shape.
+
+41:07.960 --> 41:11.160
+ And then the computation, which sort of wants to be,
+
+41:11.160 --> 41:15.320
+ get data from immense shape and do some computation on it.
+
+41:15.320 --> 41:18.120
+ So what computers have allowed people to do
+
+41:18.120 --> 41:21.400
+ is have algorithms go much, much further.
+
+41:22.480 --> 41:26.640
+ So that paper you reference, the Sutton paper,
+
+41:26.640 --> 41:29.120
+ they talked about, you know, like when AI started,
+
+41:29.120 --> 41:31.860
+ it was apply rule sets to something.
+
+41:31.860 --> 41:35.780
+ That's a very simple computational situation.
+
+41:35.780 --> 41:37.840
+ And then when they did first chess thing,
+
+41:37.840 --> 41:39.880
+ they solved deep searches.
+
+41:39.880 --> 41:44.680
+ So have a huge database of moves and results, deep search,
+
+41:44.680 --> 41:48.140
+ but it's still just a search, right?
+
+41:48.140 --> 41:51.140
+ Now we take large numbers of images
+
+41:51.140 --> 41:54.360
+ and we use it to train these weight sets
+
+41:54.360 --> 41:56.240
+ that we convolve across.
+
+41:56.240 --> 41:58.880
+ It's a completely different kind of phenomena.
+
+41:58.880 --> 41:59.960
+ We call that AI.
+
+41:59.960 --> 42:02.440
+ Now they're doing the next generation.
+
+42:02.440 --> 42:03.800
+ And if you look at it,
+
+42:03.800 --> 42:07.560
+ they're going up this mathematical graph, right?
+
+42:07.560 --> 42:11.200
+ And then computations, both computation and data sets
+
+42:11.200 --> 42:13.940
+ support going up that graph.
+
+42:13.940 --> 42:15.480
+ Yeah, the kind of computation that might,
+
+42:15.480 --> 42:18.720
+ I mean, I would argue that all of it is still a search,
+
+42:18.720 --> 42:20.000
+ right?
+
+42:20.000 --> 42:22.780
+ Just like you said, a topology problem with data sets,
+
+42:22.780 --> 42:27.040
+ you're searching the data sets for valuable data
+
+42:27.040 --> 42:30.000
+ and also the actual optimization of neural networks
+
+42:30.000 --> 42:33.040
+ is a kind of search for the...
+
+42:33.040 --> 42:34.760
+ I don't know, if you had looked at the interlayers
+
+42:34.760 --> 42:39.100
+ of finding a cat, it's not a search.
+
+42:39.100 --> 42:41.120
+ It's a set of endless projections.
+
+42:41.120 --> 42:42.760
+ So, you know, a projection,
+
+42:42.760 --> 42:45.640
+ here's a shadow of this phone, right?
+
+42:45.640 --> 42:47.680
+ And then you can have a shadow of that on the something
+
+42:47.680 --> 42:49.240
+ and a shadow on that of something.
+
+42:49.240 --> 42:51.440
+ And if you look in the layers, you'll see
+
+42:51.440 --> 42:53.580
+ this layer actually describes pointy ears
+
+42:53.580 --> 42:55.680
+ and round eyeness and fuzziness.
+
+42:56.560 --> 43:01.560
+ But the computation to tease out the attributes
+
+43:02.000 --> 43:03.700
+ is not search.
+
+43:03.700 --> 43:05.960
+ Like the inference part might be search,
+
+43:05.960 --> 43:07.440
+ but the training's not search.
+
+43:07.440 --> 43:10.760
+ And then in deep networks, they look at layers
+
+43:10.760 --> 43:13.140
+ and they don't even know it's represented.
+
+43:14.340 --> 43:16.640
+ And yet, if you take the layers out, it doesn't work.
+
+43:16.640 --> 43:18.940
+ So I don't think it's search.
+
+43:18.940 --> 43:21.040
+ But you'd have to talk to a mathematician
+
+43:21.040 --> 43:22.960
+ about what that actually is.
+
+43:22.960 --> 43:27.000
+ Well, we could disagree, but it's just semantics,
+
+43:27.000 --> 43:29.160
+ I think, it's not, but it's certainly not...
+
+43:29.160 --> 43:31.920
+ I would say it's absolutely not semantics, but...
+
+43:31.920 --> 43:35.440
+ Okay, all right, well, if you want to go there.
+
+43:37.060 --> 43:39.020
+ So optimization to me is search,
+
+43:39.020 --> 43:42.960
+ and we're trying to optimize the ability
+
+43:42.960 --> 43:45.800
+ of a neural network to detect cat ears.
+
+43:45.800 --> 43:50.800
+ And the difference between chess and the space,
+
+43:51.060 --> 43:54.100
+ the incredibly multidimensional,
+
+43:54.100 --> 43:57.360
+ 100,000 dimensional space that neural networks
+
+43:57.360 --> 44:00.200
+ are trying to optimize over is nothing like
+
+44:00.200 --> 44:02.200
+ the chessboard database.
+
+44:02.200 --> 44:04.320
+ So it's a totally different kind of thing.
+
+44:04.320 --> 44:07.720
+ And okay, in that sense, you can say it loses the meaning.
+
+44:07.720 --> 44:11.240
+ I can see how you might say, if you...
+
+44:11.240 --> 44:12.800
+ The funny thing is, it's the difference
+
+44:12.800 --> 44:16.520
+ between given search space and found search space.
+
+44:16.520 --> 44:17.360
+ Right, exactly.
+
+44:17.360 --> 44:18.800
+ Yeah, maybe that's a different way to describe it.
+
+44:18.800 --> 44:19.960
+ That's a beautiful way to put it, okay.
+
+44:19.960 --> 44:21.720
+ But you're saying, what's your sense
+
+44:21.720 --> 44:24.800
+ in terms of the basic mathematical operations
+
+44:24.800 --> 44:27.800
+ and the architectures, computer hardware
+
+44:27.800 --> 44:29.920
+ that enables those operations?
+
+44:29.920 --> 44:33.000
+ Do you see the CPUs of today still being
+
+44:33.000 --> 44:36.000
+ a really core part of executing
+
+44:36.000 --> 44:37.640
+ those mathematical operations?
+
+44:37.640 --> 44:38.560
+ Yes.
+
+44:38.560 --> 44:42.280
+ Well, the operations continue to be add, subtract,
+
+44:42.280 --> 44:44.640
+ load, store, compare, and branch.
+
+44:44.640 --> 44:46.120
+ It's remarkable.
+
+44:46.120 --> 44:48.840
+ So it's interesting, the building blocks
+
+44:48.840 --> 44:52.760
+ of computers or transistors under that atoms.
+
+44:52.760 --> 44:56.360
+ So you got atoms, transistors, logic gates, computers,
+
+44:56.360 --> 44:58.360
+ functional units of computers.
+
+44:58.360 --> 45:01.000
+ The building blocks of mathematics at some level
+
+45:01.000 --> 45:04.440
+ are things like adds and subtracts and multiplies,
+
+45:04.440 --> 45:08.360
+ but the space mathematics can describe
+
+45:08.360 --> 45:11.240
+ is, I think, essentially infinite.
+
+45:11.240 --> 45:14.080
+ But the computers that run the algorithms
+
+45:14.080 --> 45:16.680
+ are still doing the same things.
+
+45:16.680 --> 45:20.320
+ Now, a given algorithm might say, I need sparse data,
+
+45:20.320 --> 45:24.800
+ or I need 32 bit data, or I need, you know,
+
+45:24.800 --> 45:27.800
+ like a convolution operation that naturally takes
+
+45:27.800 --> 45:31.680
+ eight bit data, multiplies it, and sums it up a certain way.
+
+45:31.680 --> 45:35.200
+ So like the data types in TensorFlow
+
+45:35.200 --> 45:38.240
+ imply an optimization set.
+
+45:38.240 --> 45:40.480
+ But when you go right down and look at the computers,
+
+45:40.480 --> 45:42.920
+ it's and and or gates doing adds and multiplies.
+
+45:42.920 --> 45:46.280
+ Like that hasn't changed much.
+
+45:46.280 --> 45:48.600
+ Now, the quantum researchers think
+
+45:48.600 --> 45:50.000
+ they're going to change that radically,
+
+45:50.000 --> 45:52.280
+ and then there's people who think about analog computing
+
+45:52.280 --> 45:53.840
+ because you look in the brain, and it
+
+45:53.840 --> 45:55.880
+ seems to be more analogish.
+
+45:55.880 --> 45:58.040
+ You know, that maybe there's a way to do that more
+
+45:58.040 --> 45:59.120
+ efficiently.
+
+45:59.120 --> 46:03.520
+ But we have a million X on computation,
+
+46:03.520 --> 46:07.760
+ and I don't know the relationship
+
+46:07.760 --> 46:09.680
+ between computational, let's say,
+
+46:09.680 --> 46:15.440
+ intensity and ability to hit mathematical abstractions.
+
+46:15.440 --> 46:19.320
+ I don't know any way to describe that, but just like you saw
+
+46:19.320 --> 46:23.000
+ in AI, you went from rule sets to simple search
+
+46:23.000 --> 46:26.480
+ to complex search to, say, found search.
+
+46:26.480 --> 46:30.080
+ Like those are orders of magnitude more computation
+
+46:30.080 --> 46:31.600
+ to do.
+
+46:31.600 --> 46:34.720
+ And as we get the next two orders of magnitude,
+
+46:34.720 --> 46:36.480
+ like a friend, Roger Gaduri, said,
+
+46:36.480 --> 46:40.240
+ like every order of magnitude changes the computation.
+
+46:40.240 --> 46:42.720
+ Fundamentally changes what the computation is doing.
+
+46:42.720 --> 46:44.760
+ Yeah.
+
+46:44.760 --> 46:46.880
+ Oh, you know the expression the difference in quantity
+
+46:46.880 --> 46:49.560
+ is the difference in kind.
+
+46:49.560 --> 46:53.080
+ You know, the difference between ant and anthill, right?
+
+46:53.080 --> 46:56.000
+ Or neuron and brain.
+
+46:56.000 --> 46:58.920
+ You know, there's this indefinable place
+
+46:58.920 --> 47:02.520
+ where the quantity changed the quality, right?
+
+47:02.520 --> 47:05.040
+ And we've seen that happen in mathematics multiple times,
+
+47:05.040 --> 47:08.720
+ and you know, my guess is it's going to keep happening.
+
+47:08.720 --> 47:12.280
+ So your sense is, yeah, if you focus head down
+
+47:12.280 --> 47:14.920
+ and shrinking the transistor.
+
+47:14.920 --> 47:18.000
+ Well, it's not just head down, we're aware of the software
+
+47:18.000 --> 47:20.400
+ stacks that are running in the computational loads,
+
+47:20.400 --> 47:22.360
+ and we're kind of pondering what do you
+
+47:22.360 --> 47:24.880
+ do with a petabyte of memory that wants
+
+47:24.880 --> 47:28.200
+ to be accessed in a sparse way and have, you know,
+
+47:28.200 --> 47:32.720
+ the kind of calculations AI programmers want.
+
+47:32.720 --> 47:34.760
+ So there's a dialogue interaction,
+
+47:34.760 --> 47:38.120
+ but when you go in the computer chip,
+
+47:38.120 --> 47:43.120
+ you know, you find adders and subtractors and multipliers.
+
+47:43.120 --> 47:46.960
+ So if you zoom out then with, as you mentioned very sudden,
+
+47:46.960 --> 47:50.160
+ the idea that most of the development in the last many
+
+47:50.160 --> 47:54.320
+ decades in AI research came from just leveraging computation
+
+47:54.320 --> 47:59.160
+ and just simple algorithms waiting for the computation
+
+47:59.160 --> 48:00.040
+ to improve.
+
+48:00.040 --> 48:03.760
+ Well, software guys have a thing that they call it
+
+48:03.760 --> 48:07.080
+ the problem of early optimization.
+
+48:07.080 --> 48:09.160
+ So you write a big software stack,
+
+48:09.160 --> 48:12.360
+ and if you start optimizing like the first thing you write,
+
+48:12.360 --> 48:15.400
+ the odds of that being the performance limiter is low.
+
+48:15.400 --> 48:17.000
+ But when you get the whole thing working,
+
+48:17.000 --> 48:19.760
+ can you make it 2x faster by optimizing the right things?
+
+48:19.760 --> 48:21.040
+ Sure.
+
+48:21.040 --> 48:22.760
+ While you're optimizing that, could you
+
+48:22.760 --> 48:24.480
+ have written a new software stack, which
+
+48:24.480 --> 48:26.000
+ would have been a better choice?
+
+48:26.000 --> 48:27.080
+ Maybe.
+
+48:27.080 --> 48:29.440
+ Now you have creative tension.
+
+48:29.440 --> 48:30.200
+ So.
+
+48:30.200 --> 48:33.080
+ But the whole time as you're doing the writing,
+
+48:33.080 --> 48:34.880
+ that's the software we're talking about.
+
+48:34.880 --> 48:36.840
+ The hardware underneath gets faster and faster.
+
+48:36.840 --> 48:38.600
+ Well, this goes back to the Moore's law.
+
+48:38.600 --> 48:43.680
+ If Moore's law is going to continue, then your AI research
+
+48:43.680 --> 48:46.200
+ should expect that to show up, and then you
+
+48:46.200 --> 48:48.680
+ make a slightly different set of choices then.
+
+48:48.680 --> 48:49.800
+ We've hit the wall.
+
+48:49.800 --> 48:51.440
+ Nothing's going to happen.
+
+48:51.440 --> 48:55.200
+ And from here, it's just us rewriting algorithms.
+
+48:55.200 --> 48:57.440
+ That seems like a failed strategy for the last 30
+
+48:57.440 --> 49:00.120
+ years of Moore's law's death.
+
+49:00.120 --> 49:03.240
+ So can you just linger on it?
+
+49:03.240 --> 49:05.280
+ I think you've answered it, but I'll just
+
+49:05.280 --> 49:06.960
+ ask the same dumb question over and over.
+
+49:06.960 --> 49:12.480
+ So why do you think Moore's law is not going to die?
+
+49:12.480 --> 49:15.680
+ Which is the most promising, exciting possibility
+
+49:15.680 --> 49:17.960
+ of why it won't die in the next 5, 10 years?
+
+49:17.960 --> 49:20.640
+ So is it the continued shrinking of the transistor,
+
+49:20.640 --> 49:25.440
+ or is it another S curve that steps in and it totally sort
+
+49:25.440 --> 49:26.080
+ of matches up?
+
+49:26.080 --> 49:28.160
+ Shrinking the transistor is literally
+
+49:28.160 --> 49:30.200
+ thousands of innovations.
+
+49:30.200 --> 49:33.280
+ Right, so there's stacks of S curves in there.
+
+49:33.280 --> 49:35.280
+ There's a whole bunch of S curves just kind
+
+49:35.280 --> 49:38.680
+ of running their course and being reinvented
+
+49:38.680 --> 49:41.720
+ and new things.
+
+49:41.720 --> 49:45.880
+ The semiconductor fabricators and technologists have all
+
+49:45.880 --> 49:47.360
+ announced what's called nanowires.
+
+49:47.360 --> 49:51.120
+ So they took a fan, which had a gate around it,
+
+49:51.120 --> 49:52.640
+ and turned that into little wires
+
+49:52.640 --> 49:55.280
+ so you have better control of that, and they're smaller.
+
+49:55.280 --> 49:57.240
+ And then from there, there are some obvious steps
+
+49:57.240 --> 49:59.680
+ about how to shrink that.
+
+49:59.680 --> 50:03.640
+ The metallurgy around wire stacks and stuff
+
+50:03.640 --> 50:07.160
+ has very obvious abilities to shrink.
+
+50:07.160 --> 50:11.000
+ And there's a whole combination of things there to do.
+
+50:11.000 --> 50:13.480
+ Your sense is that we're going to get a lot
+
+50:13.480 --> 50:16.680
+ if this innovation performed just that, shrinking.
+
+50:16.680 --> 50:19.440
+ Yeah, like a factor of 100 is a lot.
+
+50:19.440 --> 50:22.120
+ Yeah, I would say that's incredible.
+
+50:22.120 --> 50:23.720
+ And it's totally unknown.
+
+50:23.720 --> 50:25.120
+ It's only 10 or 15 years.
+
+50:25.120 --> 50:26.560
+ Now, you're smarter, you might know,
+
+50:26.560 --> 50:28.160
+ but to me it's totally unpredictable
+
+50:28.160 --> 50:30.160
+ of what that 100x would bring in terms
+
+50:30.160 --> 50:34.440
+ of the nature of the computation that people would be.
+
+50:34.440 --> 50:37.280
+ Yeah, are you familiar with Bell's law?
+
+50:37.280 --> 50:40.720
+ So for a long time, it was mainframes, minis, workstation,
+
+50:40.720 --> 50:42.480
+ PC, mobile.
+
+50:42.480 --> 50:46.200
+ Moore's law drove faster, smaller computers.
+
+50:46.200 --> 50:49.520
+ And then when we were thinking about Moore's law,
+
+50:49.520 --> 50:53.280
+ Rajagaduri said, every 10x generates a new computation.
+
+50:53.280 --> 51:01.120
+ So scalar, vector, matrix, topological computation.
+
+51:01.120 --> 51:03.840
+ And if you go look at the industry trends,
+
+51:03.840 --> 51:07.440
+ there was mainframes, and then minicomputers, and then PCs,
+
+51:07.440 --> 51:08.920
+ and then the internet took off.
+
+51:08.920 --> 51:10.760
+ And then we got mobile devices.
+
+51:10.760 --> 51:12.680
+ And now we're building 5G wireless
+
+51:12.680 --> 51:14.880
+ with one millisecond latency.
+
+51:14.880 --> 51:17.120
+ And people are starting to think about the smart world
+
+51:17.120 --> 51:23.200
+ where everything knows you, recognizes you.
+
+51:23.200 --> 51:27.440
+ The transformations are going to be unpredictable.
+
+51:27.440 --> 51:29.560
+ How does it make you feel that you're
+
+51:29.560 --> 51:35.200
+ one of the key architects of this kind of future?
+
+51:35.200 --> 51:37.160
+ So we're not talking about the architects
+
+51:37.160 --> 51:42.320
+ of the high level people who build the Angry Bird apps,
+
+51:42.320 --> 51:43.880
+ and Snapchat.
+
+51:43.880 --> 51:44.720
+ Angry Bird apps.
+
+51:44.720 --> 51:45.240
+ Who knows?
+
+51:45.240 --> 51:47.120
+ Maybe that's the whole point of the universe.
+
+51:47.120 --> 51:48.840
+ I'm going to take a stand at that,
+
+51:48.840 --> 51:52.800
+ and the attention distracting nature of mobile phones.
+
+51:52.800 --> 51:53.760
+ I'll take a stand.
+
+51:53.760 --> 52:01.240
+ But anyway, in terms of the side effects of smartphones,
+
+52:01.240 --> 52:03.680
+ or the attention distraction, which part?
+
+52:03.680 --> 52:06.120
+ Well, who knows where this is all leading?
+
+52:06.120 --> 52:08.200
+ It's changing so fast.
+
+52:08.200 --> 52:09.720
+ My parents used to yell at my sisters
+
+52:09.720 --> 52:13.120
+ for hiding in the closet with a wired phone with a dial on it.
+
+52:13.120 --> 52:15.840
+ Stop talking to your friends all day.
+
+52:15.840 --> 52:18.640
+ Now my wife yells at my kids for talking to their friends
+
+52:18.640 --> 52:20.480
+ all day on text.
+
+52:20.480 --> 52:21.760
+ It looks the same to me.
+
+52:21.760 --> 52:23.560
+ It's always echoes of the same thing.
+
+52:23.560 --> 52:26.640
+ But you are one of the key people
+
+52:26.640 --> 52:29.120
+ architecting the hardware of this future.
+
+52:29.120 --> 52:30.520
+ How does that make you feel?
+
+52:30.520 --> 52:33.560
+ Do you feel responsible?
+
+52:33.560 --> 52:36.040
+ Do you feel excited?
+
+52:36.040 --> 52:38.080
+ So we're in a social context.
+
+52:38.080 --> 52:40.920
+ So there's billions of people on this planet.
+
+52:40.920 --> 52:45.320
+ There are literally millions of people working on technology.
+
+52:45.320 --> 52:50.840
+ I feel lucky to be doing what I do and getting paid for it,
+
+52:50.840 --> 52:52.800
+ and there's an interest in it.
+
+52:52.800 --> 52:56.480
+ But there's so many things going on in parallel.
+
+52:56.480 --> 52:58.360
+ The actions are so unpredictable.
+
+52:58.360 --> 53:01.200
+ If I wasn't here, somebody else would do it.
+
+53:01.200 --> 53:03.400
+ The vectors of all these different things
+
+53:03.400 --> 53:06.120
+ are happening all the time.
+
+53:06.120 --> 53:10.240
+ You know, there's a, I'm sure, some philosopher
+
+53:10.240 --> 53:12.600
+ or metaphilosopher is wondering about how
+
+53:12.600 --> 53:16.200
+ we transform our world.
+
+53:16.200 --> 53:22.960
+ So you can't deny the fact that these tools are
+
+53:22.960 --> 53:24.440
+ changing our world.
+
+53:24.440 --> 53:25.320
+ That's right.
+
+53:25.320 --> 53:29.640
+ Do you think it's changing for the better?
+
+53:29.640 --> 53:31.280
+ I read this thing recently.
+
+53:31.280 --> 53:36.280
+ It said the two disciplines with the highest GRE scores in college
+
+53:36.280 --> 53:39.560
+ are physics and philosophy.
+
+53:39.560 --> 53:41.880
+ And they're both sort of trying to answer the question,
+
+53:41.880 --> 53:43.960
+ why is there anything?
+
+53:43.960 --> 53:47.680
+ And the philosophers are on the kind of theological side,
+
+53:47.680 --> 53:52.640
+ and the physicists are obviously on the material side.
+
+53:52.640 --> 53:56.920
+ And there's 100 billion galaxies with 100 billion stars.
+
+53:56.920 --> 54:01.000
+ It seems, well, repetitive at best.
+
+54:01.000 --> 54:06.240
+ So you know, there's on our way to 10 billion people.
+
+54:06.240 --> 54:08.160
+ I mean, it's hard to say what it's all for,
+
+54:08.160 --> 54:09.560
+ if that's what you're asking.
+
+54:09.560 --> 54:11.280
+ Yeah, I guess I am.
+
+54:11.280 --> 54:16.240
+ Things do tend to significantly increase in complexity.
+
+54:16.240 --> 54:21.280
+ And I'm curious about how computation,
+
+54:21.280 --> 54:24.480
+ like our physical world inherently
+
+54:24.480 --> 54:25.880
+ generates mathematics.
+
+54:25.880 --> 54:26.920
+ It's kind of obvious, right?
+
+54:26.920 --> 54:28.640
+ So we have x, y, z coordinates.
+
+54:28.640 --> 54:30.120
+ You take a sphere, you make it bigger.
+
+54:30.120 --> 54:34.040
+ You get a surface that grows by r squared.
+
+54:34.040 --> 54:36.360
+ Like, it generally generates mathematics.
+
+54:36.360 --> 54:38.720
+ And the mathematicians and the physicists
+
+54:38.720 --> 54:41.280
+ have been having a lot of fun talking to each other for years.
+
+54:41.280 --> 54:46.080
+ And computation has been, let's say, relatively pedestrian.
+
+54:46.080 --> 54:48.520
+ Like, computation in terms of mathematics
+
+54:48.520 --> 54:52.760
+ has been doing binary algebra, while those guys have
+
+54:52.760 --> 54:58.040
+ been gallivanting through the other realms of possibility.
+
+54:58.040 --> 55:01.200
+ Now recently, the computation lets
+
+55:01.200 --> 55:04.880
+ you do mathematical computations that
+
+55:04.880 --> 55:07.520
+ are sophisticated enough that nobody understands
+
+55:07.520 --> 55:10.000
+ how the answers came out.
+
+55:10.000 --> 55:10.760
+ Machine learning.
+
+55:10.760 --> 55:12.000
+ Machine learning.
+
+55:12.000 --> 55:16.800
+ It used to be you get data set, you guess at a function.
+
+55:16.800 --> 55:18.920
+ The function is considered physics
+
+55:18.920 --> 55:23.000
+ if it's predictive of new functions, new data sets.
+
+55:23.000 --> 55:28.320
+ Modern, you can take a large data set
+
+55:28.320 --> 55:29.920
+ with no intuition about what it is
+
+55:29.920 --> 55:31.960
+ and use machine learning to find a pattern that
+
+55:31.960 --> 55:34.240
+ has no function, right?
+
+55:34.240 --> 55:37.160
+ And it can arrive at results that I
+
+55:37.160 --> 55:39.920
+ don't know if they're completely mathematically describable.
+
+55:39.920 --> 55:44.560
+ So computation has kind of done something interesting compared
+
+55:44.560 --> 55:47.160
+ to a equal b plus c.
+
+55:47.160 --> 55:49.640
+ There's something reminiscent of that step
+
+55:49.640 --> 55:54.760
+ from the basic operations of addition
+
+55:54.760 --> 55:56.880
+ to taking a step towards neural networks that's
+
+55:56.880 --> 56:01.040
+ reminiscent of what life on Earth at its origins was doing.
+
+56:01.040 --> 56:03.440
+ Do you think we're creating sort of the next step
+
+56:03.440 --> 56:06.520
+ in our evolution in creating artificial intelligence
+
+56:06.520 --> 56:07.920
+ systems that will?
+
+56:07.920 --> 56:08.680
+ I don't know.
+
+56:08.680 --> 56:11.040
+ I mean, there's so much in the universe already,
+
+56:11.040 --> 56:12.560
+ it's hard to say.
+
+56:12.560 --> 56:14.000
+ Where we stand in this whole thing.
+
+56:14.000 --> 56:17.000
+ Are human beings working on additional abstraction
+
+56:17.000 --> 56:18.480
+ layers and possibilities?
+
+56:18.480 --> 56:20.280
+ Yeah, it appears so.
+
+56:20.280 --> 56:22.960
+ Does that mean that human beings don't need dogs?
+
+56:22.960 --> 56:24.120
+ You know, no.
+
+56:24.120 --> 56:26.120
+ Like, there's so many things that
+
+56:26.120 --> 56:30.400
+ are all simultaneously interesting and useful.
+
+56:30.400 --> 56:32.480
+ Well, you've seen, throughout your career,
+
+56:32.480 --> 56:35.720
+ you've seen greater and greater level abstractions built
+
+56:35.720 --> 56:39.520
+ in artificial machines, right?
+
+56:39.520 --> 56:41.280
+ Do you think, when you look at humans,
+
+56:41.280 --> 56:44.040
+ do you think that the look of all life on Earth
+
+56:44.040 --> 56:46.880
+ is a single organism building this thing,
+
+56:46.880 --> 56:49.880
+ this machine with greater and greater levels of abstraction?
+
+56:49.880 --> 56:52.720
+ Do you think humans are the peak,
+
+56:52.720 --> 56:57.400
+ the top of the food chain in this long arc of history
+
+56:57.400 --> 56:58.440
+ on Earth?
+
+56:58.440 --> 57:00.600
+ Or do you think we're just somewhere in the middle?
+
+57:00.600 --> 57:05.280
+ Are we the basic functional operations of a CPU?
+
+57:05.280 --> 57:09.280
+ Are we the C++ program, the Python program,
+
+57:09.280 --> 57:10.480
+ or the neural network?
+
+57:10.480 --> 57:12.200
+ Like, somebody's, you know, people
+
+57:12.200 --> 57:14.920
+ have calculated, like, how many operations does the brain do?
+
+57:14.920 --> 57:17.680
+ Something, you know, I've seen the number 10 to the 18th
+
+57:17.680 --> 57:20.600
+ a bunch of times, arrive different ways.
+
+57:20.600 --> 57:22.080
+ So could you make a computer that
+
+57:22.080 --> 57:23.760
+ did 10 to the 20th operations?
+
+57:23.760 --> 57:24.360
+ Yes.
+
+57:24.360 --> 57:24.880
+ Sure.
+
+57:24.880 --> 57:25.720
+ Do you think?
+
+57:25.720 --> 57:27.040
+ We're going to do that.
+
+57:27.040 --> 57:31.640
+ Now, is there something magical about how brains compute things?
+
+57:31.640 --> 57:32.960
+ I don't know.
+
+57:32.960 --> 57:35.240
+ You know, my personal experience is interesting,
+
+57:35.240 --> 57:37.760
+ because, you know, you think you know how you think,
+
+57:37.760 --> 57:39.160
+ and then you have all these ideas,
+
+57:39.160 --> 57:41.520
+ and you can't figure out how they happened.
+
+57:41.520 --> 57:47.040
+ And if you meditate, you know, what you can be aware of
+
+57:47.040 --> 57:48.760
+ is interesting.
+
+57:48.760 --> 57:51.720
+ So I don't know if brains are magical or not.
+
+57:51.720 --> 57:54.800
+ You know, the physical evidence says no.
+
+57:54.800 --> 57:57.840
+ Lots of people's personal experience says yes.
+
+57:57.840 --> 58:01.280
+ So what would be funny is if brains are magical,
+
+58:01.280 --> 58:04.600
+ and yet we can make brains with more computation.
+
+58:04.600 --> 58:07.080
+ You know, I don't know what to say about that.
+
+58:07.080 --> 58:11.080
+ But do you think magic is an emergent phenomena?
+
+58:11.080 --> 58:12.080
+ Could be.
+
+58:12.080 --> 58:13.840
+ I have no explanation for it.
+
+58:13.840 --> 58:19.240
+ Let me ask Jim Keller of what in your view is consciousness?
+
+58:19.240 --> 58:20.640
+ With consciousness?
+
+58:20.640 --> 58:25.520
+ Yeah, like what, you know, consciousness, love,
+
+58:25.520 --> 58:27.960
+ things that are these deeply human things that
+
+58:27.960 --> 58:30.280
+ seems to emerge from our brain, is that something
+
+58:30.280 --> 58:36.280
+ that we'll be able to make encode in chips that get
+
+58:36.280 --> 58:38.120
+ faster and faster and faster and faster?
+
+58:38.120 --> 58:40.160
+ That's like a 10 hour conversation.
+
+58:40.160 --> 58:41.000
+ Nobody really knows.
+
+58:41.000 --> 58:45.320
+ Can you summarize it in a couple of sentences?
+
+58:45.320 --> 58:48.840
+ Many people have observed that organisms run
+
+58:48.840 --> 58:51.320
+ at lots of different levels, right?
+
+58:51.320 --> 58:52.840
+ If you had two neurons, somebody said
+
+58:52.840 --> 58:56.880
+ you'd have one sensory neuron and one motor neuron, right?
+
+58:56.880 --> 58:58.800
+ So we move towards things and away from things.
+
+58:58.800 --> 59:03.200
+ And we have physical integrity and safety or not, right?
+
+59:03.200 --> 59:05.680
+ And then if you look at the animal kingdom,
+
+59:05.680 --> 59:08.320
+ you can see brains that are a little more complicated.
+
+59:08.320 --> 59:10.320
+ And at some point, there's a planning system.
+
+59:10.320 --> 59:11.960
+ And then there's an emotional system
+
+59:11.960 --> 59:17.240
+ that's happy about being safe or unhappy about being threatened.
+
+59:17.240 --> 59:21.920
+ And then our brains have massive numbers of structures,
+
+59:21.920 --> 59:25.680
+ like planning and movement and thinking and feeling
+
+59:25.680 --> 59:27.920
+ and drives and emotions.
+
+59:27.920 --> 59:31.160
+ And we seem to have multiple layers of thinking systems.
+
+59:31.160 --> 59:35.240
+ And we have a dream system that nobody understands whatsoever,
+
+59:35.240 --> 59:37.520
+ which I find completely hilarious.
+
+59:37.520 --> 59:44.480
+ And you can think in a way that those systems are
+
+59:44.480 --> 59:45.720
+ more independent.
+
+59:45.720 --> 59:47.880
+ And you can observe the different parts of yourself
+
+59:47.880 --> 59:49.600
+ can observe them.
+
+59:49.600 --> 59:51.440
+ I don't know which one's magical.
+
+59:51.440 --> 59:55.360
+ I don't know which one's not computational.
+
+59:55.360 --> 59:56.800
+ So.
+
+59:56.800 --> 59:58.880
+ Is it possible that it's all computation?
+
+59:58.880 --> 1:00:00.120
+ Probably.
+
+1:00:00.120 --> 1:00:01.560
+ Is there a limit to computation?
+
+1:00:01.560 --> 1:00:03.200
+ I don't think so.
+
+1:00:03.200 --> 1:00:06.240
+ Do you think the universe is a computer?
+
+1:00:06.240 --> 1:00:07.480
+ It seems to be.
+
+1:00:07.480 --> 1:00:09.600
+ It's a weird kind of computer.
+
+1:00:09.600 --> 1:00:13.120
+ Because if it was a computer, like when
+
+1:00:13.120 --> 1:00:16.560
+ they do calculations on how much calculation
+
+1:00:16.560 --> 1:00:20.960
+ it takes to describe quantum effects, it's unbelievably high.
+
+1:00:20.960 --> 1:00:22.560
+ So if it was a computer, wouldn't you
+
+1:00:22.560 --> 1:00:26.240
+ have built it out of something that was easier to compute?
+
+1:00:26.240 --> 1:00:29.560
+ That's a funny system.
+
+1:00:29.560 --> 1:00:31.320
+ But then the simulation guys pointed out
+
+1:00:31.320 --> 1:00:32.920
+ that the rules are kind of interesting.
+
+1:00:32.920 --> 1:00:35.160
+ When you look really close, it's uncertain.
+
+1:00:35.160 --> 1:00:37.720
+ And the speed of light says you can only look so far.
+
+1:00:37.720 --> 1:00:39.200
+ And things can't be simultaneous,
+
+1:00:39.200 --> 1:00:42.760
+ except for the odd entanglement problem where they seem to be.
+
+1:00:42.760 --> 1:00:45.120
+ The rules are all kind of weird.
+
+1:00:45.120 --> 1:00:47.960
+ And somebody said physics is like having
+
+1:00:47.960 --> 1:00:51.360
+ 50 equations with 50 variables to define 50 variables.
+
+1:00:55.440 --> 1:00:59.080
+ Physics itself has been a shit show for thousands of years.
+
+1:00:59.080 --> 1:01:02.040
+ It seems odd when you get to the corners of everything.
+
+1:01:02.040 --> 1:01:07.240
+ It's either uncomputable or undefinable or uncertain.
+
+1:01:07.240 --> 1:01:09.360
+ It's almost like the designers of the simulation
+
+1:01:09.360 --> 1:01:12.840
+ are trying to prevent us from understanding it perfectly.
+
+1:01:12.840 --> 1:01:16.160
+ But also, the things that require calculations
+
+1:01:16.160 --> 1:01:18.480
+ require so much calculation that our idea
+
+1:01:18.480 --> 1:01:20.840
+ of the universe of a computer is absurd,
+
+1:01:20.840 --> 1:01:23.160
+ because every single little bit of it
+
+1:01:23.160 --> 1:01:26.640
+ takes all the computation in the universe to figure out.
+
+1:01:26.640 --> 1:01:28.400
+ So that's a weird kind of computer.
+
+1:01:28.400 --> 1:01:29.760
+ You say the simulation is running
+
+1:01:29.760 --> 1:01:34.520
+ in a computer, which has, by definition, infinite computation.
+
+1:01:34.520 --> 1:01:35.440
+ Not infinite.
+
+1:01:35.440 --> 1:01:37.680
+ Oh, you mean if the universe is infinite?
+
+1:01:37.680 --> 1:01:38.200
+ Yeah.
+
+1:01:38.200 --> 1:01:40.720
+ Well, every little piece of our universe
+
+1:01:40.720 --> 1:01:43.240
+ seems to take infinite computation to figure out.
+
+1:01:43.240 --> 1:01:44.240
+ Not infinite, just a lot.
+
+1:01:44.240 --> 1:01:44.840
+ Well, a lot.
+
+1:01:44.840 --> 1:01:46.040
+ Some pretty big number.
+
+1:01:46.040 --> 1:01:50.320
+ Compute this little teeny spot takes all the mass
+
+1:01:50.320 --> 1:01:53.440
+ in the local one light year by one light year space.
+
+1:01:53.440 --> 1:01:54.960
+ It's close enough to infinite.
+
+1:01:54.960 --> 1:01:56.840
+ Well, it's a heck of a computer if it is one.
+
+1:01:56.840 --> 1:01:57.520
+ I know.
+
+1:01:57.520 --> 1:02:01.040
+ It's a weird description, because the simulation
+
+1:02:01.040 --> 1:02:04.880
+ description seems to break when you look closely at it.
+
+1:02:04.880 --> 1:02:08.800
+ But the rules of the universe seem to imply something's up.
+
+1:02:08.800 --> 1:02:10.880
+ That seems a little arbitrary.
+
+1:02:10.880 --> 1:02:14.920
+ The universe, the whole thing, the laws of physics,
+
+1:02:14.920 --> 1:02:20.120
+ it just seems like, how did it come out to be the way it is?
+
+1:02:20.120 --> 1:02:22.640
+ Well, lots of people talk about that.
+
+1:02:22.640 --> 1:02:24.440
+ Like I said, the two smartest groups of humans
+
+1:02:24.440 --> 1:02:26.120
+ are working on the same problem.
+
+1:02:26.120 --> 1:02:27.120
+ From different aspects.
+
+1:02:27.120 --> 1:02:29.560
+ And they're both complete failures.
+
+1:02:29.560 --> 1:02:32.160
+ So that's kind of cool.
+
+1:02:32.160 --> 1:02:34.800
+ They might succeed eventually.
+
+1:02:34.800 --> 1:02:37.680
+ Well, after 2,000 years, the trend isn't good.
+
+1:02:37.680 --> 1:02:39.640
+ Oh, 2,000 years is nothing in the span
+
+1:02:39.640 --> 1:02:40.920
+ of the history of the universe.
+
+1:02:40.920 --> 1:02:41.560
+ That's for sure.
+
+1:02:41.560 --> 1:02:42.800
+ We have some time.
+
+1:02:42.800 --> 1:02:46.720
+ But the next 1,000 years doesn't look good either.
+
+1:02:46.720 --> 1:02:48.360
+ That's what everybody says at every stage.
+
+1:02:48.360 --> 1:02:50.840
+ But with Moore's law, as you've just described,
+
+1:02:50.840 --> 1:02:54.680
+ not being dead, the exponential growth of technology,
+
+1:02:54.680 --> 1:02:57.360
+ the future seems pretty incredible.
+
+1:02:57.360 --> 1:02:59.160
+ Well, it'll be interesting, that's for sure.
+
+1:02:59.160 --> 1:03:00.120
+ That's right.
+
+1:03:00.120 --> 1:03:03.640
+ So what are your thoughts on Ray Kurzweil's sense
+
+1:03:03.640 --> 1:03:05.640
+ that exponential improvement in technology
+
+1:03:05.640 --> 1:03:07.120
+ will continue indefinitely?
+
+1:03:07.120 --> 1:03:09.920
+ Is that how you see Moore's law?
+
+1:03:09.920 --> 1:03:12.720
+ Do you see Moore's law more broadly,
+
+1:03:12.720 --> 1:03:15.960
+ in the sense that technology of all kinds
+
+1:03:15.960 --> 1:03:20.320
+ has a way of stacking S curves on top of each other,
+
+1:03:20.320 --> 1:03:24.440
+ where it'll be exponential, and then we'll see all kinds of...
+
+1:03:24.440 --> 1:03:27.600
+ What does an exponential of a million mean?
+
+1:03:27.600 --> 1:03:29.400
+ That's a pretty amazing number.
+
+1:03:29.400 --> 1:03:32.160
+ And that's just for a local little piece of silicon.
+
+1:03:32.160 --> 1:03:35.080
+ Now let's imagine you, say, decided
+
+1:03:35.080 --> 1:03:41.520
+ to get 1,000 tons of silicon to collaborate in one computer
+
+1:03:41.520 --> 1:03:44.720
+ at a million times the density.
+
+1:03:44.720 --> 1:03:47.840
+ Now you're talking, I don't know, 10 to the 20th more
+
+1:03:47.840 --> 1:03:51.720
+ computation power than our current, already unbelievably
+
+1:03:51.720 --> 1:03:54.200
+ fast computers.
+
+1:03:54.200 --> 1:03:55.760
+ Nobody knows what that's going to mean.
+
+1:03:55.760 --> 1:03:58.960
+ The sci fi guys call it computronium,
+
+1:03:58.960 --> 1:04:02.720
+ like when a local civilization turns the nearby star
+
+1:04:02.720 --> 1:04:05.120
+ into a computer.
+
+1:04:05.120 --> 1:04:06.720
+ I don't know if that's true, but...
+
+1:04:06.720 --> 1:04:11.520
+ So just even when you shrink a transistor, the...
+
+1:04:11.520 --> 1:04:12.560
+ That's only one dimension.
+
+1:04:12.560 --> 1:04:14.280
+ The ripple effects of that.
+
+1:04:14.280 --> 1:04:17.600
+ People tend to think about computers as a cost problem.
+
+1:04:17.600 --> 1:04:20.560
+ So computers are made out of silicon and minor amounts
+
+1:04:20.560 --> 1:04:24.800
+ of metals and this and that.
+
+1:04:24.800 --> 1:04:27.520
+ None of those things cost any money.
+
+1:04:27.520 --> 1:04:30.080
+ There's plenty of sand.
+
+1:04:30.080 --> 1:04:32.320
+ You could just turn the beach and a little bit of ocean water
+
+1:04:32.320 --> 1:04:33.360
+ into computers.
+
+1:04:33.360 --> 1:04:36.720
+ So all the cost is in the equipment to do it.
+
+1:04:36.720 --> 1:04:39.120
+ And the trend on equipment is once you
+
+1:04:39.120 --> 1:04:40.640
+ figure out how to build the equipment,
+
+1:04:40.640 --> 1:04:41.800
+ the trend of cost is zero.
+
+1:04:41.800 --> 1:04:44.160
+ Elon said, first you figure out what
+
+1:04:44.160 --> 1:04:47.560
+ configuration you want the atoms in,
+
+1:04:47.560 --> 1:04:50.320
+ and then how to put them there.
+
+1:04:50.320 --> 1:04:55.320
+ His great insight is people are how constrained.
+
+1:04:56.480 --> 1:04:58.720
+ I have this thing, I know how it works,
+
+1:04:58.720 --> 1:05:02.320
+ and then little tweaks to that will generate something,
+
+1:05:02.320 --> 1:05:05.160
+ as opposed to what do I actually want,
+
+1:05:05.160 --> 1:05:07.080
+ and then figure out how to build it.
+
+1:05:07.080 --> 1:05:09.280
+ It's a very different mindset.
+
+1:05:09.280 --> 1:05:11.360
+ And almost nobody has it, obviously.
+
+1:05:12.840 --> 1:05:15.760
+ Well, let me ask on that topic,
+
+1:05:15.760 --> 1:05:18.080
+ you were one of the key early people
+
+1:05:18.080 --> 1:05:21.040
+ in the development of autopilot, at least in the hardware
+
+1:05:21.040 --> 1:05:24.480
+ side, Elon Musk believes that autopilot
+
+1:05:24.480 --> 1:05:26.720
+ and vehicle autonomy, if you just look at that problem,
+
+1:05:26.720 --> 1:05:29.480
+ can follow this kind of exponential improvement.
+
+1:05:29.480 --> 1:05:32.600
+ In terms of the how question that we're talking about,
+
+1:05:32.600 --> 1:05:34.680
+ there's no reason why you can't.
+
+1:05:34.680 --> 1:05:37.320
+ What are your thoughts on this particular space
+
+1:05:37.320 --> 1:05:42.320
+ of vehicle autonomy, and your part of it
+
+1:05:42.320 --> 1:05:45.280
+ and Elon Musk's and Tesla's vision for vehicle autonomy?
+
+1:05:45.280 --> 1:05:48.760
+ Well, the computer you need to build is straightforward.
+
+1:05:48.760 --> 1:05:51.160
+ And you could argue, well, does it need to be
+
+1:05:51.160 --> 1:05:53.600
+ two times faster or five times or 10 times?
+
+1:05:54.520 --> 1:05:58.440
+ But that's just a matter of time or price in the short run.
+
+1:05:58.440 --> 1:06:00.240
+ So that's not a big deal.
+
+1:06:00.240 --> 1:06:03.280
+ You don't have to be especially smart to drive a car.
+
+1:06:03.280 --> 1:06:05.720
+ So it's not like a super hard problem.
+
+1:06:05.720 --> 1:06:07.960
+ I mean, the big problem with safety is attention,
+
+1:06:07.960 --> 1:06:11.120
+ which computers are really good at, not skills.
+
+1:06:11.120 --> 1:06:15.280
+ Well, let me push back on one.
+
+1:06:15.280 --> 1:06:17.160
+ You see, everything you said is correct,
+
+1:06:17.160 --> 1:06:22.160
+ but we as humans tend to take for granted
+
+1:06:24.320 --> 1:06:26.880
+ how incredible our vision system is.
+
+1:06:26.880 --> 1:06:30.640
+ So you can drive a car with 20, 50 vision,
+
+1:06:30.640 --> 1:06:33.080
+ and you can train a neural network to extract
+
+1:06:33.080 --> 1:06:36.480
+ the distance of any object in the shape of any surface
+
+1:06:36.480 --> 1:06:38.560
+ from a video and data.
+
+1:06:38.560 --> 1:06:40.200
+ Yeah, but that's really simple.
+
+1:06:40.200 --> 1:06:42.120
+ No, it's not simple.
+
+1:06:42.120 --> 1:06:44.400
+ That's a simple data problem.
+
+1:06:44.400 --> 1:06:46.320
+ It's not, it's not simple.
+
+1:06:46.320 --> 1:06:50.480
+ It's because it's not just detecting objects,
+
+1:06:50.480 --> 1:06:52.280
+ it's understanding the scene,
+
+1:06:52.280 --> 1:06:54.320
+ and it's being able to do it in a way
+
+1:06:54.320 --> 1:06:56.600
+ that doesn't make errors.
+
+1:06:56.600 --> 1:07:00.040
+ So the beautiful thing about the human vision system
+
+1:07:00.040 --> 1:07:02.600
+ and our entire brain around the whole thing
+
+1:07:02.600 --> 1:07:05.520
+ is we're able to fill in the gaps.
+
+1:07:05.520 --> 1:07:08.200
+ It's not just about perfectly detecting cars.
+
+1:07:08.200 --> 1:07:09.960
+ It's inferring the occluded cars.
+
+1:07:09.960 --> 1:07:12.400
+ It's trying to, it's understanding the physics.
+
+1:07:12.400 --> 1:07:14.600
+ I think that's mostly a data problem.
+
+1:07:14.600 --> 1:07:17.680
+ So you think what data would compute
+
+1:07:17.680 --> 1:07:19.220
+ with improvement of computation
+
+1:07:19.220 --> 1:07:20.800
+ with improvement in collection of data?
+
+1:07:20.800 --> 1:07:22.640
+ Well, there is a, you know, when you're driving a car
+
+1:07:22.640 --> 1:07:24.760
+ and somebody cuts you off, your brain has theories
+
+1:07:24.760 --> 1:07:26.160
+ about why they did it.
+
+1:07:26.160 --> 1:07:28.640
+ You know, they're a bad person, they're distracted,
+
+1:07:28.640 --> 1:07:32.820
+ they're dumb, you know, you can listen to yourself, right?
+
+1:07:32.820 --> 1:07:37.040
+ So, you know, if you think that narrative is important
+
+1:07:37.040 --> 1:07:38.840
+ to be able to successfully drive a car,
+
+1:07:38.840 --> 1:07:41.640
+ then current autopilot systems can't do it.
+
+1:07:41.640 --> 1:07:44.360
+ But if cars are ballistic things with tracks
+
+1:07:44.360 --> 1:07:47.320
+ and probabilistic changes of speed and direction,
+
+1:07:47.320 --> 1:07:50.200
+ and roads are fixed and given, by the way,
+
+1:07:50.200 --> 1:07:53.280
+ they don't change dynamically, right?
+
+1:07:53.280 --> 1:07:56.320
+ You can map the world really thoroughly.
+
+1:07:56.320 --> 1:07:59.620
+ You can place every object really thoroughly.
+
+1:08:01.040 --> 1:08:03.040
+ Right, you can calculate trajectories
+
+1:08:03.040 --> 1:08:06.400
+ of things really thoroughly, right?
+
+1:08:06.400 --> 1:08:09.840
+ But everything you said about really thoroughly
+
+1:08:09.840 --> 1:08:13.120
+ has a different degree of difficulty, so.
+
+1:08:13.120 --> 1:08:15.080
+ And you could say at some point,
+
+1:08:15.080 --> 1:08:17.640
+ computer autonomous systems will be way better
+
+1:08:17.640 --> 1:08:20.040
+ at things that humans are lousy at.
+
+1:08:20.040 --> 1:08:22.480
+ Like, they'll be better at attention,
+
+1:08:22.480 --> 1:08:25.040
+ they'll always remember there was a pothole in the road
+
+1:08:25.040 --> 1:08:27.360
+ that humans keep forgetting about,
+
+1:08:27.360 --> 1:08:29.440
+ they'll remember that this set of roads
+
+1:08:29.440 --> 1:08:31.200
+ has these weirdo lines on it
+
+1:08:31.200 --> 1:08:32.800
+ that the computers figured out once,
+
+1:08:32.800 --> 1:08:35.160
+ and especially if they get updates,
+
+1:08:35.160 --> 1:08:38.000
+ so if somebody changes a given,
+
+1:08:38.000 --> 1:08:41.280
+ like, the key to robots and stuff somebody said
+
+1:08:41.280 --> 1:08:44.360
+ is to maximize the givens, right?
+
+1:08:44.360 --> 1:08:45.200
+ Right.
+
+1:08:45.200 --> 1:08:47.960
+ So having a robot pick up this bottle cap
+
+1:08:47.960 --> 1:08:51.000
+ is way easier if you put a red dot on the top,
+
+1:08:51.000 --> 1:08:52.680
+ because then you'll have to figure out,
+
+1:08:52.680 --> 1:08:54.840
+ and if you wanna do a certain thing with it,
+
+1:08:54.840 --> 1:08:57.160
+ maximize the givens is the thing.
+
+1:08:57.160 --> 1:09:01.040
+ And autonomous systems are happily maximizing the givens.
+
+1:09:01.040 --> 1:09:04.160
+ Like, humans, when you drive someplace new,
+
+1:09:04.160 --> 1:09:06.200
+ you remember it, because you're processing it
+
+1:09:06.200 --> 1:09:08.920
+ the whole time, and after the 50th time you drove to work,
+
+1:09:08.920 --> 1:09:11.480
+ you get to work, you don't know how you got there, right?
+
+1:09:11.480 --> 1:09:14.840
+ You're on autopilot, right?
+
+1:09:14.840 --> 1:09:17.800
+ Autonomous cars are always on autopilot.
+
+1:09:17.800 --> 1:09:20.360
+ But the cars have no theories about why they got cut off,
+
+1:09:20.360 --> 1:09:22.140
+ or why they're in traffic.
+
+1:09:22.140 --> 1:09:24.720
+ So they also never stop paying attention.
+
+1:09:24.720 --> 1:09:28.000
+ Right, so I tend to believe you do have to have theories,
+
+1:09:28.000 --> 1:09:30.000
+ meta models of other people,
+
+1:09:30.000 --> 1:09:31.420
+ especially with pedestrian cyclists,
+
+1:09:31.420 --> 1:09:32.840
+ but also with other cars.
+
+1:09:32.840 --> 1:09:37.840
+ So everything you said is actually essential to driving.
+
+1:09:38.920 --> 1:09:41.760
+ Driving is a lot more complicated than people realize,
+
+1:09:41.760 --> 1:09:44.640
+ I think, so to push back slightly, but to...
+
+1:09:44.640 --> 1:09:46.480
+ So to cut into traffic, right?
+
+1:09:46.480 --> 1:09:47.320
+ Yep.
+
+1:09:47.320 --> 1:09:48.460
+ You can't just wait for a gap,
+
+1:09:48.460 --> 1:09:50.280
+ you have to be somewhat aggressive.
+
+1:09:50.280 --> 1:09:53.840
+ You'll be surprised how simple a calculation for that is.
+
+1:09:53.840 --> 1:09:55.540
+ I may be on that particular point,
+
+1:09:55.540 --> 1:10:00.360
+ but there's, maybe I actually have to push back.
+
+1:10:00.360 --> 1:10:01.640
+ I would be surprised.
+
+1:10:01.640 --> 1:10:03.080
+ You know what, yeah, I'll just say where I stand.
+
+1:10:03.080 --> 1:10:04.280
+ I would be very surprised,
+
+1:10:04.280 --> 1:10:08.700
+ but I think you might be surprised how complicated it is.
+
+1:10:10.080 --> 1:10:12.640
+ I tell people, progress disappoints in the short run,
+
+1:10:12.640 --> 1:10:13.960
+ and surprises in the long run.
+
+1:10:13.960 --> 1:10:15.600
+ It's very possible, yeah.
+
+1:10:15.600 --> 1:10:19.000
+ I suspect in 10 years it'll be just taken for granted.
+
+1:10:19.000 --> 1:10:19.880
+ Yeah, probably.
+
+1:10:19.880 --> 1:10:22.080
+ But you're probably right, not look like...
+
+1:10:22.080 --> 1:10:25.080
+ It's gonna be a $50 solution that nobody cares about.
+
+1:10:25.080 --> 1:10:27.280
+ It's like GPSes, like, wow, GPSes.
+
+1:10:27.280 --> 1:10:29.460
+ We have satellites in space
+
+1:10:29.460 --> 1:10:31.120
+ that tell you where your location is.
+
+1:10:31.120 --> 1:10:33.480
+ It was a really big deal, now everything has a GPS in it.
+
+1:10:33.480 --> 1:10:36.040
+ Yeah, that's true, but I do think that systems
+
+1:10:36.040 --> 1:10:39.880
+ that involve human behavior are more complicated
+
+1:10:39.880 --> 1:10:40.820
+ than we give them credit for.
+
+1:10:40.820 --> 1:10:43.520
+ So we can do incredible things with technology
+
+1:10:43.520 --> 1:10:45.560
+ that don't involve humans, but when you...
+
+1:10:45.560 --> 1:10:48.440
+ I think humans are less complicated than people.
+
+1:10:48.440 --> 1:10:50.560
+ You know, frequently ascribed.
+
+1:10:50.560 --> 1:10:51.400
+ Maybe I feel...
+
+1:10:51.400 --> 1:10:53.720
+ We tend to operate out of large numbers of patterns
+
+1:10:53.720 --> 1:10:55.820
+ and just keep doing it over and over.
+
+1:10:55.820 --> 1:10:58.040
+ But I can't trust you because you're a human.
+
+1:10:58.040 --> 1:11:00.760
+ That's something a human would say.
+
+1:11:00.760 --> 1:11:04.600
+ But my hope is on the point you've made is,
+
+1:11:04.600 --> 1:11:07.260
+ even if, no matter who's right,
+
+1:11:08.840 --> 1:11:10.660
+ I'm hoping that there's a lot of things
+
+1:11:10.660 --> 1:11:11.880
+ that humans aren't good at
+
+1:11:11.880 --> 1:11:13.460
+ that machines are definitely good at,
+
+1:11:13.460 --> 1:11:15.640
+ like you said, attention and things like that.
+
+1:11:15.640 --> 1:11:17.680
+ Well, they'll be so much better
+
+1:11:17.680 --> 1:11:21.000
+ that the overall picture of safety and autonomy
+
+1:11:21.000 --> 1:11:22.880
+ will be, obviously cars will be safer,
+
+1:11:22.880 --> 1:11:24.720
+ even if they're not as good at understanding.
+
+1:11:24.720 --> 1:11:26.400
+ I'm a big believer in safety.
+
+1:11:26.400 --> 1:11:29.640
+ I mean, there are already the current safety systems,
+
+1:11:29.640 --> 1:11:32.040
+ like cruise control that doesn't let you run into people
+
+1:11:32.040 --> 1:11:33.360
+ and lane keeping.
+
+1:11:33.360 --> 1:11:34.680
+ There are so many features
+
+1:11:34.680 --> 1:11:37.760
+ that you just look at the parade of accidents
+
+1:11:37.760 --> 1:11:42.480
+ and knocking off like 80% of them is super doable.
+
+1:11:42.480 --> 1:11:44.680
+ Just to linger on the autopilot team
+
+1:11:44.680 --> 1:11:45.880
+ and the efforts there,
+
+1:11:48.000 --> 1:11:51.720
+ it seems to be that there's a very intense scrutiny
+
+1:11:51.720 --> 1:11:54.320
+ by the media and the public in terms of safety,
+
+1:11:54.320 --> 1:11:58.000
+ the pressure, the bar put before autonomous vehicles.
+
+1:11:58.000 --> 1:12:01.760
+ What are your, sort of as a person there
+
+1:12:01.760 --> 1:12:03.900
+ working on the hardware and trying to build a system
+
+1:12:03.900 --> 1:12:07.240
+ that builds a safe vehicle and so on,
+
+1:12:07.240 --> 1:12:08.960
+ what was your sense about that pressure?
+
+1:12:08.960 --> 1:12:09.920
+ Is it unfair?
+
+1:12:09.920 --> 1:12:12.320
+ Is it expected of new technology?
+
+1:12:12.320 --> 1:12:13.540
+ Yeah, it seems reasonable.
+
+1:12:13.540 --> 1:12:15.440
+ I was interested, I talked to both American
+
+1:12:15.440 --> 1:12:17.280
+ and European regulators,
+
+1:12:17.280 --> 1:12:21.240
+ and I was worried that the regulations
+
+1:12:21.240 --> 1:12:25.120
+ would write into the rules technology solutions,
+
+1:12:25.120 --> 1:12:30.040
+ like modern brake systems imply hydraulic brakes.
+
+1:12:30.040 --> 1:12:32.160
+ So if you read the regulations,
+
+1:12:32.160 --> 1:12:35.100
+ to meet the letter of the law for brakes,
+
+1:12:35.100 --> 1:12:37.800
+ it sort of has to be hydraulic, right?
+
+1:12:37.800 --> 1:12:42.060
+ And the regulator said they're interested in the use cases,
+
+1:12:42.060 --> 1:12:44.360
+ like a head on crash, an offset crash,
+
+1:12:44.360 --> 1:12:47.100
+ don't hit pedestrians, don't run into people,
+
+1:12:47.100 --> 1:12:50.400
+ don't leave the road, don't run a red light or a stoplight.
+
+1:12:50.400 --> 1:12:53.160
+ They were very much into the scenarios.
+
+1:12:53.160 --> 1:12:56.920
+ And they had all the data about which scenarios
+
+1:12:56.920 --> 1:12:59.320
+ injured or killed the most people.
+
+1:12:59.320 --> 1:13:04.040
+ And for the most part, those conversations were like,
+
+1:13:04.040 --> 1:13:08.800
+ what's the right thing to do to take the next step?
+
+1:13:08.800 --> 1:13:12.000
+ Now, Elon's very interested also in the benefits
+
+1:13:12.000 --> 1:13:14.160
+ of autonomous driving or freeing people's time
+
+1:13:14.160 --> 1:13:16.520
+ and attention, as well as safety.
+
+1:13:18.600 --> 1:13:20.340
+ And I think that's also an interesting thing,
+
+1:13:20.340 --> 1:13:25.160
+ but building autonomous systems so they're safe
+
+1:13:25.160 --> 1:13:27.400
+ and safer than people seemed,
+
+1:13:27.400 --> 1:13:30.160
+ since the goal is to be 10X safer than people,
+
+1:13:30.160 --> 1:13:32.200
+ having the bar to be safer than people
+
+1:13:32.200 --> 1:13:37.200
+ and scrutinizing accidents seems philosophically correct.
+
+1:13:39.260 --> 1:13:41.000
+ So I think that's a good thing.
+
+1:13:41.000 --> 1:13:46.000
+ What are, is different than the things you worked at,
+
+1:13:46.000 --> 1:13:51.000
+ Intel, AMD, Apple, with autopilot chip design
+
+1:13:51.600 --> 1:13:54.320
+ and hardware design, what are interesting
+
+1:13:54.320 --> 1:13:56.680
+ or challenging aspects of building this specialized
+
+1:13:56.680 --> 1:13:59.340
+ kind of computing system in the automotive space?
+
+1:14:00.300 --> 1:14:01.640
+ I mean, there's two tricks to building
+
+1:14:01.640 --> 1:14:02.780
+ like an automotive computer.
+
+1:14:02.780 --> 1:14:07.320
+ One is the software team, the machine learning team
+
+1:14:07.320 --> 1:14:10.640
+ is developing algorithms that are changing fast.
+
+1:14:10.640 --> 1:14:14.280
+ So as you're building the accelerator,
+
+1:14:14.280 --> 1:14:16.920
+ you have this, you know, worry or intuition
+
+1:14:16.920 --> 1:14:18.520
+ that the algorithms will change enough
+
+1:14:18.520 --> 1:14:22.640
+ that the accelerator will be the wrong one, right?
+
+1:14:22.640 --> 1:14:25.000
+ And there's the generic thing, which is,
+
+1:14:25.000 --> 1:14:27.240
+ if you build a really good general purpose computer,
+
+1:14:27.240 --> 1:14:31.440
+ say its performance is one, and then GPU guys
+
+1:14:31.440 --> 1:14:34.280
+ will deliver about 5X to performance
+
+1:14:34.280 --> 1:14:35.720
+ for the same amount of silicon,
+
+1:14:35.720 --> 1:14:37.640
+ because instead of discovering parallelism,
+
+1:14:37.640 --> 1:14:39.240
+ you're given parallelism.
+
+1:14:39.240 --> 1:14:43.720
+ And then special accelerators get another two to 5X
+
+1:14:43.720 --> 1:14:46.040
+ on top of a GPU, because you say,
+
+1:14:46.040 --> 1:14:49.040
+ I know the math is always eight bit integers
+
+1:14:49.040 --> 1:14:52.200
+ into 32 bit accumulators, and the operations
+
+1:14:52.200 --> 1:14:55.200
+ are the subset of mathematical possibilities.
+
+1:14:55.200 --> 1:15:00.200
+ So AI accelerators have a claimed performance benefit
+
+1:15:00.920 --> 1:15:05.080
+ over GPUs because in the narrow math space,
+
+1:15:05.080 --> 1:15:07.100
+ you're nailing the algorithm.
+
+1:15:07.100 --> 1:15:10.040
+ Now, you still try to make it programmable,
+
+1:15:10.040 --> 1:15:13.280
+ but the AI field is changing really fast.
+
+1:15:13.280 --> 1:15:15.760
+ So there's a, you know, there's a little
+
+1:15:15.760 --> 1:15:18.520
+ creative tension there of, I want the acceleration
+
+1:15:18.520 --> 1:15:22.160
+ afforded by specialization without being over specialized
+
+1:15:22.160 --> 1:15:25.600
+ so that the new algorithm is so much more effective
+
+1:15:25.600 --> 1:15:27.960
+ that you'd have been better off on a GPU.
+
+1:15:27.960 --> 1:15:30.000
+ So there's a tension there.
+
+1:15:30.000 --> 1:15:33.000
+ To build a good computer for an application
+
+1:15:33.000 --> 1:15:36.240
+ like automotive, there's all kinds of sensor inputs
+
+1:15:36.240 --> 1:15:39.120
+ and safety processors and a bunch of stuff.
+
+1:15:39.120 --> 1:15:42.240
+ So one of Elon's goals is to make it super affordable.
+
+1:15:42.240 --> 1:15:44.840
+ So every car gets an autopilot computer.
+
+1:15:44.840 --> 1:15:46.520
+ So some of the recent startups you look at,
+
+1:15:46.520 --> 1:15:48.360
+ and they have a server in the trunk,
+
+1:15:48.360 --> 1:15:49.680
+ because they're saying, I'm gonna build
+
+1:15:49.680 --> 1:15:52.540
+ this autopilot computer, replaces the driver.
+
+1:15:52.540 --> 1:15:55.240
+ So their cost budget's 10 or $20,000.
+
+1:15:55.240 --> 1:15:58.780
+ And Elon's constraint was, I'm gonna put one in every car,
+
+1:15:58.780 --> 1:16:01.720
+ whether people buy autonomous driving or not.
+
+1:16:01.720 --> 1:16:05.260
+ So the cost constraint he had in mind was great, right?
+
+1:16:05.260 --> 1:16:08.400
+ And to hit that, you had to think about the system design.
+
+1:16:08.400 --> 1:16:09.880
+ That's complicated, and it's fun.
+
+1:16:09.880 --> 1:16:12.560
+ You know, it's like, it's like, it's craftsman's work.
+
+1:16:12.560 --> 1:16:14.240
+ Like, you know, a violin maker, right?
+
+1:16:14.240 --> 1:16:16.800
+ You can say, Stradivarius is this incredible thing,
+
+1:16:16.800 --> 1:16:18.480
+ the musicians are incredible.
+
+1:16:18.480 --> 1:16:20.480
+ But the guy making the violin, you know,
+
+1:16:20.480 --> 1:16:24.000
+ picked wood and sanded it, and then he cut it,
+
+1:16:24.000 --> 1:16:25.960
+ you know, and he glued it, you know,
+
+1:16:25.960 --> 1:16:27.920
+ and he waited for the right day
+
+1:16:27.920 --> 1:16:29.520
+ so that when he put the finish on it,
+
+1:16:29.520 --> 1:16:31.640
+ it didn't, you know, do something dumb.
+
+1:16:31.640 --> 1:16:33.880
+ That's craftsman's work, right?
+
+1:16:33.880 --> 1:16:35.520
+ You may be a genius craftsman
+
+1:16:35.520 --> 1:16:36.840
+ because you have the best techniques
+
+1:16:36.840 --> 1:16:38.840
+ and you discover a new one,
+
+1:16:38.840 --> 1:16:41.960
+ but most engineers, craftsman's work.
+
+1:16:41.960 --> 1:16:44.320
+ And humans really like to do that.
+
+1:16:44.320 --> 1:16:45.140
+ You know the expression?
+
+1:16:45.140 --> 1:16:45.980
+ Smart humans.
+
+1:16:45.980 --> 1:16:46.820
+ No, everybody.
+
+1:16:46.820 --> 1:16:47.660
+ All humans.
+
+1:16:47.660 --> 1:16:48.480
+ I don't know.
+
+1:16:48.480 --> 1:16:50.360
+ I used to, I dug ditches when I was in college.
+
+1:16:50.360 --> 1:16:51.440
+ I got really good at it.
+
+1:16:51.440 --> 1:16:52.620
+ Satisfying.
+
+1:16:52.620 --> 1:16:53.460
+ Yeah.
+
+1:16:53.460 --> 1:16:54.280
+ So.
+
+1:16:54.280 --> 1:16:55.480
+ Digging ditches is also craftsman's work.
+
+1:16:55.480 --> 1:16:56.960
+ Yeah, of course.
+
+1:16:56.960 --> 1:17:00.920
+ So there's an expression called complex mastery behavior.
+
+1:17:00.920 --> 1:17:02.080
+ So when you're learning something,
+
+1:17:02.080 --> 1:17:04.080
+ that's fine, because you're learning something.
+
+1:17:04.080 --> 1:17:05.760
+ When you do something, it's relatively simple.
+
+1:17:05.760 --> 1:17:06.700
+ It's not that satisfying.
+
+1:17:06.700 --> 1:17:10.360
+ But if the steps that you have to do are complicated
+
+1:17:10.360 --> 1:17:13.500
+ and you're good at them, it's satisfying to do them.
+
+1:17:14.640 --> 1:17:16.880
+ And then if you're intrigued by it all,
+
+1:17:16.880 --> 1:17:19.520
+ as you're doing them, you sometimes learn new things
+
+1:17:19.520 --> 1:17:21.600
+ that you can raise your game.
+
+1:17:21.600 --> 1:17:23.760
+ But craftsman's work is good.
+
+1:17:23.760 --> 1:17:27.080
+ And engineers, like engineering is complicated enough
+
+1:17:27.080 --> 1:17:28.800
+ that you have to learn a lot of skills.
+
+1:17:28.800 --> 1:17:32.360
+ And then a lot of what you do is then craftsman's work,
+
+1:17:32.360 --> 1:17:33.480
+ which is fun.
+
+1:17:33.480 --> 1:17:37.040
+ Autonomous driving, building a very resource
+
+1:17:37.040 --> 1:17:37.880
+ constrained computer.
+
+1:17:37.880 --> 1:17:39.520
+ So a computer has to be cheap enough
+
+1:17:39.520 --> 1:17:41.100
+ to put in every single car.
+
+1:17:41.100 --> 1:17:45.040
+ That essentially boils down to craftsman's work.
+
+1:17:45.040 --> 1:17:45.880
+ It's engineering, it's innovation.
+
+1:17:45.880 --> 1:17:47.680
+ Yeah, you know, there's thoughtful decisions
+
+1:17:47.680 --> 1:17:50.560
+ and problems to solve and trade offs to make.
+
+1:17:50.560 --> 1:17:52.480
+ Do you need 10 camera and ports or eight?
+
+1:17:52.480 --> 1:17:54.520
+ You know, you're building for the current car
+
+1:17:54.520 --> 1:17:56.000
+ or the next one.
+
+1:17:56.000 --> 1:17:57.880
+ You know, how do you do the safety stuff?
+
+1:17:57.880 --> 1:18:00.600
+ You know, there's a whole bunch of details.
+
+1:18:00.600 --> 1:18:01.440
+ But it's fun.
+
+1:18:01.440 --> 1:18:04.760
+ It's not like I'm building a new type of neural network,
+
+1:18:04.760 --> 1:18:08.040
+ which has a new mathematics and a new computer to work.
+
+1:18:08.040 --> 1:18:11.520
+ You know, that's like, there's more invention than that.
+
+1:18:12.400 --> 1:18:14.120
+ But the rejection to practice,
+
+1:18:14.120 --> 1:18:16.120
+ once you pick the architecture, you look inside
+
+1:18:16.120 --> 1:18:17.080
+ and what do you see?
+
+1:18:17.080 --> 1:18:20.360
+ Adders and multipliers and memories and, you know,
+
+1:18:20.360 --> 1:18:21.200
+ the basics.
+
+1:18:21.200 --> 1:18:25.640
+ So computers is always this weird set of abstraction layers
+
+1:18:25.640 --> 1:18:29.360
+ of ideas and thinking that reduction to practice
+
+1:18:29.360 --> 1:18:33.800
+ is transistors and wires and, you know, pretty basic stuff.
+
+1:18:33.800 --> 1:18:37.080
+ And that's an interesting phenomenon.
+
+1:18:37.080 --> 1:18:38.800
+ By the way, like factory work,
+
+1:18:38.800 --> 1:18:40.600
+ like lots of people think factory work
+
+1:18:40.600 --> 1:18:42.280
+ is road assembly stuff.
+
+1:18:42.280 --> 1:18:44.160
+ I've been on the assembly line.
+
+1:18:44.160 --> 1:18:46.280
+ Like the people who work there really like it.
+
+1:18:46.280 --> 1:18:47.880
+ It's a really great job.
+
+1:18:47.880 --> 1:18:48.760
+ It's really complicated.
+
+1:18:48.760 --> 1:18:50.920
+ Putting cars together is hard, right?
+
+1:18:50.920 --> 1:18:53.440
+ And the car is moving and the parts are moving
+
+1:18:53.440 --> 1:18:55.000
+ and sometimes the parts are damaged
+
+1:18:55.000 --> 1:18:57.560
+ and you have to coordinate putting all the stuff together
+
+1:18:57.560 --> 1:18:59.080
+ and people are good at it.
+
+1:18:59.080 --> 1:19:00.360
+ They're good at it.
+
+1:19:00.360 --> 1:19:01.760
+ And I remember one day I went to work
+
+1:19:01.760 --> 1:19:03.920
+ and the line was shut down for some reason
+
+1:19:03.920 --> 1:19:06.760
+ and some of the guys sitting around were really bummed
+
+1:19:06.760 --> 1:19:09.240
+ because they had reorganized a bunch of stuff
+
+1:19:09.240 --> 1:19:10.720
+ and they were gonna hit a new record
+
+1:19:10.720 --> 1:19:12.720
+ for the number of cars built that day.
+
+1:19:12.720 --> 1:19:14.160
+ And they were all gung ho to do it.
+
+1:19:14.160 --> 1:19:15.680
+ And these were big, tough buggers.
+
+1:19:15.680 --> 1:19:19.200
+ And, you know, but what they did was complicated
+
+1:19:19.200 --> 1:19:20.200
+ and you couldn't do it.
+
+1:19:20.200 --> 1:19:21.360
+ Yeah, and I mean.
+
+1:19:21.360 --> 1:19:22.760
+ Well, after a while you could,
+
+1:19:22.760 --> 1:19:24.200
+ but you'd have to work your way up
+
+1:19:24.200 --> 1:19:27.240
+ because, you know, like putting the bright,
+
+1:19:27.240 --> 1:19:30.960
+ what's called the brights, the trim on a car
+
+1:19:30.960 --> 1:19:32.600
+ on a moving assembly line
+
+1:19:32.600 --> 1:19:34.560
+ where it has to be attached 25 places
+
+1:19:34.560 --> 1:19:38.160
+ in a minute and a half is unbelievably complicated.
+
+1:19:39.200 --> 1:19:42.480
+ And human beings can do it, it's really good.
+
+1:19:42.480 --> 1:19:45.240
+ I think that's harder than driving a car, by the way.
+
+1:19:45.240 --> 1:19:47.040
+ Putting together, working at a.
+
+1:19:47.040 --> 1:19:48.560
+ Working on a factory.
+
+1:19:48.560 --> 1:19:51.360
+ Two smart people can disagree.
+
+1:19:51.360 --> 1:19:52.200
+ Yay.
+
+1:19:52.200 --> 1:19:54.440
+ I think driving a car.
+
+1:19:54.440 --> 1:19:56.120
+ We'll get you in the factory someday
+
+1:19:56.120 --> 1:19:57.400
+ and then we'll see how you do.
+
+1:19:57.400 --> 1:19:59.480
+ No, not for us humans driving a car is easy.
+
+1:19:59.480 --> 1:20:03.040
+ I'm saying building a machine that drives a car
+
+1:20:03.040 --> 1:20:04.280
+ is not easy.
+
+1:20:04.280 --> 1:20:05.120
+ No, okay.
+
+1:20:05.120 --> 1:20:05.960
+ Okay.
+
+1:20:05.960 --> 1:20:07.400
+ Driving a car is easy for humans
+
+1:20:07.400 --> 1:20:10.800
+ because we've been evolving for billions of years.
+
+1:20:10.800 --> 1:20:11.640
+ Drive cars.
+
+1:20:11.640 --> 1:20:13.280
+ Yeah, I noticed that.
+
+1:20:13.280 --> 1:20:15.600
+ The pale of the cars are super cool.
+
+1:20:16.600 --> 1:20:18.720
+ No, now you join the rest of the internet
+
+1:20:18.720 --> 1:20:19.840
+ and mocking me.
+
+1:20:19.840 --> 1:20:20.680
+ Okay.
+
+1:20:20.680 --> 1:20:22.840
+ I wasn't mocking, I was just.
+
+1:20:22.840 --> 1:20:23.680
+ Yeah, yeah.
+
+1:20:23.680 --> 1:20:26.800
+ Intrigued by your anthropology.
+
+1:20:26.800 --> 1:20:27.640
+ Yeah, it's.
+
+1:20:27.640 --> 1:20:28.960
+ I'll have to go dig into that.
+
+1:20:28.960 --> 1:20:31.080
+ There's some inaccuracies there, yes.
+
+1:20:31.080 --> 1:20:33.480
+ Okay, but in general,
+
+1:20:35.360 --> 1:20:38.760
+ what have you learned in terms of
+
+1:20:39.640 --> 1:20:44.000
+ thinking about passion, craftsmanship,
+
+1:20:44.000 --> 1:20:47.200
+ tension, chaos.
+
+1:20:47.200 --> 1:20:48.040
+ Jesus.
+
+1:20:48.040 --> 1:20:50.880
+ The whole mess of it.
+
+1:20:50.880 --> 1:20:54.240
+ What have you learned, have taken away from your time
+
+1:20:54.240 --> 1:20:57.000
+ working with Elon Musk, working at Tesla,
+
+1:20:57.000 --> 1:21:02.000
+ which is known to be a place of chaos innovation,
+
+1:21:02.600 --> 1:21:03.640
+ craftsmanship, and all of those things.
+
+1:21:03.640 --> 1:21:06.000
+ I really like the way you thought.
+
+1:21:06.000 --> 1:21:07.680
+ You think you have an understanding
+
+1:21:07.680 --> 1:21:10.000
+ about what first principles of something is,
+
+1:21:10.000 --> 1:21:11.640
+ and then you talk to Elon about it,
+
+1:21:11.640 --> 1:21:13.920
+ and you didn't scratch the surface.
+
+1:21:15.480 --> 1:21:18.360
+ He has a deep belief that no matter what you do,
+
+1:21:18.360 --> 1:21:21.200
+ it's a local maximum, right?
+
+1:21:21.200 --> 1:21:24.280
+ And I had a friend, he invented a better electric motor,
+
+1:21:24.280 --> 1:21:26.960
+ and it was a lot better than what we were using.
+
+1:21:26.960 --> 1:21:28.080
+ And one day he came by, he said,
+
+1:21:28.080 --> 1:21:31.920
+ I'm a little disappointed, because this is really great,
+
+1:21:31.920 --> 1:21:33.280
+ and you didn't seem that impressed.
+
+1:21:33.280 --> 1:21:37.280
+ And I said, when the super intelligent aliens come,
+
+1:21:37.280 --> 1:21:38.960
+ are they going to be looking for you?
+
+1:21:38.960 --> 1:21:39.800
+ Like, where is he?
+
+1:21:39.800 --> 1:21:41.920
+ The guy who built the motor.
+
+1:21:41.920 --> 1:21:42.760
+ Yeah.
+
+1:21:42.760 --> 1:21:43.600
+ Probably not.
+
+1:21:43.600 --> 1:21:48.320
+ You know, like, but doing interesting work
+
+1:21:48.320 --> 1:21:49.840
+ that's both innovative and, let's say,
+
+1:21:49.840 --> 1:21:51.800
+ craftsman's work on the current thing
+
+1:21:51.800 --> 1:21:54.200
+ is really satisfying, and it's good.
+
+1:21:54.200 --> 1:21:55.120
+ And that's cool.
+
+1:21:55.120 --> 1:21:59.000
+ And then Elon was good at taking everything apart,
+
+1:21:59.000 --> 1:22:01.640
+ and like, what's the deep first principle?
+
+1:22:01.640 --> 1:22:03.920
+ Oh, no, what's really, no, what's really?
+
+1:22:03.920 --> 1:22:08.920
+ You know, that ability to look at it without assumptions
+
+1:22:08.920 --> 1:22:13.680
+ and how constraints is super wild.
+
+1:22:13.680 --> 1:22:17.240
+ You know, he built a rocket ship, and an electric car,
+
+1:22:17.240 --> 1:22:18.360
+ and you know, everything.
+
+1:22:19.480 --> 1:22:21.280
+ And that's super fun, and he's into it, too.
+
+1:22:21.280 --> 1:22:25.600
+ Like, when they first landed two SpaceX rockets at Tesla,
+
+1:22:25.600 --> 1:22:27.440
+ we had a video projector in the big room,
+
+1:22:27.440 --> 1:22:29.280
+ and like, 500 people came down,
+
+1:22:29.280 --> 1:22:30.760
+ and when they landed, everybody cheered,
+
+1:22:30.760 --> 1:22:32.120
+ and some people cried.
+
+1:22:32.120 --> 1:22:33.200
+ It was so cool.
+
+1:22:34.160 --> 1:22:35.720
+ All right, but how did you do that?
+
+1:22:35.720 --> 1:22:40.720
+ Well, it was super hard, and then people say,
+
+1:22:40.760 --> 1:22:42.560
+ well, it's chaotic, really?
+
+1:22:42.560 --> 1:22:44.160
+ To get out of all your assumptions,
+
+1:22:44.160 --> 1:22:46.720
+ you think that's not gonna be unbelievably painful?
+
+1:22:47.720 --> 1:22:49.640
+ And is Elon tough?
+
+1:22:49.640 --> 1:22:50.960
+ Yeah, probably.
+
+1:22:50.960 --> 1:22:52.840
+ Do people look back on it and say,
+
+1:22:52.840 --> 1:22:57.080
+ boy, I'm really happy I had that experience
+
+1:22:57.080 --> 1:23:01.280
+ to go take apart that many layers of assumptions?
+
+1:23:02.440 --> 1:23:04.920
+ Sometimes super fun, sometimes painful.
+
+1:23:04.920 --> 1:23:07.920
+ So it could be emotionally and intellectually painful,
+
+1:23:07.920 --> 1:23:10.880
+ that whole process of just stripping away assumptions.
+
+1:23:10.880 --> 1:23:13.360
+ Yeah, imagine 99% of your thought process
+
+1:23:13.360 --> 1:23:15.400
+ is protecting your self conception,
+
+1:23:16.600 --> 1:23:18.680
+ and 98% of that's wrong.
+
+1:23:20.160 --> 1:23:21.560
+ Now you got the math right.
+
+1:23:22.640 --> 1:23:23.680
+ How do you think you're feeling
+
+1:23:23.680 --> 1:23:26.840
+ when you get back into that one bit that's useful,
+
+1:23:26.840 --> 1:23:27.760
+ and now you're open,
+
+1:23:27.760 --> 1:23:30.680
+ and you have the ability to do something different?
+
+1:23:30.680 --> 1:23:33.640
+ I don't know if I got the math right.
+
+1:23:33.640 --> 1:23:37.400
+ It might be 99.9, but it ain't 50.
+
+1:23:38.680 --> 1:23:42.280
+ Imagining it, the 50% is hard enough.
+
+1:23:44.200 --> 1:23:47.160
+ Now, for a long time, I've suspected you could get better.
+
+1:23:48.400 --> 1:23:50.720
+ Like you can think better, you can think more clearly,
+
+1:23:50.720 --> 1:23:52.040
+ you can take things apart.
+
+1:23:52.960 --> 1:23:56.400
+ And there's lots of examples of that, people who do that.
+
+1:23:56.400 --> 1:24:01.400
+ And Nilan is an example of that, you are an example.
+
+1:24:02.600 --> 1:24:05.480
+ I don't know if I am, I'm fun to talk to.
+
+1:24:06.520 --> 1:24:07.360
+ Certainly.
+
+1:24:07.360 --> 1:24:09.000
+ I've learned a lot of stuff.
+
+1:24:09.000 --> 1:24:12.960
+ Well, here's the other thing, I joke, like I read books,
+
+1:24:12.960 --> 1:24:14.560
+ and people think, oh, you read books.
+
+1:24:14.560 --> 1:24:19.560
+ Well, no, I've read a couple of books a week for 55 years.
+
+1:24:20.640 --> 1:24:21.520
+ Well, maybe 50,
+
+1:24:21.520 --> 1:24:24.640
+ because I didn't learn to read until I was age or something.
+
+1:24:24.640 --> 1:24:28.480
+ And it turns out when people write books,
+
+1:24:28.480 --> 1:24:31.240
+ they often take 20 years of their life
+
+1:24:31.240 --> 1:24:33.280
+ where they passionately did something,
+
+1:24:33.280 --> 1:24:36.080
+ reduce it to 200 pages.
+
+1:24:36.080 --> 1:24:37.440
+ That's kind of fun.
+
+1:24:37.440 --> 1:24:38.960
+ And then you go online,
+
+1:24:38.960 --> 1:24:41.080
+ and you can find out who wrote the best books
+
+1:24:41.080 --> 1:24:43.360
+ and who liked, you know, that's kind of wild.
+
+1:24:43.360 --> 1:24:45.200
+ So there's this wild selection process,
+
+1:24:45.200 --> 1:24:46.040
+ and then you can read it,
+
+1:24:46.040 --> 1:24:48.600
+ and for the most part, understand it.
+
+1:24:49.840 --> 1:24:51.920
+ And then you can go apply it.
+
+1:24:51.920 --> 1:24:53.000
+ Like I went to one company,
+
+1:24:53.000 --> 1:24:55.080
+ I thought, I haven't managed much before.
+
+1:24:55.080 --> 1:24:57.280
+ So I read 20 management books,
+
+1:24:57.280 --> 1:24:58.720
+ and I started talking to them,
+
+1:24:58.720 --> 1:25:01.400
+ and basically compared to all the VPs running around,
+
+1:25:01.400 --> 1:25:05.360
+ I'd read 19 more management books than anybody else.
+
+1:25:05.360 --> 1:25:08.600
+ It wasn't even that hard.
+
+1:25:08.600 --> 1:25:11.160
+ And half the stuff worked, like first time.
+
+1:25:11.160 --> 1:25:12.600
+ It wasn't even rocket science.
+
+1:25:13.520 --> 1:25:16.960
+ But at the core of that is questioning the assumptions,
+
+1:25:16.960 --> 1:25:20.000
+ or sort of entering the thinking,
+
+1:25:20.000 --> 1:25:21.760
+ first principles thinking,
+
+1:25:21.760 --> 1:25:24.880
+ sort of looking at the reality of the situation,
+
+1:25:24.880 --> 1:25:28.240
+ and using that knowledge, applying that knowledge.
+
+1:25:28.240 --> 1:25:29.080
+ So that's.
+
+1:25:29.080 --> 1:25:31.400
+ So I would say my brain has this idea
+
+1:25:31.400 --> 1:25:34.280
+ that you can question first assumptions.
+
+1:25:35.280 --> 1:25:38.320
+ But I can go days at a time and forget that,
+
+1:25:38.320 --> 1:25:41.480
+ and you have to kind of like circle back that observation.
+
+1:25:42.520 --> 1:25:45.200
+ Because it is emotionally challenging.
+
+1:25:45.200 --> 1:25:47.360
+ Well, it's hard to just keep it front and center,
+
+1:25:47.360 --> 1:25:50.440
+ because you operate on so many levels all the time,
+
+1:25:50.440 --> 1:25:53.480
+ and getting this done takes priority,
+
+1:25:53.480 --> 1:25:56.560
+ or being happy takes priority,
+
+1:25:56.560 --> 1:25:59.400
+ or screwing around takes priority.
+
+1:25:59.400 --> 1:26:03.080
+ Like how you go through life is complicated.
+
+1:26:03.080 --> 1:26:04.400
+ And then you remember, oh yeah,
+
+1:26:04.400 --> 1:26:06.600
+ I could really think first principles.
+
+1:26:06.600 --> 1:26:08.280
+ Oh shit, that's tiring.
+
+1:26:09.600 --> 1:26:12.760
+ But you do for a while, and that's kind of cool.
+
+1:26:12.760 --> 1:26:16.200
+ So just as a last question in your sense,
+
+1:26:16.200 --> 1:26:19.480
+ from the big picture, from the first principles,
+
+1:26:19.480 --> 1:26:21.520
+ do you think, you kind of answered it already,
+
+1:26:21.520 --> 1:26:25.000
+ but do you think autonomous driving is something
+
+1:26:25.000 --> 1:26:28.720
+ we can solve on a timeline of years?
+
+1:26:28.720 --> 1:26:32.240
+ So one, two, three, five, 10 years,
+
+1:26:32.240 --> 1:26:33.880
+ as opposed to a century?
+
+1:26:33.880 --> 1:26:35.400
+ Yeah, definitely.
+
+1:26:35.400 --> 1:26:37.440
+ Just to linger on it a little longer,
+
+1:26:37.440 --> 1:26:40.120
+ where's the confidence coming from?
+
+1:26:40.120 --> 1:26:42.640
+ Is it the fundamentals of the problem,
+
+1:26:42.640 --> 1:26:46.420
+ the fundamentals of building the hardware and the software?
+
+1:26:46.420 --> 1:26:50.680
+ As a computational problem, understanding ballistics,
+
+1:26:50.680 --> 1:26:55.680
+ roles, topography, it seems pretty solvable.
+
+1:26:56.800 --> 1:26:59.760
+ And you can see this, like speech recognition,
+
+1:26:59.760 --> 1:27:01.720
+ for a long time people are doing frequency
+
+1:27:01.720 --> 1:27:04.400
+ and domain analysis, and all kinds of stuff,
+
+1:27:04.400 --> 1:27:07.280
+ and that didn't work at all, right?
+
+1:27:07.280 --> 1:27:09.360
+ And then they did deep learning about it,
+
+1:27:09.360 --> 1:27:10.400
+ and it worked great.
+
+1:27:11.400 --> 1:27:13.520
+ And it took multiple iterations.
+
+1:27:13.520 --> 1:27:18.160
+ And autonomous driving is way past
+
+1:27:18.160 --> 1:27:19.860
+ the frequency analysis point.
+
+1:27:21.040 --> 1:27:23.900
+ Use radar, don't run into things.
+
+1:27:23.900 --> 1:27:25.440
+ And the data gathering's going up,
+
+1:27:25.440 --> 1:27:26.840
+ and the computation's going up,
+
+1:27:26.840 --> 1:27:28.640
+ and the algorithm understanding's going up,
+
+1:27:28.640 --> 1:27:30.020
+ and there's a whole bunch of problems
+
+1:27:30.020 --> 1:27:32.000
+ getting solved like that.
+
+1:27:32.000 --> 1:27:33.520
+ The data side is really powerful,
+
+1:27:33.520 --> 1:27:35.760
+ but I disagree with both you and Elon.
+
+1:27:35.760 --> 1:27:38.600
+ I'll tell Elon once again, as I did before,
+
+1:27:38.600 --> 1:27:42.400
+ that when you add human beings into the picture,
+
+1:27:42.400 --> 1:27:45.680
+ it's no longer a ballistics problem.
+
+1:27:45.680 --> 1:27:47.480
+ It's something more complicated,
+
+1:27:47.480 --> 1:27:50.360
+ but I could be very well proven wrong.
+
+1:27:50.360 --> 1:27:53.020
+ Cars are highly damped in terms of rate of change.
+
+1:27:53.880 --> 1:27:56.640
+ Like the steering system's really slow
+
+1:27:56.640 --> 1:27:57.640
+ compared to a computer.
+
+1:27:57.640 --> 1:28:01.000
+ The acceleration of the acceleration's really slow.
+
+1:28:01.000 --> 1:28:04.160
+ Yeah, on a certain timescale, on a ballistics timescale,
+
+1:28:04.160 --> 1:28:05.760
+ but human behavior, I don't know.
+
+1:28:07.340 --> 1:28:08.180
+ I shouldn't say.
+
+1:28:08.180 --> 1:28:09.780
+ Human beings are really slow too.
+
+1:28:09.780 --> 1:28:13.960
+ Weirdly, we operate half a second behind reality.
+
+1:28:13.960 --> 1:28:15.300
+ Nobody really understands that one either.
+
+1:28:15.300 --> 1:28:16.440
+ It's pretty funny.
+
+1:28:16.440 --> 1:28:18.160
+ Yeah, yeah.
+
+1:28:20.400 --> 1:28:23.600
+ We very well could be surprised,
+
+1:28:23.600 --> 1:28:25.160
+ and I think with the rate of improvement
+
+1:28:25.160 --> 1:28:26.880
+ in all aspects on both the compute
+
+1:28:26.880 --> 1:28:29.680
+ and the software and the hardware,
+
+1:28:29.680 --> 1:28:32.560
+ there's gonna be pleasant surprises all over the place.
+
+1:28:34.680 --> 1:28:36.720
+ Speaking of unpleasant surprises,
+
+1:28:36.720 --> 1:28:39.520
+ many people have worries about a singularity
+
+1:28:39.520 --> 1:28:41.680
+ in the development of AI.
+
+1:28:41.680 --> 1:28:43.160
+ Forgive me for such questions.
+
+1:28:43.160 --> 1:28:44.460
+ Yeah.
+
+1:28:44.460 --> 1:28:46.040
+ When AI improves the exponential
+
+1:28:46.040 --> 1:28:48.360
+ and reaches a point of superhuman level
+
+1:28:48.360 --> 1:28:52.040
+ general intelligence, beyond the point,
+
+1:28:52.040 --> 1:28:53.320
+ there's no looking back.
+
+1:28:53.320 --> 1:28:56.120
+ Do you share this worry of existential threats
+
+1:28:56.120 --> 1:28:57.380
+ from artificial intelligence,
+
+1:28:57.380 --> 1:29:00.780
+ from computers becoming superhuman level intelligent?
+
+1:29:01.920 --> 1:29:02.880
+ No, not really.
+
+1:29:04.600 --> 1:29:07.540
+ We already have a very stratified society,
+
+1:29:07.540 --> 1:29:09.400
+ and then if you look at the whole animal kingdom
+
+1:29:09.400 --> 1:29:12.560
+ of capabilities and abilities and interests,
+
+1:29:12.560 --> 1:29:15.280
+ and smart people have their niche,
+
+1:29:15.280 --> 1:29:17.760
+ and normal people have their niche,
+
+1:29:17.760 --> 1:29:19.640
+ and craftsmen have their niche,
+
+1:29:19.640 --> 1:29:22.520
+ and animals have their niche.
+
+1:29:22.520 --> 1:29:26.000
+ I suspect that the domains of interest
+
+1:29:26.000 --> 1:29:29.440
+ for things that are astronomically different,
+
+1:29:29.440 --> 1:29:32.280
+ like the whole something got 10 times smarter than us
+
+1:29:32.280 --> 1:29:34.680
+ and wanted to track us all down because what?
+
+1:29:34.680 --> 1:29:36.920
+ We like to have coffee at Starbucks?
+
+1:29:36.920 --> 1:29:38.880
+ Like, it doesn't seem plausible.
+
+1:29:38.880 --> 1:29:40.680
+ No, is there an existential problem
+
+1:29:40.680 --> 1:29:42.520
+ that how do you live in a world
+
+1:29:42.520 --> 1:29:44.080
+ where there's something way smarter than you,
+
+1:29:44.080 --> 1:29:46.400
+ and you based your kind of self esteem
+
+1:29:46.400 --> 1:29:48.880
+ on being the smartest local person?
+
+1:29:48.880 --> 1:29:52.520
+ Well, there's what, 0.1% of the population who thinks that?
+
+1:29:52.520 --> 1:29:54.840
+ Because the rest of the population's been dealing with it
+
+1:29:54.840 --> 1:29:56.720
+ since they were born.
+
+1:29:56.720 --> 1:30:00.940
+ So the breadth of possible experience
+
+1:30:00.940 --> 1:30:03.660
+ that can be interesting is really big.
+
+1:30:03.660 --> 1:30:08.660
+ And, you know, superintelligence seems likely,
+
+1:30:11.100 --> 1:30:14.200
+ although we still don't know if we're magical,
+
+1:30:14.200 --> 1:30:16.320
+ but I suspect we're not.
+
+1:30:16.320 --> 1:30:18.820
+ And it seems likely that it'll create possibilities
+
+1:30:18.820 --> 1:30:20.900
+ that are interesting for us,
+
+1:30:20.900 --> 1:30:24.500
+ and its interests will be interesting for that,
+
+1:30:24.500 --> 1:30:25.880
+ for whatever it is.
+
+1:30:26.800 --> 1:30:30.060
+ It's not obvious why its interests would somehow
+
+1:30:30.060 --> 1:30:32.360
+ want to fight over some square foot of dirt,
+
+1:30:32.360 --> 1:30:37.360
+ or, you know, whatever the usual fears are about.
+
+1:30:37.660 --> 1:30:38.980
+ So you don't think it'll inherit
+
+1:30:38.980 --> 1:30:41.260
+ some of the darker aspects of human nature?
+
+1:30:42.140 --> 1:30:45.180
+ Depends on how you think reality's constructed.
+
+1:30:45.180 --> 1:30:48.020
+ So for whatever reason,
+
+1:30:48.020 --> 1:30:50.540
+ human beings are in, let's say,
+
+1:30:50.540 --> 1:30:52.300
+ creative tension and opposition
+
+1:30:52.300 --> 1:30:55.340
+ with both our good and bad forces.
+
+1:30:55.340 --> 1:30:58.180
+ Like, there's lots of philosophical understanding of that.
+
+1:30:58.180 --> 1:31:03.180
+ I don't know why that would be different.
+
+1:31:03.180 --> 1:31:06.700
+ So you think the evil is necessary for the good?
+
+1:31:06.700 --> 1:31:08.180
+ I mean, the tension.
+
+1:31:08.180 --> 1:31:09.080
+ I don't know about evil,
+
+1:31:09.080 --> 1:31:11.620
+ but like we live in a competitive world
+
+1:31:11.620 --> 1:31:16.620
+ where your good is somebody else's evil.
+
+1:31:16.660 --> 1:31:19.280
+ You know, there's the malignant part of it,
+
+1:31:19.280 --> 1:31:22.720
+ but that seems to be self limiting,
+
+1:31:22.720 --> 1:31:26.280
+ although occasionally it's super horrible.
+
+1:31:26.280 --> 1:31:29.980
+ But yes, there's a debate over ideas,
+
+1:31:29.980 --> 1:31:32.340
+ and some people have different beliefs,
+
+1:31:32.340 --> 1:31:34.580
+ and that debate itself is a process.
+
+1:31:34.580 --> 1:31:37.580
+ So the arriving at something.
+
+1:31:37.580 --> 1:31:39.360
+ Yeah, and why wouldn't that continue?
+
+1:31:39.360 --> 1:31:40.200
+ Yeah.
+
+1:31:41.580 --> 1:31:43.140
+ But you don't think that whole process
+
+1:31:43.140 --> 1:31:46.140
+ will leave humans behind in a way that's painful?
+
+1:31:47.420 --> 1:31:48.660
+ Emotionally painful, yes.
+
+1:31:48.660 --> 1:31:51.060
+ For the 0.1%, they'll be.
+
+1:31:51.060 --> 1:31:52.340
+ Why isn't it already painful
+
+1:31:52.340 --> 1:31:54.060
+ for a large percentage of the population?
+
+1:31:54.060 --> 1:31:54.900
+ And it is.
+
+1:31:54.900 --> 1:31:57.860
+ I mean, society does have a lot of stress in it,
+
+1:31:57.860 --> 1:32:00.660
+ about the 1%, and about the this, and about the that,
+
+1:32:00.660 --> 1:32:03.740
+ but you know, everybody has a lot of stress in their life
+
+1:32:03.740 --> 1:32:05.220
+ about what they find satisfying,
+
+1:32:05.220 --> 1:32:09.800
+ and you know, know yourself seems to be the proper dictum,
+
+1:32:10.780 --> 1:32:14.200
+ and pursue something that makes your life meaningful
+
+1:32:14.200 --> 1:32:18.700
+ seems proper, and there's so many avenues on that.
+
+1:32:18.700 --> 1:32:21.100
+ Like, there's so much unexplored space
+
+1:32:21.100 --> 1:32:25.500
+ at every single level, you know.
+
+1:32:25.500 --> 1:32:29.640
+ I'm somewhat of, my nephew called me a jaded optimist.
+
+1:32:29.640 --> 1:32:33.820
+ And you know, so it's.
+
+1:32:33.820 --> 1:32:37.140
+ There's a beautiful tension in that label,
+
+1:32:37.140 --> 1:32:40.940
+ but if you were to look back at your life,
+
+1:32:40.940 --> 1:32:45.780
+ and could relive a moment, a set of moments,
+
+1:32:45.780 --> 1:32:49.220
+ because there were the happiest times of your life,
+
+1:32:49.220 --> 1:32:52.580
+ outside of family, what would that be?
+
+1:32:54.660 --> 1:32:56.680
+ I don't want to relive any moments.
+
+1:32:56.680 --> 1:32:58.020
+ I like that.
+
+1:32:58.020 --> 1:33:01.340
+ I like that situation where you have some amount of optimism
+
+1:33:01.340 --> 1:33:04.840
+ and then the anxiety of the unknown.
+
+1:33:06.260 --> 1:33:10.100
+ So you love the unknown, the mystery of it.
+
+1:33:10.100 --> 1:33:11.220
+ I don't know about the mystery.
+
+1:33:11.220 --> 1:33:12.920
+ It sure gets your blood pumping.
+
+1:33:14.060 --> 1:33:17.100
+ What do you think is the meaning of this whole thing?
+
+1:33:17.100 --> 1:33:20.640
+ Of life, on this pale blue dot?
+
+1:33:21.740 --> 1:33:23.860
+ It seems to be what it does.
+
+1:33:25.260 --> 1:33:29.260
+ Like, the universe, for whatever reason,
+
+1:33:29.260 --> 1:33:32.780
+ makes atoms, which makes us, which we do stuff.
+
+1:33:34.340 --> 1:33:38.020
+ And we figure out things, and we explore things, and.
+
+1:33:38.020 --> 1:33:39.820
+ That's just what it is.
+
+1:33:39.820 --> 1:33:41.580
+ It's not just.
+
+1:33:41.580 --> 1:33:43.560
+ Yeah, it is.
+
+1:33:44.540 --> 1:33:46.880
+ Jim, I don't think there's a better place to end it
+
+1:33:46.880 --> 1:33:50.100
+ is a huge honor, and.
+
+1:33:50.100 --> 1:33:51.180
+ Well, that was super fun.
+
+1:33:51.180 --> 1:33:52.520
+ Thank you so much for talking today.
+
+1:33:52.520 --> 1:33:54.060
+ All right, great.
+
+1:33:54.060 --> 1:33:56.180
+ Thanks for listening to this conversation,
+
+1:33:56.180 --> 1:33:59.360
+ and thank you to our presenting sponsor, Cash App.
+
+1:33:59.360 --> 1:34:02.020
+ Download it, use code LexPodcast.
+
+1:34:02.020 --> 1:34:04.820
+ You'll get $10, and $10 will go to FIRST,
+
+1:34:04.820 --> 1:34:07.620
+ a STEM education nonprofit that inspires hundreds
+
+1:34:07.620 --> 1:34:10.780
+ of thousands of young minds to become future leaders
+
+1:34:10.780 --> 1:34:12.180
+ and innovators.
+
+1:34:12.180 --> 1:34:15.020
+ If you enjoy this podcast, subscribe on YouTube.
+
+1:34:15.020 --> 1:34:17.020
+ Give it five stars on Apple Podcast.
+
+1:34:17.020 --> 1:34:19.660
+ Follow on Spotify, support it on Patreon,
+
+1:34:19.660 --> 1:34:22.320
+ or simply connect with me on Twitter.
+
+1:34:22.320 --> 1:34:24.780
+ And now, let me leave you with some words of wisdom
+
+1:34:24.780 --> 1:34:26.880
+ from Gordon Moore.
+
+1:34:26.880 --> 1:34:28.780
+ If everything you try works,
+
+1:34:28.780 --> 1:34:30.920
+ you aren't trying hard enough.
+
+1:34:30.920 --> 1:34:43.920
+ Thank you for listening, and hope to see you next time.
+

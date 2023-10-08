@@ -1,0 +1,6428 @@
+WEBVTT
+
+00:00.000 --> 00:03.880
+ The following is a conversation with Anca Drogon,
+
+00:03.880 --> 00:08.160
+ a professor at Berkeley working on human robot interaction,
+
+00:08.160 --> 00:10.760
+ algorithms that look beyond the robot's function
+
+00:10.760 --> 00:13.920
+ in isolation and generate robot behavior
+
+00:13.920 --> 00:15.960
+ that accounts for interaction
+
+00:15.960 --> 00:18.080
+ and coordination with human beings.
+
+00:18.080 --> 00:22.360
+ She also consults at Waymo, the autonomous vehicle company,
+
+00:22.360 --> 00:23.560
+ but in this conversation,
+
+00:23.560 --> 00:27.120
+ she is 100% wearing her Berkeley hat.
+
+00:27.120 --> 00:30.600
+ She is one of the most brilliant and fun roboticists
+
+00:30.600 --> 00:32.480
+ in the world to talk with.
+
+00:32.480 --> 00:36.320
+ I had a tough and crazy day leading up to this conversation,
+
+00:36.320 --> 00:41.320
+ so I was a bit tired, even more so than usual,
+
+00:41.440 --> 00:44.160
+ but almost immediately as she walked in,
+
+00:44.160 --> 00:46.320
+ her energy, passion, and excitement
+
+00:46.320 --> 00:48.880
+ for human robot interaction was contagious.
+
+00:48.880 --> 00:52.840
+ So I had a lot of fun and really enjoyed this conversation.
+
+00:52.840 --> 00:55.560
+ This is the Artificial Intelligence Podcast.
+
+00:55.560 --> 00:57.880
+ If you enjoy it, subscribe on YouTube,
+
+00:57.880 --> 01:00.320
+ review it with five stars on Apple Podcast,
+
+01:00.320 --> 01:01.680
+ support it on Patreon,
+
+01:01.680 --> 01:05.160
+ or simply connect with me on Twitter at Lex Friedman,
+
+01:05.160 --> 01:08.160
+ spelled F R I D M A N.
+
+01:08.160 --> 01:11.000
+ As usual, I'll do one or two minutes of ads now
+
+01:11.000 --> 01:12.560
+ and never any ads in the middle
+
+01:12.560 --> 01:14.800
+ that can break the flow of the conversation.
+
+01:14.800 --> 01:16.240
+ I hope that works for you
+
+01:16.240 --> 01:18.580
+ and doesn't hurt the listening experience.
+
+01:20.440 --> 01:22.720
+ This show is presented by Cash App,
+
+01:22.720 --> 01:25.520
+ the number one finance app in the App Store.
+
+01:25.520 --> 01:29.320
+ When you get it, use code LEXPODCAST.
+
+01:29.320 --> 01:31.360
+ Cash App lets you send money to friends,
+
+01:31.360 --> 01:33.880
+ buy Bitcoin, and invest in the stock market
+
+01:33.880 --> 01:36.000
+ with as little as one dollar.
+
+01:36.840 --> 01:39.200
+ Since Cash App does fractional share trading,
+
+01:39.200 --> 01:41.700
+ let me mention that the order execution algorithm
+
+01:41.700 --> 01:43.360
+ that works behind the scenes
+
+01:43.360 --> 01:45.960
+ to create the abstraction of fractional orders
+
+01:45.960 --> 01:48.180
+ is an algorithmic marvel.
+
+01:48.180 --> 01:50.500
+ So big props to the Cash App engineers
+
+01:50.500 --> 01:53.240
+ for solving a hard problem that in the end
+
+01:53.240 --> 01:56.120
+ provides an easy interface that takes a step up
+
+01:56.120 --> 01:59.320
+ to the next layer of abstraction over the stock market,
+
+01:59.320 --> 02:02.060
+ making trading more accessible for new investors
+
+02:02.060 --> 02:04.820
+ and diversification much easier.
+
+02:05.860 --> 02:08.240
+ So again, if you get Cash App from the App Store
+
+02:08.240 --> 02:11.880
+ or Google Play and use the code LEXPODCAST,
+
+02:11.880 --> 02:15.920
+ you get $10 and Cash App will also donate $10 to FIRST,
+
+02:15.920 --> 02:18.520
+ an organization that is helping to advance robotics
+
+02:18.520 --> 02:22.280
+ and STEM education for young people around the world.
+
+02:22.280 --> 02:25.880
+ And now, here's my conversation with Anca Drogon.
+
+02:26.800 --> 02:29.880
+ When did you first fall in love with robotics?
+
+02:29.880 --> 02:34.200
+ I think it was a very gradual process
+
+02:34.200 --> 02:37.040
+ and it was somewhat accidental actually
+
+02:37.040 --> 02:41.160
+ because I first started getting into programming
+
+02:41.160 --> 02:43.200
+ when I was a kid and then into math
+
+02:43.200 --> 02:46.280
+ and then I decided computer science
+
+02:46.280 --> 02:47.840
+ was the thing I was gonna do
+
+02:47.840 --> 02:50.160
+ and then in college I got into AI
+
+02:50.160 --> 02:52.480
+ and then I applied to the Robotics Institute
+
+02:52.480 --> 02:56.080
+ at Carnegie Mellon and I was coming from this little school
+
+02:56.080 --> 02:59.000
+ in Germany that nobody had heard of
+
+02:59.000 --> 03:01.800
+ but I had spent an exchange semester at Carnegie Mellon
+
+03:01.800 --> 03:04.040
+ so I had letters from Carnegie Mellon.
+
+03:04.040 --> 03:06.880
+ So that was the only, you know, MIT said no,
+
+03:06.880 --> 03:09.200
+ Berkeley said no, Stanford said no.
+
+03:09.200 --> 03:11.100
+ That was the only place I got into
+
+03:11.100 --> 03:13.200
+ so I went there to the Robotics Institute
+
+03:13.200 --> 03:16.240
+ and I thought that robotics is a really cool way
+
+03:16.240 --> 03:20.000
+ to actually apply the stuff that I knew and loved
+
+03:20.000 --> 03:23.240
+ to like optimization so that's how I got into robotics.
+
+03:23.240 --> 03:25.800
+ I have a better story how I got into cars
+
+03:25.800 --> 03:30.800
+ which is I used to do mostly manipulation in my PhD
+
+03:31.600 --> 03:34.800
+ but now I do kind of a bit of everything application wise
+
+03:34.800 --> 03:38.960
+ including cars and I got into cars
+
+03:38.960 --> 03:42.180
+ because I was here in Berkeley
+
+03:42.180 --> 03:46.400
+ while I was a PhD student still for RSS 2014,
+
+03:46.400 --> 03:50.380
+ Peter Bill organized it and he arranged for,
+
+03:50.380 --> 03:52.840
+ it was Google at the time to give us rides
+
+03:52.840 --> 03:56.400
+ in self driving cars and I was in a robot
+
+03:56.400 --> 04:00.660
+ and it was just making decision after decision,
+
+04:00.660 --> 04:03.400
+ the right call and it was so amazing.
+
+04:03.400 --> 04:05.560
+ So it was a whole different experience, right?
+
+04:05.560 --> 04:07.880
+ Just I mean manipulation is so hard you can't do anything
+
+04:07.880 --> 04:08.720
+ and there it was.
+
+04:08.720 --> 04:11.200
+ Was it the most magical robot you've ever met?
+
+04:11.200 --> 04:14.940
+ So like for me to meet a Google self driving car
+
+04:14.940 --> 04:17.600
+ for the first time was like a transformative moment.
+
+04:18.480 --> 04:19.960
+ Like I had two moments like that,
+
+04:19.960 --> 04:22.480
+ that and Spot Mini, I don't know if you met Spot Mini
+
+04:22.480 --> 04:24.160
+ from Boston Dynamics.
+
+04:24.160 --> 04:27.200
+ I felt like I fell in love or something
+
+04:27.200 --> 04:30.840
+ like it, cause I know how a Spot Mini works, right?
+
+04:30.840 --> 04:34.000
+ It's just, I mean there's nothing truly special,
+
+04:34.000 --> 04:38.440
+ it's great engineering work but the anthropomorphism
+
+04:38.440 --> 04:41.440
+ that went on into my brain that came to life
+
+04:41.440 --> 04:45.880
+ like it had a little arm and it looked at me,
+
+04:45.880 --> 04:47.640
+ he, she looked at me, I don't know,
+
+04:47.640 --> 04:48.960
+ there's a magical connection there
+
+04:48.960 --> 04:52.480
+ and it made me realize, wow, robots can be so much more
+
+04:52.480 --> 04:54.240
+ than things that manipulate objects.
+
+04:54.240 --> 04:56.920
+ They can be things that have a human connection.
+
+04:56.920 --> 05:01.100
+ Do you have, was the self driving car the moment like,
+
+05:01.100 --> 05:04.680
+ was there a robot that truly sort of inspired you?
+
+05:04.680 --> 05:08.240
+ That was, I remember that experience very viscerally,
+
+05:08.240 --> 05:11.600
+ riding in that car and being just wowed.
+
+05:11.600 --> 05:16.040
+ I had the, they gave us a sticker that said,
+
+05:16.040 --> 05:17.520
+ I rode in a self driving car
+
+05:17.520 --> 05:20.880
+ and it had this cute little firefly on and,
+
+05:20.880 --> 05:21.720
+ or logo or something like that.
+
+05:21.720 --> 05:23.680
+ Oh, that was like the smaller one, like the firefly.
+
+05:23.680 --> 05:25.640
+ Yeah, the really cute one, yeah.
+
+05:25.640 --> 05:30.140
+ And I put it on my laptop and I had that for years
+
+05:30.140 --> 05:33.120
+ until I finally changed my laptop out and you know.
+
+05:33.120 --> 05:36.320
+ What about if we walk back, you mentioned optimization,
+
+05:36.320 --> 05:40.760
+ like what beautiful ideas inspired you in math,
+
+05:40.760 --> 05:42.680
+ computer science early on?
+
+05:42.680 --> 05:44.560
+ Like why get into this field?
+
+05:44.560 --> 05:47.460
+ It seems like a cold and boring field of math.
+
+05:47.460 --> 05:49.080
+ Like what was exciting to you about it?
+
+05:49.080 --> 05:52.460
+ The thing is I liked math from very early on,
+
+05:52.460 --> 05:56.720
+ from fifth grade is when I got into the math Olympiad
+
+05:56.720 --> 05:57.540
+ and all of that.
+
+05:57.540 --> 05:58.600
+ Oh, you competed too?
+
+05:58.600 --> 06:01.440
+ Yeah, this, it Romania is like our national sport too,
+
+06:01.440 --> 06:02.840
+ you gotta understand.
+
+06:02.840 --> 06:05.800
+ So I got into that fairly early
+
+06:05.800 --> 06:10.240
+ and it was a little, maybe too just theory
+
+06:10.240 --> 06:13.000
+ with no kind of, I didn't kind of had a,
+
+06:13.000 --> 06:15.040
+ didn't really have a goal.
+
+06:15.040 --> 06:17.600
+ And other than understanding, which was cool,
+
+06:17.600 --> 06:19.360
+ I always liked learning and understanding,
+
+06:19.360 --> 06:20.240
+ but there was no, okay,
+
+06:20.240 --> 06:22.280
+ what am I applying this understanding to?
+
+06:22.280 --> 06:23.880
+ And so I think that's how I got into,
+
+06:23.880 --> 06:25.400
+ more heavily into computer science
+
+06:25.400 --> 06:29.280
+ because it was kind of math meets something
+
+06:29.280 --> 06:31.360
+ you can do tangibly in the world.
+
+06:31.360 --> 06:34.520
+ Do you remember like the first program you've written?
+
+06:34.520 --> 06:37.360
+ Okay, the first program I've written with,
+
+06:37.360 --> 06:41.520
+ I kind of do, it was in Cubasic in fourth grade.
+
+06:42.600 --> 06:43.440
+ Wow.
+
+06:43.440 --> 06:46.680
+ And it was drawing like a circle.
+
+06:46.680 --> 06:47.520
+ Graphics.
+
+06:47.520 --> 06:50.840
+ Yeah, that was, I don't know how to do that anymore,
+
+06:51.720 --> 06:52.880
+ but in fourth grade,
+
+06:52.880 --> 06:54.200
+ that's the first thing that they taught me.
+
+06:54.200 --> 06:56.320
+ I was like, you could take a special,
+
+06:56.320 --> 06:57.600
+ I wouldn't say it was an extracurricular,
+
+06:57.600 --> 06:59.040
+ it's in the sense an extracurricular,
+
+06:59.040 --> 07:03.340
+ so you could sign up for dance or music or programming.
+
+07:03.340 --> 07:04.700
+ And I did the programming thing
+
+07:04.700 --> 07:06.960
+ and my mom was like, what, why?
+
+07:07.840 --> 07:08.880
+ Did you compete in programming?
+
+07:08.880 --> 07:12.040
+ Like these days, Romania probably,
+
+07:12.040 --> 07:12.980
+ that's like a big thing.
+
+07:12.980 --> 07:15.400
+ There's a programming competition.
+
+07:15.400 --> 07:17.120
+ Was that, did that touch you at all?
+
+07:17.120 --> 07:21.360
+ I did a little bit of the computer science Olympian,
+
+07:21.360 --> 07:24.720
+ but not as seriously as I did the math Olympian.
+
+07:24.720 --> 07:25.760
+ So it was programming.
+
+07:25.760 --> 07:26.720
+ Yeah, it's basically,
+
+07:26.720 --> 07:27.720
+ here's a hard math problem,
+
+07:27.720 --> 07:29.480
+ solve it with a computer is kind of the deal.
+
+07:29.480 --> 07:30.720
+ Yeah, it's more like algorithm.
+
+07:30.720 --> 07:32.640
+ Exactly, it's always algorithmic.
+
+07:32.640 --> 07:36.720
+ So again, you kind of mentioned the Google self driving car,
+
+07:36.720 --> 07:39.920
+ but outside of that,
+
+07:39.920 --> 07:44.000
+ what's like who or what is your favorite robot,
+
+07:44.000 --> 07:46.520
+ real or fictional that like captivated
+
+07:46.520 --> 07:48.360
+ your imagination throughout?
+
+07:48.360 --> 07:49.900
+ I mean, I guess you kind of alluded
+
+07:49.900 --> 07:51.440
+ to the Google self drive,
+
+07:51.440 --> 07:53.620
+ the Firefly was a magical moment,
+
+07:53.620 --> 07:54.880
+ but is there something else?
+
+07:54.880 --> 07:56.220
+ It wasn't the Firefly there,
+
+07:56.220 --> 07:58.000
+ I think there was the Lexus by the way.
+
+07:58.000 --> 07:59.660
+ This was back then.
+
+07:59.660 --> 08:02.720
+ But yeah, so good question.
+
+08:02.720 --> 08:07.720
+ Okay, my favorite fictional robot is WALLI.
+
+08:08.800 --> 08:13.800
+ And I love how amazingly expressive it is.
+
+08:15.000 --> 08:16.040
+ I'm personally thinks a little bit
+
+08:16.040 --> 08:18.400
+ about expressive motion kinds of things you're saying with,
+
+08:18.400 --> 08:20.800
+ you can do this and it's a head and it's the manipulator
+
+08:20.800 --> 08:22.840
+ and what does it all mean?
+
+08:22.840 --> 08:24.040
+ I like to think about that stuff.
+
+08:24.040 --> 08:26.160
+ I love Pixar, I love animation.
+
+08:26.160 --> 08:28.680
+ WALLI has two big eyes, I think, or no?
+
+08:28.680 --> 08:33.680
+ Yeah, it has these cameras and they move.
+
+08:34.600 --> 08:38.860
+ So yeah, it goes and then it's super cute.
+
+08:38.860 --> 08:41.480
+ Yeah, the way it moves is just so expressive,
+
+08:41.480 --> 08:43.280
+ the timing of that motion,
+
+08:43.280 --> 08:44.760
+ what it's doing with its arms
+
+08:44.760 --> 08:48.280
+ and what it's doing with these lenses is amazing.
+
+08:48.280 --> 08:53.280
+ And so I've really liked that from the start.
+
+08:53.360 --> 08:56.440
+ And then on top of that, sometimes I share this,
+
+08:56.440 --> 08:58.120
+ it's a personal story I share with people
+
+08:58.120 --> 09:01.160
+ or when I teach about AI or whatnot.
+
+09:01.160 --> 09:06.080
+ My husband proposed to me by building a WALLI
+
+09:07.040 --> 09:09.700
+ and he actuated it.
+
+09:09.700 --> 09:13.520
+ So it's seven degrees of freedom, including the lens thing.
+
+09:13.520 --> 09:17.960
+ And it kind of came in and it had the,
+
+09:17.960 --> 09:21.880
+ he made it have like the belly box opening thing.
+
+09:21.880 --> 09:23.520
+ So it just did that.
+
+09:23.520 --> 09:27.600
+ And then it spewed out this box made out of Legos
+
+09:27.600 --> 09:31.200
+ that open slowly and then bam, yeah.
+
+09:31.200 --> 09:34.360
+ Yeah, it was quite, it set a bar.
+
+09:34.360 --> 09:37.620
+ That could be like the most impressive thing I've ever heard.
+
+09:37.620 --> 09:39.080
+ Okay.
+
+09:39.080 --> 09:40.980
+ That was special connection to WALLI, long story short.
+
+09:40.980 --> 09:43.760
+ I like WALLI because I like animation and I like robots
+
+09:43.760 --> 09:46.920
+ and I like the fact that this was,
+
+09:46.920 --> 09:49.880
+ we still have this robot to this day.
+
+09:49.880 --> 09:50.920
+ How hard is that problem,
+
+09:50.920 --> 09:54.260
+ do you think of the expressivity of robots?
+
+09:54.260 --> 09:59.000
+ Like with the Boston Dynamics, I never talked to those folks
+
+09:59.000 --> 10:00.360
+ about this particular element.
+
+10:00.360 --> 10:02.120
+ I've talked to them a lot,
+
+10:02.120 --> 10:05.320
+ but it seems to be like almost an accidental side effect
+
+10:05.320 --> 10:07.480
+ for them that they weren't,
+
+10:07.480 --> 10:08.720
+ I don't know if they're faking it.
+
+10:08.720 --> 10:11.740
+ They weren't trying to, okay.
+
+10:11.740 --> 10:14.240
+ They do say that the gripper,
+
+10:14.240 --> 10:16.620
+ it was not intended to be a face.
+
+10:17.920 --> 10:20.400
+ I don't know if that's a honest statement,
+
+10:20.400 --> 10:21.720
+ but I think they're legitimate.
+
+10:21.720 --> 10:25.720
+ Probably yes. And so do we automatically just
+
+10:25.720 --> 10:29.320
+ anthropomorphize anything we can see about a robot?
+
+10:29.320 --> 10:30.720
+ So like the question is,
+
+10:30.720 --> 10:33.680
+ how hard is it to create a WALLI type robot
+
+10:33.680 --> 10:35.360
+ that connects so deeply with us humans?
+
+10:35.360 --> 10:36.760
+ What do you think?
+
+10:36.760 --> 10:37.880
+ It's really hard, right?
+
+10:37.880 --> 10:39.980
+ So it depends on what setting.
+
+10:39.980 --> 10:44.980
+ So if you wanna do it in this very particular narrow setting
+
+10:45.760 --> 10:48.200
+ where it does only one thing and it's expressive,
+
+10:48.200 --> 10:50.120
+ then you can get an animator, you know,
+
+10:50.120 --> 10:52.100
+ you can have Pixar on call come in,
+
+10:52.100 --> 10:53.520
+ design some trajectories.
+
+10:53.520 --> 10:56.040
+ There was a, Anki had a robot called Cosmo
+
+10:56.040 --> 10:58.360
+ where they put in some of these animations.
+
+10:58.360 --> 11:00.520
+ That part is easy, right?
+
+11:00.520 --> 11:04.320
+ The hard part is doing it not via these
+
+11:04.320 --> 11:06.480
+ kind of handcrafted behaviors,
+
+11:06.480 --> 11:09.820
+ but doing it generally autonomously.
+
+11:09.820 --> 11:12.040
+ Like I want robots, I don't work on,
+
+11:12.040 --> 11:14.680
+ just to clarify, I don't, I used to work a lot on this.
+
+11:14.680 --> 11:17.360
+ I don't work on that quite as much these days,
+
+11:17.360 --> 11:21.720
+ but the notion of having robots that, you know,
+
+11:21.720 --> 11:24.320
+ when they pick something up and put it in a place,
+
+11:24.320 --> 11:28.160
+ they can do that with various forms of style,
+
+11:28.160 --> 11:30.200
+ or you can say, well, this robot is, you know,
+
+11:30.200 --> 11:32.000
+ succeeding at this task and is confident
+
+11:32.000 --> 11:34.080
+ versus it's hesitant versus, you know,
+
+11:34.080 --> 11:35.920
+ maybe it's happy or it's, you know,
+
+11:35.920 --> 11:38.800
+ disappointed about something, some failure that it had.
+
+11:38.800 --> 11:41.320
+ I think that when robots move,
+
+11:42.880 --> 11:46.840
+ they can communicate so much about internal states
+
+11:46.840 --> 11:49.800
+ or perceived internal states that they have.
+
+11:49.800 --> 11:53.320
+ And I think that's really useful
+
+11:53.320 --> 11:55.520
+ and an element that we'll want in the future
+
+11:55.520 --> 11:58.080
+ because I was reading this article
+
+11:58.080 --> 12:02.260
+ about how kids are,
+
+12:04.120 --> 12:07.360
+ kids are being rude to Alexa
+
+12:07.360 --> 12:09.680
+ because they can be rude to it
+
+12:09.680 --> 12:11.560
+ and it doesn't really get angry, right?
+
+12:11.560 --> 12:15.200
+ It doesn't reply in any way, it just says the same thing.
+
+12:15.200 --> 12:17.560
+ So I think there's, at least for that,
+
+12:17.560 --> 12:20.040
+ for the correct development of children,
+
+12:20.040 --> 12:21.480
+ it's important that these things,
+
+12:21.480 --> 12:22.920
+ you kind of react differently.
+
+12:22.920 --> 12:24.600
+ I also think, you know, you walk in your home
+
+12:24.600 --> 12:27.160
+ and you have a personal robot and if you're really pissed,
+
+12:27.160 --> 12:28.880
+ presumably the robot should kind of behave
+
+12:28.880 --> 12:31.320
+ slightly differently than when you're super happy
+
+12:31.320 --> 12:36.020
+ and excited, but it's really hard because it's,
+
+12:36.020 --> 12:38.720
+ I don't know, you know, the way I would think about it
+
+12:38.720 --> 12:40.840
+ and the way I thought about it when it came to
+
+12:40.840 --> 12:44.080
+ expressing goals or intentions for robots,
+
+12:44.080 --> 12:47.440
+ it's, well, what's really happening is that
+
+12:47.440 --> 12:51.520
+ instead of doing robotics where you have your state
+
+12:51.520 --> 12:55.600
+ and you have your action space and you have your space,
+
+12:55.600 --> 12:57.840
+ the reward function that you're trying to optimize,
+
+12:57.840 --> 13:00.560
+ now you kind of have to expand the notion of state
+
+13:00.560 --> 13:02.780
+ to include this human internal state.
+
+13:02.780 --> 13:05.920
+ What is the person actually perceiving?
+
+13:05.920 --> 13:08.600
+ What do they think about the robots?
+
+13:08.600 --> 13:10.160
+ Something or rather,
+
+13:10.160 --> 13:12.760
+ and then you have to optimize in that system.
+
+13:12.760 --> 13:14.120
+ And so that means that you have to understand
+
+13:14.120 --> 13:17.960
+ how your motion, your actions end up sort of influencing
+
+13:17.960 --> 13:20.980
+ the observer's kind of perception of you.
+
+13:20.980 --> 13:25.040
+ And it's very hard to write math about that.
+
+13:25.040 --> 13:27.140
+ Right, so when you start to think about
+
+13:27.140 --> 13:29.760
+ incorporating the human into the state model,
+
+13:31.560 --> 13:33.680
+ apologize for the philosophical question,
+
+13:33.680 --> 13:36.440
+ but how complicated are human beings, do you think?
+
+13:36.440 --> 13:40.740
+ Like, can they be reduced to a kind of
+
+13:40.740 --> 13:43.740
+ almost like an object that moves
+
+13:43.740 --> 13:46.160
+ and maybe has some basic intents?
+
+13:46.160 --> 13:50.060
+ Or is there something, do we have to model things like mood
+
+13:50.060 --> 13:52.780
+ and general aggressiveness and time?
+
+13:52.780 --> 13:54.980
+ I mean, all these kinds of human qualities
+
+13:54.980 --> 13:58.780
+ or like game theoretic qualities, like what's your sense?
+
+13:58.780 --> 14:00.140
+ How complicated is...
+
+14:00.140 --> 14:03.340
+ How hard is the problem of human robot interaction?
+
+14:03.340 --> 14:05.260
+ Yeah, should we talk about
+
+14:05.260 --> 14:07.780
+ what the problem of human robot interaction is?
+
+14:07.780 --> 14:10.860
+ Yeah, what is human robot interaction?
+
+14:10.860 --> 14:12.300
+ And then talk about how that, yeah.
+
+14:12.300 --> 14:15.020
+ So, and by the way, I'm gonna talk about
+
+14:15.020 --> 14:19.060
+ this very particular view of human robot interaction, right?
+
+14:19.060 --> 14:21.620
+ Which is not so much on the social side
+
+14:21.620 --> 14:24.540
+ or on the side of how do you have a good conversation
+
+14:24.540 --> 14:26.780
+ with the robot, what should the robot's appearance be?
+
+14:26.780 --> 14:29.220
+ It turns out that if you make robots taller versus shorter,
+
+14:29.220 --> 14:31.900
+ this has an effect on how people act with them.
+
+14:31.900 --> 14:34.660
+ So I'm not talking about that.
+
+14:34.660 --> 14:36.260
+ But I'm talking about this very kind of narrow thing,
+
+14:36.260 --> 14:39.900
+ which is you take, if you wanna take a task
+
+14:39.900 --> 14:42.860
+ that a robot can do in isolation,
+
+14:42.860 --> 14:46.580
+ in a lab out there in the world, but in isolation,
+
+14:46.580 --> 14:49.740
+ and now you're asking what does it mean for the robot
+
+14:49.740 --> 14:52.580
+ to be able to do this task for,
+
+14:52.580 --> 14:54.300
+ presumably what its actually end goal is,
+
+14:54.300 --> 14:55.900
+ which is to help some person.
+
+14:56.740 --> 15:01.740
+ That ends up changing the problem in two ways.
+
+15:02.940 --> 15:04.700
+ The first way it changes the problem is that
+
+15:04.700 --> 15:08.580
+ the robot is no longer the single agent acting.
+
+15:08.580 --> 15:10.980
+ That you have humans who also take actions
+
+15:10.980 --> 15:12.140
+ in that same space.
+
+15:12.140 --> 15:15.300
+ Cars navigating around people, robots around an office,
+
+15:15.300 --> 15:18.580
+ navigating around the people in that office.
+
+15:18.580 --> 15:20.900
+ If I send the robot over there in the cafeteria
+
+15:20.900 --> 15:23.580
+ to get me a coffee, then there's probably other people
+
+15:23.580 --> 15:25.340
+ reaching for stuff in the same space.
+
+15:25.340 --> 15:28.580
+ And so now you have your robot and you're in charge
+
+15:28.580 --> 15:30.580
+ of the actions that the robot is taking.
+
+15:30.580 --> 15:33.500
+ Then you have these people who are also making decisions
+
+15:33.500 --> 15:36.260
+ and taking actions in that same space.
+
+15:36.260 --> 15:39.140
+ And even if, you know, the robot knows what it should do
+
+15:39.140 --> 15:42.740
+ and all of that, just coexisting with these people, right?
+
+15:42.740 --> 15:45.340
+ Kind of getting the actions to gel well,
+
+15:45.340 --> 15:47.100
+ to mesh well together.
+
+15:47.100 --> 15:50.500
+ That's sort of the kind of problem number one.
+
+15:50.500 --> 15:51.660
+ And then there's problem number two,
+
+15:51.660 --> 15:56.660
+ which is, goes back to this notion of if I'm a programmer,
+
+15:58.220 --> 16:00.900
+ I can specify some objective for the robot
+
+16:00.900 --> 16:03.820
+ to go off and optimize and specify the task.
+
+16:03.820 --> 16:07.340
+ But if I put the robot in your home,
+
+16:07.340 --> 16:11.420
+ presumably you might have your own opinions about,
+
+16:11.420 --> 16:12.860
+ well, okay, I want my house clean,
+
+16:12.860 --> 16:14.060
+ but how do I want it cleaned?
+
+16:14.060 --> 16:16.340
+ And how should robot move, how close to me it should come
+
+16:16.340 --> 16:17.340
+ and all of that.
+
+16:17.340 --> 16:20.380
+ And so I think those are the two differences that you have.
+
+16:20.380 --> 16:24.940
+ You're acting around people and what you should be
+
+16:24.940 --> 16:27.500
+ optimizing for should satisfy the preferences
+
+16:27.500 --> 16:30.860
+ of that end user, not of your programmer who programmed you.
+
+16:30.860 --> 16:33.780
+ Yeah, and the preferences thing is tricky.
+
+16:33.780 --> 16:35.700
+ So figuring out those preferences,
+
+16:35.700 --> 16:38.340
+ be able to interactively adjust
+
+16:38.340 --> 16:39.860
+ to understand what the human is doing.
+
+16:39.860 --> 16:42.260
+ So really it boils down to understand the humans
+
+16:42.260 --> 16:45.860
+ in order to interact with them and in order to please them.
+
+16:45.860 --> 16:47.100
+ Right.
+
+16:47.100 --> 16:48.420
+ So why is this hard?
+
+16:48.420 --> 16:51.100
+ Yeah, why is understanding humans hard?
+
+16:51.100 --> 16:56.100
+ So I think there's two tasks about understanding humans
+
+16:57.980 --> 16:59.940
+ that in my mind are very, very similar,
+
+16:59.940 --> 17:00.980
+ but not everyone agrees.
+
+17:00.980 --> 17:04.460
+ So there's the task of being able to just anticipate
+
+17:04.460 --> 17:05.740
+ what people will do.
+
+17:05.740 --> 17:07.620
+ We all know that cars need to do this, right?
+
+17:07.620 --> 17:10.580
+ We all know that, well, if I navigate around some people,
+
+17:10.580 --> 17:12.580
+ the robot has to get some notion of,
+
+17:12.580 --> 17:15.500
+ okay, where is this person gonna be?
+
+17:15.500 --> 17:17.340
+ So that's kind of the prediction side.
+
+17:17.340 --> 17:19.260
+ And then there's what you were saying,
+
+17:19.260 --> 17:21.060
+ satisfying the preferences, right?
+
+17:21.060 --> 17:22.820
+ So adapting to the person's preferences,
+
+17:22.820 --> 17:24.500
+ knowing what to optimize for,
+
+17:24.500 --> 17:25.900
+ which is more this inference side,
+
+17:25.900 --> 17:28.820
+ this what does this person want?
+
+17:28.820 --> 17:31.580
+ What is their intent? What are their preferences?
+
+17:31.580 --> 17:35.100
+ And to me, those kind of go together
+
+17:35.100 --> 17:39.700
+ because I think that at the very least,
+
+17:39.700 --> 17:42.980
+ if you can understand, if you can look at human behavior
+
+17:42.980 --> 17:45.500
+ and understand what it is that they want,
+
+17:45.500 --> 17:47.380
+ then that's sort of the key enabler
+
+17:47.380 --> 17:50.660
+ to being able to anticipate what they'll do in the future.
+
+17:50.660 --> 17:53.580
+ Because I think that we're not arbitrary.
+
+17:53.580 --> 17:55.380
+ We make these decisions that we make,
+
+17:55.380 --> 17:56.940
+ we act in the way we do
+
+17:56.940 --> 17:59.340
+ because we're trying to achieve certain things.
+
+17:59.340 --> 18:01.540
+ And so I think that's the relationship between them.
+
+18:01.540 --> 18:05.540
+ Now, how complicated do these models need to be
+
+18:05.540 --> 18:10.140
+ in order to be able to understand what people want?
+
+18:10.140 --> 18:15.140
+ So we've gotten a long way in robotics
+
+18:15.180 --> 18:17.540
+ with something called inverse reinforcement learning,
+
+18:17.540 --> 18:19.500
+ which is the notion of if someone acts,
+
+18:19.500 --> 18:22.100
+ demonstrates how they want the thing done.
+
+18:22.100 --> 18:24.220
+ What is inverse reinforcement learning?
+
+18:24.220 --> 18:25.220
+ You just briefly said it.
+
+18:25.220 --> 18:30.220
+ Right, so it's the problem of take human behavior
+
+18:30.220 --> 18:33.260
+ and infer reward function from this.
+
+18:33.260 --> 18:34.500
+ So figure out what it is
+
+18:34.500 --> 18:37.420
+ that that behavior is optimal with respect to.
+
+18:37.420 --> 18:38.700
+ And it's a great way to think
+
+18:38.700 --> 18:40.260
+ about learning human preferences
+
+18:40.260 --> 18:45.260
+ in the sense of you have a car and the person can drive it
+
+18:45.300 --> 18:46.900
+ and then you can say, well, okay,
+
+18:46.900 --> 18:50.660
+ I can actually learn what the person is optimizing for.
+
+18:51.940 --> 18:53.460
+ I can learn their driving style,
+
+18:53.460 --> 18:55.620
+ or you can have people demonstrate
+
+18:55.620 --> 18:57.300
+ how they want the house clean.
+
+18:57.300 --> 18:59.820
+ And then you can say, okay, this is,
+
+18:59.820 --> 19:02.980
+ I'm getting the trade offs that they're making.
+
+19:02.980 --> 19:06.140
+ I'm getting the preferences that they want out of this.
+
+19:06.140 --> 19:10.300
+ And so we've been successful in robotics somewhat with this.
+
+19:10.300 --> 19:15.020
+ And it's based on a very simple model of human behavior.
+
+19:15.020 --> 19:16.340
+ It was remarkably simple,
+
+19:16.340 --> 19:18.660
+ which is that human behavior is optimal
+
+19:18.660 --> 19:22.020
+ with respect to whatever it is that people want, right?
+
+19:22.020 --> 19:23.100
+ So you make that assumption
+
+19:23.100 --> 19:24.380
+ and now you can kind of inverse through.
+
+19:24.380 --> 19:25.900
+ That's why it's called inverse,
+
+19:25.900 --> 19:27.220
+ well, really optimal control,
+
+19:27.220 --> 19:30.540
+ but also inverse reinforcement learning.
+
+19:30.540 --> 19:35.540
+ So this is based on utility maximization in economics.
+
+19:36.460 --> 19:39.500
+ Back in the forties, von Neumann and Morgenstern
+
+19:39.500 --> 19:43.020
+ were like, okay, people are making choices
+
+19:43.020 --> 19:45.740
+ by maximizing utility, go.
+
+19:45.740 --> 19:48.380
+ And then in the late fifties,
+
+19:48.380 --> 19:52.460
+ we had Luce and Shepherd come in and say,
+
+19:52.460 --> 19:57.460
+ people are a little bit noisy and approximate in that process.
+
+19:57.860 --> 20:01.580
+ So they might choose something kind of stochastically
+
+20:01.580 --> 20:03.940
+ with probability proportional to
+
+20:03.940 --> 20:07.060
+ how much utility something has.
+
+20:07.060 --> 20:09.620
+ So there's a bit of noise in there.
+
+20:09.620 --> 20:11.740
+ This has translated into robotics
+
+20:11.740 --> 20:14.180
+ and something that we call Boltzmann rationality.
+
+20:14.180 --> 20:15.700
+ So it's a kind of an evolution
+
+20:15.700 --> 20:16.780
+ of inverse reinforcement learning
+
+20:16.780 --> 20:19.620
+ that accounts for human noise.
+
+20:19.620 --> 20:21.980
+ And we've had some success with that too,
+
+20:21.980 --> 20:23.860
+ for these tasks where it turns out
+
+20:23.860 --> 20:28.340
+ people act noisily enough that you can't just do vanilla,
+
+20:28.340 --> 20:29.900
+ the vanilla version.
+
+20:29.900 --> 20:31.020
+ You can account for noise
+
+20:31.020 --> 20:36.020
+ and still infer what they seem to want based on this.
+
+20:36.460 --> 20:39.940
+ Then now we're hitting tasks where that's not enough.
+
+20:39.940 --> 20:41.260
+ And because...
+
+20:41.260 --> 20:43.620
+ What are examples of spatial tasks?
+
+20:43.620 --> 20:45.900
+ So imagine you're trying to control some robot,
+
+20:45.900 --> 20:47.820
+ that's fairly complicated.
+
+20:47.820 --> 20:49.220
+ You're trying to control a robot arm
+
+20:49.220 --> 20:52.580
+ because maybe you're a patient with a motor impairment
+
+20:52.580 --> 20:53.860
+ and you have this wheelchair mounted arm
+
+20:53.860 --> 20:56.260
+ and you're trying to control it around.
+
+20:56.260 --> 21:00.700
+ Or one task that we've looked at with Sergei is,
+
+21:00.700 --> 21:02.860
+ and our students did, is a lunar lander.
+
+21:02.860 --> 21:05.060
+ So I don't know if you know this Atari game,
+
+21:05.060 --> 21:06.820
+ it's called Lunar Lander.
+
+21:06.820 --> 21:07.660
+ It's really hard.
+
+21:07.660 --> 21:09.740
+ People really suck at landing the thing.
+
+21:09.740 --> 21:11.860
+ Mostly they just crash it left and right.
+
+21:11.860 --> 21:14.300
+ Okay, so this is the kind of task we imagine
+
+21:14.300 --> 21:16.980
+ you're trying to provide some assistance
+
+21:16.980 --> 21:20.180
+ to a person operating such a robot
+
+21:20.180 --> 21:21.980
+ where you want the kind of the autonomy to kick in,
+
+21:21.980 --> 21:23.460
+ figure out what it is that you're trying to do
+
+21:23.460 --> 21:24.860
+ and help you do it.
+
+21:25.900 --> 21:30.700
+ It's really hard to do that for, say, Lunar Lander
+
+21:30.700 --> 21:32.940
+ because people are all over the place.
+
+21:32.940 --> 21:36.700
+ And so they seem much more noisy than really irrational.
+
+21:36.700 --> 21:37.900
+ That's an example of a task
+
+21:37.900 --> 21:40.220
+ where these models are kind of failing us.
+
+21:41.220 --> 21:43.500
+ And it's not surprising because
+
+21:43.500 --> 21:47.020
+ we're talking about the 40s, utility, late 50s,
+
+21:47.020 --> 21:48.900
+ sort of noisy.
+
+21:48.900 --> 21:52.340
+ Then the 70s came and behavioral economics
+
+21:52.340 --> 21:54.620
+ started being a thing where people were like,
+
+21:54.620 --> 21:58.140
+ no, no, no, no, no, people are not rational.
+
+21:58.140 --> 22:03.140
+ People are messy and emotional and irrational
+
+22:03.300 --> 22:05.340
+ and have all sorts of heuristics
+
+22:05.340 --> 22:06.980
+ that might be domain specific.
+
+22:06.980 --> 22:08.580
+ And they're just a mess.
+
+22:08.580 --> 22:09.420
+ The mess.
+
+22:09.420 --> 22:13.180
+ So what does my robot do to understand
+
+22:13.180 --> 22:14.740
+ what you want?
+
+22:14.740 --> 22:18.020
+ And it's a very, it's very, that's why it's complicated.
+
+22:18.020 --> 22:19.580
+ It's, you know, for the most part,
+
+22:19.580 --> 22:23.300
+ we get away with pretty simple models until we don't.
+
+22:23.300 --> 22:25.540
+ And then the question is, what do you do then?
+
+22:26.580 --> 22:30.180
+ And I had days when I wanted to, you know,
+
+22:30.180 --> 22:32.780
+ pack my bags and go home and switch jobs
+
+22:32.780 --> 22:35.020
+ because it's just, it feels really daunting
+
+22:35.020 --> 22:37.300
+ to make sense of human behavior enough
+
+22:37.300 --> 22:40.540
+ that you can reliably understand what people want,
+
+22:40.540 --> 22:41.380
+ especially as, you know,
+
+22:41.380 --> 22:44.940
+ robot capabilities will continue to get developed.
+
+22:44.940 --> 22:47.180
+ You'll get these systems that are more and more capable
+
+22:47.180 --> 22:48.060
+ of all sorts of things.
+
+22:48.060 --> 22:49.140
+ And then you really want to make sure
+
+22:49.140 --> 22:51.500
+ that you're telling them the right thing to do.
+
+22:51.500 --> 22:52.620
+ What is that thing?
+
+22:52.620 --> 22:55.140
+ Well, read it in human behavior.
+
+22:56.100 --> 22:58.460
+ So if I just sat here quietly
+
+22:58.460 --> 23:00.380
+ and tried to understand something about you
+
+23:00.380 --> 23:02.140
+ by listening to you talk,
+
+23:02.140 --> 23:06.140
+ it would be harder than if I got to say something
+
+23:06.140 --> 23:08.780
+ and ask you and interact and control.
+
+23:08.780 --> 23:13.140
+ Can you, can the robot help its understanding of the human
+
+23:13.140 --> 23:18.140
+ by influencing the behavior by actually acting?
+
+23:18.540 --> 23:19.780
+ Yeah, absolutely.
+
+23:19.780 --> 23:23.660
+ So one of the things that's been exciting to me lately
+
+23:23.660 --> 23:28.660
+ is this notion that when you try to,
+
+23:28.780 --> 23:31.940
+ that when you try to think of the robotics problem as,
+
+23:31.940 --> 23:34.500
+ okay, I have a robot and it needs to optimize
+
+23:34.500 --> 23:37.540
+ for whatever it is that a person wants it to optimize
+
+23:37.540 --> 23:39.740
+ as opposed to maybe what a programmer said.
+
+23:40.700 --> 23:44.700
+ That problem we think of as a human robot
+
+23:44.700 --> 23:49.140
+ collaboration problem in which both agents get to act
+
+23:49.140 --> 23:52.300
+ in which the robot knows less than the human
+
+23:52.300 --> 23:54.660
+ because the human actually has access to,
+
+23:54.660 --> 23:57.220
+ you know, at least implicitly to what it is that they want.
+
+23:57.220 --> 24:00.660
+ They can't write it down, but they can talk about it.
+
+24:00.660 --> 24:02.300
+ They can give all sorts of signals.
+
+24:02.300 --> 24:04.460
+ They can demonstrate and,
+
+24:04.460 --> 24:06.540
+ but the robot doesn't need to sit there
+
+24:06.540 --> 24:08.780
+ and passively observe human behavior
+
+24:08.780 --> 24:10.100
+ and try to make sense of it.
+
+24:10.100 --> 24:11.900
+ The robot can act too.
+
+24:11.900 --> 24:15.380
+ And so there's these information gathering actions
+
+24:15.380 --> 24:19.020
+ that the robot can take to sort of solicit responses
+
+24:19.020 --> 24:21.060
+ that are actually informative.
+
+24:21.060 --> 24:22.980
+ So for instance, this is not for the purpose
+
+24:22.980 --> 24:25.580
+ of assisting people, but with kind of back to coordinating
+
+24:25.580 --> 24:27.420
+ with people in cars and all of that.
+
+24:27.420 --> 24:31.860
+ One thing that Dorsa did was,
+
+24:31.860 --> 24:34.260
+ so we were looking at cars being able to navigate
+
+24:34.260 --> 24:39.260
+ around people and you might not know exactly
+
+24:39.500 --> 24:41.860
+ the driving style of a particular individual
+
+24:41.860 --> 24:43.020
+ that's next to you,
+
+24:43.020 --> 24:45.260
+ but you wanna change lanes in front of them.
+
+24:45.260 --> 24:48.780
+ Navigating around other humans inside cars.
+
+24:48.780 --> 24:50.940
+ Yeah, good, good clarification question.
+
+24:50.940 --> 24:55.860
+ So you have an autonomous car and it's trying to navigate
+
+24:55.860 --> 24:58.980
+ the road around human driven vehicles.
+
+24:58.980 --> 25:01.620
+ Similar things ideas apply to pedestrians as well,
+
+25:01.620 --> 25:03.900
+ but let's just take human driven vehicles.
+
+25:03.900 --> 25:06.220
+ So now you're trying to change a lane.
+
+25:06.220 --> 25:10.460
+ Well, you could be trying to infer the driving style
+
+25:10.460 --> 25:12.180
+ of this person next to you.
+
+25:12.180 --> 25:13.780
+ You'd like to know if they're in particular,
+
+25:13.780 --> 25:15.940
+ if they're sort of aggressive or defensive,
+
+25:15.940 --> 25:18.020
+ if they're gonna let you kind of go in
+
+25:18.020 --> 25:20.300
+ or if they're gonna not.
+
+25:20.300 --> 25:24.340
+ And it's very difficult to just,
+
+25:25.900 --> 25:27.940
+ if you think that if you wanna hedge your bets
+
+25:27.940 --> 25:30.340
+ and say, ah, maybe they're actually pretty aggressive,
+
+25:30.340 --> 25:31.580
+ I shouldn't try this.
+
+25:31.580 --> 25:33.420
+ You kind of end up driving next to them
+
+25:33.420 --> 25:34.860
+ and driving next to them, right?
+
+25:34.860 --> 25:36.460
+ And then you don't know
+
+25:36.460 --> 25:39.380
+ because you're not actually getting the observations
+
+25:39.380 --> 25:40.220
+ that you're getting away.
+
+25:40.220 --> 25:42.620
+ Someone drives when they're next to you
+
+25:42.620 --> 25:44.420
+ and they just need to go straight.
+
+25:44.420 --> 25:45.260
+ It's kind of the same
+
+25:45.260 --> 25:47.460
+ regardless if they're aggressive or defensive.
+
+25:47.460 --> 25:51.020
+ And so you need to enable the robot
+
+25:51.020 --> 25:54.220
+ to reason about how it might actually be able
+
+25:54.220 --> 25:57.020
+ to gather information by changing the actions
+
+25:57.020 --> 25:58.140
+ that it's taking.
+
+25:58.140 --> 25:59.940
+ And then the robot comes up with these cool things
+
+25:59.940 --> 26:02.580
+ where it kind of nudges towards you
+
+26:02.580 --> 26:05.260
+ and then sees if you're gonna slow down or not.
+
+26:05.260 --> 26:06.260
+ Then if you slow down,
+
+26:06.260 --> 26:07.940
+ it sort of updates its model of you
+
+26:07.940 --> 26:11.340
+ and says, oh, okay, you're more on the defensive side.
+
+26:11.340 --> 26:12.740
+ So now I can actually like.
+
+26:12.740 --> 26:14.340
+ That's a fascinating dance.
+
+26:14.340 --> 26:18.100
+ That's so cool that you could use your own actions
+
+26:18.100 --> 26:19.380
+ to gather information.
+
+26:19.380 --> 26:22.380
+ That feels like a totally open,
+
+26:22.380 --> 26:24.380
+ exciting new world of robotics.
+
+26:24.380 --> 26:26.100
+ I mean, how many people are even thinking
+
+26:26.100 --> 26:28.660
+ about that kind of thing?
+
+26:28.660 --> 26:30.260
+ A handful of us, I'd say.
+
+26:30.260 --> 26:33.380
+ It's rare because it's actually leveraging human.
+
+26:33.380 --> 26:34.620
+ I mean, most roboticists,
+
+26:34.620 --> 26:38.220
+ I've talked to a lot of colleagues and so on,
+
+26:38.220 --> 26:42.980
+ are kind of, being honest, kind of afraid of humans.
+
+26:42.980 --> 26:45.460
+ Because they're messy and complicated, right?
+
+26:45.460 --> 26:46.700
+ I understand.
+
+26:47.900 --> 26:49.820
+ Going back to what we were talking about earlier,
+
+26:49.820 --> 26:52.500
+ right now we're kind of in this dilemma of, okay,
+
+26:52.500 --> 26:54.020
+ there are tasks that we can just assume
+
+26:54.020 --> 26:55.700
+ people are approximately rational for
+
+26:55.700 --> 26:57.140
+ and we can figure out what they want.
+
+26:57.140 --> 26:57.980
+ We can figure out their goals.
+
+26:57.980 --> 26:59.740
+ We can figure out their driving styles, whatever.
+
+26:59.740 --> 27:00.580
+ Cool.
+
+27:00.580 --> 27:02.860
+ There are these tasks that we can't.
+
+27:02.860 --> 27:03.980
+ So what do we do, right?
+
+27:03.980 --> 27:06.060
+ Do we pack our bags and go home?
+
+27:06.060 --> 27:11.060
+ And this one, I've had a little bit of hope recently.
+
+27:12.340 --> 27:13.740
+ And I'm kind of doubting myself
+
+27:13.740 --> 27:15.500
+ because what do I know that, you know,
+
+27:15.500 --> 27:19.620
+ 50 years of behavioral economics hasn't figured out.
+
+27:19.620 --> 27:21.500
+ But maybe it's not really in contradiction
+
+27:21.500 --> 27:23.940
+ with the way that field is headed.
+
+27:23.940 --> 27:27.980
+ But basically one thing that we've been thinking about is,
+
+27:27.980 --> 27:30.180
+ instead of kind of giving up and saying
+
+27:30.180 --> 27:32.020
+ people are too crazy and irrational
+
+27:32.020 --> 27:33.500
+ for us to make sense of them,
+
+27:34.460 --> 27:39.380
+ maybe we can give them a bit the benefit of the doubt.
+
+27:39.380 --> 27:41.420
+ And maybe we can think of them
+
+27:41.420 --> 27:43.980
+ as actually being relatively rational,
+
+27:43.980 --> 27:48.980
+ but just under different assumptions about the world,
+
+27:48.980 --> 27:51.580
+ about how the world works, about, you know,
+
+27:51.580 --> 27:54.100
+ they don't have, when we think about rationality,
+
+27:54.100 --> 27:56.500
+ implicit assumption is, oh, they're rational,
+
+27:56.500 --> 27:58.580
+ and they're all the same assumptions and constraints
+
+27:58.580 --> 27:59.940
+ as the robot, right?
+
+27:59.940 --> 28:01.820
+ What, if this is the state of the world,
+
+28:01.820 --> 28:02.740
+ that's what they know.
+
+28:02.740 --> 28:05.140
+ This is the transition function, that's what they know.
+
+28:05.140 --> 28:07.380
+ This is the horizon, that's what they know.
+
+28:07.380 --> 28:11.060
+ But maybe the kind of this difference,
+
+28:11.060 --> 28:13.820
+ the way, the reason they can seem a little messy
+
+28:13.820 --> 28:16.500
+ and hectic, especially to robots,
+
+28:16.500 --> 28:20.060
+ is that perhaps they just make different assumptions
+
+28:20.060 --> 28:21.660
+ or have different beliefs.
+
+28:21.660 --> 28:24.820
+ Yeah, I mean, that's another fascinating idea
+
+28:24.820 --> 28:29.060
+ that this, our kind of anecdotal desire
+
+28:29.060 --> 28:31.060
+ to say that humans are irrational,
+
+28:31.060 --> 28:33.300
+ perhaps grounded in behavioral economics,
+
+28:33.300 --> 28:36.420
+ is that we just don't understand the constraints
+
+28:36.420 --> 28:38.300
+ and the rewards under which they operate.
+
+28:38.300 --> 28:40.980
+ And so our goal shouldn't be to throw our hands up
+
+28:40.980 --> 28:42.420
+ and say they're irrational,
+
+28:42.420 --> 28:44.940
+ it's to say, let's try to understand
+
+28:44.940 --> 28:46.420
+ what are the constraints.
+
+28:46.420 --> 28:48.420
+ What it is that they must be assuming
+
+28:48.420 --> 28:51.140
+ that makes this behavior make sense.
+
+28:51.140 --> 28:52.620
+ Good life lesson, right?
+
+28:52.620 --> 28:53.460
+ Good life lesson.
+
+28:53.460 --> 28:55.580
+ That's true, it's just outside of robotics.
+
+28:55.580 --> 28:58.500
+ That's just good to, that's communicating with humans.
+
+28:58.500 --> 29:00.780
+ That's just a good assume
+
+29:00.780 --> 29:03.340
+ that you just don't, sort of empathy, right?
+
+29:03.340 --> 29:04.420
+ It's a...
+
+29:04.420 --> 29:06.020
+ This is maybe there's something you're missing
+
+29:06.020 --> 29:08.580
+ and it's, you know, it especially happens to robots
+
+29:08.580 --> 29:10.220
+ cause they're kind of dumb and they don't know things.
+
+29:10.220 --> 29:12.740
+ And oftentimes people are sort of supra rational
+
+29:12.740 --> 29:14.300
+ and that they actually know a lot of things
+
+29:14.300 --> 29:15.420
+ that robots don't.
+
+29:15.420 --> 29:17.860
+ Sometimes like with the lunar lander,
+
+29:17.860 --> 29:20.540
+ the robot, you know, knows much more.
+
+29:20.540 --> 29:23.980
+ So it turns out that if you try to say,
+
+29:23.980 --> 29:26.940
+ look, maybe people are operating this thing
+
+29:26.940 --> 29:31.100
+ but assuming a much more simplified physics model
+
+29:31.100 --> 29:33.900
+ cause they don't get the complexity of this kind of craft
+
+29:33.900 --> 29:36.100
+ or the robot arm with seven degrees of freedom
+
+29:36.100 --> 29:38.420
+ with these inertias and whatever.
+
+29:38.420 --> 29:41.580
+ So maybe they have this intuitive physics model
+
+29:41.580 --> 29:44.260
+ which is not, you know, this notion of intuitive physics
+
+29:44.260 --> 29:46.620
+ is something that you studied actually in cognitive science
+
+29:46.620 --> 29:49.900
+ was like Josh Denenbaum, Tom Griffith's work on this stuff.
+
+29:49.900 --> 29:54.700
+ And what we found is that you can actually try
+
+29:54.700 --> 29:58.420
+ to figure out what physics model
+
+29:58.420 --> 30:01.380
+ kind of best explains human actions.
+
+30:01.380 --> 30:06.380
+ And then you can use that to sort of correct what it is
+
+30:06.460 --> 30:08.820
+ that they're commanding the craft to do.
+
+30:08.820 --> 30:11.420
+ So they might, you know, be sending the craft somewhere
+
+30:11.420 --> 30:13.340
+ but instead of executing that action,
+
+30:13.340 --> 30:15.260
+ you can sort of take a step back and say,
+
+30:15.260 --> 30:16.900
+ according to their intuitive,
+
+30:16.900 --> 30:20.100
+ if the world worked according to their intuitive physics
+
+30:20.100 --> 30:23.620
+ model, where do they think that the craft is going?
+
+30:23.620 --> 30:26.020
+ Where are they trying to send it to?
+
+30:26.020 --> 30:28.620
+ And then you can use the real physics, right?
+
+30:28.620 --> 30:30.220
+ The inverse of that to actually figure out
+
+30:30.220 --> 30:31.540
+ what you should do so that you do that
+
+30:31.540 --> 30:33.380
+ instead of where they were actually sending you
+
+30:33.380 --> 30:34.820
+ in the real world.
+
+30:34.820 --> 30:38.300
+ And I kid you not at work people land the damn thing
+
+30:38.300 --> 30:42.460
+ and you know, in between the two flags and all that.
+
+30:42.460 --> 30:45.180
+ So it's not conclusive in any way
+
+30:45.180 --> 30:47.300
+ but I'd say it's evidence that yeah,
+
+30:47.300 --> 30:50.420
+ maybe we're kind of underestimating humans in some ways
+
+30:50.420 --> 30:51.620
+ when we're giving up and saying,
+
+30:51.620 --> 30:53.220
+ yeah, they're just crazy noisy.
+
+30:53.220 --> 30:56.300
+ So then you try to explicitly try to model
+
+30:56.300 --> 30:58.140
+ the kind of worldview that they have.
+
+30:58.140 --> 30:59.620
+ That they have, that's right.
+
+30:59.620 --> 31:00.460
+ That's right.
+
+31:00.460 --> 31:02.260
+ And it's not too, I mean,
+
+31:02.260 --> 31:03.620
+ there's things in behavior economics too
+
+31:03.620 --> 31:06.940
+ that for instance have touched upon the planning horizon.
+
+31:06.940 --> 31:09.900
+ So there's this idea that there's bounded rationality
+
+31:09.900 --> 31:11.380
+ essentially and the idea that, well,
+
+31:11.380 --> 31:13.660
+ maybe we work under computational constraints.
+
+31:13.660 --> 31:17.020
+ And I think kind of our view recently has been
+
+31:17.020 --> 31:19.740
+ take the Bellman update in AI
+
+31:19.740 --> 31:22.580
+ and just break it in all sorts of ways by saying state,
+
+31:22.580 --> 31:25.020
+ no, no, no, the person doesn't get to see the real state.
+
+31:25.020 --> 31:26.540
+ Maybe they're estimating somehow.
+
+31:26.540 --> 31:28.860
+ Transition function, no, no, no, no, no.
+
+31:28.860 --> 31:31.580
+ Even the actual reward evaluation,
+
+31:31.580 --> 31:32.740
+ maybe they're still learning
+
+31:32.740 --> 31:34.860
+ about what it is that they want.
+
+31:34.860 --> 31:37.740
+ Like, you know, when you watch Netflix
+
+31:37.740 --> 31:39.420
+ and you know, you have all the things
+
+31:39.420 --> 31:41.700
+ and then you have to pick something,
+
+31:41.700 --> 31:46.180
+ imagine that, you know, the AI system interpreted
+
+31:46.180 --> 31:48.860
+ that choice as this is the thing you prefer to see.
+
+31:48.860 --> 31:49.700
+ Like, how are you going to know?
+
+31:49.700 --> 31:51.340
+ You're still trying to figure out what you like,
+
+31:51.340 --> 31:52.620
+ what you don't like, et cetera.
+
+31:52.620 --> 31:55.540
+ So I think it's important to also account for that.
+
+31:55.540 --> 31:56.780
+ So it's not irrationality,
+
+31:56.780 --> 31:58.100
+ because they're doing the right thing
+
+31:58.100 --> 31:59.980
+ under the things that they know.
+
+31:59.980 --> 32:01.300
+ Yeah, that's brilliant.
+
+32:01.300 --> 32:03.260
+ You mentioned recommender systems.
+
+32:03.260 --> 32:05.340
+ What kind of, and we were talking
+
+32:05.340 --> 32:07.140
+ about human robot interaction,
+
+32:07.140 --> 32:10.820
+ what kind of problem spaces are you thinking about?
+
+32:10.820 --> 32:14.900
+ So is it robots, like wheeled robots
+
+32:14.900 --> 32:16.020
+ with autonomous vehicles?
+
+32:16.020 --> 32:18.580
+ Is it object manipulation?
+
+32:18.580 --> 32:19.460
+ Like when you think
+
+32:19.460 --> 32:21.940
+ about human robot interaction in your mind,
+
+32:21.940 --> 32:24.460
+ and maybe I'm sure you can speak
+
+32:24.460 --> 32:27.820
+ for the entire community of human robot interaction.
+
+32:27.820 --> 32:30.540
+ But like, what are the problems of interest here?
+
+32:30.540 --> 32:34.500
+ And does it, you know, I kind of think
+
+32:34.500 --> 32:40.860
+ of open domain dialogue as human robot interaction,
+
+32:40.860 --> 32:43.060
+ and that happens not in the physical space,
+
+32:43.060 --> 32:46.380
+ but it could just happen in the virtual space.
+
+32:46.380 --> 32:49.580
+ So where's the boundaries of this field for you
+
+32:49.580 --> 32:50.780
+ when you're thinking about the things
+
+32:50.780 --> 32:51.860
+ we've been talking about?
+
+32:51.860 --> 33:00.740
+ Yeah, so I try to find kind of underlying,
+
+33:00.740 --> 33:02.500
+ I don't know what to even call them.
+
+33:02.500 --> 33:05.060
+ I try to work on, you know, I might call what I do,
+
+33:05.060 --> 33:07.620
+ the kind of working on the foundations
+
+33:07.620 --> 33:09.580
+ of algorithmic human robot interaction
+
+33:09.580 --> 33:12.780
+ and trying to make contributions there.
+
+33:12.780 --> 33:15.940
+ And it's important to me that whatever we do
+
+33:15.940 --> 33:19.340
+ is actually somewhat domain agnostic when it comes to,
+
+33:19.340 --> 33:23.980
+ is it about, you know, autonomous cars
+
+33:23.980 --> 33:27.780
+ or is it about quadrotors or is it about,
+
+33:27.780 --> 33:30.780
+ is this sort of the same underlying principles apply?
+
+33:30.780 --> 33:31.660
+ Of course, when you're trying to get
+
+33:31.660 --> 33:32.900
+ a particular domain to work,
+
+33:32.900 --> 33:34.260
+ you usually have to do some extra work
+
+33:34.260 --> 33:36.580
+ to adapt that to that particular domain.
+
+33:36.580 --> 33:40.020
+ But these things that we were talking about around,
+
+33:40.020 --> 33:42.420
+ well, you know, how do you model humans?
+
+33:42.420 --> 33:44.260
+ It turns out that a lot of systems need
+
+33:44.260 --> 33:47.260
+ to core benefit from a better understanding
+
+33:47.260 --> 33:50.940
+ of how human behavior relates to what people want
+
+33:50.940 --> 33:53.540
+ and need to predict human behavior,
+
+33:53.540 --> 33:56.420
+ physical robots of all sorts and beyond that.
+
+33:56.420 --> 33:58.540
+ And so I used to do manipulation.
+
+33:58.540 --> 34:00.620
+ I used to be, you know, picking up stuff
+
+34:00.620 --> 34:03.340
+ and then I was picking up stuff with people around.
+
+34:03.340 --> 34:05.940
+ And now it's sort of very broad
+
+34:05.940 --> 34:07.820
+ when it comes to the application level,
+
+34:07.820 --> 34:11.140
+ but in a sense, very focused on, okay,
+
+34:11.140 --> 34:14.060
+ how does the problem need to change?
+
+34:14.060 --> 34:15.860
+ How do the algorithms need to change
+
+34:15.860 --> 34:19.980
+ when we're not doing a robot by itself?
+
+34:19.980 --> 34:21.380
+ You know, emptying the dishwasher,
+
+34:21.380 --> 34:23.780
+ but we're stepping outside of that.
+
+34:23.780 --> 34:26.820
+ I thought that popped into my head just now.
+
+34:26.820 --> 34:27.860
+ On the game theoretic side,
+
+34:27.860 --> 34:29.900
+ I think you said this really interesting idea
+
+34:29.900 --> 34:33.300
+ of using actions to gain more information.
+
+34:33.300 --> 34:37.780
+ But if we think of sort of game theory,
+
+34:39.780 --> 34:43.420
+ the humans that are interacting with you,
+
+34:43.420 --> 34:44.540
+ with you, the robot?
+
+34:44.540 --> 34:46.420
+ Wow, I'm thinking the identity of the robot.
+
+34:46.420 --> 34:47.460
+ Yeah, I do that all the time.
+
+34:47.460 --> 34:52.460
+ Yeah, is they also have a world model of you
+
+34:55.540 --> 34:57.420
+ and you can manipulate that.
+
+34:57.420 --> 34:59.340
+ I mean, if we look at autonomous vehicles,
+
+34:59.340 --> 35:01.420
+ people have a certain viewpoint.
+
+35:01.420 --> 35:06.260
+ You said with the kids, people see Alexa in a certain way.
+
+35:07.260 --> 35:10.860
+ Is there some value in trying to also optimize
+
+35:10.860 --> 35:13.540
+ how people see you as a robot?
+
+35:15.100 --> 35:20.100
+ Or is that a little too far away from the specifics
+
+35:20.140 --> 35:21.620
+ of what we can solve right now?
+
+35:21.620 --> 35:24.340
+ So, well, both, right?
+
+35:24.340 --> 35:26.300
+ So it's really interesting.
+
+35:26.300 --> 35:30.940
+ And we've seen a little bit of progress on this problem,
+
+35:30.940 --> 35:32.340
+ on pieces of this problem.
+
+35:32.340 --> 35:36.220
+ So you can, again, it kind of comes down
+
+35:36.220 --> 35:38.260
+ to how complicated does the human model need to be?
+
+35:38.260 --> 35:42.300
+ But in one piece of work that we were looking at,
+
+35:42.300 --> 35:46.180
+ we just said, okay, there's these parameters
+
+35:46.180 --> 35:47.900
+ that are internal to the robot
+
+35:47.900 --> 35:51.620
+ and what the robot is about to do,
+
+35:51.620 --> 35:52.700
+ or maybe what objective,
+
+35:52.700 --> 35:55.260
+ what driving style the robot has or something like that.
+
+35:55.260 --> 35:58.180
+ And what we're gonna do is we're gonna set up a system
+
+35:58.180 --> 36:00.300
+ where part of the state is the person's belief
+
+36:00.300 --> 36:02.300
+ over those parameters.
+
+36:02.300 --> 36:05.180
+ And now when the robot acts,
+
+36:05.180 --> 36:07.580
+ that the person gets new evidence
+
+36:07.580 --> 36:10.700
+ about this robot internal state.
+
+36:10.700 --> 36:13.700
+ And so they're updating their mental model of the robot.
+
+36:13.700 --> 36:16.940
+ So if they see a car that sort of cuts someone off,
+
+36:16.940 --> 36:18.340
+ they're like, oh, that's an aggressive car.
+
+36:18.340 --> 36:19.180
+ They know more.
+
+36:20.700 --> 36:24.100
+ If they see sort of a robot head towards a particular door,
+
+36:24.100 --> 36:25.500
+ they're like, oh yeah, the robot's trying to get
+
+36:25.500 --> 36:26.340
+ to that door.
+
+36:26.340 --> 36:27.980
+ So this thing that we have to do with humans
+
+36:27.980 --> 36:31.060
+ to try and understand their goals and intentions,
+
+36:31.060 --> 36:34.460
+ humans are inevitably gonna do that to robots.
+
+36:34.460 --> 36:36.500
+ And then that raises this interesting question
+
+36:36.500 --> 36:38.860
+ that you asked, which is, can we do something about that?
+
+36:38.860 --> 36:40.220
+ This is gonna happen inevitably,
+
+36:40.220 --> 36:42.060
+ but we can sort of be more confusing
+
+36:42.060 --> 36:44.100
+ or less confusing to people.
+
+36:44.100 --> 36:45.580
+ And it turns out you can optimize
+
+36:45.580 --> 36:48.980
+ for being more informative and less confusing
+
+36:48.980 --> 36:51.820
+ if you have an understanding of how your actions
+
+36:51.820 --> 36:53.540
+ are being interpreted by the human,
+
+36:53.540 --> 36:56.740
+ and how they're using these actions to update their belief.
+
+36:56.740 --> 36:59.700
+ And honestly, all we did is just Bayes rule.
+
+36:59.700 --> 37:02.980
+ Basically, okay, the person has a belief,
+
+37:02.980 --> 37:04.820
+ they see an action, they make some assumptions
+
+37:04.820 --> 37:06.420
+ about how the robot generates its actions,
+
+37:06.420 --> 37:07.740
+ presumably as being rational,
+
+37:07.740 --> 37:09.180
+ because robots are rational.
+
+37:09.180 --> 37:11.340
+ It's reasonable to assume that about them.
+
+37:11.340 --> 37:16.340
+ And then they incorporate that new piece of evidence
+
+37:17.300 --> 37:19.380
+ in the Bayesian sense in their belief,
+
+37:19.380 --> 37:20.700
+ and they obtain a posterior.
+
+37:20.700 --> 37:23.020
+ And now the robot is trying to figure out
+
+37:23.020 --> 37:25.180
+ what actions to take such that it steers
+
+37:25.180 --> 37:27.420
+ the person's belief to put as much probability mass
+
+37:27.420 --> 37:31.260
+ as possible on the correct parameters.
+
+37:31.260 --> 37:33.940
+ So that's kind of a mathematical formalization of that.
+
+37:33.940 --> 37:38.300
+ But my worry, and I don't know if you wanna go there
+
+37:38.300 --> 37:43.300
+ with me, but I talk about this quite a bit.
+
+37:44.140 --> 37:49.140
+ The kids talking to Alexa disrespectfully worries me.
+
+37:49.500 --> 37:52.260
+ I worry in general about human nature.
+
+37:52.260 --> 37:54.820
+ Like I said, I grew up in Soviet Union, World War II,
+
+37:54.820 --> 37:58.180
+ I'm a Jew too, so with the Holocaust and everything.
+
+37:58.180 --> 38:02.540
+ I just worry about how we humans sometimes treat the other,
+
+38:02.540 --> 38:05.100
+ the group that we call the other, whatever it is.
+
+38:05.100 --> 38:07.300
+ Through human history, the group that's the other
+
+38:07.300 --> 38:09.580
+ has been changed faces.
+
+38:09.580 --> 38:13.900
+ But it seems like the robot will be the other, the other,
+
+38:13.900 --> 38:15.700
+ the next other.
+
+38:15.700 --> 38:19.420
+ And one thing is it feels to me
+
+38:19.420 --> 38:22.220
+ that robots don't get no respect.
+
+38:22.220 --> 38:23.420
+ They get shoved around.
+
+38:23.420 --> 38:27.180
+ Shoved around, and is there, one, at the shallow level,
+
+38:27.180 --> 38:29.740
+ for a better experience, it seems that robots
+
+38:29.740 --> 38:31.540
+ need to talk back a little bit.
+
+38:31.540 --> 38:35.460
+ Like my intuition says, I mean, most companies
+
+38:35.460 --> 38:38.420
+ from sort of Roomba, autonomous vehicle companies
+
+38:38.420 --> 38:41.500
+ might not be so happy with the idea that a robot
+
+38:41.500 --> 38:43.660
+ has a little bit of an attitude.
+
+38:43.660 --> 38:46.760
+ But I feel, it feels to me that that's necessary
+
+38:46.760 --> 38:48.300
+ to create a compelling experience.
+
+38:48.300 --> 38:50.640
+ Like we humans don't seem to respect anything
+
+38:50.640 --> 38:52.980
+ that doesn't give us some attitude.
+
+38:52.980 --> 38:57.980
+ That, or like a mix of mystery and attitude and anger
+
+38:58.940 --> 39:03.940
+ and that threatens us subtly, maybe passive aggressively.
+
+39:03.940 --> 39:04.780
+ I don't know.
+
+39:04.780 --> 39:08.200
+ It seems like we humans, yeah, need that.
+
+39:08.200 --> 39:10.100
+ Do you, what are your, is there something,
+
+39:10.100 --> 39:11.900
+ you have thoughts on this?
+
+39:11.900 --> 39:13.100
+ All right, I'll give you two thoughts on this.
+
+39:13.100 --> 39:13.940
+ Okay, sure.
+
+39:13.940 --> 39:18.940
+ One is, one is, it's, we respond to, you know,
+
+39:18.940 --> 39:22.980
+ someone being assertive, but we also respond
+
+39:24.220 --> 39:26.020
+ to someone being vulnerable.
+
+39:26.020 --> 39:28.220
+ So I think robots, my first thought is that
+
+39:28.220 --> 39:31.460
+ robots get shoved around and bullied a lot
+
+39:31.460 --> 39:32.860
+ because they're sort of, you know, tempting
+
+39:32.860 --> 39:34.100
+ and they're sort of showing off
+
+39:34.100 --> 39:35.700
+ or they appear to be showing off.
+
+39:35.700 --> 39:38.700
+ And so I think going back to these things
+
+39:38.700 --> 39:39.940
+ we were talking about in the beginning
+
+39:39.940 --> 39:43.940
+ of making robots a little more, a little more expressive,
+
+39:43.940 --> 39:46.880
+ a little bit more like, eh, that wasn't cool to do.
+
+39:46.880 --> 39:49.900
+ And now I'm bummed, right?
+
+39:49.900 --> 39:51.500
+ I think that that can actually help
+
+39:51.500 --> 39:53.420
+ because people can't help but anthropomorphize
+
+39:53.420 --> 39:54.260
+ and respond to that.
+
+39:54.260 --> 39:56.860
+ Even that though, the emotion being communicated
+
+39:56.860 --> 39:58.740
+ is not in any way a real thing.
+
+39:58.740 --> 40:00.220
+ And people know that it's not a real thing
+
+40:00.220 --> 40:01.860
+ because they know it's just a machine.
+
+40:01.860 --> 40:04.500
+ We're still interpreting, you know, we watch,
+
+40:04.500 --> 40:07.100
+ there's this famous psychology experiment
+
+40:07.100 --> 40:11.020
+ with little triangles and kind of dots on a screen
+
+40:11.020 --> 40:12.860
+ and a triangle is chasing the square
+
+40:12.860 --> 40:15.860
+ and you get really angry at the darn triangle
+
+40:15.860 --> 40:18.500
+ because why is it not leaving the square alone?
+
+40:18.500 --> 40:20.100
+ So that's, yeah, we can't help.
+
+40:20.100 --> 40:21.460
+ So that was the first thought.
+
+40:21.460 --> 40:25.500
+ The vulnerability, that's really interesting that,
+
+40:25.500 --> 40:30.500
+ I think of like being, pushing back, being assertive
+
+40:31.620 --> 40:33.680
+ as the only mechanism of getting,
+
+40:33.680 --> 40:36.300
+ of forming a connection, of getting respect,
+
+40:36.300 --> 40:37.920
+ but perhaps vulnerability,
+
+40:37.920 --> 40:40.100
+ perhaps there's other mechanisms that are less threatening.
+
+40:40.100 --> 40:40.940
+ Yeah.
+
+40:40.940 --> 40:41.760
+ Is there?
+
+40:41.760 --> 40:43.980
+ Well, I think, well, a little bit, yes,
+
+40:43.980 --> 40:47.220
+ but then this other thing that we can think about is,
+
+40:47.220 --> 40:48.380
+ it goes back to what you were saying,
+
+40:48.380 --> 40:50.640
+ that interaction is really game theoretic, right?
+
+40:50.640 --> 40:52.780
+ So the moment you're taking actions in a space,
+
+40:52.780 --> 40:55.380
+ the humans are taking actions in that same space,
+
+40:55.380 --> 40:58.060
+ but you have your own objective, which is, you know,
+
+40:58.060 --> 40:59.640
+ you're a car, you need to get your passenger
+
+40:59.640 --> 41:00.900
+ to the destination.
+
+41:00.900 --> 41:03.740
+ And then the human nearby has their own objective,
+
+41:03.740 --> 41:07.060
+ which somewhat overlaps with you, but not entirely.
+
+41:07.060 --> 41:09.180
+ You're not interested in getting into an accident
+
+41:09.180 --> 41:11.580
+ with each other, but you have different destinations
+
+41:11.580 --> 41:13.000
+ and you wanna get home faster
+
+41:13.000 --> 41:14.620
+ and they wanna get home faster.
+
+41:14.620 --> 41:17.580
+ And that's a general sum game at that point.
+
+41:17.580 --> 41:20.540
+ And so that's, I think that's what,
+
+41:22.220 --> 41:25.620
+ treating it as such is kind of a way we can step outside
+
+41:25.620 --> 41:29.580
+ of this kind of mode that,
+
+41:29.580 --> 41:32.180
+ where you try to anticipate what people do
+
+41:32.180 --> 41:35.260
+ and you don't realize you have any influence over it
+
+41:35.260 --> 41:37.180
+ while still protecting yourself
+
+41:37.180 --> 41:40.540
+ because you're understanding that people also understand
+
+41:40.540 --> 41:42.660
+ that they can influence you.
+
+41:42.660 --> 41:45.540
+ And it's just kind of back and forth is this negotiation,
+
+41:45.540 --> 41:49.160
+ which is really talking about different equilibria
+
+41:49.160 --> 41:50.500
+ of a game.
+
+41:50.500 --> 41:53.140
+ The very basic way to solve coordination
+
+41:53.140 --> 41:55.860
+ is to just make predictions about what people will do
+
+41:55.860 --> 41:57.780
+ and then stay out of their way.
+
+41:57.780 --> 41:59.860
+ And that's hard for the reasons we talked about,
+
+41:59.860 --> 42:02.820
+ which is how you have to understand people's intentions
+
+42:02.820 --> 42:05.320
+ implicitly, explicitly, who knows,
+
+42:05.320 --> 42:07.140
+ but somehow you have to get enough of an understanding
+
+42:07.140 --> 42:09.640
+ of that to be able to anticipate what happens next.
+
+42:10.900 --> 42:11.980
+ And so that's challenging.
+
+42:11.980 --> 42:13.900
+ But then it's further challenged by the fact
+
+42:13.900 --> 42:17.620
+ that people change what they do based on what you do
+
+42:17.620 --> 42:21.240
+ because they don't plan in isolation either, right?
+
+42:21.240 --> 42:25.020
+ So when you see cars trying to merge on a highway
+
+42:25.020 --> 42:27.940
+ and not succeeding, one of the reasons this can be
+
+42:27.940 --> 42:32.940
+ is because they look at traffic that keeps coming,
+
+42:33.180 --> 42:35.940
+ they predict what these people are planning on doing,
+
+42:35.940 --> 42:37.720
+ which is to just keep going,
+
+42:37.720 --> 42:39.260
+ and then they stay out of the way
+
+42:39.260 --> 42:42.260
+ because there's no feasible plan, right?
+
+42:42.260 --> 42:44.640
+ Any plan would actually intersect
+
+42:44.640 --> 42:46.780
+ with one of these other people.
+
+42:46.780 --> 42:49.380
+ So that's bad, so you get stuck there.
+
+42:49.380 --> 42:53.820
+ So now kind of if you start thinking about it as no, no, no,
+
+42:53.820 --> 42:58.220
+ actually these people change what they do
+
+42:58.220 --> 42:59.900
+ depending on what the car does.
+
+42:59.900 --> 43:03.700
+ Like if the car actually tries to kind of inch itself forward,
+
+43:03.700 --> 43:07.220
+ they might actually slow down and let the car in.
+
+43:07.220 --> 43:10.620
+ And now taking advantage of that,
+
+43:10.620 --> 43:13.600
+ well, that's kind of the next level.
+
+43:13.600 --> 43:16.260
+ We call this like this underactuated system idea
+
+43:16.260 --> 43:18.700
+ where it's kind of underactuated system robotics,
+
+43:18.700 --> 43:22.100
+ but it's kind of, you're influenced
+
+43:22.100 --> 43:23.300
+ these other degrees of freedom,
+
+43:23.300 --> 43:25.740
+ but you don't get to decide what they do.
+
+43:25.740 --> 43:28.480
+ I've somewhere seen you mention it,
+
+43:28.480 --> 43:32.020
+ the human element in this picture as underactuated.
+
+43:32.020 --> 43:35.220
+ So you understand underactuated robotics
+
+43:35.220 --> 43:40.220
+ is that you can't fully control the system.
+
+43:41.340 --> 43:43.420
+ You can't go in arbitrary directions
+
+43:43.420 --> 43:44.860
+ in the configuration space.
+
+43:44.860 --> 43:46.360
+ Under your control.
+
+43:46.360 --> 43:48.860
+ Yeah, it's a very simple way of underactuation
+
+43:48.860 --> 43:51.060
+ where basically there's literally these degrees of freedom
+
+43:51.060 --> 43:52.020
+ that you can control,
+
+43:52.020 --> 43:53.500
+ and these degrees of freedom that you can't,
+
+43:53.500 --> 43:54.340
+ but you influence them.
+
+43:54.340 --> 43:55.900
+ And I think that's the important part
+
+43:55.900 --> 43:59.460
+ is that they don't do whatever, regardless of what you do,
+
+43:59.460 --> 44:02.300
+ that what you do influences what they end up doing.
+
+44:02.300 --> 44:05.460
+ I just also like the poetry of calling human robot
+
+44:05.460 --> 44:09.420
+ interaction an underactuated robotics problem.
+
+44:09.420 --> 44:11.900
+ And you also mentioned sort of nudging.
+
+44:11.900 --> 44:14.260
+ It seems that they're, I don't know.
+
+44:14.260 --> 44:16.620
+ I think about this a lot in the case of pedestrians
+
+44:16.620 --> 44:18.720
+ I've collected hundreds of hours of videos.
+
+44:18.720 --> 44:21.100
+ I like to just watch pedestrians.
+
+44:21.100 --> 44:22.860
+ And it seems that.
+
+44:22.860 --> 44:24.300
+ It's a funny hobby.
+
+44:24.300 --> 44:25.740
+ Yeah, it's weird.
+
+44:25.740 --> 44:27.220
+ Cause I learn a lot.
+
+44:27.220 --> 44:28.620
+ I learned a lot about myself,
+
+44:28.620 --> 44:32.940
+ about our human behavior, from watching pedestrians,
+
+44:32.940 --> 44:35.280
+ watching people in their environment.
+
+44:35.280 --> 44:37.900
+ Basically crossing the street
+
+44:37.900 --> 44:40.360
+ is like you're putting your life on the line.
+
+44:41.660 --> 44:44.540
+ I don't know, tens of millions of time in America every day
+
+44:44.540 --> 44:48.940
+ is people are just like playing this weird game of chicken
+
+44:48.940 --> 44:49.980
+ when they cross the street,
+
+44:49.980 --> 44:51.940
+ especially when there's some ambiguity
+
+44:51.940 --> 44:54.340
+ about the right of way.
+
+44:54.340 --> 44:56.660
+ That has to do either with the rules of the road
+
+44:56.660 --> 44:59.860
+ or with the general personality of the intersection
+
+44:59.860 --> 45:02.340
+ based on the time of day and so on.
+
+45:02.340 --> 45:04.100
+ And this nudging idea,
+
+45:05.660 --> 45:07.340
+ it seems that people don't even nudge.
+
+45:07.340 --> 45:10.340
+ They just aggressively take, make a decision.
+
+45:10.340 --> 45:14.080
+ Somebody, there's a runner that gave me this advice.
+
+45:14.080 --> 45:16.620
+ I sometimes run in the street,
+
+45:17.740 --> 45:18.860
+ not in the street, on the sidewalk.
+
+45:18.860 --> 45:22.260
+ And he said that if you don't make eye contact with people
+
+45:22.260 --> 45:25.700
+ when you're running, they will all move out of your way.
+
+45:25.700 --> 45:27.500
+ It's called civil inattention.
+
+45:27.500 --> 45:29.220
+ Civil inattention, that's a thing.
+
+45:29.220 --> 45:32.020
+ Oh wow, I need to look this up, but it works.
+
+45:32.020 --> 45:32.860
+ What is that?
+
+45:32.860 --> 45:37.860
+ My sense was if you communicate like confidence
+
+45:37.860 --> 45:41.260
+ in your actions that you're unlikely to deviate
+
+45:41.260 --> 45:43.100
+ from the action that you're following,
+
+45:43.100 --> 45:44.940
+ that's a really powerful signal to others
+
+45:44.940 --> 45:47.180
+ that they need to plan around your actions.
+
+45:47.180 --> 45:50.380
+ As opposed to nudging where you're sort of hesitantly,
+
+45:50.380 --> 45:53.300
+ then the hesitation might communicate
+
+45:53.300 --> 45:56.340
+ that you're still in the dance and the game
+
+45:56.340 --> 45:59.460
+ that they can influence with their own actions.
+
+45:59.460 --> 46:03.220
+ I've recently had a conversation with Jim Keller,
+
+46:03.220 --> 46:08.220
+ who's a sort of this legendary chip architect,
+
+46:08.260 --> 46:12.260
+ but he also led the autopilot team for a while.
+
+46:12.260 --> 46:16.820
+ And his intuition that driving is fundamentally
+
+46:16.820 --> 46:18.860
+ still like a ballistics problem.
+
+46:18.860 --> 46:22.220
+ Like you can ignore the human element
+
+46:22.220 --> 46:24.040
+ that is just not hitting things.
+
+46:24.040 --> 46:26.580
+ And you can kind of learn the right dynamics
+
+46:26.580 --> 46:29.700
+ required to do the merger and all those kinds of things.
+
+46:29.700 --> 46:32.660
+ And then my sense is, and I don't know if I can provide
+
+46:32.660 --> 46:34.980
+ sort of definitive proof of this,
+
+46:34.980 --> 46:38.060
+ but my sense is like an order of magnitude
+
+46:38.060 --> 46:41.540
+ are more difficult when humans are involved.
+
+46:41.540 --> 46:46.540
+ Like it's not simply object collision avoidance problem.
+
+46:48.100 --> 46:49.260
+ Where does your intuition,
+
+46:49.260 --> 46:51.020
+ of course, nobody knows the right answer here,
+
+46:51.020 --> 46:54.380
+ but where does your intuition fall on the difficulty,
+
+46:54.380 --> 46:57.060
+ fundamental difficulty of the driving problem
+
+46:57.060 --> 46:58.780
+ when humans are involved?
+
+46:58.780 --> 47:00.360
+ Yeah, good question.
+
+47:00.360 --> 47:01.980
+ I have many opinions on this.
+
+47:03.260 --> 47:07.260
+ Imagine downtown San Francisco.
+
+47:07.260 --> 47:10.740
+ Yeah, it's crazy, busy, everything.
+
+47:10.740 --> 47:12.800
+ Okay, now take all the humans out.
+
+47:12.800 --> 47:15.660
+ No pedestrians, no human driven vehicles,
+
+47:15.660 --> 47:18.700
+ no cyclists, no people on little electric scooters
+
+47:18.700 --> 47:19.960
+ zipping around, nothing.
+
+47:19.960 --> 47:21.960
+ I think we're done.
+
+47:21.960 --> 47:23.800
+ I think driving at that point is done.
+
+47:23.800 --> 47:25.000
+ We're done.
+
+47:25.000 --> 47:27.720
+ There's nothing really that still needs
+
+47:27.720 --> 47:28.880
+ to be solved about that.
+
+47:28.880 --> 47:30.600
+ Well, let's pause there.
+
+47:30.600 --> 47:34.240
+ I think I agree with you and I think a lot of people
+
+47:34.240 --> 47:37.400
+ that will hear will agree with that,
+
+47:37.400 --> 47:41.640
+ but we need to sort of internalize that idea.
+
+47:41.640 --> 47:42.920
+ So what's the problem there?
+
+47:42.920 --> 47:45.280
+ Cause we might not quite yet be done with that.
+
+47:45.280 --> 47:46.860
+ Cause a lot of people kind of focus
+
+47:46.860 --> 47:48.200
+ on the perception problem.
+
+47:48.200 --> 47:52.840
+ A lot of people kind of map autonomous driving
+
+47:52.840 --> 47:55.720
+ into how close are we to solving,
+
+47:55.720 --> 47:57.920
+ being able to detect all the, you know,
+
+47:57.920 --> 48:01.560
+ the drivable area, the objects in the scene.
+
+48:02.600 --> 48:06.160
+ Do you see that as a, how hard is that problem?
+
+48:07.440 --> 48:09.640
+ So your intuition there behind your statement
+
+48:09.640 --> 48:11.520
+ was we might have not solved it yet,
+
+48:11.520 --> 48:14.520
+ but we're close to solving basically the perception problem.
+
+48:14.520 --> 48:17.120
+ I think the perception problem, I mean,
+
+48:17.120 --> 48:19.360
+ and by the way, a bunch of years ago,
+
+48:19.360 --> 48:21.520
+ this would not have been true.
+
+48:21.520 --> 48:24.600
+ And a lot of issues in the space were coming
+
+48:24.600 --> 48:27.040
+ from the fact that, oh, we don't really, you know,
+
+48:27.040 --> 48:29.360
+ we don't know what's where.
+
+48:29.360 --> 48:33.760
+ But I think it's fairly safe to say that at this point,
+
+48:33.760 --> 48:35.840
+ although you could always improve on things
+
+48:35.840 --> 48:38.880
+ and all of that, you can drive through downtown San Francisco
+
+48:38.880 --> 48:40.400
+ if there are no people around.
+
+48:40.400 --> 48:42.520
+ There's no really perception issues
+
+48:42.520 --> 48:44.920
+ standing in your way there.
+
+48:44.920 --> 48:47.400
+ I think perception is hard, but yeah, it's, we've made
+
+48:47.400 --> 48:49.160
+ a lot of progress on the perception,
+
+48:49.160 --> 48:50.920
+ so I had to undermine the difficulty of the problem.
+
+48:50.920 --> 48:53.480
+ I think everything about robotics is really difficult,
+
+48:53.480 --> 48:57.160
+ of course, I think that, you know, the planning problem,
+
+48:57.160 --> 48:59.480
+ the control problem, all very difficult,
+
+48:59.480 --> 49:03.520
+ but I think what's, what makes it really kind of, yeah.
+
+49:03.520 --> 49:05.440
+ It might be, I mean, you know,
+
+49:05.440 --> 49:07.000
+ and I picked downtown San Francisco,
+
+49:07.000 --> 49:11.560
+ it's adapting to, well, now it's snowing,
+
+49:11.560 --> 49:14.080
+ now it's no longer snowing, now it's slippery in this way,
+
+49:14.080 --> 49:16.600
+ now it's the dynamics part could,
+
+49:16.600 --> 49:21.600
+ I could imagine being still somewhat challenging, but.
+
+49:24.080 --> 49:26.000
+ No, the thing that I think worries us,
+
+49:26.000 --> 49:27.680
+ and our intuition's not good there,
+
+49:27.680 --> 49:31.560
+ is the perception problem at the edge cases.
+
+49:31.560 --> 49:35.320
+ Sort of downtown San Francisco, the nice thing,
+
+49:35.320 --> 49:39.760
+ it's not actually, it may not be a good example because.
+
+49:39.760 --> 49:41.360
+ Because you know what you're getting from,
+
+49:41.360 --> 49:43.200
+ well, there's like crazy construction zones
+
+49:43.200 --> 49:44.480
+ and all of that. Yeah, but the thing is,
+
+49:44.480 --> 49:46.200
+ you're traveling at slow speeds,
+
+49:46.200 --> 49:47.840
+ so like it doesn't feel dangerous.
+
+49:47.840 --> 49:51.040
+ To me, what feels dangerous is highway speeds,
+
+49:51.040 --> 49:54.600
+ when everything is, to us humans, super clear.
+
+49:54.600 --> 49:57.120
+ Yeah, I'm assuming LiDAR here, by the way.
+
+49:57.120 --> 49:59.760
+ I think it's kind of irresponsible to not use LiDAR.
+
+49:59.760 --> 50:01.360
+ That's just my personal opinion.
+
+50:02.440 --> 50:04.600
+ That's, I mean, depending on your use case,
+
+50:04.600 --> 50:07.480
+ but I think like, you know, if you have the opportunity
+
+50:07.480 --> 50:11.000
+ to use LiDAR, in a lot of cases, you might not.
+
+50:11.000 --> 50:13.640
+ Good, your intuition makes more sense now.
+
+50:13.640 --> 50:15.200
+ So you don't think vision.
+
+50:15.200 --> 50:18.040
+ I really just don't know enough to say,
+
+50:18.040 --> 50:21.440
+ well, vision alone, what, you know, what's like,
+
+50:21.440 --> 50:24.160
+ there's a lot of, how many cameras do you have?
+
+50:24.160 --> 50:25.680
+ Is it, how are you using them?
+
+50:25.680 --> 50:26.680
+ I don't know. There's details.
+
+50:26.680 --> 50:28.400
+ There's all, there's all sorts of details.
+
+50:28.400 --> 50:30.120
+ I imagine there's stuff that's really hard
+
+50:30.120 --> 50:33.800
+ to actually see, you know, how do you deal with glare,
+
+50:33.800 --> 50:34.640
+ exactly what you were saying,
+
+50:34.640 --> 50:37.680
+ stuff that people would see that you don't.
+
+50:37.680 --> 50:40.640
+ I think I have, more of my intuition comes from systems
+
+50:40.640 --> 50:44.240
+ that can actually use LiDAR as well.
+
+50:44.240 --> 50:45.800
+ Yeah, and until we know for sure,
+
+50:45.800 --> 50:48.000
+ it makes sense to be using LiDAR.
+
+50:48.000 --> 50:50.040
+ That's kind of the safety focus.
+
+50:50.040 --> 50:52.240
+ But then the sort of the,
+
+50:52.240 --> 50:55.880
+ I also sympathize with the Elon Musk statement
+
+50:55.880 --> 50:57.880
+ of LiDAR is a crutch.
+
+50:57.880 --> 51:02.880
+ It's a fun notion to think that the things that work today
+
+51:04.600 --> 51:08.040
+ is a crutch for the invention of the things
+
+51:08.040 --> 51:09.960
+ that will work tomorrow, right?
+
+51:09.960 --> 51:14.960
+ Like it, it's kind of true in the sense that if,
+
+51:15.520 --> 51:17.320
+ you know, we want to stick to the comfort zone,
+
+51:17.320 --> 51:19.440
+ you see this in academic and research settings
+
+51:19.440 --> 51:22.360
+ all the time, the things that work force you
+
+51:22.360 --> 51:25.400
+ to not explore outside, think outside the box.
+
+51:25.400 --> 51:26.840
+ I mean, that happens all the time.
+
+51:26.840 --> 51:29.080
+ The problem is in the safety critical systems,
+
+51:29.080 --> 51:32.120
+ you kind of want to stick with the things that work.
+
+51:32.120 --> 51:34.920
+ So it's an interesting and difficult trade off
+
+51:34.920 --> 51:38.400
+ in the case of real world sort of safety critical
+
+51:38.400 --> 51:43.400
+ robotic systems, but so your intuition is,
+
+51:44.960 --> 51:48.080
+ just to clarify, how, I mean,
+
+51:48.080 --> 51:51.320
+ how hard is this human element for,
+
+51:51.320 --> 51:52.760
+ like how hard is driving
+
+51:52.760 --> 51:55.120
+ when this human element is involved?
+
+51:55.120 --> 52:00.040
+ Are we years, decades away from solving it?
+
+52:00.040 --> 52:03.880
+ But perhaps actually the year isn't the thing I'm asking.
+
+52:03.880 --> 52:05.480
+ It doesn't matter what the timeline is,
+
+52:05.480 --> 52:09.240
+ but do you think we're, how many breakthroughs
+
+52:09.240 --> 52:12.320
+ are we away from in solving
+
+52:12.320 --> 52:13.640
+ the human robotic interaction problem
+
+52:13.640 --> 52:15.640
+ to get this, to get this right?
+
+52:15.640 --> 52:20.520
+ I think it, in a sense, it really depends.
+
+52:20.520 --> 52:24.040
+ I think that, you know, we were talking about how,
+
+52:24.040 --> 52:25.160
+ well, look, it's really hard
+
+52:25.160 --> 52:27.080
+ because anticipate what people do is hard.
+
+52:27.080 --> 52:30.360
+ And on top of that, playing the game is hard.
+
+52:30.360 --> 52:35.360
+ But I think we sort of have the fundamental,
+
+52:35.960 --> 52:38.680
+ some of the fundamental understanding for that.
+
+52:38.680 --> 52:41.080
+ And then you already see that these systems
+
+52:41.080 --> 52:45.000
+ are being deployed in the real world,
+
+52:45.000 --> 52:47.720
+ you know, even driverless.
+
+52:47.720 --> 52:50.840
+ Like there's, I think now a few companies
+
+52:50.840 --> 52:55.840
+ that don't have a driver in the car in some small areas.
+
+52:55.840 --> 52:59.640
+ I got a chance to, I went to Phoenix and I,
+
+52:59.640 --> 53:03.560
+ I shot a video with Waymo and I needed to get
+
+53:03.560 --> 53:04.640
+ that video out.
+
+53:04.640 --> 53:06.640
+ People have been giving me slack,
+
+53:06.640 --> 53:09.280
+ but there's incredible engineering work being done there.
+
+53:09.280 --> 53:11.160
+ And it's one of those other seminal moments
+
+53:11.160 --> 53:13.920
+ for me in my life to be able to, it sounds silly,
+
+53:13.920 --> 53:17.640
+ but to be able to drive without a ride, sorry,
+
+53:17.640 --> 53:19.360
+ without a driver in the seat.
+
+53:19.360 --> 53:22.360
+ I mean, that was an incredible robotics.
+
+53:22.360 --> 53:27.360
+ I was driven by a robot without being able to take over,
+
+53:27.840 --> 53:31.200
+ without being able to take the steering wheel.
+
+53:31.200 --> 53:33.520
+ That's a magical, that's a magical moment.
+
+53:33.520 --> 53:35.560
+ So in that regard, in those domains,
+
+53:35.560 --> 53:39.960
+ at least for like Waymo, they're solving that human,
+
+53:39.960 --> 53:43.520
+ there's, I mean, they're going, I mean, it felt fast
+
+53:43.520 --> 53:45.600
+ because you're like freaking out at first.
+
+53:45.600 --> 53:47.440
+ That was, this is my first experience,
+
+53:47.440 --> 53:49.080
+ but it's going like the speed limit, right?
+
+53:49.080 --> 53:51.200
+ 30, 40, whatever it is.
+
+53:51.200 --> 53:53.840
+ And there's humans and it deals with them quite well.
+
+53:53.840 --> 53:57.000
+ It detects them, it negotiates the intersections,
+
+53:57.000 --> 53:58.240
+ the left turns and all of that.
+
+53:58.240 --> 54:01.240
+ So at least in those domains, it's solving them.
+
+54:01.240 --> 54:05.060
+ The open question for me is like, how quickly can we expand?
+
+54:06.000 --> 54:08.760
+ You know, that's the, you know,
+
+54:08.760 --> 54:10.080
+ outside of the weather conditions,
+
+54:10.080 --> 54:11.040
+ all of those kinds of things,
+
+54:11.040 --> 54:14.560
+ how quickly can we expand to like cities like San Francisco?
+
+54:14.560 --> 54:17.120
+ Yeah, and I wouldn't say that it's just, you know,
+
+54:17.120 --> 54:20.280
+ now it's just pure engineering and it's probably the,
+
+54:20.280 --> 54:22.080
+ I mean, and by the way,
+
+54:22.080 --> 54:26.360
+ I'm speaking kind of very generally here as hypothesizing,
+
+54:26.360 --> 54:31.260
+ but I think that there are successes
+
+54:31.260 --> 54:34.400
+ and yet no one is everywhere out there.
+
+54:34.400 --> 54:38.880
+ So that seems to suggest that things can be expanded
+
+54:38.880 --> 54:41.680
+ and can be scaled and we know how to do a lot of things,
+
+54:41.680 --> 54:44.080
+ but there's still probably, you know,
+
+54:44.080 --> 54:46.760
+ new algorithms or modified algorithms
+
+54:46.760 --> 54:49.240
+ that you still need to put in there
+
+54:49.240 --> 54:53.440
+ as you learn more and more about new challenges
+
+54:53.440 --> 54:55.760
+ that you get faced with.
+
+54:55.760 --> 54:58.280
+ How much of this problem do you think can be learned
+
+54:58.280 --> 54:59.120
+ through end to end?
+
+54:59.120 --> 55:00.680
+ Is it the success of machine learning
+
+55:00.680 --> 55:02.760
+ and reinforcement learning?
+
+55:02.760 --> 55:05.280
+ How much of it can be learned from sort of data
+
+55:05.280 --> 55:07.040
+ from scratch and how much,
+
+55:07.040 --> 55:10.540
+ which most of the success of autonomous vehicle systems
+
+55:10.540 --> 55:14.400
+ have a lot of heuristics and rule based stuff on top,
+
+55:14.400 --> 55:19.320
+ like human expertise injected forced into the system
+
+55:19.320 --> 55:20.840
+ to make it work.
+
+55:20.840 --> 55:22.000
+ What's your sense?
+
+55:22.000 --> 55:26.120
+ How much, what will be the role of learning
+
+55:26.120 --> 55:28.160
+ in the near term and long term?
+
+55:28.160 --> 55:33.160
+ I think on the one hand that learning is inevitable here,
+
+55:36.000 --> 55:37.400
+ right?
+
+55:37.400 --> 55:39.720
+ I think on the other hand that when people characterize
+
+55:39.720 --> 55:42.080
+ the problem as it's a bunch of rules
+
+55:42.080 --> 55:44.400
+ that some people wrote down,
+
+55:44.400 --> 55:49.400
+ versus it's an end to end RL system or imitation learning,
+
+55:49.640 --> 55:52.400
+ then maybe there's kind of something missing
+
+55:53.480 --> 55:57.080
+ from maybe that's more.
+
+55:57.080 --> 56:02.080
+ So for instance, I think a very, very useful tool
+
+56:02.840 --> 56:04.360
+ in this sort of problem,
+
+56:04.360 --> 56:07.360
+ both in how to generate the car's behavior
+
+56:07.360 --> 56:11.720
+ and robots in general and how to model human beings
+
+56:11.720 --> 56:15.000
+ is actually planning, search optimization, right?
+
+56:15.000 --> 56:18.280
+ So robotics is the sequential decision making problem.
+
+56:18.280 --> 56:23.280
+ And when a robot can figure out on its own
+
+56:26.360 --> 56:28.960
+ how to achieve its goal without hitting stuff
+
+56:28.960 --> 56:30.040
+ and all that stuff, right?
+
+56:30.040 --> 56:33.080
+ All the good stuff for motion planning 101,
+
+56:33.080 --> 56:36.280
+ I think of that as very much AI,
+
+56:36.280 --> 56:38.120
+ not this is some rule or something.
+
+56:38.120 --> 56:40.360
+ There's nothing rule based around that, right?
+
+56:40.360 --> 56:42.000
+ It's just you're searching through a space
+
+56:42.000 --> 56:43.720
+ and figuring out are you optimizing through a space
+
+56:43.720 --> 56:46.360
+ and figure out what seems to be the right thing to do.
+
+56:47.320 --> 56:49.880
+ And I think it's hard to just do that
+
+56:49.880 --> 56:52.520
+ because you need to learn models of the world.
+
+56:52.520 --> 56:55.720
+ And I think it's hard to just do the learning part
+
+56:55.720 --> 56:58.800
+ where you don't bother with any of that,
+
+56:58.800 --> 57:01.720
+ because then you're saying, well, I could do imitation,
+
+57:01.720 --> 57:04.640
+ but then when I go off distribution, I'm really screwed.
+
+57:04.640 --> 57:08.320
+ Or you can say, I can do reinforcement learning,
+
+57:08.320 --> 57:09.840
+ which adds a lot of robustness,
+
+57:09.840 --> 57:12.640
+ but then you have to do either reinforcement learning
+
+57:12.640 --> 57:15.320
+ in the real world, which sounds a little challenging
+
+57:15.320 --> 57:18.400
+ or that trial and error, you know,
+
+57:18.400 --> 57:21.080
+ or you have to do reinforcement learning in simulation.
+
+57:21.080 --> 57:23.080
+ And then that means, well, guess what?
+
+57:23.080 --> 57:27.280
+ You need to model things, at least to model people,
+
+57:27.280 --> 57:31.560
+ model the world enough that whatever policy you get of that
+
+57:31.560 --> 57:34.920
+ is actually fine to roll out in the world
+
+57:34.920 --> 57:36.480
+ and do some additional learning there.
+
+57:36.480 --> 57:40.920
+ So. Do you think simulation, by the way, just a quick tangent
+
+57:40.920 --> 57:44.280
+ has a role in the human robot interaction space?
+
+57:44.280 --> 57:46.320
+ Like, is it useful?
+
+57:46.320 --> 57:48.480
+ It seems like humans, everything we've been talking about
+
+57:48.480 --> 57:51.400
+ are difficult to model and simulate.
+
+57:51.400 --> 57:53.640
+ Do you think simulation has a role in this space?
+
+57:53.640 --> 57:54.480
+ I do.
+
+57:54.480 --> 57:58.840
+ I think so because you can take models
+
+57:58.840 --> 58:03.840
+ and train with them ahead of time, for instance.
+
+58:04.040 --> 58:06.080
+ You can.
+
+58:06.080 --> 58:07.640
+ But the models, sorry to interrupt,
+
+58:07.640 --> 58:10.480
+ the models are sort of human constructed or learned?
+
+58:10.480 --> 58:14.880
+ I think they have to be a combination
+
+58:14.880 --> 58:19.880
+ because if you get some human data and then you say,
+
+58:20.520 --> 58:22.960
+ this is how, this is gonna be my model of the person.
+
+58:22.960 --> 58:24.440
+ What are for simulation and training
+
+58:24.440 --> 58:25.800
+ or for just deployment time?
+
+58:25.800 --> 58:27.200
+ And that's what I'm planning with
+
+58:27.200 --> 58:29.120
+ as my model of how people work.
+
+58:29.120 --> 58:31.640
+ Regardless, if you take some data
+
+58:33.440 --> 58:35.280
+ and you don't assume anything else and you just say,
+
+58:35.280 --> 58:39.200
+ okay, this is some data that I've collected.
+
+58:39.200 --> 58:42.600
+ Let me fit a policy to how people work based on that.
+
+58:42.600 --> 58:45.120
+ What tends to happen is you collected some data
+
+58:45.120 --> 58:50.120
+ and some distribution, and then now your robot
+
+58:50.400 --> 58:52.960
+ sort of computes a best response to that, right?
+
+58:52.960 --> 58:54.480
+ It's sort of like, what should I do
+
+58:54.480 --> 58:56.280
+ if this is how people work?
+
+58:56.280 --> 58:58.600
+ And easily goes off of distribution
+
+58:58.600 --> 59:01.040
+ where that model that you've built of the human
+
+59:01.040 --> 59:03.480
+ completely sucks because out of distribution,
+
+59:03.480 --> 59:05.120
+ you have no idea, right?
+
+59:05.120 --> 59:07.880
+ If you think of all the possible policies
+
+59:07.880 --> 59:10.960
+ and then you take only the ones that are consistent
+
+59:10.960 --> 59:13.040
+ with the human data that you've observed,
+
+59:13.040 --> 59:15.880
+ that still leads a lot of, a lot of things could happen
+
+59:15.880 --> 59:18.680
+ outside of that distribution where you're confident
+
+59:18.680 --> 59:19.840
+ then you know what's going on.
+
+59:19.840 --> 59:22.640
+ By the way, that's, I mean, I've gotten used
+
+59:22.640 --> 59:25.360
+ to this terminology of not a distribution,
+
+59:25.360 --> 59:29.000
+ but it's such a machine learning terminology
+
+59:29.000 --> 59:30.800
+ because it kind of assumes,
+
+59:30.800 --> 59:35.800
+ so distribution is referring to the data
+
+59:36.040 --> 59:36.880
+ that you've seen.
+
+59:36.880 --> 59:38.040
+ The set of states that you encounter
+
+59:38.040 --> 59:39.400
+ at training time. They've encountered so far
+
+59:39.400 --> 59:40.720
+ at training time. Yeah.
+
+59:40.720 --> 59:43.960
+ But it kind of also implies that there's a nice
+
+59:43.960 --> 59:47.440
+ like statistical model that represents that data.
+
+59:47.440 --> 59:50.120
+ So out of distribution feels like, I don't know,
+
+59:50.120 --> 59:54.400
+ it raises to me philosophical questions
+
+59:54.400 --> 59:58.640
+ of how we humans reason out of distribution,
+
+59:58.640 --> 1:00:01.600
+ reason about things that are completely,
+
+1:00:01.600 --> 1:00:03.240
+ we haven't seen before.
+
+1:00:03.240 --> 1:00:05.760
+ And so, and what we're talking about here is
+
+1:00:05.760 --> 1:00:09.160
+ how do we reason about what other people do
+
+1:00:09.160 --> 1:00:11.480
+ in situations where we haven't seen them?
+
+1:00:11.480 --> 1:00:14.880
+ And somehow we just magically navigate that.
+
+1:00:14.880 --> 1:00:18.000
+ I can anticipate what will happen in situations
+
+1:00:18.000 --> 1:00:21.640
+ that are even novel in many ways.
+
+1:00:21.640 --> 1:00:22.960
+ And I have a pretty good intuition for,
+
+1:00:22.960 --> 1:00:24.520
+ I don't always get it right, but you know,
+
+1:00:24.520 --> 1:00:26.520
+ and I might be a little uncertain and so on.
+
+1:00:26.520 --> 1:00:31.520
+ But I think it's this that if you just rely on data,
+
+1:00:33.240 --> 1:00:36.000
+ you know, there's just too many possibilities,
+
+1:00:36.000 --> 1:00:37.960
+ there's too many policies out there that fit the data.
+
+1:00:37.960 --> 1:00:39.320
+ And by the way, it's not just state,
+
+1:00:39.320 --> 1:00:40.640
+ it's really kind of history of state,
+
+1:00:40.640 --> 1:00:41.840
+ cause to really be able to anticipate
+
+1:00:41.840 --> 1:00:43.080
+ what the person will do,
+
+1:00:43.080 --> 1:00:45.200
+ it kind of depends on what they've been doing so far,
+
+1:00:45.200 --> 1:00:47.840
+ cause that's the information you need to kind of,
+
+1:00:47.840 --> 1:00:49.560
+ at least implicitly sort of say,
+
+1:00:49.560 --> 1:00:51.320
+ oh, this is the kind of person that this is,
+
+1:00:51.320 --> 1:00:53.080
+ this is probably what they're trying to do.
+
+1:00:53.080 --> 1:00:55.200
+ So anyway, it's like you're trying to map history of states
+
+1:00:55.200 --> 1:00:56.640
+ to actions, there's many mappings.
+
+1:00:56.640 --> 1:00:59.840
+ And history meaning like the last few seconds
+
+1:00:59.840 --> 1:01:02.520
+ or the last few minutes or the last few months.
+
+1:01:02.520 --> 1:01:04.680
+ Who knows, who knows how much you need, right?
+
+1:01:04.680 --> 1:01:07.280
+ In terms of if your state is really like the positions
+
+1:01:07.280 --> 1:01:09.680
+ of everything or whatnot and velocities,
+
+1:01:09.680 --> 1:01:10.520
+ who knows how much you need.
+
+1:01:10.520 --> 1:01:14.680
+ And then there's so many mappings.
+
+1:01:14.680 --> 1:01:16.560
+ And so now you're talking about
+
+1:01:16.560 --> 1:01:17.960
+ how do you regularize that space?
+
+1:01:17.960 --> 1:01:21.440
+ What priors do you impose or what's the inductive bias?
+
+1:01:21.440 --> 1:01:23.600
+ So, you know, there's all very related things
+
+1:01:23.600 --> 1:01:25.800
+ to think about it.
+
+1:01:25.800 --> 1:01:28.880
+ Basically, what are assumptions that we should be making
+
+1:01:29.800 --> 1:01:32.600
+ such that these models actually generalize
+
+1:01:32.600 --> 1:01:34.560
+ outside of the data that we've seen?
+
+1:01:35.560 --> 1:01:37.800
+ And now you're talking about, well, I don't know,
+
+1:01:37.800 --> 1:01:38.640
+ what can you assume?
+
+1:01:38.640 --> 1:01:40.840
+ Maybe you can assume that people like actually
+
+1:01:40.840 --> 1:01:43.800
+ have intentions and that's what drives their actions.
+
+1:01:43.800 --> 1:01:46.560
+ Maybe that's, you know, the right thing to do
+
+1:01:46.560 --> 1:01:49.600
+ when you haven't seen data very nearby
+
+1:01:49.600 --> 1:01:51.000
+ that tells you otherwise.
+
+1:01:51.000 --> 1:01:53.360
+ I don't know, it's a very open question.
+
+1:01:53.360 --> 1:01:55.600
+ Do you think sort of that one of the dreams
+
+1:01:55.600 --> 1:01:58.200
+ of artificial intelligence was to solve
+
+1:01:58.200 --> 1:02:01.160
+ common sense reasoning, whatever the heck that means.
+
+1:02:02.640 --> 1:02:04.960
+ Do you think something like common sense reasoning
+
+1:02:04.960 --> 1:02:09.040
+ has to be solved in part to be able to solve this dance
+
+1:02:09.040 --> 1:02:12.280
+ of human robot interaction, the driving space
+
+1:02:12.280 --> 1:02:14.960
+ or human robot interaction in general?
+
+1:02:14.960 --> 1:02:16.880
+ Do you have to be able to reason about these kinds
+
+1:02:16.880 --> 1:02:21.880
+ of common sense concepts of physics,
+
+1:02:21.880 --> 1:02:26.880
+ of, you know, all the things we've been talking about
+
+1:02:27.640 --> 1:02:30.640
+ humans, I don't even know how to express them with words,
+
+1:02:30.640 --> 1:02:34.680
+ but the basics of human behavior, a fear of death.
+
+1:02:34.680 --> 1:02:38.080
+ So like, to me, it's really important to encode
+
+1:02:38.080 --> 1:02:41.920
+ in some kind of sense, maybe not, maybe it's implicit,
+
+1:02:41.920 --> 1:02:44.760
+ but it feels that it's important to explicitly encode
+
+1:02:44.760 --> 1:02:48.200
+ the fear of death, that people don't wanna die.
+
+1:02:48.200 --> 1:02:53.200
+ Because it seems silly, but like the game of chicken
+
+1:02:56.880 --> 1:02:59.800
+ that involves with the pedestrian crossing the street
+
+1:02:59.800 --> 1:03:03.000
+ is playing with the idea of mortality.
+
+1:03:03.000 --> 1:03:04.240
+ Like we really don't wanna die.
+
+1:03:04.240 --> 1:03:06.080
+ It's not just like a negative reward.
+
+1:03:07.000 --> 1:03:10.040
+ I don't know, it just feels like all these human concepts
+
+1:03:10.040 --> 1:03:11.760
+ have to be encoded.
+
+1:03:11.760 --> 1:03:14.320
+ Do you share that sense or is this a lot simpler
+
+1:03:14.320 --> 1:03:15.840
+ than I'm making out to be?
+
+1:03:15.840 --> 1:03:17.080
+ I think it might be simpler.
+
+1:03:17.080 --> 1:03:18.840
+ And I'm the person who likes to complicate things.
+
+1:03:18.840 --> 1:03:21.120
+ I think it might be simpler than that.
+
+1:03:21.120 --> 1:03:24.200
+ Because it turns out, for instance,
+
+1:03:24.200 --> 1:03:29.200
+ if you say model people in the very,
+
+1:03:29.560 --> 1:03:31.720
+ I'll call it traditional, I don't know if it's fair
+
+1:03:31.720 --> 1:03:33.040
+ to look at it as a traditional way,
+
+1:03:33.040 --> 1:03:35.360
+ but you know, calling people as,
+
+1:03:35.360 --> 1:03:37.880
+ okay, they're rational somehow,
+
+1:03:37.880 --> 1:03:40.080
+ the utilitarian perspective.
+
+1:03:40.080 --> 1:03:45.080
+ Well, in that, once you say that,
+
+1:03:45.080 --> 1:03:48.960
+ you automatically capture that they have an incentive
+
+1:03:48.960 --> 1:03:50.960
+ to keep on being.
+
+1:03:50.960 --> 1:03:53.720
+ You know, Stuart likes to say,
+
+1:03:53.720 --> 1:03:55.840
+ you can't fetch the coffee if you're dead.
+
+1:03:56.960 --> 1:03:58.320
+ Stuart Russell, by the way.
+
+1:03:59.960 --> 1:04:01.320
+ That's a good line.
+
+1:04:01.320 --> 1:04:05.600
+ So when you're sort of treating agents
+
+1:04:05.600 --> 1:04:10.240
+ as having these objectives, these incentives,
+
+1:04:10.240 --> 1:04:14.880
+ humans or artificial, you're kind of implicitly modeling
+
+1:04:14.880 --> 1:04:16.960
+ that they'd like to stick around
+
+1:04:16.960 --> 1:04:20.160
+ so that they can accomplish those goals.
+
+1:04:20.160 --> 1:04:22.760
+ So I think in a sense,
+
+1:04:22.760 --> 1:04:24.200
+ maybe that's what draws me so much
+
+1:04:24.200 --> 1:04:25.520
+ to the rationality framework,
+
+1:04:25.520 --> 1:04:26.800
+ even though it's so broken,
+
+1:04:26.800 --> 1:04:30.680
+ we've been able to, it's been such a useful perspective.
+
+1:04:30.680 --> 1:04:32.200
+ And like we were talking about earlier,
+
+1:04:32.200 --> 1:04:33.040
+ what's the alternative?
+
+1:04:33.040 --> 1:04:34.360
+ I give up and go home or, you know,
+
+1:04:34.360 --> 1:04:36.040
+ I just use complete black boxes,
+
+1:04:36.040 --> 1:04:37.960
+ but then I don't know what to assume out of distribution
+
+1:04:37.960 --> 1:04:40.040
+ that come back to this.
+
+1:04:40.040 --> 1:04:42.600
+ It's just, it's been a very fruitful way
+
+1:04:42.600 --> 1:04:43.960
+ to think about the problem
+
+1:04:43.960 --> 1:04:47.240
+ in a very more positive way, right?
+
+1:04:47.240 --> 1:04:49.080
+ People aren't just crazy.
+
+1:04:49.080 --> 1:04:51.440
+ Maybe they make more sense than we think.
+
+1:04:51.440 --> 1:04:55.640
+ But I think we also have to somehow be ready for it
+
+1:04:55.640 --> 1:04:58.200
+ to be wrong, be able to detect
+
+1:04:58.200 --> 1:05:00.440
+ when these assumptions aren't holding,
+
+1:05:00.440 --> 1:05:02.880
+ be all of that stuff.
+
+1:05:02.880 --> 1:05:06.640
+ Let me ask sort of another small side of this
+
+1:05:06.640 --> 1:05:07.800
+ that we've been talking about
+
+1:05:07.800 --> 1:05:09.920
+ the pure autonomous driving problem,
+
+1:05:09.920 --> 1:05:13.720
+ but there's also relatively successful systems
+
+1:05:13.720 --> 1:05:17.360
+ already deployed out there in what you may call
+
+1:05:17.360 --> 1:05:20.680
+ like level two autonomy or semi autonomous vehicles,
+
+1:05:20.680 --> 1:05:22.560
+ whether that's Tesla Autopilot,
+
+1:05:23.400 --> 1:05:27.480
+ work quite a bit with Cadillac SuperGuru system,
+
+1:05:27.480 --> 1:05:31.320
+ which has a driver facing camera that detects your state.
+
+1:05:31.320 --> 1:05:35.400
+ There's a bunch of basically lane centering systems.
+
+1:05:35.400 --> 1:05:40.400
+ What's your sense about this kind of way of dealing
+
+1:05:41.160 --> 1:05:43.160
+ with the human robot interaction problem
+
+1:05:43.160 --> 1:05:45.280
+ by having a really dumb robot
+
+1:05:46.400 --> 1:05:50.280
+ and relying on the human to help the robot out
+
+1:05:50.280 --> 1:05:51.840
+ to keep them both alive?
+
+1:05:53.000 --> 1:05:57.400
+ Is that from the research perspective,
+
+1:05:57.400 --> 1:05:59.280
+ how difficult is that problem?
+
+1:05:59.280 --> 1:06:02.240
+ And from a practical deployment perspective,
+
+1:06:02.240 --> 1:06:05.960
+ is that a fruitful way to approach
+
+1:06:05.960 --> 1:06:08.080
+ this human robot interaction problem?
+
+1:06:08.080 --> 1:06:12.120
+ I think what we have to be careful about there
+
+1:06:12.120 --> 1:06:16.240
+ is to not, it seems like some of these systems,
+
+1:06:16.240 --> 1:06:19.880
+ not all are making this underlying assumption
+
+1:06:19.880 --> 1:06:24.880
+ that if, so I'm a driver and I'm now really not driving,
+
+1:06:25.560 --> 1:06:28.920
+ but supervising and my job is to intervene, right?
+
+1:06:28.920 --> 1:06:31.280
+ And so we have to be careful with this assumption
+
+1:06:31.280 --> 1:06:35.680
+ that when I'm, if I'm supervising,
+
+1:06:36.640 --> 1:06:41.640
+ I will be just as safe as when I'm driving.
+
+1:06:41.640 --> 1:06:46.640
+ That I will, if I wouldn't get into some kind of accident,
+
+1:06:46.840 --> 1:06:50.880
+ if I'm driving, I will be able to avoid that accident
+
+1:06:50.880 --> 1:06:52.240
+ when I'm supervising too.
+
+1:06:52.240 --> 1:06:55.120
+ And I think I'm concerned about this assumption
+
+1:06:55.120 --> 1:06:56.840
+ from a few perspectives.
+
+1:06:56.840 --> 1:06:58.440
+ So from a technical perspective,
+
+1:06:58.440 --> 1:07:01.400
+ it's that when you let something kind of take control
+
+1:07:01.400 --> 1:07:03.800
+ and do its thing, and it depends on what that thing is,
+
+1:07:03.800 --> 1:07:05.480
+ obviously, and how much it's taking control
+
+1:07:05.480 --> 1:07:07.920
+ and how, what things are you trusting it to do.
+
+1:07:07.920 --> 1:07:11.880
+ But if you let it do its thing and take control,
+
+1:07:11.880 --> 1:07:15.080
+ it will go to what we might call off policy
+
+1:07:15.080 --> 1:07:16.800
+ from the person's perspective state.
+
+1:07:16.800 --> 1:07:18.440
+ So states that the person wouldn't actually
+
+1:07:18.440 --> 1:07:20.880
+ find themselves in if they were the ones driving.
+
+1:07:22.000 --> 1:07:24.120
+ And the assumption that the person functions
+
+1:07:24.120 --> 1:07:26.280
+ just as well there as they function in the states
+
+1:07:26.280 --> 1:07:28.080
+ that they would normally encounter
+
+1:07:28.080 --> 1:07:30.040
+ is a little questionable.
+
+1:07:30.040 --> 1:07:34.400
+ Now, another part is the kind of the human factor side
+
+1:07:34.400 --> 1:07:38.320
+ of this, which is that I don't know about you,
+
+1:07:38.320 --> 1:07:42.120
+ but I think I definitely feel like I'm experiencing things
+
+1:07:42.120 --> 1:07:45.320
+ very differently when I'm actively engaged in the task
+
+1:07:45.320 --> 1:07:47.000
+ versus when I'm a passive observer.
+
+1:07:47.000 --> 1:07:49.400
+ Like even if I try to stay engaged, right?
+
+1:07:49.400 --> 1:07:51.120
+ It's very different than when I'm actually
+
+1:07:51.120 --> 1:07:53.560
+ actively making decisions.
+
+1:07:53.560 --> 1:07:55.480
+ And you see this in life in general.
+
+1:07:55.480 --> 1:07:58.360
+ Like you see students who are actively trying
+
+1:07:58.360 --> 1:08:00.920
+ to come up with the answer, learn this thing better
+
+1:08:00.920 --> 1:08:03.000
+ than when they're passively told the answer.
+
+1:08:03.000 --> 1:08:04.360
+ I think that's somewhat related.
+
+1:08:04.360 --> 1:08:06.680
+ And I think people have studied this in human factors
+
+1:08:06.680 --> 1:08:07.600
+ for airplanes.
+
+1:08:07.600 --> 1:08:10.200
+ And I think it's actually fairly established
+
+1:08:10.200 --> 1:08:12.160
+ that these two are not the same.
+
+1:08:12.160 --> 1:08:13.000
+ So.
+
+1:08:13.000 --> 1:08:14.960
+ On that point, because I've gotten a huge amount
+
+1:08:14.960 --> 1:08:17.120
+ of heat on this and I stand by it.
+
+1:08:17.120 --> 1:08:17.960
+ Okay.
+
+1:08:18.960 --> 1:08:22.000
+ Because I know the human factors community well
+
+1:08:22.000 --> 1:08:24.040
+ and the work here is really strong.
+
+1:08:24.040 --> 1:08:27.040
+ And there's many decades of work showing exactly
+
+1:08:27.040 --> 1:08:28.280
+ what you're saying.
+
+1:08:28.280 --> 1:08:30.920
+ Nevertheless, I've been continuously surprised
+
+1:08:30.920 --> 1:08:33.800
+ that much of the predictions of that work has been wrong
+
+1:08:33.800 --> 1:08:35.360
+ in what I've seen.
+
+1:08:35.360 --> 1:08:37.000
+ So what we have to do,
+
+1:08:37.880 --> 1:08:40.320
+ I still agree with everything you said,
+
+1:08:40.320 --> 1:08:45.320
+ but we have to be a little bit more open minded.
+
+1:08:45.640 --> 1:08:49.480
+ So the, I'll tell you, there's a few surprising things
+
+1:08:49.480 --> 1:08:52.960
+ that supervise, like everything you said to the word
+
+1:08:52.960 --> 1:08:54.840
+ is actually exactly correct.
+
+1:08:54.840 --> 1:08:57.880
+ But it doesn't say, what you didn't say
+
+1:08:57.880 --> 1:09:00.160
+ is that these systems are,
+
+1:09:00.160 --> 1:09:02.480
+ you said you can't assume a bunch of things,
+
+1:09:02.480 --> 1:09:06.680
+ but we don't know if these systems are fundamentally unsafe.
+
+1:09:06.680 --> 1:09:07.920
+ That's still unknown.
+
+1:09:08.800 --> 1:09:11.040
+ There's a lot of interesting things,
+
+1:09:11.040 --> 1:09:15.880
+ like I'm surprised by the fact, not the fact,
+
+1:09:15.880 --> 1:09:18.840
+ that what seems to be anecdotally from,
+
+1:09:18.840 --> 1:09:21.160
+ well, from large data collection that we've done,
+
+1:09:21.160 --> 1:09:23.960
+ but also from just talking to a lot of people,
+
+1:09:23.960 --> 1:09:27.120
+ when in the supervisory role of semi autonomous systems
+
+1:09:27.120 --> 1:09:29.480
+ that are sufficiently dumb, at least,
+
+1:09:29.480 --> 1:09:33.560
+ which is, that might be the key element,
+
+1:09:33.560 --> 1:09:35.200
+ is the systems have to be dumb.
+
+1:09:35.200 --> 1:09:38.680
+ The people are actually more energized as observers.
+
+1:09:38.680 --> 1:09:40.600
+ So they're actually better,
+
+1:09:40.600 --> 1:09:43.400
+ they're better at observing the situation.
+
+1:09:43.400 --> 1:09:46.520
+ So there might be cases in systems,
+
+1:09:46.520 --> 1:09:48.320
+ if you get the interaction right,
+
+1:09:48.320 --> 1:09:50.880
+ where you, as a supervisor,
+
+1:09:50.880 --> 1:09:53.600
+ will do a better job with the system together.
+
+1:09:53.600 --> 1:09:56.760
+ I agree, I think that is actually really possible.
+
+1:09:56.760 --> 1:10:00.080
+ I guess mainly I'm pointing out that if you do it naively,
+
+1:10:00.080 --> 1:10:02.160
+ you're implicitly assuming something,
+
+1:10:02.160 --> 1:10:04.480
+ that assumption might actually really be wrong.
+
+1:10:04.480 --> 1:10:07.760
+ But I do think that if you explicitly think about
+
+1:10:09.120 --> 1:10:10.720
+ what the agent should do
+
+1:10:10.720 --> 1:10:13.480
+ so that the person still stays engaged.
+
+1:10:13.480 --> 1:10:16.400
+ What the, so that you essentially empower the person
+
+1:10:16.400 --> 1:10:17.560
+ to do more than they could,
+
+1:10:17.560 --> 1:10:19.080
+ that's really the goal, right?
+
+1:10:19.080 --> 1:10:20.280
+ Is you still have a driver,
+
+1:10:20.280 --> 1:10:25.320
+ so you wanna empower them to be so much better
+
+1:10:25.320 --> 1:10:27.040
+ than they would be by themselves.
+
+1:10:27.040 --> 1:10:29.760
+ And that's different, it's a very different mindset
+
+1:10:29.760 --> 1:10:33.160
+ than I want them to basically not drive, right?
+
+1:10:33.160 --> 1:10:38.160
+ And, but be ready to sort of take over.
+
+1:10:40.320 --> 1:10:42.360
+ So one of the interesting things we've been talking about
+
+1:10:42.360 --> 1:10:47.000
+ is the rewards, that they seem to be fundamental too,
+
+1:10:47.000 --> 1:10:49.200
+ the way robots behaves.
+
+1:10:49.200 --> 1:10:52.440
+ So broadly speaking,
+
+1:10:52.440 --> 1:10:54.320
+ we've been talking about utility functions and so on,
+
+1:10:54.320 --> 1:10:56.960
+ but could you comment on how do we approach
+
+1:10:56.960 --> 1:10:59.640
+ the design of reward functions?
+
+1:10:59.640 --> 1:11:02.600
+ Like, how do we come up with good reward functions?
+
+1:11:02.600 --> 1:11:05.160
+ Well, really good question,
+
+1:11:05.160 --> 1:11:08.640
+ because the answer is we don't.
+
+1:11:10.880 --> 1:11:13.560
+ This was, you know, I used to think,
+
+1:11:13.560 --> 1:11:16.480
+ I used to think about how,
+
+1:11:16.480 --> 1:11:18.920
+ well, it's actually really hard to specify rewards
+
+1:11:18.920 --> 1:11:22.960
+ for interaction because it's really supposed to be
+
+1:11:22.960 --> 1:11:25.040
+ what the people want, and then you really, you know,
+
+1:11:25.040 --> 1:11:26.600
+ we talked about how you have to customize
+
+1:11:26.600 --> 1:11:30.720
+ what you wanna do to the end user.
+
+1:11:30.720 --> 1:11:35.720
+ But I kind of realized that even if you take
+
+1:11:36.080 --> 1:11:38.000
+ the interactive component away,
+
+1:11:39.200 --> 1:11:42.680
+ it's still really hard to design reward functions.
+
+1:11:42.680 --> 1:11:43.800
+ So what do I mean by that?
+
+1:11:43.800 --> 1:11:47.360
+ I mean, if we assume this sort of AI paradigm
+
+1:11:47.360 --> 1:11:51.080
+ in which there's an agent and his job is to optimize
+
+1:11:51.080 --> 1:11:55.640
+ some objectives, some reward, utility, loss, whatever, cost,
+
+1:11:58.280 --> 1:12:00.280
+ if you write it out, maybe it's a set,
+
+1:12:00.280 --> 1:12:02.520
+ depending on the situation or whatever it is,
+
+1:12:03.680 --> 1:12:06.960
+ if you write that out and then you deploy the agent,
+
+1:12:06.960 --> 1:12:10.240
+ you'd wanna make sure that whatever you specified
+
+1:12:10.240 --> 1:12:14.840
+ incentivizes the behavior you want from the agent
+
+1:12:14.840 --> 1:12:18.640
+ in any situation that the agent will be faced with, right?
+
+1:12:18.640 --> 1:12:22.080
+ So I do motion planning on my robot arm,
+
+1:12:22.080 --> 1:12:25.920
+ I specify some cost function like, you know,
+
+1:12:25.920 --> 1:12:28.080
+ this is how far away you should try to stay,
+
+1:12:28.080 --> 1:12:29.560
+ so much it matters to stay away from people,
+
+1:12:29.560 --> 1:12:31.800
+ and this is how much it matters to be able to be efficient
+
+1:12:31.800 --> 1:12:33.920
+ and blah, blah, blah, right?
+
+1:12:33.920 --> 1:12:36.560
+ I need to make sure that whatever I specified,
+
+1:12:36.560 --> 1:12:39.160
+ those constraints or trade offs or whatever they are,
+
+1:12:40.160 --> 1:12:43.360
+ that when the robot goes and solves that problem
+
+1:12:43.360 --> 1:12:45.120
+ in every new situation,
+
+1:12:45.120 --> 1:12:47.920
+ that behavior is the behavior that I wanna see.
+
+1:12:47.920 --> 1:12:50.160
+ And what I've been finding is
+
+1:12:50.160 --> 1:12:52.320
+ that we have no idea how to do that.
+
+1:12:52.320 --> 1:12:56.520
+ Basically, what I can do is I can sample,
+
+1:12:56.520 --> 1:12:58.160
+ I can think of some situations
+
+1:12:58.160 --> 1:13:01.160
+ that I think are representative of what the robot will face,
+
+1:13:02.240 --> 1:13:07.240
+ and I can tune and add and tune some reward function
+
+1:13:08.320 --> 1:13:11.560
+ until the optimal behavior is what I want
+
+1:13:11.560 --> 1:13:13.280
+ on those situations,
+
+1:13:13.280 --> 1:13:15.800
+ which first of all is super frustrating
+
+1:13:15.800 --> 1:13:19.040
+ because, you know, through the miracle of AI,
+
+1:13:19.040 --> 1:13:21.360
+ we've taken, we don't have to specify rules
+
+1:13:21.360 --> 1:13:22.880
+ for behavior anymore, right?
+
+1:13:22.880 --> 1:13:24.520
+ The, who were saying before,
+
+1:13:24.520 --> 1:13:27.000
+ the robot comes up with the right thing to do,
+
+1:13:27.000 --> 1:13:28.520
+ you plug in this situation,
+
+1:13:28.520 --> 1:13:31.640
+ it optimizes right in that situation, it optimizes,
+
+1:13:31.640 --> 1:13:34.680
+ but you have to spend still a lot of time
+
+1:13:34.680 --> 1:13:37.200
+ on actually defining what it is
+
+1:13:37.200 --> 1:13:39.000
+ that that criteria should be,
+
+1:13:39.000 --> 1:13:40.040
+ making sure you didn't forget
+
+1:13:40.040 --> 1:13:42.400
+ about 50 bazillion things that are important
+
+1:13:42.400 --> 1:13:44.640
+ and how they all should be combining together
+
+1:13:44.640 --> 1:13:46.800
+ to tell the robot what's good and what's bad
+
+1:13:46.800 --> 1:13:48.840
+ and how good and how bad.
+
+1:13:48.840 --> 1:13:53.840
+ And so I think this is a lesson that I don't know,
+
+1:13:55.360 --> 1:13:59.120
+ kind of, I guess I close my eyes to it for a while
+
+1:13:59.120 --> 1:14:00.240
+ cause I've been, you know,
+
+1:14:00.240 --> 1:14:02.520
+ tuning cost functions for 10 years now,
+
+1:14:03.640 --> 1:14:07.120
+ but it's really strikes me that,
+
+1:14:07.120 --> 1:14:09.600
+ yeah, we've moved the tuning
+
+1:14:09.600 --> 1:14:13.240
+ and the like designing of features or whatever
+
+1:14:13.240 --> 1:14:18.240
+ from the behavior side into the reward side.
+
+1:14:19.720 --> 1:14:22.040
+ And yes, I agree that there's way less of it,
+
+1:14:22.040 --> 1:14:24.000
+ but it still seems really hard
+
+1:14:24.000 --> 1:14:26.960
+ to anticipate any possible situation
+
+1:14:26.960 --> 1:14:30.240
+ and make sure you specify a reward function
+
+1:14:30.240 --> 1:14:32.800
+ that when optimized will work well
+
+1:14:32.800 --> 1:14:35.160
+ in every possible situation.
+
+1:14:35.160 --> 1:14:38.600
+ So you're kind of referring to unintended consequences
+
+1:14:38.600 --> 1:14:42.120
+ or just in general, any kind of suboptimal behavior
+
+1:14:42.120 --> 1:14:44.840
+ that emerges outside of the things you said,
+
+1:14:44.840 --> 1:14:46.520
+ out of distribution.
+
+1:14:46.520 --> 1:14:49.720
+ Suboptimal behavior that is, you know, actually optimal.
+
+1:14:49.720 --> 1:14:51.640
+ I mean, this, I guess the idea of unintended consequences,
+
+1:14:51.640 --> 1:14:53.720
+ you know, it's optimal respect to what you specified,
+
+1:14:53.720 --> 1:14:55.480
+ but it's not what you want.
+
+1:14:55.480 --> 1:14:57.560
+ And there's a difference between those.
+
+1:14:57.560 --> 1:14:59.880
+ But that's not fundamentally a robotics problem, right?
+
+1:14:59.880 --> 1:15:01.320
+ That's a human problem.
+
+1:15:01.320 --> 1:15:03.440
+ So like. That's the thing, right?
+
+1:15:03.440 --> 1:15:05.280
+ So there's this thing called Goodhart's law,
+
+1:15:05.280 --> 1:15:07.920
+ which is you set a metric for an organization
+
+1:15:07.920 --> 1:15:10.880
+ and the moment it becomes a target
+
+1:15:10.880 --> 1:15:13.040
+ that people actually optimize for,
+
+1:15:13.040 --> 1:15:15.000
+ it's no longer a good metric.
+
+1:15:15.000 --> 1:15:15.840
+ What's it called?
+
+1:15:15.840 --> 1:15:16.680
+ Goodhart's law.
+
+1:15:16.680 --> 1:15:17.520
+ Goodhart's law.
+
+1:15:17.520 --> 1:15:20.120
+ So the moment you specify a metric,
+
+1:15:20.120 --> 1:15:21.600
+ it stops doing its job.
+
+1:15:21.600 --> 1:15:24.000
+ Yeah, it stops doing its job.
+
+1:15:24.000 --> 1:15:25.120
+ So there's, yeah, there's such a thing
+
+1:15:25.120 --> 1:15:27.400
+ as optimizing for things and, you know,
+
+1:15:27.400 --> 1:15:32.200
+ failing to think ahead of time
+
+1:15:32.200 --> 1:15:35.600
+ of all the possible things that might be important.
+
+1:15:35.600 --> 1:15:38.080
+ And so that's, so that's interesting
+
+1:15:38.080 --> 1:15:41.560
+ because Historia works a lot on reward learning
+
+1:15:41.560 --> 1:15:44.000
+ from the perspective of customizing to the end user,
+
+1:15:44.000 --> 1:15:48.040
+ but it really seems like it's not just the interaction
+
+1:15:48.040 --> 1:15:50.880
+ with the end user that's a problem of the human
+
+1:15:50.880 --> 1:15:52.320
+ and the robot collaborating
+
+1:15:52.320 --> 1:15:55.160
+ so that the robot can do what the human wants, right?
+
+1:15:55.160 --> 1:15:57.280
+ This kind of back and forth, the robot probing,
+
+1:15:57.280 --> 1:16:00.200
+ the person being informative, all of that stuff
+
+1:16:00.200 --> 1:16:04.400
+ might be actually just as applicable
+
+1:16:04.400 --> 1:16:07.440
+ to this kind of maybe new form of human robot interaction,
+
+1:16:07.440 --> 1:16:10.760
+ which is the interaction between the robot
+
+1:16:10.760 --> 1:16:14.280
+ and the expert programmer, roboticist designer
+
+1:16:14.280 --> 1:16:16.240
+ in charge of actually specifying
+
+1:16:16.240 --> 1:16:18.360
+ what the heck the robot should do,
+
+1:16:18.360 --> 1:16:20.200
+ specifying the task for the robot.
+
+1:16:20.200 --> 1:16:21.040
+ That's fascinating.
+
+1:16:21.040 --> 1:16:23.800
+ That's so cool, like collaborating on the reward design.
+
+1:16:23.800 --> 1:16:26.200
+ Right, collaborating on the reward design.
+
+1:16:26.200 --> 1:16:28.080
+ And so what does it mean, right?
+
+1:16:28.080 --> 1:16:29.840
+ What does it, when we think about the problem,
+
+1:16:29.840 --> 1:16:34.400
+ not as someone specifies all of your job is to optimize,
+
+1:16:34.400 --> 1:16:37.600
+ and we start thinking about you're in this interaction
+
+1:16:37.600 --> 1:16:39.280
+ and this collaboration.
+
+1:16:39.280 --> 1:16:42.440
+ And the first thing that comes up is
+
+1:16:42.440 --> 1:16:46.360
+ when the person specifies a reward, it's not, you know,
+
+1:16:46.360 --> 1:16:48.720
+ gospel, it's not like the letter of the law.
+
+1:16:48.720 --> 1:16:52.080
+ It's not the definition of the reward function
+
+1:16:52.080 --> 1:16:53.320
+ you should be optimizing,
+
+1:16:53.320 --> 1:16:54.840
+ because they're doing their best,
+
+1:16:54.840 --> 1:16:57.120
+ but they're not some magic perfect oracle.
+
+1:16:57.120 --> 1:16:58.720
+ And the sooner we start understanding that,
+
+1:16:58.720 --> 1:17:02.360
+ I think the sooner we'll get to more robust robots
+
+1:17:02.360 --> 1:17:06.400
+ that function better in different situations.
+
+1:17:06.400 --> 1:17:08.480
+ And then you have kind of say, okay, well,
+
+1:17:08.480 --> 1:17:12.680
+ it's almost like robots are over learning,
+
+1:17:12.680 --> 1:17:16.760
+ over putting too much weight on the reward specified
+
+1:17:16.760 --> 1:17:21.120
+ by definition, and maybe leaving a lot of other information
+
+1:17:21.120 --> 1:17:23.280
+ on the table, like what are other things we could do
+
+1:17:23.280 --> 1:17:25.480
+ to actually communicate to the robot
+
+1:17:25.480 --> 1:17:28.280
+ about what we want them to do besides attempting
+
+1:17:28.280 --> 1:17:29.600
+ to specify a reward function.
+
+1:17:29.600 --> 1:17:31.760
+ Yeah, you have this awesome,
+
+1:17:31.760 --> 1:17:34.760
+ and again, I love the poetry of it, of leaked information.
+
+1:17:34.760 --> 1:17:38.680
+ So you mentioned humans leak information
+
+1:17:38.680 --> 1:17:40.880
+ about what they want, you know,
+
+1:17:40.880 --> 1:17:44.960
+ leak reward signal for the robot.
+
+1:17:44.960 --> 1:17:47.680
+ So how do we detect these leaks?
+
+1:17:47.680 --> 1:17:48.520
+ What is that?
+
+1:17:48.520 --> 1:17:49.960
+ Yeah, what are these leaks?
+
+1:17:49.960 --> 1:17:51.840
+ Whether it just, I don't know,
+
+1:17:51.840 --> 1:17:54.040
+ those were just recently saw it, read it,
+
+1:17:54.040 --> 1:17:55.200
+ I don't know where from you,
+
+1:17:55.200 --> 1:17:58.640
+ and it's gonna stick with me for a while for some reason,
+
+1:17:58.640 --> 1:18:00.920
+ because it's not explicitly expressed.
+
+1:18:00.920 --> 1:18:04.520
+ It kind of leaks indirectly from our behavior.
+
+1:18:04.520 --> 1:18:06.160
+ From what we do, yeah, absolutely.
+
+1:18:06.160 --> 1:18:11.160
+ So I think maybe some surprising bits, right?
+
+1:18:11.320 --> 1:18:14.760
+ So we were talking before about, I'm a robot arm,
+
+1:18:14.760 --> 1:18:18.200
+ it needs to move around people, carry stuff,
+
+1:18:18.200 --> 1:18:20.520
+ put stuff away, all of that.
+
+1:18:20.520 --> 1:18:25.080
+ And now imagine that, you know,
+
+1:18:25.080 --> 1:18:27.160
+ the robot has some initial objective
+
+1:18:27.160 --> 1:18:28.960
+ that the programmer gave it
+
+1:18:28.960 --> 1:18:30.680
+ so they can do all these things functionally.
+
+1:18:30.680 --> 1:18:32.240
+ It's capable of doing that.
+
+1:18:32.240 --> 1:18:35.800
+ And now I noticed that it's doing something
+
+1:18:35.800 --> 1:18:39.480
+ and maybe it's coming too close to me, right?
+
+1:18:39.480 --> 1:18:40.520
+ And maybe I'm the designer,
+
+1:18:40.520 --> 1:18:43.840
+ maybe I'm the end user and this robot is now in my home.
+
+1:18:43.840 --> 1:18:46.040
+ And I push it away.
+
+1:18:47.800 --> 1:18:49.320
+ So I push away because, you know,
+
+1:18:49.320 --> 1:18:52.360
+ it's a reaction to what the robot is currently doing.
+
+1:18:52.360 --> 1:18:55.800
+ And this is what we call physical human robot interaction.
+
+1:18:55.800 --> 1:18:58.440
+ And now there's a lot of interesting work
+
+1:18:58.440 --> 1:19:00.640
+ on how the heck do you respond to physical human
+
+1:19:00.640 --> 1:19:01.480
+ robot interaction?
+
+1:19:01.480 --> 1:19:03.520
+ What should the robot do if such an event occurs?
+
+1:19:03.520 --> 1:19:05.000
+ And there's sort of different schools of thought.
+
+1:19:05.000 --> 1:19:07.040
+ Well, you know, you can sort of treat it
+
+1:19:07.040 --> 1:19:08.280
+ the control theoretic way and say,
+
+1:19:08.280 --> 1:19:11.160
+ this is a disturbance that you must reject.
+
+1:19:11.160 --> 1:19:15.880
+ You can sort of treat it more kind of heuristically
+
+1:19:15.880 --> 1:19:18.040
+ and say, I'm gonna go into some like gravity compensation
+
+1:19:18.040 --> 1:19:19.800
+ mode so that I'm easily maneuverable around.
+
+1:19:19.800 --> 1:19:22.280
+ I'm gonna go in the direction that the person pushed me.
+
+1:19:22.280 --> 1:19:27.280
+ And to us, part of realization has been
+
+1:19:27.280 --> 1:19:30.480
+ that that is signal that communicates about the reward.
+
+1:19:30.480 --> 1:19:34.560
+ Because if my robot was moving in an optimal way
+
+1:19:34.560 --> 1:19:37.760
+ and I intervened, that means that I disagree
+
+1:19:37.760 --> 1:19:40.240
+ with his notion of optimality, right?
+
+1:19:40.240 --> 1:19:43.560
+ Whatever it thinks is optimal is not actually optimal.
+
+1:19:43.560 --> 1:19:45.960
+ And sort of optimization problems aside,
+
+1:19:45.960 --> 1:19:47.400
+ that means that the cost function,
+
+1:19:47.400 --> 1:19:51.400
+ the reward function is incorrect,
+
+1:19:51.400 --> 1:19:53.560
+ or at least is not what I want it to be.
+
+1:19:53.560 --> 1:19:58.440
+ How difficult is that signal to interpret
+
+1:19:58.440 --> 1:19:59.400
+ and make actionable?
+
+1:19:59.400 --> 1:20:00.800
+ So like, cause this connects
+
+1:20:00.800 --> 1:20:02.120
+ to our autonomous vehicle discussion
+
+1:20:02.120 --> 1:20:03.960
+ where they're in the semi autonomous vehicle
+
+1:20:03.960 --> 1:20:06.480
+ or autonomous vehicle when a safety driver
+
+1:20:06.480 --> 1:20:08.480
+ disengages the car, like,
+
+1:20:08.480 --> 1:20:11.840
+ but they could have disengaged it for a million reasons.
+
+1:20:11.840 --> 1:20:15.080
+ Yeah, so that's true.
+
+1:20:15.080 --> 1:20:19.840
+ Again, it comes back to, can you structure a little bit
+
+1:20:19.840 --> 1:20:22.040
+ your assumptions about how human behavior
+
+1:20:22.040 --> 1:20:24.240
+ relates to what they want?
+
+1:20:24.240 --> 1:20:26.320
+ And you can, one thing that we've done is
+
+1:20:26.320 --> 1:20:29.480
+ literally just treated this external torque
+
+1:20:29.480 --> 1:20:32.960
+ that they applied as, when you take that
+
+1:20:32.960 --> 1:20:34.800
+ and you add it with what the torque
+
+1:20:34.800 --> 1:20:36.600
+ the robot was already applying,
+
+1:20:36.600 --> 1:20:39.680
+ that overall action is probably relatively optimal
+
+1:20:39.680 --> 1:20:41.800
+ in respect to whatever it is that the person wants.
+
+1:20:41.800 --> 1:20:43.040
+ And then that gives you information
+
+1:20:43.040 --> 1:20:44.320
+ about what it is that they want.
+
+1:20:44.320 --> 1:20:45.680
+ So you can learn that people want you
+
+1:20:45.680 --> 1:20:47.600
+ to stay further away from them.
+
+1:20:47.600 --> 1:20:49.760
+ Now you're right that there might be many things
+
+1:20:49.760 --> 1:20:51.360
+ that explain just that one signal
+
+1:20:51.360 --> 1:20:53.360
+ and that you might need much more data than that
+
+1:20:53.360 --> 1:20:55.480
+ for the person to be able to shape
+
+1:20:55.480 --> 1:20:57.200
+ your reward function over time.
+
+1:20:58.640 --> 1:21:00.880
+ You can also do this info gathering stuff
+
+1:21:00.880 --> 1:21:01.760
+ that we were talking about.
+
+1:21:01.760 --> 1:21:03.280
+ Not that we've done that in that context,
+
+1:21:03.280 --> 1:21:04.800
+ just to clarify, but it's definitely something
+
+1:21:04.800 --> 1:21:09.080
+ we thought about where you can have the robot
+
+1:21:09.080 --> 1:21:11.040
+ start acting in a way, like if there's
+
+1:21:11.040 --> 1:21:13.400
+ a bunch of different explanations, right?
+
+1:21:13.400 --> 1:21:16.360
+ It moves in a way where it sees if you correct it
+
+1:21:16.360 --> 1:21:17.600
+ in some other way or not,
+
+1:21:17.600 --> 1:21:19.920
+ and then kind of actually plans its motion
+
+1:21:19.920 --> 1:21:21.760
+ so that it can disambiguate
+
+1:21:21.760 --> 1:21:23.920
+ and collect information about what you want.
+
+1:21:24.880 --> 1:21:26.000
+ Anyway, so that's one way,
+
+1:21:26.000 --> 1:21:27.440
+ that's kind of sort of leaked information,
+
+1:21:27.440 --> 1:21:29.280
+ maybe even more subtle leaked information
+
+1:21:29.280 --> 1:21:32.760
+ is if I just press the E stop, right?
+
+1:21:32.760 --> 1:21:34.040
+ I just, I'm doing it out of panic
+
+1:21:34.040 --> 1:21:36.280
+ because the robot is about to do something bad.
+
+1:21:36.280 --> 1:21:38.480
+ There's again, information there, right?
+
+1:21:38.480 --> 1:21:40.800
+ Okay, the robot should definitely stop,
+
+1:21:40.800 --> 1:21:42.560
+ but it should also figure out
+
+1:21:42.560 --> 1:21:45.240
+ that whatever it was about to do was not good.
+
+1:21:45.240 --> 1:21:46.720
+ And in fact, it was so not good
+
+1:21:46.720 --> 1:21:48.920
+ that stopping and remaining stopped for a while
+
+1:21:48.920 --> 1:21:51.080
+ was a better trajectory for it
+
+1:21:51.080 --> 1:21:52.760
+ than whatever it is that it was about to do.
+
+1:21:52.760 --> 1:21:54.800
+ And that again is information about
+
+1:21:54.800 --> 1:21:57.560
+ what are my preferences, what do I want?
+
+1:21:57.560 --> 1:22:02.560
+ Speaking of E stops, what are your expert opinions
+
+1:22:03.600 --> 1:22:07.280
+ on the three laws of robotics from Isaac Asimov
+
+1:22:08.160 --> 1:22:11.280
+ that don't harm humans, obey orders, protect yourself?
+
+1:22:11.280 --> 1:22:13.320
+ I mean, it's such a silly notion,
+
+1:22:13.320 --> 1:22:15.400
+ but I speak to so many people these days,
+
+1:22:15.400 --> 1:22:17.040
+ just regular folks, just, I don't know,
+
+1:22:17.040 --> 1:22:19.360
+ my parents and so on about robotics.
+
+1:22:19.360 --> 1:22:21.920
+ And they kind of operate in that space of,
+
+1:22:23.440 --> 1:22:25.800
+ you know, imagining our future with robots
+
+1:22:25.800 --> 1:22:28.440
+ and thinking what are the ethical,
+
+1:22:28.440 --> 1:22:31.520
+ how do we get that dance right?
+
+1:22:31.520 --> 1:22:34.040
+ I know the three laws might be a silly notion,
+
+1:22:34.040 --> 1:22:35.560
+ but do you think about like
+
+1:22:35.560 --> 1:22:39.000
+ what universal reward functions that might be
+
+1:22:39.000 --> 1:22:44.000
+ that we should enforce on the robots of the future?
+
+1:22:44.000 --> 1:22:48.160
+ Or is that a little too far out and it doesn't,
+
+1:22:48.160 --> 1:22:51.240
+ or is the mechanism that you just described,
+
+1:22:51.240 --> 1:22:52.680
+ it shouldn't be three laws,
+
+1:22:52.680 --> 1:22:55.160
+ it should be constantly adjusting kind of thing.
+
+1:22:55.160 --> 1:22:57.840
+ I think it should constantly be adjusting kind of thing.
+
+1:22:57.840 --> 1:23:00.080
+ You know, the issue with the laws is,
+
+1:23:01.000 --> 1:23:02.600
+ I don't even, you know, they're words
+
+1:23:02.600 --> 1:23:04.600
+ and I have to write math
+
+1:23:04.600 --> 1:23:06.240
+ and have to translate them into math.
+
+1:23:06.240 --> 1:23:07.280
+ What does it mean to?
+
+1:23:07.280 --> 1:23:08.200
+ What does harm mean?
+
+1:23:08.200 --> 1:23:11.920
+ What is, it's not math.
+
+1:23:11.920 --> 1:23:12.880
+ Obey what, right?
+
+1:23:12.880 --> 1:23:14.720
+ Cause we just talked about how
+
+1:23:14.720 --> 1:23:17.040
+ you try to say what you want,
+
+1:23:17.040 --> 1:23:19.880
+ but you don't always get it right.
+
+1:23:19.880 --> 1:23:22.520
+ And you want these machines to do what you want,
+
+1:23:22.520 --> 1:23:24.560
+ not necessarily exactly what you literally,
+
+1:23:24.560 --> 1:23:26.600
+ so you don't want them to take you literally.
+
+1:23:26.600 --> 1:23:31.600
+ You wanna take what you say and interpret it in context.
+
+1:23:31.600 --> 1:23:33.520
+ And that's what we do with the specified rewards.
+
+1:23:33.520 --> 1:23:36.720
+ We don't take them literally anymore from the designer.
+
+1:23:36.720 --> 1:23:39.680
+ We, not we as a community, we as, you know,
+
+1:23:39.680 --> 1:23:44.160
+ some members of my group, we,
+
+1:23:44.160 --> 1:23:46.360
+ and some of our collaborators like Peter Beal
+
+1:23:46.360 --> 1:23:50.160
+ and Stuart Russell, we sort of say,
+
+1:23:50.160 --> 1:23:52.400
+ okay, the designer specified this thing,
+
+1:23:53.320 --> 1:23:55.640
+ but I'm gonna interpret it not as,
+
+1:23:55.640 --> 1:23:57.160
+ this is the universal reward function
+
+1:23:57.160 --> 1:23:59.520
+ that I shall always optimize always and forever,
+
+1:23:59.520 --> 1:24:04.520
+ but as this is good evidence about what the person wants.
+
+1:24:05.440 --> 1:24:07.400
+ And I should interpret that evidence
+
+1:24:07.400 --> 1:24:11.000
+ in the context of these situations that it was specified for.
+
+1:24:11.000 --> 1:24:12.840
+ Cause ultimately that's what the designer thought about.
+
+1:24:12.840 --> 1:24:14.280
+ That's what they had in mind.
+
+1:24:14.280 --> 1:24:16.800
+ And really them specifying reward function
+
+1:24:16.800 --> 1:24:18.960
+ that works for me in all these situations
+
+1:24:18.960 --> 1:24:22.120
+ is really kind of telling me that whatever behavior
+
+1:24:22.120 --> 1:24:24.040
+ that incentivizes must be good behavior
+
+1:24:24.040 --> 1:24:25.960
+ with respect to the thing
+
+1:24:25.960 --> 1:24:28.120
+ that I should actually be optimizing for.
+
+1:24:28.120 --> 1:24:30.320
+ And so now the robot kind of has uncertainty
+
+1:24:30.320 --> 1:24:32.320
+ about what it is that it should be,
+
+1:24:32.320 --> 1:24:34.320
+ what its reward function is.
+
+1:24:34.320 --> 1:24:36.320
+ And then there's all these additional signals
+
+1:24:36.320 --> 1:24:39.160
+ that we've been finding that it can kind of continually
+
+1:24:39.160 --> 1:24:41.800
+ learn from and adapt its understanding of what people want.
+
+1:24:41.800 --> 1:24:44.880
+ Every time the person corrects it, maybe they demonstrate,
+
+1:24:44.880 --> 1:24:48.440
+ maybe they stop, hopefully not, right?
+
+1:24:48.440 --> 1:24:53.440
+ One really, really crazy one is the environment itself.
+
+1:24:54.920 --> 1:24:58.960
+ Like our world, you don't, it's not, you know,
+
+1:24:58.960 --> 1:25:01.600
+ you observe our world and the state of it.
+
+1:25:01.600 --> 1:25:03.600
+ And it's not that you're seeing behavior
+
+1:25:03.600 --> 1:25:05.280
+ and you're saying, oh, people are making decisions
+
+1:25:05.280 --> 1:25:07.160
+ that are rational, blah, blah, blah.
+
+1:25:07.160 --> 1:25:12.160
+ It's, but our world is something that we've been acting with
+
+1:25:12.240 --> 1:25:14.240
+ according to our preferences.
+
+1:25:14.240 --> 1:25:15.680
+ So I have this example where like,
+
+1:25:15.680 --> 1:25:18.880
+ the robot walks into my home and my shoes are laid down
+
+1:25:18.880 --> 1:25:21.120
+ on the floor kind of in a line, right?
+
+1:25:21.120 --> 1:25:23.320
+ It took effort to do that.
+
+1:25:23.320 --> 1:25:27.480
+ So even though the robot doesn't see me doing this,
+
+1:25:27.480 --> 1:25:29.920
+ you know, actually aligning the shoes,
+
+1:25:29.920 --> 1:25:31.560
+ it should still be able to figure out
+
+1:25:31.560 --> 1:25:33.240
+ that I want the shoes aligned
+
+1:25:33.240 --> 1:25:35.920
+ because there's no way for them to have magically,
+
+1:25:35.920 --> 1:25:39.040
+ you know, be instantiated themselves in that way.
+
+1:25:39.040 --> 1:25:43.720
+ Someone must have actually taken the time to do that.
+
+1:25:43.720 --> 1:25:44.680
+ So it must be important.
+
+1:25:44.680 --> 1:25:46.920
+ So the environment actually tells, the environment is.
+
+1:25:46.920 --> 1:25:48.040
+ Leaks information.
+
+1:25:48.040 --> 1:25:48.880
+ It leaks information.
+
+1:25:48.880 --> 1:25:50.680
+ I mean, the environment is the way it is
+
+1:25:50.680 --> 1:25:52.880
+ because humans somehow manipulated it.
+
+1:25:52.880 --> 1:25:55.760
+ So you have to kind of reverse engineer the narrative
+
+1:25:55.760 --> 1:25:57.800
+ that happened to create the environment as it is
+
+1:25:57.800 --> 1:26:00.640
+ and that leaks the preference information.
+
+1:26:00.640 --> 1:26:03.160
+ Yeah, and you have to be careful, right?
+
+1:26:03.160 --> 1:26:06.720
+ Because people don't have the bandwidth to do everything.
+
+1:26:06.720 --> 1:26:08.120
+ So just because, you know, my house is messy
+
+1:26:08.120 --> 1:26:10.840
+ doesn't mean that I want it to be messy, right?
+
+1:26:10.840 --> 1:26:14.440
+ But that just, you know, I didn't put the effort into that.
+
+1:26:14.440 --> 1:26:16.280
+ I put the effort into something else.
+
+1:26:16.280 --> 1:26:17.440
+ So the robot should figure out,
+
+1:26:17.440 --> 1:26:19.200
+ well, that something else was more important,
+
+1:26:19.200 --> 1:26:20.400
+ but it doesn't mean that, you know,
+
+1:26:20.400 --> 1:26:21.640
+ the house being messy is not.
+
+1:26:21.640 --> 1:26:24.560
+ So it's a little subtle, but yeah, we really think of it.
+
+1:26:24.560 --> 1:26:26.800
+ The state itself is kind of like a choice
+
+1:26:26.800 --> 1:26:31.800
+ that people implicitly made about how they want their world.
+
+1:26:31.800 --> 1:26:34.920
+ What book or books, technical or fiction or philosophical,
+
+1:26:34.920 --> 1:26:39.560
+ when you like look back, you know, life had a big impact,
+
+1:26:39.560 --> 1:26:42.600
+ maybe it was a turning point, it was inspiring in some way.
+
+1:26:42.600 --> 1:26:45.600
+ Maybe we're talking about some silly book
+
+1:26:45.600 --> 1:26:48.520
+ that nobody in their right mind would want to read.
+
+1:26:48.520 --> 1:26:51.560
+ Or maybe it's a book that you would recommend
+
+1:26:51.560 --> 1:26:52.480
+ to others to read.
+
+1:26:52.480 --> 1:26:56.120
+ Or maybe those could be two different recommendations
+
+1:26:56.120 --> 1:27:00.520
+ of books that could be useful for people on their journey.
+
+1:27:00.520 --> 1:27:03.520
+ When I was in, it's kind of a personal story.
+
+1:27:03.520 --> 1:27:05.520
+ When I was in 12th grade,
+
+1:27:05.520 --> 1:27:10.520
+ I got my hands on a PDF copy in Romania
+
+1:27:10.520 --> 1:27:14.520
+ of Russell Norvig, AI modern approach.
+
+1:27:14.520 --> 1:27:16.520
+ I didn't know anything about AI at that point.
+
+1:27:16.520 --> 1:27:19.520
+ I was, you know, I had watched the movie,
+
+1:27:19.520 --> 1:27:22.520
+ The Matrix was my exposure.
+
+1:27:22.520 --> 1:27:28.520
+ And so I started going through this thing
+
+1:27:28.520 --> 1:27:31.520
+ and, you know, you were asking in the beginning,
+
+1:27:31.520 --> 1:27:35.520
+ what are, you know, it's math and it's algorithms,
+
+1:27:35.520 --> 1:27:36.520
+ what's interesting.
+
+1:27:36.520 --> 1:27:38.520
+ It was so captivating.
+
+1:27:38.520 --> 1:27:41.520
+ This notion that you could just have a goal
+
+1:27:41.520 --> 1:27:44.520
+ and figure out your way through
+
+1:27:44.520 --> 1:27:47.520
+ kind of a messy, complicated situation.
+
+1:27:47.520 --> 1:27:50.520
+ So what sequence of decisions you should make
+
+1:27:50.520 --> 1:27:53.520
+ to autonomously to achieve that goal.
+
+1:27:53.520 --> 1:27:55.520
+ That was so cool.
+
+1:27:55.520 --> 1:28:00.520
+ I'm, you know, I'm biased, but that's a cool book to look at.
+
+1:28:00.520 --> 1:28:03.520
+ You can convert, you know, the goal of intelligence,
+
+1:28:03.520 --> 1:28:06.520
+ the process of intelligence and mechanize it.
+
+1:28:06.520 --> 1:28:07.520
+ I had the same experience.
+
+1:28:07.520 --> 1:28:09.520
+ I was really interested in psychiatry
+
+1:28:09.520 --> 1:28:11.520
+ and trying to understand human behavior.
+
+1:28:11.520 --> 1:28:14.520
+ And then AI modern approach is like, wait,
+
+1:28:14.520 --> 1:28:15.520
+ you can just reduce it all to.
+
+1:28:15.520 --> 1:28:18.520
+ You can write math about human behavior, right?
+
+1:28:18.520 --> 1:28:19.520
+ Yeah.
+
+1:28:19.520 --> 1:28:21.520
+ So that's, and I think that stuck with me
+
+1:28:21.520 --> 1:28:25.520
+ because, you know, a lot of what I do, a lot of what we do
+
+1:28:25.520 --> 1:28:28.520
+ in my lab is write math about human behavior,
+
+1:28:28.520 --> 1:28:31.520
+ combine it with data and learning, put it all together,
+
+1:28:31.520 --> 1:28:33.520
+ give it to robots to plan with, and, you know,
+
+1:28:33.520 --> 1:28:37.520
+ hope that instead of writing rules for the robots,
+
+1:28:37.520 --> 1:28:39.520
+ writing heuristics, designing behavior,
+
+1:28:39.520 --> 1:28:42.520
+ they can actually autonomously come up with the right thing
+
+1:28:42.520 --> 1:28:43.520
+ to do around people.
+
+1:28:43.520 --> 1:28:46.520
+ That's kind of our, you know, that's our signature move.
+
+1:28:46.520 --> 1:28:49.520
+ We wrote some math and then instead of kind of hand crafting
+
+1:28:49.520 --> 1:28:52.520
+ this and that and that and the robot figuring stuff out
+
+1:28:52.520 --> 1:28:53.520
+ and isn't that cool.
+
+1:28:53.520 --> 1:28:56.520
+ And I think that is the same enthusiasm that I got from
+
+1:28:56.520 --> 1:28:59.520
+ the robot figured out how to reach that goal in that graph.
+
+1:28:59.520 --> 1:29:02.520
+ Isn't that cool?
+
+1:29:02.520 --> 1:29:05.520
+ So apologize for the romanticized questions,
+
+1:29:05.520 --> 1:29:07.520
+ but, and the silly ones,
+
+1:29:07.520 --> 1:29:11.520
+ if a doctor gave you five years to live,
+
+1:29:11.520 --> 1:29:15.520
+ sort of emphasizing the finiteness of our existence,
+
+1:29:15.520 --> 1:29:20.520
+ what would you try to accomplish?
+
+1:29:20.520 --> 1:29:22.520
+ It's like my biggest nightmare, by the way.
+
+1:29:22.520 --> 1:29:24.520
+ I really like living.
+
+1:29:24.520 --> 1:29:28.520
+ So I'm actually, I really don't like the idea of being told
+
+1:29:28.520 --> 1:29:30.520
+ that I'm going to die.
+
+1:29:30.520 --> 1:29:32.520
+ Sorry to linger on that for a second.
+
+1:29:32.520 --> 1:29:36.520
+ Do you, I mean, do you meditate or ponder on your mortality
+
+1:29:36.520 --> 1:29:38.520
+ or human, the fact that this thing ends,
+
+1:29:38.520 --> 1:29:41.520
+ it seems to be a fundamental feature.
+
+1:29:41.520 --> 1:29:44.520
+ Do you think of it as a feature or a bug too?
+
+1:29:44.520 --> 1:29:47.520
+ Is it, you said you don't like the idea of dying,
+
+1:29:47.520 --> 1:29:50.520
+ but if I were to give you a choice of living forever,
+
+1:29:50.520 --> 1:29:52.520
+ like you're not allowed to die.
+
+1:29:52.520 --> 1:29:54.520
+ Now I'll say that I want to live forever,
+
+1:29:54.520 --> 1:29:55.520
+ but I watched this show.
+
+1:29:55.520 --> 1:29:56.520
+ It's very silly.
+
+1:29:56.520 --> 1:29:59.520
+ It's called The Good Place and they reflect a lot on this.
+
+1:29:59.520 --> 1:30:00.520
+ And you know, the,
+
+1:30:00.520 --> 1:30:03.520
+ the moral of the story is that you have to make the afterlife
+
+1:30:03.520 --> 1:30:05.520
+ be a finite too.
+
+1:30:05.520 --> 1:30:08.520
+ Cause otherwise people just kind of, it's like Wally.
+
+1:30:08.520 --> 1:30:10.520
+ It's like, ah, whatever.
+
+1:30:10.520 --> 1:30:13.520
+ So, so I think the finiteness helps, but,
+
+1:30:13.520 --> 1:30:16.520
+ but yeah, it's just, you know, I don't, I don't,
+
+1:30:16.520 --> 1:30:18.520
+ I'm not a religious person.
+
+1:30:18.520 --> 1:30:21.520
+ I don't think that there's something after.
+
+1:30:21.520 --> 1:30:25.520
+ And so I think it just ends and you stop existing.
+
+1:30:25.520 --> 1:30:26.520
+ And I really like existing.
+
+1:30:26.520 --> 1:30:31.520
+ It's just, it's such a great privilege to exist that,
+
+1:30:31.520 --> 1:30:35.520
+ that yeah, it's just, I think that's the scary part.
+
+1:30:35.520 --> 1:30:40.520
+ I still think that we like existing so much because it ends.
+
+1:30:40.520 --> 1:30:41.520
+ And that's so sad.
+
+1:30:41.520 --> 1:30:43.520
+ Like it's so sad to me every time.
+
+1:30:43.520 --> 1:30:46.520
+ Like I find almost everything about this life beautiful.
+
+1:30:46.520 --> 1:30:49.520
+ Like the silliest, most mundane things are just beautiful.
+
+1:30:49.520 --> 1:30:52.520
+ And I think I'm cognizant of the fact that I find it beautiful
+
+1:30:52.520 --> 1:30:55.520
+ because it ends like it.
+
+1:30:55.520 --> 1:30:57.520
+ And it's so, I don't know.
+
+1:30:57.520 --> 1:30:59.520
+ I don't know how to feel about that.
+
+1:30:59.520 --> 1:31:03.520
+ I also feel like there's a lesson in there for robotics
+
+1:31:03.520 --> 1:31:10.520
+ and AI that is not like the finiteness of things seems
+
+1:31:10.520 --> 1:31:13.520
+ to be a fundamental nature of human existence.
+
+1:31:13.520 --> 1:31:16.520
+ I think some people sort of accuse me of just being Russian
+
+1:31:16.520 --> 1:31:19.520
+ and melancholic and romantic or something,
+
+1:31:19.520 --> 1:31:24.520
+ but that seems to be a fundamental nature of our existence
+
+1:31:24.520 --> 1:31:28.520
+ that should be incorporated in our reward functions.
+
+1:31:28.520 --> 1:31:34.520
+ But anyway, if you were speaking of reward functions,
+
+1:31:34.520 --> 1:31:38.520
+ if you only had five years, what would you try to accomplish?
+
+1:31:38.520 --> 1:31:41.520
+ This is the thing.
+
+1:31:41.520 --> 1:31:45.520
+ I'm thinking about this question and have a pretty joyous moment
+
+1:31:45.520 --> 1:31:49.520
+ because I don't know that I would change much.
+
+1:31:49.520 --> 1:31:55.520
+ I'm trying to make some contributions to how we understand
+
+1:31:55.520 --> 1:31:57.520
+ human AI interaction.
+
+1:31:57.520 --> 1:32:00.520
+ I don't think I would change that.
+
+1:32:00.520 --> 1:32:04.520
+ Maybe I'll take more trips to the Caribbean or something,
+
+1:32:04.520 --> 1:32:08.520
+ but I tried some of that already from time to time.
+
+1:32:08.520 --> 1:32:13.520
+ So, yeah, I try to do the things that bring me joy
+
+1:32:13.520 --> 1:32:17.520
+ and thinking about these things bring me joy is the Marie Kondo thing.
+
+1:32:17.520 --> 1:32:19.520
+ Don't do stuff that doesn't spark joy.
+
+1:32:19.520 --> 1:32:22.520
+ For the most part, I do things that spark joy.
+
+1:32:22.520 --> 1:32:25.520
+ Maybe I'll do less service in the department or something.
+
+1:32:25.520 --> 1:32:30.520
+ I'm not dealing with admissions anymore.
+
+1:32:30.520 --> 1:32:36.520
+ But no, I think I have amazing colleagues and amazing students
+
+1:32:36.520 --> 1:32:40.520
+ and amazing family and friends and spending time in some balance
+
+1:32:40.520 --> 1:32:44.520
+ with all of them is what I do and that's what I'm doing already.
+
+1:32:44.520 --> 1:32:47.520
+ So, I don't know that I would really change anything.
+
+1:32:47.520 --> 1:32:52.520
+ So, on the spirit of positiveness, what small act of kindness,
+
+1:32:52.520 --> 1:32:57.520
+ if one pops to mind, were you once shown that you will never forget?
+
+1:32:57.520 --> 1:33:08.520
+ When I was in high school, my friends, my classmates did some tutoring.
+
+1:33:08.520 --> 1:33:11.520
+ We were gearing up for our baccalaureate exam
+
+1:33:11.520 --> 1:33:15.520
+ and they did some tutoring on, well, some on math, some on whatever.
+
+1:33:15.520 --> 1:33:19.520
+ I was comfortable enough with some of those subjects,
+
+1:33:19.520 --> 1:33:22.520
+ but physics was something that I hadn't focused on in a while.
+
+1:33:22.520 --> 1:33:28.520
+ And so, they were all working with this one teacher
+
+1:33:28.520 --> 1:33:31.520
+ and I started working with that teacher.
+
+1:33:31.520 --> 1:33:33.520
+ Her name is Nicole Beccano.
+
+1:33:33.520 --> 1:33:39.520
+ And she was the one who kind of opened up this whole world for me
+
+1:33:39.520 --> 1:33:44.520
+ because she sort of told me that I should take the SATs
+
+1:33:44.520 --> 1:33:51.520
+ and apply to go to college abroad and do better on my English and all of that.
+
+1:33:51.520 --> 1:33:55.520
+ And when it came to, well, financially I couldn't,
+
+1:33:55.520 --> 1:33:58.520
+ my parents couldn't really afford to do all these things,
+
+1:33:58.520 --> 1:34:01.520
+ she started tutoring me on physics for free
+
+1:34:01.520 --> 1:34:06.520
+ and on top of that sitting down with me to kind of train me for SATs
+
+1:34:06.520 --> 1:34:09.520
+ and all that jazz that she had experience with.
+
+1:34:09.520 --> 1:34:15.520
+ Wow. And obviously that has taken you to be here today,
+
+1:34:15.520 --> 1:34:17.520
+ sort of one of the world experts in robotics.
+
+1:34:17.520 --> 1:34:24.520
+ It's funny those little... For no reason really.
+
+1:34:24.520 --> 1:34:27.520
+ Just out of karma.
+
+1:34:27.520 --> 1:34:29.520
+ Wanting to support someone, yeah.
+
+1:34:29.520 --> 1:34:33.520
+ Yeah. So, we talked a ton about reward functions.
+
+1:34:33.520 --> 1:34:37.520
+ Let me talk about the most ridiculous big question.
+
+1:34:37.520 --> 1:34:39.520
+ What is the meaning of life?
+
+1:34:39.520 --> 1:34:42.520
+ What's the reward function under which we humans operate?
+
+1:34:42.520 --> 1:34:47.520
+ Like what, maybe to your life, maybe broader to human life in general,
+
+1:34:47.520 --> 1:34:51.520
+ what do you think...
+
+1:34:51.520 --> 1:34:57.520
+ What gives life fulfillment, purpose, happiness, meaning?
+
+1:34:57.520 --> 1:34:59.520
+ You can't even ask that question with a straight face.
+
+1:34:59.520 --> 1:35:00.520
+ That's how ridiculous this is.
+
+1:35:00.520 --> 1:35:01.520
+ I can't, I can't.
+
+1:35:01.520 --> 1:35:05.520
+ Okay. So, you know...
+
+1:35:05.520 --> 1:35:09.520
+ You're going to try to answer it anyway, aren't you?
+
+1:35:09.520 --> 1:35:13.520
+ So, I was in a planetarium once.
+
+1:35:13.520 --> 1:35:14.520
+ Yes.
+
+1:35:14.520 --> 1:35:18.520
+ And, you know, they show you the thing and then they zoom out and zoom out
+
+1:35:18.520 --> 1:35:20.520
+ and this whole, like, you're a speck of dust kind of thing.
+
+1:35:20.520 --> 1:35:23.520
+ I think I was conceptualizing that we're kind of, you know, what are humans?
+
+1:35:23.520 --> 1:35:26.520
+ We're just on this little planet, whatever.
+
+1:35:26.520 --> 1:35:29.520
+ We don't matter much in the grand scheme of things.
+
+1:35:29.520 --> 1:35:35.520
+ And then my mind got really blown because they talked about this multiverse theory
+
+1:35:35.520 --> 1:35:38.520
+ where they kind of zoomed out and were like, this is our universe.
+
+1:35:38.520 --> 1:35:42.520
+ And then, like, there's a bazillion other ones and they just pop in and out of existence.
+
+1:35:42.520 --> 1:35:48.520
+ So, like, our whole thing that we can't even fathom how big it is was like a blimp that went in and out.
+
+1:35:48.520 --> 1:35:51.520
+ And at that point, I was like, okay, like, I'm done.
+
+1:35:51.520 --> 1:35:54.520
+ This is not, there is no meaning.
+
+1:35:54.520 --> 1:35:59.520
+ And clearly what we should be doing is try to impact whatever local thing we can impact,
+
+1:35:59.520 --> 1:36:05.520
+ our communities, leave a little bit behind there, our friends, our family, our local communities,
+
+1:36:05.520 --> 1:36:13.520
+ and just try to be there for other humans because I just, everything beyond that seems ridiculous.
+
+1:36:13.520 --> 1:36:16.520
+ I mean, are you, like, how do you make sense of these multiverses?
+
+1:36:16.520 --> 1:36:21.520
+ Like, are you inspired by the immensity of it?
+
+1:36:21.520 --> 1:36:34.520
+ Do you, I mean, is there, like, is it amazing to you or is it almost paralyzing in the mystery of it?
+
+1:36:34.520 --> 1:36:35.520
+ It's frustrating.
+
+1:36:35.520 --> 1:36:41.520
+ I'm frustrated by my inability to comprehend.
+
+1:36:41.520 --> 1:36:43.520
+ It just feels very frustrating.
+
+1:36:43.520 --> 1:36:48.520
+ It's like there's some stuff that, you know, we should time, blah, blah, blah, that we should really be understanding.
+
+1:36:48.520 --> 1:36:50.520
+ And I definitely don't understand it.
+
+1:36:50.520 --> 1:36:56.520
+ But, you know, the amazing physicists of the world have a much better understanding than me.
+
+1:36:56.520 --> 1:36:58.520
+ But it still seems epsilon in the grand scheme of things.
+
+1:36:58.520 --> 1:37:00.520
+ So, it's very frustrating.
+
+1:37:00.520 --> 1:37:06.520
+ It just, it sort of feels like our brain don't have some fundamental capacity yet, well, yet or ever.
+
+1:37:06.520 --> 1:37:07.520
+ I don't know.
+
+1:37:07.520 --> 1:37:12.520
+ Well, that's one of the dreams of artificial intelligence is to create systems that will aid,
+
+1:37:12.520 --> 1:37:19.520
+ expand our cognitive capacity in order to understand, build the theory of everything with the physics
+
+1:37:19.520 --> 1:37:24.520
+ and understand what the heck these multiverses are.
+
+1:37:24.520 --> 1:37:32.520
+ So, I think there's no better way to end it than talking about the meaning of life and the fundamental nature of the universe and the multiverses.
+
+1:37:32.520 --> 1:37:33.520
+ And the multiverse.
+
+1:37:33.520 --> 1:37:35.520
+ So, Anca, it is a huge honor.
+
+1:37:35.520 --> 1:37:38.520
+ One of my favorite conversations I've had.
+
+1:37:38.520 --> 1:37:40.520
+ I really, really appreciate your time.
+
+1:37:40.520 --> 1:37:41.520
+ Thank you for talking today.
+
+1:37:41.520 --> 1:37:42.520
+ Thank you for coming.
+
+1:37:42.520 --> 1:37:44.520
+ Come back again.
+
+1:37:44.520 --> 1:37:47.520
+ Thanks for listening to this conversation with Anca Dragan.
+
+1:37:47.520 --> 1:37:50.520
+ And thank you to our presenting sponsor, Cash App.
+
+1:37:50.520 --> 1:37:56.520
+ Please consider supporting the podcast by downloading Cash App and using code LexPodcast.
+
+1:37:56.520 --> 1:38:01.520
+ If you enjoy this podcast, subscribe on YouTube, review it with 5 stars on Apple Podcast,
+
+1:38:01.520 --> 1:38:07.520
+ support it on Patreon, or simply connect with me on Twitter at LexFriedman.
+
+1:38:07.520 --> 1:38:12.520
+ And now, let me leave you with some words from Isaac Asimov.
+
+1:38:12.520 --> 1:38:15.520
+ Your assumptions are your windows in the world.
+
+1:38:15.520 --> 1:38:20.520
+ Scrub them off every once in a while or the light won't come in.
+
+1:38:20.520 --> 1:38:46.520
+ Thank you for listening and hope to see you next time.
+

@@ -1,0 +1,4664 @@
+WEBVTT
+
+00:00.000 --> 00:05.520
+ The following is a conversation with Nick Bostrom, a philosopher at University of Oxford
+
+00:05.520 --> 00:08.840
+ and the director of the Future of Humanity Institute.
+
+00:08.840 --> 00:15.320
+ He has worked on fascinating and important ideas in existential risk, simulation hypothesis,
+
+00:15.320 --> 00:20.480
+ human enhancement ethics, and the risks of superintelligent AI systems, including in
+
+00:20.480 --> 00:23.200
+ his book, Superintelligence.
+
+00:23.200 --> 00:27.920
+ I can see talking to Nick multiple times in this podcast, many hours each time, because
+
+00:27.920 --> 00:34.520
+ he has done some incredible work in artificial intelligence, in technology, space, science,
+
+00:34.520 --> 00:38.920
+ and really philosophy in general, but we have to start somewhere.
+
+00:38.920 --> 00:43.620
+ This conversation was recorded before the outbreak of the coronavirus pandemic that
+
+00:43.620 --> 00:49.240
+ both Nick and I, I'm sure, will have a lot to say about next time we speak, and perhaps
+
+00:49.240 --> 00:54.440
+ that is for the best, because the deepest lessons can be learned only in retrospect
+
+00:54.440 --> 00:56.680
+ when the storm has passed.
+
+00:56.680 --> 01:01.380
+ I do recommend you read many of his papers on the topic of existential risk, including
+
+01:01.380 --> 01:07.600
+ the technical report titled Global Catastrophic Risks Survey that he coauthored with Anders
+
+01:07.600 --> 01:08.600
+ Sandberg.
+
+01:08.600 --> 01:14.000
+ For everyone feeling the medical, psychological, and financial burden of this crisis, I'm
+
+01:14.000 --> 01:15.680
+ sending love your way.
+
+01:15.680 --> 01:16.680
+ Stay strong.
+
+01:16.680 --> 01:17.840
+ We're in this together.
+
+01:17.840 --> 01:20.880
+ We'll beat this thing.
+
+01:20.880 --> 01:22.920
+ This is the Artificial Intelligence Podcast.
+
+01:22.920 --> 01:28.120
+ If you enjoy it, subscribe on YouTube, review it with five stars on Apple Podcast, support
+
+01:28.120 --> 01:33.760
+ it on Patreon, or simply connect with me on Twitter at Lex Friedman, spelled F R I D M
+
+01:33.760 --> 01:34.760
+ A N.
+
+01:34.760 --> 01:39.120
+ As usual, I'll do one or two minutes of ads now and never any ads in the middle that
+
+01:39.120 --> 01:41.080
+ can break the flow of the conversation.
+
+01:41.080 --> 01:46.040
+ I hope that works for you and doesn't hurt the listening experience.
+
+01:46.040 --> 01:50.080
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+01:50.080 --> 01:53.800
+ When you get it, use code LEXPODCAST.
+
+01:53.800 --> 01:57.920
+ Cash App lets you send money to friends, buy Bitcoin, and invest in the stock market with
+
+01:57.920 --> 01:59.480
+ as little as one dollar.
+
+01:59.480 --> 02:05.200
+ Since Cash App does fractional share trading, let me mention that the order execution algorithm
+
+02:05.200 --> 02:10.360
+ that works behind the scenes to create the abstraction of fractional orders is an algorithmic
+
+02:10.360 --> 02:11.360
+ marvel.
+
+02:11.360 --> 02:16.200
+ So big props to the Cash App engineers for solving a hard problem that in the end provides
+
+02:16.200 --> 02:20.360
+ an easy interface that takes a step up to the next layer of abstraction over the stock
+
+02:20.360 --> 02:26.960
+ market, making trading more accessible for new investors and diversification much easier.
+
+02:26.960 --> 02:33.200
+ So again, if you get Cash App from the App Store, Google Play, and use the code LEXPODCAST,
+
+02:33.200 --> 02:38.560
+ you get $10, and Cash App will also donate $10 to FIRST, an organization that is helping
+
+02:38.560 --> 02:43.960
+ to advance robotics and STEM education for young people around the world.
+
+02:43.960 --> 02:49.160
+ And now, here's my conversation with Nick Bostrom.
+
+02:49.160 --> 02:54.200
+ At the risk of asking the Beatles to play yesterday or the Rolling Stones to play Satisfaction,
+
+02:54.200 --> 02:56.520
+ let me ask you the basics.
+
+02:56.520 --> 02:59.520
+ What is the simulation hypothesis?
+
+02:59.520 --> 03:02.960
+ That we are living in a computer simulation.
+
+03:02.960 --> 03:04.440
+ What is a computer simulation?
+
+03:04.440 --> 03:06.760
+ How are we supposed to even think about that?
+
+03:06.760 --> 03:15.360
+ Well, so the hypothesis is meant to be understood in a literal sense, not that we can kind of
+
+03:15.360 --> 03:21.320
+ metaphorically view the universe as an information processing physical system, but that there
+
+03:21.320 --> 03:28.980
+ is some advanced civilization who built a lot of computers and that what we experience
+
+03:28.980 --> 03:34.960
+ is an effect of what's going on inside one of those computers so that the world around
+
+03:34.960 --> 03:43.800
+ us, our own brains, everything we see and perceive and think and feel would exist because
+
+03:43.800 --> 03:48.280
+ this computer is running certain programs.
+
+03:48.280 --> 03:55.320
+ So do you think of this computer as something similar to the computers of today, these deterministic
+
+03:55.320 --> 03:58.160
+ sort of Turing machine type things?
+
+03:58.160 --> 04:01.480
+ Is that what we're supposed to imagine or we're supposed to think of something more
+
+04:01.480 --> 04:07.080
+ like a quantum mechanical system?
+
+04:07.080 --> 04:11.240
+ Something much bigger, something much more complicated, something much more mysterious
+
+04:11.240 --> 04:12.840
+ from our current perspective?
+
+04:12.840 --> 04:15.400
+ The ones we have today would do fine, I mean, bigger, certainly.
+
+04:15.400 --> 04:18.720
+ You'd need more memory and more processing power.
+
+04:18.720 --> 04:21.280
+ I don't think anything else would be required.
+
+04:21.280 --> 04:26.580
+ Now, it might well be that they do have additional, maybe they have quantum computers and other
+
+04:26.580 --> 04:31.320
+ things that would give them even more of, it seems kind of plausible, but I don't think
+
+04:31.320 --> 04:38.880
+ it's a necessary assumption in order to get to the conclusion that a technologically
+
+04:38.880 --> 04:44.520
+ mature civilization would be able to create these kinds of computer simulations with conscious
+
+04:44.520 --> 04:46.640
+ beings inside them.
+
+04:46.640 --> 04:52.840
+ So do you think the simulation hypothesis is an idea that's most useful in philosophy,
+
+04:52.840 --> 05:02.480
+ computer science, physics, sort of where do you see it having valuable kind of starting
+
+05:02.480 --> 05:05.280
+ point in terms of a thought experiment of it?
+
+05:05.280 --> 05:06.280
+ Is it useful?
+
+05:06.280 --> 05:14.480
+ I guess it's more informative and interesting and maybe important, but it's not designed
+
+05:14.480 --> 05:16.560
+ to be useful for something else.
+
+05:16.560 --> 05:18.480
+ Okay, interesting, sure.
+
+05:18.480 --> 05:23.360
+ But is it philosophically interesting or is there some kind of implications of computer
+
+05:23.360 --> 05:24.900
+ science and physics?
+
+05:24.900 --> 05:29.460
+ I think not so much for computer science or physics per se.
+
+05:29.460 --> 05:37.320
+ Certainly it would be of interest in philosophy, I think also to say cosmology or physics in
+
+05:37.320 --> 05:43.860
+ as much as you're interested in the fundamental building blocks of the world and the rules
+
+05:43.860 --> 05:46.040
+ that govern it.
+
+05:46.040 --> 05:50.480
+ If we are in a simulation, there is then the possibility that say physics at the level
+
+05:50.480 --> 05:57.640
+ where the computer running the simulation could be different from the physics governing
+
+05:57.640 --> 05:59.780
+ phenomena in the simulation.
+
+05:59.780 --> 06:06.280
+ So I think it might be interesting from point of view of religion or just for kind of trying
+
+06:06.280 --> 06:09.720
+ to figure out what the heck is going on.
+
+06:09.720 --> 06:14.680
+ So we mentioned the simulation hypothesis so far.
+
+06:14.680 --> 06:19.800
+ There is also the simulation argument, which I tend to make a distinction.
+
+06:19.800 --> 06:23.080
+ So simulation hypothesis, we are living in a computer simulation.
+
+06:23.080 --> 06:27.880
+ Simulation argument, this argument that tries to show that one of three propositions is
+
+06:27.880 --> 06:34.840
+ true, one of which is the simulation hypothesis, but there are two alternatives in the original
+
+06:34.840 --> 06:36.840
+ simulation argument, which we can get to.
+
+06:36.840 --> 06:37.840
+ Yeah, let's go there.
+
+06:37.840 --> 06:43.320
+ By the way, confusing terms because people will, I think, probably naturally think simulation
+
+06:43.320 --> 06:47.160
+ argument equals simulation hypothesis, just terminology wise.
+
+06:47.160 --> 06:48.160
+ But let's go there.
+
+06:48.160 --> 06:52.560
+ So simulation hypothesis means that we are living in a simulations, the hypothesis that
+
+06:52.560 --> 06:58.840
+ we're living in a simulation, simulation argument has these three complete possibilities that
+
+06:58.840 --> 07:00.480
+ cover all possibilities.
+
+07:00.480 --> 07:01.480
+ So what are they?
+
+07:01.480 --> 07:02.480
+ Yeah.
+
+07:02.480 --> 07:03.480
+ So it's like a disjunction.
+
+07:03.480 --> 07:08.440
+ It says at least one of these three is true, although it doesn't on its own tell us which
+
+07:08.440 --> 07:10.760
+ one.
+
+07:10.760 --> 07:17.560
+ So the first one is that almost all civilizations that are current stage of technological development
+
+07:17.560 --> 07:23.820
+ go extinct before they reach technological maturity.
+
+07:23.820 --> 07:34.520
+ So there is some great filter that makes it so that basically none of the civilizations
+
+07:34.520 --> 07:41.800
+ throughout maybe a vast cosmos will ever get to realize the full potential of technological
+
+07:41.800 --> 07:42.800
+ development.
+
+07:42.800 --> 07:47.660
+ And this could be, theoretically speaking, this could be because most civilizations kill
+
+07:47.660 --> 07:52.840
+ themselves too eagerly or destroy themselves too eagerly, or it might be super difficult
+
+07:52.840 --> 07:55.200
+ to build a simulation.
+
+07:55.200 --> 07:57.400
+ So the span of time.
+
+07:57.400 --> 07:58.400
+ Theoretically it could be both.
+
+07:58.400 --> 08:04.500
+ Now I think it looks like we would technologically be able to get there in a time span that
+
+08:04.500 --> 08:13.080
+ is short compared to, say, the lifetime of planets and other sort of astronomical processes.
+
+08:13.080 --> 08:16.520
+ So your intuition is to build a simulation is not...
+
+08:16.520 --> 08:21.240
+ Well, so this is interesting concept of technological maturity.
+
+08:21.240 --> 08:25.160
+ It's kind of an interesting concept to have other purposes as well.
+
+08:25.160 --> 08:31.120
+ We can see even based on our current limited understanding what some lower bound would
+
+08:31.120 --> 08:37.480
+ be on the capabilities that you could realize by just developing technologies that we already
+
+08:37.480 --> 08:38.600
+ see are possible.
+
+08:38.600 --> 08:46.680
+ So for example, one of my research fellows here, Eric Drexler, back in the 80s, studied
+
+08:46.680 --> 08:48.560
+ molecular manufacturing.
+
+08:48.560 --> 08:55.520
+ That is you could analyze using theoretical tools and computer modeling the performance
+
+08:55.520 --> 09:01.160
+ of various molecularly precise structures that we didn't then and still don't today
+
+09:01.160 --> 09:04.100
+ have the ability to actually fabricate.
+
+09:04.100 --> 09:07.460
+ But you could say that, well, if we could put these atoms together in this way, then
+
+09:07.460 --> 09:13.760
+ the system would be stable and it would rotate at this speed and have all these computational
+
+09:13.760 --> 09:16.260
+ characteristics.
+
+09:16.260 --> 09:22.740
+ And he also outlined some pathways that would enable us to get to this kind of molecularly
+
+09:22.740 --> 09:25.000
+ manufacturing in the fullness of time.
+
+09:25.000 --> 09:28.280
+ And you could do other studies we've done.
+
+09:28.280 --> 09:33.440
+ You could look at the speed at which, say, it would be possible to colonize the galaxy
+
+09:33.440 --> 09:36.120
+ if you had mature technology.
+
+09:36.120 --> 09:38.360
+ We have an upper limit, which is the speed of light.
+
+09:38.360 --> 09:42.360
+ We have sort of a lower current limit, which is how fast current rockets go.
+
+09:42.360 --> 09:47.560
+ We know we can go faster than that by just making them bigger and have more fuel and
+
+09:47.560 --> 09:48.560
+ stuff.
+
+09:48.560 --> 09:56.120
+ We can then start to describe the technological affordances that would exist once a civilization
+
+09:56.120 --> 10:01.000
+ has had enough time to develop, at least those technologies we already know are possible.
+
+10:01.000 --> 10:05.800
+ Then maybe they would discover other new physical phenomena as well that we haven't realized
+
+10:05.800 --> 10:08.120
+ that would enable them to do even more.
+
+10:08.120 --> 10:11.480
+ But at least there is this kind of basic set of capabilities.
+
+10:11.480 --> 10:18.560
+ Can you just link on that, how do we jump from molecular manufacturing to deep space
+
+10:18.560 --> 10:23.200
+ exploration to mature technology?
+
+10:23.200 --> 10:24.200
+ What's the connection there?
+
+10:24.200 --> 10:31.340
+ Well, so these would be two examples of technological capability sets that we can have a high degree
+
+10:31.340 --> 10:38.000
+ of confidence are physically possible in our universe and that a civilization that was
+
+10:38.000 --> 10:42.720
+ allowed to continue to develop its science and technology would eventually attain.
+
+10:42.720 --> 10:48.960
+ You can intuit like, we can kind of see the set of breakthroughs that are likely to happen.
+
+10:48.960 --> 10:53.240
+ So you can see like, what did you call it, the technological set?
+
+10:53.240 --> 10:58.080
+ With computers, maybe it's easiest.
+
+10:58.080 --> 11:01.800
+ One is we could just imagine bigger computers using exactly the same parts that we have.
+
+11:01.800 --> 11:04.480
+ So you can kind of scale things that way, right?
+
+11:04.480 --> 11:07.760
+ But you could also make processors a bit faster.
+
+11:07.760 --> 11:13.080
+ If you had this molecular nanotechnology that Eric Drexler described, he characterized a
+
+11:13.080 --> 11:19.760
+ kind of crude computer built with these parts that would perform at a million times the
+
+11:19.760 --> 11:25.600
+ human brain while being significantly smaller, the size of a sugar cube.
+
+11:25.600 --> 11:30.160
+ And he made no claim that that's the optimum computing structure, like for all you know,
+
+11:30.160 --> 11:33.660
+ we could build faster computers that would be more efficient, but at least you could
+
+11:33.660 --> 11:37.200
+ do that if you had the ability to do things that were atomically precise.
+
+11:37.200 --> 11:39.600
+ I mean, so you can then combine these two.
+
+11:39.600 --> 11:45.600
+ You could have this kind of nanomolecular ability to build things atom by atom and then
+
+11:45.600 --> 11:53.040
+ say at this as a spatial scale that would be attainable through space colonizing technology.
+
+11:53.040 --> 11:58.200
+ You could then start, for example, to characterize a lower bound on the amount of computing power
+
+11:58.200 --> 12:01.840
+ that a technologically mature civilization would have.
+
+12:01.840 --> 12:07.680
+ If it could grab resources, you know, planets and so forth, and then use this molecular
+
+12:07.680 --> 12:15.320
+ nanotechnology to optimize them for computing, you'd get a very, very high lower bound on
+
+12:15.320 --> 12:17.000
+ the amount of compute.
+
+12:17.000 --> 12:22.120
+ So sorry, just to define some terms, so technologically mature civilization is one that took that
+
+12:22.120 --> 12:26.220
+ piece of technology to its lower bound.
+
+12:26.220 --> 12:27.920
+ What is a technologically mature civilization?
+
+12:27.920 --> 12:31.160
+ So that means it's a stronger concept than we really need for the simulation hypothesis.
+
+12:31.160 --> 12:34.040
+ I just think it's interesting in its own right.
+
+12:34.040 --> 12:38.880
+ So it would be the idea that there is some stage of technological development where you've
+
+12:38.880 --> 12:45.320
+ basically maxed out, that you developed all those general purpose, widely useful technologies
+
+12:45.320 --> 12:51.600
+ that could be developed, or at least kind of come very close to the, you know, 99.9%
+
+12:51.600 --> 12:53.440
+ there or something.
+
+12:53.440 --> 12:55.160
+ So that's an independent question.
+
+12:55.160 --> 12:59.480
+ You can think either that there is such a ceiling, or you might think it just goes,
+
+12:59.480 --> 13:03.200
+ the technology tree just goes on forever.
+
+13:03.200 --> 13:04.600
+ Where does your sense fall?
+
+13:04.600 --> 13:10.000
+ I would guess that there is a maximum that you would start to asymptote towards.
+
+13:10.000 --> 13:13.900
+ So new things won't keep springing up, new ceilings.
+
+13:13.900 --> 13:18.980
+ In terms of basic technological capabilities, I think that, yeah, there is like a finite
+
+13:18.980 --> 13:23.840
+ set of laws that can exist in this universe.
+
+13:23.840 --> 13:30.120
+ Moreover, I mean, I wouldn't be that surprised if we actually reached close to that level
+
+13:30.120 --> 13:33.980
+ fairly shortly after we have, say, machine superintelligence.
+
+13:33.980 --> 13:39.760
+ So I don't think it would take millions of years for a human originating civilization
+
+13:39.760 --> 13:42.760
+ to begin to do this.
+
+13:42.760 --> 13:46.680
+ It's more likely to happen on historical timescales.
+
+13:46.680 --> 13:51.320
+ But that's an independent speculation from the simulation argument.
+
+13:51.320 --> 13:55.080
+ I mean, for the purpose of the simulation argument, it doesn't really matter whether
+
+13:55.080 --> 13:59.400
+ it goes indefinitely far up or whether there is a ceiling, as long as we know we can at
+
+13:59.400 --> 14:01.880
+ least get to a certain level.
+
+14:01.880 --> 14:06.720
+ And it also doesn't matter whether that's going to happen in 100 years or 5,000 years
+
+14:06.720 --> 14:08.440
+ or 50 million years.
+
+14:08.440 --> 14:11.600
+ Like the timescales really don't make any difference for this.
+
+14:11.600 --> 14:13.360
+ Can you look on that a little bit?
+
+14:13.360 --> 14:19.080
+ Like there's a big difference between 100 years and 10 million years.
+
+14:19.080 --> 14:25.500
+ So it doesn't really not matter because you just said it doesn't matter if we jump scales
+
+14:25.500 --> 14:28.680
+ to beyond historical scales.
+
+14:28.680 --> 14:30.200
+ So we described that.
+
+14:30.200 --> 14:40.840
+ So for the simulation argument, sort of doesn't it matter that we if it takes 10 million years,
+
+14:40.840 --> 14:44.720
+ it gives us a lot more opportunity to destroy civilization in the meantime?
+
+14:44.720 --> 14:49.840
+ Yeah, well, so it would shift around the probabilities between these three alternatives.
+
+14:49.840 --> 14:54.840
+ That is, if we are very, very far away from being able to create these simulations, if
+
+14:54.840 --> 14:58.800
+ it's like, say, billions of years into the future, then it's more likely that we will
+
+14:58.800 --> 14:59.800
+ fail ever to get there.
+
+14:59.800 --> 15:04.080
+ There's more time for us to kind of go extinct along the way.
+
+15:04.080 --> 15:06.360
+ And so this is similarly for other civilizations.
+
+15:06.360 --> 15:11.000
+ So it is important to think about how hard it is to build a simulation.
+
+15:11.000 --> 15:14.580
+ In terms of figuring out which of the disjuncts.
+
+15:14.580 --> 15:19.360
+ But for the simulation argument itself, which is agnostic as to which of these three alternatives
+
+15:19.360 --> 15:20.360
+ is true.
+
+15:20.360 --> 15:21.360
+ Yeah.
+
+15:21.360 --> 15:22.360
+ Okay.
+
+15:22.360 --> 15:26.720
+ It's like you don't have to like the simulation argument would be true whether or not we thought
+
+15:26.720 --> 15:29.840
+ this could be done in 500 years or it would take 500 million years.
+
+15:29.840 --> 15:30.840
+ No, for sure.
+
+15:30.840 --> 15:31.840
+ The simulation argument stands.
+
+15:31.840 --> 15:36.200
+ I mean, I'm sure there might be some people who oppose it, but it doesn't matter.
+
+15:36.200 --> 15:39.480
+ I mean, it's very nice those three cases cover it.
+
+15:39.480 --> 15:44.240
+ But the fun part is at least not saying what the probabilities are, but kind of thinking
+
+15:44.240 --> 15:50.480
+ about kind of intuiting reasoning about what's more likely, what are the kind of things that
+
+15:50.480 --> 15:54.400
+ would make some of the arguments less and more so like.
+
+15:54.400 --> 15:56.520
+ But let's actually, I don't think we went through them.
+
+15:56.520 --> 16:00.440
+ So number one is we destroy ourselves before we ever create simulation.
+
+16:00.440 --> 16:01.440
+ Right.
+
+16:01.440 --> 16:07.960
+ So that's kind of sad, but we have to think not just what might destroy us.
+
+16:07.960 --> 16:14.180
+ I mean, so there could be some whatever disaster, some meteor slamming the earth a few years
+
+16:14.180 --> 16:16.120
+ from now that could destroy us.
+
+16:16.120 --> 16:17.120
+ Right.
+
+16:17.120 --> 16:24.880
+ But you'd have to postulate in order for this first disjunct to be true that almost all
+
+16:24.880 --> 16:32.200
+ civilizations throughout the cosmos also failed to reach technological maturity.
+
+16:32.200 --> 16:37.680
+ And the underlying assumption there is that there is likely a very large number of other
+
+16:37.680 --> 16:39.520
+ intelligent civilizations.
+
+16:39.520 --> 16:45.280
+ Well, if there are, yeah, then they would virtually all have to succumb in the same
+
+16:45.280 --> 16:46.280
+ way.
+
+16:46.280 --> 16:50.120
+ I mean, then that leads off another, I guess there are a lot of little digressions that
+
+16:50.120 --> 16:51.120
+ are interesting.
+
+16:51.120 --> 16:52.120
+ Definitely, let's go there.
+
+16:52.120 --> 16:53.120
+ Let's go there.
+
+16:53.120 --> 16:54.120
+ Keep dragging us back.
+
+16:54.120 --> 16:58.940
+ Well, there are these, there is a set of basic questions that always come up in conversations
+
+16:58.940 --> 17:05.500
+ with interesting people, like the Fermi paradox, like there's like, you could almost define
+
+17:05.500 --> 17:09.920
+ whether a person is interesting, whether at some point the question of the Fermi paradox
+
+17:09.920 --> 17:16.920
+ comes up, like, well, so for what it's worth, it looks to me that the universe is very big.
+
+17:16.920 --> 17:23.160
+ I mean, in fact, according to the most popular current cosmological theories, infinitely
+
+17:23.160 --> 17:25.320
+ big.
+
+17:25.320 --> 17:31.420
+ And so then it would follow pretty trivially that it would contain a lot of other civilizations,
+
+17:31.420 --> 17:34.120
+ in fact, infinitely many.
+
+17:34.120 --> 17:39.660
+ If you have some local stochasticity and infinitely many, it's like, you know, infinitely many
+
+17:39.660 --> 17:43.320
+ lumps of matter, one next to another, there's kind of random stuff in each one, then you're
+
+17:43.320 --> 17:51.160
+ going to get all possible outcomes with probability one infinitely repeated.
+
+17:51.160 --> 17:54.640
+ So then certainly there would be a lot of extraterrestrials out there.
+
+17:54.640 --> 18:02.660
+ Even short of that, if the universe is very big, that might be a finite but large number.
+
+18:02.660 --> 18:09.920
+ If we were literally the only one, yeah, then of course, if we went extinct, then all of
+
+18:09.920 --> 18:14.400
+ civilizations at our current stage would have gone extinct before becoming technological
+
+18:14.400 --> 18:15.400
+ material.
+
+18:15.400 --> 18:22.560
+ So then it kind of becomes trivially true that a very high fraction of those went extinct.
+
+18:22.560 --> 18:25.480
+ But if we think there are many, I mean, it's interesting, because there are certain things
+
+18:25.480 --> 18:35.840
+ that possibly could kill us, like if you look at existential risks, and it might be a different,
+
+18:35.840 --> 18:40.280
+ like the best answer to what would be most likely to kill us might be a different answer
+
+18:40.280 --> 18:46.920
+ than the best answer to the question, if there is something that kills almost everyone, what
+
+18:46.920 --> 18:47.920
+ would that be?
+
+18:47.920 --> 18:53.400
+ Because that would have to be some risk factor that was kind of uniform overall possible
+
+18:53.400 --> 18:54.400
+ civilization.
+
+18:54.400 --> 18:59.760
+ So in this, for the sake of this argument, you have to think about not just us, but like
+
+18:59.760 --> 19:05.160
+ every civilization dies out before they create the simulation or something very close to
+
+19:05.160 --> 19:06.160
+ everybody.
+
+19:06.160 --> 19:07.160
+ Okay.
+
+19:07.160 --> 19:14.080
+ So what's number two in the number two is the convergence hypothesis that is that maybe
+
+19:14.080 --> 19:18.760
+ like a lot of some of these civilizations do make it through to technological maturity,
+
+19:18.760 --> 19:26.400
+ but out of those who do get there, they all lose interest in creating these simulations.
+
+19:26.400 --> 19:32.960
+ So they just have the capability of doing it, but they choose not to.
+
+19:32.960 --> 19:40.260
+ Not just a few of them decide not to, but out of a million, maybe not even a single
+
+19:40.260 --> 19:41.760
+ one of them would do it.
+
+19:41.760 --> 19:48.880
+ And I think when you say lose interest, that sounds like unlikely because it's like they
+
+19:48.880 --> 19:53.680
+ get bored or whatever, but it could be so many possibilities within that.
+
+19:53.680 --> 20:02.380
+ I mean, losing interest could be, it could be anything from it being exceptionally difficult
+
+20:02.380 --> 20:09.440
+ to do to fundamentally changing the sort of the fabric of reality.
+
+20:09.440 --> 20:14.400
+ If you do it is ethical concerns, all those kinds of things could be exceptionally strong
+
+20:14.400 --> 20:15.400
+ pressures.
+
+20:15.400 --> 20:18.440
+ Well, certainly, I mean, yeah, ethical concerns.
+
+20:18.440 --> 20:21.160
+ I mean, not really too difficult to do.
+
+20:21.160 --> 20:26.000
+ I mean, in a sense, that's the first assumption that you get to technological maturity where
+
+20:26.000 --> 20:32.600
+ you would have the ability using only a tiny fraction of your resources to create many,
+
+20:32.600 --> 20:34.520
+ many simulations.
+
+20:34.520 --> 20:39.760
+ So it wouldn't be the case that they would need to spend half of their GDP forever in
+
+20:39.760 --> 20:43.480
+ order to create one simulation and they had this like difficult debate about whether they
+
+20:43.480 --> 20:46.400
+ should invest half of their GDP for this.
+
+20:46.400 --> 20:50.320
+ It would more be like, well, if any little fraction of the civilization feels like doing
+
+20:50.320 --> 20:57.000
+ this at any point during maybe their millions of years of existence, then that would be
+
+20:57.000 --> 21:00.560
+ millions of simulations.
+
+21:00.560 --> 21:07.800
+ But certainly, there could be many conceivable reasons for why there would be this convert,
+
+21:07.800 --> 21:13.020
+ many possible reasons for not running ancestor simulations or other computer simulations,
+
+21:13.020 --> 21:15.160
+ even if you could do so cheaply.
+
+21:15.160 --> 21:17.160
+ By the way, what's an ancestor simulation?
+
+21:17.160 --> 21:24.880
+ Well, that would be the type of computer simulation that would contain people like those we think
+
+21:24.880 --> 21:30.060
+ have lived on our planet in the past and like ourselves in terms of the types of experiences
+
+21:30.060 --> 21:33.560
+ they have and where those simulated people are conscious.
+
+21:33.560 --> 21:41.400
+ So like not just simulated in the same sense that a non player character would be simulated
+
+21:41.400 --> 21:45.560
+ in the current computer game where it's kind of has like an avatar body and then a very
+
+21:45.560 --> 21:49.880
+ simple mechanism that moves it forward or backwards.
+
+21:49.880 --> 21:56.880
+ But something where the simulated being has a brain, let's say that's simulated at a sufficient
+
+21:56.880 --> 22:03.400
+ level of granularity that it would have the same subjective experiences as we have.
+
+22:03.400 --> 22:06.400
+ So where does consciousness fit into this?
+
+22:06.400 --> 22:10.380
+ Do you think simulation, I guess there are different ways to think about how this can
+
+22:10.380 --> 22:14.320
+ be simulated, just like you're talking about now.
+
+22:14.320 --> 22:21.040
+ Do we have to simulate each brain within the larger simulation?
+
+22:21.040 --> 22:26.840
+ Is it enough to simulate just the brain, just the minds and not the simulation, not the
+
+22:26.840 --> 22:27.840
+ universe itself?
+
+22:27.840 --> 22:29.880
+ Like, is there a different ways to think about this?
+
+22:29.880 --> 22:38.280
+ Yeah, I guess there is a kind of premise in the simulation argument rolled in from philosophy
+
+22:38.280 --> 22:45.200
+ of mind that is that it would be possible to create a conscious mind in a computer.
+
+22:45.200 --> 22:51.680
+ And that what determines whether some system is conscious or not is not like whether it's
+
+22:51.680 --> 22:56.880
+ built from organic biological neurons, but maybe something like what the structure of
+
+22:56.880 --> 22:59.680
+ the computation is that it implements.
+
+22:59.680 --> 23:05.860
+ So we can discuss that if we want, but I think it would be more forward as far as my view
+
+23:05.860 --> 23:15.140
+ that it would be sufficient, say, if you had a computation that was identical to the computation
+
+23:15.140 --> 23:17.520
+ in the human brain down to the level of neurons.
+
+23:17.520 --> 23:21.040
+ So if you had a simulation with 100 billion neurons connected in the same way as the human
+
+23:21.040 --> 23:27.520
+ brain, and you then roll that forward with the same kind of synaptic weights and so forth,
+
+23:27.520 --> 23:33.320
+ so you actually had the same behavior coming out of this as a human with that brain would
+
+23:33.320 --> 23:36.000
+ have done, then I think that would be conscious.
+
+23:36.000 --> 23:43.200
+ Now it's possible you could also generate consciousness without having that detailed
+
+23:43.200 --> 23:50.080
+ assimilation, there I'm getting more uncertain exactly how much you could simplify or abstract
+
+23:50.080 --> 23:51.080
+ away.
+
+23:51.080 --> 23:52.080
+ Can you look on that?
+
+23:52.080 --> 23:53.080
+ What do you mean?
+
+23:53.080 --> 23:56.920
+ I missed where you're placing consciousness in the second.
+
+23:56.920 --> 24:01.800
+ Well, so if you are a computationalist, do you think that what creates consciousness
+
+24:01.800 --> 24:04.880
+ is the implementation of a computation?
+
+24:04.880 --> 24:07.760
+ Some property, emergent property of the computation itself.
+
+24:07.760 --> 24:08.760
+ Yeah.
+
+24:08.760 --> 24:09.760
+ That's the idea.
+
+24:09.760 --> 24:10.760
+ Yeah, you could say that.
+
+24:10.760 --> 24:16.960
+ But then the question is, what's the class of computations such that when they are run,
+
+24:16.960 --> 24:18.160
+ consciousness emerges?
+
+24:18.160 --> 24:24.040
+ So if you just have something that adds one plus one plus one plus one, like a simple
+
+24:24.040 --> 24:28.760
+ computation, you think maybe that's not going to have any consciousness.
+
+24:28.760 --> 24:36.160
+ If on the other hand, the computation is one like our human brains are performing, where
+
+24:36.160 --> 24:43.440
+ as part of the computation, there is a global workspace, a sophisticated attention mechanism,
+
+24:43.440 --> 24:50.280
+ there is self representations of other cognitive processes and a whole lot of other things
+
+24:50.280 --> 24:52.920
+ that possibly would be conscious.
+
+24:52.920 --> 24:56.680
+ And in fact, if it's exactly like ours, I think definitely it would.
+
+24:56.680 --> 25:02.880
+ But exactly how much less than the full computation that the human brain is performing would be
+
+25:02.880 --> 25:09.320
+ required is a little bit, I think, of an open question.
+
+25:09.320 --> 25:17.640
+ He asked another interesting question as well, which is, would it be sufficient to just have
+
+25:17.640 --> 25:24.840
+ say the brain or would you need the environment in order to generate the same kind of experiences
+
+25:24.840 --> 25:26.600
+ that we have?
+
+25:26.600 --> 25:29.200
+ And there is a bunch of stuff we don't know.
+
+25:29.200 --> 25:35.440
+ I mean, if you look at, say, current virtual reality environments, one thing that's clear
+
+25:35.440 --> 25:40.800
+ is that we don't have to simulate all details of them all the time in order for, say, the
+
+25:40.800 --> 25:47.000
+ human player to have the perception that there is a full reality and that you can have say
+
+25:47.000 --> 25:51.160
+ procedurally generated where you might only render a scene when it's actually within the
+
+25:51.160 --> 25:55.440
+ view of the player character.
+
+25:55.440 --> 26:06.440
+ And so similarly, if this environment that we perceive is simulated, it might be that
+
+26:06.440 --> 26:10.520
+ all of the parts that come into our view are rendered at any given time.
+
+26:10.520 --> 26:16.680
+ And a lot of aspects that never come into view, say the details of this microphone I'm
+
+26:16.680 --> 26:23.160
+ talking into, exactly what each atom is doing at any given point in time, might not be part
+
+26:23.160 --> 26:27.200
+ of the simulation, only a more coarse grained representation.
+
+26:27.200 --> 26:31.560
+ So that to me is actually from an engineering perspective, why the simulation hypothesis
+
+26:31.560 --> 26:39.960
+ is really interesting to think about is how difficult is it to fake sort of in a virtual
+
+26:39.960 --> 26:45.000
+ reality context, I don't know if fake is the right word, but to construct a reality that
+
+26:45.000 --> 26:52.080
+ is sufficiently real to us to be immersive in the way that the physical world is.
+
+26:52.080 --> 26:59.400
+ I think that's actually probably an answerable question of psychology, of computer science,
+
+26:59.400 --> 27:06.600
+ of how, where's the line where it becomes so immersive that you don't want to leave
+
+27:06.600 --> 27:07.600
+ that world?
+
+27:07.600 --> 27:13.080
+ Yeah, or that you don't realize while you're in it that it is a virtual world.
+
+27:13.080 --> 27:17.760
+ Yeah, those are two actually questions, yours is the more sort of the good question about
+
+27:17.760 --> 27:23.120
+ the realism, but mine, from my perspective, what's interesting is it doesn't have to be
+
+27:23.120 --> 27:29.480
+ real, but how can we construct a world that we wouldn't want to leave?
+
+27:29.480 --> 27:34.440
+ Yeah, I mean, I think that might be too low a bar, I mean, if you think, say when people
+
+27:34.440 --> 27:38.600
+ first had pong or something like that, I'm sure there were people who wanted to keep
+
+27:38.600 --> 27:44.720
+ playing it for a long time because it was fun and they wanted to be in this little world.
+
+27:44.720 --> 27:48.680
+ I'm not sure we would say it's immersive, I mean, I guess in some sense it is, but like
+
+27:48.680 --> 27:51.360
+ an absorbing activity doesn't even have to be.
+
+27:51.360 --> 27:54.240
+ But they left that world though, that's the thing.
+
+27:54.240 --> 27:59.000
+ So like, I think that bar is deceivingly high.
+
+27:59.000 --> 28:05.600
+ So they eventually left, so you can play pong or Starcraft or whatever more sophisticated
+
+28:05.600 --> 28:12.360
+ games for hours, for months, you know, while the work has to be in a big addiction, but
+
+28:12.360 --> 28:13.880
+ eventually they escaped that.
+
+28:13.880 --> 28:19.560
+ So you mean when it's absorbing enough that you would spend your entire, you would choose
+
+28:19.560 --> 28:21.160
+ to spend your entire life in there.
+
+28:21.160 --> 28:28.520
+ And then thereby changing the concept of what reality is, because your reality becomes the
+
+28:28.520 --> 28:29.620
+ game.
+
+28:29.620 --> 28:33.320
+ Not because you're fooled, but because you've made that choice.
+
+28:33.320 --> 28:38.880
+ Yeah, and it made, different people might have different preferences regarding that.
+
+28:38.880 --> 28:47.640
+ Some might, even if you had any perfect virtual reality, might still prefer not to spend the
+
+28:47.640 --> 28:49.160
+ rest of their lives there.
+
+28:49.160 --> 28:53.880
+ I mean, in philosophy, there's this experience machine, thought experiment.
+
+28:53.880 --> 28:55.920
+ Have you come across this?
+
+28:55.920 --> 29:03.960
+ So Robert Nozick had this thought experiment where you imagine some crazy super duper neuroscientist
+
+29:03.960 --> 29:08.160
+ of the future have created a machine that could give you any experience you want if
+
+29:08.160 --> 29:10.280
+ you step in there.
+
+29:10.280 --> 29:15.840
+ And for the rest of your life, you can kind of pre programmed it in different ways.
+
+29:15.840 --> 29:24.240
+ So your fun dreams could come true, you could, whatever you dream, you want to be a great
+
+29:24.240 --> 29:29.320
+ artist, a great lover, like have a wonderful life, all of these things.
+
+29:29.320 --> 29:36.400
+ If you step into the experience machine will be your experiences, constantly happy.
+
+29:36.400 --> 29:39.120
+ But you would kind of disconnect from the rest of reality and you would float there
+
+29:39.120 --> 29:41.760
+ in a tank.
+
+29:41.760 --> 29:48.960
+ And so Nozick thought that most people would choose not to enter the experience machine.
+
+29:48.960 --> 29:51.880
+ I mean, many might want to go there for a holiday, but they wouldn't want to have to
+
+29:51.880 --> 29:54.560
+ check out of existence permanently.
+
+29:54.560 --> 30:01.480
+ And so he thought that was an argument against certain views of value according to what we
+
+30:01.480 --> 30:04.760
+ value is a function of what we experience.
+
+30:04.760 --> 30:08.560
+ Because in the experience machine, you could have any experience you want, and yet many
+
+30:08.560 --> 30:12.000
+ people would think that would not be much value.
+
+30:12.000 --> 30:18.600
+ So therefore, what we value depends on other things than what we experience.
+
+30:18.600 --> 30:21.920
+ So okay, can you can you take that argument further?
+
+30:21.920 --> 30:25.120
+ What about the fact that maybe what we value is the up and down of life?
+
+30:25.120 --> 30:29.080
+ So you could have up and downs in the experience machine, right?
+
+30:29.080 --> 30:31.080
+ But what can't you have in the experience machine?
+
+30:31.080 --> 30:35.480
+ Well, I mean, that then becomes an interesting question to explore.
+
+30:35.480 --> 30:40.480
+ But for example, real connection with other people, if the experience machine is a solo
+
+30:40.480 --> 30:44.920
+ machine where it's only you, like that's something you wouldn't have there.
+
+30:44.920 --> 30:49.440
+ You would have this subjective experience that would be like fake people.
+
+30:49.440 --> 30:53.840
+ But when if you gave somebody flowers, there wouldn't be anybody there who actually got
+
+30:53.840 --> 30:54.840
+ happy.
+
+30:54.840 --> 30:58.480
+ It would just be a little simulation of somebody smiling.
+
+30:58.480 --> 31:01.480
+ But the simulation would not be the kind of simulation I'm talking about in the simulation
+
+31:01.480 --> 31:06.840
+ argument where the simulated creature is conscious, it would just be a kind of smiley face that
+
+31:06.840 --> 31:08.600
+ would look perfectly real to you.
+
+31:08.600 --> 31:14.720
+ So we're now drawing a distinction between appear to be perfectly real and actually being
+
+31:14.720 --> 31:15.720
+ real.
+
+31:15.720 --> 31:16.720
+ Yeah.
+
+31:16.720 --> 31:22.040
+ Um, so that could be one thing, I mean, like a big impact on history, maybe is also something
+
+31:22.040 --> 31:25.640
+ you won't have if you check into this experience machine.
+
+31:25.640 --> 31:29.880
+ So some people might actually feel the life I want to have for me is one where I have
+
+31:29.880 --> 31:35.520
+ a big positive impact on history unfolds.
+
+31:35.520 --> 31:43.560
+ So you could kind of explore these different possible explanations for why it is you wouldn't
+
+31:43.560 --> 31:48.000
+ want to go into the experience machine if that's, if that's what you feel.
+
+31:48.000 --> 31:53.320
+ And one interesting observation regarding this Nozick thought experiment and the conclusions
+
+31:53.320 --> 31:58.760
+ he wanted to draw from it is how much is a kind of a status quo effect.
+
+31:58.760 --> 32:04.800
+ So a lot of people might not want to get this on current reality to plug into this dream
+
+32:04.800 --> 32:06.160
+ machine.
+
+32:06.160 --> 32:13.240
+ But if they instead were told, well, what you've experienced up to this point was a
+
+32:13.240 --> 32:20.640
+ dream now, do you want to disconnect from this and enter the real world when you have
+
+32:20.640 --> 32:24.880
+ no idea maybe what the real world is, or maybe you could say, well, you're actually a farmer
+
+32:24.880 --> 32:32.280
+ in Peru, growing, you know, peanuts, and you could live for the rest of your life in this
+
+32:32.280 --> 32:40.480
+ way, or would you want to continue your dream life as Alex Friedman going around the world
+
+32:40.480 --> 32:44.080
+ making podcasts and doing research.
+
+32:44.080 --> 32:51.320
+ So if the status quo was that they were actually in the experience machine, I think a lot of
+
+32:51.320 --> 32:55.440
+ people might then prefer to live the life that they are familiar with rather than sort
+
+32:55.440 --> 32:57.120
+ of bail out into.
+
+32:57.120 --> 33:02.600
+ So that's interesting, the change itself, the leap, yeah, so it might not be so much
+
+33:02.600 --> 33:04.440
+ the reality itself that we're after.
+
+33:04.440 --> 33:09.000
+ But it's more that we are maybe involved in certain projects and relationships.
+
+33:09.000 --> 33:14.040
+ And we have, you know, a self identity and these things that our values are kind of connected
+
+33:14.040 --> 33:15.880
+ with carrying that forward.
+
+33:15.880 --> 33:22.760
+ And then whether it's inside a tank or outside a tank in Peru, or whether inside a computer
+
+33:22.760 --> 33:29.120
+ outside a computer, that's kind of less important to what we ultimately care about.
+
+33:29.120 --> 33:34.720
+ Yeah, but still, so just to linger on it, it is interesting.
+
+33:34.720 --> 33:39.600
+ I find maybe people are different, but I find myself quite willing to take the leap to the
+
+33:39.600 --> 33:46.800
+ farmer in Peru, especially as the virtual reality system become more realistic.
+
+33:46.800 --> 33:50.760
+ I find that possibility and I think more people would take that leap.
+
+33:50.760 --> 33:53.640
+ But so in this thought experiment, just to make sure we are understanding, so in this
+
+33:53.640 --> 34:01.280
+ case, the farmer in Peru would not be a virtual reality, that would be the real, your life,
+
+34:01.280 --> 34:04.400
+ like before this whole experience machine started.
+
+34:04.400 --> 34:09.560
+ Well, I kind of assumed from that description, you're being very specific, but that kind
+
+34:09.560 --> 34:15.320
+ of idea just like washes away the concept of what's real.
+
+34:15.320 --> 34:23.320
+ I'm still a little hesitant about your kind of distinction between real and illusion.
+
+34:23.320 --> 34:31.080
+ Because when you can have an illusion that feels, I mean, that looks real, I don't know
+
+34:31.080 --> 34:35.320
+ how you can definitively say something is real or not, like what's a good way to prove
+
+34:35.320 --> 34:37.600
+ that something is real in that context?
+
+34:37.600 --> 34:41.040
+ Well, so I guess in this case, it's more a stipulation.
+
+34:41.040 --> 34:47.400
+ In one case, you're floating in a tank with these wires by the super duper neuroscientists
+
+34:47.400 --> 34:52.440
+ plugging into your head, giving you like Friedman experiences.
+
+34:52.440 --> 34:57.120
+ In the other, you're actually tilling the soil in Peru, growing peanuts, and then those
+
+34:57.120 --> 35:01.440
+ peanuts are being eaten by other people all around the world who buy the exports.
+
+35:01.440 --> 35:08.600
+ That's two different possible situations in the one and the same real world that you could
+
+35:08.600 --> 35:09.600
+ choose to occupy.
+
+35:09.600 --> 35:15.400
+ But just to be clear, when you're in a vat with wires and the neuroscientists, you can
+
+35:15.400 --> 35:19.000
+ still go farming in Peru, right?
+
+35:19.000 --> 35:25.120
+ No, well, if you wanted to, you could have the experience of farming in Peru, but there
+
+35:25.120 --> 35:28.760
+ wouldn't actually be any peanuts grown.
+
+35:28.760 --> 35:36.560
+ But what makes a peanut, so a peanut could be grown and you could feed things with that
+
+35:36.560 --> 35:41.600
+ peanut and why can't all of that be done in a simulation?
+
+35:41.600 --> 35:45.760
+ I hope, first of all, that they actually have peanut farms in Peru, I guess we'll get a
+
+35:45.760 --> 35:50.000
+ lot of comments otherwise from Angrit.
+
+35:50.000 --> 35:54.160
+ I was way up to the point when you started talking about Peru peanuts, that's when I
+
+35:54.160 --> 35:56.200
+ realized you're relying out of these.
+
+35:56.200 --> 35:57.200
+ In that climate.
+
+35:57.200 --> 36:05.120
+ No, I mean, I think, I mean, in the simulation, I think there is a sense, the important sense
+
+36:05.120 --> 36:07.200
+ in which it would all be real.
+
+36:07.200 --> 36:13.720
+ Nevertheless, there is a distinction between inside the simulation and outside the simulation.
+
+36:13.720 --> 36:19.680
+ Or in the case of Nozick's thought experiment, whether you're in the vat or outside the vat,
+
+36:19.680 --> 36:22.440
+ and some of those differences may or may not be important.
+
+36:22.440 --> 36:25.520
+ I mean, that comes down to your values and preferences.
+
+36:25.520 --> 36:32.840
+ So if the, if the experience machine only gives you the experience of growing peanuts,
+
+36:32.840 --> 36:35.680
+ but you're the only one in the experience machines.
+
+36:35.680 --> 36:40.400
+ No, but there's other, you can, within the experience machine, others can plug in.
+
+36:40.400 --> 36:43.840
+ Well, there are versions of the experience machine.
+
+36:43.840 --> 36:47.520
+ So in fact, you might want to have, distinguish different thought experiments, different versions
+
+36:47.520 --> 36:48.520
+ of it.
+
+36:48.520 --> 36:49.520
+ I see.
+
+36:49.520 --> 36:51.840
+ So in, like in the original thought experiment, maybe it's only you, right?
+
+36:51.840 --> 36:54.480
+ And you think, I wouldn't want to go in there.
+
+36:54.480 --> 36:58.200
+ Well, that tells you something interesting about what you value and what you care about.
+
+36:58.200 --> 37:02.000
+ Then you could say, well, what if you add the fact that there would be other people
+
+37:02.000 --> 37:03.440
+ in there and you would interact with them?
+
+37:03.440 --> 37:06.920
+ Well, it starts to make it more attractive, right?
+
+37:06.920 --> 37:10.920
+ Then you could add in, well, what if you could also have important longterm effects on human
+
+37:10.920 --> 37:14.840
+ history and the world, and you could actually do something useful, even though you were
+
+37:14.840 --> 37:15.840
+ in there.
+
+37:15.840 --> 37:17.760
+ That makes it maybe even more attractive.
+
+37:17.760 --> 37:22.480
+ Like you could actually have a life that had a purpose and consequences.
+
+37:22.480 --> 37:30.760
+ And so as you sort of add more into it, it becomes more similar to the baseline reality
+
+37:30.760 --> 37:32.920
+ that you were comparing it to.
+
+37:32.920 --> 37:37.840
+ Yeah, but I just think inside the experience machine and without taking those steps you
+
+37:37.840 --> 37:45.720
+ just mentioned, you still have an impact on longterm history of the creatures that live
+
+37:45.720 --> 37:53.360
+ inside that, of the quote unquote fake creatures that live inside that experience machine.
+
+37:53.360 --> 37:59.800
+ And that, like at a certain point, you know, if there's a person waiting for you inside
+
+37:59.800 --> 38:06.920
+ that experience machine, maybe your newly found wife and she dies, she has fear, she
+
+38:06.920 --> 38:12.900
+ has hopes, and she exists in that machine when you plug out, when you unplug yourself
+
+38:12.900 --> 38:16.080
+ and plug back in, she's still there going on about her life.
+
+38:16.080 --> 38:20.640
+ Well, in that case, yeah, she starts to have more of an independent existence.
+
+38:20.640 --> 38:21.640
+ Independent existence.
+
+38:21.640 --> 38:26.680
+ But it depends, I think, on how she's implemented in the experience machine.
+
+38:26.680 --> 38:32.480
+ Take one limit case where all she is is a static picture on the wall, a photograph.
+
+38:32.480 --> 38:36.060
+ So you think, well, I can look at her, right?
+
+38:36.060 --> 38:37.240
+ But that's it.
+
+38:37.240 --> 38:38.240
+ There's no...
+
+38:38.240 --> 38:41.960
+ Then you think, well, it doesn't really matter much what happens to that, any more than a
+
+38:41.960 --> 38:45.080
+ normal photograph if you tear it up, right?
+
+38:45.080 --> 38:49.300
+ It means you can't see it anymore, but you haven't harmed the person whose picture you
+
+38:49.300 --> 38:52.300
+ tore up.
+
+38:52.300 --> 38:58.120
+ But if she's actually implemented, say, at a neural level of detail so that she's a fully
+
+38:58.120 --> 39:06.120
+ realized digital mind with the same behavioral repertoire as you have, then very plausibly
+
+39:06.120 --> 39:09.240
+ she would be a conscious person like you are.
+
+39:09.240 --> 39:14.220
+ And then what you do in this experience machine would have real consequences for how this
+
+39:14.220 --> 39:17.680
+ other mind felt.
+
+39:17.680 --> 39:21.100
+ So you have to specify which of these experience machines you're talking about.
+
+39:21.100 --> 39:27.920
+ I think it's not entirely obvious that it would be possible to have an experience machine
+
+39:27.920 --> 39:34.240
+ that gave you a normal set of human experiences, which include experiences of interacting with
+
+39:34.240 --> 39:40.560
+ other people, without that also generating consciousnesses corresponding to those other
+
+39:40.560 --> 39:41.560
+ people.
+
+39:41.560 --> 39:47.480
+ That is, if you create another entity that you perceive and interact with, that to you
+
+39:47.480 --> 39:49.320
+ looks entirely realistic.
+
+39:49.320 --> 39:53.160
+ Not just when you say hello, they say hello back, but you have a rich interaction, many
+
+39:53.160 --> 39:54.840
+ days, deep conversations.
+
+39:54.840 --> 40:00.960
+ It might be that the only possible way of implementing that would be one that also has
+
+40:00.960 --> 40:06.600
+ a side effect, instantiated this other person in enough detail that you would have a second
+
+40:06.600 --> 40:07.680
+ consciousness there.
+
+40:07.680 --> 40:11.800
+ I think that's to some extent an open question.
+
+40:11.800 --> 40:15.040
+ So you don't think it's possible to fake consciousness and fake intelligence?
+
+40:15.040 --> 40:16.040
+ Well, it might be.
+
+40:16.040 --> 40:21.340
+ I mean, I think you can certainly fake, if you have a very limited interaction with somebody,
+
+40:21.340 --> 40:24.320
+ you could certainly fake that.
+
+40:24.320 --> 40:28.320
+ If all you have to go on is somebody said hello to you, that's not enough for you to
+
+40:28.320 --> 40:34.880
+ tell whether that was a real person there, or a prerecorded message, or a very superficial
+
+40:34.880 --> 40:39.280
+ simulation that has no consciousness, because that's something easy to fake.
+
+40:39.280 --> 40:43.720
+ We could already fake it, now you can record a voice recording.
+
+40:43.720 --> 40:49.160
+ But if you have a richer set of interactions where you're allowed to ask open ended questions
+
+40:49.160 --> 40:54.920
+ and probe from different angles, you couldn't give canned answer to all of the possible
+
+40:54.920 --> 41:00.280
+ ways that you could probe it, then it starts to become more plausible that the only way
+
+41:00.280 --> 41:05.160
+ to realize this thing in such a way that you would get the right answer from any which
+
+41:05.160 --> 41:10.040
+ angle you probed it, would be a way of instantiating it, where you also instantiated a conscious
+
+41:10.040 --> 41:11.040
+ mind.
+
+41:11.040 --> 41:13.960
+ Yeah, I'm with you on the intelligence part, but is there something about me that says
+
+41:13.960 --> 41:15.960
+ consciousness is easier to fake?
+
+41:15.960 --> 41:23.080
+ Like I've recently gotten my hands on a lot of rubas, don't ask me why or how.
+
+41:23.080 --> 41:28.540
+ And I've made them, there's just a nice robotic mobile platform for experiments.
+
+41:28.540 --> 41:34.560
+ And I made them scream and or moan in pain, so on, just to see when they're responding
+
+41:34.560 --> 41:35.560
+ to me.
+
+41:35.560 --> 41:39.240
+ And it's just a sort of psychological experiment on myself.
+
+41:39.240 --> 41:43.120
+ And I think they appear conscious to me pretty quickly.
+
+41:43.120 --> 41:46.720
+ To me, at least my brain can be tricked quite easily.
+
+41:46.720 --> 41:53.760
+ I said if I introspect, it's harder for me to be tricked that something is intelligent.
+
+41:53.760 --> 41:58.860
+ So I just have this feeling that inside this experience machine, just saying that you're
+
+41:58.860 --> 42:05.000
+ conscious and having certain qualities of the interaction, like being able to suffer,
+
+42:05.000 --> 42:12.040
+ like being able to hurt, like being able to wander about the essence of your own existence,
+
+42:12.040 --> 42:18.040
+ not actually, I mean, creating the illusion that you're wandering about it is enough to
+
+42:18.040 --> 42:23.120
+ create the illusion of consciousness.
+
+42:23.120 --> 42:27.440
+ And because of that, create a really immersive experience to where you feel like that is
+
+42:27.440 --> 42:28.440
+ the real world.
+
+42:28.440 --> 42:33.260
+ So you think there's a big gap between appearing conscious and being conscious?
+
+42:33.260 --> 42:36.080
+ Or is it that you think it's very easy to be conscious?
+
+42:36.080 --> 42:38.120
+ I'm not actually sure what it means to be conscious.
+
+42:38.120 --> 42:48.200
+ All I'm saying is the illusion of consciousness is enough to create a social interaction that's
+
+42:48.200 --> 42:52.480
+ as good as if the thing was conscious, meaning I'm making it about myself.
+
+42:52.480 --> 42:53.480
+ Right.
+
+42:53.480 --> 42:54.480
+ Yeah.
+
+42:54.480 --> 42:55.480
+ I mean, I guess there are a few different things.
+
+42:55.480 --> 42:59.740
+ One is how good the interaction is, which might, I mean, if you don't really care about
+
+42:59.740 --> 43:05.080
+ like probing hard for whether the thing is conscious, maybe it would be a satisfactory
+
+43:05.080 --> 43:10.720
+ interaction, whether or not you really thought it was conscious.
+
+43:10.720 --> 43:20.040
+ Now, if you really care about it being conscious in like inside this experience machine, how
+
+43:20.040 --> 43:22.340
+ easy would it be to fake it?
+
+43:22.340 --> 43:28.000
+ And you say, it sounds fairly easy, but then the question is, would that also mean it's
+
+43:28.000 --> 43:30.600
+ very easy to instantiate consciousness?
+
+43:30.600 --> 43:35.440
+ Like it's much more widely spread in the world and we have thought it doesn't require a big
+
+43:35.440 --> 43:39.600
+ human brain with a hundred billion neurons, all you need is some system that exhibits
+
+43:39.600 --> 43:43.300
+ basic intentionality and can respond and you already have consciousness.
+
+43:43.300 --> 43:49.080
+ Like in that case, I guess you still have a close coupling.
+
+43:49.080 --> 43:54.600
+ I guess that case would be where they can come apart, where you could create the appearance
+
+43:54.600 --> 43:59.200
+ of there being a conscious mind with actually not being another conscious mind.
+
+43:59.200 --> 44:03.320
+ I'm somewhat agnostic exactly where these lines go.
+
+44:03.320 --> 44:12.280
+ I think one observation that makes it plausible that you could have very realistic appearances
+
+44:12.280 --> 44:18.320
+ relatively simply, which also is relevant for the simulation argument and in terms of
+
+44:18.320 --> 44:24.400
+ thinking about how realistic would a virtual reality model have to be in order for the
+
+44:24.400 --> 44:27.960
+ simulated creature not to notice that anything was awry.
+
+44:27.960 --> 44:33.960
+ Well, just think of our own humble brains during the wee hours of the night when we
+
+44:33.960 --> 44:35.400
+ are dreaming.
+
+44:35.400 --> 44:40.560
+ Many times, well, dreams are very immersive, but often you also don't realize that you're
+
+44:40.560 --> 44:43.440
+ in a dream.
+
+44:43.440 --> 44:51.320
+ And that's produced by simple primitive three pound lumps of neural matter effortlessly.
+
+44:51.320 --> 44:57.160
+ So if a simple brain like this can create the virtual reality that seems pretty real
+
+44:57.160 --> 45:03.120
+ to us, then how much easier would it be for a super intelligent civilization with planetary
+
+45:03.120 --> 45:09.760
+ sized computers optimized over the eons to create a realistic environment for you to
+
+45:09.760 --> 45:10.760
+ interact with?
+
+45:10.760 --> 45:11.760
+ Yeah.
+
+45:11.760 --> 45:17.720
+ By the way, behind that intuition is that our brain is not that impressive relative
+
+45:17.720 --> 45:21.280
+ to the possibilities of what technology could bring.
+
+45:21.280 --> 45:26.820
+ It's also possible that the brain is the epitome, is the ceiling.
+
+45:26.820 --> 45:30.960
+ How is that possible?
+
+45:30.960 --> 45:36.240
+ Meaning like this is the smartest possible thing that the universe could create.
+
+45:36.240 --> 45:39.800
+ So that seems unlikely to me.
+
+45:39.800 --> 45:40.800
+ Yeah.
+
+45:40.800 --> 45:47.600
+ I mean, for some of these reasons we alluded to earlier in terms of designs we already
+
+45:47.600 --> 45:54.960
+ have for computers that would be faster by many orders of magnitude than the human brain.
+
+45:54.960 --> 45:55.960
+ Yeah.
+
+45:55.960 --> 46:01.120
+ We can see that the constraints, the cognitive constraints in themselves is what enables
+
+46:01.120 --> 46:02.440
+ the intelligence.
+
+46:02.440 --> 46:09.420
+ So the more powerful you make the computer, the less likely it is to become super intelligent.
+
+46:09.420 --> 46:12.120
+ This is where I say dumb things to push back on that statement.
+
+46:12.120 --> 46:13.120
+ Yeah.
+
+46:13.120 --> 46:14.120
+ I'm not sure I thought that we might.
+
+46:14.120 --> 46:15.120
+ No.
+
+46:15.120 --> 46:18.120
+ I mean, so there are different dimensions of intelligence.
+
+46:18.120 --> 46:20.220
+ A simple one is just speed.
+
+46:20.220 --> 46:25.360
+ Like if you can solve the same challenge faster in some sense, you're like smarter.
+
+46:25.360 --> 46:31.560
+ So there I think we have very strong evidence for thinking that you could have a computer
+
+46:31.560 --> 46:37.880
+ in this universe that would be much faster than the human brain and therefore have speed
+
+46:37.880 --> 46:42.920
+ super intelligence, like be completely superior, maybe a million times faster.
+
+46:42.920 --> 46:46.960
+ Then maybe there are other ways in which you could be smarter as well, maybe more qualitative
+
+46:46.960 --> 46:48.680
+ ways, right?
+
+46:48.680 --> 46:51.840
+ And the concepts are a little bit less clear cut.
+
+46:51.840 --> 46:59.640
+ So it's harder to make a very crisp, neat, firmly logical argument for why that could
+
+46:59.640 --> 47:03.240
+ be qualitative super intelligence as opposed to just things that were faster.
+
+47:03.240 --> 47:08.040
+ Although I still think it's very plausible and for various reasons that are less than
+
+47:08.040 --> 47:09.240
+ watertight arguments.
+
+47:09.240 --> 47:14.680
+ But when you can sort of, for example, if you look at animals and even within humans,
+
+47:14.680 --> 47:19.760
+ like there seems to be like Einstein versus random person, like it's not just that Einstein
+
+47:19.760 --> 47:25.000
+ was a little bit faster, but like how long would it take a normal person to invent general
+
+47:25.000 --> 47:30.080
+ relativity is like, it's not 20% longer than it took Einstein or something like that.
+
+47:30.080 --> 47:32.920
+ It's like, I don't know whether they would do it at all or it would take millions of
+
+47:32.920 --> 47:37.320
+ years or some totally bizarre.
+
+47:37.320 --> 47:42.600
+ But your intuition is that the compute size will get you go increasing the size of the
+
+47:42.600 --> 47:49.560
+ computer and the speed of the computer might create some much more powerful levels of intelligence
+
+47:49.560 --> 47:53.560
+ that would enable some of the things we've been talking about with like the simulation,
+
+47:53.560 --> 48:00.760
+ being able to simulate an ultra realistic environment, ultra realistic perception of
+
+48:00.760 --> 48:01.760
+ reality.
+
+48:01.760 --> 48:02.760
+ Yeah.
+
+48:02.760 --> 48:05.720
+ I mean, strictly speaking, it would not be necessary to have super intelligence in order
+
+48:05.720 --> 48:14.280
+ to have say the technology to make these simulations, ancestor simulations or other kinds of simulations.
+
+48:14.280 --> 48:20.800
+ As a matter of fact, I think if we are in a simulation, it would most likely be one
+
+48:20.800 --> 48:26.280
+ built by a civilization that had super intelligence.
+
+48:26.280 --> 48:27.560
+ It certainly would help a lot.
+
+48:27.560 --> 48:31.400
+ I mean, you could build more efficient larger scale structures if you had super intelligence.
+
+48:31.400 --> 48:34.960
+ I also think that if you had the technology to build these simulations, that's like a
+
+48:34.960 --> 48:35.960
+ very advanced technology.
+
+48:35.960 --> 48:40.520
+ It seems kind of easier to get the technology to super intelligence.
+
+48:40.520 --> 48:45.280
+ I'd expect by the time they could make these fully realistic simulations of human history
+
+48:45.280 --> 48:49.160
+ with human brains in there, like before that they got to that stage, they would have figured
+
+48:49.160 --> 48:55.520
+ out how to create machine super intelligence or maybe biological enhancements of their
+
+48:55.520 --> 48:59.200
+ own brains if there were biological creatures to start with.
+
+48:59.200 --> 49:04.240
+ So we talked about the three parts of the simulation argument.
+
+49:04.240 --> 49:08.480
+ One, we destroy ourselves before we ever create the simulation.
+
+49:08.480 --> 49:13.200
+ Two, we somehow, everybody somehow loses interest in creating the simulation.
+
+49:13.200 --> 49:16.280
+ Three, we're living in a simulation.
+
+49:16.280 --> 49:21.760
+ So you've kind of, I don't know if your thinking has evolved on this point, but you kind of
+
+49:21.760 --> 49:28.320
+ said that we know so little that these three cases might as well be equally probable.
+
+49:28.320 --> 49:31.720
+ So probabilistically speaking, where do you stand on this?
+
+49:31.720 --> 49:41.280
+ Yeah, I mean, I don't think equal necessarily would be the most supported probability assignment.
+
+49:41.280 --> 49:47.280
+ So how would you, without assigning actual numbers, what's more or less likely in your
+
+49:47.280 --> 49:48.280
+ view?
+
+49:48.280 --> 49:54.600
+ Well, I mean, I've historically tended to punt on the question of like between these
+
+49:54.600 --> 49:55.600
+ three.
+
+49:55.600 --> 50:01.640
+ So maybe you ask me another way is which kind of things would make each of these more or
+
+50:01.640 --> 50:03.440
+ less likely?
+
+50:03.440 --> 50:05.200
+ What kind of intuition?
+
+50:05.200 --> 50:10.960
+ Certainly in general terms, if you think anything that say increases or reduces the probability
+
+50:10.960 --> 50:17.040
+ of one of these, we tend to slosh probability around on the other.
+
+50:17.040 --> 50:20.600
+ So if one becomes less probable, like the other would have to, cause it's got to add
+
+50:20.600 --> 50:22.000
+ up to one.
+
+50:22.000 --> 50:28.960
+ So if we consider the first hypothesis, the first alternative that there's this filter
+
+50:28.960 --> 50:39.160
+ that makes it so that virtually no civilization reaches technological maturity, in particular
+
+50:39.160 --> 50:42.440
+ our own civilization, if that's true, then it's like very unlikely that we would reach
+
+50:42.440 --> 50:47.600
+ technological maturity because if almost no civilization at our stage does it, then it's
+
+50:47.600 --> 50:49.120
+ unlikely that we do it.
+
+50:49.120 --> 50:50.120
+ So hence...
+
+50:50.120 --> 50:51.120
+ Sorry, can you linger on that for a second?
+
+50:51.120 --> 50:59.000
+ Well, so if it's the case that almost all civilizations at our current stage of technological
+
+50:59.000 --> 51:05.280
+ development failed to reach maturity, that would give us very strong reason for thinking
+
+51:05.280 --> 51:07.480
+ we will fail to reach technological maturity.
+
+51:07.480 --> 51:12.000
+ Oh, and also sort of the flip side of that is the fact that we've reached it means that
+
+51:12.000 --> 51:13.680
+ many other civilizations have reached this point.
+
+51:13.680 --> 51:14.680
+ Yeah.
+
+51:14.680 --> 51:20.200
+ So that means if we get closer and closer to actually reaching technological maturity,
+
+51:20.200 --> 51:26.200
+ there's less and less distance left where we could go extinct before we are there, and
+
+51:26.200 --> 51:31.520
+ therefore the probability that we will reach increases as we get closer, and that would
+
+51:31.520 --> 51:36.120
+ make it less likely to be true that almost all civilizations at our current stage failed
+
+51:36.120 --> 51:37.120
+ to get there.
+
+51:37.120 --> 51:38.880
+ Like we would have this...
+
+51:38.880 --> 51:42.960
+ The one case we had started ourselves would be very close to getting there, that would
+
+51:42.960 --> 51:46.440
+ be strong evidence that it's not so hard to get to technological maturity.
+
+51:46.440 --> 51:52.800
+ So to the extent that we feel we are moving nearer to technological maturity, that would
+
+51:52.800 --> 51:58.000
+ tend to reduce the probability of the first alternative and increase the probability of
+
+51:58.000 --> 51:59.600
+ the other two.
+
+51:59.600 --> 52:01.960
+ It doesn't need to be a monotonic change.
+
+52:01.960 --> 52:07.440
+ Like if every once in a while some new threat comes into view, some bad new thing you could
+
+52:07.440 --> 52:13.460
+ do with some novel technology, for example, that could change our probabilities in the
+
+52:13.460 --> 52:15.160
+ other direction.
+
+52:15.160 --> 52:20.840
+ But that technology, again, you have to think about as that technology has to be able to
+
+52:20.840 --> 52:26.400
+ equally in an even way affect every civilization out there.
+
+52:26.400 --> 52:28.120
+ Yeah, pretty much.
+
+52:28.120 --> 52:30.760
+ I mean, that's strictly speaking, it's not true.
+
+52:30.760 --> 52:36.800
+ I mean, that could be two different existential risks and every civilization, you know, one
+
+52:36.800 --> 52:42.440
+ or the other, like, but none of them kills more than 50%.
+
+52:42.440 --> 52:50.240
+ But incidentally, so in some of my work, I mean, on machine superintelligence, like pointed
+
+52:50.240 --> 52:54.440
+ to some existential risks related to sort of super intelligent AI and how we must make
+
+52:54.440 --> 52:59.820
+ sure, you know, to handle that wisely and carefully.
+
+52:59.820 --> 53:09.880
+ It's not the right kind of existential catastrophe to make the first alternative true though.
+
+53:09.880 --> 53:15.480
+ Like it might be bad for us if the future lost a lot of value as a result of it being
+
+53:15.480 --> 53:21.160
+ shaped by some process that optimized for some completely nonhuman value.
+
+53:21.160 --> 53:27.920
+ But even if we got killed by machine superintelligence, that machine superintelligence might still
+
+53:27.920 --> 53:29.520
+ attain technological maturity.
+
+53:29.520 --> 53:33.560
+ Oh, I see, so you're not human exclusive.
+
+53:33.560 --> 53:38.360
+ This could be any intelligent species that achieves, like it's all about the technological
+
+53:38.360 --> 53:39.360
+ maturity.
+
+53:39.360 --> 53:43.040
+ But the humans have to attain it.
+
+53:43.040 --> 53:44.040
+ Right.
+
+53:44.040 --> 53:47.320
+ So like superintelligence could replace us and that's just as well for the simulation
+
+53:47.320 --> 53:48.320
+ argument.
+
+53:48.320 --> 53:49.320
+ Yeah, yeah.
+
+53:49.320 --> 53:51.800
+ I mean, it could interact with the second hypothesis by alternative.
+
+53:51.800 --> 53:57.120
+ Like if the thing that replaced us was either more likely or less likely than we would be
+
+53:57.120 --> 54:02.840
+ to have an interest in creating ancestor simulations, you know, that could affect probabilities.
+
+54:02.840 --> 54:09.840
+ But yeah, to a first order, like if we all just die, then yeah, we won't produce any
+
+54:09.840 --> 54:11.920
+ simulations because we are dead.
+
+54:11.920 --> 54:17.560
+ But if we all die and get replaced by some other intelligent thing that then gets to
+
+54:17.560 --> 54:21.680
+ technological maturity, the question remains, of course, if not that thing, then use some
+
+54:21.680 --> 54:25.280
+ of its resources to do this stuff.
+
+54:25.280 --> 54:30.760
+ So can you reason about this stuff, given how little we know about the universe?
+
+54:30.760 --> 54:36.760
+ Is it reasonable to reason about these probabilities?
+
+54:36.760 --> 54:45.200
+ So like how little, well, maybe you can disagree, but to me, it's not trivial to figure out
+
+54:45.200 --> 54:47.520
+ how difficult it is to build a simulation.
+
+54:47.520 --> 54:49.640
+ We kind of talked about it a little bit.
+
+54:49.640 --> 54:56.080
+ We also don't know, like as we try to start building it, like start creating virtual worlds
+
+54:56.080 --> 54:59.640
+ and so on, how that changes the fabric of society.
+
+54:59.640 --> 55:04.560
+ Like there's all these things along the way that can fundamentally change just so many
+
+55:04.560 --> 55:09.480
+ aspects of our society about our existence that we don't know anything about, like the
+
+55:09.480 --> 55:19.380
+ kind of things we might discover when we understand to a greater degree the fundamental, the physics,
+
+55:19.380 --> 55:23.360
+ like the theory, if we have a breakthrough, have a theory and everything, how that changes
+
+55:23.360 --> 55:27.600
+ stuff, how that changes deep space exploration and so on.
+
+55:27.600 --> 55:33.040
+ Like, is it still possible to reason about probabilities given how little we know?
+
+55:33.040 --> 55:41.960
+ Yes, I think there will be a large residual of uncertainty that we'll just have to acknowledge.
+
+55:41.960 --> 55:47.880
+ And I think that's true for most of these big picture questions that we might wonder
+
+55:47.880 --> 55:49.840
+ about.
+
+55:49.840 --> 55:57.840
+ It's just we are small, short lived, small brained, cognitively very limited humans with
+
+55:57.840 --> 55:59.520
+ little evidence.
+
+55:59.520 --> 56:04.760
+ And it's amazing we can figure out as much as we can really about the cosmos.
+
+56:04.760 --> 56:10.960
+ But okay, so there's this cognitive trick that seems to happen when I look at the simulation
+
+56:10.960 --> 56:16.360
+ argument, which for me, it seems like case one and two feel unlikely.
+
+56:16.360 --> 56:22.080
+ I want to say feel unlikely as opposed to sort of like, it's not like I have too much
+
+56:22.080 --> 56:26.980
+ scientific evidence to say that either one or two are not true.
+
+56:26.980 --> 56:32.400
+ It just seems unlikely that every single civilization destroys itself.
+
+56:32.400 --> 56:37.160
+ And it seems like feels unlikely that the civilizations lose interest.
+
+56:37.160 --> 56:44.660
+ So naturally, without necessarily explicitly doing it, but the simulation argument basically
+
+56:44.660 --> 56:49.080
+ says it's very likely we're living in a simulation.
+
+56:49.080 --> 56:51.800
+ To me, my mind naturally goes there.
+
+56:51.800 --> 56:54.860
+ I think the mind goes there for a lot of people.
+
+56:54.860 --> 56:57.400
+ Is that the incorrect place for it to go?
+
+56:57.400 --> 56:59.160
+ Well, not necessarily.
+
+56:59.160 --> 57:09.040
+ I think the second alternative, which has to do with the motivations and interests of
+
+57:09.040 --> 57:15.160
+ technological and material civilizations, I think there is much we don't understand about
+
+57:15.160 --> 57:16.160
+ that.
+
+57:16.160 --> 57:18.440
+ Can you talk about that a little bit?
+
+57:18.440 --> 57:19.440
+ What do you think?
+
+57:19.440 --> 57:22.940
+ I mean, this is a question that pops up when you when you build an AGI system or build
+
+57:22.940 --> 57:26.320
+ a general intelligence.
+
+57:26.320 --> 57:27.880
+ How does that change our motivations?
+
+57:27.880 --> 57:30.800
+ Do you think it'll fundamentally transform our motivations?
+
+57:30.800 --> 57:39.280
+ Well, it doesn't seem that implausible that once you take this leap to to technological
+
+57:39.280 --> 57:44.920
+ maturity, I mean, I think like it involves creating machine super intelligence, possibly
+
+57:44.920 --> 57:50.840
+ that would be sort of on the path for basically all civilizations, maybe before they are able
+
+57:50.840 --> 57:55.840
+ to create large numbers of ancestry simulations, they would that that possibly could be one
+
+57:55.840 --> 58:03.240
+ of these things that quite radically changes the orientation of what a civilization is,
+
+58:03.240 --> 58:06.400
+ in fact, optimizing for.
+
+58:06.400 --> 58:08.760
+ There are other things as well.
+
+58:08.760 --> 58:20.240
+ So at the moment, we have not perfect control over our own being our own mental states,
+
+58:20.240 --> 58:25.240
+ our own experiences are not under our direct control.
+
+58:25.240 --> 58:33.840
+ So for example, if if you want to experience a pleasure and happiness, you might have to
+
+58:33.840 --> 58:39.720
+ do a whole host of things in the external world to try to get into the stage into the
+
+58:39.720 --> 58:44.240
+ mental state where you experience pleasure, like some people get some pleasure from eating
+
+58:44.240 --> 58:45.240
+ great food.
+
+58:45.240 --> 58:49.960
+ Well, they can just turn that on, they have to kind of actually go to a nice restaurant
+
+58:49.960 --> 58:51.400
+ and then they have to make money.
+
+58:51.400 --> 58:58.120
+ So there's like all this kind of activity that maybe arises from the fact that we are
+
+58:58.120 --> 59:02.120
+ trying to ultimately produce mental states.
+
+59:02.120 --> 59:06.560
+ But the only way to do that is by a whole host of complicated activities in the external
+
+59:06.560 --> 59:07.560
+ world.
+
+59:07.560 --> 59:11.560
+ Now, at some level of technological development, I think we'll become auto potent in the sense
+
+59:11.560 --> 59:18.920
+ of gaining direct ability to choose our own internal configuration, and enough knowledge
+
+59:18.920 --> 59:22.840
+ and insight to be able to actually do that in a meaningful way.
+
+59:22.840 --> 59:28.160
+ So then it could turn out that there are a lot of instrumental goals that would drop
+
+59:28.160 --> 59:33.420
+ out of the picture and be replaced by other instrumental goals, because we could now serve
+
+59:33.420 --> 59:37.200
+ some of these final goals in more direct ways.
+
+59:37.200 --> 59:45.500
+ And who knows how all of that shakes out after civilizations reflect on that and converge
+
+59:45.500 --> 59:49.880
+ on different attractors and so on and so forth.
+
+59:49.880 --> 59:57.040
+ And that could be new instrumental considerations that come into view as well, that we are just
+
+59:57.040 --> 1:00:04.240
+ oblivious to, that would maybe have a strong shaping effect on actions, like very strong
+
+1:00:04.240 --> 1:00:08.160
+ reasons to do something or not to do something, then we just don't realize they are there
+
+1:00:08.160 --> 1:00:11.160
+ because we are so dumb, bumbling through the universe.
+
+1:00:11.160 --> 1:00:17.680
+ But if almost inevitably en route to attaining the ability to create many ancestors simulations,
+
+1:00:17.680 --> 1:00:23.240
+ you do have this cognitive enhancement, or advice from super intelligences or yourself,
+
+1:00:23.240 --> 1:00:27.120
+ then maybe there's like this additional set of considerations coming into view and it's
+
+1:00:27.120 --> 1:00:32.000
+ obvious that the thing that makes sense is to do X, whereas right now it seems you could
+
+1:00:32.000 --> 1:00:39.720
+ X, Y or Z and different people will do different things and we are kind of random in that sense.
+
+1:00:39.720 --> 1:00:45.160
+ Because at this time, with our limited technology, the impact of our decisions is minor.
+
+1:00:45.160 --> 1:00:48.440
+ I mean, that's starting to change in some ways.
+
+1:00:48.440 --> 1:00:49.440
+ But…
+
+1:00:49.440 --> 1:00:53.840
+ Well, I'm not sure how it follows that the impact of our decisions is minor.
+
+1:00:53.840 --> 1:00:55.600
+ Well, it's starting to change.
+
+1:00:55.600 --> 1:00:58.760
+ I mean, I suppose 100 years ago it was minor.
+
+1:00:58.760 --> 1:01:00.240
+ It's starting to…
+
+1:01:00.240 --> 1:01:03.520
+ Well, it depends on how you view it.
+
+1:01:03.520 --> 1:01:08.640
+ What people did 100 years ago still have effects on the world today.
+
+1:01:08.640 --> 1:01:11.920
+ Oh, I see.
+
+1:01:11.920 --> 1:01:14.600
+ As a civilization in the togetherness.
+
+1:01:14.600 --> 1:01:15.600
+ Yeah.
+
+1:01:15.600 --> 1:01:21.760
+ So it might be that the greatest impact of individuals is not at technological maturity
+
+1:01:21.760 --> 1:01:22.760
+ or very far down.
+
+1:01:22.760 --> 1:01:28.440
+ It might be earlier on when there are different tracks, civilization could go down.
+
+1:01:28.440 --> 1:01:33.280
+ Maybe the population is smaller, things still haven't settled out.
+
+1:01:33.280 --> 1:01:41.720
+ If you count indirect effects, those could be bigger than the direct effects that people
+
+1:01:41.720 --> 1:01:43.360
+ have later on.
+
+1:01:43.360 --> 1:01:46.280
+ So part three of the argument says that…
+
+1:01:46.280 --> 1:01:53.520
+ So that leads us to a place where eventually somebody creates a simulation.
+
+1:01:53.520 --> 1:01:55.520
+ I think you had a conversation with Joe Rogan.
+
+1:01:55.520 --> 1:02:01.200
+ I think there's some aspect here where you got stuck a little bit.
+
+1:02:01.200 --> 1:02:06.400
+ How does that lead to we're likely living in a simulation?
+
+1:02:06.400 --> 1:02:12.920
+ So this kind of probability argument, if somebody eventually creates a simulation, why does
+
+1:02:12.920 --> 1:02:15.980
+ that mean that we're now in a simulation?
+
+1:02:15.980 --> 1:02:22.780
+ What you get to if you accept alternative three first is there would be more simulated
+
+1:02:22.780 --> 1:02:26.440
+ people with our kinds of experiences than non simulated ones.
+
+1:02:26.440 --> 1:02:34.120
+ Like if you look at the world as a whole, by the end of time as it were, you just count
+
+1:02:34.120 --> 1:02:36.240
+ it up.
+
+1:02:36.240 --> 1:02:39.600
+ That would be more simulated ones than non simulated ones.
+
+1:02:39.600 --> 1:02:43.160
+ Then there is an extra step to get from that.
+
+1:02:43.160 --> 1:02:48.320
+ If you assume that, suppose for the sake of the argument, that that's true.
+
+1:02:48.320 --> 1:02:57.840
+ How do you get from that to the statement we are probably in a simulation?
+
+1:02:57.840 --> 1:03:05.920
+ So here you're introducing an indexical statement like it's that this person right now is in
+
+1:03:05.920 --> 1:03:06.920
+ a simulation.
+
+1:03:06.920 --> 1:03:10.880
+ There are all these other people that are in simulations and some that are not in the
+
+1:03:10.880 --> 1:03:13.520
+ simulation.
+
+1:03:13.520 --> 1:03:19.200
+ But what probability should you have that you yourself is one of the simulated ones
+
+1:03:19.200 --> 1:03:21.040
+ in that setup?
+
+1:03:21.040 --> 1:03:28.440
+ So I call it the bland principle of indifference, which is that in cases like this, when you
+
+1:03:28.440 --> 1:03:37.320
+ have two sets of observers, one of which is much larger than the other and you can't from
+
+1:03:37.320 --> 1:03:46.320
+ any internal evidence you have, tell which set you belong to, you should assign a probability
+
+1:03:46.320 --> 1:03:50.240
+ that's proportional to the size of these sets.
+
+1:03:50.240 --> 1:03:55.240
+ So that if there are 10 times more simulated people with your kinds of experiences, you
+
+1:03:55.240 --> 1:03:58.520
+ would be 10 times more likely to be one of those.
+
+1:03:58.520 --> 1:04:00.600
+ Is that as intuitive as it sounds?
+
+1:04:00.600 --> 1:04:06.000
+ I mean, that seems kind of, if you don't have enough information, you should rationally
+
+1:04:06.000 --> 1:04:10.880
+ just assign the same probability as the size of the set.
+
+1:04:10.880 --> 1:04:15.800
+ It seems pretty plausible to me.
+
+1:04:15.800 --> 1:04:17.040
+ Where are the holes in this?
+
+1:04:17.040 --> 1:04:23.800
+ Is it at the very beginning, the assumption that everything stretches, you have infinite
+
+1:04:23.800 --> 1:04:24.800
+ time essentially?
+
+1:04:24.800 --> 1:04:26.920
+ You don't need infinite time.
+
+1:04:26.920 --> 1:04:29.840
+ You just need, how long does the time take?
+
+1:04:29.840 --> 1:04:36.040
+ However long it takes, I guess, for a universe to produce an intelligent civilization that
+
+1:04:36.040 --> 1:04:40.520
+ attains the technology to run some ancestry simulations.
+
+1:04:40.520 --> 1:04:45.840
+ When the first simulation is created, that stretch of time, just a little longer than
+
+1:04:45.840 --> 1:04:48.200
+ they'll all start creating simulations.
+
+1:04:48.200 --> 1:04:52.200
+ Well, I mean, there might be a difference.
+
+1:04:52.200 --> 1:04:57.720
+ If you think of there being a lot of different planets and some subset of them have life
+
+1:04:57.720 --> 1:05:03.280
+ and then some subset of those get to intelligent life and some of those maybe eventually start
+
+1:05:03.280 --> 1:05:07.760
+ creating simulations, they might get started at quite different times.
+
+1:05:07.760 --> 1:05:13.960
+ Maybe on some planet, it takes a billion years longer before you get monkeys or before you
+
+1:05:13.960 --> 1:05:19.720
+ get even bacteria than on another planet.
+
+1:05:19.720 --> 1:05:25.000
+ This might happen at different cosmological epochs.
+
+1:05:25.000 --> 1:05:28.920
+ Is there a connection here to the doomsday argument and that sampling there?
+
+1:05:28.920 --> 1:05:36.880
+ Yeah, there is a connection in that they both involve an application of anthropic reasoning
+
+1:05:36.880 --> 1:05:41.120
+ that is reasoning about these kind of indexical propositions.
+
+1:05:41.120 --> 1:05:49.360
+ But the assumption you need in the case of the simulation argument is much weaker than
+
+1:05:49.360 --> 1:05:53.760
+ the assumption you need to make the doomsday argument go through.
+
+1:05:53.760 --> 1:05:58.640
+ What is the doomsday argument and maybe you can speak to the anthropic reasoning in more
+
+1:05:58.640 --> 1:05:59.640
+ general.
+
+1:05:59.640 --> 1:06:03.680
+ Yeah, that's a big and interesting topic in its own right, anthropics, but the doomsday
+
+1:06:03.680 --> 1:06:11.120
+ argument is this really first discovered by Brandon Carter, who was a theoretical physicist
+
+1:06:11.120 --> 1:06:15.920
+ and then developed by philosopher John Leslie.
+
+1:06:15.920 --> 1:06:21.080
+ I think it might have been discovered initially in the 70s or 80s and Leslie wrote this book,
+
+1:06:21.080 --> 1:06:23.280
+ I think in 96.
+
+1:06:23.280 --> 1:06:27.600
+ And there are some other versions as well by Richard Gott, who's a physicist, but let's
+
+1:06:27.600 --> 1:06:38.420
+ focus on the Carter Leslie version where it's an argument that we have systematically underestimated
+
+1:06:38.420 --> 1:06:44.160
+ the probability that humanity will go extinct soon.
+
+1:06:44.160 --> 1:06:49.040
+ Now I should say most people probably think at the end of the day there is something wrong
+
+1:06:49.040 --> 1:06:52.260
+ with this doomsday argument that it doesn't really hold.
+
+1:06:52.260 --> 1:06:56.280
+ It's like there's something wrong with it, but it's proved hard to say exactly what is
+
+1:06:56.280 --> 1:07:00.600
+ wrong with it and different people have different accounts.
+
+1:07:00.600 --> 1:07:06.480
+ My own view is it seems inconclusive, but I can say what the argument is.
+
+1:07:06.480 --> 1:07:08.080
+ Yeah, that would be good.
+
+1:07:08.080 --> 1:07:17.720
+ So maybe it's easiest to explain via an analogy to sampling from urns.
+
+1:07:17.720 --> 1:07:27.000
+ So imagine you have two urns in front of you and they have balls in them that have numbers.
+
+1:07:27.000 --> 1:07:30.020
+ The two urns look the same, but inside one there are 10 balls.
+
+1:07:30.020 --> 1:07:33.520
+ Ball number one, two, three, up to ball number 10.
+
+1:07:33.520 --> 1:07:41.720
+ And then in the other urn you have a million balls numbered one to a million and somebody
+
+1:07:41.720 --> 1:07:48.280
+ puts one of these urns in front of you and asks you to guess what's the chance it's the
+
+1:07:48.280 --> 1:07:53.280
+ 10 ball urn and you say, well, 50, 50, I can't tell which urn it is.
+
+1:07:53.280 --> 1:07:58.360
+ But then you're allowed to reach in and pick a ball at random from the urn and that's suppose
+
+1:07:58.360 --> 1:08:02.200
+ you find that it's ball number seven.
+
+1:08:02.200 --> 1:08:05.680
+ So that's strong evidence for the 10 ball hypothesis.
+
+1:08:05.680 --> 1:08:11.240
+ It's a lot more likely that you would get such a low numbered ball if there are only
+
+1:08:11.240 --> 1:08:14.960
+ 10 balls in the urn, like it's in fact 10% done, right?
+
+1:08:14.960 --> 1:08:19.680
+ Then if there are a million balls, it would be very unlikely you would get number seven.
+
+1:08:19.680 --> 1:08:27.200
+ So you perform a Bayesian update and if your prior was 50, 50 that it was the 10 ball urn,
+
+1:08:27.200 --> 1:08:31.640
+ you become virtually certain after finding the random sample was seven that it's only
+
+1:08:31.640 --> 1:08:33.320
+ has 10 balls in it.
+
+1:08:33.320 --> 1:08:37.480
+ So in the case of the urns, this is uncontroversial, just elementary probability theory.
+
+1:08:37.480 --> 1:08:43.240
+ The Doomsday Argument says that you should reason in a similar way with respect to different
+
+1:08:43.240 --> 1:08:49.680
+ hypotheses about how many balls there will be in the urn of humanity as it were, how
+
+1:08:49.680 --> 1:08:54.360
+ many humans there will ever have been by the time we go extinct.
+
+1:08:54.360 --> 1:09:00.400
+ So to simplify, let's suppose we only consider two hypotheses, either maybe 200 billion humans
+
+1:09:00.400 --> 1:09:05.800
+ in total or 200 trillion humans in total.
+
+1:09:05.800 --> 1:09:09.360
+ You could fill in more hypotheses, but it doesn't change the principle here.
+
+1:09:09.360 --> 1:09:12.200
+ So it's easiest to see if we just consider these two.
+
+1:09:12.200 --> 1:09:18.080
+ So you start with some prior based on ordinary empirical ideas about threats to civilization
+
+1:09:18.080 --> 1:09:19.080
+ and so forth.
+
+1:09:19.080 --> 1:09:23.640
+ And maybe you say it's a 5% chance that we will go extinct by the time there will have
+
+1:09:23.640 --> 1:09:28.560
+ been 200 billion only, you're kind of optimistic, let's say, you think probably we'll make it
+
+1:09:28.560 --> 1:09:31.840
+ through, colonize the universe.
+
+1:09:31.840 --> 1:09:39.240
+ But then, according to this Doomsday Argument, you should take off your own birth rank as
+
+1:09:39.240 --> 1:09:40.240
+ a random sample.
+
+1:09:40.240 --> 1:09:47.720
+ So your birth rank is your sequence in the position of all humans that have ever existed.
+
+1:09:47.720 --> 1:09:52.680
+ It turns out you're about a human number of 100 billion, you know, give or take.
+
+1:09:52.680 --> 1:09:55.440
+ That's like, roughly how many people have been born before you.
+
+1:09:55.440 --> 1:09:59.840
+ That's fascinating, because I probably, we each have a number.
+
+1:09:59.840 --> 1:10:04.120
+ We would each have a number in this, I mean, obviously, the exact number would depend on
+
+1:10:04.120 --> 1:10:09.080
+ where you started counting, like which ancestors was human enough to count as human.
+
+1:10:09.080 --> 1:10:13.120
+ But those are not really important, there are relatively few of them.
+
+1:10:13.120 --> 1:10:16.200
+ So yeah, so you're roughly 100 billion.
+
+1:10:16.200 --> 1:10:20.960
+ Now, if they're only going to be 200 billion in total, that's a perfectly unremarkable
+
+1:10:20.960 --> 1:10:21.960
+ number.
+
+1:10:21.960 --> 1:10:22.960
+ You're somewhere in the middle, right?
+
+1:10:22.960 --> 1:10:26.400
+ It's a run of the mill human, completely unsurprising.
+
+1:10:26.400 --> 1:10:32.960
+ Now, if they're going to be 200 trillion, you would be remarkably early, like what are
+
+1:10:32.960 --> 1:10:40.000
+ the chances out of these 200 trillion human that you should be human number 100 billion?
+
+1:10:40.000 --> 1:10:45.040
+ That seems it would have a much lower conditional probability.
+
+1:10:45.040 --> 1:10:50.820
+ And so analogously to how in the urn case, you thought after finding this low numbered
+
+1:10:50.820 --> 1:10:54.880
+ random sample, you update it in favor of the urn having few balls.
+
+1:10:54.880 --> 1:11:00.240
+ Similarly, in this case, you should update in favor of the human species having a lower
+
+1:11:00.240 --> 1:11:04.480
+ total number of members that is doomed soon.
+
+1:11:04.480 --> 1:11:05.960
+ You said doomed soon?
+
+1:11:05.960 --> 1:11:11.640
+ Well, that would be the hypothesis in this case that it will end 100 billion.
+
+1:11:11.640 --> 1:11:14.600
+ I just like that term for that hypothesis.
+
+1:11:14.600 --> 1:11:20.160
+ So what it kind of crucially relies on, the Doomsday Argument, is the idea that you should
+
+1:11:20.160 --> 1:11:27.480
+ reason as if you were a random sample from the set of all humans that will have existed.
+
+1:11:27.480 --> 1:11:31.000
+ If you have that assumption, then I think the rest kind of follows.
+
+1:11:31.000 --> 1:11:34.280
+ The question then is, why should you make that assumption?
+
+1:11:34.280 --> 1:11:38.880
+ In fact, you know you're 100 billion, so where do you get this prior?
+
+1:11:38.880 --> 1:11:45.280
+ And then there is like a literature on that with different ways of supporting that assumption.
+
+1:11:45.280 --> 1:11:48.200
+ That's just one example of anthropic reasoning, right?
+
+1:11:48.200 --> 1:11:53.800
+ That seems to be kind of convenient when you think about humanity, when you think about
+
+1:11:53.800 --> 1:12:00.320
+ sort of even like existential threats and so on, as it seems that quite naturally that
+
+1:12:00.320 --> 1:12:03.680
+ you should assume that you're just an average case.
+
+1:12:03.680 --> 1:12:07.840
+ Yeah, that you're kind of a typical randomly sample.
+
+1:12:07.840 --> 1:12:12.240
+ Now, in the case of the Doomsday Argument, it seems to lead to what intuitively we think
+
+1:12:12.240 --> 1:12:16.480
+ is the wrong conclusion, or at least many people have this reaction that there's got
+
+1:12:16.480 --> 1:12:19.320
+ to be something fishy about this argument.
+
+1:12:19.320 --> 1:12:25.840
+ Because from very, very weak premises, it gets this very striking implication that we
+
+1:12:25.840 --> 1:12:30.980
+ have almost no chance of reaching size 200 trillion humans in the future.
+
+1:12:30.980 --> 1:12:35.480
+ And how could we possibly get there just by reflecting on when we were born?
+
+1:12:35.480 --> 1:12:39.720
+ It seems you would need sophisticated arguments about the impossibility of space colonization,
+
+1:12:39.720 --> 1:12:40.720
+ blah, blah.
+
+1:12:40.720 --> 1:12:45.560
+ So one might be tempted to reject this key assumption, I call it the self sampling assumption,
+
+1:12:45.560 --> 1:12:50.280
+ the idea that you should reason as if you're a random sample from all observers or in your
+
+1:12:50.280 --> 1:12:52.600
+ some reference class.
+
+1:12:52.600 --> 1:12:58.920
+ However, it turns out that in other domains, it looks like we need something like this
+
+1:12:58.920 --> 1:13:04.840
+ self sampling assumption to make sense of bona fide scientific inferences.
+
+1:13:04.840 --> 1:13:09.320
+ In contemporary cosmology, for example, you have these multiverse theories.
+
+1:13:09.320 --> 1:13:14.880
+ And according to a lot of those, all possible human observations are made.
+
+1:13:14.880 --> 1:13:18.880
+ So if you have a sufficiently large universe, you will have a lot of people observing all
+
+1:13:18.880 --> 1:13:22.040
+ kinds of different things.
+
+1:13:22.040 --> 1:13:29.880
+ So if you have two competing theories, say about the value of some constant, it could
+
+1:13:29.880 --> 1:13:34.980
+ be true according to both of these theories that there will be some observers observing
+
+1:13:34.980 --> 1:13:42.160
+ the value that corresponds to the other theory, because there will be some observers that
+
+1:13:42.160 --> 1:13:47.600
+ have hallucinations, so there's a local fluctuation or a statistically anomalous measurement,
+
+1:13:47.600 --> 1:13:49.460
+ these things will happen.
+
+1:13:49.460 --> 1:13:53.320
+ And if enough observers make enough different observations, there will be some that sort
+
+1:13:53.320 --> 1:13:55.960
+ of by chance make these different ones.
+
+1:13:55.960 --> 1:14:04.280
+ And so what we would want to say is, well, many more observers, a larger proportion of
+
+1:14:04.280 --> 1:14:08.560
+ the observers will observe as it were the true value.
+
+1:14:08.560 --> 1:14:10.880
+ And a few will observe the wrong value.
+
+1:14:10.880 --> 1:14:15.400
+ If we think of ourselves as a random sample, we should expect with a probability to observe
+
+1:14:15.400 --> 1:14:20.180
+ the true value and that will then allow us to conclude that the evidence we actually
+
+1:14:20.180 --> 1:14:24.640
+ have is evidence for the theories we think are supported.
+
+1:14:24.640 --> 1:14:32.200
+ It kind of then is a way of making sense of these inferences that clearly seem correct,
+
+1:14:32.200 --> 1:14:38.480
+ that we can make various observations and infer what the temperature of the cosmic background
+
+1:14:38.480 --> 1:14:44.080
+ is and the fine structure constant and all of this.
+
+1:14:44.080 --> 1:14:49.980
+ But it seems that without rolling in some assumption similar to the self sampling assumption,
+
+1:14:49.980 --> 1:14:51.840
+ this inference just doesn't go through.
+
+1:14:51.840 --> 1:14:53.180
+ And there are other examples.
+
+1:14:53.180 --> 1:14:56.620
+ So there are these scientific contexts where it looks like this kind of anthropic reasoning
+
+1:14:56.620 --> 1:14:59.120
+ is needed and makes perfect sense.
+
+1:14:59.120 --> 1:15:02.960
+ And yet, in the case of the Dupest argument, it has this weird consequence and people might
+
+1:15:02.960 --> 1:15:05.760
+ think there's something wrong with it there.
+
+1:15:05.760 --> 1:15:14.200
+ So there's then this project that would consist in trying to figure out what are the legitimate
+
+1:15:14.200 --> 1:15:20.400
+ ways of reasoning about these indexical facts when observer selection effects are in play.
+
+1:15:20.400 --> 1:15:23.520
+ In other words, developing a theory of anthropics.
+
+1:15:23.520 --> 1:15:29.280
+ And there are different views of looking at that and it's a difficult methodological area.
+
+1:15:29.280 --> 1:15:37.920
+ But to tie it back to the simulation argument, the key assumption there, this bland principle
+
+1:15:37.920 --> 1:15:43.460
+ of indifference, is much weaker than the self sampling assumption.
+
+1:15:43.460 --> 1:15:48.220
+ So if you think about, in the case of the Dupest argument, it says you should reason
+
+1:15:48.220 --> 1:15:52.100
+ as if you are a random sample from all humans that will have lived, even though in fact
+
+1:15:52.100 --> 1:15:59.840
+ you know that you are about number 100 billionth human and you're alive in the year 2020.
+
+1:15:59.840 --> 1:16:04.240
+ Whereas in the case of the simulation argument, it says that, well, if you actually have no
+
+1:16:04.240 --> 1:16:10.240
+ way of telling which one you are, then you should assign this kind of uniform probability.
+
+1:16:10.240 --> 1:16:14.640
+ Yeah, yeah, your role as the observer in the simulation argument is different, it seems
+
+1:16:14.640 --> 1:16:15.640
+ like.
+
+1:16:15.640 --> 1:16:16.640
+ Like who's the observer?
+
+1:16:16.640 --> 1:16:19.640
+ I mean, I keep assigning the individual consciousness.
+
+1:16:19.640 --> 1:16:26.480
+ But a lot of observers in the context of the simulation argument, the relevant observers
+
+1:16:26.480 --> 1:16:33.440
+ would be A, the people in original histories, and B, the people in simulations.
+
+1:16:33.440 --> 1:16:37.520
+ So this would be the class of observers that we need, I mean, they're also maybe the simulators,
+
+1:16:37.520 --> 1:16:40.280
+ but we can set those aside for this.
+
+1:16:40.280 --> 1:16:46.160
+ So the question is, given that class of observers, a small set of original history observers
+
+1:16:46.160 --> 1:16:51.480
+ and a large class of simulated observers, which one should you think is you?
+
+1:16:51.480 --> 1:16:54.200
+ Where are you amongst this set of observers?
+
+1:16:54.200 --> 1:17:00.020
+ I'm maybe having a little bit of trouble wrapping my head around the intricacies of what it
+
+1:17:00.020 --> 1:17:08.020
+ means to be an observer in this, in the different instantiations of the anthropic reasoning
+
+1:17:08.020 --> 1:17:09.020
+ cases that we mentioned.
+
+1:17:09.020 --> 1:17:10.020
+ Yeah.
+
+1:17:10.020 --> 1:17:11.020
+ I mean, does it have to be...
+
+1:17:11.020 --> 1:17:12.020
+ It's not the observer.
+
+1:17:12.020 --> 1:17:16.560
+ Yeah, I mean, it may be an easier way of putting it is just like, are you simulated, are you
+
+1:17:16.560 --> 1:17:21.120
+ not simulated, given this assumption that these two groups of people exist?
+
+1:17:21.120 --> 1:17:22.120
+ Yeah.
+
+1:17:22.120 --> 1:17:24.040
+ In the simulation case, it seems pretty straightforward.
+
+1:17:24.040 --> 1:17:25.040
+ Yeah.
+
+1:17:25.040 --> 1:17:32.560
+ So the key point is the methodological assumption you need to make to get the simulation argument
+
+1:17:32.560 --> 1:17:38.940
+ to where it wants to go is much weaker and less problematic than the methodological assumption
+
+1:17:38.940 --> 1:17:43.000
+ you need to make to get the doomsday argument to its conclusion.
+
+1:17:43.000 --> 1:17:48.240
+ Maybe the doomsday argument is sound or unsound, but you need to make a much stronger and more
+
+1:17:48.240 --> 1:17:52.140
+ controversial assumption to make it go through.
+
+1:17:52.140 --> 1:17:58.820
+ In the case of the simulation argument, I guess one maybe way intuition pumped to support
+
+1:17:58.820 --> 1:18:05.560
+ this bland principle of indifference is to consider a sequence of different cases where
+
+1:18:05.560 --> 1:18:12.600
+ the fraction of people who are simulated to non simulated approaches one.
+
+1:18:12.600 --> 1:18:22.580
+ So in the limiting case where everybody is simulated, obviously you can deduce with certainty
+
+1:18:22.580 --> 1:18:24.920
+ that you are simulated.
+
+1:18:24.920 --> 1:18:30.980
+ If everybody with your experiences is simulated and you know you've got to be one of those,
+
+1:18:30.980 --> 1:18:36.200
+ you don't need a probability at all, you just kind of logically conclude it, right?
+
+1:18:36.200 --> 1:18:48.640
+ So then as we move from a case where say 90% of everybody is simulated, 99%, 99.9%, it
+
+1:18:48.640 --> 1:18:54.720
+ should seem plausible that the probability you assign should sort of approach one certainty
+
+1:18:54.720 --> 1:19:02.400
+ as the fraction approaches the case where everybody is in a simulation.
+
+1:19:02.400 --> 1:19:06.800
+ You wouldn't expect that to be a discrete, well, if there's one non simulated person,
+
+1:19:06.800 --> 1:19:12.520
+ then it's 50, 50, but if we move that, then it's 100%, like it should kind of, there are
+
+1:19:12.520 --> 1:19:18.300
+ other arguments as well one can use to support this bland principle of indifference, but
+
+1:19:18.300 --> 1:19:19.300
+ that might be enough to.
+
+1:19:19.300 --> 1:19:25.560
+ But in general, when you start from time equals zero and go into the future, the fraction
+
+1:19:25.560 --> 1:19:30.600
+ of simulated, if it's possible to create simulated worlds, the fraction of simulated worlds will
+
+1:19:30.600 --> 1:19:31.600
+ go to one.
+
+1:19:31.600 --> 1:19:37.800
+ Well, I mean, it won't go all the way to one.
+
+1:19:37.800 --> 1:19:43.680
+ In reality, that would be some ratio, although maybe a technologically mature civilization
+
+1:19:43.680 --> 1:19:52.040
+ could run a lot of simulations using a small portion of its resources, it probably wouldn't
+
+1:19:52.040 --> 1:19:53.160
+ be able to run infinitely many.
+
+1:19:53.160 --> 1:19:59.280
+ I mean, if we take say the observed, the physics in the observed universe, if we assume that
+
+1:19:59.280 --> 1:20:05.460
+ that's also the physics at the level of the simulators, that would be limits to the amount
+
+1:20:05.460 --> 1:20:16.120
+ of information processing that any one civilization could perform in its future trajectory.
+
+1:20:16.120 --> 1:20:20.000
+ First of all, there's limited amount of matter you can get your hands off because with a
+
+1:20:20.000 --> 1:20:25.760
+ positive cosmological constant, the universe is accelerating, there's like a finite sphere
+
+1:20:25.760 --> 1:20:28.800
+ of stuff, even if you traveled with the speed of light that you could ever reach, you have
+
+1:20:28.800 --> 1:20:31.880
+ a finite amount of stuff.
+
+1:20:31.880 --> 1:20:37.760
+ And then if you think there is like a lower limit to the amount of loss you get when you
+
+1:20:37.760 --> 1:20:42.260
+ perform an erasure of a computation, or if you think, for example, just matter gradually
+
+1:20:42.260 --> 1:20:49.200
+ over cosmological timescales, decay, maybe protons decay, other things, and you radiate
+
+1:20:49.200 --> 1:20:55.040
+ out gravitational waves, like there's all kinds of seemingly unavoidable losses that
+
+1:20:55.040 --> 1:20:56.040
+ occur.
+
+1:20:56.040 --> 1:21:04.080
+ Eventually, we'll have something like a heat death of the universe or a cold death or whatever,
+
+1:21:04.080 --> 1:21:05.080
+ but yeah.
+
+1:21:05.080 --> 1:21:11.360
+ So it's finite, but of course, we don't know which, if there's many ancestral simulations,
+
+1:21:11.360 --> 1:21:13.640
+ we don't know which level we are.
+
+1:21:13.640 --> 1:21:18.640
+ So there could be, couldn't there be like an arbitrary number of simulation that spawned
+
+1:21:18.640 --> 1:21:26.160
+ ours, and those had more resources, in terms of physical universe to work with?
+
+1:21:26.160 --> 1:21:29.360
+ Sorry, what do you mean that that could be?
+
+1:21:29.360 --> 1:21:40.280
+ Sort of, okay, so if simulations spawn other simulations, it seems like each new spawn
+
+1:21:40.280 --> 1:21:44.200
+ has fewer resources to work with.
+
+1:21:44.200 --> 1:21:50.240
+ But we don't know at which step along the way we are at.
+
+1:21:50.240 --> 1:21:58.320
+ Any one observer doesn't know whether we're in level 42, or 100, or one, or is that not
+
+1:21:58.320 --> 1:22:01.160
+ matter for the resources?
+
+1:22:01.160 --> 1:22:08.800
+ I mean, it's true that there would be uncertainty as to, you could have stacked simulations,
+
+1:22:08.800 --> 1:22:16.040
+ and that could then be uncertainty as to which level we are at.
+
+1:22:16.040 --> 1:22:24.680
+ As you remarked also, all the computations performed in a simulation within the simulation
+
+1:22:24.680 --> 1:22:28.640
+ also have to be expanded at the level of the simulation.
+
+1:22:28.640 --> 1:22:32.320
+ So the computer in basement reality where all these simulations with the simulations
+
+1:22:32.320 --> 1:22:37.320
+ with the simulations are taking place, like that computer, ultimately, it's CPU or whatever
+
+1:22:37.320 --> 1:22:40.000
+ it is, like that has to power this whole tower, right?
+
+1:22:40.000 --> 1:22:46.000
+ So if there is a finite compute power in basement reality, that would impose a limit to how
+
+1:22:46.000 --> 1:22:48.440
+ tall this tower can be.
+
+1:22:48.440 --> 1:22:53.920
+ And if each level kind of imposes a large extra overhead, you might think maybe the
+
+1:22:53.920 --> 1:23:00.720
+ tower would not be very tall, that most people would be low down in the tower.
+
+1:23:00.720 --> 1:23:03.120
+ I love the term basement reality.
+
+1:23:03.120 --> 1:23:09.320
+ Let me ask one of the popularizers, you said there's many through this, when you look at
+
+1:23:09.320 --> 1:23:14.640
+ sort of the last few years of the simulation hypothesis, just like you said, it comes up
+
+1:23:14.640 --> 1:23:17.680
+ every once in a while, some new community discovers it and so on.
+
+1:23:17.680 --> 1:23:22.800
+ But I would say one of the biggest popularizers of this idea is Elon Musk.
+
+1:23:22.800 --> 1:23:27.880
+ Do you have any kind of intuition about what Elon thinks about when he thinks about simulation?
+
+1:23:27.880 --> 1:23:30.000
+ Why is this of such interest?
+
+1:23:30.000 --> 1:23:34.000
+ Is it all the things we've talked about, or is there some special kind of intuition about
+
+1:23:34.000 --> 1:23:36.240
+ simulation that he has?
+
+1:23:36.240 --> 1:23:40.000
+ I mean, you might have a better, I think, I mean, why it's of interest, I think it's
+
+1:23:40.000 --> 1:23:45.200
+ like seems pretty obvious why, to the extent that one thinks the argument is credible,
+
+1:23:45.200 --> 1:23:48.720
+ why it would be of interest, it would, if it's correct, tell us something very important
+
+1:23:48.720 --> 1:23:53.280
+ about the world in one way or the other, whichever of the three alternatives for a simulation
+
+1:23:53.280 --> 1:23:58.160
+ that seems like arguably one of the most fundamental discoveries, right?
+
+1:23:58.160 --> 1:24:02.160
+ Now, interestingly, in the case of someone like Elon, so there's like the standard arguments
+
+1:24:02.160 --> 1:24:06.720
+ for why you might want to take the simulation hypothesis seriously, the simulation argument,
+
+1:24:06.720 --> 1:24:07.720
+ right?
+
+1:24:07.720 --> 1:24:12.360
+ In the case that if you are actually Elon Musk, let us say, there's a kind of an additional
+
+1:24:12.360 --> 1:24:17.280
+ reason in that what are the chances you would be Elon Musk?
+
+1:24:17.280 --> 1:24:24.400
+ It seems like maybe there would be more interest in simulating the lives of very unusual and
+
+1:24:24.400 --> 1:24:26.280
+ remarkable people.
+
+1:24:26.280 --> 1:24:32.440
+ So if you consider not just simulations where all of human history or the whole of human
+
+1:24:32.440 --> 1:24:37.880
+ civilization are simulated, but also other kinds of simulations, which only include some
+
+1:24:37.880 --> 1:24:44.200
+ subset of people, like in those simulations that only include a subset, it might be more
+
+1:24:44.200 --> 1:24:49.080
+ likely that they would include subsets of people with unusually interesting or consequential
+
+1:24:49.080 --> 1:24:50.080
+ lives.
+
+1:24:50.080 --> 1:24:54.320
+ So if you're Elon Musk, it's more likely that you're an inspiration.
+
+1:24:54.320 --> 1:25:00.560
+ Like if you're Donald Trump, or if you're Bill Gates, or you're like, some particularly
+
+1:25:00.560 --> 1:25:06.200
+ like distinctive character, you might think that that, I mean, if you just think of yourself
+
+1:25:06.200 --> 1:25:11.400
+ into the shoes, right, it's got to be like an extra reason to think that's kind of.
+
+1:25:11.400 --> 1:25:12.400
+ So interesting.
+
+1:25:12.400 --> 1:25:19.200
+ So on a scale of like farmer in Peru to Elon Musk, the more you get towards the Elon Musk,
+
+1:25:19.200 --> 1:25:20.200
+ the higher the probability.
+
+1:25:20.200 --> 1:25:25.280
+ You'd imagine that would be some extra boost from that.
+
+1:25:25.280 --> 1:25:26.280
+ There's an extra boost.
+
+1:25:26.280 --> 1:25:32.520
+ So he also asked the question of what he would ask an AGI saying, the question being, what's
+
+1:25:32.520 --> 1:25:34.680
+ outside the simulation?
+
+1:25:34.680 --> 1:25:37.740
+ Do you think about the answer to this question?
+
+1:25:37.740 --> 1:25:41.520
+ If we are living in a simulation, what is outside the simulation?
+
+1:25:41.520 --> 1:25:44.520
+ So the programmer of the simulation?
+
+1:25:44.520 --> 1:25:49.760
+ Yeah, I mean, I think it connects to the question of what's inside the simulation in that.
+
+1:25:49.760 --> 1:25:56.920
+ So if you had views about the creators of the simulation, it might help you make predictions
+
+1:25:56.920 --> 1:26:03.480
+ about what kind of simulation it is, what might happen, what happens after the simulation,
+
+1:26:03.480 --> 1:26:06.640
+ if there is some after, but also like the kind of setup.
+
+1:26:06.640 --> 1:26:12.000
+ So these two questions would be quite closely intertwined.
+
+1:26:12.000 --> 1:26:17.920
+ But do you think it would be very surprising to like, is the stuff inside the simulation,
+
+1:26:17.920 --> 1:26:21.520
+ is it possible for it to be fundamentally different than the stuff outside?
+
+1:26:21.520 --> 1:26:22.520
+ Yeah.
+
+1:26:22.520 --> 1:26:29.520
+ Like, another way to put it, can the creatures inside the simulation be smart enough to even
+
+1:26:29.520 --> 1:26:34.640
+ understand or have the cognitive capabilities or any kind of information processing capabilities
+
+1:26:34.640 --> 1:26:40.520
+ enough to understand the mechanism that created them?
+
+1:26:40.520 --> 1:26:43.160
+ They might understand some aspects of it.
+
+1:26:43.160 --> 1:26:50.120
+ I mean, it's a level of, it's kind of, there are levels of explanation, like degrees to
+
+1:26:50.120 --> 1:26:51.120
+ which you can understand.
+
+1:26:51.120 --> 1:26:53.840
+ So does your dog understand what it is to be human?
+
+1:26:53.840 --> 1:26:58.120
+ Well, it's got some idea, like humans are these physical objects that move around and
+
+1:26:58.120 --> 1:26:59.880
+ do things.
+
+1:26:59.880 --> 1:27:05.720
+ And a normal human would have a deeper understanding of what it is to be a human.
+
+1:27:05.720 --> 1:27:12.120
+ And maybe some very experienced psychologist or great novelist might understand a little
+
+1:27:12.120 --> 1:27:14.280
+ bit more about what it is to be human.
+
+1:27:14.280 --> 1:27:18.760
+ And maybe superintelligence could see right through your soul.
+
+1:27:18.760 --> 1:27:27.080
+ So similarly, I do think that we are quite limited in our ability to understand all of
+
+1:27:27.080 --> 1:27:31.880
+ the relevant aspects of the larger context that we exist in.
+
+1:27:31.880 --> 1:27:33.400
+ But there might be hope for some.
+
+1:27:33.400 --> 1:27:36.080
+ I think we understand some aspects of it.
+
+1:27:36.080 --> 1:27:38.320
+ But you know, how much good is that?
+
+1:27:38.320 --> 1:27:44.640
+ If there's like one key aspect that changes the significance of all the other aspects.
+
+1:27:44.640 --> 1:27:51.800
+ So we understand maybe seven out of 10 key insights that you need.
+
+1:27:51.800 --> 1:27:57.760
+ But the answer actually, like varies completely depending on what like number eight, nine
+
+1:27:57.760 --> 1:28:00.200
+ and 10 insight is.
+
+1:28:00.200 --> 1:28:07.040
+ It's like whether you want to suppose that the big task were to guess whether a certain
+
+1:28:07.040 --> 1:28:12.280
+ number was odd or even, like a 10 digit number.
+
+1:28:12.280 --> 1:28:16.440
+ And if it's even, the best thing for you to do in life is to go north.
+
+1:28:16.440 --> 1:28:21.060
+ And if it's odd, the best thing for you is to go south.
+
+1:28:21.060 --> 1:28:25.000
+ Now we are in a situation where maybe through our science and philosophy, we figured out
+
+1:28:25.000 --> 1:28:26.680
+ what the first seven digits are.
+
+1:28:26.680 --> 1:28:28.680
+ So we have a lot of information, right?
+
+1:28:28.680 --> 1:28:31.040
+ Most of it we figured out.
+
+1:28:31.040 --> 1:28:34.320
+ But we are clueless about what the last three digits are.
+
+1:28:34.320 --> 1:28:38.720
+ So we are still completely clueless about whether the number is odd or even and therefore
+
+1:28:38.720 --> 1:28:41.120
+ whether we should go north or go south.
+
+1:28:41.120 --> 1:28:45.760
+ I feel that's an analogy, but I feel we're somewhat in that predicament.
+
+1:28:45.760 --> 1:28:48.460
+ We know a lot about the universe.
+
+1:28:48.460 --> 1:28:52.640
+ We've come maybe more than half of the way there to kind of fully understanding it.
+
+1:28:52.640 --> 1:28:58.680
+ But the parts we're missing are plausibly ones that could completely change the overall
+
+1:28:58.680 --> 1:29:04.800
+ upshot of the thing and including change our overall view about what the scheme of priorities
+
+1:29:04.800 --> 1:29:07.680
+ should be or which strategic direction would make sense to pursue.
+
+1:29:07.680 --> 1:29:08.680
+ Yeah.
+
+1:29:08.680 --> 1:29:15.520
+ I think your analogy of us being the dog trying to understand human beings is an entertaining
+
+1:29:15.520 --> 1:29:17.600
+ one, and probably correct.
+
+1:29:17.600 --> 1:29:24.960
+ The closer the understanding tends from the dog's viewpoint to us human psychologist viewpoint,
+
+1:29:24.960 --> 1:29:29.880
+ the steps along the way there will have completely transformative ideas of what it means to be
+
+1:29:29.880 --> 1:29:30.880
+ human.
+
+1:29:30.880 --> 1:29:33.920
+ So the dog has a very shallow understanding.
+
+1:29:33.920 --> 1:29:39.800
+ It's interesting to think that, to analogize that a dog's understanding of a human being
+
+1:29:39.800 --> 1:29:45.880
+ is the same as our current understanding of the fundamental laws of physics in the universe.
+
+1:29:45.880 --> 1:29:47.880
+ Oh man.
+
+1:29:47.880 --> 1:29:48.880
+ Okay.
+
+1:29:48.880 --> 1:29:51.560
+ We spent an hour and 40 minutes talking about the simulation.
+
+1:29:51.560 --> 1:29:53.120
+ I like it.
+
+1:29:53.120 --> 1:29:54.360
+ Let's talk about super intelligence.
+
+1:29:54.360 --> 1:29:57.120
+ At least for a little bit.
+
+1:29:57.120 --> 1:29:58.720
+ And let's start at the basics.
+
+1:29:58.720 --> 1:30:00.720
+ What to you is intelligence?
+
+1:30:00.720 --> 1:30:01.720
+ Yeah.
+
+1:30:01.720 --> 1:30:05.960
+ I tend not to get too stuck with the definitional question.
+
+1:30:05.960 --> 1:30:11.400
+ I mean, the common sense to understand, like the ability to solve complex problems, to
+
+1:30:11.400 --> 1:30:18.600
+ learn from experience, to plan, to reason, some combination of things like that.
+
+1:30:18.600 --> 1:30:21.160
+ Is consciousness mixed up into that or no?
+
+1:30:21.160 --> 1:30:23.200
+ Is consciousness mixed up into that?
+
+1:30:23.200 --> 1:30:31.000
+ Well, I think it could be fairly intelligent at least without being conscious probably.
+
+1:30:31.000 --> 1:30:33.920
+ So then what is super intelligence?
+
+1:30:33.920 --> 1:30:40.120
+ That would be like something that was much more, had much more general cognitive capacity
+
+1:30:40.120 --> 1:30:41.760
+ than we humans have.
+
+1:30:41.760 --> 1:30:48.640
+ So if we talk about general super intelligence, it would be much faster learner be able to
+
+1:30:48.640 --> 1:30:53.520
+ reason much better, make plans that are more effective at achieving its goals, say in a
+
+1:30:53.520 --> 1:30:57.000
+ wide range of complex challenging environments.
+
+1:30:57.000 --> 1:31:03.040
+ In terms of as we turn our eye to the idea of sort of existential threats from super
+
+1:31:03.040 --> 1:31:08.920
+ intelligence, do you think super intelligence has to exist in the physical world or can
+
+1:31:08.920 --> 1:31:10.880
+ it be digital only?
+
+1:31:10.880 --> 1:31:17.920
+ Sort of we think of our general intelligence as us humans, as an intelligence that's associated
+
+1:31:17.920 --> 1:31:22.040
+ with the body, that's able to interact with the world, that's able to affect the world
+
+1:31:22.040 --> 1:31:23.360
+ directly with physically.
+
+1:31:23.360 --> 1:31:26.200
+ I mean, digital only is perfectly fine, I think.
+
+1:31:26.200 --> 1:31:31.320
+ I mean, you could, it's physical in the sense that obviously the computers and the memories
+
+1:31:31.320 --> 1:31:32.320
+ are physical.
+
+1:31:32.320 --> 1:31:34.960
+ But it's capability to affect the world sort of.
+
+1:31:34.960 --> 1:31:42.160
+ Could be very strong, even if it has a limited set of actuators, if it can type text on the
+
+1:31:42.160 --> 1:31:45.860
+ screen or something like that, that would be, I think, ample.
+
+1:31:45.860 --> 1:31:52.960
+ So in terms of the concerns of existential threat of AI, how can an AI system that's
+
+1:31:52.960 --> 1:32:00.800
+ in the digital world have existential risk, sort of, and what are the attack vectors for
+
+1:32:00.800 --> 1:32:01.800
+ a digital system?
+
+1:32:01.800 --> 1:32:07.800
+ Well, I mean, I guess maybe to take one step back, so I should emphasize that I also think
+
+1:32:07.800 --> 1:32:13.440
+ there's this huge positive potential from machine intelligence, including super intelligence.
+
+1:32:13.440 --> 1:32:20.920
+ And I want to stress that because some of my writing has focused on what can go wrong.
+
+1:32:20.920 --> 1:32:27.020
+ And when I wrote the book Superintelligence, at that point, I felt that there was a kind
+
+1:32:27.020 --> 1:32:34.300
+ of neglect of what would happen if AI succeeds, and in particular, a need to get a more granular
+
+1:32:34.300 --> 1:32:38.680
+ understanding of where the pitfalls are so we can avoid them.
+
+1:32:38.680 --> 1:32:45.560
+ I think that since the book came out in 2014, there has been a much wider recognition of
+
+1:32:45.560 --> 1:32:46.560
+ that.
+
+1:32:46.560 --> 1:32:51.620
+ And a number of research groups are now actually working on developing, say, AI alignment techniques
+
+1:32:51.620 --> 1:32:52.620
+ and so on and so forth.
+
+1:32:52.620 --> 1:33:01.740
+ So yeah, I think now it's important to make sure we bring back onto the table the upside
+
+1:33:01.740 --> 1:33:02.740
+ as well.
+
+1:33:02.740 --> 1:33:07.060
+ And there's a little bit of a neglect now on the upside, which is, I mean, if you look
+
+1:33:07.060 --> 1:33:11.780
+ at, I was talking to a friend, if you look at the amount of information that is available,
+
+1:33:11.780 --> 1:33:16.180
+ or people talking and people being excited about the positive possibilities of general
+
+1:33:16.180 --> 1:33:23.860
+ intelligence, that's not, it's far outnumbered by the negative possibilities in terms of
+
+1:33:23.860 --> 1:33:25.140
+ our public discourse.
+
+1:33:25.140 --> 1:33:26.140
+ Possibly, yeah.
+
+1:33:26.140 --> 1:33:28.280
+ It's hard to measure.
+
+1:33:28.280 --> 1:33:33.560
+ But what are, can you linger on that for a little bit, what are some, to you, possible
+
+1:33:33.560 --> 1:33:37.700
+ big positive impacts of general intelligence?
+
+1:33:37.700 --> 1:33:38.700
+ Super intelligence?
+
+1:33:38.700 --> 1:33:43.200
+ Well, I mean, super intelligence, because I tend to also want to distinguish these two
+
+1:33:43.200 --> 1:33:48.900
+ different contexts of thinking about AI and AI impacts, the kind of near term and long
+
+1:33:48.900 --> 1:33:54.680
+ term, if you want, both of which I think are legitimate things to think about, and people
+
+1:33:54.680 --> 1:34:02.020
+ should discuss both of them, but they are different and they often get mixed up.
+
+1:34:02.020 --> 1:34:06.680
+ And then, then I get, you get confusion, like, I think you get simultaneously like maybe
+
+1:34:06.680 --> 1:34:10.220
+ an overhyping of the near term and then under hyping of the long term.
+
+1:34:10.220 --> 1:34:15.260
+ And so I think as long as we keep them apart, we can have like, two good conversations,
+
+1:34:15.260 --> 1:34:18.660
+ but or we can mix them together and have one bad conversation.
+
+1:34:18.660 --> 1:34:22.820
+ Can you clarify just the two things we were talking about, the near term and the long
+
+1:34:22.820 --> 1:34:23.820
+ term?
+
+1:34:23.820 --> 1:34:24.820
+ Yeah.
+
+1:34:24.820 --> 1:34:25.820
+ And what are the distinctions?
+
+1:34:25.820 --> 1:34:28.100
+ Well, it's a, it's a blurry distinction.
+
+1:34:28.100 --> 1:34:34.940
+ But say the things I wrote about in this book, super intelligence, long term, things people
+
+1:34:34.940 --> 1:34:41.540
+ are worrying about today with, I don't know, algorithmic discrimination, or even things,
+
+1:34:41.540 --> 1:34:47.100
+ self driving cars and drones and stuff, more near term.
+
+1:34:47.100 --> 1:34:51.340
+ And then of course, you could imagine some medium term where they kind of overlap and
+
+1:34:51.340 --> 1:34:55.180
+ they one evolves into the other.
+
+1:34:55.180 --> 1:35:00.020
+ But at any rate, I think both, yeah, the issues look kind of somewhat different depending
+
+1:35:00.020 --> 1:35:01.600
+ on which of these contexts.
+
+1:35:01.600 --> 1:35:10.340
+ So I think, I think it'd be nice if we can talk about the long term and think about a
+
+1:35:10.340 --> 1:35:17.820
+ positive impact or a better world because of the existence of the long term super intelligence.
+
+1:35:17.820 --> 1:35:19.420
+ Do you have views of such a world?
+
+1:35:19.420 --> 1:35:20.420
+ Yeah.
+
+1:35:20.420 --> 1:35:24.780
+ I mean, I guess it's a little hard to articulate because it seems obvious that the world has
+
+1:35:24.780 --> 1:35:29.700
+ a lot of problems as it currently stands.
+
+1:35:29.700 --> 1:35:36.620
+ And it's hard to think of any one of those, which it wouldn't be useful to have like a
+
+1:35:36.620 --> 1:35:40.720
+ friendly aligned super intelligence working on.
+
+1:35:40.720 --> 1:35:48.300
+ So from health to the economic system to be able to sort of improve the investment and
+
+1:35:48.300 --> 1:35:52.180
+ trade and foreign policy decisions, all that kind of stuff.
+
+1:35:52.180 --> 1:35:56.300
+ All that kind of stuff and a lot more.
+
+1:35:56.300 --> 1:35:57.780
+ I mean, what's the killer app?
+
+1:35:57.780 --> 1:35:59.540
+ Well, I don't think there is one.
+
+1:35:59.540 --> 1:36:05.900
+ I think AI, especially artificial general intelligence is really the ultimate general
+
+1:36:05.900 --> 1:36:07.820
+ purpose technology.
+
+1:36:07.820 --> 1:36:12.220
+ So it's not that there is this one problem, this one area where it will have a big impact.
+
+1:36:12.220 --> 1:36:18.980
+ But if and when it succeeds, it will really apply across the board in all fields where
+
+1:36:18.980 --> 1:36:23.820
+ human creativity and intelligence and problem solving is useful, which is pretty much all
+
+1:36:23.820 --> 1:36:24.820
+ fields.
+
+1:36:24.820 --> 1:36:25.820
+ Right.
+
+1:36:25.820 --> 1:36:30.840
+ The thing that it would do is give us a lot more control over nature.
+
+1:36:30.840 --> 1:36:37.220
+ It wouldn't automatically solve the problems that arise from conflict between humans, fundamentally
+
+1:36:37.220 --> 1:36:38.220
+ political problems.
+
+1:36:38.220 --> 1:36:42.180
+ Some subset of those might go away if you just had more resources and cooler tech.
+
+1:36:42.180 --> 1:36:50.360
+ But some subset would require coordination that is not automatically achieved just by
+
+1:36:50.360 --> 1:36:53.240
+ having more technological capability.
+
+1:36:53.240 --> 1:36:59.500
+ But anything that's not of that sort, I think you just get an enormous boost with this kind
+
+1:36:59.500 --> 1:37:02.940
+ of cognitive technology once it goes all the way.
+
+1:37:02.940 --> 1:37:10.460
+ Now, again, that doesn't mean I'm thinking, oh, people don't recognize what's possible
+
+1:37:10.460 --> 1:37:14.180
+ with current technology and like sometimes things get overhyped.
+
+1:37:14.180 --> 1:37:16.940
+ But I mean, those are perfectly consistent views to hold.
+
+1:37:16.940 --> 1:37:19.940
+ The ultimate potential being enormous.
+
+1:37:19.940 --> 1:37:23.780
+ And then it's a very different question of how far are we from that or what can we do
+
+1:37:23.780 --> 1:37:25.060
+ with near term technology?
+
+1:37:25.060 --> 1:37:26.060
+ Yeah.
+
+1:37:26.060 --> 1:37:29.220
+ So what's your intuition about the idea of intelligence explosion?
+
+1:37:29.220 --> 1:37:34.920
+ So there's this, you know, when you start to think about that leap from the near term
+
+1:37:34.920 --> 1:37:40.120
+ to the long term, the natural inclination, like for me, sort of building machine learning
+
+1:37:40.120 --> 1:37:45.180
+ systems today, it seems like it's a lot of work to get the general intelligence, but
+
+1:37:45.180 --> 1:37:49.380
+ there's some intuition of exponential growth of exponential improvement of intelligence
+
+1:37:49.380 --> 1:37:50.380
+ explosion.
+
+1:37:50.380 --> 1:38:00.860
+ Can you maybe try to elucidate, try to talk about what's your intuition about the possibility
+
+1:38:00.860 --> 1:38:05.500
+ of an intelligence explosion, that it won't be this gradual slow process, there might
+
+1:38:05.500 --> 1:38:07.900
+ be a phase shift?
+
+1:38:07.900 --> 1:38:13.500
+ Yeah, I think it's, we don't know how explosive it will be.
+
+1:38:13.500 --> 1:38:19.420
+ I think for what it's worth, it seems fairly likely to me that at some point, there will
+
+1:38:19.420 --> 1:38:24.540
+ be some intelligence explosion, like some period of time, where progress in AI becomes
+
+1:38:24.540 --> 1:38:32.220
+ extremely rapid, roughly, roughly in the area where you might say it's kind of humanish
+
+1:38:32.220 --> 1:38:40.600
+ equivalent in core cognitive faculties, that the concept of human equivalent starts to
+
+1:38:40.600 --> 1:38:43.260
+ break down when you look too closely at it.
+
+1:38:43.260 --> 1:38:48.300
+ And just how explosive does something have to be for it to be called an intelligence
+
+1:38:48.300 --> 1:38:49.300
+ explosion?
+
+1:38:49.300 --> 1:38:54.460
+ Like, does it have to be like overnight, literally, or a few years?
+
+1:38:54.460 --> 1:39:00.420
+ But overall, I guess, if you plotted the opinions of different people in the world, I guess
+
+1:39:00.420 --> 1:39:06.100
+ that would be somewhat more probability towards the intelligence explosion scenario than probably
+
+1:39:06.100 --> 1:39:09.620
+ the average, you know, AI researcher, I guess.
+
+1:39:09.620 --> 1:39:14.620
+ So and then the other part of the intelligence explosion, or just forget explosion, just
+
+1:39:14.620 --> 1:39:21.540
+ progress is once you achieve that gray area of human level intelligence, is it obvious
+
+1:39:21.540 --> 1:39:26.780
+ to you that we should be able to proceed beyond it to get to super intelligence?
+
+1:39:26.780 --> 1:39:33.580
+ Yeah, that seems, I mean, as much as any of these things can be obvious, given we've never
+
+1:39:33.580 --> 1:39:39.380
+ had one, people have different views, smart people have different views, it's like some
+
+1:39:39.380 --> 1:39:44.860
+ degree of uncertainty that always remains for any big, futuristic, philosophical grand
+
+1:39:44.860 --> 1:39:49.660
+ question that just we realize humans are fallible, especially about these things.
+
+1:39:49.660 --> 1:39:55.460
+ But it does seem, as far as I'm judging things based on my own impressions, that it seems
+
+1:39:55.460 --> 1:40:04.340
+ very unlikely that that would be a ceiling at or near human cognitive capacity.
+
+1:40:04.340 --> 1:40:10.260
+ And that's such a, I don't know, that's such a special moment, it's both terrifying and
+
+1:40:10.260 --> 1:40:15.020
+ exciting to create a system that's beyond our intelligence.
+
+1:40:15.020 --> 1:40:22.140
+ So maybe you can step back and say, like, how does that possibility make you feel that
+
+1:40:22.140 --> 1:40:28.700
+ we can create something, it feels like there's a line beyond which it steps, it'll be able
+
+1:40:28.700 --> 1:40:31.180
+ to outsmart you.
+
+1:40:31.180 --> 1:40:35.060
+ And therefore, it feels like a step where we lose control.
+
+1:40:35.060 --> 1:40:42.080
+ Well, I don't think the latter follows that is you could imagine.
+
+1:40:42.080 --> 1:40:46.500
+ And in fact, this is what a number of people are working towards making sure that we could
+
+1:40:46.500 --> 1:40:53.060
+ ultimately project higher levels of problem solving ability while still making sure that
+
+1:40:53.060 --> 1:40:58.620
+ they are aligned, like they are in the service of human values.
+
+1:40:58.620 --> 1:41:06.300
+ I mean, so losing control, I think, is not a given that that would happen.
+
+1:41:06.300 --> 1:41:10.060
+ Now you asked how it makes me feel, I mean, to some extent, I've lived with this for so
+
+1:41:10.060 --> 1:41:16.820
+ long, since as long as I can remember, being an adult or even a teenager, it seemed to
+
+1:41:16.820 --> 1:41:19.780
+ me obvious that at some point, AI will succeed.
+
+1:41:19.780 --> 1:41:27.020
+ And so I actually misspoke, I didn't mean control, I meant, because the control problem
+
+1:41:27.020 --> 1:41:28.020
+ is an interesting thing.
+
+1:41:28.020 --> 1:41:33.820
+ And I think the hope is, at least we should be able to maintain control over systems that
+
+1:41:33.820 --> 1:41:35.500
+ are smarter than us.
+
+1:41:35.500 --> 1:41:46.460
+ But we do lose our specialness, it sort of will lose our place as the smartest, coolest
+
+1:41:46.460 --> 1:41:48.700
+ thing on earth.
+
+1:41:48.700 --> 1:41:55.700
+ And there's an ego involved with that, that humans aren't very good at dealing with.
+
+1:41:55.700 --> 1:41:59.860
+ I mean, I value my intelligence as a human being.
+
+1:41:59.860 --> 1:42:04.740
+ It seems like a big transformative step to realize there's something out there that's
+
+1:42:04.740 --> 1:42:05.740
+ more intelligent.
+
+1:42:05.740 --> 1:42:09.580
+ I mean, you don't see that as such a fundamentally...
+
+1:42:09.580 --> 1:42:14.300
+ I think yes, a lot, I think it would be small, because I mean, I think there are already
+
+1:42:14.300 --> 1:42:18.980
+ a lot of things out there that are, I mean, certainly, if you think the universe is big,
+
+1:42:18.980 --> 1:42:23.140
+ there's going to be other civilizations that already have super intelligences, or that
+
+1:42:23.140 --> 1:42:29.240
+ just naturally have brains the size of beach balls and are like, completely leaving us
+
+1:42:29.240 --> 1:42:30.900
+ in the dust.
+
+1:42:30.900 --> 1:42:33.540
+ And we haven't come face to face with them.
+
+1:42:33.540 --> 1:42:34.820
+ We haven't come face to face.
+
+1:42:34.820 --> 1:42:41.900
+ But I mean, that's an open question, what would happen in a kind of post human world?
+
+1:42:41.900 --> 1:42:49.300
+ Like how much day to day would these super intelligences be involved in the lives of
+
+1:42:49.300 --> 1:42:50.300
+ ordinary?
+
+1:42:50.300 --> 1:42:54.420
+ I mean, you could imagine some scenario where it would be more like a background thing that
+
+1:42:54.420 --> 1:42:58.980
+ would help protect against some things, but you wouldn't like that, they wouldn't be this
+
+1:42:58.980 --> 1:43:04.620
+ intrusive kind of, like making you feel bad by like, making clever jokes on your expert,
+
+1:43:04.620 --> 1:43:09.180
+ like there's like all sorts of things that maybe in the human context would feel awkward
+
+1:43:09.180 --> 1:43:10.180
+ about that.
+
+1:43:10.180 --> 1:43:14.500
+ You don't want to be the dumbest kid in your class, everybody picks it, like, a lot of
+
+1:43:14.500 --> 1:43:19.380
+ those things, maybe you need to abstract away from, if you're thinking about this context
+
+1:43:19.380 --> 1:43:26.260
+ where we have infrastructure that is in some sense, beyond any or all humans.
+
+1:43:26.260 --> 1:43:30.780
+ I mean, it's a little bit like, say, the scientific community as a whole, if you think of that
+
+1:43:30.780 --> 1:43:33.420
+ as a mind, it's a little bit of a metaphor.
+
+1:43:33.420 --> 1:43:39.500
+ But I mean, obviously, it's got to be like, way more capacious than any individual.
+
+1:43:39.500 --> 1:43:44.620
+ So in some sense, there is this mind like thing already out there that's just vastly
+
+1:43:44.620 --> 1:43:49.760
+ more intelligent than any individual is.
+
+1:43:49.760 --> 1:43:55.380
+ And we think, okay, that's, you just accept that as a fact.
+
+1:43:55.380 --> 1:43:59.260
+ That's the basic fabric of our existence is there's super intelligent.
+
+1:43:59.260 --> 1:44:06.020
+ You get used to a lot of, I mean, there's already Google and Twitter and Facebook, these
+
+1:44:06.020 --> 1:44:13.220
+ recommender systems that are the basic fabric of our, I could see them becoming, I mean,
+
+1:44:13.220 --> 1:44:17.480
+ do you think of the collective intelligence of these systems as already perhaps reaching
+
+1:44:17.480 --> 1:44:19.260
+ super intelligence level?
+
+1:44:19.260 --> 1:44:26.260
+ Well, I mean, so here it comes to the concept of intelligence and the scale and what human
+
+1:44:26.260 --> 1:44:29.700
+ level means.
+
+1:44:29.700 --> 1:44:37.820
+ The kind of vagueness and indeterminacy of those concepts starts to dominate how you
+
+1:44:37.820 --> 1:44:38.900
+ would answer that question.
+
+1:44:38.900 --> 1:44:45.020
+ So like, say the Google search engine has a very high capacity of a certain kind, like
+
+1:44:45.020 --> 1:44:54.940
+ retrieving, remembering and retrieving information, particularly like text or images that are,
+
+1:44:54.940 --> 1:45:02.980
+ you have a kind of string, a word string key, obviously superhuman at that, but a vast set
+
+1:45:02.980 --> 1:45:06.260
+ of other things it can't even do at all.
+
+1:45:06.260 --> 1:45:12.780
+ Not just not do well, but so you have these current AI systems that are superhuman in
+
+1:45:12.780 --> 1:45:19.300
+ some limited domain and then like radically subhuman in all other domains.
+
+1:45:19.300 --> 1:45:23.900
+ Same with a chess, like are just a simple computer that can multiply really large numbers,
+
+1:45:23.900 --> 1:45:24.900
+ right?
+
+1:45:24.900 --> 1:45:28.060
+ So it's going to have this like one spike of super intelligence and then a kind of a
+
+1:45:28.060 --> 1:45:32.300
+ zero level of capability across all other cognitive fields.
+
+1:45:32.300 --> 1:45:37.340
+ Yeah, I don't necessarily think the generalness, I mean, I'm not so attached with it, but I
+
+1:45:37.340 --> 1:45:44.340
+ think it's sort of, it's a gray area and it's a feeling, but to me sort of alpha zero is
+
+1:45:44.340 --> 1:45:51.620
+ somehow much more intelligent, much, much more intelligent than Deep Blue.
+
+1:45:51.620 --> 1:45:55.380
+ And to say which domain, you could say, well, these are both just board games, they're both
+
+1:45:55.380 --> 1:45:59.380
+ just able to play board games, who cares if they're going to do better or not, but there's
+
+1:45:59.380 --> 1:46:06.120
+ something about the learning, the self play that makes it, crosses over into that land
+
+1:46:06.120 --> 1:46:09.460
+ of intelligence that doesn't necessarily need to be general.
+
+1:46:09.460 --> 1:46:14.180
+ In the same way, Google is much closer to Deep Blue currently in terms of its search
+
+1:46:14.180 --> 1:46:17.900
+ engine than it is to sort of the alpha zero.
+
+1:46:17.900 --> 1:46:22.860
+ And the moment it becomes, the moment these recommender systems really become more like
+
+1:46:22.860 --> 1:46:29.820
+ alpha zero, but being able to learn a lot without the constraints of being heavily constrained
+
+1:46:29.820 --> 1:46:34.100
+ by human interaction, that seems like a special moment in time.
+
+1:46:34.100 --> 1:46:43.140
+ I mean, certainly learning ability seems to be an important facet of general intelligence,
+
+1:46:43.140 --> 1:46:48.200
+ that you can take some new domain that you haven't seen before and you weren't specifically
+
+1:46:48.200 --> 1:46:52.340
+ pre programmed for, and then figure out what's going on there and eventually become really
+
+1:46:52.340 --> 1:46:53.520
+ good at it.
+
+1:46:53.520 --> 1:47:00.140
+ So that's something alpha zero has much more of than Deep Blue had.
+
+1:47:00.140 --> 1:47:06.340
+ And in fact, I mean, systems like alpha zero can learn not just Go, but other, in fact,
+
+1:47:06.340 --> 1:47:09.460
+ probably beat Deep Blue in chess and so forth.
+
+1:47:09.460 --> 1:47:13.700
+ So you do see this as general and it matches the intuition.
+
+1:47:13.700 --> 1:47:17.640
+ We feel it's more intelligent and it also has more of this general purpose learning
+
+1:47:17.640 --> 1:47:20.100
+ ability.
+
+1:47:20.100 --> 1:47:23.060
+ And if we get systems that have even more general purpose learning ability, it might
+
+1:47:23.060 --> 1:47:28.100
+ also trigger an even stronger intuition that they are actually starting to get smart.
+
+1:47:28.100 --> 1:47:33.980
+ So if you were to pick a future, what do you think a utopia looks like with AGI systems?
+
+1:47:33.980 --> 1:47:40.540
+ Sort of, is it the neural link brain computer interface world where we're kind of really
+
+1:47:40.540 --> 1:47:43.780
+ closely interlinked with AI systems?
+
+1:47:43.780 --> 1:47:50.900
+ Is it possibly where AGI systems replace us completely while maintaining the values and
+
+1:47:50.900 --> 1:47:53.500
+ the consciousness?
+
+1:47:53.500 --> 1:47:57.460
+ Is it something like it's a completely invisible fabric, like you mentioned, a society where
+
+1:47:57.460 --> 1:48:02.180
+ just aids and a lot of stuff that we do like curing diseases and so on.
+
+1:48:02.180 --> 1:48:03.980
+ What is utopia if you get to pick?
+
+1:48:03.980 --> 1:48:09.020
+ Yeah, I mean, it is a good question and a deep and difficult one.
+
+1:48:09.020 --> 1:48:10.300
+ I'm quite interested in it.
+
+1:48:10.300 --> 1:48:15.180
+ I don't have all the answers yet, but I might never have.
+
+1:48:15.180 --> 1:48:19.660
+ But I think there are some different observations one can make.
+
+1:48:19.660 --> 1:48:26.180
+ One is if this scenario actually did come to pass, it would open up this vast space
+
+1:48:26.180 --> 1:48:30.500
+ of possible modes of being.
+
+1:48:30.500 --> 1:48:36.260
+ On one hand, material and resource constraints would just be like expanded dramatically.
+
+1:48:36.260 --> 1:48:41.900
+ So there would be a lot of a big pie, let's say.
+
+1:48:41.900 --> 1:48:51.940
+ Also it would enable us to do things, including to ourselves, it would just open up this much
+
+1:48:51.940 --> 1:48:59.100
+ larger design space and option space than we have ever had access to in human history.
+
+1:48:59.100 --> 1:49:01.140
+ I think two things follow from that.
+
+1:49:01.140 --> 1:49:08.420
+ One is that we probably would need to make a fairly fundamental rethink of what ultimately
+
+1:49:08.420 --> 1:49:11.940
+ we value, like think things through more from first principles.
+
+1:49:11.940 --> 1:49:15.140
+ The context would be so different from the familiar that we could have just take what
+
+1:49:15.140 --> 1:49:21.260
+ we've always been doing and then like, oh, well, we have this cleaning robot that cleans
+
+1:49:21.260 --> 1:49:24.780
+ the dishes in the sink and a few other small things.
+
+1:49:24.780 --> 1:49:27.100
+ I think we would have to go back to first principles.
+
+1:49:27.100 --> 1:49:31.560
+ So even from the individual level, go back to the first principles of what is the meaning
+
+1:49:31.560 --> 1:49:35.540
+ of life, what is happiness, what is fulfillment.
+
+1:49:35.540 --> 1:49:43.300
+ And then also connected to this large space of resources is that it would be possible.
+
+1:49:43.300 --> 1:49:52.860
+ And I think something we should aim for is to do well by the lights of more than one
+
+1:49:52.860 --> 1:49:55.260
+ value system.
+
+1:49:55.260 --> 1:50:06.380
+ That is, we wouldn't have to choose only one value criterion and say we're going to do
+
+1:50:06.380 --> 1:50:15.860
+ something that scores really high on the metric of, say, hedonism, and then is like a zero
+
+1:50:15.860 --> 1:50:22.520
+ by other criteria, like kind of wireheaded brain synovat, and it's like a lot of pleasure,
+
+1:50:22.520 --> 1:50:26.860
+ that's good, but then like no beauty, no achievement like that.
+
+1:50:26.860 --> 1:50:32.740
+ Or pick it up, I think to some significant, not unlimited sense, but the significant sense,
+
+1:50:32.740 --> 1:50:40.060
+ it would be possible to do very well by many criteria, like maybe you could get like 98%
+
+1:50:40.060 --> 1:50:47.900
+ of the best according to several criteria at the same time, given this great expansion
+
+1:50:47.900 --> 1:50:50.820
+ of the option space.
+
+1:50:50.820 --> 1:50:57.400
+ So have competing value systems, competing criteria, as a sort of forever, just like
+
+1:50:57.400 --> 1:51:02.780
+ our Democrat versus Republican, there seems to be this always multiple parties that are
+
+1:51:02.780 --> 1:51:08.260
+ useful for our progress in society, even though it might seem dysfunctional inside the moment,
+
+1:51:08.260 --> 1:51:14.820
+ but having the multiple value system seems to be beneficial for, I guess, a balance of
+
+1:51:14.820 --> 1:51:15.820
+ power.
+
+1:51:15.820 --> 1:51:21.740
+ So that's, yeah, not exactly what I have in mind that it, well, although maybe in an indirect
+
+1:51:21.740 --> 1:51:30.460
+ way it is, but that if you had the chance to do something that scored well on several
+
+1:51:30.460 --> 1:51:36.300
+ different metrics, our first instinct should be to do that rather than immediately leap
+
+1:51:36.300 --> 1:51:40.940
+ to the thing, which ones of these value systems are we going to screw over?
+
+1:51:40.940 --> 1:51:44.680
+ Like our first, let's first try to do very well by all of them.
+
+1:51:44.680 --> 1:51:49.140
+ Then it might be that you can't get 100% of all and you would have to then like have the
+
+1:51:49.140 --> 1:51:51.740
+ hard conversation about which one will only get 97%.
+
+1:51:51.740 --> 1:51:52.740
+ There you go.
+
+1:51:52.740 --> 1:51:57.540
+ There's my cynicism that all of existence is always a trade off, but you say, maybe
+
+1:51:57.540 --> 1:51:58.900
+ it's not such a bad trade off.
+
+1:51:58.900 --> 1:52:00.100
+ Let's first at least try it.
+
+1:52:00.100 --> 1:52:06.140
+ Well, this would be a distinctive context in which at least some of the constraints
+
+1:52:06.140 --> 1:52:07.140
+ would be removed.
+
+1:52:07.140 --> 1:52:08.140
+ I'll leave it at that.
+
+1:52:08.140 --> 1:52:10.560
+ So there's probably still be trade offs in the end.
+
+1:52:10.560 --> 1:52:16.820
+ It's just that we should first make sure we at least take advantage of this abundance.
+
+1:52:16.820 --> 1:52:21.580
+ So in terms of thinking about this, like, yeah, one should think, I think in this kind
+
+1:52:21.580 --> 1:52:31.060
+ of frame of mind of generosity and inclusiveness to different value systems and see how far
+
+1:52:31.060 --> 1:52:34.900
+ one can get there at first.
+
+1:52:34.900 --> 1:52:41.860
+ And I think one could do something that would be very good according to many different criteria.
+
+1:52:41.860 --> 1:52:50.300
+ We kind of talked about AGI fundamentally transforming the value system of our existence,
+
+1:52:50.300 --> 1:52:52.620
+ the meaning of life.
+
+1:52:52.620 --> 1:52:56.360
+ But today, what do you think is the meaning of life?
+
+1:52:56.360 --> 1:52:59.620
+ The silliest or perhaps the biggest question, what's the meaning of life?
+
+1:52:59.620 --> 1:53:03.060
+ What's the meaning of existence?
+
+1:53:03.060 --> 1:53:07.980
+ What gives your life fulfillment, purpose, happiness, meaning?
+
+1:53:07.980 --> 1:53:14.620
+ Yeah, I think these are, I guess, a bunch of different but related questions in there
+
+1:53:14.620 --> 1:53:17.500
+ that one can ask.
+
+1:53:17.500 --> 1:53:18.500
+ Happiness meaning.
+
+1:53:18.500 --> 1:53:19.500
+ Yeah.
+
+1:53:19.500 --> 1:53:22.900
+ I mean, like you could imagine somebody getting a lot of happiness from something that they
+
+1:53:22.900 --> 1:53:27.060
+ didn't think was meaningful.
+
+1:53:27.060 --> 1:53:31.620
+ Like mindless, like watching reruns of some television series, waiting junk food, like
+
+1:53:31.620 --> 1:53:35.940
+ maybe some people that gives pleasure, but they wouldn't think it had a lot of meaning.
+
+1:53:35.940 --> 1:53:39.740
+ Whereas, conversely, something that might be quite loaded with meaning might not be
+
+1:53:39.740 --> 1:53:45.640
+ very fun always, like some difficult achievement that really helps a lot of people, maybe requires
+
+1:53:45.640 --> 1:53:49.520
+ self sacrifice and hard work.
+
+1:53:49.520 --> 1:53:57.400
+ So these things can, I think, come apart, which is something to bear in mind also when
+
+1:53:57.400 --> 1:54:06.380
+ if you're thinking about these utopia questions that you might, to actually start to do some
+
+1:54:06.380 --> 1:54:12.500
+ constructive thinking about that, you might have to isolate and distinguish these different
+
+1:54:12.500 --> 1:54:16.360
+ kinds of things that might be valuable in different ways.
+
+1:54:16.360 --> 1:54:20.060
+ Make sure you can sort of clearly perceive each one of them and then you can think about
+
+1:54:20.060 --> 1:54:22.180
+ how you can combine them.
+
+1:54:22.180 --> 1:54:27.540
+ And just as you said, hopefully come up with a way to maximize all of them together.
+
+1:54:27.540 --> 1:54:33.300
+ Yeah, or at least get, I mean, maximize or get like a very high score on a wide range
+
+1:54:33.300 --> 1:54:35.100
+ of them, even if not literally all.
+
+1:54:35.100 --> 1:54:39.460
+ You can always come up with values that are exactly opposed to one another, right?
+
+1:54:39.460 --> 1:54:45.340
+ But I think for many values, they're kind of opposed with, if you place them within
+
+1:54:45.340 --> 1:54:51.860
+ a certain dimensionality of your space, like there are shapes that are kind of, you can't
+
+1:54:51.860 --> 1:54:57.220
+ untangle like in a given dimensionality, but if you start adding dimensions, then it might
+
+1:54:57.220 --> 1:55:02.140
+ in many cases just be that they are easy to pull apart and you could.
+
+1:55:02.140 --> 1:55:07.300
+ So we'll see how much space there is for that, but I think that there could be a lot in this
+
+1:55:07.300 --> 1:55:12.180
+ context of radical abundance, if ever we get to that.
+
+1:55:12.180 --> 1:55:15.580
+ I don't think there's a better way to end it, Nick.
+
+1:55:15.580 --> 1:55:20.980
+ You've influenced a huge number of people to work on what could very well be the most
+
+1:55:20.980 --> 1:55:22.660
+ important problems of our time.
+
+1:55:22.660 --> 1:55:23.660
+ So it's a huge honor.
+
+1:55:23.660 --> 1:55:24.660
+ Thank you so much for talking.
+
+1:55:24.660 --> 1:55:25.660
+ Well, thank you for coming by, Lex.
+
+1:55:25.660 --> 1:55:26.660
+ That was fun.
+
+1:55:26.660 --> 1:55:27.660
+ Thank you.
+
+1:55:27.660 --> 1:55:31.940
+ Thanks for listening to this conversation with Nick Bostrom, and thank you to our presenting
+
+1:55:31.940 --> 1:55:33.940
+ sponsor, Cash App.
+
+1:55:33.940 --> 1:55:40.140
+ Please consider supporting the podcast by downloading Cash App and using code LEXPodcast.
+
+1:55:40.140 --> 1:55:45.100
+ If you enjoy this podcast, subscribe on YouTube, review it with five stars on Apple Podcast,
+
+1:55:45.100 --> 1:55:50.980
+ subscribe on Patreon, or simply connect with me on Twitter at Lex Friedman.
+
+1:55:50.980 --> 1:55:55.420
+ And now, let me leave you with some words from Nick Bostrom.
+
+1:55:55.420 --> 1:56:00.060
+ Our approach to existential risks cannot be one of trial and error.
+
+1:56:00.060 --> 1:56:02.780
+ There's no opportunity to learn from errors.
+
+1:56:02.780 --> 1:56:09.500
+ The reactive approach, see what happens, limit damages, and learn from experience is unworkable.
+
+1:56:09.500 --> 1:56:13.140
+ Rather, we must take a proactive approach.
+
+1:56:13.140 --> 1:56:17.900
+ This requires foresight to anticipate new types of threats and a willingness to take
+
+1:56:17.900 --> 1:56:26.060
+ decisive, preventative action and to bear the costs, moral and economic, of such actions.
+
+1:56:26.060 --> 1:56:43.340
+ Thank you for listening, and hope to see you next time.
+

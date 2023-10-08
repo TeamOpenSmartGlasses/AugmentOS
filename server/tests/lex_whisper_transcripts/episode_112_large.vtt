@@ -1,0 +1,3542 @@
+WEBVTT
+
+00:00.000 --> 00:06.320
+ The following is a conversation with Ian Hutchinson, a nuclear engineer and plasma physicist at MIT.
+
+00:06.320 --> 00:12.080
+ He has made a number of important contributions in plasma physics, including the magnetic confinement of plasmas,
+
+00:12.080 --> 00:17.760
+ seeking to enable fusion reactions, which happens to be the energy source of the stars,
+
+00:17.760 --> 00:25.840
+ to be used for practical energy production. Current nuclear reactors, by the way, are based on fission, as we discuss.
+
+00:25.840 --> 00:32.400
+ Ian has also written on the philosophy of science and the relationship between science and religion,
+
+00:32.400 --> 00:41.440
+ arguing in particular against scientism, which is a negative description of the overreach of the scientific method to questions not amenable to it.
+
+00:41.440 --> 00:46.880
+ On this latter topic, I recommend two of his books, his new one, Can a Scientist Believe in Miracles?,
+
+00:46.880 --> 00:50.880
+ where he answers more than 200 questions on all aspects of God and science,
+
+00:50.880 --> 00:56.080
+ and his earlier book on scientism called Monopolizing Knowledge.
+
+00:56.080 --> 01:02.320
+ As you may have seen already, I work hard on having an open mind, always questioning my assumptions,
+
+01:02.320 --> 01:10.400
+ and in general marvel at the immense mystery of everything around us and the limitations of at least my mind.
+
+01:10.400 --> 01:15.680
+ I'm not religious myself in that I don't go to the synagogue, a church, a mosque,
+
+01:15.680 --> 01:21.360
+ but I see the beautiful bond in the community that religion at its best can create.
+
+01:21.360 --> 01:31.760
+ I also see, both in scientist and religious leaders, signs of arrogance, hypocrisy, greed, and a will to power.
+
+01:31.760 --> 01:38.480
+ We're human. Whether Buddhist, Christian, Hindu, Jewish, Muslim, agnostic, or atheist,
+
+01:38.480 --> 01:43.280
+ this podcast is my humble attempt to explore a complicated human nature.
+
+01:43.280 --> 01:50.480
+ What Stanislav Lem in his book Solaris called our own labyrinth of dark passages and secret chambers.
+
+01:50.480 --> 01:57.600
+ I ask that you try to keep an open mind as well and be patient with the limitations of mind.
+
+01:57.600 --> 02:03.760
+ Quick summary of the ads. Two new amazing sponsors, Sunbasket and Powerdot.
+
+02:03.760 --> 02:10.320
+ Please consider supporting this podcast by going to sunbasket.com slash lex and use code lex at checkout
+
+02:10.320 --> 02:16.080
+ and go into powerdot.com slash lex and use code lex at checkout as well.
+
+02:16.080 --> 02:21.040
+ Click the links, buy the stuff if you like. Just visiting the site and considering the purchase
+
+02:21.040 --> 02:25.520
+ is really the best way to support this podcast. It's how they know I sent you,
+
+02:25.520 --> 02:28.720
+ and based on that they might sponsor the podcast in the future.
+
+02:28.720 --> 02:33.200
+ If you enjoy this thing, subscribe on YouTube, review it with five stars on Apple Podcast,
+
+02:33.200 --> 02:38.240
+ support on Patreon, or connect with me on Twitter at Lex Friedman.
+
+02:38.240 --> 02:42.160
+ As usual, I'll do a few minutes of ads now and never any ads in the middle
+
+02:42.160 --> 02:48.080
+ that can break the flow of the conversation. This show sponsored by Sunbasket.
+
+02:48.080 --> 02:57.040
+ Visit sunbasket.com slash lex and use code lex to get 35 bucks off your order to support this podcast.
+
+02:57.040 --> 03:01.600
+ Sunbasket delivers fresh, healthy, delicious meals straight to your door.
+
+03:01.600 --> 03:07.760
+ As you may know, my diet is pretty minimalist, so it's nice to get some healthy variety into the mix.
+
+03:07.760 --> 03:12.880
+ They make it super easy, with everything preportioned and ready to prep and cook.
+
+03:12.880 --> 03:17.120
+ You can enjoy a delicious, healthy dinner in as little as 15 minutes.
+
+03:17.120 --> 03:21.760
+ I just ordered my first set of meals. Haven't gotten them yet, but I can't wait.
+
+03:21.760 --> 03:29.680
+ I just finished the 6 mile run and 1000 bodyweight reps and I'm starving,
+
+03:29.680 --> 03:35.440
+ but let me risk listing the actual menu items that I ordered because they sound delicious.
+
+03:35.440 --> 03:39.120
+ Italian sausages and vegetable skewers with two romescos.
+
+03:39.120 --> 03:42.880
+ I don't actually know what romescos are, but the pictures looked awesome.
+
+03:42.880 --> 03:47.200
+ And pork fried cauliflower rice with carrots and peas.
+
+03:47.200 --> 03:52.560
+ By the way, cauliflower rice is one of my favorite things ever.
+
+03:52.560 --> 04:00.800
+ Right now, Sunbasket is offering $35 off your order when you go right now to sunbasket.com slash lex.
+
+04:00.800 --> 04:06.080
+ They told me to say right now, with urgency, so pause this podcast and go to the website
+
+04:06.080 --> 04:08.960
+ and make the purchase, or just go to the website and check it out.
+
+04:08.960 --> 04:12.320
+ And enter a promo code LEX at checkout.
+
+04:12.320 --> 04:16.240
+ This show is also sponsored by Power Dot.
+
+04:16.240 --> 04:24.800
+ Get it at powerdot.com slash lex and use code LEX at checkout to get 20% off and to support this podcast.
+
+04:24.800 --> 04:26.160
+ This thing is amazing.
+
+04:26.160 --> 04:32.400
+ It's an eStim electrical stimulation device that I've been using a lot for muscle recovery recently,
+
+04:32.400 --> 04:41.200
+ mostly for my shoulders and legs as I've been doing the 1000 bodyweight reps and 6 miles every day as I just finished.
+
+04:41.200 --> 04:47.920
+ They call it the smart muscle stimulator, which is true, since the app that goes with it is amazing.
+
+04:47.920 --> 04:52.880
+ It has 15 programs for different body parts and guides you through everything you need to do.
+
+04:52.880 --> 04:58.080
+ I take recovery really seriously these days and Power Dot has been a powerful addition
+
+04:58.080 --> 05:03.280
+ to the whole regime of stretching, ice, massage, and sleep and diet that I do.
+
+05:03.280 --> 05:10.960
+ It's used by professional athletes and by slightly insane but mostly normal people like me.
+
+05:10.960 --> 05:15.360
+ It's portable so you can throw it in a bag and bring it anywhere.
+
+05:15.360 --> 05:26.960
+ Get it at powerdot.com slash lex and use code LEX at checkout to get 20% off on top of the 30 day free trial and to support this podcast.
+
+05:26.960 --> 05:32.000
+ And now here's my conversation with Ian Hutchinson.
+
+05:32.000 --> 05:37.040
+ Maybe it'd be nice to draw a distinction between nuclear physics and plasma physics.
+
+05:37.040 --> 05:39.040
+ What is the distinction?
+
+05:39.040 --> 05:41.680
+ Nuclear physics is about the physics of the nucleus.
+
+05:41.680 --> 05:46.240
+ And my department, Department of Nuclear Science and Engineering at MIT,
+
+05:46.240 --> 05:54.240
+ is very concerned about all the interactions and reactions and consequences of things that go on in the nucleus,
+
+05:54.240 --> 05:59.440
+ including nuclear energy, fission energy, which is the nuclear energy that we have already,
+
+05:59.440 --> 06:03.760
+ and fusion energy, which is the energy source of the sun and stars,
+
+06:03.760 --> 06:12.000
+ which we don't quite know how to turn into practical energy for humankind at the moment.
+
+06:12.000 --> 06:16.720
+ That's what my research has mostly been aimed at.
+
+06:16.720 --> 06:22.880
+ But plasmas are essentially the fourth state of matter.
+
+06:22.880 --> 06:29.920
+ So if you think about solid, liquid, gas, plasma is the fourth of those states of matter.
+
+06:29.920 --> 06:36.160
+ And it's actually the state of matter which one reaches if one raises the temperature.
+
+06:36.160 --> 06:40.800
+ So cold things, you know, like ice are solid.
+
+06:40.800 --> 06:43.520
+ Liquids are hotter water.
+
+06:43.520 --> 06:48.720
+ And if you heat water beyond 100 degrees Celsius, it becomes gas.
+
+06:48.720 --> 06:51.520
+ Well, that's true of most substances.
+
+06:51.520 --> 07:01.920
+ And plasma is a state of matter in which the electrons are unbound from the nuclei.
+
+07:01.920 --> 07:06.080
+ So they become separate from the nuclei and can move separately.
+
+07:06.080 --> 07:12.160
+ So we have positively charged nuclei and we have negatively charged electrons.
+
+07:12.160 --> 07:17.680
+ The net is still electrically neutral.
+
+07:17.680 --> 07:25.200
+ But a plasma conducts electricity, has all sorts of important properties that are associated
+
+07:25.200 --> 07:27.120
+ with that separation.
+
+07:27.120 --> 07:29.280
+ And that's what plasmas are all about.
+
+07:29.280 --> 07:34.240
+ And the reason why my department is interested in plasma physics very strongly is because
+
+07:34.240 --> 07:37.920
+ most things, well, for one thing, most things in the universe are plasma.
+
+07:37.920 --> 07:40.480
+ The vast majority of matter in the universe is plasma.
+
+07:40.480 --> 07:48.880
+ But most particularly, stars and the sun are plasmas because they're very hot.
+
+07:48.880 --> 07:54.800
+ And it's only in very hot states that nuclear fusion reactions take place.
+
+07:54.800 --> 08:00.920
+ And we want to understand how to implement those kind of phenomena on Earth.
+
+08:00.920 --> 08:05.040
+ Maybe another distinction we want to try to get at is the difference between fission
+
+08:05.040 --> 08:06.040
+ and fusion.
+
+08:06.040 --> 08:09.080
+ So you mentioned fusion is the kind of reaction happening in the sun.
+
+08:09.080 --> 08:11.200
+ So what's fission and what's fusion?
+
+08:11.200 --> 08:18.400
+ Well, fission is taking heavy elements like uranium and breaking them up.
+
+08:18.400 --> 08:23.040
+ And it turns out that that process of breaking up heavy elements releases energy.
+
+08:23.040 --> 08:25.240
+ What does it mean to be a heavy element?
+
+08:25.240 --> 08:33.260
+ It means that there are many nuclear particles in the nucleus itself, neutrons and protons
+
+08:33.260 --> 08:42.480
+ in the nucleus itself so that in the case of uranium, there are 92 protons in each nucleus
+
+08:42.480 --> 08:49.920
+ and even more neutrons so that the total number of nucleons in the nucleus, nucleons is short
+
+08:49.920 --> 08:58.160
+ for either a proton or a neutron, the total number might be 235, that's U235, or it might
+
+08:58.160 --> 09:01.720
+ be 238, that's U238.
+
+09:01.720 --> 09:03.320
+ So those are heavy elements.
+
+09:03.320 --> 09:10.400
+ Light elements, by contrast, have very few nucleons, protons or neutrons in the nucleus.
+
+09:10.400 --> 09:12.840
+ Hydrogen is the lightest nucleus.
+
+09:12.840 --> 09:14.800
+ It has one proton.
+
+09:14.800 --> 09:19.480
+ There are actually slightly heavier forms of hydrogen, isotopes.
+
+09:19.480 --> 09:26.280
+ Deuterium has a proton and a neutron and tritium has a proton and two neutrons.
+
+09:26.280 --> 09:31.040
+ So it has a total of three nucleons in the nucleus.
+
+09:31.040 --> 09:38.520
+ While taking light elements like isotopes of hydrogen and not breaking them up but actually
+
+09:38.520 --> 09:45.680
+ fusing them together, reacting them together to produce heavier elements, typically helium,
+
+09:45.680 --> 09:52.680
+ which is helium is a nucleus which has two protons and two neutrons, that also releases
+
+09:52.680 --> 10:00.120
+ energy and that or reactions like that, making heavier elements from lighter elements is
+
+10:00.120 --> 10:05.160
+ what mostly powers the sun and stars.
+
+10:05.160 --> 10:14.520
+ Both fusion and fission release approximately a million times more energy per unit mass
+
+10:14.520 --> 10:16.360
+ than chemical reactions.
+
+10:16.360 --> 10:22.040
+ So a chemical reaction means take hydrogen, take oxygen, react them together, let's say,
+
+10:22.040 --> 10:25.000
+ and get water, that releases energy.
+
+10:25.000 --> 10:29.600
+ The energy released in a chemical reaction like that or the burning of coal or on oil
+
+10:29.600 --> 10:35.940
+ or whatever else is about a million times less per unit mass than what is released in
+
+10:35.940 --> 10:37.460
+ nuclear reactions.
+
+10:37.460 --> 10:38.960
+ So but it's hard to do.
+
+10:38.960 --> 10:44.240
+ It requires very high energy of impact.
+
+10:44.240 --> 10:46.500
+ And actually, it's very easy to understand why.
+
+10:46.500 --> 10:52.360
+ And that is that those two nuclei, if they're both, let's say, hydrogen nuclei, one is,
+
+10:52.360 --> 10:58.160
+ let's say, deuterium and the other is, let's say, tritium, they're both electrically charged.
+
+10:58.160 --> 11:02.080
+ And they're positively charged, so they like charges repel.
+
+11:02.080 --> 11:03.620
+ Everyone knows that, right?
+
+11:03.620 --> 11:09.980
+ So basically, to get them close enough together to react, you have to overcome the repulsion,
+
+11:09.980 --> 11:15.800
+ the electric repulsion of the two nuclei from one another.
+
+11:15.800 --> 11:20.180
+ And you have to get them extremely close to one another in order for the nuclear forces
+
+11:20.180 --> 11:25.900
+ to overtake the electrical forces and actually form a new nucleus.
+
+11:25.900 --> 11:31.320
+ And so one requires very high energies of impact in order for reactions to take place.
+
+11:31.320 --> 11:37.940
+ And those high energies of impact correspond to very high temperatures of random motion.
+
+11:37.940 --> 11:41.000
+ So that's why you can do something like that in the sun.
+
+11:41.000 --> 11:42.660
+ So we can build the sun.
+
+11:42.660 --> 11:43.740
+ That's one way to do it.
+
+11:43.740 --> 11:47.260
+ But on Earth, how do you create a fusion reaction?
+
+11:47.260 --> 11:48.260
+ Yeah.
+
+11:48.260 --> 11:49.260
+ Well, nature's.
+
+11:49.260 --> 11:50.260
+ Engineering wise.
+
+11:50.260 --> 12:00.960
+ Nature's fusion reactors are indeed the stars, and they are very hot in the center.
+
+12:00.960 --> 12:07.080
+ And they reach the point where they release more energy from those reactions than they
+
+12:07.080 --> 12:10.920
+ lose by radiation and transport to the surface and so forth.
+
+12:10.920 --> 12:15.740
+ And that's a state of ignition.
+
+12:15.740 --> 12:19.340
+ And that's what we have to achieve to give net energy.
+
+12:19.340 --> 12:21.220
+ That's like lighting a fire.
+
+12:21.220 --> 12:27.100
+ If you have a bundle of sticks and you hold a match up to it and you see smoke coming
+
+12:27.100 --> 12:33.980
+ from the sticks, but you take the match away and the sticks just fizzle out.
+
+12:33.980 --> 12:38.060
+ That's not the reason they fizzled out is that, yes, they were burning, there was smoke
+
+12:38.060 --> 12:41.300
+ coming from them, but they were not ignited.
+
+12:41.300 --> 12:45.700
+ But if you are able to take the match away and they keep burning and they are generating
+
+12:45.700 --> 12:51.700
+ enough heat to keep themselves hot and hence keep the reactions going, that's chemical
+
+12:51.700 --> 12:52.700
+ ignition.
+
+12:52.700 --> 13:00.140
+ But what we need to do, what the stars do in order to generate nuclear fusion energy
+
+13:00.140 --> 13:02.460
+ is they are ignited.
+
+13:02.460 --> 13:08.180
+ They are generated enough energy to keep themselves hot.
+
+13:08.180 --> 13:13.700
+ And that's what we've got to do on Earth if we're going to make fusion work on Earth.
+
+13:13.700 --> 13:22.560
+ But it's much harder to do on Earth than it is in a star because we need temperatures
+
+13:22.560 --> 13:31.140
+ of order tens of millions of degrees Celsius in order for the reactions to go fast enough
+
+13:31.140 --> 13:37.580
+ to generate enough energy to keep it going.
+
+13:37.580 --> 13:44.220
+ And so if you've got something that's tens of millions of degrees Celsius and you want
+
+13:44.220 --> 13:48.580
+ to keep it all together and keep the heat in long enough to have enough reactions taking
+
+13:48.580 --> 13:57.400
+ place, you can't just put it in a bottle, plastic or glass, it would be gone in milliseconds.
+
+13:57.400 --> 14:05.340
+ So you have to have some nonmaterial mechanism of confining the plasma.
+
+14:05.340 --> 14:10.940
+ In the case of stars, that nonmaterial force is gravity.
+
+14:10.940 --> 14:16.180
+ So gravity is what holds the star together, it's what holds the plasma in long enough
+
+14:16.180 --> 14:22.640
+ for it to react and sustain itself by the fusion reactions.
+
+14:22.640 --> 14:24.580
+ But on Earth, gravity is extremely weak.
+
+14:24.580 --> 14:27.420
+ I mean, I don't mean to say we don't fall, yes, we fall.
+
+14:27.420 --> 14:35.700
+ But the mutual gravitational attraction of small objects is very weak compared with the
+
+14:35.700 --> 14:40.300
+ electrical repulsion or any other force that you can think about on Earth.
+
+14:40.300 --> 14:48.020
+ And so we need a stronger force to keep the plasma together, to confine it.
+
+14:48.020 --> 14:55.460
+ And the predominant attempt at making fusion work on Earth is to use magnetic fields to
+
+14:55.460 --> 14:57.460
+ confine the plasma.
+
+14:57.460 --> 15:03.580
+ And that's what I've worked on for much, essentially most of my career, is to understand how we
+
+15:03.580 --> 15:11.880
+ can and how best we can confine these incredibly hot gases, plasmas, using magnetic fields
+
+15:11.880 --> 15:18.740
+ with the ultimate objective of releasing fusion energy on Earth and generating electricity
+
+15:18.740 --> 15:21.780
+ with it and powering our society with it.
+
+15:21.780 --> 15:23.540
+ A dumb question.
+
+15:23.540 --> 15:28.460
+ So on top of the magnetic fields, do you also need the plastic water bottle walls or is
+
+15:28.460 --> 15:30.340
+ it purely magnetic fields?
+
+15:30.340 --> 15:36.780
+ Well, actually what we do need walls, those walls must be kept away from the plasma because
+
+15:36.780 --> 15:42.340
+ otherwise they'd be melted or the plasma must be kept away from them inside of them.
+
+15:42.340 --> 15:48.460
+ But the main purpose of the walls is not to keep the plasma in, it's to keep the atmosphere
+
+15:48.460 --> 15:50.300
+ out.
+
+15:50.300 --> 15:56.380
+ So if we want to do it on Earth where there's air, we want the plasma to consist of hydrogen
+
+15:56.380 --> 15:59.740
+ isotopes or other things, the things we're trying to react.
+
+15:59.740 --> 16:06.300
+ And by the way, the density of those plasmas, at least in magnetic confinement fusion, is
+
+16:06.300 --> 16:07.300
+ very low.
+
+16:07.300 --> 16:13.740
+ It's maybe a million times less than the density of air in this room.
+
+16:13.740 --> 16:19.260
+ So in order for a fusion reactor like that to work, you have to keep all of the air out
+
+16:19.260 --> 16:20.620
+ and just keep the plasma in.
+
+16:20.620 --> 16:24.300
+ So yes, there are other things, but those are things that are relatively easy.
+
+16:24.300 --> 16:29.180
+ I mean, making a vacuum these days is technologically quite straightforward.
+
+16:29.180 --> 16:31.500
+ We know how to do that.
+
+16:31.500 --> 16:38.540
+ What we don't quite know how to do is to make a confinement device that isolates the plasma
+
+16:38.540 --> 16:43.900
+ well enough so that it's able to keep itself burning with its own reaction.
+
+16:43.900 --> 16:47.420
+ So maybe can you talk about what a tokamak is?
+
+16:47.420 --> 16:54.060
+ The Russian acronym from which the word tokamak is built just means toroidal magnetic chamber.
+
+16:54.060 --> 17:00.700
+ So it's a toroidal chamber, a torus is a geometric shape which is like a doughnut with a hole
+
+17:00.700 --> 17:02.740
+ down the middle.
+
+17:02.740 --> 17:10.640
+ And so it's the meat of the doughnut, that's the torus, and it's got a magnetic field.
+
+17:10.640 --> 17:13.320
+ So that's really all tokamak means.
+
+17:13.320 --> 17:22.180
+ But the particular configuration that is very widespread and is the sort of best prospect
+
+17:22.180 --> 17:28.100
+ in the least in the near term for making fusion energy work is one in which there's a very
+
+17:28.100 --> 17:35.940
+ strong magnetic field the long way around the doughnut, around the torus.
+
+17:35.940 --> 17:40.280
+ So you've got to imagine that there's this doughnut shape with an embedded magnetic field
+
+17:40.280 --> 17:43.300
+ just going round and round the long way.
+
+17:43.300 --> 17:53.300
+ The big advantage of that is that plasma particles when they're in the presence of a magnetic
+
+17:53.300 --> 17:59.780
+ field feel strong forces from the magnetic field and those forces make the particles
+
+17:59.780 --> 18:04.360
+ gyrate around the direction of the magnetic field line.
+
+18:04.360 --> 18:12.320
+ So basically the particles follow helical orbits following like a spring that's directed
+
+18:12.320 --> 18:13.980
+ along the magnetic field.
+
+18:13.980 --> 18:18.640
+ Well if you make the magnetic field go inside this toroidal chamber and just simply go round
+
+18:18.640 --> 18:27.840
+ and round the chamber then because of this helical orbit the particles can't move fast
+
+18:27.840 --> 18:33.920
+ across the magnetic field but they can move very quickly along the magnetic field.
+
+18:33.920 --> 18:38.680
+ And if you have a magnetic field that doesn't leave the chamber it doesn't matter if they
+
+18:38.680 --> 18:44.260
+ move along the magnetic field it doesn't mean they're going to exit the chamber.
+
+18:44.260 --> 18:52.440
+ But if you just had a straight magnetic field for example coming from a Helmholtz coil or
+
+18:52.440 --> 18:57.800
+ a bar magnet then you'd have to have ends that would come to the ends of the chamber
+
+18:57.800 --> 19:02.960
+ somewhere and the particles would hit the ends and they would lose their energy.
+
+19:02.960 --> 19:07.460
+ So that's why it's toroidal and that's why we have a strong magnetic field.
+
+19:07.460 --> 19:14.840
+ It's providing a confinement against motion in the in the direction that would lead the
+
+19:14.840 --> 19:16.960
+ particles to leave the chamber.
+
+19:16.960 --> 19:21.580
+ It turns out that here we're getting a little bit technical but turns out that a toroidal
+
+19:21.580 --> 19:27.680
+ field alone is not enough and so you need more fields to produce true true confinement
+
+19:27.680 --> 19:32.720
+ of plasma and we get those by passing a current as well through the plasma itself.
+
+19:32.720 --> 19:34.840
+ I can make sure it stays on track.
+
+19:34.840 --> 19:40.800
+ Well that what that does is makes the field lines themselves into much bigger helices
+
+19:40.800 --> 19:47.560
+ and that for reasons that are too complicated to explain that clinches the confinement of
+
+19:47.560 --> 19:53.400
+ the particles at least in terms of their single particle orbits so they don't leave the chamber.
+
+19:53.400 --> 20:00.480
+ So when the particles are flying along this this this donut the inside of the donut are
+
+20:00.480 --> 20:03.960
+ they what's where's the generation of the energy coming from?
+
+20:03.960 --> 20:07.480
+ Are they smashing into each other?
+
+20:07.480 --> 20:12.520
+ Yeah eventually I mean in a fusion reactor there will be deuterons and tritons and they
+
+20:12.520 --> 20:13.800
+ will be smashing in.
+
+20:13.800 --> 20:19.080
+ They will be very hot there'll be a hundred million degrees Celsius or something so they're
+
+20:19.080 --> 20:24.960
+ moving thermally with very large thermal energies in random directions and they will collide
+
+20:24.960 --> 20:28.400
+ with one another and have fusion reactions.
+
+20:28.400 --> 20:33.080
+ When those fusion reactions take place energy is released large amounts of energy is released
+
+20:33.080 --> 20:35.260
+ in the form of particles.
+
+20:35.260 --> 20:39.060
+ One of the particles that's released is an alpha particle which is also charged and it's
+
+20:39.060 --> 20:45.120
+ also confined and that alpha particle stays in the in the in the donut and heats the other
+
+20:45.120 --> 20:49.720
+ particles that are in that donut so it transfers its energy to those and they it keeps them
+
+20:49.720 --> 20:50.720
+ hot.
+
+20:50.720 --> 20:54.880
+ There are there's some leaking of heat all the time a little bit of radiation some transport
+
+20:54.880 --> 20:56.320
+ and so forth.
+
+20:56.320 --> 21:00.440
+ There's also a neutron released from that reaction the neutron carries out four fifths
+
+21:00.440 --> 21:06.240
+ of the fusion energy and that will have to be captured in a blanket that surrounds the
+
+21:06.240 --> 21:17.600
+ chamber in which we take the energy drive some kind of electrical generator from you
+
+21:17.600 --> 21:25.320
+ know thermal thermal engine gas turbine or something like that and power the power.
+
+21:25.320 --> 21:26.480
+ You got energy.
+
+21:26.480 --> 21:28.200
+ So where do we stand?
+
+21:28.200 --> 21:29.200
+ Where do we stand?
+
+21:29.200 --> 21:35.440
+ I'm getting this thing to be something that actually works that generates energy.
+
+21:35.440 --> 21:42.200
+ Well there have been experiments that have generated net nuclear energies or nuclear
+
+21:42.200 --> 21:49.720
+ powers in the vicinity of you know a few tens of megawatts for a few seconds.
+
+21:49.720 --> 21:56.360
+ So that's you know 10 megajoules that's not much energy it's a few donuts worth of energy
+
+21:56.360 --> 21:57.360
+ okay.
+
+21:57.360 --> 22:02.600
+ A literal donut.
+
+22:02.600 --> 22:11.120
+ But we have studied how well tokamaks can find plasmas and so we now understand in rather
+
+22:11.120 --> 22:19.160
+ great detail the way they work and we're able to predict what is going to be required in
+
+22:19.160 --> 22:24.680
+ order to build a tokamak that becomes self sustaining that becomes essentially ignited
+
+22:24.680 --> 22:29.560
+ or very so close to ignited that it doesn't matter.
+
+22:29.560 --> 22:38.160
+ And at the moment at least if you use the modest magnetic field values still very strong
+
+22:38.160 --> 22:44.720
+ but limited magnetic field values you have to build a very big device.
+
+22:44.720 --> 22:53.300
+ And so we are at the moment worldwide fusion research is at the moment in the process of
+
+22:53.300 --> 22:58.080
+ building a very big experiment that's located in the south of France.
+
+22:58.080 --> 23:04.460
+ It's called ITER which means the way or just means the international tokamak experimental
+
+23:04.460 --> 23:08.440
+ reactor if you like.
+
+23:08.440 --> 23:14.720
+ And that experiment is designed to reach this burning plasma state and to generate about
+
+23:14.720 --> 23:21.360
+ 500 megawatts of fusion power for hundreds of seconds at a time.
+
+23:21.360 --> 23:24.400
+ It'll still only be an experiment.
+
+23:24.400 --> 23:28.480
+ It won't put electricity on the grid or anything like that.
+
+23:28.480 --> 23:34.400
+ It's to figure out whether it works and what the remaining engineering challenges are.
+
+23:34.400 --> 23:36.200
+ It's a scientific experiment.
+
+23:36.200 --> 23:41.440
+ It won't be engineered to run round the clock and so on and so forth which ultimately one
+
+23:41.440 --> 23:46.260
+ needs to do in order to make something that's practical for generating electricity.
+
+23:46.260 --> 23:53.960
+ But it will be the first demonstration on earth of a controlled fusion reaction for
+
+23:53.960 --> 23:55.280
+ you know long time periods.
+
+23:55.280 --> 23:59.000
+ Is that exciting to you?
+
+23:59.000 --> 24:05.400
+ It's been an objective that is in many ways motivated my entire career and the career
+
+24:05.400 --> 24:09.960
+ of many people like me in the field.
+
+24:09.960 --> 24:15.640
+ I have to admit though that one of the problems with ITER is that it's an extremely big and
+
+24:15.640 --> 24:23.760
+ expensive and long time to build experiment and so it won't even come into operation until
+
+24:23.760 --> 24:31.200
+ about 2025 even though it's been being built for 10 years and it was designed for 30 years
+
+24:31.200 --> 24:33.860
+ before that.
+
+24:33.860 --> 24:40.520
+ And so that's actually one of the big disappointments of my career in a certain sense which is that
+
+24:40.520 --> 24:47.480
+ we won't get to burning fusion reaction until well past the first operation of ITER and
+
+24:47.480 --> 24:52.560
+ whether I'm alive or not I don't know but I certainly will be well and truly retired
+
+24:52.560 --> 24:54.480
+ by the time that happens.
+
+24:54.480 --> 24:59.920
+ And so when I realized maybe some years ago that that was going to be the case it was
+
+24:59.920 --> 25:03.520
+ a discouragement to me let's put it like that.
+
+25:03.520 --> 25:09.760
+ But if we can try to look maybe in a ridiculous kind of way look into a hundred years from
+
+25:09.760 --> 25:14.520
+ now two hundred years five hundred years from now and we you know there's folks like Elon
+
+25:14.520 --> 25:18.640
+ Musk trying to travel outside the solar system.
+
+25:18.640 --> 25:22.640
+ I mean the amount of energy we need for some of the exciting things we want to do in this
+
+25:22.640 --> 25:29.320
+ world if we look again hundred years from now seems to be a very large amount.
+
+25:29.320 --> 25:38.640
+ So do you think fusion energy will eventually sometime into your retirement will be basically
+
+25:38.640 --> 25:41.320
+ behind most of the things we do?
+
+25:41.320 --> 25:47.200
+ Look I absolutely think that fusion research is completely justified.
+
+25:47.200 --> 25:51.880
+ In fact we should be spending more time and effort on it than we currently do.
+
+25:51.880 --> 25:59.580
+ But it isn't going to be a magic bullet that somehow solves all the problems of energy.
+
+25:59.580 --> 26:04.240
+ By the way that's a generic statement you can make about any energy source in my view.
+
+26:04.240 --> 26:09.560
+ I think it's a grave mistake to think that science of any sort is suddenly going to find
+
+26:09.560 --> 26:13.840
+ a magic bullet for meeting all the energy needs of society or any of the other needs
+
+26:13.840 --> 26:15.840
+ of society by the way.
+
+26:15.840 --> 26:21.280
+ But and we can talk about that later.
+
+26:21.280 --> 26:25.620
+ But fusion is very worthwhile and we should be doing it.
+
+26:25.620 --> 26:32.920
+ And so my disappointment that I just expressed was in a certain sense of personal disappointment.
+
+26:32.920 --> 26:36.600
+ I do think that fusion energy is a terrific challenge.
+
+26:36.600 --> 26:42.400
+ It's very difficult to bring the energy source of the sun and stars down to earth.
+
+26:42.400 --> 26:47.560
+ This does contrast in a certain sense with fission energy.
+
+26:47.560 --> 26:54.480
+ By contrast fission energy efficient to build a fission reactor proved to be amazingly easy.
+
+26:54.480 --> 27:00.900
+ You know we did it within a few years of discovering nuclear fission.
+
+27:00.900 --> 27:07.740
+ People had figured out how to build a reactor and did so during the Second World War.
+
+27:07.740 --> 27:11.920
+ Which is by the way fission is how the current nuclear power plants work.
+
+27:11.920 --> 27:21.520
+ And so we have nuclear energy today because fission reactors are relatively easy to build.
+
+27:21.520 --> 27:26.340
+ What's hard is getting the materials and that's just as well because if everyone could get
+
+27:26.340 --> 27:30.680
+ those materials there would be weapons proliferation and so forth.
+
+27:30.680 --> 27:38.360
+ But it wasn't all that long after even the discovery of nuclear fission that fission
+
+27:38.360 --> 27:44.160
+ reactors were built and fission reactors of course operated before we had weapons.
+
+27:44.160 --> 27:57.120
+ So I think nuclear power is obviously important to meet the energy challenges of our age.
+
+27:57.120 --> 28:04.080
+ It is completely intrinsically completely CO2 emissions free.
+
+28:04.080 --> 28:09.360
+ And in fact the wastes that come from nuclear power whether it's fission or fusion for that
+
+28:09.360 --> 28:18.240
+ matter are so moderate in quantity that we shouldn't really be worried about them.
+
+28:18.240 --> 28:23.540
+ I mean yes fission products are highly radioactive and we need to keep them away from people
+
+28:23.540 --> 28:27.360
+ but there's so little of them it's that keeping them away from people is not particularly
+
+28:27.360 --> 28:28.680
+ difficult.
+
+28:28.680 --> 28:36.160
+ And so while people complain a lot about the drawbacks of fission energy I think most of
+
+28:36.160 --> 28:39.160
+ those complaints are ill informed.
+
+28:39.160 --> 28:45.760
+ We can talk about you know the challenges and the disasters if you like of fission reactors
+
+28:45.760 --> 28:53.760
+ but I think fission in the near term offers a terrific opportunity for environmentally
+
+28:53.760 --> 28:59.320
+ friendly energy which in the world as a whole is rapidly being taken advantage of.
+
+28:59.320 --> 29:03.840
+ You know China and India and places like that are rapidly building fission plants.
+
+29:03.840 --> 29:08.000
+ We're not rapidly building fission plants in the US although we are actually building
+
+29:08.000 --> 29:12.200
+ two at the moment, two new ones.
+
+29:12.200 --> 29:17.200
+ But we do still get 20 percent of our electricity from fission energy and we could get a lot
+
+29:17.200 --> 29:18.200
+ more.
+
+29:18.200 --> 29:19.680
+ So it's clean energy.
+
+29:19.680 --> 29:20.960
+ So it's clean energy.
+
+29:20.960 --> 29:28.640
+ Now again the concern is there's a very popular HBO show and just came out on Chernobyl.
+
+29:28.640 --> 29:32.480
+ There's the Three Mile Island, there's Fukushima, that's the most recent disaster.
+
+29:32.480 --> 29:37.560
+ So there's a kind of a concern of yeah I mean nuclear disasters.
+
+29:37.560 --> 29:42.280
+ Is that, what do you make of that kind of concern especially if we look into the future
+
+29:42.280 --> 29:44.880
+ of fission energy based reactors?
+
+29:44.880 --> 29:48.600
+ Well first of all let me say one or two words about the contrast between fission and fusion
+
+29:48.600 --> 29:53.160
+ and then we'll come on to the question of the disasters and so forth.
+
+29:53.160 --> 30:00.500
+ Fission does have some drawbacks and they're largely to do with four main areas.
+
+30:00.500 --> 30:06.960
+ One is do we have enough uranium or other fissile fuels to supply our energy needs for
+
+30:06.960 --> 30:08.040
+ a long time?
+
+30:08.040 --> 30:16.080
+ The answer to that is we know we have enough uranium to support fission energy worldwide
+
+30:16.080 --> 30:23.200
+ for thousands of years but maybe not for millions of years okay.
+
+30:23.200 --> 30:25.680
+ So that's resources.
+
+30:25.680 --> 30:29.120
+ Secondly there are issues to do with wastes.
+
+30:29.120 --> 30:36.600
+ Fission wastes are highly radioactive and some of them are volatile and so for example
+
+30:36.600 --> 30:44.840
+ in Fukushima the problem was that some fraction of the fission wastes were volatilized and
+
+30:44.840 --> 30:55.040
+ went out as a cloud and polluted areas with cesium 137, strontium 90 and things like that.
+
+30:55.040 --> 30:58.000
+ So that's a challenge of fission.
+
+30:58.000 --> 31:07.040
+ There's a problem of safety beyond that and that is that in fission it's hard to turn
+
+31:07.040 --> 31:09.040
+ the reactor off.
+
+31:09.040 --> 31:14.880
+ When you stop the nuclear reactions there is still a lot of heat being liberated from
+
+31:14.880 --> 31:20.600
+ the fission products and that is actually what the problem was at Fukushima.
+
+31:20.600 --> 31:27.920
+ The Fukushima reactors were shut down the moment that the earthquake took place and
+
+31:27.920 --> 31:29.920
+ they were shut down safely.
+
+31:29.920 --> 31:35.540
+ What then happened after that at Fukushima was you know there was this enormous tidal
+
+31:35.540 --> 31:45.960
+ wave many tens of meters high that came through and destroyed the electricity grid feed to
+
+31:45.960 --> 31:52.480
+ the Fukushima reactors and their cooling was then turned off and it was the after heat
+
+31:52.480 --> 31:57.840
+ of the turned off reactors that eventually caused the problems that led to release.
+
+31:57.840 --> 32:06.680
+ And so that's a safety concern and then finally there's a problem of proliferation and that
+
+32:06.680 --> 32:13.920
+ is that fission reactors need fissile fuel and the technologies for producing and enriching
+
+32:13.920 --> 32:24.200
+ and so forth the fuels can be used by bad actors to generate the materials needed for
+
+32:24.200 --> 32:27.240
+ a nuclear weapon and that's a very serious concern.
+
+32:27.240 --> 32:29.840
+ So those are the four problems.
+
+32:29.840 --> 32:34.440
+ Fusion has major advantages in respect of all of those problems.
+
+32:34.440 --> 32:45.900
+ It has more longer term fuel resources, it has far more benign waste issues, the radioactivity
+
+32:45.900 --> 32:51.340
+ from fusion reactions is at least a hundred times less than it is from fission reactions.
+
+32:51.340 --> 32:57.280
+ It has essentially none of this after heat problem because it doesn't produce fission
+
+32:57.280 --> 33:02.800
+ products that are highly radioactive and generating their own heat when it's turned off.
+
+33:02.800 --> 33:07.840
+ In fact the hard part of fusion is turning it on not turning it off.
+
+33:07.840 --> 33:15.320
+ And finally you don't need the same fission technology to make fusion work and so it's
+
+33:15.320 --> 33:19.360
+ got terrific advantages from the point of view of proliferation control.
+
+33:19.360 --> 33:28.360
+ So those are the four main issues which make fusion seem attractive technologically because
+
+33:28.360 --> 33:31.120
+ they address some of the problems of fission energy.
+
+33:31.120 --> 33:36.600
+ I don't mean to say that fission energy is overwhelmingly problematic but clearly there
+
+33:36.600 --> 33:41.920
+ have been catastrophes associated with fission reactors.
+
+33:41.920 --> 33:47.600
+ Fukushima actually is I think in many ways are often overstated as a disaster because
+
+33:47.600 --> 33:53.840
+ after all nobody was killed by the reactors essentially, zero.
+
+33:53.840 --> 34:02.280
+ And that's in the context of a disaster and tsunami that killed between 15 and 20,000
+
+34:02.280 --> 34:05.720
+ people instantane more or less instantaneously.
+
+34:05.720 --> 34:17.080
+ So you know in the scale of risks one should take the view that in my estimation that fission
+
+34:17.080 --> 34:19.560
+ energy came out of that looking pretty good.
+
+34:19.560 --> 34:20.560
+ Okay.
+
+34:20.560 --> 34:22.720
+ Of course that's not the popular conception.
+
+34:22.720 --> 34:23.720
+ Okay.
+
+34:23.720 --> 34:24.720
+ Yes that's good.
+
+34:24.720 --> 34:31.100
+ I mean with a lot of things that threaten our well being we seem to be very bad users
+
+34:31.100 --> 34:32.440
+ of data.
+
+34:32.440 --> 34:38.800
+ We seem to be very scared of shock attacks and not at all scared of car accidents and
+
+34:38.800 --> 34:40.520
+ this kind of miscalculation.
+
+34:40.520 --> 34:46.840
+ And I think from everything I understand nuclear energy, fission based energy goes into that
+
+34:46.840 --> 34:47.840
+ category.
+
+34:47.840 --> 34:54.240
+ It's one of the safest, one of the cleanest forms of energy and yet the PR, whoever does
+
+34:54.240 --> 34:59.640
+ the PR for nuclear energy has a hard job ahead of them at the moment.
+
+34:59.640 --> 35:03.400
+ Well I think part of that is their association with nuclear weapons because when you say
+
+35:03.400 --> 35:07.600
+ the word nuclear people don't instantly think about nuclear energy, they think about nuclear
+
+35:07.600 --> 35:09.440
+ weapons.
+
+35:09.440 --> 35:14.320
+ And so there is perhaps a natural tendency to do that.
+
+35:14.320 --> 35:20.040
+ But yes I agree with you, people are very poor at estimating risks and they react emotionally
+
+35:20.040 --> 35:22.880
+ not rationally in most of these situations.
+
+35:22.880 --> 35:27.940
+ Can we talk about nuclear weapons just for a little bit?
+
+35:27.940 --> 35:33.200
+ So fission is the kind of reaction that's central to the nuclear weapons we have today?
+
+35:33.200 --> 35:35.240
+ That's what sets them off.
+
+35:35.240 --> 35:36.660
+ That's what sets them off.
+
+35:36.660 --> 35:41.220
+ So if we look at the hydrogen bomb maybe you can say how these different weapons work.
+
+35:41.220 --> 35:47.320
+ So the earliest nuclear weapons, the nuclear bombs that were dropped on Japan etc. etc.
+
+35:47.320 --> 35:50.040
+ were pure fission weapons.
+
+35:50.040 --> 35:57.960
+ They used enriched uranium or plutonium and their energy is essentially entirely derived
+
+35:57.960 --> 36:00.880
+ from fission reactions.
+
+36:00.880 --> 36:09.840
+ But it was early realized that more energy was available if one could somehow combine
+
+36:09.840 --> 36:17.360
+ a fission bomb with fusion reactions.
+
+36:17.360 --> 36:26.880
+ Because the fusion reactions give more energy per unit mass than fission reactions.
+
+36:26.880 --> 36:31.640
+ And this was called the super, you might have heard of the expression the super or more
+
+36:31.640 --> 36:35.640
+ simply hydrogen bombs.
+
+36:35.640 --> 36:40.320
+ Bombs which use isotopes of hydrogen and the fusion reactions associated with them.
+
+36:40.320 --> 36:41.840
+ Like you said it's hard to turn on.
+
+36:41.840 --> 36:47.600
+ It's hard to turn on because you need very high temperatures and you need confinement
+
+36:47.600 --> 36:50.920
+ of that long enough for the reactions to take place.
+
+36:50.920 --> 37:03.320
+ And so a bomb actually, a thermonuclear bomb or a hydrogen bomb has essentially a chemical
+
+37:03.320 --> 37:15.040
+ implosion which then sets off a fission explosion which then sets off and compresses hydrogen
+
+37:15.040 --> 37:22.000
+ isotopes and other things, which I don't know because I've never had a security clearance.
+
+37:22.000 --> 37:28.240
+ So I can't betray any secrets about weapons because I've never been party to them because
+
+37:28.240 --> 37:33.280
+ I know a lot about this problem I can guess.
+
+37:33.280 --> 37:36.600
+ And sets off fusion reactions in the middle.
+
+37:36.600 --> 37:41.700
+ So that's basically it's that sequence of things which produce these enormous multi
+
+37:41.700 --> 37:47.660
+ megaton bombs that have very large yields.
+
+37:47.660 --> 37:52.200
+ And so fusion alone can't get you there.
+
+37:52.200 --> 38:00.480
+ It is actually possible to set off or to try to set off little fusion bombs alone without
+
+38:00.480 --> 38:08.940
+ the surrounding fission explosion and that is what is called laser fusion.
+
+38:08.940 --> 38:17.880
+ So another approach to fusion which actually is mostly researched in the weapons complex,
+
+38:17.880 --> 38:24.760
+ the national labs and so forth because it's more associated with the technologies of weapons
+
+38:24.760 --> 38:26.080
+ is inertial fusion.
+
+38:26.080 --> 38:32.280
+ So if you decide instead of trying to make your plasma just sit there in this Taurus
+
+38:32.280 --> 38:37.480
+ and in the tokamak and be controlled steady state with a magnetic field, if you're willing
+
+38:37.480 --> 38:43.840
+ to accept that I'll just set off an explosion and then I'll gather the energy from that
+
+38:43.840 --> 38:49.720
+ somehow I don't quite know how but let's not ask that question too much.
+
+38:49.720 --> 38:58.440
+ Then it is possible to imagine generating fusion alone explosions and the way you do
+
+38:58.440 --> 39:06.160
+ it is you take some small amount of deuterium tritium fuel you bombard it with energy from
+
+39:06.160 --> 39:12.200
+ all sides and this is what the lasers are used for extremely powerful at lasers which
+
+39:12.200 --> 39:16.680
+ compresses the pellet of fusion and heats it.
+
+39:16.680 --> 39:21.220
+ It compresses it to such a high density and temperature that the reactions take place
+
+39:21.220 --> 39:25.680
+ very very quickly and in fact they can take place so quickly that it's all over with before
+
+39:25.680 --> 39:27.120
+ the thing flies apart.
+
+39:27.120 --> 39:28.120
+ Wow.
+
+39:28.120 --> 39:29.120
+ And that is.
+
+39:29.120 --> 39:30.120
+ Heated up really fast.
+
+39:30.120 --> 39:33.240
+ That is inertial fusion okay.
+
+39:33.240 --> 39:36.680
+ Is that useful for energy generation for outside?
+
+39:36.680 --> 39:41.560
+ Not yet I mean there are those people who think it will be but you may have heard of
+
+39:41.560 --> 39:46.920
+ the big experiment called the National Ignition Facility which was built at Livermore starting
+
+39:46.920 --> 39:53.320
+ in the late 1990s and has been in operation since around about 2010.
+
+39:53.320 --> 39:59.800
+ It was designed with the claim that it would reach ignition fusion ignition in this pulsed
+
+39:59.800 --> 40:04.940
+ form where the reactions have got over with so quickly before the thing whole thing flies
+
+40:04.940 --> 40:05.940
+ apart.
+
+40:05.940 --> 40:09.880
+ It didn't actually reach ignition and it doesn't look as if it will although you know we never
+
+40:09.880 --> 40:14.360
+ know maybe people figure out how to make it work better.
+
+40:14.360 --> 40:20.840
+ But the answer is in principle it seems possible to reach ignition in this way maybe not with
+
+40:20.840 --> 40:22.680
+ that particular laser facility.
+
+40:22.680 --> 40:31.580
+ Are you surprised that we humans haven't destroyed ourselves given that we've invented such powerful
+
+40:31.580 --> 40:33.080
+ tools of destruction?
+
+40:33.080 --> 40:39.200
+ Like what do you make of the fact that for many decades we've had nuclear weapons now
+
+40:39.200 --> 40:44.280
+ speaking about estimating risk at least to me it's exceptionally surprising I was born
+
+40:44.280 --> 40:53.360
+ in the Soviet Union that big egos of the big leaders when rubbing up against each other
+
+40:53.360 --> 40:59.880
+ have not created the kind of destruction everybody was afraid of for decades.
+
+40:59.880 --> 41:03.960
+ Well I must say I'm extremely thankful that it hasn't I don't know whether I'm surprised
+
+41:03.960 --> 41:09.800
+ about it I've never thought about it and from the point of view of is it surprising that
+
+41:09.800 --> 41:14.360
+ we've we've avoided it I'm just very thankful that we have I think that there is a sense
+
+41:14.360 --> 41:22.040
+ in which cooler heads have prevailed at crucial moments I think there is also a sense in which
+
+41:22.040 --> 41:30.800
+ you know mutually assured destruction has in fact worked as a policy to restrain the
+
+41:30.800 --> 41:38.560
+ great powers from going to war and in fact you know the the the fact that we haven't
+
+41:38.560 --> 41:49.680
+ had a world war you know since the 1940s is perhaps even attributable to nuclear weapons
+
+41:49.680 --> 41:59.220
+ in a kind of strange and peculiar way but I think humans are deeply flawed and sinful
+
+41:59.220 --> 42:06.540
+ people and I certainly don't feel that we're guaranteed that it's going to go on like this.
+
+42:06.540 --> 42:12.280
+ And we'll talk about the sort of the biggest picture view of it all but let me just ask
+
+42:12.280 --> 42:18.320
+ in terms of your worries of if we look a hundred years from now we're in the middle of what
+
+42:18.320 --> 42:26.160
+ is now a natural pandemic that from the looks of it as fortunately as not as bad as it could
+
+42:26.160 --> 42:30.960
+ possibly been if you look at the Spanish flu if you look at the history of pandemics if
+
+42:30.960 --> 42:35.400
+ you look at all the possible pandemics that could have been that folks like Bill Gates
+
+42:35.400 --> 42:42.840
+ are exceptionally terrified about we've I know many people are suffering but it's better
+
+42:42.840 --> 42:48.320
+ than it could have been so and now we're talking about nuclear weapons in terms of existential
+
+42:48.320 --> 42:58.440
+ threats to us as sinful humans what worries you the most is it nuclear weapons is is it
+
+42:58.440 --> 43:05.280
+ natural pandemics engineered pandemics nanotechnology in my field of artificial intelligence some
+
+43:05.280 --> 43:12.440
+ people are afraid of killer robots and robots yeah is there do you think in those existential
+
+43:12.440 --> 43:21.680
+ terms and do any aspect to any of those things were you I am certainly not confident that
+
+43:21.680 --> 43:29.600
+ my children and grandchildren will experience the benefits of civilization that I have enjoyed
+
+43:29.600 --> 43:37.240
+ I think it's possible for our civilizations to break down catastrophically I also think
+
+43:37.240 --> 43:44.160
+ that it's possible for our civilizations to break down progressively and I think they
+
+43:44.160 --> 43:50.760
+ will if we continue to have the explosion of population on the planet that we currently
+
+43:50.760 --> 43:58.640
+ have I mean it's it's quite it's quite wrong to think of our problems as mostly being co2
+
+43:58.640 --> 44:05.000
+ if we can just solve co2 then we can go on having this you know continually expanding
+
+44:05.000 --> 44:10.960
+ economy everywhere in the world of course you can't do that okay I mean there is a finite
+
+44:10.960 --> 44:16.320
+ you know bearing capacity of our planet on the resources of our planet on the resources
+
+44:16.320 --> 44:21.480
+ of our planet and and we can't continue to do that so I think there are lots of technical
+
+44:21.480 --> 44:32.080
+ reasons why a continually expanding economy and and and civilization is impossible and
+
+44:32.080 --> 44:37.560
+ therefore actually I'm as much nervous about the fact that our population is eight billion
+
+44:37.560 --> 44:44.680
+ or something right now worldwide as I am about the fact that you know a few million people
+
+44:44.680 --> 44:51.380
+ would be would be killed by COVID 19 I mean I don't want to be callous about this but
+
+44:51.380 --> 44:57.840
+ from the big picture it seems like that's much more of a problem over population people
+
+44:57.840 --> 45:05.680
+ not dying is ultimately more of a problem than people dying so you know that probably
+
+45:05.680 --> 45:11.780
+ sounds incredibly callous to your listeners but I think it's simply you know a sober assessment
+
+45:11.780 --> 45:18.840
+ of the situation is there is there ways from the way those eight billion or seven billion
+
+45:18.840 --> 45:24.800
+ or whatever the number is live that could make it sustainable you know because you've
+
+45:24.800 --> 45:29.720
+ kind of implied there's a kind of we have especially in the West this kind of capitalist
+
+45:29.720 --> 45:36.880
+ view of really consuming a lot of resources is there a way to like if you could change
+
+45:36.880 --> 45:43.440
+ one thing or a few things what would you change to make this life make it more likely that
+
+45:43.440 --> 45:50.520
+ your grandchildren have a better life than you well okay so let's talk a bit about energy
+
+45:50.520 --> 45:55.680
+ because that's something I know a lot a lot about having thought about it most of my career
+
+45:55.680 --> 46:02.580
+ in order to reach steady state co2 level okay that's acceptable in terms of global climate
+
+46:02.580 --> 46:10.960
+ change and so on and so forth we need to reduce our carbon emissions by at least a factor
+
+46:10.960 --> 46:21.240
+ of ten worldwide okay what's more you know the average energy consumption and hence co2
+
+46:21.240 --> 46:28.720
+ emission of people in the world is less than a tenth of what we per capita of them what
+
+46:28.720 --> 46:35.280
+ we have in the West in America and Europe and so forth so if you have in mind some utopia
+
+46:35.280 --> 46:43.280
+ in the future where we've reached a sustainable use of energy and we've also reached a situation
+
+46:43.280 --> 46:50.080
+ in which there is far less inequity in the world in the sense that people have share
+
+46:50.080 --> 46:58.000
+ the energy resources more uniformly then what that is equivalent to would be to reduce the
+
+46:58.000 --> 47:05.120
+ co2 emissions in Western economies not by a factor of ten but by a factor of a hundred
+
+47:05.120 --> 47:10.520
+ in other words has to go down to one percent of what it is now okay so you know when people
+
+47:10.520 --> 47:16.440
+ talk about you know let's use natural gas because you know maybe it only uses sixty
+
+47:16.440 --> 47:21.600
+ percent of the energy of coal it's complete nonsense that's not not even scratching the
+
+47:21.600 --> 47:30.440
+ surface of what we would need to do so you know is that going to be feasible I very much
+
+47:30.440 --> 47:40.640
+ doubt it and therefore I actually doubt that we can reach a level of energy of fossil energy
+
+47:40.640 --> 47:47.340
+ use that is one percent of the current use in the West without totally dramatic changes
+
+47:47.340 --> 47:53.600
+ either in you know our society our use of of energy and so forth which actually of course
+
+47:53.600 --> 47:58.160
+ is much of that energy is used for producing food and so on and so forth so it's actually
+
+47:58.160 --> 48:03.520
+ not so obvious that we can we can get we can cut down our energy usage by that factor or
+
+48:03.520 --> 48:09.800
+ we've got to reduce the human population so you run up against that number that's increasing
+
+48:09.800 --> 48:17.680
+ still and you don't think that could be it's not it's not that it's not it's not depressing
+
+48:17.680 --> 48:28.600
+ it's it's difficult like many truths are do you have a hope that there could be a technological
+
+48:28.600 --> 48:37.120
+ solution in short no there is no technological solution to for example for population control
+
+48:37.120 --> 48:41.920
+ I mean we have the technology just you know to prevent ourselves bearing children that's
+
+48:41.920 --> 48:49.880
+ not a problem technology is in okay solved the challenge is society the challenge is
+
+48:49.880 --> 48:57.160
+ human choices the challenge is almost entirely human and sociological not technology not
+
+48:57.160 --> 49:01.480
+ technology and when people thought talk about energy they thought they think that there's
+
+49:01.480 --> 49:06.720
+ some kind of technological magic bullet for this but there isn't okay and and there isn't
+
+49:06.720 --> 49:10.280
+ for the reasons I just mentioned not because it's obvious there isn't but actually there
+
+49:10.280 --> 49:18.080
+ isn't and and in in any case that it's true of energy it's true of pollution it's true
+
+49:18.080 --> 49:25.040
+ of human population it's true of most of the big challenges in our society are not scientific
+
+49:25.040 --> 49:32.320
+ or technological challenges they're human sociological challenges and that's why I think
+
+49:32.320 --> 49:38.440
+ it's a terrible mistake even for folks like me who work at you know well the high temple
+
+49:38.440 --> 49:45.160
+ of science and technology in in America and maybe in the galaxy yeah I mean you know it's
+
+49:45.160 --> 49:52.760
+ it's MIT it's at MIT best university in the world it's it's a terrible mistake if we give
+
+49:52.760 --> 49:57.760
+ the impression that technology is going to solve it all technology will make tremendous
+
+49:57.760 --> 50:04.200
+ contributions and I think it's it's worth working on it but it's a disaster if you think
+
+50:04.200 --> 50:09.040
+ it's going to solve all of our problems and and actually you know I've written a whole
+
+50:09.040 --> 50:15.300
+ book about the question of of scientism and the and the over emphasis on science both
+
+50:15.300 --> 50:20.840
+ as a way of of solving problems through technology but also as a way of gaining knowledge I think
+
+50:20.840 --> 50:27.560
+ it's not all the knowledge there is either yeah I think that book and your journey there
+
+50:27.560 --> 50:33.120
+ is fascinating so maybe you can go there can can you tell me about your on a personal side
+
+50:33.120 --> 50:39.600
+ your the personal journey of your faith of Christianity and your relationship with with
+
+50:39.600 --> 50:46.080
+ God with religion in general yeah in my in my latest book Can a Scientist Believe in
+
+50:46.080 --> 50:52.300
+ Miracles I I give a first I devote most of the first chapter to telling how how I became
+
+50:52.300 --> 50:58.280
+ a Christian why I became a Christian I I didn't grow up as a Christian which is fascinating
+
+50:58.280 --> 51:02.940
+ I mean you didn't grow up as a Christian so you you've discovered the beauty of God and
+
+51:02.940 --> 51:07.960
+ physics at the same time concurrent that's a very poetic way of putting it but yes I
+
+51:07.960 --> 51:13.440
+ would accept that I became a Christian when I was an undergraduate at Cambridge University
+
+51:13.440 --> 51:18.900
+ I I had you know I had gone to a school in which there was religion kind of was part
+
+51:18.900 --> 51:25.040
+ of the society there were prayers and at the at the at the daily you know gathering of
+
+51:25.040 --> 51:30.240
+ the of the students of the assembly of the students but I but I didn't really believe
+
+51:30.240 --> 51:34.800
+ it I just sort of went along with it and it wasn't particularly you know aggressive or
+
+51:34.800 --> 51:41.160
+ benign you know benign it just sort of was there but I didn't believe it I didn't didn't
+
+51:41.160 --> 51:45.560
+ make much sense to me but when I but I came across Christians from time to time and when
+
+51:45.560 --> 51:54.120
+ I went to Cambridge University two of my closest friends turned out were Christians and I think
+
+51:54.120 --> 52:03.240
+ it was that was the most important influence on me that that here were two people who were
+
+52:03.240 --> 52:11.440
+ really smart like me I'm giving you my yeah my impressions the way I the way I felt at
+
+52:11.440 --> 52:21.560
+ the time and and they thought Christianity made sense and and you know testified to its
+
+52:21.560 --> 52:28.120
+ significance in their lives and so that was a very important influence on me and I and
+
+52:28.120 --> 52:34.480
+ ultimately I mean the reason I I hadn't I hadn't I didn't see Christianity as some
+
+52:34.480 --> 52:38.880
+ kind of great evil the way it's sometimes portrayed by the by the radical atheists of
+
+52:38.880 --> 52:43.880
+ this century I mean I think that's nonsense but but but I so I think there were certain
+
+52:43.880 --> 52:48.000
+ attractive things if you go to a university like Cambridge you know you're surrounded
+
+52:48.000 --> 52:55.240
+ by by by Western culture you know from from about you know the 15th century onwards and
+
+52:55.240 --> 53:03.160
+ that saturated with Christian art and architecture and so forth and so it's hard it's hard not
+
+53:03.160 --> 53:09.800
+ to recognize that Christianity is in fact the foundation of Western society in Western
+
+53:09.800 --> 53:17.880
+ culture most Western civilization so so I mean maybe I was in that sense favorably disposed
+
+53:17.880 --> 53:22.600
+ towards Christianity as a religion but as a personal faith it didn't mean anything
+
+53:22.600 --> 53:30.320
+ to me but I became convinced really of two things one is that the evidence for the resurrection
+
+53:30.320 --> 53:35.440
+ of Jesus Christ is actually rather good I mean it's not a proof it's not kind of some
+
+53:35.440 --> 53:40.120
+ some kind of scientific demonstrate or mathematical demonstration but it's actually extremely
+
+53:40.120 --> 53:44.520
+ good it's not scientific evidence by and large it's historical evidence historical evidence
+
+53:44.520 --> 53:51.360
+ yeah so that was one thing and the other thing that came to me when I was at Cambridge it
+
+53:51.360 --> 54:01.520
+ became clear that Christianity ultimately is not you know some kind of moral theory
+
+54:01.520 --> 54:08.760
+ or philosophy or something like that it is or elite or at least it claims to be a personal
+
+54:08.760 --> 54:14.880
+ relationship with God which is made possible you know by what Jesus did and on the cross
+
+54:14.880 --> 54:21.440
+ and his life and his teaching and and it's a personal call to a relationship with God
+
+54:21.440 --> 54:26.920
+ and that had I'd never thought of it in those terms when I was you know when I was younger
+
+54:26.920 --> 54:33.760
+ and that that thought became attractive to me I mean I think most people find the person
+
+54:33.760 --> 54:39.380
+ of Christ and just teachings you know compelling insert in a certain sense what do you mean
+
+54:39.380 --> 54:44.840
+ by personal do you mean personal for you like a relationship like it's a meditative
+
+54:44.840 --> 54:52.640
+ like you specifically you Ian have a connection with God and and then the other side you say
+
+54:52.640 --> 54:59.000
+ personal with the actual body the person of Jesus Christ so all of those things what do
+
+54:59.000 --> 55:05.240
+ you mean by personal connection and why that was well so as I'm sorry for the stupid questions
+
+55:05.240 --> 55:11.200
+ no it's okay no problem as a Christian I believe that I have a relationship with God which
+
+55:11.200 --> 55:18.360
+ is best expressed by saying that it's personal and that comes about because you know Jesus
+
+55:18.360 --> 55:31.000
+ through his acts has reconciled me with God me a sinner me someone full of sins of failings
+
+55:31.000 --> 55:36.360
+ of ways in which I don't live up to even my own ideals let alone the ideals of a holy
+
+55:36.360 --> 55:47.120
+ God have been reconciled to the creator of everything and and so Christians myself included
+
+55:47.120 --> 55:53.040
+ believe that prayer is in a certain sense a connection with God and there are times
+
+55:53.040 --> 55:59.000
+ when I have felt you know that God spoke to me I don't mean necessarily orally in words
+
+55:59.000 --> 56:09.380
+ but showed me things or enlighten me or inspired me in ways that I I attribute to him so I
+
+56:09.380 --> 56:17.120
+ see it as a as a two way you know relationship in a certain sense of course it's a very asymmetrical
+
+56:17.120 --> 56:21.880
+ relationship but nevertheless Christians think that it's a two way it's a two way street
+
+56:21.880 --> 56:28.000
+ we're not just talking into the air when we say we won't I'm going to pray for someone
+
+56:28.000 --> 56:33.960
+ in this two way communication is there a way that you could try to describe on a podcast
+
+56:33.960 --> 56:46.120
+ what is God what is God like in your view if you try to describe is it a force is it
+
+56:46.120 --> 56:53.200
+ a set is it a for you intellectually is a set of metaphors that you use to reason about
+
+56:53.200 --> 57:02.040
+ the world is it is it is it kind of a computer that does some computation that's the infinitely
+
+57:02.040 --> 57:08.320
+ powerful computer or is it like Santa Claus a guy with a with a beard on the cloud like
+
+57:08.320 --> 57:15.480
+ I don't mean I don't mean what God actually is I mean in your limited cognitive capacity
+
+57:15.480 --> 57:21.120
+ as a human what do you actually what do you find helpful for thinking of what God actually
+
+57:21.120 --> 57:27.040
+ looks like what is God well let me start by saying none of the above okay I mean clearly
+
+57:27.040 --> 57:37.400
+ God in the Christian God the God of Abraham Isaac and Jacob etc it is is not any of those
+
+57:37.400 --> 57:45.100
+ things because all of those things you just mentioned are phenomena or or or entities
+
+57:45.100 --> 57:52.800
+ in the created world and the most fundamental thing about monotheism as you know Abraham
+
+57:52.800 --> 58:00.640
+ and Moses and so forth handed it down is that God is not an entity within the creation within
+
+58:00.640 --> 58:06.280
+ the universe that God is the creator of it all and that's what Genesis first two chapters
+
+58:06.280 --> 58:11.880
+ of Genesis is really about is it's not it's not about telling us you know how God created
+
+58:11.880 --> 58:18.260
+ the world it's about telling us and telling the early Hebrews that God created the world
+
+58:18.260 --> 58:23.360
+ okay and that therefore he is not you know simply an entity within it on the other hand
+
+58:23.360 --> 58:31.120
+ you know our finite minds have a pretty hard time encompassing that so so one has to therefore
+
+58:31.120 --> 58:38.700
+ work in terms of metaphors and images and and so forth and I think we would know very
+
+58:38.700 --> 58:47.200
+ little about who God is if we if it was simply up if we were simply left to our own devices
+
+58:47.200 --> 58:51.600
+ you know if if we were just you know here you are you're in the universe try to figure
+
+58:51.600 --> 58:56.800
+ out who made it and and so forth well you know philosophers think they can do a little
+
+58:56.800 --> 59:03.600
+ bit of that maybe and theologians think that they can do a little bit more but but Christians
+
+59:03.600 --> 59:11.720
+ think that God has actually helped us along a lot by revealing himself and and we say
+
+59:11.720 --> 59:18.020
+ that he's revealed himself supremely in the person of Jesus Christ and so you know when
+
+59:18.020 --> 59:25.200
+ Jesus says to his disciples if you've seen me you've seen the Father then that is in
+
+59:25.200 --> 59:31.800
+ a certain sense a watchword for answering this question for Christians it is that supremely
+
+59:31.800 --> 59:37.800
+ if we want to help ourselves understand who God really is we look to Jesus we look to
+
+59:37.800 --> 59:48.680
+ what he did we look to what he said and so forth and we believe that he is one with the
+
+59:48.680 --> 59:53.720
+ Father and that's why we believe you know in the Trinity I mean it's basically because
+
+59:53.720 --> 1:00:01.700
+ that revelation is extremely central to Christian belief and teaching so in that in that sense
+
+1:00:01.700 --> 1:00:07.520
+ through Jesus there was a that's kind of a historical moment that's profound that's
+
+1:00:07.520 --> 1:00:15.000
+ really powerful do you also think that God makes himself seen in less obvious ways in
+
+1:00:15.000 --> 1:00:26.240
+ our world today absolutely absolutely I mean it's it's certainly been the outlook of Jews
+
+1:00:26.240 --> 1:00:32.760
+ and Christians throughout history that God is seen in the creation that we when we look
+
+1:00:32.760 --> 1:00:41.120
+ at the creation we see to some extent the wonder the majesty the might of the person
+
+1:00:41.120 --> 1:00:49.320
+ or the entity but the person who created it and and that's a way in which scientists
+
+1:00:49.320 --> 1:00:58.040
+ particularly have over over the ages and certainly over most of the last five centuries since
+
+1:00:58.040 --> 1:01:05.040
+ the scientific revolution scientists have seen in a certain sense the hand of God in
+
+1:01:05.040 --> 1:01:10.660
+ creation I mean this leads us perhaps to a different discussion but I mean it's it's
+
+1:01:10.660 --> 1:01:19.800
+ remarkable to me how influential Christianity and religion in generally has been in science
+
+1:01:19.800 --> 1:01:24.240
+ yeah most of the scientists through history as if you described I mean God has been a
+
+1:01:24.240 --> 1:01:29.960
+ very big part of their life and their work certainly up until the at the beginning of
+
+1:01:29.960 --> 1:01:34.920
+ the 20th century that was the case so maybe this is a good time to can you tell me what
+
+1:01:34.920 --> 1:01:41.520
+ scientism is yeah I mean the short answer is that by scientism we mean we mean the
+
+1:01:41.520 --> 1:01:48.280
+ belief that science is all the real knowledge there is that's a shorthand there are lots
+
+1:01:48.280 --> 1:01:52.700
+ of different facets of it and what which one can explore and the book in which I explored
+
+1:01:52.700 --> 1:02:00.200
+ it most most thoroughly was actually an earlier book called monopolizing knowledge and and
+
+1:02:00.200 --> 1:02:06.640
+ the purpose of that title is to is to draw attention to the fact that in our society
+
+1:02:06.640 --> 1:02:15.760
+ as a whole in particularly in the West today we we have grown so reliant on science that
+
+1:02:15.760 --> 1:02:23.760
+ we that we tend to put aside other ways of getting to know things and so of course at
+
+1:02:23.760 --> 1:02:31.800
+ MIT we are focused on science and we do focus on it very much but the truth is that there
+
+1:02:31.800 --> 1:02:38.440
+ are many ways of getting to know things in our world know things reliably in our world
+
+1:02:38.440 --> 1:02:45.120
+ and a lot of them are not science so scientism in my view is a terrible intellectual error
+
+1:02:45.120 --> 1:02:49.280
+ it's to believe it's the belief that somehow the methods of science as we develop them
+
+1:02:49.280 --> 1:02:56.340
+ with you know experiments and in the end they it relies particularly upon reproducibility
+
+1:02:56.340 --> 1:03:02.600
+ in the world and on a kind of clarity that comes from measurements and mathematics and
+
+1:03:02.600 --> 1:03:10.280
+ related types of of skills those powerful though they are for finding out about the
+
+1:03:10.280 --> 1:03:16.640
+ world are not all the knowledge do not give us all the knowledge we we have and there's
+
+1:03:16.640 --> 1:03:24.800
+ many other forms of knowledge and the illustration that I usually use to to try to help people
+
+1:03:24.800 --> 1:03:28.640
+ to think about this is to say well look let's think about human history I mean to what extent
+
+1:03:28.640 --> 1:03:34.360
+ can human history be discovered scientifically the answer is essentially can't because and
+
+1:03:34.360 --> 1:03:40.060
+ the reason is because human history is not reproducible you can't do reproducible experiments
+
+1:03:40.060 --> 1:03:46.920
+ or observations and and go back and you know try it over again it's it's a one off thing
+
+1:03:46.920 --> 1:03:53.240
+ you know the history is full of unique events and and so you you know you you can't hope
+
+1:03:53.240 --> 1:04:00.140
+ to do history using the methods of science yeah I mean in some sense history is a story
+
+1:04:00.140 --> 1:04:05.760
+ of miracles I mean they don't have to do with God it's just uniqueness is anyway unique
+
+1:04:05.760 --> 1:04:12.160
+ events unique events and that science doesn't like that because it's unique events by their
+
+1:04:12.160 --> 1:04:18.060
+ very definition are not reproducible can I ask sort of a tricky question I don't even
+
+1:04:18.060 --> 1:04:25.460
+ know what atheist or atheism is but is it possible for somebody to be an atheist and
+
+1:04:25.460 --> 1:04:33.520
+ avoid slipping into scientism oh yeah absolutely I mean it I mean there these are two separate
+
+1:04:33.520 --> 1:04:39.480
+ things okay I'm quite sure there are many people who don't believe in God and yet recognize
+
+1:04:39.480 --> 1:04:44.200
+ that there are many different ways of we get knowledge you know some is history some is
+
+1:04:44.200 --> 1:04:54.440
+ sociology economics politics philosophy art history language literature etc etc there
+
+1:04:54.440 --> 1:05:00.220
+ are many people who recognize those disciplines as having their own approaches to epistemology
+
+1:05:00.220 --> 1:05:05.800
+ and to get how we get knowledge and valuing them very highly I don't mean to say that
+
+1:05:05.800 --> 1:05:14.480
+ everyone you know who's an atheist automatically you know subscribes to the scientistic viewpoint
+
+1:05:14.480 --> 1:05:21.280
+ that's not true but it's certainly the case that many of the arguments in fact most of
+
+1:05:21.280 --> 1:05:27.960
+ the arguments of the aggressive atheists of this century people are sometimes called new
+
+1:05:27.960 --> 1:05:33.360
+ atheists although they're actually rather old most of their arguments are rather old
+
+1:05:33.360 --> 1:05:40.240
+ you know are drawing heavily on scientism so when they say things like there's no evidence
+
+1:05:40.240 --> 1:05:48.160
+ to support Christianity okay what they are really focusing on is to say is saying that
+
+1:05:48.160 --> 1:05:54.020
+ Christianity isn't proved or the evidence for Christianity is not science okay science
+
+1:05:54.020 --> 1:05:59.960
+ doesn't prove it and and you you know if you read their books that's what you find they
+
+1:05:59.960 --> 1:06:08.160
+ really mean is science doesn't lead you necessarily to believe in a creator God or into it in
+
+1:06:08.160 --> 1:06:15.480
+ any particular in religion I accept that that's not a problem to me because I don't think
+
+1:06:15.480 --> 1:06:18.240
+ that science is all the knowledge there is and I think there are other important ways
+
+1:06:18.240 --> 1:06:22.600
+ of getting to know things and one of them is historical for example and I mentioned
+
+1:06:22.600 --> 1:06:28.040
+ earlier that I think I became persuaded and I were and I still am persuaded that the historical
+
+1:06:28.040 --> 1:06:34.340
+ evidence for the resurrection is very is very persuasive again it's not proof or anything
+
+1:06:34.340 --> 1:06:40.880
+ like that but it's but it's pretty good evidence okay yeah I've um I talked to Richard Dawkins
+
+1:06:40.880 --> 1:06:48.120
+ on this podcast and um uh and uh I saw you debate with Sean Carroll so I I understand
+
+1:06:48.120 --> 1:06:54.540
+ this world it makes it makes me very curious maybe uh let me ask sort of another way my
+
+1:06:54.540 --> 1:07:04.640
+ own kind of uh world view maybe you can help as by way of therapy understand um you know
+
+1:07:04.640 --> 1:07:09.880
+ because you've kind of said that there's other ways of knowing what about if we if if I kind
+
+1:07:09.880 --> 1:07:17.600
+ of sit here and am cognizant of the fact that I almost don't know anything so sort of I'm
+
+1:07:17.600 --> 1:07:23.360
+ sitting here almost paralyzed by the the mystery of it all and it's not even when you say there's
+
+1:07:23.360 --> 1:07:30.680
+ other ways of knowing it um it feels almost too confident to me because uh yeah when I
+
+1:07:30.680 --> 1:07:36.760
+ when I listen to beautiful music or uh see art there's something there that's and that's
+
+1:07:36.760 --> 1:07:43.640
+ uh that's beyond the reach of scientism I would say so beyond the reach of uh the the
+
+1:07:43.640 --> 1:07:52.200
+ tools of science but I don't even feel like that could be as an actual tool of knowing
+
+1:07:52.200 --> 1:07:57.000
+ it um yeah I just don't even know where to begin because it just feels like we know so
+
+1:07:57.000 --> 1:08:02.220
+ little like uh if we look even a hundred years from now when people look back to this time
+
+1:08:02.220 --> 1:08:07.100
+ humans look back to this time they'll probably laugh at how little we knew even a hundred
+
+1:08:07.100 --> 1:08:11.120
+ years from now and if we look at a thousand years from now hopefully we're still alive
+
+1:08:11.120 --> 1:08:18.360
+ or some version of ourselves or AI version of ourselves you know they they'll certainly
+
+1:08:18.360 --> 1:08:26.400
+ laugh at the absurdity of our beliefs so what do you uh so you don't seem to be as paralyzed
+
+1:08:26.400 --> 1:08:31.760
+ by how little we know you confidently push on forward but what do you make of that sense
+
+1:08:31.760 --> 1:08:42.360
+ of uh of just not knowing of the mystery we need to be modest or or humble if even about
+
+1:08:42.360 --> 1:08:48.360
+ what we know I accept that and I certainly think that's true not not simply because in
+
+1:08:48.360 --> 1:08:54.240
+ the future we'll know more science and and there will be more powerful ways of finding
+
+1:08:54.240 --> 1:09:01.320
+ out about things but simply because you know sometimes we're not right we're wrong okay
+
+1:09:01.320 --> 1:09:11.280
+ in what we think we know um uh so that's crucial but it's also a very Christian outlook that
+
+1:09:11.280 --> 1:09:17.520
+ kind of humility is what Jesus taught so I so I don't know whether this was in the back
+
+1:09:17.520 --> 1:09:23.100
+ of your mind when you were thinking about this but it's often the case that um people
+
+1:09:23.100 --> 1:09:27.960
+ of religious faith are are accused of being dogmatists okay and there is a sense in which
+
+1:09:27.960 --> 1:09:35.080
+ dogma teaching accepted teaching is is part of religions okay but I don't think that
+
+1:09:35.080 --> 1:09:42.960
+ necessarily uh uh that leads one to blind dogmatism and I don't I certainly don't
+
+1:09:42.960 --> 1:09:47.640
+ think that faith we can talk about this later if you'd like but I certainly don't think
+
+1:09:47.640 --> 1:09:53.800
+ that faith means thinking you know something and not listening to counter arguments for
+
+1:09:53.800 --> 1:10:01.160
+ example um so I I think that's crucial yeah what is uh what does faith mean to you what
+
+1:10:01.160 --> 1:10:06.920
+ does it uh feel like what does it actually sort of how do you carry your faith in terms
+
+1:10:06.920 --> 1:10:13.920
+ of the way you see the world well I think faith is very often misunderstood in our society
+
+1:10:13.920 --> 1:10:23.520
+ at the moment um because uh it's often portrayed as being nothing other than uh believing things
+
+1:10:23.520 --> 1:10:34.440
+ you know ain't true you know um or or believing things that are are are not proven okay um
+
+1:10:34.440 --> 1:10:41.560
+ and um and this and faith does have a strand which is to do with you know basically believing
+
+1:10:41.560 --> 1:10:50.280
+ in um in concepts or um propositions but actually the the word faith is much broader than that
+
+1:10:50.280 --> 1:11:00.000
+ faith also means um you know trusting in something trusting in a person or trusting in a thing
+
+1:11:00.000 --> 1:11:06.640
+ uh the reliability of some technology for example um that's equally part of the meaning
+
+1:11:06.640 --> 1:11:10.920
+ of the word faith and and there's a third strand to the to the meaning of the word as
+
+1:11:10.920 --> 1:11:19.080
+ well and that is loyalty um so you know I have faith in my wife and and I try to act
+
+1:11:19.080 --> 1:11:25.320
+ in faith towards her and that's a kind of loyalty and so those three strands are the
+
+1:11:25.320 --> 1:11:31.760
+ are the most important strands of the meaning of faith yes belief in uh in propositions
+
+1:11:31.760 --> 1:11:38.040
+ that we might not have you know full proof about or maybe we have very little proof about
+
+1:11:38.040 --> 1:11:46.080
+ but it's also trust and and loyalty and actually in the in terms of the Christian faith Christians
+
+1:11:46.080 --> 1:11:51.920
+ are far more called to trust and loyalty than they are to belief in things they don't you
+
+1:11:51.920 --> 1:12:00.000
+ know don't have proof of okay um but but the critics of religion generally um tend to emphasize
+
+1:12:00.000 --> 1:12:03.920
+ the first one and say well you know you believe things for which you have no evidence okay
+
+1:12:03.920 --> 1:12:09.320
+ that's what that's what they think faith is well yeah there there is a sense in which
+
+1:12:09.320 --> 1:12:19.800
+ everybody has to live their lives uh believing or or or making decisions in situations when
+
+1:12:19.800 --> 1:12:27.520
+ they don't have all the proof or evidence or knowledge that enables you to make a completely
+
+1:12:27.520 --> 1:12:34.840
+ um rational or well informed or prudent decision we you know we do this all the time you know
+
+1:12:34.840 --> 1:12:39.480
+ my drive down here I nearly took a wrong turning and I thought which which which way do I go
+
+1:12:39.480 --> 1:12:50.920
+ do I keep going straight on and so my uh voice came out and I think go straight okay so so
+
+1:12:50.920 --> 1:12:56.080
+ you have to make decisions and sometimes you know you don't have a navigation system telling
+
+1:12:56.080 --> 1:13:00.480
+ you what to do you just have to make that decision with no with insufficient evidence
+
+1:13:00.480 --> 1:13:06.200
+ and you're doing it all the time as a human and that's part of being sentient um and so
+
+1:13:06.200 --> 1:13:13.240
+ that kind of um action and belief on the basis of incomplete evidence is not something that
+
+1:13:13.240 --> 1:13:19.280
+ I feel uncomfortable doing or I feel that I feel that somehow my Christian commitments
+
+1:13:19.280 --> 1:13:22.800
+ are forced me to do when I wouldn't have had to have done it otherwise I would have had
+
+1:13:22.800 --> 1:13:28.800
+ to do it anyway um and and so you know there's a sense in which um I think it's important
+
+1:13:28.800 --> 1:13:33.840
+ to see the breadth of meaning of faith and and and to recognize that in certainly in
+
+1:13:33.840 --> 1:13:39.600
+ the case of Christianity um it's trust and loyalty that the the key themes that we're
+
+1:13:39.600 --> 1:13:48.360
+ called to and I mean another interesting extension of that that you speak to is kind of loyalty
+
+1:13:48.360 --> 1:13:54.520
+ is referring to a connection with something outside of yourself yeah um so I think you've
+
+1:13:54.520 --> 1:14:00.000
+ spoken about like existentialism or even just atheism in general as um as leading naturally
+
+1:14:00.000 --> 1:14:07.720
+ to an individualism as a focus on the on the self and uh ideas that maybe the Christian
+
+1:14:07.720 --> 1:14:13.640
+ faith can um instill in you is um allowing you to sort of look outside of yourself so
+
+1:14:13.640 --> 1:14:21.080
+ connection I mean loyalty fundamentally is about other beings um and yeah other beings
+
+1:14:21.080 --> 1:14:27.280
+ and I mean I think I don't know what it is in me but I'm very much drawn to that idea
+
+1:14:27.280 --> 1:14:32.640
+ and um I think humans in general are drawn to that idea you can you can make all kinds
+
+1:14:32.640 --> 1:14:37.320
+ of evolutionary arguments all that kind of stuff but uh people always kind of tease me
+
+1:14:37.320 --> 1:14:44.060
+ uh because I talk about love a lot and I mean there's a lot of uh non scientific things
+
+1:14:44.060 --> 1:14:48.920
+ about love right like what the heck is that thing why why do we even need that thing it
+
+1:14:48.920 --> 1:14:54.160
+ uh it seems to be an annoying burden that uh that we we get so much uh joy in in life
+
+1:14:54.160 --> 1:14:59.160
+ from a connection with other human beings deep uh lasting connections with human beings
+
+1:14:59.160 --> 1:15:05.080
+ same thing with loyalty why why do we get so much value and pleasure and strength and
+
+1:15:05.080 --> 1:15:09.760
+ meaning from loyalty from a connection with somebody else uh going through uh thick and
+
+1:15:09.760 --> 1:15:13.560
+ thin with somebody else going through some hard times I mean some of the you know the
+
+1:15:13.560 --> 1:15:19.720
+ closest friends I I have is going through some some rough times together and that seems
+
+1:15:19.720 --> 1:15:29.540
+ to make life deeply meaningful what is that so yeah um I that's that resonates with me
+
+1:15:29.540 --> 1:15:37.480
+ and I obviously I would I would affirm it um I think just to just to correct the implication
+
+1:15:37.480 --> 1:15:45.920
+ that you made I I don't think it's necessarily the the consequence of atheism uh that we
+
+1:15:45.920 --> 1:15:51.040
+ that we lose track of those kinds of things I I mean I think that atheists can be loyal
+
+1:15:51.040 --> 1:15:57.560
+ okay if you like um the question more often comes up in the context of you know where
+
+1:15:57.560 --> 1:16:05.120
+ does morality come from and loyalty I think and duty are related to one another you know
+
+1:16:05.120 --> 1:16:10.540
+ if we have loyalty to someone then we have a duty to them okay as well and I think that
+
+1:16:10.540 --> 1:16:17.640
+ insofar as we see ourselves as having some kinds any kinds of duties or moral compulsions
+
+1:16:17.640 --> 1:16:23.480
+ with respect to our relationships to other people it's I think it's a question that always
+
+1:16:23.480 --> 1:16:28.440
+ arises well where does these where do these come from and there there are various approaches
+
+1:16:28.440 --> 1:16:37.500
+ that people have towards deciding what makes ethics or or morality moral okay but I do
+
+1:16:37.500 --> 1:16:48.760
+ think it's the case that um it's very hard to ground morality um in a in any kind of
+
+1:16:48.760 --> 1:16:57.360
+ absolute way or a persuasive way um in mere human relationships and so it's certainly
+
+1:16:57.360 --> 1:17:07.040
+ the case that in Christianity um there is a sense in which um morality and you know
+
+1:17:07.040 --> 1:17:16.120
+ the morality of morals comes from a transcendent place from a transcendent deity and that we
+
+1:17:16.120 --> 1:17:27.640
+ um that we ground are the compelling force of of morals on God are more than we do on
+
+1:17:27.640 --> 1:17:33.460
+ individuals because after all you know if it if you if you've got nothing but you know
+
+1:17:33.460 --> 1:17:40.840
+ other people why should you you know treat your neighbor well why shouldn't you defraud
+
+1:17:40.840 --> 1:17:45.880
+ your neighbor if it's good for you well you know you can construct all kinds of arguments
+
+1:17:45.880 --> 1:17:50.600
+ and some of them are you know obviously arguments that are commonplace in religion too you should
+
+1:17:50.600 --> 1:17:55.800
+ do as you would be done by and all this kind of thing right but none of that seems any
+
+1:17:55.800 --> 1:18:00.760
+ any more than mere pragmatism to most people okay and so that's what that's one of the
+
+1:18:00.760 --> 1:18:06.520
+ things if that Nietzsche amongst others you know really identified you know if God is
+
+1:18:06.520 --> 1:18:13.240
+ dead if the idea of God is grounding our moral behavior is no longer viable in the West which
+
+1:18:13.240 --> 1:18:18.960
+ Nietzsche thought that it wasn't okay then what does ground it and he had no good answer
+
+1:18:18.960 --> 1:18:23.960
+ for it in fact he claimed there was no answer but then he couldn't live with that and so
+
+1:18:23.960 --> 1:18:32.120
+ he invented the idea of the ubermensch you know this this superior human being okay and
+
+1:18:32.120 --> 1:18:38.400
+ this was a different way of trying to ground morality not a very successful one you know
+
+1:18:38.400 --> 1:18:46.440
+ you could argue that it's a forerunner of the sort of racism of Hitler's regime and
+
+1:18:46.440 --> 1:18:53.800
+ so forth that you know we've in the West thankfully shied away from in the in the past
+
+1:18:53.800 --> 1:19:03.240
+ half or three quarters of a century but you know I think it is the case that Christianity
+
+1:19:03.240 --> 1:19:13.920
+ gives me a basis for my moral beliefs that is more than mere pragmatism yeah but there
+
+1:19:13.920 --> 1:19:20.560
+ is a stepping outside of all that there does seem to be a powerful stabilizing like we
+
+1:19:20.560 --> 1:19:27.640
+ humans are able to hold ideas together like in a distributed way outside of whether God
+
+1:19:27.640 --> 1:19:32.760
+ exists or not or any that just our ability to kind of converge together towards a set
+
+1:19:32.760 --> 1:19:40.320
+ of beliefs into sometimes into tribes it's kind of I don't know if it's inherent to being
+
+1:19:40.320 --> 1:19:46.800
+ human beings I hope not because now if I look on Twitter and there's a there's the red team
+
+1:19:46.800 --> 1:19:53.120
+ and the blue team right it's almost like it's a care it's some kind of TV show that we're
+
+1:19:53.120 --> 1:19:58.200
+ living in that people get into these tribes and they hold a set of beliefs that sometimes
+
+1:19:58.200 --> 1:20:05.320
+ don't I mean they are beliefs for the sake of holding those beliefs and we get this intimate
+
+1:20:05.320 --> 1:20:11.600
+ connection between each other for sharing those beliefs and we spoke to the things about
+
+1:20:11.600 --> 1:20:17.000
+ loyalty and love and that's the thing that people feel inside the tribe and it seems
+
+1:20:17.000 --> 1:20:23.000
+ very human that within that tribe those beliefs don't necessarily always have to be connected
+
+1:20:23.000 --> 1:20:29.680
+ to anything it's just the fact that you know I've did sports my whole life whenever you're
+
+1:20:29.680 --> 1:20:35.600
+ on a team the bond you get with it with other people on the team is incredible and the actual
+
+1:20:35.600 --> 1:20:42.080
+ sport is often the silliest I mean I don't play ball sports anymore but the ball when
+
+1:20:42.080 --> 1:20:46.620
+ I played like soccer or tennis I mean all those sports are silly right you're playing
+
+1:20:46.620 --> 1:20:52.900
+ with a little ball but there's the bond you get is so deeply meaningful I just it's interesting
+
+1:20:52.900 --> 1:20:59.720
+ to me on the sociological level that it's possible to me whatever the beliefs of religion
+
+1:20:59.720 --> 1:21:09.680
+ is whatever they're actually grounded in they might be they might have a power in themselves
+
+1:21:09.680 --> 1:21:14.200
+ I think there is tribalism everywhere and I think tribalism in the US at the moment
+
+1:21:14.200 --> 1:21:21.240
+ is rather difficult to bear from my point of view and it's I think fed by the internet
+
+1:21:21.240 --> 1:21:27.660
+ and social media and so forth but it's but historically tribalism has been a trait and
+
+1:21:27.660 --> 1:21:38.280
+ remains a trait in humans the genius of Christianity is that it supersedes tribalism I mean yes
+
+1:21:38.280 --> 1:21:48.300
+ when the Hebrews thought about Yahweh initially they thought about him as their tribal deity
+
+1:21:48.300 --> 1:21:56.600
+ just like the tribal deities round about about them and so but and and yet from you know
+
+1:21:56.600 --> 1:22:06.440
+ early on in Hebrew history the crucial thing that Yahweh came to mean or I would say revealed
+
+1:22:06.440 --> 1:22:13.680
+ of himself to them was that he wasn't just a tribal deity he was the God that created
+
+1:22:13.680 --> 1:22:18.920
+ the whole thing and if he is the God of the whole thing then he's not just the God of
+
+1:22:18.920 --> 1:22:26.800
+ the Hebrews or in the case of you know Americans God is not just the God of Americans he's
+
+1:22:26.800 --> 1:22:36.880
+ the God of everybody okay and that is a way in a way the most amazing transcending of
+
+1:22:36.880 --> 1:22:45.440
+ tribal loyalties and one of the crucial you know occasions in the New Testament you know
+
+1:22:45.440 --> 1:22:52.760
+ when the Holy Spirit comes at Pentecost you know the the apostles and the and the disciples
+
+1:22:52.760 --> 1:22:57.220
+ speak in other tongues and there are people from all all the countries you know round
+
+1:22:57.220 --> 1:23:02.900
+ about hear them in their own languages and so you know whether whether you take that
+
+1:23:02.900 --> 1:23:12.360
+ as factual or not that is the a statement of the transcendent aspects of Christianity
+
+1:23:12.360 --> 1:23:18.120
+ or the claimed transcendent aspects of Christianity that it transcends culture and that's certainly
+
+1:23:18.120 --> 1:23:20.320
+ something which I find appealing.
+
+1:23:20.320 --> 1:23:29.360
+ When I kind of touch on this topic in my own mind one of the hardest questions is as why
+
+1:23:29.360 --> 1:23:36.520
+ is there suffering in the world do you have a good answer well I have I have some answers
+
+1:23:36.520 --> 1:23:41.480
+ but you're right that it is one of the toughest questions the problem of pain or the problem
+
+1:23:41.480 --> 1:23:49.160
+ of suffering or the problem of theodicy as as theologians call it is is is probably one
+
+1:23:49.160 --> 1:23:55.760
+ of the toughest I think it's important to say that there are certain types of answers
+
+1:23:55.760 --> 1:24:01.620
+ to this question but there are aspects of this question to which there is no intellectual
+
+1:24:01.620 --> 1:24:09.520
+ answer that is going to satisfy and and the fact of the matter is you know when I'm speaking
+
+1:24:09.520 --> 1:24:18.680
+ to an audience let's say at at at some kind of lecture I can be sure that there are people
+
+1:24:18.680 --> 1:24:23.200
+ in that audience who are either personally suffering they've got illness they've got
+
+1:24:23.200 --> 1:24:28.080
+ pains there maybe they're facing death or someone in their family is in similar sorts
+
+1:24:28.080 --> 1:24:35.200
+ of situations so suffering is a reality and and there is nothing that I can say that is
+
+1:24:35.200 --> 1:24:43.640
+ going to solve their feeling of agony and angst and and maybe despair in those types
+
+1:24:43.640 --> 1:24:50.640
+ of situations there is really only one thing that I think humans can do for one another
+
+1:24:50.640 --> 1:24:57.340
+ in those kinds of situations and that is simply to be there to be there alongside your friend
+
+1:24:57.340 --> 1:25:04.920
+ or your or your colleague or or whoever you know family member or whoever it might be
+
+1:25:04.920 --> 1:25:11.200
+ and that's the only really sense in which we can give comfort if we try to give intellectual
+
+1:25:11.200 --> 1:25:17.480
+ solutions to these problems we're going to be like like the comforters that were in the
+
+1:25:17.480 --> 1:25:26.320
+ book of Job in the in the Bible who who brought no comfort to Job himself with their intellectual
+
+1:25:26.320 --> 1:25:32.520
+ answers but if they had been there and some of them were there they sat alongside that
+
+1:25:32.520 --> 1:25:39.200
+ is some level of comfort and and after all that's the meaning of the word compassion
+
+1:25:39.200 --> 1:25:45.480
+ it means to suffer alongside of somebody and I would say first off you know what does a
+
+1:25:45.480 --> 1:25:52.000
+ Christian say about suffering the the first thing a Christian should say is compassion
+
+1:25:52.000 --> 1:26:00.360
+ is all that really counts and what's more we say that God has acted in compassion towards
+
+1:26:00.360 --> 1:26:07.040
+ us that is to say he has suffered with us in the person of Jesus Christ and when we
+
+1:26:07.040 --> 1:26:15.120
+ see the passion of Jesus we recognize that God takes suffering deadly seriously has taken
+
+1:26:15.120 --> 1:26:21.120
+ it so seriously that he's been willing to come and be a part of his creation in the
+
+1:26:21.120 --> 1:26:29.040
+ person of of Jesus Christ and suffer death the most horrible death on the cross and for
+
+1:26:29.040 --> 1:26:35.840
+ our benefit so that's one side of of suffering but the question you know the philosophical
+
+1:26:35.840 --> 1:26:44.400
+ question remains you know surely if God is good you know and God is omnipotent benevolent
+
+1:26:44.400 --> 1:26:50.100
+ you know why doesn't he take away all the suffering why doesn't he cause miracles to
+
+1:26:50.100 --> 1:26:54.760
+ occur that will take away all this suffering I think there are some good answers to that
+
+1:26:54.760 --> 1:27:05.520
+ question in the in the following sense that you know we live in a world where the consistency
+
+1:27:05.520 --> 1:27:13.400
+ of the world is an absolutely crucial part of it you know the fact that our world behaves
+
+1:27:13.400 --> 1:27:22.280
+ reproducibly in the main is absolutely essential for the integrity of our lives without it
+
+1:27:22.280 --> 1:27:29.640
+ we wouldn't exist okay and so there is a sense in which the integrity of creation calls for
+
+1:27:29.640 --> 1:27:34.800
+ there being consistent behavior which you know these days we think of as being the laws
+
+1:27:34.800 --> 1:27:41.600
+ of nature okay and so the consistent behavior of nature is very very important it's what
+
+1:27:41.600 --> 1:27:50.000
+ enables us to be what we are and if you're calling upon God in in in in your critique
+
+1:27:50.000 --> 1:27:58.260
+ of why isn't this benevolent creator you know fixing things one answer is he's fixed things
+
+1:27:58.260 --> 1:28:07.640
+ in a certain sense to have an integrity in them and that integrity is the best thing
+
+1:28:07.640 --> 1:28:13.360
+ it's the way we have our existence it's the way we live and move and have our being and
+
+1:28:13.360 --> 1:28:19.720
+ you know if you want something different you've got to show that there is a way in which you
+
+1:28:19.720 --> 1:28:25.680
+ could invent a world that is better that it has the integrity that we need to exist okay
+
+1:28:25.680 --> 1:28:32.840
+ and and and to be able to think and and and love and and be but but you were going to
+
+1:28:32.840 --> 1:28:38.280
+ do it better you know and the atheists think that maybe they have got a better idea but
+
+1:28:38.280 --> 1:28:42.560
+ if they thought about it a bit more carefully they'd realize no one has put forward a better
+
+1:28:42.560 --> 1:28:50.120
+ idea okay so the so another way to say that uh i mean is that suffering is an integral
+
+1:28:50.120 --> 1:29:02.360
+ part of this of um of a consistent existence so so sort of uh and the philosophical in
+
+1:29:02.360 --> 1:29:08.560
+ a philosophical sense uh the full richness and the beauty of our experience would not
+
+1:29:08.560 --> 1:29:14.760
+ be as beautiful would not be as rich uh if there was no suffering in the world is that
+
+1:29:14.760 --> 1:29:18.520
+ is that possible well i think you said two different things that aren't exactly at least
+
+1:29:18.520 --> 1:29:25.400
+ that aren't exactly the same one is that suffering is an integral part of our experience you
+
+1:29:25.400 --> 1:29:31.960
+ know that might be considered a challenge to certain types of christian theology or
+
+1:29:31.960 --> 1:29:37.000
+ or even uh jewish theology in other words um christians talk about the fall and talk
+
+1:29:37.000 --> 1:29:43.920
+ about uh adam and eve in the garden and and have have a vision of there being some kind
+
+1:29:43.920 --> 1:29:50.440
+ of perception from or perfection from which we have fallen and i think there is a perfection
+
+1:29:50.440 --> 1:29:56.920
+ from which we've fallen but i don't think that perfection is some kind of physical perfection
+
+1:29:56.920 --> 1:30:02.120
+ in other words i don't subscribe personally to the view that some some christians do that
+
+1:30:02.120 --> 1:30:09.320
+ there was some state um prior to the fall in which death did not occur i don't think
+
+1:30:09.320 --> 1:30:15.480
+ that that's consistent with science as we know it and i and i think that um death for
+
+1:30:15.480 --> 1:30:23.440
+ example has been part of the biological world and the and the universe as a whole um from
+
+1:30:23.440 --> 1:30:30.600
+ from billions of years ago so so just to be clear about that um you know i on the other
+
+1:30:30.600 --> 1:30:38.440
+ hand i do so if that's the case then certainly in that sense at the very least um suffering
+
+1:30:38.440 --> 1:30:47.560
+ or at least death okay is part of the biological existence and that probably seems so completely
+
+1:30:47.560 --> 1:30:53.040
+ obvious to somebody who you know is au fait with science whether they you know whether
+
+1:30:53.040 --> 1:30:59.000
+ they're a scientist or not well so and i apologize if i'm interrupting but it's the obvious reality
+
+1:30:59.000 --> 1:31:03.920
+ of of uh our life today but there's a lot of people i think it's currently in vogue
+
+1:31:03.920 --> 1:31:09.800
+ i've talked to quite a few folks who kind of see as the goal of many of our pursuits
+
+1:31:09.800 --> 1:31:15.280
+ as to extend life indefinitely a sort of uh you know a dream for many people is to live
+
+1:31:15.280 --> 1:31:21.500
+ forever uh but in the in the technological world in the engineering world in the scientific
+
+1:31:21.500 --> 1:31:29.680
+ world i mean that's that's the big dream to me it feels like that's not a dream it's i
+
+1:31:29.680 --> 1:31:34.480
+ certainly would like to live forever uh like that that's the initial feeling the instinctual
+
+1:31:34.480 --> 1:31:40.640
+ feeling because you know life is so amazing but then if you actually kind of like you've
+
+1:31:40.640 --> 1:31:45.860
+ presented it if you actually uh live that kind of life you would realize that that's
+
+1:31:45.860 --> 1:31:50.560
+ actually a step uh backwards that's a step down from the experience of this life in my
+
+1:31:50.560 --> 1:31:57.540
+ sense that death is an essential part of life uh about an essential part of this experience
+
+1:31:57.540 --> 1:32:04.560
+ death of all things so the thing the fact that things end somehow and the scarcity of
+
+1:32:04.560 --> 1:32:12.680
+ things somehow create the beauty of this experience that we have yeah transhumanism doesn't look
+
+1:32:12.680 --> 1:32:20.760
+ very attractive to me either but it also doesn't look very feasible um but that's a whole big
+
+1:32:20.760 --> 1:32:27.560
+ topic that i'm not exactly an expert but i'll say but i but you know i'm of a certain age
+
+1:32:27.560 --> 1:32:35.640
+ where my mortality is more pressing or more obvious to me than it once was okay um and
+
+1:32:35.640 --> 1:32:45.080
+ and i don't dread that i don't see that as in a certain sense even the enemy okay you're
+
+1:32:45.080 --> 1:32:50.720
+ not afraid of death well i'm afraid of lots of things in a in a in a conceptual way but
+
+1:32:50.720 --> 1:32:58.400
+ it doesn't keep me awake at night okay um i i'm i think like most people i'm more afraid
+
+1:32:58.400 --> 1:33:03.400
+ of pain than i am of death so i i don't want to put myself forward as some kind of hero
+
+1:33:03.400 --> 1:33:10.080
+ that doesn't worry about these things that's not true but i i do think and maybe this is
+
+1:33:10.080 --> 1:33:19.120
+ part of my christian outlook um that there is life beyond the grave um but i don't think
+
+1:33:19.120 --> 1:33:26.880
+ that that it's life in this universe or in this um certainly not in this body and maybe
+
+1:33:26.880 --> 1:33:30.880
+ not in a certain sense in this mind i mean you know christian christian belief in the
+
+1:33:30.880 --> 1:33:35.680
+ afterlife is is that we will be resurrected we will be in a certain sense be with god
+
+1:33:35.680 --> 1:33:39.040
+ i don't know what that means and i don't think anybody else really quite knows what that
+
+1:33:39.040 --> 1:33:45.300
+ means but there are lots of ways that over history people artists and and and writers
+
+1:33:45.300 --> 1:33:49.680
+ and so forth have pictured it um and these are all perhaps some of them helpful ways
+
+1:33:49.680 --> 1:33:55.640
+ of thinking about it do you think it's possible to know what happens after we die um i i don't
+
+1:33:55.640 --> 1:34:02.080
+ think we find out by near death experiences or those kinds of things but but i but i think
+
+1:34:02.080 --> 1:34:09.560
+ that uh you know that we have sufficient i feel i have sufficient information if you
+
+1:34:09.560 --> 1:34:16.360
+ like um in terms of god's revelation to be confident that that i will go somewhere
+
+1:34:16.360 --> 1:34:29.320
+ else okay but it won't be here and i to me the aspirations of transhumanism are horrific
+
+1:34:29.320 --> 1:34:34.640
+ i mean i think it would be a nightmare not a dream a nightmare you know to be somehow
+
+1:34:34.640 --> 1:34:42.680
+ downloaded into a computer and live one's life like that i because it it completely
+
+1:34:42.680 --> 1:34:49.720
+ discounts the integrity of our bodies as well as our minds i mean we aren't just disembodied
+
+1:34:49.720 --> 1:34:58.360
+ minds it would not be me that was in the computer it would be something else if if that kind
+
+1:34:58.360 --> 1:35:03.000
+ of download were possible of course it isn't possible and it's very long way from being
+
+1:35:03.000 --> 1:35:08.040
+ possible but you know amazing things happen so we shouldn't be too certain so this is
+
+1:35:08.040 --> 1:35:14.320
+ this is a place that uh again maybe taking a slight step outside uh wherever philosophizing
+
+1:35:14.320 --> 1:35:21.680
+ a little bit uh let me ask you about uh human level or superhuman level intelligence uh
+
+1:35:21.680 --> 1:35:30.240
+ the artificial intelligence systems do you what do you make from um from almost a religious
+
+1:35:30.240 --> 1:35:37.240
+ or a perspective that we've been talking about of the special aspect of human nature of us
+
+1:35:37.240 --> 1:35:43.800
+ creating intelligence systems that exhibit some elements of that human nature is that
+
+1:35:43.800 --> 1:35:48.360
+ something again like we were talking about with transhumanism uh there's a feasibility
+
+1:35:48.360 --> 1:35:52.400
+ question of how hard is it to actually build machines that human level intelligence or
+
+1:35:52.400 --> 1:35:57.160
+ have something like consciousness or have all those kinds of human qualities and then
+
+1:35:57.160 --> 1:36:03.880
+ there's the do we want to do that kind of thing so on both of those directions what
+
+1:36:03.880 --> 1:36:10.120
+ do you think well okay so you know since your podcast is called ai i don't want to offend
+
+1:36:10.120 --> 1:36:15.200
+ too many of your listeners out there that's but i but i i think one should be a little
+
+1:36:15.200 --> 1:36:20.640
+ bit more modest about one's claims for ai than have typically been the case yeah i think
+
+1:36:20.640 --> 1:36:25.720
+ that actually a lot of people in ai are somewhat chastened and so there there are more modest
+
+1:36:25.720 --> 1:36:33.920
+ claims than are common with the transhumanists and yes and and so forth um and you know i
+
+1:36:33.920 --> 1:36:39.640
+ used to play chess when i was a kid i was pretty good at it okay um won competitions
+
+1:36:39.640 --> 1:36:44.680
+ and so on and so forth and i when i and i'm talking about when i was in high school i
+
+1:36:44.680 --> 1:36:50.800
+ thought it was pretty unlikely that a computer would be able to become good at chess but
+
+1:36:50.800 --> 1:36:56.240
+ i was dead wrong okay and so you know um how did that make you feel by the way when um
+
+1:36:56.240 --> 1:37:03.000
+ t blue big i stopped playing chess seriously when i had when i encountered computers that
+
+1:37:03.000 --> 1:37:10.280
+ could beat me okay i still play with my grandchildren a little bit but but um but yeah it it seemed
+
+1:37:10.280 --> 1:37:15.640
+ like in a certain sense it became a solved problem uh when ai was able to do it better
+
+1:37:15.640 --> 1:37:22.620
+ than i could so i think that there are ways in which today we've seen um computers do
+
+1:37:22.620 --> 1:37:29.400
+ things which historically were regarded as being very characteristic of human intelligence
+
+1:37:29.400 --> 1:37:36.920
+ and in that sense there there is some success to ai i also think that um you know there
+
+1:37:36.920 --> 1:37:41.820
+ are certain things which one might think of as being ai which are you know completely
+
+1:37:41.820 --> 1:37:49.440
+ widespread in our society i'm thinking about the internet search engines and so forth which
+
+1:37:49.440 --> 1:37:55.540
+ are enormously influential and obviously do things more powerfully than any individual
+
+1:37:55.540 --> 1:38:04.320
+ human or even any combination of humans could do much faster and and and accessing databases
+
+1:38:04.320 --> 1:38:12.880
+ and so on and so forth is all of this is outstripped our human intelligence um i'm not sure the
+
+1:38:12.880 --> 1:38:19.420
+ extent though to which that is really intelligence uh in the way that was traditionally meant
+
+1:38:19.420 --> 1:38:28.760
+ but it's certainly amazingly um facile and um it it multiplies our ability to access
+
+1:38:28.760 --> 1:38:34.160
+ human knowledge and and data and so forth so is that something is that is that enter
+
+1:38:34.160 --> 1:38:39.920
+ the realm of something we should be concerned about so in the realm of religion you talk
+
+1:38:39.920 --> 1:38:44.760
+ about what is good what is evil what is right what is wrong you have set of morals set of
+
+1:38:44.760 --> 1:38:50.880
+ beliefs and when you have an entity come into the picture that uh that has quite a bit of
+
+1:38:50.880 --> 1:38:58.120
+ power if we potentially look into the future and intelligence and capability um do you
+
+1:38:58.120 --> 1:39:05.560
+ think there's something that religion can say about artificial intelligence or is that
+
+1:39:05.560 --> 1:39:09.360
+ something you we shouldn't worry about until that arrives you think just like with the
+
+1:39:09.360 --> 1:39:15.880
+ chess program um you know religious writers have thought about this for centuries uh you
+
+1:39:15.880 --> 1:39:21.500
+ know there's been a long debate about what is what was historically called the plurality
+
+1:39:21.500 --> 1:39:29.680
+ of worlds and it was actually more about whether there are places where other intelligent creatures
+
+1:39:29.680 --> 1:39:35.680
+ live than it was about us creating them but but i think it's largely the same question
+
+1:39:35.680 --> 1:39:40.600
+ it's almost like aliens like other intelligent so if there is other intelligent life in the
+
+1:39:40.600 --> 1:39:46.520
+ universe what is its relationship to god okay that is in a certain sense the puzzle that
+
+1:39:46.520 --> 1:39:50.360
+ religious thinkers and writers have thought about for a long time and there's a whole
+
+1:39:50.360 --> 1:39:55.960
+ range of of different opinions about that i mean personally you know i think it's it's
+
+1:39:55.960 --> 1:40:00.400
+ an interesting question but it's not a very pressing question at the moment um yeah and
+
+1:40:00.400 --> 1:40:06.480
+ i think the same way about the the question of what happens if we're able to build a sentient
+
+1:40:06.480 --> 1:40:11.080
+ robot for example um i think it's an interesting question and we'll have to think about it
+
+1:40:11.080 --> 1:40:16.240
+ when that happens um but i think we're still quite a ways away from that and so i i don't
+
+1:40:16.240 --> 1:40:21.560
+ have a good answer um but i think there's a literature that you one could tap um to
+
+1:40:21.560 --> 1:40:28.080
+ think about if you want to start early on the question well let me ask you another impossible
+
+1:40:28.080 --> 1:40:33.400
+ question from a religious or from a personal perspective what do you think is consciousness
+
+1:40:33.400 --> 1:40:41.240
+ this this uh subjective experience that we seem to be having there's uh this there's
+
+1:40:41.240 --> 1:40:46.880
+ uh the christian religion have something to say about consciousness does your own when
+
+1:40:46.880 --> 1:40:52.760
+ you look in the mirror do you have a sense of what is consciousness um i think the bible
+
+1:40:52.760 --> 1:40:57.080
+ doesn't have much in the way of answers about that directly in the sense that you're perhaps
+
+1:40:57.080 --> 1:41:02.380
+ asking it which is more like i think you're asking for some kind of uh quasi scientific
+
+1:41:02.380 --> 1:41:08.520
+ or maybe indeed scientific uh description that's really looking for one yes um i i think
+
+1:41:08.520 --> 1:41:15.720
+ that i think that there it's an interesting question i think it's actually um it's a
+
+1:41:15.720 --> 1:41:19.800
+ jump too far i think we have we don't even know the answer to the question what is the
+
+1:41:19.800 --> 1:41:25.320
+ mind let alone consciousness so if you distinguish between those two things i think the question
+
+1:41:25.320 --> 1:41:32.320
+ that's being addressed more directly um scientifically as well as in other ways it is what is the
+
+1:41:32.320 --> 1:41:38.800
+ mind um and that is certainly a very topical question even in places like mit which is
+
+1:41:38.800 --> 1:41:43.880
+ not historically involved with philosophical questions you know that people are doing neuroscience
+
+1:41:43.880 --> 1:41:50.880
+ and so forth i think it's a very important question and i think that we're going to find
+
+1:41:50.880 --> 1:42:01.760
+ that um we are not computers in other words i think uh the the commonplace theory of what
+
+1:42:01.760 --> 1:42:11.680
+ mind is is is generally speaking by analogy that we are basically wet wetware okay um
+
+1:42:11.680 --> 1:42:20.800
+ that we're some computer like um entity um and that that the analogy to digital computers
+
+1:42:20.800 --> 1:42:27.180
+ is is is a pretty decent one i mean that that's of course a viewpoint which um you know which
+
+1:42:27.180 --> 1:42:32.320
+ drives the aspirations of the transhumanists i mean they they so much believe that our
+
+1:42:32.320 --> 1:42:37.200
+ minds are nothing other than you know in a certain sense some kind of implementation
+
+1:42:37.200 --> 1:42:42.040
+ of software in biology that they say to themselves well of course we're going to be able to download
+
+1:42:42.040 --> 1:42:50.960
+ it into a into a digital computer i don't think that's true i think it's most likely
+
+1:42:50.960 --> 1:42:58.280
+ that quantum mechanics is very important in the brain uh it seems most unlikely that it's
+
+1:42:58.280 --> 1:43:04.520
+ not to me i know that that's contrary to the opinions of many people but but that's my
+
+1:43:04.520 --> 1:43:09.560
+ view and it's also a view for example of people like roger penrose and and people like that
+
+1:43:09.560 --> 1:43:17.080
+ who've written about it um rather extensively and if that's the case then really my mind
+
+1:43:17.080 --> 1:43:25.320
+ is not reproduce reducible to some kind of software which can be considered to be portable
+
+1:43:25.320 --> 1:43:33.480
+ it is so uh connected to the hardware of my body that the two are inseparable okay and
+
+1:43:33.480 --> 1:43:39.900
+ so if that is in fact what we find um as i suspect will be the case then the aspirations
+
+1:43:39.900 --> 1:43:47.480
+ of the transhumanists will be very long incoming if at all um so i think that actually physics
+
+1:43:47.480 --> 1:43:56.040
+ and chemistry um you know are in a are in a sense um involved with the brain and with
+
+1:43:56.040 --> 1:44:03.360
+ in the mind but not in a very simple way like you know like the computer analogy um in and
+
+1:44:03.360 --> 1:44:14.480
+ a much more complicated way and i and i also think that um it's philosophically ignorant
+
+1:44:14.480 --> 1:44:23.760
+ to speak as if um when and if the actions of the brain are understood at the physical
+
+1:44:23.760 --> 1:44:31.120
+ and chemical level that will mean that the mind will vanish as a concept you know that
+
+1:44:31.120 --> 1:44:36.840
+ we'll just say no we're nothing but brains okay of course it won't i mean it may well
+
+1:44:36.840 --> 1:44:42.440
+ be that our mind is an emergent phenomenon that comes out of the physics and chemistry
+
+1:44:42.440 --> 1:44:50.000
+ and biology okay but it's also something that we have to encounter and take seriously and
+
+1:44:50.000 --> 1:44:58.320
+ so um you know it's it's not the case that it that the mind is reducible to nothing but
+
+1:44:58.320 --> 1:45:04.720
+ physics and chemistry even if it's embedded in you know continuously into physics and
+
+1:45:04.720 --> 1:45:12.040
+ chemistry as i rather suspect it is um so i that that's my own view i mean another way
+
+1:45:12.040 --> 1:45:19.320
+ of putting it is that the mind or the soul is not something added into humans as might
+
+1:45:19.320 --> 1:45:25.360
+ have been the viewpoint um historically i do think there is you know there is something
+
+1:45:25.360 --> 1:45:30.240
+ added to humans but it's not it's not the mind it's the spirit and that takes us beyond
+
+1:45:30.240 --> 1:45:35.640
+ the physical it takes us beyond this universe but i but i don't think that that consciousness
+
+1:45:35.640 --> 1:45:42.360
+ the mind etc etc is that thing which is necessarily added in so i i'm not be emergent in some
+
+1:45:42.360 --> 1:45:47.880
+ way i'm not a substance dualist in that sense okay if you want to put it philosophically
+
+1:45:47.880 --> 1:45:54.000
+ i mean uh but you see your sense is um so the mind and the intelligence and consciousness
+
+1:45:54.000 --> 1:46:00.520
+ can be these emergent things do you do you have a hope a sense that science could help
+
+1:46:00.520 --> 1:46:07.800
+ us get it pretty far down the road of understanding we will get much further than we have and
+
+1:46:07.800 --> 1:46:15.920
+ we it'll be interesting um i mean right now our our methods of diagnosing the human brain
+
+1:46:15.920 --> 1:46:22.440
+ are extremely primitive i mean the resolution that we have you know that comes out of uh
+
+1:46:22.440 --> 1:46:28.840
+ out of nmr and and brain scans and so forth is miserable compared with what we need in
+
+1:46:28.840 --> 1:46:36.120
+ order to understand the brain at the cellular level let alone at the atomic level um but
+
+1:46:36.120 --> 1:46:40.360
+ you know we're making progress it's relatively slow progress but it's progress and people
+
+1:46:40.360 --> 1:46:44.160
+ are working on it and we're going to get better at it and we'll find out very interesting
+
+1:46:44.160 --> 1:46:49.520
+ things as we do um the time resolution is also completely hopeless compared compare
+
+1:46:49.520 --> 1:46:55.080
+ with what we need to understand of a thought you know so um so there's a long way to go
+
+1:46:55.080 --> 1:47:01.200
+ and we will get better at it um but i'm but i'm not at all worried as some people are
+
+1:47:01.200 --> 1:47:07.600
+ and some people speak as if this is a good thing that somehow the concepts of humanity
+
+1:47:07.600 --> 1:47:15.480
+ and the mind and religion and and consciousness are going to vanish because we're going to
+
+1:47:15.480 --> 1:47:21.280
+ have you know complete uh physicochemical description of the brain in the near future
+
+1:47:21.280 --> 1:47:26.160
+ that we're not going to have that and secondly even if we had it the mind and all these other
+
+1:47:26.160 --> 1:47:31.760
+ things aren't going to vanish because of it well i i find kind of compelling the the notion
+
+1:47:31.760 --> 1:47:42.400
+ that whoever created this universe uh and us uh did so to understand itself himself
+
+1:47:42.400 --> 1:47:50.760
+ i mean there's a there's a there's a powerful self reflection notion to this whole experiment
+
+1:47:50.760 --> 1:47:57.000
+ that we're a part of i certainly think that god takes delight in his creation and that
+
+1:47:57.000 --> 1:48:04.240
+ it was created for that delight as much as it was um for any other reason and that you
+
+1:48:04.240 --> 1:48:11.040
+ know that therefore are there's reason to be hopeful and and awestruck by the creation
+
+1:48:11.040 --> 1:48:15.920
+ whether it's on the very small or on the very large i'm not sure if you're familiar there's
+
+1:48:15.920 --> 1:48:21.880
+ something called the simulation hypothesis well that's been fun to talk about with the
+
+1:48:21.880 --> 1:48:29.560
+ computer scientists and so on which is a kind of thought experiment that proposes that um
+
+1:48:29.560 --> 1:48:33.720
+ you know the entirety of the world around us is a kind of a computer program that's
+
+1:48:33.720 --> 1:48:39.520
+ a simulation and then we're living inside it i think there's um i think from a certain
+
+1:48:39.520 --> 1:48:45.480
+ perspective that could be consistent with a religious view of the world i mean you could
+
+1:48:45.480 --> 1:48:51.760
+ just use different terms uh basically uh what are your but it's a it's a it feels like a
+
+1:48:51.760 --> 1:49:01.120
+ more um modern updated version of that but what is what's what's your sense of this uh
+
+1:49:01.120 --> 1:49:06.080
+ the simulation hypothesis do you find interesting useful to think about it do you find it ridiculous
+
+1:49:06.080 --> 1:49:11.680
+ did you find it fun what are your thoughts uh it's fun and it's been of course the subject
+
+1:49:11.680 --> 1:49:21.200
+ of various movies yeah um that that some of which are very well known um you know i don't
+
+1:49:21.200 --> 1:49:28.800
+ think it makes sense to think of it as a simulation hypothesis in the sense that we're really
+
+1:49:28.800 --> 1:49:38.040
+ lying in uh banks um of of uh on banks of of beds having our energy drained away from
+
+1:49:38.040 --> 1:49:43.760
+ us um and and the simulation is going on in our individual brains that that makes no sense
+
+1:49:43.760 --> 1:49:48.920
+ to me at all i don't think that's what's meant by the simulation hypothesis as you're using
+
+1:49:48.920 --> 1:49:57.080
+ it now but i think that there is a um there is very little distinction between saying
+
+1:49:57.080 --> 1:50:07.560
+ that a an intelligent creator has set up the universe according to his will and his plan
+
+1:50:07.560 --> 1:50:16.260
+ and set it in motion and is allowing it to run out maybe as christians say he's sustaining
+
+1:50:16.260 --> 1:50:23.160
+ it actually um by his word of power it says in the book of the letter to hebrews okay
+
+1:50:23.160 --> 1:50:34.140
+ um in in in in this amazingly consistent and um integrated way um i don't think there's
+
+1:50:34.140 --> 1:50:38.320
+ very much difference between saying that and saying that it's a simulation okay i mean
+
+1:50:38.320 --> 1:50:44.240
+ i think it's almost the same thing okay but i but i think from but i think it's important
+
+1:50:44.240 --> 1:50:52.200
+ to recognize that the simulation in that concept the simulation and the creation or the universe
+
+1:50:52.200 --> 1:50:59.780
+ are the same thing okay in other words it's a simulation you know that is billions of
+
+1:50:59.780 --> 1:51:07.600
+ light years across okay yeah um i mean there's a sense in which it helps one understand especially
+
+1:51:07.600 --> 1:51:13.320
+ if you're not religious that there is something outside of the world that uh we live in that
+
+1:51:13.320 --> 1:51:17.600
+ there's something bigger than the world we live in um and that i mean it's just another
+
+1:51:17.600 --> 1:51:26.840
+ perspective on uh that humbles humbles you um so in that sense one shortcoming of that
+
+1:51:26.840 --> 1:51:33.120
+ is is the following is of the of the analogy is this that we think of a simulation as something
+
+1:51:33.120 --> 1:51:39.200
+ take taking place in the universe you know when we it's it's taking place in my computer
+
+1:51:39.200 --> 1:51:48.600
+ okay i don't think that's the right analogy for um a christian view of creation okay i
+
+1:51:48.600 --> 1:51:55.880
+ don't think it's taking place in some other universe that god has made okay i i think
+
+1:51:55.880 --> 1:52:02.280
+ maybe it's taking place in the mind of god christians might hypothesize also but i but
+
+1:52:02.280 --> 1:52:07.920
+ i think that that that it's important to recognize that christian theology at any rate
+
+1:52:07.920 --> 1:52:14.520
+ is that god is not one of the entities in the universe and and presumably therefore
+
+1:52:14.520 --> 1:52:21.360
+ is very different from a simulation that we might run on a computer let me ask you adam
+
+1:52:21.360 --> 1:52:26.680
+ and eve even adam ate of the fruit of the tree of knowledge of good and evil does this
+
+1:52:26.680 --> 1:52:31.640
+ is this story meaningful to you what does the story mean to you yeah i it is meaningful
+
+1:52:31.640 --> 1:52:37.200
+ to me um i i take the you know the writings of the bible very seriously and i think that
+
+1:52:37.200 --> 1:52:43.760
+ most christians regard them as having some kind of authoritative um role in their in
+
+1:52:43.760 --> 1:52:49.560
+ their in their faith um what do i get from it i mean i think the most important thing
+
+1:52:49.560 --> 1:52:53.440
+ that christians get from the story of adam and eve and they're eating the apple and
+
+1:52:53.440 --> 1:53:01.160
+ so forth is that the relationship between humans and god is broken has been broken by
+
+1:53:01.160 --> 1:53:07.520
+ man's disobedience that's what the the story of adam and eve and the apple is all about
+
+1:53:07.520 --> 1:53:17.300
+ and um that that broken relationship is for christians what jesus came to redeem came
+
+1:53:17.300 --> 1:53:29.280
+ to overcome that brokenness and uh restore uh that relationship with god um uh to some
+
+1:53:29.280 --> 1:53:36.360
+ extent at any rate on earth and and ultimately um you know in in the in eternity to restore
+
+1:53:36.360 --> 1:53:43.120
+ it fully so that's really what christians mean and gain from the story of adam and eve
+
+1:53:43.120 --> 1:53:48.800
+ of course lots of people ask the questions about how sort how literally should we take
+
+1:53:48.800 --> 1:53:53.720
+ these stories of particularly the first few few chapters of genesis which is an important
+
+1:53:53.720 --> 1:54:00.560
+ question but but i mean but we tend to um get bogged down with it a bit too much i think
+
+1:54:00.560 --> 1:54:08.440
+ we should take away the message um and i think the the the uh what the what actually we would
+
+1:54:08.440 --> 1:54:14.320
+ have seen if we'd been there okay is something which is a matter of speculation and it's
+
+1:54:14.320 --> 1:54:18.480
+ certainly not terribly important from the point of view of christian theology but it
+
+1:54:18.480 --> 1:54:25.880
+ seems like a very important moment um as a man of faith do you um do you do you wish
+
+1:54:25.880 --> 1:54:32.680
+ that uh i think it was eve first uh yeah well see do you wish that by the way it was just
+
+1:54:32.680 --> 1:54:38.800
+ a fruit as a few what you said it very carefully as the fruit fruit of the tree right uh do
+
+1:54:38.800 --> 1:54:43.720
+ you wish they wouldn't have eaten of the tree i mean this is a back to our discussion of
+
+1:54:43.720 --> 1:54:50.240
+ suffering was that like an essential thing that needed to happen you're gonna have to
+
+1:54:50.240 --> 1:54:59.480
+ read paradise lost to get your answer to that beautifully put okay well let me ask the the
+
+1:54:59.480 --> 1:55:05.760
+ biggest question one that you also touch in your book but one that i asked every once
+
+1:55:05.760 --> 1:55:13.520
+ in a while is what is the meaning of life the meaning of my life is many different things
+
+1:55:13.520 --> 1:55:24.360
+ okay but it but they are all kind of centered around um relationships um i mean for a christian
+
+1:55:24.360 --> 1:55:32.080
+ one's relationship with god is a crucial part of the meaning of life but one's relationship
+
+1:55:32.080 --> 1:55:40.040
+ with one's family wife's wife parents children grandchildren in my case um and so forth those
+
+1:55:40.040 --> 1:55:46.480
+ are crucially important um these are all the places where people whether they're religious
+
+1:55:46.480 --> 1:55:56.120
+ or not find meaning um but ultimately um i think a person who has faith in a creator
+
+1:55:56.120 --> 1:56:10.200
+ um who we think has a an intention or many intentions but a but a but a will um in respect
+
+1:56:10.200 --> 1:56:19.540
+ of the world as a whole that's a crucial part of meaning and the idea that my life might
+
+1:56:19.540 --> 1:56:30.920
+ have some small significance in the plan of that creator is an amazingly powerful idea
+
+1:56:30.920 --> 1:56:38.640
+ that give that brings meaning um i i tell a story in my book that um when i was a student
+
+1:56:38.640 --> 1:56:44.000
+ before i became a christian i read a philosophy book with whose approximate title was um what
+
+1:56:44.000 --> 1:56:48.600
+ you know what is the meaning of life and you know that book basically said there is no
+
+1:56:48.600 --> 1:56:52.960
+ meaning to life you have to make up the meaning as you go along and i think that's probably
+
+1:56:52.960 --> 1:56:59.520
+ the the predominant secular view is these days that there is no real meaning but you
+
+1:56:59.520 --> 1:57:05.560
+ can make up a meaning and that will give you meaning into your life um i don't subscribe
+
+1:57:05.560 --> 1:57:11.280
+ to that view anymore um i think there is more meaning than that um but i do think that those
+
+1:57:11.280 --> 1:57:15.320
+ things which give meaning to our life are very important and we should emphasize them
+
+1:57:15.320 --> 1:57:21.360
+ and you you have said that as the part of the as the part of that meaning is the part
+
+1:57:21.360 --> 1:57:31.760
+ of your faith uh love and loyalty are key parts so can you try to say what is uh love
+
+1:57:31.760 --> 1:57:45.800
+ and loyalty like what what does it mean to you what does it look like if you were to
+
+1:57:45.800 --> 1:57:54.840
+ give advice to uh to your children grandchildren of what to look for in in looking for loyalty
+
+1:57:54.840 --> 1:58:02.200
+ and and and love what would you try to say well i think it's something like yielding
+
+1:58:02.200 --> 1:58:14.780
+ your will or desire to another um it's valuing others more highly or at least as highly as
+
+1:58:14.780 --> 1:58:22.720
+ yourself but that's just the start of it because true love you reach a point where you are
+
+1:58:22.720 --> 1:58:32.720
+ you feel compelled by the other uh and that i think to some people sounds very scary but
+
+1:58:32.720 --> 1:58:43.000
+ actually it's terrifically liberating um and i think that love then brings you into service
+
+1:58:43.000 --> 1:58:52.220
+ towards another and i'm you know reminded of um the phrase from the anglican uh prayer
+
+1:58:52.220 --> 1:59:00.200
+ book where it talks about um jesus whose service is perfect freedom in other words for us christians
+
+1:59:00.200 --> 1:59:08.480
+ to serve god is what perfects our freedom and i think there is an amazing love is um
+
+1:59:08.480 --> 1:59:18.600
+ is in part kept captivity but in a kind of paradoxical sense it's also an amazing freedom
+
+1:59:18.600 --> 1:59:24.160
+ love is freedom i don't think there's a better way to end it we started with fusion energy
+
+1:59:24.160 --> 1:59:28.720
+ and ending on love in there's a huge honor to talk to you thank you so much for your
+
+1:59:28.720 --> 1:59:33.680
+ time today thanks it was a pleasure thanks for listening to this conversation with ian
+
+1:59:33.680 --> 1:59:40.760
+ hutchinson and thank you to our sponsors sun basket and power dot please consider supporting
+
+1:59:40.760 --> 1:59:48.120
+ this podcast by going to sun basket.com slash lex and use code lex at checkout and going
+
+1:59:48.120 --> 1:59:56.160
+ to power dot.com slash lex and use code lex at checkout click the links buy the stuff
+
+1:59:56.160 --> 2:00:02.080
+ even just visiting the site is really the best way to support this podcast because it
+
+2:00:02.080 --> 2:00:07.880
+ helps convince them to sponsor it in the future if you enjoy this thing subscribe on youtube
+
+2:00:07.880 --> 2:00:13.080
+ review it with five stars on apple podcast support on patreon or connect with me on twitter
+
+2:00:13.080 --> 2:00:21.000
+ at lex friedman spelled somehow without the letter e just f r i d m a n and now let me
+
+2:00:21.000 --> 2:00:27.080
+ leave you with some words from arthur c clark finally i would like to assure my many buddhist
+
+2:00:27.080 --> 2:00:32.440
+ christian hindu jewish and muslim friends that i am sincerely happy that the religion
+
+2:00:32.440 --> 2:00:38.120
+ which chance has given you has contributed to your peace of mind and often as western
+
+2:00:38.120 --> 2:00:44.120
+ medical science now reluctantly admits to your physical well being perhaps it is better
+
+2:00:44.120 --> 2:00:53.240
+ to be unsane and happy than sane and unhappy but it is the best of all to be sane and happy
+
+2:00:53.240 --> 2:00:58.320
+ whether our descendants can achieve that goal will be the greatest challenge of the future
+
+2:00:58.320 --> 2:01:05.080
+ indeed it may well decide whether we have any future thank you for listening and hope
+
+2:01:05.080 --> 2:01:08.280
+ to see you next time
+

@@ -1,0 +1,2822 @@
+WEBVTT
+
+00:00.000 --> 00:02.240
+ The following is a conversation with Kyle Vogt.
+
+00:02.240 --> 00:05.040
+ He's the president and the CTO of Cruise Automation,
+
+00:05.040 --> 00:09.680
+ leading an effort to solve one of the biggest robotics challenges of our time,
+
+00:09.680 --> 00:13.600
+ vehicle automation. He's a cofounder of two successful companies, Twitch
+
+00:13.600 --> 00:16.960
+ and Cruise, that have each sold for a billion dollars.
+
+00:16.960 --> 00:20.640
+ And he's a great example of the innovative spirit that flourishes
+
+00:20.640 --> 00:26.240
+ in Silicon Valley, and now is facing an interesting and exciting challenge of
+
+00:26.240 --> 00:31.040
+ matching that spirit with the mass production and the safety centric
+
+00:31.040 --> 00:35.520
+ culture of a major automaker like General Motors. This conversation is
+
+00:35.520 --> 00:38.560
+ part of the MIT Artificial General Intelligence series
+
+00:38.560 --> 00:42.000
+ and the Artificial Intelligence podcast. If you enjoy it,
+
+00:42.000 --> 00:46.480
+ please subscribe on YouTube, iTunes, or simply connect with me on Twitter
+
+00:46.480 --> 00:54.480
+ at Lex Friedman, spelled F R I D. And now here's my conversation with Kyle Vogt.
+
+00:54.480 --> 00:57.920
+ You grew up in Kansas, right? Yeah, and I just saw that picture you had hidden
+
+00:57.920 --> 01:00.560
+ over there, so I'm a little bit a little bit worried about that now.
+
+01:00.560 --> 01:04.880
+ Yeah, so in high school in Kansas City, you joined Shawnee Mission
+
+01:04.880 --> 01:09.280
+ North high school robotics team. Yeah. Now that wasn't your high school.
+
+01:09.280 --> 01:13.040
+ That's right, that was that was the only high school in the area that had a
+
+01:13.040 --> 01:16.480
+ like a teacher who was willing to sponsor our first robotics team.
+
+01:16.480 --> 01:19.680
+ I was gonna troll you a little bit. Jog your memory a little bit.
+
+01:19.680 --> 01:23.520
+ Yeah, I was trying to look super cool and intense, because you know this
+
+01:23.520 --> 01:28.080
+ was BattleBots. This is serious business. So we're standing there with a welded
+
+01:28.080 --> 01:32.560
+ steel frame and looking tough. So go back there. What is that drew you
+
+01:32.560 --> 01:36.160
+ to robotics? Well, I think I've been trying to figure
+
+01:36.160 --> 01:38.400
+ this out for a while, but I've always liked building things with Legos. And
+
+01:38.400 --> 01:41.680
+ when I was really, really young, I wanted the Legos that had motors and
+
+01:41.680 --> 01:45.040
+ other things. And then, you know, Lego Mindstorms came out, and for the
+
+01:45.040 --> 01:49.680
+ first time you could program Lego contraptions. And I think things
+
+01:49.680 --> 01:54.160
+ just sort of snowballed from that. But I remember
+
+01:54.160 --> 01:58.240
+ seeing, you know, the BattleBots TV show on Comedy Central and thinking that is
+
+01:58.240 --> 02:01.120
+ the coolest thing in the world. I want to be a part of that.
+
+02:01.120 --> 02:04.240
+ And not knowing a whole lot about how to build these
+
+02:04.240 --> 02:09.280
+ 200 pound fighting robots. So I sort of obsessively poured over
+
+02:09.280 --> 02:12.960
+ the internet forums where all the creators for BattleBots would sort of
+
+02:12.960 --> 02:16.160
+ hang out and talk about, you know, document their build progress and
+
+02:16.160 --> 02:20.080
+ everything. And I think I read, I must have read like,
+
+02:20.080 --> 02:23.760
+ you know, tens of thousands of forum posts from basically
+
+02:23.760 --> 02:26.960
+ everything that was out there on what these people were doing. And eventually
+
+02:26.960 --> 02:30.400
+ like sort of triangulated how to put some of these things together.
+
+02:30.400 --> 02:34.880
+ And I ended up doing BattleBots, which was, you know, I was like 13 or 14, which
+
+02:34.880 --> 02:37.280
+ was pretty awesome. I'm not sure if the show is still
+
+02:37.280 --> 02:41.520
+ running, but so BattleBots is, there's not an artificial
+
+02:41.520 --> 02:44.800
+ intelligence component. It's remotely controlled. And it's
+
+02:44.800 --> 02:47.840
+ almost like a mechanical engineering challenge of building things
+
+02:47.840 --> 02:50.960
+ that can be broken. They're radio controlled. So,
+
+02:50.960 --> 02:54.720
+ and I think that they allowed some limited form of autonomy.
+
+02:54.720 --> 02:58.640
+ But, you know, in a two minute match, you're, in the way these things ran,
+
+02:58.640 --> 03:01.120
+ you're really doing yourself a disservice by trying to automate it
+
+03:01.120 --> 03:04.560
+ versus just, you know, do the practical thing, which is drive it yourself.
+
+03:04.560 --> 03:08.800
+ And there's an entertainment aspect, just going on YouTube, there's like an,
+
+03:08.800 --> 03:12.080
+ some of them wield an axe, some of them, I mean, there's that fun.
+
+03:12.080 --> 03:15.280
+ So what drew you to that aspect? Was it the mechanical engineering?
+
+03:15.280 --> 03:19.760
+ Was it the dream to create like Frankenstein and
+
+03:19.760 --> 03:22.720
+ sentient being? Or was it just like the Lego,
+
+03:22.720 --> 03:25.920
+ you like tinkering with stuff? I mean, that was just building something.
+
+03:25.920 --> 03:29.760
+ I think the idea of, you know, this radio controlled machine that
+
+03:29.760 --> 03:32.320
+ can do various things, if it has like a weapon or something was pretty
+
+03:32.320 --> 03:34.880
+ interesting. I agree it doesn't have the same
+
+03:34.880 --> 03:37.600
+ appeal as, you know, autonomous robots, which I,
+
+03:37.600 --> 03:40.720
+ which I, you know, sort of gravitated towards later on. But it was definitely
+
+03:40.720 --> 03:44.880
+ an engineering challenge because everything you did in that
+
+03:44.880 --> 03:49.200
+ competition was pushing components to their limits. So we would
+
+03:49.200 --> 03:54.400
+ buy like these $40 DC motors that came out of a
+
+03:54.400 --> 03:57.760
+ winch, like on the front of a pickup truck or something, and we'd
+
+03:57.760 --> 04:01.200
+ power the car with those and we'd run them at like double or triple their
+
+04:01.200 --> 04:04.000
+ rated voltage. So they immediately start overheating,
+
+04:04.000 --> 04:06.000
+ but for that two minute match you can get,
+
+04:06.000 --> 04:09.520
+ you know, a significant increase in the power output of those motors
+
+04:09.520 --> 04:12.720
+ before they burn out. And so you're doing the same thing for your battery packs,
+
+04:12.720 --> 04:16.800
+ all the materials in the system. And I think there's something, something
+
+04:16.800 --> 04:20.240
+ intrinsically interesting about just seeing like where things break.
+
+04:20.240 --> 04:23.760
+ And did you offline see where they break? Did you
+
+04:23.760 --> 04:26.640
+ take it to the testing point? Like how did you know two minutes? Or was there a
+
+04:26.640 --> 04:30.720
+ reckless let's just go with it and see? We weren't very good at
+
+04:30.720 --> 04:34.240
+ BattleBots. We lost all of our matches the first round.
+
+04:34.240 --> 04:38.240
+ The one I built first, both of them were these wedge shaped robots because
+
+04:38.240 --> 04:40.000
+ wedge, even though it's sort of boring to look
+
+04:40.000 --> 04:43.200
+ at, is extremely effective. You drive towards another robot and
+
+04:43.200 --> 04:46.640
+ the front edge of it gets under them and then they sort of flip over,
+
+04:46.640 --> 04:49.840
+ kind of like a door stopper. And the first one had a
+
+04:49.840 --> 04:53.360
+ pneumatic polished stainless steel spike on the front that would shoot out about
+
+04:53.360 --> 04:56.400
+ eight inches. The purpose of which is what? Pretty,
+
+04:56.400 --> 04:58.720
+ pretty ineffective actually, but it looks cool.
+
+04:58.720 --> 05:02.960
+ And was it to help with the lift? No, it was, it was just to try to poke holes
+
+05:02.960 --> 05:07.040
+ in the other robot. And then the second time I did it, which is the following,
+
+05:07.040 --> 05:12.640
+ I think maybe 18 months later, we had a, well a titanium axe with a, with a
+
+05:12.640 --> 05:16.640
+ hardened steel tip on it that was powered by a hydraulic
+
+05:16.640 --> 05:21.920
+ cylinder which we were activating with liquid CO2, which was,
+
+05:21.920 --> 05:26.160
+ had its own set of problems. So great, so that's kind of on the hardware side.
+
+05:26.160 --> 05:31.200
+ I mean at a certain point there must have been born a fascination
+
+05:31.200 --> 05:35.360
+ on the software side. So what was the first piece of code you've written?
+
+05:35.360 --> 05:38.480
+ Go back there, see what language was it?
+
+05:38.480 --> 05:41.760
+ What, what was that? Was it Emacs? Vim? Was it a more
+
+05:41.760 --> 05:45.760
+ respectable modern IDE? Do you, do you remember any of this?
+
+05:45.760 --> 05:49.680
+ Yeah, well I remember, I think maybe when I was in
+
+05:49.680 --> 05:52.880
+ third or fourth grade, the school I was at, elementary school, had a bunch of
+
+05:52.880 --> 05:56.800
+ Apple II computers and we'd play games on those. And I
+
+05:56.800 --> 05:58.640
+ remember every once in a while something would,
+
+05:58.640 --> 06:02.560
+ would, would crash or wouldn't start up correctly and it would dump you out to
+
+06:02.560 --> 06:05.680
+ what I later learned was like sort of a command prompt.
+
+06:05.680 --> 06:08.640
+ And my teacher would come over and type, I actually remember this to this day for
+
+06:08.640 --> 06:12.400
+ some reason, like PR number six or PR pound six, which is
+
+06:12.400 --> 06:15.120
+ peripheral six, which is the disk drive, which would fire up the disk and load the
+
+06:15.120 --> 06:17.200
+ program. And I just remember thinking wow, she's
+
+06:17.200 --> 06:21.040
+ like a hacker, like teach me these, these codes, these error codes, that is what
+
+06:21.040 --> 06:23.840
+ I called them at the time. But she had no interest in that, so it
+
+06:23.840 --> 06:28.400
+ wasn't until I think about fifth grade that I had a school where you could
+
+06:28.400 --> 06:31.520
+ actually go on these Apple IIs and learn to program. And so it was all in basic,
+
+06:31.520 --> 06:34.720
+ you know, where every line, you know, the line numbers are all number, that every
+
+06:34.720 --> 06:37.920
+ line is numbered and you have to like leave enough space
+
+06:37.920 --> 06:41.600
+ between the numbers so that if you want to tweak your code you go back and
+
+06:41.600 --> 06:44.720
+ the first line was 10 and the second line is 20. Now you have to go back and
+
+06:44.720 --> 06:47.360
+ insert 15 and if you need to add code in front of
+
+06:47.360 --> 06:50.240
+ that, you know, 11 or 12 and you hope you don't run out of line numbers and have
+
+06:50.240 --> 06:54.160
+ to redo the whole thing. And there's go to statements? Yeah, go to
+
+06:54.160 --> 06:58.080
+ and it's very basic, maybe hence the name, but a lot of fun.
+
+06:58.080 --> 07:01.760
+ And that was like, that was, you know, that's when, you know,
+
+07:01.760 --> 07:03.520
+ when you first program you see the magic of it.
+
+07:03.520 --> 07:07.040
+ It's like, it just, just like this world opens up with, you know, endless
+
+07:07.040 --> 07:09.040
+ possibilities for the things you could build or
+
+07:09.040 --> 07:12.160
+ or accomplish with that computer. So you got the bug then, so
+
+07:12.160 --> 07:15.920
+ even starting with basic and then what C++ throughout,
+
+07:15.920 --> 07:19.200
+ what did you, was there computer programming, computer science classes in
+
+07:19.200 --> 07:22.320
+ high school? Not, not where I went, so it was self
+
+07:22.320 --> 07:27.760
+ taught, but I did a lot of programming. The thing that, you know, sort of
+
+07:27.760 --> 07:31.280
+ pushed me in the path of eventually working on self driving cars is actually
+
+07:31.280 --> 07:34.240
+ one of these really long trips driving from my
+
+07:34.240 --> 07:39.440
+ house in Kansas to, to I think Las Vegas where we did the BattleBots competition
+
+07:39.440 --> 07:43.680
+ and I had just gotten my, I think my learner's permit or
+
+07:43.680 --> 07:47.040
+ early driver's permit and so I was driving this,
+
+07:47.040 --> 07:50.480
+ you know, 10 hour stretch across western Kansas where it's just,
+
+07:50.480 --> 07:53.760
+ you're going straight on a highway and it is mind numbingly boring. And I
+
+07:53.760 --> 07:57.440
+ remember thinking even then with my sort of mediocre programming
+
+07:57.440 --> 08:00.480
+ background that this is something that a computer can do, right? Let's take a
+
+08:00.480 --> 08:03.440
+ picture of the road, let's find the yellow lane markers and,
+
+08:03.440 --> 08:06.880
+ you know, steer the wheel. And, you know, later I'd come to realize this had been
+
+08:06.880 --> 08:10.640
+ done, you know, since, since the 80s or the 70s or even
+
+08:10.640 --> 08:13.520
+ earlier, but I still wanted to do it and sort of
+
+08:13.520 --> 08:16.560
+ immediately after that trip switched from sort of BattleBots, which is more
+
+08:16.560 --> 08:21.440
+ radio controlled machines, to thinking about building,
+
+08:21.440 --> 08:24.320
+ you know, autonomous vehicles of some scale. Start off with really small
+
+08:24.320 --> 08:27.680
+ electric ones and then, you know, progress to what we're
+
+08:27.680 --> 08:30.640
+ doing now. So what was your view of artificial intelligence at that point?
+
+08:30.640 --> 08:35.520
+ What did you think? So this is before, there's been waves in artificial
+
+08:35.520 --> 08:39.440
+ intelligence, right? The current wave with deep learning
+
+08:39.440 --> 08:44.000
+ makes people believe that you can solve in a really rich deep way the computer
+
+08:44.000 --> 08:48.400
+ vision perception problem, but like in
+
+08:48.400 --> 08:52.720
+ before the deep learning craze, you know, how do you think about,
+
+08:52.720 --> 08:56.560
+ how would you even go about building a thing that perceives itself in the
+
+08:56.560 --> 08:59.040
+ world, localizes itself in the world, moves around the world?
+
+08:59.040 --> 09:02.320
+ Like when you were younger, I mean, what was your thinking about it? Well,
+
+09:02.320 --> 09:05.040
+ prior to deep neural networks or convolutional neural
+
+09:05.040 --> 09:06.960
+ analysis, these modern techniques we have, or at least
+
+09:06.960 --> 09:11.680
+ ones that are in use today, it was all a heuristic space and so like old school
+
+09:11.680 --> 09:16.800
+ image processing and I think extracting, you know, yellow lane markers out of an
+
+09:16.800 --> 09:21.200
+ image of a road is one of the problems that lends itself
+
+09:21.200 --> 09:24.240
+ reasonably well to those heuristic based methods, you know, like
+
+09:24.240 --> 09:27.440
+ just do a threshold on the color yellow and then try to
+
+09:27.440 --> 09:31.040
+ fit some lines to that using a Huff transform or something and then
+
+09:31.040 --> 09:35.840
+ go from there. Traffic light detection and stop sign detection, red, yellow, green.
+
+09:35.840 --> 09:39.760
+ And I think you could, I mean, if you wanted to do a full,
+
+09:39.760 --> 09:43.120
+ I was just trying to make something that would stay in between the lanes on a
+
+09:43.120 --> 09:46.560
+ highway, but if you wanted to do the full,
+
+09:46.880 --> 09:50.400
+ the full, you know, set of capabilities needed for a driverless car,
+
+09:50.400 --> 09:54.320
+ I think you could, and we'd done this at cruise, you know, in the very first days,
+
+09:54.320 --> 09:58.160
+ you can start off with a really simple, you know, human written heuristic just to
+
+09:58.160 --> 10:01.680
+ get the scaffolding in place for your system. Traffic light detection,
+
+10:01.680 --> 10:04.960
+ probably a really simple, you know, color thresholding on day one just to
+
+10:04.960 --> 10:08.800
+ get the system up and running before you migrate to, you know, a deep
+
+10:08.800 --> 10:10.960
+ learning based technique or something else.
+
+10:10.960 --> 10:14.000
+ And, you know, back in when I was doing this, my first one, it was on a Pentium
+
+10:14.000 --> 10:19.520
+ 203, 233 megahertz computer in it and I think I wrote the first version in
+
+10:19.520 --> 10:21.680
+ basic, which is like an interpreted language. It's
+
+10:21.680 --> 10:24.720
+ extremely slow because that's the thing I knew at the time.
+
+10:24.720 --> 10:27.760
+ And so there was no, no chance at all of using,
+
+10:27.760 --> 10:32.480
+ there was no, no computational power to do any sort of reasonable
+
+10:32.480 --> 10:35.360
+ deep nets like you have today. So I don't know what kids these days are doing. Are
+
+10:35.360 --> 10:38.720
+ kids these days, you know, at age 13 using neural networks in
+
+10:38.720 --> 10:40.640
+ their garage? I mean, that would be awesome.
+
+10:40.640 --> 10:44.640
+ I get emails all the time from, you know, like 11, 12 year olds
+
+10:44.640 --> 10:48.640
+ saying I'm having, you know, I'm trying to follow this TensorFlow tutorial
+
+10:48.640 --> 10:53.200
+ and I'm having this problem. And the general approach
+
+10:53.200 --> 11:00.000
+ in the deep learning community is of extreme optimism of, as opposed to,
+
+11:00.000 --> 11:03.040
+ you mentioned like heuristics, you can, you can, you can
+
+11:03.040 --> 11:06.560
+ separate the autonomous driving problem into modules and try to solve it sort of
+
+11:06.560 --> 11:08.960
+ rigorously, or you can just do it end to end.
+
+11:08.960 --> 11:12.960
+ And most people just kind of love the idea that, you know, us humans do it end
+
+11:12.960 --> 11:17.280
+ to end. We just perceive and act. We should be able to use that, do the
+
+11:17.280 --> 11:19.360
+ same kind of thing when you're on nets. And that,
+
+11:19.360 --> 11:23.120
+ that kind of thinking, you don't want to criticize that kind of thinking because
+
+11:23.120 --> 11:26.800
+ eventually they will be right. Yeah. And so it's exciting and especially
+
+11:26.800 --> 11:30.960
+ when they're younger to explore that as a really exciting approach. But yeah,
+
+11:30.960 --> 11:35.360
+ it's, it's changed the, the language,
+
+11:35.360 --> 11:38.960
+ the kind of stuff you're tinkering with. It's kind of exciting to see when these
+
+11:38.960 --> 11:42.240
+ teenagers grow up. Yeah. I can only imagine if you,
+
+11:42.240 --> 11:46.640
+ if your starting point is, you know, Python and TensorFlow at age 13
+
+11:46.640 --> 11:49.760
+ where you end up, you know, after 10 or 15 years of that,
+
+11:49.760 --> 11:53.840
+ that's, that's pretty cool. Because of GitHub, because the state tools for
+
+11:53.840 --> 11:56.880
+ solving most of the major problems in artificial intelligence
+
+11:56.880 --> 12:00.160
+ are within a few lines of code for most kids.
+
+12:00.160 --> 12:04.160
+ And that's incredible to think about also on the entrepreneurial side.
+
+12:04.160 --> 12:10.560
+ And, and on that point, was there any thought about entrepreneurship before
+
+12:10.560 --> 12:14.560
+ you came to college? Is sort of doing, you're building this
+
+12:14.560 --> 12:18.480
+ into a thing that impacts the world on a large scale? Yeah. I've always
+
+12:18.480 --> 12:22.720
+ wanted to start a company. I think that's, you know, just a cool concept of
+
+12:22.720 --> 12:28.240
+ creating something and exchanging it for value or creating value, I guess.
+
+12:28.240 --> 12:32.240
+ So in high school, I was, I was trying to build like, you know, servo motor
+
+12:32.240 --> 12:35.280
+ drivers, little circuit boards and sell them online
+
+12:35.280 --> 12:39.520
+ or other, other things like that. And certainly knew at some point I wanted to
+
+12:39.520 --> 12:42.720
+ do a startup, but it wasn't really, I'd say until college, until I felt
+
+12:42.720 --> 12:45.360
+ like I had the,
+
+12:45.600 --> 12:48.960
+ I guess the right combination of the environment, the smart people around you
+
+12:48.960 --> 12:52.240
+ and some free time and a lot of free time at MIT.
+
+12:52.240 --> 12:58.000
+ So you came to MIT as an undergrad 2004. That's right. And that's when the first
+
+12:58.000 --> 13:02.080
+ DARPA Grand Challenge was happening. Yeah. The, the timing of that is
+
+13:02.080 --> 13:05.600
+ beautifully poetic. So how did you get yourself involved in that one?
+
+13:05.600 --> 13:09.840
+ Originally there wasn't a official entry. Yeah, faculty sponsored thing. And so a
+
+13:09.840 --> 13:14.720
+ bunch of undergrads, myself included, started meeting and got together and
+
+13:14.720 --> 13:18.720
+ tried to haggle together some sponsorships. We got a vehicle donated,
+
+13:18.720 --> 13:22.480
+ a bunch of sensors and tried to put something together. And so we had,
+
+13:22.480 --> 13:26.320
+ our team was probably mostly freshmen and sophomores, you know, which, which was
+
+13:26.320 --> 13:30.080
+ not really a fair, fair fight against maybe the,
+
+13:30.080 --> 13:33.280
+ you know, postdoc and faculty led teams from other schools. But
+
+13:33.280 --> 13:36.960
+ we, we got something up and running. We had our vehicle drive by wire and
+
+13:36.960 --> 13:41.840
+ you know, very, very basic control and things. But
+
+13:41.840 --> 13:47.520
+ on the day of the qualifying, sort of pre qualifying round, the one and
+
+13:47.520 --> 13:50.720
+ only steering motor that we had purchased,
+
+13:50.720 --> 13:55.200
+ the thing that we had retrofitted to turn the steering wheel on the truck
+
+13:55.200 --> 13:58.480
+ died. And so our vehicle was just dead in the water, couldn't steer.
+
+13:58.480 --> 14:02.400
+ So we didn't make it very far. On the hardware side. So was there a software
+
+14:02.400 --> 14:05.760
+ component? Was there, like, how did your view of autonomous
+
+14:05.760 --> 14:09.520
+ vehicles in terms of artificial intelligence
+
+14:09.520 --> 14:13.120
+ evolve in this moment? I mean, you know, like you said from the 80s has been
+
+14:13.120 --> 14:16.720
+ autonomous vehicles, but really that was the birth of the modern wave.
+
+14:16.720 --> 14:21.440
+ The, the thing that captivated everyone's imagination that we can actually do this.
+
+14:21.440 --> 14:25.600
+ So what, how were you captivated in that way?
+
+14:25.600 --> 14:28.880
+ So how did your view of autonomous vehicles change at that point?
+
+14:28.880 --> 14:32.640
+ I'd say at that point in time it was, it was a
+
+14:32.640 --> 14:35.760
+ curiosity as in, like, is this really possible?
+
+14:35.760 --> 14:39.120
+ And I think that was generally the spirit and
+
+14:39.120 --> 14:44.800
+ the purpose of that original DARPA Grand Challenge, which was to just get
+
+14:44.800 --> 14:49.200
+ a whole bunch of really brilliant people exploring the space and pushing the
+
+14:49.200 --> 14:52.240
+ limits. And I think, like, to this day that
+
+14:52.240 --> 14:56.080
+ DARPA Challenge with its, you know, million dollar prize pool
+
+14:56.080 --> 15:00.320
+ was probably one of the most effective, you know, uses of taxpayer
+
+15:00.320 --> 15:04.240
+ money dollar for dollar that I've seen, you know, because that,
+
+15:04.240 --> 15:07.760
+ that small sort of initiative that DARPA put,
+
+15:07.760 --> 15:12.640
+ put out sort of, in my view, was the catalyst or the tipping point
+
+15:12.640 --> 15:16.400
+ for this, this whole next wave of autonomous vehicle development. So that
+
+15:16.400 --> 15:20.160
+ was pretty cool. So let me jump around a little bit on that point.
+
+15:20.160 --> 15:23.680
+ They also did the Urban Challenge where it was in the city, but it was very
+
+15:23.680 --> 15:27.040
+ artificial and there's no pedestrians and there's very little human
+
+15:27.040 --> 15:31.600
+ involvement except a few professional drivers. Yeah.
+
+15:31.600 --> 15:34.400
+ Do you think there's room, and then there was the Robotics Challenge with
+
+15:34.400 --> 15:38.560
+ humanoid robots. Right. So in your now role is looking at this,
+
+15:38.560 --> 15:42.640
+ you're trying to solve one of the, you know, autonomous driving, one of the
+
+15:42.640 --> 15:45.360
+ harder, more difficult places in San Francisco.
+
+15:45.360 --> 15:49.280
+ Is there a role for DARPA to step in to also kind of help out,
+
+15:49.280 --> 15:54.480
+ like, challenge with new ideas, specifically pedestrians and so on, all
+
+15:54.480 --> 15:56.880
+ these kinds of interesting things? Well, I haven't, I haven't thought about it
+
+15:56.880 --> 15:59.760
+ from that perspective. Is there anything DARPA could do today to further
+
+15:59.760 --> 16:04.880
+ accelerate things? And I would say, my instinct is that that's maybe not the
+
+16:04.880 --> 16:07.040
+ highest and best use of their resources and time,
+
+16:07.040 --> 16:11.360
+ because, like, kick starting and spinning up the flywheel is, I think, what
+
+16:11.360 --> 16:16.720
+ what they did in this case for very, very little money. But today this has become,
+
+16:16.720 --> 16:19.920
+ this has become, like, commercially interesting to very large companies and
+
+16:19.920 --> 16:22.320
+ the amount of money going into it and the amount of
+
+16:22.320 --> 16:25.680
+ people, like, going through your class and learning about these things and
+
+16:25.680 --> 16:29.040
+ developing these skills is just, you know, orders of magnitude
+
+16:29.040 --> 16:33.040
+ more than it was back then. And so there's enough momentum and inertia
+
+16:33.040 --> 16:37.440
+ and energy and investment dollars into this space right now that
+
+16:37.440 --> 16:41.600
+ I don't, I don't, I think they're, I think they're, they can just say mission
+
+16:41.600 --> 16:46.160
+ accomplished and move on to the next area of technology that needs help.
+
+16:46.160 --> 16:50.720
+ So then stepping back to MIT, you left MIT during your junior year.
+
+16:50.720 --> 16:54.400
+ What was that decision like? As I said, I always wanted to do
+
+16:54.400 --> 16:59.120
+ a company in, or start a company, and this opportunity landed in my lap, which
+
+16:59.120 --> 17:02.240
+ was a couple guys from Yale were starting a
+
+17:02.240 --> 17:05.200
+ new company, and I googled them and found that they had
+
+17:05.200 --> 17:09.360
+ started a company previously and sold it actually on eBay for
+
+17:09.360 --> 17:13.280
+ about a quarter million bucks, which was a pretty interesting story, but
+
+17:13.280 --> 17:17.040
+ so I thought to myself, these guys are, you know, rock star entrepreneurs, they've
+
+17:17.040 --> 17:20.560
+ done this before, they must be driving around in Ferraris
+
+17:20.560 --> 17:25.280
+ because they sold their company, and, you know, I thought I could learn
+
+17:25.280 --> 17:27.920
+ a lot from them, so I teamed up with those guys and,
+
+17:27.920 --> 17:33.520
+ you know, went out during, went out to California during IAP, which is MIT's
+
+17:33.520 --> 17:37.840
+ month off, on a one way ticket and basically never went back.
+
+17:37.840 --> 17:40.800
+ We were having so much fun, we felt like we were building something and creating
+
+17:40.800 --> 17:42.960
+ something, and it was going to be interesting
+
+17:42.960 --> 17:47.120
+ that, you know, I was just all in and got completely hooked, and that
+
+17:47.120 --> 17:51.600
+ that business was Justin TV, which is originally a reality show about a guy
+
+17:51.600 --> 17:56.000
+ named Justin, which morphed into a live video
+
+17:56.000 --> 17:59.760
+ streaming platform, which then morphed into what is Twitch
+
+17:59.760 --> 18:04.960
+ today, so that was, that was quite an unexpected journey.
+
+18:04.960 --> 18:09.520
+ So no regrets? No. Looking back, it was just an obvious, I mean,
+
+18:09.520 --> 18:12.640
+ one way ticket. I mean, if we just pause on that for a second,
+
+18:12.640 --> 18:17.920
+ there was no, how did you know these are the right guys, this is the
+
+18:17.920 --> 18:21.600
+ right decision, you didn't think it was just follow the
+
+18:21.600 --> 18:25.360
+ heart kind of thing? Well, I didn't know, but, you know, just trying something for a
+
+18:25.360 --> 18:28.080
+ month during IAP seems pretty low risk, right?
+
+18:28.080 --> 18:31.680
+ And then, you know, well, maybe I'll take a semester off, MIT's pretty flexible
+
+18:31.680 --> 18:35.280
+ about that, you can always go back, right? And then after two or three cycles of
+
+18:35.280 --> 18:40.880
+ that, I eventually threw in the towel, but, you know, I think it's,
+
+18:40.880 --> 18:44.720
+ I guess in that case I felt like I could always hit the undo button if I had to.
+
+18:44.720 --> 18:48.640
+ Right. But nevertheless, from when you look
+
+18:48.640 --> 18:51.600
+ in retrospect, I mean, it seems like a brave decision,
+
+18:51.600 --> 18:54.960
+ you know, it would be difficult for a lot of people to make. It wasn't as
+
+18:54.960 --> 18:59.520
+ popular, I'd say that the general, you know, flux of people
+
+18:59.520 --> 19:04.080
+ out of MIT at the time was mostly into, you know, finance or consulting jobs in
+
+19:04.080 --> 19:07.200
+ Boston or New York, and very few people were going to
+
+19:07.200 --> 19:10.080
+ California to start companies, but today I'd say that's,
+
+19:10.080 --> 19:14.080
+ it's probably inverted, which is just a sign of,
+
+19:14.080 --> 19:18.320
+ a sign of the times, I guess. Yeah. So there's a story about
+
+19:18.320 --> 19:24.000
+ midnight of March 18, 2007, where TechCrunch, I guess, announced
+
+19:24.000 --> 19:28.880
+ Justin.TV earlier than it was supposed to, a few hours.
+
+19:28.880 --> 19:32.400
+ The site didn't work. I don't know if any of this is true, you can tell me.
+
+19:32.400 --> 19:36.080
+ And you and one of the folks at Justin.TV,
+
+19:36.080 --> 19:41.280
+ Emmett Shearer, coded through the night. Can you take me through that experience?
+
+19:41.280 --> 19:45.360
+ So let me, let me say a few nice things that,
+
+19:45.360 --> 19:49.120
+ the article I read quoted Justin Kahn said that you were known for bureau
+
+19:49.120 --> 19:52.400
+ coding through problems and being a creative, quote, creative
+
+19:52.400 --> 19:56.640
+ genius. So on that night,
+
+19:56.640 --> 20:00.720
+ what, what was going through your head, or maybe I'd put another way,
+
+20:00.720 --> 20:04.960
+ how do you solve these problems? What's your approach to solving these kinds of
+
+20:04.960 --> 20:08.560
+ problems where the line between success and failure seems to be pretty
+
+20:08.560 --> 20:12.000
+ thin? That's a good question. Well, first of all, that's, that's a
+
+20:12.000 --> 20:15.520
+ nice of Justin to say that. I think, you know, I would have been
+
+20:15.520 --> 20:18.720
+ maybe 21 years old then and not very experienced at programming,
+
+20:18.720 --> 20:23.920
+ but as with, with everything in a startup, you're sort of racing against
+
+20:23.920 --> 20:28.080
+ the clock. And so our plan was the second we had
+
+20:28.080 --> 20:33.520
+ this live streaming camera backpack up and running, where Justin could wear it
+
+20:33.520 --> 20:35.280
+ and no matter where he went in a city, it
+
+20:35.280 --> 20:36.800
+ would be streaming live video. And this is
+
+20:36.800 --> 20:40.800
+ even before the iPhones. This is like hard to do back then.
+
+20:40.800 --> 20:45.120
+ We would launch. And so we thought we were there and the backpack was working
+
+20:45.120 --> 20:47.920
+ and then we sent out all the emails to launch the,
+
+20:47.920 --> 20:51.120
+ launch the company and do the press thing. And then, you know,
+
+20:51.120 --> 20:54.640
+ we weren't quite actually there. And then
+
+20:54.640 --> 20:58.640
+ we thought, oh, well, you know, they're not going to announce it until
+
+20:58.640 --> 21:02.320
+ maybe 10 a.m. the next morning. And it's, I don't know, it's 5 p.m. now. So
+
+21:02.320 --> 21:06.080
+ how many hours do we have left? What is that? Like, you know, 17 hours to go.
+
+21:06.080 --> 21:10.320
+ And, and that was, that was going to be fine.
+
+21:10.320 --> 21:12.240
+ Was the problem obvious? Did you understand
+
+21:12.240 --> 21:16.400
+ what could possibly, like, how complicated was the system at that point?
+
+21:16.400 --> 21:22.320
+ It was, it was pretty messy. So to get a live video feed that looked decent
+
+21:22.320 --> 21:27.040
+ working from anywhere in San Francisco, I put together this system where we had
+
+21:27.040 --> 21:29.920
+ like three or four cell phone data modems and
+
+21:29.920 --> 21:32.720
+ they were, like, we take the video stream and,
+
+21:32.720 --> 21:36.000
+ you know, sort of spray it across these three or four modems and then try to
+
+21:36.000 --> 21:39.040
+ catch all the packets on the other side, you know, with unreliable cell phone
+
+21:39.040 --> 21:41.040
+ networks. It's pretty low level networking.
+
+21:41.040 --> 21:44.160
+ Yeah, and putting these, like, you know, sort of
+
+21:44.160 --> 21:47.520
+ protocols on top of all that to, to reassemble and reorder the packets and
+
+21:47.520 --> 21:50.880
+ have time buffers and error correction and all that kind of stuff.
+
+21:50.880 --> 21:55.600
+ And the night before it was just staticky. Every once in a while the image
+
+21:55.600 --> 21:58.560
+ would, would go to staticky and there would be this horrible,
+
+21:58.560 --> 22:01.920
+ like, screeching audio noise because the audio was also corrupted.
+
+22:01.920 --> 22:05.280
+ And this would happen, like, every five to ten minutes or so and it was
+
+22:05.280 --> 22:08.720
+ a really, you know, off putting to the viewers.
+
+22:08.720 --> 22:12.720
+ How do you tackle that problem? What was the, uh, you're just freaking out behind a
+
+22:12.720 --> 22:16.160
+ computer. There's, are there other, other folks working
+
+22:16.160 --> 22:19.360
+ on this problem? Like, were you behind a whiteboard? Were you doing, uh,
+
+22:19.360 --> 22:23.680
+ Yeah, it was a little, it was a little, yeah, it's a little lonely because there's four of us
+
+22:23.680 --> 22:26.720
+ working on the company and only two people really wrote code.
+
+22:26.720 --> 22:30.080
+ And Emmett wrote the website and the chat system and I wrote the
+
+22:30.080 --> 22:34.080
+ software for this video streaming device and video server.
+
+22:34.080 --> 22:37.200
+ And so, you know, it's my sole responsibility to figure that out.
+
+22:37.200 --> 22:40.320
+ And I think, I think it's those, you know, setting,
+
+22:40.320 --> 22:42.960
+ setting deadlines, trying to move quickly and everything where you're in that
+
+22:42.960 --> 22:45.520
+ moment of intense pressure that sometimes people do their
+
+22:45.520 --> 22:48.720
+ best and most interesting work. And so even though that was a terrible moment,
+
+22:48.720 --> 22:51.360
+ I look back on it fondly because that's like, you know, that's one of those
+
+22:51.360 --> 22:58.320
+ character defining moments, I think. So in 2013, October, you founded
+
+22:58.320 --> 23:02.720
+ Cruise Automation. Yeah. So progressing forward, another
+
+23:02.720 --> 23:06.800
+ exceptionally successful company was acquired by GM in 16
+
+23:06.800 --> 23:14.000
+ for $1 billion. But in October 2013, what was on your mind?
+
+23:14.000 --> 23:19.760
+ What was the plan? How does one seriously start to tackle
+
+23:19.760 --> 23:23.200
+ one of the hardest robotics, most important impact for robotics
+
+23:23.200 --> 23:27.760
+ problems of our age? After going through Twitch, Twitch was,
+
+23:27.760 --> 23:35.120
+ was, and is today, pretty successful. But the, the work was,
+
+23:35.120 --> 23:38.560
+ the result was entertainment, mostly. Like, the better the product was,
+
+23:38.560 --> 23:42.320
+ the more we would entertain people and then, you know, make money on the ad
+
+23:42.320 --> 23:44.960
+ revenues and other things. And that was, that was a good thing. It
+
+23:44.960 --> 23:48.400
+ felt, felt good to entertain people. But I figured like, you know, what is really
+
+23:48.400 --> 23:51.120
+ the point of becoming a really good engineer and
+
+23:51.120 --> 23:54.320
+ developing these skills other than, you know, my own enjoyment? And I
+
+23:54.320 --> 23:56.720
+ realized I wanted something that scratched more of an existential
+
+23:56.720 --> 23:59.920
+ itch, like something that, that truly matters. And so I
+
+23:59.920 --> 24:05.120
+ basically made this list of requirements for a new, if I was going to
+
+24:05.120 --> 24:07.600
+ do another company, and the one thing I knew in the back of
+
+24:07.600 --> 24:12.160
+ my head that Twitch took like eight years to become successful.
+
+24:12.160 --> 24:16.160
+ And so whatever I do, I better be willing to commit, you know, at least 10 years
+
+24:16.160 --> 24:20.240
+ to something. And when you think about things from that perspective,
+
+24:20.240 --> 24:23.520
+ you certainly, I think, raise the bar on what you choose to work on. So for me,
+
+24:23.520 --> 24:26.720
+ the three things were it had to be something where the technology
+
+24:26.720 --> 24:28.880
+ itself determines the success of the product,
+
+24:28.880 --> 24:32.400
+ like hard, really juicy technology problems, because that's what
+
+24:32.400 --> 24:37.040
+ motivates me. And then it had to have a direct and positive impact on society in
+
+24:37.040 --> 24:39.120
+ some way. So an example would be like, you know,
+
+24:39.120 --> 24:42.000
+ health care, self driving cars, because they save lives, other things where
+
+24:42.000 --> 24:45.040
+ there's a clear connection to somehow improving other people's lives.
+
+24:45.040 --> 24:48.240
+ And the last one is it had to be a big business, because
+
+24:48.240 --> 24:51.200
+ for the positive impact to matter, it's got to be a large scale.
+
+24:51.200 --> 24:54.640
+ And I was thinking about that for a while, and I made like, I tried
+
+24:54.640 --> 24:57.520
+ writing a Gmail clone and looked at some other ideas.
+
+24:57.520 --> 25:00.720
+ And then it just sort of light bulb went off, like self driving cars, like that
+
+25:00.720 --> 25:03.920
+ was the most fun I had ever had in college working on that.
+
+25:03.920 --> 25:07.280
+ And like, well, what's the state of the technology? It's been 10 years.
+
+25:07.280 --> 25:10.640
+ Maybe times have changed, and maybe now is the time to make this work.
+
+25:10.640 --> 25:14.000
+ And I poked around and looked at, the only other thing out there really at the
+
+25:14.000 --> 25:16.560
+ time was the Google self driving car project.
+
+25:16.560 --> 25:20.720
+ And I thought, surely there's a way to, you know, have an entrepreneur mindset
+
+25:20.720 --> 25:23.440
+ and sort of solve the minimum viable product here.
+
+25:23.440 --> 25:26.400
+ And so I just took the plunge right then and there and said, this is something I
+
+25:26.400 --> 25:29.600
+ know I can commit 10 years to. It's the probably the greatest
+
+25:29.600 --> 25:33.440
+ applied AI problem of our generation. And if it works, it's going to be both a
+
+25:33.440 --> 25:37.120
+ huge business and therefore like, probably the most positive impact I can
+
+25:37.120 --> 25:41.680
+ possibly have on the world. So after that light bulb went off, I went
+
+25:41.680 --> 25:45.520
+ all in on cruise immediately and got to work.
+
+25:45.520 --> 25:48.320
+ Did you have an idea how to solve this problem? Which aspect of the problem to
+
+25:48.320 --> 25:52.560
+ solve? You know, slow, like we just had Oliver
+
+25:52.560 --> 25:56.400
+ from Voyage here, slow moving retirement communities,
+
+25:56.400 --> 26:00.720
+ urban driving, highway driving. Did you have, like, did you have a vision of the
+
+26:00.720 --> 26:05.200
+ city of the future where, you know, the transportation is
+
+26:05.200 --> 26:09.760
+ largely automated, that kind of thing? Or was it sort of
+
+26:09.760 --> 26:15.680
+ more fuzzy and gray area than that? My analysis of the situation is that
+
+26:15.680 --> 26:19.200
+ Google is putting a lot, had been putting a lot of money into that project. They
+
+26:19.200 --> 26:23.680
+ had a lot more resources. And so, and they still hadn't cracked
+
+26:23.680 --> 26:29.520
+ the fully driverless car. You know, this is 2013, I guess.
+
+26:29.520 --> 26:34.320
+ So I thought, what can I do to sort of go from zero to,
+
+26:34.320 --> 26:37.520
+ you know, significant scale so I can actually solve the real problem, which is
+
+26:37.520 --> 26:40.720
+ the driverless cars. And I thought, here's the strategy. We'll
+
+26:40.720 --> 26:44.480
+ start by doing a really simple problem or solving a
+
+26:44.480 --> 26:49.040
+ really simple problem that creates value for people. So,
+
+26:49.040 --> 26:51.760
+ eventually ended up deciding on automating highway driving,
+
+26:51.760 --> 26:55.120
+ which is relatively more straightforward as long as there's a
+
+26:55.120 --> 26:59.200
+ backup driver there. And, you know, the go to market will be able to retrofit
+
+26:59.200 --> 27:02.400
+ people's cars and just sell these products directly. And
+
+27:02.400 --> 27:06.640
+ the idea was, we'll take all the revenue and profits from that and use it
+
+27:06.640 --> 27:10.640
+ to do the, so sort of reinvest that in research for
+
+27:10.640 --> 27:13.920
+ doing fully driverless cars. And that was the plan.
+
+27:13.920 --> 27:17.280
+ The only thing that really changed along the way between then and now is
+
+27:17.280 --> 27:21.040
+ we never really launched the first product. We had enough interest from
+
+27:21.040 --> 27:23.760
+ investors and enough of a signal that this was
+
+27:23.760 --> 27:26.880
+ something that we should be working on, that after about a year of working on
+
+27:26.880 --> 27:29.840
+ the highway autopilot, we had it working, you know, on a
+
+27:29.840 --> 27:33.040
+ prototype stage. But we just completely abandoned that
+
+27:33.040 --> 27:36.480
+ and said, we're going to go all in on driverless cars now is the time.
+
+27:36.480 --> 27:39.680
+ Can't think of anything that's more exciting and if it works more impactful,
+
+27:39.680 --> 27:42.720
+ so we're just going to go for it. The idea of retrofit is kind of
+
+27:42.720 --> 27:46.720
+ interesting. Yeah. Being able to, it's how you achieve scale.
+
+27:46.720 --> 27:49.600
+ It's a really interesting idea. Is it something that's still in the
+
+27:49.600 --> 27:52.800
+ in the back of your mind as a possibility?
+
+27:52.800 --> 27:56.720
+ Not at all. I've come full circle on that one. After
+
+27:56.720 --> 28:00.640
+ trying to build a retrofit product, and I'll touch on some of the complexities
+
+28:00.640 --> 28:04.240
+ of that, and then also having been inside an OEM
+
+28:04.240 --> 28:06.880
+ and seeing how things work and how a vehicle is developed and
+
+28:06.880 --> 28:09.840
+ validated. When it comes to something that has
+
+28:09.840 --> 28:13.200
+ safety critical implications like controlling the steering and
+
+28:13.200 --> 28:16.560
+ other control inputs on your car, it's pretty hard to get there
+
+28:16.560 --> 28:21.280
+ with a retrofit. Or if you did, even if you did, it creates a whole bunch
+
+28:21.280 --> 28:25.040
+ of new complications around liability or how did you truly validate
+
+28:25.040 --> 28:28.320
+ that. Or you know, something in the base vehicle fails and causes your system to
+
+28:28.320 --> 28:31.280
+ fail, whose fault is it?
+
+28:31.280 --> 28:35.040
+ Or if the car's anti lock brake systems or other things kick in
+
+28:35.040 --> 28:38.640
+ or the software has been, it's different in one version of the car you retrofit
+
+28:38.640 --> 28:40.480
+ versus another and you don't know because
+
+28:40.480 --> 28:43.600
+ the manufacturer has updated it behind the scenes. There's basically an
+
+28:43.600 --> 28:46.160
+ infinite list of long tail issues that can get you.
+
+28:46.160 --> 28:48.160
+ And if you're dealing with a safety critical product, that's not really
+
+28:48.160 --> 28:52.000
+ acceptable. That's a really convincing summary of why
+
+28:52.000 --> 28:54.880
+ that's really challenging. But I didn't know all that at the time, so we tried it
+
+28:54.880 --> 28:57.280
+ anyway. But as a pitch also at the time, it's a
+
+28:57.280 --> 29:00.640
+ really strong one. Because that's how you achieve scale and that's how you beat
+
+29:00.640 --> 29:04.640
+ the current, the leader at the time of Google or the only one in the market.
+
+29:04.640 --> 29:08.560
+ The other big problem we ran into, which is perhaps the biggest problem from a
+
+29:08.560 --> 29:13.200
+ business model perspective, is we had kind of assumed that we
+
+29:13.200 --> 29:16.160
+ started with an Audi S4 as the vehicle we
+
+29:16.160 --> 29:18.720
+ retrofitted with this highway driving capability.
+
+29:18.720 --> 29:22.000
+ And we had kind of assumed that if we just knock out like three
+
+29:22.000 --> 29:25.360
+ make and models of vehicles, that'll cover like 80% of the San Francisco
+
+29:25.360 --> 29:28.800
+ market. Doesn't everyone there drive, I don't know, a BMW or a Honda Civic or
+
+29:28.800 --> 29:32.080
+ one of these three cars? And then we surveyed our users and we found out that
+
+29:32.080 --> 29:35.680
+ it's all over the place. We would, to get even a decent number of
+
+29:35.680 --> 29:39.760
+ units sold, we'd have to support like, you know, 20 or 50 different models.
+
+29:39.760 --> 29:43.120
+ And each one is a little butterfly that takes time and effort to maintain,
+
+29:43.120 --> 29:47.040
+ you know, that retrofit integration and custom hardware and all this.
+
+29:47.040 --> 29:52.720
+ So it was a tough business. So GM manufactures and sells over 9 million
+
+29:52.720 --> 29:58.560
+ cars a year. And what you with Cruise are trying to do
+
+29:58.560 --> 30:03.120
+ some of the most cutting edge innovation in terms of applying AI.
+
+30:03.120 --> 30:06.960
+ And so how do those, you've talked about a little bit before, but it's also just
+
+30:06.960 --> 30:09.840
+ fascinating to me. We work a lot of automakers,
+
+30:09.840 --> 30:12.880
+ you know, the difference between the gap between Detroit
+
+30:12.880 --> 30:17.200
+ and Silicon Valley, let's say, just to be sort of poetic about it, I guess.
+
+30:17.200 --> 30:21.360
+ How do you close that gap? How do you take GM into the future
+
+30:21.360 --> 30:24.720
+ where a large part of the fleet will be autonomous, perhaps?
+
+30:24.720 --> 30:28.160
+ I want to start by acknowledging that GM is made up of,
+
+30:28.160 --> 30:31.200
+ you know, tens of thousands of really brilliant, motivated people who want to
+
+30:31.200 --> 30:34.800
+ be a part of the future. And so it's pretty fun to work
+
+30:34.800 --> 30:37.840
+ within the attitude inside a car company like that is, you
+
+30:37.840 --> 30:41.120
+ know, embracing this transformation and change
+
+30:41.120 --> 30:44.400
+ rather than fearing it. And I think that's a testament to
+
+30:44.400 --> 30:47.680
+ the leadership at GM and that's flown all the way through to everyone you
+
+30:47.680 --> 30:51.040
+ talk to, even the people in the assembly plants working on these cars.
+
+30:51.040 --> 30:55.120
+ So that's really great. So starting from that position makes it a lot easier
+
+30:55.120 --> 30:59.920
+ so then when the people in San Francisco at Cruise
+
+30:59.920 --> 31:02.960
+ interact with the people at GM, at least we have this common set of values, which
+
+31:02.960 --> 31:04.800
+ is that we really want this stuff to work
+
+31:04.800 --> 31:08.160
+ because we think it's important and we think it's the future.
+
+31:08.160 --> 31:12.320
+ That's not to say, you know, those two cultures don't clash. They absolutely do.
+
+31:12.320 --> 31:15.360
+ There's different sort of value systems. Like in a
+
+31:15.360 --> 31:19.360
+ car company, the thing that gets you promoted and sort of the reward
+
+31:19.360 --> 31:23.040
+ system is following the processes, delivering
+
+31:23.040 --> 31:28.000
+ the program on time and on budget. So any sort of risk taking
+
+31:28.000 --> 31:34.560
+ is discouraged in many ways because if a program is late or if you shut down
+
+31:34.560 --> 31:38.000
+ the plant for a day, it's, you know, you can count the millions of dollars that
+
+31:38.000 --> 31:42.880
+ burn by pretty quickly. Whereas I think, you know, most Silicon
+
+31:42.880 --> 31:47.040
+ Valley companies and in Cruise and the methodology
+
+31:47.040 --> 31:50.000
+ we were employing, especially around the time of the acquisition,
+
+31:50.000 --> 31:53.680
+ the reward structure is about trying to solve
+
+31:53.680 --> 31:57.360
+ these complex problems in any way shape or form or coming up with crazy ideas
+
+31:57.360 --> 32:02.720
+ that, you know, 90% of them won't work. And so meshing that culture
+
+32:02.720 --> 32:05.360
+ of sort of continuous improvement and experimentation
+
+32:05.360 --> 32:08.960
+ with one where everything needs to be rigorously defined up front so that
+
+32:08.960 --> 32:12.560
+ you never slip a deadline or miss a budget
+
+32:12.560 --> 32:16.880
+ was a pretty big challenge. And that we're over three years in now
+
+32:16.880 --> 32:20.560
+ after the acquisition and I'd say like, you know, the investment we made in
+
+32:20.560 --> 32:23.520
+ figuring out how to work together successfully and
+
+32:23.520 --> 32:26.560
+ who should do what and how we bridge the gaps between these
+
+32:26.560 --> 32:29.440
+ very different systems and way of doing engineering work
+
+32:29.440 --> 32:31.600
+ is now one of our greatest assets because I think we have this really
+
+32:31.600 --> 32:36.000
+ powerful thing. But for a while it was both GM and Cruise were very
+
+32:36.000 --> 32:38.800
+ steep on the learning curve. Yeah, so I'm sure it was very stressful.
+
+32:38.800 --> 32:41.840
+ It's really important work because that's how
+
+32:41.840 --> 32:44.880
+ to revolutionize the transportation, really to revolutionize
+
+32:44.880 --> 32:48.880
+ any system. You know, you look at the health care system or you look at the
+
+32:48.880 --> 32:52.560
+ legal system. I have people like Loris come up to me all the time like
+
+32:52.560 --> 32:55.920
+ everything they're working on can easily be automated.
+
+32:55.920 --> 32:59.760
+ But then that's not a good feeling. Yeah, well it's not a good feeling but also
+
+32:59.760 --> 33:05.120
+ there's no way to automate because the entire infrastructure is really,
+
+33:05.120 --> 33:08.880
+ you know, based is older and it moves very slowly. And so
+
+33:08.880 --> 33:12.320
+ how do you close the gap between I have an
+
+33:12.320 --> 33:15.920
+ how can I replace, of course, Loris don't want to be replaced with an app, but you
+
+33:15.920 --> 33:20.000
+ could replace a lot of aspect when most of the data is still on paper.
+
+33:20.000 --> 33:23.280
+ And so the same thing was with automotive.
+
+33:23.280 --> 33:27.920
+ I mean, it's fundamentally software. It's basically hiring software
+
+33:27.920 --> 33:30.160
+ engineers. It's thinking in a software world.
+
+33:30.160 --> 33:34.560
+ I mean, I'm pretty sure nobody in Silicon Valley has ever hit a deadline.
+
+33:34.560 --> 33:38.560
+ So and then on GM. That's probably true, yeah. And GM side is probably the
+
+33:38.560 --> 33:42.640
+ opposite. Yeah. So that's that culture gap is really fascinating.
+
+33:42.640 --> 33:45.120
+ So you're optimistic about the future of that?
+
+33:45.120 --> 33:48.320
+ Yeah, I mean, from what I've seen, it's impressive. And I think like
+
+33:48.320 --> 33:51.760
+ especially in Silicon Valley, it's easy to write off building cars because,
+
+33:51.760 --> 33:55.280
+ you know, people have been doing that for over 100 years now in this country. And
+
+33:55.280 --> 33:58.080
+ so it seems like that's a solved problem, but that doesn't mean it's an easy
+
+33:58.080 --> 34:01.120
+ problem. And I think it would be easy to sort of
+
+34:01.120 --> 34:04.960
+ overlook that and think that, you know, we're
+
+34:04.960 --> 34:08.880
+ Silicon Valley engineers. We can solve any problem, you know, building a car.
+
+34:08.880 --> 34:12.640
+ It's been done. Therefore, it's, you know, it's not a real
+
+34:12.640 --> 34:16.960
+ engineering challenge. But after having seen just the sheer
+
+34:16.960 --> 34:20.720
+ scale and magnitude and industrialization
+
+34:20.720 --> 34:24.320
+ that occurs inside of an automotive assembly plant, that is a lot of work
+
+34:24.320 --> 34:28.000
+ that I am very glad that we don't have to reinvent
+
+34:28.000 --> 34:31.120
+ to make self driving cars work. And so to have, you know, partners who have done
+
+34:31.120 --> 34:33.920
+ that for 100 years now, these great processes and this huge infrastructure
+
+34:33.920 --> 34:38.640
+ and supply base that we can tap into is just remarkable
+
+34:38.640 --> 34:43.840
+ because the scope and surface area of
+
+34:43.840 --> 34:47.200
+ the problem of deploying fleets of self driving cars is so large
+
+34:47.200 --> 34:50.240
+ that we're constantly looking for ways to do less
+
+34:50.240 --> 34:53.760
+ so we can focus on the things that really matter more. And if we had to
+
+34:53.760 --> 34:57.360
+ figure out how to build and assemble and
+
+34:57.360 --> 35:01.360
+ you know, build the cars themselves. I mean, we work closely with GM on
+
+35:01.360 --> 35:05.040
+ that. But if we had to develop all that capability in house as well,
+
+35:05.040 --> 35:10.080
+ you know, that would just make the problem really intractable, I think.
+
+35:10.080 --> 35:15.520
+ So yeah, just like your first entry at the MIT DARPA challenge when
+
+35:15.520 --> 35:18.640
+ there was what the motor that failed, somebody that knows what they're
+
+35:18.640 --> 35:20.960
+ doing with the motor did it. That would have been nice if we could
+
+35:20.960 --> 35:23.760
+ focus on the software, not the hardware platform.
+
+35:23.760 --> 35:27.760
+ Yeah. Right. So from your perspective now,
+
+35:27.760 --> 35:30.480
+ you know, there's so many ways that autonomous vehicles can impact
+
+35:30.480 --> 35:34.080
+ society in the next year, five years, ten years.
+
+35:34.080 --> 35:37.600
+ What do you think is the biggest opportunity to make
+
+35:37.600 --> 35:41.520
+ money in autonomous driving, sort of make it a
+
+35:41.520 --> 35:44.560
+ financially viable thing in the near term?
+
+35:44.560 --> 35:49.040
+ What do you think will be the biggest impact there?
+
+35:49.040 --> 35:53.200
+ Well, the things that drive the economics for fleets of self driving
+
+35:53.200 --> 35:57.760
+ cars are, there's sort of a handful of variables. One is,
+
+35:57.760 --> 36:02.080
+ you know, the cost to build the vehicle itself. So the material cost, how many,
+
+36:02.080 --> 36:05.200
+ you know, what's the cost of all your sensors plus the cost of the vehicle and
+
+36:05.200 --> 36:08.720
+ every all the other components on it. Another one is the lifetime of the
+
+36:08.720 --> 36:11.120
+ vehicle. It's very different if your vehicle
+
+36:11.120 --> 36:13.680
+ drives 100,000 miles and then it falls apart versus,
+
+36:13.680 --> 36:18.880
+ you know, two million. And then, you know, if you have a fleet, it's
+
+36:18.880 --> 36:23.440
+ kind of like an airplane or an airline where
+
+36:23.440 --> 36:26.720
+ once you produce the vehicle, you want it to be in
+
+36:26.720 --> 36:30.640
+ operation as many hours a day as possible producing revenue.
+
+36:30.640 --> 36:34.000
+ And then, you know, the other piece of that is
+
+36:34.000 --> 36:36.800
+ how are you generating revenue? I think that's kind of what you're asking. And I
+
+36:36.800 --> 36:40.000
+ think the obvious things today are, you know, the ride sharing business
+
+36:40.000 --> 36:42.560
+ because that's pretty clear that there's demand for that,
+
+36:42.560 --> 36:46.160
+ there's existing markets you can tap into and
+
+36:46.160 --> 36:50.000
+ large urban areas, that kind of thing. Yeah, yeah. And I think that there are
+
+36:50.000 --> 36:53.680
+ some real benefits to having cars without
+
+36:53.680 --> 36:56.080
+ drivers compared to sort of the status quo for
+
+36:56.080 --> 36:58.320
+ people who use ride share services today.
+
+36:58.320 --> 37:02.320
+ You know, you get privacy, consistency, hopefully significantly improve safety,
+
+37:02.320 --> 37:04.960
+ all these benefits versus the current product.
+
+37:04.960 --> 37:08.160
+ But it's a crowded market. And then other opportunities, which you've
+
+37:08.160 --> 37:10.960
+ seen a lot of activity in the last, really in the last six or twelve months,
+
+37:10.960 --> 37:14.880
+ is, you know, delivery, whether that's parcels and packages,
+
+37:14.880 --> 37:20.880
+ food or groceries. Those are all sort of, I think, opportunities that are
+
+37:20.880 --> 37:25.120
+ pretty ripe for these, you know, once you have this
+
+37:25.120 --> 37:28.640
+ core technology, which is the fleet of autonomous vehicles, there's all sorts of
+
+37:28.640 --> 37:31.440
+ different business opportunities you can build on
+
+37:31.440 --> 37:34.720
+ top of that. But I think the important thing, of course, is that
+
+37:34.720 --> 37:37.760
+ there's zero monetization opportunity until you actually have that fleet of
+
+37:37.760 --> 37:40.960
+ very capable driverless cars that are that are as good or better than humans.
+
+37:40.960 --> 37:44.160
+ And that's sort of where the entire industry is
+
+37:44.160 --> 37:45.840
+ sort of in this holding pattern right now.
+
+37:45.840 --> 37:49.200
+ Yeah, they're trying to achieve that baseline. So, but you said sort of
+
+37:49.200 --> 37:53.200
+ not reliability, consistency. It's kind of interesting, I think I heard you say
+
+37:53.200 --> 37:56.400
+ somewhere, I'm not sure if that's what you meant, but
+
+37:56.400 --> 38:01.200
+ you know, I can imagine a situation where you would get an autonomous vehicle
+
+38:01.200 --> 38:04.480
+ and, you know, when you get into an Uber or Lyft,
+
+38:04.480 --> 38:07.360
+ you don't get to choose the driver in a sense that you don't get to choose the
+
+38:07.360 --> 38:12.000
+ personality of the driving. Do you think there's a, there's room
+
+38:12.000 --> 38:15.440
+ to define the personality of the car the way it drives you in terms of
+
+38:15.440 --> 38:19.680
+ aggressiveness, for example, in terms of sort of pushing the
+
+38:19.680 --> 38:23.280
+ bound? One of the biggest challenges of autonomous driving is the
+
+38:23.280 --> 38:26.880
+ is the trade off between sort of safety and
+
+38:26.880 --> 38:30.880
+ assertiveness. And do you think there's any room
+
+38:30.880 --> 38:36.800
+ for the human to take a role in that decision? Sort of accept some of the
+
+38:36.800 --> 38:39.920
+ liability, I guess. I wouldn't, no, I'd say within
+
+38:39.920 --> 38:43.600
+ reasonable bounds, as in we're not gonna, I think it'd be
+
+38:43.600 --> 38:48.000
+ highly unlikely we'd expose any knob that would let you, you know, significantly
+
+38:48.000 --> 38:51.280
+ increase safety risk. I think that's just not
+
+38:51.280 --> 38:56.400
+ something we'd be willing to do. But I think driving style or like, you
+
+38:56.400 --> 39:00.000
+ know, are you going to relax the comfort constraints slightly or things like that,
+
+39:00.000 --> 39:03.280
+ all of those things make sense and are plausible. I see all those as, you know,
+
+39:03.280 --> 39:07.200
+ nice optimizations. Once again, we get the core problem solved in these fleets
+
+39:07.200 --> 39:09.840
+ out there. But the other thing we've sort of
+
+39:09.840 --> 39:13.520
+ observed is that you have this intuition that if you
+
+39:13.520 --> 39:16.640
+ sort of slam your foot on the gas right after the light turns green and
+
+39:16.640 --> 39:19.840
+ aggressively accelerate, you're going to get there faster. But the
+
+39:19.840 --> 39:22.000
+ actual impact of doing that is pretty small.
+
+39:22.000 --> 39:25.680
+ You feel like you're getting there faster, but so the same would be
+
+39:25.680 --> 39:29.440
+ true for AVs. Even if they don't slam their, you know, the pedal to the floor
+
+39:29.440 --> 39:32.240
+ when the light turns green, they're going to get you there within, you
+
+39:32.240 --> 39:35.200
+ know, if it's a 15 minute trip, within 30 seconds of what you would have done
+
+39:35.200 --> 39:37.680
+ otherwise if you were going really aggressively.
+
+39:37.680 --> 39:42.560
+ So I think there's this sort of self deception that my aggressive
+
+39:42.560 --> 39:44.240
+ driving style is getting me there faster.
+
+39:44.240 --> 39:46.960
+ Well, so that's, you know, some of the things I've studied, some of the things
+
+39:46.960 --> 39:50.560
+ I'm fascinated by the psychology of that. I don't think it matters
+
+39:50.560 --> 39:55.440
+ that it doesn't get you there faster. It's the emotional release.
+
+39:55.440 --> 39:58.960
+ Driving is a place, being inside of a car,
+
+39:58.960 --> 40:02.800
+ somebody said it's like the real world version of being a troll.
+
+40:02.800 --> 40:05.920
+ So you have this protection, this mental protection, you're able to sort of yell
+
+40:05.920 --> 40:08.320
+ at the world, like release your anger, whatever.
+
+40:08.320 --> 40:12.240
+ So there's an element of that that I think autonomous vehicles would also
+
+40:12.240 --> 40:16.320
+ have to, you know, giving an outlet to people, but it doesn't have to be
+
+40:16.320 --> 40:19.520
+ through, through, through driving or honking or so on.
+
+40:19.520 --> 40:23.840
+ There might be other outlets, but I think to just sort of even just put that aside,
+
+40:23.840 --> 40:26.720
+ the baseline is really, you know, that's the focus.
+
+40:26.720 --> 40:28.000
+ That's the thing you need to solve.
+
+40:28.000 --> 40:30.800
+ And then the fun human things can be solved after.
+
+40:30.800 --> 40:35.120
+ But so from the baseline of just solving autonomous driving, you're working in
+
+40:35.120 --> 40:38.800
+ San Francisco, one of the more difficult cities to operate in.
+
+40:38.800 --> 40:43.200
+ What is, what is the, in your view, currently the hardest
+
+40:43.200 --> 40:45.680
+ aspect of autonomous driving?
+
+40:45.680 --> 40:49.040
+ Is it negotiating with pedestrians?
+
+40:49.040 --> 40:51.280
+ Is it edge cases of perception?
+
+40:51.280 --> 40:52.880
+ Is it planning?
+
+40:52.880 --> 40:54.400
+ Is there a mechanical engineering?
+
+40:54.400 --> 40:56.080
+ Is it data, fleet stuff?
+
+40:57.280 --> 41:00.960
+ What are your thoughts on the challenge, the more challenging aspects there?
+
+41:00.960 --> 41:02.080
+ That's a, that's a good question.
+
+41:02.080 --> 41:04.800
+ I think before, before we go to that, though, I just want to, I like what you
+
+41:04.800 --> 41:07.440
+ said about the psychology aspect of this,
+
+41:07.440 --> 41:11.200
+ because I think one observation I've made is I think I read somewhere that I
+
+41:11.200 --> 41:14.960
+ think it's maybe Americans on average spend, you know, over an hour a day on
+
+41:14.960 --> 41:18.160
+ social media, like staring at Facebook.
+
+41:18.160 --> 41:21.520
+ And so that's just, you know, 60 minutes of your life, you're not getting back.
+
+41:21.520 --> 41:23.040
+ It's probably not super productive.
+
+41:23.040 --> 41:26.160
+ And so that's 3,600 seconds, right?
+
+41:26.160 --> 41:30.560
+ And that's, that's time, you know, it's a lot of time you're giving up.
+
+41:30.560 --> 41:35.520
+ And if you compare that to people being on the road, if another vehicle, whether
+
+41:35.520 --> 41:38.960
+ it's a human driver or autonomous vehicle, delays them by even three
+
+41:38.960 --> 41:43.120
+ seconds, they're laying in on the horn, you know, even though that's, that's, you
+
+41:43.120 --> 41:46.320
+ know, one, one thousandth of the time they waste looking at Facebook every day.
+
+41:46.320 --> 41:47.920
+ So there's, there's definitely some.
+
+41:48.560 --> 41:51.040
+ You know, psychology aspects of this, I think that are pretty interesting road
+
+41:51.040 --> 41:51.680
+ rage in general.
+
+41:51.680 --> 41:54.880
+ And then the question of course is if everyone is in self driving cars,
+
+41:54.880 --> 41:57.520
+ do they even notice these three second delays anymore?
+
+41:57.520 --> 42:01.280
+ Cause they're doing other things or reading or working or just talking to
+
+42:01.280 --> 42:01.680
+ each other.
+
+42:01.680 --> 42:03.120
+ So it'll be interesting to see where that goes.
+
+42:03.120 --> 42:06.800
+ In a certain aspect, people, people need to be distracted by something
+
+42:06.800 --> 42:09.040
+ entertaining, something useful inside the car.
+
+42:09.040 --> 42:10.880
+ So they don't pay attention to the external world.
+
+42:10.880 --> 42:15.520
+ And then, and then they can take whatever psychology and bring it back to
+
+42:15.520 --> 42:21.680
+ Twitter and then focus on that as opposed to sort of interacting, sort of putting
+
+42:21.680 --> 42:23.120
+ the emotion out there into the world.
+
+42:23.120 --> 42:26.080
+ So it's a, it's an interesting problem, but baseline autonomy.
+
+42:26.800 --> 42:30.320
+ I guess you could say self driving cars, you know, at scale will lower the
+
+42:30.320 --> 42:34.160
+ collective blood pressure of society probably by a couple of points without
+
+42:34.160 --> 42:35.680
+ all that road rage and stress.
+
+42:35.680 --> 42:37.200
+ So that's a good, good external.
+
+42:38.480 --> 42:43.280
+ So back to your question about the technology and the, I guess the biggest
+
+42:43.280 --> 42:43.680
+ problems.
+
+42:43.680 --> 42:47.040
+ And I have a hard time answering that question because, you know, we've been
+
+42:47.040 --> 42:52.320
+ at this like specifically focusing on driverless cars and all the technology
+
+42:52.320 --> 42:55.120
+ needed to enable that for a little over four and a half years now.
+
+42:55.120 --> 43:02.880
+ And even a year or two in, I felt like we had completed the functionality needed
+
+43:02.880 --> 43:04.800
+ to get someone from point A to point B.
+
+43:04.800 --> 43:08.320
+ As in, if we need to do a left turn maneuver, or if we need to drive around
+
+43:08.320 --> 43:12.320
+ at, you know, a double parked vehicle into oncoming traffic or navigate
+
+43:12.320 --> 43:16.400
+ through construction zones, the scaffolding and the building blocks was
+
+43:16.400 --> 43:17.760
+ there pretty early on.
+
+43:17.760 --> 43:23.040
+ And so the challenge is not any one scenario or situation for which, you
+
+43:23.040 --> 43:25.520
+ know, we fail at 100% of those.
+
+43:25.520 --> 43:29.520
+ It's more, you know, we're benchmarking against a pretty good or pretty high
+
+43:29.520 --> 43:31.280
+ standard, which is human driving.
+
+43:31.280 --> 43:35.280
+ All things considered, humans are excellent at handling edge cases and
+
+43:35.280 --> 43:37.520
+ unexpected scenarios where computers are the opposite.
+
+43:38.320 --> 43:43.040
+ And so beating that baseline set by humans is the challenge.
+
+43:43.040 --> 43:49.360
+ And so what we've been doing for quite some time now is basically, it's this
+
+43:49.360 --> 43:53.920
+ continuous improvement process where we find sort of the most, you know,
+
+43:53.920 --> 43:59.920
+ uncomfortable or the things that could lead to a safety issue or other
+
+43:59.920 --> 44:00.800
+ things, all these events.
+
+44:00.800 --> 44:05.120
+ And then we sort of categorize them and rework parts of our system to make
+
+44:05.120 --> 44:07.920
+ incremental improvements and do that over and over and over again.
+
+44:07.920 --> 44:12.080
+ And we just see sort of the overall performance of the system, you know,
+
+44:12.080 --> 44:13.840
+ actually increasing in a pretty steady clip.
+
+44:13.840 --> 44:15.200
+ But there's no one thing.
+
+44:15.200 --> 44:19.760
+ There's actually like thousands of little things and just like polishing functionality
+
+44:19.760 --> 44:23.280
+ and making sure that it handles, you know, every version and possible
+
+44:23.280 --> 44:30.160
+ permutation of a situation by either applying more deep learning systems or
+
+44:30.160 --> 44:34.400
+ just by, you know, adding more test coverage or new scenarios that we
+
+44:34.400 --> 44:37.040
+ develop against and just grinding on that.
+
+44:37.040 --> 44:40.560
+ We're sort of in the unsexy phase of development right now, which is doing
+
+44:40.560 --> 44:44.000
+ the real engineering work that it takes to go from prototype to production.
+
+44:44.000 --> 44:49.920
+ You're basically scaling the grinding, sort of taking seriously that the
+
+44:49.920 --> 44:54.320
+ process of all those edge cases, both with human experts and machine
+
+44:54.320 --> 44:59.200
+ learning methods to cover all those situations.
+
+44:59.200 --> 44:59.360
+ Yeah.
+
+44:59.360 --> 45:03.200
+ And the exciting thing for me is I don't think that grinding ever stops because
+
+45:03.200 --> 45:08.080
+ there's a moment in time where you've crossed that threshold of human
+
+45:08.080 --> 45:09.680
+ performance and become superhuman.
+
+45:09.680 --> 45:13.920
+ But there's no reason, there's no first principles reason that AV capability
+
+45:13.920 --> 45:16.080
+ will tap out anywhere near humans.
+
+45:16.080 --> 45:19.680
+ Like there's no reason it couldn't be 20 times better, whether that's, you
+
+45:19.680 --> 45:22.960
+ know, just better driving or safer driving or more comfortable driving or
+
+45:22.960 --> 45:25.360
+ even a thousand times better given enough time.
+
+45:25.360 --> 45:30.560
+ And we intend to basically chase that, you know, forever to build the best
+
+45:30.560 --> 45:31.360
+ possible product.
+
+45:31.360 --> 45:32.480
+ Better and better and better.
+
+45:32.480 --> 45:34.880
+ And always new edge cases come up and new experiences.
+
+45:34.880 --> 45:40.000
+ So, and you want to automate that process as much as possible.
+
+45:40.000 --> 45:43.280
+ So what do you think in general in society?
+
+45:43.840 --> 45:47.600
+ When do you think we may have hundreds of thousands of fully autonomous
+
+45:47.600 --> 45:48.640
+ vehicles driving around?
+
+45:48.640 --> 45:52.000
+ So first of all, predictions, nobody knows the future.
+
+45:52.000 --> 45:55.600
+ You're a part of the leading people trying to define that future, but even
+
+45:55.600 --> 45:56.960
+ then you still don't know.
+
+45:56.960 --> 46:02.720
+ But if you think about hundreds of thousands of vehicles, so a significant
+
+46:02.720 --> 46:05.920
+ fraction of vehicles in major cities are autonomous.
+
+46:05.920 --> 46:12.960
+ Do you think, are you with Rodney Brooks, who is 2050 and beyond, or are you
+
+46:12.960 --> 46:17.920
+ more with Elon Musk, who is, we should have had that two years ago?
+
+46:19.040 --> 46:24.640
+ Well, I mean, I'd love to have it two years ago, but we're not there yet.
+
+46:24.640 --> 46:29.440
+ So I guess the way I would think about that is let's flip that question
+
+46:29.440 --> 46:29.760
+ around.
+
+46:29.760 --> 46:34.480
+ So what would prevent you to reach hundreds of thousands of vehicles?
+
+46:34.480 --> 46:36.720
+ And that's a good, that's a good rephrasing.
+
+46:36.720 --> 46:37.120
+ Yeah.
+
+46:37.120 --> 46:47.120
+ So the, I'd say the, it seems the consensus among the people developing
+
+46:47.120 --> 46:50.960
+ self driving cars today is to sort of start with some form of an easier
+
+46:51.360 --> 46:55.760
+ environment, whether it means, you know, lacking inclement weather or, you
+
+46:55.760 --> 46:57.600
+ know, mostly sunny or whatever it is.
+
+46:57.600 --> 47:02.400
+ And then add, add capability for more complex situations over time.
+
+47:02.880 --> 47:08.400
+ And so if you're only able to deploy in areas that meet sort of your
+
+47:08.400 --> 47:11.760
+ criteria or the current domain, you know, operating domain of the
+
+47:11.760 --> 47:14.720
+ software you developed, that may put a cap on how many cities you could
+
+47:14.720 --> 47:15.280
+ deploy in.
+
+47:16.720 --> 47:20.320
+ But then as those restrictions start to fall away, like maybe you add
+
+47:20.320 --> 47:24.720
+ capability to drive really well and safely in heavy rain or snow, you
+
+47:24.720 --> 47:28.080
+ know, that, that probably opens up the market by two, two or three fold
+
+47:28.160 --> 47:30.560
+ in terms of the cities you can expand into and so on.
+
+47:31.040 --> 47:35.120
+ And so the real question is, you know, I know today if we wanted to, we
+
+47:35.120 --> 47:38.640
+ could produce that, that many autonomous vehicles, but we wouldn't be
+
+47:38.640 --> 47:39.920
+ able to make use of all of them yet.
+
+47:39.920 --> 47:43.440
+ Cause we would sort of saturate the demand in the cities in which we
+
+47:43.440 --> 47:45.040
+ would want to operate initially.
+
+47:46.480 --> 47:49.280
+ So if I were to guess like what the timeline is for those things falling
+
+47:49.280 --> 47:53.040
+ away and reaching hundreds of thousands of vehicles, I would say that
+
+47:53.040 --> 47:57.360
+ thousands of vehicles, maybe a range is better, I would say less than
+
+47:57.360 --> 47:58.880
+ five years, less than five years.
+
+47:58.880 --> 47:59.200
+ Yeah.
+
+47:59.920 --> 48:02.480
+ And of course you're working hard to make that happen.
+
+48:03.520 --> 48:07.680
+ So you started two companies that were eventually acquired for each
+
+48:07.680 --> 48:08.800
+ four billion dollars.
+
+48:09.680 --> 48:12.560
+ So you're a pretty good person to ask, what does it take to build a
+
+48:12.560 --> 48:13.520
+ successful startup?
+
+48:15.280 --> 48:19.680
+ I think there's, there's sort of survivor bias here a little bit, but
+
+48:19.680 --> 48:21.920
+ I can try to find some common threads for the things that worked for
+
+48:21.920 --> 48:27.520
+ me, which is, you know, in, in both of these companies, I was really
+
+48:27.520 --> 48:29.040
+ passionate about the core technology.
+
+48:29.040 --> 48:31.600
+ I actually like, you know, lay awake at night thinking about these
+
+48:31.600 --> 48:33.360
+ problems and how to solve them.
+
+48:33.360 --> 48:36.160
+ And I think that's helpful because when you start a business, there
+
+48:36.160 --> 48:40.800
+ are like to this day, there are these crazy ups and downs.
+
+48:40.800 --> 48:43.200
+ Like one day you think the business is just on, you're just on top of
+
+48:43.200 --> 48:44.320
+ the world and unstoppable.
+
+48:44.320 --> 48:47.360
+ And the next day you think, okay, this is all going to end, you know,
+
+48:47.360 --> 48:49.600
+ it's just, it's just going south and it's going to be over tomorrow.
+
+48:49.600 --> 48:55.280
+ And and so I think like having a true passion that you can fall back
+
+48:55.280 --> 48:57.600
+ on and knowing that you would be doing it, even if you weren't getting
+
+48:57.600 --> 49:00.000
+ paid for it, helps you weather those, those tough times.
+
+49:00.880 --> 49:01.680
+ So that's one thing.
+
+49:01.680 --> 49:05.200
+ I think the other one is really good people.
+
+49:05.200 --> 49:08.640
+ So I've always been surrounded by really good cofounders that are
+
+49:08.640 --> 49:11.920
+ logical thinkers are always pushing their limits and have very high
+
+49:11.920 --> 49:12.880
+ levels of integrity.
+
+49:12.880 --> 49:16.320
+ So that's Dan Kahn and my current company and actually his brother and
+
+49:16.320 --> 49:18.720
+ a couple other guys for Justin TV and Twitch.
+
+49:18.720 --> 49:24.000
+ And then I think the last thing is just I guess persistence or
+
+49:24.000 --> 49:28.880
+ perseverance, like, and, and that, that can apply to sticking to sort
+
+49:28.880 --> 49:32.960
+ of, or having conviction around the original premise of your idea and
+
+49:32.960 --> 49:36.400
+ sticking around to do all the, you know, the unsexy work to actually
+
+49:36.400 --> 49:41.200
+ make it come to fruition, including dealing with, you know, whatever
+
+49:41.200 --> 49:43.280
+ it is that you, that you're not passionate about, whether that's
+
+49:43.280 --> 49:48.320
+ finance or, or HR or, or operations or those things, as long as you
+
+49:48.320 --> 49:51.920
+ are grinding away and working towards, you know, that North star
+
+49:51.920 --> 49:55.040
+ for your business, whatever it is, and you don't give up and you're
+
+49:55.040 --> 49:57.920
+ making progress every day, it seems like eventually you'll end up in a
+
+49:57.920 --> 49:58.400
+ good place.
+
+49:58.400 --> 50:00.640
+ And the only things that can slow you down are, you know, running out
+
+50:00.640 --> 50:02.880
+ of money or I suppose your competitors destroying you.
+
+50:02.880 --> 50:06.720
+ But I think most of the time it's, it's people giving up or, or somehow
+
+50:06.800 --> 50:09.360
+ destroying things themselves rather than being beaten by their competition
+
+50:09.360 --> 50:10.160
+ or running out of money.
+
+50:10.800 --> 50:11.040
+ Yeah.
+
+50:11.040 --> 50:12.720
+ If you never quit, eventually you'll arrive.
+
+50:13.680 --> 50:16.640
+ So, uh, it's a much more concise version of what I was trying to say.
+
+50:16.640 --> 50:18.640
+ Yeah, that was good.
+
+50:18.640 --> 50:20.800
+ So you went the Y Combinator route twice.
+
+50:20.800 --> 50:21.040
+ Yeah.
+
+50:21.680 --> 50:24.880
+ What do you think in a quick question, do you think is the best way to
+
+50:24.880 --> 50:30.080
+ raise funds in the early days or not just funds, but just community
+
+50:30.080 --> 50:31.360
+ develop your idea and so on.
+
+50:32.160 --> 50:38.720
+ Can you do it solo or maybe with a co founder with like self funded?
+
+50:38.720 --> 50:40.000
+ Do you think Y Combinator is good?
+
+50:40.000 --> 50:41.600
+ Is it good to do VC route?
+
+50:41.600 --> 50:45.120
+ Is there no right answer or is there from the Y Combinator experience
+
+50:45.120 --> 50:48.000
+ something that you could take away that that was the right path to take?
+
+50:48.160 --> 50:53.200
+ There's no one size fits all answer, but if your ambition I think is to, you
+
+50:53.200 --> 50:57.920
+ know, see how big you can make something or, or, or rapidly expand and capture
+
+50:57.920 --> 51:01.440
+ a market or solve a problem or whatever it is, then, then, you know, going to
+
+51:01.440 --> 51:04.960
+ venture back route is probably a good approach so that, so that capital doesn't
+
+51:04.960 --> 51:06.400
+ become your primary constraint.
+
+51:07.120 --> 51:12.320
+ Y Combinator I love because it puts you in this, uh, sort of competitive
+
+51:12.320 --> 51:16.080
+ environment where you're, where you're surrounded by, you know, the top, maybe
+
+51:16.080 --> 51:20.800
+ 1% of other really highly motivated, you know, peers who are in the same, same
+
+51:20.800 --> 51:26.560
+ place and that, uh, that environment I think just breeds breed success, right?
+
+51:26.560 --> 51:29.280
+ If you're surrounded by really brilliant, hardworking people, you're going to
+
+51:29.680 --> 51:33.280
+ feel, you know, sort of compelled or inspired to, to try to emulate them and
+
+51:33.280 --> 51:34.000
+ or beat them.
+
+51:34.320 --> 51:39.440
+ And, uh, so even though I had done it once before and I felt like, yeah, I'm
+
+51:39.520 --> 51:40.720
+ pretty self motivated.
+
+51:40.720 --> 51:42.400
+ I thought like, look, this is going to be a hard problem.
+
+51:42.400 --> 51:43.760
+ I can use all the help I can get.
+
+51:44.000 --> 51:46.960
+ So surrounding myself with other entrepreneurs is going to make me work a
+
+51:46.960 --> 51:49.760
+ little bit harder or push a little harder than it's worth it.
+
+51:50.320 --> 51:52.880
+ And so that's why I, why I did it, you know, for example, the second time.
+
+51:53.440 --> 51:55.920
+ Let's, uh, let's go philosophical existential.
+
+51:56.400 --> 52:02.320
+ If you go back and do something differently in your life, starting in the
+
+52:02.320 --> 52:07.840
+ high school and MIT leaving MIT, you could have gone the PhD route doing the
+
+52:07.840 --> 52:13.760
+ startup, going to see about a startup in California and you, or maybe some
+
+52:13.760 --> 52:14.800
+ aspects of fundraising.
+
+52:14.800 --> 52:19.600
+ Is there something you regret, something you not necessarily regret, but if
+
+52:19.600 --> 52:21.040
+ you go back, you could do differently.
+
+52:21.600 --> 52:24.560
+ I think I've made a lot of mistakes, like, you know, pretty much everything
+
+52:24.560 --> 52:25.200
+ you can screw up.
+
+52:25.200 --> 52:29.200
+ I think I've screwed up at least once, but I, you know, I don't regret those
+
+52:29.200 --> 52:29.600
+ things.
+
+52:29.920 --> 52:32.640
+ I think it's, it's hard to, it's hard to look back on things, even if it didn't
+
+52:32.640 --> 52:36.960
+ go well and call it a regret, because hopefully it took away some new knowledge
+
+52:36.960 --> 52:37.760
+ or learning from that.
+
+52:37.760 --> 52:43.760
+ So I would say there was a period.
+
+52:44.560 --> 52:44.880
+ Yeah.
+
+52:45.200 --> 52:48.640
+ The closest I can, I can come to is there's a period, um, in, in Justin
+
+52:48.640 --> 52:54.240
+ TV, I think after seven years where, you know, the company was going one
+
+52:54.240 --> 52:56.720
+ direction, which is towards Twitch, uh, in video gaming.
+
+52:56.720 --> 52:58.080
+ I'm not a video gamer.
+
+52:58.160 --> 53:00.160
+ I don't really even use Twitch at all.
+
+53:01.280 --> 53:04.960
+ And I was still, uh, working on the core technology there, but my, my heart
+
+53:04.960 --> 53:07.760
+ was no longer in it because the business that we were creating was not something
+
+53:07.760 --> 53:09.280
+ that I was personally passionate about.
+
+53:09.360 --> 53:11.600
+ It didn't meet your bar of existential impact.
+
+53:11.680 --> 53:12.080
+ Yeah.
+
+53:12.080 --> 53:16.320
+ And I'd say I probably spent an extra year or two working on that.
+
+53:16.560 --> 53:20.880
+ And, uh, and I'd say like, I would have just tried to do something different
+
+53:20.880 --> 53:26.400
+ sooner because those, those were two years where I felt like, um, you know,
+
+53:26.400 --> 53:29.840
+ from this philosophical or existential thing, I just, I just felt that
+
+53:29.840 --> 53:30.640
+ something was missing.
+
+53:30.720 --> 53:33.440
+ And so I would have, I would have, if I could look back now and tell myself,
+
+53:33.440 --> 53:35.040
+ it's like, I would have said exactly that.
+
+53:35.040 --> 53:38.240
+ Like, you're not getting any meaning out of your work personally right now.
+
+53:38.800 --> 53:40.400
+ You should, you should find a way to change that.
+
+53:41.040 --> 53:44.800
+ And that's, that's part of the pitch I use to basically everyone who joins
+
+53:44.800 --> 53:47.280
+ Cruise today, it's like, Hey, you've got that now by coming here.
+
+53:47.840 --> 53:51.200
+ Well, maybe you needed the two years of that existential dread to develop
+
+53:51.280 --> 53:54.160
+ the feeling that ultimately it was the fire that created Cruise.
+
+53:54.400 --> 53:54.960
+ So, you never know.
+
+53:55.040 --> 53:56.080
+ You can't, good theory.
+
+53:56.640 --> 54:00.640
+ So last question, what does 2019 hold for Cruise?
+
+54:00.640 --> 54:03.280
+ After this, I guess we're going to go and I'll talk to your class.
+
+54:03.280 --> 54:06.880
+ But one of the big things is going from prototype to production, uh, for
+
+54:06.880 --> 54:08.160
+ autonomous cars and what does that mean?
+
+54:08.160 --> 54:08.800
+ What does that look like?
+
+54:08.800 --> 54:14.160
+ And 2019 for us is the year that we try to cross over that threshold and reach,
+
+54:14.240 --> 54:18.080
+ you know, superhuman level of performance to some degree with the software and,
+
+54:18.080 --> 54:22.320
+ uh, have all the other of the thousands of little building blocks in place to,
+
+54:22.320 --> 54:26.000
+ to launch, um, you know, our, our first, uh, commercial product.
+
+54:26.000 --> 54:28.880
+ So that's, that's, what's in store for us or in store for us.
+
+54:28.880 --> 54:31.200
+ And we've got a lot of work to do.
+
+54:31.280 --> 54:33.200
+ We've got a lot of brilliant people working on it.
+
+54:34.080 --> 54:35.600
+ So it's, it's all up to us now.
+
+54:36.160 --> 54:36.400
+ Yeah.
+
+54:36.400 --> 54:40.720
+ From Charlie Miller and Chris Vells, like the people I've crossed paths with.
+
+54:40.720 --> 54:41.040
+ Oh, great.
+
+54:41.040 --> 54:44.080
+ If you, it sounds like you have an amazing team.
+
+54:44.080 --> 54:48.240
+ So, um, like I said, it's one of the most, I think one of the most important
+
+54:48.560 --> 54:50.560
+ problems in artificial intelligence of the century.
+
+54:50.560 --> 54:53.680
+ It'll be one of the most defining, the super exciting that you work on it.
+
+54:53.680 --> 54:58.640
+ And, uh, the best of luck in 2018, I'm really excited to see what
+
+54:58.640 --> 54:59.680
+ Cruz comes up with.
+
+54:59.680 --> 55:00.160
+ Thank you.
+
+55:00.160 --> 55:01.040
+ Thanks for having me today.
+
+55:01.040 --> 55:24.080
+ Thanks, Carl.
+

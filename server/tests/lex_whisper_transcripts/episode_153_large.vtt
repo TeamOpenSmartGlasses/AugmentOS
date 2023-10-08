@@ -1,0 +1,7292 @@
+WEBVTT
+
+00:00.000 --> 00:02.860
+ The following is a conversation with Dmitry Korkin,
+
+00:02.860 --> 00:04.820
+ his second time in the podcast.
+
+00:04.820 --> 00:06.980
+ He's a professor of bioinformatics
+
+00:06.980 --> 00:09.740
+ and computational biology at WPI,
+
+00:09.740 --> 00:13.540
+ where he specializes in bioinformatics of complex disease,
+
+00:13.540 --> 00:16.300
+ computational genomics, systems biology,
+
+00:16.300 --> 00:18.540
+ and biomedical data analytics.
+
+00:18.540 --> 00:22.080
+ He loves biology, he loves computing,
+
+00:22.080 --> 00:26.140
+ plus he is Russian and recites a poem in Russian
+
+00:26.140 --> 00:27.760
+ at the end of the podcast.
+
+00:27.760 --> 00:31.080
+ What else could you possibly ask for in this world?
+
+00:31.080 --> 00:32.960
+ Quick mention of our sponsors.
+
+00:32.960 --> 00:37.760
+ Brave Browser, NetSuite Business Management Software,
+
+00:37.760 --> 00:40.280
+ Magic Spoon Low Carb Cereal,
+
+00:40.280 --> 00:42.920
+ and 8sleep Self Cooling Mattress.
+
+00:42.920 --> 00:46.360
+ So the choice is browsing privacy, business success,
+
+00:46.360 --> 00:49.180
+ healthy diet, or comfortable sleep.
+
+00:49.180 --> 00:50.660
+ Choose wisely, my friends,
+
+00:50.660 --> 00:53.640
+ and if you wish, click the sponsor links below
+
+00:53.640 --> 00:56.440
+ to get a discount and to support this podcast.
+
+00:56.440 --> 00:58.600
+ As a side note, let me say that to me,
+
+00:58.600 --> 01:01.520
+ the scientists that did the best apolitical,
+
+01:01.520 --> 01:04.000
+ impactful, brilliant work of 2020
+
+01:04.000 --> 01:09.000
+ are the biologists who study viruses without an agenda,
+
+01:09.160 --> 01:11.800
+ without much sleep, to be honest,
+
+01:11.800 --> 01:14.460
+ just a pure passion for scientific discovery
+
+01:14.460 --> 01:18.400
+ and exploration of the mysteries within viruses.
+
+01:18.400 --> 01:21.340
+ Viruses are both terrifying and beautiful.
+
+01:21.340 --> 01:22.960
+ Terrifying because they can threaten
+
+01:22.960 --> 01:25.120
+ the fabric of human civilization,
+
+01:25.120 --> 01:27.840
+ both biological and psychological.
+
+01:27.840 --> 01:30.480
+ Beautiful because they give us insights
+
+01:30.480 --> 01:32.920
+ into the nature of life on Earth
+
+01:32.920 --> 01:35.900
+ and perhaps even extraterrestrial life
+
+01:35.900 --> 01:37.960
+ of the not so intelligent variety
+
+01:37.960 --> 01:39.560
+ that might meet us one day
+
+01:39.560 --> 01:41.520
+ as we explore the habitable planets
+
+01:41.520 --> 01:43.760
+ and moons in our universe.
+
+01:43.760 --> 01:45.800
+ If you enjoy this thing, subscribe on YouTube,
+
+01:45.800 --> 01:49.040
+ review it on Apple Podcast, follow on Spotify,
+
+01:49.040 --> 01:51.740
+ support on Patreon, or connect with me on Twitter
+
+01:51.740 --> 01:53.160
+ at Lex Friedman.
+
+01:53.160 --> 01:56.920
+ And now here's my conversation with Dmitry Korkin.
+
+01:57.920 --> 02:00.680
+ It's often said that proteins
+
+02:00.680 --> 02:04.200
+ and the amino acid residues that make them up
+
+02:04.200 --> 02:06.400
+ are the building blocks of life.
+
+02:06.400 --> 02:08.000
+ Do you think of proteins in this way
+
+02:08.000 --> 02:11.160
+ as the basic building blocks of life?
+
+02:11.160 --> 02:12.200
+ Yes and no.
+
+02:12.200 --> 02:16.300
+ So the proteins indeed is the basic unit,
+
+02:16.300 --> 02:20.480
+ biological unit that carries out
+
+02:20.480 --> 02:22.800
+ important function of the cell.
+
+02:22.800 --> 02:25.800
+ However, through studying the proteins
+
+02:25.800 --> 02:29.360
+ and comparing the proteins across different species,
+
+02:29.360 --> 02:31.440
+ across different kingdoms,
+
+02:31.440 --> 02:34.640
+ you realize that proteins are actually
+
+02:34.640 --> 02:36.760
+ much more complicated.
+
+02:36.760 --> 02:41.760
+ So they have so called modular complexity.
+
+02:42.280 --> 02:47.280
+ And so what I mean by that is an average protein
+
+02:47.280 --> 02:52.280
+ consists of several structural units.
+
+02:54.760 --> 02:57.440
+ So we call them protein domains.
+
+02:57.440 --> 03:02.440
+ And so you can imagine a protein as a string of beads
+
+03:02.580 --> 03:04.860
+ where each bead is a protein domain.
+
+03:05.760 --> 03:10.240
+ And in the past 20 years,
+
+03:10.240 --> 03:13.040
+ scientists have been studying
+
+03:13.040 --> 03:15.040
+ the nature of the protein domains
+
+03:15.040 --> 03:19.480
+ because we realize that it's the unit.
+
+03:19.480 --> 03:22.120
+ Because if you look at the functions, right?
+
+03:22.120 --> 03:25.880
+ So many proteins have more than one function
+
+03:25.880 --> 03:29.440
+ and those protein functions are often carried out
+
+03:29.440 --> 03:31.560
+ by those protein domains.
+
+03:31.560 --> 03:36.560
+ So we also see that in the evolution,
+
+03:37.320 --> 03:40.160
+ those proteins domains get shuffled.
+
+03:40.160 --> 03:43.460
+ So they act actually as a unit.
+
+03:43.460 --> 03:45.280
+ Also from the structural perspective, right?
+
+03:45.280 --> 03:50.280
+ So some people think of a protein
+
+03:50.960 --> 03:55.320
+ as a sort of a globular molecule,
+
+03:55.320 --> 03:56.800
+ but as a matter of fact,
+
+03:56.800 --> 04:01.800
+ is the globular part of this protein is a protein domain.
+
+04:02.500 --> 04:06.000
+ So we often have this, again,
+
+04:06.000 --> 04:09.600
+ the collection of this protein domains
+
+04:09.600 --> 04:14.600
+ align on a string as beads.
+
+04:14.800 --> 04:17.880
+ And the protein domains are made up of amino acid residue.
+
+04:17.880 --> 04:18.720
+ So we're talking about.
+
+04:18.720 --> 04:20.640
+ So this is the basic,
+
+04:20.640 --> 04:22.600
+ so you're saying the protein domain
+
+04:22.600 --> 04:25.640
+ is the basic building block of the function
+
+04:25.640 --> 04:28.320
+ that we think about proteins doing.
+
+04:28.320 --> 04:30.200
+ So of course you can always talk
+
+04:30.200 --> 04:31.520
+ about different building blocks.
+
+04:31.520 --> 04:32.880
+ It's turtles all the way down.
+
+04:32.880 --> 04:35.400
+ But there's a point where there is,
+
+04:36.280 --> 04:37.680
+ at the point of the hierarchy
+
+04:37.680 --> 04:42.680
+ where it's the most, the cleanest element block
+
+04:43.640 --> 04:46.240
+ based on which you can put them together
+
+04:46.240 --> 04:49.200
+ in different kinds of ways to form complex function.
+
+04:49.200 --> 04:50.880
+ And you're saying protein domains,
+
+04:50.880 --> 04:55.160
+ why is that not talked about as often in popular culture?
+
+04:55.160 --> 04:58.240
+ Well, there are several perspectives on this.
+
+04:59.280 --> 05:03.200
+ And one of course is the historical perspective, right?
+
+05:03.200 --> 05:07.800
+ So historically scientists have been able
+
+05:07.800 --> 05:10.120
+ to structurally resolved
+
+05:10.120 --> 05:14.240
+ to obtain the 3D coordinates of a protein
+
+05:14.240 --> 05:17.520
+ for smaller proteins.
+
+05:17.520 --> 05:21.000
+ And smaller proteins tend to be a single domain protein.
+
+05:21.000 --> 05:24.000
+ So we have a protein equal to a protein domain.
+
+05:24.000 --> 05:26.040
+ And so because of that,
+
+05:26.040 --> 05:29.640
+ the initial suspicion was that the proteins are,
+
+05:29.640 --> 05:31.680
+ they have globular shapes
+
+05:31.680 --> 05:36.680
+ and the more of smaller proteins you obtain structurally,
+
+05:36.840 --> 05:41.720
+ the more you became convinced that that's the case.
+
+05:41.720 --> 05:45.720
+ And only later when we started having
+
+05:47.920 --> 05:49.640
+ alternative approaches.
+
+05:49.640 --> 05:54.640
+ So the traditional ones are X ray crystallography
+
+05:55.920 --> 05:57.320
+ and NMR spectroscopy.
+
+05:57.320 --> 06:02.000
+ So this is sort of the two main techniques
+
+06:02.000 --> 06:04.440
+ that give us the 3D coordinates.
+
+06:04.440 --> 06:07.760
+ But nowadays there's huge breakthrough
+
+06:07.760 --> 06:10.480
+ in cryo electron microscopy.
+
+06:10.480 --> 06:13.840
+ So the more advanced methods that allow us
+
+06:13.840 --> 06:18.840
+ to get into the 3D shapes of much larger molecules,
+
+06:21.560 --> 06:23.480
+ molecular complexes,
+
+06:23.480 --> 06:28.120
+ just to give you one of the common examples
+
+06:28.120 --> 06:29.440
+ for this year, right?
+
+06:29.440 --> 06:32.760
+ So the first experimental structure
+
+06:32.760 --> 06:35.920
+ of a SARS COVID 2 protein
+
+06:35.920 --> 06:40.160
+ was the cryo EM structure of the S protein.
+
+06:40.160 --> 06:41.960
+ So the spike protein.
+
+06:41.960 --> 06:46.320
+ And so it was solved very quickly.
+
+06:46.320 --> 06:49.480
+ And the reason for that is the advancement
+
+06:49.480 --> 06:53.920
+ of this technology is pretty spectacular.
+
+06:53.920 --> 06:57.480
+ How many domains does the, is it more than one domain?
+
+06:57.480 --> 06:58.320
+ Oh yes.
+
+06:58.320 --> 07:01.320
+ Oh yes, I mean, so it's a very complex structure.
+
+07:01.320 --> 07:06.320
+ And we, you know, on top of the complexity
+
+07:06.480 --> 07:08.520
+ of a single protein, right?
+
+07:08.520 --> 07:13.520
+ So this structure is actually is a complex, is a trimer.
+
+07:13.720 --> 07:17.640
+ So it needs to form a trimer in order to function properly.
+
+07:17.640 --> 07:18.720
+ What's a complex?
+
+07:18.720 --> 07:22.880
+ So a complex is a glomeration of multiple proteins.
+
+07:22.880 --> 07:27.880
+ And so we can have the same protein copied in multiple,
+
+07:29.280 --> 07:32.080
+ you know, made up in multiple copies
+
+07:32.080 --> 07:36.160
+ and forming something that we called a homo oligomer.
+
+07:36.160 --> 07:38.120
+ Homo means the same, right?
+
+07:38.120 --> 07:42.800
+ So in this case, so the spike protein is the,
+
+07:42.800 --> 07:46.720
+ is an example of a homo tetram, homo trimer, sorry.
+
+07:46.720 --> 07:48.120
+ So you need three copies of it?
+
+07:48.120 --> 07:48.960
+ Three copies.
+
+07:48.960 --> 07:50.040
+ In order to.
+
+07:50.040 --> 07:50.880
+ Exactly.
+
+07:50.880 --> 07:52.760
+ We have these three chains,
+
+07:52.760 --> 07:56.800
+ the three molecular chains coupled together
+
+07:56.800 --> 07:58.480
+ and performing the function.
+
+07:58.480 --> 08:02.380
+ That's what, when you look at this protein from the top,
+
+08:02.380 --> 08:03.920
+ you see a perfect triangle.
+
+08:03.920 --> 08:04.760
+ Yeah.
+
+08:04.760 --> 08:07.120
+ So, but other, you know,
+
+08:07.120 --> 08:10.640
+ so other complexes are made up of, you know,
+
+08:10.640 --> 08:12.840
+ different proteins.
+
+08:12.840 --> 08:15.400
+ Some of them are completely different.
+
+08:15.400 --> 08:16.920
+ Some of them are similar.
+
+08:16.920 --> 08:18.880
+ The hemoglobin molecule, right?
+
+08:18.880 --> 08:21.880
+ So it's actually, it's a protein complex.
+
+08:21.880 --> 08:25.760
+ It's made of four basic subunits.
+
+08:25.760 --> 08:29.040
+ Two of them are identical to each other.
+
+08:29.040 --> 08:30.800
+ Two other identical to each other,
+
+08:30.800 --> 08:32.820
+ but they are also similar to each other,
+
+08:32.820 --> 08:36.960
+ which sort of gives us some ideas about the evolution
+
+08:36.960 --> 08:40.640
+ of this, you know, of this molecule.
+
+08:40.640 --> 08:44.000
+ And perhaps, so one of the hypothesis is that, you know,
+
+08:44.000 --> 08:48.280
+ in the past, it was just a homo tetramer, right?
+
+08:48.280 --> 08:50.840
+ So four identical copies,
+
+08:50.840 --> 08:55.520
+ and then it became, you know, sort of modified,
+
+08:55.520 --> 08:58.520
+ it became mutated over the time
+
+08:58.520 --> 09:00.160
+ and became more specialized.
+
+09:00.160 --> 09:02.560
+ Can we linger on the spike protein for a little bit?
+
+09:02.560 --> 09:04.940
+ Is there something interesting
+
+09:04.940 --> 09:06.960
+ or like beautiful you find about it?
+
+09:06.960 --> 09:07.880
+ I mean, first of all,
+
+09:07.880 --> 09:10.960
+ it's an incredibly challenging protein.
+
+09:10.960 --> 09:15.960
+ And so we, as a part of our sort of research
+
+09:16.120 --> 09:20.200
+ to understand the structural basis of this virus,
+
+09:20.200 --> 09:22.760
+ to sort of decode, structurally decode,
+
+09:22.760 --> 09:27.560
+ every single protein in its proteome,
+
+09:27.560 --> 09:31.800
+ which, you know, we've been working on this spike protein.
+
+09:31.800 --> 09:36.800
+ And one of the main challenges was that the cryoEM data
+
+09:36.800 --> 09:41.800
+ allows us to reconstruct or to obtain the 3D coordinates
+
+09:44.640 --> 09:48.040
+ of roughly two thirds of the protein.
+
+09:48.040 --> 09:51.960
+ The rest of the one third of this protein,
+
+09:51.960 --> 09:56.960
+ it's a part that is buried into the membrane of the virus
+
+09:58.400 --> 10:01.560
+ and of the viral envelope.
+
+10:01.560 --> 10:06.560
+ And it also has a lot of unstable structures around it.
+
+10:06.920 --> 10:08.640
+ So it's chemically interacting somehow
+
+10:08.640 --> 10:10.160
+ with whatever the hex is connecting to.
+
+10:10.160 --> 10:12.800
+ Yeah, so people are still trying to understand.
+
+10:12.800 --> 10:17.800
+ So the nature of, and the role of this one third,
+
+10:18.600 --> 10:23.120
+ because the top part, you know, the primary function
+
+10:23.120 --> 10:28.120
+ is to get attached to the ACE2 receptor, human receptor.
+
+10:28.120 --> 10:32.600
+ There is also beautiful mechanics
+
+10:32.600 --> 10:34.720
+ of how this thing happens, right?
+
+10:34.720 --> 10:39.720
+ So because there are three different copies of this chains,
+
+10:39.800 --> 10:43.480
+ you know, there are three different domains, right?
+
+10:43.480 --> 10:44.800
+ So we're talking about domains.
+
+10:44.800 --> 10:47.840
+ So this is the receptor binding domains, RBDs,
+
+10:47.840 --> 10:52.840
+ that gets untangled and get ready to get attached
+
+10:53.840 --> 10:55.400
+ to the receptor.
+
+10:55.400 --> 11:00.400
+ And now they are not necessarily going in a sync mode.
+
+11:02.760 --> 11:04.080
+ As a matter of fact.
+
+11:04.080 --> 11:05.240
+ It's asynchronous.
+
+11:05.240 --> 11:10.240
+ So yes, and this is where another level of complexity
+
+11:11.000 --> 11:16.000
+ comes into play because right now what we see is,
+
+11:16.000 --> 11:20.520
+ we typically see just one of the arms going out
+
+11:20.520 --> 11:25.520
+ and getting ready to be attached to the ACE2 receptors.
+
+11:27.560 --> 11:30.360
+ However, there was a recent mutation
+
+11:30.360 --> 11:35.080
+ that people studied in that spike protein.
+
+11:35.080 --> 11:40.080
+ And very recently, a group from UMass Medical School
+
+11:43.560 --> 11:45.280
+ will happen to collaborate with groups.
+
+11:45.280 --> 11:47.240
+ So this is a group of Jeremy Lubin
+
+11:47.240 --> 11:50.640
+ and a number of other faculty.
+
+11:51.560 --> 11:56.560
+ They actually solve the mutated structure of the spike.
+
+11:59.000 --> 12:03.000
+ And they showed that actually, because of these mutations,
+
+12:03.000 --> 12:08.000
+ you have more than one arms opening up.
+
+12:08.880 --> 12:13.880
+ And so now, so the frequency of two arms going up
+
+12:13.880 --> 12:17.200
+ increase quite drastically.
+
+12:17.200 --> 12:18.040
+ Interesting.
+
+12:18.040 --> 12:20.120
+ Does that change the dynamics somehow?
+
+12:20.120 --> 12:22.920
+ It potentially can change the dynamics
+
+12:22.920 --> 12:27.280
+ because now you have two possible opportunities
+
+12:27.280 --> 12:30.000
+ to get attached to the ACE2 receptor.
+
+12:30.000 --> 12:34.120
+ It's a very complex molecular process, mechanistic process.
+
+12:34.120 --> 12:38.280
+ But the first step of this process is the attachment
+
+12:38.280 --> 12:42.560
+ of this spike protein, of the spike trimer
+
+12:42.560 --> 12:46.600
+ to the human ACE2 receptor.
+
+12:46.600 --> 12:48.880
+ So this is a molecule that sits
+
+12:48.880 --> 12:51.920
+ on the surface of the human cell.
+
+12:51.920 --> 12:54.720
+ And that's essentially what initiates,
+
+12:54.720 --> 12:58.880
+ what triggers the whole process of encapsulation.
+
+12:58.880 --> 13:01.440
+ If this was dating, this would be the first date.
+
+13:01.440 --> 13:03.160
+ So this is the...
+
+13:03.160 --> 13:04.200
+ In a way.
+
+13:04.200 --> 13:05.640
+ Yes.
+
+13:05.640 --> 13:07.920
+ So is it possible to have the spike protein
+
+13:07.920 --> 13:10.640
+ just like floating about on its own?
+
+13:10.640 --> 13:14.680
+ Or does it need that interactability with the membrane?
+
+13:14.680 --> 13:16.920
+ Yeah, so it needs to be attached,
+
+13:16.920 --> 13:19.040
+ at least as far as I know.
+
+13:19.040 --> 13:23.320
+ But when you get this thing attached on the surface,
+
+13:23.320 --> 13:25.120
+ there is also a lot of dynamics
+
+13:25.120 --> 13:28.200
+ on how it sits on the surface.
+
+13:28.200 --> 13:32.200
+ So for example, there was a recent work in,
+
+13:32.200 --> 13:35.800
+ again, where people use the cryolectron microscopy
+
+13:35.800 --> 13:38.960
+ to get the first glimpse of the overall structure.
+
+13:38.960 --> 13:41.600
+ It's a very low res, but you still get
+
+13:41.600 --> 13:45.160
+ some interesting details about the surface,
+
+13:45.160 --> 13:47.040
+ about what is happening inside,
+
+13:47.040 --> 13:50.760
+ because we have literally no clue until recent work
+
+13:50.760 --> 13:54.520
+ about how the capsid is organized.
+
+13:54.520 --> 13:55.360
+ What's a capsid?
+
+13:55.360 --> 13:56.720
+ So a capsid is essentially,
+
+13:56.720 --> 14:01.040
+ it's the inner core of the viral particle
+
+14:01.040 --> 14:05.000
+ where there is the RNA of the virus,
+
+14:05.000 --> 14:09.200
+ and it's protected by another protein, N protein,
+
+14:10.280 --> 14:13.440
+ that essentially acts as a shield.
+
+14:13.440 --> 14:16.520
+ But now we are learning more and more,
+
+14:16.520 --> 14:18.600
+ so it's actually, it's not just this shield,
+
+14:18.600 --> 14:21.800
+ it potentially is used for the stability
+
+14:21.800 --> 14:25.040
+ of the outer shell of the virus.
+
+14:25.040 --> 14:27.840
+ So it's pretty complicated.
+
+14:27.840 --> 14:30.480
+ And I mean, understanding all of this is really useful
+
+14:30.480 --> 14:33.000
+ for trying to figure out like developing a vaccine
+
+14:33.000 --> 14:34.680
+ or some kind of drug to attack,
+
+14:34.680 --> 14:36.040
+ any aspects of this, right?
+
+14:36.040 --> 14:39.640
+ So, I mean, there are many different implications to that.
+
+14:39.640 --> 14:43.040
+ First of all, it's important to understand
+
+14:43.040 --> 14:44.560
+ the virus itself, right?
+
+14:44.560 --> 14:49.560
+ So in order to understand how it acts,
+
+14:51.560 --> 14:55.320
+ what is the overall mechanistic process
+
+14:55.320 --> 14:57.320
+ of this virus replication,
+
+14:57.320 --> 15:00.560
+ of this virus proliferation to the cell, right?
+
+15:00.560 --> 15:03.000
+ So that's one aspect.
+
+15:03.000 --> 15:06.480
+ The other aspect is designing new treatments.
+
+15:06.480 --> 15:09.040
+ So one of the possible treatments
+
+15:09.040 --> 15:12.480
+ is designing nanoparticles.
+
+15:12.480 --> 15:17.200
+ And so some nanoparticles that will resemble the viral shape
+
+15:17.200 --> 15:19.520
+ that would have the spike integrated,
+
+15:19.520 --> 15:23.680
+ and essentially would act as a competitor to the real virus
+
+15:23.680 --> 15:26.680
+ by blocking the ACE2 receptors,
+
+15:26.680 --> 15:30.400
+ and thus preventing the real virus entering the cell.
+
+15:30.400 --> 15:32.920
+ Now, there are also, you know,
+
+15:32.920 --> 15:35.600
+ there is a very interesting direction
+
+15:35.600 --> 15:38.320
+ in looking at the membrane,
+
+15:38.320 --> 15:40.960
+ at the envelope portion of the protein
+
+15:40.960 --> 15:44.880
+ and attacking its M protein.
+
+15:44.880 --> 15:48.320
+ So there are, you know, to give you a, you know,
+
+15:48.320 --> 15:50.120
+ sort of a brief overview,
+
+15:50.120 --> 15:52.320
+ there are four structural proteins.
+
+15:52.320 --> 15:54.560
+ These are the proteins that made up
+
+15:54.560 --> 15:58.160
+ a structure of the virus.
+
+15:58.160 --> 16:02.920
+ So SPIKE, S protein that acts as a trimer,
+
+16:02.920 --> 16:04.880
+ so it needs three copies.
+
+16:06.080 --> 16:09.720
+ E, envelope protein that acts as a pantomime,
+
+16:09.720 --> 16:13.400
+ so it needs five copies to act properly.
+
+16:13.400 --> 16:18.400
+ M is a membrane protein, it forms dimers,
+
+16:18.600 --> 16:20.560
+ and actually it forms beautiful lattice.
+
+16:20.560 --> 16:22.480
+ And this is something that we've been studying
+
+16:22.480 --> 16:24.520
+ and we are seeing it in simulations.
+
+16:24.520 --> 16:26.920
+ It actually forms a very nice grid
+
+16:26.920 --> 16:30.600
+ or, you know, threads, you know,
+
+16:30.600 --> 16:33.600
+ of different dimers attached next to each other.
+
+16:33.600 --> 16:34.960
+ Just a bunch of copies of each other,
+
+16:34.960 --> 16:36.960
+ and they naturally, when you have a bunch of copies
+
+16:36.960 --> 16:38.960
+ of each other, they form an interesting lattice.
+
+16:38.960 --> 16:39.800
+ Exactly.
+
+16:39.800 --> 16:42.280
+ And, you know, if you think about this, right?
+
+16:42.280 --> 16:47.280
+ So this complex, you know, the viral shape
+
+16:48.160 --> 16:52.160
+ needs to be organized somehow, self organized somehow, right?
+
+16:52.160 --> 16:56.160
+ So it, you know, if it was a completely random process,
+
+16:56.160 --> 17:01.160
+ you know, you probably wouldn't have the envelope shell
+
+17:02.080 --> 17:03.920
+ of the ellipsoid shape, you know,
+
+17:03.920 --> 17:05.880
+ you would have something, you know,
+
+17:05.880 --> 17:07.600
+ pretty random, right, shape.
+
+17:07.600 --> 17:10.560
+ So there is some, you know, regularity
+
+17:10.560 --> 17:15.560
+ in how this, you know, how this M dimers
+
+17:16.720 --> 17:18.480
+ get to attach to each other
+
+17:18.480 --> 17:20.520
+ in a very specific directed way.
+
+17:20.520 --> 17:21.920
+ Is that understood at all?
+
+17:23.080 --> 17:24.280
+ It's not understood.
+
+17:24.280 --> 17:28.400
+ We are now, we've been working in the past six months
+
+17:28.400 --> 17:30.160
+ since, you know, we met, actually,
+
+17:30.160 --> 17:33.400
+ this is where we started working on trying to understand
+
+17:33.400 --> 17:36.280
+ the overall structure of the envelope
+
+17:36.280 --> 17:40.640
+ and the key components that made up this, you know,
+
+17:40.640 --> 17:41.480
+ structure.
+
+17:41.480 --> 17:43.240
+ Wait, does the envelope also have the lattice structure
+
+17:43.240 --> 17:44.080
+ or no?
+
+17:44.080 --> 17:47.360
+ So the envelope is essentially is the outer shell
+
+17:47.360 --> 17:48.800
+ of the viral particle.
+
+17:48.800 --> 17:51.600
+ The N, the nucleocapsid protein,
+
+17:51.600 --> 17:53.960
+ is something that is inside.
+
+17:53.960 --> 17:54.800
+ Got it.
+
+17:54.800 --> 17:59.520
+ But get that, the N is likely to interact with M.
+
+17:59.520 --> 18:01.480
+ Does it go M and E?
+
+18:01.480 --> 18:02.880
+ Like, where's the E and the M?
+
+18:02.880 --> 18:05.640
+ So E, those different proteins,
+
+18:05.640 --> 18:10.640
+ they occur in different copies on the viral particle.
+
+18:10.800 --> 18:13.960
+ So E, this pentamer complex,
+
+18:13.960 --> 18:18.960
+ we only have two or three, maybe, per each particle, okay?
+
+18:18.960 --> 18:23.960
+ We have thousand or so of M dimers
+
+18:24.520 --> 18:26.600
+ that essentially made up,
+
+18:26.600 --> 18:30.920
+ that makes up the entire, you know, outer shell.
+
+18:30.920 --> 18:33.680
+ So most of the outer shell is the M.
+
+18:33.680 --> 18:34.520
+ M dimer.
+
+18:34.520 --> 18:35.640
+ And the M protein.
+
+18:35.640 --> 18:38.160
+ When you say particle, that's the virion,
+
+18:38.160 --> 18:40.120
+ the virus, the individual virus.
+
+18:40.120 --> 18:40.960
+ It's a single, yes.
+
+18:40.960 --> 18:43.640
+ Single element of the virus, it's a single virus.
+
+18:43.640 --> 18:45.080
+ Single virus, right.
+
+18:45.080 --> 18:50.080
+ And we have about, you know, roughly 50 to 90 spike trimmers.
+
+18:50.840 --> 18:51.680
+ Right?
+
+18:51.680 --> 18:54.000
+ So when you, you know, when you show a...
+
+18:54.000 --> 18:55.040
+ Per virus particle.
+
+18:55.040 --> 18:56.560
+ Per virus particle.
+
+18:56.560 --> 18:58.680
+ Sorry, what did you say, 50 to 90?
+
+18:58.680 --> 19:00.680
+ 50 to 90, right?
+
+19:00.680 --> 19:04.000
+ So this is how this thing is organized.
+
+19:04.000 --> 19:06.400
+ And so now, typically, right,
+
+19:06.400 --> 19:11.400
+ so you see these, the antibodies that target,
+
+19:11.480 --> 19:13.240
+ you know, spike protein,
+
+19:13.240 --> 19:15.200
+ certain parts of the spike protein,
+
+19:15.200 --> 19:17.960
+ but there could be some, also some treatments, right?
+
+19:17.960 --> 19:22.000
+ So these are, you know, these are small molecules
+
+19:22.000 --> 19:27.000
+ that bind strategic parts of these proteins,
+
+19:27.520 --> 19:29.680
+ disrupting its function.
+
+19:29.680 --> 19:34.040
+ So one of the promising directions,
+
+19:34.040 --> 19:35.600
+ it's one of the newest directions,
+
+19:35.600 --> 19:40.600
+ is actually targeting the M dimer of the protein.
+
+19:40.600 --> 19:44.120
+ Targeting the proteins that make up this outer shell.
+
+19:44.120 --> 19:47.640
+ Because if you're able to destroy the outer shell,
+
+19:47.640 --> 19:52.160
+ you're essentially destroying the viral particle itself.
+
+19:52.160 --> 19:56.720
+ So preventing it from, you know, functioning at all.
+
+19:56.720 --> 19:59.160
+ So that's, you think is,
+
+19:59.160 --> 20:01.440
+ from a sort of cyber security perspective,
+
+20:01.440 --> 20:02.960
+ virus security perspective,
+
+20:02.960 --> 20:05.160
+ that's the best attack vector?
+
+20:05.160 --> 20:08.440
+ Is, or like, that's a promising attack vector?
+
+20:08.440 --> 20:09.280
+ I would say, yeah.
+
+20:09.280 --> 20:12.680
+ So, I mean, there's still tons of research needs to be,
+
+20:12.680 --> 20:14.000
+ you know, to be done.
+
+20:14.000 --> 20:16.560
+ But yes, I think, you know, so.
+
+20:16.560 --> 20:18.880
+ There's more attack surface, I guess.
+
+20:18.880 --> 20:19.880
+ More attack surface.
+
+20:19.880 --> 20:22.280
+ But, you know, from our analysis,
+
+20:22.280 --> 20:24.200
+ from other evolutionary analysis,
+
+20:24.200 --> 20:28.000
+ this protein is evolutionarily more stable
+
+20:28.000 --> 20:31.200
+ compared to the, say, to the spike protein.
+
+20:31.200 --> 20:35.520
+ Oh, and stable means a more static target?
+
+20:35.520 --> 20:38.400
+ Well, yeah, so it doesn't change.
+
+20:38.400 --> 20:42.120
+ It doesn't evolve from the evolutionary perspective
+
+20:42.120 --> 20:46.000
+ so drastically as, for example, the spike protein.
+
+20:46.000 --> 20:47.960
+ There's a bunch of stuff in the news
+
+20:47.960 --> 20:51.400
+ about mutations of the virus in the United Kingdom.
+
+20:51.400 --> 20:54.160
+ I also saw in South Africa something.
+
+20:54.160 --> 20:55.440
+ Maybe that was yesterday.
+
+20:56.360 --> 21:00.200
+ You just kind of mentioned about stability and so on.
+
+21:00.200 --> 21:02.800
+ Which aspects of this are mutatable
+
+21:02.800 --> 21:07.600
+ and which aspects, if mutated, become more dangerous?
+
+21:07.600 --> 21:09.280
+ And maybe even zooming out,
+
+21:09.280 --> 21:12.080
+ what are your thoughts and knowledge and ideas
+
+21:12.080 --> 21:13.680
+ about the way it's mutated,
+
+21:13.680 --> 21:15.360
+ all the news that we've been hearing?
+
+21:15.360 --> 21:18.520
+ Are you worried about it from a biological perspective?
+
+21:18.520 --> 21:21.280
+ Are you worried about it from a human perspective?
+
+21:21.280 --> 21:26.280
+ So, I mean, you know, mutations are sort of a general way
+
+21:26.320 --> 21:28.640
+ for these viruses to evolve, right?
+
+21:28.640 --> 21:32.680
+ So, it's, you know, it's essentially,
+
+21:32.680 --> 21:34.760
+ this is the way they evolve.
+
+21:34.760 --> 21:38.680
+ This is the way they were able to jump
+
+21:38.680 --> 21:42.080
+ from one species to another.
+
+21:42.080 --> 21:46.800
+ We also see some recent jumps.
+
+21:46.800 --> 21:50.000
+ There were some incidents of this virus jumping
+
+21:50.000 --> 21:51.880
+ from human to dogs.
+
+21:51.880 --> 21:55.880
+ So, you know, there is some danger in those jumps
+
+21:55.880 --> 21:59.520
+ because every time it jumps, it also mutates, right?
+
+21:59.520 --> 22:04.400
+ So, when it jumps to the species
+
+22:04.400 --> 22:06.160
+ and jumps back, right?
+
+22:06.160 --> 22:08.320
+ So, it acquires some mutations
+
+22:08.320 --> 22:13.320
+ that are sort of driven by the environment
+
+22:14.360 --> 22:16.360
+ of a new host, right?
+
+22:16.360 --> 22:19.280
+ And it's different from the human environment.
+
+22:19.280 --> 22:21.480
+ And so, we don't know whether the mutations
+
+22:21.480 --> 22:24.920
+ that are acquired in the new species
+
+22:24.920 --> 22:28.160
+ are neutral with respect to the human host
+
+22:28.160 --> 22:32.080
+ or maybe, you know, maybe damaging.
+
+22:32.080 --> 22:36.560
+ Yeah, change is always scary, but so are you worried about,
+
+22:36.560 --> 22:38.960
+ I mean, it seems like because the spread is,
+
+22:38.960 --> 22:42.200
+ during winter now, seems to be exceptionally high
+
+22:43.560 --> 22:46.760
+ and especially with a vaccine just around the corner
+
+22:46.760 --> 22:49.160
+ already being actually deployed,
+
+22:49.160 --> 22:53.000
+ is there some worry that this puts evolutionary pressure,
+
+22:53.000 --> 22:58.000
+ selective pressure on the virus for it to mutate?
+
+22:59.000 --> 23:00.440
+ Is that a source of worry?
+
+23:00.440 --> 23:03.440
+ Well, I mean, there is always this thought
+
+23:03.440 --> 23:08.440
+ in the scientist's mind, you know, what will happen, right?
+
+23:08.720 --> 23:12.520
+ So, I know there've been discussions
+
+23:12.520 --> 23:17.520
+ about sort of the arms race between the ability
+
+23:17.600 --> 23:22.600
+ of the humanity to get vaccinated faster
+
+23:22.600 --> 23:27.600
+ than the virus, you know, essentially, you know,
+
+23:27.600 --> 23:31.600
+ it becomes, you know, resistant to the vaccine.
+
+23:34.200 --> 23:39.200
+ I mean, I don't worry that much simply because,
+
+23:40.920 --> 23:44.920
+ you know, there is not that much evidence to that.
+
+23:44.920 --> 23:47.440
+ To aggressive mutation around the vaccine.
+
+23:47.440 --> 23:49.960
+ Exactly, you know, obviously there are mutations
+
+23:49.960 --> 23:54.960
+ around the vaccine, so the reason we get vaccinated
+
+23:56.080 --> 24:00.080
+ every year against the seasonal mutations, right?
+
+24:01.280 --> 24:05.280
+ But, you know, I think it's important to study it.
+
+24:06.120 --> 24:07.120
+ No doubts, right?
+
+24:07.120 --> 24:10.120
+ So, I think one of the, you know, to me,
+
+24:10.120 --> 24:14.120
+ and again, I might be biased because, you know,
+
+24:14.120 --> 24:17.120
+ we've been trying to do that as well,
+
+24:17.120 --> 24:20.120
+ so, but one of the critical directions
+
+24:20.120 --> 24:23.920
+ in understanding the virus is to understand its evolution
+
+24:23.920 --> 24:27.480
+ in order to sort of understand the mechanisms,
+
+24:27.480 --> 24:30.960
+ the key mechanisms that lead the virus to jump,
+
+24:30.960 --> 24:34.240
+ you know, the Nordic viruses to jump from species,
+
+24:34.240 --> 24:37.440
+ from species to another, that the mechanisms
+
+24:37.440 --> 24:42.440
+ that lead the virus to become resistant to vaccines,
+
+24:42.480 --> 24:44.680
+ also to treatments, right?
+
+24:44.680 --> 24:48.520
+ And hopefully that knowledge will enable us
+
+24:48.520 --> 24:52.520
+ to sort of forecast the evolutionary traces,
+
+24:52.520 --> 24:55.160
+ the future evolutionary traces of this virus.
+
+24:55.160 --> 24:58.080
+ I mean, what, from a biological perspective,
+
+24:58.080 --> 24:59.320
+ this might be a dumb question,
+
+24:59.320 --> 25:04.320
+ but is there parts of the virus that if souped up,
+
+25:05.080 --> 25:09.080
+ like through mutation, could make it more effective
+
+25:09.080 --> 25:09.920
+ at doing its job?
+
+25:09.920 --> 25:12.520
+ We're talking about this specific coronavirus
+
+25:12.520 --> 25:14.880
+ because we were talking about the different, like,
+
+25:14.880 --> 25:18.440
+ the membrane, the M protein, the E protein,
+
+25:18.440 --> 25:23.440
+ the N and the S, the spike, is there some?
+
+25:24.080 --> 25:27.880
+ And there are 20 or so more in addition to that.
+
+25:27.880 --> 25:29.840
+ But is that a dumb way to look at it?
+
+25:29.840 --> 25:34.520
+ Like, which of these, if mutated,
+
+25:34.520 --> 25:39.520
+ could have the greatest impact, potentially damaging impact,
+
+25:39.640 --> 25:41.520
+ on the effectiveness of the virus?
+
+25:41.520 --> 25:44.520
+ So it's actually, it's a very good question
+
+25:44.520 --> 25:48.120
+ because, and the short answer is, we don't know yet.
+
+25:48.120 --> 25:51.560
+ But of course there is capacity of this virus
+
+25:51.560 --> 25:53.560
+ to become more efficient.
+
+25:53.560 --> 25:56.680
+ The reason for that is, you know,
+
+25:56.680 --> 25:59.760
+ so if you look at the virus, I mean, it's a machine, right?
+
+25:59.760 --> 26:03.520
+ So it's a machine that does a lot of different functions,
+
+26:03.520 --> 26:06.520
+ and many of these functions are sort of nearly perfect,
+
+26:06.520 --> 26:07.840
+ but they're not perfect.
+
+26:07.840 --> 26:11.360
+ And those mutations can have the greatest impact
+
+26:11.360 --> 26:14.120
+ and make those functions more perfect.
+
+26:14.120 --> 26:18.240
+ For example, the attachment to ACE2 receptor, right,
+
+26:18.240 --> 26:19.400
+ of the spike, right?
+
+26:19.400 --> 26:24.400
+ So, you know, has this virus reached the efficiency
+
+26:28.360 --> 26:31.560
+ in which the attachment is carried out?
+
+26:31.560 --> 26:36.080
+ Or there are some mutations that still to be discovered,
+
+26:36.080 --> 26:41.080
+ right, that will make this attachment sort of stronger,
+
+26:41.920 --> 26:46.920
+ or, you know, something more, in a way more efficient
+
+26:48.560 --> 26:51.880
+ from the point of view of this virus functioning.
+
+26:51.880 --> 26:54.640
+ That's sort of the obvious example.
+
+26:54.640 --> 26:57.480
+ But if you look at each of these proteins,
+
+26:57.480 --> 26:58.840
+ I mean, it's there for a reason,
+
+26:58.840 --> 27:00.760
+ it performs certain function.
+
+27:00.760 --> 27:05.760
+ And it could be that certain mutations will, you know,
+
+27:07.120 --> 27:08.480
+ enhance this function.
+
+27:08.480 --> 27:11.560
+ It could be that some mutations will make this function
+
+27:11.560 --> 27:13.720
+ much less efficient, right?
+
+27:13.720 --> 27:15.360
+ So that's also the case.
+
+27:16.200 --> 27:18.880
+ Let's, since we're talking about the evolutionary history
+
+27:18.880 --> 27:22.720
+ of a virus, let's zoom back out
+
+27:22.720 --> 27:25.240
+ and look at the evolution of proteins.
+
+27:25.240 --> 27:29.960
+ I glanced at this 2010 Nature paper
+
+27:29.960 --> 27:34.320
+ on the quote, ongoing expansion of the protein universe.
+
+27:34.320 --> 27:39.320
+ And then, you know, it kind of implies and talks about
+
+27:39.480 --> 27:42.520
+ that proteins started with a common ancestor,
+
+27:42.520 --> 27:44.720
+ which is, you know, kind of interesting.
+
+27:44.720 --> 27:45.960
+ It's interesting to think about like,
+
+27:45.960 --> 27:49.840
+ even just like the first organic thing
+
+27:49.840 --> 27:51.840
+ that started life on Earth.
+
+27:51.840 --> 27:56.000
+ And from that, there's now, you know, what is it?
+
+27:56.000 --> 27:59.880
+ 3.5 billion years later, there's now millions of proteins.
+
+27:59.880 --> 28:01.320
+ And they're still evolving.
+
+28:01.320 --> 28:02.960
+ And that's, you know, in part,
+
+28:02.960 --> 28:05.000
+ one of the things that you're researching.
+
+28:05.000 --> 28:09.200
+ Is there something interesting to you about the evolution
+
+28:09.200 --> 28:14.200
+ of proteins from this initial ancestor to today?
+
+28:14.600 --> 28:16.280
+ Is there something beautiful and insightful
+
+28:16.280 --> 28:18.120
+ about this long story?
+
+28:18.120 --> 28:23.120
+ So I think, you know, if I were to pick a single keyword
+
+28:24.120 --> 28:29.120
+ about protein evolution, I would pick modularity,
+
+28:29.120 --> 28:32.720
+ something that we talked about in the beginning.
+
+28:32.720 --> 28:36.960
+ And that's the fact that the proteins are no longer
+
+28:36.960 --> 28:41.280
+ considered as, you know, as a sequence of letters.
+
+28:41.280 --> 28:45.880
+ There are hierarchical complexities
+
+28:45.880 --> 28:48.240
+ in the way these proteins are organized.
+
+28:48.240 --> 28:51.720
+ And these complexities are actually going
+
+28:51.720 --> 28:53.920
+ beyond the protein sequence.
+
+28:53.920 --> 28:57.720
+ It's actually going all the way back to the gene,
+
+28:57.720 --> 29:00.000
+ to the nucleotide sequence.
+
+29:00.000 --> 29:04.840
+ And so, you know, again, these protein domains,
+
+29:04.840 --> 29:07.840
+ they are not only functional building blocks,
+
+29:07.840 --> 29:09.920
+ they are also evolutionary building blocks.
+
+29:09.920 --> 29:12.560
+ And so what we see in the sort of,
+
+29:12.560 --> 29:15.120
+ in the later stages of evolution,
+
+29:15.120 --> 29:18.720
+ I mean, once this stable structurally
+
+29:18.720 --> 29:22.040
+ and functionally building blocks were discovered,
+
+29:22.040 --> 29:28.040
+ they essentially, they stay, those domains stay as such.
+
+29:28.040 --> 29:31.560
+ So that's why if you start comparing different proteins,
+
+29:31.560 --> 29:36.560
+ you will see that many of them will have similar fragments.
+
+29:37.400 --> 29:39.640
+ And those fragments will correspond to something
+
+29:39.640 --> 29:42.280
+ that we call protein domain families.
+
+29:42.280 --> 29:44.040
+ And so they are still different
+
+29:44.040 --> 29:48.520
+ because you still have mutations and, you know,
+
+29:48.520 --> 29:53.200
+ the, you know, different mutations are attributed to,
+
+29:53.200 --> 29:56.200
+ to, you know, diversification of the function
+
+29:56.200 --> 29:58.840
+ of this, you know, protein domains.
+
+29:58.840 --> 30:03.520
+ However, you don't, you very rarely see, you know,
+
+30:03.520 --> 30:07.840
+ the evolutionary events that would split
+
+30:07.840 --> 30:10.520
+ this domain into fragments because,
+
+30:10.520 --> 30:17.240
+ and it's, you know, once you have the domain split,
+
+30:17.240 --> 30:20.240
+ you actually, you, you know,
+
+30:20.240 --> 30:24.000
+ you can completely cancel out its function
+
+30:24.000 --> 30:26.600
+ or at the very least you can reduce it.
+
+30:26.600 --> 30:29.640
+ And that's not, you know, efficient from the point of view
+
+30:29.640 --> 30:32.880
+ of the, you know, of the cell functioning.
+
+30:32.880 --> 30:37.240
+ So, so the, the, the protein domain level
+
+30:37.240 --> 30:39.160
+ is a very important one.
+
+30:39.160 --> 30:42.040
+ Now, on top of that, right?
+
+30:42.040 --> 30:44.120
+ So if you look at the proteins, right,
+
+30:44.120 --> 30:46.360
+ so you have this structural units
+
+30:46.360 --> 30:48.200
+ and they carry out the function,
+
+30:48.200 --> 30:51.880
+ but then much less is known about things
+
+30:51.880 --> 30:54.400
+ that connect this protein domains,
+
+30:54.400 --> 30:56.400
+ something that we call linkers.
+
+30:56.400 --> 31:00.760
+ And those linkers are completely flexible, you know,
+
+31:00.760 --> 31:03.520
+ parts of the protein that nevertheless
+
+31:03.520 --> 31:06.360
+ carry out a lot of function.
+
+31:06.360 --> 31:08.040
+ So it's like little tails, little heads.
+
+31:08.040 --> 31:09.840
+ So, so, so we do have tails.
+
+31:09.840 --> 31:12.320
+ So they're called termini, C and N termini.
+
+31:12.320 --> 31:17.160
+ So these are things right on the, on, on, on one
+
+31:17.160 --> 31:20.040
+ and another ends of the protein sequence.
+
+31:20.040 --> 31:22.560
+ So they are also very important.
+
+31:22.560 --> 31:26.320
+ So they, they attributed to very specific interactions
+
+31:26.320 --> 31:27.720
+ between the proteins.
+
+31:27.720 --> 31:28.560
+ So.
+
+31:28.560 --> 31:30.800
+ But you're referring to the links between domains.
+
+31:30.800 --> 31:32.600
+ That connect the domains.
+
+31:32.600 --> 31:36.160
+ And, you know, apart from the, just the,
+
+31:36.160 --> 31:39.840
+ the simple perspective, if you have, you know,
+
+31:39.840 --> 31:43.720
+ a very short domain, you have, sorry, a very short linker,
+
+31:43.720 --> 31:45.880
+ you have two domains next to each other.
+
+31:45.880 --> 31:47.560
+ They are forced to be next to each other.
+
+31:47.560 --> 31:49.080
+ If you have a very long one,
+
+31:49.080 --> 31:52.040
+ you have the domains that are extremely flexible
+
+31:52.040 --> 31:54.320
+ and they carry out a lot of sort of
+
+31:54.320 --> 31:56.880
+ spatial reorganization, right?
+
+31:56.880 --> 31:58.120
+ That's awesome.
+
+31:58.120 --> 32:01.960
+ But on top of that, right, just this linker itself,
+
+32:01.960 --> 32:05.760
+ because it's so flexible, it actually can adapt
+
+32:05.760 --> 32:07.480
+ to a lot of different shapes.
+
+32:07.480 --> 32:11.080
+ And therefore it's a, it's a very good interactor
+
+32:11.080 --> 32:14.000
+ when it comes to interaction between this protein
+
+32:14.000 --> 32:15.720
+ and other protein, right?
+
+32:15.720 --> 32:18.920
+ So these things also evolve, you know,
+
+32:18.920 --> 32:23.920
+ and they in a way have different sort of laws of
+
+32:25.480 --> 32:30.480
+ the driving laws that underlie the evolution
+
+32:30.600 --> 32:33.400
+ because they no longer need to,
+
+32:33.400 --> 32:37.120
+ to preserve certain structure, right?
+
+32:37.120 --> 32:38.880
+ Unlike protein domains.
+
+32:38.880 --> 32:41.480
+ And so on top of that,
+
+32:41.480 --> 32:45.840
+ you have something that is even less studied.
+
+32:45.840 --> 32:49.640
+ And this is something that attribute to,
+
+32:49.640 --> 32:53.240
+ to the concept of alternative splicing.
+
+32:53.240 --> 32:54.480
+ So alternative splicing.
+
+32:54.480 --> 32:56.920
+ So it's a, it's a very cool concept.
+
+32:56.920 --> 33:00.840
+ It's something that we've been fascinated about for,
+
+33:00.840 --> 33:03.520
+ you know, over a decade in my lab
+
+33:03.520 --> 33:05.520
+ and trying to do research with that.
+
+33:05.520 --> 33:08.080
+ But so, you know, so typically, you know,
+
+33:08.080 --> 33:12.480
+ a simplistic perspective is that one gene
+
+33:12.480 --> 33:16.040
+ is equal one protein product, right?
+
+33:16.040 --> 33:18.320
+ So you have a gene, you know,
+
+33:18.320 --> 33:21.120
+ you transcribe it and translate it
+
+33:21.120 --> 33:22.880
+ and it becomes a protein.
+
+33:24.600 --> 33:28.360
+ In reality, when we talk about eukaryotes,
+
+33:28.360 --> 33:32.320
+ especially sort of more recent eukaryotes
+
+33:32.320 --> 33:33.800
+ that are very complex,
+
+33:33.800 --> 33:38.800
+ the gene is no longer equal to one protein.
+
+33:40.200 --> 33:45.200
+ It actually can produce multiple functionally,
+
+33:47.040 --> 33:50.280
+ you know, active protein products.
+
+33:50.280 --> 33:52.720
+ And each of them is, you know,
+
+33:52.720 --> 33:57.040
+ is called an alternatively spliced product.
+
+33:57.040 --> 34:00.960
+ The reason it happens is that if you look at the gene,
+
+34:00.960 --> 34:05.560
+ it actually has, it has also blocks.
+
+34:05.560 --> 34:08.320
+ And the blocks, some of which,
+
+34:08.320 --> 34:10.680
+ and it's essentially, it goes like this.
+
+34:10.680 --> 34:13.880
+ So we have a block that will later be translated.
+
+34:13.880 --> 34:15.040
+ We call it exon.
+
+34:15.040 --> 34:19.240
+ Then we'll have a block that is not translated, cut out.
+
+34:19.240 --> 34:20.400
+ We call it intron.
+
+34:20.400 --> 34:22.840
+ So we have exon, intron, exon, intron,
+
+34:22.840 --> 34:24.120
+ et cetera, et cetera, et cetera, right?
+
+34:24.120 --> 34:26.920
+ So sometimes you can have, you know,
+
+34:26.920 --> 34:29.880
+ dozens of these exons and introns.
+
+34:29.880 --> 34:32.680
+ So what happens is during the process
+
+34:32.680 --> 34:35.800
+ when the gene is converted to RNA,
+
+34:37.320 --> 34:41.280
+ we have things that are cut out,
+
+34:41.280 --> 34:43.240
+ the introns that are cut out,
+
+34:43.240 --> 34:47.160
+ and exons that now get assembled together.
+
+34:47.160 --> 34:51.320
+ And sometimes we will throw out some of the exons
+
+34:52.320 --> 34:54.600
+ and the remaining protein product will become
+
+34:54.600 --> 34:55.440
+ still be the same.
+
+34:55.440 --> 34:56.280
+ Different.
+
+34:56.280 --> 34:57.120
+ Oh, different.
+
+34:57.120 --> 34:59.960
+ So now you have fragments of the protein
+
+34:59.960 --> 35:01.360
+ that no longer there.
+
+35:01.360 --> 35:03.800
+ They were cut out with the introns.
+
+35:03.800 --> 35:07.520
+ Sometimes you will essentially take one exon
+
+35:07.520 --> 35:09.840
+ and replace it with another one, right?
+
+35:09.840 --> 35:12.600
+ So there's some flexibility in this process.
+
+35:12.600 --> 35:17.200
+ So that creates a whole new level of complexity.
+
+35:17.200 --> 35:18.040
+ Cause now.
+
+35:18.040 --> 35:18.880
+ Is this random though?
+
+35:18.880 --> 35:19.720
+ Is it random?
+
+35:19.720 --> 35:20.840
+ It's not random.
+
+35:20.840 --> 35:24.480
+ We, and this is where I think now the appearance
+
+35:24.480 --> 35:27.360
+ of this modern single cell
+
+35:27.360 --> 35:31.240
+ and before that tissue level sequencing,
+
+35:31.240 --> 35:34.280
+ next generation sequencing techniques such as RNA seed
+
+35:34.280 --> 35:38.200
+ allows us to see that these are the events
+
+35:38.200 --> 35:41.040
+ that often happen in response.
+
+35:41.040 --> 35:44.560
+ It's a dynamic event that happens in response
+
+35:44.560 --> 35:48.320
+ to disease or in response
+
+35:48.320 --> 35:51.800
+ to certain developmental stage of a cell.
+
+35:51.800 --> 35:56.800
+ And this is an incredibly complex layer
+
+35:56.840 --> 35:59.800
+ that also undergoes, I mean,
+
+35:59.800 --> 36:01.560
+ because it's at the gene level, right?
+
+36:01.560 --> 36:05.440
+ So it undergoes certain evolution, right?
+
+36:05.440 --> 36:08.680
+ And now we have this interplay
+
+36:08.680 --> 36:12.720
+ between what is happening in the protein world
+
+36:12.720 --> 36:17.720
+ and what is happening in the gene and RNA world.
+
+36:17.720 --> 36:22.720
+ And for example, it's often that we see
+
+36:22.720 --> 36:27.720
+ that the boundaries of this exons coincide
+
+36:28.200 --> 36:32.160
+ with the boundaries of the protein domains, right?
+
+36:32.160 --> 36:36.520
+ So there is this close interplay to that.
+
+36:36.520 --> 36:39.280
+ It's not always, I mean, otherwise it would be too simple,
+
+36:39.280 --> 36:40.120
+ right?
+
+36:40.120 --> 36:41.880
+ But we do see the connection
+
+36:41.880 --> 36:45.000
+ between those sort of machineries.
+
+36:45.000 --> 36:49.760
+ And obviously the evolution will pick up this complexity
+
+36:49.760 --> 36:51.800
+ and, you know.
+
+36:51.800 --> 36:53.480
+ Select for whatever is successful,
+
+36:53.480 --> 36:55.040
+ whatever is interesting function.
+
+36:55.040 --> 36:57.560
+ We see that complexity in play
+
+36:57.560 --> 37:02.560
+ and makes this question more complex, but more exciting.
+
+37:02.560 --> 37:05.440
+ Small detour, I don't know if you think about this
+
+37:05.440 --> 37:07.540
+ into the world of computer science.
+
+37:07.540 --> 37:11.240
+ There's a Douglas Hostetter, I think,
+
+37:11.240 --> 37:14.360
+ came up with the name of Quine,
+
+37:14.360 --> 37:16.180
+ which are, I don't know if you're familiar
+
+37:16.180 --> 37:18.880
+ with these things, but it's computer programs
+
+37:18.880 --> 37:22.160
+ that have, I guess, exon and intron,
+
+37:22.160 --> 37:24.800
+ and they copy, the whole purpose of the program
+
+37:24.800 --> 37:26.240
+ is to copy itself.
+
+37:26.240 --> 37:28.480
+ So it prints copies of itself,
+
+37:28.480 --> 37:30.980
+ but can also carry information inside of it.
+
+37:30.980 --> 37:35.440
+ So it's a very kind of crude, fun exercise of,
+
+37:36.420 --> 37:40.000
+ can we sort of replicate these ideas from cells?
+
+37:40.000 --> 37:42.940
+ Can we have a computer program that when you run it,
+
+37:42.940 --> 37:47.080
+ just print itself, the entirety of itself,
+
+37:47.080 --> 37:50.040
+ and does it in different programming languages and so on.
+
+37:50.040 --> 37:51.960
+ I've been playing around and writing them.
+
+37:51.960 --> 37:53.720
+ It's a kind of fun little exercise.
+
+37:53.720 --> 37:55.720
+ You know, when I was a kid, so you know,
+
+37:55.720 --> 38:00.720
+ it was essentially one of the sort of main stages
+
+38:02.860 --> 38:07.860
+ in informatics Olympiads that you have to reach
+
+38:08.280 --> 38:10.880
+ in order to be any so good,
+
+38:10.880 --> 38:14.400
+ is you should be able to write a program
+
+38:14.400 --> 38:16.680
+ that replicates itself.
+
+38:16.680 --> 38:20.920
+ And so the task then becomes even sort of more complicated.
+
+38:20.920 --> 38:24.040
+ So what is the shortest program?
+
+38:24.040 --> 38:27.480
+ And of course, it's a function of a programming language,
+
+38:27.480 --> 38:30.940
+ but yeah, I remember a long, long, long time ago
+
+38:30.940 --> 38:34.840
+ when we tried to make it short and short
+
+38:34.840 --> 38:36.520
+ and find the shortcut.
+
+38:36.520 --> 38:41.520
+ There's actually on a stack exchange, there's a entire site
+
+38:41.720 --> 38:44.160
+ called CodeGolf, I think,
+
+38:44.160 --> 38:46.560
+ where the entirety is just the competition.
+
+38:46.560 --> 38:50.380
+ People just come up with whatever task, I don't know,
+
+38:50.380 --> 38:54.680
+ like write code that reports the weather today.
+
+38:54.680 --> 38:58.680
+ And the competition is about whatever programming language,
+
+38:58.680 --> 39:00.440
+ what is the shortest program?
+
+39:00.440 --> 39:02.280
+ And it makes you actually, people should check it out
+
+39:02.280 --> 39:03.640
+ because it makes you realize
+
+39:03.640 --> 39:07.160
+ there's some weird programming languages out there.
+
+39:07.160 --> 39:11.740
+ But just to dig on that a little deeper,
+
+39:12.640 --> 39:16.100
+ do you think, in computer science,
+
+39:16.100 --> 39:19.280
+ we don't often think about programs,
+
+39:19.280 --> 39:21.280
+ just like the machine learning world now,
+
+39:22.280 --> 39:26.280
+ that's still kind of basic programs.
+
+39:26.280 --> 39:29.600
+ And then there's humans that replicate themselves, right?
+
+39:29.600 --> 39:31.440
+ And there's these mutations and so on.
+
+39:31.440 --> 39:34.520
+ Do you think we'll ever have a world
+
+39:34.520 --> 39:36.320
+ where there's programs that kind of
+
+39:37.760 --> 39:40.640
+ have an evolutionary process?
+
+39:40.640 --> 39:42.640
+ So I'm not talking about evolutionary algorithms,
+
+39:42.640 --> 39:44.640
+ but I'm talking about programs that kind of
+
+39:44.640 --> 39:46.480
+ mate with each other and evolve
+
+39:46.480 --> 39:49.600
+ and like on their own replicate themselves.
+
+39:49.600 --> 39:54.600
+ So this is kind of the idea here is,
+
+39:54.640 --> 39:57.140
+ that's how you can have a runaway thing.
+
+39:57.140 --> 39:59.240
+ So we think about machine learning as a system
+
+39:59.240 --> 40:01.320
+ that gets smarter and smarter and smarter and smarter.
+
+40:01.320 --> 40:05.240
+ At least the machine learning systems of today are like,
+
+40:05.240 --> 40:09.000
+ it's a program that you can like turn off,
+
+40:09.000 --> 40:12.680
+ as opposed to throwing a bunch of little programs out there
+
+40:12.680 --> 40:15.560
+ and letting them like multiply and mate
+
+40:15.560 --> 40:17.320
+ and evolve and replicate.
+
+40:17.320 --> 40:20.400
+ Do you ever think about that kind of world,
+
+40:20.400 --> 40:23.360
+ when we jump from the biological systems
+
+40:23.360 --> 40:27.160
+ that you're looking at to artificial ones?
+
+40:27.160 --> 40:32.160
+ I mean, it's almost like you take the sort of the area
+
+40:32.440 --> 40:34.360
+ of intelligent agents, right?
+
+40:34.360 --> 40:38.640
+ Which are essentially the independent sort of codes
+
+40:38.640 --> 40:42.480
+ that run and interact and exchange the information, right?
+
+40:42.480 --> 40:45.120
+ So I don't see why not.
+
+40:45.120 --> 40:48.760
+ I mean, it could be sort of a natural evolution
+
+40:48.760 --> 40:52.880
+ in this area of computer science.
+
+40:52.880 --> 40:54.640
+ I think it's kind of an interesting possibility.
+
+40:54.640 --> 40:55.880
+ It's terrifying too,
+
+40:55.880 --> 40:58.360
+ but I think it's a really powerful tool.
+
+40:58.360 --> 41:00.680
+ Like to have like agents that, you know,
+
+41:00.680 --> 41:02.800
+ we have social networks with millions of people
+
+41:02.800 --> 41:03.840
+ and they interact.
+
+41:03.840 --> 41:05.720
+ I think it's interesting to inject into that,
+
+41:05.720 --> 41:08.380
+ was already injected into that bots, right?
+
+41:08.380 --> 41:10.040
+ But those bots are pretty dumb.
+
+41:11.240 --> 41:14.720
+ You know, they're probably pretty dumb algorithms.
+
+41:15.680 --> 41:17.480
+ You know, it's interesting to think
+
+41:17.480 --> 41:20.440
+ that there might be bots that evolve together with humans.
+
+41:20.440 --> 41:23.960
+ And there's the sea of humans and robots
+
+41:23.960 --> 41:26.520
+ that are operating first in the digital space.
+
+41:26.520 --> 41:29.080
+ And then you can also think, I love the idea.
+
+41:29.080 --> 41:32.600
+ Some people worked, I think at Harvard, at Penn,
+
+41:32.600 --> 41:36.680
+ there's robotics labs that, you know,
+
+41:37.560 --> 41:40.600
+ take as a fundamental task to build a robot
+
+41:40.600 --> 41:44.920
+ that given extra resources can build another copy of itself,
+
+41:44.920 --> 41:46.560
+ like in the physical space,
+
+41:46.560 --> 41:50.900
+ which is super difficult to do, but super interesting.
+
+41:50.900 --> 41:54.020
+ I remember there's like research on robots
+
+41:54.020 --> 41:55.240
+ that can build a bridge.
+
+41:55.240 --> 41:56.880
+ So they make a copy of themselves
+
+41:56.880 --> 41:57.960
+ and they connect themselves
+
+41:57.960 --> 42:00.560
+ and the sort of like self building bridge
+
+42:00.560 --> 42:02.380
+ based on building blocks.
+
+42:02.380 --> 42:05.640
+ You can imagine like a building that self assembles.
+
+42:05.640 --> 42:07.560
+ So it's basically self assembling structures
+
+42:07.560 --> 42:10.620
+ from robotic parts.
+
+42:10.620 --> 42:13.880
+ But it's interesting to, within that robot,
+
+42:13.880 --> 42:15.920
+ add the ability to mutate
+
+42:15.920 --> 42:20.920
+ and do all the interesting like little things
+
+42:21.320 --> 42:23.200
+ that you're referring to in evolution
+
+42:23.200 --> 42:26.320
+ to go from a single origin protein building block
+
+42:26.320 --> 42:28.920
+ to like this weird complex.
+
+42:28.920 --> 42:30.960
+ And if you think about this, I mean, you know,
+
+42:30.960 --> 42:34.600
+ the bits and pieces are there, you know.
+
+42:34.600 --> 42:37.040
+ So you mentioned the evolution algorithm, right?
+
+42:37.040 --> 42:38.520
+ You know, so this is sort of,
+
+42:38.520 --> 42:43.520
+ and maybe sort of the goal is in a way different, right?
+
+42:43.520 --> 42:46.720
+ So the goal is to, you know, to essentially,
+
+42:46.720 --> 42:50.080
+ to optimize your search, right?
+
+42:50.080 --> 42:53.060
+ So, but sort of the ideas are there.
+
+42:53.060 --> 42:55.080
+ So people recognize that, you know,
+
+42:55.080 --> 43:00.080
+ that the recombination events lead to global changes
+
+43:01.160 --> 43:04.440
+ in the search trajectories, the mutations event
+
+43:04.440 --> 43:09.080
+ is a more refined, you know, step in the search.
+
+43:09.080 --> 43:13.340
+ Then you have, you know, other sort of
+
+43:14.220 --> 43:16.480
+ nature inspired algorithm, right?
+
+43:16.480 --> 43:19.580
+ So one of the reasons that, you know,
+
+43:19.580 --> 43:21.940
+ I think it's one of the funnest one
+
+43:21.940 --> 43:24.820
+ is the slime based algorithm, right?
+
+43:24.820 --> 43:28.220
+ So it's, I think the first was introduced
+
+43:28.220 --> 43:30.220
+ by the Japanese group,
+
+43:30.220 --> 43:35.220
+ where it was able to solve some pre complex problems.
+
+43:35.220 --> 43:40.220
+ So that's, and then I think there are still a lot of things
+
+43:43.340 --> 43:48.340
+ we've yet to, you know, borrow from the nature, right?
+
+43:48.960 --> 43:52.020
+ So there are a lot of sort of ideas
+
+43:52.020 --> 43:56.740
+ that nature, you know, gets to offer us that, you know,
+
+43:56.740 --> 44:01.020
+ it's up to us to grab it and to, you know,
+
+44:01.020 --> 44:02.140
+ get the best use of it.
+
+44:02.140 --> 44:06.380
+ Including neural networks, you know, we have a very crude
+
+44:06.380 --> 44:08.300
+ inspiration from nature on neural networks.
+
+44:08.300 --> 44:10.920
+ Maybe there's other inspirations to be discovered
+
+44:10.920 --> 44:15.920
+ in the brain or other aspects of the various systems,
+
+44:16.280 --> 44:20.140
+ even like the immune system, the way it interplays.
+
+44:20.140 --> 44:22.580
+ I recently started to understand that the,
+
+44:22.580 --> 44:24.360
+ like the immune system has something to do
+
+44:24.360 --> 44:26.020
+ with the way the brain operates.
+
+44:26.020 --> 44:28.360
+ Like there's multiple things going on in there,
+
+44:28.360 --> 44:30.500
+ which all of which are not modeled
+
+44:30.500 --> 44:32.140
+ in artificial neural networks.
+
+44:32.140 --> 44:35.380
+ And maybe if you throw a little bit of that biological spice
+
+44:35.380 --> 44:39.020
+ in there, you'll come up with something, something cool.
+
+44:39.020 --> 44:42.540
+ I'm not sure if you're familiar with the Drake equation
+
+44:43.740 --> 44:46.740
+ that estimate, I just did a video on it yesterday
+
+44:46.740 --> 44:49.280
+ because I wanted to give my own estimate of it.
+
+44:49.280 --> 44:52.340
+ It's an equation that combines a bunch of factors
+
+44:52.340 --> 44:56.980
+ to estimate how many alien civilizations are in the galaxy.
+
+44:56.980 --> 44:58.500
+ I've heard about it, yes.
+
+44:58.500 --> 45:01.340
+ So one of the interesting parameters, you know,
+
+45:01.340 --> 45:05.980
+ it's like how many stars are born every year,
+
+45:05.980 --> 45:10.980
+ how many planets are on average per star for this,
+
+45:11.700 --> 45:14.260
+ how many habitable planets are there.
+
+45:14.260 --> 45:17.580
+ And then the one that starts being really interesting
+
+45:18.660 --> 45:23.660
+ is the probability that life emerges on a habitable planet.
+
+45:24.740 --> 45:27.900
+ So like, I don't know if you think about,
+
+45:27.900 --> 45:29.720
+ you certainly think a lot about evolution,
+
+45:29.720 --> 45:31.060
+ but do you think about the thing
+
+45:31.060 --> 45:32.520
+ which evolution doesn't describe,
+
+45:32.520 --> 45:36.620
+ which is like the beginning of evolution, the origin of life.
+
+45:36.620 --> 45:39.320
+ I think I put the probability of life developing
+
+45:39.320 --> 45:41.800
+ in a habitable planet at 1%.
+
+45:41.800 --> 45:44.440
+ This is very scientifically rigorous.
+
+45:44.440 --> 45:48.740
+ Okay, well, first at a high level for the Drake equation,
+
+45:48.740 --> 45:51.660
+ what would you put that percent at on earth?
+
+45:51.660 --> 45:55.100
+ And in general, do you have something,
+
+45:55.100 --> 45:58.220
+ do you have thoughts about how life might've started,
+
+45:58.220 --> 46:01.100
+ you know, like the proteins being the first kind of,
+
+46:01.100 --> 46:02.940
+ one of the early jumping points?
+
+46:02.940 --> 46:07.500
+ Yeah, so I think back in 2018,
+
+46:07.500 --> 46:10.460
+ there was a very exciting paper published in Nature
+
+46:10.460 --> 46:15.460
+ where they found one of the simplest amino acids,
+
+46:18.320 --> 46:23.320
+ glycine, in a comet dust.
+
+46:23.320 --> 46:28.320
+ So this is, and I apologize if I don't pronounce,
+
+46:29.440 --> 46:31.840
+ it's a Russian named comet,
+
+46:31.840 --> 46:34.760
+ it's I think Chugryumov Gerasimenko.
+
+46:34.760 --> 46:38.760
+ This is the comet where, and there was this mission
+
+46:40.000 --> 46:45.000
+ to get close to this comet and get the stardust
+
+46:46.320 --> 46:48.160
+ from its tail.
+
+46:48.160 --> 46:50.620
+ And when scientists analyzed it,
+
+46:50.620 --> 46:55.620
+ they actually found traces of, you know, of glycine,
+
+46:56.640 --> 46:59.400
+ which, you know, makes up, you know,
+
+46:59.400 --> 47:04.180
+ it's one of the basic, one of the 20 basic amino acids
+
+47:04.180 --> 47:06.400
+ that makes up proteins, right?
+
+47:06.400 --> 47:10.960
+ So that was kind of very exciting, right?
+
+47:10.960 --> 47:14.220
+ But, you know, the question is very interesting, right?
+
+47:14.220 --> 47:18.540
+ So what, you know, if there is some alien life,
+
+47:18.540 --> 47:22.940
+ is it gonna be made of proteins, right?
+
+47:22.940 --> 47:24.340
+ Or maybe RNAs, right?
+
+47:24.340 --> 47:29.120
+ So we see that, you know, the RNA viruses are certainly,
+
+47:29.120 --> 47:34.120
+ you know, very well established sort of, you know,
+
+47:35.020 --> 47:37.820
+ group of molecular machines, right?
+
+47:37.820 --> 47:42.140
+ So, yeah, it's a very interesting question.
+
+47:42.140 --> 47:43.580
+ What probability would you put?
+
+47:43.580 --> 47:45.260
+ Like, how hard is this job?
+
+47:45.260 --> 47:48.740
+ Like, how unlikely just on Earth do you think
+
+47:48.740 --> 47:51.600
+ this whole thing is that we got going?
+
+47:51.600 --> 47:54.620
+ Like, are we really lucky or is it inevitable?
+
+47:54.620 --> 47:56.240
+ Like, what's your sense when you sit back
+
+47:56.240 --> 47:58.820
+ and think about life on Earth?
+
+47:58.820 --> 48:00.980
+ Is it higher or lower than 1%?
+
+48:00.980 --> 48:03.420
+ Well, because 1% is pretty low, but it still is like,
+
+48:03.420 --> 48:05.060
+ damn, that's a pretty good chance.
+
+48:05.060 --> 48:06.600
+ Yes, it's a pretty good chance.
+
+48:06.600 --> 48:10.580
+ I mean, I would, personally, but again, you know,
+
+48:10.580 --> 48:14.140
+ I'm, you know, probably not the best person
+
+48:14.140 --> 48:19.140
+ to do such estimations, but I would, you know,
+
+48:19.340 --> 48:23.100
+ intuitively, I would probably put it lower.
+
+48:23.100 --> 48:24.820
+ But still, I mean, you know, given.
+
+48:24.820 --> 48:26.620
+ So we're really lucky here on Earth.
+
+48:27.980 --> 48:28.820
+ I mean.
+
+48:28.820 --> 48:30.500
+ Or the conditions are really good.
+
+48:30.500 --> 48:32.340
+ It's, you know, I think that there was,
+
+48:32.340 --> 48:35.460
+ everything was right in a way, right?
+
+48:35.460 --> 48:39.720
+ So we still, it's not, the conditions were not like ideal
+
+48:39.720 --> 48:44.060
+ if you try to look at, you know, what was, you know,
+
+48:44.060 --> 48:48.340
+ several billions years ago when the life emerged.
+
+48:48.340 --> 48:52.020
+ So there is something called the Rare Earth Hypothesis
+
+48:52.020 --> 48:55.740
+ that, you know, in counter to the Drake Equation says
+
+48:55.740 --> 49:00.240
+ that the, you know, the conditions of Earth,
+
+49:00.240 --> 49:03.260
+ if you actually were to describe Earth,
+
+49:03.260 --> 49:05.700
+ it's quite a special place.
+
+49:05.700 --> 49:09.120
+ So special it might be unique in our galaxy
+
+49:09.120 --> 49:11.780
+ and potentially, you know, close to unique
+
+49:11.780 --> 49:12.860
+ in the entire universe.
+
+49:12.860 --> 49:14.740
+ Like it's very difficult to reconstruct
+
+49:14.740 --> 49:16.380
+ those same conditions.
+
+49:16.380 --> 49:19.580
+ And what the Rare Earth Hypothesis argues
+
+49:19.580 --> 49:23.100
+ is all those different conditions are essential for life.
+
+49:23.100 --> 49:26.180
+ And so that's sort of the counter, you know,
+
+49:26.180 --> 49:29.220
+ like all the things we, you know,
+
+49:29.220 --> 49:31.740
+ thinking that Earth is pretty average.
+
+49:31.740 --> 49:34.340
+ I mean, I can't really, I'm trying to remember
+
+49:34.340 --> 49:36.140
+ to go through all of them, but just the fact
+
+49:36.140 --> 49:41.140
+ that it is shielded from a lot of asteroids,
+
+49:41.140 --> 49:43.820
+ the, obviously the distance to the sun,
+
+49:43.820 --> 49:48.220
+ but also the fact that it's like a perfect balance
+
+49:48.220 --> 49:52.180
+ between the amount of water and land
+
+49:52.180 --> 49:53.660
+ and all those kinds of things.
+
+49:53.660 --> 49:55.180
+ I don't know, there's a bunch of different factors
+
+49:55.180 --> 49:57.520
+ that I don't remember, there's a long list.
+
+49:57.520 --> 50:01.260
+ But it's fascinating to think about if in order
+
+50:01.260 --> 50:05.020
+ for something like proteins and then DNA and RNA
+
+50:05.020 --> 50:10.020
+ to emerge, you need, and basic living organisms,
+
+50:10.020 --> 50:14.960
+ you need to be very close to an Earth like planet,
+
+50:14.960 --> 50:19.740
+ which will be sad or exciting, I don't know which.
+
+50:19.740 --> 50:23.220
+ If you ask me, I, you know, in a way I put a parallel
+
+50:23.220 --> 50:28.220
+ between, you know, between our own research.
+
+50:28.380 --> 50:33.380
+ And I mean, from the intuitive perspective,
+
+50:33.820 --> 50:36.700
+ you know, you have those two extremes
+
+50:36.700 --> 50:40.820
+ and the reality is never very rarely falls
+
+50:40.820 --> 50:41.900
+ into the extremes.
+
+50:41.900 --> 50:46.500
+ It's always the optimus always reached somewhere in between.
+
+50:46.500 --> 50:50.060
+ So, and that's what I tend to think.
+
+50:50.060 --> 50:54.020
+ I think that, you know, we're probably somewhere in between.
+
+50:54.020 --> 50:58.220
+ So they were not unique, unique, but again,
+
+50:58.220 --> 51:01.940
+ the chances are, you know, reasonably small.
+
+51:01.940 --> 51:04.180
+ The problem is we don't know the other extreme
+
+51:04.180 --> 51:08.060
+ is like, I tend to think that we don't actually understand
+
+51:08.060 --> 51:11.900
+ the basic mechanisms of like what this is all originated
+
+51:11.900 --> 51:15.060
+ from, like, it seems like we think of life
+
+51:15.060 --> 51:17.100
+ as this distinct thing, maybe intelligence
+
+51:17.100 --> 51:20.380
+ is a distinct thing, maybe the physics that,
+
+51:20.380 --> 51:24.380
+ from which planets and suns are born is a distinct thing.
+
+51:24.380 --> 51:27.140
+ But that could be a very, it's like the Stephen Wolfram
+
+51:27.140 --> 51:29.420
+ thing, it's like the, from simple rules emerges
+
+51:29.420 --> 51:31.020
+ greater and greater complexity.
+
+51:31.020 --> 51:34.940
+ So, you know, I tend to believe that just life finds a way.
+
+51:36.100 --> 51:39.540
+ Like, we don't know the extreme of how common life is
+
+51:39.540 --> 51:43.660
+ because it could be life is like everywhere.
+
+51:44.980 --> 51:49.420
+ Like, so everywhere that it's almost like laughable,
+
+51:49.420 --> 51:52.140
+ like that we're such idiots to think who are you?
+
+51:52.140 --> 51:56.260
+ Like, it's like ridiculous to even like think,
+
+51:56.260 --> 51:59.460
+ it's like ants thinking that their little colony
+
+51:59.460 --> 52:03.220
+ is the unique thing and everything else doesn't exist.
+
+52:03.220 --> 52:07.540
+ I mean, it's also very possible that that's the extreme
+
+52:07.540 --> 52:09.900
+ and we're just not able to maybe comprehend
+
+52:09.900 --> 52:12.860
+ the nature of that life.
+
+52:12.860 --> 52:16.580
+ Just to stick on alien life for just a brief moment more,
+
+52:16.580 --> 52:21.580
+ there is some signs of life on Venus in gaseous form.
+
+52:22.260 --> 52:27.260
+ There's hope for life on Mars, probably extinct.
+
+52:27.260 --> 52:29.220
+ We're not talking about intelligent life.
+
+52:29.220 --> 52:32.340
+ Although that has been in the news recently.
+
+52:32.340 --> 52:36.300
+ We're talking about basic like, you know, bacteria.
+
+52:36.300 --> 52:40.820
+ Yeah, and then also, I guess, there's a couple moons.
+
+52:40.820 --> 52:41.660
+ Europe.
+
+52:41.660 --> 52:45.100
+ Yeah, Europa, which is Jupiter's moon.
+
+52:45.100 --> 52:46.580
+ I think there's another one.
+
+52:46.580 --> 52:50.380
+ Are you, is that exciting or is it terrifying to you
+
+52:50.380 --> 52:52.140
+ that we might find life?
+
+52:52.140 --> 52:53.580
+ Do you hope we find life?
+
+52:53.580 --> 52:56.020
+ I certainly do hope that we find life.
+
+52:56.020 --> 53:01.020
+ I mean, it was very exciting to hear about this news
+
+53:05.380 --> 53:09.260
+ about the possible life on Venus.
+
+53:09.260 --> 53:12.540
+ It'd be nice to have hard evidence of something with,
+
+53:12.540 --> 53:17.140
+ which is what the hope is for Mars and Europa.
+
+53:17.140 --> 53:18.420
+ But do you think those organisms
+
+53:18.420 --> 53:20.780
+ will be similar biologically
+
+53:20.780 --> 53:23.940
+ or would they even be sort of carbon based
+
+53:23.940 --> 53:25.740
+ if we do find them?
+
+53:25.740 --> 53:28.940
+ I would say they would be carbon based.
+
+53:28.940 --> 53:31.820
+ How similar, it's a big question, right?
+
+53:31.820 --> 53:36.820
+ So it's the moment we discover things outside Earth, right?
+
+53:39.540 --> 53:43.260
+ Even if it's a tiny little single cell.
+
+53:43.260 --> 53:45.380
+ I mean, there is so much.
+
+53:45.380 --> 53:47.660
+ Just imagine that, that would be so.
+
+53:47.660 --> 53:50.700
+ I think that that would be another turning point
+
+53:50.700 --> 53:52.540
+ for the science, you know?
+
+53:52.540 --> 53:56.220
+ Especially if it's different in some very new way.
+
+53:56.220 --> 53:57.060
+ That's exciting.
+
+53:57.060 --> 53:59.700
+ Because that says, that's a definitive statement,
+
+53:59.700 --> 54:01.780
+ not a definitive, but a pretty strong statement
+
+54:01.780 --> 54:05.420
+ that life is everywhere in the universe.
+
+54:05.420 --> 54:07.700
+ To me at least, that's really exciting.
+
+54:08.940 --> 54:13.460
+ You brought up Joshua Lederberg in an offline conversation.
+
+54:13.460 --> 54:15.780
+ I think I'd love to talk to you about Alpha Fold
+
+54:15.780 --> 54:17.220
+ and this might be an interesting way
+
+54:17.220 --> 54:19.580
+ to enter that conversation because,
+
+54:19.580 --> 54:24.500
+ so he won the 1958 Nobel Prize in Physiology and Medicine
+
+54:24.500 --> 54:29.020
+ for discovering that bacteria can mate and exchange genes.
+
+54:29.020 --> 54:32.220
+ But he also did a ton of other stuff,
+
+54:32.220 --> 54:37.220
+ like we mentioned, helping NASA find life on Mars
+
+54:37.740 --> 54:40.980
+ and the...
+
+54:40.980 --> 54:42.580
+ Dendro. Dendro.
+
+54:42.580 --> 54:45.260
+ The chemical expert system.
+
+54:45.260 --> 54:46.860
+ Expert systems, remember those?
+
+54:46.860 --> 54:51.380
+ What do you find interesting about this guy
+
+54:51.380 --> 54:54.980
+ and his ideas about artificial intelligence in general?
+
+54:54.980 --> 54:59.980
+ So I have a kind of personal story to share.
+
+55:00.180 --> 55:05.140
+ So I started my PhD in Canada back in 2000.
+
+55:05.140 --> 55:07.740
+ And so essentially my PhD was,
+
+55:07.740 --> 55:10.100
+ so we were developing sort of a new language
+
+55:10.100 --> 55:12.540
+ for symbolic machine learning.
+
+55:12.540 --> 55:15.100
+ So it's different from the feature based machine learning.
+
+55:15.100 --> 55:19.820
+ And one of the sort of cleanest applications
+
+55:19.820 --> 55:23.980
+ of this approach, of this formalism
+
+55:23.980 --> 55:28.820
+ was to cheminformatics and computer aided drug design.
+
+55:28.820 --> 55:32.700
+ So essentially we were, as a part of my research,
+
+55:33.820 --> 55:37.380
+ I developed a system that essentially looked
+
+55:37.380 --> 55:42.380
+ at chemical compounds of say the same therapeutic category,
+
+55:42.380 --> 55:45.540
+ you know, male hormones, right?
+
+55:45.540 --> 55:50.540
+ And try to figure out the structural fragments
+
+55:51.740 --> 55:54.420
+ that are the structural building blocks
+
+55:54.420 --> 55:58.140
+ that are important that define this class
+
+55:58.140 --> 55:59.780
+ versus structural building blocks
+
+55:59.780 --> 56:02.700
+ that are there just because, you know,
+
+56:02.700 --> 56:04.260
+ to complete the structure.
+
+56:04.260 --> 56:06.060
+ But they are not essentially the ones
+
+56:06.060 --> 56:10.020
+ that make up the chemical, the key chemical properties
+
+56:10.020 --> 56:12.780
+ of this therapeutic category.
+
+56:12.780 --> 56:16.900
+ And, you know, for me, it was something new.
+
+56:16.900 --> 56:20.580
+ I was trained as an applied mathematicians, you know,
+
+56:20.580 --> 56:22.980
+ as with some machine learning background,
+
+56:22.980 --> 56:25.060
+ but, you know, computer aided drug design
+
+56:25.060 --> 56:27.660
+ was a completely new territory.
+
+56:27.660 --> 56:31.500
+ So because of that, I often find myself
+
+56:31.500 --> 56:34.340
+ asking lots of questions on one of these
+
+56:34.340 --> 56:36.940
+ sort of central forums.
+
+56:36.940 --> 56:40.420
+ Back then, there were no Facebooks or stuff like that.
+
+56:40.420 --> 56:43.620
+ There was a forum, you know, it's a forum.
+
+56:43.620 --> 56:45.780
+ It's essentially, it's like a bulletin board.
+
+56:45.780 --> 56:46.620
+ Yeah.
+
+56:46.620 --> 56:47.460
+ On the internet.
+
+56:47.460 --> 56:50.300
+ Yeah, so you essentially, you have a bunch of people
+
+56:50.300 --> 56:52.900
+ and you post a question and you get, you know,
+
+56:52.900 --> 56:55.300
+ an answer from, you know, different people.
+
+56:55.300 --> 56:59.300
+ And back then, just like one of the most popular forums
+
+56:59.300 --> 57:04.300
+ was CCL, I think Computational Chemistry Library,
+
+57:04.300 --> 57:07.100
+ not library, but something like that,
+
+57:07.100 --> 57:09.820
+ but CCL, that was the forum.
+
+57:09.820 --> 57:12.780
+ And there, I, you know, I...
+
+57:12.780 --> 57:14.060
+ Asked a lot of dumb questions.
+
+57:14.060 --> 57:15.500
+ Yes, I asked questions.
+
+57:15.500 --> 57:19.340
+ Also shared some, you know, some information
+
+57:19.340 --> 57:21.460
+ about how formal it is and how we do
+
+57:21.460 --> 57:25.100
+ and whether whatever we do makes sense.
+
+57:25.100 --> 57:29.180
+ And so, you know, and I remember that one of these posts,
+
+57:29.180 --> 57:31.420
+ I mean, I still remember, you know,
+
+57:31.420 --> 57:35.340
+ I would call it desperately looking
+
+57:35.340 --> 57:40.340
+ for a chemist advice, something like that, right?
+
+57:40.740 --> 57:43.980
+ And so I post my question, I explained, you know,
+
+57:43.980 --> 57:48.980
+ how formalism is, what it does
+
+57:49.220 --> 57:53.180
+ and what kind of applications I'm planning to do.
+
+57:53.180 --> 57:55.020
+ And, you know, and it was, you know,
+
+57:55.020 --> 57:59.660
+ in the middle of the night and I went back to bed.
+
+57:59.660 --> 58:04.660
+ And next morning, have a phone call from my advisor
+
+58:04.780 --> 58:06.900
+ who also looked at this forum.
+
+58:06.900 --> 58:11.020
+ It's like, you won't believe who replied to you.
+
+58:11.020 --> 58:13.900
+ And it's like, who?
+
+58:13.900 --> 58:16.300
+ And he said, well, you know, there is a message
+
+58:16.300 --> 58:17.900
+ to you from Joshua Lederberg.
+
+58:19.140 --> 58:22.660
+ And my reaction was like, who is Joshua Lederberg?
+
+58:22.660 --> 58:29.660
+ Your advisor hung up. So, and essentially, you know,
+
+58:29.660 --> 58:34.060
+ Joshua wrote me that we had conceptually similar ideas
+
+58:34.060 --> 58:36.660
+ in the dendrial project.
+
+58:36.660 --> 58:38.220
+ You may wanna look it up.
+
+58:39.300 --> 58:42.620
+ And we should also, sorry, and it's a side comment,
+
+58:42.620 --> 58:45.940
+ say that even though he won the Nobel Prize
+
+58:45.940 --> 58:49.820
+ at a really young age, in 58, but so he was,
+
+58:49.820 --> 58:52.860
+ I think he was what, 33.
+
+58:52.860 --> 58:53.980
+ It's just crazy.
+
+58:53.980 --> 58:57.660
+ So anyway, so that's, so hence in the 90s,
+
+58:57.660 --> 59:02.100
+ responding to young whippersnappers on the CCL forum.
+
+59:02.100 --> 59:02.940
+ Okay.
+
+59:02.940 --> 59:05.820
+ And so back then he was already very senior.
+
+59:05.820 --> 59:09.580
+ I mean, he unfortunately passed away back in 2008,
+
+59:09.580 --> 59:12.580
+ but, you know, back in 2001, he was, I mean,
+
+59:12.580 --> 59:15.980
+ he was a professor emeritus at Rockefeller University.
+
+59:15.980 --> 59:18.460
+ And, you know, that was actually, believe it or not,
+
+59:18.460 --> 59:23.460
+ one of the reasons I decided to join, you know,
+
+59:25.460 --> 59:28.140
+ as a postdoc, the group of Andre Salle,
+
+59:28.140 --> 59:30.820
+ who was at Rockefeller University,
+
+59:30.820 --> 59:33.460
+ with the hope that, you know, that I could actually,
+
+59:33.460 --> 59:38.060
+ you know, have a chance to meet Joshua in person.
+
+59:38.060 --> 59:40.860
+ And I met him very briefly, right?
+
+59:42.140 --> 59:45.380
+ Just because he was walking, you know,
+
+59:45.380 --> 59:47.860
+ there's a little bridge that connects the,
+
+59:47.860 --> 59:50.860
+ sort of the research campus with the,
+
+59:51.940 --> 59:55.500
+ with the sort of skyscraper that Rockefeller owns,
+
+59:55.500 --> 59:58.780
+ the where, you know, postdocs and faculty
+
+59:58.780 --> 1:00:00.260
+ and graduate students live.
+
+1:00:00.260 --> 1:00:02.460
+ And so I met him, you know,
+
+1:00:02.460 --> 1:00:06.340
+ and had a very short conversation, you know.
+
+1:00:06.340 --> 1:00:10.380
+ But so I started, you know, reading about Dendral
+
+1:00:10.380 --> 1:00:12.660
+ and I was amazed, you know, it's,
+
+1:00:12.660 --> 1:00:16.100
+ we're talking about 1960, right?
+
+1:00:16.100 --> 1:00:19.300
+ The ideas were so profound.
+
+1:00:19.300 --> 1:00:21.140
+ Well, what's the fun about the ideas of it?
+
+1:00:21.140 --> 1:00:25.020
+ The reason to make this is even crazier.
+
+1:00:25.020 --> 1:00:29.860
+ So, Lederberg wanted to make a system
+
+1:00:29.860 --> 1:00:34.860
+ that would help him study the extraterrestrial molecules,
+
+1:00:38.220 --> 1:00:39.060
+ right?
+
+1:00:39.060 --> 1:00:40.980
+ So, the idea was that, you know,
+
+1:00:40.980 --> 1:00:43.420
+ the way you study the extraterrestrial molecules
+
+1:00:43.420 --> 1:00:46.780
+ is you do the mass spec analysis, right?
+
+1:00:46.780 --> 1:00:49.700
+ And so the mass spec gives you sort of bits,
+
+1:00:49.700 --> 1:00:52.620
+ numbers about essentially gives you the ideas
+
+1:00:52.620 --> 1:00:55.900
+ about the possible fragments or, you know,
+
+1:00:55.900 --> 1:00:59.820
+ atoms, you know, and maybe a little fragments,
+
+1:00:59.820 --> 1:01:03.620
+ pieces of this molecule that make up the molecule, right?
+
+1:01:03.620 --> 1:01:06.060
+ So now you need to sort of,
+
+1:01:06.060 --> 1:01:09.180
+ to decompose this information
+
+1:01:09.180 --> 1:01:12.460
+ and to figure out what was the hole
+
+1:01:12.460 --> 1:01:17.460
+ before it became fragments, bits and pieces, right?
+
+1:01:17.660 --> 1:01:20.860
+ So, in order to make this, you know,
+
+1:01:20.860 --> 1:01:25.660
+ to have this tool, the idea of Lederberg
+
+1:01:25.660 --> 1:01:30.660
+ was to connect chemistry, computer science,
+
+1:01:32.060 --> 1:01:36.100
+ and to design this so called expert system
+
+1:01:36.100 --> 1:01:38.180
+ that looks, that takes into account,
+
+1:01:38.180 --> 1:01:42.180
+ that takes as an input the mass spec data,
+
+1:01:42.180 --> 1:01:47.180
+ the possible database of possible molecules
+
+1:01:47.980 --> 1:01:52.660
+ and essentially try to sort of induce the molecule
+
+1:01:52.660 --> 1:01:55.580
+ that would correspond to this spectra
+
+1:01:55.580 --> 1:02:00.580
+ or, you know, essentially what this project ended up being
+
+1:02:03.060 --> 1:02:07.100
+ was that, you know, it would provide a list of candidates
+
+1:02:07.100 --> 1:02:11.940
+ that then a chemist would look at and make final decision.
+
+1:02:11.940 --> 1:02:12.780
+ So.
+
+1:02:12.780 --> 1:02:13.980
+ But the original idea, I suppose,
+
+1:02:13.980 --> 1:02:16.820
+ is to solve the entirety of this problem automatically.
+
+1:02:16.820 --> 1:02:17.660
+ Yes, yes.
+
+1:02:17.660 --> 1:02:21.940
+ So he, you know, so he,
+
+1:02:21.940 --> 1:02:25.180
+ back then he approached. 60s.
+
+1:02:25.180 --> 1:02:28.940
+ Yes, believe that, it's amazing.
+
+1:02:28.940 --> 1:02:32.220
+ I mean, it still blows my mind, you know, that it's,
+
+1:02:32.220 --> 1:02:37.220
+ that's, and this was essentially the origin
+
+1:02:37.420 --> 1:02:41.100
+ of the modern bioinformatics, cheminformatics,
+
+1:02:41.100 --> 1:02:42.780
+ you know, back in 60s.
+
+1:02:42.780 --> 1:02:47.780
+ So that's, you know, every time you deal with projects
+
+1:02:48.540 --> 1:02:51.340
+ like this, with the, you know, research like this,
+
+1:02:51.340 --> 1:02:56.340
+ you just, you know, so the power of the, you know,
+
+1:02:56.340 --> 1:03:01.340
+ intelligence of this people is just, you know, overwhelming.
+
+1:03:01.740 --> 1:03:05.420
+ Do you think about expert systems, is there,
+
+1:03:05.420 --> 1:03:10.380
+ and why they kind of didn't become successful,
+
+1:03:10.380 --> 1:03:12.500
+ especially in the space of bioinformatics,
+
+1:03:12.500 --> 1:03:15.380
+ where it does seem like there is a lot of expertise
+
+1:03:15.380 --> 1:03:20.060
+ in humans, and, you know, it's possible to see
+
+1:03:20.060 --> 1:03:23.580
+ that a system like this could be made very useful.
+
+1:03:23.580 --> 1:03:24.420
+ Right.
+
+1:03:24.420 --> 1:03:25.260
+ And be built up.
+
+1:03:25.260 --> 1:03:26.900
+ So it's actually, it's a great question,
+
+1:03:26.900 --> 1:03:30.460
+ and this is something, so, you know, so, you know,
+
+1:03:30.460 --> 1:03:33.900
+ at my university, I teach artificial intelligence,
+
+1:03:33.900 --> 1:03:37.940
+ and, you know, we start, my first two lectures
+
+1:03:37.940 --> 1:03:40.140
+ are on the history of AI.
+
+1:03:40.140 --> 1:03:44.380
+ And there we, you know, we try to, you know,
+
+1:03:45.300 --> 1:03:48.180
+ go through the main stages of AI.
+
+1:03:48.180 --> 1:03:53.180
+ And so, you know, the question of why expert systems failed
+
+1:03:54.260 --> 1:03:58.540
+ or became obsolete, it's actually a very interesting one.
+
+1:03:58.540 --> 1:04:01.980
+ And there are, you know, if you try to read the, you know,
+
+1:04:01.980 --> 1:04:03.340
+ the historical perspectives,
+
+1:04:03.340 --> 1:04:05.540
+ there are actually two lines of thoughts.
+
+1:04:05.540 --> 1:04:10.540
+ One is that they were essentially
+
+1:04:11.940 --> 1:04:14.820
+ not up to the expectations.
+
+1:04:14.820 --> 1:04:18.020
+ And so therefore they were replaced, you know,
+
+1:04:18.020 --> 1:04:21.180
+ by other things, right?
+
+1:04:21.180 --> 1:04:25.340
+ The other one was that completely opposite one,
+
+1:04:25.340 --> 1:04:28.140
+ that they were too good.
+
+1:04:28.140 --> 1:04:31.900
+ And as a result, they essentially became
+
+1:04:31.900 --> 1:04:33.180
+ sort of a household name,
+
+1:04:33.180 --> 1:04:37.100
+ and then essentially they got transformed.
+
+1:04:37.100 --> 1:04:40.700
+ I mean, in both cases, sort of the outcome was the same.
+
+1:04:40.700 --> 1:04:43.740
+ They evolved into something, right?
+
+1:04:43.740 --> 1:04:47.700
+ And that's what I, you know, if I look at this, right?
+
+1:04:47.700 --> 1:04:50.180
+ So the modern machine learning, right?
+
+1:04:50.180 --> 1:04:51.020
+ So.
+
+1:04:51.020 --> 1:04:53.260
+ So there's echoes in the modern machine learning.
+
+1:04:53.260 --> 1:04:55.340
+ I think so, I think so, because, you know,
+
+1:04:55.340 --> 1:04:59.140
+ if you think about this, you know, and how we design,
+
+1:04:59.140 --> 1:05:02.500
+ you know, the most successful algorithms,
+
+1:05:02.500 --> 1:05:04.140
+ including AlphaFold, right?
+
+1:05:04.140 --> 1:05:08.100
+ You built in the knowledge about the domain
+
+1:05:08.100 --> 1:05:09.940
+ that you study, right?
+
+1:05:09.940 --> 1:05:12.900
+ So you built in your expertise.
+
+1:05:12.900 --> 1:05:14.460
+ So speaking of AlphaFold,
+
+1:05:14.460 --> 1:05:18.260
+ so DeepMind's AlphaFold 2 recently was announced
+
+1:05:18.260 --> 1:05:21.980
+ to have, quote unquote, solved protein folding.
+
+1:05:21.980 --> 1:05:24.220
+ But how exciting is this to you?
+
+1:05:24.220 --> 1:05:27.060
+ It seems to be one of the,
+
+1:05:27.060 --> 1:05:29.660
+ one of the exciting things that have happened in 2020.
+
+1:05:29.660 --> 1:05:32.340
+ It's an incredible accomplishment from the looks of it.
+
+1:05:32.340 --> 1:05:33.860
+ What part of it is amazing to you?
+
+1:05:33.860 --> 1:05:36.300
+ What part would you say is over hype
+
+1:05:36.300 --> 1:05:39.020
+ or maybe misunderstood?
+
+1:05:39.020 --> 1:05:41.940
+ It's definitely a very exciting achievement.
+
+1:05:41.940 --> 1:05:43.820
+ To give you a little bit of perspective, right?
+
+1:05:43.820 --> 1:05:48.820
+ So in bioinformatics, we have several competitions.
+
+1:05:50.020 --> 1:05:53.060
+ And so the way, you know, you often hear
+
+1:05:53.940 --> 1:05:56.220
+ how those competitions have been explained
+
+1:05:56.220 --> 1:05:59.820
+ to sort of to non bioinformaticians is that, you know,
+
+1:05:59.820 --> 1:06:01.900
+ they call it bioinformatics Olympic games.
+
+1:06:01.900 --> 1:06:03.620
+ And there are several disciplines, right?
+
+1:06:03.620 --> 1:06:07.020
+ So the historically one of the first one
+
+1:06:07.020 --> 1:06:10.300
+ was the discipline in predicting the protein structure,
+
+1:06:10.300 --> 1:06:12.580
+ predicting the 3D coordinates of the protein.
+
+1:06:12.580 --> 1:06:13.580
+ But there are some others.
+
+1:06:13.580 --> 1:06:16.740
+ So the predicting protein functions,
+
+1:06:16.740 --> 1:06:21.460
+ predicting effects of mutations on protein functions,
+
+1:06:21.460 --> 1:06:24.900
+ then predicting protein, protein interactions.
+
+1:06:24.900 --> 1:06:28.100
+ So the original one was CASP
+
+1:06:28.100 --> 1:06:32.020
+ or a critical assessment of a protein structure.
+
+1:06:32.020 --> 1:06:37.020
+ And the, you know, typically what happens
+
+1:06:40.020 --> 1:06:43.980
+ during this competitions is, you know, scientists,
+
+1:06:43.980 --> 1:06:48.380
+ experimental scientists solve the structures,
+
+1:06:48.380 --> 1:06:51.700
+ but don't put them into the protein data bank,
+
+1:06:51.700 --> 1:06:53.740
+ which is the centralized database
+
+1:06:54.700 --> 1:06:57.260
+ that contains all the 3D coordinates.
+
+1:06:57.260 --> 1:07:02.260
+ Instead, they hold it and release protein sequences.
+
+1:07:02.340 --> 1:07:05.420
+ And now the challenge of the community
+
+1:07:05.420 --> 1:07:10.180
+ is to predict the 3D structures of this proteins
+
+1:07:10.180 --> 1:07:12.940
+ and then use the experimental results structures
+
+1:07:12.940 --> 1:07:16.620
+ to assess which one is the closest one, right?
+
+1:07:16.620 --> 1:07:17.740
+ And this competition, by the way,
+
+1:07:17.740 --> 1:07:19.540
+ just a bunch of different tangents.
+
+1:07:19.540 --> 1:07:22.860
+ And maybe you can also say, what is protein folding?
+
+1:07:22.860 --> 1:07:25.020
+ Then this competition, CASP competition
+
+1:07:25.020 --> 1:07:27.420
+ has become the gold standard.
+
+1:07:27.420 --> 1:07:29.500
+ And that's what was used to say
+
+1:07:29.500 --> 1:07:32.420
+ that protein folding was solved.
+
+1:07:32.420 --> 1:07:35.300
+ So just to add a little, just a bunch.
+
+1:07:35.300 --> 1:07:37.700
+ So if you could, whenever you say stuff,
+
+1:07:37.700 --> 1:07:39.380
+ maybe throw in some of the basics
+
+1:07:39.380 --> 1:07:41.580
+ for the folks that might be outside of the field.
+
+1:07:41.580 --> 1:07:42.740
+ Anyway, sorry.
+
+1:07:42.740 --> 1:07:45.900
+ So, yeah, so, you know, so the reason it's, you know,
+
+1:07:45.900 --> 1:07:50.260
+ it's relevant to our understanding of protein folding
+
+1:07:50.260 --> 1:07:54.180
+ is because, you know, we've yet to learn
+
+1:07:54.180 --> 1:07:58.140
+ how the folding mechanistically works, right?
+
+1:07:58.140 --> 1:08:00.740
+ So there are different hypothesis,
+
+1:08:00.740 --> 1:08:02.780
+ what happens to this fold?
+
+1:08:02.780 --> 1:08:07.620
+ For example, there is a hypothesis that the folding happens
+
+1:08:07.620 --> 1:08:12.620
+ by, you know, also in the modular fashion, right?
+
+1:08:12.660 --> 1:08:16.220
+ So that, you know, we have protein domains
+
+1:08:16.220 --> 1:08:17.940
+ that get folded independently
+
+1:08:17.940 --> 1:08:19.700
+ because their structure is stable.
+
+1:08:19.700 --> 1:08:23.380
+ And then the whole protein structure gets formed.
+
+1:08:23.380 --> 1:08:25.380
+ But, you know, within those domains,
+
+1:08:25.380 --> 1:08:27.460
+ we also have a so called secondary structure,
+
+1:08:27.460 --> 1:08:29.820
+ the small alpha helices, beta schists.
+
+1:08:29.820 --> 1:08:34.340
+ So these are, you know, elements that are structurally stable.
+
+1:08:34.340 --> 1:08:37.820
+ And so, and the question is, you know,
+
+1:08:37.820 --> 1:08:40.340
+ when do they get formed?
+
+1:08:40.340 --> 1:08:42.580
+ Because some of the secondary structure elements,
+
+1:08:42.580 --> 1:08:46.500
+ you have to have, you know, a fragment in the beginning
+
+1:08:46.500 --> 1:08:49.420
+ and say the fragment in the middle, right?
+
+1:08:49.420 --> 1:08:54.420
+ So you cannot potentially start having the full fold
+
+1:08:54.780 --> 1:08:57.100
+ from the get go, right?
+
+1:08:57.100 --> 1:09:00.340
+ So it's still, you know, it's still a big enigma,
+
+1:09:00.340 --> 1:09:01.420
+ what happens.
+
+1:09:01.420 --> 1:09:04.260
+ We know that it's an extremely efficient
+
+1:09:04.260 --> 1:09:05.660
+ and stable process, right?
+
+1:09:05.660 --> 1:09:07.660
+ So there's this long sequence
+
+1:09:07.660 --> 1:09:09.500
+ and the fold happens really quickly.
+
+1:09:09.500 --> 1:09:10.340
+ Exactly.
+
+1:09:10.340 --> 1:09:11.180
+ So that's really weird, right?
+
+1:09:11.180 --> 1:09:15.340
+ And it happens like the same way almost every time.
+
+1:09:15.340 --> 1:09:16.380
+ Exactly, exactly.
+
+1:09:16.380 --> 1:09:17.860
+ That's really weird.
+
+1:09:17.860 --> 1:09:19.060
+ That's freaking weird.
+
+1:09:19.060 --> 1:09:22.900
+ It's, yeah, that's why it's such an amazing thing.
+
+1:09:22.900 --> 1:09:24.300
+ But most importantly, right?
+
+1:09:24.300 --> 1:09:27.460
+ So it's, you know, so when you see the, you know,
+
+1:09:27.460 --> 1:09:29.260
+ the translation process, right?
+
+1:09:29.260 --> 1:09:34.260
+ So when you don't have the whole protein translated,
+
+1:09:36.100 --> 1:09:37.860
+ right, it's still being translated,
+
+1:09:37.860 --> 1:09:41.180
+ you know, getting out from the ribosome,
+
+1:09:41.180 --> 1:09:45.780
+ you already see some structural, you know, fragmentation.
+
+1:09:45.780 --> 1:09:49.300
+ So folding starts happening
+
+1:09:49.300 --> 1:09:52.780
+ before the whole protein gets produced, right?
+
+1:09:52.780 --> 1:09:55.060
+ And so this is obviously, you know,
+
+1:09:55.060 --> 1:09:59.220
+ one of the biggest questions in, you know,
+
+1:09:59.220 --> 1:10:00.980
+ in modern molecular biologists.
+
+1:10:00.980 --> 1:10:04.180
+ Not like maybe what happens,
+
+1:10:04.180 --> 1:10:07.860
+ like that's not as bigger than the question of folding.
+
+1:10:07.860 --> 1:10:09.540
+ That's the question of like,
+
+1:10:09.540 --> 1:10:12.460
+ something like deeper fundamental idea of folding.
+
+1:10:12.460 --> 1:10:13.380
+ Yes. Behind folding.
+
+1:10:13.380 --> 1:10:14.620
+ Exactly, exactly.
+
+1:10:14.620 --> 1:10:19.620
+ So, you know, so obviously if we are able to predict
+
+1:10:21.340 --> 1:10:24.060
+ the end product of protein folding,
+
+1:10:24.060 --> 1:10:27.660
+ we are one step closer to understanding
+
+1:10:27.660 --> 1:10:30.220
+ sort of the mechanisms of the protein folding.
+
+1:10:30.220 --> 1:10:34.700
+ Because we can then potentially look and start probing
+
+1:10:34.700 --> 1:10:38.260
+ what are the critical parts of this process
+
+1:10:38.260 --> 1:10:41.260
+ and what are not so critical parts of this process.
+
+1:10:41.260 --> 1:10:44.420
+ So we can start decomposing this, you know,
+
+1:10:44.420 --> 1:10:49.420
+ so in a way this protein structure prediction algorithm
+
+1:10:50.100 --> 1:10:53.700
+ can be used as a tool, right?
+
+1:10:53.700 --> 1:10:58.700
+ So you change the, you know, you modify the protein,
+
+1:10:59.220 --> 1:11:02.380
+ you get back to this tool, it predicts,
+
+1:11:02.380 --> 1:11:04.940
+ okay, it's completely unstable.
+
+1:11:04.940 --> 1:11:07.820
+ Yeah, which aspects of the input
+
+1:11:07.820 --> 1:11:09.860
+ will have a big impact on the output?
+
+1:11:09.860 --> 1:11:11.140
+ Exactly, exactly.
+
+1:11:11.140 --> 1:11:13.340
+ So what happens is, you know,
+
+1:11:13.340 --> 1:11:18.340
+ we typically have some sort of incremental advancement,
+
+1:11:18.700 --> 1:11:22.580
+ you know, each stage of this CASP competition,
+
+1:11:22.580 --> 1:11:25.340
+ you have groups with incremental advancement
+
+1:11:25.340 --> 1:11:29.860
+ and, you know, historically the top performing groups
+
+1:11:29.860 --> 1:11:34.420
+ were, you know, they were not using machine learning.
+
+1:11:34.420 --> 1:11:37.700
+ They were using a very advanced biophysics
+
+1:11:37.700 --> 1:11:39.620
+ combined with bioinformatics,
+
+1:11:39.620 --> 1:11:43.220
+ combined with, you know, the data mining
+
+1:11:43.220 --> 1:11:47.380
+ and that was, you know, that would enable them
+
+1:11:47.380 --> 1:11:52.380
+ to obtain protein structures of those proteins
+
+1:11:52.660 --> 1:11:57.540
+ that don't have any structurally solved relatives
+
+1:11:57.540 --> 1:12:01.860
+ because, you know, if we have another protein,
+
+1:12:01.860 --> 1:12:05.640
+ say the same protein, but coming from a different species,
+
+1:12:07.500 --> 1:12:10.460
+ we could potentially derive some ideas
+
+1:12:10.460 --> 1:12:13.220
+ and that's so called homology or comparative modeling,
+
+1:12:13.220 --> 1:12:15.300
+ where we'll derive some ideas
+
+1:12:15.300 --> 1:12:17.540
+ from the previously known structures
+
+1:12:17.540 --> 1:12:19.860
+ and that would help us tremendously
+
+1:12:19.860 --> 1:12:24.860
+ in, you know, in reconstructing the 3D structure overall.
+
+1:12:25.380 --> 1:12:27.900
+ But what happens when we don't have these relatives?
+
+1:12:27.900 --> 1:12:31.220
+ This is when it becomes really, really hard, right?
+
+1:12:31.220 --> 1:12:35.260
+ So that's so called de novo, you know,
+
+1:12:35.260 --> 1:12:37.500
+ de novo protein structure prediction.
+
+1:12:37.500 --> 1:12:42.500
+ And in this case, those methods were traditionally very good.
+
+1:12:43.060 --> 1:12:46.300
+ But what happened in the last year,
+
+1:12:46.300 --> 1:12:49.460
+ the original alpha fold came into
+
+1:12:50.640 --> 1:12:55.640
+ and all of a sudden it's much better than everyone else.
+
+1:12:56.420 --> 1:12:57.900
+ This is 2018.
+
+1:12:57.900 --> 1:12:58.740
+ Yeah.
+
+1:12:58.740 --> 1:13:02.140
+ Oh, and the competition is only every two years, I think.
+
+1:13:02.140 --> 1:13:07.140
+ And then, so, you know, it was sort of kind of over shockwave
+
+1:13:08.060 --> 1:13:10.740
+ to the bioinformatics community that, you know,
+
+1:13:10.740 --> 1:13:15.440
+ we have like a state of the art machine learning system
+
+1:13:15.440 --> 1:13:18.460
+ that does, you know, structure prediction.
+
+1:13:18.460 --> 1:13:20.780
+ And essentially what it does, you know,
+
+1:13:20.780 --> 1:13:25.780
+ so if you look at this, it actually predicts the context.
+
+1:13:26.120 --> 1:13:29.460
+ So, you know, so the process of reconstructing
+
+1:13:29.460 --> 1:13:34.460
+ the 3D structure starts by predicting the context
+
+1:13:34.700 --> 1:13:38.860
+ between the different parts of the protein.
+
+1:13:38.860 --> 1:13:40.980
+ And the context essentially is the parts of the proteins
+
+1:13:40.980 --> 1:13:43.240
+ that are in a close proximity to each other.
+
+1:13:43.240 --> 1:13:45.820
+ Right, so actually the machine learning part
+
+1:13:45.820 --> 1:13:50.820
+ seems to be estimating, you can correct me if I'm wrong here,
+
+1:13:51.080 --> 1:13:53.180
+ but it seems to be estimating the distance matrix,
+
+1:13:53.180 --> 1:13:55.900
+ which is like the distance between the different parts.
+
+1:13:55.900 --> 1:13:58.080
+ Yeah, so we call the contact map.
+
+1:13:58.080 --> 1:13:58.920
+ Contact map.
+
+1:13:58.920 --> 1:14:00.580
+ So once you have the contact map,
+
+1:14:00.580 --> 1:14:04.860
+ the reconstruction is becoming more straightforward, right?
+
+1:14:04.860 --> 1:14:06.780
+ But so the contact map is the key.
+
+1:14:06.780 --> 1:14:11.260
+ And so, you know, so that what happened.
+
+1:14:11.260 --> 1:14:15.980
+ And now we started seeing in this current stage, right?
+
+1:14:15.980 --> 1:14:18.500
+ Well, in the most recent one,
+
+1:14:18.500 --> 1:14:22.020
+ we started seeing the emergence of these ideas
+
+1:14:22.020 --> 1:14:25.080
+ in other people works, right?
+
+1:14:25.080 --> 1:14:29.500
+ But yet here's, you know, AlphaFold2
+
+1:14:29.500 --> 1:14:33.380
+ that again outperforms everyone else.
+
+1:14:33.380 --> 1:14:35.780
+ And also by introducing yet another wave
+
+1:14:35.780 --> 1:14:38.620
+ of the machine learning ideas.
+
+1:14:38.620 --> 1:14:41.260
+ Yeah, there don't seem to be also an incorporation.
+
+1:14:41.260 --> 1:14:43.040
+ First of all, the paper is not out yet,
+
+1:14:43.040 --> 1:14:44.860
+ but there's a bunch of ideas already out.
+
+1:14:44.860 --> 1:14:48.100
+ There does seem to be an incorporation of this other thing.
+
+1:14:48.100 --> 1:14:50.160
+ I don't know if it's something that you could speak to,
+
+1:14:50.160 --> 1:14:55.160
+ which is like the incorporation of like other structures,
+
+1:14:58.200 --> 1:15:01.720
+ like evolutionary similar structures
+
+1:15:01.720 --> 1:15:03.820
+ that are used to kind of give you hints.
+
+1:15:03.820 --> 1:15:08.360
+ Yes, so evolutionary similarity is something
+
+1:15:08.360 --> 1:15:10.740
+ that we can detect at different levels, right?
+
+1:15:10.740 --> 1:15:12.860
+ So we know, for example,
+
+1:15:12.860 --> 1:15:17.140
+ that the structure of proteins
+
+1:15:17.140 --> 1:15:20.520
+ is more conserved than the sequence.
+
+1:15:20.520 --> 1:15:22.340
+ The sequence could be very different,
+
+1:15:22.340 --> 1:15:26.300
+ but the structural shape is actually still very conserved.
+
+1:15:26.300 --> 1:15:28.880
+ So that's sort of the intrinsic property that, you know,
+
+1:15:28.880 --> 1:15:31.140
+ in a way related to protein folds,
+
+1:15:31.140 --> 1:15:34.140
+ you know, to the evolution of the, you know,
+
+1:15:34.140 --> 1:15:37.820
+ of the proteins and protein domains, et cetera.
+
+1:15:37.820 --> 1:15:41.060
+ But we know that, I mean, there've been multiple studies.
+
+1:15:41.060 --> 1:15:45.340
+ And, you know, ideally, if you have structures,
+
+1:15:45.340 --> 1:15:48.580
+ you know, you should use that information.
+
+1:15:48.580 --> 1:15:51.220
+ However, sometimes we don't have this information.
+
+1:15:51.220 --> 1:15:53.220
+ Instead, we have a bunch of sequences.
+
+1:15:53.220 --> 1:15:54.860
+ Sequences, we have a lot, right?
+
+1:15:54.860 --> 1:15:59.860
+ So we have, you know, hundreds, thousands
+
+1:16:00.340 --> 1:16:04.300
+ of, you know, different organisms sequenced, right?
+
+1:16:04.300 --> 1:16:06.980
+ And by taking the same protein,
+
+1:16:07.840 --> 1:16:11.620
+ but in different organisms and aligning it,
+
+1:16:11.620 --> 1:16:15.980
+ so making it, you know, making the corresponding positions
+
+1:16:15.980 --> 1:16:20.500
+ aligned, we can actually say a lot
+
+1:16:20.500 --> 1:16:24.220
+ about sort of what is conserved in this protein
+
+1:16:24.220 --> 1:16:26.920
+ and therefore, you know, structurally more stable,
+
+1:16:26.920 --> 1:16:28.920
+ what is diverse in this protein.
+
+1:16:28.920 --> 1:16:32.380
+ So on top of that, we could provide sort of the information
+
+1:16:32.380 --> 1:16:35.100
+ about the sort of the secondary structure
+
+1:16:35.100 --> 1:16:36.420
+ of this protein, et cetera, et cetera.
+
+1:16:36.420 --> 1:16:38.980
+ So this information is extremely useful
+
+1:16:39.940 --> 1:16:41.300
+ and it's already there.
+
+1:16:41.300 --> 1:16:44.140
+ So while it's tempting to, you know,
+
+1:16:44.140 --> 1:16:46.060
+ to do a complete ab initio,
+
+1:16:46.060 --> 1:16:49.540
+ so you just have a protein sequence and nothing else,
+
+1:16:49.540 --> 1:16:54.220
+ the reality is such that we are overwhelmed with this data.
+
+1:16:54.220 --> 1:16:55.520
+ So why not use it?
+
+1:16:56.500 --> 1:16:59.220
+ And so, yeah, so I'm looking forward
+
+1:16:59.220 --> 1:17:01.500
+ to reading this paper.
+
+1:17:01.500 --> 1:17:03.420
+ It does seem to, like they've,
+
+1:17:03.420 --> 1:17:05.100
+ in the previous version of Alpha Fold,
+
+1:17:05.100 --> 1:17:09.780
+ they didn't, for this evolutionary similarity thing,
+
+1:17:09.780 --> 1:17:12.040
+ they didn't use machine learning for that.
+
+1:17:12.960 --> 1:17:15.600
+ Or rather, they used it as like the input
+
+1:17:15.600 --> 1:17:17.880
+ to the entirety of the neural net,
+
+1:17:17.880 --> 1:17:22.020
+ like the features derived from the similarity.
+
+1:17:22.020 --> 1:17:24.660
+ It seems like there's some kind of quote, unquote,
+
+1:17:24.660 --> 1:17:29.660
+ iterative thing where it seems to be part of the learning
+
+1:17:30.500 --> 1:17:34.260
+ process is the incorporation of this evolutionary similarity.
+
+1:17:34.260 --> 1:17:36.940
+ Yeah, I don't think there is a bioarchive paper, right?
+
+1:17:36.940 --> 1:17:37.780
+ There's nothing.
+
+1:17:37.780 --> 1:17:38.620
+ No, there's nothing.
+
+1:17:38.620 --> 1:17:40.680
+ There's a blog post that's written
+
+1:17:40.680 --> 1:17:42.600
+ by a marketing team, essentially,
+
+1:17:42.600 --> 1:17:46.600
+ which, you know, it has some scientific similarity,
+
+1:17:48.420 --> 1:17:51.780
+ probably, to the actual methodology used,
+
+1:17:51.780 --> 1:17:55.220
+ but it could be, it's like interpreting scripture.
+
+1:17:55.220 --> 1:17:59.660
+ It could be just poetic interpretations of the actual work
+
+1:17:59.660 --> 1:18:01.900
+ as opposed to direct connection to the work.
+
+1:18:01.900 --> 1:18:04.260
+ So now, speaking about protein folding, right?
+
+1:18:04.260 --> 1:18:06.820
+ So, you know, in order to answer the question
+
+1:18:06.820 --> 1:18:09.460
+ whether or not we have solved this, right?
+
+1:18:09.460 --> 1:18:13.580
+ So we need to go back to the beginning of our conversation
+
+1:18:13.580 --> 1:18:16.100
+ with the realization that an average protein
+
+1:18:16.100 --> 1:18:21.100
+ is that typically what the CASP has been focusing on
+
+1:18:22.180 --> 1:18:25.820
+ is this competition has been focusing
+
+1:18:25.820 --> 1:18:29.220
+ on the single, maybe two domain proteins
+
+1:18:29.220 --> 1:18:31.060
+ that are still very compact.
+
+1:18:31.060 --> 1:18:35.400
+ And even those ones are extremely challenging to solve.
+
+1:18:35.400 --> 1:18:37.660
+ But now we talk about, you know,
+
+1:18:37.660 --> 1:18:42.420
+ an average protein that has two, three protein domains.
+
+1:18:42.420 --> 1:18:46.920
+ If you look at the proteins that are in charge
+
+1:18:46.920 --> 1:18:51.120
+ of the, you know, of the process with the neural system,
+
+1:18:51.120 --> 1:18:56.120
+ right, perhaps one of the most recently evolved
+
+1:18:58.500 --> 1:19:03.500
+ sort of systems in an organism, right?
+
+1:19:03.500 --> 1:19:06.360
+ All of them, well, the majority of them
+
+1:19:06.360 --> 1:19:09.000
+ are highly multi domain proteins.
+
+1:19:09.000 --> 1:19:13.520
+ So they are, you know, some of them have five, six, seven,
+
+1:19:13.520 --> 1:19:16.840
+ you know, and more domains, right?
+
+1:19:16.840 --> 1:19:20.000
+ And, you know, we are very far away
+
+1:19:20.000 --> 1:19:22.400
+ from understanding how these proteins are folded.
+
+1:19:22.400 --> 1:19:24.440
+ So the complexity of the protein matters here.
+
+1:19:24.440 --> 1:19:27.920
+ The complexity of the protein modules
+
+1:19:27.920 --> 1:19:30.220
+ or the protein domains.
+
+1:19:30.220 --> 1:19:35.220
+ So you're saying solved, so the definition
+
+1:19:35.220 --> 1:19:38.620
+ of solved here is particularly the CASP competition
+
+1:19:38.620 --> 1:19:41.760
+ achieving human level, not human level,
+
+1:19:41.760 --> 1:19:45.620
+ achieving experimental level performance
+
+1:19:45.620 --> 1:19:48.520
+ on these particular sets of proteins
+
+1:19:48.520 --> 1:19:50.300
+ that have been used in these competitions.
+
+1:19:50.300 --> 1:19:54.740
+ Well, I mean, you know, I do think that, you know,
+
+1:19:54.740 --> 1:19:57.500
+ especially with regards to the alpha fold,
+
+1:19:57.500 --> 1:20:02.500
+ you know, it is able to, you know, to solve,
+
+1:20:03.020 --> 1:20:07.360
+ you know, at the near experimental level,
+
+1:20:08.980 --> 1:20:13.980
+ pre big majority of the more compact proteins
+
+1:20:15.000 --> 1:20:16.360
+ like, or protein domains.
+
+1:20:16.360 --> 1:20:18.740
+ Because again, in order to understand
+
+1:20:18.740 --> 1:20:22.800
+ how the overall protein, you know,
+
+1:20:22.800 --> 1:20:26.220
+ multi domain protein fold, we do need to understand
+
+1:20:26.220 --> 1:20:28.760
+ the structure of its individual domains.
+
+1:20:28.760 --> 1:20:31.140
+ I mean, unlike if you look at alpha zero
+
+1:20:31.140 --> 1:20:36.140
+ or like even mu zero, if you look at that work,
+
+1:20:36.500 --> 1:20:39.540
+ you know, it's nice reinforcement learning
+
+1:20:39.540 --> 1:20:41.100
+ self playing mechanisms are nice
+
+1:20:41.100 --> 1:20:42.380
+ cause it's all in simulation.
+
+1:20:42.380 --> 1:20:45.920
+ So you can learn from just huge amounts.
+
+1:20:45.920 --> 1:20:47.340
+ Like you don't need data.
+
+1:20:47.340 --> 1:20:49.740
+ It was like the problem with proteins,
+
+1:20:49.740 --> 1:20:54.540
+ like the size, I forget how many 3D structures
+
+1:20:54.540 --> 1:20:56.980
+ have been mapped, but the training data is very small.
+
+1:20:56.980 --> 1:20:59.060
+ No matter what, it's like millions,
+
+1:20:59.060 --> 1:21:01.400
+ maybe a one or two million or something like that,
+
+1:21:01.400 --> 1:21:02.940
+ but it's some very small number,
+
+1:21:02.940 --> 1:21:06.820
+ but like, it doesn't seem like that's scalable.
+
+1:21:06.820 --> 1:21:09.380
+ There has to be, I don't know,
+
+1:21:09.380 --> 1:21:13.100
+ it feels like you want to somehow 10 X the data
+
+1:21:13.100 --> 1:21:15.700
+ or a hundred X the data somehow.
+
+1:21:15.700 --> 1:21:20.700
+ Yes, but we also can take advantage of homology models,
+
+1:21:20.700 --> 1:21:25.700
+ right, so the models that are of very good quality
+
+1:21:26.740 --> 1:21:30.660
+ because they are essentially obtained
+
+1:21:30.660 --> 1:21:33.720
+ based on the evolutionary information, right?
+
+1:21:33.720 --> 1:21:38.540
+ So you can, there is a potential to enhance this information
+
+1:21:38.540 --> 1:21:43.540
+ and, you know, use it again to empower the training set.
+
+1:21:43.540 --> 1:21:48.540
+ And it's, I think, I am actually very optimistic.
+
+1:21:49.780 --> 1:21:54.780
+ I think it's been one of this sort of, you know,
+
+1:21:58.100 --> 1:22:03.100
+ churning events where you have a system that is,
+
+1:22:05.220 --> 1:22:07.300
+ you know, a machine learning system
+
+1:22:07.300 --> 1:22:12.300
+ that is truly better than the machine learning system.
+
+1:22:12.300 --> 1:22:15.740
+ Better than the sort of the more conventional
+
+1:22:15.740 --> 1:22:17.940
+ biophysics based methods.
+
+1:22:17.940 --> 1:22:19.380
+ That's a huge leap.
+
+1:22:19.380 --> 1:22:21.280
+ This is one of those fun questions,
+
+1:22:21.280 --> 1:22:26.280
+ but where would you put it in the ranking
+
+1:22:26.720 --> 1:22:28.540
+ of the greatest breakthroughs
+
+1:22:28.540 --> 1:22:30.480
+ in artificial intelligence history?
+
+1:22:31.740 --> 1:22:34.940
+ So like, okay, so let's see who's in the running.
+
+1:22:34.940 --> 1:22:35.860
+ Maybe you can correct me.
+
+1:22:35.860 --> 1:22:39.900
+ So you got like AlphaZero and AlphaGo
+
+1:22:39.900 --> 1:22:44.500
+ beating the world champion at the game of Go.
+
+1:22:44.500 --> 1:22:48.220
+ Thought to be impossible like 20 years ago.
+
+1:22:48.220 --> 1:22:51.340
+ Or at least the AI community was highly skeptical.
+
+1:22:51.340 --> 1:22:55.060
+ Then you got like also Deep Blue original Kasparov.
+
+1:22:55.060 --> 1:22:56.260
+ You have deep learning itself,
+
+1:22:56.260 --> 1:22:58.280
+ like the maybe, what would you say,
+
+1:22:58.280 --> 1:23:00.940
+ the AlexNet, ImageNet moment.
+
+1:23:00.940 --> 1:23:02.780
+ So the first neural network
+
+1:23:02.780 --> 1:23:04.780
+ achieving human level performance.
+
+1:23:04.780 --> 1:23:07.860
+ Super, that's not true.
+
+1:23:07.860 --> 1:23:10.980
+ Achieving like a big leap in performance
+
+1:23:10.980 --> 1:23:12.720
+ on the computer vision problem.
+
+1:23:14.420 --> 1:23:18.980
+ There is OpenAI, the whole like GPT3,
+
+1:23:18.980 --> 1:23:23.020
+ that whole space of transformers and language models
+
+1:23:23.020 --> 1:23:27.120
+ just achieving this incredible performance
+
+1:23:27.120 --> 1:23:30.200
+ of application of neural networks to language models.
+
+1:23:31.780 --> 1:23:33.540
+ Boston Dynamics, pretty cool.
+
+1:23:33.540 --> 1:23:35.220
+ Like robotics.
+
+1:23:35.220 --> 1:23:38.200
+ People are like, there's no AI.
+
+1:23:38.200 --> 1:23:41.520
+ No, no, there's no machine learning currently.
+
+1:23:41.520 --> 1:23:44.520
+ But AI is much bigger than machine learning.
+
+1:23:44.520 --> 1:23:48.860
+ So that just the engineering aspect,
+
+1:23:48.860 --> 1:23:50.780
+ I would say it's one of the greatest accomplishments
+
+1:23:50.780 --> 1:23:52.860
+ in engineering side.
+
+1:23:52.860 --> 1:23:56.140
+ Engineering meaning like mechanical engineering
+
+1:23:56.140 --> 1:23:57.980
+ of robotics ever.
+
+1:23:57.980 --> 1:23:59.500
+ Then of course, autonomous vehicles.
+
+1:23:59.500 --> 1:24:01.300
+ You can argue for Waymo,
+
+1:24:01.300 --> 1:24:03.580
+ which is like the Google self driving car.
+
+1:24:03.580 --> 1:24:05.460
+ Or you can argue for Tesla,
+
+1:24:05.460 --> 1:24:07.860
+ which is like actually being used
+
+1:24:07.860 --> 1:24:10.740
+ by hundreds of thousands of people on the road today,
+
+1:24:10.740 --> 1:24:12.000
+ machine learning system.
+
+1:24:13.700 --> 1:24:17.560
+ And I don't know if you can, what else is there?
+
+1:24:17.560 --> 1:24:18.700
+ But I think that's it.
+
+1:24:18.700 --> 1:24:20.900
+ And then AlphaFold, many people are saying
+
+1:24:20.900 --> 1:24:23.300
+ is up there, potentially number one.
+
+1:24:23.300 --> 1:24:24.820
+ Would you put them at number one?
+
+1:24:24.820 --> 1:24:29.820
+ Well, in terms of the impact on the science
+
+1:24:29.820 --> 1:24:34.060
+ and on the society beyond, it's definitely,
+
+1:24:34.060 --> 1:24:35.820
+ to me would be one of the...
+
+1:24:37.460 --> 1:24:39.060
+ Top three?
+
+1:24:39.060 --> 1:24:39.900
+ What you want?
+
+1:24:39.900 --> 1:24:43.020
+ Maybe, I mean, I'm probably not the best person
+
+1:24:43.020 --> 1:24:45.460
+ to answer that.
+
+1:24:45.460 --> 1:24:50.460
+ But I do have, I remember my,
+
+1:24:51.540 --> 1:24:56.380
+ back in, I think 1997, when Deep Blue,
+
+1:24:56.380 --> 1:25:01.380
+ that Kasparov, it was, I mean, it was a shock.
+
+1:25:01.860 --> 1:25:04.180
+ I mean, it was, and I think for the,
+
+1:25:04.180 --> 1:25:09.180
+ for the pre substantial part of the world,
+
+1:25:14.220 --> 1:25:19.220
+ that especially people who have some experience with chess,
+
+1:25:21.740 --> 1:25:25.660
+ and realizing how incredibly human this game,
+
+1:25:25.660 --> 1:25:30.220
+ how much of a brain power you need
+
+1:25:30.220 --> 1:25:35.220
+ to reach those levels of grandmasters, right, level.
+
+1:25:36.020 --> 1:25:37.920
+ And it's probably one of the first time,
+
+1:25:37.920 --> 1:25:39.780
+ and how good Kasparov was.
+
+1:25:39.780 --> 1:25:42.300
+ And again, yeah, so Kasparov's arguably
+
+1:25:42.300 --> 1:25:45.580
+ one of the best ever, right?
+
+1:25:45.580 --> 1:25:47.860
+ And you get a machine that beats him.
+
+1:25:47.860 --> 1:25:48.820
+ All right, so it's...
+
+1:25:48.820 --> 1:25:50.740
+ First time a machine probably beat a human
+
+1:25:50.740 --> 1:25:53.720
+ at that scale of a thing, of anything.
+
+1:25:53.720 --> 1:25:54.740
+ Yes, yes.
+
+1:25:54.740 --> 1:25:57.220
+ So that was, to me, that was like, you know,
+
+1:25:57.220 --> 1:26:00.620
+ one of the groundbreaking events in the history of AI.
+
+1:26:00.620 --> 1:26:02.340
+ Yeah, that's probably number one.
+
+1:26:02.340 --> 1:26:05.460
+ Probably, like we don't, it's hard to remember.
+
+1:26:05.460 --> 1:26:08.100
+ It's like Muhammad Ali versus, I don't know,
+
+1:26:08.100 --> 1:26:09.900
+ any of the Mike Tyson, something like that.
+
+1:26:09.900 --> 1:26:12.740
+ It's like, nah, you gotta put Muhammad Ali at number one.
+
+1:26:13.660 --> 1:26:15.300
+ Same with Deep Blue,
+
+1:26:15.300 --> 1:26:17.980
+ even though it's not machine learning based.
+
+1:26:19.340 --> 1:26:21.540
+ Still, it uses advanced search,
+
+1:26:21.540 --> 1:26:24.420
+ and search is the integral part of AI, right?
+
+1:26:24.420 --> 1:26:27.660
+ It's not, people don't think of it that way at this moment.
+
+1:26:27.660 --> 1:26:30.900
+ In vogue currently, search is not seen
+
+1:26:30.900 --> 1:26:34.220
+ as a fundamental aspect of intelligence,
+
+1:26:34.220 --> 1:26:37.700
+ but it very well, I mean, it very likely is.
+
+1:26:37.700 --> 1:26:39.660
+ In fact, I mean, that's what neural networks are,
+
+1:26:39.660 --> 1:26:41.260
+ is they're just performing search
+
+1:26:41.260 --> 1:26:43.980
+ on the space of parameters, and it's all search.
+
+1:26:45.540 --> 1:26:47.740
+ All of intelligence is some form of search,
+
+1:26:47.740 --> 1:26:49.660
+ and you just have to become cleverer and clever
+
+1:26:49.660 --> 1:26:50.900
+ at that search problem.
+
+1:26:50.900 --> 1:26:53.980
+ And I also have another one that you didn't mention
+
+1:26:53.980 --> 1:26:58.260
+ that's one of my favorite ones is,
+
+1:26:58.260 --> 1:26:59.860
+ so you've probably heard of this,
+
+1:26:59.860 --> 1:27:03.420
+ it's, I think it's called Deep Rembrandt.
+
+1:27:03.420 --> 1:27:06.820
+ It's the project where they trained,
+
+1:27:06.820 --> 1:27:08.220
+ I think there was a collaboration
+
+1:27:08.220 --> 1:27:11.580
+ between the sort of the experts
+
+1:27:11.580 --> 1:27:15.500
+ in Rembrandt painting in Netherlands,
+
+1:27:15.500 --> 1:27:18.300
+ and a group, an artificial intelligence group,
+
+1:27:18.300 --> 1:27:20.220
+ where they train an algorithm
+
+1:27:20.220 --> 1:27:22.980
+ to replicate the style of the Rembrandt,
+
+1:27:22.980 --> 1:27:26.980
+ and they actually printed a portrait
+
+1:27:26.980 --> 1:27:31.180
+ that never existed before in the style of Rembrandt.
+
+1:27:32.620 --> 1:27:36.740
+ I think they printed it on a sort of,
+
+1:27:36.740 --> 1:27:38.500
+ on the canvas that, you know,
+
+1:27:38.500 --> 1:27:42.580
+ using pretty much same types of paints and stuff.
+
+1:27:42.580 --> 1:27:44.060
+ To me, it was mind blowing.
+
+1:27:44.060 --> 1:27:46.900
+ Yeah, and the space of art, that's interesting.
+
+1:27:46.900 --> 1:27:50.100
+ There hasn't been, maybe that's it,
+
+1:27:50.100 --> 1:27:54.580
+ but I think there hasn't been an image in that moment yet
+
+1:27:54.580 --> 1:27:55.840
+ in the space of art.
+
+1:27:56.780 --> 1:27:58.620
+ You haven't been able to achieve
+
+1:27:58.620 --> 1:28:01.420
+ superhuman level performance in the space of art,
+
+1:28:01.420 --> 1:28:04.660
+ even though there's this big famous thing
+
+1:28:04.660 --> 1:28:07.660
+ where a piece of art was purchased,
+
+1:28:07.660 --> 1:28:08.700
+ I guess for a lot of money.
+
+1:28:08.700 --> 1:28:09.540
+ Yes.
+
+1:28:09.540 --> 1:28:11.660
+ Yeah, but it's still, you know,
+
+1:28:11.660 --> 1:28:14.060
+ people are like in the space of music at least,
+
+1:28:15.620 --> 1:28:19.740
+ that's, you know, it's clear that human created pieces
+
+1:28:19.740 --> 1:28:21.700
+ are much more popular.
+
+1:28:21.700 --> 1:28:24.420
+ So there hasn't been a moment where it's like,
+
+1:28:24.420 --> 1:28:26.700
+ oh, this is, we're now,
+
+1:28:26.700 --> 1:28:28.780
+ I would say in the space of music,
+
+1:28:28.780 --> 1:28:30.140
+ what makes a lot of money,
+
+1:28:30.140 --> 1:28:32.100
+ we're talking about serious money,
+
+1:28:32.100 --> 1:28:35.300
+ it's music and movies, or like shows and so on,
+
+1:28:35.300 --> 1:28:36.640
+ and entertainment.
+
+1:28:36.640 --> 1:28:40.020
+ There hasn't been a moment where AI created,
+
+1:28:41.280 --> 1:28:44.460
+ AI was able to create a piece of music
+
+1:28:44.460 --> 1:28:49.460
+ or a piece of cinema, like Netflix show,
+
+1:28:49.820 --> 1:28:53.540
+ that is, you know, that's sufficiently popular
+
+1:28:53.540 --> 1:28:55.260
+ to make a ton of money.
+
+1:28:55.260 --> 1:28:56.100
+ Yeah.
+
+1:28:56.100 --> 1:28:58.940
+ And that moment would be very, very powerful,
+
+1:28:58.940 --> 1:29:01.560
+ because that's like, that's an AI system
+
+1:29:01.560 --> 1:29:03.060
+ being used to make a lot of money.
+
+1:29:03.060 --> 1:29:05.480
+ And like direct, of course, AI tools,
+
+1:29:05.480 --> 1:29:07.140
+ like even Premiere, audio editing,
+
+1:29:07.140 --> 1:29:08.780
+ all the editing, everything I do,
+
+1:29:08.780 --> 1:29:11.660
+ to edit this podcast, there's a lot of AI involved.
+
+1:29:11.660 --> 1:29:13.260
+ Actually, this is a program,
+
+1:29:13.260 --> 1:29:15.540
+ I wanna talk to those folks, just cause I wanna nerd out,
+
+1:29:15.540 --> 1:29:18.060
+ it's called iZotope, I don't know if you're familiar with it.
+
+1:29:18.060 --> 1:29:20.140
+ They have a bunch of tools of audio processing,
+
+1:29:20.140 --> 1:29:23.080
+ and they have, I think they're Boston based,
+
+1:29:23.080 --> 1:29:26.380
+ just, it's so exciting to me to use it,
+
+1:29:26.380 --> 1:29:28.200
+ like on the audio here,
+
+1:29:28.200 --> 1:29:30.380
+ cause it's all machine learning.
+
+1:29:30.380 --> 1:29:35.380
+ It's not, cause most audio production stuff
+
+1:29:35.780 --> 1:29:37.540
+ is like any kind of processing you do,
+
+1:29:37.540 --> 1:29:39.500
+ it's very basic signal processing,
+
+1:29:39.500 --> 1:29:41.980
+ and you're tuning knobs and so on.
+
+1:29:41.980 --> 1:29:43.580
+ They have all of that, of course,
+
+1:29:43.580 --> 1:29:46.020
+ but they also have all of this machine learning stuff,
+
+1:29:46.020 --> 1:29:48.520
+ like where you actually give it training data,
+
+1:29:48.520 --> 1:29:51.740
+ you select parts of the audio you train on,
+
+1:29:51.740 --> 1:29:56.380
+ you train on it, and it figures stuff out.
+
+1:29:56.380 --> 1:29:58.060
+ It's great, it's able to detect,
+
+1:29:59.020 --> 1:30:01.380
+ like the ability of it to be able
+
+1:30:01.380 --> 1:30:04.820
+ to separate voice and music, for example,
+
+1:30:04.820 --> 1:30:07.260
+ or voice and anything, is incredible.
+
+1:30:07.260 --> 1:30:11.140
+ Like it just, it's clearly exceptionally good
+
+1:30:11.140 --> 1:30:14.940
+ at applying these different neural networks models
+
+1:30:14.940 --> 1:30:17.740
+ to just separate the different kinds
+
+1:30:17.740 --> 1:30:19.180
+ of signals from the audio.
+
+1:30:19.180 --> 1:30:22.260
+ That, okay, so that's really exciting.
+
+1:30:22.260 --> 1:30:24.580
+ Photoshop, Adobe people also use it,
+
+1:30:24.580 --> 1:30:28.260
+ but to generate a piece of music
+
+1:30:28.260 --> 1:30:31.980
+ that will sell millions, a piece of art, yeah.
+
+1:30:31.980 --> 1:30:34.420
+ No, I agree, and you know, it's,
+
+1:30:34.420 --> 1:30:39.220
+ that's, you know, as I mentioned,
+
+1:30:39.220 --> 1:30:41.700
+ I offer my AI class, and you know,
+
+1:30:41.700 --> 1:30:44.660
+ an integral part of this is the project, right?
+
+1:30:44.660 --> 1:30:47.340
+ So it's my favorite, ultimate favorite part,
+
+1:30:47.340 --> 1:30:51.380
+ because it typically, we have these project presentations
+
+1:30:51.380 --> 1:30:53.720
+ the last two weeks of the classes,
+
+1:30:53.720 --> 1:30:56.220
+ right before, you know, the Christmas break,
+
+1:30:56.220 --> 1:31:00.300
+ and it's sort of, it adds this cool excitement,
+
+1:31:00.300 --> 1:31:02.660
+ and every time, I mean, I'm amazed, you know,
+
+1:31:02.660 --> 1:31:07.660
+ with some projects that people, you know, come up with.
+
+1:31:07.660 --> 1:31:12.060
+ And so, and quite a few of them are actually, you know,
+
+1:31:12.060 --> 1:31:17.060
+ they have some link to arts.
+
+1:31:17.060 --> 1:31:21.260
+ I mean, you know, I think last year we had a group
+
+1:31:21.260 --> 1:31:26.260
+ who designed an AI producing hokus, Japanese poems.
+
+1:31:27.660 --> 1:31:28.500
+ Oh, wow.
+
+1:31:29.380 --> 1:31:31.820
+ So, and some of them, so, you know,
+
+1:31:31.820 --> 1:31:34.780
+ it got trained on the English based,
+
+1:31:34.780 --> 1:31:36.460
+ haikus, haikus, right?
+
+1:31:36.460 --> 1:31:40.260
+ So, and some of them, you know,
+
+1:31:40.260 --> 1:31:43.460
+ they get to present, like, the top selection.
+
+1:31:43.460 --> 1:31:44.300
+ They were pretty good.
+
+1:31:44.300 --> 1:31:47.020
+ I mean, you know, I mean, of course, I'm not a specialist,
+
+1:31:47.020 --> 1:31:49.700
+ but you read them, and you see this is real.
+
+1:31:49.700 --> 1:31:50.660
+ It seems profound.
+
+1:31:50.660 --> 1:31:52.780
+ Yes, yeah, it seems real.
+
+1:31:52.780 --> 1:31:54.060
+ So it's kind of cool.
+
+1:31:55.060 --> 1:31:57.940
+ We also had a couple of projects where people tried
+
+1:31:57.940 --> 1:32:02.940
+ to teach AI how to play, like, rock music, classical music.
+
+1:32:02.940 --> 1:32:05.940
+ I think, and popular music.
+
+1:32:05.940 --> 1:32:06.780
+ Yeah.
+
+1:32:07.820 --> 1:32:10.620
+ Interestingly enough, you know,
+
+1:32:10.620 --> 1:32:14.580
+ classical music was among the most difficult ones.
+
+1:32:14.580 --> 1:32:15.420
+ Oh, sure.
+
+1:32:15.420 --> 1:32:20.420
+ And, you know, of course, if you, if, you know,
+
+1:32:21.780 --> 1:32:23.780
+ you know, if you look at the, you know,
+
+1:32:23.780 --> 1:32:28.780
+ the, like, grandmasters of music, like Bach, right?
+
+1:32:28.780 --> 1:32:31.940
+ So there is a lot of, there is a lot of,
+
+1:32:31.940 --> 1:32:34.820
+ there is a lot of almost math.
+
+1:32:34.820 --> 1:32:36.580
+ Yeah, well, he's very mathematical.
+
+1:32:36.580 --> 1:32:37.420
+ Yeah, exactly.
+
+1:32:37.420 --> 1:32:41.500
+ So this is, I would imagine that at least some style
+
+1:32:41.500 --> 1:32:43.820
+ of this music could be picked up,
+
+1:32:43.820 --> 1:32:46.980
+ but then you have this completely different spectrum
+
+1:32:46.980 --> 1:32:49.260
+ of classical composers.
+
+1:32:49.260 --> 1:32:54.140
+ And so, you know, it's almost like, you know,
+
+1:32:54.140 --> 1:32:56.780
+ you don't have to sort of look at the data.
+
+1:32:56.780 --> 1:33:01.140
+ You just listen to it and say, nah, that's not it, not yet.
+
+1:33:01.140 --> 1:33:02.380
+ That's not it, yeah.
+
+1:33:02.380 --> 1:33:03.340
+ That's how I feel too.
+
+1:33:03.340 --> 1:33:05.820
+ There's OpenAI has, I think, OpenMuse
+
+1:33:05.820 --> 1:33:07.540
+ or something like that, the system.
+
+1:33:07.540 --> 1:33:09.740
+ It's cool, but it's like, eh,
+
+1:33:09.740 --> 1:33:12.060
+ it's not compelling for some reason.
+
+1:33:12.060 --> 1:33:14.180
+ It could be a psychological reason too.
+
+1:33:14.180 --> 1:33:17.580
+ Maybe we need to have a human being,
+
+1:33:17.580 --> 1:33:19.660
+ a tortured soul behind the music.
+
+1:33:19.660 --> 1:33:20.700
+ I don't know.
+
+1:33:20.700 --> 1:33:22.220
+ Yeah, no, absolutely.
+
+1:33:22.220 --> 1:33:23.940
+ I completely agree.
+
+1:33:23.940 --> 1:33:26.580
+ But yeah, whether or not we'll have,
+
+1:33:26.580 --> 1:33:29.140
+ one day we'll have, you know,
+
+1:33:29.140 --> 1:33:33.340
+ a song written by an AI engine
+
+1:33:33.340 --> 1:33:37.980
+ to be like in top charts, musical charts,
+
+1:33:37.980 --> 1:33:39.300
+ I wouldn't be surprised.
+
+1:33:40.540 --> 1:33:41.740
+ I wouldn't be surprised.
+
+1:33:43.380 --> 1:33:44.700
+ I wonder if we already have one
+
+1:33:44.700 --> 1:33:46.380
+ and it just hasn't been announced.
+
+1:33:48.020 --> 1:33:49.980
+ We wouldn't know.
+
+1:33:49.980 --> 1:33:53.940
+ How hard is the multi protein folding problem?
+
+1:33:53.940 --> 1:33:57.100
+ Is that kind of something you've already mentioned
+
+1:33:57.100 --> 1:33:59.180
+ which is baked into this idea of greater
+
+1:33:59.180 --> 1:34:01.180
+ and greater complexity of proteins?
+
+1:34:01.180 --> 1:34:03.300
+ Like multi domain proteins,
+
+1:34:03.300 --> 1:34:08.300
+ is that basically become multi protein complexes?
+
+1:34:08.940 --> 1:34:10.620
+ Yes, you got it right.
+
+1:34:10.620 --> 1:34:15.620
+ So it's sort of, it has the components
+
+1:34:15.980 --> 1:34:18.460
+ of both of protein folding
+
+1:34:18.460 --> 1:34:21.900
+ and protein, protein interactions.
+
+1:34:21.900 --> 1:34:24.460
+ Because in order for these domains,
+
+1:34:24.460 --> 1:34:27.260
+ many of these proteins actually,
+
+1:34:27.260 --> 1:34:30.060
+ they never form a stable structure.
+
+1:34:31.140 --> 1:34:33.020
+ One of my favorite proteins,
+
+1:34:33.020 --> 1:34:37.700
+ and pretty much everyone who works in the,
+
+1:34:37.700 --> 1:34:41.740
+ I know, whom I know, who works with proteins,
+
+1:34:41.740 --> 1:34:44.660
+ they always have their favorite proteins.
+
+1:34:44.660 --> 1:34:47.660
+ Right, so one of my favorite proteins,
+
+1:34:47.660 --> 1:34:49.140
+ probably my favorite protein,
+
+1:34:49.140 --> 1:34:51.420
+ the one that I worked when I was a postdoc
+
+1:34:51.420 --> 1:34:56.180
+ is so called post synaptic density 95, PSD 95 protein.
+
+1:34:56.180 --> 1:35:00.500
+ So it's one of the key actors
+
+1:35:00.500 --> 1:35:03.780
+ in the majority of neurological processes
+
+1:35:03.780 --> 1:35:04.700
+ at the molecular level.
+
+1:35:04.700 --> 1:35:09.700
+ So it's a, and essentially it's a key player
+
+1:35:11.060 --> 1:35:13.460
+ in the post synaptic density.
+
+1:35:13.460 --> 1:35:17.180
+ So this is the crucial part of this synapse
+
+1:35:17.180 --> 1:35:22.180
+ where a lot of these chemical processes are happening.
+
+1:35:22.420 --> 1:35:26.220
+ So it has five domains, right?
+
+1:35:26.220 --> 1:35:27.460
+ So five protein domains.
+
+1:35:27.460 --> 1:35:32.460
+ So pretty large proteins, I think 600 something assets.
+
+1:35:35.700 --> 1:35:40.700
+ But the way it's organized itself, it's flexible, right?
+
+1:35:41.260 --> 1:35:43.820
+ So it acts as a scaffold.
+
+1:35:43.820 --> 1:35:48.820
+ So it is used to bring in other proteins.
+
+1:35:49.260 --> 1:35:54.260
+ So they start acting in the orchestrated manner, right?
+
+1:35:54.260 --> 1:35:58.780
+ So, and the type of the shape of this protein,
+
+1:35:58.780 --> 1:36:02.500
+ it's in a way, there are some stable parts of this protein,
+
+1:36:02.500 --> 1:36:04.420
+ but there are some flexible.
+
+1:36:04.420 --> 1:36:08.580
+ And this flexibility is built in into the protein
+
+1:36:08.580 --> 1:36:13.100
+ in order to become sort of this multifunctional machine.
+
+1:36:13.100 --> 1:36:16.460
+ So do you think that kind of thing is also learnable
+
+1:36:16.460 --> 1:36:19.340
+ through the alpha fold two kind of approach?
+
+1:36:19.340 --> 1:36:22.380
+ I mean, the time will tell.
+
+1:36:22.380 --> 1:36:24.460
+ Is it another level of complexity?
+
+1:36:24.460 --> 1:36:27.300
+ Is it like how big of a jump in complexity
+
+1:36:27.300 --> 1:36:28.140
+ is that whole thing?
+
+1:36:28.140 --> 1:36:31.340
+ To me, it's yet another level of complexity
+
+1:36:31.340 --> 1:36:35.140
+ because when we talk about protein, protein interactions,
+
+1:36:35.140 --> 1:36:38.820
+ and there is actually a different challenge for this
+
+1:36:38.820 --> 1:36:43.420
+ called Capri, and so this, that is focused specifically
+
+1:36:43.420 --> 1:36:47.060
+ on macromolecular interactions, protein, protein, protein,
+
+1:36:47.060 --> 1:36:48.540
+ DNA, et cetera.
+
+1:36:48.540 --> 1:36:53.540
+ So, but it's, there are different mechanisms
+
+1:36:56.020 --> 1:36:58.740
+ that govern molecular interactions
+
+1:36:58.740 --> 1:37:00.740
+ and that need to be picked up,
+
+1:37:00.740 --> 1:37:03.660
+ say by a machine learning algorithm.
+
+1:37:03.660 --> 1:37:06.500
+ Interestingly enough, we actually,
+
+1:37:06.500 --> 1:37:11.500
+ we participated for a few years in this competition.
+
+1:37:11.740 --> 1:37:14.900
+ We typically don't participate in competitions,
+
+1:37:14.900 --> 1:37:19.820
+ I don't know, don't have enough time,
+
+1:37:19.820 --> 1:37:23.700
+ because it's very intensive, it's a very intensive process.
+
+1:37:23.700 --> 1:37:28.700
+ But we participated back in about 10 years ago or so.
+
+1:37:30.580 --> 1:37:32.660
+ And the way we entered this competition,
+
+1:37:32.660 --> 1:37:35.420
+ so we design a scoring function, right?
+
+1:37:35.420 --> 1:37:37.580
+ So the function that evaluates
+
+1:37:37.580 --> 1:37:40.540
+ whether or not your protein, protein interaction
+
+1:37:40.540 --> 1:37:43.380
+ is supposed to look like experimentally solved, right?
+
+1:37:43.380 --> 1:37:45.900
+ So the scoring function is very critical part
+
+1:37:45.900 --> 1:37:49.820
+ of the model prediction.
+
+1:37:49.820 --> 1:37:52.740
+ So we designed it to be a machine learning one.
+
+1:37:52.740 --> 1:37:56.620
+ And so it was one of the first machine learning
+
+1:37:56.620 --> 1:38:00.020
+ based scoring function used in Capri.
+
+1:38:00.020 --> 1:38:05.020
+ And we essentially learned what should contribute,
+
+1:38:06.580 --> 1:38:08.860
+ what are the critical components contributing
+
+1:38:08.860 --> 1:38:10.540
+ into the protein, protein interaction.
+
+1:38:10.540 --> 1:38:13.340
+ So this could be converted into a learning problem
+
+1:38:13.340 --> 1:38:15.620
+ and thereby it could be learned?
+
+1:38:15.620 --> 1:38:17.020
+ I believe so, yes.
+
+1:38:17.020 --> 1:38:20.460
+ Do you think AlphaFold2 or something similar to it
+
+1:38:20.460 --> 1:38:24.300
+ from DeepMind or somebody else will be,
+
+1:38:24.300 --> 1:38:28.660
+ will result in a Nobel Prize or multiple Nobel Prizes?
+
+1:38:28.660 --> 1:38:33.300
+ So like, you know, obviously, maybe not so obviously,
+
+1:38:33.300 --> 1:38:37.420
+ you can't give a Nobel Prize to a computer program.
+
+1:38:38.660 --> 1:38:42.140
+ At least for now, give it to the designers of that program.
+
+1:38:42.140 --> 1:38:46.060
+ But do you see one or multiple Nobel Prizes
+
+1:38:46.060 --> 1:38:51.060
+ where AlphaFold2 is like a large percentage
+
+1:38:51.700 --> 1:38:54.860
+ of what that prize is given for?
+
+1:38:54.860 --> 1:38:58.980
+ Would it lead to discoveries at the level of Nobel Prizes?
+
+1:39:00.540 --> 1:39:05.420
+ I mean, I think we are definitely destined
+
+1:39:05.420 --> 1:39:08.740
+ to see the Nobel Prize becoming sort of,
+
+1:39:08.740 --> 1:39:12.340
+ to be evolving with the evolution of science
+
+1:39:12.340 --> 1:39:14.540
+ and the evolution of science as such
+
+1:39:14.540 --> 1:39:17.860
+ that it now becomes like really multi facets, right?
+
+1:39:17.860 --> 1:39:21.340
+ So where you don't really have like a unique discipline,
+
+1:39:21.340 --> 1:39:25.660
+ you have sort of the, a lot of cross disciplinary talks
+
+1:39:25.660 --> 1:39:28.740
+ in order to achieve sort of, you know,
+
+1:39:28.740 --> 1:39:32.380
+ really big advancements, you know.
+
+1:39:32.380 --> 1:39:37.380
+ So I think, you know, the computational methods
+
+1:39:39.180 --> 1:39:42.500
+ will be acknowledged in one way or another.
+
+1:39:42.500 --> 1:39:46.860
+ And as a matter of fact, you know,
+
+1:39:46.860 --> 1:39:50.580
+ they were first acknowledged back in 2013, right?
+
+1:39:50.580 --> 1:39:55.580
+ Where, you know, the first three people were, you know,
+
+1:39:56.500 --> 1:40:00.540
+ awarded the Nobel Prize for study the protein folding,
+
+1:40:00.540 --> 1:40:01.500
+ right, the principle.
+
+1:40:01.500 --> 1:40:03.820
+ And, you know, I think all three of them
+
+1:40:03.820 --> 1:40:06.940
+ are computational biophysicists, right?
+
+1:40:06.940 --> 1:40:11.940
+ So, you know, that I think is unavoidable.
+
+1:40:13.260 --> 1:40:16.580
+ You know, it will come with the time.
+
+1:40:16.580 --> 1:40:21.580
+ The fact that, you know, alpha fold and, you know,
+
+1:40:23.540 --> 1:40:26.340
+ similar approaches, because again, it's a matter of time
+
+1:40:26.340 --> 1:40:31.340
+ that people will embrace this, you know, principle
+
+1:40:31.700 --> 1:40:34.940
+ and we'll see more and more such, you know,
+
+1:40:34.940 --> 1:40:36.940
+ such tools coming into play.
+
+1:40:36.940 --> 1:40:41.940
+ But, you know, these methods will be critical
+
+1:40:41.940 --> 1:40:46.940
+ in a scientific discovery, no doubts about it.
+
+1:40:47.700 --> 1:40:51.500
+ On the engineering side, maybe a dark question,
+
+1:40:51.500 --> 1:40:53.860
+ but do you think it's possible to use
+
+1:40:53.860 --> 1:40:55.140
+ these machine learning methods
+
+1:40:55.140 --> 1:40:59.020
+ to start to engineer proteins?
+
+1:40:59.020 --> 1:41:04.020
+ And the next question is something quite a few biologists
+
+1:41:04.660 --> 1:41:07.300
+ are against, some are for, for study purposes,
+
+1:41:07.300 --> 1:41:09.620
+ is to engineer viruses.
+
+1:41:09.620 --> 1:41:12.620
+ Do you think machine learning, like something like alpha fold
+
+1:41:12.620 --> 1:41:14.780
+ could be used to engineer viruses?
+
+1:41:14.780 --> 1:41:16.980
+ So to answer the first question, you know,
+
+1:41:16.980 --> 1:41:21.660
+ it has been, you know, a part of the research
+
+1:41:21.660 --> 1:41:25.500
+ in the protein science, the protein design is, you know,
+
+1:41:25.500 --> 1:41:29.180
+ is a very prominent areas of research.
+
+1:41:29.180 --> 1:41:32.020
+ Of course, you know, one of the pioneers is David Baker
+
+1:41:32.020 --> 1:41:34.900
+ and Rosetta algorithm that, you know,
+
+1:41:34.900 --> 1:41:39.740
+ essentially was doing the de novo design and was used
+
+1:41:39.740 --> 1:41:41.580
+ to design new proteins, you know.
+
+1:41:41.580 --> 1:41:44.220
+ And design of proteins means design of function.
+
+1:41:44.220 --> 1:41:47.300
+ So like when you design a protein, you can control,
+
+1:41:47.300 --> 1:41:49.100
+ I mean, the whole point of a protein
+
+1:41:49.100 --> 1:41:52.180
+ with the protein structure comes a function,
+
+1:41:52.180 --> 1:41:53.700
+ like it's doing something.
+
+1:41:53.700 --> 1:41:54.540
+ Correct.
+
+1:41:54.540 --> 1:41:56.060
+ So you can design different things.
+
+1:41:56.060 --> 1:41:58.140
+ So you can, yeah, so you can, well,
+
+1:41:58.140 --> 1:42:00.700
+ you can look at the proteins from the functional perspective.
+
+1:42:00.700 --> 1:42:02.700
+ You can also look at the proteins
+
+1:42:02.700 --> 1:42:04.180
+ from the structural perspective, right?
+
+1:42:04.180 --> 1:42:05.700
+ So the structural building blocks.
+
+1:42:05.700 --> 1:42:07.660
+ So if you want to have a building block
+
+1:42:07.660 --> 1:42:10.540
+ of a certain shape, you can try to achieve it
+
+1:42:10.540 --> 1:42:13.140
+ by, you know, introducing a new protein sequence
+
+1:42:13.140 --> 1:42:17.260
+ and predicting, you know, how it will fold.
+
+1:42:17.260 --> 1:42:22.060
+ So with that, I mean, it's a natural,
+
+1:42:22.060 --> 1:42:25.820
+ one of the, you know, natural applications
+
+1:42:25.820 --> 1:42:28.220
+ of these algorithms.
+
+1:42:28.220 --> 1:42:34.140
+ Now, talking about engineering a virus.
+
+1:42:34.140 --> 1:42:35.140
+ With machine learning.
+
+1:42:35.140 --> 1:42:36.380
+ With machine learning, right?
+
+1:42:36.380 --> 1:42:41.740
+ So, well, you know, so luckily for us,
+
+1:42:41.740 --> 1:42:46.780
+ I mean, we don't have that much data, right?
+
+1:42:46.780 --> 1:42:47.580
+ Yeah.
+
+1:42:47.580 --> 1:42:50.100
+ We actually, right now, one of the projects
+
+1:42:50.100 --> 1:42:53.700
+ that we are carrying on in the lab
+
+1:42:53.700 --> 1:42:56.940
+ is we're trying to develop a machine learning algorithm
+
+1:42:56.940 --> 1:42:59.300
+ that determines the,
+
+1:42:59.300 --> 1:43:02.700
+ whether or not the current strain is pathogenic.
+
+1:43:02.700 --> 1:43:04.620
+ And the current strain of the coronavirus.
+
+1:43:04.620 --> 1:43:06.100
+ Of the virus.
+
+1:43:06.100 --> 1:43:08.980
+ I mean, so there are applications to coronaviruses
+
+1:43:08.980 --> 1:43:11.460
+ because we have strains of SARS COVID 2,
+
+1:43:11.460 --> 1:43:14.580
+ also SARS COVID, MERS that are pathogenic,
+
+1:43:14.580 --> 1:43:17.620
+ but we also have strains of other coronaviruses
+
+1:43:17.620 --> 1:43:20.140
+ that are, you know, not pathogenic.
+
+1:43:20.140 --> 1:43:24.060
+ I mean, the common cold viruses and, you know,
+
+1:43:24.060 --> 1:43:25.580
+ some other ones, right?
+
+1:43:25.580 --> 1:43:28.980
+ So, so pathogenic meaning spreading.
+
+1:43:28.980 --> 1:43:33.780
+ Pathogenic means actually inflicting damage.
+
+1:43:33.780 --> 1:43:35.340
+ Correct.
+
+1:43:35.340 --> 1:43:37.020
+ There are also some, you know,
+
+1:43:37.020 --> 1:43:41.780
+ seasonal versus pandemic strains of influenza, right?
+
+1:43:41.780 --> 1:43:45.220
+ And determining the, what are the molecular determinant,
+
+1:43:45.220 --> 1:43:46.060
+ right?
+
+1:43:46.060 --> 1:43:48.300
+ So that are built in, into the protein sequence,
+
+1:43:48.300 --> 1:43:50.700
+ into the gene sequence, right?
+
+1:43:50.700 --> 1:43:52.980
+ So, and whether or not the machine learning
+
+1:43:52.980 --> 1:43:57.980
+ can determine those, those components, right?
+
+1:43:58.420 --> 1:43:59.260
+ Oh, interesting.
+
+1:43:59.260 --> 1:44:00.660
+ So like using machine learning to do,
+
+1:44:00.660 --> 1:44:03.940
+ that's really interesting to, to, to given,
+
+1:44:03.940 --> 1:44:07.380
+ give the input is like what the entire,
+
+1:44:07.380 --> 1:44:09.740
+ the protein sequence and then determine
+
+1:44:09.740 --> 1:44:12.340
+ if this thing is going to be able to do damage
+
+1:44:12.340 --> 1:44:14.620
+ to a biological system.
+
+1:44:14.620 --> 1:44:15.900
+ Yeah.
+
+1:44:15.900 --> 1:44:16.740
+ So, so I mean,
+
+1:44:16.740 --> 1:44:17.580
+ It's a good machine learning,
+
+1:44:17.580 --> 1:44:19.380
+ you're saying we don't have enough data for that?
+
+1:44:19.380 --> 1:44:22.620
+ We, I mean, for, for this specific one, we do.
+
+1:44:22.620 --> 1:44:24.460
+ We might actually, I have, you know,
+
+1:44:24.460 --> 1:44:27.260
+ have to back up on this because we're still in the process.
+
+1:44:27.260 --> 1:44:31.660
+ There was one work that appeared in bioarchive
+
+1:44:31.660 --> 1:44:34.900
+ by Eugene Kunin, who is one of these, you know,
+
+1:44:34.900 --> 1:44:38.140
+ pioneers in, in, in evolutionary genomics.
+
+1:44:39.020 --> 1:44:42.820
+ And they tried to look at this, but, you know,
+
+1:44:42.820 --> 1:44:46.060
+ the methods were sort of standard, you know,
+
+1:44:46.060 --> 1:44:48.620
+ supervised learning methods.
+
+1:44:48.620 --> 1:44:51.340
+ And now the question is, you know,
+
+1:44:51.340 --> 1:44:56.340
+ can you advance it further by, by using, you know,
+
+1:44:56.660 --> 1:44:58.620
+ not so standard methods, you know?
+
+1:44:58.620 --> 1:45:01.140
+ So there's obviously a lot of hope in,
+
+1:45:01.140 --> 1:45:05.580
+ in transfer learning where you can actually try to transfer
+
+1:45:05.580 --> 1:45:08.060
+ the information that the machine learning learns about
+
+1:45:08.060 --> 1:45:11.340
+ the proper protein sequences, right?
+
+1:45:11.340 --> 1:45:16.140
+ And, you know, so, so there is some promise
+
+1:45:16.140 --> 1:45:18.740
+ in going this direction, but if we have this,
+
+1:45:18.740 --> 1:45:21.060
+ it would be extremely useful because then
+
+1:45:21.060 --> 1:45:24.100
+ we could essentially forecast the potential mutations
+
+1:45:24.100 --> 1:45:26.300
+ that would make the current strain
+
+1:45:26.300 --> 1:45:27.900
+ more or less pathogenic.
+
+1:45:27.900 --> 1:45:31.140
+ Anticipate, anticipate them from a vaccine development,
+
+1:45:31.140 --> 1:45:34.580
+ for the treatment, antiviral drug development.
+
+1:45:34.580 --> 1:45:36.860
+ That, that would be a very crucial task.
+
+1:45:36.860 --> 1:45:41.860
+ But you could also use that system to then say,
+
+1:45:42.180 --> 1:45:45.260
+ how would we potentially modify this virus
+
+1:45:45.260 --> 1:45:47.940
+ to make it more pathogenic?
+
+1:45:47.940 --> 1:45:49.660
+ This, that's true.
+
+1:45:49.660 --> 1:45:50.500
+ That's true.
+
+1:45:50.500 --> 1:45:55.500
+ And then, you know, the, again,
+
+1:45:55.980 --> 1:45:59.700
+ the hope is, well, several things, right?
+
+1:45:59.700 --> 1:46:02.140
+ So one is that, you know, it's,
+
+1:46:02.140 --> 1:46:06.780
+ even if you design a, you know, a sequence, right?
+
+1:46:06.780 --> 1:46:11.780
+ So to carry out the actual experimental biology,
+
+1:46:12.540 --> 1:46:16.820
+ to ensure that all the components working, you know,
+
+1:46:16.820 --> 1:46:19.060
+ is a completely different matter.
+
+1:46:19.060 --> 1:46:19.900
+ Difficult process.
+
+1:46:19.900 --> 1:46:20.860
+ Yes.
+
+1:46:20.860 --> 1:46:24.420
+ Then the, you know, we've seen in the past,
+
+1:46:24.420 --> 1:46:27.660
+ there could be some regulation of the moment
+
+1:46:27.660 --> 1:46:30.420
+ the scientific community recognizes
+
+1:46:30.420 --> 1:46:34.620
+ that it's now becoming no longer a sort of a fun puzzle
+
+1:46:34.620 --> 1:46:36.660
+ to, you know, for machine learning.
+
+1:46:36.660 --> 1:46:37.860
+ Could be open.
+
+1:46:37.860 --> 1:46:40.420
+ Yeah, so then there might be some regulation.
+
+1:46:40.420 --> 1:46:45.420
+ So I think back in, what, 2015, there was, you know,
+
+1:46:45.780 --> 1:46:49.500
+ there was an issue on regulating the research
+
+1:46:49.500 --> 1:46:52.700
+ on influenza strains, right?
+
+1:46:52.700 --> 1:46:55.580
+ There were several groups, you know,
+
+1:46:55.580 --> 1:46:58.060
+ used sort of the mutation analysis
+
+1:46:58.060 --> 1:47:01.820
+ to determine whether or not this strain will jump
+
+1:47:01.820 --> 1:47:03.300
+ from one species to another.
+
+1:47:03.300 --> 1:47:06.540
+ And I think there was like a half a year moratorium
+
+1:47:06.540 --> 1:47:09.780
+ on the research on the paper published
+
+1:47:09.780 --> 1:47:13.580
+ until, you know, scientists, you know, analyzed it
+
+1:47:13.580 --> 1:47:16.440
+ and decided that it's actually safe.
+
+1:47:16.440 --> 1:47:17.620
+ I forgot what that's called.
+
+1:47:17.620 --> 1:47:20.020
+ Something of function, test of function.
+
+1:47:20.020 --> 1:47:20.860
+ Gain of function.
+
+1:47:20.860 --> 1:47:22.380
+ Gain of function, yeah.
+
+1:47:22.380 --> 1:47:24.020
+ Gain of function, loss of function, that's right.
+
+1:47:24.020 --> 1:47:24.860
+ Sorry.
+
+1:47:26.420 --> 1:47:29.620
+ It's like, let's watch this thing mutate for a while
+
+1:47:29.620 --> 1:47:33.780
+ to see like, to see what kind of things we can observe.
+
+1:47:33.780 --> 1:47:36.320
+ I guess I'm not so much worried
+
+1:47:36.320 --> 1:47:38.620
+ about that kind of research if there's a lot of regulation
+
+1:47:38.620 --> 1:47:42.780
+ and if it's done very well and with competence and seriously.
+
+1:47:42.780 --> 1:47:46.980
+ I am more worried about kind of this, you know,
+
+1:47:46.980 --> 1:47:49.580
+ the underlying aspect of this question
+
+1:47:49.580 --> 1:47:51.280
+ is more like 50 years from now.
+
+1:47:52.920 --> 1:47:54.940
+ Speaking to the Drake equation,
+
+1:47:54.940 --> 1:47:57.300
+ one of the parameters in the Drake equation
+
+1:47:57.300 --> 1:47:59.820
+ is how long civilizations last.
+
+1:47:59.820 --> 1:48:03.860
+ And that seems to be the most important value actually
+
+1:48:03.860 --> 1:48:06.100
+ for calculating if there's other alien
+
+1:48:06.100 --> 1:48:08.040
+ intelligent civilizations out there.
+
+1:48:08.040 --> 1:48:10.960
+ That's where there's most variability.
+
+1:48:10.960 --> 1:48:15.060
+ Assuming like if life, if that percentage
+
+1:48:15.060 --> 1:48:19.380
+ that life can emerge is like not zero,
+
+1:48:19.380 --> 1:48:21.260
+ like if we're a super unique,
+
+1:48:21.260 --> 1:48:23.940
+ then it's the how long we last
+
+1:48:23.940 --> 1:48:26.180
+ is basically the most important thing.
+
+1:48:26.180 --> 1:48:29.020
+ So from a selfish perspective,
+
+1:48:29.020 --> 1:48:32.020
+ but also from a Drake equation perspective,
+
+1:48:32.020 --> 1:48:35.020
+ I'm worried about our civilization lasting.
+
+1:48:35.020 --> 1:48:37.620
+ And you kind of think about all the ways
+
+1:48:37.620 --> 1:48:39.140
+ in which machine learning can be used
+
+1:48:39.140 --> 1:48:44.140
+ to design greater weapons of destruction, right?
+
+1:48:45.700 --> 1:48:48.620
+ And I mean, one way to ask that
+
+1:48:48.620 --> 1:48:50.580
+ if you look sort of 50 years from now,
+
+1:48:50.580 --> 1:48:52.620
+ a hundred years from now,
+
+1:48:52.620 --> 1:48:55.780
+ would you be more worried about natural pandemics
+
+1:48:55.780 --> 1:48:57.560
+ or engineered pandemics?
+
+1:48:59.440 --> 1:49:02.640
+ Like who's the better designer of viruses,
+
+1:49:02.640 --> 1:49:05.980
+ nature or humans if we look down the line?
+
+1:49:05.980 --> 1:49:10.140
+ I think in my view, I would still be worried
+
+1:49:10.140 --> 1:49:14.300
+ about the natural pandemics simply because I mean,
+
+1:49:14.300 --> 1:49:19.300
+ the capacity of the nature producing this.
+
+1:49:20.740 --> 1:49:22.700
+ It does pretty good job, right?
+
+1:49:22.700 --> 1:49:23.540
+ Yes.
+
+1:49:23.540 --> 1:49:25.280
+ And the motivation for using virus,
+
+1:49:25.280 --> 1:49:29.020
+ engineering viruses as a weapon is a weird one
+
+1:49:29.020 --> 1:49:31.480
+ because maybe you can correct me on this,
+
+1:49:31.480 --> 1:49:35.620
+ but it seems very difficult to target a virus, right?
+
+1:49:35.620 --> 1:49:38.400
+ The whole point of a weapon, the way a rocket works,
+
+1:49:38.400 --> 1:49:40.100
+ if a starting point, you have an end point
+
+1:49:40.100 --> 1:49:42.340
+ and you're trying to hit a target,
+
+1:49:42.340 --> 1:49:44.660
+ to hit a target with a virus is very difficult.
+
+1:49:44.660 --> 1:49:46.820
+ It's basically just, right?
+
+1:49:47.980 --> 1:49:50.060
+ The target would be the human species.
+
+1:49:51.940 --> 1:49:52.860
+ Oh man.
+
+1:49:52.860 --> 1:49:54.780
+ Yeah, I have a hope in us.
+
+1:49:54.780 --> 1:49:58.260
+ I'm forever optimistic that we will not,
+
+1:49:58.260 --> 1:50:01.620
+ there's insufficient evil in the world
+
+1:50:01.620 --> 1:50:04.560
+ to lead to that kind of destruction.
+
+1:50:04.560 --> 1:50:07.780
+ Well, I also hope that, I mean, that's what we see.
+
+1:50:07.780 --> 1:50:11.780
+ I mean, with the way we are getting connected,
+
+1:50:11.780 --> 1:50:14.460
+ the world is getting connected.
+
+1:50:14.460 --> 1:50:19.460
+ I think it helps for the world to become more transparent.
+
+1:50:21.660 --> 1:50:22.560
+ Yeah.
+
+1:50:22.560 --> 1:50:27.100
+ So the information spread is,
+
+1:50:27.100 --> 1:50:31.660
+ I think it's one of the key things for the society
+
+1:50:31.660 --> 1:50:36.460
+ to become more balanced one way or another.
+
+1:50:36.460 --> 1:50:38.340
+ This is something that people disagree with me on,
+
+1:50:38.340 --> 1:50:41.900
+ but I do think that the kind of secrecy
+
+1:50:41.900 --> 1:50:43.460
+ that governments have.
+
+1:50:43.460 --> 1:50:47.060
+ So you're kind of speaking more to the other aspects,
+
+1:50:47.060 --> 1:50:49.700
+ like a research community being more open,
+
+1:50:49.700 --> 1:50:52.160
+ companies are being more open.
+
+1:50:52.160 --> 1:50:53.880
+ Government is still like,
+
+1:50:55.900 --> 1:50:57.860
+ we're talking about like military secrets.
+
+1:50:57.860 --> 1:51:01.380
+ I think military secrets of the kind
+
+1:51:01.380 --> 1:51:03.700
+ that could destroy the world
+
+1:51:03.700 --> 1:51:07.300
+ will become also a thing of the 20th century.
+
+1:51:07.300 --> 1:51:09.320
+ It'll become more and more open.
+
+1:51:09.320 --> 1:51:10.160
+ Yeah.
+
+1:51:10.160 --> 1:51:13.220
+ I think nations will lose power in the 21st century,
+
+1:51:13.220 --> 1:51:15.960
+ like lose sufficient power towards secrecies.
+
+1:51:15.960 --> 1:51:18.860
+ Transparency is more beneficial than secrecy,
+
+1:51:18.860 --> 1:51:21.140
+ but of course it's not obvious.
+
+1:51:21.140 --> 1:51:22.180
+ Let's hope so.
+
+1:51:22.180 --> 1:51:27.180
+ Let's hope so that the governments
+
+1:51:27.180 --> 1:51:31.300
+ will become more transparent.
+
+1:51:31.300 --> 1:51:35.260
+ What, so we last talked, I think in March or April,
+
+1:51:35.260 --> 1:51:36.740
+ what have you learned?
+
+1:51:36.740 --> 1:51:40.460
+ How has your philosophical, psychological,
+
+1:51:40.460 --> 1:51:43.820
+ biological worldview changed since then?
+
+1:51:43.820 --> 1:51:46.100
+ Or you've been studying it nonstop
+
+1:51:46.100 --> 1:51:48.900
+ from a computational biology perspective.
+
+1:51:48.900 --> 1:51:51.140
+ How has your understanding and thoughts about this virus
+
+1:51:51.140 --> 1:51:54.460
+ changed over those months from the beginning to today?
+
+1:51:54.460 --> 1:51:58.660
+ One thing that I was really amazed at
+
+1:51:58.660 --> 1:52:03.140
+ how efficient the scientific community was.
+
+1:52:03.140 --> 1:52:08.140
+ I mean, and even just judging on this very narrow domain
+
+1:52:10.100 --> 1:52:13.060
+ of protein structure and understanding
+
+1:52:13.060 --> 1:52:17.600
+ the structural characterization of this virus
+
+1:52:17.600 --> 1:52:19.860
+ from the components point of view,
+
+1:52:19.860 --> 1:52:21.460
+ whole virus point of view.
+
+1:52:21.460 --> 1:52:26.460
+ If you look at SARS, something that happened less than 20,
+
+1:52:31.020 --> 1:52:34.060
+ but close enough, 20 years ago,
+
+1:52:34.980 --> 1:52:38.500
+ and you see what, when it happened,
+
+1:52:38.500 --> 1:52:42.460
+ what was sort of the response by the scientific community,
+
+1:52:42.460 --> 1:52:47.100
+ you see that the structure characterizations did a cure,
+
+1:52:47.100 --> 1:52:51.660
+ but it took several years, right?
+
+1:52:51.660 --> 1:52:54.940
+ Now the things that took several years,
+
+1:52:54.940 --> 1:52:56.900
+ it's a matter of months, right?
+
+1:52:56.900 --> 1:53:01.620
+ So we see that the research pop up.
+
+1:53:01.620 --> 1:53:03.940
+ We are at the unprecedented level
+
+1:53:03.940 --> 1:53:05.980
+ in terms of the sequencing, right?
+
+1:53:05.980 --> 1:53:10.980
+ Never before we had a single virus sequence so many times,
+
+1:53:10.980 --> 1:53:15.980
+ so which allows us to actually to trace very precisely
+
+1:53:16.380 --> 1:53:21.380
+ the sort of the evolutionary nature of this virus,
+
+1:53:21.380 --> 1:53:26.380
+ what happens, and it's not just this virus independently
+
+1:53:27.420 --> 1:53:32.420
+ of everything, it's the sequence of this virus
+
+1:53:32.420 --> 1:53:36.420
+ linked, anchored to the specific geographic place
+
+1:53:36.420 --> 1:53:24.540
+ to specific
+
+1:53:24.540 --> 1:53:29.540
+ people, because our genotype influences also
+
+1:53:31.540 --> 1:53:35.540
+ the evolution of this, it's always a host pathogen,
+
+1:53:35.540 --> 1:53:38.540
+ core evolution that, you know,
+
+1:53:38.540 --> 1:53:41.540
+ it's not just the virus, it's the sequence of this virus,
+
+1:53:41.540 --> 1:53:44.540
+ it's the sequence of this virus linked to the specific
+
+1:53:44.540 --> 1:53:48.540
+ geographic place, it's the sequence of this virus
+
+1:53:48.540 --> 1:53:52.540
+ linked to the specific geographic place to specific people,
+
+1:53:52.540 --> 1:53:55.540
+ that, you know, occurs.
+
+1:53:55.540 --> 1:53:58.540
+ It'd be cool if we also had a lot more data about,
+
+1:53:58.540 --> 1:54:02.540
+ so that the spread of this virus, not maybe,
+
+1:54:02.540 --> 1:54:06.540
+ well, it'd be nice if we had it for like contact tracing
+
+1:54:06.540 --> 1:54:09.540
+ purposes for this virus, but it'd be also nice if we had it
+
+1:54:09.540 --> 1:54:12.540
+ for the study for future viruses to be able to respond
+
+1:54:12.540 --> 1:54:15.540
+ and so on, but it's already nice that we have geographical
+
+1:54:15.540 --> 1:54:18.540
+ data and the basic data from individual humans, yeah.
+
+1:54:18.540 --> 1:54:22.540
+ Exactly, no, I think contact tracing is obviously
+
+1:54:22.540 --> 1:54:26.540
+ a key component in understanding
+
+1:54:26.540 --> 1:54:29.540
+ the spread of this virus.
+
+1:54:29.540 --> 1:54:31.540
+ There is also, there is a number of challenges, right?
+
+1:54:31.540 --> 1:54:35.540
+ So XPRIZE is one of them, we
+
+1:54:35.540 --> 1:54:39.540
+ just recently took a part of
+
+1:54:39.540 --> 1:54:43.540
+ this competition, it's the prediction of the
+
+1:54:43.540 --> 1:54:47.540
+ number of infections in different regions.
+
+1:54:47.540 --> 1:54:48.540
+ Oh, sure.
+
+1:54:48.540 --> 1:54:52.540
+ So, you know, obviously the AI
+
+1:54:52.540 --> 1:54:55.540
+ is the main topic in those predictions.
+
+1:54:55.540 --> 1:54:59.540
+ Yeah, but it's still, the data, I mean, that's a competition,
+
+1:54:59.540 --> 1:55:03.540
+ but the data is weak
+
+1:55:03.540 --> 1:55:07.540
+ on the training. Like, it's great,
+
+1:55:07.540 --> 1:55:11.540
+ it's much more than probably before, but like, it'd be nice if it was like
+
+1:55:11.540 --> 1:55:15.540
+ really rich. I talked to Michael Mina from
+
+1:55:15.540 --> 1:55:19.540
+ Harvard, I mean, he dreams that the community comes together with like a
+
+1:55:19.540 --> 1:55:23.540
+ weather map to where viruses, right, like
+
+1:55:23.540 --> 1:55:27.540
+ really high resolution sensors on like how
+
+1:55:27.540 --> 1:55:31.540
+ from person to person the viruses that travel, all the different kinds of viruses, right?
+
+1:55:31.540 --> 1:55:35.540
+ Because there's a ton of them, and then you'd be able to tell
+
+1:55:35.540 --> 1:55:39.540
+ the story that you've spoken about
+
+1:55:39.540 --> 1:55:43.540
+ of the evolution of these viruses, like day to day mutations that
+
+1:55:43.540 --> 1:55:47.540
+ are occurring. I mean, that'd be fascinating just from a perspective of
+
+1:55:47.540 --> 1:55:51.540
+ study and from the perspective of being able to respond to future pandemics.
+
+1:55:51.540 --> 1:55:55.540
+ That's ultimately what I'm worried about. People love
+
+1:55:55.540 --> 1:55:59.540
+ books. Is there some three
+
+1:55:59.540 --> 1:56:03.540
+ or whatever number of books, technical, fiction, philosophical, that
+
+1:56:03.540 --> 1:56:07.540
+ brought you joy in life, had an impact on your life,
+
+1:56:07.540 --> 1:56:11.540
+ and maybe some that you would recommend others?
+
+1:56:11.540 --> 1:56:15.540
+ I'll give you three very different books, and I also have a special runner up.
+
+1:56:15.540 --> 1:56:19.540
+ Honorable mention.
+
+1:56:19.540 --> 1:56:23.540
+ I mean, it's an audiobook, and that's
+
+1:56:23.540 --> 1:56:27.540
+ some specific reason behind it. So the first book is
+
+1:56:27.540 --> 1:56:31.540
+ something that sort of impacted my earlier
+
+1:56:31.540 --> 1:56:35.540
+ stage of life, and I'm probably not going to be very original here.
+
+1:56:35.540 --> 1:56:39.540
+ It's Bulgakov's Master and Margarita.
+
+1:56:39.540 --> 1:56:43.540
+ For a Russian, maybe it's not super original,
+
+1:56:43.540 --> 1:56:47.540
+ but it's a really powerful book, even in English.
+
+1:56:47.540 --> 1:56:51.540
+ It is incredibly powerful, and
+
+1:56:51.540 --> 1:56:55.540
+ I mean, the way it ends.
+
+1:56:55.540 --> 1:56:59.540
+ I still have goosebumps when I read
+
+1:56:59.540 --> 1:57:03.540
+ the very last sort of, it's called prologue, where
+
+1:57:03.540 --> 1:57:07.540
+ it's just so powerful. What impact did it have on you? What ideas?
+
+1:57:07.540 --> 1:57:11.540
+ What insights did you get from it? I was just taken by
+
+1:57:11.540 --> 1:57:15.540
+ the fact that
+
+1:57:15.540 --> 1:57:19.540
+ you have those parallel lives
+
+1:57:19.540 --> 1:57:23.540
+ apart from many centuries, and
+
+1:57:23.540 --> 1:57:27.540
+ somehow they got sort of intertwined into
+
+1:57:27.540 --> 1:57:31.540
+ one story, and that
+
+1:57:31.540 --> 1:57:35.540
+ to me was fascinating. And of course
+
+1:57:35.540 --> 1:57:39.540
+ the romantic part of this book is like
+
+1:57:39.540 --> 1:57:43.540
+ it's not just romance, it's like the romance
+
+1:57:43.540 --> 1:57:47.540
+ empowered by sort of magic, right?
+
+1:57:47.540 --> 1:57:51.540
+ And maybe on top of that, you have some irony,
+
+1:57:51.540 --> 1:57:55.540
+ which is unavoidable, right? Because it was that
+
+1:57:55.540 --> 1:57:59.540
+ Soviet time. But it's very deeply Russian, so that's
+
+1:57:59.540 --> 1:58:03.540
+ the wit, the humor, the pain, the love,
+
+1:58:03.540 --> 1:58:07.540
+ all of that is one of the books that kind of captures
+
+1:58:07.540 --> 1:58:11.540
+ something about Russian culture that people outside of Russia
+
+1:58:11.540 --> 1:58:15.540
+ should probably read. I agree. What's the second one? So the second one
+
+1:58:15.540 --> 1:58:19.540
+ is again another one that it happened
+
+1:58:19.540 --> 1:58:23.540
+ I read it later in my life. I think I read it
+
+1:58:23.540 --> 1:58:27.540
+ first time when I was a graduate student.
+
+1:58:27.540 --> 1:58:31.540
+ And that's the Solzhenitsyn's Cancer Word.
+
+1:58:31.540 --> 1:58:35.540
+ That is amazingly powerful book.
+
+1:58:35.540 --> 1:58:39.540
+ What is it about? It's about, I mean, essentially
+
+1:58:39.540 --> 1:58:43.540
+ based on Solzhenitsyn was
+
+1:58:43.540 --> 1:58:47.540
+ diagnosed with cancer when he was reasonably young, and he
+
+1:58:47.540 --> 1:58:51.540
+ made a full recovery. So this is
+
+1:58:51.540 --> 1:58:55.540
+ about a person who was sentenced
+
+1:58:55.540 --> 1:58:59.540
+ for life in one of these camps.
+
+1:58:59.540 --> 1:59:03.540
+ And he had some cancer,
+
+1:59:03.540 --> 1:59:07.540
+ so he was transported back to one of these
+
+1:59:07.540 --> 1:59:11.540
+ Soviet republics, I think it was
+
+1:59:11.540 --> 1:59:15.540
+ South Asian republics. And the
+
+1:59:15.540 --> 1:59:19.540
+ book is about
+
+1:59:19.540 --> 1:59:23.540
+ his experience being a
+
+1:59:23.540 --> 1:59:27.540
+ prisoner, being a patient in the
+
+1:59:27.540 --> 1:59:31.540
+ cancer clinic, in the cancer ward, surrounded
+
+1:59:31.540 --> 1:59:35.540
+ by people, many of which die.
+
+1:59:35.540 --> 1:59:39.540
+ But in the way
+
+1:59:39.540 --> 1:59:43.540
+ it reads, first of all, later on I
+
+1:59:43.540 --> 1:59:47.540
+ read the accounts of the doctors
+
+1:59:47.540 --> 1:59:51.540
+ who describe the experiences
+
+1:59:51.540 --> 1:59:55.540
+ in the book by the
+
+1:59:55.540 --> 1:59:59.540
+ patient as incredibly accurate.
+
+1:59:59.540 --> 2:00:03.540
+ So I read that there was some doctor saying that
+
+2:00:03.540 --> 2:00:07.540
+ every single doctor should read this book to understand
+
+2:00:07.540 --> 2:00:11.540
+ what the patient feels. But
+
+2:00:11.540 --> 2:00:15.540
+ again, as many of the Solzhenitsyn's
+
+2:00:15.540 --> 2:00:19.540
+ books, it has multiple levels of complexity.
+
+2:00:19.540 --> 2:00:23.540
+ And obviously if you look above
+
+2:00:23.540 --> 2:00:27.540
+ the cancer and the patient, the
+
+2:00:27.540 --> 2:00:31.540
+ tumor that was growing and then disappeared
+
+2:00:31.540 --> 2:00:35.540
+ in his
+
+2:00:35.540 --> 2:00:39.540
+ body with some consequences, this is
+
+2:00:39.540 --> 2:00:43.540
+ allegorically the
+
+2:00:43.540 --> 2:00:47.540
+ Soviet, and he actually
+
+2:00:47.540 --> 2:00:51.540
+ when he was asked, he said that this is what made him
+
+2:00:51.540 --> 2:00:55.540
+ think about this, how to combine these experiences.
+
+2:00:55.540 --> 2:00:59.540
+ Him being a part of the Soviet regime,
+
+2:00:59.540 --> 2:01:03.540
+ also being a part of the
+
+2:01:03.540 --> 2:01:07.540
+ someone sent to Gulag camp,
+
+2:01:07.540 --> 2:01:11.540
+ and also someone who experienced cancer
+
+2:01:11.540 --> 2:01:15.540
+ in his life. The Gulag Archipelago
+
+2:01:15.540 --> 2:01:19.540
+ and this book, these are the works that actually made him
+
+2:01:19.540 --> 2:01:23.540
+ receive a Nobel Prize. But to me
+
+2:01:23.540 --> 2:01:27.540
+ I've read
+
+2:01:27.540 --> 2:01:31.540
+ other books by Solzhenitsyn.
+
+2:01:31.540 --> 2:01:35.540
+ This one to me is the most powerful one.
+
+2:01:35.540 --> 2:01:39.540
+ And by the way, both this one and the previous one you read in Russian?
+
+2:01:39.540 --> 2:01:43.540
+ Yes. So now there is the third book is an English book
+
+2:01:43.540 --> 2:01:47.540
+ and it's completely different. So we're switching the gears
+
+2:01:47.540 --> 2:01:51.540
+ completely. So this is the book which, it's not even
+
+2:01:51.540 --> 2:01:55.540
+ a book, it's an essay by
+
+2:01:55.540 --> 2:01:59.540
+ Jonathan Neumann called The Computer and the Brain.
+
+2:01:59.540 --> 2:02:03.540
+ And that was the book he was writing
+
+2:02:03.540 --> 2:02:07.540
+ knowing that he was dying of cancer.
+
+2:02:07.540 --> 2:02:11.540
+ So the book was released back, it's a very thin book.
+
+2:02:11.540 --> 2:02:15.540
+ But the power,
+
+2:02:15.540 --> 2:02:19.540
+ the intellectual power in this book, in this essay
+
+2:02:19.540 --> 2:02:23.540
+ is incredible. I mean you probably know that von Neumann
+
+2:02:23.540 --> 2:02:27.540
+ is considered to be one of the biggest
+
+2:02:27.540 --> 2:02:31.540
+ thinkers. So his intellectual power was incredible.
+
+2:02:31.540 --> 2:02:35.540
+ And you can actually feel this power
+
+2:02:35.540 --> 2:02:39.540
+ in this book where the person is writing knowing that he will be,
+
+2:02:39.540 --> 2:02:43.540
+ he will die. The book actually got published only after his
+
+2:02:43.540 --> 2:02:47.540
+ death back in 1958. He died in 1957.
+
+2:02:47.540 --> 2:02:51.540
+ So he tried to put as many
+
+2:02:51.540 --> 2:02:55.540
+ ideas that he still
+
+2:02:55.540 --> 2:02:59.540
+ hadn't realized.
+
+2:02:59.540 --> 2:03:03.540
+ So this book is very difficult
+
+2:03:03.540 --> 2:03:07.540
+ to read because every single paragraph
+
+2:03:07.540 --> 2:03:11.540
+ is just compact, is
+
+2:03:11.540 --> 2:03:15.540
+ filled with these ideas. And the ideas are incredible.
+
+2:03:15.540 --> 2:03:19.540
+ Even nowadays, so he tried
+
+2:03:19.540 --> 2:03:23.540
+ to put the parallels between the brain
+
+2:03:23.540 --> 2:03:27.540
+ computing power, the neural system, and the computers
+
+2:03:27.540 --> 2:03:31.540
+ as they were understood. Do you remember what year he was working on this?
+
+2:03:31.540 --> 2:03:35.540
+ 57. 57. So that was right during his,
+
+2:03:35.540 --> 2:03:39.540
+ when he was diagnosed with cancer and he was essentially...
+
+2:03:39.540 --> 2:03:43.540
+ Yeah, he's one of those, there's a few folks people mention,
+
+2:03:43.540 --> 2:03:47.540
+ I think Ed Witten is another that like
+
+2:03:47.540 --> 2:03:51.540
+ everyone that meets them, they say he's just an intellectual powerhouse.
+
+2:03:51.540 --> 2:03:55.540
+ Yes. Okay, so who's the honorable mention?
+
+2:03:55.540 --> 2:03:59.540
+ And this is, I mean, the reason I put it sort of in a separate section
+
+2:03:59.540 --> 2:04:03.540
+ because this is a book that I recently
+
+2:04:03.540 --> 2:04:07.540
+ listened to. So it's an audio book.
+
+2:04:07.540 --> 2:04:11.540
+ And this is a book called Lab Girl by Hope Jarron.
+
+2:04:11.540 --> 2:04:15.540
+ So Hope Jarron, she is a
+
+2:04:15.540 --> 2:04:19.540
+ scientist, she's a geochemist that essentially
+
+2:04:19.540 --> 2:04:23.540
+ studies the
+
+2:04:23.540 --> 2:04:27.540
+ fossil plants. And so she uses
+
+2:04:27.540 --> 2:04:31.540
+ this fossil plant, the chemical analysis to understand
+
+2:04:31.540 --> 2:04:35.540
+ what was the climate back in
+
+2:04:35.540 --> 2:04:39.540
+ a thousand years, hundreds of thousands of years ago.
+
+2:04:39.540 --> 2:04:43.540
+ And so something that incredibly
+
+2:04:43.540 --> 2:04:47.540
+ touched me by this book, it was narrated by the author.
+
+2:04:47.540 --> 2:04:51.540
+ Nice. And it's an incredibly
+
+2:04:51.540 --> 2:04:55.540
+ personal story, incredibly. So
+
+2:04:55.540 --> 2:04:59.540
+ certain parts of the book, you could actually hear the author crying.
+
+2:04:59.540 --> 2:05:03.540
+ And that to me, I mean, I never experienced
+
+2:05:03.540 --> 2:05:07.540
+ anything like this, reading the book, but it was like
+
+2:05:07.540 --> 2:05:11.540
+ the connection between you and the author.
+
+2:05:11.540 --> 2:05:15.540
+ And I think this is really
+
+2:05:15.540 --> 2:05:19.540
+ a must read, but even better, a must listen
+
+2:05:19.540 --> 2:05:23.540
+ to audio book for anyone who
+
+2:05:23.540 --> 2:05:27.540
+ wants to learn about sort of
+
+2:05:27.540 --> 2:05:31.540
+ academia, science, research in general, because it's
+
+2:05:31.540 --> 2:05:35.540
+ a very personal account about her becoming
+
+2:05:35.540 --> 2:05:39.540
+ a scientist. So
+
+2:05:39.540 --> 2:05:43.540
+ we're just before New Year's.
+
+2:05:43.540 --> 2:05:47.540
+ We talked a lot about some difficult topics of viruses and so on.
+
+2:05:47.540 --> 2:05:51.540
+ Do you have some exciting things you're looking forward
+
+2:05:51.540 --> 2:05:55.540
+ to in 2021? Some New Year's resolutions,
+
+2:05:55.540 --> 2:05:59.540
+ maybe silly or fun, or
+
+2:05:59.540 --> 2:06:03.540
+ something very important and fundamental to
+
+2:06:03.540 --> 2:06:07.540
+ the world of science or something completely unimportant?
+
+2:06:07.540 --> 2:06:11.540
+ Well, I'm definitely looking forward to
+
+2:06:11.540 --> 2:06:15.540
+ towards things becoming normal.
+
+2:06:15.540 --> 2:06:19.540
+ So yes, I really miss traveling.
+
+2:06:19.540 --> 2:06:23.540
+ Every summer I go
+
+2:06:23.540 --> 2:06:27.540
+ to an international summer school. It's called
+
+2:06:27.540 --> 2:06:31.540
+ the School for Molecular and Theoretical Biology. It's held in Europe.
+
+2:06:31.540 --> 2:06:35.540
+ It's organized by very good friends of mine. And this is
+
+2:06:35.540 --> 2:06:39.540
+ the school for gifted kids from all over the world, and
+
+2:06:39.540 --> 2:06:43.540
+ they're incredibly bright. It's like every time I go there, it's like, you know,
+
+2:06:43.540 --> 2:06:47.540
+ it's a highlight of the year. And
+
+2:06:47.540 --> 2:06:51.540
+ we couldn't make it this August, so we
+
+2:06:51.540 --> 2:06:55.540
+ did this school remotely, but it's different.
+
+2:06:55.540 --> 2:06:59.540
+ So I am definitely looking forward to next August
+
+2:06:59.540 --> 2:07:03.540
+ coming there. One of
+
+2:07:03.540 --> 2:07:07.540
+ my personal resolutions, I realized that
+
+2:07:07.540 --> 2:07:11.540
+ being in the house and working from home,
+
+2:07:11.540 --> 2:07:15.540
+ I realized that actually
+
+2:07:15.540 --> 2:07:19.540
+ I apparently missed a lot
+
+2:07:19.540 --> 2:07:23.540
+ spending time with my family,
+
+2:07:23.540 --> 2:07:27.540
+ believe it or not. So you typically, with all the
+
+2:07:27.540 --> 2:07:31.540
+ research and teaching and
+
+2:07:31.540 --> 2:07:35.540
+ everything related to the academic life,
+
+2:07:35.540 --> 2:07:39.540
+ I mean, you get distracted. And so
+
+2:07:39.540 --> 2:07:43.540
+ you don't feel that
+
+2:07:43.540 --> 2:07:47.540
+ the fact that you are away from your family doesn't affect you
+
+2:07:47.540 --> 2:07:51.540
+ because you are naturally distracted by other things.
+
+2:07:51.540 --> 2:07:55.540
+ So this time I realized that
+
+2:07:55.540 --> 2:07:59.540
+ that's so important, right? Spending your time with
+
+2:07:59.540 --> 2:08:03.540
+ the family, with your kids. And so that
+
+2:08:03.540 --> 2:08:07.540
+ would be my new year resolution and actually trying to
+
+2:08:07.540 --> 2:08:11.540
+ spend as much time as possible. Even when the world opens up.
+
+2:08:11.540 --> 2:08:15.540
+ Yeah, that's a beautiful message. That's a beautiful reminder.
+
+2:08:15.540 --> 2:08:19.540
+ I asked you if there's a Russian poem
+
+2:08:19.540 --> 2:08:23.540
+ that I could read, that I could force you to read, and you said, okay, fine, sure.
+
+2:08:23.540 --> 2:08:27.540
+ Do you mind reading?
+
+2:08:27.540 --> 2:08:31.540
+ And you said that no paper needed.
+
+2:08:31.540 --> 2:08:35.540
+ So this poem was written by my namesake,
+
+2:08:35.540 --> 2:08:39.540
+ another Dmitry, Dmitry Kemerefeld.
+
+2:08:39.540 --> 2:08:43.540
+ It's a recent poem and it's
+
+2:08:43.540 --> 2:08:47.540
+ called Sorceress, Vyadma,
+
+2:08:47.540 --> 2:08:51.540
+ in Russian, or actually
+
+2:08:51.540 --> 2:08:55.540
+ Koldunya. So that's sort of another sort of connotation of
+
+2:08:55.540 --> 2:08:59.540
+ sorceress or witch. And I really like it
+
+2:08:59.540 --> 2:09:03.540
+ and it's one of just a handful poems I actually
+
+2:09:03.540 --> 2:09:07.540
+ can recall by heart. I also have a very strong
+
+2:09:07.540 --> 2:09:11.540
+ association when I read this poem with Master and
+
+2:09:11.540 --> 2:09:15.540
+ Margarita, the main female character,
+
+2:09:15.540 --> 2:09:19.540
+ Margarita. And also it's
+
+2:09:19.540 --> 2:09:23.540
+ about, it's happening about the same time we're talking
+
+2:09:23.540 --> 2:09:27.540
+ now, so around New Year,
+
+2:09:27.540 --> 2:09:31.540
+ around Christmas. Do you mind reading it in Russian?
+
+2:09:31.540 --> 2:09:49.540
+ I'll give it a try.
+
+2:10:01.540 --> 2:10:05.540
+ So you narrowed your eyes,
+
+2:10:05.540 --> 2:10:09.540
+ that anyone who was blessed
+
+2:10:09.540 --> 2:10:13.540
+ was ready to give their soul to the devil
+
+2:10:13.540 --> 2:10:17.540
+ for this witch's connection.
+
+2:10:17.540 --> 2:10:21.540
+ And I, without prejudice,
+
+2:10:21.540 --> 2:10:25.540
+ ran out to feel your
+
+2:10:25.540 --> 2:10:29.540
+ amazing breath on your lips,
+
+2:10:29.540 --> 2:10:33.540
+ to remember how you flew above the earth
+
+2:10:33.540 --> 2:10:37.540
+ in a white view,
+
+2:10:37.540 --> 2:10:41.540
+ in a white haze, in a white mist.
+
+2:10:41.540 --> 2:10:45.540
+ That's beautiful. I love how it captures a moment of longing
+
+2:10:45.540 --> 2:10:49.540
+ and maybe love even.
+
+2:10:49.540 --> 2:10:53.540
+ Yes. To me it has a lot of meaning about
+
+2:10:53.540 --> 2:10:57.540
+ this something that is happening,
+
+2:10:57.540 --> 2:11:01.540
+ something that is far away, but still very close to you.
+
+2:11:01.540 --> 2:11:05.540
+ And yes, it's the winter.
+
+2:11:05.540 --> 2:11:09.540
+ There's something magical about winter, isn't there?
+
+2:11:09.540 --> 2:11:13.540
+ I don't know how to translate it, but a kiss in winter
+
+2:11:13.540 --> 2:11:17.540
+ is interesting. Lips in winter and all that kind of stuff.
+
+2:11:17.540 --> 2:11:21.540
+ It's beautiful. Russian has a way. It has a reason, Russian poetry
+
+2:11:21.540 --> 2:11:25.540
+ is just, I'm a fan of poetry in both languages, but English
+
+2:11:25.540 --> 2:11:29.540
+ doesn't capture some of the magic that Russian seems to, so
+
+2:11:29.540 --> 2:11:33.540
+ thank you for doing that. That was awesome. Dmitry,
+
+2:11:33.540 --> 2:11:37.540
+ it's great to talk to you again. It's contagious
+
+2:11:37.540 --> 2:11:41.540
+ how much you love what you do, how much you love life, so I really appreciate
+
+2:11:41.540 --> 2:11:45.540
+ you taking the time to talk today. And thank you for having me.
+
+2:11:45.540 --> 2:11:49.540
+ Thanks for listening to this conversation with Dmitry Korkin, and thank you to our
+
+2:11:49.540 --> 2:11:53.540
+ sponsors. Brave Browser, NetSuite Business Management
+
+2:11:53.540 --> 2:11:57.540
+ Software, Magic Spoon Low Carb Cereal, and
+
+2:11:57.540 --> 2:12:01.540
+ Asleep Self Cooling Mattress. So the choice is
+
+2:12:01.540 --> 2:12:05.540
+ browsing privacy, business success, healthy diet, or comfortable
+
+2:12:05.540 --> 2:12:09.540
+ sleep. Choose wisely, my friends. And if you wish,
+
+2:12:09.540 --> 2:12:13.540
+ click the sponsor links below to get a discount and to support this podcast.
+
+2:12:13.540 --> 2:12:17.540
+ And now, let me leave you with some words from Jeffrey Eugenides.
+
+2:12:17.540 --> 2:12:21.540
+ Biology gives you a brain.
+
+2:12:21.540 --> 2:12:25.540
+ Life turns it into a mind. Thank you for listening,
+
+2:12:25.540 --> 2:12:53.540
+ and hope to see you next time.
+

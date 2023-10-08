@@ -1,0 +1,7214 @@
+WEBVTT
+
+00:00.000 --> 00:03.640
+ The following is a conversation with Andrew Ng,
+
+00:03.640 --> 00:08.120
+ one of the most impactful educators, researchers, innovators, and leaders
+
+00:08.120 --> 00:11.960
+ in artificial intelligence and technology space in general.
+
+00:11.960 --> 00:15.320
+ He cofounded Coursera and Google Brain,
+
+00:15.320 --> 00:19.640
+ launched Deep Learning AI, Landing AI, and the AI Fund,
+
+00:19.640 --> 00:23.120
+ and was the chief scientist at Baidu.
+
+00:23.120 --> 00:27.320
+ As a Stanford professor and with Coursera and Deep Learning AI,
+
+00:27.320 --> 00:33.640
+ he has helped educate and inspire millions of students, including me.
+
+00:33.640 --> 00:36.320
+ This is the Artificial Intelligence Podcast.
+
+00:36.320 --> 00:40.520
+ If you enjoy it, subscribe on YouTube, give it five stars on Apple Podcast,
+
+00:40.520 --> 00:43.800
+ support it on Patreon, or simply connect with me on Twitter
+
+00:43.800 --> 00:48.360
+ at Lex Friedman, spelled F R I D M A N.
+
+00:48.360 --> 00:51.280
+ As usual, I'll do one or two minutes of ads now
+
+00:51.280 --> 00:54.960
+ and never any ads in the middle that can break the flow of the conversation.
+
+00:54.960 --> 00:59.040
+ I hope that works for you and doesn't hurt the listening experience.
+
+00:59.040 --> 01:03.640
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+01:03.640 --> 01:07.080
+ When you get it, use code LEXPODCAST.
+
+01:07.080 --> 01:10.440
+ Cash App lets you send money to friends, buy Bitcoin,
+
+01:10.440 --> 01:13.760
+ and invest in the stock market with as little as $1.
+
+01:13.760 --> 01:16.760
+ Broker services are provided by Cash App Investing,
+
+01:16.760 --> 01:20.800
+ a subsidiary of Square, a member SIPC.
+
+01:20.800 --> 01:23.120
+ Since Cash App allows you to buy Bitcoin,
+
+01:23.120 --> 01:28.840
+ let me mention that cryptocurrency in the context of the history of money is fascinating.
+
+01:28.840 --> 01:33.800
+ I recommend Ascent of Money as a great book on this history.
+
+01:33.800 --> 01:38.520
+ Debits and credits on ledgers started over 30,000 years ago.
+
+01:38.520 --> 01:42.240
+ The US dollar was created over 200 years ago,
+
+01:42.240 --> 01:48.200
+ and Bitcoin, the first decentralized cryptocurrency, released just over 10 years ago.
+
+01:48.200 --> 01:53.640
+ So given that history, cryptocurrency is still very much in its early days of development,
+
+01:53.640 --> 01:59.800
+ but it's still aiming to and just might redefine the nature of money.
+
+01:59.800 --> 02:03.480
+ So again, if you get Cash App from the App Store or Google Play
+
+02:03.480 --> 02:07.320
+ and use the code LEXPODCAST, you'll get $10,
+
+02:07.320 --> 02:10.160
+ and Cash App will also donate $10 to FIRST,
+
+02:10.160 --> 02:15.480
+ one of my favorite organizations that is helping to advance robotics and STEM education
+
+02:15.480 --> 02:18.600
+ for young people around the world.
+
+02:18.600 --> 02:23.200
+ And now, here's my conversation with Andrew Ng.
+
+02:23.200 --> 02:25.920
+ The courses you taught on machine learning at Stanford
+
+02:25.920 --> 02:31.880
+ and later on Coursera that you cofounded have educated and inspired millions of people.
+
+02:31.880 --> 02:35.080
+ So let me ask you, what people or ideas inspired you
+
+02:35.080 --> 02:39.200
+ to get into computer science and machine learning when you were young?
+
+02:39.200 --> 02:43.840
+ When did you first fall in love with the field, is another way to put it.
+
+02:43.840 --> 02:50.120
+ Growing up in Hong Kong and Singapore, I started learning to code when I was five or six years old.
+
+02:50.120 --> 02:53.680
+ At that time, I was learning the basic programming language,
+
+02:53.680 --> 02:56.160
+ and they would take these books and they'll tell you,
+
+02:56.160 --> 03:00.080
+ type this program into your computer, so type that program to my computer.
+
+03:00.080 --> 03:05.840
+ And as a result of all that typing, I would get to play these very simple shoot them up games
+
+03:05.840 --> 03:09.880
+ that I had implemented on my little computer.
+
+03:09.880 --> 03:14.920
+ So I thought it was fascinating as a young kid that I could write this code.
+
+03:14.920 --> 03:18.280
+ I was really just copying code from a book into my computer
+
+03:18.280 --> 03:21.000
+ to then play these cool little video games.
+
+03:21.000 --> 03:27.080
+ Another moment for me was when I was a teenager and my father,
+
+03:27.080 --> 03:31.400
+ who's a doctor, was reading about expert systems and about neural networks.
+
+03:31.400 --> 03:34.800
+ So he got me to read some of these books, and I thought it was really cool.
+
+03:34.800 --> 03:39.320
+ You could write a computer that started to exhibit intelligence.
+
+03:39.320 --> 03:44.440
+ Then I remember doing an internship while I was in high school, this was in Singapore,
+
+03:44.440 --> 03:50.360
+ where I remember doing a lot of photocopying and as an office assistant.
+
+03:50.360 --> 03:53.800
+ And the highlight of my job was when I got to use the shredder.
+
+03:53.800 --> 03:57.800
+ So the teenager me, remote thinking, boy, this is a lot of photocopying.
+
+03:57.800 --> 04:01.080
+ If only we could write software, build a robot, something to automate this,
+
+04:01.080 --> 04:03.000
+ maybe I could do something else.
+
+04:03.000 --> 04:07.640
+ So I think a lot of my work since then has centered on the theme of automation.
+
+04:07.640 --> 04:09.960
+ Even the way I think about machine learning today,
+
+04:09.960 --> 04:14.920
+ we're very good at writing learning algorithms that can automate things that people can do.
+
+04:14.920 --> 04:20.040
+ Or even launching the first MOOCs, Mass Open Online Courses, that later led to Coursera.
+
+04:20.040 --> 04:25.320
+ I was trying to automate what could be automatable in how I was teaching on campus.
+
+04:25.320 --> 04:30.280
+ Process of education, trying to automate parts of that to make it more,
+
+04:30.280 --> 04:34.680
+ sort of to have more impact from a single teacher, a single educator.
+
+04:34.680 --> 04:37.800
+ Yeah, I felt, you know, teaching at Stanford,
+
+04:37.800 --> 04:41.240
+ teaching machine learning to about 400 students a year at the time.
+
+04:41.240 --> 04:46.040
+ And I found myself filming the exact same video every year,
+
+04:46.040 --> 04:48.680
+ telling the same jokes in the same room.
+
+04:48.680 --> 04:50.200
+ And I thought, why am I doing this?
+
+04:50.200 --> 04:51.720
+ Why don't we just take last year's video?
+
+04:51.720 --> 04:55.240
+ And then I can spend my time building a deeper relationship with students.
+
+04:55.240 --> 04:57.880
+ So that process of thinking through how to do that,
+
+04:57.880 --> 05:00.520
+ that led to the first MOOCs that we launched.
+
+05:00.520 --> 05:03.320
+ And then you have more time to write new jokes.
+
+05:03.320 --> 05:06.200
+ Are there favorite memories from your early days at Stanford,
+
+05:06.200 --> 05:11.240
+ teaching thousands of people in person and then millions of people online?
+
+05:12.520 --> 05:19.720
+ You know, teaching online, what not many people know was that a lot of those videos
+
+05:19.720 --> 05:24.520
+ were shot between the hours of 10 p.m. and 3 a.m.
+
+05:24.520 --> 05:31.400
+ A lot of times, we were launching the first MOOCs at Stanford.
+
+05:31.400 --> 05:33.960
+ We had already announced the course, about 100,000 people signed up.
+
+05:33.960 --> 05:39.240
+ We just started to write the code and we had not yet actually filmed the videos.
+
+05:39.240 --> 05:42.680
+ So a lot of pressure, 100,000 people waiting for us to produce the content.
+
+05:43.320 --> 05:48.360
+ So many Fridays, Saturdays, I would go out, have dinner with my friends,
+
+05:49.160 --> 05:51.480
+ and then I would think, OK, do you want to go home now?
+
+05:51.480 --> 05:54.680
+ Or do you want to go to the office to film videos?
+
+05:54.680 --> 05:59.400
+ And the thought of being able to help 100,000 people potentially learn machine learning,
+
+05:59.400 --> 06:03.080
+ fortunately, that made me think, OK, I want to go to my office,
+
+06:03.080 --> 06:05.320
+ go to my tiny little recording studio.
+
+06:05.320 --> 06:10.520
+ I would adjust my Logitech webcam, adjust my Wacom tablet,
+
+06:10.520 --> 06:12.440
+ make sure my lapel mic was on,
+
+06:12.440 --> 06:15.880
+ and then I would start recording often until 2 a.m. or 3 a.m.
+
+06:15.880 --> 06:20.360
+ I think unfortunately, that doesn't show that it was recorded that late at night,
+
+06:20.360 --> 06:25.480
+ but it was really inspiring the thought that we could create content
+
+06:25.480 --> 06:27.800
+ to help so many people learn about machine learning.
+
+06:27.800 --> 06:28.600
+ How did that feel?
+
+06:29.320 --> 06:31.400
+ The fact that you're probably somewhat alone,
+
+06:31.400 --> 06:35.560
+ maybe a couple of friends recording with a Logitech webcam
+
+06:36.120 --> 06:40.920
+ and kind of going home alone at 1 or 2 a.m. at night
+
+06:40.920 --> 06:45.160
+ and knowing that that's going to reach sort of thousands of people,
+
+06:45.160 --> 06:48.840
+ eventually millions of people, what's that feeling like?
+
+06:48.840 --> 06:53.320
+ I mean, is there a feeling of just satisfaction of pushing through?
+
+06:54.040 --> 06:55.160
+ I think it's humbling.
+
+06:55.160 --> 06:57.960
+ And I wasn't thinking about what I was feeling.
+
+06:57.960 --> 07:02.440
+ I think one thing that I'm proud to say we got right from the early days
+
+07:02.440 --> 07:06.360
+ was I told my whole team back then that the number one priority
+
+07:06.360 --> 07:09.160
+ is to do what's best for learners, do what's best for students.
+
+07:09.160 --> 07:11.480
+ And so when I went to the recording studio,
+
+07:11.480 --> 07:13.880
+ the only thing on my mind was what can I say?
+
+07:13.880 --> 07:15.080
+ How can I design my slides?
+
+07:15.080 --> 07:19.880
+ What I need to draw right to make these concepts as clear as possible for learners?
+
+07:20.520 --> 07:24.120
+ I think I've seen sometimes instructors is tempting to,
+
+07:24.120 --> 07:25.480
+ hey, let's talk about my work.
+
+07:25.480 --> 07:27.400
+ Maybe if I teach you about my research,
+
+07:27.400 --> 07:29.960
+ someone will cite my papers a couple more times.
+
+07:29.960 --> 07:31.800
+ And I think one of the things we got right,
+
+07:31.800 --> 07:34.200
+ launching the first few MOOCs and later building Coursera,
+
+07:34.200 --> 07:37.080
+ was putting in place that bedrock principle of
+
+07:37.080 --> 07:40.200
+ let's just do what's best for learners and forget about everything else.
+
+07:40.200 --> 07:43.160
+ And I think that that is a guiding principle
+
+07:43.160 --> 07:46.840
+ turned out to be really important to the rise of the MOOC movement.
+
+07:46.840 --> 07:49.320
+ And the kind of learner you imagined in your mind
+
+07:49.320 --> 07:53.880
+ is as broad as possible, as global as possible.
+
+07:53.880 --> 07:56.280
+ So really try to reach as many people
+
+07:56.280 --> 07:59.640
+ interested in machine learning and AI as possible.
+
+07:59.640 --> 08:02.600
+ I really want to help anyone that had an interest in machine learning
+
+08:03.160 --> 08:04.280
+ to break into the field.
+
+08:05.560 --> 08:08.280
+ And I think sometimes I've actually had people ask me,
+
+08:08.280 --> 08:11.560
+ hey, why are you spending so much time explaining gradient descent?
+
+08:11.560 --> 08:15.560
+ And my answer was, if I look at what I think the learner needs
+
+08:15.560 --> 08:18.280
+ and what benefit from, I felt that having that
+
+08:18.920 --> 08:22.040
+ a good understanding of the foundations coming back to the basics
+
+08:22.040 --> 08:25.880
+ would put them in a better stead to then build on a long term career.
+
+08:26.840 --> 08:30.520
+ So try to consistently make decisions on that principle.
+
+08:30.520 --> 08:35.160
+ So one of the things you actually revealed to the narrow AI community
+
+08:35.800 --> 08:39.560
+ at the time and to the world is that the amount of people
+
+08:39.560 --> 08:42.600
+ who are actually interested in AI is much larger than we imagined.
+
+08:43.480 --> 08:46.200
+ By you teaching the class and how popular it became,
+
+08:47.000 --> 08:50.920
+ it showed that, wow, this isn't just a small community
+
+08:50.920 --> 08:56.680
+ of sort of people who go to NeurIPS and it's much bigger.
+
+08:56.680 --> 08:59.800
+ It's developers, it's people from all over the world.
+
+08:59.800 --> 09:03.320
+ I mean, I'm Russian, so everybody in Russia is really interested.
+
+09:03.320 --> 09:06.600
+ There's a huge number of programmers who are interested in machine learning,
+
+09:06.600 --> 09:10.680
+ India, China, South America, everywhere.
+
+09:10.680 --> 09:13.480
+ There's just millions of people who are interested in machine learning.
+
+09:13.480 --> 09:16.760
+ So how big do you get a sense that the number of people
+
+09:16.760 --> 09:20.360
+ is that are interested from your perspective?
+
+09:20.360 --> 09:22.360
+ I think the number has grown over time.
+
+09:22.920 --> 09:26.360
+ I think it's one of those things that maybe it feels like it came out of nowhere,
+
+09:26.360 --> 09:28.600
+ but it's an insight that building it, it took years.
+
+09:28.600 --> 09:32.600
+ It's one of those overnight successes that took years to get there.
+
+09:33.160 --> 09:35.960
+ My first foray into this type of online education
+
+09:35.960 --> 09:37.880
+ was when we were filming my Stanford class
+
+09:37.880 --> 09:40.360
+ and sticking the videos on YouTube and some other things.
+
+09:40.360 --> 09:42.040
+ We had uploaded the horrors and so on,
+
+09:42.040 --> 09:46.360
+ but it's basically the one hour, 15 minute video that we put on YouTube.
+
+09:47.160 --> 09:51.240
+ And then we had four or five other versions of websites that I had built,
+
+09:52.040 --> 09:53.800
+ most of which you would never have heard of
+
+09:53.800 --> 09:55.720
+ because they reached small audiences,
+
+09:55.720 --> 09:57.480
+ but that allowed me to iterate,
+
+09:57.480 --> 09:59.000
+ allowed my team and me to iterate,
+
+09:59.000 --> 10:01.480
+ to learn what are the ideas that work and what doesn't.
+
+10:02.280 --> 10:04.920
+ For example, one of the features I was really excited about
+
+10:04.920 --> 10:07.240
+ and really proud of was build this website
+
+10:07.240 --> 10:10.600
+ where multiple people could be logged into the website at the same time.
+
+10:11.240 --> 10:12.760
+ So today, if you go to a website,
+
+10:13.480 --> 10:15.800
+ if you are logged in and then I want to log in,
+
+10:15.800 --> 10:18.200
+ you need to log out because it's the same browser, the same computer.
+
+10:18.760 --> 10:21.240
+ But I thought, well, what if two people say you and me
+
+10:21.240 --> 10:24.200
+ were watching a video together in front of a computer?
+
+10:24.200 --> 10:27.480
+ What if a website could have you type your name and password,
+
+10:27.480 --> 10:28.920
+ have me type my name and password,
+
+10:28.920 --> 10:31.720
+ and then now the computer knows both of us are watching together
+
+10:31.720 --> 10:35.320
+ and it gives both of us credit for anything we do as a group.
+
+10:35.320 --> 10:39.640
+ Influencers feature rolled it out in a high school in San Francisco.
+
+10:39.640 --> 10:41.560
+ We had about 20 something users.
+
+10:42.920 --> 10:43.880
+ Where's the teacher there?
+
+10:43.880 --> 10:46.200
+ Sacred Heart Cathedral Prep, the teacher is great.
+
+10:46.200 --> 10:47.400
+ I mean, guess what?
+
+10:47.400 --> 10:49.080
+ Zero people use this feature.
+
+10:49.720 --> 10:51.800
+ It turns out people studying online,
+
+10:51.800 --> 10:53.960
+ they want to watch the videos by themselves.
+
+10:53.960 --> 10:57.720
+ So you can play back, pause at your own speed rather than in groups.
+
+10:57.720 --> 11:01.560
+ So that was one example of a tiny lesson learned out of many
+
+11:01.560 --> 11:04.840
+ that allowed us to hone into the set of features.
+
+11:04.840 --> 11:06.360
+ It sounds like a brilliant feature.
+
+11:06.360 --> 11:09.000
+ So I guess the lesson to take from that is
+
+11:11.080 --> 11:15.160
+ there's something that looks amazing on paper and then nobody uses it.
+
+11:15.160 --> 11:18.200
+ It doesn't actually have the impact that you think it might have.
+
+11:18.200 --> 11:21.640
+ And so, yeah, I saw that you really went through a lot of different features
+
+11:21.640 --> 11:25.000
+ and a lot of ideas to arrive at Coursera,
+
+11:25.000 --> 11:28.920
+ the final kind of powerful thing that showed the world
+
+11:28.920 --> 11:32.040
+ that MOOCs can educate millions.
+
+11:32.040 --> 11:35.480
+ And I think with the whole machine learning movement as well,
+
+11:35.480 --> 11:38.280
+ I think it didn't come out of nowhere.
+
+11:38.280 --> 11:42.200
+ Instead, what happened was as more people learn about machine learning,
+
+11:42.200 --> 11:44.040
+ they will tell their friends and their friends will see
+
+11:44.040 --> 11:45.880
+ how it's applicable to their work.
+
+11:45.880 --> 11:48.680
+ And then the community kept on growing.
+
+11:48.680 --> 11:49.720
+ And I think we're still growing.
+
+11:50.920 --> 11:54.680
+ I don't know in the future what percentage of all developers
+
+11:54.680 --> 11:56.040
+ will be AI developers.
+
+11:56.040 --> 11:58.840
+ I could easily see it being north of 50%, right?
+
+11:58.840 --> 12:03.880
+ Because so many AI developers broadly construed,
+
+12:03.880 --> 12:05.800
+ not just people doing the machine learning modeling,
+
+12:05.800 --> 12:08.840
+ but the people building infrastructure, data pipelines,
+
+12:08.840 --> 12:12.440
+ all the software surrounding the core machine learning model
+
+12:13.000 --> 12:14.600
+ maybe is even bigger.
+
+12:14.600 --> 12:17.560
+ I feel like today almost every software engineer
+
+12:17.560 --> 12:19.720
+ has some understanding of the cloud.
+
+12:19.720 --> 12:23.160
+ Not all, but maybe this is my microcontroller developer
+
+12:23.160 --> 12:24.760
+ that doesn't need to deal with the cloud.
+
+12:24.760 --> 12:28.360
+ But I feel like the vast majority of software engineers today
+
+12:28.360 --> 12:30.680
+ are sort of having an appreciation of the cloud.
+
+12:31.320 --> 12:35.320
+ I think in the future, maybe we'll approach nearly 100% of all developers
+
+12:35.320 --> 12:38.440
+ being in some way an AI developer
+
+12:38.440 --> 12:41.240
+ or at least having an appreciation of machine learning.
+
+12:41.240 --> 12:44.440
+ And my hope is that there's this kind of effect
+
+12:44.440 --> 12:48.360
+ that there's people who are not really interested in being a programmer
+
+12:48.360 --> 12:51.960
+ or being into software engineering, like biologists, chemists,
+
+12:51.960 --> 12:55.480
+ and physicists, even mechanical engineers,
+
+12:55.480 --> 13:00.760
+ all these disciplines that are now more and more sitting on large data sets.
+
+13:01.560 --> 13:04.360
+ And here they didn't think they're interested in programming
+
+13:04.360 --> 13:06.040
+ until they have this data set and they realize
+
+13:06.040 --> 13:07.640
+ there's this set of machine learning tools
+
+13:07.640 --> 13:09.320
+ that allow you to use the data set.
+
+13:09.320 --> 13:12.040
+ So they actually become, they learn to program
+
+13:12.040 --> 13:13.480
+ and they become new programmers.
+
+13:13.480 --> 13:16.040
+ So like the, not just because you've mentioned
+
+13:16.040 --> 13:19.240
+ a larger percentage of developers become machine learning people.
+
+13:19.240 --> 13:24.200
+ So it seems like more and more the kinds of people
+
+13:24.200 --> 13:27.560
+ who are becoming developers is also growing significantly.
+
+13:27.560 --> 13:30.040
+ Yeah, I think once upon a time,
+
+13:30.040 --> 13:34.040
+ only a small part of humanity was literate, could read and write.
+
+13:34.040 --> 13:37.800
+ And maybe you thought, maybe not everyone needs to learn to read and write.
+
+13:37.800 --> 13:44.360
+ You just go listen to a few monks read to you and maybe that was enough.
+
+13:44.360 --> 13:47.960
+ Or maybe you just need a few handful of authors to write the bestsellers
+
+13:47.960 --> 13:49.640
+ and no one else needs to write.
+
+13:50.200 --> 13:52.920
+ But what we found was that by giving as many people,
+
+13:53.480 --> 13:56.680
+ in some countries, almost everyone, basic literacy,
+
+13:56.680 --> 13:59.320
+ it dramatically enhanced human to human communications.
+
+13:59.320 --> 14:01.240
+ And we can now write for an audience of one,
+
+14:01.240 --> 14:03.400
+ such as if I send you an email or you send me an email.
+
+14:04.760 --> 14:07.640
+ I think in computing, we're still in that phase
+
+14:07.640 --> 14:09.720
+ where so few people know how to code
+
+14:09.720 --> 14:14.280
+ that the coders mostly have to code for relatively large audiences.
+
+14:14.280 --> 14:20.360
+ But if everyone, or most people became developers at some level,
+
+14:20.360 --> 14:24.280
+ similar to how most people in developed economies are somewhat literate,
+
+14:24.280 --> 14:27.720
+ I would love to see the owners of a mom and pop store
+
+14:27.720 --> 14:30.840
+ be able to write a little bit of code to customize the TV display
+
+14:30.840 --> 14:32.280
+ for their special this week.
+
+14:32.280 --> 14:35.560
+ And I think it will enhance human to computer communications,
+
+14:36.280 --> 14:38.600
+ which is becoming more and more important today as well.
+
+14:38.600 --> 14:41.640
+ So you think it's possible that machine learning
+
+14:41.640 --> 14:45.000
+ becomes kind of similar to literacy,
+
+14:45.000 --> 14:49.800
+ where like you said, the owners of a mom and pop shop,
+
+14:49.800 --> 14:52.040
+ is basically everybody in all walks of life
+
+14:52.040 --> 14:54.760
+ would have some degree of programming capability?
+
+14:55.480 --> 14:57.560
+ I could see society getting there.
+
+14:58.360 --> 14:59.480
+ There's one other interesting thing.
+
+15:00.600 --> 15:02.680
+ If I go talk to the mom and pop store,
+
+15:02.680 --> 15:05.240
+ if I talk to a lot of people in their daily professions,
+
+15:05.240 --> 15:09.400
+ I previously didn't have a good story for why they should learn to code.
+
+15:09.400 --> 15:11.080
+ We could give them some reasons.
+
+15:11.080 --> 15:14.440
+ But what I found with the rise of machine learning and data science is that
+
+15:14.440 --> 15:18.280
+ I think the number of people with a concrete use for data science
+
+15:18.280 --> 15:20.360
+ in their daily lives, in their jobs,
+
+15:20.360 --> 15:22.600
+ may be even larger than the number of people
+
+15:22.600 --> 15:25.240
+ who have concrete use for software engineering.
+
+15:25.240 --> 15:28.040
+ For example, if you run a small mom and pop store,
+
+15:28.040 --> 15:31.880
+ I think if you can analyze the data about your sales, your customers,
+
+15:31.880 --> 15:33.480
+ I think there's actually real value there,
+
+15:34.120 --> 15:36.600
+ maybe even more than traditional software engineering.
+
+15:37.160 --> 15:40.280
+ So I find that for a lot of my friends in various professions,
+
+15:40.280 --> 15:45.080
+ be it recruiters or accountants or people that work in the factories,
+
+15:45.080 --> 15:46.840
+ which I deal with more and more these days,
+
+15:48.120 --> 15:51.160
+ I feel if they were data scientists at some level,
+
+15:51.160 --> 15:53.400
+ they could immediately use that in their work.
+
+15:54.440 --> 15:56.760
+ So I think that data science and machine learning
+
+15:56.760 --> 16:00.280
+ may be an even easier entree into the developer world
+
+16:00.280 --> 16:03.240
+ for a lot of people than the software engineering.
+
+16:03.240 --> 16:04.280
+ That's interesting.
+
+16:04.280 --> 16:06.360
+ And I agree with that, but that's beautifully put.
+
+16:06.360 --> 16:11.320
+ But we live in a world where most courses and talks have slides,
+
+16:11.320 --> 16:12.920
+ PowerPoint, keynote,
+
+16:12.920 --> 16:16.600
+ and yet you famously often still use a marker and a whiteboard.
+
+16:17.400 --> 16:19.480
+ The simplicity of that is compelling,
+
+16:19.480 --> 16:21.320
+ and for me at least, fun to watch.
+
+16:22.200 --> 16:25.960
+ So let me ask, why do you like using a marker and whiteboard,
+
+16:25.960 --> 16:27.480
+ even on the biggest of stages?
+
+16:28.920 --> 16:31.480
+ I think it depends on the concepts you want to explain.
+
+16:32.520 --> 16:34.120
+ For mathematical concepts,
+
+16:34.120 --> 16:36.440
+ it's nice to build up the equation one piece at a time,
+
+16:37.000 --> 16:41.320
+ and the whiteboard marker or the pen and stylus
+
+16:41.320 --> 16:43.880
+ is a very easy way to build up the equation,
+
+16:43.880 --> 16:46.680
+ to build up a complex concept one piece at a time
+
+16:47.320 --> 16:48.440
+ while you're talking about it,
+
+16:48.440 --> 16:51.400
+ and sometimes that enhances understandability.
+
+16:52.680 --> 16:54.760
+ The downside of writing is that it's slow,
+
+16:54.760 --> 16:57.240
+ and so if you want a long sentence, it's very hard to write that.
+
+16:57.240 --> 16:58.360
+ So I think there are pros and cons,
+
+16:58.360 --> 17:00.360
+ and sometimes I use slides,
+
+17:00.360 --> 17:03.160
+ and sometimes I use a whiteboard or a stylus.
+
+17:03.160 --> 17:05.640
+ The slowness of a whiteboard is also its upside,
+
+17:06.200 --> 17:10.600
+ because it forces you to reduce everything to the basics.
+
+17:12.600 --> 17:14.760
+ Some of your talks involve the whiteboard.
+
+17:14.760 --> 17:17.720
+ I mean, you go very slowly,
+
+17:17.720 --> 17:20.040
+ and you really focus on the most simple principles,
+
+17:20.040 --> 17:21.160
+ and that's a beautiful,
+
+17:22.760 --> 17:26.440
+ that enforces a kind of a minimalism of ideas
+
+17:26.440 --> 17:31.560
+ that I think is surprising at least for me is great for education.
+
+17:31.560 --> 17:36.360
+ Like a great talk, I think, is not one that has a lot of content.
+
+17:36.920 --> 17:41.800
+ A great talk is one that just clearly says a few simple ideas,
+
+17:41.800 --> 17:45.480
+ and I think the whiteboard somehow enforces that.
+
+17:46.280 --> 17:49.400
+ Peter Abbeel, who's now one of the top roboticists
+
+17:49.400 --> 17:51.400
+ and reinforcement learning experts in the world,
+
+17:51.400 --> 17:52.920
+ was your first PhD student.
+
+17:54.280 --> 17:56.760
+ So I bring him up just because I kind of imagine
+
+17:58.360 --> 18:01.400
+ this must have been an interesting time in your life,
+
+18:01.400 --> 18:04.840
+ and do you have any favorite memories of working with Peter,
+
+18:04.840 --> 18:08.280
+ since you were your first student in those uncertain times,
+
+18:08.280 --> 18:14.840
+ especially before deep learning really sort of blew up?
+
+18:15.400 --> 18:17.000
+ Any favorite memories from those times?
+
+18:17.720 --> 18:20.680
+ Yeah, I was really fortunate to have had Peter Abbeel
+
+18:20.680 --> 18:22.040
+ as my first PhD student,
+
+18:22.600 --> 18:25.480
+ and I think even my long term professional success
+
+18:25.480 --> 18:27.640
+ builds on early foundations or early work
+
+18:27.640 --> 18:29.880
+ that Peter was so critical to.
+
+18:29.880 --> 18:32.920
+ So I was really grateful to him for working with me.
+
+18:34.840 --> 18:39.720
+ What not a lot of people know is just how hard research was,
+
+18:39.720 --> 18:40.760
+ and still is.
+
+18:42.200 --> 18:44.840
+ Peter's PhD thesis was using reinforcement learning
+
+18:44.840 --> 18:46.040
+ to fly helicopters.
+
+18:47.080 --> 18:51.640
+ And so, even today, the website heli.stanford.edu,
+
+18:51.640 --> 18:53.320
+ heli.stanford.edu is still up.
+
+18:53.320 --> 18:56.200
+ You can watch videos of us using reinforcement learning
+
+18:56.200 --> 18:57.960
+ to make a helicopter fly upside down,
+
+18:57.960 --> 18:59.880
+ fly loose roses, so it's cool.
+
+18:59.880 --> 19:02.360
+ It's one of the most incredible robotics videos ever,
+
+19:02.360 --> 19:03.560
+ so people should watch it.
+
+19:03.560 --> 19:04.280
+ Oh yeah, thank you.
+
+19:04.280 --> 19:05.000
+ It's inspiring.
+
+19:05.000 --> 19:10.360
+ That's from like 2008 or seven or six, like that range.
+
+19:10.360 --> 19:11.400
+ Yeah, something like that.
+
+19:11.400 --> 19:12.920
+ Yeah, so it was over 10 years old.
+
+19:12.920 --> 19:14.760
+ That was really inspiring to a lot of people, yeah.
+
+19:15.320 --> 19:18.040
+ What not many people see is how hard it was.
+
+19:18.920 --> 19:22.680
+ So Peter and Adam Coase and Morgan Quigley and I
+
+19:22.680 --> 19:25.400
+ were working on various versions of the helicopter,
+
+19:25.400 --> 19:27.320
+ and a lot of things did not work.
+
+19:27.320 --> 19:29.800
+ For example, it turns out one of the hardest problems we had
+
+19:29.800 --> 19:32.200
+ was when the helicopter's flying around upside down,
+
+19:32.200 --> 19:34.760
+ doing stunts, how do you figure out the position?
+
+19:34.760 --> 19:36.760
+ How do you localize the helicopter?
+
+19:36.760 --> 19:38.280
+ So we wanted to try all sorts of things.
+
+19:38.840 --> 19:41.080
+ Having one GPS unit doesn't work
+
+19:41.080 --> 19:42.120
+ because you're flying upside down,
+
+19:42.120 --> 19:44.760
+ the GPS unit's facing down, so you can't see the satellites.
+
+19:44.760 --> 19:48.520
+ So we experimented trying to have two GPS units,
+
+19:48.520 --> 19:49.880
+ one facing up, one facing down.
+
+19:49.880 --> 19:51.720
+ So if you flip over, that didn't work
+
+19:51.720 --> 19:54.200
+ because the downward facing one couldn't synchronize
+
+19:54.200 --> 19:55.880
+ if you're flipping quickly.
+
+19:55.880 --> 19:58.520
+ Morgan Quigley was exploring this crazy,
+
+19:58.520 --> 20:01.560
+ complicated configuration of specialized hardware
+
+20:01.560 --> 20:03.800
+ to interpret GPS signals.
+
+20:03.800 --> 20:06.040
+ Looking at the FPG is completely insane.
+
+20:06.040 --> 20:09.480
+ Spent about a year working on that, didn't work.
+
+20:09.480 --> 20:13.400
+ So I remember Peter, great guy, him and me,
+
+20:13.400 --> 20:17.160
+ sitting down in my office looking at some of the latest things
+
+20:17.160 --> 20:19.560
+ we had tried that didn't work and saying,
+
+20:20.920 --> 20:22.440
+ done it, what now?
+
+20:22.440 --> 20:25.720
+ Because we tried so many things and it just didn't work.
+
+20:25.720 --> 20:31.240
+ In the end, what we did, and Adam Coles was crucial to this,
+
+20:31.240 --> 20:34.280
+ was put cameras on the ground and use cameras on the ground
+
+20:34.280 --> 20:35.880
+ to localize the helicopter.
+
+20:35.880 --> 20:38.600
+ And that solved the localization problem
+
+20:38.600 --> 20:41.080
+ so that we could then focus on the reinforcement learning
+
+20:41.080 --> 20:43.160
+ and inverse reinforcement learning techniques
+
+20:43.160 --> 20:44.920
+ so it didn't actually make the helicopter fly.
+
+20:46.600 --> 20:50.600
+ And I'm reminded, when I was doing this work at Stanford,
+
+20:50.600 --> 20:54.040
+ around that time, there was a lot of reinforcement learning
+
+20:54.040 --> 20:57.800
+ theoretical papers, but not a lot of practical applications.
+
+20:58.360 --> 21:02.120
+ So the autonomous helicopter work for flying helicopters
+
+21:02.120 --> 21:05.400
+ was one of the few practical applications
+
+21:05.400 --> 21:06.840
+ of reinforcement learning at the time,
+
+21:06.840 --> 21:09.960
+ which caused it to become pretty well known.
+
+21:10.440 --> 21:13.560
+ I feel like we might have almost come full circle with today.
+
+21:13.560 --> 21:16.280
+ There's so much buzz, so much hype, so much excitement
+
+21:16.280 --> 21:17.720
+ about reinforcement learning.
+
+21:17.720 --> 21:20.600
+ But again, we're hunting for more applications
+
+21:20.600 --> 21:23.800
+ of all of these great ideas that David Kuhnke has come up with.
+
+21:23.800 --> 21:28.120
+ What was the drive sort of in the face of the fact
+
+21:28.120 --> 21:30.040
+ that most people are doing theoretical work?
+
+21:30.040 --> 21:32.920
+ What motivates you in the uncertainty and the challenges
+
+21:32.920 --> 21:36.360
+ to get the helicopter sort of to do the applied work,
+
+21:36.360 --> 21:38.200
+ to get the actual system to work?
+
+21:39.320 --> 21:43.240
+ Yeah, in the face of fear, uncertainty, sort of the setbacks
+
+21:43.240 --> 21:44.920
+ that you mentioned for localization.
+
+21:45.880 --> 21:47.080
+ I like stuff that works.
+
+21:47.960 --> 21:48.840
+ In the physical world.
+
+21:48.840 --> 21:50.920
+ So like, it's back to the shredder.
+
+21:50.920 --> 21:55.400
+ You know, I like theory, but when I work on theory myself,
+
+21:55.400 --> 21:56.440
+ and this is personal taste,
+
+21:56.440 --> 21:58.600
+ I'm not saying anyone else should do what I do.
+
+21:58.600 --> 22:01.880
+ But when I work on theory, I personally enjoy it more
+
+22:01.880 --> 22:06.360
+ if I feel that the work I do will influence people,
+
+22:06.360 --> 22:08.360
+ have positive impact, or help someone.
+
+22:10.040 --> 22:12.680
+ I remember when many years ago,
+
+22:12.680 --> 22:14.680
+ I was speaking with a mathematics professor,
+
+22:15.480 --> 22:18.280
+ and it kind of just said, hey, why do you do what you do?
+
+22:18.280 --> 22:20.360
+ It kind of just said, hey, why do you do what you do?
+
+22:21.160 --> 22:25.640
+ And then he said, he had stars in his eyes when he answered.
+
+22:25.640 --> 22:28.760
+ And this mathematician, not from Stanford,
+
+22:28.760 --> 22:31.320
+ different university, he said, I do what I do
+
+22:31.320 --> 22:35.320
+ because it helps me to discover truth and beauty
+
+22:35.320 --> 22:36.600
+ in the universe.
+
+22:36.600 --> 22:38.360
+ He had stars in his eyes when he said that.
+
+22:38.360 --> 22:39.320
+ And I thought, that's great.
+
+22:41.240 --> 22:42.440
+ I don't want to do that.
+
+22:42.440 --> 22:44.040
+ I think it's great that someone does that,
+
+22:44.040 --> 22:45.320
+ fully support the people that do it,
+
+22:45.320 --> 22:46.920
+ a lot of respect for people that do that.
+
+22:46.920 --> 22:50.680
+ But I am more motivated when I can see a line
+
+22:50.680 --> 22:55.160
+ to how the work that my teams and I are doing helps people.
+
+22:56.920 --> 22:58.440
+ The world needs all sorts of people.
+
+22:58.440 --> 22:59.320
+ I'm just one type.
+
+22:59.320 --> 23:01.160
+ I don't think everyone should do things
+
+23:01.160 --> 23:02.360
+ the same way as I do.
+
+23:02.360 --> 23:05.960
+ But when I delve into either theory or practice,
+
+23:05.960 --> 23:09.320
+ if I personally have conviction that here's a pathway
+
+23:09.320 --> 23:13.560
+ to help people, I find that more satisfying
+
+23:14.200 --> 23:15.160
+ to have that conviction.
+
+23:15.160 --> 23:17.560
+ That's your path.
+
+23:17.560 --> 23:19.960
+ You were a proponent of deep learning
+
+23:19.960 --> 23:22.200
+ before it gained widespread acceptance.
+
+23:23.320 --> 23:26.120
+ What did you see in this field that gave you confidence?
+
+23:26.120 --> 23:28.680
+ What was your thinking process like in that first decade
+
+23:28.680 --> 23:32.840
+ of the, I don't know what that's called, 2000s, the aughts?
+
+23:33.720 --> 23:35.480
+ Yeah, I can tell you the thing we got wrong
+
+23:35.480 --> 23:36.760
+ and the thing we got right.
+
+23:36.760 --> 23:39.320
+ The thing we really got wrong was the importance of,
+
+23:40.520 --> 23:42.840
+ the early importance of unsupervised learning.
+
+23:42.840 --> 23:46.040
+ So early days of Google Brain,
+
+23:46.040 --> 23:48.040
+ we put a lot of effort into unsupervised learning
+
+23:48.040 --> 23:49.560
+ rather than supervised learning.
+
+23:49.560 --> 23:50.840
+ And there was this argument,
+
+23:50.840 --> 23:55.400
+ I think it was around 2005 after NeurIPS,
+
+23:55.400 --> 23:58.280
+ at that time called NIPS, but now NeurIPS had ended.
+
+23:58.280 --> 24:01.320
+ And Jeff Hinton and I were sitting in the cafeteria
+
+24:01.320 --> 24:02.680
+ outside the conference.
+
+24:02.680 --> 24:04.200
+ We had lunch, we were just chatting.
+
+24:04.200 --> 24:05.480
+ And Jeff pulled up this napkin.
+
+24:05.480 --> 24:07.960
+ He started sketching this argument on a napkin.
+
+24:07.960 --> 24:10.120
+ It was very compelling, as I'll repeat it.
+
+24:10.120 --> 24:12.520
+ Human brain has about a hundred trillion.
+
+24:12.520 --> 24:15.240
+ So there's 10 to the 14 synaptic connections.
+
+24:16.200 --> 24:19.480
+ You will live for about 10 to the nine seconds.
+
+24:19.480 --> 24:20.360
+ That's 30 years.
+
+24:20.360 --> 24:22.760
+ You actually live for two by 10 to the nine,
+
+24:22.760 --> 24:24.200
+ maybe three by 10 to the nine seconds.
+
+24:24.200 --> 24:25.480
+ So just let's say 10 to the nine.
+
+24:26.440 --> 24:29.000
+ So if each synaptic connection,
+
+24:29.000 --> 24:31.000
+ each weight in your brain's neural network
+
+24:31.000 --> 24:33.240
+ has just a one bit parameter,
+
+24:33.240 --> 24:35.720
+ that's 10 to the 14 bits you need to learn
+
+24:36.440 --> 24:38.920
+ in up to 10 to the nine seconds.
+
+24:38.920 --> 24:41.000
+ 10 to the nine seconds of your life.
+
+24:41.800 --> 24:43.560
+ So via this simple argument,
+
+24:43.560 --> 24:45.960
+ which is a lot of problems, it's very simplified.
+
+24:45.960 --> 24:47.480
+ That's 10 to the five bits per second
+
+24:47.480 --> 24:49.080
+ you need to learn in your life.
+
+24:49.720 --> 24:51.480
+ And I have a one year old daughter.
+
+24:52.440 --> 24:56.440
+ I am not pointing out 10 to five bits per second
+
+24:56.440 --> 24:57.960
+ of labels to her.
+
+24:59.640 --> 25:01.960
+ And I think I'm a very loving parent,
+
+25:01.960 --> 25:03.080
+ but I'm just not gonna do that.
+
+25:04.840 --> 25:08.680
+ So from this very crude, definitely problematic argument,
+
+25:08.680 --> 25:11.240
+ there's just no way that most of what we know
+
+25:11.240 --> 25:12.760
+ is through supervised learning.
+
+25:13.320 --> 25:15.160
+ But where you get so many bits of information
+
+25:15.160 --> 25:16.840
+ is from sucking in images, audio,
+
+25:16.840 --> 25:18.280
+ those experiences in the world.
+
+25:19.480 --> 25:21.320
+ And so that argument,
+
+25:21.320 --> 25:23.080
+ and there are a lot of known forces argument
+
+25:23.080 --> 25:24.680
+ you should go into,
+
+25:24.680 --> 25:26.840
+ really convinced me that there's a lot of power
+
+25:26.840 --> 25:27.880
+ to unsupervised learning.
+
+25:29.400 --> 25:32.360
+ So that was the part that we actually maybe got wrong.
+
+25:32.360 --> 25:34.680
+ I still think unsupervised learning is really important,
+
+25:34.680 --> 25:38.760
+ but in the early days, 10, 15 years ago,
+
+25:38.760 --> 25:41.080
+ a lot of us thought that was the path forward.
+
+25:41.080 --> 25:43.400
+ Oh, so you're saying that that perhaps
+
+25:43.400 --> 25:45.560
+ was the wrong intuition for the time.
+
+25:45.560 --> 25:47.560
+ For the time, that was the part we got wrong.
+
+25:48.440 --> 25:51.560
+ The part we got right was the importance of scale.
+
+25:51.560 --> 25:55.400
+ So Adam Coates, another wonderful person,
+
+25:55.960 --> 25:57.080
+ fortunate to have worked with him,
+
+25:57.960 --> 25:59.880
+ he was in my group at Stanford at the time
+
+25:59.880 --> 26:02.280
+ and Adam had run these experiments at Stanford
+
+26:02.280 --> 26:05.960
+ showing that the bigger we train a learning algorithm,
+
+26:05.960 --> 26:07.240
+ the better its performance.
+
+26:07.800 --> 26:09.960
+ And it was based on that.
+
+26:09.960 --> 26:11.720
+ There was a graph that Adam generated
+
+26:12.760 --> 26:15.640
+ where the X axis, Y axis lines going up into the right.
+
+26:15.640 --> 26:17.320
+ So the bigger you make this thing,
+
+26:17.320 --> 26:20.200
+ the better its performance accuracy is the vertical axis.
+
+26:20.200 --> 26:22.600
+ So it's really based on that chart that Adam generated
+
+26:22.600 --> 26:23.800
+ that he gave me the conviction
+
+26:23.800 --> 26:26.120
+ that you could scale these models way bigger
+
+26:26.120 --> 26:27.720
+ than what we could on a few CPUs,
+
+26:27.720 --> 26:29.240
+ which is where we had at Stanford
+
+26:29.240 --> 26:31.400
+ that we could get even better results.
+
+26:31.400 --> 26:33.240
+ And it was really based on that one figure
+
+26:33.240 --> 26:34.920
+ that Adam generated
+
+26:34.920 --> 26:38.600
+ that gave me the conviction to go with Sebastian Thrun
+
+26:38.600 --> 26:42.600
+ to pitch starting a project at Google,
+
+26:42.600 --> 26:43.960
+ which became the Google Brain project.
+
+26:43.960 --> 26:45.640
+ The Brain, you go find a Google Brain.
+
+26:45.640 --> 26:48.920
+ And there the intuition was scale
+
+26:48.920 --> 26:52.120
+ will bring performance for the system.
+
+26:52.120 --> 26:54.760
+ So we should chase a larger and larger scale.
+
+26:55.320 --> 27:00.040
+ And I think people don't realize how groundbreaking of it.
+
+27:00.040 --> 27:02.200
+ It's simple, but it's a groundbreaking idea
+
+27:02.200 --> 27:05.960
+ that bigger data sets will result in better performance.
+
+27:05.960 --> 27:08.600
+ It was controversial at the time.
+
+27:08.600 --> 27:10.120
+ Some of my well meaning friends,
+
+27:10.120 --> 27:11.480
+ senior people in the machine learning community,
+
+27:11.480 --> 27:15.000
+ I won't name, but some of whom we know,
+
+27:16.040 --> 27:17.800
+ my well meaning friends came
+
+27:17.800 --> 27:19.160
+ and were trying to give me friendly,
+
+27:19.160 --> 27:20.840
+ I was like, hey, Andrew, why are you doing this?
+
+27:20.840 --> 27:21.720
+ This is crazy.
+
+27:21.720 --> 27:23.160
+ It's in the near natural architecture.
+
+27:23.160 --> 27:24.760
+ Look at these architectures of building.
+
+27:24.760 --> 27:25.960
+ You just want to go for scale?
+
+27:25.960 --> 27:27.320
+ Like this is a bad career move.
+
+27:27.320 --> 27:29.000
+ So my well meaning friends,
+
+27:29.000 --> 27:32.120
+ some of them were trying to talk me out of it.
+
+27:33.960 --> 27:35.880
+ But I find that if you want to make a breakthrough,
+
+27:36.760 --> 27:38.920
+ you sometimes have to have conviction
+
+27:38.920 --> 27:40.920
+ and do something before it's popular,
+
+27:40.920 --> 27:42.440
+ since that lets you have a bigger impact.
+
+27:43.000 --> 27:45.400
+ Let me ask you just a small tangent on that topic.
+
+27:45.960 --> 27:51.320
+ I find myself arguing with people saying that greater scale,
+
+27:51.320 --> 27:53.400
+ especially in the context of active learning,
+
+27:53.400 --> 27:56.840
+ so very carefully selecting the data set,
+
+27:56.840 --> 27:59.160
+ but growing the scale of the data set
+
+27:59.160 --> 28:01.560
+ is going to lead to even further breakthroughs
+
+28:01.560 --> 28:02.680
+ in deep learning.
+
+28:02.680 --> 28:05.800
+ And there's currently pushback at that idea
+
+28:05.800 --> 28:07.800
+ that larger data sets are no longer,
+
+28:09.000 --> 28:11.800
+ so you want to increase the efficiency of learning.
+
+28:11.800 --> 28:13.960
+ You want to make better learning mechanisms.
+
+28:13.960 --> 28:17.640
+ And I personally believe that bigger data sets will still,
+
+28:17.640 --> 28:19.880
+ with the same learning methods we have now,
+
+28:19.880 --> 28:21.720
+ will result in better performance.
+
+28:21.720 --> 28:23.400
+ What's your intuition at this time
+
+28:23.400 --> 28:27.480
+ on this dual side?
+
+28:27.480 --> 28:31.240
+ Do we need to come up with better architectures for learning
+
+28:31.240 --> 28:35.080
+ or can we just get bigger, better data sets
+
+28:35.080 --> 28:36.360
+ that will improve performance?
+
+28:37.160 --> 28:40.360
+ I think both are important and it's also problem dependent.
+
+28:40.360 --> 28:41.800
+ So for a few data sets,
+
+28:41.800 --> 28:45.960
+ we may be approaching a Bayes error rate
+
+28:45.960 --> 28:48.600
+ or approaching or surpassing human level performance
+
+28:48.600 --> 28:50.680
+ and then there's that theoretical ceiling
+
+28:50.680 --> 28:51.880
+ that we will never surpass,
+
+28:51.880 --> 28:53.480
+ so Bayes error rate.
+
+28:54.520 --> 28:56.120
+ But then I think there are plenty of problems
+
+28:56.120 --> 28:57.960
+ where we're still quite far
+
+28:57.960 --> 28:59.640
+ from either human level performance
+
+28:59.640 --> 29:00.840
+ or from Bayes error rate
+
+29:00.840 --> 29:04.200
+ and bigger data sets with neural networks
+
+29:05.240 --> 29:07.000
+ without further algorithmic innovation
+
+29:07.000 --> 29:09.160
+ will be sufficient to take us further.
+
+29:10.280 --> 29:11.240
+ But on the flip side,
+
+29:11.240 --> 29:12.760
+ if we look at the recent breakthroughs
+
+29:12.760 --> 29:15.480
+ using transforming networks or language models,
+
+29:15.480 --> 29:18.200
+ it was a combination of novel architecture
+
+29:18.200 --> 29:20.440
+ but also scale had a lot to do with it.
+
+29:20.440 --> 29:22.920
+ If we look at what happened with GP2 and BERTZ,
+
+29:22.920 --> 29:25.560
+ I think scale was a large part of the story.
+
+29:26.200 --> 29:28.200
+ Yeah, that's not often talked about
+
+29:28.200 --> 29:30.920
+ is the scale of the data set it was trained on
+
+29:30.920 --> 29:32.360
+ and the quality of the data set
+
+29:32.360 --> 29:33.880
+ because there's some,
+
+29:35.000 --> 29:37.560
+ so it was like reddit threads that had,
+
+29:38.280 --> 29:39.880
+ they were operated highly.
+
+29:39.880 --> 29:42.920
+ So there's already some weak supervision
+
+29:42.920 --> 29:44.680
+ on a very large data set
+
+29:44.680 --> 29:46.360
+ that people don't often talk about, right?
+
+29:47.160 --> 29:50.360
+ I find that today we have maturing processes
+
+29:50.360 --> 29:51.640
+ to managing code,
+
+29:52.360 --> 29:53.400
+ things like Git, right?
+
+29:53.400 --> 29:54.520
+ Version control.
+
+29:54.520 --> 29:57.320
+ It took us a long time to evolve the good processes.
+
+29:58.360 --> 29:59.560
+ I remember when my friends and I
+
+29:59.560 --> 30:02.200
+ were emailing each other C++ files in email,
+
+30:02.200 --> 30:03.080
+ but then we had,
+
+30:03.080 --> 30:05.080
+ was it CVS or version Git?
+
+30:05.080 --> 30:06.280
+ Maybe something else in the future.
+
+30:07.400 --> 30:10.600
+ We're very mature in terms of tools for managing data
+
+30:10.600 --> 30:11.960
+ and think about the clean data
+
+30:11.960 --> 30:14.600
+ and how to solve down very hot, messy data problems.
+
+30:15.320 --> 30:17.160
+ I think there's a lot of innovation there
+
+30:17.160 --> 30:17.960
+ to be had still.
+
+30:17.960 --> 30:21.160
+ I love the idea that you were versioning through email.
+
+30:21.960 --> 30:23.080
+ I'll give you one example.
+
+30:23.880 --> 30:27.880
+ When we work with manufacturing companies,
+
+30:29.160 --> 30:31.160
+ it's not at all uncommon
+
+30:31.160 --> 30:34.200
+ for there to be multiple labels
+
+30:34.200 --> 30:36.280
+ that disagree with each other, right?
+
+30:36.280 --> 30:39.720
+ And so we would do the work in visual inspection.
+
+30:40.440 --> 30:42.920
+ We will take, say, a plastic part
+
+30:42.920 --> 30:44.680
+ and show it to one inspector
+
+30:44.680 --> 30:47.160
+ and the inspector, sometimes very opinionated,
+
+30:47.160 --> 30:48.520
+ they'll go, clearly, that's a defect.
+
+30:48.520 --> 30:49.640
+ This scratch, unacceptable.
+
+30:49.640 --> 30:51.160
+ Gotta reject this part.
+
+30:51.160 --> 30:53.320
+ Take the same part to different inspector,
+
+30:53.320 --> 30:54.920
+ different, very opinionated.
+
+30:54.920 --> 30:56.200
+ Clearly, the scratch is small.
+
+30:56.200 --> 30:56.760
+ It's fine.
+
+30:56.760 --> 30:57.480
+ Don't throw it away.
+
+30:57.480 --> 30:58.680
+ You're gonna make us, you know.
+
+30:59.240 --> 31:01.800
+ And then sometimes you take the same plastic part,
+
+31:01.800 --> 31:03.400
+ show it to the same inspector
+
+31:03.400 --> 31:05.400
+ in the afternoon, I suppose, in the morning,
+
+31:05.400 --> 31:07.480
+ and very opinionated go, in the morning,
+
+31:07.480 --> 31:08.680
+ they say, clearly, it's okay.
+
+31:08.680 --> 31:10.600
+ In the afternoon, equally confident.
+
+31:10.600 --> 31:12.280
+ Clearly, this is a defect.
+
+31:12.280 --> 31:14.760
+ And so what is an AI team supposed to do
+
+31:14.760 --> 31:17.400
+ if sometimes even one person doesn't agree
+
+31:17.400 --> 31:19.720
+ with himself or herself in the span of a day?
+
+31:20.280 --> 31:23.640
+ So I think these are the types of very practical,
+
+31:23.640 --> 31:28.520
+ very messy data problems that my teams wrestle with.
+
+31:30.200 --> 31:32.840
+ In the case of large consumer internet companies
+
+31:32.840 --> 31:34.200
+ where you have a billion users,
+
+31:34.200 --> 31:35.480
+ you have a lot of data.
+
+31:35.480 --> 31:36.360
+ You don't worry about it.
+
+31:36.360 --> 31:37.160
+ Just take the average.
+
+31:37.160 --> 31:38.280
+ It kind of works.
+
+31:38.280 --> 31:40.760
+ But in a case of other industry settings,
+
+31:40.760 --> 31:42.360
+ we don't have big data.
+
+31:42.360 --> 31:44.520
+ If just a small data, very small data sets,
+
+31:44.520 --> 31:46.520
+ maybe around 100 defective parts
+
+31:47.720 --> 31:49.720
+ or 100 examples of a defect.
+
+31:49.720 --> 31:51.320
+ If you have only 100 examples,
+
+31:51.320 --> 31:53.240
+ these little labeling errors,
+
+31:53.240 --> 31:55.800
+ if 10 of your 100 labels are wrong,
+
+31:55.800 --> 31:58.520
+ that actually is 10% of your data set has a big impact.
+
+31:58.520 --> 31:59.640
+ So how do you clean this up?
+
+31:59.640 --> 32:00.520
+ What are you supposed to do?
+
+32:01.160 --> 32:03.400
+ This is an example of the types of things
+
+32:03.400 --> 32:06.680
+ that my teams, this is a landing AI example,
+
+32:06.680 --> 32:09.000
+ are wrestling with to deal with small data,
+
+32:09.000 --> 32:10.040
+ which comes up all the time
+
+32:10.040 --> 32:12.120
+ once you're outside consumer internet.
+
+32:12.120 --> 32:13.000
+ Yeah, that's fascinating.
+
+32:13.000 --> 32:15.240
+ So then you invest more effort and time
+
+32:15.240 --> 32:18.040
+ in thinking about the actual labeling process.
+
+32:18.040 --> 32:19.560
+ What are the labels?
+
+32:19.560 --> 32:22.440
+ What are the how are disagreements resolved
+
+32:22.440 --> 32:25.640
+ and all those kinds of like pragmatic real world problems.
+
+32:25.640 --> 32:27.240
+ That's a fascinating space.
+
+32:27.240 --> 32:29.560
+ Yeah, I find that actually when I'm teaching at Stanford,
+
+32:29.560 --> 32:32.680
+ I increasingly encourage students at Stanford
+
+32:32.680 --> 32:35.960
+ to try to find their own project
+
+32:37.080 --> 32:38.280
+ for the end of term project,
+
+32:38.280 --> 32:40.360
+ rather than just downloading someone else's
+
+32:40.360 --> 32:41.880
+ nicely clean data set.
+
+32:41.880 --> 32:43.320
+ It's actually much harder if you need to go
+
+32:43.320 --> 32:45.480
+ and define your own problem and find your own data set,
+
+32:45.480 --> 32:48.680
+ rather than you go to one of the several good websites,
+
+32:48.680 --> 32:52.760
+ very good websites with clean scoped data sets
+
+32:52.760 --> 32:53.800
+ that you could just work on.
+
+32:55.240 --> 32:56.920
+ You're now running three efforts,
+
+32:56.920 --> 33:01.320
+ the AI Fund, Landing AI, and deeplearning.ai.
+
+33:02.280 --> 33:04.520
+ As you've said, the AI Fund is involved
+
+33:04.520 --> 33:06.600
+ in creating new companies from scratch.
+
+33:06.600 --> 33:08.520
+ Landing AI is involved in helping
+
+33:08.520 --> 33:10.440
+ already established companies do AI
+
+33:10.440 --> 33:14.600
+ and deeplearning.ai is for education of everyone else
+
+33:14.600 --> 33:18.040
+ or of individuals interested in getting into the field
+
+33:18.040 --> 33:19.320
+ and excelling in it.
+
+33:19.320 --> 33:22.280
+ So let's perhaps talk about each of these areas.
+
+33:22.280 --> 33:24.200
+ First, deeplearning.ai.
+
+33:25.560 --> 33:27.640
+ How, the basic question,
+
+33:27.640 --> 33:30.040
+ how does a person interested in deep learning
+
+33:30.040 --> 33:31.240
+ get started in the field?
+
+33:32.280 --> 33:35.640
+ Deep learning.ai is working to create courses
+
+33:35.640 --> 33:37.480
+ to help people break into AI.
+
+33:37.480 --> 33:42.120
+ So my machine learning course that I taught through Stanford
+
+33:42.120 --> 33:45.400
+ is one of the most popular courses on Coursera.
+
+33:45.400 --> 33:47.640
+ To this day, it's probably one of the courses,
+
+33:48.440 --> 33:49.720
+ sort of, if I asked somebody,
+
+33:49.720 --> 33:52.200
+ how did you get into machine learning
+
+33:52.200 --> 33:54.040
+ or how did you fall in love with machine learning
+
+33:54.040 --> 33:55.160
+ or would get you interested,
+
+33:55.800 --> 33:58.920
+ it always goes back to Andrew Ng at some point.
+
+33:58.920 --> 34:00.040
+ I see, yeah, I'm sure.
+
+34:00.040 --> 34:01.880
+ You've influenced, the amount of people
+
+34:01.880 --> 34:03.160
+ you've influenced is ridiculous.
+
+34:03.160 --> 34:05.720
+ So for that, I'm sure I speak for a lot of people
+
+34:05.720 --> 34:07.080
+ say big thank you.
+
+34:07.080 --> 34:07.800
+ No, yeah, thank you.
+
+34:09.080 --> 34:11.720
+ I was once reading a news article,
+
+34:13.320 --> 34:15.080
+ I think it was tech review
+
+34:15.080 --> 34:17.480
+ and I'm gonna mess up the statistic,
+
+34:17.480 --> 34:19.240
+ but I remember reading an article that said
+
+34:20.120 --> 34:23.640
+ something like one third of all programmers are self taught.
+
+34:23.640 --> 34:24.760
+ I may have the number one third,
+
+34:24.760 --> 34:25.640
+ around me was two thirds,
+
+34:25.640 --> 34:26.600
+ but when I read that article,
+
+34:26.600 --> 34:28.120
+ I thought this doesn't make sense.
+
+34:28.120 --> 34:29.400
+ Everyone is self taught.
+
+34:29.400 --> 34:31.160
+ So, cause you teach yourself.
+
+34:31.160 --> 34:32.200
+ I don't teach people.
+
+34:32.920 --> 34:33.480
+ That's well put.
+
+34:33.480 --> 34:37.960
+ Yeah, so how does one get started in deep learning
+
+34:37.960 --> 34:40.520
+ and where does deeplearning.ai fit into that?
+
+34:40.520 --> 34:43.640
+ So the deep learning specialization offered by deeplearning.ai
+
+34:43.640 --> 34:49.880
+ is I think it was Coursera's top specialization.
+
+34:49.880 --> 34:50.680
+ It might still be.
+
+34:50.680 --> 34:52.840
+ So it's a very popular way for people
+
+34:52.840 --> 34:54.360
+ to take that specialization
+
+34:54.360 --> 34:57.720
+ to learn about everything from neural networks
+
+34:57.720 --> 34:59.960
+ to how to tune in your network
+
+34:59.960 --> 35:02.920
+ to what is a ConvNet to what is a RNN
+
+35:02.920 --> 35:05.800
+ or a sequence model or what is an attention model.
+
+35:05.800 --> 35:07.880
+ And so the deep learning specialization
+
+35:09.080 --> 35:10.840
+ steps everyone through those algorithms
+
+35:10.840 --> 35:12.200
+ so you deeply understand it
+
+35:12.200 --> 35:15.160
+ and can implement it and use it for whatever application.
+
+35:15.160 --> 35:16.440
+ From the very beginning.
+
+35:16.440 --> 35:19.480
+ So what would you say are the prerequisites
+
+35:19.480 --> 35:22.040
+ for somebody to take the deep learning specialization
+
+35:22.040 --> 35:25.560
+ in terms of maybe math or programming background?
+
+35:25.560 --> 35:27.960
+ Yeah, need to understand basic programming
+
+35:27.960 --> 35:30.120
+ since there are programming exercises in Python
+
+35:30.120 --> 35:34.360
+ and the math prereq is quite basic.
+
+35:34.360 --> 35:35.880
+ So no calculus is needed.
+
+35:35.880 --> 35:38.600
+ If you know calculus is great, you get better intuitions
+
+35:38.600 --> 35:41.160
+ but deliberately try to teach that specialization
+
+35:41.160 --> 35:42.680
+ without requiring calculus.
+
+35:42.680 --> 35:47.160
+ So I think high school math would be sufficient.
+
+35:47.160 --> 35:49.000
+ If you know how to multiply two matrices,
+
+35:49.000 --> 35:51.480
+ I think that's great.
+
+35:52.120 --> 35:54.680
+ So a little basic linear algebra is great.
+
+35:54.680 --> 35:55.960
+ Basic linear algebra,
+
+35:55.960 --> 36:00.040
+ even very, very basic linear algebra in some programming.
+
+36:00.040 --> 36:02.120
+ I think that people that have done the machine learning course
+
+36:02.120 --> 36:05.000
+ will find a deep learning specialization a bit easier
+
+36:05.000 --> 36:06.360
+ but it's also possible to jump
+
+36:06.360 --> 36:08.280
+ into the deep learning specialization directly
+
+36:08.280 --> 36:09.960
+ but it will be a little bit harder
+
+36:09.960 --> 36:14.440
+ since we tend to go over faster concepts
+
+36:14.440 --> 36:16.120
+ like how does gradient descent work
+
+36:16.120 --> 36:17.640
+ and what is the objective function
+
+36:17.640 --> 36:20.120
+ which is covered more slowly in the machine learning course.
+
+36:20.120 --> 36:22.840
+ Could you briefly mention some of the key concepts
+
+36:22.840 --> 36:25.000
+ in deep learning that students should learn
+
+36:25.000 --> 36:27.640
+ that you envision them learning in the first few months
+
+36:27.640 --> 36:28.680
+ in the first year or so?
+
+36:29.320 --> 36:31.880
+ So if you take the deep learning specialization,
+
+36:31.880 --> 36:34.840
+ you learn the foundations of what is a neural network.
+
+36:34.840 --> 36:36.840
+ How do you build up a neural network
+
+36:36.840 --> 36:40.600
+ from a single logistic unit to a stack of layers
+
+36:40.600 --> 36:43.000
+ to different activation functions.
+
+36:43.000 --> 36:44.920
+ You learn how to train the neural networks.
+
+36:44.920 --> 36:47.720
+ One thing I'm very proud of in that specialization
+
+36:47.720 --> 36:50.200
+ is we go through a lot of practical knowhow
+
+36:50.200 --> 36:52.200
+ of how to actually make these things work.
+
+36:52.200 --> 36:55.640
+ So what are the differences between different optimization algorithms?
+
+36:55.640 --> 36:57.240
+ What do you do if the algorithm overfits
+
+36:57.240 --> 36:59.000
+ or how do you tell if the algorithm is overfitting?
+
+36:59.000 --> 37:00.120
+ When do you collect more data?
+
+37:00.120 --> 37:03.160
+ When should you not bother to collect more data?
+
+37:03.160 --> 37:06.200
+ I find that even today, unfortunately,
+
+37:06.200 --> 37:09.960
+ there are engineers that will spend six months
+
+37:09.960 --> 37:11.720
+ trying to pursue a particular direction
+
+37:12.520 --> 37:13.880
+ such as collect more data
+
+37:13.880 --> 37:15.800
+ because we heard more data is valuable
+
+37:15.800 --> 37:18.280
+ but sometimes you could run some tests
+
+37:18.280 --> 37:20.360
+ and could have figured out six months earlier
+
+37:20.360 --> 37:23.880
+ that for this particular problem, collecting more data isn't going to cut it.
+
+37:23.880 --> 37:26.280
+ So just don't spend six months collecting more data.
+
+37:26.280 --> 37:30.280
+ Spend your time modifying the architecture or trying something else.
+
+37:30.280 --> 37:32.600
+ So go through a lot of the practical knowhow
+
+37:32.600 --> 37:37.240
+ so that when someone, when you take the deep learning specialization,
+
+37:37.240 --> 37:39.720
+ you have those skills to be very efficient
+
+37:39.720 --> 37:41.960
+ in how you build these networks.
+
+37:41.960 --> 37:45.160
+ So dive right in to play with the network, to train it,
+
+37:45.160 --> 37:47.160
+ to do the inference on a particular data set,
+
+37:47.160 --> 37:52.120
+ to build intuition about it without building it up too big
+
+37:52.120 --> 37:53.960
+ to where you spend, like you said, six months
+
+37:54.760 --> 37:57.320
+ learning, building up your big project
+
+37:57.320 --> 38:02.200
+ without building any intuition of a small aspect of the data
+
+38:02.200 --> 38:05.000
+ that could already tell you everything you need to know about that data.
+
+38:05.640 --> 38:09.240
+ Yes, and also the systematic frameworks of thinking
+
+38:09.240 --> 38:12.280
+ for how to go about building practical machine learning.
+
+38:12.280 --> 38:15.320
+ Maybe to make an analogy, when we learn to code,
+
+38:15.320 --> 38:17.960
+ we have to learn the syntax of some programming language, right?
+
+38:17.960 --> 38:20.600
+ Be it Python or C++ or Octave or whatever.
+
+38:21.480 --> 38:24.920
+ But the equally important or maybe even more important part of coding
+
+38:24.920 --> 38:27.640
+ is to understand how to string together these lines of code
+
+38:27.640 --> 38:28.760
+ into coherent things.
+
+38:28.760 --> 38:31.880
+ So when should you put something in a function column?
+
+38:31.880 --> 38:32.840
+ When should you not?
+
+38:32.840 --> 38:34.040
+ How do you think about abstraction?
+
+38:34.600 --> 38:39.000
+ So those frameworks are what makes a programmer efficient
+
+38:39.000 --> 38:40.920
+ even more than understanding the syntax.
+
+38:41.560 --> 38:44.120
+ I remember when I was an undergrad at Carnegie Mellon,
+
+38:44.120 --> 38:47.480
+ one of my friends would debug their code
+
+38:47.480 --> 38:50.840
+ by first trying to compile it, and then it was C++ code.
+
+38:50.840 --> 38:53.240
+ And then every line in the syntax error,
+
+38:53.240 --> 38:55.640
+ they want to get rid of the syntax errors as quickly as possible.
+
+38:55.640 --> 38:56.520
+ So how do you do that?
+
+38:56.520 --> 38:59.640
+ Well, they would delete every single line of code with a syntax error.
+
+38:59.640 --> 39:01.640
+ So really efficient for getting rid of syntax errors
+
+39:01.640 --> 39:02.920
+ for horrible debugging errors.
+
+39:02.920 --> 39:04.680
+ So I think we learn how to debug.
+
+39:05.320 --> 39:06.920
+ And I think in machine learning,
+
+39:06.920 --> 39:09.320
+ the way you debug a machine learning program
+
+39:09.320 --> 39:13.000
+ is very different than the way you do binary search or whatever,
+
+39:13.000 --> 39:15.080
+ or use a debugger, trace through the code
+
+39:15.080 --> 39:17.000
+ in traditional software engineering.
+
+39:17.000 --> 39:18.920
+ So it's an evolving discipline,
+
+39:18.920 --> 39:20.760
+ but I find that the people that are really good
+
+39:20.760 --> 39:22.840
+ at debugging machine learning algorithms
+
+39:22.840 --> 39:27.080
+ are easily 10x, maybe 100x faster at getting something to work.
+
+39:28.120 --> 39:29.800
+ And the basic process of debugging is,
+
+39:30.760 --> 39:32.600
+ so the bug in this case,
+
+39:32.600 --> 39:36.360
+ why isn't this thing learning, improving,
+
+39:36.360 --> 39:39.240
+ sort of going into the questions of overfitting
+
+39:39.240 --> 39:40.760
+ and all those kinds of things?
+
+39:40.760 --> 39:45.240
+ That's the logical space that the debugging is happening in
+
+39:45.240 --> 39:46.440
+ with neural networks.
+
+39:46.440 --> 39:49.480
+ Yeah, often the question is, why doesn't it work yet?
+
+39:50.280 --> 39:52.120
+ Or can I expect it to eventually work?
+
+39:52.920 --> 39:54.760
+ And what are the things I could try?
+
+39:54.760 --> 39:57.400
+ Change the architecture, more data, more regularization,
+
+39:57.400 --> 39:58.760
+ different optimization algorithm,
+
+40:00.600 --> 40:01.880
+ different types of data.
+
+40:01.880 --> 40:04.200
+ So to answer those questions systematically,
+
+40:04.200 --> 40:08.040
+ so that you don't spend six months hitting down the blind alley
+
+40:08.040 --> 40:09.720
+ before someone comes and says,
+
+40:09.720 --> 40:11.160
+ why did you spend six months doing this?
+
+40:12.120 --> 40:13.960
+ What concepts in deep learning
+
+40:13.960 --> 40:16.440
+ do you think students struggle the most with?
+
+40:16.440 --> 40:19.000
+ Or sort of is the biggest challenge for them
+
+40:19.000 --> 40:21.080
+ was to get over that hill.
+
+40:23.160 --> 40:26.360
+ It hooks them and it inspires them and they really get it.
+
+40:28.040 --> 40:30.200
+ Similar to learning mathematics,
+
+40:30.200 --> 40:32.440
+ I think one of the challenges of deep learning
+
+40:32.440 --> 40:33.960
+ is that there are a lot of concepts
+
+40:33.960 --> 40:35.320
+ that build on top of each other.
+
+40:36.760 --> 40:38.760
+ If you ask me what's hard about mathematics,
+
+40:38.760 --> 40:40.920
+ I have a hard time pinpointing one thing.
+
+40:40.920 --> 40:42.280
+ Is it addition, subtraction?
+
+40:42.280 --> 40:43.080
+ Is it a carry?
+
+40:43.080 --> 40:44.360
+ Is it multiplication?
+
+40:44.360 --> 40:45.720
+ There's just a lot of stuff.
+
+40:45.720 --> 40:48.040
+ I think one of the challenges of learning math
+
+40:48.040 --> 40:49.800
+ and of learning certain technical fields
+
+40:49.800 --> 40:51.480
+ is that there are a lot of concepts
+
+40:51.480 --> 40:53.080
+ and if you miss a concept,
+
+40:53.080 --> 40:55.400
+ then you're kind of missing the prerequisite
+
+40:55.400 --> 40:56.760
+ for something that comes later.
+
+40:58.040 --> 41:00.840
+ So in the deep learning specialization,
+
+41:01.880 --> 41:03.480
+ try to break down the concepts
+
+41:03.480 --> 41:06.920
+ to maximize the odds of each component being understandable.
+
+41:06.920 --> 41:09.240
+ So when you move on to the more advanced thing,
+
+41:09.240 --> 41:10.760
+ we learn confidence,
+
+41:10.760 --> 41:12.280
+ hopefully you have enough intuitions
+
+41:12.280 --> 41:13.880
+ from the earlier sections
+
+41:13.880 --> 41:16.760
+ to then understand why we structure confidence
+
+41:16.760 --> 41:18.520
+ in a certain way
+
+41:18.520 --> 41:23.000
+ and then eventually why we built RNNs and LSTMs
+
+41:23.000 --> 41:24.760
+ or attention models in a certain way
+
+41:24.760 --> 41:26.600
+ building on top of the earlier concepts.
+
+41:27.560 --> 41:28.600
+ Actually, I'm curious,
+
+41:28.600 --> 41:30.920
+ you do a lot of teaching as well.
+
+41:30.920 --> 41:33.080
+ Do you have a favorite,
+
+41:33.080 --> 41:39.480
+ this is the hard concept moment in your teaching?
+
+41:39.480 --> 41:41.960
+ Well, I don't think anyone's ever turned the interview on me.
+
+41:43.320 --> 41:44.120
+ I'm glad you get first.
+
+41:46.600 --> 41:47.880
+ I think that's a really good question.
+
+41:48.920 --> 41:51.160
+ Yeah, it's really hard to capture the moment
+
+41:51.160 --> 41:51.800
+ when they struggle.
+
+41:51.800 --> 41:53.320
+ I think you put it really eloquently.
+
+41:53.320 --> 41:55.080
+ I do think there's moments
+
+41:55.080 --> 41:57.240
+ that are like aha moments
+
+41:57.240 --> 41:59.400
+ that really inspire people.
+
+41:59.400 --> 42:01.400
+ I think for some reason,
+
+42:01.400 --> 42:03.240
+ reinforcement learning,
+
+42:03.240 --> 42:04.920
+ especially deep reinforcement learning
+
+42:05.560 --> 42:07.400
+ is a really great way
+
+42:07.400 --> 42:09.560
+ to really inspire people
+
+42:09.560 --> 42:12.920
+ and get what the use of neural networks can do.
+
+42:13.480 --> 42:15.160
+ Even though neural networks
+
+42:15.160 --> 42:18.440
+ really are just a part of the deep RL framework,
+
+42:18.440 --> 42:19.640
+ but it's a really nice way
+
+42:19.640 --> 42:22.360
+ to paint the entirety of the picture
+
+42:22.360 --> 42:23.960
+ of a neural network
+
+42:23.960 --> 42:25.880
+ being able to learn from scratch,
+
+42:25.880 --> 42:27.720
+ knowing nothing and explore the world
+
+42:27.720 --> 42:29.080
+ and pick up lessons.
+
+42:29.080 --> 42:31.240
+ I find that a lot of the aha moments
+
+42:31.240 --> 42:33.640
+ happen when you use deep RL
+
+42:33.640 --> 42:36.200
+ to teach people about neural networks,
+
+42:36.200 --> 42:37.720
+ which is counterintuitive.
+
+42:37.720 --> 42:40.680
+ I find like a lot of the inspired sort of fire
+
+42:40.680 --> 42:41.560
+ in people's passion,
+
+42:41.560 --> 42:42.200
+ people's eyes,
+
+42:42.200 --> 42:44.040
+ it comes from the RL world.
+
+42:44.680 --> 42:46.280
+ Do you find reinforcement learning
+
+42:46.920 --> 42:48.520
+ to be a useful part
+
+42:48.520 --> 42:50.440
+ of the teaching process or no?
+
+42:51.800 --> 42:53.400
+ I still teach reinforcement learning
+
+42:53.400 --> 42:54.920
+ in one of my Stanford classes
+
+42:55.480 --> 42:57.320
+ and my PhD thesis was on reinforcement learning.
+
+42:57.320 --> 42:58.440
+ So I clearly loved a few.
+
+42:59.240 --> 43:00.840
+ I find that if I'm trying to teach
+
+43:00.840 --> 43:03.000
+ students the most useful techniques
+
+43:03.000 --> 43:04.520
+ for them to use today,
+
+43:04.520 --> 43:07.000
+ I end up shrinking the amount of time
+
+43:07.000 --> 43:08.840
+ I talk about reinforcement learning.
+
+43:08.840 --> 43:10.760
+ It's not what's working today.
+
+43:10.760 --> 43:12.280
+ Now, our world changes so fast.
+
+43:12.280 --> 43:13.480
+ Maybe this will be totally different
+
+43:13.480 --> 43:14.360
+ in a couple of years.
+
+43:15.800 --> 43:17.640
+ But I think we need a couple more things
+
+43:17.640 --> 43:19.240
+ for reinforcement learning to get there.
+
+43:20.600 --> 43:21.720
+ One of my teams is looking
+
+43:21.720 --> 43:22.600
+ to reinforcement learning
+
+43:22.600 --> 43:23.800
+ for some robotic control tasks.
+
+43:23.800 --> 43:25.160
+ So I see the applications,
+
+43:25.160 --> 43:27.560
+ but if you look at it as a percentage
+
+43:27.560 --> 43:28.520
+ of all of the impact
+
+43:28.520 --> 43:30.040
+ of the types of things we do,
+
+43:30.040 --> 43:32.680
+ it's at least today outside of
+
+43:33.720 --> 43:35.320
+ playing video games, right?
+
+43:35.320 --> 43:37.800
+ In a few of the games, the scope.
+
+43:38.440 --> 43:39.560
+ Actually, at NeurIPS,
+
+43:39.560 --> 43:40.840
+ a bunch of us were standing around
+
+43:40.840 --> 43:42.760
+ saying, hey, what's your best example
+
+43:42.760 --> 43:44.200
+ of an actual deploy reinforcement
+
+43:44.200 --> 43:45.240
+ learning application?
+
+43:45.240 --> 43:47.160
+ And among like
+
+43:47.160 --> 43:49.000
+ senior machine learning researchers, right?
+
+43:49.000 --> 43:51.400
+ And again, there are some emerging ones,
+
+43:51.400 --> 43:54.520
+ but there are not that many great examples.
+
+43:55.240 --> 43:57.480
+ I think you're absolutely right.
+
+43:58.040 --> 43:59.880
+ The sad thing is there hasn't been
+
+43:59.880 --> 44:03.480
+ a big impactful real world application
+
+44:03.480 --> 44:04.840
+ of reinforcement learning.
+
+44:04.840 --> 44:07.560
+ I think its biggest impact to me
+
+44:07.560 --> 44:09.320
+ has been in the toy domain,
+
+44:09.320 --> 44:10.200
+ in the game domain,
+
+44:10.200 --> 44:11.240
+ in the small example.
+
+44:11.240 --> 44:13.560
+ That's what I mean for educational purpose.
+
+44:13.560 --> 44:15.640
+ It seems to be a fun thing to explore
+
+44:15.640 --> 44:16.760
+ in your networks with.
+
+44:16.760 --> 44:19.000
+ But I think from your perspective,
+
+44:19.000 --> 44:20.440
+ and I think that might be
+
+44:20.440 --> 44:22.280
+ the best perspective is
+
+44:22.280 --> 44:23.560
+ if you're trying to educate
+
+44:23.560 --> 44:24.680
+ with a simple example
+
+44:24.680 --> 44:25.800
+ in order to illustrate
+
+44:25.800 --> 44:27.640
+ how this can actually be grown
+
+44:27.640 --> 44:31.000
+ to scale and have a real world impact,
+
+44:31.560 --> 44:33.640
+ then perhaps focusing on the fundamentals
+
+44:33.640 --> 44:34.840
+ of supervised learning
+
+44:35.400 --> 44:38.920
+ in the context of a simple data set,
+
+44:38.920 --> 44:40.440
+ even like an MNIST data set
+
+44:40.440 --> 44:41.160
+ is the right way,
+
+44:42.040 --> 44:43.480
+ is the right path to take.
+
+44:45.080 --> 44:46.520
+ The amount of fun I've seen people
+
+44:46.520 --> 44:47.880
+ have with reinforcement learning
+
+44:47.880 --> 44:48.440
+ has been great,
+
+44:48.440 --> 44:51.320
+ but not in the applied impact
+
+44:51.320 --> 44:52.760
+ in the real world setting.
+
+44:52.760 --> 44:54.040
+ So it's a trade off,
+
+44:54.040 --> 44:55.320
+ how much impact you want to have
+
+44:55.320 --> 44:56.680
+ versus how much fun you want to have.
+
+44:56.680 --> 44:58.200
+ Yeah, that's really cool.
+
+44:58.200 --> 44:59.960
+ And I feel like the world
+
+44:59.960 --> 45:01.240
+ actually needs all sorts.
+
+45:01.240 --> 45:02.520
+ Even within machine learning,
+
+45:02.520 --> 45:04.360
+ I feel like deep learning
+
+45:04.360 --> 45:05.800
+ is so exciting,
+
+45:05.800 --> 45:07.080
+ but the AI team
+
+45:07.080 --> 45:08.360
+ shouldn't just use deep learning.
+
+45:08.360 --> 45:09.320
+ I find that my teams
+
+45:09.320 --> 45:10.760
+ use a portfolio of tools.
+
+45:11.640 --> 45:13.080
+ And maybe that's not the exciting thing
+
+45:13.080 --> 45:14.680
+ to say, but some days
+
+45:14.680 --> 45:15.720
+ we use a neural net,
+
+45:15.720 --> 45:19.240
+ some days we use a PCA.
+
+45:19.960 --> 45:20.600
+ Actually, the other day,
+
+45:20.600 --> 45:21.480
+ I was sitting down with my team
+
+45:21.480 --> 45:22.760
+ looking at PCA residuals,
+
+45:22.760 --> 45:23.800
+ trying to figure out what's going on
+
+45:23.800 --> 45:24.600
+ with PCA applied
+
+45:24.600 --> 45:25.640
+ to manufacturing problem.
+
+45:25.640 --> 45:26.920
+ And some days we use
+
+45:26.920 --> 45:28.200
+ a probabilistic graphical model,
+
+45:28.200 --> 45:29.720
+ some days we use a knowledge draft,
+
+45:29.720 --> 45:30.520
+ which is one of the things
+
+45:30.520 --> 45:33.000
+ that has tremendous industry impact.
+
+45:33.000 --> 45:34.680
+ But the amount of chatter
+
+45:34.680 --> 45:36.360
+ about knowledge drafts in academia
+
+45:36.360 --> 45:37.640
+ is really thin compared
+
+45:37.640 --> 45:39.640
+ to the actual real world impact.
+
+45:39.640 --> 45:41.400
+ So I think reinforcement learning
+
+45:41.400 --> 45:42.520
+ should be in that portfolio.
+
+45:42.520 --> 45:43.640
+ And then it's about balancing
+
+45:43.640 --> 45:45.240
+ how much we teach all of these things.
+
+45:45.240 --> 45:47.000
+ And the world should have
+
+45:47.000 --> 45:47.800
+ diverse skills.
+
+45:47.800 --> 45:49.240
+ It'd be sad if everyone
+
+45:49.240 --> 45:51.400
+ just learned one narrow thing.
+
+45:51.400 --> 45:52.360
+ Yeah, the diverse skill
+
+45:52.360 --> 45:53.720
+ help you discover the right tool
+
+45:53.720 --> 45:54.280
+ for the job.
+
+45:54.280 --> 45:56.680
+ What is the most beautiful,
+
+45:56.680 --> 45:59.160
+ surprising or inspiring idea
+
+45:59.160 --> 46:00.200
+ in deep learning to you?
+
+46:00.760 --> 46:03.400
+ Something that captivated
+
+46:03.400 --> 46:04.600
+ your imagination.
+
+46:04.600 --> 46:06.520
+ Is it the scale that could be,
+
+46:07.080 --> 46:07.960
+ the performance that could be
+
+46:07.960 --> 46:08.920
+ achieved with scale?
+
+46:08.920 --> 46:10.120
+ Or is there other ideas?
+
+46:11.560 --> 46:14.360
+ I think that if my only job
+
+46:14.360 --> 46:16.520
+ was being an academic researcher,
+
+46:16.520 --> 46:18.120
+ if an unlimited budget
+
+46:18.120 --> 46:19.960
+ and didn't have to worry
+
+46:19.960 --> 46:21.800
+ about short term impact
+
+46:21.800 --> 46:23.800
+ and only focus on long term impact,
+
+46:23.800 --> 46:24.760
+ I'd probably spend all my time
+
+46:24.760 --> 46:26.360
+ doing research on unsupervised learning.
+
+46:27.400 --> 46:28.840
+ I still think unsupervised learning
+
+46:28.840 --> 46:29.880
+ is a beautiful idea.
+
+46:31.400 --> 46:34.600
+ At both this past NeurIPS and ICML,
+
+46:34.600 --> 46:35.960
+ I was attending workshops
+
+46:35.960 --> 46:37.480
+ or listening to various talks
+
+46:37.480 --> 46:39.160
+ about self supervised learning,
+
+46:39.160 --> 46:41.480
+ which is one vertical segment
+
+46:41.480 --> 46:43.160
+ maybe of unsupervised learning
+
+46:43.160 --> 46:44.120
+ that I'm excited about.
+
+46:45.160 --> 46:46.360
+ Maybe just to summarize the idea,
+
+46:46.360 --> 46:47.400
+ I guess you know the idea
+
+46:47.400 --> 46:48.520
+ about describing fleet.
+
+46:48.520 --> 46:49.080
+ No, please.
+
+46:49.080 --> 46:49.960
+ So here's the example
+
+46:49.960 --> 46:51.400
+ of self supervised learning.
+
+46:52.040 --> 46:53.480
+ Let's say we grab a lot
+
+46:53.480 --> 46:55.560
+ of unlabeled images off the internet.
+
+46:55.560 --> 46:56.680
+ So with infinite amounts
+
+46:56.680 --> 46:58.040
+ of this type of data,
+
+46:58.040 --> 46:59.320
+ I'm going to take each image
+
+46:59.320 --> 47:01.160
+ and rotate it by a random
+
+47:01.160 --> 47:03.000
+ multiple of 90 degrees.
+
+47:03.000 --> 47:04.760
+ And then I'm going to train
+
+47:04.760 --> 47:06.200
+ a supervised neural network
+
+47:06.200 --> 47:07.400
+ to predict what was
+
+47:07.400 --> 47:08.920
+ the original orientation.
+
+47:08.920 --> 47:10.760
+ So it has to be rotated 90 degrees,
+
+47:10.760 --> 47:12.440
+ 180 degrees, 270 degrees,
+
+47:12.440 --> 47:13.800
+ or zero degrees.
+
+47:14.360 --> 47:15.640
+ So you can generate
+
+47:15.640 --> 47:17.560
+ an infinite amounts of labeled data
+
+47:17.560 --> 47:18.920
+ because you rotated the image
+
+47:18.920 --> 47:19.880
+ so you know what's the
+
+47:19.880 --> 47:20.760
+ ground truth label.
+
+47:20.760 --> 47:23.320
+ And so various researchers
+
+47:23.320 --> 47:24.680
+ have found that by taking
+
+47:24.680 --> 47:26.600
+ unlabeled data and making
+
+47:26.600 --> 47:27.880
+ up labeled data sets
+
+47:27.880 --> 47:29.720
+ and training a large neural network
+
+47:29.720 --> 47:30.920
+ on these tasks,
+
+47:30.920 --> 47:32.040
+ you can then take the hidden
+
+47:32.040 --> 47:34.120
+ layer representation and transfer
+
+47:34.120 --> 47:35.400
+ it to a different task
+
+47:35.400 --> 47:36.520
+ very powerfully.
+
+47:37.640 --> 47:39.000
+ Learning word embeddings
+
+47:39.000 --> 47:40.040
+ where we take a sentence,
+
+47:40.040 --> 47:40.760
+ delete a word,
+
+47:40.760 --> 47:42.120
+ predict the missing word,
+
+47:42.120 --> 47:43.480
+ which is how we learn.
+
+47:43.480 --> 47:44.440
+ One of the ways we learn
+
+47:44.440 --> 47:45.480
+ word embeddings
+
+47:45.480 --> 47:47.160
+ is another example.
+
+47:47.160 --> 47:48.680
+ And I think there's now
+
+47:48.680 --> 47:50.440
+ this portfolio of techniques
+
+47:50.440 --> 47:52.760
+ for generating these made up tasks.
+
+47:53.320 --> 47:54.760
+ Another one called jigsaw
+
+47:54.760 --> 47:56.760
+ would be if you take an image,
+
+47:56.760 --> 47:59.240
+ cut it up into a three by three grid,
+
+47:59.240 --> 48:00.040
+ so like a nine,
+
+48:00.040 --> 48:01.560
+ three by three puzzle piece,
+
+48:01.560 --> 48:02.840
+ jump up the nine pieces
+
+48:02.840 --> 48:04.520
+ and have a neural network predict
+
+48:04.520 --> 48:06.360
+ which of the nine factorial
+
+48:06.360 --> 48:07.880
+ possible permutations
+
+48:07.880 --> 48:08.840
+ it came from.
+
+48:09.320 --> 48:11.480
+ So many groups,
+
+48:11.480 --> 48:13.080
+ including OpenAI,
+
+48:13.080 --> 48:14.520
+ Peter B has been doing
+
+48:14.520 --> 48:15.560
+ some work on this too,
+
+48:16.280 --> 48:18.440
+ Facebook, Google Brain,
+
+48:18.440 --> 48:19.560
+ I think DeepMind,
+
+48:19.560 --> 48:21.240
+ oh actually,
+
+48:21.240 --> 48:22.200
+ Aaron van der Oort
+
+48:22.200 --> 48:24.360
+ has great work on the CPC objective.
+
+48:24.360 --> 48:26.120
+ So many teams are doing exciting work
+
+48:26.120 --> 48:27.640
+ and I think this is a way
+
+48:27.640 --> 48:29.560
+ to generate infinite label data
+
+48:30.440 --> 48:32.920
+ and I find this a very exciting
+
+48:32.920 --> 48:34.040
+ piece of unsupervised learning.
+
+48:34.040 --> 48:35.080
+ So long term you think
+
+48:35.080 --> 48:37.160
+ that's going to unlock
+
+48:37.160 --> 48:38.280
+ a lot of power
+
+48:38.280 --> 48:39.960
+ in machine learning systems
+
+48:39.960 --> 48:42.200
+ is this kind of unsupervised learning.
+
+48:42.200 --> 48:43.080
+ I don't think there's
+
+48:43.080 --> 48:43.880
+ a whole enchilada,
+
+48:43.880 --> 48:45.080
+ I think it's just a piece of it
+
+48:45.080 --> 48:46.440
+ and I think this one piece
+
+48:46.440 --> 48:47.320
+ unsupervised,
+
+48:47.320 --> 48:48.840
+ self supervised learning
+
+48:48.840 --> 48:50.200
+ is starting to get traction.
+
+48:50.200 --> 48:51.320
+ We're very close
+
+48:51.320 --> 48:52.440
+ to it being useful.
+
+48:53.160 --> 48:54.040
+ Well, word embedding
+
+48:54.040 --> 48:55.480
+ is really useful.
+
+48:55.480 --> 48:56.200
+ I think we're getting
+
+48:56.200 --> 48:57.080
+ closer and closer
+
+48:57.080 --> 48:59.240
+ to just having a significant
+
+48:59.240 --> 49:00.440
+ real world impact
+
+49:00.440 --> 49:02.040
+ maybe in computer vision and video
+
+49:03.080 --> 49:04.360
+ but I think this concept
+
+49:05.000 --> 49:05.880
+ and I think there'll be
+
+49:05.880 --> 49:07.000
+ other concepts around it.
+
+49:07.000 --> 49:08.760
+ You know, other unsupervised
+
+49:08.760 --> 49:10.520
+ learning things that I worked on
+
+49:10.520 --> 49:11.320
+ I've been excited about.
+
+49:12.040 --> 49:12.840
+ I was really excited
+
+49:12.840 --> 49:13.960
+ about sparse coding
+
+49:14.600 --> 49:15.320
+ and ICA,
+
+49:16.040 --> 49:17.480
+ slow feature analysis.
+
+49:17.480 --> 49:18.760
+ I think all of these are ideas
+
+49:18.760 --> 49:20.040
+ that various of us
+
+49:20.040 --> 49:20.680
+ were working on
+
+49:20.680 --> 49:21.720
+ about a decade ago
+
+49:21.720 --> 49:23.160
+ before we all got distracted
+
+49:23.160 --> 49:24.680
+ by how well supervised
+
+49:24.680 --> 49:26.200
+ learning was doing.
+
+49:26.200 --> 49:27.320
+ So we would return
+
+49:27.880 --> 49:29.400
+ we would return to the fundamentals
+
+49:29.400 --> 49:30.760
+ of representation learning
+
+49:30.760 --> 49:32.200
+ that really started
+
+49:32.200 --> 49:33.720
+ this movement of deep learning.
+
+49:33.720 --> 49:34.840
+ I think there's a lot more work
+
+49:34.840 --> 49:36.120
+ that one could explore around
+
+49:36.120 --> 49:37.080
+ this theme of ideas
+
+49:37.080 --> 49:38.200
+ and other ideas
+
+49:38.200 --> 49:39.480
+ to come up with better algorithms.
+
+49:40.200 --> 49:41.480
+ So if we could return
+
+49:42.040 --> 49:43.880
+ to maybe talk quickly
+
+49:43.880 --> 49:45.080
+ about the specifics
+
+49:45.080 --> 49:46.600
+ of deep learning.ai
+
+49:46.600 --> 49:48.120
+ the deep learning specialization
+
+49:48.120 --> 49:50.360
+ perhaps how long does it take
+
+49:50.360 --> 49:51.240
+ to complete the course
+
+49:51.240 --> 49:51.800
+ would you say?
+
+49:52.680 --> 49:53.800
+ The official length
+
+49:53.800 --> 49:55.320
+ of the deep learning specialization
+
+49:55.320 --> 49:57.080
+ is I think 16 weeks
+
+49:57.080 --> 49:58.280
+ so about four months
+
+49:58.920 --> 50:00.760
+ but it's go at your own pace.
+
+50:00.760 --> 50:01.960
+ So if you subscribe
+
+50:01.960 --> 50:03.560
+ to the deep learning specialization
+
+50:03.560 --> 50:04.760
+ there are people that finished it
+
+50:04.760 --> 50:05.720
+ in less than a month
+
+50:05.720 --> 50:07.000
+ by working more intensely
+
+50:07.000 --> 50:07.960
+ and studying more intensely
+
+50:07.960 --> 50:09.240
+ so it really depends on
+
+50:09.240 --> 50:10.040
+ on the individual.
+
+50:10.920 --> 50:11.480
+ When we created
+
+50:11.480 --> 50:12.760
+ the deep learning specialization
+
+50:13.480 --> 50:15.400
+ we wanted to make it
+
+50:15.400 --> 50:16.360
+ very accessible
+
+50:16.360 --> 50:18.440
+ and very affordable.
+
+50:18.440 --> 50:19.480
+ And with you know
+
+50:19.480 --> 50:20.840
+ Coursera and deep learning.ai
+
+50:20.840 --> 50:21.720
+ education mission
+
+50:21.720 --> 50:22.120
+ one of the things
+
+50:22.120 --> 50:23.480
+ that's really important to me
+
+50:23.480 --> 50:25.560
+ is that if there's someone
+
+50:25.560 --> 50:27.160
+ for whom paying anything
+
+50:27.160 --> 50:28.760
+ is a financial hardship
+
+50:29.320 --> 50:30.920
+ then just apply for financial aid
+
+50:30.920 --> 50:32.520
+ and get it for free.
+
+50:34.280 --> 50:35.880
+ If you were to recommend
+
+50:35.880 --> 50:37.480
+ a daily schedule for people
+
+50:38.040 --> 50:39.240
+ in learning whether it's
+
+50:39.240 --> 50:40.600
+ through the deep learning.ai
+
+50:40.600 --> 50:42.120
+ specialization or just learning
+
+50:42.680 --> 50:43.960
+ in the world of deep learning
+
+50:43.960 --> 50:45.480
+ what would you recommend?
+
+50:45.480 --> 50:47.160
+ How do they go about day to day
+
+50:47.160 --> 50:48.760
+ sort of specific advice
+
+50:48.760 --> 50:49.800
+ about learning
+
+50:49.800 --> 50:51.720
+ about their journey in the world
+
+50:51.720 --> 50:52.760
+ of deep learning machine learning?
+
+50:53.400 --> 50:56.040
+ I think getting the habit of learning
+
+50:56.760 --> 50:59.400
+ is key and that means regularity.
+
+51:00.920 --> 51:02.840
+ So for example
+
+51:02.840 --> 51:05.080
+ we send out a weekly newsletter
+
+51:05.080 --> 51:06.680
+ the batch every Wednesday
+
+51:06.680 --> 51:08.200
+ so people know it's coming Wednesday
+
+51:08.200 --> 51:09.160
+ you can spend a little bit of time
+
+51:09.160 --> 51:10.200
+ on Wednesday
+
+51:10.200 --> 51:11.560
+ catching up on the latest news
+
+51:11.560 --> 51:13.640
+ catching up on the latest news
+
+51:13.640 --> 51:16.600
+ through the batch on Wednesday
+
+51:17.400 --> 51:18.600
+ and for myself
+
+51:18.600 --> 51:21.160
+ I've picked up a habit of spending
+
+51:21.160 --> 51:22.520
+ some time every Saturday
+
+51:22.520 --> 51:24.600
+ and every Sunday reading or studying
+
+51:24.600 --> 51:26.600
+ and so I don't wake up on the Saturday
+
+51:26.600 --> 51:27.640
+ and have to make a decision
+
+51:27.640 --> 51:28.840
+ do I feel like reading
+
+51:28.840 --> 51:30.280
+ or studying today or not
+
+51:30.280 --> 51:31.640
+ it's just what I do
+
+51:31.640 --> 51:33.160
+ and the fact is a habit
+
+51:33.160 --> 51:34.200
+ makes it easier.
+
+51:34.200 --> 51:37.640
+ So I think if someone can get into that habit
+
+51:37.640 --> 51:38.760
+ it's like you know
+
+51:38.760 --> 51:41.080
+ just like we brush our teeth every morning
+
+51:41.080 --> 51:42.040
+ I don't think about it
+
+51:42.040 --> 51:42.760
+ if I thought about it
+
+51:42.760 --> 51:43.480
+ it's a little bit annoying
+
+51:43.480 --> 51:44.920
+ to have to spend two minutes doing that
+
+51:45.960 --> 51:47.720
+ but it's a habit that it takes
+
+51:47.720 --> 51:49.080
+ no cognitive load
+
+51:49.080 --> 51:50.360
+ but this would be so much harder
+
+51:50.360 --> 51:51.880
+ if we have to make a decision every morning
+
+51:53.640 --> 51:54.680
+ and actually that's the reason
+
+51:54.680 --> 51:56.040
+ why I wear the same thing every day as well
+
+51:56.040 --> 51:57.160
+ it's just one less decision
+
+51:57.160 --> 51:59.560
+ I just get up and wear my blue shirt
+
+51:59.560 --> 52:01.160
+ so but I think if you can get that habit
+
+52:01.160 --> 52:02.840
+ that consistency of studying
+
+52:02.840 --> 52:04.600
+ then it actually feels easier.
+
+52:05.720 --> 52:07.480
+ So yeah it's kind of amazing
+
+52:08.600 --> 52:09.320
+ in my own life
+
+52:09.320 --> 52:11.560
+ like I play guitar every day for
+
+52:12.840 --> 52:14.920
+ I force myself to at least for five minutes
+
+52:14.920 --> 52:15.560
+ play guitar
+
+52:15.560 --> 52:18.040
+ it's just it's a ridiculously short period of time
+
+52:18.040 --> 52:20.120
+ but because I've gotten into that habit
+
+52:20.120 --> 52:21.720
+ it's incredible what you can accomplish
+
+52:21.720 --> 52:24.440
+ in a period of a year or two years
+
+52:24.440 --> 52:25.000
+ you can become
+
+52:26.280 --> 52:28.280
+ you know exceptionally good
+
+52:28.280 --> 52:29.720
+ at certain aspects of a thing
+
+52:29.720 --> 52:30.920
+ by just doing it every day
+
+52:30.920 --> 52:32.040
+ for a very short period of time
+
+52:32.040 --> 52:33.000
+ it's kind of a miracle
+
+52:33.000 --> 52:34.600
+ that that's how it works
+
+52:34.600 --> 52:36.200
+ it adds up over time.
+
+52:36.200 --> 52:38.360
+ Yeah and I think this is often
+
+52:38.360 --> 52:40.760
+ not about the bursts of sustained efforts
+
+52:40.760 --> 52:41.880
+ and the all nighters
+
+52:41.880 --> 52:43.080
+ because you could only do that
+
+52:43.080 --> 52:44.200
+ a limited number of times
+
+52:44.200 --> 52:46.600
+ it's the sustained effort over a long time
+
+52:47.240 --> 52:49.560
+ I think you know reading two research papers
+
+52:50.360 --> 52:51.880
+ is a nice thing to do
+
+52:51.880 --> 52:54.200
+ but the power is not reading two research papers
+
+52:54.200 --> 52:56.760
+ it's reading two research papers a week
+
+52:56.760 --> 52:57.480
+ for a year
+
+52:57.480 --> 52:58.920
+ then you read a hundred papers
+
+52:58.920 --> 53:00.200
+ and you actually learn a lot
+
+53:00.200 --> 53:01.400
+ when you read a hundred papers.
+
+53:02.040 --> 53:05.720
+ So regularity and making learning a habit
+
+53:05.720 --> 53:09.720
+ do you have general other study tips
+
+53:09.720 --> 53:11.880
+ for particularly deep learning
+
+53:11.880 --> 53:12.680
+ that people should
+
+53:13.400 --> 53:15.000
+ in their process of learning
+
+53:15.000 --> 53:16.600
+ is there some kind of recommendations
+
+53:16.600 --> 53:18.920
+ or tips you have as they learn?
+
+53:19.720 --> 53:21.560
+ One thing I still do
+
+53:21.560 --> 53:23.320
+ when I'm trying to study something really deeply
+
+53:23.320 --> 53:25.000
+ is take handwritten notes
+
+53:25.800 --> 53:26.360
+ it varies
+
+53:26.360 --> 53:27.640
+ I know there are a lot of people
+
+53:27.640 --> 53:29.320
+ that take the deep learning courses
+
+53:29.320 --> 53:31.960
+ during a commute or something
+
+53:31.960 --> 53:33.800
+ where it may be more awkward to take notes
+
+53:33.800 --> 53:36.120
+ so I know it may not work for everyone
+
+53:36.680 --> 53:39.640
+ but when I'm taking courses on Coursera
+
+53:39.640 --> 53:41.640
+ and I still take some every now and then
+
+53:41.640 --> 53:42.520
+ the most recent one I took
+
+53:42.520 --> 53:44.360
+ was a course on clinical trials
+
+53:44.360 --> 53:45.640
+ because I was interested about that
+
+53:45.640 --> 53:47.880
+ I got out my little Moleskine notebook
+
+53:47.880 --> 53:48.840
+ and what I was seeing on my desk
+
+53:48.840 --> 53:50.280
+ was just taking down notes
+
+53:50.280 --> 53:51.480
+ so what the instructor was saying
+
+53:51.480 --> 53:53.000
+ and that act we know that
+
+53:53.000 --> 53:54.760
+ that act of taking notes
+
+53:54.760 --> 53:56.120
+ preferably handwritten notes
+
+53:57.240 --> 53:58.520
+ increases retention.
+
+53:59.560 --> 54:01.720
+ So as you're sort of watching the video
+
+54:01.720 --> 54:03.800
+ just kind of pausing maybe
+
+54:03.800 --> 54:07.240
+ and then taking the basic insights down on paper.
+
+54:07.800 --> 54:09.960
+ Yeah so there have been a few studies
+
+54:09.960 --> 54:11.080
+ if you search online
+
+54:11.080 --> 54:12.680
+ you find some of these studies
+
+54:12.680 --> 54:15.080
+ that taking handwritten notes
+
+54:15.080 --> 54:16.920
+ because handwriting is slower
+
+54:16.920 --> 54:17.800
+ as we're saying just now
+
+54:18.920 --> 54:21.240
+ it causes you to recode the knowledge
+
+54:21.240 --> 54:23.080
+ in your own words more
+
+54:23.080 --> 54:24.840
+ and that process of recoding
+
+54:24.840 --> 54:26.600
+ promotes long term retention
+
+54:26.600 --> 54:28.200
+ this is as opposed to typing
+
+54:28.200 --> 54:28.920
+ which is fine
+
+54:28.920 --> 54:30.680
+ again typing is better than nothing
+
+54:30.680 --> 54:31.800
+ or in taking a class
+
+54:31.800 --> 54:32.760
+ and not taking notes is better
+
+54:32.760 --> 54:34.360
+ than not taking any class at all
+
+54:34.360 --> 54:36.440
+ but comparing handwritten notes
+
+54:36.440 --> 54:37.000
+ and typing
+
+54:37.960 --> 54:39.480
+ you can usually type faster
+
+54:39.480 --> 54:40.280
+ for a lot of people
+
+54:40.280 --> 54:41.480
+ you can handwrite notes
+
+54:41.480 --> 54:42.920
+ and so when people type
+
+54:42.920 --> 54:44.920
+ they're more likely to just transcribe
+
+54:44.920 --> 54:46.280
+ verbatim what they heard
+
+54:46.280 --> 54:49.080
+ and that reduces the amount of recoding
+
+54:49.080 --> 54:50.360
+ and that actually results
+
+54:50.360 --> 54:52.360
+ in less long term retention.
+
+54:52.360 --> 54:53.960
+ I don't know what the psychological effect
+
+54:53.960 --> 54:55.320
+ there is but so true
+
+54:55.320 --> 54:56.840
+ there's something fundamentally different
+
+54:56.840 --> 54:58.840
+ about writing hand handwriting
+
+54:59.400 --> 55:00.200
+ I wonder what that is
+
+55:00.200 --> 55:01.640
+ I wonder if it is as simple
+
+55:01.640 --> 55:04.360
+ as just the time it takes to write it slower
+
+55:04.360 --> 55:07.400
+ yeah and because you can't write
+
+55:07.400 --> 55:08.120
+ as many words
+
+55:08.120 --> 55:10.200
+ you have to take whatever they said
+
+55:10.200 --> 55:11.960
+ and summarize it into fewer words
+
+55:11.960 --> 55:13.400
+ and that summarization process
+
+55:13.400 --> 55:15.240
+ requires deeper processing of the meaning
+
+55:15.880 --> 55:17.880
+ which then results in better retention
+
+55:17.880 --> 55:18.680
+ that's fascinating
+
+55:20.040 --> 55:22.440
+ oh and I think because of Coursera
+
+55:22.440 --> 55:24.120
+ I spent so much time studying pedagogy
+
+55:24.120 --> 55:25.400
+ this is actually one of my passions
+
+55:25.400 --> 55:27.000
+ I really love learning
+
+55:27.000 --> 55:28.040
+ how to more efficiently
+
+55:28.040 --> 55:28.920
+ help others learn
+
+55:28.920 --> 55:30.600
+ you know one of the things I do
+
+55:30.600 --> 55:32.280
+ both when creating videos
+
+55:32.280 --> 55:33.800
+ or when we write the batch is
+
+55:34.760 --> 55:37.800
+ I try to think is one minute spent of us
+
+55:37.800 --> 55:40.600
+ going to be a more efficient learning experience
+
+55:40.600 --> 55:42.520
+ than one minute spent anywhere else
+
+55:42.520 --> 55:45.080
+ and we really try to you know
+
+55:45.080 --> 55:46.920
+ make it time efficient for the learners
+
+55:46.920 --> 55:47.960
+ because you know everyone's busy
+
+55:48.680 --> 55:50.280
+ so when when we're editing
+
+55:50.280 --> 55:51.960
+ I often tell my teams
+
+55:51.960 --> 55:53.800
+ every word needs to fight for its life
+
+55:53.800 --> 55:54.680
+ and if you can delete a word
+
+55:54.680 --> 55:56.360
+ let's just delete it and not wait
+
+55:56.360 --> 55:57.880
+ let's not waste the learning time
+
+55:57.880 --> 55:59.400
+ let's not waste the learning time
+
+55:59.960 --> 56:01.400
+ oh that's so it's so amazing
+
+56:01.400 --> 56:02.200
+ that you think that way
+
+56:02.200 --> 56:03.560
+ because there is millions of people
+
+56:03.560 --> 56:04.840
+ that are impacted by your teaching
+
+56:04.840 --> 56:06.680
+ and sort of that one minute spent
+
+56:06.680 --> 56:08.360
+ has a ripple effect right
+
+56:08.360 --> 56:09.560
+ through years of time
+
+56:09.560 --> 56:11.480
+ which is it's just fascinating to think about
+
+56:12.600 --> 56:14.280
+ how does one make a career
+
+56:14.280 --> 56:15.960
+ out of an interest in deep learning
+
+56:15.960 --> 56:18.680
+ do you have advice for people
+
+56:18.680 --> 56:19.480
+ we just talked about
+
+56:19.480 --> 56:21.400
+ sort of the beginning early steps
+
+56:21.400 --> 56:22.600
+ but if you want to make it
+
+56:22.600 --> 56:24.280
+ an entire life's journey
+
+56:24.280 --> 56:26.360
+ or at least a journey of a decade or two
+
+56:26.360 --> 56:27.480
+ how do you how do you do it
+
+56:28.200 --> 56:30.120
+ so most important thing is to get started
+
+56:30.120 --> 56:34.280
+ right and and I think in the early parts
+
+56:34.280 --> 56:35.800
+ of a career coursework
+
+56:35.800 --> 56:38.040
+ um like the deep learning specialization
+
+56:38.040 --> 56:40.600
+ or it's a very efficient way
+
+56:41.080 --> 56:42.520
+ to master this material
+
+56:43.320 --> 56:46.600
+ so because you know instructors
+
+56:46.600 --> 56:48.280
+ uh be it me or someone else
+
+56:48.280 --> 56:49.640
+ or you know Lawrence Maroney
+
+56:49.640 --> 56:51.240
+ teaches our TensorFlow specialization
+
+56:51.240 --> 56:52.280
+ or other things we're working on
+
+56:52.280 --> 56:55.640
+ spend effort to try to make it time efficient
+
+56:55.640 --> 56:57.640
+ for you to learn a new concept
+
+56:57.640 --> 57:00.600
+ so coursework is actually a very efficient way
+
+57:00.600 --> 57:02.280
+ for people to learn concepts
+
+57:02.280 --> 57:04.120
+ and the beginning parts of breaking
+
+57:04.120 --> 57:04.760
+ into a new field
+
+57:05.960 --> 57:07.960
+ in fact one thing I see at Stanford
+
+57:08.520 --> 57:10.280
+ some of my PhD students want to jump
+
+57:10.280 --> 57:11.400
+ in the research right away
+
+57:11.400 --> 57:13.160
+ and I actually tend to say look
+
+57:13.160 --> 57:14.440
+ in your first couple years of PhD
+
+57:14.440 --> 57:16.680
+ and spend time taking courses
+
+57:16.680 --> 57:17.960
+ because it lays a foundation
+
+57:17.960 --> 57:19.640
+ it's fine if you're less productive
+
+57:19.640 --> 57:20.680
+ in your first couple years
+
+57:20.680 --> 57:22.200
+ you'll be better off in the long term
+
+57:23.400 --> 57:24.520
+ beyond a certain point
+
+57:24.520 --> 57:27.640
+ there's materials that doesn't exist in courses
+
+57:27.640 --> 57:28.840
+ because it's too cutting edge
+
+57:28.840 --> 57:30.040
+ the course hasn't been created yet
+
+57:30.040 --> 57:31.320
+ there's some practical experience
+
+57:31.320 --> 57:32.760
+ that we're not yet that good
+
+57:32.760 --> 57:34.440
+ as teaching in a course
+
+57:34.440 --> 57:36.040
+ and I think after exhausting
+
+57:36.040 --> 57:37.720
+ the efficient coursework
+
+57:37.720 --> 57:40.360
+ then most people need to go on
+
+57:40.360 --> 57:44.520
+ to either ideally work on projects
+
+57:44.520 --> 57:47.080
+ and then maybe also continue their learning
+
+57:47.080 --> 57:49.560
+ by reading blog posts and research papers
+
+57:49.560 --> 57:50.280
+ and things like that
+
+57:50.920 --> 57:52.280
+ doing projects is really important
+
+57:52.280 --> 57:55.080
+ and again I think it's important
+
+57:55.080 --> 57:57.560
+ to start small and just do something
+
+57:57.560 --> 57:58.920
+ today you read about deep learning
+
+57:58.920 --> 57:59.800
+ feels like oh all these people
+
+57:59.800 --> 58:01.080
+ doing such exciting things
+
+58:01.080 --> 58:02.920
+ what if I'm not building a neural network
+
+58:02.920 --> 58:03.720
+ that changes the world
+
+58:03.720 --> 58:04.440
+ then what's the point?
+
+58:04.440 --> 58:06.360
+ Well the point is sometimes building
+
+58:06.360 --> 58:07.720
+ that tiny neural network
+
+58:07.720 --> 58:10.120
+ you know be it MNIST or upgrade
+
+58:10.120 --> 58:12.280
+ to a fashion MNIST to whatever
+
+58:12.280 --> 58:14.680
+ so doing your own fun hobby project
+
+58:14.680 --> 58:15.960
+ that's how you gain the skills
+
+58:15.960 --> 58:18.200
+ to let you do bigger and bigger projects
+
+58:18.200 --> 58:20.520
+ I find this to be true at the individual level
+
+58:20.520 --> 58:23.080
+ and also at the organizational level
+
+58:23.080 --> 58:24.920
+ for a company to become good at machine learning
+
+58:24.920 --> 58:26.200
+ sometimes the right thing to do
+
+58:26.200 --> 58:29.240
+ is not to tackle the giant project
+
+58:29.240 --> 58:31.240
+ is instead to do the small project
+
+58:31.240 --> 58:33.320
+ that lets the organization learn
+
+58:33.320 --> 58:34.600
+ and then build out from there
+
+58:34.600 --> 58:35.960
+ but this is true both for individuals
+
+58:35.960 --> 58:38.200
+ and for companies
+
+58:38.200 --> 58:40.680
+ taking the first step
+
+58:40.680 --> 58:44.040
+ and then taking small steps is the key
+
+58:44.520 --> 58:46.280
+ should students pursue a PhD
+
+58:46.280 --> 58:48.520
+ do you think you can do so much
+
+58:48.520 --> 58:50.200
+ that's one of the fascinating things
+
+58:50.200 --> 58:51.160
+ in machine learning
+
+58:51.160 --> 58:52.280
+ you can have so much impact
+
+58:52.280 --> 58:54.440
+ without ever getting a PhD
+
+58:54.440 --> 58:56.040
+ so what are your thoughts
+
+58:56.040 --> 58:57.400
+ should people go to grad school
+
+58:57.400 --> 58:59.400
+ should people get a PhD?
+
+58:59.400 --> 59:01.720
+ I think that there are multiple good options
+
+59:01.720 --> 59:05.000
+ of which doing a PhD could be one of them
+
+59:05.000 --> 59:06.920
+ I think that if someone's admitted
+
+59:06.920 --> 59:08.520
+ to a top PhD program
+
+59:08.520 --> 59:11.880
+ you know at MIT, Stanford, top schools
+
+59:11.880 --> 59:15.320
+ I think that's a very good experience
+
+59:15.320 --> 59:17.000
+ or if someone gets a job
+
+59:17.000 --> 59:18.760
+ at a top organization
+
+59:18.760 --> 59:20.440
+ at the top AI team
+
+59:20.440 --> 59:23.880
+ I think that's also a very good experience
+
+59:23.880 --> 59:25.880
+ there are some things you still need a PhD to do
+
+59:25.880 --> 59:27.640
+ if someone's aspiration is to be a professor
+
+59:27.640 --> 59:29.080
+ you know at the top academic university
+
+59:29.080 --> 59:30.920
+ you just need a PhD to do that
+
+59:30.920 --> 59:32.520
+ but if it goes to you know
+
+59:32.520 --> 59:34.120
+ start a company, build a company
+
+59:34.120 --> 59:35.320
+ do great technical work
+
+59:35.320 --> 59:37.640
+ I think a PhD is a good experience
+
+59:37.640 --> 59:40.200
+ but I would look at the different options
+
+59:40.200 --> 59:41.160
+ available to someone
+
+59:41.160 --> 59:42.120
+ you know where are the places
+
+59:42.120 --> 59:42.920
+ where you can get a job
+
+59:42.920 --> 59:44.920
+ where are the places to get a PhD program
+
+59:44.920 --> 59:46.840
+ and kind of weigh the pros and cons of those
+
+59:46.840 --> 59:50.040
+ So just to linger on that for a little bit longer
+
+59:50.040 --> 59:51.720
+ what final dreams and goals
+
+59:51.720 --> 59:53.000
+ do you think people should have
+
+59:53.000 --> 59:57.320
+ so what options should they explore
+
+59:57.320 --> 59:59.720
+ so you can work in industry
+
+59:59.720 --> 1:00:00.920
+ so for a large company
+
+1:00:01.960 --> 1:00:03.560
+ like Google, Facebook, Baidu
+
+1:00:03.560 --> 1:00:06.040
+ all these large sort of companies
+
+1:00:06.040 --> 1:00:07.720
+ that already have huge teams
+
+1:00:07.720 --> 1:00:09.160
+ of machine learning engineers
+
+1:00:09.160 --> 1:00:10.920
+ you can also do with an industry
+
+1:00:10.920 --> 1:00:12.200
+ sort of more research groups
+
+1:00:12.200 --> 1:00:14.440
+ that kind of like Google Research, Google Brain
+
+1:00:14.440 --> 1:00:16.600
+ then you can also do
+
+1:00:16.600 --> 1:00:19.800
+ like we said a professor in academia
+
+1:00:20.360 --> 1:00:21.800
+ and what else
+
+1:00:21.800 --> 1:00:23.320
+ oh you can build your own company
+
+1:00:23.880 --> 1:00:25.080
+ you can do a startup
+
+1:00:25.080 --> 1:00:27.240
+ is there anything that stands out
+
+1:00:27.240 --> 1:00:28.440
+ between those options
+
+1:00:28.440 --> 1:00:30.680
+ or are they all beautiful different journeys
+
+1:00:30.680 --> 1:00:31.800
+ that people should consider
+
+1:00:32.520 --> 1:00:34.760
+ I think the thing that affects your experience more
+
+1:00:34.760 --> 1:00:36.920
+ is less are you in this company
+
+1:00:36.920 --> 1:00:38.040
+ versus that company
+
+1:00:38.040 --> 1:00:40.040
+ or academia versus industry
+
+1:00:40.040 --> 1:00:41.480
+ I think the thing that affects your experience most
+
+1:00:41.480 --> 1:00:43.640
+ is who are the people you're interacting with
+
+1:00:43.640 --> 1:00:44.920
+ in a daily basis
+
+1:00:45.480 --> 1:00:48.760
+ so even if you look at some of the large companies
+
+1:00:49.400 --> 1:00:50.920
+ the experience of individuals
+
+1:00:50.920 --> 1:00:52.920
+ in different teams is very different
+
+1:00:52.920 --> 1:00:56.120
+ and what matters most is not the logo above the door
+
+1:00:56.120 --> 1:00:58.280
+ when you walk into the giant building every day
+
+1:00:58.280 --> 1:01:00.440
+ what matters the most is who are the 10 people
+
+1:01:00.440 --> 1:01:03.080
+ who are the 30 people you interact with every day
+
+1:01:03.080 --> 1:01:04.840
+ so I actually tend to advise people
+
+1:01:04.840 --> 1:01:06.680
+ if you get a job from a company
+
+1:01:07.480 --> 1:01:09.320
+ ask who is your manager
+
+1:01:09.320 --> 1:01:10.120
+ who are your peers
+
+1:01:10.120 --> 1:01:11.320
+ who are you actually going to talk to
+
+1:01:11.320 --> 1:01:12.440
+ we're all social creatures
+
+1:01:12.440 --> 1:01:15.400
+ we tend to become more like the people around us
+
+1:01:15.400 --> 1:01:17.480
+ and if you're working with great people
+
+1:01:17.480 --> 1:01:18.600
+ you will learn faster
+
+1:01:19.240 --> 1:01:20.520
+ or if you get admitted
+
+1:01:20.520 --> 1:01:23.000
+ if you get a job at a great company
+
+1:01:23.000 --> 1:01:24.120
+ or a great university
+
+1:01:24.120 --> 1:01:26.680
+ maybe the logo you walk in is great
+
+1:01:26.680 --> 1:01:28.200
+ but you're actually stuck on some team
+
+1:01:28.200 --> 1:01:30.600
+ doing really work that doesn't excite you
+
+1:01:31.160 --> 1:01:33.000
+ and then that's actually a really bad experience
+
+1:01:33.640 --> 1:01:36.280
+ so this is true both for universities
+
+1:01:36.280 --> 1:01:37.960
+ and for large companies
+
+1:01:37.960 --> 1:01:39.640
+ for small companies you can kind of figure out
+
+1:01:39.640 --> 1:01:41.240
+ who you'll be working with quite quickly
+
+1:01:41.240 --> 1:01:43.240
+ and I tend to advise people
+
+1:01:43.240 --> 1:01:45.080
+ if a company refuses to tell you
+
+1:01:45.080 --> 1:01:46.120
+ who you will work with
+
+1:01:46.120 --> 1:01:47.160
+ someone say oh join us
+
+1:01:47.160 --> 1:01:48.920
+ the rotation system will figure it out
+
+1:01:48.920 --> 1:01:51.000
+ I think that that's a worrying answer
+
+1:01:51.000 --> 1:01:54.680
+ because it because it means you may not get sent
+
+1:01:54.680 --> 1:01:57.640
+ to you may not actually get to a team
+
+1:01:57.640 --> 1:02:00.120
+ with great peers and great people to work with
+
+1:02:00.120 --> 1:02:01.960
+ it's actually a really profound advice
+
+1:02:01.960 --> 1:02:03.800
+ that we kind of sometimes sweep
+
+1:02:04.440 --> 1:02:07.880
+ we don't consider too rigorously or carefully
+
+1:02:07.880 --> 1:02:10.280
+ the people around you are really often
+
+1:02:10.280 --> 1:02:13.000
+ especially when you accomplish great things
+
+1:02:13.000 --> 1:02:14.600
+ it seems the great things are accomplished
+
+1:02:14.600 --> 1:02:15.880
+ because of the people around you
+
+1:02:16.680 --> 1:02:20.360
+ so that's a it's not about the the
+
+1:02:20.360 --> 1:02:21.880
+ where whether you learn this thing
+
+1:02:21.880 --> 1:02:23.320
+ or that thing or like you said
+
+1:02:23.320 --> 1:02:25.000
+ the logo that hangs up top
+
+1:02:25.000 --> 1:02:26.680
+ it's the people that's a fascinating
+
+1:02:27.320 --> 1:02:29.160
+ and it's such a hard search process
+
+1:02:30.520 --> 1:02:34.120
+ of finding just like finding the right friends
+
+1:02:34.120 --> 1:02:36.360
+ and somebody to get married with
+
+1:02:36.360 --> 1:02:37.400
+ and that kind of thing
+
+1:02:37.400 --> 1:02:38.680
+ it's a very hard search
+
+1:02:38.680 --> 1:02:40.280
+ it's a people search problem
+
+1:02:40.840 --> 1:02:43.320
+ yeah but I think when someone interviews
+
+1:02:43.320 --> 1:02:44.440
+ you know at a university
+
+1:02:44.440 --> 1:02:46.280
+ or the research lab or the large corporation
+
+1:02:47.320 --> 1:02:49.400
+ it's good to insist on just asking
+
+1:02:49.400 --> 1:02:50.200
+ who are the people
+
+1:02:50.200 --> 1:02:51.320
+ who is my manager
+
+1:02:51.320 --> 1:02:52.520
+ and if you refuse to tell me
+
+1:02:52.520 --> 1:02:54.440
+ I'm gonna think well maybe that's
+
+1:02:54.440 --> 1:02:55.560
+ because you don't have a good answer
+
+1:02:55.560 --> 1:02:57.240
+ it may not be someone I like
+
+1:02:57.240 --> 1:02:59.320
+ and if you don't particularly connect
+
+1:02:59.320 --> 1:03:01.240
+ if something feels off with the people
+
+1:03:02.360 --> 1:03:05.880
+ then don't stick to it
+
+1:03:05.880 --> 1:03:08.520
+ you know that's a really important signal to consider
+
+1:03:08.520 --> 1:03:10.600
+ yeah yeah and actually I actually
+
+1:03:11.160 --> 1:03:13.240
+ in my standard class CS230
+
+1:03:13.240 --> 1:03:14.520
+ as well as an ACM talk
+
+1:03:14.520 --> 1:03:16.920
+ I think I gave like a hour long talk
+
+1:03:16.920 --> 1:03:18.200
+ on career advice
+
+1:03:18.200 --> 1:03:20.200
+ including on the job search process
+
+1:03:20.200 --> 1:03:20.920
+ and then some of these
+
+1:03:20.920 --> 1:03:23.160
+ so you can find those videos online
+
+1:03:23.160 --> 1:03:24.280
+ awesome and I'll point them
+
+1:03:25.000 --> 1:03:26.440
+ I'll point people to them
+
+1:03:26.440 --> 1:03:26.840
+ beautiful
+
+1:03:28.360 --> 1:03:32.120
+ so the AI fund helps AI startups
+
+1:03:32.120 --> 1:03:33.400
+ get off the ground
+
+1:03:33.400 --> 1:03:34.680
+ or perhaps you can elaborate
+
+1:03:34.680 --> 1:03:36.920
+ on all the fun things it's involved with
+
+1:03:36.920 --> 1:03:37.800
+ what's your advice
+
+1:03:37.800 --> 1:03:40.600
+ and how does one build a successful AI startup
+
+1:03:41.880 --> 1:03:43.320
+ you know in Silicon Valley
+
+1:03:43.320 --> 1:03:44.920
+ a lot of startup failures
+
+1:03:44.920 --> 1:03:46.680
+ come from building other products
+
+1:03:46.680 --> 1:03:48.520
+ that no one wanted
+
+1:03:48.520 --> 1:03:51.800
+ so when you know cool technology
+
+1:03:51.800 --> 1:03:53.400
+ but who's going to use it
+
+1:03:53.400 --> 1:03:56.920
+ so I think I tend to be very outcome driven
+
+1:03:57.640 --> 1:03:59.080
+ and customer obsessed
+
+1:04:00.280 --> 1:04:02.360
+ ultimately we don't get to vote
+
+1:04:02.360 --> 1:04:04.120
+ if we succeed or fail
+
+1:04:04.120 --> 1:04:05.560
+ it's only the customer
+
+1:04:05.560 --> 1:04:06.920
+ that they're the only one
+
+1:04:06.920 --> 1:04:08.840
+ that gets a thumbs up or thumbs down vote
+
+1:04:08.840 --> 1:04:09.560
+ in the long term
+
+1:04:09.560 --> 1:04:10.600
+ in the short term
+
+1:04:10.600 --> 1:04:12.040
+ you know there are various people
+
+1:04:12.040 --> 1:04:13.000
+ that get various votes
+
+1:04:13.000 --> 1:04:14.440
+ but in the long term
+
+1:04:14.440 --> 1:04:15.640
+ that's what really matters
+
+1:04:16.280 --> 1:04:17.400
+ so as you build the startup
+
+1:04:17.400 --> 1:04:19.240
+ you have to constantly ask the question
+
+1:04:20.760 --> 1:04:23.560
+ will the customer give a thumbs up on this
+
+1:04:24.120 --> 1:04:24.760
+ I think so
+
+1:04:24.760 --> 1:04:27.320
+ I think startups that are very customer focused
+
+1:04:27.320 --> 1:04:28.200
+ customer obsessed
+
+1:04:28.200 --> 1:04:30.360
+ deeply understand the customer
+
+1:04:30.360 --> 1:04:34.200
+ and are oriented to serve the customer
+
+1:04:34.200 --> 1:04:35.720
+ are more likely to succeed
+
+1:04:36.360 --> 1:04:37.240
+ with the provisional
+
+1:04:37.240 --> 1:04:38.920
+ I think all of us should only do things
+
+1:04:38.920 --> 1:04:40.760
+ that we think create social good
+
+1:04:40.760 --> 1:04:41.880
+ and moves the world forward
+
+1:04:41.880 --> 1:04:44.360
+ so I personally don't want to build
+
+1:04:44.360 --> 1:04:45.880
+ addictive digital products
+
+1:04:45.880 --> 1:04:47.160
+ just to sell a lot of ads
+
+1:04:47.160 --> 1:04:48.200
+ or you know there are things
+
+1:04:48.200 --> 1:04:49.400
+ that could be lucrative
+
+1:04:49.400 --> 1:04:50.120
+ that I won't do
+
+1:04:51.720 --> 1:04:53.640
+ but if we can find ways to serve people
+
+1:04:53.640 --> 1:04:54.520
+ in meaningful ways
+
+1:04:55.160 --> 1:04:56.120
+ I think those can be
+
+1:04:57.240 --> 1:04:58.920
+ great things to do
+
+1:04:58.920 --> 1:05:00.360
+ either in the academic setting
+
+1:05:00.360 --> 1:05:01.320
+ or in a corporate setting
+
+1:05:01.320 --> 1:05:02.360
+ or a startup setting
+
+1:05:02.920 --> 1:05:04.440
+ so can you give me the idea
+
+1:05:04.440 --> 1:05:07.400
+ of why you started the AI fund
+
+1:05:08.520 --> 1:05:10.120
+ I remember when I was leading
+
+1:05:10.120 --> 1:05:12.280
+ the AI group at Baidu
+
+1:05:13.160 --> 1:05:14.920
+ I had two jobs
+
+1:05:14.920 --> 1:05:15.800
+ two parts of my job
+
+1:05:15.800 --> 1:05:17.240
+ one was to build an AI engine
+
+1:05:17.240 --> 1:05:19.000
+ to support the existing businesses
+
+1:05:19.000 --> 1:05:20.520
+ and that was running
+
+1:05:20.520 --> 1:05:21.320
+ just ran
+
+1:05:21.320 --> 1:05:23.080
+ just performed by itself
+
+1:05:23.080 --> 1:05:24.600
+ there was a second part of my job at the time
+
+1:05:24.600 --> 1:05:27.240
+ which was to try to systematically initiate
+
+1:05:27.240 --> 1:05:28.920
+ new lines of businesses
+
+1:05:28.920 --> 1:05:31.080
+ using the company's AI capabilities
+
+1:05:31.080 --> 1:05:33.240
+ so you know the self driving car team
+
+1:05:33.240 --> 1:05:34.360
+ came out of my group
+
+1:05:34.360 --> 1:05:36.120
+ the smart speaker team
+
+1:05:37.080 --> 1:05:40.840
+ similar to what is Amazon Echo Alexa in the US
+
+1:05:40.840 --> 1:05:41.720
+ but we actually announced it
+
+1:05:41.720 --> 1:05:42.760
+ before Amazon did
+
+1:05:42.760 --> 1:05:46.440
+ so Baidu wasn't following Amazon
+
+1:05:47.320 --> 1:05:48.600
+ that came out of my group
+
+1:05:48.600 --> 1:05:50.040
+ and I found that to be
+
+1:05:50.680 --> 1:05:52.440
+ actually the most fun part of my job
+
+1:05:53.400 --> 1:05:55.080
+ so what I wanted to do was
+
+1:05:55.080 --> 1:05:58.200
+ to build AI fund as a startup studio
+
+1:05:58.200 --> 1:06:01.000
+ to systematically create new startups
+
+1:06:01.000 --> 1:06:01.640
+ from scratch
+
+1:06:02.600 --> 1:06:04.840
+ with all the things we can now do with AI
+
+1:06:04.840 --> 1:06:07.240
+ I think the ability to build new teams
+
+1:06:07.240 --> 1:06:09.960
+ to go after this rich space of opportunities
+
+1:06:09.960 --> 1:06:11.720
+ is a very important way
+
+1:06:11.720 --> 1:06:13.480
+ to very important mechanism
+
+1:06:13.480 --> 1:06:14.760
+ to get these projects done
+
+1:06:14.760 --> 1:06:16.520
+ that I think will move the world forward
+
+1:06:16.520 --> 1:06:19.160
+ so I've been fortunate to build a few teams
+
+1:06:19.160 --> 1:06:21.560
+ that had a meaningful positive impact
+
+1:06:21.560 --> 1:06:25.000
+ and I felt that we might be able to do this
+
+1:06:25.000 --> 1:06:27.160
+ in a more systematic repeatable way
+
+1:06:27.880 --> 1:06:31.400
+ so a startup studio is a relatively new concept
+
+1:06:31.400 --> 1:06:34.120
+ there are maybe dozens of startup studios
+
+1:06:34.120 --> 1:06:34.840
+ you know right now
+
+1:06:35.640 --> 1:06:38.680
+ but I feel like all of us
+
+1:06:38.680 --> 1:06:40.840
+ many teams are still trying to figure out
+
+1:06:40.840 --> 1:06:43.640
+ how do you systematically build companies
+
+1:06:43.640 --> 1:06:45.320
+ with a high success rate
+
+1:06:45.320 --> 1:06:47.960
+ so I think even a lot of my you know
+
+1:06:47.960 --> 1:06:49.560
+ venture capital friends are
+
+1:06:49.560 --> 1:06:51.640
+ seem to be more and more building companies
+
+1:06:51.640 --> 1:06:53.000
+ rather than investing in companies
+
+1:06:53.000 --> 1:06:54.680
+ but I find a fascinating thing to do
+
+1:06:55.240 --> 1:06:56.520
+ to figure out the mechanisms
+
+1:06:56.520 --> 1:06:58.680
+ by which we could systematically build
+
+1:06:58.680 --> 1:07:00.520
+ successful teams, successful businesses
+
+1:07:01.400 --> 1:07:03.320
+ in areas that we find meaningful
+
+1:07:03.320 --> 1:07:05.720
+ so a startup studio is something
+
+1:07:05.720 --> 1:07:08.440
+ is a place and a mechanism
+
+1:07:08.440 --> 1:07:11.000
+ for startups to go from zero to success
+
+1:07:11.000 --> 1:07:13.080
+ to try to develop a blueprint
+
+1:07:13.720 --> 1:07:14.680
+ it's actually a place for us
+
+1:07:14.680 --> 1:07:16.520
+ to build startups from scratch
+
+1:07:16.520 --> 1:07:19.320
+ so we often bring in founders
+
+1:07:19.320 --> 1:07:21.160
+ and work with them
+
+1:07:21.160 --> 1:07:23.720
+ or maybe even have existing ideas
+
+1:07:23.720 --> 1:07:25.880
+ that we match founders with
+
+1:07:26.440 --> 1:07:27.880
+ and then this launches
+
+1:07:27.880 --> 1:07:30.920
+ you know hopefully into successful companies
+
+1:07:30.920 --> 1:07:34.040
+ so how close are you to figuring out
+
+1:07:34.040 --> 1:07:36.920
+ a way to automate the process
+
+1:07:36.920 --> 1:07:38.280
+ of starting from scratch
+
+1:07:38.280 --> 1:07:40.440
+ and building a successful AI startup
+
+1:07:40.440 --> 1:07:43.720
+ yeah I think we've been constantly
+
+1:07:43.720 --> 1:07:46.040
+ improving and iterating on our processes
+
+1:07:46.680 --> 1:07:47.560
+ how we do that
+
+1:07:47.560 --> 1:07:48.920
+ so things like you know
+
+1:07:48.920 --> 1:07:50.600
+ how many customer calls do we need to make
+
+1:07:50.600 --> 1:07:52.280
+ in order to get customer validation
+
+1:07:52.840 --> 1:07:54.040
+ how do we make sure this technology
+
+1:07:54.040 --> 1:07:54.520
+ can be built
+
+1:07:54.520 --> 1:07:56.200
+ quite a lot of our businesses
+
+1:07:56.200 --> 1:07:58.440
+ need cutting edge machine learning algorithms
+
+1:07:58.440 --> 1:07:59.480
+ so you know kind of algorithms
+
+1:07:59.480 --> 1:08:01.880
+ have developed in the last one or two years
+
+1:08:01.880 --> 1:08:04.280
+ and even if it works in a research paper
+
+1:08:04.280 --> 1:08:05.640
+ it turns out taking the production
+
+1:08:05.640 --> 1:08:06.200
+ is really hard
+
+1:08:06.200 --> 1:08:07.160
+ there are a lot of issues
+
+1:08:07.160 --> 1:08:09.480
+ for making these things work in the real life
+
+1:08:10.840 --> 1:08:13.400
+ that are not widely addressed in academia
+
+1:08:13.400 --> 1:08:14.520
+ so how do we validate
+
+1:08:14.520 --> 1:08:15.720
+ that this is actually doable
+
+1:08:15.720 --> 1:08:17.080
+ how do you build a team
+
+1:08:17.080 --> 1:08:18.600
+ get the specialized domain knowledge
+
+1:08:18.600 --> 1:08:20.200
+ be it in education or health care
+
+1:08:20.200 --> 1:08:21.800
+ whatever sector we're focusing on
+
+1:08:21.800 --> 1:08:23.240
+ so I think we've actually getting
+
+1:08:23.240 --> 1:08:24.680
+ we've been getting much better
+
+1:08:24.680 --> 1:08:27.880
+ at giving the entrepreneurs
+
+1:08:27.880 --> 1:08:29.400
+ a high success rate
+
+1:08:29.400 --> 1:08:30.440
+ but I think we're still
+
+1:08:31.080 --> 1:08:32.520
+ I think the whole world is still
+
+1:08:32.520 --> 1:08:34.120
+ in the early phases of figuring this out
+
+1:08:34.120 --> 1:08:36.840
+ but do you think there is some aspects
+
+1:08:36.840 --> 1:08:38.760
+ of that process that are transferable
+
+1:08:38.760 --> 1:08:40.280
+ from one startup to another
+
+1:08:40.280 --> 1:08:41.640
+ to another to another
+
+1:08:41.640 --> 1:08:43.000
+ yeah very much so
+
+1:08:43.000 --> 1:08:45.080
+ you know starting from scratch
+
+1:08:45.080 --> 1:08:46.520
+ you know starting a company
+
+1:08:46.520 --> 1:08:47.640
+ to most entrepreneurs
+
+1:08:47.640 --> 1:08:50.680
+ is a really lonely thing
+
+1:08:50.680 --> 1:08:53.720
+ and I've seen so many entrepreneurs
+
+1:08:53.720 --> 1:08:56.200
+ not know how to make certain decisions
+
+1:08:56.200 --> 1:08:57.720
+ like when do you need to
+
+1:08:58.440 --> 1:09:00.040
+ how do you do B2B sales right
+
+1:09:00.040 --> 1:09:00.920
+ if you don't know that
+
+1:09:00.920 --> 1:09:02.280
+ it's really hard
+
+1:09:02.280 --> 1:09:05.400
+ or how do you market this efficiently
+
+1:09:05.400 --> 1:09:06.920
+ other than you know buying ads
+
+1:09:06.920 --> 1:09:08.360
+ which is really expensive
+
+1:09:08.360 --> 1:09:10.040
+ are there more efficient tactics for that
+
+1:09:10.040 --> 1:09:12.360
+ or for a machine learning project
+
+1:09:12.360 --> 1:09:14.200
+ you know basic decisions
+
+1:09:14.200 --> 1:09:15.320
+ can change the course of
+
+1:09:15.320 --> 1:09:17.720
+ whether machine learning product works or not
+
+1:09:18.360 --> 1:09:20.920
+ and so there are so many hundreds of decisions
+
+1:09:20.920 --> 1:09:22.600
+ that entrepreneurs need to make
+
+1:09:22.600 --> 1:09:24.440
+ and making a mistake
+
+1:09:24.440 --> 1:09:25.640
+ and a couple key decisions
+
+1:09:25.640 --> 1:09:26.840
+ can have a huge impact
+
+1:09:28.520 --> 1:09:30.120
+ on the fate of the company
+
+1:09:30.120 --> 1:09:31.400
+ so I think a startup studio
+
+1:09:31.400 --> 1:09:32.920
+ provides a support structure
+
+1:09:32.920 --> 1:09:34.280
+ that makes starting a company
+
+1:09:34.280 --> 1:09:36.200
+ much less of a lonely experience
+
+1:09:36.200 --> 1:09:39.960
+ and also when facing with these key decisions
+
+1:09:39.960 --> 1:09:42.280
+ like trying to hire your first
+
+1:09:42.280 --> 1:09:44.120
+ uh the VP of engineering
+
+1:09:44.840 --> 1:09:46.280
+ what's a good selection criteria
+
+1:09:46.280 --> 1:09:46.920
+ how do you solve
+
+1:09:46.920 --> 1:09:48.600
+ should I hire this person or not
+
+1:09:48.600 --> 1:09:51.400
+ by helping by having a ecosystem
+
+1:09:51.400 --> 1:09:52.920
+ around the entrepreneurs
+
+1:09:52.920 --> 1:09:54.520
+ the founders to help
+
+1:09:54.520 --> 1:09:57.320
+ I think we help them at the key moments
+
+1:09:57.320 --> 1:09:58.680
+ and hopefully significantly
+
+1:09:59.720 --> 1:10:00.840
+ make them more enjoyable
+
+1:10:00.840 --> 1:10:02.280
+ and then higher success rate
+
+1:10:02.280 --> 1:10:04.520
+ so there's somebody to brainstorm with
+
+1:10:04.520 --> 1:10:07.080
+ in these very difficult decision points
+
+1:10:07.880 --> 1:10:10.920
+ and also to help them recognize
+
+1:10:10.920 --> 1:10:12.840
+ what they may not even realize
+
+1:10:12.840 --> 1:10:14.120
+ is a key decision point
+
+1:10:14.760 --> 1:10:15.800
+ that's that's the first
+
+1:10:15.800 --> 1:10:17.240
+ and probably the most important part
+
+1:10:17.240 --> 1:10:19.720
+ yeah actually I can say one other thing
+
+1:10:19.720 --> 1:10:21.400
+ um you know I think
+
+1:10:22.200 --> 1:10:23.800
+ building companies is one thing
+
+1:10:23.800 --> 1:10:26.360
+ but I feel like it's really important
+
+1:10:26.360 --> 1:10:28.040
+ that we build companies
+
+1:10:28.040 --> 1:10:29.960
+ that move the world forward
+
+1:10:29.960 --> 1:10:32.360
+ for example within the AI Fund team
+
+1:10:32.360 --> 1:10:33.640
+ there was once an idea
+
+1:10:33.640 --> 1:10:35.480
+ for a new company
+
+1:10:35.480 --> 1:10:37.240
+ that if it had succeeded
+
+1:10:37.240 --> 1:10:38.680
+ would have resulted in people
+
+1:10:38.680 --> 1:10:40.040
+ watching a lot more videos
+
+1:10:40.040 --> 1:10:42.760
+ in a certain narrow vertical type of video
+
+1:10:42.760 --> 1:10:43.880
+ um I looked at it
+
+1:10:43.880 --> 1:10:45.480
+ the business case was fine
+
+1:10:45.480 --> 1:10:46.600
+ the revenue case was fine
+
+1:10:46.600 --> 1:10:47.560
+ but I looked and just said
+
+1:10:48.200 --> 1:10:49.240
+ I don't want to do this
+
+1:10:49.240 --> 1:10:50.600
+ like you know I don't actually
+
+1:10:50.600 --> 1:10:52.360
+ just want to have a lot more people
+
+1:10:52.360 --> 1:10:53.720
+ watch this type of video
+
+1:10:53.720 --> 1:10:54.600
+ wasn't educational
+
+1:10:54.600 --> 1:10:56.200
+ it's an educational baby
+
+1:10:56.200 --> 1:10:59.000
+ and so and so I I I I code the idea
+
+1:10:59.000 --> 1:11:00.520
+ on the basis that I didn't think
+
+1:11:00.520 --> 1:11:01.880
+ it would actually help people
+
+1:11:01.880 --> 1:11:04.040
+ so um whether building companies
+
+1:11:04.040 --> 1:11:05.240
+ or working enterprises
+
+1:11:05.240 --> 1:11:06.600
+ or doing personal projects
+
+1:11:06.600 --> 1:11:10.200
+ I think um it's up to each of us
+
+1:11:10.200 --> 1:11:11.480
+ to figure out what's the difference
+
+1:11:11.480 --> 1:11:12.600
+ we want to make in the world
+
+1:11:13.960 --> 1:11:15.240
+ With landing AI
+
+1:11:15.240 --> 1:11:17.000
+ you help already established companies
+
+1:11:17.000 --> 1:11:19.320
+ grow their AI and machine learning efforts
+
+1:11:20.040 --> 1:11:21.720
+ how does a large company
+
+1:11:21.720 --> 1:11:22.840
+ integrate machine learning
+
+1:11:22.840 --> 1:11:23.640
+ into their efforts?
+
+1:11:25.240 --> 1:11:27.560
+ AI is a general purpose technology
+
+1:11:27.560 --> 1:11:29.560
+ and I think it will transform every industry
+
+1:11:30.360 --> 1:11:32.920
+ our community has already transformed
+
+1:11:32.920 --> 1:11:33.640
+ to a large extent
+
+1:11:33.640 --> 1:11:35.320
+ the software internet sector
+
+1:11:35.320 --> 1:11:36.840
+ most software internet companies
+
+1:11:36.840 --> 1:11:38.040
+ outside the top right
+
+1:11:38.040 --> 1:11:39.240
+ five or six or three or four
+
+1:11:39.960 --> 1:11:41.880
+ already have reasonable
+
+1:11:41.880 --> 1:11:43.160
+ machine learning capabilities
+
+1:11:43.160 --> 1:11:44.040
+ or or getting there
+
+1:11:44.040 --> 1:11:45.160
+ it's still room for improvement
+
+1:11:46.200 --> 1:11:47.320
+ but when I look outside
+
+1:11:47.320 --> 1:11:49.080
+ the software internet sector
+
+1:11:49.080 --> 1:11:50.600
+ everything from manufacturing
+
+1:11:50.600 --> 1:11:52.040
+ agriculture, healthcare
+
+1:11:52.040 --> 1:11:53.720
+ logistics transportation
+
+1:11:53.720 --> 1:11:55.480
+ there's so many opportunities
+
+1:11:55.480 --> 1:11:57.800
+ that very few people are working on
+
+1:11:57.800 --> 1:11:59.640
+ so I think the next wave of AI
+
+1:11:59.640 --> 1:12:01.080
+ is for us to also transform
+
+1:12:01.080 --> 1:12:02.680
+ all of those other industries
+
+1:12:03.240 --> 1:12:04.440
+ there was a McKinsey study
+
+1:12:04.440 --> 1:12:06.840
+ estimating 13 trillion dollars
+
+1:12:06.840 --> 1:12:08.520
+ of global economic growth
+
+1:12:09.560 --> 1:12:11.560
+ US GDP is 19 trillion dollars
+
+1:12:11.560 --> 1:12:13.160
+ so 13 trillion is a big number
+
+1:12:13.160 --> 1:12:16.040
+ or PwC estimates 16 trillion dollars
+
+1:12:16.040 --> 1:12:18.200
+ so whatever number is is large
+
+1:12:18.200 --> 1:12:19.400
+ but the interesting thing to me
+
+1:12:19.400 --> 1:12:20.600
+ was a lot of that impact
+
+1:12:20.600 --> 1:12:21.640
+ will be outside
+
+1:12:21.640 --> 1:12:23.080
+ the software internet sector
+
+1:12:23.640 --> 1:12:25.160
+ so we need more teams
+
+1:12:25.880 --> 1:12:27.880
+ to work with these companies
+
+1:12:27.880 --> 1:12:29.640
+ to help them adopt AI
+
+1:12:29.640 --> 1:12:30.680
+ and I think this is one thing
+
+1:12:30.680 --> 1:12:31.800
+ so make you know
+
+1:12:31.800 --> 1:12:33.560
+ help drive global economic growth
+
+1:12:33.560 --> 1:12:35.800
+ and make humanity more powerful
+
+1:12:35.800 --> 1:12:37.720
+ and like you said the impact is there
+
+1:12:37.720 --> 1:12:39.400
+ so what are the best industries
+
+1:12:39.400 --> 1:12:40.360
+ the biggest industries
+
+1:12:40.360 --> 1:12:41.560
+ where AI can help
+
+1:12:41.560 --> 1:12:43.720
+ perhaps outside the software tech sector
+
+1:12:44.360 --> 1:12:45.880
+ frankly I think it's all of them
+
+1:12:47.880 --> 1:12:49.800
+ some of the ones I'm spending a lot of time on
+
+1:12:49.800 --> 1:12:52.360
+ are manufacturing agriculture
+
+1:12:52.360 --> 1:12:53.400
+ look into healthcare
+
+1:12:54.440 --> 1:12:56.360
+ for example in manufacturing
+
+1:12:56.360 --> 1:12:58.600
+ we do a lot of work in visual inspection
+
+1:12:58.600 --> 1:13:01.320
+ where today there are people standing around
+
+1:13:01.320 --> 1:13:02.840
+ using the eye human eye
+
+1:13:02.840 --> 1:13:03.880
+ to check if you know
+
+1:13:03.880 --> 1:13:05.720
+ this plastic part or the smartphone
+
+1:13:05.720 --> 1:13:07.320
+ or this thing has a scratch
+
+1:13:07.320 --> 1:13:08.440
+ or a dent or something in it
+
+1:13:09.320 --> 1:13:12.440
+ we can use a camera to take a picture
+
+1:13:12.440 --> 1:13:14.040
+ use a algorithm
+
+1:13:14.040 --> 1:13:15.400
+ deep learning and other things
+
+1:13:15.400 --> 1:13:17.800
+ to check if it's defective or not
+
+1:13:17.800 --> 1:13:20.440
+ and thus help factories improve yield
+
+1:13:20.440 --> 1:13:21.560
+ and improve quality
+
+1:13:21.560 --> 1:13:22.680
+ and improve throughput
+
+1:13:23.480 --> 1:13:25.000
+ it turns out the practical problems
+
+1:13:25.000 --> 1:13:26.520
+ we run into are very different
+
+1:13:26.520 --> 1:13:28.040
+ than the ones you might read about
+
+1:13:28.040 --> 1:13:29.400
+ in in most research papers
+
+1:13:29.400 --> 1:13:30.680
+ the data sets are really small
+
+1:13:30.680 --> 1:13:33.160
+ so we face small data problems
+
+1:13:33.160 --> 1:13:34.200
+ you know the factories
+
+1:13:34.200 --> 1:13:35.800
+ keep on changing the environment
+
+1:13:35.800 --> 1:13:38.200
+ so it works well on your test set
+
+1:13:38.200 --> 1:13:39.000
+ but guess what
+
+1:13:40.680 --> 1:13:41.960
+ something changes in the factory
+
+1:13:41.960 --> 1:13:43.480
+ the lights go on or off
+
+1:13:43.480 --> 1:13:45.080
+ recently there was a factory
+
+1:13:45.080 --> 1:13:47.800
+ in which a bird threw through the factory
+
+1:13:47.800 --> 1:13:48.840
+ and pooped on something
+
+1:13:48.840 --> 1:13:50.760
+ and so that changed stuff
+
+1:13:50.760 --> 1:13:53.080
+ and so increasing our algorithm
+
+1:13:53.080 --> 1:13:54.200
+ makes robustness
+
+1:13:54.200 --> 1:13:56.280
+ so all the changes happen in the factory
+
+1:13:56.920 --> 1:13:59.160
+ I find that we run a lot of practical problems
+
+1:13:59.160 --> 1:14:01.480
+ that are not as widely discussed
+
+1:14:01.480 --> 1:14:02.600
+ in academia
+
+1:14:02.600 --> 1:14:03.960
+ and it's really fun
+
+1:14:03.960 --> 1:14:05.080
+ kind of being on the cutting edge
+
+1:14:05.080 --> 1:14:06.600
+ solving these problems before
+
+1:14:07.560 --> 1:14:09.240
+ maybe before many people are even aware
+
+1:14:09.240 --> 1:14:10.360
+ that there is a problem there
+
+1:14:10.360 --> 1:14:12.280
+ and that's such a fascinating space
+
+1:14:12.280 --> 1:14:13.160
+ you're absolutely right
+
+1:14:13.160 --> 1:14:15.400
+ but what is the first step
+
+1:14:15.400 --> 1:14:16.520
+ that a company should take
+
+1:14:16.520 --> 1:14:18.200
+ it's just scary leap
+
+1:14:18.200 --> 1:14:19.480
+ into this new world of
+
+1:14:20.120 --> 1:14:21.720
+ going from the human eye
+
+1:14:21.720 --> 1:14:24.680
+ inspecting to digitizing that process
+
+1:14:24.680 --> 1:14:25.640
+ having a camera
+
+1:14:25.640 --> 1:14:26.680
+ having an algorithm
+
+1:14:27.240 --> 1:14:28.200
+ what's the first step
+
+1:14:28.200 --> 1:14:30.040
+ like what's the early journey
+
+1:14:30.040 --> 1:14:31.080
+ that you recommend
+
+1:14:31.080 --> 1:14:32.840
+ that you see these companies taking
+
+1:14:33.400 --> 1:14:34.520
+ I published a document
+
+1:14:34.520 --> 1:14:37.000
+ called the AI Transformation Playbook
+
+1:14:37.000 --> 1:14:37.720
+ that's online
+
+1:14:37.720 --> 1:14:39.800
+ and taught briefly in the AI for Everyone
+
+1:14:39.800 --> 1:14:41.000
+ course on Coursera
+
+1:14:41.000 --> 1:14:42.760
+ about the long term journey
+
+1:14:42.760 --> 1:14:44.120
+ that companies should take
+
+1:14:44.120 --> 1:14:45.000
+ but the first step
+
+1:14:45.000 --> 1:14:46.920
+ is actually to start small
+
+1:14:46.920 --> 1:14:48.840
+ I've seen a lot more companies fail
+
+1:14:48.840 --> 1:14:50.280
+ by starting too big
+
+1:14:50.280 --> 1:14:51.800
+ than by starting too small
+
+1:14:52.680 --> 1:14:54.120
+ take even Google
+
+1:14:54.120 --> 1:14:55.640
+ you know most people don't realize
+
+1:14:55.640 --> 1:14:56.920
+ how hard it was
+
+1:14:56.920 --> 1:14:58.440
+ and how controversial it was
+
+1:14:58.440 --> 1:14:59.960
+ in the early days
+
+1:14:59.960 --> 1:15:01.320
+ so when I started Google Brain
+
+1:15:02.360 --> 1:15:03.560
+ it was controversial
+
+1:15:03.560 --> 1:15:04.680
+ you know people thought
+
+1:15:04.680 --> 1:15:06.280
+ deep learning near nest
+
+1:15:06.280 --> 1:15:07.320
+ tried it didn't work
+
+1:15:07.320 --> 1:15:09.240
+ why would you want to do deep learning
+
+1:15:09.240 --> 1:15:11.560
+ so my first internal customer
+
+1:15:11.560 --> 1:15:12.360
+ within Google
+
+1:15:12.360 --> 1:15:13.960
+ was the Google speech team
+
+1:15:13.960 --> 1:15:15.560
+ which is not the most lucrative
+
+1:15:15.560 --> 1:15:16.360
+ project in Google
+
+1:15:17.160 --> 1:15:18.280
+ not the most important
+
+1:15:18.280 --> 1:15:20.040
+ it's not web search or advertising
+
+1:15:20.600 --> 1:15:21.880
+ but by starting small
+
+1:15:22.840 --> 1:15:25.800
+ my team helped the speech team
+
+1:15:25.800 --> 1:15:28.280
+ build a more accurate speech recognition system
+
+1:15:28.280 --> 1:15:30.120
+ and this caused their peers
+
+1:15:30.120 --> 1:15:31.080
+ other teams to start
+
+1:15:31.080 --> 1:15:32.920
+ to have more faith in deep learning
+
+1:15:32.920 --> 1:15:34.360
+ my second internal customer
+
+1:15:34.360 --> 1:15:36.360
+ was the Google Maps team
+
+1:15:36.360 --> 1:15:37.880
+ where we used computer vision
+
+1:15:37.880 --> 1:15:38.920
+ to read house numbers
+
+1:15:39.560 --> 1:15:41.000
+ from basic street view images
+
+1:15:41.000 --> 1:15:42.600
+ to more accurately locate houses
+
+1:15:42.600 --> 1:15:43.560
+ within Google Maps
+
+1:15:43.560 --> 1:15:45.240
+ so improve the quality of geodata
+
+1:15:45.800 --> 1:15:48.200
+ and it was only after those two successes
+
+1:15:48.200 --> 1:15:49.240
+ that I then started
+
+1:15:49.240 --> 1:15:50.440
+ a more serious conversation
+
+1:15:50.440 --> 1:15:51.720
+ with the Google Ads team
+
+1:15:52.600 --> 1:15:54.120
+ and so there's a ripple effect
+
+1:15:54.120 --> 1:15:55.480
+ that you showed that it works
+
+1:15:55.480 --> 1:15:56.680
+ in these cases
+
+1:15:56.680 --> 1:15:58.120
+ and then it just propagates
+
+1:15:58.120 --> 1:15:59.080
+ through the entire company
+
+1:15:59.080 --> 1:16:01.400
+ that this thing has a lot of value
+
+1:16:01.400 --> 1:16:02.120
+ and use for us
+
+1:16:02.760 --> 1:16:05.160
+ I think the early small scale projects
+
+1:16:05.160 --> 1:16:07.160
+ it helps the teams gain faith
+
+1:16:07.160 --> 1:16:09.160
+ but also helps the teams learn
+
+1:16:09.160 --> 1:16:10.840
+ what these technologies do
+
+1:16:11.480 --> 1:16:14.360
+ I still remember when our first GPU server
+
+1:16:14.360 --> 1:16:16.840
+ it was a server under some guy's desk
+
+1:16:16.840 --> 1:16:19.240
+ and you know and then that taught us
+
+1:16:19.240 --> 1:16:21.080
+ early important lessons about
+
+1:16:21.080 --> 1:16:23.480
+ how do you have multiple users
+
+1:16:23.480 --> 1:16:25.000
+ share a set of GPUs
+
+1:16:25.000 --> 1:16:26.920
+ which is really not obvious at the time
+
+1:16:26.920 --> 1:16:29.240
+ but those early lessons were important
+
+1:16:29.240 --> 1:16:31.880
+ we learned a lot from that first GPU server
+
+1:16:31.880 --> 1:16:33.880
+ that later helped the teams think through
+
+1:16:33.880 --> 1:16:34.840
+ how to scale it up
+
+1:16:34.840 --> 1:16:36.520
+ to much larger deployments
+
+1:16:37.320 --> 1:16:38.840
+ Are there concrete challenges
+
+1:16:38.840 --> 1:16:40.120
+ that companies face
+
+1:16:40.120 --> 1:16:42.760
+ that you see is important for them to solve?
+
+1:16:43.800 --> 1:16:45.080
+ I think building and deploying
+
+1:16:45.080 --> 1:16:47.080
+ machine learning systems is hard
+
+1:16:47.080 --> 1:16:48.760
+ there's a huge gulf between
+
+1:16:48.760 --> 1:16:49.560
+ something that works
+
+1:16:49.560 --> 1:16:51.560
+ in a jupyter notebook on your laptop
+
+1:16:51.560 --> 1:16:52.840
+ versus something that runs
+
+1:16:52.840 --> 1:16:54.440
+ their production deployment setting
+
+1:16:54.440 --> 1:16:57.480
+ in a factory or agriculture plant or whatever
+
+1:16:58.200 --> 1:16:59.720
+ so I see a lot of people
+
+1:16:59.720 --> 1:17:01.000
+ get something to work on your laptop
+
+1:17:01.000 --> 1:17:02.120
+ and say wow look what I've done
+
+1:17:02.120 --> 1:17:03.800
+ and that's great that's hard
+
+1:17:03.800 --> 1:17:05.640
+ that's a very important first step
+
+1:17:05.640 --> 1:17:07.160
+ but a lot of teams underestimate
+
+1:17:07.160 --> 1:17:08.600
+ the rest of the steps needed
+
+1:17:09.480 --> 1:17:10.280
+ so for example
+
+1:17:10.280 --> 1:17:12.360
+ I've heard this exact same conversation
+
+1:17:12.360 --> 1:17:13.880
+ between a lot of machine learning people
+
+1:17:13.880 --> 1:17:15.000
+ and business people
+
+1:17:15.000 --> 1:17:16.360
+ the machine learning person says
+
+1:17:16.920 --> 1:17:20.760
+ look my algorithm does well on the test set
+
+1:17:20.760 --> 1:17:22.440
+ and it's a clean test set at the end of peak
+
+1:17:22.440 --> 1:17:24.360
+ and the machine and the business person says
+
+1:17:24.360 --> 1:17:25.560
+ thank you very much
+
+1:17:25.560 --> 1:17:27.880
+ but your algorithm sucks it doesn't work
+
+1:17:28.440 --> 1:17:29.960
+ and the machine learning person says
+
+1:17:29.960 --> 1:17:32.680
+ no wait I did well on the test set
+
+1:17:33.720 --> 1:17:36.680
+ and I think there is a gulf between
+
+1:17:36.680 --> 1:17:38.760
+ what it takes to do well on the test set
+
+1:17:38.760 --> 1:17:39.720
+ on your hard drive
+
+1:17:39.720 --> 1:17:41.560
+ versus what it takes to work well
+
+1:17:41.560 --> 1:17:43.240
+ in a deployment setting
+
+1:17:43.240 --> 1:17:44.520
+ some common problems
+
+1:17:45.560 --> 1:17:47.240
+ robustness and generalization
+
+1:17:47.240 --> 1:17:49.640
+ you deploy something in the factory
+
+1:17:49.640 --> 1:17:51.640
+ maybe they chop down a tree outside the factory
+
+1:17:51.640 --> 1:17:54.280
+ so the tree no longer covers the window
+
+1:17:54.280 --> 1:17:55.320
+ and the lighting is different
+
+1:17:55.320 --> 1:17:56.760
+ so the test set changes
+
+1:17:56.760 --> 1:17:58.360
+ and in machine learning
+
+1:17:58.360 --> 1:17:59.640
+ and especially in academia
+
+1:18:00.360 --> 1:18:02.840
+ we don't know how to deal with test set distributions
+
+1:18:02.840 --> 1:18:04.360
+ that are dramatically different
+
+1:18:04.360 --> 1:18:06.280
+ than the training set distribution
+
+1:18:06.280 --> 1:18:07.560
+ you know that this research
+
+1:18:07.560 --> 1:18:09.400
+ the stuff like domain annotation
+
+1:18:10.200 --> 1:18:11.000
+ transfer learning
+
+1:18:11.000 --> 1:18:12.680
+ you know there are people working on it
+
+1:18:12.680 --> 1:18:14.440
+ but we're really not good at this
+
+1:18:14.440 --> 1:18:17.000
+ so how do you actually get this to work
+
+1:18:17.000 --> 1:18:18.360
+ because your test set distribution
+
+1:18:18.360 --> 1:18:19.320
+ is going to change
+
+1:18:19.320 --> 1:18:23.240
+ and I think also if you look at the number of lines of code
+
+1:18:23.240 --> 1:18:24.760
+ in the software system
+
+1:18:24.760 --> 1:18:27.960
+ the machine learning model is maybe five percent
+
+1:18:27.960 --> 1:18:28.760
+ or even fewer
+
+1:18:29.800 --> 1:18:31.960
+ relative to the entire software system
+
+1:18:31.960 --> 1:18:33.000
+ you need to build
+
+1:18:33.000 --> 1:18:34.760
+ so how do you get all that work done
+
+1:18:34.760 --> 1:18:36.520
+ and make it reliable and systematic
+
+1:18:36.520 --> 1:18:38.360
+ so good software engineering work
+
+1:18:38.360 --> 1:18:39.400
+ is fundamental here
+
+1:18:40.200 --> 1:18:43.560
+ to building a successful small machine learning system
+
+1:18:44.120 --> 1:18:46.040
+ yes and the software system
+
+1:18:46.040 --> 1:18:48.360
+ needs to interface with the machine learning system
+
+1:18:48.360 --> 1:18:50.600
+ needs to interface with people's workloads
+
+1:18:50.600 --> 1:18:53.960
+ so machine learning is automation on steroids
+
+1:18:53.960 --> 1:18:56.280
+ if we take one task out of many tasks
+
+1:18:56.280 --> 1:18:57.080
+ that are done in the factory
+
+1:18:57.080 --> 1:18:58.760
+ so the factory does lots of things
+
+1:18:58.760 --> 1:19:00.680
+ one task is vision inspection
+
+1:19:00.680 --> 1:19:02.360
+ if we automate that one task
+
+1:19:02.360 --> 1:19:03.800
+ it can be really valuable
+
+1:19:03.800 --> 1:19:06.040
+ but you may need to redesign a lot of other tasks
+
+1:19:06.040 --> 1:19:07.240
+ around that one task
+
+1:19:07.240 --> 1:19:09.720
+ for example say the machine learning algorithm
+
+1:19:09.720 --> 1:19:10.920
+ says this is defective
+
+1:19:10.920 --> 1:19:11.720
+ what are you supposed to do
+
+1:19:11.720 --> 1:19:12.520
+ do you throw it away
+
+1:19:12.520 --> 1:19:14.040
+ do you get a human to double check
+
+1:19:14.040 --> 1:19:16.120
+ do you want to rework it or fix it
+
+1:19:16.120 --> 1:19:17.960
+ so you need to redesign a lot of tasks
+
+1:19:17.960 --> 1:19:20.040
+ around that thing you've now automated
+
+1:19:20.040 --> 1:19:22.600
+ so planning for the change management
+
+1:19:22.600 --> 1:19:24.840
+ and making sure that the software you write
+
+1:19:24.840 --> 1:19:26.680
+ is consistent with the new workflow
+
+1:19:26.680 --> 1:19:28.200
+ and you take the time to explain to people
+
+1:19:28.200 --> 1:19:29.000
+ what needs to happen
+
+1:19:29.000 --> 1:19:33.480
+ so I think what landing AI has become good at
+
+1:19:34.360 --> 1:19:36.520
+ and then I think we learned by making the steps
+
+1:19:36.520 --> 1:19:38.280
+ and you know painful experiences
+
+1:19:38.280 --> 1:19:41.080
+ well my what would become good at is
+
+1:19:41.720 --> 1:19:43.800
+ working with our partners to think through
+
+1:19:43.800 --> 1:19:46.440
+ all the things beyond just the machine learning model
+
+1:19:46.440 --> 1:19:47.560
+ or running the jupyter notebook
+
+1:19:47.560 --> 1:19:50.200
+ but to build the entire system
+
+1:19:50.200 --> 1:19:51.720
+ manage the change process
+
+1:19:51.720 --> 1:19:53.160
+ and figure out how to deploy this in a way
+
+1:19:53.160 --> 1:19:54.680
+ that has an actual impact
+
+1:19:55.480 --> 1:19:58.120
+ the processes that the large software tech companies
+
+1:19:58.120 --> 1:19:59.880
+ use for deploying don't work
+
+1:19:59.880 --> 1:20:01.480
+ for a lot of other scenarios
+
+1:20:01.480 --> 1:20:04.920
+ for example when I was leading large speech teams
+
+1:20:05.720 --> 1:20:07.800
+ if the speech recognition system goes down
+
+1:20:07.800 --> 1:20:09.560
+ what happens well alarms goes off
+
+1:20:09.560 --> 1:20:11.400
+ and then someone like me would say hey
+
+1:20:11.400 --> 1:20:12.840
+ you 20 engine environment
+
+1:20:12.840 --> 1:20:14.840
+ you 20 engineers please fix this
+
+1:20:16.600 --> 1:20:19.240
+ but if you have a system girl in the factory
+
+1:20:19.240 --> 1:20:21.320
+ there are not 20 machine learning engineers
+
+1:20:21.320 --> 1:20:22.920
+ sitting around you can page your duty
+
+1:20:22.920 --> 1:20:23.800
+ and have them fix it
+
+1:20:23.800 --> 1:20:26.200
+ so how do you deal with the maintenance
+
+1:20:26.200 --> 1:20:28.280
+ or the or the dev ops or the mo ops
+
+1:20:28.280 --> 1:20:29.720
+ or the other aspects of this
+
+1:20:30.280 --> 1:20:33.960
+ so these are concepts that I think landing AI
+
+1:20:33.960 --> 1:20:36.360
+ and a few other teams on the cutting edge
+
+1:20:36.360 --> 1:20:39.480
+ but we don't even have systematic terminology yet
+
+1:20:39.480 --> 1:20:40.920
+ to describe some of the stuff we do
+
+1:20:40.920 --> 1:20:43.000
+ because I think we're inventing it on the fly.
+
+1:20:44.680 --> 1:20:46.600
+ So you mentioned some people are interested
+
+1:20:46.600 --> 1:20:48.360
+ in discovering mathematical beauty
+
+1:20:48.360 --> 1:20:49.560
+ and truth in the universe
+
+1:20:49.560 --> 1:20:50.920
+ and you're interested in having
+
+1:20:51.640 --> 1:20:54.200
+ a big positive impact in the world
+
+1:20:54.920 --> 1:20:57.240
+ so let me ask the two are not inconsistent
+
+1:20:57.240 --> 1:20:58.200
+ no they're all together
+
+1:20:58.760 --> 1:21:00.840
+ I'm only half joking
+
+1:21:00.840 --> 1:21:02.920
+ because you're probably interested a little bit in both
+
+1:21:03.480 --> 1:21:06.040
+ but let me ask a romanticized question
+
+1:21:06.040 --> 1:21:07.320
+ so much of the work
+
+1:21:08.040 --> 1:21:09.480
+ your work and our discussion today
+
+1:21:09.480 --> 1:21:11.000
+ has been on applied AI
+
+1:21:11.960 --> 1:21:13.880
+ maybe you can even call narrow AI
+
+1:21:14.440 --> 1:21:15.720
+ where the goal is to create systems
+
+1:21:15.720 --> 1:21:17.400
+ that automate some specific process
+
+1:21:17.400 --> 1:21:18.920
+ that adds a lot of value to the world
+
+1:21:19.640 --> 1:21:21.240
+ but there's another branch of AI
+
+1:21:21.240 --> 1:21:22.760
+ starting with Alan Turing
+
+1:21:22.760 --> 1:21:25.560
+ that kind of dreams of creating human level
+
+1:21:25.560 --> 1:21:27.160
+ or superhuman level intelligence
+
+1:21:28.360 --> 1:21:30.360
+ is this something you dream of as well
+
+1:21:30.360 --> 1:21:32.120
+ do you think we human beings
+
+1:21:32.120 --> 1:21:34.440
+ will ever build a human level intelligence
+
+1:21:34.440 --> 1:21:36.440
+ or superhuman level intelligence system?
+
+1:21:37.160 --> 1:21:38.680
+ I would love to get to AGI
+
+1:21:38.680 --> 1:21:40.280
+ and I think humanity will
+
+1:21:40.840 --> 1:21:42.600
+ but whether it takes 100 years
+
+1:21:42.600 --> 1:21:45.000
+ or 500 or 5000
+
+1:21:45.000 --> 1:21:46.680
+ I find hard to estimate
+
+1:21:47.960 --> 1:21:48.440
+ do you have
+
+1:21:49.880 --> 1:21:51.640
+ some folks have worries
+
+1:21:51.640 --> 1:21:53.160
+ about the different trajectories
+
+1:21:53.160 --> 1:21:54.360
+ that path would take
+
+1:21:54.360 --> 1:21:57.400
+ even existential threats of an AGI system
+
+1:21:57.400 --> 1:21:58.760
+ do you have such concerns
+
+1:21:59.560 --> 1:22:01.320
+ whether in the short term or the long term?
+
+1:22:02.200 --> 1:22:05.880
+ I do worry about the long term fate of humanity
+
+1:22:05.880 --> 1:22:08.280
+ I do wonder as well
+
+1:22:08.280 --> 1:22:11.320
+ I do worry about overpopulation on the planet Mars
+
+1:22:12.280 --> 1:22:13.400
+ just not today
+
+1:22:13.400 --> 1:22:14.600
+ I think there will be a day
+
+1:22:15.160 --> 1:22:17.080
+ when maybe someday in the future
+
+1:22:17.640 --> 1:22:19.160
+ Mars will be polluted
+
+1:22:19.160 --> 1:22:20.680
+ there are all these children dying
+
+1:22:20.680 --> 1:22:22.040
+ and someone will look back at this video
+
+1:22:22.040 --> 1:22:24.040
+ and say Andrew how is Andrew so heartless?
+
+1:22:24.040 --> 1:22:25.640
+ He didn't care about all these children
+
+1:22:25.640 --> 1:22:27.080
+ dying on the planet Mars
+
+1:22:27.080 --> 1:22:29.400
+ and I apologize to the future viewer
+
+1:22:29.400 --> 1:22:31.000
+ I do care about the children
+
+1:22:31.000 --> 1:22:32.200
+ but I just don't know how to
+
+1:22:32.200 --> 1:22:33.720
+ productively work on that today
+
+1:22:33.720 --> 1:22:35.960
+ your picture will be in the dictionary
+
+1:22:35.960 --> 1:22:37.240
+ for the people who are ignorant
+
+1:22:37.240 --> 1:22:39.080
+ about the overpopulation on Mars
+
+1:22:39.800 --> 1:22:42.440
+ yes so it's a long term problem
+
+1:22:42.440 --> 1:22:43.960
+ is there something in the short term
+
+1:22:43.960 --> 1:22:45.160
+ we should be thinking about
+
+1:22:45.720 --> 1:22:48.520
+ in terms of aligning the values of our AI systems
+
+1:22:48.520 --> 1:22:51.560
+ with the values of us humans
+
+1:22:52.440 --> 1:22:54.520
+ sort of something that Stuart Russell
+
+1:22:54.520 --> 1:22:56.200
+ and other folks are thinking about
+
+1:22:56.200 --> 1:22:58.600
+ as this system develops more and more
+
+1:22:58.600 --> 1:23:01.400
+ we want to make sure that it represents
+
+1:23:01.400 --> 1:23:03.720
+ the better angels of our nature
+
+1:23:03.720 --> 1:23:06.760
+ the ethics the values of our society
+
+1:23:07.800 --> 1:23:10.040
+ you know if you take self driving cars
+
+1:23:11.080 --> 1:23:12.600
+ the biggest problem with self driving cars
+
+1:23:12.600 --> 1:23:16.040
+ is not that there's some trolley dilemma
+
+1:23:16.040 --> 1:23:17.640
+ and you teach this so you know
+
+1:23:17.640 --> 1:23:20.040
+ how many times when you are driving your car
+
+1:23:20.040 --> 1:23:21.800
+ did you face this moral dilemma
+
+1:23:21.800 --> 1:23:24.120
+ who do I crash into?
+
+1:23:24.120 --> 1:23:25.320
+ so I think self driving cars
+
+1:23:25.320 --> 1:23:27.640
+ will run into that problem roughly as often
+
+1:23:27.640 --> 1:23:29.240
+ as we do when we drive our cars
+
+1:23:29.240 --> 1:23:30.920
+ the biggest problem with self driving cars
+
+1:23:30.920 --> 1:23:33.160
+ is when there's a big white truck across the road
+
+1:23:33.160 --> 1:23:34.360
+ and what you should do is break
+
+1:23:34.360 --> 1:23:35.560
+ and not crash into it
+
+1:23:35.560 --> 1:23:37.560
+ and the self driving car fails
+
+1:23:37.560 --> 1:23:38.520
+ and it crashes into it
+
+1:23:38.520 --> 1:23:40.600
+ so I think we need to solve that problem first
+
+1:23:40.600 --> 1:23:42.920
+ I think the problem with some of these discussions
+
+1:23:42.920 --> 1:23:47.080
+ about AGI you know alignments
+
+1:23:47.080 --> 1:23:48.440
+ the paperclip problem
+
+1:23:49.480 --> 1:23:51.720
+ is that is a huge distraction
+
+1:23:51.720 --> 1:23:53.560
+ from the much harder problems
+
+1:23:53.560 --> 1:23:56.120
+ that we actually need to address today
+
+1:23:56.120 --> 1:23:57.640
+ it's not the hardest problems
+
+1:23:57.640 --> 1:23:59.320
+ we need to address today
+
+1:23:59.320 --> 1:24:00.040
+ it's not the hard problems
+
+1:24:00.040 --> 1:24:01.000
+ we need to address today
+
+1:24:01.000 --> 1:24:04.120
+ I think bias is a huge issue
+
+1:24:04.120 --> 1:24:06.120
+ I worry about wealth and equality
+
+1:24:06.120 --> 1:24:09.000
+ the AI and internet are causing
+
+1:24:09.000 --> 1:24:11.240
+ an acceleration of concentration of power
+
+1:24:11.240 --> 1:24:13.640
+ because we can now centralize data
+
+1:24:13.640 --> 1:24:14.760
+ use AI to process it
+
+1:24:14.760 --> 1:24:16.280
+ and so industry after industry
+
+1:24:16.280 --> 1:24:18.040
+ we've affected every industry
+
+1:24:18.040 --> 1:24:20.040
+ so the internet industry has a lot of
+
+1:24:20.040 --> 1:24:20.760
+ win and take most
+
+1:24:20.760 --> 1:24:22.520
+ or win and take all dynamics
+
+1:24:22.520 --> 1:24:24.760
+ but we've infected all these other industries
+
+1:24:24.760 --> 1:24:26.600
+ so we're also giving these other industries
+
+1:24:26.600 --> 1:24:28.600
+ most of them to take all flavors
+
+1:24:28.600 --> 1:24:30.920
+ so look at what Uber and Lyft
+
+1:24:30.920 --> 1:24:32.440
+ did to the taxi industry
+
+1:24:32.440 --> 1:24:33.560
+ so we're doing this type of thing
+
+1:24:33.560 --> 1:24:34.920
+ it's a lot and so this
+
+1:24:34.920 --> 1:24:36.360
+ so we're creating tremendous wealth
+
+1:24:36.360 --> 1:24:37.720
+ but how do we make sure that the wealth
+
+1:24:37.720 --> 1:24:38.600
+ is fairly shared
+
+1:24:39.800 --> 1:24:43.080
+ I think that and then how do we help
+
+1:24:43.080 --> 1:24:44.760
+ people whose jobs are displaced
+
+1:24:44.760 --> 1:24:46.920
+ you know I think education is part of it
+
+1:24:46.920 --> 1:24:48.360
+ there may be even more
+
+1:24:48.360 --> 1:24:50.200
+ that we need to do than education
+
+1:24:52.040 --> 1:24:54.200
+ I think bias is a serious issue
+
+1:24:54.200 --> 1:24:56.520
+ there are adverse uses of AI
+
+1:24:56.520 --> 1:24:57.960
+ like deepfakes being used
+
+1:24:57.960 --> 1:24:59.400
+ for various and various purposes
+
+1:24:59.880 --> 1:25:03.960
+ so I worry about some teams
+
+1:25:04.440 --> 1:25:05.480
+ maybe accidentally
+
+1:25:05.480 --> 1:25:07.240
+ and I hope not deliberately
+
+1:25:07.240 --> 1:25:09.960
+ making a lot of noise about things
+
+1:25:09.960 --> 1:25:11.960
+ that problems in the distant future
+
+1:25:12.520 --> 1:25:13.880
+ rather than focusing on
+
+1:25:13.880 --> 1:25:15.160
+ some of the much harder problems
+
+1:25:15.160 --> 1:25:17.000
+ yeah the overshadow of the problems
+
+1:25:17.000 --> 1:25:18.120
+ that we have already today
+
+1:25:18.120 --> 1:25:19.560
+ they're exceptionally challenging
+
+1:25:19.560 --> 1:25:20.520
+ like those you said
+
+1:25:20.520 --> 1:25:21.960
+ and even the silly ones
+
+1:25:21.960 --> 1:25:23.560
+ but the ones that have a huge impact
+
+1:25:23.560 --> 1:25:24.520
+ huge impact
+
+1:25:24.520 --> 1:25:25.960
+ which is the lighting variation
+
+1:25:25.960 --> 1:25:27.400
+ outside of your factory window
+
+1:25:27.960 --> 1:25:30.120
+ that that ultimately is
+
+1:25:30.120 --> 1:25:31.320
+ what makes the difference
+
+1:25:31.320 --> 1:25:32.120
+ between like you said
+
+1:25:32.120 --> 1:25:33.160
+ the Jupiter notebook
+
+1:25:33.160 --> 1:25:35.400
+ and something that actually transforms
+
+1:25:35.400 --> 1:25:36.840
+ an entire industry potentially
+
+1:25:37.400 --> 1:25:38.200
+ yeah and I think
+
+1:25:38.200 --> 1:25:40.600
+ and then just to some companies
+
+1:25:40.600 --> 1:25:42.600
+ or a regulator comes to you
+
+1:25:42.600 --> 1:25:44.200
+ and says look your product
+
+1:25:44.200 --> 1:25:45.240
+ is messing things up
+
+1:25:45.880 --> 1:25:47.720
+ fixing it may have a revenue impact
+
+1:25:47.720 --> 1:25:49.400
+ well it's much more fun to talk to them
+
+1:25:49.400 --> 1:25:50.440
+ about how you promise
+
+1:25:50.440 --> 1:25:51.960
+ not to wipe out humanity
+
+1:25:51.960 --> 1:25:54.440
+ and to face the actually really hard problems we face
+
+1:25:55.720 --> 1:25:57.480
+ so your life has been a great journey
+
+1:25:57.480 --> 1:25:58.840
+ from teaching to research
+
+1:25:58.840 --> 1:25:59.960
+ to entrepreneurship
+
+1:26:00.680 --> 1:26:01.880
+ two questions
+
+1:26:01.880 --> 1:26:04.040
+ one are there regrets
+
+1:26:04.040 --> 1:26:05.560
+ moments that if you went back
+
+1:26:05.560 --> 1:26:07.000
+ you would do differently
+
+1:26:07.000 --> 1:26:08.920
+ and two are there moments
+
+1:26:08.920 --> 1:26:10.120
+ you're especially proud of
+
+1:26:10.680 --> 1:26:12.360
+ moments that made you truly happy
+
+1:26:13.160 --> 1:26:15.320
+ you know I've made so many mistakes
+
+1:26:17.080 --> 1:26:18.440
+ it feels like every time
+
+1:26:18.440 --> 1:26:19.720
+ I discover something
+
+1:26:19.720 --> 1:26:22.200
+ I go why didn't I think of this
+
+1:26:23.080 --> 1:26:24.520
+ you know five years earlier
+
+1:26:24.520 --> 1:26:25.640
+ or even 10 years earlier
+
+1:26:27.240 --> 1:26:29.480
+ and as recently
+
+1:26:29.480 --> 1:26:30.920
+ and then sometimes I read a book
+
+1:26:30.920 --> 1:26:33.800
+ and I go I wish I read this book 10 years ago
+
+1:26:33.800 --> 1:26:35.480
+ my life would have been so different
+
+1:26:35.480 --> 1:26:36.600
+ although that happened recently
+
+1:26:36.600 --> 1:26:37.800
+ and then I was thinking
+
+1:26:37.800 --> 1:26:39.240
+ if only I read this book
+
+1:26:39.240 --> 1:26:40.520
+ when we're starting up Coursera
+
+1:26:40.520 --> 1:26:41.880
+ I could have been so much better
+
+1:26:42.760 --> 1:26:43.640
+ but I discovered the book
+
+1:26:43.640 --> 1:26:44.600
+ had not yet been written
+
+1:26:44.600 --> 1:26:45.560
+ we're starting Coursera
+
+1:26:45.560 --> 1:26:46.600
+ so that made me feel better
+
+1:26:46.600 --> 1:26:48.280
+ so that made me feel better
+
+1:26:49.400 --> 1:26:53.080
+ but I find that the process of discovery
+
+1:26:53.080 --> 1:26:54.440
+ we keep on finding out things
+
+1:26:54.440 --> 1:26:56.440
+ that seem so obvious in hindsight
+
+1:26:57.480 --> 1:26:59.320
+ but it always takes us so much longer
+
+1:26:59.320 --> 1:27:01.880
+ than than I wish to to figure it out
+
+1:27:03.400 --> 1:27:04.600
+ so on the second question
+
+1:27:06.280 --> 1:27:08.040
+ are there moments in your life
+
+1:27:08.040 --> 1:27:09.960
+ that if you look back
+
+1:27:09.960 --> 1:27:12.440
+ that you're especially proud of
+
+1:27:12.440 --> 1:27:13.800
+ or you're especially happy
+
+1:27:13.800 --> 1:27:17.480
+ what would be the that filled you with happiness
+
+1:27:17.480 --> 1:27:18.440
+ and fulfillment
+
+1:27:18.440 --> 1:27:20.280
+ well two answers
+
+1:27:20.280 --> 1:27:21.800
+ one does my daughter know of her
+
+1:27:21.800 --> 1:27:22.680
+ yes of course
+
+1:27:22.680 --> 1:27:24.280
+ because I know how much time I spent with her
+
+1:27:24.280 --> 1:27:25.720
+ I just can't spend enough time with her
+
+1:27:25.720 --> 1:27:26.840
+ congratulations by the way
+
+1:27:26.840 --> 1:27:27.800
+ thank you
+
+1:27:27.800 --> 1:27:29.880
+ and then second is helping other people
+
+1:27:29.880 --> 1:27:30.920
+ I think to me
+
+1:27:30.920 --> 1:27:32.520
+ I think the meaning of life
+
+1:27:32.520 --> 1:27:35.160
+ is helping others achieve
+
+1:27:35.160 --> 1:27:36.360
+ whatever are their dreams
+
+1:27:37.160 --> 1:27:40.440
+ and then also to try to move the world forward
+
+1:27:40.440 --> 1:27:43.880
+ making humanity more powerful as a whole
+
+1:27:43.880 --> 1:27:46.040
+ so the times that I felt most happy
+
+1:27:46.040 --> 1:27:47.640
+ most proud was when I felt
+
+1:27:49.000 --> 1:27:52.600
+ someone else allowed me the good fortune
+
+1:27:52.600 --> 1:27:54.440
+ of helping them a little bit
+
+1:27:54.440 --> 1:27:55.880
+ on the path to their dreams
+
+1:27:57.160 --> 1:27:58.840
+ I think there's no better way to end it
+
+1:27:58.840 --> 1:28:00.120
+ than talking about happiness
+
+1:28:00.120 --> 1:28:01.080
+ and the meaning of life
+
+1:28:01.080 --> 1:28:03.240
+ so Andrew it's a huge honor
+
+1:28:03.240 --> 1:28:04.360
+ me and millions of people
+
+1:28:04.360 --> 1:28:05.960
+ thank you for all the work you've done
+
+1:28:05.960 --> 1:28:07.160
+ thank you for talking today
+
+1:28:07.160 --> 1:28:07.960
+ thank you so much thanks
+
+1:28:07.960 --> 1:28:10.760
+ thanks for listening to this conversation with Andrew Ng
+
+1:28:10.760 --> 1:28:13.720
+ and thank you to our presenting sponsor Cash App
+
+1:28:13.720 --> 1:28:16.440
+ download it use code LEX podcast
+
+1:28:16.440 --> 1:28:17.720
+ you'll get ten dollars
+
+1:28:17.720 --> 1:28:19.320
+ and ten dollars will go to FIRST
+
+1:28:19.320 --> 1:28:22.360
+ an organization that inspires and educates young minds
+
+1:28:22.360 --> 1:28:25.160
+ to become science and technology innovators of tomorrow
+
+1:28:25.720 --> 1:28:27.160
+ if you enjoy this podcast
+
+1:28:27.160 --> 1:28:28.600
+ subscribe on YouTube
+
+1:28:28.600 --> 1:28:30.680
+ give it five stars on Apple podcast
+
+1:28:30.680 --> 1:28:32.040
+ support it on Patreon
+
+1:28:32.040 --> 1:28:34.040
+ or simply connect with me on Twitter
+
+1:28:34.040 --> 1:28:35.240
+ at LEX Freedman
+
+1:28:35.240 --> 1:28:38.440
+ and now let me leave you with some words of wisdom from Andrew Ng
+
+1:28:39.320 --> 1:28:40.280
+ ask yourself
+
+1:28:40.840 --> 1:28:44.360
+ if what you're working on succeeds beyond your wildest dreams
+
+1:28:44.360 --> 1:28:46.840
+ would you have significantly helped other people?
+
+1:28:47.880 --> 1:28:51.160
+ if not then keep searching for something else to work on
+
+1:28:51.160 --> 1:28:54.440
+ otherwise you're not living up to your full potential
+
+1:28:54.440 --> 1:29:04.840
+ thank you for listening and hope to see you next time
+

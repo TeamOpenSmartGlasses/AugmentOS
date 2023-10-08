@@ -1,0 +1,5633 @@
+WEBVTT
+
+00:00.000 --> 00:05.560
+ The following is a conversation with Dan Kokotov, VP of engineering at rev.ai,
+
+00:06.000 --> 00:11.520
+ which is by many metrics, the best speech to text AI engine in the world.
+
+00:12.360 --> 00:16.320
+ Rev in general is a company that does captioning and transcription
+
+00:16.320 --> 00:19.160
+ of audio by humans and by AI.
+
+00:20.000 --> 00:23.480
+ I've been using their services for a couple of years now and I'm planning
+
+00:23.480 --> 00:28.000
+ to use Rev to add both captions and transcripts to some of the previous
+
+00:28.000 --> 00:32.480
+ and future episodes of this podcast to make it easier for people to read
+
+00:32.480 --> 00:36.800
+ through the conversation or reference various parts of the episode, since
+
+00:36.800 --> 00:39.120
+ that's something that quite a few people requested.
+
+00:39.760 --> 00:44.800
+ I'll probably do a separate video on that with links on the podcast website
+
+00:45.440 --> 00:48.000
+ so people can provide suggestions and improvements there.
+
+00:48.400 --> 00:52.840
+ Quick mention of our sponsors, Athletic Greens, All in One Nutrition Drink,
+
+00:52.840 --> 00:58.960
+ Blinkist app that summarizes books, Business Wars podcast, and Cash App.
+
+00:59.600 --> 01:02.360
+ So the choice is health, wisdom, or money.
+
+01:02.840 --> 01:06.880
+ Choose wisely my friends, and if you wish, click the sponsor links
+
+01:06.880 --> 01:09.640
+ below to get a discount and to support this podcast.
+
+01:10.320 --> 01:13.080
+ As a side note, let me say that I reached out to Dan and the Rev
+
+01:13.080 --> 01:17.880
+ team for a conversation because I've been using and genuinely loving
+
+01:18.120 --> 01:21.320
+ their service and really curious about how it works.
+
+01:21.320 --> 01:24.840
+ I previously talked to the head of Adobe research for the same reason.
+
+01:25.440 --> 01:30.040
+ For me, there's a bunch of products, usually software, that comes along
+
+01:30.040 --> 01:31.640
+ and just makes my life way easier.
+
+01:32.040 --> 01:37.200
+ Examples are Adobe Premiere for video editing, iZotope RX for cleaning up audio,
+
+01:37.480 --> 01:43.680
+ AutoHotKey on Windows for automating keyboard and mouse tasks, Emacs as an
+
+01:43.680 --> 01:46.520
+ IDE for everything, including the universe itself.
+
+01:47.080 --> 01:49.080
+ I can keep on going, but you get the idea.
+
+01:49.080 --> 01:52.240
+ I just like talking to people who create things I'm a big fan of.
+
+01:52.760 --> 01:58.800
+ That said, after doing this conversation, the folks at Rev.ai offered to sponsor
+
+01:58.800 --> 02:00.320
+ this podcast in the coming months.
+
+02:01.040 --> 02:04.240
+ This conversation is not sponsored by the guest.
+
+02:04.880 --> 02:08.640
+ It probably goes without saying, but I should say it anyway, that you
+
+02:08.640 --> 02:11.280
+ can not buy your way onto this podcast.
+
+02:11.600 --> 02:13.000
+ I don't know why you would want to.
+
+02:13.720 --> 02:17.480
+ I wanted to bring this up to make a specific point that no sponsor
+
+02:17.480 --> 02:21.240
+ will ever influence what I do on this podcast, or to the best of
+
+02:21.240 --> 02:22.960
+ my ability, influence what I think.
+
+02:23.480 --> 02:25.400
+ I wasn't really thinking about this.
+
+02:25.480 --> 02:30.520
+ For example, when I interviewed Jack Dorsey, who is the CEO of Square that
+
+02:30.520 --> 02:34.720
+ happens to be sponsoring this podcast, but I should really make it explicit.
+
+02:34.960 --> 02:37.520
+ I will never take money for bringing a guest on.
+
+02:37.920 --> 02:43.200
+ Every guest on this podcast is someone I genuinely am curious to talk to or just
+
+02:43.240 --> 02:45.440
+ genuinely love something they've created.
+
+02:45.440 --> 02:49.360
+ As I sometimes get criticized for, I'm just a fan of people.
+
+02:49.760 --> 02:50.760
+ And that's who I talk to.
+
+02:51.440 --> 02:55.640
+ As I also talk about way too much, money is really never a consideration.
+
+02:56.120 --> 02:59.600
+ In general, no amount of money can buy my integrity.
+
+03:00.240 --> 03:03.880
+ That's true for this podcast, and that's true for anything else I do.
+
+03:05.160 --> 03:09.560
+ If you enjoy this thing, subscribe on YouTube, review on the Apple podcast,
+
+03:09.760 --> 03:14.120
+ follow on Spotify, support on Patreon, a podcast on YouTube, and
+
+03:14.120 --> 03:17.840
+ support on Patreon, or connect with me on Twitter at Lex Friedman.
+
+03:18.280 --> 03:21.880
+ And now here's my conversation with Dan Kokotov.
+
+03:23.080 --> 03:25.000
+ You mentioned science fiction on the phone.
+
+03:25.600 --> 03:28.040
+ So let's go with the ridiculous first.
+
+03:28.040 --> 03:31.680
+ What's the greatest sci fi novel of all time in your view?
+
+03:32.360 --> 03:37.560
+ And maybe what ideas do you find philosophically fascinating about it?
+
+03:37.800 --> 03:40.960
+ The greatest sci fi novel of all time is Dune.
+
+03:40.960 --> 03:43.880
+ And the second greatest is The Children of Dune.
+
+03:43.880 --> 03:47.080
+ And the third greatest is The God Emperor of Dune.
+
+03:47.080 --> 03:50.120
+ So I'm a huge fan of the whole series.
+
+03:50.120 --> 03:53.400
+ I mean, it's just an incredible world that he created.
+
+03:53.720 --> 03:55.360
+ And I don't know if you've read the book or not.
+
+03:55.480 --> 03:56.280
+ No, I have not.
+
+03:56.280 --> 04:00.520
+ It's one of my biggest regrets, especially because a new movie is coming out.
+
+04:01.480 --> 04:02.880
+ Everyone's super excited about it.
+
+04:02.920 --> 04:07.600
+ I used to, it's ridiculous to say, and sorry to interrupt, is that I
+
+04:07.600 --> 04:09.600
+ used to play the video game.
+
+04:09.600 --> 04:10.800
+ It used to be Dune.
+
+04:11.280 --> 04:13.680
+ I guess you would call that real time strategy.
+
+04:13.720 --> 04:14.080
+ Right.
+
+04:14.080 --> 04:15.200
+ I think I remember that game.
+
+04:15.240 --> 04:16.400
+ Yeah, it was kind of awesome.
+
+04:16.400 --> 04:17.400
+ Nineties or something.
+
+04:17.400 --> 04:19.440
+ I think I played it actually when I was in Russia.
+
+04:19.800 --> 04:21.200
+ I definitely remember it.
+
+04:21.240 --> 04:22.880
+ I was not in Russia anymore.
+
+04:22.880 --> 04:26.800
+ I think at the time that I used to live in Russia, I think video games
+
+04:26.800 --> 04:29.080
+ were about like the suspicion of Pong.
+
+04:29.080 --> 04:33.240
+ I think Pong was pretty much like the greatest game I ever got to play in Russia,
+
+04:33.280 --> 04:35.200
+ which was still a privilege right in that age.
+
+04:35.240 --> 04:36.480
+ So you didn't get color?
+
+04:36.520 --> 04:39.120
+ You didn't get like, uh, so I left Russia.
+
+04:39.120 --> 04:40.840
+ I left Russia in 1991, right?
+
+04:40.840 --> 04:41.680
+ Okay.
+
+04:41.680 --> 04:45.160
+ So I was one of the few lucky kids because my mom was a programmer.
+
+04:45.200 --> 04:47.120
+ So I would go to her work, right?
+
+04:47.120 --> 04:48.880
+ I would take the, the Metro.
+
+04:49.200 --> 04:52.160
+ I've got our work and play like on, I guess the equivalent of like a
+
+04:52.160 --> 04:56.120
+ 286 PC, you know, nice floppy disks.
+
+04:56.160 --> 04:56.600
+ Yes.
+
+04:56.880 --> 04:57.280
+ So, okay.
+
+04:57.280 --> 04:59.440
+ Put back to doing what you get back to doing.
+
+04:59.960 --> 05:04.200
+ And by the way, the new movie I'm pretty interested in, but the
+
+05:04.200 --> 05:06.480
+ skeptical, I'm a little skeptical.
+
+05:06.600 --> 05:07.200
+ I'm a little skeptical.
+
+05:07.200 --> 05:08.120
+ I saw the trailer.
+
+05:08.120 --> 05:09.280
+ Uh, I don't know.
+
+05:09.320 --> 05:12.680
+ So there's, there's a David Lynch movie doing as you may know, I'm
+
+05:12.680 --> 05:14.120
+ a huge David Lynch fan, by the way.
+
+05:14.200 --> 05:20.200
+ So the movie is somewhat controversial, but it's a little confusing, but it
+
+05:20.200 --> 05:24.600
+ captures kind of the mood of the book better than I would say like most any
+
+05:24.600 --> 05:28.240
+ adaptation and like doing so much about kind of mood and the world, right.
+
+05:28.640 --> 05:29.920
+ But back to the philosophical point.
+
+05:29.920 --> 05:36.400
+ So in the fourth book, God, emperor of doing, there's a sort of setting where
+
+05:36.400 --> 05:41.120
+ Leto, one of the characters, he's become this weird sort of God emperor.
+
+05:41.280 --> 05:42.720
+ He's turned into a gigantic worm.
+
+05:42.720 --> 05:44.800
+ I mean, you kind of have to read the book to understand what that means.
+
+05:44.920 --> 05:47.120
+ So the worms are involved, the worms are involved.
+
+05:47.120 --> 05:48.760
+ You probably saw the worms in the trailer, right.
+
+05:49.200 --> 05:53.200
+ And in the video, you kind of like merges with the swarm, um, and becomes
+
+05:53.200 --> 05:56.640
+ this tyrant of the world and like oppresses the people for a long time.
+
+05:56.640 --> 05:56.840
+ Right.
+
+05:56.840 --> 06:01.640
+ But he has a purpose and the purpose is to kind of, uh, break through kind of
+
+06:01.640 --> 06:03.760
+ a stagnation period in civilization.
+
+06:03.840 --> 06:04.120
+ Right.
+
+06:04.120 --> 06:06.040
+ Um, but people have gotten too comfortable, right.
+
+06:06.040 --> 06:11.720
+ And so you kind of oppresses them so that they explode and like go on to
+
+06:11.720 --> 06:15.720
+ colonize new worlds and kind of renew the forward momentum of humanity.
+
+06:15.720 --> 06:16.040
+ Right.
+
+06:16.520 --> 06:18.520
+ And so to me, that's kind of fascinating, right.
+
+06:18.520 --> 06:21.640
+ You need a little bit of pressure and suffering, right.
+
+06:21.640 --> 06:25.520
+ To kind of like make progress, not, not, not get too comfortable.
+
+06:28.120 --> 06:33.120
+ Maybe that's a bit of a cruel philosophy to take away, but that seems to be
+
+06:33.120 --> 06:38.320
+ the case, unfortunately, obviously, I'm a huge fan of, uh, suffering.
+
+06:39.040 --> 06:46.360
+ So one of the reasons we're talking today is that a bunch of people requested
+
+06:46.360 --> 06:51.000
+ that I do transcripts for this podcast and do captioning.
+
+06:51.280 --> 06:56.240
+ I used to make all kinds of YouTube videos and I would go on up work, I
+
+06:56.240 --> 07:01.440
+ think, and I would hire folks to do transcription and it was always a pain
+
+07:01.440 --> 07:06.360
+ in the ass, if I'm being honest, and then I don't know how I discovered Rev.
+
+07:07.400 --> 07:13.960
+ But when I did, it was this feeling of like, Holy shit, somebody figured
+
+07:13.960 --> 07:15.960
+ out how to do it just really easily.
+
+07:16.760 --> 07:25.400
+ I I'm, I'm such a fan of just when people take a problem and they just make it easy.
+
+07:25.840 --> 07:26.000
+ Right.
+
+07:26.000 --> 07:31.280
+ You know, like just, uh, there's so many, uh, there's so many,
+
+07:31.280 --> 07:35.240
+ it's like, there's so many things in life that you might not even
+
+07:35.240 --> 07:37.000
+ be aware of that are painful.
+
+07:37.720 --> 07:43.320
+ Then Rev, you just like give the audio, give the video, you can
+
+07:43.320 --> 07:44.800
+ actually give a YouTube link.
+
+07:45.920 --> 07:52.320
+ And then it comes back like a day later or, uh, two days later, whatever
+
+07:52.320 --> 07:56.280
+ the hell it is with the captions, you know, all in a standardized format.
+
+07:57.200 --> 08:00.280
+ It was, I dunno, it was, it was, it was, it was truly a joy.
+
+08:00.280 --> 08:04.720
+ So I thought I had, you know, just for the hell of it, uh, talk to you
+
+08:04.920 --> 08:07.960
+ that one other product just made my soul feel good.
+
+08:08.200 --> 08:12.280
+ One other product that I've used like that is, uh, for people who might
+
+08:12.280 --> 08:15.800
+ be familiar is called isotope RX.
+
+08:15.840 --> 08:21.000
+ It's for audio editing and like, and that's another one where it was
+
+08:21.000 --> 08:23.720
+ like, you just drop it.
+
+08:24.080 --> 08:28.240
+ I dropped into the audio and it just cleans everything up really nicely.
+
+08:28.240 --> 08:35.200
+ All the stupid, like the mouth sounds and sometimes there's a background
+
+08:35.400 --> 08:39.000
+ like sounds due to the malfunction of the equipment.
+
+08:39.000 --> 08:40.040
+ It can clean that stuff up.
+
+08:40.400 --> 08:43.040
+ It can, it has a general voice denoising.
+
+08:43.040 --> 08:47.400
+ It has like automation capabilities where you can do batch processing
+
+08:47.400 --> 08:49.200
+ and you can put a bunch of effects.
+
+08:49.600 --> 08:55.440
+ I mean, it just, I dunno, everything else sucked for like voice based
+
+08:55.480 --> 08:57.800
+ cleanup that I've ever used.
+
+08:57.800 --> 09:01.120
+ They've used audition, Adobe audition, and he's all kinds of other things
+
+09:01.120 --> 09:04.480
+ with plugins and you have to kind of figure it all out.
+
+09:04.480 --> 09:05.840
+ You have to do it manually here.
+
+09:05.840 --> 09:07.160
+ It's just, it just worked.
+
+09:07.520 --> 09:09.640
+ So that's another one in this whole pipeline.
+
+09:09.640 --> 09:12.640
+ It just brought joy to my, to my heart.
+
+09:12.640 --> 09:18.760
+ Anyway, all that to say is, uh, uh, Rev put a smile to my face.
+
+09:18.760 --> 09:24.040
+ So can you maybe take a step back and say, what is Rev and how does it work?
+
+09:24.560 --> 09:26.040
+ And Rev or Rev.com?
+
+09:26.040 --> 09:31.240
+ Rev, Rev.com, the same thing, I guess, uh, that way we do have Rev.ai now as
+
+09:31.240 --> 09:33.440
+ well, which we can talk about later.
+
+09:33.760 --> 09:37.160
+ Like, do you have the actual domain or is it just, uh, the actual domain,
+
+09:37.160 --> 09:40.800
+ but we also use it kind of as a, as a sub brand.
+
+09:41.120 --> 09:46.040
+ Oh, so we've, so we use Rev.ai to denote our ASR services, right?
+
+09:46.040 --> 09:49.640
+ And Rev.com is kind of our more human and to the end user services.
+
+09:49.800 --> 09:53.400
+ So it's like wordpress.com and wordpress.org, they actually have separate
+
+09:53.400 --> 09:56.640
+ brands that like, I don't know if you're familiar with what those are.
+
+09:56.680 --> 10:00.360
+ Yeah, they provide almost like a separate branch of a little bit.
+
+10:00.360 --> 10:04.080
+ I think with that, it's like wordpress.org is kind of their open source, right?
+
+10:04.080 --> 10:07.520
+ And, uh, wordpress.com is sort of their hosted commercial offering.
+
+10:07.600 --> 10:08.100
+ Yes.
+
+10:08.160 --> 10:10.200
+ Um, and with us, the differential is a little bit different,
+
+10:10.200 --> 10:11.680
+ but maybe a similar idea.
+
+10:11.720 --> 10:12.220
+ Yep.
+
+10:12.800 --> 10:12.960
+ Okay.
+
+10:12.960 --> 10:13.680
+ So what is Rev?
+
+10:13.760 --> 10:16.360
+ Before I launch into, uh, what is Rev?
+
+10:16.360 --> 10:18.040
+ I was going to say, you know, like you, you were talking about like
+
+10:18.080 --> 10:21.840
+ Rev was music to your ears, your, your, your field was music to my ears.
+
+10:21.840 --> 10:27.720
+ To us, the founders of Rev, because, um, Rev was kind of founded to improve
+
+10:27.720 --> 10:32.360
+ on the model of Upwork that was kind of the original, um, or part of their
+
+10:32.600 --> 10:38.160
+ original impetus, like our CEO, Jason, was a early employee of Upwork.
+
+10:38.200 --> 10:40.920
+ So he was very familiar with their work, the company Upwork company.
+
+10:41.400 --> 10:46.360
+ Um, and so he was very familiar with that model and he wanted to make the whole
+
+10:46.360 --> 10:49.600
+ experience better because he knew like, when you go at that time, Upwork was
+
+10:49.600 --> 10:54.040
+ primarily programmers, so the main thing they offered us, if you want to hire,
+
+10:54.040 --> 10:56.560
+ you know, someone to help you code a little site, right.
+
+10:56.880 --> 11:01.280
+ Um, you could go on Upwork, um, you could like browse through a list of freelancers,
+
+11:01.480 --> 11:04.720
+ pick a programmer, you know, have a contract with them and have them do some
+
+11:04.720 --> 11:11.360
+ work, but it was kind of a difficult experience because, uh, for the, for you,
+
+11:11.400 --> 11:13.600
+ you would kind of have to browse through all these people, right.
+
+11:13.600 --> 11:18.040
+ And you have to decide, okay, like, well, is this guy good as, um, or somebody
+
+11:18.040 --> 11:21.520
+ else better and naturally, you know, you're going to Upwork because you're not
+
+11:21.520 --> 11:22.360
+ an expert, right?
+
+11:22.600 --> 11:24.640
+ If you're an expert, you probably wouldn't be like getting a programmer
+
+11:24.640 --> 11:27.280
+ from Upwork, uh, so, so how can you really tell?
+
+11:27.840 --> 11:31.160
+ So there's a kind of like a lot of potential regret, right?
+
+11:31.160 --> 11:34.240
+ What if I choose a bad person, they're like, going to be late on the work.
+
+11:34.560 --> 11:35.720
+ It's going to be a painful experience.
+
+11:36.240 --> 11:39.920
+ And for the freelancer, it was also painful because, you know, half the time
+
+11:39.920 --> 11:43.640
+ they spent not on actually doing the work, but kind of figuring out how can I make
+
+11:43.640 --> 11:47.520
+ my profile most attractive to the buyer, right?
+
+11:47.560 --> 11:48.680
+ And they're not an expert on that either.
+
+11:49.520 --> 11:52.560
+ So like Grav's idea was let's remove the barrier, right?
+
+11:52.560 --> 11:56.120
+ Like, let's make it simple where we'll pick a few, uh, verticals
+
+11:56.600 --> 11:58.280
+ that are fairly standardizable.
+
+11:58.520 --> 12:01.760
+ Now we actually started with translation, um, and then we added
+
+12:01.760 --> 12:05.200
+ audio transcription a bit later and we'll just make it a website.
+
+12:05.200 --> 12:06.680
+ You go give us your files.
+
+12:06.920 --> 12:11.880
+ We'll give you back, uh, the results, you know, as soon as possible.
+
+12:11.880 --> 12:13.800
+ You know, originally maybe it was 48 hours.
+
+12:13.800 --> 12:15.600
+ Then we made it shorter and shorter and shorter.
+
+12:15.680 --> 12:17.880
+ Um, yeah, there's a rush processing too.
+
+12:17.880 --> 12:22.920
+ There's a rush processing now, uh, and, uh, we'll hide all the details from you.
+
+12:22.920 --> 12:23.160
+ Right.
+
+12:23.520 --> 12:23.800
+ Yeah.
+
+12:24.240 --> 12:27.000
+ And like, that's kind of exactly what you're experiencing, right?
+
+12:27.000 --> 12:29.760
+ You don't, you don't need to worry about the details of how the sausage is made.
+
+12:29.840 --> 12:30.480
+ That's really cool.
+
+12:30.480 --> 12:35.160
+ The, so you picked like a vertical by vertically, you mean basically a
+
+12:35.160 --> 12:36.760
+ service, a service category.
+
+12:36.760 --> 12:41.600
+ Why translation is Rev thinking of potentially going into other verticals
+
+12:41.600 --> 12:46.280
+ in the future, or is this like the focus now is a translation transcription, like
+
+12:46.280 --> 12:52.200
+ language, the focus now is, is language or, uh, speech services, generally speech
+
+12:52.200 --> 12:55.520
+ to text language services, you can kind of group them however you want.
+
+12:56.000 --> 13:01.960
+ Um, so, but we, uh, originally the categorization was work from home.
+
+13:01.960 --> 13:06.280
+ So when, uh, work that was done by people on a computer, you know, we weren't trying
+
+13:06.280 --> 13:11.720
+ to get into, you know, uh, task rabbit type of things and something that could
+
+13:11.720 --> 13:14.080
+ be relatively standard, not a lot of options.
+
+13:14.080 --> 13:16.560
+ So we could kind of present the simplified interface, right?
+
+13:16.800 --> 13:20.240
+ So programming wasn't like a good fit because each programming
+
+13:20.240 --> 13:21.640
+ project is kind of unique, right?
+
+13:21.640 --> 13:25.920
+ We're looking for something that, uh, Transcription is, you know, you have five
+
+13:25.920 --> 13:27.640
+ hours of idea, it's five hours of audio, right?
+
+13:27.680 --> 13:29.200
+ Translation is somewhat similar.
+
+13:29.200 --> 13:33.600
+ In that, you know, you can have a five page document, you know, and then you
+
+13:33.600 --> 13:37.480
+ just can price it by that and then you pick the language you want and that
+
+13:37.480 --> 13:38.920
+ that's mostly all that is to it.
+
+13:39.320 --> 13:40.760
+ So those were a few criteria.
+
+13:40.760 --> 13:48.880
+ We started with translation because we saw the need, um, and, uh, we picked up
+
+13:48.880 --> 13:52.800
+ kind of a specialty of translation, um, where we would translate things like
+
+13:52.800 --> 13:58.440
+ board certificates, uh, uh, immigration documents, things like that.
+
+13:58.480 --> 14:03.640
+ And so they were fairly, um, even more well defined and easy to
+
+14:03.640 --> 14:04.960
+ kind of tell if we did a good job.
+
+14:05.200 --> 14:07.320
+ So you can literally charge per type of document.
+
+14:07.680 --> 14:10.920
+ Was that, was, was that the, so what, what is it now?
+
+14:10.960 --> 14:12.600
+ Is it per word or something like that?
+
+14:12.600 --> 14:16.240
+ Like, how do you, like, how do you measure the effort
+
+14:16.280 --> 14:18.000
+ involved in a particular thing?
+
+14:18.320 --> 14:21.080
+ So now it looks like for audio translation, it's like,
+
+14:21.080 --> 14:23.400
+ so now it looks a for audio transcription, right?
+
+14:23.400 --> 14:24.640
+ It's a per audio minute.
+
+14:24.960 --> 14:27.960
+ Well, that, that yes, for, for, for our translation, we don't really,
+
+14:28.120 --> 14:29.920
+ uh, actually focus it on anymore.
+
+14:30.240 --> 14:34.920
+ Uh, but you know, back when it was still a main business of Revit was per page,
+
+14:35.000 --> 14:35.240
+ right.
+
+14:35.240 --> 14:38.600
+ Or per word, depending on the kind of, uh, cause you can also do translation
+
+14:38.600 --> 14:40.040
+ now on the audio, right?
+
+14:40.600 --> 14:40.880
+ Mm hmm.
+
+14:40.880 --> 14:41.920
+ So like subtitles.
+
+14:41.960 --> 14:45.040
+ So it would be both, uh, transcription and translation.
+
+14:45.040 --> 14:45.360
+ That's right.
+
+14:45.560 --> 14:50.280
+ I wanted to test the system to see how good it is to see like how, how, uh,
+
+14:50.280 --> 14:51.720
+ well, is Russian supported?
+
+14:52.680 --> 14:53.200
+ I think so.
+
+14:53.240 --> 14:53.600
+ Yeah.
+
+14:54.040 --> 14:55.560
+ And it'd be interesting to try it out.
+
+14:55.720 --> 14:58.080
+ I mean, one of the, now it's only in like the one direction, right?
+
+14:58.080 --> 15:00.760
+ So you start with English and then you can have subtitles in Russian.
+
+15:00.880 --> 15:02.320
+ Not really, not really the other way.
+
+15:02.800 --> 15:03.200
+ Got it.
+
+15:03.200 --> 15:05.480
+ Because it's, um, I'm deeply curious about this.
+
+15:05.480 --> 15:08.840
+ Um, when COVID opens up a little bit, when the economy, when the
+
+15:08.840 --> 15:12.120
+ world opens up a little bit, you want to build your brand in Russia?
+
+15:12.720 --> 15:13.640
+ No, I don't.
+
+15:13.920 --> 15:15.720
+ First of all, I'm allergic to the word brand.
+
+15:15.720 --> 15:21.720
+ All right, I'm definitely not building, uh, any brands in Russia, but I'm going to
+
+15:21.720 --> 15:26.880
+ Paris to talk to the translators of Dostoevsky and Tolstoy, there's this
+
+15:26.880 --> 15:28.880
+ famous couple that does translation.
+
+15:29.600 --> 15:35.120
+ And, you know, I'm more and more thinking of how is it possible to have a
+
+15:35.120 --> 15:37.320
+ conversation with a Russian speaker?
+
+15:37.640 --> 15:42.640
+ Cause I have just some number of famous Russian speakers that
+
+15:42.640 --> 15:47.560
+ I'm interested in talking to, and my Russian is not strong
+
+15:47.560 --> 15:49.720
+ enough to be witty and funny.
+
+15:49.720 --> 15:51.520
+ I'm already an idiot in English.
+
+15:51.920 --> 15:57.360
+ I'm an extra level of like awkward idiot in Russian, but I can understand it.
+
+15:57.600 --> 15:57.880
+ Right.
+
+15:58.200 --> 16:04.480
+ And I also like wonder how can I create a compelling English Russian
+
+16:04.480 --> 16:06.480
+ experience for an English speaker?
+
+16:06.480 --> 16:11.640
+ Like if I, there's a guy named Grigori Perlman, who's a mathematician who,
+
+16:11.640 --> 16:13.560
+ uh, obviously doesn't speak any English.
+
+16:14.480 --> 16:20.680
+ So I would probably incorporate like a Russian translator into the picture.
+
+16:21.440 --> 16:25.320
+ And then it would be like a, not to use a weird term, but like a three, like a
+
+16:25.320 --> 16:32.640
+ three, three person thing where it's like a dance of, like, I understand it one way.
+
+16:32.960 --> 16:37.680
+ They don't understand the other way, but I'll be asking questions in English.
+
+16:38.200 --> 16:38.640
+ I don't know.
+
+16:38.840 --> 16:39.800
+ I don't know the right way.
+
+16:39.800 --> 16:40.400
+ It's complicated.
+
+16:40.400 --> 16:43.640
+ It's complicated, but I feel like it's worth the effort for certain kinds of
+
+16:43.920 --> 16:48.880
+ people, one of whom I'm confident of Vladimir Putin, I'm for sure talking to.
+
+16:48.880 --> 16:50.120
+ I really want to make it happen.
+
+16:50.400 --> 16:54.240
+ Cause I think I could do a good job with, but the, the right, you know,
+
+16:54.240 --> 16:58.000
+ understanding the fundamentals of translation is something I'm really
+
+16:58.000 --> 16:58.640
+ interested in.
+
+16:58.920 --> 17:03.920
+ So that's why I'm starting with, um, the actual translators of like Russian
+
+17:03.920 --> 17:06.640
+ literature, because they understand the nuance and the beauty of the
+
+17:06.640 --> 17:08.880
+ language and how it goes back and forth.
+
+17:08.880 --> 17:13.240
+ But I also want to see, like in speech, how can we do it in real time?
+
+17:13.240 --> 17:18.120
+ So that's, that's like a little bit of a baby project that I hope to push forward.
+
+17:18.240 --> 17:19.920
+ But anyway, it's a challenging thing.
+
+17:19.920 --> 17:25.840
+ So just to share, uh, my dad, um, actually does translation, um, not, not
+
+17:25.840 --> 17:27.800
+ professional, he's a, uh, he writes poetry.
+
+17:28.160 --> 17:33.480
+ That was kind of always his, uh, not a hobby, but he's, uh, he, you know, he
+
+17:33.480 --> 17:36.840
+ had a job, like a day job, but his passion was always writing poetry.
+
+17:36.840 --> 17:43.080
+ Uh, and then when I got to America, like he started also translating, um, first
+
+17:43.080 --> 17:45.120
+ he was translating English poetry to Russia.
+
+17:45.120 --> 17:50.400
+ Now he also like goes the other, uh, the other way, you kind of gain some small
+
+17:50.400 --> 17:54.840
+ fame in that world anyways, because, uh, recently this poet like Lewis
+
+17:54.840 --> 17:59.080
+ clock, I don't know if you know of, uh, some American poet, um, she was
+
+17:59.080 --> 18:00.760
+ awarded the Nobel prize for literature.
+
+18:01.240 --> 18:05.840
+ Uh, and so my dad had translated, uh, one of her books of poetry in
+
+18:05.840 --> 18:07.640
+ to Russian, and he was like one of the few.
+
+18:07.640 --> 18:12.080
+ So he kind of like, they asked him and gave an interview to Radiosvoboda,
+
+18:12.160 --> 18:13.000
+ if you know what that is.
+
+18:13.000 --> 18:17.000
+ And he kind of talked about some of the intricacies of translating poetry.
+
+18:17.000 --> 18:18.640
+ So that's like an extra level of difficulty, right?
+
+18:18.640 --> 18:21.520
+ Because translating poetry is even more challenging than
+
+18:21.600 --> 18:24.000
+ translating just, you know, interviews.
+
+18:24.280 --> 18:28.560
+ Do you remember any, any experiences and challenges to having to do the
+
+18:28.560 --> 18:32.640
+ translation that, that's the God to you, like something he's talked about?
+
+18:32.640 --> 18:35.400
+ I mean, a lot of it, I think is word choice, right?
+
+18:35.400 --> 18:38.120
+ It's the way Russian is structured is first of all, quite different
+
+18:38.160 --> 18:40.200
+ than, um, the way English is structured, right?
+
+18:40.200 --> 18:43.840
+ Just there is inflections in Russian and genders, and they don't exist in English.
+
+18:43.880 --> 18:47.760
+ That's just one of the reasons actually why, um, machine translation is quite
+
+18:47.760 --> 18:50.840
+ difficult for English to Russian and Russian to English, because there's
+
+18:50.840 --> 18:54.560
+ such different languages, but then English has like a huge number of words.
+
+18:55.240 --> 18:57.040
+ Um, many more than Russian, actually, I think.
+
+18:57.040 --> 19:01.400
+ So it's often difficult to find the right word to convey the same emotional
+
+19:01.400 --> 19:03.440
+ meaning, yeah, Russian language.
+
+19:03.440 --> 19:04.880
+ They play with words much more.
+
+19:06.240 --> 19:12.080
+ So you, you're mentioning that, uh, Rev was kind of born out of, um, trying to
+
+19:12.080 --> 19:15.760
+ take a vertical on the upwork and then standardize it.
+
+19:15.760 --> 19:20.960
+ So we're just trying to make the, the freelancer marketplace idea better, right?
+
+19:21.000 --> 19:26.400
+ Um, better for both customers and better for the freelancers themselves.
+
+19:27.080 --> 19:30.840
+ Is there something else to the story of Rev finding the right word?
+
+19:30.840 --> 19:35.320
+ Rev, finding Rev, like what, what did it take to bring it to actually to life?
+
+19:35.720 --> 19:37.000
+ Was there any pain points?
+
+19:37.200 --> 19:39.840
+ Um, plenty of, plenty of pain points.
+
+19:39.840 --> 19:43.840
+ I mean, uh, as, as often the case it's with scaling it up, right?
+
+19:43.920 --> 19:47.400
+ Um, and in this case, you know, the scaling is kind of scaling the,
+
+19:48.080 --> 19:49.280
+ the marketplace, so to speak, right?
+
+19:49.280 --> 19:51.600
+ Rev is essentially a two sided marketplace, right?
+
+19:51.600 --> 19:54.920
+ Because, you know, there's the customers and then there's the reverse.
+
+19:55.360 --> 19:59.000
+ Um, if there's not enough Revers, Revers are world color freelancers.
+
+19:59.000 --> 20:03.400
+ So if there's not enough Revers, then customers have a bad experience, right?
+
+20:03.400 --> 20:05.680
+ You know, it takes longer to get your work done.
+
+20:06.120 --> 20:09.800
+ Um, things like that, you know, if there's too many done, the Revers have
+
+20:09.800 --> 20:12.880
+ a bad experience because they might log on to see like what work is available
+
+20:12.880 --> 20:14.640
+ and there's not very much work, right?
+
+20:15.040 --> 20:20.000
+ Uh, so kind of keeping that balance, um, is, is, is a quite challenging problem.
+
+20:20.000 --> 20:22.920
+ And, you know, that's, that's like a problem we've been working on for many
+
+20:22.920 --> 20:25.360
+ years and we're still like refining our methods, right?
+
+20:25.360 --> 20:30.240
+ If you can kind of talk to this gig economy idea, I did a bunch of different
+
+20:30.240 --> 20:33.680
+ psychology experiments on mechanical Turk, for example, I've asked to do
+
+20:33.680 --> 20:37.960
+ different kinds of very tricky computer vision annotation on mechanical Turk.
+
+20:37.960 --> 20:42.760
+ And it's connecting, connecting people in a more systematized way.
+
+20:43.560 --> 20:50.680
+ I would say, you know, between task and, and, uh, what would you call that worker
+
+20:50.760 --> 20:52.200
+ is what mechanical Turk calls it.
+
+20:52.200 --> 20:58.240
+ What do you think about this world of gig economies, of there being a service
+
+20:58.400 --> 21:06.280
+ that connects customers to workers in a way that's like massively distributed,
+
+21:06.320 --> 21:10.080
+ like potentially scaling to, it could be, it could be scaled to like
+
+21:10.080 --> 21:11.800
+ tens of thousands of people, right?
+
+21:11.800 --> 21:16.200
+ Is there something interesting about that world that you can speak to?
+
+21:16.520 --> 21:16.840
+ Yeah.
+
+21:16.880 --> 21:20.640
+ Well, we don't think of it as kind of gig economy, like to some degree,
+
+21:20.640 --> 21:22.440
+ I don't like the word gig that much, right?
+
+21:22.440 --> 21:25.960
+ Because to some degree it diminishes the words being done, right?
+
+21:25.960 --> 21:28.080
+ It sounds kind of like almost amateurish.
+
+21:28.080 --> 21:33.760
+ Well, maybe in like music industry, like gig is a standard term, but in work, it
+
+21:33.760 --> 21:41.400
+ kind of sounds like, oh, it's, it's, it's frivolous, um, to us it's, um, improving
+
+21:41.400 --> 21:46.160
+ the nature of working from home on your own time and on your own terms, right?
+
+21:46.160 --> 21:51.360
+ And kind of taking away geographical limitations and time limitations, right?
+
+21:51.360 --> 21:56.960
+ Uh, so, you know, many of our freelancers are maybe work from home moms, right?
+
+21:56.960 --> 22:01.160
+ And, you know, they don't want the traditional nine to five job, but they
+
+22:01.160 --> 22:05.080
+ want to make some income and rough kind of like allows them to do that and decide
+
+22:05.080 --> 22:10.920
+ like exactly how much to work and when to work or by the same token, maybe someone
+
+22:10.920 --> 22:17.000
+ is, you know, someone wants to live the mountain top, you know, life, right?
+
+22:17.040 --> 22:19.680
+ You know, cabin in the woods, but they still want to make some money.
+
+22:20.160 --> 22:24.680
+ Um, and like generally that wouldn't be compatible before, before this new world,
+
+22:25.160 --> 22:28.760
+ you kind of had to choose, uh, but like with Rev, like, if you like, you don't
+
+22:28.760 --> 22:36.120
+ have to choose, can you speak to like, what's the demographics like distribution?
+
+22:36.360 --> 22:38.080
+ Like where do rivers live?
+
+22:38.880 --> 22:40.760
+ Is there a way to, to, to, to, to, to, to, to, to, to, to, to, to, to, to, to, to,
+
+22:40.760 --> 22:46.720
+ to, to, to, but you really want to teach it how to, how to run, how to track
+
+22:46.720 --> 22:50.160
+ Once you're out of the bush, 들어가, things like that, you know,
+
+22:50.160 --> 23:02.220
+ but like in the back of you know, like hard, but you
+
+23:02.220 --> 23:05.400
+ just as you approach, there's a lot more control over you.
+
+23:05.560 --> 23:08.160
+ Like you, you may be Oh, like you know, one day you might go to the
+
+23:08.160 --> 23:10.400
+ For some years now, we've been doing these little meetings
+
+23:10.400 --> 23:12.280
+ where the management team will go to some place
+
+23:12.280 --> 23:13.640
+ and we'll try to meet Revers.
+
+23:13.640 --> 23:15.980
+ And pretty much wherever we go, it's
+
+23:15.980 --> 23:19.520
+ pretty easy to find a large number of Revers.
+
+23:19.520 --> 23:21.160
+ The most recent one we did is in Utah.
+
+23:24.000 --> 23:25.240
+ But anyway, really.
+
+23:25.240 --> 23:26.680
+ Are they from all walks of life?
+
+23:26.680 --> 23:28.800
+ Are these young folks, older folks?
+
+23:28.800 --> 23:30.220
+ Yeah, all walks of life, really.
+
+23:30.220 --> 23:33.760
+ Like I said, one category is the work from home.
+
+23:33.760 --> 23:37.040
+ Students who want to make some extra income.
+
+23:37.040 --> 23:41.880
+ There are some people who maybe have some social anxiety,
+
+23:41.880 --> 23:43.420
+ so they don't want to be in the office.
+
+23:43.420 --> 23:45.380
+ And this is one way for them to make a living.
+
+23:45.380 --> 23:47.360
+ So it's really pretty wide variety.
+
+23:47.360 --> 23:49.040
+ But on the flip side, for example,
+
+23:49.040 --> 23:52.840
+ one Rever we were talking to was a person
+
+23:52.840 --> 23:54.600
+ who had a fairly high powered career before
+
+23:54.600 --> 23:57.280
+ and was kind of like taking a break.
+
+23:57.280 --> 24:00.320
+ And she was almost doing this just to explore and learn
+
+24:00.320 --> 24:03.400
+ about the gig economy, quote unquote.
+
+24:03.400 --> 24:06.280
+ So it really is a pretty wide variety of folks.
+
+24:06.280 --> 24:09.400
+ Yeah, it's kind of interesting through the captioning
+
+24:09.400 --> 24:13.080
+ process for me to learn about the Revers
+
+24:13.080 --> 24:18.080
+ because like some are clearly like weirdly knowledgeable
+
+24:19.840 --> 24:22.960
+ about technical concepts.
+
+24:22.960 --> 24:25.280
+ Like you can tell by how good they are
+
+24:25.280 --> 24:29.040
+ at like capitalizing stuff, like technical terms,
+
+24:29.040 --> 24:30.840
+ like a machine learning or deep learning.
+
+24:30.840 --> 24:35.440
+ Like I've used Rev to annotate, to caption
+
+24:35.440 --> 24:38.000
+ the deep learning lectures or machine learning lectures
+
+24:38.000 --> 24:39.880
+ I did at MIT.
+
+24:39.880 --> 24:44.520
+ And it's funny, like a large number of them were like,
+
+24:44.520 --> 24:45.880
+ I don't know if they looked it up
+
+24:45.880 --> 24:47.280
+ or were already knowledgeable,
+
+24:47.280 --> 24:50.400
+ but they do a really good job at like, I don't know.
+
+24:50.400 --> 24:52.400
+ They invest time into these things.
+
+24:52.400 --> 24:55.040
+ They will like do research, they will Google things,
+
+24:55.040 --> 24:57.380
+ you know, to kind of make sure that they got it right.
+
+24:57.380 --> 24:59.120
+ But to some of them, it's like,
+
+24:59.120 --> 25:01.640
+ it's actually part of the enjoyment of the work.
+
+25:01.640 --> 25:03.360
+ Like they'll tell us, you know,
+
+25:03.360 --> 25:05.760
+ I love doing this because I get paid
+
+25:05.760 --> 25:07.400
+ to watch a documentary on something, right?
+
+25:07.400 --> 25:10.040
+ And I learn something while I'm transcribing, right?
+
+25:10.040 --> 25:10.880
+ Pretty cool.
+
+25:10.880 --> 25:14.680
+ Yeah, so what's that captioning transcription process
+
+25:14.680 --> 25:16.160
+ look like for the Revers?
+
+25:16.160 --> 25:18.960
+ Can you maybe speak to that to give people a sense,
+
+25:18.960 --> 25:22.000
+ like how much is automated, how much is manual?
+
+25:23.040 --> 25:25.120
+ What's the actual interface look like?
+
+25:25.120 --> 25:26.320
+ All that kind of stuff.
+
+25:26.320 --> 25:28.920
+ Yeah, so, you know, we've invested a pretty good amount
+
+25:28.920 --> 25:33.200
+ of time to give like our Revers the best tools possible.
+
+25:33.200 --> 25:34.760
+ So typical day of forever,
+
+25:34.760 --> 25:37.120
+ they might log into their workspace,
+
+25:37.120 --> 25:41.440
+ they'll see a list of audios that need to be transcribed.
+
+25:41.440 --> 25:43.400
+ And we try to give them tools to pick specifically
+
+25:43.400 --> 25:44.500
+ the ones they want to do, you know?
+
+25:44.500 --> 25:47.800
+ So maybe some people like to do longer audios
+
+25:47.800 --> 25:52.340
+ or shorter audios, people have their preferences.
+
+25:52.340 --> 25:55.080
+ Some people like to do audios in a particular subject
+
+25:55.080 --> 25:56.020
+ or from a particular country.
+
+25:56.020 --> 25:59.720
+ So we try to give people the tools to control,
+
+25:59.720 --> 26:01.100
+ things like that.
+
+26:01.100 --> 26:04.600
+ And then when they pick what they want to do,
+
+26:04.600 --> 26:07.520
+ we'll launch a specialized editor that we've built
+
+26:07.520 --> 26:10.240
+ to make transcription as efficient as possible.
+
+26:10.240 --> 26:12.360
+ They'll start with a speech drag draft.
+
+26:12.360 --> 26:15.160
+ So, you know, we have our machine learning model
+
+26:15.160 --> 26:18.560
+ for automated speech recognition, they'll start with that.
+
+26:18.560 --> 26:22.780
+ And then our tools are optimized to help them correct that.
+
+26:22.780 --> 26:24.880
+ So it's basically a process of correction.
+
+26:26.000 --> 26:29.520
+ Yeah, it depends on, you know, I would say the audio.
+
+26:29.520 --> 26:31.360
+ If the audio itself is pretty good,
+
+26:31.360 --> 26:33.160
+ like probably like our podcast right now
+
+26:33.160 --> 26:34.120
+ would be quite good.
+
+26:34.120 --> 26:36.800
+ So the ASR would do a fairly good job.
+
+26:37.840 --> 26:41.160
+ But if you imagine someone recorded a lecture,
+
+26:41.160 --> 26:45.720
+ you know, in the back of a auditorium, right?
+
+26:45.720 --> 26:47.340
+ Where like the speaker is really far away
+
+26:47.340 --> 26:49.960
+ and there's maybe a lot of cross talk and things like that,
+
+26:49.960 --> 26:52.320
+ then maybe the ASR wouldn't do a good job.
+
+26:52.320 --> 26:53.720
+ So the person might say like, you know what,
+
+26:53.720 --> 26:55.080
+ I'm just gonna do it from scratch.
+
+26:55.080 --> 26:56.280
+ Do it from scratch, yeah.
+
+26:56.280 --> 26:57.640
+ So it kind of really depends.
+
+26:57.640 --> 27:00.560
+ What would you say is the speed that you can possibly get?
+
+27:00.560 --> 27:02.080
+ Like, what's the fastest?
+
+27:02.080 --> 27:05.200
+ Can you get, is it possible to get real time or no?
+
+27:05.200 --> 27:09.120
+ As you're like listening, can you write as fast as?
+
+27:09.120 --> 27:10.440
+ Real time would be pretty difficult.
+
+27:10.440 --> 27:13.400
+ It's actually a pretty, it's not an easy job, you know.
+
+27:13.400 --> 27:16.240
+ We actually encourage everyone at the company
+
+27:16.240 --> 27:17.680
+ to try to be a transcriber for a day,
+
+27:17.680 --> 27:19.040
+ transcriptionist for a day.
+
+27:20.400 --> 27:24.120
+ And it's way harder than you might think it is, right?
+
+27:24.120 --> 27:28.280
+ Because people talk fast and people have accents
+
+27:28.280 --> 27:29.160
+ and all this kind of stuff.
+
+27:29.160 --> 27:30.920
+ So real time is pretty difficult.
+
+27:30.920 --> 27:32.600
+ Is it possible?
+
+27:32.600 --> 27:34.800
+ Like there's somebody, we're probably gonna use Rev
+
+27:34.800 --> 27:39.320
+ to caption this, they're listening to this right now.
+
+27:39.320 --> 27:42.440
+ What do you think is the fastest
+
+27:42.440 --> 27:44.880
+ you could possibly get on this right now?
+
+27:44.880 --> 27:47.480
+ I think on a good audio, maybe two to three X,
+
+27:47.480 --> 27:49.880
+ I would say, real time.
+
+27:49.880 --> 27:51.680
+ Meaning it takes two to three times longer
+
+27:51.680 --> 27:55.560
+ than the actual audio of the podcast.
+
+27:55.560 --> 27:58.600
+ This is so meta, I could just imagine the Revvers
+
+27:58.600 --> 27:59.440
+ working on this right now.
+
+27:59.440 --> 28:01.040
+ You're like, you're way wrong.
+
+28:01.040 --> 28:03.520
+ You're way wrong, this takes way longer.
+
+28:03.520 --> 28:04.360
+ But yeah, it definitely works.
+
+28:04.360 --> 28:06.440
+ Or you doubted me, I could do real time.
+
+28:06.440 --> 28:08.600
+ Yeah.
+
+28:08.600 --> 28:11.200
+ Okay, so you mentioned ASR.
+
+28:11.200 --> 28:15.480
+ Can you speak to what is ASR, automatic speech recognition?
+
+28:15.480 --> 28:19.320
+ How much, like what is the gap
+
+28:19.320 --> 28:22.000
+ between perfect human performance
+
+28:22.000 --> 28:26.680
+ and perfect or pretty damn good ASR?
+
+28:26.680 --> 28:28.800
+ Yeah, so ASR, automatic speech recognition,
+
+28:28.800 --> 28:31.800
+ it's a class of machine learning problem, right?
+
+28:31.800 --> 28:34.200
+ So take speech like we're talking
+
+28:34.200 --> 28:37.040
+ and transform it into a sequence of words, essentially.
+
+28:37.040 --> 28:38.800
+ Audio of people talking.
+
+28:38.800 --> 28:40.520
+ Audio, audio to words.
+
+28:41.680 --> 28:43.600
+ And there's a variety of different approaches
+
+28:43.600 --> 28:46.920
+ and techniques, which we could talk about later if you want.
+
+28:46.920 --> 28:50.400
+ So, we think we have pretty much the world's best ASR
+
+28:50.400 --> 28:52.600
+ for this kind of speech, right?
+
+28:52.600 --> 28:55.600
+ So there's different kinds of domains, right, for ASR.
+
+28:55.600 --> 28:58.800
+ Like one domain might be voice assistance, right?
+
+28:58.800 --> 29:02.720
+ So Siri, very different than what we're doing, right?
+
+29:02.720 --> 29:05.680
+ Because Siri, there's fairly limited vocabulary.
+
+29:05.680 --> 29:08.480
+ You might ask Siri to play a song
+
+29:08.480 --> 29:10.560
+ or order a pizza or whatever.
+
+29:10.560 --> 29:12.360
+ And it's very good at doing that.
+
+29:12.360 --> 29:14.680
+ Very different from when we start talking
+
+29:14.680 --> 29:17.040
+ in a very unstructured way.
+
+29:17.040 --> 29:18.760
+ And Siri will also generally adapt to your voice
+
+29:18.760 --> 29:20.080
+ and stuff like this.
+
+29:20.080 --> 29:22.920
+ So for this kind of audio, we think we have the best.
+
+29:22.920 --> 29:27.920
+ And our accuracy, right now I think it's maybe 14%
+
+29:29.360 --> 29:32.920
+ word error rate on our test suite
+
+29:32.920 --> 29:33.840
+ that we generally use to measure.
+
+29:33.840 --> 29:37.040
+ So word error rate is like one way to measure accuracy
+
+29:37.040 --> 29:37.880
+ for ASR, right?
+
+29:37.880 --> 29:39.720
+ So what's 14% word error rate?
+
+29:39.720 --> 29:43.360
+ So 14% means across this test suite,
+
+29:43.360 --> 29:45.960
+ of a variety of different audios,
+
+29:45.960 --> 29:50.960
+ it would be, it would get in some way 14% of the words wrong.
+
+29:53.600 --> 29:55.400
+ 14% of the words wrong.
+
+29:55.400 --> 29:59.680
+ So the way you kind of calculate it is,
+
+29:59.680 --> 30:02.960
+ you might add up insertions, deletions, and substitutions,
+
+30:02.960 --> 30:03.800
+ right?
+
+30:03.800 --> 30:05.960
+ So insertions is like extra words.
+
+30:05.960 --> 30:07.680
+ Deletions are words that we said,
+
+30:07.680 --> 30:10.840
+ but weren't in the transcript, right?
+
+30:10.840 --> 30:14.200
+ Substitutions is, you said Apple, but I said,
+
+30:14.200 --> 30:16.960
+ but the ASR thought it was able, something like this.
+
+30:17.920 --> 30:21.640
+ Human accuracy, most people think realistically,
+
+30:21.640 --> 30:25.680
+ it's like 3%, 2%, word error rate would be like
+
+30:25.680 --> 30:26.840
+ the max achievable.
+
+30:28.160 --> 30:29.960
+ So there's still quite a gap, right?
+
+30:29.960 --> 30:33.000
+ Would you say that, so YouTube, when I upload videos,
+
+30:33.000 --> 30:35.440
+ often generates automatic captions.
+
+30:35.440 --> 30:38.120
+ Are you sort of from a company perspective,
+
+30:38.120 --> 30:41.560
+ from a company perspective, from a tech perspective,
+
+30:41.560 --> 30:44.720
+ are you trying to beat YouTube, Google?
+
+30:44.720 --> 30:47.400
+ It's a hell of a, Google, I mean,
+
+30:47.400 --> 30:49.720
+ I don't know how seriously they take this task,
+
+30:49.720 --> 30:51.840
+ but I imagine it's quite serious.
+
+30:51.840 --> 30:56.280
+ And they, you know, Google is probably up there
+
+30:56.280 --> 31:01.280
+ in terms of their teams on, on ASR or just NLP,
+
+31:02.080 --> 31:04.440
+ natural language processing, different technologies.
+
+31:04.440 --> 31:06.680
+ So do you think you can beat Google?
+
+31:06.680 --> 31:08.960
+ On this kind of stuff, yeah, we think so.
+
+31:08.960 --> 31:11.560
+ Google just woke up on my phone.
+
+31:11.560 --> 31:12.960
+ This is hilarious, okay.
+
+31:12.960 --> 31:16.360
+ Now Google is listening, sending it back to headquarters.
+
+31:17.440 --> 31:19.520
+ Who are these rough people?
+
+31:19.520 --> 31:20.560
+ But that's the goal?
+
+31:20.560 --> 31:23.120
+ Yeah, I mean, we measure ourselves against like Google,
+
+31:23.120 --> 31:25.560
+ Amazon, Microsoft, you know, some of the,
+
+31:25.560 --> 31:26.880
+ some smaller competitors.
+
+31:28.280 --> 31:30.320
+ And we use like our internal tests with it,
+
+31:30.320 --> 31:32.760
+ we try to compose it of a pretty representative
+
+31:32.760 --> 31:36.360
+ set of ideas, maybe it's some podcasts, some videos,
+
+31:36.360 --> 31:39.720
+ some interviews, some lectures, things like that, right?
+
+31:39.720 --> 31:42.800
+ And we beat them in our own testing.
+
+31:42.800 --> 31:45.920
+ And actually Rev offers automated,
+
+31:45.920 --> 31:49.280
+ like you can actually just do the automated captioning.
+
+31:49.280 --> 31:52.680
+ So like, I guess it's like way cheaper, whatever it is,
+
+31:52.680 --> 31:54.160
+ whatever the rates are.
+
+31:54.160 --> 31:55.000
+ Yeah, yeah.
+
+31:55.000 --> 31:57.880
+ So it's a, by the way, it used to be a dollar per minute
+
+31:57.880 --> 32:00.080
+ for captioning and transcription,
+
+32:00.080 --> 32:02.320
+ I think it's like $1.15 or something like that.
+
+32:02.320 --> 32:03.160
+ $1.25.
+
+32:03.160 --> 32:08.160
+ $1.25, yeah.
+
+32:08.320 --> 32:09.240
+ It's pretty cool.
+
+32:09.240 --> 32:10.920
+ That was the other thing that was surprising to me,
+
+32:10.920 --> 32:15.840
+ it was actually like the cheapest thing you could,
+
+32:15.840 --> 32:18.440
+ one of the, I mean, I don't remember it being cheaper.
+
+32:18.440 --> 32:20.960
+ You could on Upwork get cheaper,
+
+32:20.960 --> 32:22.520
+ but it was clear to me that this,
+
+32:22.520 --> 32:23.960
+ that's gonna be really shitty.
+
+32:23.960 --> 32:24.800
+ Yeah.
+
+32:24.800 --> 32:26.920
+ So like, you're also competing on price.
+
+32:26.920 --> 32:29.960
+ I think there were services that you can get,
+
+32:29.960 --> 32:34.200
+ like similar to Rev kind of feel to it,
+
+32:34.200 --> 32:35.880
+ but it wasn't as automated.
+
+32:35.880 --> 32:37.920
+ Like the drag and drop, the entirety of the interface,
+
+32:37.920 --> 32:39.600
+ it's like the thing we're talking about.
+
+32:39.600 --> 32:41.760
+ I'm such a huge fan of like frictionless,
+
+32:41.760 --> 32:46.760
+ like Amazon's single buy button, whatever.
+
+32:47.720 --> 32:48.560
+ Yeah, yeah.
+
+32:48.560 --> 32:49.400
+ That one click.
+
+32:49.400 --> 32:52.360
+ The one click, that's genius right there.
+
+32:52.360 --> 32:54.960
+ Like that is so important for services.
+
+32:54.960 --> 32:55.800
+ Yeah.
+
+32:55.800 --> 33:00.480
+ And simplicity and I mean, Rev is almost there.
+
+33:00.480 --> 33:04.400
+ I mean, there's like some, I'm trying to think.
+
+33:04.400 --> 33:09.400
+ So I think I've, I stopped using this pipeline,
+
+33:10.520 --> 33:12.480
+ but Rev offers it and I like it,
+
+33:12.480 --> 33:16.240
+ but it was causing me some issues on my side,
+
+33:16.240 --> 33:20.320
+ which is you can connect it to like Dropbox
+
+33:20.320 --> 33:22.760
+ and it generates the files in Dropbox.
+
+33:22.760 --> 33:25.840
+ So like it closes the loop to where
+
+33:25.840 --> 33:29.120
+ I don't have to go to Rev at all and I can download it.
+
+33:30.280 --> 33:32.720
+ Sorry, I don't have to go to Rev at all
+
+33:32.720 --> 33:34.200
+ and to download the files.
+
+33:34.200 --> 33:36.280
+ It could just like automatically copy them.
+
+33:36.280 --> 33:39.720
+ Right, you're putting your Dropbox in a day later
+
+33:39.720 --> 33:41.080
+ or maybe a few hours later.
+
+33:41.080 --> 33:42.480
+ Yeah, it just shows up.
+
+33:42.480 --> 33:43.600
+ Just shows up, yeah.
+
+33:43.600 --> 33:46.520
+ Yeah, I was trying to do it programmatically too.
+
+33:46.520 --> 33:48.920
+ Is there an API interface you can,
+
+33:48.920 --> 33:51.520
+ I was trying to through like through Python
+
+33:51.520 --> 33:53.440
+ to download stuff automatically,
+
+33:53.440 --> 33:56.160
+ but then I realized this is the programmer in me.
+
+33:56.160 --> 33:58.720
+ Like, dude, you don't need to automate everything
+
+33:58.720 --> 34:01.160
+ like in life, like flawlessly,
+
+34:01.160 --> 34:02.760
+ because I wasn't doing enough captions
+
+34:02.760 --> 34:05.640
+ to justify to myself the time investment
+
+34:05.640 --> 34:07.800
+ into automating everything perfectly.
+
+34:07.800 --> 34:10.040
+ Yeah, I would say if you're doing so many interviews
+
+34:10.040 --> 34:14.240
+ that your biggest roadblock is clicking on the Rev download,
+
+34:14.240 --> 34:18.960
+ but now you're talking about Elon Musk levels of business.
+
+34:18.960 --> 34:22.040
+ But for sure, we have like a variety of ways
+
+34:22.040 --> 34:22.880
+ to make it easy.
+
+34:22.880 --> 34:24.200
+ You know, there's the integration.
+
+34:24.200 --> 34:26.240
+ You mentioned, I think it's through a company called Zapier,
+
+34:26.240 --> 34:31.120
+ which kind of can connect Dropbox to Rev and vice versa.
+
+34:31.120 --> 34:33.480
+ We have an API if you want to really like customize it,
+
+34:33.480 --> 34:37.160
+ you know, if you want to create the Lex Friedman,
+
+34:37.160 --> 34:40.920
+ you know, CMS or whatever.
+
+34:40.920 --> 34:41.760
+ For this whole thing.
+
+34:41.760 --> 34:42.600
+ Okay, cool.
+
+34:42.600 --> 34:46.480
+ So can you speak to the ASR a little bit more?
+
+34:46.480 --> 34:51.120
+ Like, what does it take?
+
+34:51.120 --> 34:53.400
+ Like approach wise, machine learning wise,
+
+34:53.400 --> 34:55.000
+ how hard is this problem?
+
+34:55.000 --> 34:57.720
+ How do you get to the 3% error rate?
+
+34:57.720 --> 34:59.400
+ Like, what's your vision of all of this?
+
+34:59.400 --> 35:03.200
+ Yeah, well, the 3% error rate is definitely,
+
+35:03.200 --> 35:05.260
+ that's the grand vision.
+
+35:06.160 --> 35:08.000
+ We'll see what it takes to get there.
+
+35:09.840 --> 35:13.040
+ But we believe, you know, in ASR,
+
+35:13.040 --> 35:15.200
+ the biggest thing is the data, right?
+
+35:15.200 --> 35:16.520
+ Like, that's true of like a lot of
+
+35:16.520 --> 35:18.320
+ machine learning problems today, right?
+
+35:18.320 --> 35:21.000
+ The more data you have and high quality of the data,
+
+35:21.000 --> 35:22.800
+ the better label the data.
+
+35:24.840 --> 35:26.480
+ Yeah, that's how you get good results.
+
+35:26.480 --> 35:28.760
+ And we at Rev have kind of like the best data.
+
+35:28.760 --> 35:29.760
+ Like we have.
+
+35:29.760 --> 35:30.960
+ Like you're literally,
+
+35:30.960 --> 35:34.000
+ your business model is annotating the data.
+
+35:34.000 --> 35:36.720
+ Our business model is being paid to annotate the data.
+
+35:36.720 --> 35:39.080
+ Being paid to annotate the data.
+
+35:39.080 --> 35:42.000
+ So it's kind of like a pretty magical flywheel.
+
+35:42.000 --> 35:42.840
+ Yeah.
+
+35:42.840 --> 35:44.480
+ And so we've kind of like written this flywheel
+
+35:44.480 --> 35:47.000
+ to this point.
+
+35:47.000 --> 35:50.480
+ And we think we're still kind of in the early stages
+
+35:50.480 --> 35:53.080
+ of figuring out all the parts of the flywheel to use,
+
+35:53.080 --> 35:56.360
+ you know, because we have the final transcripts
+
+35:57.560 --> 36:01.640
+ and we have the audios and we train on that.
+
+36:01.640 --> 36:05.000
+ But we in principle also have all the edits
+
+36:05.000 --> 36:06.440
+ that the Revvers make, right?
+
+36:07.760 --> 36:08.600
+ Oh, that's interesting.
+
+36:08.600 --> 36:10.520
+ How can you use that as data?
+
+36:10.520 --> 36:13.280
+ Yeah, that's something for us to figure out in the future.
+
+36:13.280 --> 36:15.080
+ But, you know, we feel like we're only
+
+36:15.080 --> 36:16.200
+ in the early stages, right?
+
+36:16.200 --> 36:17.880
+ So the data is there.
+
+36:17.880 --> 36:18.720
+ That'd be interesting.
+
+36:18.720 --> 36:20.720
+ Like almost like a recurrent neural net
+
+36:20.720 --> 36:23.960
+ for fixing transcripts.
+
+36:23.960 --> 36:28.680
+ I always remember we did a segmentation annotation
+
+36:28.680 --> 36:30.200
+ for driving data.
+
+36:30.200 --> 36:33.160
+ So segmenting the scene, like visual data.
+
+36:33.160 --> 36:35.000
+ And you can get all,
+
+36:35.000 --> 36:37.400
+ so it was drawing, people were drawing polygons
+
+36:37.400 --> 36:39.960
+ around different objects and so on.
+
+36:39.960 --> 36:41.720
+ And it feels like it always felt like
+
+36:41.720 --> 36:45.160
+ there was a lot of information in the clicking,
+
+36:45.160 --> 36:46.960
+ the sequence of clicking that people do,
+
+36:46.960 --> 36:49.400
+ the kind of fixing of the polygons that they do.
+
+36:50.280 --> 36:52.840
+ Now there's a few papers written about
+
+36:52.840 --> 36:56.840
+ how to draw polygons like with a recurrent neural nets
+
+36:57.720 --> 37:00.960
+ to try to learn from the human clicking.
+
+37:00.960 --> 37:04.320
+ But it was just like experimental,
+
+37:04.320 --> 37:06.600
+ you know, it was one of those like CVPR type papers
+
+37:06.600 --> 37:08.920
+ that people do like a really tiny data set.
+
+37:08.920 --> 37:13.040
+ It didn't feel like people really tried to do it seriously.
+
+37:13.040 --> 37:16.440
+ Yeah, I wonder if there's information in the fixing
+
+37:16.440 --> 37:21.440
+ that provides deeper set of signal
+
+37:21.520 --> 37:24.400
+ than just like the raw data.
+
+37:24.400 --> 37:26.120
+ The intuition is for sure there must be, right?
+
+37:26.120 --> 37:26.960
+ There must be.
+
+37:26.960 --> 37:29.640
+ And in all kinds of signals and how long you took
+
+37:29.640 --> 37:32.640
+ to make that edit and stuff like that.
+
+37:32.640 --> 37:34.080
+ It's gonna be like up to us.
+
+37:34.080 --> 37:36.760
+ That's why like the next couple of years
+
+37:36.760 --> 37:38.280
+ is like super exciting for us, right?
+
+37:38.280 --> 37:40.320
+ So that's what like the focus is now.
+
+37:40.320 --> 37:43.280
+ You mentioned rev.ai, that's where you want to.
+
+37:43.280 --> 37:48.280
+ Yeah, so rev.ai is kind of our way of bringing this ASR
+
+37:49.120 --> 37:51.520
+ to the rest of the world, right?
+
+37:51.520 --> 37:55.560
+ So when we started, we were human only.
+
+37:55.560 --> 37:59.160
+ Then we kind of created this Temi service.
+
+37:59.160 --> 38:00.600
+ I think you might've used it,
+
+38:00.600 --> 38:02.520
+ which was kind of ASR for the consumer, right?
+
+38:02.520 --> 38:06.520
+ So if you don't wanna pay $1.25, but you wanna pay,
+
+38:06.520 --> 38:08.040
+ now it's 25 cents a minute, I think.
+
+38:08.040 --> 38:10.680
+ And you get the transcript,
+
+38:10.680 --> 38:13.800
+ the machine generated transcript and you get an editor
+
+38:13.800 --> 38:17.440
+ and you can kind of fix it up yourself, right?
+
+38:17.440 --> 38:18.800
+ Then we started using ASR
+
+38:18.800 --> 38:21.960
+ for our own human transcriptionists.
+
+38:21.960 --> 38:23.400
+ And then the kind of rev.ai is the final step
+
+38:23.400 --> 38:25.120
+ of the journey, which is, you know,
+
+38:25.120 --> 38:27.040
+ we have this amazing engine.
+
+38:27.040 --> 38:28.840
+ What can people build with it, right?
+
+38:28.840 --> 38:32.320
+ What kind of new applications could be enabled
+
+38:33.600 --> 38:36.320
+ if you have SpeedTrack that's that accurate?
+
+38:36.320 --> 38:37.560
+ Do you have ideas for this
+
+38:37.560 --> 38:39.240
+ or is it just providing it as a service
+
+38:39.240 --> 38:40.640
+ and seeing what people come up with?
+
+38:40.640 --> 38:41.920
+ It's providing it as a service
+
+38:41.920 --> 38:43.480
+ and seeing what people come up with
+
+38:43.480 --> 38:45.560
+ and kind of learning from what people do with it.
+
+38:45.560 --> 38:47.160
+ And we have ideas of our own as well, of course,
+
+38:47.160 --> 38:49.160
+ but it's a little bit like, you know,
+
+38:49.160 --> 38:52.520
+ when AWS provided the building blocks, right?
+
+38:52.520 --> 38:53.880
+ And they saw what people built with it
+
+38:53.880 --> 38:56.960
+ and they try to make it easier to build those things, right?
+
+38:56.960 --> 38:59.120
+ And we kind of hope to do the same thing.
+
+38:59.120 --> 39:02.760
+ Although AWS kind of does a shitty job of like,
+
+39:02.760 --> 39:05.000
+ I'm continually surprised, like Mechanical Turk,
+
+39:05.000 --> 39:07.720
+ for example, how shitty the interface is.
+
+39:07.720 --> 39:11.080
+ We're talking about like Rev making me feel good.
+
+39:11.080 --> 39:14.080
+ Like when I first discovered Mechanical Turk,
+
+39:15.200 --> 39:18.200
+ the initial idea of it was like,
+
+39:18.200 --> 39:19.600
+ it made me feel like Rev does,
+
+39:19.600 --> 39:22.760
+ but then the interface is like, come on.
+
+39:22.760 --> 39:24.720
+ Yeah, it's horrible.
+
+39:24.720 --> 39:27.720
+ Why is it so painful?
+
+39:27.720 --> 39:32.480
+ Does nobody at Amazon want to like seriously invest in it?
+
+39:32.480 --> 39:35.000
+ It felt like you can make so much money
+
+39:35.000 --> 39:37.160
+ if you took this effort seriously.
+
+39:37.160 --> 39:39.240
+ And it feels like they have a committee
+
+39:39.240 --> 39:41.200
+ of like two people just sitting back,
+
+39:41.200 --> 39:44.000
+ like a meeting, they meet once a month,
+
+39:44.000 --> 39:46.520
+ like what are we going to do with Mechanical Turk?
+
+39:46.520 --> 39:49.240
+ It's like two websites making me feel like this,
+
+39:49.240 --> 39:53.600
+ that and craiglist.org, whatever the hell it is.
+
+39:53.600 --> 39:55.960
+ It feels like it's designed in the 90s.
+
+39:55.960 --> 39:59.120
+ Well, Craigslist basically hasn't been updated
+
+39:59.120 --> 39:59.960
+ pretty much since the guy originally built.
+
+39:59.960 --> 40:01.840
+ Do you seriously think there's a team,
+
+40:01.840 --> 40:04.240
+ like how big is the team working on Mechanical Turk?
+
+40:04.240 --> 40:05.080
+ I don't know.
+
+40:05.080 --> 40:06.840
+ There's some team, right?
+
+40:06.840 --> 40:08.360
+ I feel like there isn't.
+
+40:08.360 --> 40:09.480
+ I'm skeptical.
+
+40:09.480 --> 40:10.600
+ Yeah.
+
+40:10.600 --> 40:14.680
+ Well, if nothing else, they benefit from the other teams
+
+40:14.680 --> 40:18.400
+ like moving things forward in a small way.
+
+40:18.400 --> 40:19.760
+ But I know what you mean.
+
+40:19.760 --> 40:22.280
+ We use Mechanical Turk for a couple of things as well.
+
+40:22.280 --> 40:23.840
+ And yeah, it's painful UI.
+
+40:23.840 --> 40:25.720
+ It's painful, but yeah, it works.
+
+40:25.720 --> 40:27.560
+ I think most people, the thing is most people
+
+40:27.560 --> 40:29.160
+ don't really use the UI, right?
+
+40:29.160 --> 40:33.600
+ Like we, for example, we use it through the API, right?
+
+40:33.600 --> 40:36.120
+ But even the API documentation and so on,
+
+40:36.120 --> 40:37.520
+ like it's super outdated.
+
+40:37.520 --> 40:42.520
+ Like I don't even know what to...
+
+40:42.840 --> 40:46.440
+ I mean, the same criticism, as long as we're ranting,
+
+40:47.680 --> 40:49.960
+ my same criticism goes to the APIs
+
+40:49.960 --> 40:50.920
+ of most of these companies.
+
+40:50.920 --> 40:55.120
+ Like Google, for example, the API for the different services
+
+40:55.120 --> 40:59.760
+ is just the documentation is so shitty.
+
+40:59.760 --> 41:02.160
+ Like it's not so shitty.
+
+41:02.160 --> 41:05.280
+ I should actually be...
+
+41:05.280 --> 41:08.280
+ I should exhibit some gratitude.
+
+41:08.280 --> 41:10.800
+ Okay, let's practice some gratitude.
+
+41:10.800 --> 41:14.240
+ The documentation is pretty good.
+
+41:14.240 --> 41:18.720
+ Like most of the things that the API makes available
+
+41:18.720 --> 41:19.640
+ is pretty good.
+
+41:19.640 --> 41:23.040
+ It's just that in the sense that it's accurate,
+
+41:23.040 --> 41:27.200
+ sometimes outdated, but like the degree of explanations
+
+41:27.200 --> 41:31.360
+ with examples is only covering, I would say,
+
+41:31.360 --> 41:33.840
+ like 50% of what's possible.
+
+41:33.840 --> 41:35.520
+ And it just feels a little bit,
+
+41:35.520 --> 41:37.320
+ like there's a lot of natural questions
+
+41:37.320 --> 41:41.600
+ that people would wanna ask that doesn't get covered.
+
+41:41.600 --> 41:44.520
+ And it feels like it's almost there.
+
+41:44.520 --> 41:46.120
+ Like it's such a magical thing.
+
+41:46.120 --> 41:51.120
+ Like the Maps API, YouTube API, there's a bunch of stuff.
+
+41:51.120 --> 41:54.720
+ I gotta imagine it's like, there's probably some team
+
+41:54.720 --> 41:57.440
+ at Google responsible for writing this documentation
+
+41:57.440 --> 42:00.240
+ that's probably not the engineers, right?
+
+42:00.240 --> 42:04.360
+ And probably this team is not where you wanna be.
+
+42:04.360 --> 42:05.800
+ Well, it's a weird thing.
+
+42:05.800 --> 42:09.160
+ I sometimes think about this for somebody
+
+42:09.160 --> 42:12.120
+ who wants to also build a company.
+
+42:12.120 --> 42:14.920
+ I think about this a lot.
+
+42:14.920 --> 42:19.920
+ YouTube, the service is one of the most magical,
+
+42:21.560 --> 42:24.440
+ like I'm so grateful that YouTube exists.
+
+42:24.440 --> 42:29.440
+ And yet they seem to be quite clueless on so many things
+
+42:30.840 --> 42:33.400
+ like that everybody's screaming them at.
+
+42:33.400 --> 42:37.360
+ Like it feels like whatever the mechanism
+
+42:37.360 --> 42:40.080
+ that you use to listen to your quote unquote customers,
+
+42:40.080 --> 42:44.800
+ which is like the creators, is not very good.
+
+42:44.800 --> 42:47.880
+ Like there's literally people that are like screaming why,
+
+42:47.880 --> 42:51.040
+ like their new YouTube studio, for example.
+
+42:51.040 --> 42:55.160
+ There's like features that were like begged for
+
+42:55.160 --> 42:56.880
+ for a really long time.
+
+42:56.880 --> 43:00.160
+ Like being able to upload multiple videos at the same time.
+
+43:00.160 --> 43:03.880
+ That wasn't missing for a really, really long time.
+
+43:03.880 --> 43:08.000
+ Now, like there's probably things that I don't know,
+
+43:08.000 --> 43:10.960
+ which is maybe for that kind of huge infrastructure,
+
+43:10.960 --> 43:12.320
+ it's actually very difficult to build
+
+43:12.320 --> 43:13.720
+ some of these features.
+
+43:13.720 --> 43:15.520
+ But the fact that that wasn't communicated
+
+43:15.520 --> 43:19.120
+ and it felt like you're not being heard.
+
+43:19.120 --> 43:21.520
+ Like I remember this experience for me
+
+43:21.520 --> 43:23.800
+ and it's not a pleasant experience.
+
+43:23.800 --> 43:26.720
+ And it feels like the company doesn't give a damn about you.
+
+43:26.720 --> 43:28.160
+ And that's something to think about.
+
+43:28.160 --> 43:29.960
+ I'm not sure what that is.
+
+43:29.960 --> 43:32.480
+ That might have to do with just like small groups
+
+43:32.480 --> 43:35.920
+ working on these small features and these specific features.
+
+43:35.920 --> 43:40.280
+ And there's no overarching like dictator type of human
+
+43:40.280 --> 43:42.440
+ that says like, why the hell are we neglecting
+
+43:42.440 --> 43:43.920
+ like Steve Jobs type of characters?
+
+43:43.920 --> 43:48.240
+ Like there's people that we need to speak
+
+43:48.240 --> 43:50.640
+ to the people that like wanna love our product
+
+43:50.640 --> 43:51.680
+ and they don't.
+
+43:51.680 --> 43:52.520
+ Let's fix this shit.
+
+43:52.520 --> 43:54.160
+ Maybe at some point you just get so fixated
+
+43:54.160 --> 43:55.120
+ on the numbers, right?
+
+43:55.120 --> 43:57.200
+ And it's like, well, the numbers are pretty great, right?
+
+43:57.200 --> 43:58.640
+ Like people are watching,
+
+43:59.680 --> 44:01.960
+ doesn't seem to be a problem, right?
+
+44:01.960 --> 44:04.080
+ And you're not like the person that like build this thing,
+
+44:04.080 --> 44:04.920
+ right?
+
+44:04.920 --> 44:05.840
+ So you really care about it.
+
+44:05.840 --> 44:09.080
+ You're just there, you came in as a product manager, right?
+
+44:09.080 --> 44:10.680
+ You got hired sometime later,
+
+44:10.680 --> 44:13.520
+ your mandate is like increase this number,
+
+44:13.520 --> 44:15.680
+ like 10%, right?
+
+44:15.680 --> 44:16.520
+ And you just.
+
+44:16.520 --> 44:17.520
+ That's brilliantly put.
+
+44:17.520 --> 44:21.320
+ Like if you, this is, okay, if there's a lesson in this
+
+44:21.320 --> 44:24.200
+ is don't reduce your company into a metric
+
+44:24.200 --> 44:28.280
+ of like how much, like you said,
+
+44:28.280 --> 44:30.800
+ how much people watching the videos and so on
+
+44:30.800 --> 44:33.800
+ and like convince yourself that everything is working
+
+44:33.800 --> 44:36.120
+ just because the numbers are going up.
+
+44:36.120 --> 44:39.120
+ There's something, you have to have a vision.
+
+44:39.120 --> 44:43.400
+ You have to want people to love your stuff
+
+44:43.400 --> 44:46.120
+ because love is ultimately the beginning
+
+44:46.120 --> 44:49.280
+ of like a successful longterm company
+
+44:49.280 --> 44:51.320
+ is that they always should love your product.
+
+44:51.320 --> 44:52.640
+ You have to be like a creator
+
+44:52.640 --> 44:55.400
+ and have that like creator's love for your own thing, right?
+
+44:55.400 --> 44:59.560
+ Like, and you're pained by these comments, right?
+
+44:59.560 --> 45:02.480
+ And probably like Apple, I think did this generally
+
+45:02.480 --> 45:03.840
+ like really well.
+
+45:03.840 --> 45:06.880
+ They're well known for kind of keeping teams small
+
+45:06.880 --> 45:08.200
+ even when they were big, right?
+
+45:08.200 --> 45:10.400
+ And, you know, he was an engineer,
+
+45:10.400 --> 45:12.680
+ like there's a book, a creative selection.
+
+45:12.680 --> 45:15.440
+ I don't know if you read it by a Apple engineer
+
+45:15.440 --> 45:17.280
+ named Ken Koscienda.
+
+45:17.280 --> 45:18.320
+ It's kind of a great book actually
+
+45:18.320 --> 45:21.440
+ because unlike most of these business books where it's,
+
+45:21.440 --> 45:24.600
+ you know, here's how Steve Jobs ran the company.
+
+45:24.600 --> 45:27.240
+ It's more like here's how life was like for me, you know,
+
+45:27.240 --> 45:29.000
+ an engineer here, the projects I worked on
+
+45:29.000 --> 45:31.720
+ and here what it was like to pitch Steve Jobs, you know,
+
+45:31.720 --> 45:34.640
+ on like, you know, I think it was in charge of like
+
+45:34.640 --> 45:36.840
+ the keyboard and the auto correction, right?
+
+45:36.840 --> 45:39.440
+ And at Apple, like Steve Jobs reviewed everything.
+
+45:39.440 --> 45:41.160
+ And so he was like, this is what it was like
+
+45:41.160 --> 45:43.720
+ to show my demos to Steve Jobs and, you know,
+
+45:43.720 --> 45:46.600
+ to change them because like Steve Jobs didn't like how,
+
+45:46.600 --> 45:48.760
+ you know, the shape of the little key was off
+
+45:48.760 --> 45:50.920
+ because the rounding of the corner was like not quite right
+
+45:50.920 --> 45:51.760
+ or something like this, right?
+
+45:51.760 --> 45:54.640
+ He was famously a stickler for this kind of stuff.
+
+45:54.640 --> 45:55.800
+ But because the teams were small,
+
+45:55.800 --> 45:56.920
+ he really owned this stuff, right?
+
+45:56.920 --> 45:58.680
+ So he really cared.
+
+45:58.680 --> 46:01.640
+ Yeah, Elon Musk does that similar kind of thing with Tesla,
+
+46:01.640 --> 46:03.400
+ which is really interesting.
+
+46:03.400 --> 46:05.880
+ There's another lesson in leadership in that
+
+46:05.880 --> 46:07.640
+ is to be obsessed with the details.
+
+46:07.640 --> 46:11.280
+ And like, he talks to like the lowest level engineers.
+
+46:11.280 --> 46:14.600
+ Okay, so we're talking about ASR
+
+46:14.600 --> 46:17.640
+ and so this is basically where I was saying
+
+46:17.640 --> 46:20.360
+ we're gonna take this like ultra seriously.
+
+46:20.360 --> 46:22.640
+ And then what's the mission?
+
+46:22.640 --> 46:26.200
+ To try to keep pushing towards the 3%.
+
+46:26.200 --> 46:30.320
+ Yeah, and kind of try to build this platform
+
+46:30.320 --> 46:33.920
+ where all of your, you know, all of your meetings,
+
+46:33.920 --> 46:38.440
+ you know, they're as easily accessible as your notes, right?
+
+46:38.440 --> 46:41.360
+ Like, so, like, imagine all the meetings
+
+46:41.360 --> 46:43.080
+ a company might have, right?
+
+46:43.080 --> 46:46.280
+ You know, now that I'm like no longer a programmer, right?
+
+46:46.280 --> 46:48.080
+ Then I'm a quote unquote manager.
+
+46:49.160 --> 46:51.120
+ That's less like my day as in meetings, right?
+
+46:51.120 --> 46:51.960
+ Yeah.
+
+46:51.960 --> 46:53.800
+ And, you know, pretty often I wanna like see
+
+46:53.800 --> 46:55.040
+ what was said, right?
+
+46:55.040 --> 46:56.200
+ Who said it, you know?
+
+46:56.200 --> 46:57.040
+ What's the context?
+
+46:57.040 --> 46:59.360
+ But it's generally not really something
+
+46:59.360 --> 47:00.480
+ that you can easily retrieve, right?
+
+47:00.480 --> 47:03.200
+ Like imagine if all of those meetings
+
+47:03.200 --> 47:05.760
+ were indexed, archived, you know, you could go back,
+
+47:05.760 --> 47:08.280
+ you could share a clip like really easily, right?
+
+47:08.280 --> 47:10.040
+ So that might change completely.
+
+47:10.040 --> 47:11.920
+ It's like everything that's said,
+
+47:11.920 --> 47:14.000
+ converted to text might change completely
+
+47:14.000 --> 47:16.320
+ the dynamics of what we do in this world,
+
+47:16.320 --> 47:18.160
+ especially now with remote work, right?
+
+47:18.160 --> 47:19.480
+ Exactly, exactly.
+
+47:19.480 --> 47:21.440
+ With Zoom and so on.
+
+47:21.440 --> 47:22.760
+ That's fascinating to think about.
+
+47:22.760 --> 47:25.560
+ I mean, for me, I care about podcasts, right?
+
+47:25.560 --> 47:28.800
+ And one of the things that was,
+
+47:30.400 --> 47:31.240
+ you know, I'm torn.
+
+47:31.240 --> 47:33.600
+ I know a lot of the engineers at Spotify.
+
+47:33.600 --> 47:38.600
+ So I love them very much because they dream big
+
+47:39.840 --> 47:43.400
+ in terms of like, they wanna empower creators.
+
+47:43.400 --> 47:45.080
+ So one of my hopes was with Spotify
+
+47:45.080 --> 47:46.840
+ that they would use a technology like Rev
+
+47:46.840 --> 47:51.720
+ or something like that to start converting everything
+
+47:51.720 --> 47:55.200
+ into text and make it indexable.
+
+47:55.200 --> 47:59.560
+ Like one of the things that sucks with podcasts
+
+47:59.560 --> 48:01.800
+ is like, it's hard to find stuff.
+
+48:01.800 --> 48:04.480
+ Like the model is basically subscription.
+
+48:04.480 --> 48:09.480
+ Like you find, it's similar to what YouTube used to be like,
+
+48:10.600 --> 48:14.240
+ which is you basically find a creator that you enjoy
+
+48:14.240 --> 48:15.360
+ and you subscribe to them.
+
+48:15.360 --> 48:19.720
+ And like, you just kind of follow what they're doing,
+
+48:19.720 --> 48:24.320
+ but the search and discovery wasn't a big part of YouTube
+
+48:24.320 --> 48:25.560
+ like in the early days,
+
+48:25.560 --> 48:28.560
+ but that's what currently with podcasts,
+
+48:28.560 --> 48:33.560
+ like is the search and discovery is like non existent.
+
+48:33.880 --> 48:35.280
+ You're basically searching for like
+
+48:35.280 --> 48:36.400
+ the dumbest possible thing,
+
+48:36.400 --> 48:39.680
+ which is like keywords in the titles of episodes.
+
+48:39.680 --> 48:40.520
+ Yeah.
+
+48:40.520 --> 48:42.160
+ Even aside from a search and discovery, like all the time.
+
+48:42.160 --> 48:44.160
+ So I listened to like a number of podcasts
+
+48:44.160 --> 48:46.840
+ and there's something said,
+
+48:46.840 --> 48:48.560
+ and I wanna like go back to that later
+
+48:48.560 --> 48:49.800
+ because I was trying to, I'm trying to remember,
+
+48:49.800 --> 48:50.640
+ what do you say?
+
+48:50.640 --> 48:52.160
+ Like maybe like recommended some cool product
+
+48:52.160 --> 48:53.440
+ that I wanna try out.
+
+48:53.440 --> 48:54.680
+ And like, it's basically impossible.
+
+48:54.680 --> 48:56.800
+ Maybe like some people have pretty good show notes.
+
+48:56.800 --> 48:59.040
+ So maybe you'll get lucky and you can find it, right?
+
+48:59.040 --> 49:01.600
+ But I mean, if everyone had transcripts
+
+49:01.600 --> 49:05.320
+ and it was all searchable, it would be so much better.
+
+49:05.320 --> 49:08.480
+ I mean, that's one of the things that I wanted to,
+
+49:08.480 --> 49:11.040
+ I mean, one of the reasons we're talking today
+
+49:11.040 --> 49:13.400
+ is I wanted to take this quite seriously.
+
+49:13.400 --> 49:15.700
+ The rough thing, I just been lazy.
+
+49:16.840 --> 49:19.480
+ So, because I'm very fortunate
+
+49:19.480 --> 49:21.240
+ that a lot of people support this podcast,
+
+49:21.240 --> 49:24.840
+ that there's enough money now to do a transcription and so on.
+
+49:24.840 --> 49:29.840
+ And it seemed clear to me, especially like CEOs
+
+49:29.960 --> 49:34.960
+ and sort of like PhDs, like people write to me
+
+49:36.360 --> 49:38.320
+ who are like graduate students in computer science
+
+49:38.320 --> 49:41.100
+ or graduate students in whatever the heck field,
+
+49:41.100 --> 49:43.120
+ it's clear that their mind,
+
+49:43.120 --> 49:44.320
+ like they enjoy podcasts
+
+49:44.320 --> 49:46.120
+ when they're doing laundry or whatever,
+
+49:46.120 --> 49:48.760
+ but they wanna revisit the conversation
+
+49:48.760 --> 49:50.720
+ in a much more rigorous way.
+
+49:50.720 --> 49:52.920
+ And they really wanna transcript.
+
+49:52.920 --> 49:56.120
+ Like it's clear that they want to analyze conversations.
+
+49:56.120 --> 49:58.400
+ Like so many people wrote to me
+
+49:58.400 --> 50:01.080
+ about a transcript for Yosha Bach conversation.
+
+50:01.080 --> 50:03.720
+ I had just a bunch of conversations.
+
+50:03.720 --> 50:05.840
+ And then on the Elon Musk side,
+
+50:05.840 --> 50:09.400
+ like reporters, they wanna write a blog post
+
+50:09.400 --> 50:10.840
+ about your conversation.
+
+50:10.840 --> 50:13.040
+ So they wanna be able to pull stuff.
+
+50:13.040 --> 50:15.480
+ And it's like, they're essentially doing
+
+50:15.480 --> 50:18.360
+ on your conversation transcription privately.
+
+50:18.360 --> 50:21.800
+ They're doing it for themselves and then starting to pick,
+
+50:21.800 --> 50:23.960
+ but it's so much easier when you can actually do it
+
+50:23.960 --> 50:26.200
+ as a reporter, just look at the transcript.
+
+50:26.200 --> 50:28.360
+ Yeah, and you can like embed a little thing,
+
+50:28.360 --> 50:29.600
+ like into your article, right?
+
+50:29.600 --> 50:31.240
+ Here's what they said, you can go listen
+
+50:31.240 --> 50:33.580
+ to like this clip from the section.
+
+50:33.580 --> 50:35.960
+ I'm actually trying to figure out,
+
+50:35.960 --> 50:38.180
+ I'll probably on the website create
+
+50:39.320 --> 50:41.440
+ like a place where the transcript goes,
+
+50:41.440 --> 50:44.360
+ like as a webpage so that people can reference it,
+
+50:44.360 --> 50:46.720
+ like reporters can reference it and so on.
+
+50:46.720 --> 50:50.880
+ I mean, most of the reporters probably want
+
+50:50.880 --> 50:54.360
+ to write clickbait articles that are complete falsifying,
+
+50:54.360 --> 50:55.400
+ which I'm fine with.
+
+50:55.400 --> 50:57.760
+ It's the way of journalism, I don't care.
+
+50:57.760 --> 51:01.680
+ Like I've had this conversation with a friend of mine,
+
+51:01.680 --> 51:03.920
+ a mixed martial artist, the Ryan Hall.
+
+51:04.920 --> 51:07.120
+ And we talked about, you know,
+
+51:07.120 --> 51:09.640
+ as I've been reading The Rise and Fall of the Third Reich
+
+51:09.640 --> 51:13.240
+ and a bunch of books on Hitler and we brought up Hitler
+
+51:13.240 --> 51:17.280
+ and he made some kind of comment where like,
+
+51:17.280 --> 51:19.480
+ we should be able to forgive Hitler
+
+51:19.480 --> 51:23.640
+ and, you know, like we were talking about forgiveness
+
+51:23.640 --> 51:25.880
+ and we're bringing that up as like the worst case
+
+51:25.880 --> 51:28.520
+ possible things, like even, you know,
+
+51:28.520 --> 51:32.040
+ for people who are Holocaust survivors,
+
+51:32.040 --> 51:34.660
+ one of the ways to let go of the suffering
+
+51:34.660 --> 51:38.000
+ they've been through is to forgive.
+
+51:38.000 --> 51:39.760
+ And he brought up like Hitler as somebody
+
+51:39.760 --> 51:42.400
+ that would potentially be the hardest thing
+
+51:42.400 --> 51:45.720
+ to possibly forgive, but it might be a worthwhile pursuit
+
+51:45.720 --> 51:48.560
+ psychologically, so on, blah, blah, blah, it doesn't matter.
+
+51:48.560 --> 51:50.860
+ It was very eloquent, very powerful words.
+
+51:50.860 --> 51:53.160
+ I think people should go back and listen to it.
+
+51:53.160 --> 51:54.000
+ It's powerful.
+
+51:54.000 --> 51:55.680
+ And then all these journalists,
+
+51:55.680 --> 52:00.000
+ all these articles written about like MMA fight, UFC fight.
+
+52:00.000 --> 52:01.920
+ MMA fighter loves Hitler.
+
+52:01.920 --> 52:03.680
+ No, like, well, no, they didn't.
+
+52:03.680 --> 52:05.720
+ They were somewhat accurate.
+
+52:05.720 --> 52:07.120
+ They didn't say like loves Hitler.
+
+52:07.120 --> 52:12.120
+ They said, thinks that if Hitler came back to life,
+
+52:13.280 --> 52:14.420
+ we should forgive him.
+
+52:14.420 --> 52:18.520
+ Like they kind of, it's kind of accurate ish,
+
+52:18.520 --> 52:23.520
+ but the headline made it sound a lot worse
+
+52:23.800 --> 52:27.800
+ than it was, but I'm fine with it.
+
+52:27.800 --> 52:31.640
+ That's the way the world, I wanna almost make it easier
+
+52:31.640 --> 52:33.640
+ for those journalists and make it easier
+
+52:33.640 --> 52:35.800
+ for people who actually care about the conversation
+
+52:35.800 --> 52:37.280
+ to go and look and see.
+
+52:37.280 --> 52:38.520
+ Right, they can see it for themselves.
+
+52:38.520 --> 52:39.360
+ For themselves.
+
+52:39.360 --> 52:41.640
+ There's the headline, but now you can go.
+
+52:41.640 --> 52:42.960
+ There's something about podcasts,
+
+52:42.960 --> 52:44.840
+ like the audio that makes it difficult
+
+52:44.840 --> 52:49.600
+ to jump to a spot and to look
+
+52:49.600 --> 52:53.240
+ for that particular information.
+
+52:53.240 --> 52:57.040
+ I think some of it, I'm interested in creating,
+
+52:58.520 --> 53:00.360
+ like myself experimenting with stuff.
+
+53:00.360 --> 53:03.440
+ So like taking rev and creating a transcript
+
+53:03.440 --> 53:05.200
+ and then people can go to it.
+
+53:05.200 --> 53:09.320
+ I do dream that like, I'm not in the loop anymore,
+
+53:09.320 --> 53:13.000
+ that like, Spotify does it, right?
+
+53:13.000 --> 53:16.340
+ Like automatically for everybody,
+
+53:16.340 --> 53:19.600
+ because ultimately that one click purchase
+
+53:19.600 --> 53:21.800
+ needs to be there, like, you know.
+
+53:21.800 --> 53:24.120
+ Like you kind of want support from the entire ecosystem.
+
+53:24.120 --> 53:24.960
+ Exactly.
+
+53:24.960 --> 53:27.960
+ Like from the tool makers and the podcast creators,
+
+53:27.960 --> 53:28.800
+ even clients, right?
+
+53:28.800 --> 53:33.800
+ I mean, imagine if like most podcast apps,
+
+53:33.900 --> 53:35.840
+ you know, if it was a standard, right?
+
+53:35.840 --> 53:38.560
+ Here's how you include a transcript into a podcast, right?
+
+53:38.560 --> 53:40.920
+ Like it's just an RSS feed ultimately.
+
+53:40.920 --> 53:43.520
+ And actually just yesterday I saw this company
+
+53:43.520 --> 53:46.880
+ called Buzzsprout, I think they're called.
+
+53:46.880 --> 53:48.320
+ So they're trying to do this.
+
+53:48.320 --> 53:53.320
+ They proposed a spec, an extension to their RSS format
+
+53:53.420 --> 53:58.240
+ to reference transcripts in a standard way.
+
+53:58.240 --> 53:59.080
+ And they're talking about like,
+
+53:59.080 --> 54:02.140
+ there's one client dimension that will support it,
+
+54:02.140 --> 54:04.040
+ but imagine like more clients support it, right?
+
+54:04.040 --> 54:08.280
+ So any podcast, you could go and see the transcripts
+
+54:08.280 --> 54:10.480
+ right in your like normal podcast app.
+
+54:10.480 --> 54:11.320
+ Yeah.
+
+54:11.320 --> 54:14.180
+ I mean, somebody, so I have somebody who works with me,
+
+54:15.720 --> 54:20.200
+ works with helps with advertising, Matt, this awesome guy.
+
+54:20.200 --> 54:22.280
+ He mentioned Buzzsprout to me, but he says,
+
+54:22.280 --> 54:24.880
+ it's really annoying because they want exclusive,
+
+54:24.880 --> 54:26.280
+ they want to host the podcast.
+
+54:26.280 --> 54:27.120
+ Right.
+
+54:27.120 --> 54:29.240
+ This is the problem with Spotify too.
+
+54:29.240 --> 54:33.920
+ This is where I'd like to say, like F Spotify,
+
+54:33.920 --> 54:37.680
+ there's a magic to RSS with podcasts.
+
+54:38.600 --> 54:40.320
+ It can be made available to everyone.
+
+54:40.320 --> 54:42.720
+ And then there's all, there's this ecosystem
+
+54:42.720 --> 54:45.000
+ of different podcast players that emerge
+
+54:45.000 --> 54:47.080
+ and they compete freely.
+
+54:47.080 --> 54:48.920
+ And that's a beautiful thing,
+
+54:48.920 --> 54:50.400
+ that that's why I go on exclusive,
+
+54:50.400 --> 54:51.960
+ like Joe Rogan went exclusive.
+
+54:53.320 --> 54:54.760
+ I'm not sure if you're familiar with,
+
+54:54.760 --> 54:59.560
+ he went to Spotify as a huge fan of Joe Rogan.
+
+54:59.560 --> 55:01.380
+ I've been kind of nervous about the whole thing,
+
+55:01.380 --> 55:05.000
+ but let's see, I hope that Spotify steps up.
+
+55:05.000 --> 55:07.020
+ They've added video, which was very surprising
+
+55:07.020 --> 55:07.860
+ that they were able to put on.
+
+55:07.860 --> 55:10.360
+ Exclusive meaning you can't subscribe
+
+55:10.360 --> 55:11.680
+ to the RSS feed anymore.
+
+55:11.680 --> 55:12.680
+ It's only in Spotify.
+
+55:12.680 --> 55:15.720
+ For now you can until December 1st.
+
+55:15.720 --> 55:18.800
+ And December 1st, it's all, everything disappears
+
+55:18.800 --> 55:20.120
+ and it's Spotify only.
+
+55:21.480 --> 55:25.260
+ I, you know, and Spotify gave him a hundred million dollars
+
+55:25.260 --> 55:26.100
+ for that.
+
+55:26.100 --> 55:29.960
+ So it's an interesting deal, but I, you know,
+
+55:29.960 --> 55:34.480
+ I did some soul searching and I'm glad he's doing it.
+
+55:34.480 --> 55:38.640
+ But if Spotify came to me with a hundred million dollars,
+
+55:38.640 --> 55:40.080
+ I wouldn't do it.
+
+55:40.080 --> 55:42.160
+ I wouldn't do, well, I have a very different relationship
+
+55:42.160 --> 55:43.000
+ with money.
+
+55:43.000 --> 55:46.640
+ I hate money, but I just think I believe
+
+55:46.640 --> 55:50.000
+ in the pirate radio aspect of podcasting, the freedom.
+
+55:50.000 --> 55:50.840
+ And that there's something about.
+
+55:50.840 --> 55:52.280
+ The open source spirit.
+
+55:52.280 --> 55:54.680
+ The open source spirit, it just doesn't seem right.
+
+55:54.680 --> 55:55.780
+ It doesn't feel right.
+
+55:55.780 --> 55:58.480
+ That said, you know, because so many people care
+
+55:58.480 --> 56:00.400
+ about Joe Rogan's program,
+
+56:00.400 --> 56:02.960
+ they're gonna hold Spotify's feet to the fire.
+
+56:02.960 --> 56:06.400
+ Like one of the cool things with what Joe told me
+
+56:06.400 --> 56:10.440
+ is the reason he likes working with Spotify
+
+56:10.440 --> 56:15.440
+ is that they, they're like ride or die together, right?
+
+56:16.200 --> 56:19.160
+ So they, they want him to succeed.
+
+56:19.160 --> 56:22.080
+ So that's why they're not actually telling him what to do
+
+56:22.080 --> 56:23.800
+ despite what people think.
+
+56:23.800 --> 56:24.980
+ They, they don't tell them,
+
+56:24.980 --> 56:26.940
+ they don't give them any notes on anything.
+
+56:26.940 --> 56:28.560
+ They want him to succeed.
+
+56:28.560 --> 56:31.920
+ And that's the cool thing about exclusivity with a platform
+
+56:31.920 --> 56:36.800
+ is like, you're kind of wanting each other to succeed.
+
+56:36.800 --> 56:39.720
+ And that process can actually be very fruitful.
+
+56:39.720 --> 56:43.380
+ Like YouTube, it goes back to my criticism.
+
+56:44.600 --> 56:47.800
+ YouTube generally, no matter how big the creator,
+
+56:47.800 --> 56:50.160
+ maybe for PewDiePie, something like that,
+
+56:50.160 --> 56:51.680
+ they want you to succeed.
+
+56:51.680 --> 56:53.920
+ But for the most part, from all the big creators
+
+56:53.920 --> 56:57.040
+ I've spoken with, Veritasium, all of those folks,
+
+56:57.040 --> 56:59.000
+ you know, they get some basic assistance,
+
+56:59.000 --> 57:02.800
+ but it's not like, YouTube doesn't care
+
+57:02.800 --> 57:03.840
+ if you succeed or not.
+
+57:03.840 --> 57:04.680
+ They have so many creators.
+
+57:04.680 --> 57:06.500
+ Yeah, like a hundred other.
+
+57:06.500 --> 57:07.600
+ They don't care.
+
+57:07.600 --> 57:12.600
+ So, and especially with, with somebody like Joe Rogan,
+
+57:12.840 --> 57:15.080
+ who YouTube sees Joe Rogan,
+
+57:15.080 --> 57:19.760
+ not as a person who might revolutionize the nature of news
+
+57:19.760 --> 57:23.900
+ and idea space and nuanced conversations.
+
+57:23.900 --> 57:26.280
+ They see him as a potential person
+
+57:26.280 --> 57:30.240
+ who has racist guests on,
+
+57:30.240 --> 57:33.520
+ or like, you know, they see him as like a headache,
+
+57:33.520 --> 57:34.440
+ potentially.
+
+57:34.440 --> 57:37.980
+ So, you know, a lot of people talk about this.
+
+57:37.980 --> 57:40.600
+ It's a hard place to be for YouTube, actually,
+
+57:40.600 --> 57:45.600
+ is figuring out with the search and discovery process
+
+57:46.840 --> 57:49.040
+ of how do you filter out conspiracy theories
+
+57:49.040 --> 57:53.360
+ and which conspiracy theories represent dangerous untruths
+
+57:53.360 --> 57:58.080
+ and which conspiracy theories are like vanilla untruths.
+
+57:58.080 --> 58:00.640
+ And then even when you start having meetings
+
+58:00.640 --> 58:03.400
+ and discussions about what is true or not,
+
+58:03.400 --> 58:05.080
+ it starts getting weird.
+
+58:05.080 --> 58:07.800
+ Yeah, it's difficult these days, right?
+
+58:07.800 --> 58:09.720
+ I worry more about the other side, right?
+
+58:09.720 --> 58:13.240
+ Of too much, you know, too much censorship.
+
+58:13.240 --> 58:14.660
+ Well, maybe censorship is the right word.
+
+58:14.660 --> 58:17.960
+ I mean, censorship is usually government censorship,
+
+58:17.960 --> 58:21.360
+ but still, yeah, putting yourself in the position
+
+58:21.360 --> 58:22.920
+ of arbiter for these kinds of things.
+
+58:22.920 --> 58:25.360
+ It's very difficult and people think it's so easy, right?
+
+58:25.360 --> 58:27.800
+ Like, cause like, well, you know, like no Nazis, right?
+
+58:27.800 --> 58:29.060
+ What a simple principle.
+
+58:30.000 --> 58:32.960
+ But you know, yes, I mean, no one likes Nazis,
+
+58:32.960 --> 58:35.360
+ but there's like many shades of gray,
+
+58:35.360 --> 58:37.320
+ like very soon after that.
+
+58:37.320 --> 58:39.640
+ Yeah, and then, you know, of course everybody, you know,
+
+58:39.640 --> 58:42.200
+ there's some people that call our current president a Nazi
+
+58:42.200 --> 58:45.680
+ and then there's like, so you start getting a Sam Harris.
+
+58:45.680 --> 58:49.640
+ I don't know if you know that is wasted, in my opinion,
+
+58:49.640 --> 58:51.640
+ his conversation with Jack Dorsey.
+
+58:51.640 --> 58:54.200
+ Now I'll also, I spoke with Jack before in this podcast
+
+58:54.200 --> 58:58.240
+ and we'll talk again, but Sam brought up,
+
+58:58.240 --> 59:00.140
+ Sam Harris does not like Donald Trump.
+
+59:01.400 --> 59:03.720
+ I do listen to his podcast.
+
+59:03.720 --> 59:06.480
+ I'm familiar with his views on the matter.
+
+59:06.480 --> 59:08.960
+ And he asked Jack Dorsey, he's like,
+
+59:08.960 --> 59:12.280
+ how can you not ban Donald Trump from Twitter?
+
+59:12.280 --> 59:15.960
+ And so, you know, there's a set, you have that conversation.
+
+59:15.960 --> 59:18.240
+ You have a conversation where some number,
+
+59:18.240 --> 59:20.760
+ some significant number of people think
+
+59:20.760 --> 59:22.880
+ that the current president of the United States
+
+59:22.880 --> 59:24.880
+ should not be on your platform.
+
+59:24.880 --> 59:26.240
+ And it's like, okay.
+
+59:26.240 --> 59:29.360
+ So if that's even on the table as a conversation,
+
+59:29.360 --> 59:32.720
+ then everything's on the table for conversation.
+
+59:32.720 --> 59:34.640
+ And yeah, it's tough.
+
+59:34.640 --> 59:37.000
+ I'm not sure where I land on it.
+
+59:37.000 --> 59:39.440
+ I'm with you, I think that censorship is bad,
+
+59:39.440 --> 59:41.840
+ but I also think the show...
+
+59:41.840 --> 59:43.960
+ Ultimately, I just also think, you know,
+
+59:43.960 --> 59:46.520
+ if you're the kind of person that's gonna be convinced,
+
+59:46.520 --> 59:49.420
+ you know, by some YouTube video, you know,
+
+59:49.420 --> 59:53.120
+ that, I don't know, our government's been taken over
+
+59:53.120 --> 59:56.080
+ by aliens, it's unlikely that like, you know,
+
+59:56.080 --> 59:58.960
+ you'll be returned to sanity simply because, you know,
+
+59:58.960 --> 1:00:01.980
+ that video is not available on YouTube, right?
+
+1:00:01.980 --> 1:00:02.820
+ Yeah, I'm with you.
+
+1:00:02.820 --> 1:00:04.520
+ I tend to believe in the intelligence of people
+
+1:00:04.520 --> 1:00:06.960
+ and we should trust them.
+
+1:00:06.960 --> 1:00:10.940
+ But I also do think it's the responsibility of platforms
+
+1:00:10.940 --> 1:00:12.640
+ to encourage more love in the world,
+
+1:00:12.640 --> 1:00:14.120
+ more kindness to each other.
+
+1:00:14.120 --> 1:00:16.920
+ And I don't always think that they're great
+
+1:00:16.920 --> 1:00:19.240
+ at doing that particular thing.
+
+1:00:19.240 --> 1:00:24.240
+ So that, there's a nice balance there.
+
+1:00:25.400 --> 1:00:28.240
+ And I think philosophically, I think about that a lot.
+
+1:00:28.240 --> 1:00:32.040
+ Where's the balance between free speech
+
+1:00:32.040 --> 1:00:35.000
+ and like encouraging people,
+
+1:00:35.000 --> 1:00:37.880
+ even though they have the freedom of speech
+
+1:00:37.880 --> 1:00:39.520
+ to not be an asshole.
+
+1:00:39.520 --> 1:00:41.020
+ Yeah, right.
+
+1:00:41.020 --> 1:00:42.960
+ That's not a constitutional, like...
+
+1:00:44.720 --> 1:00:48.100
+ So you have the right for free speech,
+
+1:00:48.100 --> 1:00:50.640
+ but like, just don't be an asshole.
+
+1:00:50.640 --> 1:00:52.640
+ Like you can't really put that in the constitution
+
+1:00:52.640 --> 1:00:54.160
+ that the Supreme Court can't be like,
+
+1:00:54.160 --> 1:00:56.040
+ eh, just don't be a dick.
+
+1:00:56.040 --> 1:00:59.520
+ But I feel like platforms have a role to be like,
+
+1:00:59.520 --> 1:01:00.800
+ just be nicer.
+
+1:01:00.800 --> 1:01:04.160
+ Maybe do the carrot, like encourage people to be nicer
+
+1:01:04.160 --> 1:01:06.760
+ as opposed to the stake of censorship.
+
+1:01:06.760 --> 1:01:11.020
+ But I think it's an interesting machine learning problem.
+
+1:01:11.020 --> 1:01:11.980
+ Just be nicer.
+
+1:01:12.960 --> 1:01:15.760
+ Machine, yeah, machine learning for niceness.
+
+1:01:15.760 --> 1:01:16.600
+ It is, I mean, that's...
+
+1:01:16.600 --> 1:01:17.880
+ Responsible, yeah, I mean, it is.
+
+1:01:17.880 --> 1:01:20.080
+ It is a thing, for sure.
+
+1:01:20.080 --> 1:01:22.080
+ Jack Dorsey kind of talks about it
+
+1:01:22.080 --> 1:01:23.880
+ as a vision for Twitter is,
+
+1:01:23.880 --> 1:01:26.760
+ how do we increase the health of conversations?
+
+1:01:26.760 --> 1:01:28.060
+ I don't know how seriously
+
+1:01:28.060 --> 1:01:30.720
+ they're actually trying to do that though.
+
+1:01:30.720 --> 1:01:35.720
+ Which is one of the reasons that I'm in part considering
+
+1:01:35.780 --> 1:01:37.240
+ entering that space a little bit.
+
+1:01:37.240 --> 1:01:38.480
+ It's difficult for them, right?
+
+1:01:38.480 --> 1:01:40.520
+ Because, you know, it's kind of like well known
+
+1:01:40.520 --> 1:01:45.520
+ that people are kind of driven by rage
+
+1:01:45.520 --> 1:01:49.400
+ and you know, outrage maybe is a better word, right?
+
+1:01:49.400 --> 1:01:51.840
+ Outrage drives engagement.
+
+1:01:51.840 --> 1:01:55.560
+ And well, these companies are judged by engagement, right?
+
+1:01:55.560 --> 1:01:56.400
+ So it's...
+
+1:01:56.400 --> 1:01:58.160
+ In the short term, but this goes to the metrics thing
+
+1:01:58.160 --> 1:01:59.320
+ that we were talking about earlier.
+
+1:01:59.320 --> 1:02:02.240
+ I do believe, I have a fundamental belief
+
+1:02:02.240 --> 1:02:06.140
+ that if you have a metric of long term happiness
+
+1:02:06.140 --> 1:02:09.520
+ of your users, like not short term engagement,
+
+1:02:09.520 --> 1:02:11.440
+ but long term happiness and growth
+
+1:02:11.440 --> 1:02:15.520
+ and both like intellectual, emotional health of your users,
+
+1:02:15.520 --> 1:02:17.600
+ you're going to make a lot more money.
+
+1:02:17.600 --> 1:02:18.840
+ You're going to have long...
+
+1:02:18.840 --> 1:02:21.400
+ Like you should be able to optimize for that.
+
+1:02:21.400 --> 1:02:24.280
+ You don't need to necessarily optimize for engagement.
+
+1:02:24.280 --> 1:02:26.400
+ And that'll be good for society too.
+
+1:02:26.400 --> 1:02:28.800
+ Yeah, no, I mean, I generally agree with you,
+
+1:02:28.800 --> 1:02:32.400
+ but it requires a patient person with, you know,
+
+1:02:33.320 --> 1:02:35.520
+ trust from Wall Street to be able
+
+1:02:35.520 --> 1:02:36.720
+ to carry out such a strategy.
+
+1:02:36.720 --> 1:02:39.240
+ This is what I believe the Steve Jobs character
+
+1:02:39.240 --> 1:02:41.920
+ and Elon Musk character is like,
+
+1:02:41.920 --> 1:02:45.240
+ you basically have to be so good at your job.
+
+1:02:45.240 --> 1:02:46.960
+ Right, you got to pass for anything.
+
+1:02:46.960 --> 1:02:48.680
+ That you can hold the board
+
+1:02:48.680 --> 1:02:52.000
+ and all the investors hostage by saying like,
+
+1:02:52.000 --> 1:02:56.360
+ either we do it my way or I leave.
+
+1:02:56.360 --> 1:02:59.120
+ And everyone is too afraid of you to leave
+
+1:02:59.120 --> 1:03:01.360
+ because they believe in your vision.
+
+1:03:01.360 --> 1:03:04.280
+ But that requires being really good at what you do.
+
+1:03:04.280 --> 1:03:06.680
+ It requires being Steve Jobs and Elon Musk.
+
+1:03:06.680 --> 1:03:09.280
+ There's kind of a reason why like a third name doesn't
+
+1:03:09.280 --> 1:03:10.840
+ come immediately to mind, right?
+
+1:03:10.840 --> 1:03:12.360
+ Like there's maybe a handful of other people,
+
+1:03:12.360 --> 1:03:13.440
+ but it's not that many.
+
+1:03:13.440 --> 1:03:14.280
+ It's not many.
+
+1:03:14.280 --> 1:03:15.480
+ I mean, people say like, why are you...
+
+1:03:15.480 --> 1:03:18.320
+ Like people say that I'm like a fan of Elon Musk.
+
+1:03:18.320 --> 1:03:20.960
+ I'm not, I'm a fan of anybody
+
+1:03:20.960 --> 1:03:23.080
+ who's like Steve Jobs and Elon Musk.
+
+1:03:23.080 --> 1:03:26.320
+ And there's just not many of those folks.
+
+1:03:26.320 --> 1:03:27.640
+ It's the guy that made us believe
+
+1:03:27.640 --> 1:03:31.040
+ that like we can get to Mars, you know, in 10 years, right?
+
+1:03:31.040 --> 1:03:32.480
+ I mean, that's kind of awesome.
+
+1:03:32.480 --> 1:03:35.280
+ And it's kind of making it happen, which is like...
+
+1:03:35.280 --> 1:03:40.280
+ And it's kind of gone like that kind of like spirit, right?
+
+1:03:40.480 --> 1:03:42.240
+ Like from a lot of our society, right?
+
+1:03:42.240 --> 1:03:44.640
+ You know, like we can get to the moon in 10 years
+
+1:03:44.640 --> 1:03:45.640
+ and like we did it, right?
+
+1:03:45.640 --> 1:03:46.480
+ Yeah.
+
+1:03:46.480 --> 1:03:51.480
+ Especially in this time of so much kind of existential dread
+
+1:03:52.840 --> 1:03:55.440
+ that people are going through because of COVID,
+
+1:03:55.440 --> 1:03:58.520
+ like having rockets that just keep going out there
+
+1:03:58.520 --> 1:04:00.400
+ now with humans.
+
+1:04:00.400 --> 1:04:03.200
+ I don't know that it, just like you said,
+
+1:04:03.200 --> 1:04:05.520
+ I mean, it gives you a reason to wake up in the morning
+
+1:04:05.520 --> 1:04:08.560
+ and dream, for us engineers too.
+
+1:04:09.960 --> 1:04:13.120
+ It is inspiring as hell, man.
+
+1:04:14.360 --> 1:04:17.080
+ Let me ask you this, the worst possible question,
+
+1:04:17.080 --> 1:04:21.280
+ which is, so you're like at the core, you're a programmer,
+
+1:04:21.280 --> 1:04:26.280
+ you're an engineer, but now you made the unfortunate choice
+
+1:04:29.040 --> 1:04:30.680
+ or maybe that's the way life goes
+
+1:04:30.680 --> 1:04:35.080
+ of basically moving away from the low level work
+
+1:04:35.080 --> 1:04:38.080
+ and becoming a manager, becoming an executive,
+
+1:04:38.080 --> 1:04:43.080
+ having meetings, what's that transition been like?
+
+1:04:43.200 --> 1:04:44.040
+ It's been interesting.
+
+1:04:44.040 --> 1:04:44.880
+ It's been a journey.
+
+1:04:44.880 --> 1:04:46.840
+ Maybe a couple of things to say about that.
+
+1:04:46.840 --> 1:04:49.280
+ I mean, I got into this, right?
+
+1:04:49.280 --> 1:04:54.280
+ Because as a kid, I just remember this like incredible
+
+1:04:54.440 --> 1:04:57.320
+ amazement at being able to write a program, right?
+
+1:04:57.320 --> 1:05:01.200
+ And something comes to life that kind of didn't exist before.
+
+1:05:01.200 --> 1:05:03.920
+ I don't think you have that in like many other fields,
+
+1:05:03.920 --> 1:05:07.880
+ like you have that with some other kinds of engineering,
+
+1:05:07.880 --> 1:05:09.640
+ but you're maybe a little bit more limited
+
+1:05:09.640 --> 1:05:10.680
+ with what you can do, right?
+
+1:05:10.680 --> 1:05:11.640
+ But with a computer,
+
+1:05:11.640 --> 1:05:14.760
+ you can literally imagine any kind of program, right?
+
+1:05:14.760 --> 1:05:16.960
+ So it's a little bit godlike what you do
+
+1:05:16.960 --> 1:05:18.160
+ like when you create it.
+
+1:05:19.200 --> 1:05:21.320
+ And so, I mean, that's why I got into it.
+
+1:05:21.320 --> 1:05:23.200
+ Do you remember like first program you wrote
+
+1:05:23.200 --> 1:05:25.800
+ or maybe the first program that like made you fall in love
+
+1:05:25.800 --> 1:05:27.480
+ with computer science?
+
+1:05:28.320 --> 1:05:29.400
+ I don't know what was the first program.
+
+1:05:29.400 --> 1:05:31.840
+ It's probably like trying to write one of those games
+
+1:05:31.840 --> 1:05:34.040
+ and basic, you know, like emulate the snake game
+
+1:05:34.040 --> 1:05:35.400
+ or whatever.
+
+1:05:35.400 --> 1:05:37.800
+ I don't remember to be honest, but I enjoyed like,
+
+1:05:37.800 --> 1:05:40.000
+ that's why I always loved about, you know,
+
+1:05:40.000 --> 1:05:41.800
+ being a programmer, it's just the creation process.
+
+1:05:41.800 --> 1:05:43.800
+ And it's a little bit different
+
+1:05:43.800 --> 1:05:46.160
+ when you're not the one doing the creating.
+
+1:05:47.520 --> 1:05:50.480
+ And, you know, another aspect to it I would say is,
+
+1:05:50.480 --> 1:05:52.040
+ you know, when you're a programmer,
+
+1:05:52.040 --> 1:05:54.160
+ when you're a individual contributor,
+
+1:05:54.160 --> 1:05:57.800
+ it's kind of very easy to know when you're doing a good job,
+
+1:05:57.800 --> 1:05:58.640
+ when you're not doing a good job,
+
+1:05:58.640 --> 1:05:59.480
+ when you're being productive,
+
+1:05:59.480 --> 1:06:00.360
+ when you're not being productive, right?
+
+1:06:00.360 --> 1:06:03.000
+ You can kind of see like you trying to make something
+
+1:06:03.000 --> 1:06:05.560
+ and it's like slowly coming together, right?
+
+1:06:05.560 --> 1:06:08.880
+ And when you're a manager, you know, it's more diffuse,
+
+1:06:08.880 --> 1:06:09.720
+ right?
+
+1:06:09.720 --> 1:06:12.760
+ Like, well, you hope, you know, you're motivating your team
+
+1:06:12.760 --> 1:06:15.920
+ and making them more productive and inspiring them, right?
+
+1:06:15.920 --> 1:06:18.920
+ But it's not like you get some kind of like dopamine signal
+
+1:06:18.920 --> 1:06:22.440
+ because you like completed X lines of code, you know, today.
+
+1:06:22.440 --> 1:06:24.040
+ So kind of like you missed that dopamine rush
+
+1:06:24.040 --> 1:06:28.040
+ a little bit when you first become,
+
+1:06:28.040 --> 1:06:30.440
+ but then, you know, slowly you kind of see,
+
+1:06:30.440 --> 1:06:32.360
+ yes, your teams are doing amazing work, right?
+
+1:06:32.360 --> 1:06:34.720
+ And you can take pride in that.
+
+1:06:34.720 --> 1:06:38.240
+ You can get like, what is it?
+
+1:06:38.240 --> 1:06:41.640
+ Like a ripple effect of somebody else's dopamine rush.
+
+1:06:41.640 --> 1:06:44.600
+ Yeah, yeah, you live off other people's dopamine.
+
+1:06:46.760 --> 1:06:50.800
+ So is there pain points and challenges you had to overcome
+
+1:06:50.800 --> 1:06:54.240
+ from becoming, from going to a programmer to becoming
+
+1:06:54.240 --> 1:06:55.960
+ a programmer of humans?
+
+1:06:55.960 --> 1:06:57.480
+ Programmer of humans.
+
+1:06:58.360 --> 1:07:00.960
+ I don't know, humans are difficult to understand,
+
+1:07:00.960 --> 1:07:03.640
+ you know, it's like one of those things,
+
+1:07:03.640 --> 1:07:06.720
+ like trying to understand other people's motivations
+
+1:07:06.720 --> 1:07:08.200
+ and what really drives them.
+
+1:07:08.200 --> 1:07:10.840
+ It's difficult, maybe like never really know, right?
+
+1:07:10.840 --> 1:07:13.320
+ Do you find that people are different?
+
+1:07:13.320 --> 1:07:14.160
+ Yeah.
+
+1:07:14.160 --> 1:07:18.680
+ Like I, one of the things, like I had a group at MIT
+
+1:07:18.680 --> 1:07:23.680
+ that, you know, I found that like some people
+
+1:07:24.680 --> 1:07:29.680
+ I could like scream at and criticize like hard
+
+1:07:30.080 --> 1:07:32.800
+ and that made them do like much better work
+
+1:07:32.800 --> 1:07:35.160
+ and really push them to their limit.
+
+1:07:35.160 --> 1:07:39.080
+ And there's some people that I had to nonstop compliment
+
+1:07:39.080 --> 1:07:42.800
+ because like they're so already self critical,
+
+1:07:42.800 --> 1:07:45.840
+ like about everything they do that I have to be constantly
+
+1:07:45.840 --> 1:07:50.840
+ like, like I cannot criticize them at all
+
+1:07:50.920 --> 1:07:52.840
+ because they're already criticizing themselves
+
+1:07:52.840 --> 1:07:54.760
+ and you have to kind of encourage
+
+1:07:54.760 --> 1:07:58.080
+ and like celebrate their little victories.
+
+1:07:58.080 --> 1:08:00.960
+ And it's kind of fascinating that like how that,
+
+1:08:00.960 --> 1:08:03.480
+ the complete difference in people.
+
+1:08:03.480 --> 1:08:06.400
+ Definitely people respond to different motivations
+
+1:08:06.400 --> 1:08:07.600
+ and different loads of feedback
+
+1:08:07.600 --> 1:08:10.720
+ and you kind of have to figure it out.
+
+1:08:10.720 --> 1:08:13.080
+ It was like a pretty good book,
+
+1:08:13.080 --> 1:08:15.440
+ which for some reason now the name escapes me,
+
+1:08:15.440 --> 1:08:18.800
+ about management, first break all the rules.
+
+1:08:18.800 --> 1:08:19.720
+ First break all the rules?
+
+1:08:19.720 --> 1:08:20.800
+ First break all the rules.
+
+1:08:20.800 --> 1:08:23.880
+ It's a book that we generally like ask a lot of
+
+1:08:23.880 --> 1:08:26.320
+ like first time managers to read it rough.
+
+1:08:26.320 --> 1:08:28.760
+ And like one of the kind of philosophies
+
+1:08:28.760 --> 1:08:31.080
+ is managed by exception, right?
+
+1:08:31.080 --> 1:08:34.440
+ Which is, you know, don't like have some standard template
+
+1:08:34.440 --> 1:08:36.920
+ like, you know, here's how I, you know,
+
+1:08:36.920 --> 1:08:39.160
+ tell this person to do this or the other thing.
+
+1:08:39.160 --> 1:08:41.240
+ Here's how I get feedback, like manage by exception, right?
+
+1:08:41.240 --> 1:08:42.800
+ Every person is a little bit different.
+
+1:08:42.800 --> 1:08:45.280
+ You have to try to understand what drives them.
+
+1:08:45.280 --> 1:08:47.200
+ And tailor it to them.
+
+1:08:47.200 --> 1:08:48.880
+ Since you mentioned books,
+
+1:08:48.880 --> 1:08:50.800
+ I don't know if you can answer this question,
+
+1:08:50.800 --> 1:08:53.600
+ but people love it when I ask it, which is,
+
+1:08:53.600 --> 1:08:56.880
+ are there books, technical fiction or philosophical
+
+1:08:56.880 --> 1:08:59.800
+ that you enjoyed or had an impact on your life
+
+1:08:59.800 --> 1:09:01.320
+ that you would recommend?
+
+1:09:01.320 --> 1:09:04.400
+ You already mentioned Dune, like all of the Dune.
+
+1:09:04.400 --> 1:09:05.360
+ All of the Dune.
+
+1:09:05.360 --> 1:09:07.080
+ The second one was probably the weakest, but anyway,
+
+1:09:07.080 --> 1:09:09.760
+ so yeah, all of the Dune is good.
+
+1:09:09.760 --> 1:09:13.440
+ I mean, yeah, can you just slow little tangent on that?
+
+1:09:13.440 --> 1:09:16.280
+ Is, how many Dune books are there?
+
+1:09:16.280 --> 1:09:18.440
+ Like, do you recommend people start with the first one
+
+1:09:18.440 --> 1:09:19.880
+ if that was?
+
+1:09:19.880 --> 1:09:21.040
+ Yeah, you gotta have to read them all.
+
+1:09:21.040 --> 1:09:23.240
+ I mean, it is a complete story, right?
+
+1:09:23.240 --> 1:09:25.440
+ So you start with the first one,
+
+1:09:25.440 --> 1:09:27.520
+ you gotta read all of them.
+
+1:09:27.520 --> 1:09:31.640
+ So it's not like a tree, like a creation of like
+
+1:09:31.640 --> 1:09:33.880
+ the universe that you should go in sequence?
+
+1:09:33.880 --> 1:09:35.200
+ You should go in sequence, yeah.
+
+1:09:35.200 --> 1:09:38.000
+ It's kind of a chronological storyline.
+
+1:09:38.000 --> 1:09:40.120
+ There's six books in all.
+
+1:09:40.120 --> 1:09:43.720
+ Then there's like many kind of books
+
+1:09:43.720 --> 1:09:47.880
+ that were written by Frank Herbert's son,
+
+1:09:47.880 --> 1:09:48.840
+ but those are not as good.
+
+1:09:48.840 --> 1:09:50.880
+ So you don't have to bother with those.
+
+1:09:50.880 --> 1:09:51.720
+ Shots fired.
+
+1:09:51.720 --> 1:09:52.920
+ Shots fired.
+
+1:09:52.920 --> 1:09:53.760
+ Okay.
+
+1:09:53.760 --> 1:09:56.280
+ But the main sequence is good.
+
+1:09:56.280 --> 1:09:57.680
+ So what are some other books?
+
+1:09:58.840 --> 1:09:59.680
+ Maybe there's a few.
+
+1:09:59.680 --> 1:10:02.000
+ So I don't know that like, I would say there's a book
+
+1:10:02.000 --> 1:10:05.440
+ that kind of, I don't know, turned my life around
+
+1:10:05.440 --> 1:10:07.880
+ or anything like that, but here's a couple
+
+1:10:07.880 --> 1:10:08.960
+ that I really love.
+
+1:10:08.960 --> 1:10:13.400
+ So one is Brave New World by Aldous Huxley.
+
+1:10:16.040 --> 1:10:20.160
+ And it's kind of incredible how prescient he was
+
+1:10:20.160 --> 1:10:25.160
+ about like what a brave new world might be like, right?
+
+1:10:25.440 --> 1:10:28.200
+ You know, you kind of see genetic sorting in this book,
+
+1:10:28.200 --> 1:10:30.720
+ right, where there's like these alphas and epsilons
+
+1:10:30.720 --> 1:10:34.920
+ and how from like the earliest time of society,
+
+1:10:34.920 --> 1:10:36.760
+ like they're sort of like, you can kind of see it
+
+1:10:36.760 --> 1:10:39.640
+ in a slightly similar way today where,
+
+1:10:40.640 --> 1:10:42.720
+ well, one of the problems with society is people
+
+1:10:42.720 --> 1:10:45.960
+ are kind of genetically sorting a little bit, right?
+
+1:10:45.960 --> 1:10:48.960
+ Like there's much less, like most marriages, right,
+
+1:10:48.960 --> 1:10:53.360
+ are between people of similar kind of intellectual level
+
+1:10:53.360 --> 1:10:57.560
+ or socioeconomic status, more so these days than in the past.
+
+1:10:57.560 --> 1:10:59.080
+ And you kind of see some effects of it
+
+1:10:59.080 --> 1:11:03.720
+ in stratifying society and kind of he illustrated
+
+1:11:03.720 --> 1:11:05.840
+ what that could be like in the extreme.
+
+1:11:05.840 --> 1:11:07.920
+ There's different versions of it on social media as well.
+
+1:11:07.920 --> 1:11:09.840
+ It's not just like marriages and so on.
+
+1:11:09.840 --> 1:11:13.440
+ Like it's genetic sorting in terms of what Dawkins called
+
+1:11:13.440 --> 1:11:17.320
+ memes as ideas being put into these bins
+
+1:11:17.320 --> 1:11:20.000
+ of these little echo chambers and so on.
+
+1:11:20.000 --> 1:11:21.440
+ Yeah, I know, so that's the book
+
+1:11:21.440 --> 1:11:23.560
+ that's I think a worthwhile read for everyone.
+
+1:11:23.560 --> 1:11:25.240
+ I mean, 1984 is good, of course, as well.
+
+1:11:25.240 --> 1:11:26.520
+ Like if you're talking about, you know,
+
+1:11:26.520 --> 1:11:28.200
+ dystopian novels of the future.
+
+1:11:28.200 --> 1:11:30.520
+ Yeah, it's a slightly different view of the future, right?
+
+1:11:30.520 --> 1:11:33.600
+ But I kind of like identify with Brave New World a bit more.
+
+1:11:33.600 --> 1:11:38.040
+ Yeah, speaking of not a book,
+
+1:11:38.040 --> 1:11:41.480
+ but my favorite kind of dystopian science fiction
+
+1:11:41.480 --> 1:11:42.600
+ is a movie called Brazil,
+
+1:11:42.600 --> 1:11:44.160
+ which I don't know if you've heard of.
+
+1:11:44.160 --> 1:11:46.320
+ I've heard of and I know I need to watch it,
+
+1:11:46.320 --> 1:11:50.520
+ but yeah, because it's in, is it in English or no?
+
+1:11:50.520 --> 1:11:52.120
+ It's an English movie, yeah.
+
+1:11:52.120 --> 1:11:55.800
+ And it's a sort of like dystopian movie
+
+1:11:55.800 --> 1:11:58.640
+ of authoritarian incompetence, right?
+
+1:11:58.640 --> 1:12:03.640
+ It's like nothing really works very well, you know,
+
+1:12:03.640 --> 1:12:05.720
+ the system is creaky, you know,
+
+1:12:05.720 --> 1:12:07.800
+ but no one is kind of like willing to challenge it,
+
+1:12:07.800 --> 1:12:10.040
+ you know, just things kind of ample along
+
+1:12:10.040 --> 1:12:13.680
+ and kind of strikes me as like a very plausible future
+
+1:12:13.680 --> 1:12:16.840
+ of like, you know, what authoritarianism might look like.
+
+1:12:16.840 --> 1:12:19.240
+ It's not like this, you know,
+
+1:12:19.240 --> 1:12:21.880
+ super efficient evil dictatorship of 1984.
+
+1:12:21.880 --> 1:12:25.240
+ It's just kind of like this badly functioning, you know,
+
+1:12:25.240 --> 1:12:30.080
+ but it's status quo, so it just goes on.
+
+1:12:30.080 --> 1:12:33.520
+ Yeah, that's one funny thing that stands out to me
+
+1:12:33.520 --> 1:12:37.120
+ is in whether it's authoritarian, dystopian stuff,
+
+1:12:37.120 --> 1:12:39.480
+ or just basic like, you know,
+
+1:12:39.480 --> 1:12:42.400
+ if you look at the movie Contagion,
+
+1:12:42.400 --> 1:12:44.480
+ it seems in the movies,
+
+1:12:44.480 --> 1:12:48.120
+ government is almost always exceptionally competent.
+
+1:12:49.600 --> 1:12:53.200
+ Like it's like used as a storytelling tool
+
+1:12:53.200 --> 1:12:55.480
+ of like extreme competence.
+
+1:12:55.480 --> 1:12:58.360
+ Like, you know, you use it whether it's good or evil,
+
+1:12:58.360 --> 1:12:59.680
+ but it's competent.
+
+1:12:59.680 --> 1:13:01.840
+ It's very interesting to think about
+
+1:13:01.840 --> 1:13:06.440
+ where much more realistically is it's incompetence
+
+1:13:06.440 --> 1:13:11.280
+ and that incompetence isn't itself has consequences
+
+1:13:11.280 --> 1:13:13.200
+ that are difficult to predict.
+
+1:13:13.200 --> 1:13:18.000
+ Like bureaucracy has a very boring way of being evil,
+
+1:13:19.040 --> 1:13:21.400
+ of just, you know, if you look at the show,
+
+1:13:21.400 --> 1:13:23.160
+ HBO show at Chernobyl,
+
+1:13:23.160 --> 1:13:28.160
+ it's a really good story of how bureaucracy, you know,
+
+1:13:30.200 --> 1:13:32.800
+ leads to catastrophic events,
+
+1:13:32.800 --> 1:13:34.320
+ but not through any kind of evil
+
+1:13:34.320 --> 1:13:36.200
+ in any one particular place,
+
+1:13:36.200 --> 1:13:37.720
+ but more just like the...
+
+1:13:37.720 --> 1:13:40.040
+ It's just the system kind of system.
+
+1:13:40.040 --> 1:13:43.280
+ Distorting information as it travels up the chain
+
+1:13:43.280 --> 1:13:46.040
+ that people unwilling to take responsibility for things
+
+1:13:46.040 --> 1:13:50.960
+ and just kind of like this laziness resulting in evil.
+
+1:13:50.960 --> 1:13:52.320
+ There's a comedic version of this,
+
+1:13:52.320 --> 1:13:53.600
+ I don't know if you've seen this movie,
+
+1:13:53.600 --> 1:13:54.960
+ it's called The Death of Stalin.
+
+1:13:54.960 --> 1:13:58.080
+ Yeah, I liked that.
+
+1:13:58.080 --> 1:14:00.080
+ I wish it wasn't so...
+
+1:14:00.080 --> 1:14:02.360
+ There's a movie called Inglourious Bastards
+
+1:14:02.360 --> 1:14:06.280
+ about, you know, Hitler and so on.
+
+1:14:07.760 --> 1:14:09.640
+ For some reason, those movies pissed me off.
+
+1:14:09.640 --> 1:14:11.120
+ I know a lot of people love them,
+
+1:14:11.120 --> 1:14:16.120
+ but like, I just feel like there's not enough good movies,
+
+1:14:16.640 --> 1:14:18.520
+ even about Hitler.
+
+1:14:18.520 --> 1:14:21.400
+ There's good movies about the Holocaust,
+
+1:14:21.400 --> 1:14:23.640
+ but even Hitler, there's a movie called Dawnfall
+
+1:14:23.640 --> 1:14:24.480
+ that people should watch.
+
+1:14:24.480 --> 1:14:26.080
+ I think it's the last few days of Hitler.
+
+1:14:26.080 --> 1:14:30.440
+ That's a good movie, turned into a meme, but it's good.
+
+1:14:30.440 --> 1:14:33.760
+ But on Stalin, I feel like I may be wrong on this,
+
+1:14:33.760 --> 1:14:35.520
+ but at least in the English speaking world,
+
+1:14:35.520 --> 1:14:38.760
+ there's not good movies about the evil of Stalin.
+
+1:14:38.760 --> 1:14:39.600
+ That's true.
+
+1:14:39.600 --> 1:14:40.640
+ Let's try to see that.
+
+1:14:40.640 --> 1:14:43.320
+ Actually, so I agree with you on Inglourious Bastard.
+
+1:14:43.320 --> 1:14:44.480
+ I didn't love the movie
+
+1:14:46.000 --> 1:14:50.000
+ because I felt like kind of the stylizing of it, right?
+
+1:14:50.000 --> 1:14:55.000
+ The whole Tarantino kind of Tarantinoism, if you will,
+
+1:14:55.040 --> 1:14:56.080
+ kind of detracted from it
+
+1:14:56.080 --> 1:14:58.400
+ and made it seem like unserious a little bit.
+
+1:15:00.280 --> 1:15:02.240
+ But Death of Stalin, I felt differently.
+
+1:15:02.240 --> 1:15:03.800
+ Maybe it's because it's a comedy to begin with.
+
+1:15:03.800 --> 1:15:06.560
+ This is not like I'm expecting seriousness,
+
+1:15:06.560 --> 1:15:10.760
+ but it kind of depicted the absurdity
+
+1:15:10.760 --> 1:15:13.360
+ of the whole situation in a way, right?
+
+1:15:13.360 --> 1:15:15.280
+ I mean, it was funny, so maybe it does make light of it,
+
+1:15:15.280 --> 1:15:18.200
+ but something goes probably like this, right?
+
+1:15:18.200 --> 1:15:20.440
+ Like a bunch of kind of people,
+
+1:15:20.440 --> 1:15:22.440
+ they're like, oh shit, right?
+
+1:15:22.440 --> 1:15:23.280
+ You're right.
+
+1:15:23.280 --> 1:15:25.440
+ But like the thing is,
+
+1:15:25.440 --> 1:15:30.440
+ it was so close to like what probably was reality.
+
+1:15:32.720 --> 1:15:35.480
+ It was caricaturing reality
+
+1:15:35.480 --> 1:15:39.320
+ to where I think an observer might think that this is not,
+
+1:15:39.320 --> 1:15:41.560
+ like they might think it's a comedy.
+
+1:15:41.560 --> 1:15:45.560
+ Well, in reality, that's the absurdity
+
+1:15:45.560 --> 1:15:48.800
+ of how people act with dictators.
+
+1:15:48.800 --> 1:15:53.800
+ I mean, that's, I guess it was too close to reality for me.
+
+1:15:54.000 --> 1:15:57.720
+ The kind of banality of like what were eventually
+
+1:15:57.720 --> 1:15:59.440
+ like fairly evil acts, right?
+
+1:15:59.440 --> 1:16:02.280
+ But like, yeah, they're just a bunch of people
+
+1:16:02.280 --> 1:16:03.160
+ trying to survive.
+
+1:16:04.400 --> 1:16:05.440
+ Cause I think there's a good,
+
+1:16:05.440 --> 1:16:07.560
+ I haven't watched it yet, the good movie on,
+
+1:16:07.560 --> 1:16:12.440
+ the movie on Churchill with Gary Oldman,
+
+1:16:12.440 --> 1:16:14.000
+ I think it's Gary Oldman.
+
+1:16:14.000 --> 1:16:15.400
+ I may be making that up.
+
+1:16:15.400 --> 1:16:16.240
+ But I think he won,
+
+1:16:16.240 --> 1:16:17.960
+ like he was nominated for an Oscar or something.
+
+1:16:17.960 --> 1:16:20.960
+ So I like, I love these movies about these humans
+
+1:16:20.960 --> 1:16:25.960
+ and Stalin, like Chernobyl made me realize the HBO show
+
+1:16:26.000 --> 1:16:28.760
+ that there's not enough movies about Russia
+
+1:16:28.760 --> 1:16:33.040
+ that capture that spirit.
+
+1:16:33.040 --> 1:16:35.640
+ I'm sure it might be in Russian there is,
+
+1:16:35.640 --> 1:16:39.280
+ but the fact that some British dude that like did comedy,
+
+1:16:39.280 --> 1:16:42.120
+ I feel like he did like hangover or some shit like that.
+
+1:16:42.120 --> 1:16:43.080
+ I don't know if you're familiar
+
+1:16:43.080 --> 1:16:44.400
+ with the person who created Chernobyl,
+
+1:16:44.400 --> 1:16:45.720
+ but he was just like some guy
+
+1:16:45.720 --> 1:16:47.320
+ that doesn't know anything about Russia.
+
+1:16:47.320 --> 1:16:49.760
+ And he just went in and just studied it,
+
+1:16:49.760 --> 1:16:51.880
+ like did a good job of creating it
+
+1:16:51.880 --> 1:16:56.080
+ and then got it so accurate, like poetically.
+
+1:16:56.080 --> 1:16:58.880
+ And the facts that you need to get accurate,
+
+1:16:58.880 --> 1:17:01.120
+ he got accurate, just the spirit of it
+
+1:17:01.120 --> 1:17:03.760
+ down to like the bowls that pets use,
+
+1:17:03.760 --> 1:17:05.080
+ just the whole feel of it.
+
+1:17:05.080 --> 1:17:05.920
+ It was incredible.
+
+1:17:05.920 --> 1:17:07.480
+ It was good, yeah, I saw the series.
+
+1:17:07.480 --> 1:17:08.640
+ Yeah, it's incredible.
+
+1:17:08.640 --> 1:17:10.920
+ It's made me wish that somebody did a good,
+
+1:17:10.920 --> 1:17:15.920
+ like 1930s, like starvation that Stalin led to,
+
+1:17:17.880 --> 1:17:20.160
+ like leading up to World War II
+
+1:17:20.160 --> 1:17:23.680
+ and in World War II itself, like Stalingrad and so on.
+
+1:17:23.680 --> 1:17:27.520
+ Like, I feel like that story needs to be told.
+
+1:17:27.520 --> 1:17:30.080
+ Millions of people died.
+
+1:17:30.080 --> 1:17:32.800
+ And to me, it's so much more fascinating than Hitler
+
+1:17:32.800 --> 1:17:37.560
+ because Hitler is like a caricature of evil almost
+
+1:17:37.560 --> 1:17:41.800
+ that it's so, especially with the Holocaust,
+
+1:17:41.800 --> 1:17:45.520
+ it's so difficult to imagine that something like that
+
+1:17:45.520 --> 1:17:47.520
+ is possible ever again.
+
+1:17:47.520 --> 1:17:52.520
+ Stalin to me represents something that is possible.
+
+1:17:52.720 --> 1:17:56.720
+ Like the so interesting, like the bureaucracy of it
+
+1:17:56.720 --> 1:18:01.200
+ is so fascinating that it potentially might be happening
+
+1:18:01.200 --> 1:18:03.200
+ in the world now, like that we're not aware of,
+
+1:18:03.200 --> 1:18:06.120
+ like with North Korea, another one that,
+
+1:18:06.120 --> 1:18:08.240
+ like there should be a good film on.
+
+1:18:08.240 --> 1:18:10.640
+ And like the possible things that could be happening
+
+1:18:10.640 --> 1:18:13.080
+ in China with overreach of government.
+
+1:18:13.080 --> 1:18:15.600
+ I don't know, there's a lot of possibilities there.
+
+1:18:15.600 --> 1:18:16.440
+ I suppose.
+
+1:18:16.440 --> 1:18:18.320
+ Yeah, I wonder how much, you know,
+
+1:18:18.320 --> 1:18:20.440
+ I guess the archives should be maybe more open nowadays,
+
+1:18:20.440 --> 1:18:22.960
+ right, I mean, for a long time, they just, we didn't know,
+
+1:18:22.960 --> 1:18:25.920
+ right, or anyways, no one in the West knew for sure.
+
+1:18:25.920 --> 1:18:27.560
+ Well, there's a, I don't know if you know him,
+
+1:18:27.560 --> 1:18:29.440
+ there's a guy named Stephen Kotkin.
+
+1:18:29.440 --> 1:18:33.080
+ He is a historian of Stalin that I spoke to on this podcast.
+
+1:18:33.080 --> 1:18:34.760
+ I'll speak to him again.
+
+1:18:34.760 --> 1:18:38.040
+ The guy knows his shit on Stalin.
+
+1:18:38.040 --> 1:18:43.040
+ He like read everything and it's so fascinating
+
+1:18:44.160 --> 1:18:49.160
+ to talk to somebody, like he knows Stalin better
+
+1:18:50.280 --> 1:18:53.000
+ than Stalin himself, it's crazy.
+
+1:18:53.000 --> 1:18:55.440
+ Like you have, so he's, I think he's a Princeton,
+
+1:18:55.440 --> 1:18:58.840
+ he is basically, his whole life is Stalin.
+
+1:18:58.840 --> 1:18:59.760
+ Fighting Stalin.
+
+1:18:59.760 --> 1:19:00.920
+ Yeah, it's great.
+
+1:19:00.920 --> 1:19:03.640
+ And in that context, he also talks about
+
+1:19:03.640 --> 1:19:06.040
+ and writes about Putin a little bit.
+
+1:19:06.040 --> 1:19:07.880
+ I've also read at this point,
+
+1:19:07.880 --> 1:19:12.360
+ I think every biography of Putin, English biography of Putin,
+
+1:19:12.360 --> 1:19:14.000
+ I need to read some Russians.
+
+1:19:14.000 --> 1:19:15.400
+ Obviously, I'm mentally preparing
+
+1:19:15.400 --> 1:19:17.000
+ for a possible conversation with Putin.
+
+1:19:17.000 --> 1:19:19.400
+ So what is your first question to Putin
+
+1:19:19.400 --> 1:19:22.480
+ when you have him on the podcast?
+
+1:19:22.480 --> 1:19:26.400
+ I, it's interesting you bring that up.
+
+1:19:26.400 --> 1:19:27.920
+ First of all, I wouldn't tell you, but.
+
+1:19:27.920 --> 1:19:30.680
+ You can't give it away now.
+
+1:19:30.680 --> 1:19:34.360
+ But I actually haven't even thought about that.
+
+1:19:34.360 --> 1:19:38.760
+ So my current approach, and I do this with interviews often,
+
+1:19:38.760 --> 1:19:40.160
+ obviously that's a special one,
+
+1:19:40.160 --> 1:19:44.240
+ but I try not to think about questions until last minute.
+
+1:19:45.120 --> 1:19:48.640
+ I'm trying to sort of get into the mindset.
+
+1:19:50.000 --> 1:19:52.280
+ And so that's why I'm soaking in a lot of stuff,
+
+1:19:52.280 --> 1:19:56.120
+ not thinking about questions, just learning about the man.
+
+1:19:56.120 --> 1:19:59.680
+ But in terms of like human to human,
+
+1:19:59.680 --> 1:20:01.360
+ it's like, I would say it's,
+
+1:20:01.360 --> 1:20:03.440
+ I don't know if you're a fan of mob movies,
+
+1:20:03.440 --> 1:20:07.000
+ but like the mafia, which I am, like Goodfellas and so on,
+
+1:20:07.000 --> 1:20:11.960
+ he's much closer to like mob morality, which is like.
+
+1:20:11.960 --> 1:20:14.000
+ Mob morality, maybe, I could see that.
+
+1:20:14.000 --> 1:20:16.600
+ But I like your approach anyways of this,
+
+1:20:16.600 --> 1:20:18.160
+ the extreme empathy, right?
+
+1:20:18.160 --> 1:20:21.360
+ It's a little bit like Hannibal, right?
+
+1:20:21.360 --> 1:20:22.960
+ Like if you ever watched the show Hannibal, right?
+
+1:20:22.960 --> 1:20:27.560
+ They had that guy, well, you know Hannibal of course, like.
+
+1:20:27.560 --> 1:20:30.200
+ Yeah, Silence of the Lambs.
+
+1:20:30.200 --> 1:20:31.760
+ But there were those TV shows as well,
+
+1:20:31.760 --> 1:20:34.040
+ and they focused on this guy, Will Durant,
+
+1:20:34.040 --> 1:20:36.240
+ who's a character like extreme empath, right?
+
+1:20:36.240 --> 1:20:38.120
+ So in the way he like catches all these killers,
+
+1:20:38.120 --> 1:20:42.520
+ as he pretty much, he can empathize with them, right?
+
+1:20:42.520 --> 1:20:44.080
+ Like he can understand why they're doing
+
+1:20:44.080 --> 1:20:45.560
+ the things they're doing, right?
+
+1:20:45.560 --> 1:20:48.160
+ It's a pretty excruciating thing, right?
+
+1:20:48.160 --> 1:20:49.760
+ Like, because you're pretty much like spending
+
+1:20:49.760 --> 1:20:52.360
+ half your time in the head of evil people, right?
+
+1:20:52.360 --> 1:20:54.200
+ Like, but.
+
+1:20:54.200 --> 1:20:57.040
+ I mean, I definitely try to do that with others.
+
+1:20:57.040 --> 1:20:59.080
+ So you should do that in moderation,
+
+1:20:59.080 --> 1:21:04.080
+ but I think it's a pretty safe place, safe place to be.
+
+1:21:04.760 --> 1:21:06.480
+ One of the cool things with this podcast,
+
+1:21:06.480 --> 1:21:08.760
+ and I know you didn't sign up to hear me
+
+1:21:08.760 --> 1:21:10.160
+ listen to this bullshit, but.
+
+1:21:10.160 --> 1:21:11.920
+ That was interesting.
+
+1:21:11.920 --> 1:21:15.480
+ I, and what's his name?
+
+1:21:15.480 --> 1:21:17.640
+ Chris Latner, who's a Google,
+
+1:21:17.640 --> 1:21:19.120
+ oh, he's not Google anymore, SciFi.
+
+1:21:19.120 --> 1:21:21.040
+ He's legit, he's one of the most legit engineers
+
+1:21:21.040 --> 1:21:23.360
+ I talk with, I talk with him again on this podcast.
+
+1:21:23.360 --> 1:21:27.200
+ And one of the, he gives me private advice a lot.
+
+1:21:27.200 --> 1:21:31.240
+ And he said for this podcast, I should like interview,
+
+1:21:31.240 --> 1:21:34.640
+ like I should widen the range of people
+
+1:21:34.640 --> 1:21:38.200
+ because that gives you much more freedom to do stuff.
+
+1:21:38.200 --> 1:21:41.560
+ Like, so his idea, which I think I agree with Chris
+
+1:21:41.560 --> 1:21:44.040
+ is that you go to the extremes.
+
+1:21:44.040 --> 1:21:46.080
+ You just like cover every extreme base
+
+1:21:46.080 --> 1:21:48.200
+ and then it gives you freedom to then go
+
+1:21:48.200 --> 1:21:50.440
+ to the more nuanced conversations.
+
+1:21:50.440 --> 1:21:53.920
+ And it's kind of, I think there's a safe place for that.
+
+1:21:53.920 --> 1:21:56.640
+ There's certainly a hunger for that nuanced conversation,
+
+1:21:56.640 --> 1:22:00.400
+ I think, amongst people where like on social media,
+
+1:22:00.400 --> 1:22:04.040
+ you get canceled for anything slightly tense,
+
+1:22:04.040 --> 1:22:06.040
+ that there's a hunger to go full.
+
+1:22:06.040 --> 1:22:08.360
+ Right, you go so far to the opposite side.
+
+1:22:08.360 --> 1:22:10.720
+ And that's like demystifies it a little bit, right?
+
+1:22:10.720 --> 1:22:11.560
+ Yeah, that's.
+
+1:22:11.560 --> 1:22:15.080
+ There is a person behind all of these things.
+
+1:22:15.080 --> 1:22:17.280
+ And that's the cool thing about podcasting,
+
+1:22:17.280 --> 1:22:19.280
+ like three, four hour conversations
+
+1:22:19.280 --> 1:22:24.120
+ that it's very different than a clickbait journalism,
+
+1:22:24.120 --> 1:22:26.680
+ it's like the opposite, that there's a hunger for that.
+
+1:22:26.680 --> 1:22:28.040
+ There's a willingness for that.
+
+1:22:28.040 --> 1:22:29.440
+ Yeah, especially now, I mean,
+
+1:22:29.440 --> 1:22:31.840
+ how many people do you even see face to face anymore?
+
+1:22:31.840 --> 1:22:33.320
+ Right, like this, you know?
+
+1:22:33.320 --> 1:22:36.080
+ It's like not that many people like in my day today,
+
+1:22:36.080 --> 1:22:39.240
+ aside from my own family that like I sit across.
+
+1:22:39.240 --> 1:22:41.520
+ It's sad, but it's also beautiful.
+
+1:22:41.520 --> 1:22:44.200
+ Like I've gotten the chance to like,
+
+1:22:44.200 --> 1:22:47.080
+ like our conversation now, there's somebody,
+
+1:22:47.080 --> 1:22:50.000
+ I guarantee you there's somebody in Russia
+
+1:22:50.000 --> 1:22:52.240
+ listening to this now, like jogging.
+
+1:22:52.240 --> 1:22:55.280
+ There's somebody who is just smoked some weed,
+
+1:22:55.280 --> 1:22:58.440
+ sit back on a couch and just like enjoying.
+
+1:22:58.440 --> 1:23:00.720
+ I guarantee you that we'll write in the comments right now
+
+1:23:00.720 --> 1:23:05.000
+ that yes, I'm in St. Petersburg, I'm in Moscow, whatever.
+
+1:23:05.000 --> 1:23:10.000
+ And we're in their head and they have a friendship with us.
+
+1:23:10.960 --> 1:23:13.280
+ I'm the same way, I'm a huge fan of podcasting.
+
+1:23:14.520 --> 1:23:15.560
+ It's a beautiful thing.
+
+1:23:15.560 --> 1:23:18.160
+ I mean, it's a weird one way human connection.
+
+1:23:18.160 --> 1:23:22.200
+ Like before I went on Joe Rogan and still,
+
+1:23:22.200 --> 1:23:24.120
+ I'm just a huge fan of his.
+
+1:23:24.120 --> 1:23:25.760
+ So it was like surreal.
+
+1:23:25.760 --> 1:23:28.960
+ I've been friends with Joe Rogan for 10 years, but one way.
+
+1:23:28.960 --> 1:23:31.760
+ Yeah, from this way, from the St. Petersburg way.
+
+1:23:31.760 --> 1:23:34.960
+ Yeah, the St. Petersburg way and it's a real friendship.
+
+1:23:34.960 --> 1:23:38.760
+ I mean, now it's like two way, but it's still surreal.
+
+1:23:38.760 --> 1:23:40.480
+ And that's the magic of podcasting.
+
+1:23:40.480 --> 1:23:42.040
+ I'm not sure what to make of it.
+
+1:23:42.040 --> 1:23:45.320
+ That voice, it's not even the video part.
+
+1:23:45.320 --> 1:23:48.560
+ It's the audio that's magical.
+
+1:23:48.560 --> 1:23:50.200
+ I don't know what to do with it,
+
+1:23:50.200 --> 1:23:53.080
+ but it's people listen to three, four hours.
+
+1:23:53.080 --> 1:23:57.440
+ Yeah, we evolved over millions of years, right?
+
+1:23:57.440 --> 1:24:00.480
+ To be very fine tuned to things like that, right?
+
+1:24:00.480 --> 1:24:02.520
+ Oh, expressions as well, of course, right?
+
+1:24:02.520 --> 1:24:06.960
+ But back in the day on the Savannah,
+
+1:24:06.960 --> 1:24:09.360
+ you had to be very attuned to whether
+
+1:24:09.360 --> 1:24:11.840
+ you had a good relationship with the rest of your tribe
+
+1:24:11.840 --> 1:24:13.440
+ or a very bad relationship, right?
+
+1:24:13.440 --> 1:24:15.160
+ Because if you had a very bad relationship,
+
+1:24:15.160 --> 1:24:17.400
+ you were probably gonna be left behind
+
+1:24:17.400 --> 1:24:18.800
+ and eaten by the lions.
+
+1:24:18.800 --> 1:24:22.600
+ Yeah, but it's weird that the tribe is different now.
+
+1:24:22.600 --> 1:24:26.040
+ Like you could have a one way connection with Joe Rogan
+
+1:24:26.040 --> 1:24:30.520
+ as opposed to the tribe of your physical vicinity.
+
+1:24:30.520 --> 1:24:33.280
+ But that's why it works with the podcasting,
+
+1:24:33.280 --> 1:24:35.960
+ but it's the opposite of what happens on Twitter, right?
+
+1:24:35.960 --> 1:24:38.080
+ Because all those nuances are removed, right?
+
+1:24:38.080 --> 1:24:40.760
+ You're not connecting with the person
+
+1:24:40.760 --> 1:24:42.720
+ because you don't hear the voice.
+
+1:24:42.720 --> 1:24:44.400
+ You're connecting with like an abstraction, right?
+
+1:24:44.400 --> 1:24:48.400
+ It's like some stream of tweets, right?
+
+1:24:48.400 --> 1:24:52.560
+ And it's very easy to assign to them
+
+1:24:52.560 --> 1:24:56.720
+ any kind of evil intent or dehumanize them,
+
+1:24:56.720 --> 1:24:59.120
+ which it's much harder to do when it's a real voice, right?
+
+1:24:59.120 --> 1:25:02.720
+ Because you realize it's a real person behind the voice.
+
+1:25:02.720 --> 1:25:05.000
+ Let me try this out on you.
+
+1:25:05.000 --> 1:25:07.160
+ I sometimes ask about the meaning of life.
+
+1:25:07.160 --> 1:25:12.160
+ Do you, your father now, an engineer,
+
+1:25:12.320 --> 1:25:14.040
+ you're building up a company.
+
+1:25:14.040 --> 1:25:16.840
+ Do you ever zoom out and think like,
+
+1:25:16.840 --> 1:25:19.360
+ what the hell is this whole thing for?
+
+1:25:19.360 --> 1:25:24.000
+ Like why are we descended to vapes even on this planet?
+
+1:25:24.000 --> 1:25:26.120
+ What's the meaning of it all?
+
+1:25:26.120 --> 1:25:28.120
+ That's a pretty big question.
+
+1:25:29.320 --> 1:25:32.240
+ I think I don't allow myself to think about it too often,
+
+1:25:32.240 --> 1:25:34.320
+ or maybe like life doesn't allow me
+
+1:25:34.320 --> 1:25:35.800
+ to think about it too often.
+
+1:25:36.720 --> 1:25:39.080
+ But in some ways, I guess the meaning of life
+
+1:25:39.080 --> 1:25:44.040
+ is kind of contributing to this kind of weird thing
+
+1:25:44.040 --> 1:25:45.320
+ we call humanity, right?
+
+1:25:45.320 --> 1:25:47.640
+ Like it's in a way, you can think of humanity
+
+1:25:47.640 --> 1:25:50.200
+ as like a living and evolving organism, right?
+
+1:25:50.200 --> 1:25:52.560
+ That like we all contributing in a sway way,
+
+1:25:52.560 --> 1:25:55.640
+ but just by existing, by having our own unique set
+
+1:25:55.640 --> 1:25:57.320
+ of desires and drives, right?
+
+1:25:58.560 --> 1:26:01.640
+ And maybe that means like creating something great.
+
+1:26:01.640 --> 1:26:06.200
+ And it's bringing up kids who are unique and different
+
+1:26:06.200 --> 1:26:09.680
+ and seeing like, they can join what they do.
+
+1:26:09.680 --> 1:26:11.040
+ But I mean, to me, that's pretty much it.
+
+1:26:11.040 --> 1:26:13.160
+ I mean, if you're not a religious person, right?
+
+1:26:13.160 --> 1:26:16.400
+ Which I guess I'm not, that's the meaning of life.
+
+1:26:16.400 --> 1:26:20.880
+ It's in the living and in the creation.
+
+1:26:20.880 --> 1:26:22.400
+ Yeah, there's something magical
+
+1:26:22.400 --> 1:26:24.160
+ about that engine of creation.
+
+1:26:24.160 --> 1:26:27.240
+ Like you said, programming, I would say,
+
+1:26:27.240 --> 1:26:29.400
+ I mean, it's even just actually what you said
+
+1:26:29.400 --> 1:26:30.520
+ with even just programs.
+
+1:26:30.520 --> 1:26:32.760
+ I don't care if it's like some JavaScript thing
+
+1:26:32.760 --> 1:26:36.000
+ on a button on the website.
+
+1:26:36.000 --> 1:26:38.960
+ It's like magical that you brought that to life.
+
+1:26:38.960 --> 1:26:41.520
+ I don't know what that is in there, but that seems,
+
+1:26:41.520 --> 1:26:46.520
+ that's probably some version of like reproduction
+
+1:26:47.200 --> 1:26:49.760
+ and sex, whatever that's in evolution.
+
+1:26:49.760 --> 1:26:54.760
+ But like creating that HTML button has echoes
+
+1:26:55.600 --> 1:26:57.760
+ of that feeling and it's magical.
+
+1:26:58.880 --> 1:27:00.640
+ Right, well, I mean, if you're a religious person,
+
+1:27:00.640 --> 1:27:01.720
+ maybe you could even say, all right,
+
+1:27:01.720 --> 1:27:04.360
+ like we were created in God's image, right?
+
+1:27:04.360 --> 1:27:07.240
+ Well, I mean, I guess part of that is the drive
+
+1:27:07.240 --> 1:27:09.200
+ to create something ourselves, right?
+
+1:27:09.200 --> 1:27:11.760
+ I mean, that's part of it.
+
+1:27:11.760 --> 1:27:15.800
+ Yeah, that HTML button is the creation in God's image.
+
+1:27:15.800 --> 1:27:18.880
+ Maybe hopefully it'll be something a little more.
+
+1:27:18.880 --> 1:27:20.960
+ So dynamic, maybe some JavaScript.
+
+1:27:20.960 --> 1:27:25.400
+ Yeah, maybe some JavaScript, some React and so on.
+
+1:27:25.400 --> 1:27:29.400
+ But no, I mean, I think that's what differentiates us
+
+1:27:29.400 --> 1:27:32.160
+ from the apes, so to speak.
+
+1:27:32.160 --> 1:27:34.240
+ Yeah, we did a pretty good job.
+
+1:27:34.240 --> 1:27:36.960
+ Dan, it was an honor to talk to you.
+
+1:27:36.960 --> 1:27:38.760
+ Thank you so much for being part of creating
+
+1:27:38.760 --> 1:27:42.000
+ one of my favorite services and products.
+
+1:27:42.000 --> 1:27:45.040
+ This is actually a little bit of an experiment.
+
+1:27:45.040 --> 1:27:49.840
+ Allow me to sort of fanboy over some of the things I love.
+
+1:27:49.840 --> 1:27:52.280
+ So thanks for wasting your time with me today.
+
+1:27:52.280 --> 1:27:53.120
+ It was really fun.
+
+1:27:53.120 --> 1:27:53.960
+ Well, it was awesome.
+
+1:27:53.960 --> 1:27:55.520
+ Thanks for having me on and giving me a chance
+
+1:27:55.520 --> 1:27:57.200
+ to try this out.
+
+1:27:57.200 --> 1:27:58.040
+ Awesome.
+
+1:27:59.360 --> 1:28:00.720
+ Thanks for listening to this conversation
+
+1:28:00.720 --> 1:28:03.560
+ with Dan Kokotov and thank you to our sponsors,
+
+1:28:03.560 --> 1:28:06.200
+ Athletic Greens, Only One Nutrition Drink,
+
+1:28:06.200 --> 1:28:09.080
+ Blinkist app that summarizes books,
+
+1:28:09.080 --> 1:28:13.040
+ Business Wars podcast and Cash App.
+
+1:28:13.040 --> 1:28:16.800
+ So the choice is health, wisdom or money.
+
+1:28:16.800 --> 1:28:18.320
+ Choose wisely, my friends.
+
+1:28:18.320 --> 1:28:21.920
+ And if you wish, click the sponsor links below
+
+1:28:21.920 --> 1:28:25.280
+ to get a discount and to support this podcast.
+
+1:28:25.280 --> 1:28:27.320
+ And now let me leave you with some words
+
+1:28:27.320 --> 1:28:29.840
+ from Ludwig Wittgenstein.
+
+1:28:29.840 --> 1:28:33.720
+ The limits of my language means the limits of my world.
+
+1:28:33.720 --> 1:29:00.720
+ Thank you for listening and hope to see you next time.
+

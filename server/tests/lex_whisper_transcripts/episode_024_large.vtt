@@ -1,0 +1,3983 @@
+WEBVTT
+
+00:00.000 --> 00:02.880
+ The following is a conversation with Rosalind Picard.
+
+00:02.880 --> 00:04.540
+ She's a professor at MIT,
+
+00:04.540 --> 00:06.880
+ director of the Effective Computing Research Group
+
+00:06.880 --> 00:08.360
+ at the MIT Media Lab,
+
+00:08.360 --> 00:12.440
+ and cofounder of two companies, Affectiva and Empatica.
+
+00:12.440 --> 00:13.560
+ Over two decades ago,
+
+00:13.560 --> 00:15.420
+ she launched a field of effective computing
+
+00:15.420 --> 00:17.560
+ with her book of the same name.
+
+00:17.560 --> 00:20.040
+ This book described the importance of emotion
+
+00:20.040 --> 00:23.040
+ in artificial and natural intelligence.
+
+00:23.040 --> 00:25.320
+ The vital role of emotional communication
+
+00:25.320 --> 00:28.520
+ has to the relationship between people in general
+
+00:28.520 --> 00:30.880
+ and human robot interaction.
+
+00:30.880 --> 00:34.000
+ I really enjoy talking with Ros over so many topics,
+
+00:34.000 --> 00:37.440
+ including emotion, ethics, privacy, wearable computing,
+
+00:37.440 --> 00:39.680
+ and her recent research in epilepsy,
+
+00:39.680 --> 00:42.600
+ and even love and meaning.
+
+00:42.600 --> 00:43.960
+ This conversation is part
+
+00:43.960 --> 00:46.000
+ of the Artificial Intelligence Podcast.
+
+00:46.000 --> 00:48.720
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+00:48.720 --> 00:51.920
+ or simply connect with me on Twitter at Lex Friedman,
+
+00:51.920 --> 00:53.960
+ spelled F R I D.
+
+00:53.960 --> 00:58.960
+ And now, here's my conversation with Rosalind Picard.
+
+00:59.480 --> 01:00.720
+ More than 20 years ago,
+
+01:00.720 --> 01:03.320
+ you've coined the term effective computing
+
+01:03.320 --> 01:06.680
+ and led a lot of research in this area since then.
+
+01:06.680 --> 01:09.220
+ As I understand, the goal is to make the machine detect
+
+01:09.220 --> 01:12.380
+ and interpret the emotional state of a human being
+
+01:12.380 --> 01:14.200
+ and adapt the behavior of the machine
+
+01:14.200 --> 01:16.120
+ based on the emotional state.
+
+01:16.120 --> 01:19.920
+ So how is your understanding of the problem space
+
+01:19.920 --> 01:24.920
+ defined by effective computing changed in the past 24 years?
+
+01:25.360 --> 01:28.880
+ So it's the scope, the applications, the challenges,
+
+01:28.880 --> 01:32.120
+ what's involved, how has that evolved over the years?
+
+01:32.120 --> 01:33.400
+ Yeah, actually, originally,
+
+01:33.400 --> 01:36.880
+ when I defined the term affective computing,
+
+01:36.880 --> 01:40.120
+ it was a bit broader than just recognizing
+
+01:40.120 --> 01:42.260
+ and responding intelligently to human emotion,
+
+01:42.260 --> 01:44.520
+ although those are probably the two pieces
+
+01:44.520 --> 01:47.120
+ that we've worked on the hardest.
+
+01:47.120 --> 01:50.680
+ The original concept also encompassed machines
+
+01:50.680 --> 01:52.480
+ that would have mechanisms
+
+01:52.480 --> 01:55.680
+ that functioned like human emotion does inside them.
+
+01:55.680 --> 01:59.000
+ It would be any computing that relates to arises from
+
+01:59.000 --> 02:01.600
+ or deliberately influences human emotion.
+
+02:02.560 --> 02:05.160
+ So the human computer interaction part
+
+02:05.160 --> 02:07.880
+ is the part that people tend to see,
+
+02:07.880 --> 02:11.000
+ like if I'm really ticked off at my computer
+
+02:11.000 --> 02:13.480
+ and I'm scowling at it and I'm cursing at it
+
+02:13.480 --> 02:15.720
+ and it just keeps acting smiling and happy
+
+02:15.720 --> 02:17.880
+ like that little paperclip used to do,
+
+02:17.880 --> 02:22.200
+ dancing, winking, that kind of thing
+
+02:22.200 --> 02:24.640
+ just makes you even more frustrated, right?
+
+02:24.640 --> 02:29.120
+ And I thought that stupid thing needs to see my affect.
+
+02:29.120 --> 02:30.640
+ And if it's gonna be intelligent,
+
+02:30.640 --> 02:33.000
+ which Microsoft researchers had worked really hard on,
+
+02:33.000 --> 02:34.920
+ it actually had some of the most sophisticated AI
+
+02:34.920 --> 02:36.240
+ in it at the time,
+
+02:36.240 --> 02:38.000
+ that thing's gonna actually be smart.
+
+02:38.000 --> 02:41.600
+ It needs to respond to me and you,
+
+02:41.600 --> 02:45.360
+ and we can send it very different signals.
+
+02:45.360 --> 02:47.160
+ So by the way, just a quick interruption,
+
+02:47.160 --> 02:52.160
+ the Clippy, maybe it's in Word 95, 98,
+
+02:52.600 --> 02:54.360
+ I don't remember when it was born,
+
+02:54.360 --> 02:58.320
+ but many people, do you find yourself with that reference
+
+02:58.320 --> 03:00.320
+ that people recognize what you're talking about
+
+03:00.320 --> 03:01.680
+ still to this point?
+
+03:01.680 --> 03:05.200
+ I don't expect the newest students to these days,
+
+03:05.200 --> 03:07.200
+ but I've mentioned it to a lot of audiences,
+
+03:07.200 --> 03:09.240
+ like how many of you know this Clippy thing?
+
+03:09.240 --> 03:11.720
+ And still the majority of people seem to know it.
+
+03:11.720 --> 03:15.340
+ So Clippy kind of looks at maybe natural language processing
+
+03:15.340 --> 03:18.200
+ where you were typing and tries to help you complete,
+
+03:18.200 --> 03:19.280
+ I think.
+
+03:19.280 --> 03:22.520
+ I don't even remember what Clippy was, except annoying.
+
+03:22.520 --> 03:25.840
+ Yeah, some people actually liked it.
+
+03:25.840 --> 03:27.520
+ I would hear those stories.
+
+03:27.520 --> 03:28.480
+ You miss it?
+
+03:28.480 --> 03:31.300
+ Well, I miss the annoyance.
+
+03:31.300 --> 03:34.080
+ They felt like there's an element.
+
+03:34.080 --> 03:34.920
+ Someone was there.
+
+03:34.920 --> 03:36.960
+ Somebody was there and we were in it together
+
+03:36.960 --> 03:37.800
+ and they were annoying.
+
+03:37.800 --> 03:40.880
+ It's like a puppy that just doesn't get it.
+
+03:40.880 --> 03:42.200
+ They keep stripping up the couch kind of thing.
+
+03:42.200 --> 03:44.960
+ And in fact, they could have done it smarter like a puppy.
+
+03:44.960 --> 03:48.000
+ If they had done, like if when you yelled at it
+
+03:48.000 --> 03:49.040
+ or cursed at it,
+
+03:49.040 --> 03:51.800
+ if it had put its little ears back in its tail down
+
+03:51.800 --> 03:52.960
+ and shrugged off,
+
+03:52.960 --> 03:55.900
+ probably people would have wanted it back, right?
+
+03:55.900 --> 03:58.600
+ But instead, when you yelled at it, what did it do?
+
+03:58.600 --> 04:01.260
+ It smiled, it winked, it danced, right?
+
+04:01.260 --> 04:03.200
+ If somebody comes to my office and I yell at them,
+
+04:03.200 --> 04:04.760
+ they start smiling, winking and dancing.
+
+04:04.760 --> 04:06.760
+ I'm like, I never want to see you again.
+
+04:06.760 --> 04:08.520
+ So Bill Gates got a standing ovation
+
+04:08.520 --> 04:10.160
+ when he said it was going away
+
+04:10.160 --> 04:12.360
+ because people were so ticked.
+
+04:12.360 --> 04:15.040
+ It was so emotionally unintelligent, right?
+
+04:15.040 --> 04:18.160
+ It was intelligent about whether you were writing a letter,
+
+04:18.160 --> 04:20.880
+ what kind of help you needed for that context.
+
+04:20.880 --> 04:23.440
+ It was completely unintelligent about,
+
+04:23.440 --> 04:25.760
+ hey, if you're annoying your customer,
+
+04:25.760 --> 04:28.400
+ don't smile in their face when you do it.
+
+04:28.400 --> 04:32.360
+ So that kind of mismatch was something
+
+04:32.360 --> 04:35.080
+ the developers just didn't think about.
+
+04:35.080 --> 04:39.520
+ And intelligence at the time was really all about math
+
+04:39.520 --> 04:44.520
+ and language and chess and games,
+
+04:44.960 --> 04:47.920
+ problems that could be pretty well defined.
+
+04:47.920 --> 04:50.880
+ Social emotional interaction is much more complex
+
+04:50.880 --> 04:53.640
+ than chess or Go or any of the games
+
+04:53.640 --> 04:56.060
+ that people are trying to solve.
+
+04:56.060 --> 04:58.720
+ And in order to understand that required skills
+
+04:58.720 --> 05:00.320
+ that most people in computer science
+
+05:00.320 --> 05:02.600
+ actually were lacking personally.
+
+05:02.600 --> 05:03.800
+ Well, let's talk about computer science.
+
+05:03.800 --> 05:06.400
+ Have things gotten better since the work,
+
+05:06.400 --> 05:07.920
+ since the message,
+
+05:07.920 --> 05:09.520
+ since you've really launched the field
+
+05:09.520 --> 05:11.320
+ with a lot of research work in this space?
+
+05:11.320 --> 05:14.080
+ I still find as a person like yourself,
+
+05:14.080 --> 05:16.680
+ who's deeply passionate about human beings
+
+05:16.680 --> 05:18.860
+ and yet am in computer science,
+
+05:18.860 --> 05:20.720
+ there still seems to be a lack of,
+
+05:22.440 --> 05:26.800
+ sorry to say empathy in as computer scientists.
+
+05:26.800 --> 05:27.800
+ Yeah, well.
+
+05:27.800 --> 05:28.880
+ Or hasn't gotten better.
+
+05:28.880 --> 05:30.720
+ Let's just say there's a lot more variety
+
+05:30.720 --> 05:32.400
+ among computer scientists these days.
+
+05:32.400 --> 05:35.000
+ Computer scientists are a much more diverse group today
+
+05:35.000 --> 05:37.600
+ than they were 25 years ago.
+
+05:37.600 --> 05:39.000
+ And that's good.
+
+05:39.000 --> 05:41.760
+ We need all kinds of people to become computer scientists
+
+05:41.760 --> 05:45.580
+ so that computer science reflects more what society needs.
+
+05:45.580 --> 05:49.080
+ And there's brilliance among every personality type.
+
+05:49.080 --> 05:52.000
+ So it need not be limited to people
+
+05:52.000 --> 05:54.080
+ who prefer computers to other people.
+
+05:54.080 --> 05:55.800
+ How hard do you think it is?
+
+05:55.800 --> 05:58.580
+ Your view of how difficult it is to recognize emotion
+
+05:58.580 --> 06:03.580
+ or to create a deeply emotionally intelligent interaction.
+
+06:03.920 --> 06:06.000
+ Has it gotten easier or harder
+
+06:06.000 --> 06:07.440
+ as you've explored it further?
+
+06:07.440 --> 06:10.020
+ And how far away are we from cracking this?
+
+06:12.400 --> 06:16.040
+ If you think of the Turing test solving the intelligence,
+
+06:16.040 --> 06:18.740
+ looking at the Turing test for emotional intelligence.
+
+06:20.720 --> 06:25.560
+ I think it is as difficult as I thought it was gonna be.
+
+06:25.560 --> 06:29.240
+ I think my prediction of its difficulty is spot on.
+
+06:29.240 --> 06:33.120
+ I think the time estimates are always hard
+
+06:33.120 --> 06:37.280
+ because they're always a function of society's love
+
+06:37.280 --> 06:39.440
+ and hate of a particular topic.
+
+06:39.440 --> 06:44.440
+ If society gets excited and you get thousands of researchers
+
+06:45.200 --> 06:49.000
+ working on it for a certain application,
+
+06:49.000 --> 06:52.000
+ that application gets solved really quickly.
+
+06:52.000 --> 06:54.320
+ The general intelligence,
+
+06:54.320 --> 06:58.120
+ the computer's complete lack of ability
+
+06:58.120 --> 07:03.120
+ to have awareness of what it's doing,
+
+07:03.480 --> 07:05.480
+ the fact that it's not conscious,
+
+07:05.480 --> 07:08.580
+ the fact that there's no signs of it becoming conscious,
+
+07:08.580 --> 07:11.800
+ the fact that it doesn't read between the lines,
+
+07:11.800 --> 07:15.000
+ those kinds of things that we have to teach it explicitly,
+
+07:15.000 --> 07:17.440
+ what other people pick up implicitly.
+
+07:17.440 --> 07:20.360
+ We don't see that changing yet.
+
+07:20.360 --> 07:23.540
+ There aren't breakthroughs yet that lead us to believe
+
+07:23.540 --> 07:25.280
+ that that's gonna go any faster,
+
+07:25.280 --> 07:28.640
+ which means that it's still gonna be kind of stuck
+
+07:28.640 --> 07:31.240
+ with a lot of limitations
+
+07:31.240 --> 07:34.000
+ where it's probably only gonna do the right thing
+
+07:34.000 --> 07:37.120
+ in very limited, narrow, prespecified contexts
+
+07:37.120 --> 07:40.880
+ where we can prescribe pretty much
+
+07:40.880 --> 07:42.800
+ what's gonna happen there.
+
+07:42.800 --> 07:44.820
+ So I don't see the,
+
+07:46.920 --> 07:47.960
+ it's hard to predict a date
+
+07:47.960 --> 07:51.720
+ because when people don't work on it, it's infinite.
+
+07:51.720 --> 07:54.520
+ When everybody works on it, you get a nice piece of it
+
+07:56.000 --> 07:58.560
+ well solved in a short amount of time.
+
+07:58.560 --> 08:01.520
+ I actually think there's a more important issue right now
+
+08:01.520 --> 08:04.480
+ than the difficulty of it.
+
+08:04.480 --> 08:05.760
+ And that's causing some of us
+
+08:05.760 --> 08:07.360
+ to put the brakes on a little bit.
+
+08:07.360 --> 08:09.320
+ Usually we're all just like step on the gas,
+
+08:09.320 --> 08:11.120
+ let's go faster.
+
+08:11.120 --> 08:14.160
+ This is causing us to pull back and put the brakes on.
+
+08:14.160 --> 08:18.640
+ And that's the way that some of this technology
+
+08:18.640 --> 08:21.160
+ is being used in places like China right now.
+
+08:21.160 --> 08:24.480
+ And that worries me so deeply
+
+08:24.480 --> 08:27.760
+ that it's causing me to pull back myself
+
+08:27.760 --> 08:30.040
+ on a lot of the things that we could be doing.
+
+08:30.040 --> 08:33.640
+ And try to get the community to think a little bit more
+
+08:33.640 --> 08:36.000
+ about, okay, if we're gonna go forward with that,
+
+08:36.000 --> 08:39.240
+ how can we do it in a way that puts in place safeguards
+
+08:39.240 --> 08:41.080
+ that protects people?
+
+08:41.080 --> 08:43.480
+ So the technology we're referring to is
+
+08:43.480 --> 08:46.360
+ just when a computer senses the human being,
+
+08:46.360 --> 08:48.560
+ like the human face, right?
+
+08:48.560 --> 08:51.800
+ So there's a lot of exciting things there,
+
+08:51.800 --> 08:53.880
+ like forming a deep connection with the human being.
+
+08:53.880 --> 08:56.800
+ So what are your worries, how that could go wrong?
+
+08:57.920 --> 08:59.400
+ Is it in terms of privacy?
+
+08:59.400 --> 09:02.880
+ Is it in terms of other kinds of more subtle things?
+
+09:02.880 --> 09:04.200
+ But let's dig into privacy.
+
+09:04.200 --> 09:07.680
+ So here in the US, if I'm watching a video
+
+09:07.680 --> 09:09.760
+ of say a political leader,
+
+09:09.760 --> 09:13.520
+ and in the US we're quite free as we all know
+
+09:13.520 --> 09:17.800
+ to even criticize the president of the United States, right?
+
+09:17.800 --> 09:19.320
+ Here that's not a shocking thing.
+
+09:19.320 --> 09:22.600
+ It happens about every five seconds, right?
+
+09:22.600 --> 09:27.600
+ But in China, what happens if you criticize
+
+09:27.600 --> 09:30.800
+ the leader of the government, right?
+
+09:30.800 --> 09:34.080
+ And so people are very careful not to do that.
+
+09:34.080 --> 09:37.600
+ However, what happens if you're simply watching a video
+
+09:37.600 --> 09:40.760
+ and you make a facial expression
+
+09:40.760 --> 09:45.000
+ that shows a little bit of skepticism, right?
+
+09:45.000 --> 09:47.920
+ Well, and here we're completely free to do that.
+
+09:47.920 --> 09:50.440
+ In fact, we're free to fly off the handle
+
+09:50.440 --> 09:54.440
+ and say anything we want, usually.
+
+09:54.440 --> 09:56.280
+ I mean, there are some restrictions
+
+09:56.280 --> 09:58.800
+ when the athlete does this
+
+09:58.800 --> 10:00.800
+ as part of the national broadcast.
+
+10:00.800 --> 10:03.800
+ Maybe the teams get a little unhappy
+
+10:03.800 --> 10:05.840
+ about picking that forum to do it, right?
+
+10:05.840 --> 10:08.680
+ But that's more a question of judgment.
+
+10:08.680 --> 10:11.520
+ We have these freedoms,
+
+10:11.520 --> 10:14.120
+ and in places that don't have those freedoms,
+
+10:14.120 --> 10:17.040
+ what if our technology can read
+
+10:17.040 --> 10:19.560
+ your underlying affective state?
+
+10:19.560 --> 10:22.400
+ What if our technology can read it even noncontact?
+
+10:22.400 --> 10:24.400
+ What if our technology can read it
+
+10:24.400 --> 10:28.800
+ without your prior consent?
+
+10:28.800 --> 10:30.360
+ And here in the US,
+
+10:30.360 --> 10:32.920
+ in my first company we started, Affectiva,
+
+10:32.920 --> 10:35.560
+ we have worked super hard to turn away money
+
+10:35.560 --> 10:38.400
+ and opportunities that try to read people's affect
+
+10:38.400 --> 10:41.320
+ without their prior informed consent.
+
+10:41.320 --> 10:45.120
+ And even the software that is licensable,
+
+10:45.120 --> 10:46.680
+ you have to sign things saying
+
+10:46.680 --> 10:48.360
+ you will only use it in certain ways,
+
+10:48.360 --> 10:52.080
+ which essentially is get people's buy in, right?
+
+10:52.080 --> 10:55.360
+ Don't do this without people agreeing to it.
+
+10:56.760 --> 10:58.560
+ There are other countries where they're not interested
+
+10:58.560 --> 10:59.520
+ in people's buy in.
+
+10:59.520 --> 11:01.400
+ They're just gonna use it.
+
+11:01.400 --> 11:03.000
+ They're gonna inflict it on you.
+
+11:03.000 --> 11:04.400
+ And if you don't like it,
+
+11:04.400 --> 11:08.440
+ you better not scowl in the direction of any censors.
+
+11:08.440 --> 11:11.400
+ So one, let me just comment on a small tangent.
+
+11:11.400 --> 11:15.920
+ Do you know with the idea of adversarial examples
+
+11:15.920 --> 11:17.360
+ and deep fakes and so on,
+
+11:18.760 --> 11:20.760
+ what you bring up is actually,
+
+11:20.760 --> 11:23.680
+ in that one sense, deep fakes provide
+
+11:23.680 --> 11:28.680
+ a comforting protection that you can no longer really trust
+
+11:30.640 --> 11:34.560
+ that the video of your face was legitimate.
+
+11:34.560 --> 11:37.040
+ And therefore you always have an escape clause
+
+11:37.040 --> 11:38.440
+ if a government is trying,
+
+11:38.440 --> 11:43.440
+ if a stable, balanced, ethical government
+
+11:44.800 --> 11:46.200
+ is trying to accuse you of something,
+
+11:46.200 --> 11:47.080
+ at least you have protection.
+
+11:47.080 --> 11:50.600
+ You can say it was fake news, as is a popular term now.
+
+11:50.600 --> 11:52.360
+ Yeah, that's the general thinking of it.
+
+11:52.360 --> 11:54.360
+ We know how to go into the video
+
+11:54.360 --> 11:58.360
+ and see, for example, your heart rate and respiration
+
+11:58.360 --> 12:02.200
+ and whether or not they've been tampered with.
+
+12:02.200 --> 12:05.520
+ And we also can put like fake heart rate and respiration
+
+12:05.520 --> 12:06.680
+ in your video now too.
+
+12:06.680 --> 12:08.560
+ We decided we needed to do that.
+
+12:10.440 --> 12:12.640
+ After we developed a way to extract it,
+
+12:12.640 --> 12:15.920
+ we decided we also needed a way to jam it.
+
+12:15.920 --> 12:20.880
+ And so the fact that we took time to do that other step too,
+
+12:20.880 --> 12:22.520
+ that was time that I wasn't spending
+
+12:22.520 --> 12:25.240
+ making the machine more affectively intelligent.
+
+12:25.240 --> 12:28.480
+ And there's a choice in how we spend our time,
+
+12:28.480 --> 12:32.400
+ which is now being swayed a little bit less by this goal
+
+12:32.400 --> 12:34.320
+ and a little bit more like by concern
+
+12:34.320 --> 12:36.560
+ about what's happening in society
+
+12:36.560 --> 12:38.840
+ and what kind of future do we wanna build.
+
+12:38.840 --> 12:41.640
+ And as we step back and say,
+
+12:41.640 --> 12:44.560
+ okay, we don't just build AI to build AI
+
+12:44.560 --> 12:46.480
+ to make Elon Musk more money
+
+12:46.480 --> 12:48.760
+ or to make Amazon Jeff Bezos more money.
+
+12:48.760 --> 12:52.840
+ Good gosh, you know, that's the wrong ethic.
+
+12:52.840 --> 12:54.080
+ Why are we building it?
+
+12:54.080 --> 12:57.160
+ What is the point of building AI?
+
+12:57.160 --> 13:01.520
+ It used to be, it was driven by researchers in academia
+
+13:01.520 --> 13:04.120
+ to get papers published and to make a career for themselves
+
+13:04.120 --> 13:05.760
+ and to do something cool, right?
+
+13:05.760 --> 13:07.600
+ Like, cause maybe it could be done.
+
+13:08.480 --> 13:12.440
+ Now we realize that this is enabling rich people
+
+13:12.440 --> 13:17.200
+ to get vastly richer, the poor are,
+
+13:17.200 --> 13:19.760
+ the divide is even larger.
+
+13:19.760 --> 13:22.840
+ And is that the kind of future that we want?
+
+13:22.840 --> 13:25.880
+ Maybe we wanna think about, maybe we wanna rethink AI.
+
+13:25.880 --> 13:29.080
+ Maybe we wanna rethink the problems in society
+
+13:29.080 --> 13:32.720
+ that are causing the greatest inequity
+
+13:32.720 --> 13:35.000
+ and rethink how to build AI
+
+13:35.000 --> 13:36.720
+ that's not about a general intelligence,
+
+13:36.720 --> 13:39.280
+ but that's about extending the intelligence
+
+13:39.280 --> 13:41.200
+ and capability of the have nots
+
+13:41.200 --> 13:43.760
+ so that we close these gaps in society.
+
+13:43.760 --> 13:46.600
+ Do you hope that kind of stepping on the brake
+
+13:46.600 --> 13:47.920
+ happens organically?
+
+13:47.920 --> 13:51.160
+ Because I think still majority of the force behind AI
+
+13:51.160 --> 13:52.720
+ is the desire to publish papers,
+
+13:52.720 --> 13:55.480
+ is to make money without thinking about the why.
+
+13:55.480 --> 13:57.200
+ Do you hope it happens organically?
+
+13:57.200 --> 13:58.920
+ Is there room for regulation?
+
+14:01.040 --> 14:02.920
+ Yeah, yeah, yeah, great questions.
+
+14:02.920 --> 14:05.920
+ I prefer the, you know,
+
+14:05.920 --> 14:07.320
+ they talk about the carrot versus the stick.
+
+14:07.320 --> 14:09.120
+ I definitely prefer the carrot to the stick.
+
+14:09.120 --> 14:12.360
+ And, you know, in our free world,
+
+14:12.360 --> 14:14.880
+ we, there's only so much stick, right?
+
+14:14.880 --> 14:17.240
+ You're gonna find a way around it.
+
+14:17.240 --> 14:21.160
+ I generally think less regulation is better.
+
+14:21.160 --> 14:24.400
+ That said, even though my position is classically carrot,
+
+14:24.400 --> 14:26.240
+ no stick, no regulation,
+
+14:26.240 --> 14:29.040
+ I think we do need some regulations in this space.
+
+14:29.040 --> 14:30.680
+ I do think we need regulations
+
+14:30.680 --> 14:33.560
+ around protecting people with their data,
+
+14:33.560 --> 14:38.160
+ that you own your data, not Amazon, not Google.
+
+14:38.160 --> 14:40.760
+ I would like to see people own their own data.
+
+14:40.760 --> 14:42.440
+ I would also like to see the regulations
+
+14:42.440 --> 14:44.480
+ that we have right now around lie detection
+
+14:44.480 --> 14:48.120
+ being extended to emotion recognition in general,
+
+14:48.120 --> 14:50.960
+ that right now you can't use a lie detector on an employee
+
+14:50.960 --> 14:52.680
+ when you're, on a candidate
+
+14:52.680 --> 14:54.640
+ when you're interviewing them for a job.
+
+14:54.640 --> 14:57.720
+ I think similarly, we need to put in place protection
+
+14:57.720 --> 15:00.520
+ around reading people's emotions without their consent
+
+15:00.520 --> 15:02.120
+ and in certain cases,
+
+15:02.120 --> 15:06.080
+ like characterizing them for a job and other opportunities.
+
+15:06.080 --> 15:09.120
+ So I'm also, I also think that when we're reading emotion
+
+15:09.120 --> 15:11.640
+ that's predictive around mental health,
+
+15:11.640 --> 15:14.120
+ that that should, even though it's not medical data,
+
+15:14.120 --> 15:16.040
+ that that should get the kinds of protections
+
+15:16.040 --> 15:18.440
+ that our medical data gets.
+
+15:18.440 --> 15:19.960
+ What most people don't know yet
+
+15:19.960 --> 15:22.560
+ is right now with your smartphone use,
+
+15:22.560 --> 15:25.160
+ and if you're wearing a sensor
+
+15:25.160 --> 15:27.680
+ and you wanna learn about your stress and your sleep
+
+15:27.680 --> 15:28.960
+ and your physical activity
+
+15:28.960 --> 15:30.760
+ and how much you're using your phone
+
+15:30.760 --> 15:32.560
+ and your social interaction,
+
+15:32.560 --> 15:34.880
+ all of that nonmedical data,
+
+15:34.880 --> 15:37.880
+ when we put it together with machine learning,
+
+15:37.880 --> 15:40.080
+ now called AI, even though the founders of AI
+
+15:40.080 --> 15:41.640
+ wouldn't have called it that,
+
+15:42.840 --> 15:47.840
+ that capability can not only tell that you're calm right now
+
+15:48.360 --> 15:50.760
+ or that you're getting a little stressed,
+
+15:50.760 --> 15:53.840
+ but it can also predict how you're likely to be tomorrow.
+
+15:53.840 --> 15:55.760
+ If you're likely to be sick or healthy,
+
+15:55.760 --> 15:58.640
+ happy or sad, stressed or calm.
+
+15:58.640 --> 16:00.560
+ Especially when you're tracking data over time.
+
+16:00.560 --> 16:03.680
+ Especially when we're tracking a week of your data or more.
+
+16:03.680 --> 16:05.600
+ Do you have an optimism towards,
+
+16:05.600 --> 16:07.720
+ you know, a lot of people on our phones
+
+16:07.720 --> 16:10.280
+ are worried about this camera that's looking at us.
+
+16:10.280 --> 16:12.480
+ For the most part, on balance,
+
+16:12.480 --> 16:16.000
+ are you optimistic about the benefits
+
+16:16.000 --> 16:17.400
+ that can be brought from that camera
+
+16:17.400 --> 16:19.560
+ that's looking at billions of us?
+
+16:19.560 --> 16:22.000
+ Or should we be more worried?
+
+16:24.520 --> 16:28.840
+ I think we should be a little bit more worried
+
+16:28.840 --> 16:32.480
+ about who's looking at us and listening to us.
+
+16:32.480 --> 16:36.680
+ The device sitting on your countertop in your kitchen,
+
+16:36.680 --> 16:41.680
+ whether it's, you know, Alexa or Google Home or Apple, Siri,
+
+16:42.160 --> 16:46.360
+ these devices want to listen
+
+16:47.520 --> 16:49.680
+ while they say ostensibly to help us.
+
+16:49.680 --> 16:52.080
+ And I think there are great people in these companies
+
+16:52.080 --> 16:54.360
+ who do want to help people.
+
+16:54.360 --> 16:56.160
+ Let me not brand them all bad.
+
+16:56.160 --> 16:59.320
+ I'm a user of products from all of these companies
+
+16:59.320 --> 17:04.320
+ I'm naming all the A companies, Alphabet, Apple, Amazon.
+
+17:04.360 --> 17:09.120
+ They are awfully big companies, right?
+
+17:09.120 --> 17:11.520
+ They have incredible power.
+
+17:11.520 --> 17:16.520
+ And you know, what if China were to buy them, right?
+
+17:17.200 --> 17:19.880
+ And suddenly all of that data
+
+17:19.880 --> 17:22.440
+ were not part of free America,
+
+17:22.440 --> 17:24.400
+ but all of that data were part of somebody
+
+17:24.400 --> 17:26.640
+ who just wants to take over the world
+
+17:26.640 --> 17:27.920
+ and you submit to them.
+
+17:27.920 --> 17:32.120
+ And guess what happens if you so much as smirk the wrong way
+
+17:32.120 --> 17:34.560
+ when they say something that you don't like?
+
+17:34.560 --> 17:37.440
+ Well, they have reeducation camps, right?
+
+17:37.440 --> 17:39.000
+ That's a nice word for them.
+
+17:39.000 --> 17:41.440
+ By the way, they have a surplus of organs
+
+17:41.440 --> 17:43.320
+ for people who have surgery these days.
+
+17:43.320 --> 17:45.040
+ They don't have an organ donation problem
+
+17:45.040 --> 17:48.040
+ because they take your blood and they know you're a match.
+
+17:48.040 --> 17:51.800
+ And the doctors are on record of taking organs
+
+17:51.800 --> 17:55.360
+ from people who are perfectly healthy and not prisoners.
+
+17:55.360 --> 17:58.600
+ They're just simply not the favored ones of the government.
+
+17:59.600 --> 18:04.480
+ And you know, that's a pretty freaky evil society.
+
+18:04.480 --> 18:06.480
+ And we can use the word evil there.
+
+18:06.480 --> 18:07.840
+ I was born in the Soviet Union.
+
+18:07.840 --> 18:12.840
+ I can certainly connect to the worry that you're expressing.
+
+18:13.080 --> 18:15.440
+ At the same time, probably both you and I
+
+18:15.440 --> 18:17.040
+ and you very much so,
+
+18:19.120 --> 18:23.160
+ you know, there's an exciting possibility
+
+18:23.160 --> 18:27.720
+ that you can have a deep connection with a machine.
+
+18:27.720 --> 18:28.640
+ Yeah, yeah.
+
+18:28.640 --> 18:29.480
+ Right, so.
+
+18:30.920 --> 18:35.440
+ Those of us, I've admitted students who say that they,
+
+18:35.440 --> 18:36.760
+ you know, when you list like,
+
+18:36.760 --> 18:39.400
+ who do you most wish you could have lunch with
+
+18:39.400 --> 18:40.520
+ or dinner with, right?
+
+18:41.400 --> 18:43.360
+ And they'll write like, I don't like people.
+
+18:43.360 --> 18:44.800
+ I just like computers.
+
+18:44.800 --> 18:46.360
+ And one of them said to me once
+
+18:46.360 --> 18:48.280
+ when I had this party at my house,
+
+18:49.520 --> 18:51.160
+ I want you to know,
+
+18:51.160 --> 18:53.160
+ this is my only social event of the year,
+
+18:53.160 --> 18:55.560
+ my one social event of the year.
+
+18:55.560 --> 18:57.680
+ Like, okay, now this is a brilliant
+
+18:57.680 --> 18:59.280
+ machine learning person, right?
+
+18:59.280 --> 19:01.920
+ And we need that kind of brilliance in machine learning.
+
+19:01.920 --> 19:04.760
+ And I love that computer science welcomes people
+
+19:04.760 --> 19:07.200
+ who love people and people who are very awkward
+
+19:07.200 --> 19:08.040
+ around people.
+
+19:08.040 --> 19:12.720
+ I love that this is a field that anybody could join.
+
+19:12.720 --> 19:14.960
+ We need all kinds of people
+
+19:14.960 --> 19:16.720
+ and you don't need to be a social person.
+
+19:16.720 --> 19:19.000
+ I'm not trying to force people who don't like people
+
+19:19.000 --> 19:21.720
+ to suddenly become social.
+
+19:21.720 --> 19:23.880
+ At the same time,
+
+19:23.880 --> 19:26.480
+ if most of the people building the AIs of the future
+
+19:26.480 --> 19:29.400
+ are the kind of people who don't like people,
+
+19:29.400 --> 19:31.040
+ we've got a little bit of a problem.
+
+19:31.040 --> 19:31.920
+ Well, hold on a second.
+
+19:31.920 --> 19:33.400
+ So let me push back on that.
+
+19:33.400 --> 19:37.680
+ So don't you think a large percentage of the world
+
+19:38.640 --> 19:40.880
+ can, you know, there's loneliness.
+
+19:40.880 --> 19:44.400
+ There is a huge problem with loneliness that's growing.
+
+19:44.400 --> 19:47.560
+ And so there's a longing for connection.
+
+19:47.560 --> 19:49.080
+ Do you...
+
+19:49.080 --> 19:51.400
+ If you're lonely, you're part of a big and growing group.
+
+19:51.400 --> 19:52.240
+ Yes.
+
+19:52.240 --> 19:54.320
+ So we're in it together, I guess.
+
+19:54.320 --> 19:56.120
+ If you're lonely, join the group.
+
+19:56.120 --> 19:56.960
+ You're not alone.
+
+19:56.960 --> 19:57.960
+ You're not alone.
+
+19:57.960 --> 19:58.920
+ That's a good line.
+
+20:00.160 --> 20:02.120
+ But do you think there's...
+
+20:03.160 --> 20:04.600
+ You talked about some worry,
+
+20:04.600 --> 20:07.600
+ but do you think there's an exciting possibility
+
+20:07.600 --> 20:11.560
+ that something like Alexa and these kinds of tools
+
+20:11.560 --> 20:14.240
+ can alleviate that loneliness
+
+20:14.240 --> 20:16.640
+ in a way that other humans can't?
+
+20:16.640 --> 20:18.920
+ Yeah, yeah, definitely.
+
+20:18.920 --> 20:22.120
+ I mean, a great book can kind of alleviate loneliness
+
+20:22.120 --> 20:25.000
+ because you just get sucked into this amazing story
+
+20:25.000 --> 20:27.760
+ and you can't wait to go spend time with that character.
+
+20:27.760 --> 20:30.360
+ And they're not a human character.
+
+20:30.360 --> 20:32.240
+ There is a human behind it.
+
+20:33.200 --> 20:35.400
+ But yeah, it can be an incredibly delightful way
+
+20:35.400 --> 20:39.480
+ to pass the hours and it can meet needs.
+
+20:39.480 --> 20:43.440
+ Even, you know, I don't read those trashy romance books,
+
+20:43.440 --> 20:44.760
+ but somebody does, right?
+
+20:44.760 --> 20:46.200
+ And what are they getting from this?
+
+20:46.200 --> 20:50.720
+ Well, probably some of that feeling of being there, right?
+
+20:50.720 --> 20:52.920
+ Being there in that social moment,
+
+20:52.920 --> 20:56.240
+ that romantic moment or connecting with somebody.
+
+20:56.240 --> 20:57.560
+ I've had a similar experience
+
+20:57.560 --> 20:59.400
+ reading some science fiction books, right?
+
+20:59.400 --> 21:00.560
+ And connecting with the character.
+
+21:00.560 --> 21:04.160
+ Orson Scott Card, you know, just amazing writing
+
+21:04.160 --> 21:07.560
+ and Ender's Game and Speaker for the Dead, terrible title.
+
+21:07.560 --> 21:11.000
+ But those kind of books that pull you into a character
+
+21:11.000 --> 21:13.880
+ and you feel like you're, you feel very social.
+
+21:13.880 --> 21:17.280
+ It's very connected, even though it's not responding to you.
+
+21:17.280 --> 21:19.720
+ And a computer, of course, can respond to you.
+
+21:19.720 --> 21:21.440
+ So it can deepen it, right?
+
+21:21.440 --> 21:25.480
+ You can have a very deep connection,
+
+21:25.480 --> 21:29.400
+ much more than the movie Her, you know, plays up, right?
+
+21:29.400 --> 21:30.640
+ Well, much more.
+
+21:30.640 --> 21:34.760
+ I mean, movie Her is already a pretty deep connection, right?
+
+21:34.760 --> 21:36.760
+ Well, but it's just a movie, right?
+
+21:36.760 --> 21:37.600
+ It's scripted.
+
+21:37.600 --> 21:39.560
+ It's just, you know, but I mean,
+
+21:39.560 --> 21:42.680
+ like there can be a real interaction
+
+21:42.680 --> 21:46.600
+ where the character can learn and you can learn.
+
+21:46.600 --> 21:49.560
+ You could imagine it not just being you and one character.
+
+21:49.560 --> 21:51.600
+ You could imagine a group of characters.
+
+21:51.600 --> 21:53.600
+ You can imagine a group of people and characters,
+
+21:53.600 --> 21:56.440
+ human and AI connecting,
+
+21:56.440 --> 22:00.800
+ where maybe a few people can't sort of be friends
+
+22:00.800 --> 22:02.880
+ with everybody, but the few people
+
+22:02.880 --> 22:07.000
+ and their AIs can befriend more people.
+
+22:07.000 --> 22:10.320
+ There can be an extended human intelligence in there
+
+22:10.320 --> 22:14.880
+ where each human can connect with more people that way.
+
+22:14.880 --> 22:19.480
+ But it's still very limited, but there are just,
+
+22:19.480 --> 22:21.560
+ what I mean is there are many more possibilities
+
+22:21.560 --> 22:22.760
+ than what's in that movie.
+
+22:22.760 --> 22:24.680
+ So there's a tension here.
+
+22:24.680 --> 22:27.360
+ So one, you expressed a really serious concern
+
+22:27.360 --> 22:29.120
+ about privacy, about how governments
+
+22:29.120 --> 22:31.120
+ can misuse the information,
+
+22:31.120 --> 22:34.080
+ and there's the possibility of this connection.
+
+22:34.080 --> 22:36.200
+ So let's look at Alexa.
+
+22:36.200 --> 22:37.760
+ So personal assistance.
+
+22:37.760 --> 22:40.840
+ For the most part, as far as I'm aware,
+
+22:40.840 --> 22:42.840
+ they ignore your emotion.
+
+22:42.840 --> 22:47.400
+ They ignore even the context or the existence of you,
+
+22:47.400 --> 22:52.200
+ the intricate, beautiful, complex aspects of who you are,
+
+22:52.200 --> 22:54.160
+ except maybe aspects of your voice
+
+22:54.160 --> 22:58.360
+ that help it recognize for speech recognition.
+
+22:58.360 --> 23:00.600
+ Do you think they should move towards
+
+23:00.600 --> 23:03.160
+ trying to understand your emotion?
+
+23:03.160 --> 23:04.960
+ All of these companies are very interested
+
+23:04.960 --> 23:07.440
+ in understanding human emotion.
+
+23:07.440 --> 23:11.400
+ They want, more people are telling Siri every day
+
+23:11.400 --> 23:13.720
+ they want to kill themselves.
+
+23:13.720 --> 23:15.640
+ Apple wants to know the difference between
+
+23:15.640 --> 23:18.480
+ if a person is really suicidal versus if a person
+
+23:18.480 --> 23:21.400
+ is just kind of fooling around with Siri, right?
+
+23:21.400 --> 23:25.560
+ The words may be the same, the tone of voice
+
+23:25.560 --> 23:30.560
+ and what surrounds those words is pivotal to understand
+
+23:31.360 --> 23:34.200
+ if they should respond in a very serious way,
+
+23:34.200 --> 23:35.920
+ bring help to that person,
+
+23:35.920 --> 23:40.640
+ or if they should kind of jokingly tease back,
+
+23:40.640 --> 23:44.960
+ ah, you just want to sell me for something else, right?
+
+23:44.960 --> 23:47.920
+ Like, how do you respond when somebody says that?
+
+23:47.920 --> 23:51.440
+ Well, you do want to err on the side of being careful
+
+23:51.440 --> 23:52.600
+ and taking it seriously.
+
+23:53.640 --> 23:58.640
+ People want to know if the person is happy or stressed
+
+23:59.120 --> 24:03.160
+ in part, well, so let me give you an altruistic reason
+
+24:03.160 --> 24:08.160
+ and a business profit motivated reason.
+
+24:08.320 --> 24:11.000
+ And there are people in companies that operate
+
+24:11.000 --> 24:12.720
+ on both principles.
+
+24:12.720 --> 24:16.920
+ The altruistic people really care about their customers
+
+24:16.920 --> 24:19.320
+ and really care about helping you feel a little better
+
+24:19.320 --> 24:20.240
+ at the end of the day.
+
+24:20.240 --> 24:22.680
+ And it would just make those people happy
+
+24:22.680 --> 24:24.320
+ if they knew that they made your life better.
+
+24:24.320 --> 24:27.000
+ If you came home stressed and after talking
+
+24:27.000 --> 24:29.920
+ with their product, you felt better.
+
+24:29.920 --> 24:32.960
+ There are other people who maybe have studied
+
+24:32.960 --> 24:35.120
+ the way affect affects decision making
+
+24:35.120 --> 24:36.440
+ and prices people pay.
+
+24:36.440 --> 24:38.760
+ And they know, I don't know if I should tell you,
+
+24:38.760 --> 24:43.760
+ like the work of Jen Lerner on heartstrings and purse strings,
+
+24:43.960 --> 24:47.960
+ you know, if we manipulate you into a slightly sadder mood,
+
+24:47.960 --> 24:50.800
+ you'll pay more, right?
+
+24:50.800 --> 24:53.800
+ You'll pay more to change your situation.
+
+24:53.800 --> 24:55.800
+ You'll pay more for something you don't even need
+
+24:55.800 --> 24:58.040
+ to make yourself feel better.
+
+24:58.040 --> 25:00.120
+ So, you know, if they sound a little sad,
+
+25:00.120 --> 25:01.240
+ maybe I don't want to cheer them up.
+
+25:01.240 --> 25:04.800
+ Maybe first I want to help them get something,
+
+25:04.800 --> 25:07.400
+ a little shopping therapy, right?
+
+25:07.400 --> 25:08.480
+ That helps them.
+
+25:08.480 --> 25:09.880
+ Which is really difficult for a company
+
+25:09.880 --> 25:12.120
+ that's primarily funded on advertisement.
+
+25:12.120 --> 25:16.160
+ So they're encouraged to get you to offer you products
+
+25:16.160 --> 25:17.840
+ or Amazon that's primarily funded
+
+25:17.840 --> 25:20.040
+ on you buying things from their store.
+
+25:20.040 --> 25:22.120
+ So I think we should be, you know,
+
+25:22.120 --> 25:24.120
+ maybe we need regulation in the future
+
+25:24.120 --> 25:27.240
+ to put a little bit of a wall between these agents
+
+25:27.240 --> 25:29.120
+ that have access to our emotion
+
+25:29.120 --> 25:32.280
+ and agents that want to sell us stuff.
+
+25:32.280 --> 25:35.560
+ Maybe there needs to be a little bit more
+
+25:35.560 --> 25:37.480
+ of a firewall in between those.
+
+25:38.400 --> 25:40.480
+ So maybe digging in a little bit
+
+25:40.480 --> 25:42.200
+ on the interaction with Alexa,
+
+25:42.200 --> 25:44.880
+ you mentioned, of course, a really serious concern
+
+25:44.880 --> 25:46.680
+ about like recognizing emotion,
+
+25:46.680 --> 25:49.680
+ if somebody is speaking of suicide or depression and so on,
+
+25:49.680 --> 25:53.520
+ but what about the actual interaction itself?
+
+25:55.000 --> 25:57.840
+ Do you think, so if I, you know,
+
+25:57.840 --> 26:00.360
+ you mentioned Clippy and being annoying,
+
+26:01.480 --> 26:04.200
+ what is the objective function we're trying to optimize?
+
+26:04.200 --> 26:09.200
+ Is it minimize annoyingness or minimize or maximize happiness?
+
+26:09.480 --> 26:12.440
+ Or if we look at human to human relations,
+
+26:12.440 --> 26:15.480
+ I think that push and pull, the tension, the dance,
+
+26:15.480 --> 26:19.840
+ you know, the annoying, the flaws, that's what makes it fun.
+
+26:19.840 --> 26:24.160
+ So is there a room for, like what is the objective function?
+
+26:24.160 --> 26:26.720
+ There are times when you want to have a little push and pull,
+
+26:26.720 --> 26:29.120
+ I think of kids sparring, right?
+
+26:29.120 --> 26:31.200
+ You know, I see my sons and they,
+
+26:31.200 --> 26:33.720
+ one of them wants to provoke the other to be upset
+
+26:33.720 --> 26:34.720
+ and that's fun.
+
+26:34.720 --> 26:38.520
+ And it's actually healthy to learn where your limits are,
+
+26:38.520 --> 26:40.080
+ to learn how to self regulate.
+
+26:40.080 --> 26:43.000
+ You can imagine a game where it's trying to make you mad
+
+26:43.000 --> 26:45.080
+ and you're trying to show self control.
+
+26:45.080 --> 26:48.640
+ And so if we're doing a AI human interaction
+
+26:48.640 --> 26:51.240
+ that's helping build resilience and self control,
+
+26:51.240 --> 26:54.040
+ whether it's to learn how to not be a bully
+
+26:54.040 --> 26:55.560
+ or how to turn the other cheek
+
+26:55.560 --> 26:58.920
+ or how to deal with an abusive person in your life,
+
+26:58.920 --> 27:03.360
+ then you might need an AI that pushes your buttons, right?
+
+27:04.480 --> 27:07.800
+ But in general, do you want an AI that pushes your buttons?
+
+27:10.440 --> 27:12.080
+ Probably depends on your personality.
+
+27:12.080 --> 27:15.320
+ I don't, I want one that's respectful,
+
+27:15.320 --> 27:18.160
+ that is there to serve me
+
+27:18.160 --> 27:23.160
+ and that is there to extend my ability to do things.
+
+27:23.200 --> 27:25.160
+ I'm not looking for a rival,
+
+27:25.160 --> 27:27.240
+ I'm looking for a helper.
+
+27:27.240 --> 27:30.200
+ And that's the kind of AI I'd put my money on.
+
+27:30.200 --> 27:33.680
+ Your sense is for the majority of people in the world,
+
+27:33.680 --> 27:35.120
+ in order to have a rich experience,
+
+27:35.120 --> 27:37.120
+ that's what they're looking for as well.
+
+27:37.120 --> 27:37.960
+ So they're not looking,
+
+27:37.960 --> 27:40.800
+ if you look at the movie Her, spoiler alert,
+
+27:40.800 --> 27:45.800
+ I believe the program that the woman in the movie Her
+
+27:46.280 --> 27:51.280
+ leaves the person for somebody else,
+
+27:51.320 --> 27:54.360
+ says they don't wanna be dating anymore, right?
+
+27:54.360 --> 27:58.280
+ Like, do you, your sense is if Alexa said,
+
+27:58.280 --> 28:02.840
+ you know what, I'm actually had enough of you for a while,
+
+28:02.840 --> 28:04.880
+ so I'm gonna shut myself off.
+
+28:04.880 --> 28:07.120
+ You don't see that as...
+
+28:07.120 --> 28:10.120
+ I'd say you're trash, cause I paid for you, right?
+
+28:10.120 --> 28:14.000
+ You, we've got to remember,
+
+28:14.000 --> 28:18.160
+ and this is where this blending human AI
+
+28:18.160 --> 28:22.520
+ as if we're equals is really deceptive
+
+28:22.520 --> 28:26.400
+ because AI is something at the end of the day
+
+28:26.400 --> 28:28.840
+ that my students and I are making in the lab.
+
+28:28.840 --> 28:33.120
+ And we're choosing what it's allowed to say,
+
+28:33.120 --> 28:36.600
+ when it's allowed to speak, what it's allowed to listen to,
+
+28:36.600 --> 28:40.760
+ what it's allowed to act on given the inputs
+
+28:40.760 --> 28:43.400
+ that we choose to expose it to,
+
+28:43.400 --> 28:45.880
+ what outputs it's allowed to have.
+
+28:45.880 --> 28:49.320
+ It's all something made by a human.
+
+28:49.320 --> 28:50.560
+ And if we wanna make something
+
+28:50.560 --> 28:52.920
+ that makes our lives miserable, fine.
+
+28:52.920 --> 28:55.400
+ I wouldn't invest in it as a business,
+
+28:56.640 --> 28:59.520
+ unless it's just there for self regulation training.
+
+28:59.520 --> 29:01.960
+ But I think we need to think about
+
+29:01.960 --> 29:02.800
+ what kind of future we want.
+
+29:02.800 --> 29:05.560
+ And actually your question, I really like the,
+
+29:05.560 --> 29:06.760
+ what is the objective function?
+
+29:06.760 --> 29:08.480
+ Is it to calm people down?
+
+29:09.320 --> 29:10.560
+ Sometimes.
+
+29:10.560 --> 29:13.360
+ Is it to always make people happy and calm them down?
+
+29:14.400 --> 29:16.080
+ Well, there was a book about that, right?
+
+29:16.080 --> 29:18.840
+ The brave new world, make everybody happy,
+
+29:18.840 --> 29:22.520
+ take your Soma if you're unhappy, take your happy pill.
+
+29:22.520 --> 29:24.360
+ And if you refuse to take your happy pill,
+
+29:24.360 --> 29:27.560
+ well, we'll threaten you by sending you to Iceland
+
+29:28.600 --> 29:29.600
+ to live there.
+
+29:29.600 --> 29:30.840
+ I lived in Iceland three years.
+
+29:30.840 --> 29:31.800
+ It's a great place.
+
+29:31.800 --> 29:33.920
+ Don't take your Soma, then go to Iceland.
+
+29:35.240 --> 29:37.520
+ A little TV commercial there.
+
+29:37.520 --> 29:39.240
+ Now I was a child there for a few years.
+
+29:39.240 --> 29:40.600
+ It's a wonderful place.
+
+29:40.600 --> 29:43.240
+ So that part of the book never scared me.
+
+29:43.240 --> 29:46.720
+ But really like, do we want AI to manipulate us
+
+29:46.720 --> 29:49.080
+ into submission, into making us happy?
+
+29:49.080 --> 29:52.640
+ Well, if you are a, you know,
+
+29:52.640 --> 29:56.080
+ like a power obsessed sick dictator individual
+
+29:56.080 --> 29:57.640
+ who only wants to control other people
+
+29:57.640 --> 29:59.640
+ to get your jollies in life, then yeah,
+
+29:59.640 --> 30:03.720
+ you wanna use AI to extend your power and your scale
+
+30:03.720 --> 30:07.080
+ to force people into submission.
+
+30:07.080 --> 30:10.080
+ If you believe that the human race is better off
+
+30:10.080 --> 30:12.120
+ being given freedom and the opportunity
+
+30:12.120 --> 30:15.360
+ to do things that might surprise you,
+
+30:15.360 --> 30:20.200
+ then you wanna use AI to extend people's ability to build,
+
+30:20.200 --> 30:22.960
+ you wanna build AI that extends human intelligence,
+
+30:22.960 --> 30:27.320
+ that empowers the weak and helps balance the power
+
+30:27.320 --> 30:28.840
+ between the weak and the strong,
+
+30:28.840 --> 30:31.000
+ not that gives more power to the strong.
+
+30:32.440 --> 30:37.440
+ So in this process of empowering people and sensing people,
+
+30:39.280 --> 30:41.280
+ what is your sense on emotion
+
+30:41.280 --> 30:42.680
+ in terms of recognizing emotion?
+
+30:42.680 --> 30:44.680
+ The difference between emotion that is shown
+
+30:44.680 --> 30:46.640
+ and emotion that is felt.
+
+30:46.640 --> 30:51.640
+ So yeah, emotion that is expressed on the surface
+
+30:52.640 --> 30:56.560
+ through your face, your body, and various other things,
+
+30:56.560 --> 30:58.840
+ and what's actually going on deep inside
+
+30:58.840 --> 31:01.760
+ on the biological level, on the neuroscience level,
+
+31:01.760 --> 31:03.680
+ or some kind of cognitive level.
+
+31:03.680 --> 31:04.840
+ Yeah, yeah.
+
+31:05.720 --> 31:07.840
+ Whoa, no easy questions here.
+
+31:07.840 --> 31:11.280
+ Well, yeah, I'm sure there's no definitive answer,
+
+31:11.280 --> 31:12.360
+ but what's your sense?
+
+31:12.360 --> 31:15.240
+ How far can we get by just looking at the face?
+
+31:16.160 --> 31:18.480
+ We're very limited when we just look at the face,
+
+31:18.480 --> 31:21.920
+ but we can get further than most people think we can get.
+
+31:21.920 --> 31:25.920
+ People think, hey, I have a great poker face,
+
+31:25.920 --> 31:28.280
+ therefore all you're ever gonna get from me is neutral.
+
+31:28.280 --> 31:30.160
+ Well, that's naive.
+
+31:30.160 --> 31:32.680
+ We can read with the ordinary camera
+
+31:32.680 --> 31:34.920
+ on your laptop or on your phone.
+
+31:34.920 --> 31:39.320
+ We can read from a neutral face if your heart is racing.
+
+31:39.320 --> 31:41.280
+ We can read from a neutral face
+
+31:41.280 --> 31:44.760
+ if your breathing is becoming irregular
+
+31:44.760 --> 31:46.920
+ and showing signs of stress.
+
+31:46.920 --> 31:50.720
+ We can read under some conditions
+
+31:50.720 --> 31:53.200
+ that maybe I won't give you details on,
+
+31:53.200 --> 31:57.080
+ how your heart rate variability power is changing.
+
+31:57.080 --> 31:58.640
+ That could be a sign of stress,
+
+31:58.640 --> 32:02.920
+ even when your heart rate is not necessarily accelerating.
+
+32:02.920 --> 32:03.760
+ So...
+
+32:03.760 --> 32:06.080
+ Sorry, from physio sensors or from the face?
+
+32:06.080 --> 32:09.160
+ From the color changes that you cannot even see,
+
+32:09.160 --> 32:11.680
+ but the camera can see.
+
+32:11.680 --> 32:12.520
+ That's amazing.
+
+32:12.520 --> 32:15.320
+ So you can get a lot of signal, but...
+
+32:15.320 --> 32:18.680
+ So we get things people can't see using a regular camera.
+
+32:18.680 --> 32:21.920
+ And from that, we can tell things about your stress.
+
+32:21.920 --> 32:25.600
+ So if you were just sitting there with a blank face
+
+32:25.600 --> 32:28.400
+ thinking nobody can read my emotion, well, you're wrong.
+
+32:30.120 --> 32:31.840
+ Right, so that's really interesting,
+
+32:31.840 --> 32:34.520
+ but that's from sort of visual information from the face.
+
+32:34.520 --> 32:37.120
+ That's almost like cheating your way
+
+32:37.120 --> 32:39.120
+ to the physiological state of the body,
+
+32:39.120 --> 32:42.600
+ by being very clever with what you can do with vision.
+
+32:42.600 --> 32:43.440
+ With signal processing.
+
+32:43.440 --> 32:44.360
+ With signal processing.
+
+32:44.360 --> 32:45.320
+ So that's really impressive.
+
+32:45.320 --> 32:49.320
+ But if you just look at the stuff we humans can see,
+
+32:49.320 --> 32:52.240
+ the poker, the smile, the smirks,
+
+32:52.240 --> 32:54.320
+ the subtle, all the facial actions.
+
+32:54.320 --> 32:55.960
+ So then you can hide that on your face
+
+32:55.960 --> 32:57.240
+ for a limited amount of time.
+
+32:57.240 --> 33:00.600
+ Now, if you're just going in for a brief interview
+
+33:00.600 --> 33:03.880
+ and you're hiding it, that's pretty easy for most people.
+
+33:03.880 --> 33:08.800
+ If you are, however, surveilled constantly everywhere you go,
+
+33:08.800 --> 33:13.280
+ then it's gonna say, gee, you know, Lex used to smile a lot
+
+33:13.280 --> 33:15.920
+ and now I'm not seeing so many smiles.
+
+33:15.920 --> 33:20.240
+ And Roz used to laugh a lot
+
+33:20.240 --> 33:22.280
+ and smile a lot very spontaneously.
+
+33:22.280 --> 33:23.480
+ And now I'm only seeing
+
+33:23.480 --> 33:26.440
+ these not so spontaneous looking smiles.
+
+33:26.440 --> 33:28.920
+ And only when she's asked these questions.
+
+33:28.920 --> 33:31.720
+ You know, that's something's changed here.
+
+33:31.720 --> 33:33.720
+ Probably not getting enough sleep.
+
+33:33.720 --> 33:35.200
+ We could look at that too.
+
+33:35.200 --> 33:37.000
+ So now I have to be a little careful too.
+
+33:37.000 --> 33:40.920
+ When I say we, you think we can't read your emotion
+
+33:40.920 --> 33:42.760
+ and we can, it's not that binary.
+
+33:42.760 --> 33:45.960
+ What we're reading is more some physiological changes
+
+33:45.960 --> 33:48.760
+ that relate to your activation.
+
+33:48.760 --> 33:51.800
+ Now, that doesn't mean that we know everything
+
+33:51.800 --> 33:52.640
+ about how you feel.
+
+33:52.640 --> 33:54.880
+ In fact, we still know very little about how you feel.
+
+33:54.880 --> 33:56.880
+ Your thoughts are still private.
+
+33:56.880 --> 34:01.120
+ Your nuanced feelings are still completely private.
+
+34:01.120 --> 34:02.920
+ We can't read any of that.
+
+34:02.920 --> 34:07.000
+ So there's some relief that we can't read that.
+
+34:07.000 --> 34:09.800
+ Even brain imaging can't read that.
+
+34:09.800 --> 34:12.280
+ Wearables can't read that.
+
+34:12.280 --> 34:16.000
+ However, as we read your body state changes
+
+34:16.000 --> 34:18.520
+ and we know what's going on in your environment
+
+34:18.520 --> 34:21.480
+ and we look at patterns of those over time,
+
+34:21.480 --> 34:24.960
+ we can start to make some inferences
+
+34:24.960 --> 34:26.960
+ about what you might be feeling.
+
+34:26.960 --> 34:31.400
+ And that is where it's not just the momentary feeling
+
+34:31.400 --> 34:34.120
+ but it's more your stance toward things.
+
+34:34.120 --> 34:37.040
+ And that could actually be a little bit more scary
+
+34:37.040 --> 34:42.040
+ with certain kinds of governmental control freak people
+
+34:42.840 --> 34:46.800
+ who want to know more about are you on their team
+
+34:46.800 --> 34:48.320
+ or are you not?
+
+34:48.320 --> 34:50.320
+ And getting that information through over time.
+
+34:50.320 --> 34:51.640
+ So you're saying there's a lot of signal
+
+34:51.640 --> 34:53.680
+ by looking at the change over time.
+
+34:53.680 --> 34:54.520
+ Yeah.
+
+34:54.520 --> 34:56.600
+ So you've done a lot of exciting work
+
+34:56.600 --> 34:57.800
+ both in computer vision
+
+34:57.800 --> 35:00.560
+ and physiological sense like wearables.
+
+35:00.560 --> 35:03.480
+ What do you think is the best modality for,
+
+35:03.480 --> 35:08.360
+ what's the best window into the emotional soul?
+
+35:08.360 --> 35:09.200
+ Is it the face?
+
+35:09.200 --> 35:10.160
+ Is it the voice?
+
+35:10.160 --> 35:11.920
+ Depends what you want to know.
+
+35:11.920 --> 35:13.120
+ It depends what you want to know.
+
+35:13.120 --> 35:13.960
+ It depends what you want to know.
+
+35:13.960 --> 35:15.600
+ Everything is informative.
+
+35:15.600 --> 35:17.440
+ Everything we do is informative.
+
+35:17.440 --> 35:20.160
+ So for health and wellbeing and things like that,
+
+35:20.160 --> 35:22.680
+ do you find the wearable physiotechnical,
+
+35:22.680 --> 35:24.840
+ measuring physiological signals
+
+35:24.840 --> 35:29.320
+ is the best for health based stuff?
+
+35:29.320 --> 35:31.880
+ So here I'm going to answer empirically
+
+35:31.880 --> 35:34.680
+ with data and studies we've been doing.
+
+35:34.680 --> 35:36.040
+ We've been doing studies.
+
+35:36.040 --> 35:38.280
+ Now these are currently running
+
+35:38.280 --> 35:39.600
+ with lots of different kinds of people
+
+35:39.600 --> 35:41.880
+ but where we've published data
+
+35:41.880 --> 35:44.080
+ and I can speak publicly to it,
+
+35:44.080 --> 35:45.520
+ the data are limited right now
+
+35:45.520 --> 35:47.680
+ to New England college students.
+
+35:47.680 --> 35:49.200
+ So that's a small group.
+
+35:50.320 --> 35:52.440
+ Among New England college students,
+
+35:52.440 --> 35:55.880
+ when they are wearing a wearable
+
+35:55.880 --> 35:57.640
+ like the empathic embrace here
+
+35:57.640 --> 36:01.760
+ that's measuring skin conductance, movement, temperature.
+
+36:01.760 --> 36:05.800
+ And when they are using a smartphone
+
+36:05.800 --> 36:09.400
+ that is collecting their time of day
+
+36:09.400 --> 36:12.120
+ of when they're texting, who they're texting,
+
+36:12.120 --> 36:14.200
+ their movement around it, their GPS,
+
+36:14.200 --> 36:18.040
+ the weather information based upon their location.
+
+36:18.040 --> 36:19.360
+ And when it's using machine learning
+
+36:19.360 --> 36:20.920
+ and putting all of that together
+
+36:20.920 --> 36:22.920
+ and looking not just at right now
+
+36:22.920 --> 36:26.960
+ but looking at your rhythm of behaviors
+
+36:26.960 --> 36:28.560
+ over about a week.
+
+36:28.560 --> 36:29.920
+ When we look at that,
+
+36:29.920 --> 36:33.560
+ we are very accurate at forecasting tomorrow's stress,
+
+36:33.560 --> 36:38.560
+ mood and happy, sad mood and health.
+
+36:38.560 --> 36:42.640
+ And when we look at which pieces of that are most useful,
+
+36:43.680 --> 36:45.560
+ first of all, if you have all the pieces,
+
+36:45.560 --> 36:47.040
+ you get the best results.
+
+36:48.320 --> 36:50.600
+ If you have only the wearable,
+
+36:50.600 --> 36:52.680
+ you get the next best results.
+
+36:52.680 --> 36:56.520
+ And that's still better than 80% accurate
+
+36:56.520 --> 36:58.560
+ at forecasting tomorrow's levels.
+
+37:00.080 --> 37:02.800
+ Isn't that exciting because the wearable stuff
+
+37:02.800 --> 37:05.320
+ with physiological information,
+
+37:05.320 --> 37:08.000
+ it feels like it violates privacy less
+
+37:08.000 --> 37:12.720
+ than the noncontact face based methods.
+
+37:12.720 --> 37:14.040
+ Yeah, it's interesting.
+
+37:14.040 --> 37:16.560
+ I think what people sometimes don't,
+
+37:16.560 --> 37:18.880
+ it's funny in the early days people would say,
+
+37:18.880 --> 37:22.560
+ oh, wearing something or giving blood is invasive, right?
+
+37:22.560 --> 37:24.400
+ Whereas a camera is less invasive
+
+37:24.400 --> 37:26.920
+ because it's not touching you.
+
+37:26.920 --> 37:28.320
+ I think on the contrary,
+
+37:28.320 --> 37:31.200
+ the things that are not touching you are maybe the scariest
+
+37:31.200 --> 37:33.880
+ because you don't know when they're on or off.
+
+37:33.880 --> 37:38.880
+ And you don't know who's behind it, right?
+
+37:39.920 --> 37:43.480
+ A wearable, depending upon what's happening
+
+37:43.480 --> 37:46.760
+ to the data on it, if it's just stored locally
+
+37:46.760 --> 37:52.640
+ or if it's streaming and what it is being attached to,
+
+37:52.640 --> 37:54.960
+ in a sense, you have the most control over it
+
+37:54.960 --> 37:59.400
+ because it's also very easy to just take it off, right?
+
+37:59.400 --> 38:01.440
+ Now it's not sensing me.
+
+38:01.440 --> 38:05.320
+ So if I'm uncomfortable with what it's sensing,
+
+38:05.320 --> 38:07.240
+ now I'm free, right?
+
+38:07.240 --> 38:09.960
+ If I'm comfortable with what it's sensing,
+
+38:09.960 --> 38:12.800
+ then, and I happen to know everything about this one
+
+38:12.800 --> 38:13.720
+ and what it's doing with it,
+
+38:13.720 --> 38:15.600
+ so I'm quite comfortable with it,
+
+38:15.600 --> 38:20.240
+ then I have control, I'm comfortable.
+
+38:20.240 --> 38:24.720
+ Control is one of the biggest factors for an individual
+
+38:24.720 --> 38:26.600
+ in reducing their stress.
+
+38:26.600 --> 38:28.160
+ If I have control over it,
+
+38:28.160 --> 38:30.200
+ if I know all there is to know about it,
+
+38:30.200 --> 38:32.480
+ then my stress is a lot lower
+
+38:32.480 --> 38:34.960
+ and I'm making an informed choice
+
+38:34.960 --> 38:36.640
+ about whether to wear it or not,
+
+38:36.640 --> 38:38.040
+ or when to wear it or not.
+
+38:38.040 --> 38:40.320
+ I wanna wear it sometimes, maybe not others.
+
+38:40.320 --> 38:42.760
+ Right, so that control, yeah, I'm with you.
+
+38:42.760 --> 38:47.520
+ That control, even if, yeah, the ability to turn it off,
+
+38:47.520 --> 38:49.000
+ that is a really important thing.
+
+38:49.000 --> 38:49.840
+ It's huge.
+
+38:49.840 --> 38:53.440
+ And we need to, maybe, if there's regulations,
+
+38:53.440 --> 38:55.080
+ maybe that's number one to protect
+
+38:55.080 --> 38:59.960
+ is people's ability to, it's easy to opt out as to opt in.
+
+38:59.960 --> 39:04.480
+ Right, so you've studied a bit of neuroscience as well.
+
+39:04.480 --> 39:08.240
+ How have looking at our own minds,
+
+39:08.240 --> 39:12.840
+ sort of the biological stuff or the neurobiological,
+
+39:12.840 --> 39:15.440
+ the neuroscience to get the signals in our brain,
+
+39:17.400 --> 39:18.760
+ helped you understand the problem
+
+39:18.760 --> 39:20.960
+ and the approach of effective computing, so?
+
+39:21.880 --> 39:23.720
+ Originally, I was a computer architect
+
+39:23.720 --> 39:26.320
+ and I was building hardware and computer designs
+
+39:26.320 --> 39:28.240
+ and I wanted to build ones that worked like the brain.
+
+39:28.240 --> 39:29.880
+ So I've been studying the brain
+
+39:29.880 --> 39:32.520
+ as long as I've been studying how to build computers.
+
+39:33.920 --> 39:36.160
+ Have you figured out anything yet?
+
+39:36.160 --> 39:37.000
+ Very little.
+
+39:37.000 --> 39:39.400
+ It's so amazing.
+
+39:39.400 --> 39:40.720
+ You know, they used to think like,
+
+39:40.720 --> 39:42.560
+ oh, if you remove this chunk of the brain
+
+39:42.560 --> 39:44.040
+ and you find this function goes away,
+
+39:44.040 --> 39:45.760
+ well, that's the part of the brain that did it.
+
+39:45.760 --> 39:46.880
+ And then later they realized
+
+39:46.880 --> 39:48.320
+ if you remove this other chunk of the brain,
+
+39:48.320 --> 39:50.120
+ that function comes back and,
+
+39:50.120 --> 39:52.800
+ oh no, we really don't understand it.
+
+39:52.800 --> 39:56.200
+ Brains are so interesting and changing all the time
+
+39:56.200 --> 39:58.080
+ and able to change in ways
+
+39:58.080 --> 40:00.680
+ that will probably continue to surprise us.
+
+40:02.120 --> 40:04.520
+ When we were measuring stress,
+
+40:04.520 --> 40:07.160
+ you may know the story where we found
+
+40:07.160 --> 40:10.680
+ an unusual big skin conductance pattern on one wrist
+
+40:10.680 --> 40:12.720
+ in one of our kids with autism.
+
+40:14.120 --> 40:15.480
+ And in trying to figure out how on earth
+
+40:15.480 --> 40:17.760
+ you could be stressed on one wrist and not the other,
+
+40:17.760 --> 40:20.160
+ like how can you get sweaty on one wrist, right?
+
+40:20.160 --> 40:21.520
+ When you get stressed
+
+40:21.520 --> 40:23.280
+ with that sympathetic fight or flight response,
+
+40:23.280 --> 40:25.120
+ like you kind of should like sweat more
+
+40:25.120 --> 40:26.240
+ in some places than others,
+
+40:26.240 --> 40:27.920
+ but not more on one wrist than the other.
+
+40:27.920 --> 40:29.320
+ That didn't make any sense.
+
+40:30.840 --> 40:33.120
+ We learned that what had actually happened
+
+40:33.120 --> 40:37.080
+ was a part of his brain had unusual electrical activity
+
+40:37.080 --> 40:41.240
+ and that caused an unusually large sweat response
+
+40:41.240 --> 40:42.960
+ on one wrist and not the other.
+
+40:44.040 --> 40:45.480
+ And since then we've learned
+
+40:45.480 --> 40:49.360
+ that seizures cause this unusual electrical activity.
+
+40:49.360 --> 40:51.240
+ And depending where the seizure is,
+
+40:51.240 --> 40:53.360
+ if it's in one place and it's staying there,
+
+40:53.360 --> 40:55.520
+ you can have a big electrical response
+
+40:55.520 --> 40:58.480
+ we can pick up with a wearable at one part of the body.
+
+40:58.480 --> 40:59.400
+ You can also have a seizure
+
+40:59.400 --> 41:00.480
+ that spreads over the whole brain,
+
+41:00.480 --> 41:02.400
+ generalized grand mal seizure.
+
+41:02.400 --> 41:04.040
+ And that response spreads
+
+41:04.040 --> 41:06.240
+ and we can pick it up pretty much anywhere.
+
+41:07.160 --> 41:10.200
+ As we learned this and then later built Embrace
+
+41:10.200 --> 41:13.120
+ that's now FDA cleared for seizure detection,
+
+41:13.120 --> 41:15.760
+ we have also built relationships
+
+41:15.760 --> 41:18.480
+ with some of the most amazing doctors in the world
+
+41:18.480 --> 41:20.400
+ who not only help people
+
+41:20.400 --> 41:23.040
+ with unusual brain activity or epilepsy,
+
+41:23.040 --> 41:24.440
+ but some of them are also surgeons
+
+41:24.440 --> 41:27.160
+ and they're going in and they're implanting electrodes,
+
+41:27.160 --> 41:31.200
+ not just to momentarily read the strange patterns
+
+41:31.200 --> 41:35.080
+ of brain activity that we'd like to see return to normal,
+
+41:35.080 --> 41:37.320
+ but also to read out continuously what's happening
+
+41:37.320 --> 41:39.120
+ in some of these deep regions of the brain
+
+41:39.120 --> 41:41.640
+ during most of life when these patients are not seizing.
+
+41:41.640 --> 41:42.960
+ Most of the time they're not seizing,
+
+41:42.960 --> 41:44.960
+ most of the time they're fine.
+
+41:44.960 --> 41:47.920
+ And so we are now working on mapping
+
+41:47.920 --> 41:49.960
+ those deep brain regions
+
+41:49.960 --> 41:53.680
+ that you can't even usually get with EEG scalp electrodes
+
+41:53.680 --> 41:57.760
+ because the changes deep inside don't reach the surface.
+
+41:58.640 --> 42:00.480
+ But interesting when some of those regions
+
+42:00.480 --> 42:04.280
+ are activated, we see a big skin conductance response.
+
+42:04.280 --> 42:05.800
+ Who would have thunk it, right?
+
+42:05.800 --> 42:07.840
+ Like nothing here, but something here.
+
+42:07.840 --> 42:10.400
+ In fact, right after seizures
+
+42:10.400 --> 42:12.600
+ that we think are the most dangerous ones
+
+42:12.600 --> 42:14.120
+ that precede what's called SUDEP,
+
+42:14.120 --> 42:16.040
+ Sudden Unexpected Death and Epilepsy,
+
+42:16.960 --> 42:19.520
+ there's a period where the brainwaves go flat
+
+42:19.520 --> 42:21.640
+ and it looks like the person's brain has stopped,
+
+42:21.640 --> 42:23.120
+ but it hasn't.
+
+42:23.120 --> 42:26.400
+ The activity has gone deep into a region
+
+42:26.400 --> 42:29.120
+ that can make the cortical activity look flat,
+
+42:29.120 --> 42:31.480
+ like a quick shutdown signal here.
+
+42:32.600 --> 42:35.560
+ It can unfortunately cause breathing to stop
+
+42:35.560 --> 42:37.320
+ if it progresses long enough.
+
+42:38.360 --> 42:42.080
+ Before that happens, we see a big skin conductance response
+
+42:42.080 --> 42:43.760
+ in the data that we have.
+
+42:43.760 --> 42:46.880
+ The longer this flattening, the bigger our response here.
+
+42:46.880 --> 42:49.480
+ So we have been trying to learn, you know, initially,
+
+42:49.480 --> 42:51.720
+ like why are we getting a big response here
+
+42:51.720 --> 42:52.560
+ when there's nothing here?
+
+42:52.560 --> 42:55.600
+ Well, it turns out there's something much deeper.
+
+42:55.600 --> 42:57.760
+ So we can now go inside the brains
+
+42:57.760 --> 43:01.280
+ of some of these individuals, fabulous people
+
+43:01.280 --> 43:03.480
+ who usually aren't seizing,
+
+43:03.480 --> 43:05.600
+ and get this data and start to map it.
+
+43:05.600 --> 43:07.600
+ So that's the active research that we're doing right now
+
+43:07.600 --> 43:09.360
+ with top medical partners.
+
+43:09.360 --> 43:12.960
+ So this wearable sensor that's looking at skin conductance
+
+43:12.960 --> 43:17.160
+ can capture sort of the ripples of the complexity
+
+43:17.160 --> 43:18.880
+ of what's going on in our brain.
+
+43:18.880 --> 43:22.240
+ So this little device, you have a hope
+
+43:22.240 --> 43:24.920
+ that you can start to get the signal
+
+43:24.920 --> 43:27.880
+ from the interesting things happening in the brain.
+
+43:27.880 --> 43:30.600
+ Yeah, we've already published the strong correlations
+
+43:30.600 --> 43:32.200
+ between the size of this response
+
+43:32.200 --> 43:35.360
+ and the flattening that happens afterwards.
+
+43:35.360 --> 43:38.320
+ And unfortunately, also in a real SUDEP case
+
+43:38.320 --> 43:42.360
+ where the patient died because the, well, we don't know why.
+
+43:42.360 --> 43:43.600
+ We don't know if somebody was there,
+
+43:43.600 --> 43:45.280
+ it would have definitely prevented it.
+
+43:45.280 --> 43:47.040
+ But we know that most SUDEPs happen
+
+43:47.040 --> 43:48.600
+ when the person's alone.
+
+43:48.600 --> 43:53.600
+ And in this case, a SUDEP is an acronym, S U D E P.
+
+43:53.600 --> 43:56.680
+ And it stands for the number two cause
+
+43:56.680 --> 43:58.960
+ of years of life lost actually
+
+43:58.960 --> 44:01.040
+ among all neurological disorders.
+
+44:01.040 --> 44:03.480
+ Stroke is number one, SUDEP is number two,
+
+44:03.480 --> 44:05.640
+ but most people haven't heard of it.
+
+44:05.640 --> 44:07.240
+ Actually, I'll plug my TED talk,
+
+44:07.240 --> 44:09.280
+ it's on the front page of TED right now
+
+44:09.280 --> 44:11.160
+ that talks about this.
+
+44:11.160 --> 44:13.560
+ And we hope to change that.
+
+44:13.560 --> 44:17.160
+ I hope everybody who's heard of SIDS and stroke
+
+44:17.160 --> 44:18.760
+ will now hear of SUDEP
+
+44:18.760 --> 44:21.280
+ because we think in most cases it's preventable
+
+44:21.280 --> 44:24.720
+ if people take their meds and aren't alone
+
+44:24.720 --> 44:26.200
+ when they have a seizure.
+
+44:26.200 --> 44:27.800
+ Not guaranteed to be preventable.
+
+44:27.800 --> 44:29.680
+ There are some exceptions,
+
+44:29.680 --> 44:31.560
+ but we think most cases probably are.
+
+44:31.560 --> 44:35.000
+ So you had this embrace now in the version two wristband,
+
+44:35.000 --> 44:37.800
+ right, for epilepsy management.
+
+44:39.280 --> 44:41.440
+ That's the one that's FDA approved?
+
+44:41.440 --> 44:42.640
+ Yes.
+
+44:42.640 --> 44:43.480
+ Which is kind of a clear.
+
+44:43.480 --> 44:45.200
+ FDA cleared, they say.
+
+44:45.200 --> 44:46.040
+ Sorry.
+
+44:46.040 --> 44:46.880
+ No, it's okay.
+
+44:46.880 --> 44:49.400
+ It essentially means it's approved for marketing.
+
+44:49.400 --> 44:50.240
+ Got it.
+
+44:50.240 --> 44:52.960
+ Just a side note, how difficult is that to do?
+
+44:52.960 --> 44:54.880
+ It's essentially getting FDA approval
+
+44:54.880 --> 44:57.000
+ for computer science technology.
+
+44:57.000 --> 44:58.000
+ It's so agonizing.
+
+44:58.000 --> 45:01.920
+ It's much harder than publishing multiple papers
+
+45:01.920 --> 45:04.120
+ in top medical journals.
+
+45:04.120 --> 45:05.920
+ Yeah, we've published peer reviewed
+
+45:05.920 --> 45:08.840
+ top medical journal neurology, best results,
+
+45:08.840 --> 45:10.800
+ and that's not good enough for the FDA.
+
+45:10.800 --> 45:12.520
+ Is that system,
+
+45:12.520 --> 45:14.880
+ so if we look at the peer review of medical journals,
+
+45:14.880 --> 45:16.800
+ there's flaws, there's strengths,
+
+45:16.800 --> 45:19.560
+ is the FDA approval process,
+
+45:19.560 --> 45:21.560
+ how does it compare to the peer review process?
+
+45:21.560 --> 45:23.160
+ Does it have the strength?
+
+45:23.160 --> 45:25.720
+ I'll take peer review over FDA any day.
+
+45:25.720 --> 45:26.600
+ But is that a good thing?
+
+45:26.600 --> 45:28.040
+ Is that a good thing for FDA?
+
+45:28.040 --> 45:31.160
+ You're saying, does it stop some amazing technology
+
+45:31.160 --> 45:32.320
+ from getting through?
+
+45:32.320 --> 45:33.400
+ Yeah, it does.
+
+45:33.400 --> 45:36.240
+ The FDA performs a very important good role
+
+45:36.240 --> 45:37.600
+ in keeping people safe.
+
+45:37.600 --> 45:39.480
+ They keep things,
+
+45:39.480 --> 45:41.800
+ they put you through tons of safety testing
+
+45:41.800 --> 45:44.240
+ and that's wonderful and that's great.
+
+45:44.240 --> 45:46.240
+ I'm all in favor of the safety testing.
+
+45:46.240 --> 45:51.000
+ But sometimes they put you through additional testing
+
+45:51.000 --> 45:54.080
+ that they don't have to explain why they put you through it
+
+45:54.080 --> 45:56.680
+ and you don't understand why you're going through it
+
+45:56.680 --> 45:58.440
+ and it doesn't make sense.
+
+45:58.440 --> 46:00.680
+ And that's very frustrating.
+
+46:00.680 --> 46:03.080
+ And maybe they have really good reasons
+
+46:04.400 --> 46:05.480
+ and they just would,
+
+46:05.480 --> 46:09.720
+ it would do people a service to articulate those reasons.
+
+46:09.720 --> 46:10.640
+ Be more transparent.
+
+46:10.640 --> 46:12.120
+ Be more transparent.
+
+46:12.120 --> 46:15.760
+ So as part of Empatica, you have sensors.
+
+46:15.760 --> 46:17.800
+ So what kind of problems can we crack?
+
+46:17.800 --> 46:22.800
+ What kind of things from seizures to autism
+
+46:24.480 --> 46:28.000
+ to I think I've heard you mentioned depression.
+
+46:28.000 --> 46:29.760
+ What kind of things can we alleviate?
+
+46:29.760 --> 46:30.720
+ Can we detect?
+
+46:30.720 --> 46:32.240
+ What's your hope of what,
+
+46:32.240 --> 46:33.960
+ how we can make the world a better place
+
+46:33.960 --> 46:35.760
+ with this wearable tech?
+
+46:35.760 --> 46:40.760
+ I would really like to see my fellow brilliant researchers
+
+46:40.760 --> 46:45.760
+ step back and say, what are the really hard problems
+
+46:46.200 --> 46:47.760
+ that we don't know how to solve
+
+46:47.760 --> 46:50.440
+ that come from people maybe we don't even see
+
+46:50.440 --> 46:52.800
+ in our normal life because they're living
+
+46:52.800 --> 46:54.240
+ in the poor places.
+
+46:54.240 --> 46:56.160
+ They're stuck on the bus.
+
+46:56.160 --> 46:58.440
+ They can't even afford the Uber or the Lyft
+
+46:58.440 --> 47:02.200
+ or the data plan or all these other wonderful things
+
+47:02.200 --> 47:04.360
+ we have that we keep improving on.
+
+47:04.360 --> 47:07.080
+ Meanwhile, there's all these folks left behind in the world
+
+47:07.080 --> 47:09.520
+ and they're struggling with horrible diseases
+
+47:09.520 --> 47:12.960
+ with depression, with epilepsy, with diabetes,
+
+47:12.960 --> 47:17.960
+ with just awful stuff that maybe a little more time
+
+47:19.200 --> 47:20.440
+ and attention hanging out with them
+
+47:20.440 --> 47:22.800
+ and learning what are their challenges in life?
+
+47:22.800 --> 47:24.000
+ What are their needs?
+
+47:24.000 --> 47:25.640
+ How do we help them have job skills?
+
+47:25.640 --> 47:28.520
+ How do we help them have a hope and a future
+
+47:28.520 --> 47:31.240
+ and a chance to have the great life
+
+47:31.240 --> 47:34.960
+ that so many of us building technology have?
+
+47:34.960 --> 47:37.920
+ And then how would that reshape the kinds of AI
+
+47:37.920 --> 47:41.400
+ that we build? How would that reshape the new apps
+
+47:41.400 --> 47:44.040
+ that we build or the maybe we need to focus
+
+47:44.040 --> 47:46.880
+ on how to make things more low cost and green
+
+47:46.880 --> 47:49.320
+ instead of thousand dollar phones?
+
+47:49.320 --> 47:52.840
+ I mean, come on, why can't we be thinking more
+
+47:52.840 --> 47:56.840
+ about things that do more with less for these folks?
+
+47:56.840 --> 48:00.200
+ Quality of life is not related to the cost of your phone.
+
+48:00.200 --> 48:03.960
+ It's not something that, it's been shown that what about
+
+48:03.960 --> 48:08.440
+ $75,000 of income and happiness is the same, okay?
+
+48:08.440 --> 48:10.720
+ However, I can tell you, you get a lot of happiness
+
+48:10.720 --> 48:12.320
+ from helping other people.
+
+48:12.320 --> 48:15.200
+ You get a lot more than $75,000 buys.
+
+48:15.200 --> 48:19.320
+ So how do we connect up the people who have real needs
+
+48:19.320 --> 48:21.920
+ with the people who have the ability to build the future
+
+48:21.920 --> 48:25.840
+ and build the kind of future that truly improves the lives
+
+48:25.840 --> 48:28.720
+ of all the people that are currently being left behind?
+
+48:28.720 --> 48:32.720
+ So let me return just briefly on a point,
+
+48:32.720 --> 48:34.320
+ maybe in the movie, Her.
+
+48:35.280 --> 48:37.720
+ So do you think if we look farther into the future,
+
+48:37.720 --> 48:41.240
+ you said so much of the benefit from making our technology
+
+48:41.240 --> 48:46.240
+ more empathetic to us human beings would make them
+
+48:46.240 --> 48:50.320
+ better tools, empower us, make our lives better.
+
+48:50.320 --> 48:51.960
+ Well, if we look farther into the future,
+
+48:51.960 --> 48:54.560
+ do you think we'll ever create an AI system
+
+48:54.560 --> 48:56.920
+ that we can fall in love with?
+
+48:56.920 --> 49:00.280
+ That we can fall in love with and loves us back
+
+49:00.280 --> 49:04.920
+ on a level that is similar to human to human interaction,
+
+49:04.920 --> 49:07.680
+ like in the movie Her or beyond?
+
+49:07.680 --> 49:12.680
+ I think we can simulate it in ways that could,
+
+49:13.920 --> 49:16.200
+ you know, sustain engagement for a while.
+
+49:17.280 --> 49:20.160
+ Would it be as good as another person?
+
+49:20.160 --> 49:24.560
+ I don't think so, if you're used to like good people.
+
+49:24.560 --> 49:27.120
+ Now, if you've just grown up with nothing but abuse
+
+49:27.120 --> 49:29.080
+ and you can't stand human beings,
+
+49:29.080 --> 49:32.160
+ can we do something that helps you there
+
+49:32.160 --> 49:34.000
+ that gives you something through a machine?
+
+49:34.000 --> 49:36.160
+ Yeah, but that's pretty low bar, right?
+
+49:36.160 --> 49:39.120
+ If you've only encountered pretty awful people.
+
+49:39.120 --> 49:41.680
+ If you've encountered wonderful, amazing people,
+
+49:41.680 --> 49:44.800
+ we're nowhere near building anything like that.
+
+49:44.800 --> 49:49.480
+ And I would not bet on building it.
+
+49:49.480 --> 49:53.160
+ I would bet instead on building the kinds of AI
+
+49:53.160 --> 49:56.880
+ that helps kind of raise all boats,
+
+49:56.880 --> 49:59.480
+ that helps all people be better people,
+
+49:59.480 --> 50:02.280
+ helps all people figure out if they're getting sick tomorrow
+
+50:02.280 --> 50:05.400
+ and helps give them what they need to stay well tomorrow.
+
+50:05.400 --> 50:07.000
+ That's the kind of AI I wanna build
+
+50:07.000 --> 50:09.040
+ that improves human lives,
+
+50:09.040 --> 50:11.640
+ not the kind of AI that just walks on The Tonight Show
+
+50:11.640 --> 50:14.600
+ and people go, wow, look how smart that is.
+
+50:14.600 --> 50:15.800
+ Really?
+
+50:15.800 --> 50:18.640
+ And then it goes back in a box, you know?
+
+50:18.640 --> 50:19.960
+ So on that point,
+
+50:19.960 --> 50:23.440
+ if we continue looking a little bit into the future,
+
+50:23.440 --> 50:25.200
+ do you think an AI that's empathetic
+
+50:25.200 --> 50:28.960
+ and does improve our lives
+
+50:28.960 --> 50:31.840
+ need to have a physical presence, a body?
+
+50:31.840 --> 50:36.840
+ And even let me cautiously say the C word consciousness
+
+50:38.720 --> 50:40.760
+ and even fear of mortality.
+
+50:40.760 --> 50:42.760
+ So some of those human characteristics,
+
+50:42.760 --> 50:45.920
+ do you think it needs to have those aspects
+
+50:45.920 --> 50:50.880
+ or can it remain simply a machine learning tool
+
+50:50.880 --> 50:53.400
+ that learns from data of behavior
+
+50:53.400 --> 50:56.640
+ that learns to make us,
+
+50:56.640 --> 51:00.080
+ based on previous patterns, feel better?
+
+51:00.080 --> 51:02.560
+ Or does it need those elements of consciousness?
+
+51:02.560 --> 51:03.760
+ It depends on your goals.
+
+51:03.760 --> 51:06.720
+ If you're making a movie, it needs a body.
+
+51:06.720 --> 51:08.000
+ It needs a gorgeous body.
+
+51:08.000 --> 51:10.040
+ It needs to act like it has consciousness.
+
+51:10.040 --> 51:11.680
+ It needs to act like it has emotion, right?
+
+51:11.680 --> 51:13.360
+ Because that's what sells.
+
+51:13.360 --> 51:16.280
+ That's what's gonna get me to show up and enjoy the movie.
+
+51:16.280 --> 51:17.800
+ Okay.
+
+51:17.800 --> 51:19.800
+ In real life, does it need all that?
+
+51:19.800 --> 51:21.840
+ Well, if you've read Orson Scott Card,
+
+51:21.840 --> 51:23.520
+ Ender's Game, Speaker of the Dead,
+
+51:23.520 --> 51:26.720
+ it could just be like a little voice in your earring, right?
+
+51:26.720 --> 51:28.360
+ And you could have an intimate relationship
+
+51:28.360 --> 51:29.520
+ and it could get to know you.
+
+51:29.520 --> 51:31.640
+ And it doesn't need to be a robot.
+
+51:34.160 --> 51:37.160
+ But that doesn't make this compelling of a movie, right?
+
+51:37.160 --> 51:38.440
+ I mean, we already think it's kind of weird
+
+51:38.440 --> 51:41.600
+ when a guy looks like he's talking to himself on the train,
+
+51:41.600 --> 51:43.760
+ even though it's earbuds.
+
+51:43.760 --> 51:48.760
+ So we have these, embodied is more powerful.
+
+51:49.680 --> 51:51.760
+ Embodied, when you compare interactions
+
+51:51.760 --> 51:55.280
+ with an embodied robot versus a video of a robot
+
+51:55.280 --> 52:00.160
+ versus no robot, the robot is more engaging.
+
+52:00.160 --> 52:01.720
+ The robot gets our attention more.
+
+52:01.720 --> 52:03.080
+ The robot, when you walk in your house,
+
+52:03.080 --> 52:05.440
+ is more likely to get you to remember to do the things
+
+52:05.440 --> 52:06.480
+ that you asked it to do,
+
+52:06.480 --> 52:09.000
+ because it's kind of got a physical presence.
+
+52:09.000 --> 52:10.840
+ You can avoid it if you don't like it.
+
+52:10.840 --> 52:12.440
+ It could see you're avoiding it.
+
+52:12.440 --> 52:14.760
+ There's a lot of power to being embodied.
+
+52:14.760 --> 52:17.160
+ There will be embodied AIs.
+
+52:17.160 --> 52:22.040
+ They have great power and opportunity and potential.
+
+52:22.040 --> 52:24.600
+ There will also be AIs that aren't embodied,
+
+52:24.600 --> 52:28.520
+ that just are little software assistants
+
+52:28.520 --> 52:30.240
+ that help us with different things
+
+52:30.240 --> 52:32.600
+ that may get to know things about us.
+
+52:33.480 --> 52:34.880
+ Will they be conscious?
+
+52:34.880 --> 52:36.640
+ There will be attempts to program them
+
+52:36.640 --> 52:39.280
+ to make them appear to be conscious.
+
+52:39.280 --> 52:41.760
+ We can already write programs that make it look like,
+
+52:41.760 --> 52:42.600
+ oh, what do you mean?
+
+52:42.600 --> 52:43.800
+ Of course I'm aware that you're there, right?
+
+52:43.800 --> 52:45.720
+ I mean, it's trivial to say stuff like that.
+
+52:45.720 --> 52:47.800
+ It's easy to fool people,
+
+52:48.720 --> 52:52.160
+ but does it actually have conscious experience like we do?
+
+52:53.400 --> 52:55.920
+ Nobody has a clue how to do that yet.
+
+52:55.920 --> 52:58.720
+ That seems to be something that is beyond
+
+52:58.720 --> 53:01.480
+ what any of us knows how to build now.
+
+53:01.480 --> 53:02.880
+ Will it have to have that?
+
+53:03.720 --> 53:05.520
+ I think you can get pretty far
+
+53:05.520 --> 53:07.280
+ with a lot of stuff without it.
+
+53:07.280 --> 53:10.960
+ But will we accord it rights?
+
+53:10.960 --> 53:13.320
+ Well, that's more a political game
+
+53:13.320 --> 53:16.480
+ than it is a question of real consciousness.
+
+53:16.480 --> 53:18.720
+ Yeah, can you go to jail for turning off Alexa
+
+53:18.720 --> 53:23.720
+ is the question for an election maybe a few decades from now.
+
+53:24.960 --> 53:27.640
+ Well, Sophia Robot's already been given rights
+
+53:27.640 --> 53:30.040
+ as a citizen in Saudi Arabia, right?
+
+53:30.040 --> 53:33.680
+ Even before women have full rights.
+
+53:33.680 --> 53:36.960
+ Then the robot was still put back in the box
+
+53:36.960 --> 53:39.600
+ to be shipped to the next place
+
+53:39.600 --> 53:41.760
+ where it would get a paid appearance, right?
+
+53:42.760 --> 53:47.760
+ Yeah, it's dark and almost comedic, if not absurd.
+
+53:50.160 --> 53:54.640
+ So I've heard you speak about your journey in finding faith.
+
+53:54.640 --> 53:55.960
+ Sure.
+
+53:55.960 --> 54:00.040
+ And how you discovered some wisdoms about life
+
+54:00.040 --> 54:03.240
+ and beyond from reading the Bible.
+
+54:03.240 --> 54:05.440
+ And I've also heard you say that,
+
+54:05.440 --> 54:07.040
+ you said scientists too often assume
+
+54:07.040 --> 54:10.360
+ that nothing exists beyond what can be currently measured.
+
+54:11.360 --> 54:12.640
+ Yeah, materialism.
+
+54:12.640 --> 54:13.480
+ Materialism.
+
+54:13.480 --> 54:14.880
+ And scientism, yeah.
+
+54:14.880 --> 54:17.360
+ So in some sense, this assumption enables
+
+54:17.360 --> 54:20.280
+ the near term scientific method,
+
+54:20.280 --> 54:25.280
+ assuming that we can uncover the mysteries of this world
+
+54:25.360 --> 54:28.280
+ by the mechanisms of measurement that we currently have.
+
+54:28.280 --> 54:32.400
+ But we easily forget that we've made this assumption.
+
+54:33.960 --> 54:35.640
+ So what do you think we miss out on
+
+54:35.640 --> 54:37.120
+ by making that assumption?
+
+54:38.760 --> 54:42.640
+ It's fine to limit the scientific method
+
+54:42.640 --> 54:46.840
+ to things we can measure and reason about and reproduce.
+
+54:47.720 --> 54:48.640
+ That's fine.
+
+54:49.640 --> 54:51.160
+ I think we have to recognize
+
+54:51.160 --> 54:53.160
+ that sometimes we scientists also believe
+
+54:53.160 --> 54:55.560
+ in things that happen historically.
+
+54:55.560 --> 54:57.920
+ Like I believe the Holocaust happened.
+
+54:57.920 --> 55:02.920
+ I can't prove events from past history scientifically.
+
+55:03.880 --> 55:06.480
+ You prove them with historical evidence, right?
+
+55:06.480 --> 55:08.200
+ With the impact they had on people,
+
+55:08.200 --> 55:11.640
+ with eyewitness testimony and things like that.
+
+55:11.640 --> 55:15.680
+ So a good thinker recognizes that science
+
+55:15.680 --> 55:19.440
+ is one of many ways to get knowledge.
+
+55:19.440 --> 55:21.640
+ It's not the only way.
+
+55:21.640 --> 55:24.280
+ And there's been some really bad philosophy
+
+55:24.280 --> 55:27.840
+ and bad thinking recently, you can call it scientism,
+
+55:27.840 --> 55:31.200
+ where people say science is the only way to get to truth.
+
+55:31.200 --> 55:33.360
+ And it's not, it just isn't.
+
+55:33.360 --> 55:35.960
+ There are other ways that work also.
+
+55:35.960 --> 55:38.520
+ Like knowledge of love with someone.
+
+55:38.520 --> 55:42.720
+ You don't prove your love through science, right?
+
+55:43.600 --> 55:48.160
+ So history, philosophy, love,
+
+55:48.160 --> 55:50.840
+ a lot of other things in life show us
+
+55:50.840 --> 55:55.840
+ that there's more ways to gain knowledge and truth
+
+55:55.840 --> 55:57.800
+ if you're willing to believe there is such a thing,
+
+55:57.800 --> 56:01.040
+ and I believe there is, than science.
+
+56:01.040 --> 56:03.080
+ I do, I am a scientist, however.
+
+56:03.080 --> 56:05.880
+ And in my science, I do limit my science
+
+56:05.880 --> 56:09.600
+ to the things that the scientific method can do.
+
+56:09.600 --> 56:11.800
+ But I recognize that it's myopic
+
+56:11.800 --> 56:13.720
+ to say that that's all there is.
+
+56:13.720 --> 56:15.680
+ Right, there's, just like you listed,
+
+56:15.680 --> 56:17.120
+ there's all the why questions.
+
+56:17.120 --> 56:20.520
+ And really we know, if we're being honest with ourselves,
+
+56:20.520 --> 56:25.520
+ the percent of what we really know is basically zero
+
+56:25.520 --> 56:28.120
+ relative to the full mystery of the...
+
+56:28.120 --> 56:30.360
+ Measure theory, a set of measure zero,
+
+56:30.360 --> 56:33.120
+ if I have a finite amount of knowledge, which I do.
+
+56:34.520 --> 56:36.880
+ So you said that you believe in truth.
+
+56:37.960 --> 56:40.600
+ So let me ask that old question.
+
+56:40.600 --> 56:42.800
+ What do you think this thing is all about?
+
+56:42.800 --> 56:44.800
+ What's the life on earth?
+
+56:44.800 --> 56:46.200
+ Life, the universe, and everything?
+
+56:46.200 --> 56:47.040
+ And everything, what's the meaning?
+
+56:47.040 --> 56:49.680
+ I can't quote Douglas Adams 42.
+
+56:49.680 --> 56:51.240
+ It's my favorite number.
+
+56:51.240 --> 56:52.640
+ By the way, that's my street address.
+
+56:52.640 --> 56:54.880
+ My husband and I guessed the exact same number
+
+56:54.880 --> 56:56.720
+ for our house, we got to pick it.
+
+56:57.760 --> 57:00.120
+ And there's a reason we picked 42, yeah.
+
+57:00.120 --> 57:02.320
+ So is it just 42 or is there,
+
+57:02.320 --> 57:05.360
+ do you have other words that you can put around it?
+
+57:05.360 --> 57:07.760
+ Well, I think there's a grand adventure
+
+57:07.760 --> 57:09.840
+ and I think this life is a part of it.
+
+57:09.840 --> 57:12.200
+ I think there's a lot more to it than meets the eye
+
+57:12.200 --> 57:14.440
+ and the heart and the mind and the soul here.
+
+57:14.440 --> 57:18.000
+ I think we see but through a glass dimly in this life.
+
+57:18.000 --> 57:21.720
+ We see only a part of all there is to know.
+
+57:22.720 --> 57:25.800
+ If people haven't read the Bible, they should,
+
+57:25.800 --> 57:27.920
+ if they consider themselves educated
+
+57:27.920 --> 57:30.400
+ and you could read Proverbs
+
+57:30.400 --> 57:33.320
+ and find tremendous wisdom in there
+
+57:33.320 --> 57:35.680
+ that cannot be scientifically proven.
+
+57:35.680 --> 57:38.200
+ But when you read it, there's something in you,
+
+57:38.200 --> 57:41.160
+ like a musician knows when the instruments played right
+
+57:41.160 --> 57:42.680
+ and it's beautiful.
+
+57:42.680 --> 57:45.200
+ There's something in you that comes alive
+
+57:45.200 --> 57:47.240
+ and knows that there's a truth there
+
+57:47.240 --> 57:50.160
+ that it's like your strings are being plucked by the master
+
+57:50.160 --> 57:54.240
+ instead of by me, right, playing when I pluck it.
+
+57:54.240 --> 57:57.400
+ But probably when you play, it sounds spectacular, right?
+
+57:57.400 --> 58:01.520
+ And when you encounter those truths,
+
+58:01.520 --> 58:03.240
+ there's something in you that sings
+
+58:03.240 --> 58:06.320
+ and knows that there is more
+
+58:06.320 --> 58:09.200
+ than what I can prove mathematically
+
+58:09.200 --> 58:11.280
+ or program a computer to do.
+
+58:11.280 --> 58:13.360
+ Don't get me wrong, the math is gorgeous.
+
+58:13.360 --> 58:16.040
+ The computer programming can be brilliant.
+
+58:16.040 --> 58:17.200
+ It's inspiring, right?
+
+58:17.200 --> 58:19.200
+ We wanna do more.
+
+58:19.200 --> 58:21.840
+ None of this squashes my desire to do science
+
+58:21.840 --> 58:23.640
+ or to get knowledge through science.
+
+58:23.640 --> 58:26.040
+ I'm not dissing the science at all.
+
+58:26.040 --> 58:29.560
+ I grow even more in awe of what the science can do
+
+58:29.560 --> 58:33.000
+ because I'm more in awe of all there is we don't know.
+
+58:33.000 --> 58:36.040
+ And really at the heart of science,
+
+58:36.040 --> 58:38.200
+ you have to have a belief that there's truth,
+
+58:38.200 --> 58:41.080
+ that there's something greater to be discovered.
+
+58:41.080 --> 58:44.480
+ And some scientists may not wanna use the faith word,
+
+58:44.480 --> 58:47.800
+ but it's faith that drives us to do science.
+
+58:47.800 --> 58:49.920
+ It's faith that there is truth,
+
+58:49.920 --> 58:52.520
+ that there's something to know that we don't know,
+
+58:52.520 --> 58:56.000
+ that it's worth knowing, that it's worth working hard,
+
+58:56.000 --> 58:58.320
+ and that there is meaning,
+
+58:58.320 --> 58:59.880
+ that there is such a thing as meaning,
+
+58:59.880 --> 59:02.720
+ which by the way, science can't prove either.
+
+59:02.720 --> 59:04.760
+ We have to kind of start with some assumptions
+
+59:04.760 --> 59:06.880
+ that there's things like truth and meaning.
+
+59:06.880 --> 59:10.680
+ And these are really questions philosophers own, right?
+
+59:10.680 --> 59:11.760
+ This is their space,
+
+59:11.760 --> 59:14.560
+ of philosophers and theologians at some level.
+
+59:14.560 --> 59:17.040
+ So these are things science,
+
+59:19.160 --> 59:23.000
+ when people claim that science will tell you all truth,
+
+59:23.000 --> 59:23.920
+ there's a name for that.
+
+59:23.920 --> 59:25.600
+ It's its own kind of faith.
+
+59:25.600 --> 59:29.000
+ It's scientism and it's very myopic.
+
+59:29.000 --> 59:32.360
+ Yeah, there's a much bigger world out there to be explored
+
+59:32.360 --> 59:34.800
+ in ways that science may not,
+
+59:34.800 --> 59:37.120
+ at least for now, allow us to explore.
+
+59:37.120 --> 59:40.080
+ Yeah, and there's meaning and purpose and hope
+
+59:40.080 --> 59:43.240
+ and joy and love and all these awesome things
+
+59:43.240 --> 59:45.480
+ that make it all worthwhile too.
+
+59:45.480 --> 59:47.680
+ I don't think there's a better way to end it, Roz.
+
+59:47.680 --> 59:49.040
+ Thank you so much for talking today.
+
+59:49.040 --> 59:50.360
+ Thanks Lex, what a pleasure.
+
+59:50.360 --> 1:00:11.080
+ Great questions.
+

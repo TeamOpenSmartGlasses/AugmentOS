@@ -1,0 +1,6035 @@
+WEBVTT
+
+00:00.000 --> 00:03.180
+ The following is a conversation with Melanie Mitchell.
+
+00:03.180 --> 00:04.860
+ She's a professor of computer science
+
+00:04.860 --> 00:06.700
+ at Portland State University
+
+00:06.700 --> 00:10.020
+ and an external professor at Santa Fe Institute.
+
+00:10.020 --> 00:12.980
+ She has worked on and written about artificial intelligence
+
+00:12.980 --> 00:14.940
+ from fascinating perspectives,
+
+00:14.940 --> 00:18.500
+ including adaptive complex systems, genetic algorithms,
+
+00:18.500 --> 00:20.980
+ and the copycat cognitive architecture,
+
+00:20.980 --> 00:23.340
+ which places the process of analogy making
+
+00:23.340 --> 00:26.300
+ at the core of human cognition.
+
+00:26.300 --> 00:28.520
+ From her doctoral work with her advisors,
+
+00:28.520 --> 00:32.020
+ Douglas Hofstadter and John Holland, to today,
+
+00:32.020 --> 00:34.220
+ she has contributed a lot of important ideas
+
+00:34.220 --> 00:37.020
+ to the field of AI, including her recent book,
+
+00:37.020 --> 00:39.960
+ simply called Artificial Intelligence,
+
+00:39.960 --> 00:42.820
+ A Guide for Thinking Humans.
+
+00:42.820 --> 00:45.900
+ This is the Artificial Intelligence Podcast.
+
+00:45.900 --> 00:48.300
+ If you enjoy it, subscribe on YouTube,
+
+00:48.300 --> 00:50.300
+ give it five stars on Apple Podcast,
+
+00:50.300 --> 00:51.740
+ support it on Patreon,
+
+00:51.740 --> 00:53.820
+ or simply connect with me on Twitter
+
+00:53.820 --> 00:58.140
+ at Lex Friedman, spelled F R I D M A N.
+
+00:58.140 --> 00:59.860
+ I recently started doing ads
+
+00:59.860 --> 01:01.580
+ at the end of the introduction.
+
+01:01.580 --> 01:04.340
+ I'll do one or two minutes after introducing the episode
+
+01:04.340 --> 01:05.900
+ and never any ads in the middle
+
+01:05.900 --> 01:08.380
+ that can break the flow of the conversation.
+
+01:08.380 --> 01:09.580
+ I hope that works for you
+
+01:09.580 --> 01:12.140
+ and doesn't hurt the listening experience.
+
+01:12.140 --> 01:14.900
+ I provide timestamps for the start of the conversation,
+
+01:14.900 --> 01:17.060
+ but it helps if you listen to the ad
+
+01:17.060 --> 01:19.660
+ and support this podcast by trying out the product
+
+01:19.660 --> 01:21.300
+ or service being advertised.
+
+01:22.660 --> 01:24.940
+ This show is presented by Cash App,
+
+01:24.940 --> 01:27.540
+ the number one finance app in the App Store.
+
+01:27.540 --> 01:30.260
+ I personally use Cash App to send money to friends,
+
+01:30.260 --> 01:32.620
+ but you can also use it to buy, sell,
+
+01:32.620 --> 01:35.020
+ and deposit Bitcoin in just seconds.
+
+01:35.020 --> 01:38.180
+ Cash App also has a new investing feature.
+
+01:38.180 --> 01:41.120
+ You can buy fractions of a stock, say $1 worth,
+
+01:41.120 --> 01:43.360
+ no matter what the stock price is.
+
+01:43.360 --> 01:46.180
+ Broker services are provided by Cash App Investing,
+
+01:46.180 --> 01:49.940
+ a subsidiary of Square and member SIPC.
+
+01:49.940 --> 01:51.860
+ I'm excited to be working with Cash App
+
+01:51.860 --> 01:55.260
+ to support one of my favorite organizations called First.
+
+01:55.260 --> 01:58.900
+ Best known for their first robotics and Lego competitions.
+
+01:58.900 --> 02:02.620
+ They educate and inspire hundreds of thousands of students
+
+02:02.620 --> 02:04.420
+ in over 110 countries
+
+02:04.420 --> 02:06.940
+ and have a perfect rating on Charity Navigator,
+
+02:06.940 --> 02:09.020
+ which means that donated money is used
+
+02:09.020 --> 02:11.660
+ to maximum effectiveness.
+
+02:11.660 --> 02:14.900
+ When you get Cash App from the App Store or Google Play
+
+02:14.900 --> 02:17.300
+ and use code LexPodcast,
+
+02:17.300 --> 02:21.340
+ you'll get $10 and Cash App will also donate $10 to First,
+
+02:21.340 --> 02:23.220
+ which again is an organization
+
+02:23.220 --> 02:26.100
+ that I've personally seen inspire girls and boys
+
+02:26.100 --> 02:28.980
+ to dream of engineering a better world.
+
+02:28.980 --> 02:32.820
+ And now here's my conversation with Melanie Mitchell.
+
+02:33.720 --> 02:36.860
+ The name of your new book is Artificial Intelligence,
+
+02:36.860 --> 02:39.700
+ subtitle, A Guide for Thinking Humans.
+
+02:39.700 --> 02:42.960
+ The name of this podcast is Artificial Intelligence.
+
+02:42.960 --> 02:44.100
+ So let me take a step back
+
+02:44.100 --> 02:46.980
+ and ask the old Shakespeare question about roses.
+
+02:46.980 --> 02:51.100
+ And what do you think of the term artificial intelligence
+
+02:51.100 --> 02:55.520
+ for our big and complicated and interesting field?
+
+02:55.520 --> 02:57.900
+ I'm not crazy about the term.
+
+02:57.900 --> 02:59.980
+ I think it has a few problems
+
+03:01.260 --> 03:04.380
+ because it means so many different things
+
+03:04.380 --> 03:05.640
+ to different people.
+
+03:05.640 --> 03:07.480
+ And intelligence is one of those words
+
+03:07.480 --> 03:10.060
+ that isn't very clearly defined either.
+
+03:10.060 --> 03:13.580
+ There's so many different kinds of intelligence,
+
+03:14.420 --> 03:18.900
+ degrees of intelligence, approaches to intelligence.
+
+03:18.900 --> 03:21.740
+ John McCarthy was the one who came up with the term
+
+03:21.740 --> 03:23.240
+ artificial intelligence.
+
+03:23.240 --> 03:24.340
+ And from what I read,
+
+03:24.340 --> 03:28.800
+ he called it that to differentiate it from cybernetics,
+
+03:28.800 --> 03:33.720
+ which was another related movement at the time.
+
+03:33.720 --> 03:38.340
+ And he later regretted calling it artificial intelligence.
+
+03:39.260 --> 03:41.920
+ Herbert Simon was pushing for calling it
+
+03:41.920 --> 03:43.880
+ complex information processing,
+
+03:45.420 --> 03:47.100
+ which got nixed,
+
+03:47.100 --> 03:52.100
+ but probably is equally vague, I guess.
+
+03:52.140 --> 03:55.360
+ Is it the intelligence or the artificial
+
+03:55.360 --> 03:58.720
+ in terms of words that is most problematic, would you say?
+
+03:58.720 --> 04:01.060
+ Yeah, I think it's a little of both.
+
+04:01.060 --> 04:02.960
+ But it has some good sides
+
+04:02.960 --> 04:07.060
+ because I personally was attracted to the field
+
+04:07.060 --> 04:11.280
+ because I was interested in phenomenon of intelligence.
+
+04:11.280 --> 04:13.620
+ And if it was called complex information processing,
+
+04:13.620 --> 04:16.220
+ maybe I'd be doing something wholly different now.
+
+04:16.220 --> 04:18.700
+ What do you think of, I've heard the term used,
+
+04:18.700 --> 04:22.760
+ cognitive systems, for example, so using cognitive.
+
+04:22.760 --> 04:27.760
+ Yeah, I mean, cognitive has certain associations with it.
+
+04:27.840 --> 04:31.020
+ And people like to separate things like cognition
+
+04:31.020 --> 04:33.940
+ and perception, which I don't actually think are separate.
+
+04:33.940 --> 04:37.740
+ But often people talk about cognition as being different
+
+04:37.740 --> 04:41.420
+ from sort of other aspects of intelligence.
+
+04:41.420 --> 04:42.740
+ It's sort of higher level.
+
+04:42.740 --> 04:44.660
+ So to you, cognition is this broad,
+
+04:44.660 --> 04:47.900
+ beautiful mess of things that encompasses the whole thing.
+
+04:47.900 --> 04:48.740
+ Memory, perception.
+
+04:48.740 --> 04:53.040
+ Yeah, I think it's hard to draw lines like that.
+
+04:53.040 --> 04:56.620
+ When I was coming out of grad school in 1990,
+
+04:56.620 --> 04:58.380
+ which is when I graduated,
+
+04:58.380 --> 05:00.700
+ that was during one of the AI winters.
+
+05:01.560 --> 05:05.140
+ And I was advised to not put AI,
+
+05:05.140 --> 05:06.780
+ artificial intelligence on my CV,
+
+05:06.780 --> 05:09.240
+ but instead call it intelligence systems.
+
+05:09.240 --> 05:14.240
+ So that was kind of a euphemism, I guess.
+
+05:14.880 --> 05:19.880
+ What about to stick briefly on terms and words,
+
+05:20.640 --> 05:24.100
+ the idea of artificial general intelligence,
+
+05:24.100 --> 05:29.100
+ or like Yann LeCun prefers human level intelligence,
+
+05:29.560 --> 05:32.860
+ sort of starting to talk about ideas
+
+05:32.860 --> 05:37.720
+ that achieve higher and higher levels of intelligence
+
+05:37.720 --> 05:41.320
+ and somehow artificial intelligence seems to be a term
+
+05:41.320 --> 05:45.320
+ used more for the narrow, very specific applications of AI
+
+05:45.320 --> 05:50.320
+ and sort of what set of terms appeal to you
+
+05:51.320 --> 05:56.000
+ to describe the thing that perhaps we strive to create?
+
+05:56.000 --> 05:57.400
+ People have been struggling with this
+
+05:57.400 --> 05:59.120
+ for the whole history of the field
+
+06:00.200 --> 06:03.400
+ and defining exactly what it is that we're talking about.
+
+06:03.400 --> 06:05.640
+ You know, John Searle had this distinction
+
+06:05.640 --> 06:08.520
+ between strong AI and weak AI.
+
+06:08.520 --> 06:10.480
+ And weak AI could be general AI,
+
+06:10.480 --> 06:14.600
+ but his idea was strong AI was the view
+
+06:14.600 --> 06:17.200
+ that a machine is actually thinking,
+
+06:18.460 --> 06:22.600
+ that as opposed to simulating thinking
+
+06:22.600 --> 06:27.600
+ or carrying out processes that we would call intelligent.
+
+06:30.940 --> 06:34.480
+ At a high level, if you look at the founding
+
+06:34.480 --> 06:37.320
+ of the field of McCarthy and Searle and so on,
+
+06:38.960 --> 06:43.960
+ are we closer to having a better sense of that line
+
+06:44.520 --> 06:49.420
+ between narrow, weak AI and strong AI?
+
+06:50.640 --> 06:55.440
+ Yes, I think we're closer to having a better idea
+
+06:55.440 --> 06:58.000
+ of what that line is.
+
+06:58.000 --> 07:01.680
+ Early on, for example, a lot of people thought
+
+07:01.680 --> 07:06.680
+ that playing chess would be, you couldn't play chess
+
+07:06.880 --> 07:11.160
+ if you didn't have sort of general human level intelligence.
+
+07:11.160 --> 07:13.960
+ And of course, once computers were able to play chess
+
+07:13.960 --> 07:18.400
+ better than humans, that revised that view.
+
+07:18.400 --> 07:22.080
+ And people said, okay, well, maybe now we have to revise
+
+07:22.080 --> 07:25.320
+ what we think of intelligence as.
+
+07:25.320 --> 07:28.760
+ And so that's kind of been a theme
+
+07:28.760 --> 07:29.920
+ throughout the history of the field
+
+07:29.920 --> 07:33.520
+ is that once a machine can do some task,
+
+07:34.360 --> 07:37.280
+ we then have to look back and say, oh, well,
+
+07:37.280 --> 07:39.680
+ that changes my understanding of what intelligence is
+
+07:39.680 --> 07:43.040
+ because I don't think that machine is intelligent,
+
+07:43.040 --> 07:45.600
+ at least that's not what I wanna call intelligence.
+
+07:45.600 --> 07:47.640
+ So do you think that line moves forever
+
+07:47.640 --> 07:51.280
+ or will we eventually really feel as a civilization
+
+07:51.280 --> 07:54.060
+ like we've crossed the line if it's possible?
+
+07:54.060 --> 07:56.520
+ It's hard to predict, but I don't see any reason
+
+07:56.520 --> 08:00.280
+ why we couldn't in principle create something
+
+08:00.280 --> 08:02.080
+ that we would consider intelligent.
+
+08:03.160 --> 08:06.360
+ I don't know how we will know for sure.
+
+08:07.280 --> 08:10.520
+ Maybe our own view of what intelligence is
+
+08:10.520 --> 08:12.480
+ will be refined more and more
+
+08:12.480 --> 08:14.480
+ until we finally figure out what we mean
+
+08:14.480 --> 08:15.580
+ when we talk about it.
+
+08:17.160 --> 08:22.160
+ But I think eventually we will create machines
+
+08:22.160 --> 08:24.440
+ in a sense that have intelligence.
+
+08:24.440 --> 08:28.080
+ They may not be the kinds of machines we have now.
+
+08:28.080 --> 08:32.000
+ And one of the things that that's going to produce
+
+08:32.000 --> 08:34.920
+ is making us sort of understand
+
+08:34.920 --> 08:38.560
+ our own machine like qualities
+
+08:38.560 --> 08:43.080
+ that we in a sense are mechanical
+
+08:43.080 --> 08:45.900
+ in the sense that like cells,
+
+08:45.900 --> 08:47.700
+ cells are kind of mechanical.
+
+08:47.700 --> 08:52.700
+ They have algorithms, they process information by
+
+08:52.700 --> 08:57.060
+ and somehow out of this mass of cells,
+
+08:57.060 --> 09:01.280
+ we get this emergent property that we call intelligence.
+
+09:01.280 --> 09:06.280
+ But underlying it is really just cellular processing
+
+09:07.360 --> 09:10.460
+ and lots and lots and lots of it.
+
+09:10.460 --> 09:12.260
+ Do you think we'll be able to,
+
+09:12.260 --> 09:14.440
+ do you think it's possible to create intelligence
+
+09:14.440 --> 09:16.460
+ without understanding our own mind?
+
+09:16.460 --> 09:18.220
+ You said sort of in that process
+
+09:18.220 --> 09:19.500
+ we'll understand more and more,
+
+09:19.500 --> 09:23.020
+ but do you think it's possible to sort of create
+
+09:23.020 --> 09:24.980
+ without really fully understanding
+
+09:26.140 --> 09:27.580
+ from a mechanistic perspective,
+
+09:27.580 --> 09:29.180
+ sort of from a functional perspective
+
+09:29.180 --> 09:31.920
+ how our mysterious mind works?
+
+09:32.820 --> 09:36.280
+ If I had to bet on it, I would say,
+
+09:36.280 --> 09:39.460
+ no, we do have to understand our own minds
+
+09:39.460 --> 09:42.860
+ at least to some significant extent.
+
+09:42.860 --> 09:47.140
+ But I think that's a really big open question.
+
+09:47.140 --> 09:49.660
+ I've been very surprised at how far kind of
+
+09:49.660 --> 09:53.820
+ brute force approaches based on say big data
+
+09:53.820 --> 09:57.420
+ and huge networks can take us.
+
+09:57.420 --> 09:59.120
+ I wouldn't have expected that.
+
+09:59.120 --> 10:03.100
+ And they have nothing to do with the way our minds work.
+
+10:03.100 --> 10:06.820
+ So that's been surprising to me, so it could be wrong.
+
+10:06.820 --> 10:09.580
+ To explore the psychological and the philosophical,
+
+10:09.580 --> 10:11.800
+ do you think we're okay as a species
+
+10:11.800 --> 10:16.020
+ with something that's more intelligent than us?
+
+10:16.020 --> 10:18.380
+ Do you think perhaps the reason
+
+10:18.380 --> 10:20.620
+ we're pushing that line further and further
+
+10:20.620 --> 10:23.300
+ is we're afraid of acknowledging
+
+10:23.300 --> 10:25.820
+ that there's something stronger, better,
+
+10:25.820 --> 10:29.020
+ smarter than us humans?
+
+10:29.020 --> 10:31.620
+ Well, I'm not sure we can define intelligence that way
+
+10:31.620 --> 10:36.620
+ because smarter than is with respect to what,
+
+10:40.540 --> 10:42.860
+ computers are already smarter than us in some areas.
+
+10:42.860 --> 10:45.580
+ They can multiply much better than we can.
+
+10:45.580 --> 10:50.220
+ They can figure out driving routes to take
+
+10:50.220 --> 10:51.820
+ much faster and better than we can.
+
+10:51.820 --> 10:54.420
+ They have a lot more information to draw on.
+
+10:54.420 --> 10:57.400
+ They know about traffic conditions and all that stuff.
+
+10:57.400 --> 11:02.220
+ So for any given particular task,
+
+11:02.220 --> 11:04.660
+ sometimes computers are much better than we are
+
+11:04.660 --> 11:07.100
+ and we're totally happy with that, right?
+
+11:07.100 --> 11:08.540
+ I'm totally happy with that.
+
+11:08.540 --> 11:10.540
+ It doesn't bother me at all.
+
+11:10.540 --> 11:15.460
+ I guess the question is which things about our intelligence
+
+11:15.460 --> 11:20.460
+ would we feel very sad or upset
+
+11:20.660 --> 11:24.460
+ that machines had been able to recreate?
+
+11:24.460 --> 11:27.460
+ So in the book, I talk about my former PhD advisor,
+
+11:27.460 --> 11:29.020
+ Douglas Hofstadter,
+
+11:29.020 --> 11:32.960
+ who encountered a music generation program.
+
+11:32.960 --> 11:36.820
+ And that was really the line for him,
+
+11:36.820 --> 11:40.120
+ that if a machine could create beautiful music,
+
+11:40.120 --> 11:44.100
+ that would be terrifying for him
+
+11:44.100 --> 11:46.340
+ because that is something he feels
+
+11:46.340 --> 11:50.180
+ is really at the core of what it is to be human,
+
+11:50.180 --> 11:52.800
+ creating beautiful music, art, literature.
+
+11:56.260 --> 11:59.740
+ He doesn't like the fact that machines
+
+11:59.740 --> 12:04.740
+ can recognize spoken language really well.
+
+12:05.400 --> 12:09.560
+ He personally doesn't like using speech recognition,
+
+12:09.560 --> 12:11.620
+ but I don't think it bothers him to his core
+
+12:11.620 --> 12:15.780
+ because it's like, okay, that's not at the core of humanity.
+
+12:15.780 --> 12:17.940
+ But it may be different for every person
+
+12:17.940 --> 12:22.940
+ what really they feel would usurp their humanity.
+
+12:25.180 --> 12:27.380
+ And I think maybe it's a generational thing also.
+
+12:27.380 --> 12:30.700
+ Maybe our children or our children's children
+
+12:30.700 --> 12:35.700
+ will be adapted, they'll adapt to these new devices
+
+12:35.900 --> 12:38.640
+ that can do all these tasks and say,
+
+12:38.640 --> 12:41.500
+ yes, this thing is smarter than me in all these areas,
+
+12:41.500 --> 12:44.840
+ but that's great because it helps me.
+
+12:46.980 --> 12:50.500
+ Looking at the broad history of our species,
+
+12:50.500 --> 12:52.700
+ why do you think so many humans have dreamed
+
+12:52.700 --> 12:55.340
+ of creating artificial life and artificial intelligence
+
+12:55.340 --> 12:57.340
+ throughout the history of our civilization?
+
+12:57.340 --> 13:00.700
+ So not just this century or the 20th century,
+
+13:00.700 --> 13:04.760
+ but really throughout many centuries that preceded it?
+
+13:06.420 --> 13:07.820
+ That's a really good question,
+
+13:07.820 --> 13:09.380
+ and I have wondered about that.
+
+13:09.380 --> 13:14.380
+ Because I myself was driven by curiosity
+
+13:16.660 --> 13:18.740
+ about my own thought processes
+
+13:18.740 --> 13:20.820
+ and thought it would be fantastic
+
+13:20.820 --> 13:22.100
+ to be able to get a computer
+
+13:22.100 --> 13:25.040
+ to mimic some of my thought processes.
+
+13:26.100 --> 13:28.940
+ I'm not sure why we're so driven.
+
+13:28.940 --> 13:33.940
+ I think we want to understand ourselves better
+
+13:33.940 --> 13:38.940
+ and we also want machines to do things for us.
+
+13:40.240 --> 13:42.160
+ But I don't know, there's something more to it
+
+13:42.160 --> 13:45.480
+ because it's so deep in the kind of mythology
+
+13:45.480 --> 13:49.120
+ or the ethos of our species.
+
+13:49.120 --> 13:52.320
+ And I don't think other species have this drive.
+
+13:52.320 --> 13:53.560
+ So I don't know.
+
+13:53.560 --> 13:55.960
+ If you were to sort of psychoanalyze yourself
+
+13:55.960 --> 13:59.960
+ in your own interest in AI, are you,
+
+13:59.960 --> 14:04.960
+ what excites you about creating intelligence?
+
+14:07.480 --> 14:09.760
+ You said understanding our own selves?
+
+14:09.760 --> 14:13.800
+ Yeah, I think that's what drives me particularly.
+
+14:13.800 --> 14:18.800
+ I'm really interested in human intelligence,
+
+14:22.480 --> 14:25.800
+ but I'm also interested in the sort of the phenomenon
+
+14:25.800 --> 14:28.320
+ of intelligence more generally.
+
+14:28.320 --> 14:29.760
+ And I don't think humans are the only thing
+
+14:29.760 --> 14:34.240
+ with intelligence, or even animals.
+
+14:34.240 --> 14:39.240
+ But I think intelligence is a concept
+
+14:39.660 --> 14:43.760
+ that encompasses a lot of complex systems.
+
+14:43.760 --> 14:47.720
+ And if you think of things like insect colonies
+
+14:47.720 --> 14:52.000
+ or cellular processes or the immune system
+
+14:52.000 --> 14:54.200
+ or all kinds of different biological
+
+14:54.200 --> 14:59.200
+ or even societal processes have as an emergent property
+
+14:59.200 --> 15:02.660
+ some aspects of what we would call intelligence.
+
+15:02.660 --> 15:05.140
+ They have memory, they process information,
+
+15:05.140 --> 15:08.500
+ they have goals, they accomplish their goals, et cetera.
+
+15:08.500 --> 15:12.700
+ And to me, the question of what is this thing
+
+15:12.700 --> 15:17.700
+ we're talking about here was really fascinating to me.
+
+15:17.980 --> 15:22.300
+ And exploring it using computers seem to be a good way
+
+15:22.300 --> 15:23.980
+ to approach the question.
+
+15:23.980 --> 15:26.100
+ So do you think kind of of intelligence,
+
+15:26.100 --> 15:28.580
+ do you think of our universe as a kind of hierarchy
+
+15:28.580 --> 15:30.140
+ of complex systems?
+
+15:30.140 --> 15:33.480
+ And then intelligence is just the property of any,
+
+15:33.480 --> 15:36.820
+ you can look at any level and every level
+
+15:36.820 --> 15:39.260
+ has some aspect of intelligence.
+
+15:39.260 --> 15:40.920
+ So we're just like one little speck
+
+15:40.920 --> 15:43.560
+ in that giant hierarchy of complex systems.
+
+15:44.420 --> 15:47.580
+ I don't know if I would say any system
+
+15:47.580 --> 15:52.200
+ like that has intelligence, but I guess what I wanna,
+
+15:52.200 --> 15:55.260
+ I don't have a good enough definition of intelligence
+
+15:55.260 --> 15:56.740
+ to say that.
+
+15:56.740 --> 15:59.220
+ So let me do sort of a multiple choice, I guess.
+
+15:59.220 --> 16:02.500
+ So you said ant colonies.
+
+16:02.500 --> 16:04.500
+ So are ant colonies intelligent?
+
+16:04.500 --> 16:09.420
+ Are the bacteria in our body intelligent?
+
+16:09.420 --> 16:13.820
+ And then going to the physics world molecules
+
+16:13.820 --> 16:18.580
+ and the behavior at the quantum level of electrons
+
+16:18.580 --> 16:21.580
+ and so on, are those kinds of systems,
+
+16:21.580 --> 16:22.900
+ do they possess intelligence?
+
+16:22.900 --> 16:27.660
+ Like where's the line that feels compelling to you?
+
+16:27.660 --> 16:28.500
+ I don't know.
+
+16:28.500 --> 16:30.520
+ I mean, I think intelligence is a continuum.
+
+16:30.520 --> 16:35.160
+ And I think that the ability to, in some sense,
+
+16:35.160 --> 16:37.780
+ have intention, have a goal,
+
+16:37.780 --> 16:42.780
+ have some kind of self awareness is part of it.
+
+16:45.260 --> 16:47.820
+ So I'm not sure if, you know,
+
+16:47.820 --> 16:50.340
+ it's hard to know where to draw that line.
+
+16:50.340 --> 16:52.380
+ I think that's kind of a mystery.
+
+16:52.380 --> 16:57.380
+ But I wouldn't say that the planets orbiting the sun
+
+16:59.220 --> 17:00.740
+ is an intelligent system.
+
+17:01.800 --> 17:05.060
+ I mean, I would find that maybe not the right term
+
+17:05.060 --> 17:06.180
+ to describe that.
+
+17:06.180 --> 17:09.140
+ And there's all this debate in the field
+
+17:09.140 --> 17:12.560
+ of like what's the right way to define intelligence?
+
+17:12.560 --> 17:15.300
+ What's the right way to model intelligence?
+
+17:15.300 --> 17:16.760
+ Should we think about computation?
+
+17:16.760 --> 17:18.140
+ Should we think about dynamics?
+
+17:18.140 --> 17:21.700
+ And should we think about free energy
+
+17:21.700 --> 17:23.520
+ and all of that stuff?
+
+17:23.520 --> 17:28.300
+ And I think that it's a fantastic time to be in the field
+
+17:28.300 --> 17:30.340
+ because there's so many questions
+
+17:30.340 --> 17:32.020
+ and so much we don't understand.
+
+17:32.020 --> 17:33.840
+ There's so much work to do.
+
+17:33.840 --> 17:38.340
+ So are we the most special kind of intelligence
+
+17:38.340 --> 17:41.580
+ in this kind of, you said there's a bunch
+
+17:41.580 --> 17:43.880
+ of different elements and characteristics
+
+17:43.880 --> 17:47.160
+ of intelligence systems and colonies.
+
+17:47.160 --> 17:52.160
+ Is human intelligence the thing in our brain?
+
+17:53.080 --> 17:55.360
+ Is that the most interesting kind of intelligence
+
+17:55.360 --> 17:57.060
+ in this continuum?
+
+17:57.060 --> 18:01.440
+ Well, it's interesting to us because it is us.
+
+18:01.440 --> 18:03.360
+ I mean, interesting to me, yes.
+
+18:03.360 --> 18:06.680
+ And because I'm part of, you know, human.
+
+18:06.680 --> 18:08.760
+ But to understanding the fundamentals of intelligence,
+
+18:08.760 --> 18:11.000
+ what I'm getting at, is studying the human,
+
+18:11.000 --> 18:13.160
+ is sort of, if everything we've talked about,
+
+18:13.160 --> 18:14.360
+ what you talk about in your book,
+
+18:14.360 --> 18:18.600
+ what just the AI field, this notion,
+
+18:18.600 --> 18:19.800
+ yes, it's hard to define,
+
+18:19.800 --> 18:22.440
+ but it's usually talking about something
+
+18:22.440 --> 18:24.480
+ that's very akin to human intelligence.
+
+18:24.480 --> 18:26.840
+ Yeah, to me it is the most interesting
+
+18:26.840 --> 18:29.960
+ because it's the most complex, I think.
+
+18:29.960 --> 18:32.120
+ It's the most self aware.
+
+18:32.120 --> 18:34.960
+ It's the only system, at least that I know of,
+
+18:34.960 --> 18:37.780
+ that reflects on its own intelligence.
+
+18:38.600 --> 18:41.040
+ And you talk about the history of AI
+
+18:41.040 --> 18:45.000
+ and us, in terms of creating artificial intelligence,
+
+18:45.000 --> 18:48.480
+ being terrible at predicting the future
+
+18:48.480 --> 18:50.880
+ with AI, with tech in general.
+
+18:50.880 --> 18:55.880
+ So why do you think we're so bad at predicting the future?
+
+18:56.400 --> 18:59.080
+ Are we hopelessly bad?
+
+18:59.080 --> 19:01.960
+ So no matter what, whether it's this decade
+
+19:01.960 --> 19:04.880
+ or the next few decades, every time we make a prediction,
+
+19:04.880 --> 19:06.920
+ there's just no way of doing it well,
+
+19:06.920 --> 19:10.880
+ or as the field matures, we'll be better and better at it.
+
+19:10.880 --> 19:13.760
+ I believe as the field matures, we will be better.
+
+19:13.760 --> 19:16.040
+ And I think the reason that we've had so much trouble
+
+19:16.040 --> 19:18.400
+ is that we have so little understanding
+
+19:18.400 --> 19:20.320
+ of our own intelligence.
+
+19:20.320 --> 19:25.320
+ So there's the famous story about Marvin Minsky
+
+19:29.120 --> 19:32.600
+ assigning computer vision as a summer project
+
+19:32.600 --> 19:34.640
+ to his undergrad students.
+
+19:34.640 --> 19:36.660
+ And I believe that's actually a true story.
+
+19:36.660 --> 19:39.320
+ Yeah, no, there's a write up on it.
+
+19:39.320 --> 19:40.300
+ Everyone should read.
+
+19:40.300 --> 19:42.480
+ It's like a, I think it's like a proposal
+
+19:43.520 --> 19:46.000
+ that describes everything that should be done
+
+19:46.000 --> 19:46.840
+ in that project.
+
+19:46.840 --> 19:49.920
+ It's hilarious because it, I mean, you could explain it,
+
+19:49.920 --> 19:52.600
+ but from my recollection, it describes basically
+
+19:52.600 --> 19:55.000
+ all the fundamental problems of computer vision,
+
+19:55.000 --> 19:57.680
+ many of which still haven't been solved.
+
+19:57.680 --> 19:59.560
+ Yeah, and I don't know how far
+
+19:59.560 --> 20:01.400
+ they really expect it to get.
+
+20:01.400 --> 20:04.300
+ But I think that, and they're really,
+
+20:04.300 --> 20:06.120
+ Marvin Minsky is a super smart guy
+
+20:06.120 --> 20:08.400
+ and very sophisticated thinker.
+
+20:08.400 --> 20:12.960
+ But I think that no one really understands
+
+20:12.960 --> 20:15.360
+ or understood, still doesn't understand
+
+20:16.240 --> 20:21.240
+ how complicated, how complex the things that we do are
+
+20:22.160 --> 20:24.640
+ because they're so invisible to us.
+
+20:24.640 --> 20:27.640
+ To us, vision, being able to look out at the world
+
+20:27.640 --> 20:31.660
+ and describe what we see, that's just immediate.
+
+20:31.660 --> 20:33.360
+ It feels like it's no work at all.
+
+20:33.360 --> 20:35.920
+ So it didn't seem like it would be that hard,
+
+20:35.920 --> 20:39.320
+ but there's so much going on unconsciously,
+
+20:39.320 --> 20:44.320
+ sort of invisible to us that I think we overestimate
+
+20:44.440 --> 20:49.440
+ how easy it will be to get computers to do it.
+
+20:50.020 --> 20:53.880
+ And sort of for me to ask an unfair question,
+
+20:53.880 --> 20:56.520
+ you've done research, you've thought about
+
+20:56.520 --> 20:59.880
+ many different branches of AI through this book,
+
+20:59.880 --> 21:04.880
+ widespread looking at where AI has been, where it is today.
+
+21:06.360 --> 21:08.840
+ If you were to make a prediction,
+
+21:08.840 --> 21:12.120
+ how many years from now would we as a society
+
+21:12.120 --> 21:15.760
+ create something that you would say
+
+21:15.760 --> 21:18.320
+ achieved human level intelligence
+
+21:19.720 --> 21:21.740
+ or superhuman level intelligence?
+
+21:23.140 --> 21:25.120
+ That is an unfair question.
+
+21:25.120 --> 21:28.520
+ A prediction that will most likely be wrong.
+
+21:28.520 --> 21:30.000
+ But it's just your notion because.
+
+21:30.000 --> 21:34.300
+ Okay, I'll say more than 100 years.
+
+21:34.300 --> 21:35.320
+ More than 100 years.
+
+21:35.320 --> 21:38.520
+ And I quoted somebody in my book who said that
+
+21:38.520 --> 21:42.600
+ human level intelligence is 100 Nobel Prizes away,
+
+21:44.660 --> 21:48.040
+ which I like because it's a nice way to sort of,
+
+21:48.040 --> 21:49.760
+ it's a nice unit for prediction.
+
+21:51.800 --> 21:55.680
+ And it's like that many fantastic discoveries
+
+21:55.680 --> 21:56.600
+ have to be made.
+
+21:56.600 --> 22:01.600
+ And of course there's no Nobel Prize in AI, not yet at least.
+
+22:03.120 --> 22:05.300
+ If we look at that 100 years,
+
+22:05.300 --> 22:10.240
+ your sense is really the journey to intelligence
+
+22:10.240 --> 22:15.240
+ has to go through something more complicated
+
+22:15.680 --> 22:19.400
+ that's akin to our own cognitive systems,
+
+22:19.400 --> 22:21.640
+ understanding them, being able to create them
+
+22:21.640 --> 22:24.480
+ in the artificial systems,
+
+22:24.480 --> 22:26.880
+ as opposed to sort of taking the machine learning
+
+22:26.880 --> 22:30.280
+ approaches of today and really scaling them
+
+22:30.280 --> 22:33.560
+ and scaling them and scaling them exponentially
+
+22:33.560 --> 22:37.920
+ with both compute and hardware and data.
+
+22:37.920 --> 22:40.620
+ That would be my guess.
+
+22:42.200 --> 22:47.200
+ I think that in the sort of going along in the narrow AI
+
+22:47.200 --> 22:52.200
+ that the current approaches will get better.
+
+22:54.840 --> 22:56.840
+ I think there's some fundamental limits
+
+22:56.840 --> 22:59.360
+ to how far they're gonna get.
+
+22:59.360 --> 23:01.800
+ I might be wrong, but that's what I think.
+
+23:01.800 --> 23:06.680
+ And there's some fundamental weaknesses that they have
+
+23:06.680 --> 23:10.920
+ that I talk about in the book that just comes
+
+23:10.920 --> 23:17.920
+ from this approach of supervised learning requiring
+
+23:20.760 --> 23:25.440
+ sort of feed forward networks and so on.
+
+23:27.120 --> 23:31.240
+ It's just, I don't think it's a sustainable approach
+
+23:31.240 --> 23:34.200
+ to understanding the world.
+
+23:34.200 --> 23:36.460
+ Yeah, I'm personally torn on it.
+
+23:36.460 --> 23:39.480
+ Sort of everything you read about in the book
+
+23:39.480 --> 23:41.160
+ and sort of what we're talking about now,
+
+23:41.160 --> 23:45.800
+ I agree with you, but I'm more and more,
+
+23:45.800 --> 23:48.040
+ depending on the day, first of all,
+
+23:48.040 --> 23:50.080
+ I'm deeply surprised by the success
+
+23:50.080 --> 23:52.760
+ of machine learning and deep learning in general.
+
+23:52.760 --> 23:54.920
+ From the very beginning, when I was,
+
+23:54.920 --> 23:57.280
+ it's really been my main focus of work.
+
+23:57.280 --> 23:59.380
+ I'm just surprised how far it gets.
+
+23:59.380 --> 24:03.560
+ And I'm also think we're really early on
+
+24:03.560 --> 24:07.080
+ in these efforts of these narrow AI.
+
+24:07.080 --> 24:09.360
+ So I think there'll be a lot of surprise
+
+24:09.360 --> 24:10.880
+ of how far it gets.
+
+24:11.880 --> 24:14.360
+ I think we'll be extremely impressed.
+
+24:14.360 --> 24:17.120
+ Like my sense is everything I've seen so far,
+
+24:17.120 --> 24:19.480
+ and we'll talk about autonomous driving and so on,
+
+24:19.480 --> 24:21.760
+ I think we can get really far.
+
+24:21.760 --> 24:24.720
+ But I also have a sense that we will discover,
+
+24:24.720 --> 24:27.560
+ just like you said, is that even though we'll get
+
+24:27.560 --> 24:30.680
+ really far in order to create something
+
+24:30.680 --> 24:32.880
+ like our own intelligence, it's actually much farther
+
+24:32.880 --> 24:34.680
+ than we realize.
+
+24:34.680 --> 24:37.160
+ I think these methods are a lot more powerful
+
+24:37.160 --> 24:39.120
+ than people give them credit for actually.
+
+24:39.120 --> 24:41.160
+ So that of course there's the media hype,
+
+24:41.160 --> 24:43.700
+ but I think there's a lot of researchers in the community,
+
+24:43.700 --> 24:46.680
+ especially like not undergrads, right?
+
+24:46.680 --> 24:48.820
+ But like people who've been in AI,
+
+24:48.820 --> 24:50.940
+ they're skeptical about how far deep learning can get.
+
+24:50.940 --> 24:54.640
+ And I'm more and more thinking that it can actually
+
+24:54.640 --> 24:56.960
+ get farther than they'll realize.
+
+24:56.960 --> 24:58.440
+ It's certainly possible.
+
+24:58.440 --> 25:00.840
+ One thing that surprised me when I was writing the book
+
+25:00.840 --> 25:03.800
+ is how far apart different people in the field are
+
+25:03.800 --> 25:08.400
+ on their opinion of how far the field has come
+
+25:08.400 --> 25:11.520
+ and what is accomplished and what's gonna happen next.
+
+25:11.520 --> 25:13.760
+ What's your sense of the different,
+
+25:13.760 --> 25:17.520
+ who are the different people, groups, mindsets,
+
+25:17.520 --> 25:21.780
+ thoughts in the community about where AI is today?
+
+25:22.760 --> 25:24.080
+ Yeah, they're all over the place.
+
+25:24.080 --> 25:29.080
+ So there's kind of the singularity transhumanism group.
+
+25:30.760 --> 25:33.200
+ I don't know exactly how to characterize that approach,
+
+25:33.200 --> 25:36.560
+ which is sort of the sort of exponential,
+
+25:36.560 --> 25:41.320
+ exponential progress where we're on the sort of
+
+25:41.320 --> 25:45.720
+ almost at the hugely accelerating part of the exponential.
+
+25:45.720 --> 25:49.680
+ And in the next 30 years,
+
+25:49.680 --> 25:54.080
+ we're going to see super intelligent AI and all that,
+
+25:54.080 --> 25:57.360
+ and we'll be able to upload our brains and that.
+
+25:57.360 --> 26:00.480
+ So there's that kind of extreme view that most,
+
+26:00.480 --> 26:04.600
+ I think most people who work in AI don't have.
+
+26:04.600 --> 26:06.040
+ They disagree with that.
+
+26:06.040 --> 26:08.060
+ But there are people who are,
+
+26:09.280 --> 26:12.880
+ maybe aren't singularity people,
+
+26:12.880 --> 26:16.840
+ but they do think that the current approach
+
+26:16.840 --> 26:20.000
+ of deep learning is going to scale
+
+26:20.000 --> 26:23.800
+ and is going to kind of go all the way basically
+
+26:23.800 --> 26:26.680
+ and take us to true AI or human level AI
+
+26:26.680 --> 26:28.120
+ or whatever you wanna call it.
+
+26:29.100 --> 26:30.840
+ And there's quite a few of them.
+
+26:30.840 --> 26:34.760
+ And a lot of them, like a lot of the people I've met
+
+26:34.760 --> 26:39.760
+ who work at big tech companies in AI groups
+
+26:40.160 --> 26:45.080
+ kind of have this view that we're really not that far.
+
+26:46.160 --> 26:47.360
+ Just to linger on that point,
+
+26:47.360 --> 26:50.920
+ sort of if I can take as an example, like Yann LeCun,
+
+26:50.920 --> 26:52.600
+ I don't know if you know about his work
+
+26:52.600 --> 26:54.400
+ and so his viewpoints on this.
+
+26:54.400 --> 26:55.240
+ I do.
+
+26:55.240 --> 26:57.760
+ He believes that there's a bunch of breakthroughs,
+
+26:57.760 --> 27:01.040
+ like fundamental, like Nobel prizes that are needed still.
+
+27:01.040 --> 27:03.540
+ But I think he thinks those breakthroughs
+
+27:03.540 --> 27:06.540
+ will be built on top of deep learning.
+
+27:06.540 --> 27:08.520
+ And then there's some people who think
+
+27:08.520 --> 27:11.280
+ we need to kind of put deep learning
+
+27:11.280 --> 27:14.440
+ to the side a little bit as just one module
+
+27:14.440 --> 27:17.760
+ that's helpful in the bigger cognitive framework.
+
+27:17.760 --> 27:22.000
+ Right, so I think somewhat I understand Yann LeCun
+
+27:22.000 --> 27:27.000
+ is rightly saying supervised learning is not sustainable.
+
+27:27.960 --> 27:31.080
+ We have to figure out how to do unsupervised learning,
+
+27:31.080 --> 27:34.000
+ that that's gonna be the key.
+
+27:34.000 --> 27:38.280
+ And I think that's probably true.
+
+27:39.360 --> 27:40.720
+ I think unsupervised learning
+
+27:40.720 --> 27:43.280
+ is gonna be harder than people think.
+
+27:43.280 --> 27:47.040
+ I mean, the way that we humans do it.
+
+27:47.040 --> 27:50.920
+ Then there's the opposing view,
+
+27:50.920 --> 27:55.840
+ there's the Gary Marcus kind of hybrid view
+
+27:55.840 --> 27:58.120
+ where deep learning is one part,
+
+27:58.120 --> 28:02.200
+ but we need to bring back kind of these symbolic approaches
+
+28:02.200 --> 28:03.400
+ and combine them.
+
+28:03.400 --> 28:06.640
+ Of course, no one knows how to do that very well.
+
+28:06.640 --> 28:10.360
+ Which is the more important part to emphasize
+
+28:10.360 --> 28:12.040
+ and how do they fit together?
+
+28:12.040 --> 28:13.760
+ What's the foundation?
+
+28:13.760 --> 28:15.400
+ What's the thing that's on top?
+
+28:15.400 --> 28:16.220
+ What's the cake?
+
+28:16.220 --> 28:17.060
+ What's the icing?
+
+28:17.060 --> 28:18.600
+ Right.
+
+28:18.600 --> 28:22.680
+ Then there's people pushing different things.
+
+28:22.680 --> 28:26.640
+ There's the people, the causality people who say,
+
+28:26.640 --> 28:28.680
+ deep learning as it's formulated today
+
+28:28.680 --> 28:32.040
+ completely lacks any notion of causality.
+
+28:32.040 --> 28:35.120
+ And that's, dooms it.
+
+28:35.120 --> 28:37.680
+ And therefore we have to somehow give it
+
+28:37.680 --> 28:39.560
+ some kind of notion of causality.
+
+28:41.300 --> 28:45.080
+ There's a lot of push
+
+28:45.080 --> 28:50.080
+ from the more cognitive science crowd saying,
+
+28:51.400 --> 28:54.120
+ we have to look at developmental learning.
+
+28:54.120 --> 28:56.720
+ We have to look at how babies learn.
+
+28:56.720 --> 29:00.960
+ We have to look at intuitive physics,
+
+29:00.960 --> 29:03.000
+ all these things we know about physics.
+
+29:03.000 --> 29:05.280
+ And as somebody kind of quipped,
+
+29:05.280 --> 29:08.800
+ we also have to teach machines intuitive metaphysics,
+
+29:08.800 --> 29:12.280
+ which means like objects exist.
+
+29:14.540 --> 29:16.140
+ Causality exists.
+
+29:17.480 --> 29:19.260
+ These things that maybe we're born with.
+
+29:19.260 --> 29:21.800
+ I don't know that they don't have the,
+
+29:21.800 --> 29:23.800
+ machines don't have any of that.
+
+29:23.800 --> 29:26.600
+ They look at a group of pixels
+
+29:26.600 --> 29:31.380
+ and maybe they get 10 million examples,
+
+29:31.380 --> 29:34.360
+ but they can't necessarily learn
+
+29:34.360 --> 29:36.480
+ that there are objects in the world.
+
+29:38.160 --> 29:41.160
+ So there's just a lot of pieces of the puzzle
+
+29:41.160 --> 29:43.120
+ that people are promoting
+
+29:44.040 --> 29:47.640
+ and with different opinions of like how important they are
+
+29:47.640 --> 29:52.000
+ and how close we are to being able to put them all together
+
+29:52.000 --> 29:54.080
+ to create general intelligence.
+
+29:54.080 --> 29:56.580
+ Looking at this broad field,
+
+29:56.580 --> 29:57.800
+ what do you take away from it?
+
+29:57.800 --> 29:59.580
+ Who is the most impressive?
+
+29:59.580 --> 30:01.720
+ Is it the cognitive folks,
+
+30:01.720 --> 30:05.120
+ the Gary Marcus camp, the on camp,
+
+30:05.120 --> 30:07.000
+ unsupervised and their self supervised.
+
+30:07.000 --> 30:09.640
+ There's the supervisors and then there's the engineers
+
+30:09.640 --> 30:11.560
+ who are actually building systems.
+
+30:11.560 --> 30:14.720
+ You have sort of the Andrej Karpathy at Tesla
+
+30:14.720 --> 30:17.960
+ building actual, it's not philosophy,
+
+30:17.960 --> 30:21.040
+ it's real like systems that operate in the real world.
+
+30:21.040 --> 30:23.880
+ What do you take away from all this beautiful variety?
+
+30:23.880 --> 30:25.600
+ I don't know if,
+
+30:25.600 --> 30:27.520
+ these different views are not necessarily
+
+30:27.520 --> 30:29.640
+ mutually exclusive.
+
+30:29.640 --> 30:33.400
+ And I think people like Yann LeCun
+
+30:34.640 --> 30:39.600
+ agrees with the developmental psychology of causality,
+
+30:39.600 --> 30:43.160
+ intuitive physics, et cetera.
+
+30:43.160 --> 30:45.960
+ But he still thinks that it's learning,
+
+30:45.960 --> 30:48.280
+ like end to end learning is the way to go.
+
+30:48.280 --> 30:50.080
+ Will take us perhaps all the way.
+
+30:50.080 --> 30:51.080
+ Yeah, and that we don't need,
+
+30:51.080 --> 30:55.760
+ there's no sort of innate stuff that has to get built in.
+
+30:56.880 --> 31:00.460
+ This is, it's because it's a hard problem.
+
+31:02.240 --> 31:05.280
+ I personally, I'm very sympathetic
+
+31:05.280 --> 31:07.200
+ to the cognitive science side,
+
+31:07.200 --> 31:10.460
+ cause that's kind of where I came in to the field.
+
+31:10.460 --> 31:15.460
+ I've become more and more sort of an embodiment adherent
+
+31:15.460 --> 31:18.540
+ saying that without having a body,
+
+31:18.540 --> 31:20.840
+ it's gonna be very hard to learn
+
+31:20.840 --> 31:22.740
+ what we need to learn about the world.
+
+31:24.420 --> 31:26.840
+ That's definitely something I'd love to talk about
+
+31:26.840 --> 31:28.760
+ in a little bit.
+
+31:28.760 --> 31:31.520
+ To step into the cognitive world,
+
+31:31.520 --> 31:32.760
+ then if you don't mind,
+
+31:32.760 --> 31:34.240
+ cause you've done so many interesting things.
+
+31:34.240 --> 31:36.920
+ If you look to copycat,
+
+31:36.920 --> 31:40.240
+ taking a couple of decades step back,
+
+31:40.240 --> 31:43.320
+ you, Douglas Hofstadter and others
+
+31:43.320 --> 31:45.040
+ have created and developed copycat
+
+31:45.040 --> 31:48.680
+ more than 30 years ago.
+
+31:48.680 --> 31:50.880
+ That's painful to hear.
+
+31:50.880 --> 31:51.920
+ So what is it?
+
+31:51.920 --> 31:54.280
+ What is copycat?
+
+31:54.280 --> 31:57.800
+ It's a program that makes analogies
+
+31:57.800 --> 32:00.680
+ in an idealized domain,
+
+32:00.680 --> 32:03.580
+ idealized world of letter strings.
+
+32:03.580 --> 32:05.540
+ So as you say, 30 years ago, wow.
+
+32:06.520 --> 32:07.880
+ So I started working on it
+
+32:07.880 --> 32:12.600
+ when I started grad school in 1984.
+
+32:12.600 --> 32:16.160
+ Wow, dates me.
+
+32:17.960 --> 32:21.680
+ And it's based on Doug Hofstadter's ideas
+
+32:21.680 --> 32:26.680
+ about that analogy is really a core aspect of thinking.
+
+32:30.240 --> 32:32.360
+ I remember he has a really nice quote
+
+32:32.360 --> 32:36.900
+ in the book by himself and Emmanuel Sandor
+
+32:36.900 --> 32:38.760
+ called Surfaces and Essences.
+
+32:38.760 --> 32:39.760
+ I don't know if you've seen that book,
+
+32:39.760 --> 32:43.880
+ but it's about analogy and he says,
+
+32:43.880 --> 32:46.800
+ without concepts, there can be no thought
+
+32:46.800 --> 32:50.200
+ and without analogies, there can be no concepts.
+
+32:51.120 --> 32:52.560
+ So the view is that analogy
+
+32:52.560 --> 32:55.040
+ is not just this kind of reasoning technique
+
+32:55.040 --> 33:00.040
+ where we go, shoe is to foot as glove is to what,
+
+33:01.880 --> 33:05.440
+ these kinds of things that we have on IQ tests or whatever,
+
+33:05.440 --> 33:06.540
+ but that it's much deeper,
+
+33:06.540 --> 33:10.960
+ it's much more pervasive in every thing we do,
+
+33:10.960 --> 33:14.900
+ in our language, our thinking, our perception.
+
+33:16.080 --> 33:20.920
+ So he had a view that was a very active perception idea.
+
+33:20.920 --> 33:25.560
+ So the idea was that instead of having kind of
+
+33:26.680 --> 33:31.680
+ a passive network in which you have input
+
+33:31.680 --> 33:35.480
+ that's being processed through these feed forward layers
+
+33:35.480 --> 33:37.080
+ and then there's an output at the end,
+
+33:37.080 --> 33:41.440
+ that perception is really a dynamic process
+
+33:41.440 --> 33:43.360
+ where like our eyes are moving around
+
+33:43.360 --> 33:44.760
+ and they're getting information
+
+33:44.760 --> 33:47.040
+ and that information is feeding back
+
+33:47.040 --> 33:50.640
+ to what we look at next, influences,
+
+33:50.640 --> 33:53.200
+ what we look at next and how we look at it.
+
+33:53.200 --> 33:56.080
+ And so copycat was trying to do that,
+
+33:56.080 --> 33:57.720
+ kind of simulate that kind of idea
+
+33:57.720 --> 34:02.640
+ where you have these agents,
+
+34:02.640 --> 34:04.120
+ it's kind of an agent based system
+
+34:04.120 --> 34:07.160
+ and you have these agents that are picking things
+
+34:07.160 --> 34:10.680
+ to look at and deciding whether they were interesting
+
+34:10.680 --> 34:13.580
+ or not and whether they should be looked at more
+
+34:13.580 --> 34:15.880
+ and that would influence other agents.
+
+34:15.880 --> 34:17.560
+ Now, how do they interact?
+
+34:17.560 --> 34:20.040
+ So they interacted through this global kind of
+
+34:20.040 --> 34:22.160
+ what we call the workspace.
+
+34:22.160 --> 34:25.480
+ So it's actually inspired by the old blackboard systems
+
+34:25.480 --> 34:28.920
+ where you would have agents that post information
+
+34:28.920 --> 34:30.840
+ on a blackboard, a common blackboard.
+
+34:30.840 --> 34:33.560
+ This is like very old fashioned AI.
+
+34:33.560 --> 34:36.280
+ Is that, are we talking about like in physical space?
+
+34:36.280 --> 34:37.120
+ Is this a computer program?
+
+34:37.120 --> 34:38.320
+ It's a computer program.
+
+34:38.320 --> 34:41.960
+ So agents posting concepts on a blackboard kind of thing?
+
+34:41.960 --> 34:43.920
+ Yeah, we called it a workspace.
+
+34:43.920 --> 34:48.440
+ And the workspace is a data structure.
+
+34:48.440 --> 34:50.720
+ The agents are little pieces of code
+
+34:50.720 --> 34:54.080
+ that you could think of them as little detectors
+
+34:54.080 --> 34:55.960
+ or little filters that say,
+
+34:55.960 --> 34:57.480
+ I'm gonna pick this place to look
+
+34:57.480 --> 34:59.080
+ and I'm gonna look for a certain thing
+
+34:59.080 --> 35:03.040
+ and is this the thing I think is important, is it there?
+
+35:03.040 --> 35:06.960
+ So it's almost like, you know, a convolution in a way,
+
+35:06.960 --> 35:10.800
+ except a little bit more general and saying,
+
+35:10.800 --> 35:13.800
+ and then highlighting it in the workspace.
+
+35:14.680 --> 35:16.320
+ Once it's in the workspace,
+
+35:16.320 --> 35:18.000
+ how do the things that are highlighted
+
+35:18.000 --> 35:18.880
+ relate to each other?
+
+35:18.880 --> 35:19.720
+ Like what's, is this?
+
+35:19.720 --> 35:21.560
+ So there's different kinds of agents
+
+35:21.560 --> 35:23.640
+ that can build connections between different things.
+
+35:23.640 --> 35:25.600
+ So just to give you a concrete example,
+
+35:25.600 --> 35:28.400
+ what CopyCat did was it made analogies
+
+35:28.400 --> 35:30.360
+ between strings of letters.
+
+35:30.360 --> 35:31.960
+ So here's an example.
+
+35:31.960 --> 35:35.360
+ ABC changes to ABD.
+
+35:35.360 --> 35:38.160
+ What does IJK change to?
+
+35:39.200 --> 35:41.200
+ And the program had some prior knowledge
+
+35:41.200 --> 35:44.240
+ about the alphabet, knew the sequence of the alphabet.
+
+35:45.160 --> 35:49.320
+ It had a concept of letter, successor of letter.
+
+35:49.320 --> 35:50.960
+ It had concepts of sameness.
+
+35:50.960 --> 35:54.000
+ So it has some innate things programmed in.
+
+35:55.120 --> 35:58.360
+ But then it could do things like say,
+
+35:58.360 --> 36:03.360
+ discover that ABC is a group of letters in succession.
+
+36:06.400 --> 36:10.120
+ And then an agent can mark that.
+
+36:11.000 --> 36:16.000
+ So the idea that there could be a sequence of letters,
+
+36:16.200 --> 36:18.160
+ is that a new concept that's formed
+
+36:18.160 --> 36:19.400
+ or that's a concept that's innate?
+
+36:19.400 --> 36:21.480
+ That's a concept that's innate.
+
+36:21.480 --> 36:23.680
+ Sort of, can you form new concepts
+
+36:23.680 --> 36:25.040
+ or are all concepts innate? No.
+
+36:25.040 --> 36:28.520
+ So in this program, all the concepts
+
+36:28.520 --> 36:30.240
+ of the program were innate.
+
+36:30.240 --> 36:32.240
+ So, cause we weren't, I mean,
+
+36:32.240 --> 36:35.600
+ obviously that limits it quite a bit.
+
+36:35.600 --> 36:37.200
+ But what we were trying to do is say,
+
+36:37.200 --> 36:39.460
+ suppose you have some innate concepts,
+
+36:40.400 --> 36:45.160
+ how do you flexibly apply them to new situations?
+
+36:45.160 --> 36:46.800
+ And how do you make analogies?
+
+36:47.800 --> 36:49.040
+ Let's step back for a second.
+
+36:49.040 --> 36:51.760
+ So I really liked that quote that you say,
+
+36:51.760 --> 36:53.760
+ without concepts, there could be no thought
+
+36:53.760 --> 36:56.600
+ and without analogies, there can be no concepts.
+
+36:56.600 --> 36:58.480
+ In a Santa Fe presentation,
+
+36:58.480 --> 37:00.880
+ you said that it should be one of the mantras of AI.
+
+37:00.880 --> 37:01.880
+ Yes.
+
+37:01.880 --> 37:04.320
+ And that you also yourself said,
+
+37:04.320 --> 37:06.640
+ how to form and fluidly use concept
+
+37:06.640 --> 37:09.880
+ is the most important open problem in AI.
+
+37:09.880 --> 37:11.240
+ Yes.
+
+37:11.240 --> 37:14.500
+ How to form and fluidly use concepts
+
+37:14.500 --> 37:16.980
+ is the most important open problem in AI.
+
+37:16.980 --> 37:21.880
+ So let's, what is a concept and what is an analogy?
+
+37:21.880 --> 37:26.880
+ A concept is in some sense a fundamental unit of thought.
+
+37:28.200 --> 37:33.200
+ So say we have a concept of a dog, okay?
+
+37:38.560 --> 37:43.560
+ And a concept is embedded in a whole space of concepts
+
+37:45.120 --> 37:48.720
+ so that there's certain concepts that are closer to it
+
+37:48.720 --> 37:50.240
+ or farther away from it.
+
+37:50.240 --> 37:53.120
+ Are these concepts, are they really like fundamental,
+
+37:53.120 --> 37:55.600
+ like we mentioned innate, almost like axiomatic,
+
+37:55.600 --> 37:57.960
+ like very basic and then there's other stuff
+
+37:57.960 --> 37:58.880
+ built on top of it?
+
+37:58.880 --> 38:01.080
+ Or does this include everything?
+
+38:01.080 --> 38:02.500
+ Are they complicated?
+
+38:04.360 --> 38:06.980
+ You can certainly form new concepts.
+
+38:06.980 --> 38:08.720
+ Right, I guess that's the question I'm asking.
+
+38:08.720 --> 38:10.080
+ Can you form new concepts
+
+38:10.080 --> 38:14.360
+ that are complex combinations of other concepts?
+
+38:14.360 --> 38:15.960
+ Yes, absolutely.
+
+38:15.960 --> 38:20.000
+ And that's kind of what we do in learning.
+
+38:20.000 --> 38:22.960
+ And then what's the role of analogies in that?
+
+38:22.960 --> 38:27.200
+ So analogy is when you recognize
+
+38:27.200 --> 38:32.200
+ that one situation is essentially the same
+
+38:33.320 --> 38:35.560
+ as another situation.
+
+38:35.560 --> 38:38.760
+ And essentially is kind of the key word there
+
+38:38.760 --> 38:39.980
+ because it's not the same.
+
+38:39.980 --> 38:44.980
+ So if I say, last week I did a podcast interview
+
+38:44.980 --> 38:49.980
+ actually like three days ago in Washington, DC.
+
+38:52.980 --> 38:56.580
+ And that situation was very similar to this situation,
+
+38:56.580 --> 38:58.380
+ although it wasn't exactly the same.
+
+38:58.380 --> 39:00.780
+ It was a different person sitting across from me.
+
+39:00.780 --> 39:03.380
+ We had different kinds of microphones.
+
+39:03.380 --> 39:04.740
+ The questions were different.
+
+39:04.740 --> 39:06.140
+ The building was different.
+
+39:06.140 --> 39:07.140
+ There's all kinds of different things,
+
+39:07.140 --> 39:09.000
+ but really it was analogous.
+
+39:10.220 --> 39:14.700
+ Or I can say, so doing a podcast interview,
+
+39:14.700 --> 39:17.540
+ that's kind of a concept, it's a new concept.
+
+39:17.540 --> 39:22.540
+ I never had that concept before this year essentially.
+
+39:23.020 --> 39:27.220
+ I mean, and I can make an analogy with it
+
+39:27.220 --> 39:31.380
+ like being interviewed for a news article in a newspaper.
+
+39:31.380 --> 39:35.660
+ And I can say, well, you kind of play the same role
+
+39:35.660 --> 39:40.100
+ that the newspaper reporter played.
+
+39:40.100 --> 39:42.060
+ It's not exactly the same
+
+39:42.060 --> 39:45.020
+ because maybe they actually emailed me some written questions
+
+39:45.020 --> 39:48.300
+ rather than talking and the writing,
+
+39:48.300 --> 39:52.060
+ the written questions are analogous
+
+39:52.060 --> 39:53.260
+ to your spoken questions.
+
+39:53.260 --> 39:55.100
+ And there's just all kinds of similarities.
+
+39:55.100 --> 39:57.420
+ And this somehow probably connects to conversations
+
+39:57.420 --> 39:58.820
+ you have over Thanksgiving dinner,
+
+39:58.820 --> 40:01.060
+ just general conversations.
+
+40:01.060 --> 40:03.520
+ There's like a thread you can probably take
+
+40:03.520 --> 40:06.700
+ that just stretches out in all aspects of life
+
+40:06.700 --> 40:08.440
+ that connect to this podcast.
+
+40:08.440 --> 40:11.460
+ I mean, conversations between humans.
+
+40:11.460 --> 40:16.460
+ Sure, and if I go and tell a friend of mine
+
+40:16.920 --> 40:20.740
+ about this podcast interview, my friend might say,
+
+40:20.740 --> 40:22.900
+ oh, the same thing happened to me.
+
+40:22.900 --> 40:26.040
+ Let's say, you ask me some really hard question
+
+40:27.020 --> 40:29.260
+ and I have trouble answering it.
+
+40:29.260 --> 40:31.640
+ My friend could say, the same thing happened to me,
+
+40:31.640 --> 40:34.100
+ but it was like, it wasn't a podcast interview.
+
+40:34.100 --> 40:39.100
+ It wasn't, it was a completely different situation.
+
+40:39.100 --> 40:43.340
+ And yet my friend is seeing essentially the same thing.
+
+40:43.340 --> 40:46.540
+ We say that very fluidly, the same thing happened to me.
+
+40:46.540 --> 40:48.940
+ Essentially the same thing.
+
+40:48.940 --> 40:50.180
+ But we don't even say that, right?
+
+40:50.180 --> 40:51.020
+ We just say the same thing.
+
+40:51.020 --> 40:51.860
+ You imply it, yes.
+
+40:51.860 --> 40:56.860
+ Yeah, and the view that kind of went into say copycat,
+
+40:56.860 --> 41:00.860
+ that whole thing is that that act of saying
+
+41:00.860 --> 41:04.540
+ the same thing happened to me is making an analogy.
+
+41:04.540 --> 41:07.820
+ And in some sense, that's what's underlies
+
+41:07.820 --> 41:10.660
+ all of our concepts.
+
+41:10.660 --> 41:14.020
+ Why do you think analogy making that you're describing
+
+41:14.020 --> 41:17.020
+ is so fundamental to cognition?
+
+41:17.020 --> 41:20.020
+ Like it seems like it's the main element action
+
+41:20.020 --> 41:22.520
+ of what we think of as cognition.
+
+41:23.820 --> 41:27.220
+ Yeah, so it can be argued that all of this
+
+41:28.260 --> 41:31.500
+ generalization we do of concepts
+
+41:31.500 --> 41:36.500
+ and recognizing concepts in different situations
+
+41:39.580 --> 41:42.620
+ is done by analogy.
+
+41:42.620 --> 41:47.620
+ That that's, every time I'm recognizing
+
+41:48.220 --> 41:53.220
+ that say you're a person, that's by analogy
+
+41:53.740 --> 41:55.660
+ because I have this concept of what person is
+
+41:55.660 --> 41:57.360
+ and I'm applying it to you.
+
+41:57.360 --> 42:02.360
+ And every time I recognize a new situation,
+
+42:02.580 --> 42:06.540
+ like one of the things I talked about in the book
+
+42:06.540 --> 42:09.700
+ was the concept of walking a dog,
+
+42:09.700 --> 42:11.780
+ that that's actually making an analogy
+
+42:11.780 --> 42:15.420
+ because all of the details are very different.
+
+42:15.420 --> 42:19.420
+ So reasoning could be reduced down
+
+42:19.420 --> 42:21.780
+ to essentially analogy making.
+
+42:21.780 --> 42:24.000
+ So all the things we think of as like,
+
+42:25.220 --> 42:26.820
+ yeah, like you said, perception.
+
+42:26.820 --> 42:29.680
+ So what's perception is taking raw sensory input
+
+42:29.680 --> 42:33.020
+ and it's somehow integrating into our understanding
+
+42:33.020 --> 42:34.740
+ of the world, updating the understanding.
+
+42:34.740 --> 42:39.180
+ And all of that has just this giant mess of analogies
+
+42:39.180 --> 42:40.180
+ that are being made.
+
+42:40.180 --> 42:41.280
+ I think so, yeah.
+
+42:42.540 --> 42:44.280
+ If you just linger on it a little bit,
+
+42:44.280 --> 42:47.260
+ like what do you think it takes to engineer
+
+42:47.260 --> 42:52.140
+ a process like that for us in our artificial systems?
+
+42:52.140 --> 42:56.900
+ We need to understand better, I think,
+
+42:56.900 --> 43:00.940
+ how we do it, how humans do it.
+
+43:02.700 --> 43:07.700
+ And it comes down to internal models, I think.
+
+43:07.840 --> 43:11.140
+ People talk a lot about mental models,
+
+43:11.140 --> 43:13.300
+ that concepts are mental models,
+
+43:13.300 --> 43:18.300
+ that I can, in my head, I can do a simulation
+
+43:18.300 --> 43:22.500
+ of a situation like walking a dog.
+
+43:22.500 --> 43:25.580
+ And there's some work in psychology
+
+43:25.580 --> 43:29.420
+ that promotes this idea that all of concepts
+
+43:29.420 --> 43:31.800
+ are really mental simulations,
+
+43:31.800 --> 43:35.100
+ that whenever you encounter a concept
+
+43:35.100 --> 43:38.100
+ or situation in the world or you read about it or whatever,
+
+43:38.100 --> 43:40.680
+ you do some kind of mental simulation
+
+43:40.680 --> 43:44.020
+ that allows you to predict what's gonna happen,
+
+43:44.020 --> 43:47.980
+ to develop expectations of what's gonna happen.
+
+43:47.980 --> 43:51.580
+ So that's the kind of structure I think we need,
+
+43:51.580 --> 43:55.580
+ is that kind of mental model that,
+
+43:55.580 --> 43:58.060
+ and in our brains, somehow these mental models
+
+43:58.060 --> 44:00.360
+ are very much interconnected.
+
+44:01.300 --> 44:03.700
+ Again, so a lot of stuff we're talking about
+
+44:03.700 --> 44:05.960
+ are essentially open problems, right?
+
+44:05.960 --> 44:08.700
+ So if I ask a question, I don't mean
+
+44:08.700 --> 44:11.340
+ that you would know the answer, only just hypothesizing.
+
+44:11.340 --> 44:18.340
+ But how big do you think is the network graph,
+
+44:19.300 --> 44:23.300
+ data structure of concepts that's in our head?
+
+44:23.300 --> 44:26.500
+ Like if we're trying to build that ourselves,
+
+44:26.500 --> 44:28.140
+ like it's, we take it,
+
+44:28.140 --> 44:29.580
+ that's one of the things we take for granted.
+
+44:29.580 --> 44:32.060
+ We think, I mean, that's why we take common sense
+
+44:32.060 --> 44:34.720
+ for granted, we think common sense is trivial.
+
+44:34.720 --> 44:38.940
+ But how big of a thing of concepts
+
+44:38.940 --> 44:42.400
+ is that underlies what we think of as common sense,
+
+44:42.400 --> 44:43.240
+ for example?
+
+44:44.580 --> 44:45.460
+ Yeah, I don't know.
+
+44:45.460 --> 44:48.420
+ And I'm not, I don't even know what units to measure it in.
+
+44:48.420 --> 44:50.260
+ Can you say how big is it?
+
+44:50.260 --> 44:51.980
+ That's beautifully put, right?
+
+44:51.980 --> 44:55.700
+ But, you know, we have, you know, it's really hard to know.
+
+44:55.700 --> 45:00.700
+ We have, what, a hundred billion neurons or something.
+
+45:00.900 --> 45:01.740
+ I don't know.
+
+45:02.880 --> 45:07.860
+ And they're connected via trillions of synapses.
+
+45:07.860 --> 45:10.540
+ And there's all this chemical processing going on.
+
+45:10.540 --> 45:13.740
+ There's just a lot of capacity for stuff.
+
+45:13.740 --> 45:15.860
+ And their information's encoded
+
+45:15.860 --> 45:17.180
+ in different ways in the brain.
+
+45:17.180 --> 45:19.900
+ It's encoded in chemical interactions.
+
+45:19.900 --> 45:24.220
+ It's encoded in electric, like firing and firing rates.
+
+45:24.220 --> 45:25.780
+ And nobody really knows how it's encoded,
+
+45:25.780 --> 45:29.020
+ but it just seems like there's a huge amount of capacity.
+
+45:29.020 --> 45:30.860
+ So I think it's huge.
+
+45:30.860 --> 45:32.460
+ It's just enormous.
+
+45:32.460 --> 45:36.740
+ And it's amazing how much stuff we know.
+
+45:36.740 --> 45:38.140
+ Yeah.
+
+45:38.140 --> 45:42.780
+ And for, but we know, and not just know like facts,
+
+45:42.780 --> 45:44.860
+ but it's all integrated into this thing
+
+45:44.860 --> 45:46.540
+ that we can make analogies with.
+
+45:46.540 --> 45:47.380
+ Yes.
+
+45:47.380 --> 45:49.300
+ There's a dream of Semantic Web,
+
+45:49.300 --> 45:53.000
+ and there's a lot of dreams from expert systems
+
+45:53.000 --> 45:56.300
+ of building giant knowledge bases.
+
+45:56.300 --> 45:58.980
+ Do you see a hope for these kinds of approaches
+
+45:58.980 --> 46:01.180
+ of building, of converting Wikipedia
+
+46:01.180 --> 46:05.160
+ into something that could be used in analogy making?
+
+46:05.160 --> 46:07.280
+ Sure.
+
+46:07.280 --> 46:09.600
+ And I think people have made some progress
+
+46:09.600 --> 46:10.540
+ along those lines.
+
+46:10.540 --> 46:13.320
+ I mean, people have been working on this for a long time.
+
+46:13.320 --> 46:14.800
+ But the problem is,
+
+46:14.800 --> 46:17.760
+ and this I think is the problem of common sense.
+
+46:17.760 --> 46:19.120
+ Like people have been trying to get
+
+46:19.120 --> 46:21.000
+ these common sense networks.
+
+46:21.000 --> 46:24.480
+ Here at MIT, there's this concept net project, right?
+
+46:25.420 --> 46:27.480
+ But the problem is that, as I said,
+
+46:27.480 --> 46:31.920
+ most of the knowledge that we have is invisible to us.
+
+46:31.920 --> 46:33.200
+ It's not in Wikipedia.
+
+46:33.200 --> 46:38.200
+ It's very basic things about intuitive physics,
+
+46:42.320 --> 46:46.400
+ intuitive psychology, intuitive metaphysics,
+
+46:46.400 --> 46:47.240
+ all that stuff.
+
+46:47.240 --> 46:49.200
+ If you were to create a website
+
+46:49.200 --> 46:53.480
+ that described intuitive physics, intuitive psychology,
+
+46:53.480 --> 46:56.480
+ would it be bigger or smaller than Wikipedia?
+
+46:56.480 --> 46:57.380
+ What do you think?
+
+46:58.940 --> 47:00.680
+ I guess described to whom?
+
+47:00.680 --> 47:03.880
+ I'm sorry, but.
+
+47:03.880 --> 47:05.360
+ No, that's really good.
+
+47:05.360 --> 47:07.060
+ That's exactly right, yeah.
+
+47:07.060 --> 47:07.900
+ That's a hard question,
+
+47:07.900 --> 47:10.560
+ because how do you represent that knowledge
+
+47:10.560 --> 47:12.080
+ is the question, right?
+
+47:12.080 --> 47:15.760
+ I can certainly write down F equals MA
+
+47:15.760 --> 47:19.680
+ and Newton's laws and a lot of physics
+
+47:19.680 --> 47:21.200
+ can be deduced from that.
+
+47:23.280 --> 47:27.060
+ But that's probably not the best representation
+
+47:27.060 --> 47:32.060
+ of that knowledge for doing the kinds of reasoning
+
+47:32.320 --> 47:33.600
+ we want a machine to do.
+
+47:35.760 --> 47:40.400
+ So, I don't know, it's impossible to say now.
+
+47:40.400 --> 47:43.160
+ And people, you know, the projects,
+
+47:43.160 --> 47:46.520
+ like there's the famous psych project, right,
+
+47:46.520 --> 47:50.040
+ that Douglas Linnaught did that was trying.
+
+47:50.040 --> 47:51.080
+ That thing's still going?
+
+47:51.080 --> 47:52.080
+ I think it's still going.
+
+47:52.080 --> 47:54.800
+ And the idea was to try and encode
+
+47:54.800 --> 47:56.280
+ all of common sense knowledge,
+
+47:56.280 --> 47:58.480
+ including all this invisible knowledge
+
+47:58.480 --> 48:03.480
+ in some kind of logical representation.
+
+48:03.480 --> 48:08.480
+ And it just never, I think, could do any of the things
+
+48:09.200 --> 48:11.000
+ that he was hoping it could do,
+
+48:11.000 --> 48:12.900
+ because that's just the wrong approach.
+
+48:13.920 --> 48:16.760
+ Of course, that's what they always say, you know.
+
+48:16.760 --> 48:18.880
+ And then the history books will say,
+
+48:18.880 --> 48:21.900
+ well, the psych project finally found a breakthrough
+
+48:21.900 --> 48:24.480
+ in 2058 or something.
+
+48:24.480 --> 48:28.500
+ So much progress has been made in just a few decades
+
+48:28.500 --> 48:31.980
+ that who knows what the next breakthroughs will be.
+
+48:31.980 --> 48:32.820
+ It could be.
+
+48:32.820 --> 48:34.700
+ It's certainly a compelling notion
+
+48:34.700 --> 48:36.480
+ what the psych project stands for.
+
+48:37.540 --> 48:39.940
+ I think Linnaught was one of the earliest people
+
+48:39.940 --> 48:43.540
+ to say common sense is what we need.
+
+48:43.540 --> 48:44.780
+ That's what we need.
+
+48:44.780 --> 48:46.980
+ All this like expert system stuff,
+
+48:46.980 --> 48:49.140
+ that is not gonna get you to AI.
+
+48:49.140 --> 48:50.420
+ You need common sense.
+
+48:50.420 --> 48:55.420
+ And he basically gave up his whole academic career
+
+48:56.180 --> 48:57.660
+ to go pursue that.
+
+48:57.660 --> 48:59.420
+ And I totally admire that,
+
+48:59.420 --> 49:04.420
+ but I think that the approach itself will not,
+
+49:06.020 --> 49:09.020
+ in 2040 or wherever, be successful.
+
+49:09.020 --> 49:10.300
+ What do you think is wrong with the approach?
+
+49:10.300 --> 49:13.100
+ What kind of approach might be successful?
+
+49:14.640 --> 49:15.480
+ Well, if I knew that.
+
+49:15.480 --> 49:16.940
+ Again, nobody knows the answer, right?
+
+49:16.940 --> 49:19.060
+ If I knew that, you know, one of my talks,
+
+49:19.060 --> 49:21.080
+ one of the people in the audience,
+
+49:21.080 --> 49:22.200
+ this is a public lecture,
+
+49:22.200 --> 49:24.220
+ one of the people in the audience said,
+
+49:24.220 --> 49:27.040
+ what AI companies are you investing in?
+
+49:27.040 --> 49:31.840
+ I'm like, well, I'm a college professor for one thing,
+
+49:31.840 --> 49:34.740
+ so I don't have a lot of extra funds to invest,
+
+49:34.740 --> 49:39.320
+ but also like no one knows what's gonna work in AI, right?
+
+49:39.320 --> 49:40.320
+ That's the problem.
+
+49:41.520 --> 49:43.120
+ Let me ask another impossible question
+
+49:43.120 --> 49:44.760
+ in case you have a sense.
+
+49:44.760 --> 49:46.460
+ In terms of data structures
+
+49:46.460 --> 49:49.520
+ that will store this kind of information,
+
+49:49.520 --> 49:51.880
+ do you think they've been invented yet,
+
+49:51.880 --> 49:53.620
+ both in hardware and software?
+
+49:54.600 --> 49:58.280
+ Or is it something else needs to be, are we totally, you know?
+
+49:58.280 --> 50:00.380
+ I think something else has to be invented.
+
+50:01.920 --> 50:03.560
+ That's my guess.
+
+50:03.560 --> 50:06.440
+ Is the breakthroughs that's most promising,
+
+50:06.440 --> 50:08.780
+ would that be in hardware or in software?
+
+50:09.720 --> 50:12.680
+ Do you think we can get far with the current computers?
+
+50:12.680 --> 50:14.800
+ Or do we need to do something that you see?
+
+50:14.800 --> 50:16.400
+ I see what you're saying.
+
+50:16.400 --> 50:18.560
+ I don't know if Turing computation
+
+50:18.560 --> 50:19.880
+ is gonna be sufficient.
+
+50:19.880 --> 50:22.040
+ Probably, I would guess it will.
+
+50:22.040 --> 50:24.920
+ I don't see any reason why we need anything else.
+
+50:26.020 --> 50:29.000
+ So in that sense, we have invented the hardware we need,
+
+50:29.000 --> 50:31.900
+ but we just need to make it faster and bigger,
+
+50:31.900 --> 50:34.300
+ and we need to figure out the right algorithms
+
+50:34.300 --> 50:38.600
+ and the right sort of architecture.
+
+50:39.620 --> 50:43.080
+ Turing, that's a very mathematical notion.
+
+50:43.080 --> 50:44.920
+ When we try to have to build intelligence,
+
+50:44.920 --> 50:46.800
+ it's now an engineering notion
+
+50:46.800 --> 50:48.320
+ where you throw all that stuff.
+
+50:48.320 --> 50:51.120
+ Well, I guess it is a question.
+
+50:53.440 --> 50:56.200
+ People have brought up this question,
+
+50:56.200 --> 50:59.000
+ and when you asked about, like, is our current hardware,
+
+51:00.680 --> 51:02.240
+ will our current hardware work?
+
+51:02.240 --> 51:07.000
+ Well, Turing computation says that our current hardware
+
+51:08.800 --> 51:13.300
+ is, in principle, a Turing machine, right?
+
+51:13.300 --> 51:16.480
+ So all we have to do is make it faster and bigger.
+
+51:16.480 --> 51:20.200
+ But there have been people like Roger Penrose,
+
+51:20.200 --> 51:22.560
+ if you might remember, that he said,
+
+51:22.560 --> 51:26.440
+ Turing machines cannot produce intelligence
+
+51:26.440 --> 51:30.480
+ because intelligence requires continuous valued numbers.
+
+51:30.480 --> 51:34.800
+ I mean, that was sort of my reading of his argument.
+
+51:34.800 --> 51:38.440
+ And quantum mechanics and what else, whatever.
+
+51:38.440 --> 51:41.680
+ But I don't see any evidence for that,
+
+51:41.680 --> 51:46.560
+ that we need new computation paradigms.
+
+51:48.060 --> 51:50.440
+ But I don't know if we're, you know,
+
+51:50.440 --> 51:53.880
+ I don't think we're gonna be able to scale up
+
+51:53.880 --> 51:57.600
+ our current approaches to programming these computers.
+
+51:58.400 --> 52:00.760
+ What is your hope for approaches like CopyCat
+
+52:00.760 --> 52:02.680
+ or other cognitive architectures?
+
+52:02.680 --> 52:04.640
+ I've talked to the creator of SOAR, for example.
+
+52:04.640 --> 52:06.000
+ I've used ActR myself.
+
+52:06.000 --> 52:07.040
+ I don't know if you're familiar with it.
+
+52:07.040 --> 52:07.880
+ Yeah, I am.
+
+52:07.880 --> 52:10.120
+ What do you think is,
+
+52:10.120 --> 52:12.040
+ what's your hope of approaches like that
+
+52:12.040 --> 52:15.840
+ in helping develop systems of greater
+
+52:15.840 --> 52:18.520
+ and greater intelligence in the coming decades?
+
+52:19.960 --> 52:22.160
+ Well, that's what I'm working on now,
+
+52:22.160 --> 52:26.080
+ is trying to take some of those ideas and extending it.
+
+52:26.080 --> 52:30.120
+ So I think there are some really promising approaches
+
+52:30.120 --> 52:34.120
+ that are going on now that have to do with
+
+52:34.120 --> 52:39.120
+ more active generative models.
+
+52:39.520 --> 52:42.760
+ So this is the idea of this simulation in your head,
+
+52:42.760 --> 52:46.160
+ the concept, when you, if you wanna,
+
+52:46.160 --> 52:49.880
+ when you're perceiving a new situation,
+
+52:49.880 --> 52:51.280
+ you have some simulations in your head.
+
+52:51.280 --> 52:52.560
+ Those are generative models.
+
+52:52.560 --> 52:54.600
+ They're generating your expectations.
+
+52:54.600 --> 52:55.920
+ They're generating predictions.
+
+52:55.920 --> 52:57.240
+ So that's part of a perception.
+
+52:57.240 --> 53:00.680
+ You have a metamodel that generates a prediction
+
+53:00.680 --> 53:03.560
+ then you compare it with, and then the difference.
+
+53:03.560 --> 53:07.560
+ And you also, that generative model is telling you
+
+53:07.560 --> 53:09.480
+ where to look and what to look at
+
+53:09.480 --> 53:11.640
+ and what to pay attention to.
+
+53:11.640 --> 53:14.080
+ And it, I think it affects your perception.
+
+53:14.080 --> 53:16.680
+ It's not that just you compare it with your perception.
+
+53:16.680 --> 53:21.680
+ It becomes your perception in a way.
+
+53:21.960 --> 53:26.960
+ It's kind of a mixture of the bottom up information
+
+53:28.320 --> 53:31.880
+ coming from the world and your top down model
+
+53:31.880 --> 53:36.160
+ being imposed on the world is what becomes your perception.
+
+53:36.160 --> 53:37.400
+ So your hope is something like that
+
+53:37.400 --> 53:39.600
+ can improve perception systems
+
+53:39.600 --> 53:41.760
+ and that they can understand things better.
+
+53:41.760 --> 53:42.920
+ Yes. To understand things.
+
+53:42.920 --> 53:44.160
+ Yes.
+
+53:44.160 --> 53:47.160
+ What's the, what's the step,
+
+53:47.160 --> 53:49.520
+ what's the analogy making step there?
+
+53:49.520 --> 53:54.040
+ Well, there, the idea is that you have this
+
+53:54.040 --> 53:57.120
+ pretty complicated conceptual space.
+
+53:57.120 --> 54:00.420
+ You can talk about a semantic network or something like that
+
+54:00.420 --> 54:04.240
+ with these different kinds of concept models
+
+54:04.240 --> 54:07.280
+ in your brain that are connected.
+
+54:07.280 --> 54:10.920
+ So, so let's, let's take the example of walking a dog.
+
+54:10.920 --> 54:12.360
+ So we were talking about that.
+
+54:12.360 --> 54:13.600
+ Okay.
+
+54:13.600 --> 54:16.640
+ Let's say I see someone out in the street walking a cat.
+
+54:16.640 --> 54:18.600
+ Some people walk their cats, I guess.
+
+54:18.600 --> 54:19.880
+ Seems like a bad idea, but.
+
+54:19.880 --> 54:20.720
+ Yeah.
+
+54:21.760 --> 54:23.480
+ So my model, my, you know,
+
+54:23.480 --> 54:27.220
+ there's connections between my model of a dog
+
+54:27.220 --> 54:28.920
+ and model of a cat.
+
+54:28.920 --> 54:33.120
+ And I can immediately see the analogy
+
+54:33.120 --> 54:38.120
+ of that those are analogous situations,
+
+54:38.760 --> 54:40.840
+ but I can also see the differences
+
+54:40.840 --> 54:43.280
+ and that tells me what to expect.
+
+54:43.280 --> 54:48.280
+ So also, you know, I have a new situation.
+
+54:48.640 --> 54:51.280
+ So another example with the walking the dog thing
+
+54:51.280 --> 54:52.960
+ is sometimes people,
+
+54:52.960 --> 54:55.120
+ I see people riding their bikes with a leash,
+
+54:55.120 --> 54:57.640
+ holding a leash and the dogs running alongside.
+
+54:57.640 --> 55:00.200
+ Okay, so I know that the,
+
+55:00.200 --> 55:03.940
+ I recognize that as kind of a dog walking situation,
+
+55:03.940 --> 55:06.800
+ even though the person's not walking, right?
+
+55:06.800 --> 55:08.480
+ And the dog's not walking.
+
+55:08.480 --> 55:13.480
+ Because I have these models that say, okay,
+
+55:14.120 --> 55:16.580
+ riding a bike is sort of similar to walking
+
+55:16.580 --> 55:20.180
+ or it's connected, it's a means of transportation,
+
+55:20.180 --> 55:22.840
+ but I, because they have their dog there,
+
+55:22.840 --> 55:24.400
+ I assume they're not going to work,
+
+55:24.400 --> 55:26.360
+ but they're going out for exercise.
+
+55:26.360 --> 55:30.240
+ You know, these analogies help me to figure out
+
+55:30.240 --> 55:33.120
+ kind of what's going on, what's likely.
+
+55:33.120 --> 55:36.360
+ But sort of these analogies are very human interpretable.
+
+55:37.240 --> 55:38.980
+ So that's that kind of space.
+
+55:38.980 --> 55:40.480
+ And then you look at something
+
+55:40.480 --> 55:43.420
+ like the current deep learning approaches,
+
+55:43.420 --> 55:46.680
+ they kind of help you to take raw sensory information
+
+55:46.680 --> 55:49.440
+ and to sort of automatically build up hierarchies
+
+55:49.440 --> 55:52.960
+ of what you can even call them concepts.
+
+55:52.960 --> 55:55.600
+ They're just not human interpretable concepts.
+
+55:55.600 --> 55:58.640
+ What's your, what's the link here?
+
+55:58.640 --> 56:03.640
+ Do you hope, sort of the hybrid system question,
+
+56:05.720 --> 56:08.220
+ how do you think the two can start to meet each other?
+
+56:08.220 --> 56:13.220
+ What's the value of learning in this systems of forming,
+
+56:14.040 --> 56:16.040
+ of analogy making?
+
+56:16.040 --> 56:20.600
+ The goal of, you know, the original goal of deep learning
+
+56:20.600 --> 56:24.260
+ in at least visual perception was that
+
+56:24.260 --> 56:27.320
+ you would get the system to learn to extract features
+
+56:27.320 --> 56:30.120
+ that at these different levels of complexity.
+
+56:30.120 --> 56:34.000
+ So maybe edge detection and that would lead into learning,
+
+56:34.000 --> 56:36.640
+ you know, simple combinations of edges
+
+56:36.640 --> 56:38.120
+ and then more complex shapes
+
+56:38.120 --> 56:41.520
+ and then whole objects or faces.
+
+56:42.740 --> 56:47.740
+ And this was based on the ideas
+
+56:47.960 --> 56:51.480
+ of the neuroscientists, Hubel and Wiesel,
+
+56:51.480 --> 56:55.320
+ who had seen, laid out this kind of structure in brain.
+
+56:58.740 --> 57:02.020
+ And I think that's right to some extent.
+
+57:02.020 --> 57:05.840
+ Of course, people have found that the whole story
+
+57:05.840 --> 57:07.320
+ is a little more complex than that.
+
+57:07.320 --> 57:09.120
+ And the brain of course always is
+
+57:09.120 --> 57:10.520
+ and there's a lot of feedback.
+
+57:10.520 --> 57:22.520
+ So I see that as absolutely a good brain inspired approach
+
+57:22.860 --> 57:25.680
+ to some aspects of perception.
+
+57:25.680 --> 57:29.460
+ But one thing that it's lacking, for example,
+
+57:29.460 --> 57:33.300
+ is all of that feedback, which is extremely important.
+
+57:33.300 --> 57:36.420
+ The interactive element that you mentioned.
+
+57:36.420 --> 57:39.020
+ The expectation, right, the conceptual level.
+
+57:39.020 --> 57:42.220
+ Going back and forth with the expectation,
+
+57:42.220 --> 57:44.180
+ the perception and just going back and forth.
+
+57:44.180 --> 57:47.940
+ So, right, so that is extremely important.
+
+57:47.940 --> 57:52.180
+ And, you know, one thing about deep neural networks
+
+57:52.180 --> 57:54.960
+ is that in a given situation,
+
+57:54.960 --> 57:56.660
+ like, you know, they're trained, right?
+
+57:56.660 --> 57:58.340
+ They get these weights and everything,
+
+57:58.340 --> 58:02.400
+ but then now I give them a new image, let's say.
+
+58:02.400 --> 58:09.400
+ They treat every part of the image in the same way.
+
+58:09.860 --> 58:13.540
+ You know, they apply the same filters at each layer
+
+58:13.540 --> 58:15.900
+ to all parts of the image.
+
+58:15.900 --> 58:17.600
+ There's no feedback to say like,
+
+58:17.600 --> 58:19.980
+ oh, this part of the image is irrelevant.
+
+58:20.860 --> 58:23.060
+ I shouldn't care about this part of the image.
+
+58:23.060 --> 58:26.060
+ Or this part of the image is the most important part.
+
+58:27.020 --> 58:30.120
+ And that's kind of what we humans are able to do
+
+58:30.120 --> 58:33.140
+ because we have these conceptual expectations.
+
+58:33.140 --> 58:35.580
+ So there's a, by the way, a little bit of work in that.
+
+58:35.580 --> 58:38.900
+ There's certainly a lot more in what's under the,
+
+58:38.900 --> 58:42.480
+ called attention in natural language processing knowledge.
+
+58:42.480 --> 58:46.820
+ It's a, and that's exceptionally powerful.
+
+58:46.820 --> 58:49.240
+ And it's a very, just as you say,
+
+58:49.240 --> 58:50.660
+ it's a really powerful idea.
+
+58:50.660 --> 58:53.380
+ But again, in sort of machine learning,
+
+58:53.380 --> 58:55.740
+ it all kind of operates in an automated way.
+
+58:55.740 --> 58:56.940
+ That's not human interpret.
+
+58:56.940 --> 58:59.340
+ It's not also, okay, so that, right.
+
+58:59.340 --> 59:00.300
+ It's not dynamic.
+
+59:00.300 --> 59:03.420
+ I mean, in the sense that as a perception
+
+59:03.420 --> 59:07.460
+ of a new example is being processed,
+
+59:08.540 --> 59:10.880
+ those attention's weights don't change.
+
+59:12.780 --> 59:17.540
+ Right, so I mean, there's a kind of notion
+
+59:17.540 --> 59:20.340
+ that there's not a memory.
+
+59:20.340 --> 59:23.820
+ So you're not aggregating the idea of like,
+
+59:23.820 --> 59:25.040
+ this mental model.
+
+59:25.040 --> 59:26.540
+ Yes.
+
+59:26.540 --> 59:28.600
+ I mean, that seems to be a fundamental idea.
+
+59:28.600 --> 59:30.940
+ There's not a really powerful,
+
+59:30.940 --> 59:32.380
+ I mean, there's some stuff with memory,
+
+59:32.380 --> 59:37.380
+ but there's not a powerful way to represent the world
+
+59:37.820 --> 59:42.300
+ in some sort of way that's deeper than,
+
+59:42.300 --> 59:45.300
+ I mean, it's so difficult because, you know,
+
+59:45.300 --> 59:47.580
+ neural networks do represent the world.
+
+59:47.580 --> 59:50.860
+ They do have a mental model, right?
+
+59:50.860 --> 59:53.000
+ But it just seems to be shallow.
+
+59:53.000 --> 59:58.000
+ It's hard to criticize them at the fundamental level,
+
+1:00:00.560 --> 1:00:01.660
+ to me at least.
+
+1:00:01.660 --> 1:00:05.200
+ It's easy to criticize them.
+
+1:00:05.200 --> 1:00:07.200
+ Well, look, like exactly what you're saying,
+
+1:00:07.200 --> 1:00:11.680
+ mental models sort of almost put a psychology hat on,
+
+1:00:11.680 --> 1:00:15.280
+ say, look, these networks are clearly not able
+
+1:00:15.280 --> 1:00:18.360
+ to achieve what we humans do with forming mental models,
+
+1:00:18.360 --> 1:00:20.060
+ analogy making and so on.
+
+1:00:20.060 --> 1:00:23.780
+ But that doesn't mean that they fundamentally cannot do that.
+
+1:00:23.780 --> 1:00:25.680
+ Like it's very difficult to say that.
+
+1:00:25.680 --> 1:00:26.600
+ I mean, at least to me,
+
+1:00:26.600 --> 1:00:29.840
+ do you have a notion that the learning approach is really,
+
+1:00:29.840 --> 1:00:34.000
+ I mean, they're going to not only are they limited today,
+
+1:00:34.000 --> 1:00:37.360
+ but they will forever be limited
+
+1:00:37.360 --> 1:00:41.460
+ in being able to construct such mental models.
+
+1:00:42.400 --> 1:00:47.400
+ I think the idea of the dynamic perception is key here.
+
+1:00:47.400 --> 1:00:52.400
+ The idea that moving your eyes around and getting feedback.
+
+1:00:54.040 --> 1:00:56.920
+ And that's something that, you know,
+
+1:00:56.920 --> 1:00:58.320
+ there's been some models like that.
+
+1:00:58.320 --> 1:01:00.640
+ There's certainly recurrent neural networks
+
+1:01:00.640 --> 1:01:02.800
+ that operate over several time steps.
+
+1:01:03.800 --> 1:01:07.800
+ But the problem is that the actual, the recurrence is,
+
+1:01:07.800 --> 1:01:13.760
+ you know, basically the feedback is at the next time step
+
+1:01:13.760 --> 1:01:18.760
+ is the entire hidden state of the network,
+
+1:01:18.760 --> 1:01:23.760
+ which is, it turns out that that doesn't work very well.
+
+1:01:25.480 --> 1:01:29.480
+ But see, the thing I'm saying is mathematically speaking,
+
+1:01:29.480 --> 1:01:33.560
+ it has the information in that recurrence
+
+1:01:33.560 --> 1:01:38.560
+ to capture everything, it just doesn't seem to work.
+
+1:01:38.560 --> 1:01:40.560
+ So like, you know, it's like,
+
+1:01:40.560 --> 1:01:43.560
+ it's the same Turing machine question, right?
+
+1:01:44.560 --> 1:01:49.560
+ Yeah, maybe theoretically, computers,
+
+1:01:49.560 --> 1:01:53.560
+ anything that's Turing, a universal Turing machine
+
+1:01:53.560 --> 1:01:56.560
+ can be intelligent, but practically,
+
+1:01:56.560 --> 1:01:59.560
+ the architecture might be very specific.
+
+1:01:59.560 --> 1:02:04.560
+ Kind of architecture to be able to create it.
+
+1:02:04.560 --> 1:02:09.560
+ So just, I guess it sort of asks almost the same question
+
+1:02:09.560 --> 1:02:14.560
+ again is how big of a role do you think deep learning needs,
+
+1:02:14.560 --> 1:02:19.560
+ will play or needs to play in this, in perception?
+
+1:02:20.560 --> 1:02:23.560
+ I think that deep learning as it's currently,
+
+1:02:24.560 --> 1:02:27.560
+ as it currently exists, you know, will place,
+
+1:02:27.560 --> 1:02:30.560
+ that kind of thing will play some role.
+
+1:02:31.560 --> 1:02:36.560
+ But I think that there's a lot more going on in perception.
+
+1:02:36.560 --> 1:02:39.560
+ But who knows, you know, the definition of deep learning,
+
+1:02:39.560 --> 1:02:41.560
+ I mean, it's pretty broad.
+
+1:02:41.560 --> 1:02:43.560
+ It's kind of an umbrella for a lot of different things.
+
+1:02:43.560 --> 1:02:45.560
+ So what I mean is purely sort of neural networks.
+
+1:02:45.560 --> 1:02:48.560
+ Yeah, and a feed forward neural networks.
+
+1:02:48.560 --> 1:02:50.560
+ Essentially, or there could be recurrence,
+
+1:02:50.560 --> 1:02:53.560
+ but sometimes it feels like,
+
+1:02:53.560 --> 1:02:55.560
+ for instance, I talked to Gary Marcus,
+
+1:02:55.560 --> 1:02:58.560
+ it feels like the criticism of deep learning
+
+1:02:58.560 --> 1:03:02.560
+ is kind of like us birds criticizing airplanes
+
+1:03:02.560 --> 1:03:07.560
+ for not flying well, or that they're not really flying.
+
+1:03:07.560 --> 1:03:10.560
+ Do you think deep learning,
+
+1:03:10.560 --> 1:03:12.560
+ do you think it could go all the way?
+
+1:03:12.560 --> 1:03:14.560
+ Like Yann LeCun thinks.
+
+1:03:14.560 --> 1:03:17.560
+ Do you think that, yeah,
+
+1:03:17.560 --> 1:03:21.560
+ the brute force learning approach can go all the way?
+
+1:03:21.560 --> 1:03:23.560
+ I don't think so, no.
+
+1:03:23.560 --> 1:03:25.560
+ I mean, I think it's an open question,
+
+1:03:25.560 --> 1:03:29.560
+ but I tend to be on the innateness side
+
+1:03:29.560 --> 1:03:35.560
+ that there's some things that we've been evolved
+
+1:03:35.560 --> 1:03:39.560
+ to be able to learn,
+
+1:03:39.560 --> 1:03:44.560
+ and that learning just can't happen without them.
+
+1:03:44.560 --> 1:03:47.560
+ So one example, here's an example I had in the book
+
+1:03:47.560 --> 1:03:51.560
+ that I think is useful to me, at least, in thinking about this.
+
+1:03:51.560 --> 1:03:54.560
+ So this has to do with
+
+1:03:54.560 --> 1:03:59.560
+ the Deep Minds Atari game playing program, okay?
+
+1:03:59.560 --> 1:04:02.560
+ And it learned to play these Atari video games
+
+1:04:02.560 --> 1:04:08.560
+ just by getting input from the pixels of the screen,
+
+1:04:08.560 --> 1:04:15.560
+ and it learned to play the game Breakout
+
+1:04:15.560 --> 1:04:18.560
+ 1,000% better than humans, okay?
+
+1:04:18.560 --> 1:04:20.560
+ That was one of their results, and it was great.
+
+1:04:20.560 --> 1:04:23.560
+ And it learned this thing where it tunneled through the side
+
+1:04:23.560 --> 1:04:26.560
+ of the bricks in the breakout game,
+
+1:04:26.560 --> 1:04:28.560
+ and the ball could bounce off the ceiling
+
+1:04:28.560 --> 1:04:30.560
+ and then just wipe out bricks.
+
+1:04:30.560 --> 1:04:36.560
+ Okay, so there was a group who did an experiment
+
+1:04:36.560 --> 1:04:41.560
+ where they took the paddle that you move with the joystick
+
+1:04:41.560 --> 1:04:45.560
+ and moved it up two pixels or something like that.
+
+1:04:45.560 --> 1:04:49.560
+ And then they looked at a deep Q learning system
+
+1:04:49.560 --> 1:04:51.560
+ that had been trained on Breakout and said,
+
+1:04:51.560 --> 1:04:53.560
+ could it now transfer its learning
+
+1:04:53.560 --> 1:04:55.560
+ to this new version of the game?
+
+1:04:55.560 --> 1:04:58.560
+ Of course, a human could, and it couldn't.
+
+1:04:58.560 --> 1:05:00.560
+ Maybe that's not surprising, but I guess the point is
+
+1:05:00.560 --> 1:05:04.560
+ it hadn't learned the concept of a paddle.
+
+1:05:04.560 --> 1:05:07.560
+ It hadn't learned the concept of a ball
+
+1:05:07.560 --> 1:05:09.560
+ or the concept of tunneling.
+
+1:05:09.560 --> 1:05:12.560
+ It was learning something, you know, we looking at it
+
+1:05:12.560 --> 1:05:16.560
+ kind of anthropomorphized it and said,
+
+1:05:16.560 --> 1:05:18.560
+ oh, here's what it's doing in the way we describe it.
+
+1:05:18.560 --> 1:05:21.560
+ But it actually didn't learn those concepts.
+
+1:05:21.560 --> 1:05:23.560
+ And so because it didn't learn those concepts,
+
+1:05:23.560 --> 1:05:26.560
+ it couldn't make this transfer.
+
+1:05:26.560 --> 1:05:28.560
+ Yes, so that's a beautiful statement,
+
+1:05:28.560 --> 1:05:31.560
+ but at the same time, by moving the paddle,
+
+1:05:31.560 --> 1:05:36.560
+ we also anthropomorphize flaws to inject into the system
+
+1:05:36.560 --> 1:05:39.560
+ that will then flip how impressed we are by it.
+
+1:05:39.560 --> 1:05:43.560
+ What I mean by that is, to me, the Atari games were,
+
+1:05:43.560 --> 1:05:48.560
+ to me, deeply impressive that that was possible at all.
+
+1:05:48.560 --> 1:05:50.560
+ So like I have to first pause on that,
+
+1:05:50.560 --> 1:05:53.560
+ and people should look at that, just like the game of Go,
+
+1:05:53.560 --> 1:05:55.560
+ which is fundamentally different to me
+
+1:05:55.560 --> 1:05:59.560
+ than what Deep Blue did.
+
+1:05:59.560 --> 1:06:03.560
+ Even though there's still a tree search,
+
+1:06:03.560 --> 1:06:08.560
+ it's just everything DeepMind has done in terms of learning,
+
+1:06:08.560 --> 1:06:11.560
+ however limited it is, is still deeply surprising to me.
+
+1:06:11.560 --> 1:06:15.560
+ Yeah, I'm not trying to say that what they did wasn't impressive.
+
+1:06:15.560 --> 1:06:17.560
+ I think it was incredibly impressive.
+
+1:06:17.560 --> 1:06:19.560
+ To me, it's interesting.
+
+1:06:19.560 --> 1:06:24.560
+ Is moving the board just another thing that needs to be learned?
+
+1:06:24.560 --> 1:06:27.560
+ So like we've been able to, maybe, maybe,
+
+1:06:27.560 --> 1:06:29.560
+ been able to, through the current neural networks,
+
+1:06:29.560 --> 1:06:31.560
+ learn very basic concepts
+
+1:06:31.560 --> 1:06:34.560
+ that are not enough to do this general reasoning,
+
+1:06:34.560 --> 1:06:37.560
+ and maybe with more data.
+
+1:06:37.560 --> 1:06:41.560
+ I mean, the interesting thing about the examples
+
+1:06:41.560 --> 1:06:44.560
+ that you talk about beautifully
+
+1:06:44.560 --> 1:06:48.560
+ is it's often flaws of the data.
+
+1:06:48.560 --> 1:06:49.560
+ Well, that's the question.
+
+1:06:49.560 --> 1:06:51.560
+ I mean, I think that is the key question,
+
+1:06:51.560 --> 1:06:53.560
+ whether it's a flaw of the data or not.
+
+1:06:53.560 --> 1:06:56.560
+ Because the reason I brought up this example
+
+1:06:56.560 --> 1:06:57.560
+ was because you were asking,
+
+1:06:57.560 --> 1:07:01.560
+ do I think that learning from data could go all the way?
+
+1:07:01.560 --> 1:07:04.560
+ And this was why I brought up the example,
+
+1:07:04.560 --> 1:07:09.560
+ because I think, and this is not at all to take away
+
+1:07:09.560 --> 1:07:11.560
+ from the impressive work that they did,
+
+1:07:11.560 --> 1:07:18.560
+ but it's to say that when we look at what these systems learn,
+
+1:07:18.560 --> 1:07:21.560
+ do they learn the things
+
+1:07:21.560 --> 1:07:25.560
+ that we humans consider to be the relevant concepts?
+
+1:07:25.560 --> 1:07:29.560
+ And in that example, it didn't.
+
+1:07:29.560 --> 1:07:34.560
+ Sure, if you train it on moving, you know, the paddle being
+
+1:07:34.560 --> 1:07:38.560
+ in different places, maybe it could deal with,
+
+1:07:38.560 --> 1:07:40.560
+ maybe it would learn that concept.
+
+1:07:40.560 --> 1:07:42.560
+ I'm not totally sure.
+
+1:07:42.560 --> 1:07:44.560
+ But the question is, you know, scaling that up
+
+1:07:44.560 --> 1:07:48.560
+ to more complicated worlds,
+
+1:07:48.560 --> 1:07:51.560
+ to what extent could a machine
+
+1:07:51.560 --> 1:07:54.560
+ that only gets this very raw data
+
+1:07:54.560 --> 1:07:58.560
+ learn to divide up the world into relevant concepts?
+
+1:07:58.560 --> 1:08:01.560
+ And I don't know the answer,
+
+1:08:01.560 --> 1:08:08.560
+ but I would bet that without some innate notion
+
+1:08:08.560 --> 1:08:10.560
+ that it can't do it.
+
+1:08:10.560 --> 1:08:12.560
+ Yeah, 10 years ago, I 100% agree with you
+
+1:08:12.560 --> 1:08:15.560
+ as the most experts in AI system,
+
+1:08:15.560 --> 1:08:19.560
+ but now I have a glimmer of hope.
+
+1:08:19.560 --> 1:08:21.560
+ Okay, I mean, that's fair enough.
+
+1:08:21.560 --> 1:08:24.560
+ And I think that's what deep learning did in the community is,
+
+1:08:24.560 --> 1:08:26.560
+ no, no, if I had to bet all my money,
+
+1:08:26.560 --> 1:08:29.560
+ it's 100% deep learning will not take us all the way.
+
+1:08:29.560 --> 1:08:31.560
+ But there's still other, it's still,
+
+1:08:31.560 --> 1:08:36.560
+ I was so personally sort of surprised by the Atari games,
+
+1:08:36.560 --> 1:08:40.560
+ by Go, by the power of self play of just game playing
+
+1:08:40.560 --> 1:08:44.560
+ against each other that I was like many other times
+
+1:08:44.560 --> 1:08:48.560
+ just humbled of how little I know about what's possible
+
+1:08:48.560 --> 1:08:49.560
+ in this approach.
+
+1:08:49.560 --> 1:08:51.560
+ Yeah, I think fair enough.
+
+1:08:51.560 --> 1:08:53.560
+ Self play is amazingly powerful.
+
+1:08:53.560 --> 1:08:58.560
+ And that goes way back to Arthur Samuel, right,
+
+1:08:58.560 --> 1:09:01.560
+ with his checker plane program,
+
+1:09:01.560 --> 1:09:06.560
+ which was brilliant and surprising that it did so well.
+
+1:09:06.560 --> 1:09:10.560
+ So just for fun, let me ask you on the topic of autonomous vehicles.
+
+1:09:10.560 --> 1:09:15.560
+ It's the area that I work at least these days most closely on,
+
+1:09:15.560 --> 1:09:20.560
+ and it's also area that I think is a good example that you use
+
+1:09:20.560 --> 1:09:25.560
+ as sort of an example of things we as humans
+
+1:09:25.560 --> 1:09:28.560
+ don't always realize how hard it is to do.
+
+1:09:28.560 --> 1:09:30.560
+ It's like the constant trend in AI,
+
+1:09:30.560 --> 1:09:32.560
+ but the different problems that we think are easy
+
+1:09:32.560 --> 1:09:36.560
+ when we first try them and then realize how hard it is.
+
+1:09:36.560 --> 1:09:41.560
+ Okay, so you've talked about autonomous driving
+
+1:09:41.560 --> 1:09:44.560
+ being a difficult problem, more difficult than we realize.
+
+1:09:44.560 --> 1:09:46.560
+ Humans give it credit for it.
+
+1:09:46.560 --> 1:09:47.560
+ Why is it so difficult?
+
+1:09:47.560 --> 1:09:51.560
+ What are the most difficult parts in your view?
+
+1:09:51.560 --> 1:09:56.560
+ I think it's difficult because of the world is so open ended
+
+1:09:56.560 --> 1:09:59.560
+ as to what kinds of things can happen.
+
+1:09:59.560 --> 1:10:05.560
+ So you have sort of what normally happens,
+
+1:10:05.560 --> 1:10:09.560
+ which is just you drive along and nothing surprising happens,
+
+1:10:09.560 --> 1:10:12.560
+ and autonomous vehicles can do,
+
+1:10:12.560 --> 1:10:17.560
+ the ones we have now evidently can do really well
+
+1:10:17.560 --> 1:10:21.560
+ on most normal situations as long as the weather
+
+1:10:21.560 --> 1:10:24.560
+ is reasonably good and everything.
+
+1:10:24.560 --> 1:10:28.560
+ But if some, we have this notion of edge cases
+
+1:10:28.560 --> 1:10:32.560
+ or things in the tail of the distribution,
+
+1:10:32.560 --> 1:10:34.560
+ we call it the long tail problem,
+
+1:10:34.560 --> 1:10:37.560
+ which says that there's so many possible things
+
+1:10:37.560 --> 1:10:41.560
+ that can happen that was not in the training data
+
+1:10:41.560 --> 1:10:47.560
+ of the machine that it won't be able to handle it
+
+1:10:47.560 --> 1:10:50.560
+ because it doesn't have common sense.
+
+1:10:50.560 --> 1:10:54.560
+ Right, it's the old, the paddle moved problem.
+
+1:10:54.560 --> 1:10:57.560
+ Yeah, it's the paddle moved problem, right.
+
+1:10:57.560 --> 1:10:59.560
+ And so my understanding, and you probably are more
+
+1:10:59.560 --> 1:11:01.560
+ of an expert than I am on this,
+
+1:11:01.560 --> 1:11:07.560
+ is that current self driving car vision systems
+
+1:11:07.560 --> 1:11:12.560
+ have problems with obstacles, meaning that they don't know
+
+1:11:12.560 --> 1:11:15.560
+ which obstacles, which quote unquote obstacles
+
+1:11:15.560 --> 1:11:18.560
+ they should stop for and which ones they shouldn't stop for.
+
+1:11:18.560 --> 1:11:21.560
+ And so a lot of times I read that they tend to slam
+
+1:11:21.560 --> 1:11:23.560
+ on the brakes quite a bit.
+
+1:11:23.560 --> 1:11:27.560
+ And the most common accidents with self driving cars
+
+1:11:27.560 --> 1:11:31.560
+ are people rear ending them because they were surprised.
+
+1:11:31.560 --> 1:11:35.560
+ They weren't expecting the machine, the car to stop.
+
+1:11:35.560 --> 1:11:38.560
+ Yeah, so there's a lot of interesting questions there.
+
+1:11:38.560 --> 1:11:42.560
+ Whether, because you mentioned kind of two things.
+
+1:11:42.560 --> 1:11:46.560
+ So one is the problem of perception, of understanding,
+
+1:11:46.560 --> 1:11:51.560
+ of interpreting the objects that are detected correctly.
+
+1:11:51.560 --> 1:11:54.560
+ And the other one is more like the policy,
+
+1:11:54.560 --> 1:11:57.560
+ the action that you take, how you respond to it.
+
+1:11:57.560 --> 1:12:02.560
+ So a lot of the car's braking is a kind of notion of,
+
+1:12:02.560 --> 1:12:05.560
+ to clarify, there's a lot of different kind of things
+
+1:12:05.560 --> 1:12:07.560
+ that are people calling autonomous vehicles.
+
+1:12:07.560 --> 1:12:12.560
+ But the L4 vehicles with a safety driver are the ones
+
+1:12:12.560 --> 1:12:15.560
+ like Waymo and Cruise and those companies,
+
+1:12:15.560 --> 1:12:18.560
+ they tend to be very conservative and cautious.
+
+1:12:18.560 --> 1:12:21.560
+ So they tend to be very, very afraid of hurting anything
+
+1:12:21.560 --> 1:12:24.560
+ or anyone and getting in any kind of accidents.
+
+1:12:24.560 --> 1:12:28.560
+ So their policy is very kind of, that results
+
+1:12:28.560 --> 1:12:31.560
+ in being exceptionally responsive to anything
+
+1:12:31.560 --> 1:12:33.560
+ that could possibly be an obstacle, right?
+
+1:12:33.560 --> 1:12:38.560
+ Right, which the human drivers around it,
+
+1:12:38.560 --> 1:12:41.560
+ it behaves unpredictably.
+
+1:12:41.560 --> 1:12:43.560
+ Yeah, that's not a very human thing to do, caution.
+
+1:12:43.560 --> 1:12:46.560
+ That's not the thing we're good at, especially in driving.
+
+1:12:46.560 --> 1:12:49.560
+ We're in a hurry, often angry and et cetera,
+
+1:12:49.560 --> 1:12:51.560
+ especially in Boston.
+
+1:12:51.560 --> 1:12:55.560
+ And then there's sort of another, and a lot of times,
+
+1:12:55.560 --> 1:12:57.560
+ machine learning is not a huge part of that.
+
+1:12:57.560 --> 1:13:00.560
+ It's becoming more and more unclear to me
+
+1:13:00.560 --> 1:13:05.560
+ how much sort of speaking to public information
+
+1:13:05.560 --> 1:13:08.560
+ because a lot of companies say they're doing deep learning
+
+1:13:08.560 --> 1:13:12.560
+ and machine learning just to attract good candidates.
+
+1:13:12.560 --> 1:13:14.560
+ The reality is in many cases,
+
+1:13:14.560 --> 1:13:18.560
+ it's still not a huge part of the perception.
+
+1:13:18.560 --> 1:13:20.560
+ There's LiDAR and there's other sensors
+
+1:13:20.560 --> 1:13:23.560
+ that are much more reliable for obstacle detection.
+
+1:13:23.560 --> 1:13:27.560
+ And then there's Tesla approach, which is vision only.
+
+1:13:27.560 --> 1:13:30.560
+ And there's, I think a few companies doing that,
+
+1:13:30.560 --> 1:13:32.560
+ but Tesla most sort of famously pushing that forward.
+
+1:13:32.560 --> 1:13:35.560
+ And that's because the LiDAR is too expensive, right?
+
+1:13:35.560 --> 1:13:40.560
+ Well, I mean, yes, but I would say
+
+1:13:40.560 --> 1:13:44.560
+ if you were to for free give to every Tesla vehicle,
+
+1:13:44.560 --> 1:13:47.560
+ I mean, Elon Musk fundamentally believes
+
+1:13:47.560 --> 1:13:50.560
+ that LiDAR is a crutch, right, famously said that.
+
+1:13:50.560 --> 1:13:55.560
+ That if you want to solve the problem of machine learning,
+
+1:13:55.560 --> 1:14:00.560
+ LiDAR should not be the primary sensor is the belief.
+
+1:14:00.560 --> 1:14:04.560
+ The camera contains a lot more information.
+
+1:14:04.560 --> 1:14:08.560
+ So if you want to learn, you want that information.
+
+1:14:08.560 --> 1:14:13.560
+ But if you want to not to hit obstacles, you want LiDAR, right?
+
+1:14:13.560 --> 1:14:18.560
+ Sort of it's this weird trade off because yeah,
+
+1:14:18.560 --> 1:14:21.560
+ sort of what Tesla vehicles have a lot of,
+
+1:14:21.560 --> 1:14:26.560
+ which is really the thing, the fallback,
+
+1:14:26.560 --> 1:14:29.560
+ the primary fallback sensor is radar,
+
+1:14:29.560 --> 1:14:32.560
+ which is a very crude version of LiDAR.
+
+1:14:32.560 --> 1:14:34.560
+ It's a good detector of obstacles
+
+1:14:34.560 --> 1:14:37.560
+ except when those things are standing, right?
+
+1:14:37.560 --> 1:14:39.560
+ The stopped vehicle.
+
+1:14:39.560 --> 1:14:41.560
+ Right, that's why it had problems
+
+1:14:41.560 --> 1:14:43.560
+ with crashing into stop fire trucks.
+
+1:14:43.560 --> 1:14:44.560
+ Stop fire trucks, right.
+
+1:14:44.560 --> 1:14:47.560
+ So the hope there is that the vision sensor
+
+1:14:47.560 --> 1:14:49.560
+ would somehow catch that.
+
+1:14:49.560 --> 1:14:52.560
+ And for, there's a lot of problems with perception.
+
+1:14:54.560 --> 1:14:58.560
+ They are doing actually some incredible stuff in the,
+
+1:15:00.560 --> 1:15:02.560
+ almost like an active learning space
+
+1:15:02.560 --> 1:15:06.560
+ where it's constantly taking edge cases and pulling back in.
+
+1:15:06.560 --> 1:15:08.560
+ There's this data pipeline.
+
+1:15:08.560 --> 1:15:12.560
+ Another aspect that is really important
+
+1:15:12.560 --> 1:15:15.560
+ that people are studying now is called multitask learning,
+
+1:15:15.560 --> 1:15:18.560
+ which is sort of breaking apart this problem,
+
+1:15:18.560 --> 1:15:20.560
+ whatever the problem is, in this case driving,
+
+1:15:20.560 --> 1:15:24.560
+ into dozens or hundreds of little problems
+
+1:15:24.560 --> 1:15:26.560
+ that you can turn into learning problems.
+
+1:15:26.560 --> 1:15:30.560
+ So this giant pipeline, it's kind of interesting.
+
+1:15:30.560 --> 1:15:33.560
+ I've been skeptical from the very beginning,
+
+1:15:33.560 --> 1:15:35.560
+ but become less and less skeptical over time
+
+1:15:35.560 --> 1:15:37.560
+ how much of driving can be learned.
+
+1:15:37.560 --> 1:15:39.560
+ I still think it's much farther
+
+1:15:39.560 --> 1:15:44.560
+ than the CEO of that particular company thinks it will be,
+
+1:15:44.560 --> 1:15:48.560
+ but it's constantly surprising that
+
+1:15:48.560 --> 1:15:51.560
+ through good engineering and data collection
+
+1:15:51.560 --> 1:15:53.560
+ and active selection of data,
+
+1:15:53.560 --> 1:15:56.560
+ how you can attack that long tail.
+
+1:15:56.560 --> 1:15:58.560
+ And it's an interesting open question
+
+1:15:58.560 --> 1:15:59.560
+ that you're absolutely right.
+
+1:15:59.560 --> 1:16:01.560
+ There's a much longer tail
+
+1:16:01.560 --> 1:16:04.560
+ and all these edge cases that we don't think about,
+
+1:16:04.560 --> 1:16:06.560
+ but it's a fascinating question
+
+1:16:06.560 --> 1:16:09.560
+ that applies to natural language and all spaces.
+
+1:16:09.560 --> 1:16:12.560
+ How big is that long tail?
+
+1:16:12.560 --> 1:16:16.560
+ And I mean, not to linger on the point,
+
+1:16:16.560 --> 1:16:19.560
+ but what's your sense in driving
+
+1:16:19.560 --> 1:16:24.560
+ in these practical problems of the human experience?
+
+1:16:24.560 --> 1:16:26.560
+ Can it be learned?
+
+1:16:26.560 --> 1:16:28.560
+ So the current, what are your thoughts of sort of
+
+1:16:28.560 --> 1:16:31.560
+ Elon Musk thought, let's forget the thing that he says
+
+1:16:31.560 --> 1:16:33.560
+ it'd be solved in a year,
+
+1:16:33.560 --> 1:16:38.560
+ but can it be solved in a reasonable timeline
+
+1:16:38.560 --> 1:16:41.560
+ or do fundamentally other methods need to be invented?
+
+1:16:41.560 --> 1:16:47.560
+ So I don't, I think that ultimately driving,
+
+1:16:47.560 --> 1:16:50.560
+ so it's a trade off in a way,
+
+1:16:50.560 --> 1:16:56.560
+ being able to drive and deal with any situation that comes up
+
+1:16:56.560 --> 1:16:59.560
+ does require kind of full human intelligence.
+
+1:16:59.560 --> 1:17:02.560
+ And even in humans aren't intelligent enough to do it
+
+1:17:02.560 --> 1:17:06.560
+ because humans, I mean, most human accidents
+
+1:17:06.560 --> 1:17:09.560
+ are because the human wasn't paying attention
+
+1:17:09.560 --> 1:17:11.560
+ or the humans drunk or whatever.
+
+1:17:11.560 --> 1:17:13.560
+ And not because they weren't intelligent enough.
+
+1:17:13.560 --> 1:17:17.560
+ And not because they weren't intelligent enough, right.
+
+1:17:17.560 --> 1:17:23.560
+ Whereas the accidents with autonomous vehicles
+
+1:17:23.560 --> 1:17:25.560
+ is because they weren't intelligent enough.
+
+1:17:25.560 --> 1:17:26.560
+ They're always paying attention.
+
+1:17:26.560 --> 1:17:27.560
+ Yeah, they're always paying attention.
+
+1:17:27.560 --> 1:17:29.560
+ So it's a trade off, you know,
+
+1:17:29.560 --> 1:17:32.560
+ and I think that it's a very fair thing to say
+
+1:17:32.560 --> 1:17:37.560
+ that autonomous vehicles will be ultimately safer than humans
+
+1:17:37.560 --> 1:17:39.560
+ because humans are very unsafe.
+
+1:17:39.560 --> 1:17:42.560
+ It's kind of a low bar.
+
+1:17:42.560 --> 1:17:48.560
+ But just like you said, I think humans got a better rap, right.
+
+1:17:48.560 --> 1:17:50.560
+ Because we're really good at the common sense thing.
+
+1:17:50.560 --> 1:17:52.560
+ Yeah, we're great at the common sense thing.
+
+1:17:52.560 --> 1:17:53.560
+ We're bad at the paying attention thing.
+
+1:17:53.560 --> 1:17:54.560
+ Paying attention thing, right.
+
+1:17:54.560 --> 1:17:56.560
+ Especially when we're, you know, driving is kind of boring
+
+1:17:56.560 --> 1:17:59.560
+ and we have these phones to play with and everything.
+
+1:17:59.560 --> 1:18:06.560
+ But I think what's going to happen is that
+
+1:18:06.560 --> 1:18:09.560
+ for many reasons, not just AI reasons,
+
+1:18:09.560 --> 1:18:12.560
+ but also like legal and other reasons,
+
+1:18:12.560 --> 1:18:17.560
+ that the definition of self driving is going to change
+
+1:18:17.560 --> 1:18:19.560
+ or autonomous is going to change.
+
+1:18:19.560 --> 1:18:23.560
+ It's not going to be just,
+
+1:18:23.560 --> 1:18:24.560
+ I'm going to go to sleep in the back
+
+1:18:24.560 --> 1:18:27.560
+ and you just drive me anywhere.
+
+1:18:27.560 --> 1:18:34.560
+ It's going to be more certain areas are going to be instrumented
+
+1:18:34.560 --> 1:18:37.560
+ to have the sensors and the mapping
+
+1:18:37.560 --> 1:18:39.560
+ and all of the stuff you need for,
+
+1:18:39.560 --> 1:18:43.560
+ that the autonomous cars won't have to have full common sense
+
+1:18:43.560 --> 1:18:46.560
+ and they'll do just fine in those areas
+
+1:18:46.560 --> 1:18:49.560
+ as long as pedestrians don't mess with them too much.
+
+1:18:49.560 --> 1:18:51.560
+ That's another question.
+
+1:18:51.560 --> 1:18:52.560
+ That's right.
+
+1:18:52.560 --> 1:18:59.560
+ But I don't think we will have fully autonomous self driving
+
+1:18:59.560 --> 1:19:01.560
+ in the way that like most,
+
+1:19:01.560 --> 1:19:04.560
+ the average person thinks of it for a very long time.
+
+1:19:04.560 --> 1:19:09.560
+ And just to reiterate, this is the interesting open question
+
+1:19:09.560 --> 1:19:11.560
+ that I think I agree with you on,
+
+1:19:11.560 --> 1:19:14.560
+ is to solve fully autonomous driving,
+
+1:19:14.560 --> 1:19:17.560
+ you have to be able to engineer in common sense.
+
+1:19:17.560 --> 1:19:19.560
+ Yes.
+
+1:19:19.560 --> 1:19:23.560
+ I think it's an important thing to hear and think about.
+
+1:19:23.560 --> 1:19:27.560
+ I hope that's wrong, but I currently agree with you
+
+1:19:27.560 --> 1:19:32.560
+ that unfortunately you do have to have, to be more specific,
+
+1:19:32.560 --> 1:19:35.560
+ sort of these deep understandings of physics
+
+1:19:35.560 --> 1:19:39.560
+ and of the way this world works and also the human dynamics.
+
+1:19:39.560 --> 1:19:41.560
+ Like you mentioned, pedestrians and cyclists,
+
+1:19:41.560 --> 1:19:45.560
+ actually that's whatever that nonverbal communication
+
+1:19:45.560 --> 1:19:46.560
+ as some people call it,
+
+1:19:46.560 --> 1:19:50.560
+ there's that dynamic that is also part of this common sense.
+
+1:19:50.560 --> 1:19:51.560
+ Right.
+
+1:19:51.560 --> 1:19:55.560
+ And we humans are pretty good at predicting
+
+1:19:55.560 --> 1:19:57.560
+ what other humans are going to do.
+
+1:19:57.560 --> 1:20:00.560
+ And how our actions impact the behaviors
+
+1:20:00.560 --> 1:20:05.560
+ of this weird game theoretic dance that we're good at somehow.
+
+1:20:05.560 --> 1:20:07.560
+ And the funny thing is,
+
+1:20:07.560 --> 1:20:11.560
+ because I've watched countless hours of pedestrian video
+
+1:20:11.560 --> 1:20:12.560
+ and talked to people,
+
+1:20:12.560 --> 1:20:15.560
+ we humans are also really bad at articulating
+
+1:20:15.560 --> 1:20:16.560
+ the knowledge we have.
+
+1:20:16.560 --> 1:20:17.560
+ Right.
+
+1:20:17.560 --> 1:20:19.560
+ Which has been a huge challenge.
+
+1:20:19.560 --> 1:20:20.560
+ Yes.
+
+1:20:20.560 --> 1:20:23.560
+ So you've mentioned embodied intelligence.
+
+1:20:23.560 --> 1:20:25.560
+ What do you think it takes to build a system
+
+1:20:25.560 --> 1:20:27.560
+ of human level intelligence?
+
+1:20:27.560 --> 1:20:29.560
+ Does it need to have a body?
+
+1:20:29.560 --> 1:20:34.560
+ I'm not sure, but I'm coming around to that more and more.
+
+1:20:34.560 --> 1:20:36.560
+ And what does it mean to be,
+
+1:20:36.560 --> 1:20:40.560
+ I don't mean to keep bringing up Yann LeCun.
+
+1:20:40.560 --> 1:20:42.560
+ He looms very large.
+
+1:20:42.560 --> 1:20:45.560
+ Well, he certainly has a large personality.
+
+1:20:45.560 --> 1:20:46.560
+ Yes.
+
+1:20:46.560 --> 1:20:49.560
+ He thinks that the system needs to be grounded,
+
+1:20:49.560 --> 1:20:53.560
+ meaning he needs to sort of be able to interact with reality,
+
+1:20:53.560 --> 1:20:56.560
+ but doesn't think it necessarily needs to have a body.
+
+1:20:56.560 --> 1:20:57.560
+ So when you think of...
+
+1:20:57.560 --> 1:20:58.560
+ So what's the difference?
+
+1:20:58.560 --> 1:21:00.560
+ I guess I want to ask,
+
+1:21:00.560 --> 1:21:01.560
+ when you mean body,
+
+1:21:01.560 --> 1:21:04.560
+ do you mean you have to be able to play with the world?
+
+1:21:04.560 --> 1:21:06.560
+ Or do you also mean like there's a body
+
+1:21:06.560 --> 1:21:10.560
+ that you have to preserve?
+
+1:21:10.560 --> 1:21:11.560
+ Oh, that's a good question.
+
+1:21:11.560 --> 1:21:13.560
+ I haven't really thought about that,
+
+1:21:13.560 --> 1:21:15.560
+ but I think both, I would guess.
+
+1:21:15.560 --> 1:21:23.560
+ Because I think intelligence,
+
+1:21:23.560 --> 1:21:29.560
+ it's so hard to separate it from our desire
+
+1:21:29.560 --> 1:21:31.560
+ for self preservation,
+
+1:21:31.560 --> 1:21:34.560
+ our emotions,
+
+1:21:34.560 --> 1:21:37.560
+ all that non rational stuff
+
+1:21:37.560 --> 1:21:43.560
+ that kind of gets in the way of logical thinking.
+
+1:21:43.560 --> 1:21:46.560
+ Because the way,
+
+1:21:46.560 --> 1:21:48.560
+ if we're talking about human intelligence
+
+1:21:48.560 --> 1:21:51.560
+ or human level intelligence, whatever that means,
+
+1:21:51.560 --> 1:21:55.560
+ a huge part of it is social.
+
+1:21:55.560 --> 1:21:58.560
+ We were evolved to be social
+
+1:21:58.560 --> 1:22:01.560
+ and to deal with other people.
+
+1:22:01.560 --> 1:22:05.560
+ And that's just so ingrained in us
+
+1:22:05.560 --> 1:22:09.560
+ that it's hard to separate intelligence from that.
+
+1:22:09.560 --> 1:22:14.560
+ I think AI for the last 70 years
+
+1:22:14.560 --> 1:22:16.560
+ or however long it's been around,
+
+1:22:16.560 --> 1:22:18.560
+ it has largely been separated.
+
+1:22:18.560 --> 1:22:20.560
+ There's this idea that there's like,
+
+1:22:20.560 --> 1:22:23.560
+ it's kind of very Cartesian.
+
+1:22:23.560 --> 1:22:27.560
+ There's this thinking thing that we're trying to create,
+
+1:22:27.560 --> 1:22:30.560
+ but we don't care about all this other stuff.
+
+1:22:30.560 --> 1:22:34.560
+ And I think the other stuff is very fundamental.
+
+1:22:34.560 --> 1:22:37.560
+ So there's idea that things like emotion
+
+1:22:37.560 --> 1:22:40.560
+ can get in the way of intelligence.
+
+1:22:40.560 --> 1:22:42.560
+ As opposed to being an integral part of it.
+
+1:22:42.560 --> 1:22:43.560
+ Integral part of it.
+
+1:22:43.560 --> 1:22:45.560
+ So, I mean, I'm Russian,
+
+1:22:45.560 --> 1:22:48.560
+ so romanticize the notions of emotion and suffering
+
+1:22:48.560 --> 1:22:51.560
+ and all that kind of fear of mortality,
+
+1:22:51.560 --> 1:22:52.560
+ those kinds of things.
+
+1:22:52.560 --> 1:22:56.560
+ So in AI, especially.
+
+1:22:56.560 --> 1:22:57.560
+ By the way, did you see that?
+
+1:22:57.560 --> 1:23:00.560
+ There was this recent thing going around the internet.
+
+1:23:00.560 --> 1:23:03.560
+ Some, I think he's a Russian or some Slavic
+
+1:23:03.560 --> 1:23:05.560
+ had written this thing,
+
+1:23:05.560 --> 1:23:08.560
+ anti the idea of super intelligence.
+
+1:23:08.560 --> 1:23:10.560
+ I forgot, maybe he's Polish.
+
+1:23:10.560 --> 1:23:12.560
+ Anyway, so it all these arguments
+
+1:23:12.560 --> 1:23:15.560
+ and one was the argument from Slavic pessimism.
+
+1:23:15.560 --> 1:23:19.560
+ My favorite.
+
+1:23:19.560 --> 1:23:21.560
+ Do you remember what the argument is?
+
+1:23:21.560 --> 1:23:23.560
+ It's like nothing ever works.
+
+1:23:23.560 --> 1:23:27.560
+ Everything sucks.
+
+1:23:27.560 --> 1:23:29.560
+ So what do you think is the role?
+
+1:23:29.560 --> 1:23:31.560
+ Like that's such a fascinating idea
+
+1:23:31.560 --> 1:23:38.560
+ that what we perceive as sort of the limits of the human mind,
+
+1:23:38.560 --> 1:23:42.560
+ which is emotion and fear and all those kinds of things
+
+1:23:42.560 --> 1:23:45.560
+ are integral to intelligence.
+
+1:23:45.560 --> 1:23:47.560
+ Could you elaborate on that?
+
+1:23:47.560 --> 1:23:54.560
+ Like why is that important, do you think?
+
+1:23:54.560 --> 1:23:58.560
+ For human level intelligence.
+
+1:23:58.560 --> 1:24:00.560
+ At least for the way the humans work,
+
+1:24:00.560 --> 1:24:04.560
+ it's a big part of how it affects how we perceive the world.
+
+1:24:04.560 --> 1:24:07.560
+ It affects how we make decisions about the world.
+
+1:24:07.560 --> 1:24:10.560
+ It affects how we interact with other people.
+
+1:24:10.560 --> 1:24:14.560
+ It affects our understanding of other people.
+
+1:24:14.560 --> 1:24:21.560
+ For me to understand what you're likely to do,
+
+1:24:21.560 --> 1:24:22.560
+ I need to have kind of a theory of mind
+
+1:24:22.560 --> 1:24:27.560
+ and that's very much a theory of emotion
+
+1:24:27.560 --> 1:24:32.560
+ and motivations and goals.
+
+1:24:32.560 --> 1:24:35.560
+ And to understand that,
+
+1:24:35.560 --> 1:24:42.560
+ we have this whole system of mirror neurons.
+
+1:24:42.560 --> 1:24:45.560
+ I sort of understand your motivations
+
+1:24:45.560 --> 1:24:49.560
+ through sort of simulating it myself.
+
+1:24:49.560 --> 1:24:55.560
+ So it's not something that I can prove that's necessary,
+
+1:24:55.560 --> 1:24:58.560
+ but it seems very likely.
+
+1:24:58.560 --> 1:25:01.560
+ So, okay.
+
+1:25:01.560 --> 1:25:04.560
+ You've written the op ed in the New York Times titled
+
+1:25:04.560 --> 1:25:07.560
+ We Shouldn't Be Scared by Superintelligent AI
+
+1:25:07.560 --> 1:25:13.560
+ and it criticized a little bit Stuart Russell and Nick Bostrom.
+
+1:25:13.560 --> 1:25:18.560
+ Can you try to summarize that article's key ideas?
+
+1:25:18.560 --> 1:25:22.560
+ So it was spurred by an earlier New York Times op ed
+
+1:25:22.560 --> 1:25:26.560
+ by Stuart Russell, which was summarizing his book
+
+1:25:26.560 --> 1:25:28.560
+ called Human Compatible.
+
+1:25:28.560 --> 1:25:36.560
+ And the article was saying if we have superintelligent AI,
+
+1:25:36.560 --> 1:25:40.560
+ we need to have its values aligned with our values
+
+1:25:40.560 --> 1:25:43.560
+ and it has to learn about what we really want.
+
+1:25:43.560 --> 1:25:45.560
+ And he gave this example.
+
+1:25:45.560 --> 1:25:48.560
+ What if we have a superintelligent AI
+
+1:25:48.560 --> 1:25:52.560
+ and we give it the problem of solving climate change
+
+1:25:52.560 --> 1:25:56.560
+ and it decides that the best way to lower the carbon
+
+1:25:56.560 --> 1:25:59.560
+ in the atmosphere is to kill all the humans?
+
+1:25:59.560 --> 1:26:00.560
+ Okay.
+
+1:26:00.560 --> 1:26:02.560
+ So to me, that just made no sense at all
+
+1:26:02.560 --> 1:26:08.560
+ because a superintelligent AI,
+
+1:26:08.560 --> 1:26:13.560
+ first of all, trying to figure out what a superintelligence means
+
+1:26:13.560 --> 1:26:21.560
+ and it seems that something that's superintelligent
+
+1:26:21.560 --> 1:26:24.560
+ can't just be intelligent along this one dimension of,
+
+1:26:24.560 --> 1:26:26.560
+ okay, I'm going to figure out all the steps,
+
+1:26:26.560 --> 1:26:30.560
+ the best optimal path to solving climate change
+
+1:26:30.560 --> 1:26:32.560
+ and not be intelligent enough to figure out
+
+1:26:32.560 --> 1:26:36.560
+ that humans don't want to be killed,
+
+1:26:36.560 --> 1:26:39.560
+ that you could get to one without having the other.
+
+1:26:39.560 --> 1:26:43.560
+ And, you know, Bostrom, in his book,
+
+1:26:43.560 --> 1:26:46.560
+ talks about the orthogonality hypothesis
+
+1:26:46.560 --> 1:26:51.560
+ where he says he thinks that a system's,
+
+1:26:51.560 --> 1:26:52.560
+ I can't remember exactly what it is,
+
+1:26:52.560 --> 1:26:56.560
+ but like a system's goals and its values
+
+1:26:56.560 --> 1:26:58.560
+ don't have to be aligned.
+
+1:26:58.560 --> 1:27:00.560
+ There's some orthogonality there,
+
+1:27:00.560 --> 1:27:02.560
+ which didn't make any sense to me.
+
+1:27:02.560 --> 1:27:06.560
+ So you're saying in any system that's sufficiently
+
+1:27:06.560 --> 1:27:07.560
+ not even superintelligent,
+
+1:27:07.560 --> 1:27:09.560
+ but as opposed to greater and greater intelligence,
+
+1:27:09.560 --> 1:27:11.560
+ there's a holistic nature that will sort of,
+
+1:27:11.560 --> 1:27:14.560
+ a tension that will naturally emerge
+
+1:27:14.560 --> 1:27:17.560
+ that prevents it from sort of any one dimension running away.
+
+1:27:17.560 --> 1:27:19.560
+ Yeah, yeah, exactly.
+
+1:27:19.560 --> 1:27:23.560
+ So, you know, Bostrom had this example
+
+1:27:23.560 --> 1:27:28.560
+ of the superintelligent AI that makes,
+
+1:27:28.560 --> 1:27:30.560
+ that turns the world into paper clips
+
+1:27:30.560 --> 1:27:33.560
+ because its job is to make paper clips or something.
+
+1:27:33.560 --> 1:27:35.560
+ And that just, as a thought experiment,
+
+1:27:35.560 --> 1:27:37.560
+ didn't make any sense to me.
+
+1:27:37.560 --> 1:27:39.560
+ Well, as a thought experiment
+
+1:27:39.560 --> 1:27:42.560
+ or as a thing that could possibly be realized?
+
+1:27:42.560 --> 1:27:43.560
+ Either.
+
+1:27:43.560 --> 1:27:45.560
+ So I think that, you know,
+
+1:27:45.560 --> 1:27:47.560
+ what my op ed was trying to do was say
+
+1:27:47.560 --> 1:27:50.560
+ that intelligence is more complex
+
+1:27:50.560 --> 1:27:53.560
+ than these people are presenting it.
+
+1:27:53.560 --> 1:27:58.560
+ That it's not like, it's not so separable.
+
+1:27:58.560 --> 1:28:03.560
+ The rationality, the values, the emotions,
+
+1:28:03.560 --> 1:28:06.560
+ the, all of that, that it's,
+
+1:28:06.560 --> 1:28:09.560
+ the view that you could separate all these dimensions
+
+1:28:09.560 --> 1:28:12.560
+ and build a machine that has one of these dimensions
+
+1:28:12.560 --> 1:28:14.560
+ and it's superintelligent in one dimension,
+
+1:28:14.560 --> 1:28:17.560
+ but it doesn't have any of the other dimensions.
+
+1:28:17.560 --> 1:28:22.560
+ That's what I was trying to criticize
+
+1:28:22.560 --> 1:28:24.560
+ that I don't believe that.
+
+1:28:24.560 --> 1:28:28.560
+ So can I read a few sentences
+
+1:28:28.560 --> 1:28:35.560
+ from Yoshua Bengio who is always super eloquent?
+
+1:28:35.560 --> 1:28:38.560
+ So he writes,
+
+1:28:38.560 --> 1:28:40.560
+ I have the same impression as Melanie
+
+1:28:40.560 --> 1:28:42.560
+ that our cognitive biases are linked
+
+1:28:42.560 --> 1:28:45.560
+ with our ability to learn to solve many problems.
+
+1:28:45.560 --> 1:28:49.560
+ They may also be a limiting factor for AI.
+
+1:28:49.560 --> 1:28:53.560
+ However, this is a may in quotes.
+
+1:28:53.560 --> 1:28:55.560
+ Things may also turn out differently
+
+1:28:55.560 --> 1:28:56.560
+ and there's a lot of uncertainty
+
+1:28:56.560 --> 1:28:59.560
+ about the capabilities of future machines.
+
+1:28:59.560 --> 1:29:02.560
+ But more importantly for me,
+
+1:29:02.560 --> 1:29:04.560
+ the value alignment problem is a problem
+
+1:29:04.560 --> 1:29:08.560
+ well before we reach some hypothetical superintelligence.
+
+1:29:08.560 --> 1:29:10.560
+ It is already posing a problem
+
+1:29:10.560 --> 1:29:13.560
+ in the form of super powerful companies
+
+1:29:13.560 --> 1:29:17.560
+ whose objective function may not be sufficiently aligned
+
+1:29:17.560 --> 1:29:19.560
+ with humanity's general wellbeing,
+
+1:29:19.560 --> 1:29:21.560
+ creating all kinds of harmful side effects.
+
+1:29:21.560 --> 1:29:28.560
+ So he goes on to argue that the orthogonality
+
+1:29:28.560 --> 1:29:29.560
+ and those kinds of things,
+
+1:29:29.560 --> 1:29:32.560
+ the concerns of just aligning values
+
+1:29:32.560 --> 1:29:34.560
+ with the capabilities of the system
+
+1:29:34.560 --> 1:29:37.560
+ is something that might come long
+
+1:29:37.560 --> 1:29:40.560
+ before we reach anything like superintelligence.
+
+1:29:40.560 --> 1:29:44.560
+ So your criticism is kind of really nice to saying
+
+1:29:44.560 --> 1:29:46.560
+ this idea of superintelligent systems
+
+1:29:46.560 --> 1:29:48.560
+ seem to be dismissing fundamental parts
+
+1:29:48.560 --> 1:29:50.560
+ of what intelligence would take.
+
+1:29:50.560 --> 1:29:53.560
+ And then Yoshua kind of says, yes,
+
+1:29:53.560 --> 1:29:57.560
+ but if we look at systems that are much less intelligent,
+
+1:29:57.560 --> 1:30:02.560
+ there might be these same kinds of problems that emerge.
+
+1:30:02.560 --> 1:30:06.560
+ Sure, but I guess the example that he gives there
+
+1:30:06.560 --> 1:30:09.560
+ of these corporations, that's people, right?
+
+1:30:09.560 --> 1:30:11.560
+ Those are people's values.
+
+1:30:11.560 --> 1:30:13.560
+ I mean, we're talking about people,
+
+1:30:13.560 --> 1:30:16.560
+ the corporations are,
+
+1:30:16.560 --> 1:30:20.560
+ their values are the values of the people
+
+1:30:20.560 --> 1:30:21.560
+ who run those corporations.
+
+1:30:21.560 --> 1:30:24.560
+ But the idea is the algorithm, that's right.
+
+1:30:24.560 --> 1:30:26.560
+ So the fundamental person,
+
+1:30:26.560 --> 1:30:30.560
+ the fundamental element of what does the bad thing
+
+1:30:30.560 --> 1:30:31.560
+ is a human being.
+
+1:30:31.560 --> 1:30:32.560
+ Yeah.
+
+1:30:32.560 --> 1:30:36.560
+ But the algorithm kind of controls the behavior
+
+1:30:36.560 --> 1:30:38.560
+ of this mass of human beings.
+
+1:30:38.560 --> 1:30:40.560
+ Which algorithm?
+
+1:30:40.560 --> 1:30:42.560
+ For a company that's the,
+
+1:30:42.560 --> 1:30:44.560
+ so for example, if it's an advertisement driven company
+
+1:30:44.560 --> 1:30:47.560
+ that recommends certain things
+
+1:30:47.560 --> 1:30:50.560
+ and encourages engagement,
+
+1:30:50.560 --> 1:30:53.560
+ so it gets money by encouraging engagement
+
+1:30:53.560 --> 1:30:57.560
+ and therefore the company more and more,
+
+1:30:57.560 --> 1:31:00.560
+ it's like the cycle that builds an algorithm
+
+1:31:00.560 --> 1:31:03.560
+ that enforces more engagement
+
+1:31:03.560 --> 1:31:05.560
+ and may perhaps more division in the culture
+
+1:31:05.560 --> 1:31:07.560
+ and so on, so on.
+
+1:31:07.560 --> 1:31:12.560
+ I guess the question here is sort of who has the agency?
+
+1:31:12.560 --> 1:31:14.560
+ So you might say, for instance,
+
+1:31:14.560 --> 1:31:17.560
+ we don't want our algorithms to be racist.
+
+1:31:17.560 --> 1:31:18.560
+ Right.
+
+1:31:18.560 --> 1:31:21.560
+ And facial recognition,
+
+1:31:21.560 --> 1:31:23.560
+ some people have criticized some facial recognition systems
+
+1:31:23.560 --> 1:31:26.560
+ as being racist because they're not as good
+
+1:31:26.560 --> 1:31:29.560
+ on darker skin than lighter skin.
+
+1:31:29.560 --> 1:31:30.560
+ That's right.
+
+1:31:30.560 --> 1:31:31.560
+ Okay.
+
+1:31:31.560 --> 1:31:33.560
+ But the agency there,
+
+1:31:33.560 --> 1:31:36.560
+ the actual facial recognition algorithm
+
+1:31:36.560 --> 1:31:38.560
+ isn't what has the agency.
+
+1:31:38.560 --> 1:31:41.560
+ It's not the racist thing, right?
+
+1:31:41.560 --> 1:31:44.560
+ It's the, I don't know,
+
+1:31:44.560 --> 1:31:48.560
+ the combination of the training data,
+
+1:31:48.560 --> 1:31:51.560
+ the cameras being used, whatever.
+
+1:31:51.560 --> 1:31:53.560
+ But my understanding of,
+
+1:31:53.560 --> 1:31:56.560
+ and I agree with Bengio there that he,
+
+1:31:56.560 --> 1:31:59.560
+ I think there are these value issues
+
+1:31:59.560 --> 1:32:02.560
+ with our use of algorithms.
+
+1:32:02.560 --> 1:32:09.560
+ But my understanding of what Russell's argument was
+
+1:32:09.560 --> 1:32:14.560
+ is more that the machine itself has the agency now.
+
+1:32:14.560 --> 1:32:17.560
+ It's the thing that's making the decisions
+
+1:32:17.560 --> 1:32:21.560
+ and it's the thing that has what we would call values.
+
+1:32:21.560 --> 1:32:22.560
+ Yes.
+
+1:32:22.560 --> 1:32:25.560
+ So whether that's just a matter of degree,
+
+1:32:25.560 --> 1:32:27.560
+ it's hard to say, right?
+
+1:32:27.560 --> 1:32:30.560
+ But I would say that's sort of qualitatively different
+
+1:32:30.560 --> 1:32:34.560
+ than a face recognition neural network.
+
+1:32:34.560 --> 1:32:38.560
+ And to broadly linger on that point,
+
+1:32:38.560 --> 1:32:42.560
+ if you look at Elon Musk or Stuart Russell or Bostrom,
+
+1:32:42.560 --> 1:32:45.560
+ people who are worried about existential risks of AI,
+
+1:32:45.560 --> 1:32:47.560
+ however far into the future,
+
+1:32:47.560 --> 1:32:50.560
+ the argument goes is it eventually happens.
+
+1:32:50.560 --> 1:32:53.560
+ We don't know how far, but it eventually happens.
+
+1:32:53.560 --> 1:32:56.560
+ Do you share any of those concerns
+
+1:32:56.560 --> 1:32:59.560
+ and what kind of concerns in general do you have about AI
+
+1:32:59.560 --> 1:33:06.560
+ that approach anything like existential threat to humanity?
+
+1:33:06.560 --> 1:33:10.560
+ So I would say, yes, it's possible,
+
+1:33:10.560 --> 1:33:15.560
+ but I think there's a lot more closer in existential threats to humanity.
+
+1:33:15.560 --> 1:33:18.560
+ As you said, like a hundred years for your time.
+
+1:33:18.560 --> 1:33:20.560
+ It's more than a hundred years.
+
+1:33:20.560 --> 1:33:21.560
+ More than a hundred years.
+
+1:33:21.560 --> 1:33:23.560
+ Maybe even more than 500 years.
+
+1:33:23.560 --> 1:33:24.560
+ I don't know.
+
+1:33:24.560 --> 1:33:29.560
+ So the existential threats are so far out that the future is,
+
+1:33:29.560 --> 1:33:32.560
+ I mean, there'll be a million different technologies
+
+1:33:32.560 --> 1:33:34.560
+ that we can't even predict now
+
+1:33:34.560 --> 1:33:37.560
+ that will fundamentally change the nature of our behavior,
+
+1:33:37.560 --> 1:33:39.560
+ reality, society, and so on before then.
+
+1:33:39.560 --> 1:33:40.560
+ Yeah, I think so.
+
+1:33:40.560 --> 1:33:41.560
+ I think so.
+
+1:33:41.560 --> 1:33:46.560
+ And we have so many other pressing existential threats going on right now.
+
+1:33:46.560 --> 1:33:47.560
+ Nuclear weapons even.
+
+1:33:47.560 --> 1:33:57.560
+ Nuclear weapons, climate problems, poverty, possible pandemics.
+
+1:33:57.560 --> 1:33:59.560
+ You can go on and on.
+
+1:33:59.560 --> 1:34:05.560
+ And I think worrying about existential threat from AI
+
+1:34:05.560 --> 1:34:13.560
+ is not the best priority for what we should be worrying about.
+
+1:34:13.560 --> 1:34:15.560
+ That's kind of my view, because we're so far away.
+
+1:34:15.560 --> 1:34:24.560
+ But I'm not necessarily criticizing Russell or Bostrom or whoever
+
+1:34:24.560 --> 1:34:26.560
+ for worrying about that.
+
+1:34:26.560 --> 1:34:29.560
+ And I think some people should be worried about it.
+
+1:34:29.560 --> 1:34:30.560
+ It's certainly fine.
+
+1:34:30.560 --> 1:34:38.560
+ But I was more getting at their view of what intelligence is.
+
+1:34:38.560 --> 1:34:42.560
+ So I was more focusing on their view of superintelligence
+
+1:34:42.560 --> 1:34:49.560
+ than just the fact of them worrying.
+
+1:34:49.560 --> 1:34:54.560
+ And the title of the article was written by the New York Times editors.
+
+1:34:54.560 --> 1:34:55.560
+ I wouldn't have called it that.
+
+1:34:55.560 --> 1:34:58.560
+ We shouldn't be scared by superintelligence.
+
+1:34:58.560 --> 1:34:59.560
+ No.
+
+1:34:59.560 --> 1:35:02.560
+ If you wrote it, it'd be like we should redefine what you mean by superintelligence.
+
+1:35:02.560 --> 1:35:13.560
+ I actually said something like superintelligence is not a sort of coherent idea.
+
+1:35:13.560 --> 1:35:18.560
+ But that's not something the New York Times would put in.
+
+1:35:18.560 --> 1:35:22.560
+ And the follow up argument that Yoshua makes also,
+
+1:35:22.560 --> 1:35:25.560
+ not argument, but a statement, and I've heard him say it before.
+
+1:35:25.560 --> 1:35:27.560
+ And I think I agree.
+
+1:35:27.560 --> 1:35:30.560
+ He kind of has a very friendly way of phrasing it.
+
+1:35:30.560 --> 1:35:34.560
+ It's good for a lot of people to believe different things.
+
+1:35:34.560 --> 1:35:36.560
+ He's such a nice guy.
+
+1:35:36.560 --> 1:35:37.560
+ Yeah.
+
+1:35:37.560 --> 1:35:42.560
+ But it's also practically speaking like we shouldn't be like,
+
+1:35:42.560 --> 1:35:46.560
+ while your article stands, like Stuart Russell does amazing work.
+
+1:35:46.560 --> 1:35:48.560
+ Bostrom does amazing work.
+
+1:35:48.560 --> 1:35:49.560
+ You do amazing work.
+
+1:35:49.560 --> 1:35:53.560
+ And even when you disagree about the definition of superintelligence
+
+1:35:53.560 --> 1:35:56.560
+ or the usefulness of even the term,
+
+1:35:56.560 --> 1:36:01.560
+ it's still useful to have people that like use that term, right?
+
+1:36:01.560 --> 1:36:02.560
+ And then argue.
+
+1:36:02.560 --> 1:36:03.560
+ Sure.
+
+1:36:03.560 --> 1:36:05.560
+ I absolutely agree with Benjo there.
+
+1:36:05.560 --> 1:36:08.560
+ And I think it's great that, you know,
+
+1:36:08.560 --> 1:36:10.560
+ and it's great that New York Times will publish all this stuff.
+
+1:36:10.560 --> 1:36:11.560
+ That's right.
+
+1:36:11.560 --> 1:36:13.560
+ It's an exciting time to be here.
+
+1:36:13.560 --> 1:36:16.560
+ What do you think is a good test of intelligence?
+
+1:36:16.560 --> 1:36:21.560
+ Is natural language ultimately a test that you find the most compelling,
+
+1:36:21.560 --> 1:36:28.560
+ like the original or the higher levels of the Turing test kind of?
+
+1:36:28.560 --> 1:36:33.560
+ Yeah, I still think the original idea of the Turing test
+
+1:36:33.560 --> 1:36:36.560
+ is a good test for intelligence.
+
+1:36:36.560 --> 1:36:38.560
+ I mean, I can't think of anything better.
+
+1:36:38.560 --> 1:36:42.560
+ You know, the Turing test, the way that it's been carried out so far
+
+1:36:42.560 --> 1:36:47.560
+ has been very impoverished, if you will.
+
+1:36:47.560 --> 1:36:52.560
+ But I think a real Turing test that really goes into depth,
+
+1:36:52.560 --> 1:36:54.560
+ like the one that I mentioned, I talk about in the book,
+
+1:36:54.560 --> 1:36:59.560
+ I talk about Ray Kurzweil and Mitchell Kapoor have this bet, right?
+
+1:36:59.560 --> 1:37:04.560
+ That in 2029, I think is the date there,
+
+1:37:04.560 --> 1:37:09.560
+ a machine will pass the Turing test and they have a very specific,
+
+1:37:09.560 --> 1:37:14.560
+ like how many hours, expert judges and all of that.
+
+1:37:14.560 --> 1:37:17.560
+ And, you know, Kurzweil says yes, Kapoor says no.
+
+1:37:17.560 --> 1:37:21.560
+ We only have like nine more years to go to see.
+
+1:37:21.560 --> 1:37:27.560
+ But I, you know, if something, a machine could pass that,
+
+1:37:27.560 --> 1:37:30.560
+ I would be willing to call it intelligent.
+
+1:37:30.560 --> 1:37:33.560
+ Of course, nobody will.
+
+1:37:33.560 --> 1:37:37.560
+ They will say that's just a language model, if it does.
+
+1:37:37.560 --> 1:37:43.560
+ So you would be comfortable, so language, a long conversation that,
+
+1:37:43.560 --> 1:37:45.560
+ well, yeah, you're, I mean, you're right,
+
+1:37:45.560 --> 1:37:48.560
+ because I think probably to carry out that long conversation,
+
+1:37:48.560 --> 1:37:52.560
+ you would literally need to have deep common sense understanding of the world.
+
+1:37:52.560 --> 1:37:54.560
+ I think so.
+
+1:37:54.560 --> 1:37:57.560
+ And the conversation is enough to reveal that.
+
+1:37:57.560 --> 1:37:59.560
+ I think so.
+
+1:37:59.560 --> 1:38:09.560
+ So another super fun topic of complexity that you have worked on, written about.
+
+1:38:09.560 --> 1:38:10.560
+ Let me ask the basic question.
+
+1:38:10.560 --> 1:38:12.560
+ What is complexity?
+
+1:38:12.560 --> 1:38:17.560
+ So complexity is another one of those terms like intelligence.
+
+1:38:17.560 --> 1:38:18.560
+ It's perhaps overused.
+
+1:38:18.560 --> 1:38:29.560
+ But my book about complexity was about this wide area of complex systems,
+
+1:38:29.560 --> 1:38:35.560
+ studying different systems in nature, in technology,
+
+1:38:35.560 --> 1:38:41.560
+ in society in which you have emergence, kind of like I was talking about with intelligence.
+
+1:38:41.560 --> 1:38:45.560
+ You know, we have the brain, which has billions of neurons.
+
+1:38:45.560 --> 1:38:53.560
+ And each neuron individually could be said to be not very complex compared to the system as a whole.
+
+1:38:53.560 --> 1:38:58.560
+ But the system, the interactions of those neurons and the dynamics,
+
+1:38:58.560 --> 1:39:04.560
+ creates these phenomena that we call intelligence or consciousness,
+
+1:39:04.560 --> 1:39:08.560
+ you know, that we consider to be very complex.
+
+1:39:08.560 --> 1:39:16.560
+ So the field of complexity is trying to find general principles that underlie all these systems
+
+1:39:16.560 --> 1:39:19.560
+ that have these kinds of emergent properties.
+
+1:39:19.560 --> 1:39:27.560
+ And the emergence occurs from like underlying the complex system is usually simple, fundamental interactions.
+
+1:39:27.560 --> 1:39:28.560
+ Yes.
+
+1:39:28.560 --> 1:39:34.560
+ And the emergence happens when there's just a lot of these things interacting.
+
+1:39:34.560 --> 1:39:35.560
+ Yes.
+
+1:39:35.560 --> 1:39:45.560
+ Sort of what, and then most of science to date, can you talk about what is reductionism?
+
+1:39:45.560 --> 1:39:54.560
+ Well, reductionism is when you try and take a system and divide it up into its elements,
+
+1:39:54.560 --> 1:40:02.560
+ whether those be cells or atoms or subatomic particles, whatever your field is,
+
+1:40:02.560 --> 1:40:06.560
+ and then try and understand those elements.
+
+1:40:06.560 --> 1:40:13.560
+ And then try and build up an understanding of the whole system by looking at sort of the sum of all the elements.
+
+1:40:13.560 --> 1:40:15.560
+ So what's your sense?
+
+1:40:15.560 --> 1:40:20.560
+ Whether we're talking about intelligence or these kinds of interesting complex systems,
+
+1:40:20.560 --> 1:40:24.560
+ is it possible to understand them in a reductionist way,
+
+1:40:24.560 --> 1:40:29.560
+ which is probably the approach of most of science today, right?
+
+1:40:29.560 --> 1:40:35.560
+ I don't think it's always possible to understand the things we want to understand the most.
+
+1:40:35.560 --> 1:40:45.560
+ So I don't think it's possible to look at single neurons and understand what we call intelligence,
+
+1:40:45.560 --> 1:40:54.560
+ to look at sort of summing up, and sort of the summing up is the issue here.
+
+1:40:54.560 --> 1:41:03.560
+ One example is that the human genome, right, so there was a lot of work on excitement about sequencing the human genome
+
+1:41:03.560 --> 1:41:10.560
+ because the idea would be that we'd be able to find genes that underlies diseases.
+
+1:41:10.560 --> 1:41:18.560
+ But it turns out that, and it was a very reductionist idea, you know, we figure out what all the parts are,
+
+1:41:18.560 --> 1:41:22.560
+ and then we would be able to figure out which parts cause which things.
+
+1:41:22.560 --> 1:41:25.560
+ But it turns out that the parts don't cause the things that we're interested in.
+
+1:41:25.560 --> 1:41:30.560
+ It's like the interactions, it's the networks of these parts.
+
+1:41:30.560 --> 1:41:37.560
+ And so that kind of reductionist approach didn't yield the explanation that we wanted.
+
+1:41:37.560 --> 1:41:43.560
+ What do you, what do you use the most beautiful complex system that you've encountered?
+
+1:41:43.560 --> 1:41:45.560
+ The most beautiful.
+
+1:41:45.560 --> 1:41:47.560
+ That you've been captivated by.
+
+1:41:47.560 --> 1:41:54.560
+ Is it sort of, I mean, for me, is the simplest to be cellular automata.
+
+1:41:54.560 --> 1:42:01.560
+ Oh, yeah. So I was very captivated by cellular automata and worked on cellular automata for several years.
+
+1:42:01.560 --> 1:42:14.560
+ Do you find it amazing or is it surprising that such simple systems, such simple rules in cellular automata can create sort of seemingly unlimited complexity?
+
+1:42:14.560 --> 1:42:16.560
+ Yeah, that was very surprising to me.
+
+1:42:16.560 --> 1:42:18.560
+ How do you make sense of it? How does that make you feel?
+
+1:42:18.560 --> 1:42:29.560
+ Is it just ultimately humbling or is there a hope to somehow leverage this into a deeper understanding and even able to engineer things like intelligence?
+
+1:42:29.560 --> 1:42:31.560
+ It's definitely humbling.
+
+1:42:31.560 --> 1:42:50.560
+ How humbling in that also kind of awe inspiring that it's that awe inspiring like part of mathematics that these credibly simple rules can produce this very beautiful, complex, hard to understand behavior.
+
+1:42:50.560 --> 1:42:58.560
+ And that's, it's mysterious, you know, and surprising still.
+
+1:42:58.560 --> 1:43:09.560
+ But exciting because it does give you kind of the hope that you might be able to engineer complexity just from simple rules.
+
+1:43:09.560 --> 1:43:14.560
+ Can you briefly say what is the Santa Fe Institute, its history, its culture, its ideas, its future?
+
+1:43:14.560 --> 1:43:24.560
+ So I've never, as I mentioned to you, I've never been, but it's always been this, in my mind, this mystical place where brilliant people study the edge of chaos.
+
+1:43:24.560 --> 1:43:26.560
+ Yeah, exactly.
+
+1:43:26.560 --> 1:43:45.560
+ So the Santa Fe Institute was started in 1984 and it was created by a group of scientists, a lot of them from Los Alamos National Lab, which is about a 40 minute drive from Santa Fe Institute.
+
+1:43:45.560 --> 1:44:03.560
+ They were mostly physicists and chemists, but they were frustrated in their field because they felt so that their field wasn't approaching kind of big interdisciplinary questions like the kinds we've been talking about.
+
+1:44:03.560 --> 1:44:17.560
+ And they wanted to have a place where people from different disciplines could work on these big questions without sort of being siloed into physics, chemistry, biology, whatever.
+
+1:44:17.560 --> 1:44:37.560
+ So they started this institute and this was people like George Cowen, who was a chemist in the Manhattan Project, and Nicholas Metropolis, a mathematician, physicist, Marie Gail Mann, physicist.
+
+1:44:37.560 --> 1:44:39.560
+ So some really big names here.
+
+1:44:39.560 --> 1:44:47.560
+ Ken Arrow, Nobel Prize winning economist, and they started having these workshops.
+
+1:44:47.560 --> 1:45:03.560
+ And this whole enterprise kind of grew into this research institute that itself has been kind of on the edge of chaos its whole life because it doesn't have a significant endowment.
+
+1:45:03.560 --> 1:45:21.560
+ And it's just been kind of living on whatever funding it can raise through donations and grants and however it can, you know, business associates and so on.
+
+1:45:21.560 --> 1:45:28.560
+ But it's a great place. It's a really fun place to go think about ideas that you wouldn't normally encounter.
+
+1:45:28.560 --> 1:45:34.560
+ I saw Sean Carroll, a physicist. Yeah, he's on the external faculty.
+
+1:45:34.560 --> 1:45:37.560
+ And you mentioned that there's, so there's some external faculty and there's people that are...
+
+1:45:37.560 --> 1:45:48.560
+ A very small group of resident faculty, maybe about 10 who are there for five year terms that can sometimes get renewed.
+
+1:45:48.560 --> 1:45:59.560
+ And then they have some postdocs and then they have this much larger on the order of 100 external faculty or people like me who come and visit for various periods of time.
+
+1:45:59.560 --> 1:46:02.560
+ So what do you think is the future of the Santa Fe Institute?
+
+1:46:02.560 --> 1:46:15.560
+ And if people are interested, like what's there in terms of the public interaction or students or so on that could be a possible interaction with the Santa Fe Institute or its ideas?
+
+1:46:15.560 --> 1:46:18.560
+ Yeah, so there's a few different things they do.
+
+1:46:18.560 --> 1:46:25.560
+ They have a complex system summer school for graduate students and postdocs and sometimes faculty attend too.
+
+1:46:25.560 --> 1:46:35.560
+ And that's a four week, very intensive residential program where you go and you listen to lectures and you do projects and people really like that.
+
+1:46:35.560 --> 1:46:37.560
+ I mean, it's a lot of fun.
+
+1:46:37.560 --> 1:46:41.560
+ They also have some specialty summer schools.
+
+1:46:41.560 --> 1:46:45.560
+ There's one on computational social science.
+
+1:46:45.560 --> 1:46:52.560
+ There's one on climate and sustainability, I think it's called.
+
+1:46:52.560 --> 1:46:59.560
+ There's a few and then they have short courses where just a few days on different topics.
+
+1:46:59.560 --> 1:47:09.560
+ They also have an online education platform that offers a lot of different courses and tutorials from SFI faculty.
+
+1:47:09.560 --> 1:47:13.560
+ Including an introduction to complexity course that I taught.
+
+1:47:13.560 --> 1:47:19.560
+ Awesome. And there's a bunch of talks too online from the guest speakers and so on.
+
+1:47:19.560 --> 1:47:20.560
+ They host a lot of...
+
+1:47:20.560 --> 1:47:33.560
+ Yeah, they have sort of technical seminars and colloquia and they have a community lecture series like public lectures and they put everything on their YouTube channel so you can see it all.
+
+1:47:33.560 --> 1:47:34.560
+ Watch it.
+
+1:47:34.560 --> 1:47:40.560
+ Douglas Hofstadter, author of Ghetto Escherbach, was your PhD advisor.
+
+1:47:40.560 --> 1:47:43.560
+ He mentioned a couple of times in collaborator.
+
+1:47:43.560 --> 1:47:50.560
+ Do you have any favorite lessons or memories from your time working with him that continues to this day?
+
+1:47:50.560 --> 1:47:55.560
+ Just even looking back throughout your time working with him.
+
+1:47:55.560 --> 1:48:11.560
+ One of the things he taught me was that when you're looking at a complex problem, to idealize it as much as possible to try and figure out what is the essence of this problem.
+
+1:48:11.560 --> 1:48:25.560
+ And this is how the copycat program came into being was by taking analogy making and saying, how can we make this as idealized as possible but still retain really the important things we want to study?
+
+1:48:25.560 --> 1:48:33.560
+ And that's really been a core theme of my research, I think.
+
+1:48:33.560 --> 1:48:36.560
+ And I continue to try and do that.
+
+1:48:36.560 --> 1:48:42.560
+ And it's really very much kind of physics inspired. Hofstadter was a PhD in physics.
+
+1:48:42.560 --> 1:48:44.560
+ That was his background.
+
+1:48:44.560 --> 1:48:46.560
+ It's like first principles kind of thing.
+
+1:48:46.560 --> 1:48:52.560
+ You're reduced to the most fundamental aspect of the problem so that you can focus on solving that fundamental aspect.
+
+1:48:52.560 --> 1:48:53.560
+ Yeah.
+
+1:48:53.560 --> 1:48:57.560
+ And in AI, people used to work in these micro worlds, right?
+
+1:48:57.560 --> 1:49:02.560
+ Like the blocks world was very early important area in AI.
+
+1:49:02.560 --> 1:49:09.560
+ And then that got criticized because they said, oh, you can't scale that to the real world.
+
+1:49:09.560 --> 1:49:14.560
+ And so people started working on much more real world like problems.
+
+1:49:14.560 --> 1:49:19.560
+ But now there's been kind of a return even to the blocks world itself.
+
+1:49:19.560 --> 1:49:28.560
+ We've seen a lot of people who are trying to work on more of these very idealized problems for things like natural language and common sense.
+
+1:49:28.560 --> 1:49:31.560
+ So that's an interesting evolution of those ideas.
+
+1:49:31.560 --> 1:49:38.560
+ So perhaps the blocks world represents the fundamental challenges of the problem of intelligence more than people realize.
+
+1:49:38.560 --> 1:49:41.560
+ It might. Yeah.
+
+1:49:41.560 --> 1:49:46.560
+ When you look back at your body of work and your life, you've worked in so many different fields.
+
+1:49:46.560 --> 1:49:54.560
+ Is there something that you're just really proud of in terms of ideas that you've gotten a chance to explore, create yourself?
+
+1:49:54.560 --> 1:49:59.560
+ So I am really proud of my work on the copycat project.
+
+1:49:59.560 --> 1:50:04.560
+ I think it's really different from what almost everyone has done in AI.
+
+1:50:04.560 --> 1:50:08.560
+ I think there's a lot of ideas there to be explored.
+
+1:50:08.560 --> 1:50:14.560
+ And I guess one of the happiest days of my life.
+
+1:50:14.560 --> 1:50:24.560
+ You know, aside from like the births of my children was the birth of copycat when it actually started to be able to make really interesting analogies.
+
+1:50:24.560 --> 1:50:27.560
+ And I remember that very clearly.
+
+1:50:27.560 --> 1:50:30.560
+ It was a very exciting time.
+
+1:50:30.560 --> 1:50:34.560
+ Well, you kind of gave life to an artificial system.
+
+1:50:34.560 --> 1:50:35.560
+ That's right.
+
+1:50:35.560 --> 1:50:40.560
+ In terms of what people can interact, I saw there's like a, I think it's called MetaCat.
+
+1:50:40.560 --> 1:50:41.560
+ MetaCat.
+
+1:50:41.560 --> 1:50:42.560
+ MetaCat.
+
+1:50:42.560 --> 1:50:45.560
+ And there's a Python 3 implementation.
+
+1:50:45.560 --> 1:50:54.560
+ If people actually wanted to play around with it and actually get into it and study it and maybe integrate into whether it's with deep learning or any other kind of work they're doing.
+
+1:50:54.560 --> 1:51:00.560
+ What would you suggest they do to learn more about it and to take it forward in different kinds of directions?
+
+1:51:00.560 --> 1:51:09.560
+ Yeah, so that there's Douglas Hofstadter's book called Fluid Concepts and Creative Analogies talks in great detail about copycat.
+
+1:51:09.560 --> 1:51:16.560
+ I have a book called Analogy Making as Perception, which is a version of my PhD thesis on it.
+
+1:51:16.560 --> 1:51:20.560
+ There's also code that's available that you can get it to run.
+
+1:51:20.560 --> 1:51:25.560
+ I have some links on my webpage to where people can get the code for it.
+
+1:51:25.560 --> 1:51:28.560
+ And I think that that would really be the best way to get into it.
+
+1:51:28.560 --> 1:51:30.560
+ Just dive in and play with it.
+
+1:51:30.560 --> 1:51:33.560
+ Well, Melanie, it was an honor talking to you.
+
+1:51:33.560 --> 1:51:34.560
+ I really enjoyed it.
+
+1:51:34.560 --> 1:51:35.560
+ Thank you so much for your time today.
+
+1:51:35.560 --> 1:51:36.560
+ Thanks.
+
+1:51:36.560 --> 1:51:38.560
+ It's been really great.
+
+1:51:38.560 --> 1:51:41.560
+ Thanks for listening to this conversation with Melanie Mitchell.
+
+1:51:41.560 --> 1:51:44.560
+ And thank you to our presenting sponsor, Cash App.
+
+1:51:44.560 --> 1:51:45.560
+ Download it.
+
+1:51:45.560 --> 1:51:47.560
+ Use code LexPodcast.
+
+1:51:47.560 --> 1:51:58.560
+ You will get $10 and $10 will go to FIRST, a STEM education nonprofit that inspires hundreds of thousands of young minds to learn and to dream of engineering our future.
+
+1:51:58.560 --> 1:52:06.560
+ If you enjoy this podcast, subscribe on YouTube, give it five stars on Apple Podcast, support it on Patreon or connect with me on Twitter.
+
+1:52:06.560 --> 1:52:12.560
+ And now let me leave you with some words of wisdom from Douglas Hofstadter and Melanie Mitchell.
+
+1:52:12.560 --> 1:52:15.560
+ Without concepts, there can be no thought.
+
+1:52:15.560 --> 1:52:18.560
+ Without analogies, there can be no concepts.
+
+1:52:18.560 --> 1:52:27.560
+ And Melanie adds, how to form and fluidly use concepts is the most important open problem in AI.
+
+1:52:27.560 --> 1:52:46.560
+ Thank you for listening and hope to see you next time.
+

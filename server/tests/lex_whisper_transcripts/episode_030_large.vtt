@@ -1,0 +1,3485 @@
+WEBVTT
+
+00:00.000 --> 00:03.440
+ The following is a conversation with Kevin Scott,
+
+00:03.440 --> 00:06.080
+ the CTO of Microsoft.
+
+00:06.080 --> 00:08.540
+ Before that, he was the senior vice president
+
+00:08.540 --> 00:11.080
+ of engineering and operations at LinkedIn.
+
+00:11.080 --> 00:14.160
+ And before that, he oversaw mobile ads engineering
+
+00:14.160 --> 00:15.000
+ at Google.
+
+00:15.960 --> 00:18.960
+ He also has a podcast called Behind the Tech
+
+00:18.960 --> 00:21.860
+ with Kevin Scott, which I'm a fan of.
+
+00:21.860 --> 00:24.240
+ This was a fun and wide ranging conversation
+
+00:24.240 --> 00:26.680
+ that covered many aspects of computing.
+
+00:26.680 --> 00:28.800
+ It happened over a month ago,
+
+00:28.800 --> 00:30.960
+ before the announcement of Microsoft's investment
+
+00:30.960 --> 00:34.400
+ in OpenAI that a few people have asked me about.
+
+00:34.400 --> 00:38.080
+ I'm sure there'll be one or two people in the future
+
+00:38.080 --> 00:41.360
+ that'll talk with me about the impact of that investment.
+
+00:42.240 --> 00:45.400
+ This is the Artificial Intelligence Podcast.
+
+00:45.400 --> 00:47.640
+ If you enjoy it, subscribe on YouTube,
+
+00:47.640 --> 00:49.400
+ give it five stars on iTunes,
+
+00:49.400 --> 00:50.920
+ support it on Patreon,
+
+00:50.920 --> 00:54.240
+ or simply connect with me on Twitter at Lex Friedman,
+
+00:54.240 --> 00:57.640
+ spelled F R I D M A N.
+
+00:57.640 --> 00:59.200
+ And I'd like to give a special thank you
+
+00:59.200 --> 01:01.920
+ to Tom and Nelante Bighousen
+
+01:01.920 --> 01:04.560
+ for their support of the podcast on Patreon.
+
+01:04.560 --> 01:06.040
+ Thanks Tom and Nelante.
+
+01:06.040 --> 01:08.340
+ Hope I didn't mess up your last name too bad.
+
+01:08.340 --> 01:10.480
+ Your support means a lot
+
+01:10.480 --> 01:13.440
+ and inspires me to keep this series going.
+
+01:13.440 --> 01:18.100
+ And now, here's my conversation with Kevin Scott.
+
+01:18.100 --> 01:20.680
+ You've described yourself as a kid in a candy store
+
+01:20.680 --> 01:22.920
+ at Microsoft because of all the interesting projects
+
+01:22.920 --> 01:24.160
+ that are going on.
+
+01:24.160 --> 01:27.920
+ Can you try to do the impossible task
+
+01:27.920 --> 01:31.720
+ and give a brief whirlwind view
+
+01:31.720 --> 01:34.500
+ of all the spaces that Microsoft is working in?
+
+01:34.500 --> 01:37.400
+ Both research and product?
+
+01:37.400 --> 01:38.360
+ If you include research,
+
+01:38.360 --> 01:42.240
+ it becomes even more difficult.
+
+01:46.840 --> 01:48.800
+ I think broadly speaking,
+
+01:48.800 --> 01:53.680
+ Microsoft's product portfolio includes everything
+
+01:53.680 --> 01:56.880
+ from big cloud business,
+
+01:56.880 --> 01:59.320
+ like a big set of SaaS services.
+
+01:59.320 --> 02:01.920
+ We have sort of the original,
+
+02:01.920 --> 02:05.520
+ or like some of what are among the original
+
+02:05.520 --> 02:09.560
+ productivity software products that everybody uses.
+
+02:09.560 --> 02:11.160
+ We have an operating system business.
+
+02:11.160 --> 02:14.540
+ We have a hardware business where we make everything
+
+02:14.540 --> 02:18.400
+ from computer mice and headphones
+
+02:18.400 --> 02:23.400
+ to high end personal computers and laptops.
+
+02:23.400 --> 02:27.640
+ We have a fairly broad ranging research group
+
+02:27.640 --> 02:29.640
+ where we have people doing everything
+
+02:29.640 --> 02:31.840
+ from economics research.
+
+02:31.840 --> 02:35.880
+ So there's this really, really smart young economist,
+
+02:35.880 --> 02:39.720
+ Glenn Weil, who my group works with a lot,
+
+02:39.720 --> 02:42.840
+ who's doing this research on these things
+
+02:42.840 --> 02:45.120
+ called radical markets.
+
+02:45.120 --> 02:48.080
+ He's written an entire technical book
+
+02:48.080 --> 02:51.080
+ about this whole notion of radical markets.
+
+02:51.080 --> 02:53.480
+ So like the research group sort of spans from that
+
+02:53.480 --> 02:56.800
+ to human computer interaction to artificial intelligence.
+
+02:56.800 --> 03:01.000
+ And we have GitHub, we have LinkedIn,
+
+03:01.000 --> 03:05.760
+ we have a search advertising and news business
+
+03:05.760 --> 03:07.320
+ and like probably a bunch of stuff
+
+03:07.320 --> 03:11.240
+ that I'm embarrassingly not recounting in this list.
+
+03:11.240 --> 03:12.840
+ Gaming to Xbox and so on, right?
+
+03:12.840 --> 03:14.080
+ Yeah, gaming for sure.
+
+03:14.080 --> 03:17.880
+ Like I was having a super fun conversation this morning
+
+03:17.880 --> 03:19.480
+ with Phil Spencer.
+
+03:19.480 --> 03:21.260
+ So when I was in college,
+
+03:21.260 --> 03:25.560
+ there was this game that LucasArts made
+
+03:25.560 --> 03:27.600
+ called Day of the Tentacle
+
+03:27.600 --> 03:30.160
+ that my friends and I played forever.
+
+03:30.160 --> 03:33.920
+ And like we're doing some interesting collaboration now
+
+03:33.920 --> 03:37.920
+ with the folks who made Day of the Tentacle.
+
+03:37.920 --> 03:40.840
+ And I was like completely nerding out with Tim Schafer,
+
+03:40.840 --> 03:43.880
+ like the guy who wrote a Day of the Tentacle this morning,
+
+03:43.880 --> 03:45.800
+ just a complete fan boy,
+
+03:45.800 --> 03:49.880
+ which sort of it like happens a lot.
+
+03:49.880 --> 03:53.320
+ Like Microsoft has been doing so much stuff
+
+03:53.320 --> 03:56.000
+ at such breadth for such a long period of time
+
+03:56.000 --> 04:00.880
+ that like being CTO like most of the time,
+
+04:00.880 --> 04:02.200
+ my job is very, very serious.
+
+04:02.200 --> 04:05.620
+ And sometimes like I get caught up
+
+04:05.620 --> 04:10.620
+ in like how amazing it is to be able to have
+
+04:10.620 --> 04:12.800
+ the conversations that I have with the people
+
+04:12.800 --> 04:14.640
+ I get to have them with.
+
+04:14.640 --> 04:17.080
+ Yeah, to reach back into the sentimental.
+
+04:17.080 --> 04:21.640
+ And what's the radical markets and the economics?
+
+04:21.640 --> 04:24.760
+ So the idea with radical markets is like,
+
+04:24.760 --> 04:29.760
+ can you come up with new market based mechanisms to,
+
+04:32.320 --> 04:33.840
+ you know, I think we have this,
+
+04:33.840 --> 04:35.240
+ we're having this debate right now,
+
+04:35.240 --> 04:40.040
+ like does capitalism work like free markets work?
+
+04:40.040 --> 04:43.000
+ Can the incentive structures
+
+04:43.000 --> 04:46.320
+ that are built into these systems produce outcomes
+
+04:46.320 --> 04:51.320
+ that are creating sort of equitably distributed benefits
+
+04:51.520 --> 04:53.520
+ for every member of society?
+
+04:55.360 --> 04:56.960
+ You know, and I think it's a reasonable,
+
+04:56.960 --> 04:59.520
+ reasonable set of questions to be asking.
+
+04:59.520 --> 05:02.120
+ And so what Glenn, and so like, you know,
+
+05:02.120 --> 05:03.120
+ one mode of thought there,
+
+05:03.120 --> 05:05.920
+ like if you have doubts that the markets
+
+05:05.920 --> 05:08.360
+ are actually working, you can sort of like tip towards
+
+05:08.360 --> 05:10.760
+ like, okay, let's become more socialist
+
+05:10.760 --> 05:13.640
+ and, you know, like have central planning and, you know,
+
+05:13.640 --> 05:15.760
+ governments or some other central organization
+
+05:15.760 --> 05:18.240
+ is like making a bunch of decisions
+
+05:18.240 --> 05:22.000
+ about how, you know, sort of work gets done
+
+05:22.000 --> 05:24.520
+ and, you know, like where the, you know,
+
+05:24.520 --> 05:26.360
+ where the investments and where the outputs
+
+05:26.360 --> 05:28.840
+ of those investments get distributed.
+
+05:28.840 --> 05:32.120
+ Glenn's notion is like, lean more
+
+05:32.120 --> 05:35.760
+ into like the market based mechanism.
+
+05:35.760 --> 05:37.840
+ So like, for instance, you know,
+
+05:37.840 --> 05:39.540
+ this is one of the more radical ideas,
+
+05:39.540 --> 05:44.540
+ like suppose that you had a radical pricing mechanism
+
+05:45.140 --> 05:50.140
+ for assets like real estate where you were,
+
+05:50.560 --> 05:53.560
+ you could be bid out of your position
+
+05:53.560 --> 05:58.560
+ in your home, you know, for instance.
+
+05:58.680 --> 06:01.080
+ So like if somebody came along and said,
+
+06:01.080 --> 06:04.380
+ you know, like I can find higher economic utility
+
+06:04.380 --> 06:05.720
+ for this piece of real estate
+
+06:05.720 --> 06:08.680
+ that you're running your business in,
+
+06:08.680 --> 06:13.040
+ like then like you either have to, you know,
+
+06:13.040 --> 06:16.480
+ sort of bid to sort of stay
+
+06:16.480 --> 06:19.960
+ or like the thing that's got the higher economic utility,
+
+06:19.960 --> 06:21.480
+ you know, sort of takes over the asset
+
+06:21.480 --> 06:23.700
+ which would make it very difficult
+
+06:23.700 --> 06:27.580
+ to have the same sort of rent seeking behaviors
+
+06:27.580 --> 06:29.000
+ that you've got right now
+
+06:29.000 --> 06:34.000
+ because like if you did speculative bidding,
+
+06:34.000 --> 06:39.000
+ like you would very quickly like lose a whole lot of money.
+
+06:40.440 --> 06:42.380
+ And so like the prices of the assets
+
+06:42.380 --> 06:45.640
+ would be sort of like very closely indexed
+
+06:45.640 --> 06:49.720
+ to like the value that they could produce.
+
+06:49.720 --> 06:52.120
+ And like, because like you'd have this sort
+
+06:52.120 --> 06:53.940
+ of real time mechanism that would force you
+
+06:53.940 --> 06:56.800
+ to sort of mark the value of the asset to the market,
+
+06:56.800 --> 06:58.560
+ then it could be taxed appropriately.
+
+06:58.560 --> 07:00.400
+ Like you couldn't sort of sit on this thing and say,
+
+07:00.400 --> 07:03.040
+ oh, like this house is only worth 10,000 bucks
+
+07:03.040 --> 07:06.620
+ when like everything around it is worth 10 million.
+
+07:06.620 --> 07:08.720
+ That's really, so it's an incentive structure
+
+07:08.720 --> 07:13.160
+ that where the prices match the value much better.
+
+07:13.160 --> 07:16.360
+ Yeah, and Glenn does a much better job than I do
+
+07:16.360 --> 07:18.960
+ at selling and I probably picked the world's worst example,
+
+07:18.960 --> 07:23.960
+ you know, and it's intentionally provocative,
+
+07:24.560 --> 07:25.800
+ so like this whole notion,
+
+07:25.800 --> 07:28.920
+ like I'm not sure whether I like this notion
+
+07:28.920 --> 07:31.120
+ that like we can have a set of market mechanisms
+
+07:31.120 --> 07:35.360
+ where I could get bid out of my property, you know,
+
+07:35.360 --> 07:37.680
+ but you know, like if you're thinking about something
+
+07:37.680 --> 07:42.480
+ like Elizabeth Warren's wealth tax, for instance,
+
+07:42.480 --> 07:45.600
+ like you would have, I mean, it'd be really interesting
+
+07:45.600 --> 07:50.100
+ in like how you would actually set the price on the assets
+
+07:50.100 --> 07:52.040
+ and like you might have to have a mechanism like that
+
+07:52.040 --> 07:54.160
+ if you put a tax like that in place.
+
+07:54.160 --> 07:56.440
+ It's really interesting that that kind of research,
+
+07:56.440 --> 08:00.280
+ at least tangentially is touching Microsoft research.
+
+08:00.280 --> 08:02.560
+ That you're really thinking broadly.
+
+08:02.560 --> 08:07.560
+ Maybe you can speak to, this connects to AI,
+
+08:08.360 --> 08:10.640
+ so we have a candidate, Andrew Yang,
+
+08:10.640 --> 08:13.440
+ who kind of talks about artificial intelligence
+
+08:13.440 --> 08:16.620
+ and the concern that people have about, you know,
+
+08:16.620 --> 08:19.920
+ automation's impact on society and arguably,
+
+08:19.920 --> 08:23.340
+ Microsoft is at the cutting edge of innovation
+
+08:23.340 --> 08:27.040
+ in all these kinds of ways and so it's pushing AI forward.
+
+08:27.040 --> 08:30.000
+ How do you think about combining all our conversations
+
+08:30.000 --> 08:32.840
+ together here with radical markets and socialism
+
+08:32.840 --> 08:37.500
+ and innovation in AI that Microsoft is doing
+
+08:37.500 --> 08:42.500
+ and then Andrew Yang's worry that that will result
+
+08:44.560 --> 08:46.840
+ in job loss for the lower and so on.
+
+08:46.840 --> 08:47.680
+ How do you think about that?
+
+08:47.680 --> 08:51.140
+ I think it's sort of one of the most important questions
+
+08:51.140 --> 08:54.920
+ in technology like maybe even in society right now
+
+08:54.920 --> 08:59.640
+ about how is AI going to develop
+
+08:59.640 --> 09:01.960
+ over the course of the next several decades
+
+09:01.960 --> 09:03.600
+ and what's it going to be used for
+
+09:03.600 --> 09:06.520
+ and what benefits will it produce
+
+09:06.520 --> 09:08.480
+ and what negative impacts will it produce
+
+09:08.480 --> 09:12.940
+ and who gets to steer this whole thing.
+
+09:13.960 --> 09:16.240
+ I'll say at the highest level,
+
+09:17.240 --> 09:22.240
+ one of the real joys of getting to do what I do at Microsoft
+
+09:22.920 --> 09:27.560
+ is Microsoft has this heritage as a platform company
+
+09:27.560 --> 09:32.560
+ and so Bill has this thing that he said a bunch of years ago
+
+09:32.880 --> 09:36.440
+ where the measure of a successful platform
+
+09:36.440 --> 09:39.800
+ is that it produces far more economic value
+
+09:39.800 --> 09:41.820
+ for the people who build on top of the platform
+
+09:41.820 --> 09:46.820
+ than is created for the platform owner or builder
+
+09:47.320 --> 09:51.160
+ and I think we have to think about AI that way.
+
+09:51.160 --> 09:52.240
+ As a platform.
+
+09:52.240 --> 09:56.260
+ Yeah, it has to be a platform that other people can use
+
+09:56.260 --> 10:01.260
+ to build businesses, to fulfill their creative objectives,
+
+10:01.280 --> 10:04.640
+ to be entrepreneurs, to solve problems that they have
+
+10:04.640 --> 10:07.680
+ in their work and in their lives.
+
+10:07.680 --> 10:11.960
+ It can't be a thing where there are a handful of companies
+
+10:11.960 --> 10:16.440
+ sitting in a very small handful of cities geographically
+
+10:16.440 --> 10:21.440
+ who are making all the decisions about what goes into the AI
+
+10:21.440 --> 10:26.440
+ and then on top of all this infrastructure,
+
+10:26.880 --> 10:30.960
+ then build all of the commercially valuable uses for it.
+
+10:30.960 --> 10:35.960
+ So I think that's bad from a sort of economics
+
+10:36.480 --> 10:40.120
+ and sort of equitable distribution of value perspective,
+
+10:40.120 --> 10:44.520
+ sort of back to this whole notion of did the markets work?
+
+10:44.520 --> 10:47.560
+ But I think it's also bad from an innovation perspective
+
+10:47.560 --> 10:51.360
+ because I have infinite amounts of faith
+
+10:51.360 --> 10:55.720
+ in human beings that if you give folks powerful tools,
+
+10:55.720 --> 10:58.240
+ they will go do interesting things
+
+10:58.240 --> 11:02.280
+ and it's more than just a few tens of thousands of people
+
+11:02.280 --> 11:03.340
+ with the interesting tools,
+
+11:03.340 --> 11:05.380
+ it should be millions of people with the tools.
+
+11:05.380 --> 11:10.160
+ So it's sort of like you think about the steam engine
+
+11:10.160 --> 11:14.480
+ in the late 18th century, like it was maybe the first
+
+11:14.480 --> 11:16.760
+ large scale substitute for human labor
+
+11:16.760 --> 11:19.080
+ that we've built like a machine
+
+11:19.080 --> 11:23.480
+ and in the beginning when these things are getting deployed,
+
+11:23.480 --> 11:28.280
+ the folks who got most of the value from the steam engines
+
+11:28.280 --> 11:30.140
+ were the folks who had capital
+
+11:30.140 --> 11:31.560
+ so they could afford to build them
+
+11:31.560 --> 11:34.680
+ and like they built factories around them and businesses
+
+11:34.680 --> 11:38.640
+ and the experts who knew how to build and maintain them.
+
+11:38.640 --> 11:42.840
+ But access to that technology democratized over time.
+
+11:42.840 --> 11:47.840
+ Like now, like an engine, it's not like a differentiated
+
+11:47.840 --> 11:50.260
+ thing, like there isn't one engine company
+
+11:50.260 --> 11:51.500
+ that builds all the engines
+
+11:51.500 --> 11:53.100
+ and all of the things that use engines
+
+11:53.100 --> 11:54.220
+ are made by this company
+
+11:54.220 --> 11:57.420
+ and like they get all the economics from all of that.
+
+11:57.420 --> 12:00.540
+ Like fully demarcated, like they're probably,
+
+12:00.540 --> 12:02.300
+ we're sitting here in this room
+
+12:02.300 --> 12:05.220
+ and like even though they're probably things
+
+12:05.220 --> 12:09.100
+ like the MEMS gyroscope that are in both of our phones,
+
+12:09.100 --> 12:13.220
+ like there's like little engines sort of everywhere.
+
+12:13.220 --> 12:16.260
+ They're just a component in how we build the modern world.
+
+12:16.260 --> 12:17.700
+ Like AI needs to get there.
+
+12:17.700 --> 12:20.220
+ Yeah, so that's a really powerful way to think.
+
+12:20.220 --> 12:22.700
+ If we think of AI as a platform
+
+12:22.700 --> 12:26.860
+ versus a tool that Microsoft owns,
+
+12:26.860 --> 12:30.140
+ as a platform that enables creation on top of it,
+
+12:30.140 --> 12:31.500
+ that's the way to democratize it.
+
+12:31.500 --> 12:34.220
+ That's really interesting actually.
+
+12:34.220 --> 12:36.060
+ And Microsoft throughout its history
+
+12:36.060 --> 12:38.260
+ has been positioned well to do that.
+
+12:38.260 --> 12:41.660
+ And the tie back to this radical markets thing,
+
+12:41.660 --> 12:49.100
+ like so my team has been working with Glenn on this,
+
+12:49.100 --> 12:50.940
+ and Jaren Lanier actually.
+
+12:50.940 --> 12:56.180
+ So Jaren is the sort of father of virtual reality.
+
+12:56.180 --> 13:00.100
+ Like he's one of the most interesting human beings on the planet,
+
+13:00.100 --> 13:02.220
+ like a sweet, sweet guy.
+
+13:02.220 --> 13:07.660
+ And so Jaren and Glenn and folks in my team have been working
+
+13:07.660 --> 13:10.300
+ on this notion of data as labor
+
+13:10.300 --> 13:13.100
+ or like they call it data dignity as well.
+
+13:13.100 --> 13:16.700
+ And so the idea is that if you,
+
+13:16.700 --> 13:20.580
+ again going back to this sort of industrial analogy,
+
+13:20.580 --> 13:24.700
+ if you think about data as the raw material that is
+
+13:24.700 --> 13:30.060
+ consumed by the machine of AI in order to do useful things,
+
+13:30.060 --> 13:34.940
+ then like we're not doing a really great job right now in having
+
+13:34.940 --> 13:39.580
+ transparent marketplaces for valuing those data contributions.
+
+13:39.580 --> 13:43.540
+ So and we all make them explicitly like you go to LinkedIn,
+
+13:43.540 --> 13:46.140
+ you sort of set up your profile on LinkedIn,
+
+13:46.140 --> 13:47.780
+ like that's an explicit contribution.
+
+13:47.780 --> 13:49.460
+ Like you know exactly the information
+
+13:49.460 --> 13:50.700
+ that you're putting into the system.
+
+13:50.700 --> 13:52.780
+ And like you put it there because you have
+
+13:52.780 --> 13:56.620
+ some nominal notion of what value you're going to get in return.
+
+13:56.620 --> 13:57.700
+ But it's like only nominal,
+
+13:57.700 --> 14:00.460
+ like you don't know exactly what value you're getting in return.
+
+14:00.460 --> 14:01.860
+ Like service is free,
+
+14:01.860 --> 14:04.620
+ like it's low amount of perceived debt.
+
+14:04.620 --> 14:06.900
+ And then you've got all this indirect contribution that you're
+
+14:06.900 --> 14:09.540
+ making just by virtue of interacting with all of
+
+14:09.540 --> 14:13.180
+ the technology that's in your daily life.
+
+14:13.180 --> 14:15.580
+ And so like what Glenn and
+
+14:15.580 --> 14:19.340
+ Jaren and this data dignity team are trying to do is like,
+
+14:19.340 --> 14:23.820
+ can we figure out a set of mechanisms that let us value
+
+14:23.820 --> 14:27.260
+ those data contributions so that you could create
+
+14:27.260 --> 14:31.700
+ an economy and like a set of controls and incentives that
+
+14:31.700 --> 14:36.860
+ would allow people to like maybe even in the limit,
+
+14:36.860 --> 14:38.860
+ like earn part of their living
+
+14:38.860 --> 14:41.020
+ through the data that they're creating.
+
+14:41.020 --> 14:42.660
+ And like you can sort of see it in explicit ways.
+
+14:42.660 --> 14:46.020
+ There are these companies like Scale AI,
+
+14:46.020 --> 14:49.420
+ and like there are a whole bunch of them in China
+
+14:49.420 --> 14:52.380
+ right now that are basically data labeling companies.
+
+14:52.380 --> 14:54.540
+ So like you're doing supervised machine learning,
+
+14:54.540 --> 14:57.900
+ you need lots and lots of label training data.
+
+14:57.900 --> 15:01.540
+ And like those people who work for
+
+15:01.540 --> 15:03.460
+ those companies are getting compensated
+
+15:03.460 --> 15:06.180
+ for their data contributions into the system.
+
+15:06.180 --> 15:07.380
+ And so.
+
+15:07.380 --> 15:09.500
+ That's easier to put a number on
+
+15:09.500 --> 15:11.980
+ their contribution because they're explicitly labeling data.
+
+15:11.980 --> 15:12.380
+ Correct.
+
+15:12.380 --> 15:13.620
+ But you're saying that we're all
+
+15:13.620 --> 15:15.540
+ contributing data in different kinds of ways.
+
+15:15.540 --> 15:18.260
+ And it's fascinating to start to
+
+15:18.260 --> 15:20.860
+ explicitly try to put a number on it.
+
+15:20.860 --> 15:22.580
+ Do you think that's possible?
+
+15:22.580 --> 15:24.980
+ I don't know. It's hard. It really is.
+
+15:24.980 --> 15:29.420
+ Because we don't have
+
+15:29.420 --> 15:33.740
+ as much transparency as I think
+
+15:33.740 --> 15:37.220
+ we need in like how the data is getting used.
+
+15:37.220 --> 15:38.660
+ And it's super complicated.
+
+15:38.660 --> 15:41.300
+ Like we, I think as
+
+15:41.300 --> 15:42.860
+ technologists sort of appreciate
+
+15:42.860 --> 15:44.140
+ like some of the subtlety there.
+
+15:44.140 --> 15:48.820
+ It's like the data gets created and then it gets,
+
+15:48.820 --> 15:50.940
+ it's not valuable.
+
+15:50.940 --> 15:55.740
+ Like the data exhaust that you give off,
+
+15:55.740 --> 16:00.580
+ or the explicit data that I am putting into
+
+16:00.580 --> 16:05.100
+ the system isn't super valuable atomically.
+
+16:05.100 --> 16:07.260
+ Like it's only valuable when you sort of
+
+16:07.260 --> 16:10.420
+ aggregate it together into sort of large numbers.
+
+16:10.420 --> 16:12.100
+ This is true even for these like folks who are
+
+16:12.100 --> 16:14.860
+ getting compensated for like labeling things.
+
+16:14.860 --> 16:16.460
+ Like for supervised machine learning now,
+
+16:16.460 --> 16:18.860
+ like you need lots of labels to
+
+16:18.860 --> 16:21.900
+ train a model that performs well.
+
+16:21.900 --> 16:24.420
+ And so I think that's one of the challenges.
+
+16:24.420 --> 16:27.220
+ It's like how do you sort of figure
+
+16:27.220 --> 16:29.900
+ out like because this data is getting combined in
+
+16:29.900 --> 16:32.620
+ so many ways like through
+
+16:32.620 --> 16:35.700
+ these combinations like how the value is flowing.
+
+16:35.700 --> 16:37.620
+ Yeah, that's fascinating.
+
+16:37.620 --> 16:41.860
+ Yeah. And it's fascinating that you're thinking about this.
+
+16:41.860 --> 16:44.980
+ And I wasn't even going into this conversation expecting
+
+16:44.980 --> 16:48.180
+ the breadth of research really
+
+16:48.180 --> 16:50.580
+ that Microsoft broadly is thinking about,
+
+16:50.580 --> 16:52.100
+ you're thinking about at Microsoft.
+
+16:52.100 --> 16:57.580
+ So if we go back to 89 when Microsoft released Office,
+
+16:57.580 --> 17:01.900
+ or 1990 when they released Windows 3.0.
+
+17:02.740 --> 17:07.980
+ In your view, I know you weren't there through its history,
+
+17:07.980 --> 17:09.940
+ but how has the company changed in
+
+17:09.940 --> 17:12.580
+ the 30 years since as you look at it now?
+
+17:12.580 --> 17:16.900
+ The good thing is it's started off as a platform company.
+
+17:16.900 --> 17:20.020
+ Like it's still a platform company,
+
+17:20.020 --> 17:22.940
+ like the parts of the business that are thriving and
+
+17:22.940 --> 17:26.660
+ most successful are those that are building platforms.
+
+17:26.660 --> 17:28.980
+ Like the mission of the company now is,
+
+17:28.980 --> 17:30.220
+ the mission's changed.
+
+17:30.220 --> 17:32.380
+ It's like changed in a very interesting way.
+
+17:32.380 --> 17:35.860
+ So back in 89,
+
+17:35.860 --> 17:39.100
+ 90 like they were still on the original mission,
+
+17:39.100 --> 17:43.940
+ which was like put a PC on every desk and in every home.
+
+17:43.940 --> 17:47.700
+ And it was basically about democratizing access to
+
+17:47.700 --> 17:50.140
+ this new personal computing technology,
+
+17:50.140 --> 17:52.540
+ which when Bill started the company,
+
+17:52.540 --> 17:57.740
+ integrated circuit microprocessors were a brand new thing.
+
+17:57.740 --> 18:03.900
+ And people were building homebrew computers from kits,
+
+18:03.900 --> 18:08.140
+ like the way people build ham radios right now.
+
+18:08.140 --> 18:10.700
+ I think this is the interesting thing
+
+18:10.700 --> 18:12.860
+ for folks who build platforms in general.
+
+18:12.860 --> 18:17.060
+ Bill saw the opportunity there and
+
+18:17.060 --> 18:18.780
+ what personal computers could do.
+
+18:18.780 --> 18:20.500
+ And it was like, it was sort of a reach.
+
+18:20.500 --> 18:22.460
+ Like you just sort of imagine like where things
+
+18:22.460 --> 18:24.900
+ were when they started the company
+
+18:24.900 --> 18:26.100
+ versus where things are now.
+
+18:26.100 --> 18:27.860
+ Like in success,
+
+18:27.860 --> 18:29.400
+ when you've democratized a platform,
+
+18:29.400 --> 18:31.020
+ it just sort of vanishes into the platform.
+
+18:31.020 --> 18:32.500
+ You don't pay attention to it anymore.
+
+18:32.500 --> 18:35.420
+ Like operating systems aren't a thing anymore.
+
+18:35.420 --> 18:36.780
+ Like they're super important,
+
+18:36.780 --> 18:38.020
+ like completely critical.
+
+18:38.020 --> 18:41.460
+ And like when you see one fail,
+
+18:41.460 --> 18:43.500
+ like you just sort of understand.
+
+18:43.500 --> 18:46.060
+ But like it's not a thing where you're not like
+
+18:46.060 --> 18:50.220
+ waiting for the next operating system thing
+
+18:50.220 --> 18:52.860
+ in the same way that you were in 1995, right?
+
+18:52.860 --> 18:54.500
+ Like in 1995, like we had
+
+18:54.500 --> 18:57.580
+ Rolling Stones on the stage with the Windows 95 rollout.
+
+18:57.580 --> 18:59.300
+ Like it was like the biggest thing in the world.
+
+18:59.300 --> 19:01.340
+ Everybody lined up for it the way
+
+19:01.340 --> 19:03.380
+ that people used to line up for iPhone.
+
+19:03.380 --> 19:04.820
+ But like, you know, eventually,
+
+19:04.820 --> 19:07.160
+ and like this isn't necessarily a bad thing.
+
+19:07.160 --> 19:08.820
+ Like it just sort of, you know,
+
+19:08.820 --> 19:12.860
+ the success is that it's sort of, it becomes ubiquitous.
+
+19:12.860 --> 19:14.780
+ It's like everywhere, like human beings,
+
+19:14.780 --> 19:16.580
+ when their technology becomes ubiquitous,
+
+19:16.580 --> 19:18.180
+ they just sort of start taking it for granted.
+
+19:18.180 --> 19:22.100
+ So the mission now that Satya
+
+19:22.100 --> 19:25.220
+ rearticulated five plus years ago now,
+
+19:25.220 --> 19:28.100
+ when he took over as CEO of the company.
+
+19:28.260 --> 19:33.620
+ Our mission is to empower every individual and
+
+19:33.620 --> 19:38.340
+ every organization in the world to be more successful.
+
+19:38.340 --> 19:40.860
+ And so, you know, again,
+
+19:40.860 --> 19:43.100
+ like that's a platform mission.
+
+19:43.100 --> 19:46.300
+ And like the way that we do it now is, is different.
+
+19:46.300 --> 19:48.780
+ It's like we have a hyperscale cloud that
+
+19:48.780 --> 19:51.620
+ people are building their applications on top of.
+
+19:51.620 --> 19:53.740
+ Like we have a bunch of AI infrastructure that
+
+19:53.740 --> 19:56.220
+ people are building their AI applications on top of.
+
+19:56.220 --> 19:58.100
+ We have, you know,
+
+19:58.100 --> 20:02.060
+ we have a productivity suite of software,
+
+20:02.060 --> 20:05.740
+ like Microsoft Dynamics, which, you know,
+
+20:05.740 --> 20:07.820
+ some people might not think is the sexiest thing in the world,
+
+20:07.820 --> 20:10.820
+ but it's like helping people figure out how to automate
+
+20:10.820 --> 20:13.580
+ all of their business processes and workflows
+
+20:13.580 --> 20:19.060
+ and to help those businesses using it to grow and be more.
+
+20:19.060 --> 20:23.180
+ So it's a much broader vision
+
+20:23.180 --> 20:25.460
+ in a way now than it was back then.
+
+20:25.460 --> 20:27.380
+ Like it was sort of very particular thing.
+
+20:27.380 --> 20:29.380
+ And like now, like we live in this world where
+
+20:29.380 --> 20:32.380
+ technology is so powerful and it's like
+
+20:32.380 --> 20:39.700
+ such a basic fact of life that it both exists
+
+20:39.700 --> 20:42.700
+ and is going to get better and better over time
+
+20:42.700 --> 20:45.980
+ or at least more and more powerful over time.
+
+20:45.980 --> 20:48.140
+ So like, you know, what you have to do as a platform player
+
+20:48.140 --> 20:49.900
+ is just much bigger.
+
+20:49.900 --> 20:52.980
+ Right. There's so many directions in which you can transform.
+
+20:52.980 --> 20:55.140
+ You didn't mention mixed reality, too.
+
+20:55.140 --> 20:59.140
+ You know, that's probably early days
+
+20:59.140 --> 21:00.620
+ or it depends how you think of it.
+
+21:00.620 --> 21:02.140
+ But if we think on a scale of centuries,
+
+21:02.140 --> 21:04.020
+ it's the early days of mixed reality.
+
+21:04.020 --> 21:04.900
+ Oh, for sure.
+
+21:04.900 --> 21:08.420
+ And so with HoloLens,
+
+21:08.420 --> 21:10.580
+ Microsoft is doing some really interesting work there.
+
+21:10.580 --> 21:13.540
+ Do you touch that part of the effort?
+
+21:13.540 --> 21:14.820
+ What's the thinking?
+
+21:14.820 --> 21:17.620
+ Do you think of mixed reality as a platform, too?
+
+21:17.620 --> 21:18.460
+ Oh, sure.
+
+21:18.460 --> 21:21.300
+ When we look at what the platforms of the future could be,
+
+21:21.300 --> 21:23.900
+ it's like fairly obvious that like AI is one.
+
+21:23.900 --> 21:26.580
+ Like you don't have to, I mean, like that's,
+
+21:26.580 --> 21:29.140
+ you know, you sort of say it to like someone
+
+21:29.140 --> 21:31.940
+ and you know, like they get it.
+
+21:31.940 --> 21:36.300
+ But like we also think of the like mixed reality
+
+21:36.300 --> 21:39.580
+ and quantum as like these two interesting,
+
+21:39.580 --> 21:40.900
+ you know, potentially.
+
+21:40.900 --> 21:41.820
+ Quantum computing?
+
+21:41.820 --> 21:42.660
+ Yeah.
+
+21:42.660 --> 21:44.500
+ Okay. So let's get crazy then.
+
+21:44.500 --> 21:48.900
+ So you're talking about some futuristic things here.
+
+21:48.900 --> 21:50.860
+ Well, the mixed reality, Microsoft is really,
+
+21:50.860 --> 21:52.620
+ it's not even futuristic, it's here.
+
+21:52.620 --> 21:53.460
+ It is.
+
+21:53.460 --> 21:54.300
+ It's incredible stuff.
+
+21:54.300 --> 21:56.660
+ And look, and it's having an impact right now.
+
+21:56.660 --> 21:58.740
+ Like one of the more interesting things
+
+21:58.740 --> 21:59.980
+ that's happened with mixed reality
+
+21:59.980 --> 22:04.140
+ over the past couple of years that I didn't clearly see
+
+22:04.140 --> 22:08.420
+ is that it's become the computing device
+
+22:08.420 --> 22:13.180
+ for folks who, for doing their work,
+
+22:13.180 --> 22:16.060
+ who haven't used any computing device at all
+
+22:16.060 --> 22:16.980
+ to do their work before.
+
+22:16.980 --> 22:21.500
+ So technicians and service folks and people
+
+22:21.500 --> 22:25.340
+ who are doing like machine maintenance on factory floors.
+
+22:25.340 --> 22:28.780
+ So like they, you know, because they're mobile
+
+22:28.780 --> 22:30.300
+ and like they're out in the world
+
+22:30.300 --> 22:32.340
+ and they're working with their hands
+
+22:32.340 --> 22:34.260
+ and, you know, sort of servicing these like
+
+22:34.260 --> 22:37.460
+ very complicated things, they're,
+
+22:37.460 --> 22:39.420
+ they don't use their mobile phone
+
+22:39.420 --> 22:41.420
+ and like they don't carry a laptop with them
+
+22:41.420 --> 22:43.500
+ and, you know, they're not tethered to a desk.
+
+22:43.500 --> 22:47.340
+ And so mixed reality, like where it's getting traction
+
+22:47.340 --> 22:50.740
+ right now, where HoloLens is selling a lot of units
+
+22:50.740 --> 22:54.580
+ is for these sorts of applications for these workers.
+
+22:54.580 --> 22:58.060
+ And it's become like, I mean, like the people love it.
+
+22:58.060 --> 23:01.140
+ They're like, oh my God, like this is like for them,
+
+23:01.140 --> 23:03.460
+ like the same sort of productivity boosts that,
+
+23:03.460 --> 23:05.500
+ you know, like an office worker had
+
+23:05.500 --> 23:08.220
+ when they got their first personal computer.
+
+23:08.220 --> 23:12.100
+ Yeah, but you did mention it's certainly obvious AI
+
+23:12.100 --> 23:15.580
+ as a platform, but can we dig into it a little bit?
+
+23:15.580 --> 23:18.300
+ How does AI begin to infuse some of the products
+
+23:18.300 --> 23:19.500
+ in Microsoft?
+
+23:19.500 --> 23:24.500
+ So currently providing training of,
+
+23:24.500 --> 23:26.700
+ for example, neural networks in the cloud
+
+23:26.700 --> 23:31.700
+ or providing pre trained models or just even providing
+
+23:34.300 --> 23:37.540
+ computing resources and whatever different inference
+
+23:37.540 --> 23:39.940
+ that you wanna do using neural networks.
+
+23:39.940 --> 23:44.500
+ How do you think of AI infusing as a platform
+
+23:44.500 --> 23:45.900
+ that Microsoft can provide?
+
+23:45.900 --> 23:48.340
+ Yeah, I mean, I think it's super interesting.
+
+23:48.340 --> 23:49.580
+ It's like everywhere.
+
+23:49.580 --> 23:54.580
+ And like we run these review meetings now
+
+23:54.580 --> 23:59.580
+ where it's me and Satya and like members
+
+24:00.700 --> 24:04.340
+ of Satya's leadership team and like a cross functional
+
+24:04.340 --> 24:06.180
+ group of folks across the entire company
+
+24:06.180 --> 24:11.180
+ who are working on like either AI infrastructure
+
+24:11.820 --> 24:16.820
+ or like have some substantial part of their product work
+
+24:18.900 --> 24:22.580
+ using AI in some significant way.
+
+24:22.580 --> 24:23.940
+ Now, the important thing to understand
+
+24:23.940 --> 24:26.620
+ is like when you think about like how the AI
+
+24:26.620 --> 24:29.980
+ is gonna manifest in like an experience
+
+24:29.980 --> 24:31.820
+ for something that's gonna make it better,
+
+24:31.820 --> 24:36.820
+ like I think you don't want the AIness
+
+24:36.900 --> 24:38.780
+ to be the first order thing.
+
+24:38.780 --> 24:40.900
+ It's like whatever the product is
+
+24:40.900 --> 24:43.700
+ and like the thing that is trying to help you do,
+
+24:43.700 --> 24:45.620
+ like the AI just sort of makes it better.
+
+24:45.620 --> 24:47.900
+ And this is a gross exaggeration,
+
+24:47.900 --> 24:51.580
+ but like people get super excited about like
+
+24:51.580 --> 24:54.220
+ where the AI is showing up in products and I'm like,
+
+24:54.220 --> 24:55.780
+ do you get that excited about like
+
+24:55.780 --> 24:59.660
+ where you're using a hash table like in your code?
+
+24:59.660 --> 25:01.100
+ Like it's just another.
+
+25:01.100 --> 25:01.940
+ It's just a tool.
+
+25:01.940 --> 25:03.780
+ It's a very interesting programming tool,
+
+25:03.780 --> 25:06.180
+ but it's sort of like it's an engineering tool.
+
+25:07.340 --> 25:09.340
+ And so like it shows up everywhere.
+
+25:09.340 --> 25:12.300
+ So like we've got dozens and dozens of features
+
+25:12.300 --> 25:15.660
+ now in Office that are powered by
+
+25:15.660 --> 25:18.060
+ like fairly sophisticated machine learning,
+
+25:18.060 --> 25:21.980
+ our search engine wouldn't work at all
+
+25:21.980 --> 25:24.620
+ if you took the machine learning out of it.
+
+25:24.620 --> 25:29.620
+ The like increasingly things like content moderation
+
+25:30.860 --> 25:35.860
+ on our Xbox and xCloud platform.
+
+25:36.820 --> 25:37.900
+ When you mean moderation,
+
+25:37.900 --> 25:39.500
+ you mean like the recommender is like showing
+
+25:39.500 --> 25:41.540
+ what you wanna look at next.
+
+25:41.540 --> 25:43.780
+ No, no, no, it's like anti bullying stuff.
+
+25:43.780 --> 25:45.780
+ So the usual social network stuff
+
+25:45.780 --> 25:46.820
+ that you have to deal with.
+
+25:46.820 --> 25:47.660
+ Yeah, correct.
+
+25:47.660 --> 25:49.860
+ But it's like really it's targeted,
+
+25:49.860 --> 25:52.060
+ it's targeted towards a gaming audience.
+
+25:52.060 --> 25:54.580
+ So it's like a very particular type of thing
+
+25:54.580 --> 25:59.260
+ where the line between playful banter
+
+25:59.260 --> 26:02.100
+ and like legitimate bullying is like a subtle one.
+
+26:02.100 --> 26:05.860
+ And like you have to like, it's sort of tough.
+
+26:05.860 --> 26:07.340
+ Like I have.
+
+26:07.340 --> 26:08.860
+ I'd love to if we could dig into it
+
+26:08.860 --> 26:10.060
+ because you're also,
+
+26:10.060 --> 26:12.980
+ you led the engineering efforts of LinkedIn.
+
+26:12.980 --> 26:17.460
+ And if we look at LinkedIn as a social network,
+
+26:17.460 --> 26:21.700
+ and if we look at the Xbox gaming as the social components,
+
+26:21.700 --> 26:24.780
+ the very different kinds of I imagine communication
+
+26:24.780 --> 26:26.740
+ going on on the two platforms, right?
+
+26:26.740 --> 26:29.420
+ And the line in terms of bullying and so on
+
+26:29.420 --> 26:31.420
+ is different on the platforms.
+
+26:31.420 --> 26:33.140
+ So how do you,
+
+26:33.140 --> 26:36.180
+ I mean, it's such a fascinating philosophical discussion
+
+26:36.180 --> 26:37.140
+ of where that line is.
+
+26:37.140 --> 26:39.780
+ I don't think anyone knows the right answer.
+
+26:39.780 --> 26:43.260
+ Twitter folks are under fire now, Jack at Twitter
+
+26:43.260 --> 26:45.060
+ for trying to find that line.
+
+26:45.060 --> 26:46.860
+ Nobody knows what that line is.
+
+26:46.860 --> 26:50.940
+ But how do you try to find the line
+
+26:50.940 --> 26:55.940
+ for trying to prevent abusive behavior
+
+26:57.940 --> 27:00.140
+ and at the same time, let people be playful
+
+27:00.140 --> 27:02.780
+ and joke around and that kind of thing?
+
+27:02.780 --> 27:03.980
+ I think in a certain way,
+
+27:03.980 --> 27:08.980
+ like if you have what I would call vertical social networks,
+
+27:10.300 --> 27:12.140
+ it gets to be a little bit easier.
+
+27:12.140 --> 27:14.380
+ So like if you have a clear notion
+
+27:14.380 --> 27:17.940
+ of like what your social network should be used for,
+
+27:17.940 --> 27:22.220
+ or like what you are designing a community around,
+
+27:22.220 --> 27:25.740
+ then you don't have as many dimensions
+
+27:25.740 --> 27:28.900
+ to your sort of content safety problem
+
+27:28.900 --> 27:33.700
+ as you do in a general purpose platform.
+
+27:33.700 --> 27:37.460
+ I mean, so like on LinkedIn,
+
+27:37.460 --> 27:38.820
+ like the whole social network
+
+27:38.820 --> 27:41.540
+ is about connecting people with opportunity,
+
+27:41.540 --> 27:43.140
+ whether it's helping them find a job
+
+27:43.140 --> 27:46.380
+ or to sort of find mentors
+
+27:46.380 --> 27:51.380
+ or to sort of help them like find their next sales lead
+
+27:52.180 --> 27:56.220
+ or to just sort of allow them to broadcast
+
+27:56.220 --> 27:59.500
+ their sort of professional identity
+
+27:59.500 --> 28:04.500
+ to their network of peers and collaborators
+
+28:06.740 --> 28:08.300
+ and sort of professional community.
+
+28:08.300 --> 28:09.940
+ Like that is, I mean, like in some ways,
+
+28:09.940 --> 28:11.580
+ like that's very, very broad,
+
+28:11.580 --> 28:15.180
+ but in other ways it's sort of, it's narrow.
+
+28:15.180 --> 28:20.180
+ And so like you can build AI's like machine learning systems
+
+28:20.980 --> 28:25.620
+ that are capable with those boundaries
+
+28:25.620 --> 28:28.100
+ of making better automated decisions
+
+28:28.100 --> 28:30.740
+ about like what is sort of inappropriate
+
+28:30.740 --> 28:32.940
+ and offensive comment or dangerous comment
+
+28:32.940 --> 28:37.940
+ or illegal content when you have some constraints.
+
+28:37.940 --> 28:42.940
+ You know, same thing with like the gaming social network.
+
+28:43.900 --> 28:45.740
+ So for instance, like it's about playing games,
+
+28:45.740 --> 28:47.260
+ not having fun.
+
+28:47.260 --> 28:49.460
+ And like the thing that you don't want to have happen
+
+28:49.460 --> 28:52.220
+ on the platform is why bullying is such an important thing.
+
+28:52.220 --> 28:53.740
+ Like bullying is not fun.
+
+28:53.740 --> 28:56.460
+ So you want to do everything in your power
+
+28:56.460 --> 28:59.380
+ to encourage that not to happen.
+
+28:59.380 --> 29:03.420
+ And yeah, but I think it's sort of a tough problem
+
+29:03.420 --> 29:05.260
+ in general and it's one where I think, you know,
+
+29:05.260 --> 29:09.980
+ eventually we're going to have to have some sort
+
+29:09.980 --> 29:14.980
+ of clarification from our policymakers about what it is
+
+29:15.940 --> 29:18.940
+ that we should be doing, like where the lines are,
+
+29:18.940 --> 29:20.860
+ because it's tough.
+
+29:20.860 --> 29:23.740
+ Like you don't, like in democracy, right?
+
+29:23.740 --> 29:25.540
+ Like you don't want,
+
+29:25.540 --> 29:28.900
+ you want some sort of democratic involvement.
+
+29:28.900 --> 29:30.460
+ Like people should have a say
+
+29:30.460 --> 29:34.660
+ in like where the lines are drawn.
+
+29:34.660 --> 29:37.500
+ Like you don't want a bunch of people making
+
+29:37.500 --> 29:39.460
+ like unilateral decisions.
+
+29:39.460 --> 29:43.140
+ And like we are in a state right now
+
+29:43.140 --> 29:44.220
+ for some of these platforms
+
+29:44.220 --> 29:46.260
+ where you actually do have to make unilateral decisions
+
+29:46.260 --> 29:48.620
+ where the policymaking isn't going to happen fast enough
+
+29:48.620 --> 29:52.540
+ in order to like prevent very bad things from happening.
+
+29:52.540 --> 29:56.020
+ But like we need the policymaking side of that to catch up,
+
+29:56.020 --> 29:58.460
+ I think, as quickly as possible
+
+29:58.460 --> 30:01.980
+ because you want that whole process to be a democratic thing,
+
+30:01.980 --> 30:05.740
+ not a, you know, not some sort of weird thing
+
+30:05.740 --> 30:08.020
+ where you've got a non representative group
+
+30:08.020 --> 30:10.420
+ of people making decisions that have, you know,
+
+30:10.420 --> 30:12.500
+ like national and global impact.
+
+30:12.500 --> 30:15.580
+ And it's fascinating because the digital space is different
+
+30:15.580 --> 30:18.340
+ than the physical space in which nations
+
+30:18.340 --> 30:19.860
+ and governments were established.
+
+30:19.860 --> 30:23.980
+ And so what policy looks like globally,
+
+30:23.980 --> 30:25.740
+ what bullying looks like globally,
+
+30:25.740 --> 30:28.420
+ what's healthy communication looks like globally
+
+30:28.420 --> 30:31.900
+ is an open question and we're all figuring it out together,
+
+30:31.900 --> 30:33.260
+ which is fascinating.
+
+30:33.260 --> 30:37.220
+ Yeah, I mean with, you know, sort of fake news, for instance.
+
+30:37.220 --> 30:38.740
+ And...
+
+30:38.740 --> 30:42.380
+ Deep fakes and fake news generated by humans?
+
+30:42.380 --> 30:44.660
+ Yeah, so we can talk about deep fakes,
+
+30:44.660 --> 30:46.180
+ like I think that is another like, you know,
+
+30:46.180 --> 30:48.340
+ sort of very interesting level of complexity.
+
+30:48.340 --> 30:51.540
+ But like if you think about just the written word, right?
+
+30:51.540 --> 30:54.460
+ Like we have, you know, we invented papyrus,
+
+30:54.460 --> 30:56.820
+ what, 3,000 years ago where we, you know,
+
+30:56.820 --> 31:01.220
+ you could sort of put word on paper.
+
+31:01.220 --> 31:06.220
+ And then 500 years ago, like we get the printing press,
+
+31:07.300 --> 31:11.540
+ like where the word gets a little bit more ubiquitous.
+
+31:11.540 --> 31:14.660
+ And then like you really, really didn't get ubiquitous
+
+31:14.660 --> 31:18.500
+ printed word until the end of the 19th century
+
+31:18.500 --> 31:20.780
+ when the offset press was invented.
+
+31:20.780 --> 31:22.460
+ And then, you know, just sort of explodes
+
+31:22.460 --> 31:25.420
+ and like, you know, the cross product of that
+
+31:25.420 --> 31:28.980
+ and the Industrial Revolution's need
+
+31:28.980 --> 31:32.900
+ for educated citizens resulted in like
+
+31:32.900 --> 31:34.780
+ this rapid expansion of literacy
+
+31:34.780 --> 31:36.060
+ and the rapid expansion of the word.
+
+31:36.060 --> 31:39.740
+ But like we had 3,000 years up to that point
+
+31:39.740 --> 31:43.300
+ to figure out like how to, you know,
+
+31:43.300 --> 31:46.940
+ like what's journalism, what's editorial integrity,
+
+31:46.940 --> 31:50.140
+ like what's, you know, what's scientific peer review.
+
+31:50.140 --> 31:52.860
+ And so like you built all of this mechanism
+
+31:52.860 --> 31:57.060
+ to like try to filter through all of the noise
+
+31:57.060 --> 31:59.820
+ that the technology made possible
+
+31:59.820 --> 32:01.900
+ to like, you know, sort of getting to something
+
+32:01.900 --> 32:03.980
+ that society could cope with.
+
+32:03.980 --> 32:06.580
+ And like, if you think about just the piece,
+
+32:06.580 --> 32:09.780
+ the PC didn't exist 50 years ago.
+
+32:09.780 --> 32:11.780
+ And so in like this span of, you know,
+
+32:11.780 --> 32:16.140
+ like half a century, like we've gone from no digital,
+
+32:16.140 --> 32:18.300
+ you know, no ubiquitous digital technology
+
+32:18.300 --> 32:21.060
+ to like having a device that sits in your pocket
+
+32:21.060 --> 32:23.740
+ where you can sort of say whatever is on your mind
+
+32:23.740 --> 32:27.100
+ to like what did Mary have in her,
+
+32:27.100 --> 32:32.100
+ Mary Meeker just released her new like slide deck last week.
+
+32:32.420 --> 32:37.340
+ You know, we've got 50% penetration of the internet
+
+32:37.340 --> 32:38.500
+ to the global population.
+
+32:38.500 --> 32:40.260
+ Like there are like three and a half billion people
+
+32:40.260 --> 32:41.740
+ who are connected now.
+
+32:41.740 --> 32:44.980
+ So it's like, it's crazy, crazy, like inconceivable,
+
+32:44.980 --> 32:46.460
+ like how fast all of this happened.
+
+32:46.460 --> 32:48.700
+ So, you know, it's not surprising
+
+32:48.700 --> 32:50.980
+ that we haven't figured out what to do yet,
+
+32:50.980 --> 32:55.660
+ but like we gotta really like lean into this set of problems
+
+32:55.660 --> 33:00.220
+ because like we basically have three millennia worth of work
+
+33:00.220 --> 33:02.500
+ to do about how to deal with all of this
+
+33:02.500 --> 33:04.580
+ and like probably what, you know,
+
+33:04.580 --> 33:07.020
+ amounts to the next decade worth of time.
+
+33:07.020 --> 33:09.980
+ So since we're on the topic of tough, you know,
+
+33:09.980 --> 33:11.620
+ tough challenging problems,
+
+33:11.620 --> 33:15.220
+ let's look at more on the tooling side in AI
+
+33:15.220 --> 33:18.420
+ that Microsoft is looking at is face recognition software.
+
+33:18.420 --> 33:21.860
+ So there's a lot of powerful positive use cases
+
+33:21.860 --> 33:24.220
+ for face recognition, but there's some negative ones
+
+33:24.220 --> 33:27.180
+ and we're seeing those in different governments
+
+33:27.180 --> 33:28.140
+ in the world.
+
+33:28.140 --> 33:30.900
+ So how do you, how does Microsoft think about the use
+
+33:30.900 --> 33:35.740
+ of face recognition software as a platform
+
+33:35.740 --> 33:38.780
+ in governments and companies?
+
+33:39.820 --> 33:42.300
+ How do we strike an ethical balance here?
+
+33:42.300 --> 33:47.300
+ Yeah, I think we've articulated a clear point of view.
+
+33:47.300 --> 33:51.900
+ So Brad Smith wrote a blog post last fall,
+
+33:51.900 --> 33:54.180
+ I believe that sort of like outlined
+
+33:54.180 --> 33:57.100
+ like very specifically what, you know,
+
+33:57.100 --> 33:59.340
+ what our point of view is there.
+
+33:59.340 --> 34:01.060
+ And, you know, I think we believe
+
+34:01.060 --> 34:02.340
+ that there are certain uses
+
+34:02.340 --> 34:04.740
+ to which face recognition should not be put.
+
+34:04.740 --> 34:06.060
+ And we believe again,
+
+34:06.060 --> 34:09.220
+ that there's a need for regulation there.
+
+34:09.220 --> 34:11.940
+ Like the government should like really come in
+
+34:11.940 --> 34:15.780
+ and say that, you know, this is where the lines are.
+
+34:15.780 --> 34:18.380
+ And like, we very much wanted to like figuring out
+
+34:18.380 --> 34:20.380
+ where the lines are, should be a democratic process.
+
+34:20.380 --> 34:22.780
+ But in the short term, like we've drawn some lines
+
+34:22.780 --> 34:26.180
+ where, you know, we push back against uses
+
+34:26.180 --> 34:29.940
+ of face recognition technology, you know,
+
+34:29.940 --> 34:32.300
+ like the city of San Francisco, for instance,
+
+34:32.300 --> 34:36.580
+ I think has completely outlawed any government agency
+
+34:36.580 --> 34:39.580
+ from using face recognition tech.
+
+34:39.580 --> 34:44.580
+ And like that may prove to be a little bit overly broad.
+
+34:44.580 --> 34:48.820
+ But for like certain law enforcement things,
+
+34:48.820 --> 34:53.820
+ like you really, I would personally rather be overly
+
+34:54.060 --> 34:57.380
+ sort of cautious in terms of restricting use of it
+
+34:57.380 --> 34:58.900
+ until like we have, you know,
+
+34:58.900 --> 35:02.140
+ sort of defined a reasonable, you know,
+
+35:02.140 --> 35:04.860
+ democratically determined regulatory framework
+
+35:04.860 --> 35:08.820
+ for like where we could and should use it.
+
+35:08.820 --> 35:12.140
+ And, you know, the other thing there is like,
+
+35:12.140 --> 35:13.980
+ we've got a bunch of research that we're doing
+
+35:13.980 --> 35:18.380
+ and a bunch of progress that we've made on bias there.
+
+35:18.380 --> 35:20.820
+ And like, there are all sorts of like weird biases
+
+35:20.820 --> 35:22.980
+ that these models can have,
+
+35:22.980 --> 35:25.580
+ like all the way from like the most noteworthy one
+
+35:25.580 --> 35:30.580
+ where, you know, you may have underrepresented minorities
+
+35:31.660 --> 35:34.660
+ who are like underrepresented in the training data
+
+35:34.660 --> 35:39.180
+ and then you start learning like strange things.
+
+35:39.180 --> 35:42.100
+ But like there are even, you know, other weird things.
+
+35:42.100 --> 35:46.460
+ Like we've, I think we've seen in the public research,
+
+35:46.460 --> 35:49.460
+ like models can learn strange things,
+
+35:49.460 --> 35:54.460
+ like all doctors are men, for instance, just, yeah.
+
+35:54.700 --> 35:58.900
+ I mean, and so like, it really is a thing
+
+35:58.900 --> 36:03.580
+ where it's very important for everybody
+
+36:03.580 --> 36:08.420
+ who is working on these things before they push publish,
+
+36:08.420 --> 36:12.780
+ they launch the experiment, they, you know, push the code
+
+36:12.780 --> 36:17.100
+ to, you know, online, or they even publish the paper
+
+36:17.100 --> 36:20.420
+ that they are at least starting to think about
+
+36:20.420 --> 36:25.260
+ what some of the potential negative consequences are,
+
+36:25.260 --> 36:26.100
+ some of this stuff.
+
+36:26.100 --> 36:29.020
+ I mean, this is where, you know, like the deep fake stuff
+
+36:29.020 --> 36:32.340
+ I find very worrisome just because
+
+36:32.340 --> 36:37.340
+ there are going to be some very good beneficial uses
+
+36:39.780 --> 36:44.700
+ of like GAN generated imagery.
+
+36:46.100 --> 36:48.460
+ And funny enough, like one of the places
+
+36:48.460 --> 36:52.940
+ where it's actually useful is we're using the technology
+
+36:52.940 --> 36:55.940
+ right now to generate synthetic visual data
+
+36:58.620 --> 37:01.140
+ for training some of the face recognition models
+
+37:01.140 --> 37:03.420
+ to get rid of the bias.
+
+37:03.420 --> 37:05.740
+ So like, that's one like super good use of the tech,
+
+37:05.740 --> 37:09.620
+ but like, you know, it's getting good enough now
+
+37:09.620 --> 37:12.300
+ where, you know, it's going to sort of challenge
+
+37:12.300 --> 37:14.300
+ a normal human being's ability to,
+
+37:14.300 --> 37:15.740
+ like now you're just sort of say,
+
+37:15.740 --> 37:19.300
+ like it's very expensive for someone
+
+37:19.300 --> 37:23.220
+ to fabricate a photorealistic fake video.
+
+37:24.140 --> 37:26.900
+ And like GANs are going to make it fantastically cheap
+
+37:26.900 --> 37:30.420
+ to fabricate a photorealistic fake video.
+
+37:30.420 --> 37:34.460
+ And so like what you assume you can sort of trust is true
+
+37:34.460 --> 37:38.380
+ versus like be skeptical about is about to change.
+
+37:38.380 --> 37:40.540
+ And like, we're not ready for it, I don't think.
+
+37:40.540 --> 37:41.980
+ The nature of truth, right.
+
+37:41.980 --> 37:46.580
+ That's, it's also exciting because I think both you and I
+
+37:46.580 --> 37:49.580
+ probably would agree that the way to solve,
+
+37:49.580 --> 37:52.820
+ to take on that challenge is with technology, right?
+
+37:52.820 --> 37:56.820
+ There's probably going to be ideas of ways to verify
+
+37:56.820 --> 38:00.820
+ which kind of video is legitimate, which kind is not.
+
+38:00.820 --> 38:03.860
+ So to me, that's an exciting possibility,
+
+38:03.860 --> 38:07.180
+ most likely for just the comedic genius
+
+38:07.180 --> 38:10.980
+ that the internet usually creates with these kinds of videos
+
+38:10.980 --> 38:13.940
+ and hopefully will not result in any serious harm.
+
+38:13.940 --> 38:17.100
+ Yeah, and it could be, you know,
+
+38:17.100 --> 38:19.940
+ like I think we will have technology to,
+
+38:21.180 --> 38:23.580
+ that may be able to detect whether or not
+
+38:23.580 --> 38:24.460
+ something's fake or real.
+
+38:24.460 --> 38:29.460
+ Although the fakes are pretty convincing,
+
+38:30.180 --> 38:34.340
+ even like when you subject them to machine scrutiny.
+
+38:34.340 --> 38:37.820
+ But, you know, we also have these increasingly
+
+38:37.820 --> 38:40.540
+ interesting social networks, you know,
+
+38:40.540 --> 38:42.660
+ that are under fire right now
+
+38:43.580 --> 38:46.220
+ for some of the bad things that they do.
+
+38:46.220 --> 38:47.700
+ Like one of the things you could choose to do
+
+38:47.700 --> 38:51.780
+ with a social network is like you could,
+
+38:51.780 --> 38:55.580
+ you could use crypto and the networks
+
+38:55.580 --> 38:57.740
+ to like have content signed
+
+38:57.740 --> 39:01.420
+ where you could have a like full chain of custody
+
+39:01.420 --> 39:03.900
+ that accompanied every piece of content.
+
+39:03.900 --> 39:06.780
+ So like when you're viewing something
+
+39:06.780 --> 39:08.540
+ and like you want to ask yourself,
+
+39:08.540 --> 39:11.020
+ like how much can I trust this?
+
+39:11.020 --> 39:12.380
+ Like you can click something
+
+39:12.380 --> 39:14.980
+ and like have a verified chain of custody
+
+39:14.980 --> 39:19.060
+ that shows like, oh, this is coming from this source.
+
+39:19.060 --> 39:21.660
+ And it's like signed by like someone
+
+39:21.660 --> 39:24.100
+ whose identity I trust.
+
+39:24.100 --> 39:25.420
+ Yeah, I think having that, you know,
+
+39:25.420 --> 39:26.620
+ having that chain of custody,
+
+39:26.620 --> 39:29.340
+ like being able to like say, oh, here's this video.
+
+39:29.340 --> 39:31.940
+ Like it may or may not have been produced
+
+39:31.940 --> 39:33.740
+ using some of this deepfake technology,
+
+39:33.740 --> 39:35.660
+ but if you've got a verified chain of custody
+
+39:35.660 --> 39:37.780
+ where you can sort of trace it all the way back
+
+39:37.780 --> 39:39.940
+ to an identity and you can decide whether or not
+
+39:39.940 --> 39:41.540
+ like I trust this identity.
+
+39:41.540 --> 39:43.340
+ Like, oh no, this is really from the White House
+
+39:43.340 --> 39:45.500
+ or like this is really from the, you know,
+
+39:45.500 --> 39:48.820
+ the office of this particular presidential candidate
+
+39:48.820 --> 39:53.540
+ or it's really from, you know, Jeff Wiener, CEO of LinkedIn
+
+39:53.540 --> 39:55.540
+ or Satya Nadella, CEO of Microsoft.
+
+39:55.540 --> 39:58.420
+ Like that might be like one way
+
+39:58.420 --> 39:59.940
+ that you can solve some of the problems.
+
+39:59.940 --> 40:01.780
+ So like that's not the super high tech.
+
+40:01.780 --> 40:04.500
+ Like we've had all of this technology forever.
+
+40:04.500 --> 40:06.700
+ And, but I think you're right.
+
+40:06.700 --> 40:11.100
+ Like it has to be some sort of technological thing
+
+40:11.100 --> 40:15.820
+ because the underlying tech that is used to create this
+
+40:15.820 --> 40:18.780
+ is not going to do anything but get better over time
+
+40:18.780 --> 40:21.140
+ and the genie is sort of out of the bottle.
+
+40:21.140 --> 40:22.780
+ There's no stuffing it back in.
+
+40:22.780 --> 40:24.500
+ And there's a social component,
+
+40:24.500 --> 40:26.620
+ which I think is really healthy for a democracy
+
+40:26.620 --> 40:28.500
+ where people will be skeptical
+
+40:28.500 --> 40:32.140
+ about the thing they watch in general.
+
+40:32.140 --> 40:34.180
+ So, you know, which is good.
+
+40:34.180 --> 40:37.300
+ Skepticism in general is good for content.
+
+40:37.300 --> 40:41.780
+ So deepfakes in that sense are creating a global skepticism
+
+40:41.780 --> 40:44.780
+ about can they trust what they read.
+
+40:44.780 --> 40:46.900
+ It encourages further research.
+
+40:46.900 --> 40:48.860
+ I come from the Soviet Union
+
+40:49.860 --> 40:53.380
+ where basically nobody trusted the media
+
+40:53.380 --> 40:55.180
+ because you knew it was propaganda.
+
+40:55.180 --> 40:59.220
+ And that kind of skepticism encouraged further research
+
+40:59.220 --> 41:02.420
+ about ideas as opposed to just trusting any one source.
+
+41:02.420 --> 41:04.340
+ Well, look, I think it's one of the reasons why
+
+41:04.340 --> 41:09.340
+ the scientific method and our apparatus
+
+41:09.500 --> 41:11.540
+ of modern science is so good.
+
+41:11.540 --> 41:15.420
+ Like, because you don't have to trust anything.
+
+41:15.420 --> 41:20.180
+ Like, the whole notion of modern science
+
+41:20.180 --> 41:22.460
+ beyond the fact that this is a hypothesis
+
+41:22.460 --> 41:24.900
+ and this is an experiment to test the hypothesis
+
+41:24.900 --> 41:27.380
+ and this is a peer review process
+
+41:27.380 --> 41:30.140
+ for scrutinizing published results.
+
+41:30.140 --> 41:33.300
+ But stuff's also supposed to be reproducible.
+
+41:33.300 --> 41:35.260
+ So you know it's been vetted by this process,
+
+41:35.260 --> 41:38.060
+ but you also are expected to publish enough detail
+
+41:38.060 --> 41:42.100
+ where if you are sufficiently skeptical of the thing,
+
+41:42.100 --> 41:44.740
+ you can go try to reproduce it yourself.
+
+41:44.740 --> 41:47.580
+ And like, I don't know what it is.
+
+41:47.580 --> 41:49.980
+ Like, I think a lot of engineers are like this
+
+41:49.980 --> 41:51.940
+ where like, you know, sort of this,
+
+41:51.940 --> 41:55.580
+ like your brain is sort of wired for skepticism.
+
+41:55.580 --> 41:58.060
+ Like, you don't just first order trust everything
+
+41:58.060 --> 42:00.100
+ that you see and encounter.
+
+42:00.100 --> 42:02.620
+ And like, you're sort of curious to understand,
+
+42:02.620 --> 42:04.540
+ you know, the next thing.
+
+42:04.540 --> 42:09.140
+ But like, I think it's an entirely healthy thing.
+
+42:09.140 --> 42:12.340
+ And like, we need a little bit more of that right now.
+
+42:12.340 --> 42:16.300
+ So I'm not a large business owner.
+
+42:16.300 --> 42:21.300
+ So I'm just a huge fan of many of Microsoft products.
+
+42:23.300 --> 42:25.460
+ I mean, I still, actually in terms of,
+
+42:25.460 --> 42:27.060
+ I generate a lot of graphics and images
+
+42:27.060 --> 42:28.740
+ and I still use PowerPoint to do that.
+
+42:28.740 --> 42:30.500
+ It beats Illustrator for me.
+
+42:30.500 --> 42:34.540
+ Even professional sort of, it's fascinating.
+
+42:34.540 --> 42:38.460
+ So I wonder, what is the future of,
+
+42:38.460 --> 42:42.020
+ let's say Windows and Office look like?
+
+42:42.020 --> 42:43.940
+ Is, do you see it?
+
+42:43.940 --> 42:45.940
+ I mean, I remember looking forward to XP.
+
+42:45.940 --> 42:48.260
+ Was it exciting when XP was released?
+
+42:48.260 --> 42:51.180
+ Just like you said, I don't remember when 95 was released.
+
+42:51.180 --> 42:53.900
+ But XP for me was a big celebration.
+
+42:53.900 --> 42:56.420
+ And when 10 came out, I was like, oh, okay.
+
+42:56.420 --> 42:57.260
+ Well, it's nice.
+
+42:57.260 --> 42:59.100
+ It's a nice improvement.
+
+42:59.100 --> 43:02.120
+ So what do you see the future of these products?
+
+43:03.380 --> 43:04.700
+ I think there's a bunch of excite.
+
+43:04.700 --> 43:07.260
+ I mean, on the Office front,
+
+43:07.260 --> 43:12.260
+ there's gonna be this like increasing productivity wins
+
+43:13.900 --> 43:17.200
+ that are coming out of some of these AI powered features
+
+43:17.200 --> 43:18.040
+ that are coming.
+
+43:18.040 --> 43:20.000
+ Like the products will sort of get smarter and smarter
+
+43:20.000 --> 43:21.240
+ in like a very subtle way.
+
+43:21.240 --> 43:24.260
+ Like there's not gonna be this big bang moment
+
+43:24.260 --> 43:28.020
+ where like Clippy is gonna reemerge and it's gonna be.
+
+43:28.020 --> 43:28.860
+ Wait a minute.
+
+43:28.860 --> 43:30.660
+ Okay, we'll have to wait, wait, wait.
+
+43:30.660 --> 43:32.580
+ Is Clippy coming back?
+
+43:32.580 --> 43:37.140
+ But quite seriously, so injection of AI.
+
+43:37.140 --> 43:39.220
+ There's not much, or at least I'm not familiar,
+
+43:39.220 --> 43:41.340
+ sort of assistive type of stuff going on
+
+43:41.340 --> 43:43.700
+ inside the Office products.
+
+43:43.700 --> 43:47.740
+ Like a Clippy style assistant, personal assistant.
+
+43:47.740 --> 43:50.740
+ Do you think that there's a possibility
+
+43:50.740 --> 43:52.100
+ of that in the future?
+
+43:52.100 --> 43:54.820
+ So I think there are a bunch of like very small ways
+
+43:54.820 --> 43:58.540
+ in which like machine learning powered assistive things
+
+43:58.540 --> 44:00.260
+ are in the product right now.
+
+44:00.260 --> 44:04.940
+ So there are a bunch of interesting things.
+
+44:04.940 --> 44:09.500
+ Like the auto response stuff's getting better and better.
+
+44:09.500 --> 44:11.180
+ And it's like getting to the point
+
+44:11.180 --> 44:14.820
+ where it can auto respond with like,
+
+44:14.820 --> 44:19.260
+ okay, this person's clearly trying to schedule a meeting.
+
+44:19.260 --> 44:21.700
+ So it looks at your calendar and it automatically
+
+44:21.700 --> 44:24.260
+ like tries to find like a time and a space
+
+44:24.260 --> 44:26.360
+ that's mutually interesting.
+
+44:27.420 --> 44:32.420
+ Like we have this notion of Microsoft search
+
+44:32.420 --> 44:34.940
+ at a Microsoft search where it's like not just web search,
+
+44:34.940 --> 44:38.180
+ but it's like search across like all of your information
+
+44:38.180 --> 44:43.180
+ that's sitting inside of like your Office 365 tenant
+
+44:43.300 --> 44:46.900
+ and like potentially in other products.
+
+44:46.900 --> 44:49.680
+ And like we have this thing called the Microsoft Graph
+
+44:49.680 --> 44:53.980
+ that is basically an API federator that sort of like
+
+44:53.980 --> 44:57.980
+ gets you hooked up across the entire breadth
+
+44:57.980 --> 45:01.640
+ of like all of the, like what were information silos
+
+45:01.640 --> 45:04.740
+ before they got woven together with the graph.
+
+45:05.660 --> 45:07.860
+ Like that is like getting increasing,
+
+45:07.860 --> 45:09.140
+ with increasing effectiveness,
+
+45:09.140 --> 45:13.120
+ sort of plumbed into some of these auto response things
+
+45:13.120 --> 45:15.860
+ where you're gonna be able to see the system
+
+45:15.860 --> 45:18.220
+ like automatically retrieve information for you.
+
+45:18.220 --> 45:21.140
+ Like if, you know, like I frequently send out,
+
+45:21.140 --> 45:24.060
+ you know, emails to folks where like I can't find a paper
+
+45:24.060 --> 45:25.380
+ or a document or whatnot.
+
+45:25.380 --> 45:26.340
+ There's no reason why the system
+
+45:26.340 --> 45:27.540
+ won't be able to do that for you.
+
+45:27.540 --> 45:31.980
+ And like, I think the, it's building towards
+
+45:31.980 --> 45:34.480
+ like having things that look more like,
+
+45:34.480 --> 45:37.900
+ like a fully integrated, you know, assistant,
+
+45:37.900 --> 45:40.740
+ but like you'll have a bunch of steps
+
+45:40.740 --> 45:42.820
+ that you will see before you,
+
+45:42.820 --> 45:45.140
+ like it will not be this like big bang thing
+
+45:45.140 --> 45:47.420
+ where like Clippy comes back and you've got this like,
+
+45:47.420 --> 45:49.400
+ you know, manifestation of, you know,
+
+45:49.400 --> 45:52.060
+ like a fully, fully powered assistant.
+
+45:53.380 --> 45:56.940
+ So I think that's, that's definitely coming in,
+
+45:56.940 --> 45:58.700
+ like all of the, you know, collaboration,
+
+45:58.700 --> 46:00.740
+ coauthoring stuff's getting better.
+
+46:00.740 --> 46:02.220
+ You know, it's like really interesting.
+
+46:02.220 --> 46:05.500
+ Like if you look at how we use
+
+46:06.500 --> 46:09.020
+ the Office product portfolio at Microsoft,
+
+46:09.020 --> 46:12.140
+ like more and more of it is happening inside of
+
+46:12.140 --> 46:14.500
+ like Teams as a canvas.
+
+46:14.500 --> 46:17.180
+ And like, it's this thing where, you know,
+
+46:17.180 --> 46:20.620
+ you've got collaboration is like at the center
+
+46:20.620 --> 46:25.620
+ of the product and like we built some like really cool stuff
+
+46:25.620 --> 46:28.420
+ that's some of, which is about to be open source
+
+46:28.420 --> 46:30.980
+ that are sort of framework level things
+
+46:30.980 --> 46:34.540
+ for doing, for doing coauthoring.
+
+46:34.540 --> 46:35.380
+ That's awesome.
+
+46:35.380 --> 46:37.860
+ So in, is there a cloud component to that?
+
+46:37.860 --> 46:40.300
+ So on the web, or is it,
+
+46:40.300 --> 46:42.660
+ and forgive me if I don't already know this,
+
+46:42.660 --> 46:45.580
+ but with Office 365, we still,
+
+46:45.580 --> 46:47.540
+ the collaboration we do if we're doing Word,
+
+46:47.540 --> 46:49.660
+ we still send the file around.
+
+46:49.660 --> 46:50.500
+ No, no.
+
+46:50.500 --> 46:51.340
+ So this is.
+
+46:51.340 --> 46:54.300
+ We're already a little bit better than that.
+
+46:54.300 --> 46:55.900
+ A little bit better than that and like, you know,
+
+46:55.900 --> 46:57.700
+ so like the fact that you're unaware of it means
+
+46:57.700 --> 46:59.180
+ we've got a better job to do,
+
+46:59.180 --> 47:01.980
+ like helping you discover, discover this stuff.
+
+47:02.900 --> 47:06.380
+ But yeah, I mean, it's already like got a huge,
+
+47:06.380 --> 47:07.220
+ huge cloud component.
+
+47:07.220 --> 47:09.700
+ And like part of, you know, part of this framework stuff,
+
+47:09.700 --> 47:12.660
+ I think we're calling it, like I,
+
+47:12.660 --> 47:14.540
+ like we've been working on it for a couple of years.
+
+47:14.540 --> 47:17.220
+ So like, I know the internal code name for it,
+
+47:17.220 --> 47:18.660
+ but I think when we launched it to build,
+
+47:18.660 --> 47:20.760
+ it's called the Fluid Framework.
+
+47:20.760 --> 47:25.060
+ And, but like what Fluid lets you do is like,
+
+47:25.060 --> 47:27.900
+ you can go into a conversation that you're having in Teams
+
+47:27.900 --> 47:30.240
+ and like reference like part of a spreadsheet
+
+47:30.240 --> 47:33.900
+ that you're working on where somebody's like sitting
+
+47:33.900 --> 47:35.580
+ in the Excel canvas,
+
+47:35.580 --> 47:37.740
+ like working on the spreadsheet with a, you know,
+
+47:37.740 --> 47:38.860
+ chart or whatnot,
+
+47:38.860 --> 47:41.940
+ and like you can sort of embed like part of the spreadsheet
+
+47:41.940 --> 47:45.400
+ in the Teams conversation where like you can dynamically
+
+47:45.400 --> 47:48.740
+ update it and like all of the changes that you're making
+
+47:48.740 --> 47:51.220
+ to the, to this object are like, you know,
+
+47:51.220 --> 47:54.620
+ coordinate and everything is sort of updating in real time.
+
+47:54.620 --> 47:57.940
+ So like you can be in whatever canvas is most convenient
+
+47:57.940 --> 48:00.380
+ for you to get your work done.
+
+48:00.380 --> 48:03.380
+ So I, out of my own sort of curiosity as an engineer,
+
+48:03.380 --> 48:06.220
+ I know what it's like to sort of lead a team
+
+48:06.220 --> 48:08.220
+ of 10, 15 engineers.
+
+48:08.220 --> 48:11.660
+ Microsoft has, I don't know what the numbers are,
+
+48:11.660 --> 48:14.940
+ maybe 50, maybe 60,000 engineers, maybe 40.
+
+48:14.940 --> 48:17.220
+ I don't know exactly what the number is, it's a lot.
+
+48:17.220 --> 48:18.900
+ It's tens of thousands.
+
+48:18.900 --> 48:20.700
+ Right, so it's more than 10 or 15.
+
+48:20.700 --> 48:25.700
+ What, I mean, you've led different sizes,
+
+48:28.700 --> 48:30.540
+ mostly large size of engineers.
+
+48:30.540 --> 48:33.820
+ What does it take to lead such a large group
+
+48:33.820 --> 48:37.500
+ into a continue innovation,
+
+48:37.500 --> 48:40.260
+ continue being highly productive
+
+48:40.260 --> 48:44.220
+ and yet develop all kinds of new ideas and yet maintain,
+
+48:44.220 --> 48:47.100
+ like what does it take to lead such a large group
+
+48:47.100 --> 48:48.980
+ of brilliant people?
+
+48:48.980 --> 48:52.060
+ I think the thing that you learn
+
+48:52.060 --> 48:55.140
+ as you manage larger and larger scale
+
+48:55.140 --> 48:57.940
+ is that there are three things
+
+48:57.940 --> 49:00.500
+ that are like very, very important
+
+49:00.500 --> 49:02.340
+ for big engineering teams.
+
+49:02.340 --> 49:06.300
+ Like one is like having some sort of forethought
+
+49:06.300 --> 49:09.860
+ about what it is that you're gonna be building
+
+49:09.860 --> 49:11.060
+ over large periods of time.
+
+49:11.060 --> 49:13.100
+ Like not exactly, like you don't need to know
+
+49:13.100 --> 49:15.300
+ that like, you know, I'm putting all my chips
+
+49:15.300 --> 49:17.820
+ on this one product and like this is gonna be the thing,
+
+49:17.820 --> 49:21.460
+ but like it's useful to know like what sort of capabilities
+
+49:21.460 --> 49:23.140
+ you think you're going to need to have
+
+49:23.140 --> 49:24.740
+ to build the products of the future.
+
+49:24.740 --> 49:28.060
+ And then like invest in that infrastructure,
+
+49:28.060 --> 49:30.180
+ like whether, and like I'm not just talking
+
+49:30.180 --> 49:32.740
+ about storage systems or cloud APIs,
+
+49:32.740 --> 49:35.380
+ it's also like what does your development process look like?
+
+49:35.380 --> 49:36.780
+ What tools do you want?
+
+49:36.780 --> 49:40.020
+ Like what culture do you want to build around?
+
+49:40.020 --> 49:42.780
+ Like how you're, you know, sort of collaborating together
+
+49:42.780 --> 49:45.780
+ to like make complicated technical things.
+
+49:45.780 --> 49:48.100
+ And so like having an opinion and investing in that
+
+49:48.100 --> 49:50.500
+ is like, it just gets more and more important.
+
+49:50.500 --> 49:54.540
+ And like the sooner you can get a concrete set of opinions,
+
+49:54.540 --> 49:57.700
+ like the better you're going to be.
+
+49:57.700 --> 50:01.620
+ Like you can wing it for a while at small scales,
+
+50:01.620 --> 50:03.180
+ like, you know, when you start a company,
+
+50:03.180 --> 50:06.340
+ like you don't have to be like super specific about it,
+
+50:06.340 --> 50:09.980
+ but like the biggest miseries that I've ever seen
+
+50:09.980 --> 50:12.660
+ as an engineering leader are in places
+
+50:12.660 --> 50:14.500
+ where you didn't have a clear enough opinion
+
+50:14.500 --> 50:16.780
+ about those things soon enough.
+
+50:16.780 --> 50:18.740
+ And then you just sort of go create a bunch
+
+50:18.740 --> 50:21.940
+ of technical debt and like culture debt
+
+50:21.940 --> 50:25.820
+ that is excruciatingly painful to clean up.
+
+50:25.820 --> 50:28.700
+ So like, that's one bundle of things.
+
+50:28.700 --> 50:33.260
+ Like the other, you know, another bundle of things
+
+50:33.260 --> 50:36.620
+ is like, it's just really, really important
+
+50:36.620 --> 50:41.620
+ to like have a clear mission
+
+50:41.620 --> 50:46.260
+ that's not just some cute crap you say
+
+50:46.260 --> 50:48.940
+ because like you think you should have a mission,
+
+50:48.940 --> 50:52.940
+ but like something that clarifies for people
+
+50:52.940 --> 50:55.740
+ like where it is that you're headed together.
+
+50:57.220 --> 50:59.180
+ Like, I know it's like probably like a little bit
+
+50:59.180 --> 51:00.380
+ too popular right now,
+
+51:00.380 --> 51:05.380
+ but Yuval Harari's book, Sapiens,
+
+51:05.380 --> 51:10.380
+ one of the central ideas in his book is that
+
+51:10.380 --> 51:15.380
+ like storytelling is like the quintessential thing
+
+51:15.380 --> 51:18.780
+ for coordinating the activities of large groups of people.
+
+51:18.780 --> 51:21.380
+ Like once you get past Dunbar's number,
+
+51:21.380 --> 51:23.980
+ and like I've really, really seen that
+
+51:23.980 --> 51:25.580
+ just managing engineering teams.
+
+51:25.580 --> 51:30.580
+ Like you can just brute force things
+
+51:30.580 --> 51:33.500
+ when you're less than 120, 150 folks
+
+51:33.500 --> 51:35.980
+ where you can sort of know and trust
+
+51:35.980 --> 51:38.380
+ and understand what the dynamics are
+
+51:38.380 --> 51:40.380
+ between all the people, but like past that,
+
+51:40.380 --> 51:43.780
+ like things just sort of start to catastrophically fail
+
+51:43.780 --> 51:47.180
+ if you don't have some sort of set of shared goals
+
+51:47.180 --> 51:48.980
+ that you're marching towards.
+
+51:48.980 --> 51:51.380
+ And so like, even though it sounds touchy feely
+
+51:51.380 --> 51:54.180
+ and you know, like a bunch of technical people
+
+51:54.180 --> 51:56.180
+ will sort of balk at the idea that like,
+
+51:56.180 --> 52:00.180
+ you need to like have a clear, like the missions,
+
+52:00.180 --> 52:02.180
+ like very, very, very important.
+
+52:02.180 --> 52:04.180
+ You're always right, right?
+
+52:04.180 --> 52:06.180
+ Stories, that's how our society,
+
+52:06.180 --> 52:08.180
+ that's the fabric that connects us,
+
+52:08.180 --> 52:10.180
+ all of us is these powerful stories.
+
+52:10.180 --> 52:12.180
+ And that works for companies too, right?
+
+52:12.180 --> 52:14.180
+ It works for everything.
+
+52:14.180 --> 52:16.180
+ Like, I mean, even down to like, you know,
+
+52:16.180 --> 52:18.180
+ you sort of really think about it,
+
+52:18.180 --> 52:20.180
+ like our currency, for instance, is a story.
+
+52:20.180 --> 52:22.180
+ Our constitution is a story.
+
+52:22.180 --> 52:24.180
+ Our laws are stories.
+
+52:24.180 --> 52:27.180
+ I mean, like we believe very, very, very strongly in them.
+
+52:27.180 --> 52:29.180
+ And thank God we do.
+
+52:29.180 --> 52:31.180
+ But like they are,
+
+52:31.180 --> 52:33.180
+ they're just abstract things.
+
+52:33.180 --> 52:34.180
+ Like they're just words.
+
+52:34.180 --> 52:36.180
+ Like if we don't believe in them, they're nothing.
+
+52:36.180 --> 52:39.180
+ And in some sense, those stories are platforms
+
+52:39.180 --> 52:43.180
+ and the kinds, some of which Microsoft is creating, right?
+
+52:43.180 --> 52:46.180
+ They have platforms on which we define the future.
+
+52:46.180 --> 52:48.180
+ So last question, what do you,
+
+52:48.180 --> 52:50.180
+ let's get philosophical maybe,
+
+52:50.180 --> 52:51.180
+ bigger than even Microsoft,
+
+52:51.180 --> 52:56.180
+ what do you think the next 20, 30 plus years
+
+52:56.180 --> 53:00.180
+ looks like for computing, for technology, for devices?
+
+53:00.180 --> 53:04.180
+ Do you have crazy ideas about the future of the world?
+
+53:04.180 --> 53:06.180
+ Yeah, look, I think we, you know,
+
+53:06.180 --> 53:10.180
+ we're entering this time where we've got,
+
+53:10.180 --> 53:13.180
+ we have technology that is progressing
+
+53:13.180 --> 53:15.180
+ at the fastest rate that it ever has.
+
+53:15.180 --> 53:18.180
+ And you've got,
+
+53:18.180 --> 53:21.180
+ you've got some really big social problems,
+
+53:21.180 --> 53:26.180
+ like society scale problems that we have to tackle.
+
+53:26.180 --> 53:28.180
+ And so, you know, I think we're going to rise to the challenge
+
+53:28.180 --> 53:30.180
+ and like figure out how to intersect
+
+53:30.180 --> 53:32.180
+ like all of the power of this technology
+
+53:32.180 --> 53:35.180
+ with all of the big challenges that are facing us,
+
+53:35.180 --> 53:37.180
+ whether it's, you know, global warming,
+
+53:37.180 --> 53:41.180
+ whether it's like the biggest remainder of the population boom
+
+53:41.180 --> 53:46.180
+ is in Africa for the next 50 years or so.
+
+53:46.180 --> 53:49.180
+ And like global warming is going to make it increasingly difficult
+
+53:49.180 --> 53:52.180
+ to feed the global population in particular,
+
+53:52.180 --> 53:54.180
+ like in this place where you're going to have
+
+53:54.180 --> 53:57.180
+ like the biggest population boom.
+
+53:57.180 --> 54:01.180
+ I think we, you know, like AI is going to,
+
+54:01.180 --> 54:03.180
+ like if we push it in the right direction,
+
+54:03.180 --> 54:07.180
+ like it can do like incredible things to empower all of us
+
+54:07.180 --> 54:12.180
+ to achieve our full potential and to, you know,
+
+54:12.180 --> 54:15.180
+ like live better lives.
+
+54:15.180 --> 54:20.180
+ But like that also means focus on like
+
+54:20.180 --> 54:21.180
+ some super important things.
+
+54:21.180 --> 54:26.180
+ Like how can you apply it to healthcare to make sure that,
+
+54:26.180 --> 54:29.180
+ you know, like our quality and cost of
+
+54:29.180 --> 54:33.180
+ and sort of ubiquity of health coverage is better
+
+54:33.180 --> 54:35.180
+ and better over time.
+
+54:35.180 --> 54:38.180
+ Like that's more and more important every day is like
+
+54:38.180 --> 54:43.180
+ in the United States and like the rest of the industrialized world,
+
+54:43.180 --> 54:45.180
+ so Western Europe, China, Japan, Korea,
+
+54:45.180 --> 54:50.180
+ like you've got this population bubble of like aging,
+
+54:50.180 --> 54:54.180
+ working, you know, working age folks who are,
+
+54:54.180 --> 54:56.180
+ you know, at some point over the next 20, 30 years,
+
+54:56.180 --> 54:58.180
+ they're going to be largely retired.
+
+54:58.180 --> 55:00.180
+ And like you're going to have more retired people
+
+55:00.180 --> 55:01.180
+ than working age people.
+
+55:01.180 --> 55:02.180
+ And then like you've got, you know,
+
+55:02.180 --> 55:05.180
+ sort of natural questions about who's going to take care of
+
+55:05.180 --> 55:07.180
+ all the old folks and who's going to do all the work.
+
+55:07.180 --> 55:11.180
+ And the answers to like all of these sorts of questions,
+
+55:11.180 --> 55:13.180
+ like where you're sort of running into, you know,
+
+55:13.180 --> 55:16.180
+ like constraints of the, you know,
+
+55:16.180 --> 55:20.180
+ the world and of society has always been like
+
+55:20.180 --> 55:23.180
+ what tech is going to like help us get around this?
+
+55:23.180 --> 55:26.180
+ Like when I was a kid in the 70s and 80s,
+
+55:26.180 --> 55:29.180
+ like we talked all the time about like population boom,
+
+55:29.180 --> 55:31.180
+ population boom, like we're going to,
+
+55:31.180 --> 55:34.180
+ like we're not going to be able to like feed the planet.
+
+55:34.180 --> 55:38.180
+ And like we were like right in the middle of the Green Revolution
+
+55:38.180 --> 55:44.180
+ where like this massive technology driven increase
+
+55:44.180 --> 55:47.180
+ in crop productivity like worldwide.
+
+55:47.180 --> 55:49.180
+ And like some of that was like taking some of the things
+
+55:49.180 --> 55:52.180
+ that we knew in the West and like getting them distributed
+
+55:52.180 --> 55:55.180
+ to the, you know, to the developing world.
+
+55:55.180 --> 55:59.180
+ And like part of it were things like, you know,
+
+55:59.180 --> 56:03.180
+ just smarter biology like helping us increase.
+
+56:03.180 --> 56:08.180
+ And like we don't talk about like overpopulation anymore
+
+56:08.180 --> 56:10.180
+ because like we can more or less,
+
+56:10.180 --> 56:12.180
+ we sort of figured out how to feed the world.
+
+56:12.180 --> 56:14.180
+ Like that's a technology story.
+
+56:14.180 --> 56:19.180
+ And so like I'm super, super hopeful about the future
+
+56:19.180 --> 56:24.180
+ and in the ways where we will be able to apply technology
+
+56:24.180 --> 56:28.180
+ to solve some of these super challenging problems.
+
+56:28.180 --> 56:33.180
+ Like I've, like one of the things that I'm trying to spend
+
+56:33.180 --> 56:36.180
+ my time doing right now is trying to get everybody else
+
+56:36.180 --> 56:39.180
+ to be hopeful as well because, you know, back to Harare,
+
+56:39.180 --> 56:41.180
+ like we are the stories that we tell.
+
+56:41.180 --> 56:44.180
+ Like if we, you know, if we get overly pessimistic right now
+
+56:44.180 --> 56:48.180
+ about like the potential future of technology,
+
+56:48.180 --> 56:53.180
+ like we, you know, like we may fail to get all of the things
+
+56:53.180 --> 56:56.180
+ in place that we need to like have our best possible future.
+
+56:56.180 --> 57:00.180
+ And that kind of hopeful optimism, I'm glad that you have it
+
+57:00.180 --> 57:03.180
+ because you're leading large groups of engineers
+
+57:03.180 --> 57:06.180
+ that are actually defining, that are writing that story,
+
+57:06.180 --> 57:09.180
+ that are helping build that future, which is super exciting.
+
+57:09.180 --> 57:13.180
+ And I agree with everything you said except I do hope
+
+57:13.180 --> 57:15.180
+ Clippy comes back.
+
+57:15.180 --> 57:19.180
+ We miss him. I speak for the people.
+
+57:19.180 --> 57:21.180
+ So, Galen, thank you so much for talking to me.
+
+57:21.180 --> 57:46.180
+ Thank you so much for having me. It was a pleasure.
+

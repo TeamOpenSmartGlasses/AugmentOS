@@ -1,0 +1,4334 @@
+WEBVTT
+
+00:00.000 --> 00:03.300
+ The following is a conversation with Daphne Koller,
+
+00:03.300 --> 00:06.260
+ a professor of computer science at Stanford University,
+
+00:06.260 --> 00:08.980
+ a cofounder of Coursera with Andrew Ng,
+
+00:08.980 --> 00:11.880
+ and founder and CEO of Incitro,
+
+00:11.880 --> 00:13.380
+ a company at the intersection
+
+00:13.380 --> 00:15.940
+ of machine learning and biomedicine.
+
+00:15.940 --> 00:17.820
+ We're now in the exciting early days
+
+00:17.820 --> 00:20.580
+ of using the data driven methods of machine learning
+
+00:20.580 --> 00:22.580
+ to help discover and develop new drugs
+
+00:22.580 --> 00:24.420
+ and treatments at scale.
+
+00:24.420 --> 00:27.780
+ Daphne and Incitro are leading the way on this
+
+00:27.780 --> 00:29.660
+ with breakthroughs that may ripple
+
+00:29.660 --> 00:31.620
+ through all fields of medicine,
+
+00:31.620 --> 00:34.260
+ including ones most critical for helping
+
+00:34.260 --> 00:36.360
+ with the current coronavirus pandemic.
+
+00:37.220 --> 00:38.660
+ This conversation was recorded
+
+00:38.660 --> 00:41.300
+ before the COVID 19 outbreak.
+
+00:41.300 --> 00:43.540
+ For everyone feeling the medical, psychological,
+
+00:43.540 --> 00:45.620
+ and financial burden of this crisis,
+
+00:45.620 --> 00:47.700
+ I'm sending love your way.
+
+00:47.700 --> 00:51.740
+ Stay strong, we're in this together, we'll beat this thing.
+
+00:51.740 --> 00:54.260
+ This is the Artificial Intelligence Podcast.
+
+00:54.260 --> 00:56.380
+ If you enjoy it, subscribe on YouTube,
+
+00:56.380 --> 00:58.720
+ review it with five stars on Apple Podcast,
+
+00:58.720 --> 01:00.100
+ support it on Patreon,
+
+01:00.100 --> 01:02.060
+ or simply connect with me on Twitter
+
+01:02.060 --> 01:05.940
+ at Lex Friedman, spelled F R I D M A N.
+
+01:05.940 --> 01:08.100
+ As usual, I'll do a few minutes of ads now
+
+01:08.100 --> 01:09.420
+ and never any ads in the middle
+
+01:09.420 --> 01:11.740
+ that can break the flow of this conversation.
+
+01:11.740 --> 01:13.060
+ I hope that works for you
+
+01:13.060 --> 01:15.940
+ and doesn't hurt the listening experience.
+
+01:15.940 --> 01:17.940
+ This show is presented by Cash App,
+
+01:17.940 --> 01:20.280
+ the number one finance app in the app store.
+
+01:20.280 --> 01:23.420
+ When you get it, use code LEXPODCAST.
+
+01:23.420 --> 01:25.620
+ Cash App lets you send money to friends,
+
+01:25.620 --> 01:27.900
+ buy Bitcoin, and invest in the stock market
+
+01:27.900 --> 01:30.220
+ with as little as one dollar.
+
+01:30.220 --> 01:31.700
+ Since Cash App allows you to send
+
+01:31.700 --> 01:33.420
+ and receive money digitally,
+
+01:33.420 --> 01:36.900
+ peer to peer, and security in all digital transactions
+
+01:36.900 --> 01:38.120
+ is very important,
+
+01:38.120 --> 01:41.380
+ let me mention the PCI data security standard
+
+01:41.380 --> 01:43.900
+ that Cash App is compliant with.
+
+01:43.900 --> 01:46.780
+ I'm a big fan of standards for safety and security.
+
+01:46.780 --> 01:49.520
+ PCI DSS is a good example of that,
+
+01:49.520 --> 01:51.140
+ where a bunch of competitors got together
+
+01:51.140 --> 01:53.860
+ and agreed that there needs to be a global standard
+
+01:53.860 --> 01:56.020
+ around the security of transactions.
+
+01:56.020 --> 01:58.420
+ Now we just need to do the same for autonomous vehicles
+
+01:58.420 --> 02:00.620
+ and AI systems in general.
+
+02:00.620 --> 02:03.260
+ So again, if you get Cash App from the App Store
+
+02:03.260 --> 02:07.060
+ or Google Play and use the code LEXPODCAST,
+
+02:07.060 --> 02:11.220
+ you get $10 and Cash App will also donate $10 to FIRST,
+
+02:11.220 --> 02:14.100
+ an organization that is helping to advance robotics
+
+02:14.100 --> 02:17.700
+ and STEM education for young people around the world.
+
+02:17.700 --> 02:21.460
+ And now here's my conversation with Daphne Koller.
+
+02:22.420 --> 02:25.040
+ So you cofounded Coursera and made a huge impact
+
+02:25.040 --> 02:26.660
+ in the global education of AI.
+
+02:26.660 --> 02:29.700
+ And after five years in August, 2016,
+
+02:29.700 --> 02:33.040
+ wrote a blog post saying that you're stepping away
+
+02:33.040 --> 02:34.460
+ and wrote, quote,
+
+02:34.460 --> 02:37.500
+ it is time for me to turn to another critical challenge,
+
+02:37.500 --> 02:38.940
+ the development of machine learning
+
+02:38.940 --> 02:41.700
+ and its applications to improving human health.
+
+02:41.700 --> 02:45.140
+ So let me ask two far out philosophical questions.
+
+02:45.140 --> 02:48.020
+ One, do you think we'll one day find cures
+
+02:48.020 --> 02:50.760
+ for all major diseases known today?
+
+02:50.760 --> 02:53.560
+ And two, do you think we'll one day figure out
+
+02:53.560 --> 02:55.980
+ a way to extend the human lifespan,
+
+02:55.980 --> 02:57.880
+ perhaps to the point of immortality?
+
+02:59.460 --> 03:01.780
+ So one day is a very long time
+
+03:01.780 --> 03:04.260
+ and I don't like to make predictions
+
+03:04.260 --> 03:07.300
+ of the type we will never be able to do X
+
+03:07.300 --> 03:12.300
+ because I think that's a smacks of hubris.
+
+03:12.740 --> 03:16.140
+ It seems that never in the entire eternity
+
+03:16.140 --> 03:19.380
+ of human existence will we be able to solve a problem.
+
+03:19.380 --> 03:24.260
+ That being said, curing disease is very hard
+
+03:24.260 --> 03:28.540
+ because oftentimes by the time you discover the disease,
+
+03:28.540 --> 03:30.560
+ a lot of damage has already been done.
+
+03:30.560 --> 03:34.980
+ And so to assume that we would be able to cure disease
+
+03:34.980 --> 03:37.620
+ at that stage assumes that we would come up with ways
+
+03:37.620 --> 03:41.940
+ of basically regenerating entire parts of the human body
+
+03:41.940 --> 03:45.340
+ in the way that actually returns it to its original state.
+
+03:45.340 --> 03:47.420
+ And that's a very challenging problem.
+
+03:47.420 --> 03:49.420
+ We have cured very few diseases.
+
+03:49.420 --> 03:51.460
+ We've been able to provide treatment
+
+03:51.460 --> 03:52.940
+ for an increasingly large number,
+
+03:52.940 --> 03:54.700
+ but the number of things that you could actually define
+
+03:54.700 --> 03:57.620
+ to be cures is actually not that large.
+
+03:59.440 --> 04:02.540
+ So I think that there's a lot of work
+
+04:02.540 --> 04:05.660
+ that would need to happen before one could legitimately say
+
+04:05.660 --> 04:08.820
+ that we have cured even a reasonable number,
+
+04:08.820 --> 04:10.460
+ far less all diseases.
+
+04:10.460 --> 04:12.780
+ On the scale of zero to 100,
+
+04:12.780 --> 04:15.580
+ where are we in understanding the fundamental mechanisms
+
+04:15.580 --> 04:18.140
+ of all of major diseases?
+
+04:18.140 --> 04:19.260
+ What's your sense?
+
+04:19.260 --> 04:21.080
+ So from the computer science perspective
+
+04:21.080 --> 04:24.160
+ that you've entered the world of health,
+
+04:24.160 --> 04:25.740
+ how far along are we?
+
+04:26.740 --> 04:29.520
+ I think it depends on which disease.
+
+04:29.520 --> 04:31.780
+ I mean, there are ones where I would say
+
+04:31.780 --> 04:33.420
+ we're maybe not quite at a hundred
+
+04:33.420 --> 04:35.580
+ because biology is really complicated
+
+04:35.580 --> 04:38.960
+ and there's always new things that we uncover
+
+04:38.960 --> 04:41.220
+ that people didn't even realize existed.
+
+04:43.040 --> 04:44.420
+ But I would say there's diseases
+
+04:44.420 --> 04:48.060
+ where we might be in the 70s or 80s,
+
+04:48.060 --> 04:51.340
+ and then there's diseases in which I would say
+
+04:51.340 --> 04:55.220
+ with probably the majority where we're really close to zero.
+
+04:55.220 --> 04:57.980
+ Would Alzheimer's and schizophrenia
+
+04:57.980 --> 05:02.980
+ and type two diabetes fall closer to zero or to the 80?
+
+05:04.340 --> 05:09.340
+ I think Alzheimer's is probably closer to zero than to 80.
+
+05:11.060 --> 05:12.660
+ There are hypotheses,
+
+05:12.660 --> 05:17.300
+ but I don't think those hypotheses have as of yet
+
+05:17.300 --> 05:21.980
+ been sufficiently validated that we believe them to be true.
+
+05:21.980 --> 05:23.780
+ And there is an increasing number of people
+
+05:23.780 --> 05:25.900
+ who believe that the traditional hypotheses
+
+05:25.900 --> 05:28.020
+ might not really explain what's going on.
+
+05:28.020 --> 05:31.700
+ I would also say that Alzheimer's and schizophrenia
+
+05:31.700 --> 05:35.300
+ and even type two diabetes are not really one disease.
+
+05:35.300 --> 05:39.380
+ They're almost certainly a heterogeneous collection
+
+05:39.380 --> 05:43.700
+ of mechanisms that manifest in clinically similar ways.
+
+05:43.700 --> 05:46.640
+ So in the same way that we now understand
+
+05:46.640 --> 05:48.900
+ that breast cancer is really not one disease,
+
+05:48.900 --> 05:53.420
+ it is multitude of cellular mechanisms,
+
+05:53.420 --> 05:55.160
+ all of which ultimately translate
+
+05:55.160 --> 05:59.340
+ to uncontrolled proliferation, but it's not one disease.
+
+05:59.340 --> 06:01.140
+ The same is almost undoubtedly true
+
+06:01.140 --> 06:02.900
+ for those other diseases as well.
+
+06:02.900 --> 06:05.780
+ And that understanding that needs to precede
+
+06:05.780 --> 06:08.460
+ any understanding of the specific mechanisms
+
+06:08.460 --> 06:10.100
+ of any of those other diseases.
+
+06:10.100 --> 06:11.580
+ Now, in schizophrenia, I would say
+
+06:11.580 --> 06:15.220
+ we're almost certainly closer to zero than to anything else.
+
+06:15.220 --> 06:18.260
+ Type two diabetes is a bit of a mix.
+
+06:18.260 --> 06:21.380
+ There are clear mechanisms that are implicated
+
+06:21.380 --> 06:22.980
+ that I think have been validated
+
+06:22.980 --> 06:25.260
+ that have to do with insulin resistance and such,
+
+06:25.260 --> 06:28.500
+ but there's almost certainly there as well
+
+06:28.500 --> 06:31.300
+ many mechanisms that we have not yet understood.
+
+06:31.300 --> 06:34.420
+ You've also thought and worked a little bit
+
+06:34.420 --> 06:35.860
+ on the longevity side.
+
+06:35.860 --> 06:40.260
+ Do you see the disease and longevity as overlapping
+
+06:40.260 --> 06:45.260
+ completely, partially, or not at all as efforts?
+
+06:45.260 --> 06:48.620
+ Those mechanisms are certainly overlapping.
+
+06:48.620 --> 06:51.940
+ There's a well known phenomenon that says
+
+06:51.940 --> 06:56.820
+ that for most diseases, other than childhood diseases,
+
+06:56.820 --> 07:01.300
+ the risk for contracting that disease
+
+07:01.300 --> 07:03.260
+ increases exponentially year on year,
+
+07:03.260 --> 07:05.700
+ every year from the time you're about 40.
+
+07:05.700 --> 07:09.100
+ So obviously there's a connection between those two things.
+
+07:10.380 --> 07:12.420
+ That's not to say that they're identical.
+
+07:12.420 --> 07:14.980
+ There's clearly aging that happens
+
+07:14.980 --> 07:18.740
+ that is not really associated with any specific disease.
+
+07:18.740 --> 07:22.300
+ And there's also diseases and mechanisms of disease
+
+07:22.300 --> 07:25.660
+ that are not specifically related to aging.
+
+07:25.660 --> 07:29.140
+ So I think overlap is where we're at.
+
+07:29.140 --> 07:30.420
+ Okay.
+
+07:30.420 --> 07:32.620
+ It is a little unfortunate that we get older
+
+07:32.620 --> 07:34.180
+ and it seems that there's some correlation
+
+07:34.180 --> 07:39.060
+ with the occurrence of diseases
+
+07:39.060 --> 07:40.780
+ or the fact that we get older.
+
+07:40.780 --> 07:43.100
+ And both are quite sad.
+
+07:43.100 --> 07:46.700
+ I mean, there's processes that happen as cells age
+
+07:46.700 --> 07:49.580
+ that I think are contributing to disease.
+
+07:49.580 --> 07:52.780
+ Some of those have to do with DNA damage
+
+07:52.780 --> 07:54.980
+ that accumulates as cells divide
+
+07:54.980 --> 07:59.620
+ where the repair mechanisms don't fully correct for those.
+
+07:59.620 --> 08:03.660
+ There are accumulations of proteins
+
+08:03.660 --> 08:06.340
+ that are misfolded and potentially aggregate
+
+08:06.340 --> 08:08.540
+ and those too contribute to disease
+
+08:08.540 --> 08:10.540
+ and will contribute to inflammation.
+
+08:10.540 --> 08:14.020
+ There's a multitude of mechanisms that have been uncovered
+
+08:14.020 --> 08:17.100
+ that are sort of wear and tear at the cellular level
+
+08:17.100 --> 08:19.940
+ that contribute to disease processes
+
+08:21.780 --> 08:24.860
+ and I'm sure there's many that we don't yet understand.
+
+08:24.860 --> 08:27.340
+ On a small tangent and perhaps philosophical,
+
+08:30.220 --> 08:32.340
+ the fact that things get older
+
+08:32.340 --> 08:36.580
+ and the fact that things die is a very powerful feature
+
+08:36.580 --> 08:38.900
+ for the growth of new things.
+
+08:38.900 --> 08:41.380
+ It's a learning, it's a kind of learning mechanism.
+
+08:41.380 --> 08:43.700
+ So it's both tragic and beautiful.
+
+08:44.660 --> 08:49.660
+ So do you, so in trying to fight disease
+
+08:52.140 --> 08:53.900
+ and trying to fight aging,
+
+08:55.260 --> 08:58.940
+ do you think about sort of the useful fact of our mortality
+
+08:58.940 --> 09:02.660
+ or would you, like if you were, could be immortal,
+
+09:02.660 --> 09:04.260
+ would you choose to be immortal?
+
+09:07.140 --> 09:10.860
+ Again, I think immortal is a very long time
+
+09:10.860 --> 09:15.860
+ and I don't know that that would necessarily be something
+
+09:16.020 --> 09:17.900
+ that I would want to aspire to
+
+09:17.900 --> 09:22.900
+ but I think all of us aspire to an increased health span,
+
+09:24.180 --> 09:27.620
+ I would say, which is an increased amount of time
+
+09:27.620 --> 09:29.860
+ where you're healthy and active
+
+09:29.860 --> 09:33.300
+ and feel as you did when you were 20
+
+09:33.300 --> 09:35.860
+ and we're nowhere close to that.
+
+09:36.780 --> 09:41.780
+ People deteriorate physically and mentally over time
+
+09:41.820 --> 09:43.660
+ and that is a very sad phenomenon.
+
+09:43.660 --> 09:47.300
+ So I think a wonderful aspiration would be
+
+09:47.300 --> 09:52.300
+ if we could all live to the biblical 120 maybe
+
+09:52.340 --> 09:53.740
+ in perfect health.
+
+09:53.740 --> 09:54.820
+ In high quality of life.
+
+09:54.820 --> 09:55.860
+ High quality of life.
+
+09:55.860 --> 09:57.780
+ I think that would be an amazing goal
+
+09:57.780 --> 09:59.300
+ for us to achieve as a society
+
+09:59.300 --> 10:03.660
+ now is the right age 120 or 100 or 150.
+
+10:03.660 --> 10:05.740
+ I think that's up for debate
+
+10:05.740 --> 10:07.660
+ but I think an increased health span
+
+10:07.660 --> 10:09.020
+ is a really worthy goal.
+
+10:10.100 --> 10:14.700
+ And anyway, in a grand time of the age of the universe,
+
+10:14.700 --> 10:16.580
+ it's all pretty short.
+
+10:16.580 --> 10:18.460
+ So from the perspective,
+
+10:18.460 --> 10:20.980
+ you've done obviously a lot of incredible work
+
+10:20.980 --> 10:22.060
+ in machine learning.
+
+10:22.060 --> 10:25.140
+ So what role do you think data and machine learning
+
+10:25.140 --> 10:29.300
+ play in this goal of trying to understand diseases
+
+10:29.300 --> 10:31.820
+ and trying to eradicate diseases?
+
+10:32.940 --> 10:35.180
+ Up until now, I don't think it's played
+
+10:35.180 --> 10:37.860
+ very much of a significant role
+
+10:37.860 --> 10:42.420
+ because largely the data sets that one really needed
+
+10:42.420 --> 10:47.300
+ to enable a powerful machine learning methods,
+
+10:47.300 --> 10:49.620
+ those data sets haven't really existed.
+
+10:49.620 --> 10:50.940
+ There's been dribs and drabs
+
+10:50.940 --> 10:53.300
+ and some interesting machine learning
+
+10:53.300 --> 10:55.700
+ that has been applied, I would say machine learning
+
+10:55.700 --> 10:57.660
+ slash data science,
+
+10:57.660 --> 11:00.180
+ but the last few years are starting to change that.
+
+11:00.180 --> 11:05.180
+ So we now see an increase in some large data sets
+
+11:06.300 --> 11:11.300
+ but equally importantly, an increase in technologies
+
+11:11.340 --> 11:14.700
+ that are able to produce data at scale.
+
+11:14.700 --> 11:19.340
+ It's not typically the case that people have deliberately
+
+11:19.340 --> 11:21.420
+ proactively used those tools
+
+11:21.420 --> 11:24.180
+ for the purpose of generating data for machine learning.
+
+11:24.180 --> 11:26.540
+ They, to the extent that those techniques
+
+11:26.540 --> 11:28.540
+ have been used for data production,
+
+11:28.540 --> 11:29.860
+ they've been used for data production
+
+11:29.860 --> 11:31.300
+ to drive scientific discovery
+
+11:31.300 --> 11:34.420
+ and the machine learning came as a sort of byproduct
+
+11:34.420 --> 11:36.900
+ second stage of, oh, you know, now we have a data set,
+
+11:36.900 --> 11:38.260
+ let's do machine learning on that
+
+11:38.260 --> 11:41.820
+ rather than a more simplistic data analysis method.
+
+11:41.820 --> 11:44.420
+ But what we are doing in Citro
+
+11:44.420 --> 11:46.780
+ is actually flipping that around and saying,
+
+11:46.780 --> 11:50.300
+ here's this incredible repertoire of methods
+
+11:50.300 --> 11:54.580
+ that bioengineers, cell biologists have come up with,
+
+11:54.580 --> 11:57.420
+ let's see if we can put them together in brand new ways
+
+11:57.420 --> 12:00.260
+ with the goal of creating data sets
+
+12:00.260 --> 12:03.380
+ that machine learning can really be applied on productively
+
+12:03.380 --> 12:06.580
+ to create powerful predictive models
+
+12:06.580 --> 12:08.460
+ that can help us address fundamental problems
+
+12:08.460 --> 12:09.420
+ in human health.
+
+12:09.420 --> 12:14.420
+ So really focus to get, make data the primary focus
+
+12:14.500 --> 12:16.460
+ and the primary goal and find,
+
+12:16.460 --> 12:18.900
+ use the mechanisms of biology and chemistry
+
+12:18.900 --> 12:23.340
+ to create the kinds of data set
+
+12:23.340 --> 12:25.700
+ that could allow machine learning to benefit the most.
+
+12:25.700 --> 12:27.580
+ I wouldn't put it in those terms
+
+12:27.580 --> 12:30.460
+ because that says that data is the end goal.
+
+12:30.460 --> 12:32.140
+ Data is the means.
+
+12:32.140 --> 12:35.740
+ So for us, the end goal is helping address challenges
+
+12:35.740 --> 12:39.980
+ in human health and the method that we've elected to do that
+
+12:39.980 --> 12:44.140
+ is to apply machine learning to build predictive models
+
+12:44.140 --> 12:45.980
+ and machine learning, in my opinion,
+
+12:45.980 --> 12:48.820
+ can only be really successfully applied
+
+12:48.820 --> 12:50.700
+ especially the more powerful models
+
+12:50.700 --> 12:53.540
+ if you give it data that is of sufficient scale
+
+12:53.540 --> 12:54.540
+ and sufficient quality.
+
+12:54.540 --> 12:58.580
+ So how do you create those data sets
+
+12:58.580 --> 13:03.580
+ so as to drive the ability to generate predictive models
+
+13:03.700 --> 13:05.740
+ which subsequently help improve human health?
+
+13:05.740 --> 13:08.700
+ So before we dive into the details of that,
+
+13:08.700 --> 13:13.700
+ let me take a step back and ask when and where
+
+13:13.820 --> 13:16.780
+ was your interest in human health born?
+
+13:16.780 --> 13:19.900
+ Are there moments, events, perhaps if I may ask,
+
+13:19.900 --> 13:23.060
+ tragedies in your own life that catalyzes passion
+
+13:23.060 --> 13:26.580
+ or was it the broader desire to help humankind?
+
+13:26.580 --> 13:29.180
+ So I would say it's a bit of both.
+
+13:29.180 --> 13:32.620
+ So on, I mean, my interest in human health
+
+13:32.620 --> 13:37.780
+ actually dates back to the early 2000s
+
+13:37.780 --> 13:42.780
+ when a lot of my peers in machine learning
+
+13:43.940 --> 13:45.500
+ and I were using data sets
+
+13:45.500 --> 13:47.420
+ that frankly were not very inspiring.
+
+13:47.420 --> 13:49.820
+ Some of us old timers still remember
+
+13:49.820 --> 13:52.300
+ the quote unquote 20 news groups data set
+
+13:52.300 --> 13:55.740
+ where this was literally a bunch of texts
+
+13:55.740 --> 13:57.100
+ from 20 news groups,
+
+13:57.100 --> 13:59.260
+ a concept that doesn't really even exist anymore.
+
+13:59.260 --> 14:01.660
+ And the question was, can you classify
+
+14:01.660 --> 14:06.660
+ which news group a particular bag of words came from?
+
+14:06.780 --> 14:08.700
+ And it wasn't very interesting.
+
+14:08.700 --> 14:12.460
+ The data sets at the time on the biology side
+
+14:12.460 --> 14:14.020
+ were much more interesting,
+
+14:14.020 --> 14:15.540
+ both from a technical and also from
+
+14:15.540 --> 14:17.540
+ an aspirational perspective.
+
+14:17.540 --> 14:18.860
+ They were still pretty small,
+
+14:18.860 --> 14:20.740
+ but they were better than 20 news groups.
+
+14:20.740 --> 14:25.620
+ And so I started out, I think just by wanting
+
+14:25.620 --> 14:27.860
+ to do something that was more, I don't know,
+
+14:27.860 --> 14:30.780
+ societally useful and technically interesting.
+
+14:30.780 --> 14:34.420
+ And then over time became more and more interested
+
+14:34.420 --> 14:39.420
+ in the biology and the human health aspects for themselves
+
+14:40.220 --> 14:43.460
+ and began to work even sometimes on papers
+
+14:43.460 --> 14:45.140
+ that were just in biology
+
+14:45.140 --> 14:48.460
+ without having a significant machine learning component.
+
+14:48.460 --> 14:52.740
+ I think my interest in drug discovery
+
+14:52.740 --> 14:57.740
+ is partly due to an incident I had with
+
+14:58.580 --> 15:02.580
+ when my father sadly passed away about 12 years ago.
+
+15:02.580 --> 15:07.060
+ He had an autoimmune disease that settled in his lungs
+
+15:08.900 --> 15:11.460
+ and the doctors basically said,
+
+15:11.460 --> 15:13.380
+ well, there's only one thing that we could do,
+
+15:13.380 --> 15:15.020
+ which is give him prednisone.
+
+15:15.020 --> 15:17.780
+ At some point, I remember a doctor even came and said,
+
+15:17.780 --> 15:19.620
+ hey, let's do a lung biopsy to figure out
+
+15:19.620 --> 15:20.940
+ which autoimmune disease he has.
+
+15:20.940 --> 15:23.180
+ And I said, would that be helpful?
+
+15:23.180 --> 15:24.020
+ Would that change treatment?
+
+15:24.020 --> 15:25.500
+ He said, no, there's only prednisone.
+
+15:25.500 --> 15:27.180
+ That's the only thing we can give him.
+
+15:27.180 --> 15:29.900
+ And I had friends who were rheumatologists who said
+
+15:29.900 --> 15:32.060
+ the FDA would never approve prednisone today
+
+15:32.060 --> 15:37.060
+ because the ratio of side effects to benefit
+
+15:37.260 --> 15:39.580
+ is probably not large enough.
+
+15:39.580 --> 15:44.580
+ Today, we're in a state where there's probably four or five,
+
+15:44.860 --> 15:48.740
+ maybe even more, well, it depends for which autoimmune disease,
+
+15:48.740 --> 15:52.940
+ but there are multiple drugs that can help people
+
+15:52.940 --> 15:53.980
+ with autoimmune disease,
+
+15:53.980 --> 15:56.740
+ many of which didn't exist 12 years ago.
+
+15:56.740 --> 16:00.380
+ And I think we're at a golden time in some ways
+
+16:00.380 --> 16:05.380
+ in drug discovery where there's the ability to create drugs
+
+16:05.380 --> 16:10.380
+ that are much more safe and much more effective
+
+16:10.580 --> 16:13.060
+ than we've ever been able to before.
+
+16:13.060 --> 16:16.340
+ And what's lacking is enough understanding
+
+16:16.340 --> 16:21.340
+ of biology and mechanism to know where to aim that engine.
+
+16:22.300 --> 16:25.380
+ And I think that's where machine learning can help.
+
+16:25.380 --> 16:29.900
+ So in 2018, you started and now lead a company in Citro,
+
+16:29.900 --> 16:32.580
+ which is, like you mentioned,
+
+16:32.580 --> 16:34.740
+ perhaps the focus is drug discovery
+
+16:34.740 --> 16:38.140
+ and the utilization of machine learning for drug discovery.
+
+16:38.140 --> 16:40.620
+ So you mentioned that, quote,
+
+16:40.620 --> 16:42.100
+ we're really interested in creating
+
+16:42.100 --> 16:45.580
+ what you might call a disease in a dish model,
+
+16:45.580 --> 16:47.380
+ disease in a dish models,
+
+16:47.380 --> 16:49.180
+ places where diseases are complex,
+
+16:49.180 --> 16:52.220
+ where we really haven't had a good model system,
+
+16:52.220 --> 16:55.020
+ where typical animal models that have been used for years,
+
+16:55.020 --> 16:58.860
+ including testing on mice, just aren't very effective.
+
+16:58.860 --> 17:02.640
+ So can you try to describe what is an animal model
+
+17:02.640 --> 17:05.340
+ and what is a disease in a dish model?
+
+17:05.340 --> 17:06.260
+ Sure.
+
+17:06.260 --> 17:09.300
+ So an animal model for disease
+
+17:09.300 --> 17:13.000
+ is where you create effectively,
+
+17:13.860 --> 17:14.900
+ it's what it sounds like.
+
+17:14.900 --> 17:19.300
+ It's oftentimes a mouse where we have introduced
+
+17:19.300 --> 17:22.780
+ some external perturbation that creates the disease
+
+17:22.780 --> 17:26.300
+ and then we cure that disease.
+
+17:26.300 --> 17:28.740
+ And the hope is that by doing that,
+
+17:28.740 --> 17:31.340
+ we will cure a similar disease in the human.
+
+17:31.340 --> 17:33.500
+ The problem is that oftentimes
+
+17:33.500 --> 17:36.900
+ the way in which we generate the disease in the animal
+
+17:36.900 --> 17:38.560
+ has nothing to do with how that disease
+
+17:38.560 --> 17:40.900
+ actually comes about in a human.
+
+17:40.900 --> 17:44.420
+ It's what you might think of as a copy of the phenotype,
+
+17:44.420 --> 17:46.740
+ a copy of the clinical outcome,
+
+17:46.740 --> 17:48.740
+ but the mechanisms are quite different.
+
+17:48.740 --> 17:52.120
+ And so curing the disease in the animal,
+
+17:52.120 --> 17:54.880
+ which in most cases doesn't happen naturally,
+
+17:54.880 --> 17:57.180
+ mice don't get Alzheimer's, they don't get diabetes,
+
+17:57.180 --> 17:58.700
+ they don't get atherosclerosis,
+
+17:58.700 --> 18:01.280
+ they don't get autism or schizophrenia.
+
+18:02.580 --> 18:05.700
+ Those cures don't translate over
+
+18:05.700 --> 18:08.140
+ to what happens in the human.
+
+18:08.140 --> 18:10.860
+ And that's where most drugs fails
+
+18:10.860 --> 18:13.700
+ just because the findings that we had in the mouse
+
+18:13.700 --> 18:15.060
+ don't translate to a human.
+
+18:16.660 --> 18:20.860
+ The disease in the dish models is a fairly new approach.
+
+18:20.860 --> 18:24.140
+ It's been enabled by technologies
+
+18:24.140 --> 18:28.420
+ that have not existed for more than five to 10 years.
+
+18:28.420 --> 18:32.780
+ So for instance, the ability for us to take a cell
+
+18:32.780 --> 18:35.540
+ from any one of us, you or me,
+
+18:35.540 --> 18:39.960
+ revert that say skin cell to what's called stem cell status,
+
+18:39.960 --> 18:44.740
+ which is what's called the pluripotent cell
+
+18:44.740 --> 18:46.600
+ that can then be differentiated
+
+18:46.600 --> 18:47.860
+ into different types of cells.
+
+18:47.860 --> 18:49.800
+ So from that pluripotent cell,
+
+18:49.800 --> 18:54.300
+ one can create a Lex neuron or a Lex cardiomyocyte
+
+18:54.300 --> 18:57.760
+ or a Lex hepatocyte that has your genetics,
+
+18:57.760 --> 19:00.020
+ but that right cell type.
+
+19:00.020 --> 19:04.780
+ And so if there's a genetic burden of disease
+
+19:04.780 --> 19:07.180
+ that would manifest in that particular cell type,
+
+19:07.180 --> 19:10.300
+ you might be able to see it by looking at those cells
+
+19:10.300 --> 19:13.380
+ and saying, oh, that's what potentially sick cells
+
+19:13.380 --> 19:15.620
+ look like versus healthy cells
+
+19:15.620 --> 19:20.620
+ and then explore what kind of interventions
+
+19:20.740 --> 19:24.860
+ might revert the unhealthy looking cell to a healthy cell.
+
+19:24.860 --> 19:27.740
+ Now, of course, curing cells is not the same
+
+19:27.740 --> 19:28.880
+ as curing people.
+
+19:29.820 --> 19:33.220
+ And so there's still potentially a translatability gap,
+
+19:33.220 --> 19:38.220
+ but at least for diseases that are driven,
+
+19:38.500 --> 19:41.980
+ say by human genetics and where the human genetics
+
+19:41.980 --> 19:43.780
+ is what drives the cellular phenotype,
+
+19:43.780 --> 19:47.960
+ there is some reason to hope that if we revert those cells
+
+19:47.960 --> 19:49.600
+ in which the disease begins
+
+19:49.600 --> 19:52.180
+ and where the disease is driven by genetics
+
+19:52.180 --> 19:55.260
+ and we can revert that cell back to a healthy state,
+
+19:55.260 --> 19:58.140
+ maybe that will help also revert
+
+19:58.140 --> 20:00.860
+ the more global clinical phenotype.
+
+20:00.860 --> 20:02.740
+ So that's really what we're hoping to do.
+
+20:02.740 --> 20:06.020
+ That step, that backward step, I was reading about it,
+
+20:06.020 --> 20:08.300
+ the Yamanaka factor.
+
+20:08.300 --> 20:09.700
+ Yes.
+
+20:09.700 --> 20:12.280
+ So it's like that reverse step back to stem cells.
+
+20:12.280 --> 20:13.120
+ Yes.
+
+20:13.120 --> 20:14.180
+ Seems like magic.
+
+20:14.180 --> 20:15.740
+ It is.
+
+20:15.740 --> 20:17.660
+ Honestly, before that happened,
+
+20:17.660 --> 20:20.120
+ I think very few people would have predicted
+
+20:20.120 --> 20:21.700
+ that to be possible.
+
+20:21.700 --> 20:22.540
+ It's amazing.
+
+20:22.540 --> 20:25.180
+ Can you maybe elaborate, is it actually possible?
+
+20:25.180 --> 20:27.300
+ Like where, like how stable?
+
+20:27.300 --> 20:29.380
+ So this result was maybe like,
+
+20:29.380 --> 20:30.580
+ I don't know how many years ago,
+
+20:30.580 --> 20:32.700
+ maybe 10 years ago was first demonstrated,
+
+20:32.700 --> 20:33.860
+ something like that.
+
+20:33.860 --> 20:35.520
+ Is this, how hard is this?
+
+20:35.520 --> 20:37.500
+ Like how noisy is this backward step?
+
+20:37.500 --> 20:39.460
+ It seems quite incredible and cool.
+
+20:39.460 --> 20:42.220
+ It is, it is incredible and cool.
+
+20:42.220 --> 20:46.420
+ It was much more, I think finicky and bespoke
+
+20:46.420 --> 20:49.980
+ at the early stages when the discovery was first made.
+
+20:49.980 --> 20:54.500
+ But at this point, it's become almost industrialized.
+
+20:54.500 --> 20:59.440
+ There are what's called contract research organizations,
+
+20:59.440 --> 21:02.300
+ vendors that will take a sample from a human
+
+21:02.300 --> 21:04.460
+ and revert it back to stem cell status.
+
+21:04.460 --> 21:07.120
+ And it works a very good fraction of the time.
+
+21:07.120 --> 21:10.360
+ Now there are people who will ask,
+
+21:10.360 --> 21:12.060
+ I think good questions.
+
+21:12.060 --> 21:15.340
+ Is this really truly a stem cell or does it remember
+
+21:15.340 --> 21:17.860
+ certain aspects of what,
+
+21:17.860 --> 21:22.500
+ of changes that were made in the human beyond the genetics?
+
+21:22.500 --> 21:24.660
+ It's passed as a skin cell, yeah.
+
+21:24.660 --> 21:26.740
+ It's passed as a skin cell or it's passed
+
+21:26.740 --> 21:29.920
+ in terms of exposures to different environmental factors
+
+21:29.920 --> 21:30.920
+ and so on.
+
+21:30.920 --> 21:33.300
+ So I think the consensus right now
+
+21:33.300 --> 21:36.420
+ is that these are not always perfect
+
+21:36.420 --> 21:40.020
+ and there is little bits and pieces of memory sometimes,
+
+21:40.020 --> 21:43.560
+ but by and large, these are actually pretty good.
+
+21:44.780 --> 21:47.260
+ So one of the key things,
+
+21:47.260 --> 21:48.740
+ well, maybe you can correct me,
+
+21:48.740 --> 21:50.900
+ but one of the useful things for machine learning
+
+21:50.900 --> 21:54.180
+ is size, scale of data.
+
+21:54.180 --> 21:59.100
+ How easy it is to do these kinds of reversals to stem cells
+
+21:59.100 --> 22:02.360
+ and then disease in a dish models at scale.
+
+22:02.360 --> 22:05.320
+ Is that a huge challenge or not?
+
+22:06.180 --> 22:11.180
+ So the reversal is not as of this point
+
+22:11.660 --> 22:14.220
+ something that can be done at the scale
+
+22:14.220 --> 22:18.540
+ of tens of thousands or hundreds of thousands.
+
+22:18.540 --> 22:22.260
+ I think total number of stem cells or IPS cells
+
+22:22.260 --> 22:25.260
+ that are what's called induced pluripotent stem cells
+
+22:25.260 --> 22:30.220
+ in the world I think is somewhere between five and 10,000
+
+22:30.220 --> 22:31.460
+ last I looked.
+
+22:31.460 --> 22:34.460
+ Now again, that might not count things that exist
+
+22:34.460 --> 22:36.260
+ in this or that academic center
+
+22:36.260 --> 22:37.860
+ and they may add up to a bit more,
+
+22:37.860 --> 22:40.060
+ but that's about the range.
+
+22:40.060 --> 22:42.180
+ So it's not something that you could at this point
+
+22:42.180 --> 22:45.540
+ generate IPS cells from a million people,
+
+22:45.540 --> 22:47.900
+ but maybe you don't need to
+
+22:47.900 --> 22:51.820
+ because maybe that background is enough
+
+22:51.820 --> 22:56.140
+ because it can also be now perturbed in different ways.
+
+22:56.140 --> 23:00.100
+ And some people have done really interesting experiments
+
+23:00.100 --> 23:05.100
+ in for instance, taking cells from a healthy human
+
+23:05.660 --> 23:08.540
+ and then introducing a mutation into it
+
+23:08.540 --> 23:11.860
+ using one of the other miracle technologies
+
+23:11.860 --> 23:13.820
+ that's emerged in the last decade
+
+23:13.820 --> 23:16.140
+ which is CRISPR gene editing
+
+23:16.140 --> 23:19.660
+ and introduced a mutation that is known to be pathogenic.
+
+23:19.660 --> 23:22.420
+ And so you can now look at the healthy cells
+
+23:22.420 --> 23:24.740
+ and the unhealthy cells, the one with the mutation
+
+23:24.740 --> 23:26.100
+ and do a one on one comparison
+
+23:26.100 --> 23:28.380
+ where everything else is held constant.
+
+23:28.380 --> 23:31.820
+ And so you could really start to understand specifically
+
+23:31.820 --> 23:34.380
+ what the mutation does at the cellular level.
+
+23:34.380 --> 23:37.700
+ So the IPS cells are a great starting point
+
+23:37.700 --> 23:39.820
+ and obviously more diversity is better
+
+23:39.820 --> 23:42.380
+ because you also wanna capture ethnic background
+
+23:42.380 --> 23:43.580
+ and how that affects things,
+
+23:43.580 --> 23:46.780
+ but maybe you don't need one from every single patient
+
+23:46.780 --> 23:48.100
+ with every single type of disease
+
+23:48.100 --> 23:50.260
+ because we have other tools at our disposal.
+
+23:50.260 --> 23:52.580
+ Well, how much difference is there between people
+
+23:52.580 --> 23:54.940
+ I mentioned ethnic background in terms of IPS cells?
+
+23:54.940 --> 23:59.380
+ So we're all like, it seems like these magical cells
+
+23:59.380 --> 24:01.860
+ that can do to create anything
+
+24:01.860 --> 24:04.020
+ between different populations, different people.
+
+24:04.020 --> 24:07.020
+ Is there a lot of variability between cell cells?
+
+24:07.020 --> 24:09.580
+ Well, first of all, there's the variability,
+
+24:09.580 --> 24:10.980
+ that's driven simply by the fact
+
+24:10.980 --> 24:13.420
+ that genetically we're different.
+
+24:13.420 --> 24:15.820
+ So a stem cell that's derived from my genotype
+
+24:15.820 --> 24:18.340
+ is gonna be different from a stem cell
+
+24:18.340 --> 24:20.540
+ that's derived from your genotype.
+
+24:20.540 --> 24:23.700
+ There's also some differences that have more to do with
+
+24:23.700 --> 24:27.260
+ for whatever reason, some people's stem cells
+
+24:27.260 --> 24:29.860
+ differentiate better than other people's stem cells.
+
+24:29.860 --> 24:31.500
+ We don't entirely understand why.
+
+24:31.500 --> 24:34.180
+ So there's certainly some differences there as well,
+
+24:34.180 --> 24:35.460
+ but the fundamental difference
+
+24:35.460 --> 24:38.740
+ and the one that we really care about and is a positive
+
+24:38.740 --> 24:43.220
+ is that the fact that the genetics are different
+
+24:43.220 --> 24:45.980
+ and therefore recapitulate my disease burden
+
+24:45.980 --> 24:47.780
+ versus your disease burden.
+
+24:47.780 --> 24:49.260
+ What's a disease burden?
+
+24:49.260 --> 24:52.300
+ Well, a disease burden is just if you think,
+
+24:52.300 --> 24:55.060
+ I mean, it's not a well defined mathematical term,
+
+24:55.060 --> 24:58.260
+ although there are mathematical formulations of it.
+
+24:58.260 --> 25:01.500
+ If you think about the fact that some of us are more likely
+
+25:01.500 --> 25:03.460
+ to get a certain disease than others
+
+25:03.460 --> 25:07.300
+ because we have more variations in our genome
+
+25:07.300 --> 25:09.500
+ that are causative of the disease,
+
+25:09.500 --> 25:12.620
+ maybe fewer that are protective of the disease.
+
+25:12.620 --> 25:14.860
+ People have quantified that
+
+25:14.860 --> 25:17.860
+ using what are called polygenic risk scores,
+
+25:17.860 --> 25:20.820
+ which look at all of the variations
+
+25:20.820 --> 25:23.620
+ in an individual person's genome
+
+25:23.620 --> 25:26.620
+ and add them all up in terms of how much risk they confer
+
+25:26.620 --> 25:27.820
+ for a particular disease.
+
+25:27.820 --> 25:30.540
+ And then they've put people on a spectrum
+
+25:30.540 --> 25:32.540
+ of their disease risk.
+
+25:32.540 --> 25:36.500
+ And for certain diseases where we've been sufficiently
+
+25:36.500 --> 25:38.740
+ powered to really understand the connection
+
+25:38.740 --> 25:41.580
+ between the many, many small variations
+
+25:41.580 --> 25:44.940
+ that give rise to an increased disease risk,
+
+25:44.940 --> 25:47.060
+ there's some pretty significant differences
+
+25:47.060 --> 25:49.300
+ in terms of the risk between the people,
+
+25:49.300 --> 25:52.060
+ say at the highest decile of this polygenic risk score
+
+25:52.060 --> 25:53.500
+ and the people at the lowest decile.
+
+25:53.500 --> 25:58.500
+ Sometimes those differences are factor of 10 or 12 higher.
+
+25:58.940 --> 26:03.940
+ So there's definitely a lot that our genetics
+
+26:03.940 --> 26:07.100
+ contributes to disease risk, even if it's not
+
+26:07.100 --> 26:09.100
+ by any stretch the full explanation.
+
+26:09.100 --> 26:10.500
+ And from a machine learning perspective,
+
+26:10.500 --> 26:12.020
+ there's signal there.
+
+26:12.020 --> 26:14.780
+ There is definitely signal in the genetics
+
+26:14.780 --> 26:19.100
+ and there's even more signal, we believe,
+
+26:19.100 --> 26:21.540
+ in looking at the cells that are derived
+
+26:21.540 --> 26:25.540
+ from those different genetics because in principle,
+
+26:25.540 --> 26:28.660
+ you could say all the signal is there at the genetics level.
+
+26:28.660 --> 26:30.180
+ So we don't need to look at the cells,
+
+26:30.180 --> 26:34.100
+ but our understanding of the biology is so limited at this
+
+26:34.100 --> 26:37.100
+ point than seeing what actually happens at the cellular
+
+26:37.100 --> 26:41.780
+ level is a heck of a lot closer to the human clinical outcome
+
+26:41.780 --> 26:44.620
+ than looking at the genetics directly.
+
+26:44.620 --> 26:47.180
+ And so we can learn a lot more from it
+
+26:47.180 --> 26:49.420
+ than we could by looking at genetics alone.
+
+26:49.420 --> 26:51.660
+ So just to get a sense, I don't know if it's easy to do,
+
+26:51.660 --> 26:54.220
+ but what kind of data is useful
+
+26:54.220 --> 26:56.220
+ in this disease in a dish model?
+
+26:56.220 --> 26:59.940
+ Like what's the source of raw data information?
+
+26:59.940 --> 27:03.900
+ And also from my outsider's perspective,
+
+27:03.900 --> 27:08.620
+ so biology and cells are squishy things.
+
+27:08.620 --> 27:13.620
+ And then how do you connect the computer to that?
+
+27:15.620 --> 27:17.780
+ Which sensory mechanisms, I guess.
+
+27:17.780 --> 27:20.660
+ So that's another one of those revolutions
+
+27:20.660 --> 27:22.540
+ that have happened in the last 10 years
+
+27:22.540 --> 27:27.540
+ in that our ability to measure cells very quantitatively
+
+27:27.540 --> 27:30.020
+ has also dramatically increased.
+
+27:30.020 --> 27:35.020
+ So back when I started doing biology in the late 90s,
+
+27:35.260 --> 27:40.260
+ early 2000s, that was the initial era
+
+27:40.820 --> 27:42.500
+ where we started to measure biology
+
+27:42.500 --> 27:46.420
+ in really quantitative ways using things like microarrays,
+
+27:46.420 --> 27:50.580
+ where you would measure in a single experiment
+
+27:50.580 --> 27:53.820
+ the activity level, what's called expression level
+
+27:53.820 --> 27:56.980
+ of every gene in the genome in that sample.
+
+27:56.980 --> 28:00.340
+ And that ability is what actually allowed us
+
+28:00.340 --> 28:04.180
+ to even understand that there are molecular subtypes
+
+28:04.180 --> 28:06.820
+ of diseases like cancer, where up until that point,
+
+28:06.820 --> 28:09.220
+ it's like, oh, you have breast cancer.
+
+28:09.220 --> 28:13.180
+ But then when we looked at the molecular data,
+
+28:13.180 --> 28:14.940
+ it was clear that there's different subtypes
+
+28:14.940 --> 28:17.460
+ of breast cancer that at the level of gene activity
+
+28:17.460 --> 28:19.380
+ look completely different to each other.
+
+28:20.660 --> 28:23.100
+ So that was the beginning of this process.
+
+28:23.100 --> 28:26.900
+ Now we have the ability to measure individual cells
+
+28:26.900 --> 28:28.860
+ in terms of their gene activity
+
+28:28.860 --> 28:31.340
+ using what's called single cell RNA sequencing,
+
+28:31.340 --> 28:35.020
+ which basically sequences the RNA,
+
+28:35.020 --> 28:37.980
+ which is that activity level of different genes
+
+28:39.300 --> 28:40.980
+ for every gene in the genome.
+
+28:40.980 --> 28:42.700
+ And you could do that at single cell level.
+
+28:42.700 --> 28:45.380
+ So that's an incredibly powerful way of measuring cells.
+
+28:45.380 --> 28:47.860
+ I mean, you literally count the number of transcripts.
+
+28:47.860 --> 28:50.020
+ So it really turns that squishy thing
+
+28:50.020 --> 28:51.820
+ into something that's digital.
+
+28:51.820 --> 28:55.100
+ Another tremendous data source that's emerged
+
+28:55.100 --> 28:57.860
+ in the last few years is microscopy
+
+28:57.860 --> 29:00.580
+ and specifically even super resolution microscopy,
+
+29:00.580 --> 29:03.460
+ where you could use digital reconstruction
+
+29:03.460 --> 29:06.460
+ to look at subcellular structures,
+
+29:06.460 --> 29:08.380
+ sometimes even things that are below
+
+29:08.380 --> 29:10.540
+ the diffraction limit of light
+
+29:10.540 --> 29:13.340
+ by doing a sophisticated reconstruction.
+
+29:13.340 --> 29:16.500
+ And again, that gives you a tremendous amount of information
+
+29:16.500 --> 29:18.420
+ at the subcellular level.
+
+29:18.420 --> 29:22.860
+ There's now more and more ways that amazing scientists
+
+29:22.860 --> 29:27.540
+ out there are developing for getting new types
+
+29:27.540 --> 29:30.820
+ of information from even single cells.
+
+29:30.820 --> 29:35.500
+ And so that is a way of turning those squishy things
+
+29:35.500 --> 29:37.260
+ into digital data.
+
+29:37.260 --> 29:38.660
+ Into beautiful data sets.
+
+29:38.660 --> 29:42.540
+ But so that data set then with machine learning tools
+
+29:42.540 --> 29:45.820
+ allows you to maybe understand the developmental,
+
+29:45.820 --> 29:49.900
+ like the mechanism of a particular disease.
+
+29:49.900 --> 29:54.300
+ And if it's possible to sort of at a high level describe,
+
+29:54.300 --> 29:59.300
+ how does that help lead to a drug discovery
+
+30:01.180 --> 30:05.380
+ that can help prevent, reverse that mechanism?
+
+30:05.380 --> 30:08.180
+ So I think there's different ways in which this data
+
+30:08.180 --> 30:10.420
+ could potentially be used.
+
+30:10.420 --> 30:13.820
+ Some people use it for scientific discovery
+
+30:13.820 --> 30:17.060
+ and say, oh, look, we see this phenotype
+
+30:17.060 --> 30:20.060
+ at the cellular level.
+
+30:20.060 --> 30:22.940
+ So let's try and work our way backwards
+
+30:22.940 --> 30:26.100
+ and think which genes might be involved in pathways
+
+30:26.100 --> 30:27.060
+ that give rise to that.
+
+30:27.060 --> 30:32.060
+ So that's a very sort of analytical method
+
+30:32.380 --> 30:35.140
+ to sort of work our way backwards
+
+30:35.140 --> 30:37.580
+ using our understanding of known biology.
+
+30:38.500 --> 30:41.540
+ Some people use it in a somewhat more,
+
+30:44.100 --> 30:46.580
+ sort of forward, if that was a backward,
+
+30:46.580 --> 30:48.140
+ this would be forward, which is to say,
+
+30:48.140 --> 30:50.260
+ okay, if I can perturb this gene,
+
+30:51.140 --> 30:54.060
+ does it show a phenotype that is similar
+
+30:54.060 --> 30:56.020
+ to what I see in disease patients?
+
+30:56.020 --> 30:58.980
+ And so maybe that gene is actually causal of the disease.
+
+30:58.980 --> 31:00.180
+ So that's a different way.
+
+31:00.180 --> 31:01.580
+ And then there's what we do,
+
+31:01.580 --> 31:06.260
+ which is basically to take that very large collection
+
+31:06.260 --> 31:10.660
+ of data and use machine learning to uncover the patterns
+
+31:10.660 --> 31:12.340
+ that emerge from it.
+
+31:12.340 --> 31:14.900
+ So for instance, what are those subtypes
+
+31:14.900 --> 31:18.620
+ that might be similar at the human clinical outcome,
+
+31:18.620 --> 31:21.740
+ but quite distinct when you look at the molecular data?
+
+31:21.740 --> 31:25.140
+ And then if we can identify such a subtype,
+
+31:25.140 --> 31:27.980
+ are there interventions that if I apply it
+
+31:27.980 --> 31:32.060
+ to cells that come from this subtype of the disease
+
+31:32.060 --> 31:34.140
+ and you apply that intervention,
+
+31:34.140 --> 31:38.820
+ it could be a drug or it could be a CRISPR gene intervention,
+
+31:38.820 --> 31:41.340
+ does it revert the disease state
+
+31:41.340 --> 31:42.980
+ to something that looks more like normal,
+
+31:42.980 --> 31:44.100
+ happy, healthy cells?
+
+31:44.100 --> 31:46.900
+ And so hopefully if you see that,
+
+31:46.900 --> 31:50.380
+ that gives you a certain hope
+
+31:50.380 --> 31:53.100
+ that that intervention will also have
+
+31:53.100 --> 31:55.100
+ a meaningful clinical benefit to people.
+
+31:55.100 --> 31:56.580
+ And there's obviously a bunch of things
+
+31:56.580 --> 31:58.740
+ that you would wanna do after that to validate that,
+
+31:58.740 --> 32:03.740
+ but it's a very different and much less hypothesis driven way
+
+32:03.900 --> 32:06.100
+ of uncovering new potential interventions
+
+32:06.100 --> 32:10.100
+ and might give rise to things that are not the same things
+
+32:10.100 --> 32:12.460
+ that everyone else is already looking at.
+
+32:12.460 --> 32:16.780
+ That's, I don't know, I'm just like to psychoanalyze
+
+32:16.780 --> 32:18.700
+ my own feeling about our discussion currently.
+
+32:18.700 --> 32:21.500
+ It's so exciting to talk about sort of a machine,
+
+32:21.500 --> 32:23.780
+ fundamentally, well, something that's been turned
+
+32:23.780 --> 32:25.900
+ into a machine learning problem
+
+32:25.900 --> 32:29.140
+ and that says can have so much real world impact.
+
+32:29.140 --> 32:30.340
+ That's how I feel too.
+
+32:30.340 --> 32:32.260
+ That's kind of exciting because I'm so,
+
+32:32.260 --> 32:35.740
+ most of my day is spent with data sets
+
+32:35.740 --> 32:37.900
+ that I guess closer to the news groups.
+
+32:39.060 --> 32:41.980
+ So this is a kind of, it just feels good to talk about.
+
+32:41.980 --> 32:45.340
+ In fact, I almost don't wanna talk about machine learning.
+
+32:45.340 --> 32:47.460
+ I wanna talk about the fundamentals of the data set,
+
+32:47.460 --> 32:50.420
+ which is an exciting place to be.
+
+32:50.420 --> 32:51.740
+ I agree with you.
+
+32:51.740 --> 32:53.740
+ It's what gets me up in the morning.
+
+32:53.740 --> 32:57.140
+ It's also what attracts a lot of the people
+
+32:57.140 --> 32:59.140
+ who work at InCetro to InCetro
+
+32:59.140 --> 33:01.660
+ because I think all of the,
+
+33:01.660 --> 33:03.220
+ certainly all of our machine learning people
+
+33:03.220 --> 33:08.220
+ are outstanding and could go get a job selling ads online
+
+33:08.220 --> 33:12.500
+ or doing eCommerce or even self driving cars.
+
+33:12.500 --> 33:17.500
+ But I think they would want, they come to us
+
+33:17.860 --> 33:20.020
+ because they want to work on something
+
+33:20.020 --> 33:22.380
+ that has more of an aspirational nature
+
+33:22.380 --> 33:24.740
+ and can really benefit humanity.
+
+33:24.740 --> 33:28.300
+ What, with these approaches, what do you hope,
+
+33:28.300 --> 33:31.140
+ what kind of diseases can be helped?
+
+33:31.140 --> 33:33.940
+ We mentioned Alzheimer's, schizophrenia, type 2 diabetes.
+
+33:33.940 --> 33:36.540
+ Can you just describe the various kinds of diseases
+
+33:36.540 --> 33:38.580
+ that this approach can help?
+
+33:38.580 --> 33:39.620
+ Well, we don't know.
+
+33:39.620 --> 33:43.900
+ And I try and be very cautious about making promises
+
+33:43.900 --> 33:46.620
+ about some things that, oh, we will cure X.
+
+33:46.620 --> 33:48.060
+ People make that promise.
+
+33:48.060 --> 33:52.700
+ And I think it's, I tried to first deliver and then promise
+
+33:52.700 --> 33:54.460
+ as opposed to the other way around.
+
+33:54.460 --> 33:57.340
+ There are characteristics of a disease
+
+33:57.340 --> 34:00.580
+ that make it more likely that this type of approach
+
+34:00.580 --> 34:02.700
+ can potentially be helpful.
+
+34:02.700 --> 34:04.580
+ So for instance, diseases that have
+
+34:04.580 --> 34:08.820
+ a very strong genetic basis are ones
+
+34:08.820 --> 34:10.940
+ that are more likely to manifest
+
+34:10.940 --> 34:12.820
+ in a stem cell derived model.
+
+34:13.860 --> 34:16.300
+ We would want the cellular models
+
+34:16.300 --> 34:19.940
+ to be relatively reproducible and robust
+
+34:19.940 --> 34:24.940
+ so that you could actually get enough of those cells
+
+34:25.380 --> 34:29.580
+ and in a way that isn't very highly variable and noisy.
+
+34:30.740 --> 34:34.140
+ You would want the disease to be relatively contained
+
+34:34.140 --> 34:36.700
+ in one or a small number of cell types
+
+34:36.700 --> 34:40.020
+ that you could actually create in an in vitro,
+
+34:40.020 --> 34:40.980
+ in a dish setting.
+
+34:40.980 --> 34:43.460
+ Whereas if it's something that's really broad and systemic
+
+34:43.460 --> 34:45.540
+ and involves multiple cells
+
+34:45.540 --> 34:48.460
+ that are in very distal parts of your body,
+
+34:48.460 --> 34:50.980
+ putting that all in the dish is really challenging.
+
+34:50.980 --> 34:53.740
+ So we want to focus on the ones
+
+34:53.740 --> 34:56.980
+ that are most likely to be successful today
+
+34:56.980 --> 35:01.980
+ with the hope, I think, that really smart bioengineers
+
+35:01.980 --> 35:04.900
+ out there are developing better and better systems
+
+35:04.900 --> 35:07.900
+ all the time so that diseases that might not be tractable
+
+35:07.900 --> 35:11.220
+ today might be tractable in three years.
+
+35:11.220 --> 35:14.340
+ So for instance, five years ago,
+
+35:14.340 --> 35:16.140
+ these stem cell derived models didn't really exist.
+
+35:16.140 --> 35:18.540
+ People were doing most of the work in cancer cells
+
+35:18.540 --> 35:21.660
+ and cancer cells are very, very poor models
+
+35:21.660 --> 35:24.300
+ of most human biology because they're,
+
+35:24.300 --> 35:25.820
+ A, they were cancer to begin with
+
+35:25.820 --> 35:30.140
+ and B, as you passage them and they proliferate in a dish,
+
+35:30.140 --> 35:32.660
+ they become, because of the genomic instability,
+
+35:32.660 --> 35:35.700
+ even less similar to human biology.
+
+35:35.700 --> 35:38.060
+ Now we have these stem cell derived models.
+
+35:39.340 --> 35:42.620
+ We have the capability to reasonably robustly,
+
+35:42.620 --> 35:45.820
+ not quite at the right scale yet, but close,
+
+35:45.820 --> 35:47.940
+ to derive what's called organoids,
+
+35:47.940 --> 35:52.940
+ which are these teeny little sort of multicellular organ,
+
+35:54.820 --> 35:56.660
+ sort of models of an organ system.
+
+35:56.660 --> 35:59.300
+ So there's cerebral organoids and liver organoids
+
+35:59.300 --> 36:01.620
+ and kidney organoids and.
+
+36:01.620 --> 36:03.460
+ Yeah, brain organoids.
+
+36:03.460 --> 36:04.300
+ That's organoids.
+
+36:04.300 --> 36:05.500
+ It's possibly the coolest thing I've ever seen.
+
+36:05.500 --> 36:07.500
+ Is that not like the coolest thing?
+
+36:07.500 --> 36:08.380
+ Yeah.
+
+36:08.380 --> 36:09.940
+ And then I think on the horizon,
+
+36:09.940 --> 36:11.780
+ we're starting to see things like connecting
+
+36:11.780 --> 36:13.900
+ these organoids to each other
+
+36:13.900 --> 36:15.140
+ so that you could actually start,
+
+36:15.140 --> 36:17.620
+ and there's some really cool papers that start to do that
+
+36:17.620 --> 36:19.020
+ where you can actually start to say,
+
+36:19.020 --> 36:22.180
+ okay, can we do multi organ system stuff?
+
+36:22.180 --> 36:23.500
+ There's many challenges to that.
+
+36:23.500 --> 36:27.780
+ It's not easy by any stretch, but it might,
+
+36:27.780 --> 36:29.460
+ I'm sure people will figure it out.
+
+36:29.460 --> 36:31.580
+ And in three years or five years,
+
+36:31.580 --> 36:34.020
+ there will be disease models that we could make
+
+36:34.020 --> 36:35.420
+ for things that we can't make today.
+
+36:35.420 --> 36:38.700
+ Yeah, and this conversation would seem almost outdated
+
+36:38.700 --> 36:40.460
+ with the kind of scale that could be achieved
+
+36:40.460 --> 36:41.300
+ in like three years.
+
+36:41.300 --> 36:42.140
+ I hope so.
+
+36:42.140 --> 36:42.980
+ That's the hope.
+
+36:42.980 --> 36:43.820
+ That would be so cool.
+
+36:43.820 --> 36:48.060
+ So you've cofounded Coursera with Andrew Ng
+
+36:48.060 --> 36:50.380
+ and were part of the whole MOOC revolution.
+
+36:51.380 --> 36:53.900
+ So to jump topics a little bit,
+
+36:53.900 --> 36:57.900
+ can you maybe tell the origin story of the history,
+
+36:57.900 --> 37:00.900
+ the origin story of MOOCs, of Coursera,
+
+37:00.900 --> 37:05.900
+ and in general, your teaching to huge audiences
+
+37:07.100 --> 37:12.100
+ on a very sort of impactful topic of AI in general?
+
+37:12.100 --> 37:15.860
+ So I think the origin story of MOOCs
+
+37:15.860 --> 37:17.940
+ emanates from a number of efforts
+
+37:17.940 --> 37:20.580
+ that occurred at Stanford University
+
+37:20.580 --> 37:25.420
+ around the late 2000s
+
+37:25.420 --> 37:28.580
+ where different individuals within Stanford,
+
+37:28.580 --> 37:31.500
+ myself included, were getting really excited
+
+37:31.500 --> 37:35.220
+ about the opportunities of using online technologies
+
+37:35.220 --> 37:38.980
+ as a way of achieving both improved quality of teaching
+
+37:38.980 --> 37:40.940
+ and also improved scale.
+
+37:40.940 --> 37:44.420
+ And so Andrew, for instance,
+
+37:44.420 --> 37:48.820
+ led the Stanford Engineering Everywhere,
+
+37:48.820 --> 37:51.660
+ which was sort of an attempt to take 10 Stanford courses
+
+37:51.660 --> 37:55.980
+ and put them online just as video lectures.
+
+37:55.980 --> 38:00.620
+ I led an effort within Stanford to take some of the courses
+
+38:00.620 --> 38:04.380
+ and really create a very different teaching model
+
+38:04.380 --> 38:07.340
+ that broke those up into smaller units
+
+38:07.340 --> 38:11.060
+ and had some of those embedded interactions and so on,
+
+38:11.060 --> 38:14.620
+ which got a lot of support from university leaders
+
+38:14.620 --> 38:17.380
+ because they felt like it was potentially a way
+
+38:17.380 --> 38:19.580
+ of improving the quality of instruction at Stanford
+
+38:19.580 --> 38:22.980
+ by moving to what's now called the flipped classroom model.
+
+38:22.980 --> 38:26.620
+ And so those efforts eventually sort of started
+
+38:26.620 --> 38:28.020
+ to interplay with each other
+
+38:28.020 --> 38:30.940
+ and created a tremendous sense of excitement and energy
+
+38:30.940 --> 38:32.780
+ within the Stanford community
+
+38:32.780 --> 38:36.380
+ about the potential of online teaching
+
+38:36.380 --> 38:39.260
+ and led in the fall of 2011
+
+38:39.260 --> 38:42.460
+ to the launch of the first Stanford MOOCs.
+
+38:43.740 --> 38:46.420
+ By the way, MOOCs, it's probably impossible
+
+38:46.420 --> 38:49.020
+ that people don't know, but it's, I guess, massive.
+
+38:49.020 --> 38:51.900
+ Open online courses. Open online courses.
+
+38:51.900 --> 38:54.300
+ We did not come up with the acronym.
+
+38:54.300 --> 38:57.020
+ I'm not particularly fond of the acronym,
+
+38:57.020 --> 38:58.460
+ but it is what it is. It is what it is.
+
+38:58.460 --> 39:01.380
+ Big bang is not a great term for the start of the universe,
+
+39:01.380 --> 39:03.540
+ but it is what it is. Probably so.
+
+39:05.220 --> 39:10.220
+ So anyway, so those courses launched in the fall of 2011,
+
+39:10.900 --> 39:13.780
+ and there were, within a matter of weeks,
+
+39:13.780 --> 39:17.940
+ with no real publicity campaign, just a New York Times article
+
+39:17.940 --> 39:22.660
+ that went viral, about 100,000 students or more
+
+39:22.660 --> 39:24.580
+ in each of those courses.
+
+39:24.580 --> 39:29.180
+ And I remember this conversation that Andrew and I had.
+
+39:29.180 --> 39:33.420
+ We were just like, wow, there's this real need here.
+
+39:33.420 --> 39:36.220
+ And I think we both felt like, sure,
+
+39:36.220 --> 39:39.820
+ we were accomplished academics and we could go back
+
+39:39.820 --> 39:42.620
+ and go back to our labs, write more papers.
+
+39:42.620 --> 39:45.860
+ But if we did that, then this wouldn't happen.
+
+39:45.860 --> 39:48.700
+ And it seemed too important not to happen.
+
+39:48.700 --> 39:51.620
+ And so we spent a fair bit of time debating,
+
+39:51.620 --> 39:55.300
+ do we wanna do this as a Stanford effort,
+
+39:55.300 --> 39:56.860
+ kind of building on what we'd started?
+
+39:56.860 --> 39:59.340
+ Do we wanna do this as a for profit company?
+
+39:59.340 --> 40:00.780
+ Do we wanna do this as a nonprofit?
+
+40:00.780 --> 40:03.940
+ And we decided ultimately to do it as we did with Coursera.
+
+40:04.900 --> 40:09.900
+ And so, you know, we started really operating
+
+40:09.900 --> 40:13.380
+ as a company at the beginning of 2012.
+
+40:13.380 --> 40:15.340
+ And the rest is history.
+
+40:15.340 --> 40:18.380
+ But how did you, was that really surprising to you?
+
+40:19.580 --> 40:23.300
+ How did you at that time and at this time
+
+40:23.300 --> 40:27.580
+ make sense of this need for sort of global education
+
+40:27.580 --> 40:29.380
+ you mentioned that you felt that, wow,
+
+40:29.380 --> 40:33.260
+ the popularity indicates that there's a hunger
+
+40:33.260 --> 40:37.620
+ for sort of globalization of learning.
+
+40:37.620 --> 40:42.620
+ I think there is a hunger for learning that,
+
+40:43.620 --> 40:45.100
+ you know, globalization is part of it,
+
+40:45.100 --> 40:47.140
+ but I think it's just a hunger for learning.
+
+40:47.140 --> 40:50.420
+ The world has changed in the last 50 years.
+
+40:50.420 --> 40:54.820
+ It used to be that you finished college, you got a job,
+
+40:54.820 --> 40:57.020
+ by and large, the skills that you learned in college
+
+40:57.020 --> 40:59.700
+ were pretty much what got you through
+
+40:59.700 --> 41:01.380
+ the rest of your job history.
+
+41:01.380 --> 41:02.940
+ And yeah, you learn some stuff,
+
+41:02.940 --> 41:05.500
+ but it wasn't a dramatic change.
+
+41:05.500 --> 41:09.420
+ Today, we're in a world where the skills that you need
+
+41:09.420 --> 41:11.260
+ for a lot of jobs, they didn't even exist
+
+41:11.260 --> 41:12.500
+ when you went to college.
+
+41:12.500 --> 41:14.540
+ And the jobs, and many of the jobs that existed
+
+41:14.540 --> 41:18.620
+ when you went to college don't even exist today or are dying.
+
+41:18.620 --> 41:22.580
+ So part of that is due to AI, but not only.
+
+41:22.580 --> 41:27.300
+ And we need to find a way of keeping people,
+
+41:27.300 --> 41:29.900
+ giving people access to the skills that they need today.
+
+41:29.900 --> 41:32.020
+ And I think that's really what's driving
+
+41:32.020 --> 41:33.900
+ a lot of this hunger.
+
+41:33.900 --> 41:37.020
+ So I think if we even take a step back,
+
+41:37.020 --> 41:39.940
+ for you, all of this started in trying to think
+
+41:39.940 --> 41:43.140
+ of new ways to teach or to,
+
+41:43.140 --> 41:47.100
+ new ways to sort of organize the material
+
+41:47.100 --> 41:48.380
+ and present the material in a way
+
+41:48.380 --> 41:51.380
+ that would help the education process, the pedagogy, yeah.
+
+41:51.380 --> 41:56.380
+ So what have you learned about effective education
+
+41:56.380 --> 41:57.540
+ from this process of playing,
+
+41:57.540 --> 42:00.580
+ of experimenting with different ideas?
+
+42:00.580 --> 42:03.940
+ So we learned a number of things.
+
+42:03.940 --> 42:06.620
+ Some of which I think could translate back
+
+42:06.620 --> 42:08.380
+ and have translated back effectively
+
+42:08.380 --> 42:09.900
+ to how people teach on campus.
+
+42:09.900 --> 42:11.700
+ And some of which I think are more specific
+
+42:11.700 --> 42:13.820
+ to people who learn online,
+
+42:13.820 --> 42:18.820
+ more sort of people who learn as part of their daily life.
+
+42:18.900 --> 42:20.980
+ So we learned, for instance, very quickly
+
+42:20.980 --> 42:23.180
+ that short is better.
+
+42:23.180 --> 42:26.820
+ So people who are especially in the workforce
+
+42:26.820 --> 42:30.020
+ can't do a 15 week semester long course.
+
+42:30.020 --> 42:32.500
+ They just can't fit that into their lives.
+
+42:32.500 --> 42:35.540
+ Sure, can you describe the shortness of what?
+
+42:35.540 --> 42:39.060
+ The entirety, so every aspect,
+
+42:39.060 --> 42:41.980
+ so the little lecture, the lecture's short,
+
+42:41.980 --> 42:43.020
+ the course is short.
+
+42:43.020 --> 42:43.860
+ Both.
+
+42:43.860 --> 42:47.820
+ We started out, the first online education efforts
+
+42:47.820 --> 42:50.620
+ were actually MIT's OpenCourseWare initiatives.
+
+42:50.620 --> 42:55.620
+ And that was recording of classroom lectures and,
+
+42:55.860 --> 42:57.620
+ Hour and a half or something like that, yeah.
+
+42:57.620 --> 43:00.380
+ And that didn't really work very well.
+
+43:00.380 --> 43:01.540
+ I mean, some people benefit.
+
+43:01.540 --> 43:03.140
+ I mean, of course they did,
+
+43:03.140 --> 43:06.700
+ but it's not really a very palatable experience
+
+43:06.700 --> 43:11.220
+ for someone who has a job and three kids
+
+43:11.220 --> 43:13.980
+ and they need to run errands and such.
+
+43:13.980 --> 43:17.900
+ They can't fit 15 weeks into their life
+
+43:17.900 --> 43:20.700
+ and the hour and a half is really hard.
+
+43:20.700 --> 43:22.940
+ So we learned very quickly.
+
+43:22.940 --> 43:26.540
+ I mean, we started out with short video modules
+
+43:26.540 --> 43:28.180
+ and over time we made them shorter
+
+43:28.180 --> 43:31.660
+ because we realized that 15 minutes was still too long.
+
+43:31.660 --> 43:33.860
+ If you wanna fit in when you're waiting in line
+
+43:33.860 --> 43:35.500
+ for your kid's doctor's appointment,
+
+43:35.500 --> 43:37.220
+ it's better if it's five to seven.
+
+43:38.620 --> 43:42.540
+ We learned that 15 week courses don't work
+
+43:42.540 --> 43:44.820
+ and you really wanna break this up into shorter units
+
+43:44.820 --> 43:46.820
+ so that there is a natural completion point,
+
+43:46.820 --> 43:48.660
+ gives people a sense of they're really close
+
+43:48.660 --> 43:50.420
+ to finishing something meaningful.
+
+43:50.420 --> 43:53.580
+ They can always come back and take part two and part three.
+
+43:53.580 --> 43:56.500
+ We also learned that compressing the content works
+
+43:56.500 --> 44:00.340
+ really well because if some people that pace works well
+
+44:00.340 --> 44:03.260
+ and for others, they can always rewind and watch again.
+
+44:03.260 --> 44:05.340
+ And so people have the ability
+
+44:05.340 --> 44:06.980
+ to then learn at their own pace.
+
+44:06.980 --> 44:11.740
+ And so that flexibility, the brevity and the flexibility
+
+44:11.740 --> 44:15.420
+ are both things that we found to be very important.
+
+44:15.420 --> 44:18.780
+ We learned that engagement during the content is important
+
+44:18.780 --> 44:20.620
+ and the quicker you give people feedback,
+
+44:20.620 --> 44:22.540
+ the more likely they are to be engaged.
+
+44:22.540 --> 44:24.540
+ Hence the introduction of these,
+
+44:24.540 --> 44:27.740
+ which we actually was an intuition that I had going in
+
+44:27.740 --> 44:30.900
+ and was then validated using data
+
+44:30.900 --> 44:34.300
+ that introducing some of these sort of little micro quizzes
+
+44:34.300 --> 44:36.500
+ into the lectures really helps.
+
+44:36.500 --> 44:39.420
+ Self graded as automatically graded assessments
+
+44:39.420 --> 44:41.900
+ really helped too because it gives people feedback.
+
+44:41.900 --> 44:43.180
+ See, there you are.
+
+44:43.180 --> 44:45.620
+ So all of these are valuable.
+
+44:45.620 --> 44:47.260
+ And then we learned a bunch of other things too.
+
+44:47.260 --> 44:49.420
+ We did some really interesting experiments, for instance,
+
+44:49.420 --> 44:54.180
+ on gender bias and how having a female role model
+
+44:54.180 --> 44:59.180
+ as an instructor can change the balance of men to women
+
+44:59.340 --> 45:02.020
+ in terms of, especially in STEM courses.
+
+45:02.020 --> 45:04.820
+ And you could do that online by doing AB testing
+
+45:04.820 --> 45:07.740
+ in ways that would be really difficult to go on campus.
+
+45:07.740 --> 45:09.140
+ Oh, that's exciting.
+
+45:09.140 --> 45:11.540
+ But so the shortness, the compression,
+
+45:11.540 --> 45:15.700
+ I mean, that's actually, so that probably is true
+
+45:15.700 --> 45:20.700
+ for all good editing is always just compressing the content,
+
+45:20.980 --> 45:21.940
+ making it shorter.
+
+45:21.940 --> 45:24.860
+ So that puts a lot of burden on the creator of the,
+
+45:24.860 --> 45:28.660
+ the instructor and the creator of the educational content.
+
+45:28.660 --> 45:31.260
+ Probably most lectures at MIT or Stanford
+
+45:31.260 --> 45:34.340
+ could be five times shorter
+
+45:34.340 --> 45:37.580
+ if the preparation was put enough.
+
+45:37.580 --> 45:41.660
+ So maybe people might disagree with that,
+
+45:41.660 --> 45:45.340
+ but like the Christmas, the clarity that a lot of the,
+
+45:45.340 --> 45:50.140
+ like Coursera delivers is, how much effort does that take?
+
+45:50.140 --> 45:54.100
+ So first of all, let me say that it's not clear
+
+45:54.100 --> 45:57.380
+ that that crispness would work as effectively
+
+45:57.380 --> 45:58.900
+ in a face to face setting
+
+45:58.900 --> 46:02.420
+ because people need time to absorb the material.
+
+46:02.420 --> 46:04.740
+ And so you need to at least pause
+
+46:04.740 --> 46:07.300
+ and give people a chance to reflect and maybe practice.
+
+46:07.300 --> 46:09.500
+ And that's what MOOCs do is that they give you
+
+46:09.500 --> 46:11.780
+ these chunks of content and then ask you
+
+46:11.780 --> 46:13.420
+ to practice with it.
+
+46:13.420 --> 46:16.300
+ And that's where I think some of the newer pedagogy
+
+46:16.300 --> 46:19.180
+ that people are adopting in face to face teaching
+
+46:19.180 --> 46:21.580
+ that have to do with interactive learning and such
+
+46:21.580 --> 46:23.460
+ can be really helpful.
+
+46:23.460 --> 46:26.620
+ But both those approaches,
+
+46:26.620 --> 46:29.380
+ whether you're doing that type of methodology
+
+46:29.380 --> 46:32.820
+ in online teaching or in that flipped classroom,
+
+46:32.820 --> 46:34.500
+ interactive teaching.
+
+46:34.500 --> 46:37.180
+ What's that, sorry to pause, what's flipped classroom?
+
+46:37.180 --> 46:41.540
+ Flipped classroom is a way in which online content
+
+46:41.540 --> 46:45.060
+ is used to supplement face to face teaching
+
+46:45.060 --> 46:47.220
+ where people watch the videos perhaps
+
+46:47.220 --> 46:49.860
+ and do some of the exercises before coming to class.
+
+46:49.860 --> 46:51.180
+ And then when they come to class,
+
+46:51.180 --> 46:53.580
+ it's actually to do much deeper problem solving
+
+46:53.580 --> 46:54.980
+ oftentimes in a group.
+
+46:56.100 --> 47:00.460
+ But any one of those different pedagogies
+
+47:00.460 --> 47:03.500
+ that are beyond just standing there and droning on
+
+47:03.500 --> 47:06.300
+ in front of the classroom for an hour and 15 minutes
+
+47:06.300 --> 47:09.260
+ require a heck of a lot more preparation.
+
+47:09.260 --> 47:13.660
+ And so it's one of the challenges I think that people have
+
+47:13.660 --> 47:15.740
+ that we had when trying to convince instructors
+
+47:15.740 --> 47:16.700
+ to teach on Coursera.
+
+47:16.700 --> 47:20.380
+ And it's part of the challenges that pedagogy experts
+
+47:20.380 --> 47:22.060
+ on campus have in trying to get faculty
+
+47:22.060 --> 47:23.740
+ to teach differently is that it's actually harder
+
+47:23.740 --> 47:26.380
+ to teach that way than it is to stand there and drone.
+
+47:27.860 --> 47:32.420
+ Do you think MOOCs will replace in person education
+
+47:32.420 --> 47:37.420
+ or become the majority of in person of education
+
+47:37.420 --> 47:41.380
+ of the way people learn in the future?
+
+47:41.380 --> 47:43.260
+ Again, the future could be very far away,
+
+47:43.260 --> 47:46.020
+ but where's the trend going do you think?
+
+47:46.020 --> 47:50.140
+ So I think it's a nuanced and complicated answer.
+
+47:50.140 --> 47:55.140
+ I don't think MOOCs will replace face to face teaching.
+
+47:55.780 --> 48:00.300
+ I think learning is in many cases a social experience.
+
+48:00.300 --> 48:05.300
+ And even at Coursera, we had people who naturally formed
+
+48:05.300 --> 48:07.780
+ study groups, even when they didn't have to,
+
+48:07.780 --> 48:10.300
+ to just come and talk to each other.
+
+48:10.300 --> 48:14.420
+ And we found that that actually benefited their learning
+
+48:14.420 --> 48:15.780
+ in very important ways.
+
+48:15.780 --> 48:19.660
+ So there was more success among learners
+
+48:19.660 --> 48:22.620
+ who had those study groups than among ones who didn't.
+
+48:22.620 --> 48:23.860
+ So I don't think it's just gonna,
+
+48:23.860 --> 48:26.060
+ oh, we're all gonna just suddenly learn online
+
+48:26.060 --> 48:28.940
+ with a computer and no one else in the same way
+
+48:28.940 --> 48:33.180
+ that recorded music has not replaced live concerts.
+
+48:33.180 --> 48:38.180
+ But I do think that especially when you are thinking
+
+48:38.940 --> 48:42.740
+ about continuing education, the stuff that people get
+
+48:42.740 --> 48:44.700
+ when they're traditional,
+
+48:44.700 --> 48:47.780
+ whatever high school, college education is done,
+
+48:47.780 --> 48:52.500
+ and they yet have to maintain their level of expertise
+
+48:52.500 --> 48:54.620
+ and skills in a rapidly changing world,
+
+48:54.620 --> 48:58.180
+ I think people will consume more and more educational content
+
+48:58.180 --> 49:01.380
+ in this online format because going back to school
+
+49:01.380 --> 49:04.860
+ for formal education is not an option for most people.
+
+49:04.860 --> 49:07.380
+ Briefly, it might be a difficult question to ask,
+
+49:07.380 --> 49:09.940
+ but there's a lot of people fascinated
+
+49:09.940 --> 49:12.820
+ by artificial intelligence, by machine learning,
+
+49:12.820 --> 49:13.940
+ by deep learning.
+
+49:13.940 --> 49:18.140
+ Is there a recommendation for the next year
+
+49:18.140 --> 49:21.340
+ or for a lifelong journey of somebody interested in this?
+
+49:21.340 --> 49:23.700
+ How do they begin?
+
+49:23.700 --> 49:27.220
+ How do they enter that learning journey?
+
+49:27.220 --> 49:30.900
+ I think the important thing is first to just get started.
+
+49:30.900 --> 49:35.900
+ And there's plenty of online content that one can get
+
+49:36.580 --> 49:40.460
+ for both the core foundations of mathematics
+
+49:40.460 --> 49:42.260
+ and statistics and programming.
+
+49:42.260 --> 49:44.580
+ And then from there to machine learning,
+
+49:44.580 --> 49:47.100
+ I would encourage people not to skip
+
+49:47.100 --> 49:48.700
+ to quickly pass the foundations
+
+49:48.700 --> 49:51.060
+ because I find that there's a lot of people
+
+49:51.060 --> 49:53.740
+ who learn machine learning, whether it's online
+
+49:53.740 --> 49:56.180
+ or on campus without getting those foundations.
+
+49:56.180 --> 50:00.020
+ And they basically just turn the crank on existing models
+
+50:00.020 --> 50:03.540
+ in ways that A, don't allow for a lot of innovation
+
+50:03.540 --> 50:07.700
+ and an adjustment to the problem at hand,
+
+50:07.700 --> 50:09.660
+ but also B, are sometimes just wrong
+
+50:09.660 --> 50:12.900
+ and they don't even realize that their application is wrong
+
+50:12.900 --> 50:15.940
+ because there's artifacts that they haven't fully understood.
+
+50:15.940 --> 50:17.860
+ So I think the foundations,
+
+50:17.860 --> 50:19.860
+ machine learning is an important step.
+
+50:19.860 --> 50:24.860
+ And then actually start solving problems,
+
+50:24.860 --> 50:27.620
+ try and find someone to solve them with
+
+50:27.620 --> 50:28.980
+ because especially at the beginning,
+
+50:28.980 --> 50:31.580
+ it's useful to have someone to bounce ideas off
+
+50:31.580 --> 50:33.220
+ and fix mistakes that you make
+
+50:33.220 --> 50:35.980
+ and you can fix mistakes that they make,
+
+50:35.980 --> 50:40.540
+ but then just find practical problems,
+
+50:40.540 --> 50:43.300
+ whether it's in your workplace or if you don't have that,
+
+50:43.300 --> 50:46.100
+ Kaggle competitions or such are a really great place
+
+50:46.100 --> 50:50.860
+ to find interesting problems and just practice.
+
+50:50.860 --> 50:52.340
+ Practice.
+
+50:52.340 --> 50:54.540
+ Perhaps a bit of a romanticized question,
+
+50:54.540 --> 50:59.340
+ but what idea in deep learning do you find,
+
+50:59.340 --> 51:02.220
+ have you found in your journey the most beautiful
+
+51:02.220 --> 51:04.140
+ or surprising or interesting?
+
+51:07.660 --> 51:09.420
+ Perhaps not just deep learning,
+
+51:09.420 --> 51:12.620
+ but AI in general, statistics.
+
+51:14.940 --> 51:16.540
+ I'm gonna answer with two things.
+
+51:19.100 --> 51:23.100
+ One would be the foundational concept of end to end training,
+
+51:23.100 --> 51:26.940
+ which is that you start from the raw data
+
+51:26.940 --> 51:31.940
+ and you train something that is not like a single piece,
+
+51:32.980 --> 51:37.980
+ but rather towards the actual goal that you're looking to.
+
+51:38.980 --> 51:40.820
+ From the raw data to the outcome,
+
+51:40.820 --> 51:43.580
+ like no details in between.
+
+51:43.580 --> 51:45.460
+ Well, not no details, but the fact that you,
+
+51:45.460 --> 51:47.540
+ I mean, you could certainly introduce building blocks
+
+51:47.540 --> 51:50.260
+ that were trained towards other tasks.
+
+51:50.260 --> 51:53.060
+ I'm actually coming to that in my second half of the answer,
+
+51:53.060 --> 51:57.740
+ but it doesn't have to be like a single monolithic blob
+
+51:57.740 --> 51:58.580
+ in the middle.
+
+51:58.580 --> 52:00.220
+ Actually, I think that's not ideal,
+
+52:00.220 --> 52:02.620
+ but rather the fact that at the end of the day,
+
+52:02.620 --> 52:04.780
+ you can actually train something that goes all the way
+
+52:04.780 --> 52:06.900
+ from the beginning to the end.
+
+52:06.900 --> 52:09.140
+ And the other one that I find really compelling
+
+52:09.140 --> 52:13.180
+ is the notion of learning a representation
+
+52:13.180 --> 52:18.180
+ that in its turn, even if it was trained to another task,
+
+52:18.180 --> 52:23.180
+ can potentially be used as a much more rapid starting point
+
+52:24.260 --> 52:26.700
+ to solving a different task.
+
+52:26.700 --> 52:29.500
+ And that's, I think, reminiscent
+
+52:29.500 --> 52:32.300
+ of what makes people successful learners.
+
+52:32.300 --> 52:35.460
+ It's something that is relatively new
+
+52:35.460 --> 52:36.540
+ in the machine learning space.
+
+52:36.540 --> 52:38.700
+ I think it's underutilized even relative
+
+52:38.700 --> 52:41.460
+ to today's capabilities, but more and more
+
+52:41.460 --> 52:45.220
+ of how do we learn sort of reusable representation?
+
+52:45.220 --> 52:49.700
+ And so end to end and transfer learning.
+
+52:49.700 --> 52:51.140
+ Yeah.
+
+52:51.140 --> 52:53.660
+ Is it surprising to you that neural networks
+
+52:53.660 --> 52:56.980
+ are able to, in many cases, do these things?
+
+52:56.980 --> 53:01.980
+ Is it maybe taken back to when you first would dive deep
+
+53:02.260 --> 53:05.460
+ into neural networks or in general, even today,
+
+53:05.460 --> 53:07.860
+ is it surprising that neural networks work at all
+
+53:07.860 --> 53:12.860
+ and work wonderfully to do this kind of raw end to end
+
+53:12.860 --> 53:16.380
+ and end to end learning and even transfer learning?
+
+53:16.380 --> 53:21.380
+ I think I was surprised by how well
+
+53:22.540 --> 53:25.780
+ when you have large enough amounts of data,
+
+53:26.820 --> 53:31.820
+ it's possible to find a meaningful representation
+
+53:32.940 --> 53:36.060
+ in what is an exceedingly high dimensional space.
+
+53:36.060 --> 53:39.300
+ And so I find that to be really exciting
+
+53:39.300 --> 53:41.620
+ and people are still working on the math for that.
+
+53:41.620 --> 53:43.580
+ There's more papers on that every year.
+
+53:43.580 --> 53:46.220
+ And I think it would be really cool
+
+53:46.220 --> 53:51.220
+ if we figured that out, but that to me was a surprise
+
+53:52.220 --> 53:55.420
+ because in the early days when I was starting my way
+
+53:55.420 --> 53:58.700
+ in machine learning and the data sets were rather small,
+
+53:58.700 --> 54:02.780
+ I think we believed, I believed that you needed
+
+54:02.780 --> 54:05.500
+ to have a much more constrained
+
+54:05.500 --> 54:08.620
+ and knowledge rich search space
+
+54:08.620 --> 54:11.860
+ to really make, to really get to a meaningful answer.
+
+54:11.860 --> 54:13.860
+ And I think it was true at the time.
+
+54:13.860 --> 54:18.220
+ What I think is still a question
+
+54:18.220 --> 54:23.180
+ is will a completely knowledge free approach
+
+54:23.180 --> 54:26.020
+ where there's no prior knowledge going
+
+54:26.020 --> 54:28.980
+ into the construction of the model,
+
+54:28.980 --> 54:31.620
+ is that gonna be the solution or not?
+
+54:31.620 --> 54:34.180
+ It's not actually the solution today
+
+54:34.180 --> 54:38.940
+ in the sense that the architecture of a convolutional
+
+54:38.940 --> 54:41.500
+ neural network that's used for images
+
+54:41.500 --> 54:43.260
+ is actually quite different
+
+54:43.260 --> 54:46.580
+ to the type of network that's used for language
+
+54:46.580 --> 54:50.220
+ and yet different from the one that's used for speech
+
+54:50.220 --> 54:52.500
+ or biology or any other application.
+
+54:52.500 --> 54:55.860
+ There's still some insight that goes
+
+54:55.860 --> 54:58.180
+ into the structure of the network
+
+54:58.180 --> 55:00.820
+ to get the right performance.
+
+55:00.820 --> 55:01.660
+ Will you be able to come up
+
+55:01.660 --> 55:03.220
+ with a universal learning machine?
+
+55:03.220 --> 55:05.100
+ I don't know.
+
+55:05.100 --> 55:07.300
+ I wonder if there's always has to be some insight
+
+55:07.300 --> 55:10.300
+ injected somewhere or whether it can converge.
+
+55:10.300 --> 55:13.580
+ So you've done a lot of interesting work
+
+55:13.580 --> 55:16.340
+ with probabilistic graphical models in general,
+
+55:16.340 --> 55:18.420
+ Bayesian deep learning and so on.
+
+55:18.420 --> 55:21.060
+ Can you maybe speak high level,
+
+55:21.060 --> 55:25.500
+ how can learning systems deal with uncertainty?
+
+55:25.500 --> 55:28.940
+ One of the limitations I think of a lot
+
+55:28.940 --> 55:33.780
+ of machine learning models is that
+
+55:33.780 --> 55:35.780
+ they come up with an answer
+
+55:35.780 --> 55:40.780
+ and you don't know how much you can believe that answer.
+
+55:40.860 --> 55:45.860
+ And oftentimes the answer is actually
+
+55:47.740 --> 55:50.580
+ quite poorly calibrated relative to its uncertainties.
+
+55:50.580 --> 55:55.500
+ Even if you look at where the confidence
+
+55:55.500 --> 55:58.980
+ that comes out of say the neural network at the end,
+
+55:58.980 --> 56:01.820
+ and you ask how much more likely
+
+56:01.820 --> 56:04.820
+ is an answer of 0.8 versus 0.9,
+
+56:04.820 --> 56:07.700
+ it's not really in any way calibrated
+
+56:07.700 --> 56:12.340
+ to the actual reliability of that network
+
+56:12.340 --> 56:13.180
+ and how true it is.
+
+56:13.180 --> 56:16.780
+ And the further away you move from the training data,
+
+56:16.780 --> 56:20.700
+ the more, not only the more wrong the network is,
+
+56:20.700 --> 56:22.580
+ often it's more wrong and more confident
+
+56:22.580 --> 56:24.380
+ in its wrong answer.
+
+56:24.380 --> 56:29.340
+ And that is a serious issue in a lot of application areas.
+
+56:29.340 --> 56:30.380
+ So when you think for instance,
+
+56:30.380 --> 56:33.340
+ about medical diagnosis as being maybe an epitome
+
+56:33.340 --> 56:35.700
+ of how problematic this can be,
+
+56:35.700 --> 56:37.700
+ if you were training your network
+
+56:37.700 --> 56:40.180
+ on a certain set of patients
+
+56:40.180 --> 56:41.540
+ and a certain patient population,
+
+56:41.540 --> 56:44.620
+ and I have a patient that is an outlier
+
+56:44.620 --> 56:46.780
+ and there's no human that looks at this,
+
+56:46.780 --> 56:49.100
+ and that patient is put into a neural network
+
+56:49.100 --> 56:50.340
+ and your network not only gives
+
+56:50.340 --> 56:51.940
+ a completely incorrect diagnosis,
+
+56:51.940 --> 56:53.980
+ but is supremely confident
+
+56:53.980 --> 56:56.340
+ in its wrong answer, you could kill people.
+
+56:56.340 --> 57:01.340
+ So I think creating more of an understanding
+
+57:01.940 --> 57:05.540
+ of how do you produce networks
+
+57:05.540 --> 57:09.060
+ that are calibrated in their uncertainty
+
+57:09.060 --> 57:10.940
+ and can also say, you know what, I give up.
+
+57:10.940 --> 57:14.580
+ I don't know what to say about this particular data instance
+
+57:14.580 --> 57:16.340
+ because I've never seen something
+
+57:16.340 --> 57:18.140
+ that's sufficiently like it before.
+
+57:18.140 --> 57:20.540
+ I think it's going to be really important
+
+57:20.540 --> 57:23.060
+ in mission critical applications,
+
+57:23.060 --> 57:25.380
+ especially ones where human life is at stake
+
+57:25.380 --> 57:28.300
+ and that includes medical applications,
+
+57:28.300 --> 57:31.180
+ but it also includes automated driving
+
+57:31.180 --> 57:33.300
+ because you'd want the network to be able to say,
+
+57:33.300 --> 57:36.020
+ you know what, I have no idea what this blob is
+
+57:36.020 --> 57:37.140
+ that I'm seeing in the middle of the road.
+
+57:37.140 --> 57:38.380
+ So I'm just going to stop
+
+57:38.380 --> 57:41.540
+ because I don't want to potentially run over a pedestrian
+
+57:41.540 --> 57:42.820
+ that I don't recognize.
+
+57:42.820 --> 57:47.540
+ Is there good mechanisms, ideas of how to allow
+
+57:47.540 --> 57:52.260
+ learning systems to provide that uncertainty
+
+57:52.260 --> 57:54.060
+ along with their predictions?
+
+57:54.060 --> 57:57.180
+ Certainly people have come up with mechanisms
+
+57:57.180 --> 58:00.700
+ that involve Bayesian deep learning,
+
+58:00.700 --> 58:04.460
+ deep learning that involves Gaussian processes.
+
+58:04.460 --> 58:07.660
+ I mean, there's a slew of different approaches
+
+58:07.660 --> 58:09.180
+ that people have come up with.
+
+58:09.180 --> 58:13.660
+ There's methods that use ensembles of networks
+
+58:13.660 --> 58:15.260
+ trained with different subsets of data
+
+58:15.260 --> 58:17.620
+ or different random starting points.
+
+58:17.620 --> 58:20.260
+ Those are actually sometimes surprisingly good
+
+58:20.260 --> 58:24.020
+ at creating a sort of set of how confident
+
+58:24.020 --> 58:26.580
+ or not you are in your answer.
+
+58:26.580 --> 58:28.980
+ It's very much an area of open research.
+
+58:30.020 --> 58:33.660
+ Let's cautiously venture back into the land of philosophy
+
+58:33.660 --> 58:37.660
+ and speaking of AI systems providing uncertainty,
+
+58:37.660 --> 58:41.140
+ somebody like Stuart Russell believes
+
+58:41.140 --> 58:43.420
+ that as we create more and more intelligence systems,
+
+58:43.420 --> 58:46.820
+ it's really important for them to be full of self doubt
+
+58:46.820 --> 58:51.820
+ because if they're given more and more power,
+
+58:51.940 --> 58:54.820
+ we want the way to maintain human control
+
+58:54.820 --> 58:57.900
+ over AI systems or human supervision, which is true.
+
+58:57.900 --> 58:59.500
+ Like you just mentioned with autonomous vehicles,
+
+58:59.500 --> 59:02.420
+ it's really important to get human supervision
+
+59:02.420 --> 59:05.940
+ when the car is not sure because if it's really confident
+
+59:05.940 --> 59:07.860
+ in cases when it can get in trouble,
+
+59:07.860 --> 59:09.380
+ it's gonna be really problematic.
+
+59:09.380 --> 59:12.980
+ So let me ask about sort of the questions of AGI
+
+59:12.980 --> 59:14.860
+ and human level intelligence.
+
+59:14.860 --> 59:17.180
+ I mean, we've talked about curing diseases,
+
+59:18.780 --> 59:20.180
+ which is sort of fundamental thing
+
+59:20.180 --> 59:21.780
+ we can have an impact today,
+
+59:21.780 --> 59:26.180
+ but AI people also dream of both understanding
+
+59:26.180 --> 59:29.220
+ and creating intelligence.
+
+59:29.220 --> 59:30.420
+ Is that something you think about?
+
+59:30.420 --> 59:32.780
+ Is that something you dream about?
+
+59:32.780 --> 59:36.980
+ Is that something you think is within our reach
+
+59:36.980 --> 59:39.660
+ to be thinking about as computer scientists?
+
+59:39.660 --> 59:43.500
+ Well, boy, let me tease apart different parts
+
+59:43.500 --> 59:45.180
+ of that question.
+
+59:45.180 --> 59:46.420
+ The worst question.
+
+59:46.420 --> 59:50.940
+ Yeah, it's a multi part question.
+
+59:50.940 --> 59:55.940
+ So let me start with the feasibility of AGI.
+
+59:57.500 --> 1:00:01.500
+ Then I'll talk about the timelines a little bit
+
+1:00:01.500 --> 1:00:05.980
+ and then talk about, well, what controls does one need
+
+1:00:05.980 --> 1:00:10.540
+ when thinking about protections in the AI space?
+
+1:00:10.540 --> 1:00:15.540
+ So, I think AGI obviously is a longstanding dream
+
+1:00:17.180 --> 1:00:21.300
+ that even our early pioneers in the space had,
+
+1:00:21.300 --> 1:00:23.460
+ the Turing test and so on
+
+1:00:23.460 --> 1:00:27.580
+ are the earliest discussions of that.
+
+1:00:27.580 --> 1:00:32.580
+ We're obviously closer than we were 70 or so years ago,
+
+1:00:32.580 --> 1:00:36.420
+ but I think it's still very far away.
+
+1:00:37.420 --> 1:00:40.900
+ I think machine learning algorithms today
+
+1:00:40.900 --> 1:00:45.900
+ are really exquisitely good pattern recognizers
+
+1:00:46.180 --> 1:00:49.420
+ in very specific problem domains
+
+1:00:49.420 --> 1:00:51.540
+ where they have seen enough training data
+
+1:00:51.540 --> 1:00:53.740
+ to make good predictions.
+
+1:00:53.740 --> 1:00:57.860
+ You take a machine learning algorithm
+
+1:00:57.860 --> 1:01:00.660
+ and you move it to a slightly different version
+
+1:01:00.660 --> 1:01:03.780
+ of even that same problem, far less one that's different
+
+1:01:03.780 --> 1:01:06.980
+ and it will just completely choke.
+
+1:01:06.980 --> 1:01:11.620
+ So I think we're nowhere close to the versatility
+
+1:01:11.620 --> 1:01:15.620
+ and flexibility of even a human toddler
+
+1:01:15.620 --> 1:01:19.740
+ in terms of their ability to context switch
+
+1:01:19.740 --> 1:01:20.740
+ and solve different problems
+
+1:01:20.740 --> 1:01:24.340
+ using a single knowledge base, single brain.
+
+1:01:24.340 --> 1:01:28.820
+ So am I desperately worried about
+
+1:01:28.820 --> 1:01:33.540
+ the machines taking over the universe
+
+1:01:33.540 --> 1:01:35.500
+ and starting to kill people
+
+1:01:35.500 --> 1:01:37.380
+ because they want to have more power?
+
+1:01:37.380 --> 1:01:38.460
+ I don't think so.
+
+1:01:38.460 --> 1:01:40.460
+ Well, so to pause on that,
+
+1:01:40.460 --> 1:01:43.620
+ so you kind of intuited that super intelligence
+
+1:01:43.620 --> 1:01:46.300
+ is a very difficult thing to achieve.
+
+1:01:46.300 --> 1:01:47.140
+ Even intelligence.
+
+1:01:47.140 --> 1:01:48.180
+ Intelligence, intelligence.
+
+1:01:48.180 --> 1:01:50.500
+ Super intelligence, we're not even close to intelligence.
+
+1:01:50.500 --> 1:01:53.380
+ Even just the greater abilities of generalization
+
+1:01:53.380 --> 1:01:55.180
+ of our current systems.
+
+1:01:55.180 --> 1:01:59.180
+ But we haven't answered all the parts
+
+1:01:59.180 --> 1:02:00.020
+ and we'll take another.
+
+1:02:00.020 --> 1:02:00.860
+ I'm getting to the second part.
+
+1:02:00.860 --> 1:02:04.340
+ Okay, but maybe another tangent you can also pick up
+
+1:02:04.340 --> 1:02:08.140
+ is can we get in trouble with much dumber systems?
+
+1:02:08.140 --> 1:02:11.300
+ Yes, and that is exactly where I was going.
+
+1:02:11.300 --> 1:02:16.140
+ So just to wrap up on the threats of AGI,
+
+1:02:16.140 --> 1:02:21.140
+ I think that it seems to me a little early today
+
+1:02:21.140 --> 1:02:26.140
+ to figure out protections against a human level
+
+1:02:26.220 --> 1:02:28.620
+ or superhuman level intelligence
+
+1:02:28.620 --> 1:02:31.580
+ where we don't even see the skeleton
+
+1:02:31.580 --> 1:02:33.140
+ of what that would look like.
+
+1:02:33.140 --> 1:02:35.740
+ So it seems that it's very speculative
+
+1:02:35.740 --> 1:02:39.820
+ on how to protect against that.
+
+1:02:39.820 --> 1:02:43.940
+ But we can definitely and have gotten into trouble
+
+1:02:43.940 --> 1:02:45.980
+ on much dumber systems.
+
+1:02:45.980 --> 1:02:48.340
+ And a lot of that has to do with the fact
+
+1:02:48.340 --> 1:02:52.300
+ that the systems that we're building are increasingly
+
+1:02:52.300 --> 1:02:57.300
+ complex, increasingly poorly understood.
+
+1:02:57.380 --> 1:03:01.420
+ And there's ripple effects that are unpredictable
+
+1:03:01.420 --> 1:03:06.420
+ in changing little things that can have dramatic consequences
+
+1:03:06.420 --> 1:03:08.460
+ on the outcome.
+
+1:03:08.460 --> 1:03:11.620
+ And by the way, that's not unique to artificial intelligence.
+
+1:03:11.620 --> 1:03:13.820
+ I think artificial intelligence exacerbates that,
+
+1:03:13.820 --> 1:03:15.100
+ brings it to a new level.
+
+1:03:15.100 --> 1:03:18.420
+ But heck, our electric grid is really complicated.
+
+1:03:18.420 --> 1:03:20.820
+ The software that runs our financial markets
+
+1:03:20.820 --> 1:03:22.540
+ is really complicated.
+
+1:03:22.540 --> 1:03:25.820
+ And we've seen those ripple effects translate
+
+1:03:25.820 --> 1:03:28.540
+ to dramatic negative consequences,
+
+1:03:28.540 --> 1:03:32.820
+ like for instance, financial crashes that have to do
+
+1:03:32.820 --> 1:03:35.020
+ with feedback loops that we didn't anticipate.
+
+1:03:35.020 --> 1:03:38.460
+ So I think that's an issue that we need to be thoughtful
+
+1:03:38.460 --> 1:03:40.580
+ about in many places,
+
+1:03:41.940 --> 1:03:44.300
+ artificial intelligence being one of them.
+
+1:03:44.300 --> 1:03:49.300
+ And I think it's really important that people are thinking
+
+1:03:49.660 --> 1:03:54.380
+ about ways in which we can have better interpretability
+
+1:03:54.380 --> 1:03:59.140
+ of systems, better tests for, for instance,
+
+1:03:59.140 --> 1:04:01.900
+ measuring the extent to which a machine learning system
+
+1:04:01.900 --> 1:04:04.860
+ that was trained in one set of circumstances,
+
+1:04:04.860 --> 1:04:07.340
+ how well does it actually work
+
+1:04:07.340 --> 1:04:09.540
+ in a very different set of circumstances
+
+1:04:09.540 --> 1:04:12.340
+ where you might say, for instance,
+
+1:04:12.340 --> 1:04:14.740
+ well, I'm not gonna be able to test my automated vehicle
+
+1:04:14.740 --> 1:04:17.860
+ in every possible city, village,
+
+1:04:18.980 --> 1:04:20.780
+ weather condition and so on.
+
+1:04:20.780 --> 1:04:23.740
+ But if you trained it on this set of conditions
+
+1:04:23.740 --> 1:04:27.340
+ and then tested it on 50 or a hundred others
+
+1:04:27.340 --> 1:04:29.140
+ that were quite different from the ones
+
+1:04:29.140 --> 1:04:31.980
+ that you trained it on and it worked,
+
+1:04:31.980 --> 1:04:34.100
+ then that gives you confidence that the next 50
+
+1:04:34.100 --> 1:04:36.100
+ that you didn't test it on might also work.
+
+1:04:36.100 --> 1:04:39.020
+ So effectively it's testing for generalizability.
+
+1:04:39.020 --> 1:04:41.300
+ So I think there's ways that we should be
+
+1:04:41.300 --> 1:04:45.900
+ constantly thinking about to validate the robustness
+
+1:04:45.900 --> 1:04:47.500
+ of our systems.
+
+1:04:47.500 --> 1:04:50.980
+ I think it's very different from the let's make sure
+
+1:04:50.980 --> 1:04:53.260
+ robots don't take over the world.
+
+1:04:53.260 --> 1:04:57.020
+ And then the other place where I think we have a threat,
+
+1:04:57.020 --> 1:04:59.420
+ which is also important for us to think about
+
+1:04:59.420 --> 1:05:03.180
+ is the extent to which technology can be abused.
+
+1:05:03.180 --> 1:05:06.540
+ So like any really powerful technology,
+
+1:05:06.540 --> 1:05:10.900
+ machine learning can be very much used badly
+
+1:05:10.900 --> 1:05:12.700
+ as well as to good.
+
+1:05:12.700 --> 1:05:15.580
+ And that goes back to many other technologies
+
+1:05:15.580 --> 1:05:19.140
+ that have come up with when people invented
+
+1:05:19.140 --> 1:05:22.140
+ projectile missiles and it turned into guns
+
+1:05:22.140 --> 1:05:24.660
+ and people invented nuclear power
+
+1:05:24.660 --> 1:05:26.420
+ and it turned into nuclear bombs.
+
+1:05:26.420 --> 1:05:30.340
+ And I think honestly, I would say that to me,
+
+1:05:30.340 --> 1:05:33.500
+ gene editing and CRISPR is at least as dangerous
+
+1:05:33.500 --> 1:05:38.500
+ as technology if used badly than as machine learning.
+
+1:05:39.780 --> 1:05:43.860
+ You could create really nasty viruses and such
+
+1:05:43.860 --> 1:05:48.860
+ using gene editing that you would be really careful about.
+
+1:05:51.900 --> 1:05:56.700
+ So anyway, that's something that we need
+
+1:05:56.700 --> 1:05:59.620
+ to be really thoughtful about whenever we have
+
+1:05:59.620 --> 1:06:02.500
+ any really powerful new technology.
+
+1:06:02.500 --> 1:06:04.140
+ Yeah, and in the case of machine learning
+
+1:06:04.140 --> 1:06:06.820
+ is adversarial machine learning.
+
+1:06:06.820 --> 1:06:09.140
+ So all the kinds of attacks like security almost threats
+
+1:06:09.140 --> 1:06:10.540
+ and there's a social engineering
+
+1:06:10.540 --> 1:06:12.100
+ with machine learning algorithms.
+
+1:06:12.100 --> 1:06:15.900
+ And there's face recognition and big brother is watching you
+
+1:06:15.900 --> 1:06:20.900
+ and there's the killer drones that can potentially go
+
+1:06:20.980 --> 1:06:25.220
+ and targeted execution of people in a different country.
+
+1:06:27.180 --> 1:06:29.620
+ One can argue that bombs are not necessarily
+
+1:06:29.620 --> 1:06:34.020
+ that much better, but people wanna kill someone,
+
+1:06:34.020 --> 1:06:35.740
+ they'll find a way to do it.
+
+1:06:35.740 --> 1:06:39.060
+ So in general, if you look at trends in the data,
+
+1:06:39.060 --> 1:06:41.100
+ there's less wars, there's less violence,
+
+1:06:41.100 --> 1:06:42.940
+ there's more human rights.
+
+1:06:42.940 --> 1:06:47.940
+ So we've been doing overall quite good as a human species.
+
+1:06:48.340 --> 1:06:49.180
+ Are you optimistic?
+
+1:06:49.180 --> 1:06:50.620
+ Surprisingly sometimes.
+
+1:06:50.620 --> 1:06:52.740
+ Are you optimistic?
+
+1:06:52.740 --> 1:06:55.540
+ Maybe another way to ask is do you think most people
+
+1:06:55.540 --> 1:07:00.540
+ are good and fundamentally we tend towards a better world,
+
+1:07:03.140 --> 1:07:05.460
+ which is underlying the question,
+
+1:07:05.460 --> 1:07:09.180
+ will machine learning with gene editing
+
+1:07:09.180 --> 1:07:12.140
+ ultimately land us somewhere good?
+
+1:07:12.140 --> 1:07:13.420
+ Are you optimistic?
+
+1:07:15.860 --> 1:07:19.140
+ I think by and large, I'm optimistic.
+
+1:07:19.140 --> 1:07:24.140
+ I think that most people mean well,
+
+1:07:24.140 --> 1:07:28.140
+ that doesn't mean that most people are altruistic do gooders,
+
+1:07:28.140 --> 1:07:31.020
+ but I think most people mean well,
+
+1:07:31.020 --> 1:07:34.980
+ but I think it's also really important for us as a society
+
+1:07:34.980 --> 1:07:39.980
+ to create social norms where doing good
+
+1:07:40.820 --> 1:07:45.820
+ and being perceived well by our peers
+
+1:07:47.140 --> 1:07:49.780
+ are positively correlated.
+
+1:07:49.780 --> 1:07:54.060
+ I mean, it's very easy to create dysfunctional norms
+
+1:07:54.060 --> 1:07:55.620
+ in emotional societies.
+
+1:07:55.620 --> 1:07:58.540
+ There's certainly multiple psychological experiments
+
+1:07:58.540 --> 1:08:02.420
+ as well as sadly real world events
+
+1:08:02.420 --> 1:08:05.300
+ where people have devolved to a world
+
+1:08:05.300 --> 1:08:09.340
+ where being perceived well by your peers
+
+1:08:09.340 --> 1:08:12.700
+ is correlated with really atrocious,
+
+1:08:14.100 --> 1:08:16.860
+ often genocidal behaviors.
+
+1:08:17.820 --> 1:08:19.500
+ So we really want to make sure
+
+1:08:19.500 --> 1:08:21.740
+ that we maintain a set of social norms
+
+1:08:21.740 --> 1:08:25.660
+ where people know that to be a successful member of society,
+
+1:08:25.660 --> 1:08:27.500
+ you want to be doing good.
+
+1:08:27.500 --> 1:08:31.420
+ And one of the things that I sometimes worry about
+
+1:08:31.420 --> 1:08:35.420
+ is that some societies don't seem to necessarily
+
+1:08:35.420 --> 1:08:38.340
+ be moving in the forward direction in that regard
+
+1:08:38.340 --> 1:08:40.420
+ where it's not necessarily the case
+
+1:08:43.620 --> 1:08:45.100
+ that being a good person
+
+1:08:45.100 --> 1:08:47.980
+ is what makes you be perceived well by your peers.
+
+1:08:47.980 --> 1:08:49.700
+ And I think that's a really important thing
+
+1:08:49.700 --> 1:08:51.300
+ for us as a society to remember.
+
+1:08:51.300 --> 1:08:55.940
+ It's really easy to degenerate back into a universe
+
+1:08:55.940 --> 1:09:00.540
+ where it's okay to do really bad stuff
+
+1:09:00.540 --> 1:09:03.340
+ and still have your peers think you're amazing.
+
+1:09:04.980 --> 1:09:08.180
+ It's fun to ask a world class computer scientist
+
+1:09:08.180 --> 1:09:11.380
+ and engineer a ridiculously philosophical question
+
+1:09:11.380 --> 1:09:13.460
+ like what is the meaning of life?
+
+1:09:13.460 --> 1:09:17.500
+ Let me ask, what gives your life meaning?
+
+1:09:17.500 --> 1:09:22.180
+ Or what is the source of fulfillment, happiness,
+
+1:09:22.180 --> 1:09:23.900
+ joy, purpose?
+
+1:09:26.540 --> 1:09:31.540
+ When we were starting Coursera in the fall of 2011,
+
+1:09:32.980 --> 1:09:36.900
+ that was right around the time that Steve Jobs passed away.
+
+1:09:37.740 --> 1:09:41.020
+ And so the media was full of various famous quotes
+
+1:09:41.020 --> 1:09:45.500
+ that he uttered and one of them that really stuck with me
+
+1:09:45.500 --> 1:09:48.780
+ because it resonated with stuff that I'd been feeling
+
+1:09:48.780 --> 1:09:52.380
+ for even years before that is that our goal in life
+
+1:09:52.380 --> 1:09:55.100
+ should be to make a dent in the universe.
+
+1:09:55.100 --> 1:10:00.100
+ So I think that to me, what gives my life meaning
+
+1:10:00.620 --> 1:10:05.620
+ is that I would hope that when I am lying there
+
+1:10:05.900 --> 1:10:09.660
+ on my deathbed and looking at what I'd done in my life
+
+1:10:09.660 --> 1:10:15.660
+ that I can point to ways in which I have left the world
+
+1:10:15.860 --> 1:10:20.460
+ a better place than it was when I entered it.
+
+1:10:20.460 --> 1:10:23.620
+ This is something I tell my kids all the time
+
+1:10:23.620 --> 1:10:27.260
+ because I also think that the burden of that
+
+1:10:27.260 --> 1:10:31.420
+ is much greater for those of us who were born to privilege.
+
+1:10:31.420 --> 1:10:34.380
+ And in some ways I was, I mean, I wasn't born super wealthy
+
+1:10:34.380 --> 1:10:37.900
+ or anything like that, but I grew up in an educated family
+
+1:10:37.900 --> 1:10:40.860
+ with parents who loved me and took care of me
+
+1:10:40.860 --> 1:10:43.060
+ and I had a chance at a great education
+
+1:10:43.060 --> 1:10:46.620
+ and I always had enough to eat.
+
+1:10:46.620 --> 1:10:48.900
+ So I was in many ways born to privilege
+
+1:10:48.900 --> 1:10:51.940
+ more than the vast majority of humanity.
+
+1:10:51.940 --> 1:10:55.940
+ And my kids I think are even more so born to privilege
+
+1:10:55.940 --> 1:10:57.940
+ than I was fortunate enough to be.
+
+1:10:57.940 --> 1:11:01.020
+ And I think it's really important that especially
+
+1:11:01.020 --> 1:11:03.900
+ for those of us who have that opportunity
+
+1:11:03.900 --> 1:11:07.420
+ that we use our lives to make the world a better place.
+
+1:11:07.420 --> 1:11:09.620
+ I don't think there's a better way to end it.
+
+1:11:09.620 --> 1:11:11.620
+ Daphne, it was an honor to talk to you.
+
+1:11:11.620 --> 1:11:12.620
+ Thank you so much for talking today.
+
+1:11:12.620 --> 1:11:13.460
+ Thank you.
+
+1:11:14.420 --> 1:11:15.900
+ Thanks for listening to this conversation
+
+1:11:15.900 --> 1:11:17.780
+ with Daphne Koller and thank you
+
+1:11:17.780 --> 1:11:19.900
+ to our presenting sponsor, Cash App.
+
+1:11:19.900 --> 1:11:21.660
+ Please consider supporting the podcast
+
+1:11:21.660 --> 1:11:26.180
+ by downloading Cash App and using code LEXPodcast.
+
+1:11:26.180 --> 1:11:28.620
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:11:28.620 --> 1:11:31.060
+ review it with five stars on Apple Podcast,
+
+1:11:31.060 --> 1:11:33.340
+ support it on Patreon, or simply connect with me
+
+1:11:33.340 --> 1:11:36.260
+ on Twitter at LEXFREEDMAN.
+
+1:11:36.260 --> 1:11:39.820
+ And now let me leave you with some words from Hippocrates,
+
+1:11:39.820 --> 1:11:41.900
+ a physician from ancient Greece
+
+1:11:41.900 --> 1:11:44.340
+ who's considered to be the father of medicine.
+
+1:11:45.340 --> 1:11:48.340
+ Wherever the art of medicine is loved,
+
+1:11:48.340 --> 1:11:50.780
+ there's also a love of humanity.
+
+1:11:50.780 --> 1:12:05.780
+ Thank you for listening and hope to see you next time.
+

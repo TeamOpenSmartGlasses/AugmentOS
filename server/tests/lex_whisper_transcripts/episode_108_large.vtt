@@ -1,0 +1,4340 @@
+WEBVTT
+
+00:00.000 --> 00:05.360
+ The following is a conversation with Sergei Levine, a professor at Berkeley and a world
+
+00:05.360 --> 00:10.860
+ class researcher in deep learning, reinforcement learning, robotics, and computer vision, including
+
+00:10.860 --> 00:15.660
+ the development of algorithms for end to end training of neural network policies that combine
+
+00:15.660 --> 00:21.160
+ perception and control, scalable algorithms for inverse reinforcement learning, and, in
+
+00:21.160 --> 00:24.100
+ general, deep RL algorithms.
+
+00:24.100 --> 00:25.340
+ Quick summary of the ads.
+
+00:25.340 --> 00:28.740
+ Two sponsors, Cash App and ExpressVPN.
+
+00:28.740 --> 00:34.100
+ Please consider supporting the podcast by downloading Cash App and using code LexPodcast
+
+00:34.100 --> 00:38.920
+ and signing up at expressvpn.com slash lexpod.
+
+00:38.920 --> 00:44.340
+ Click the links, buy the stuff, it's the best way to support this podcast and, in general,
+
+00:44.340 --> 00:45.340
+ the journey I'm on.
+
+00:45.340 --> 00:51.100
+ If you enjoy this thing, subscribe on YouTube, review it with 5 stars on Apple Podcast, follow
+
+00:51.100 --> 00:57.740
+ on Spotify, support it on Patreon, or connect with me on Twitter at lexfriedman.
+
+00:57.740 --> 01:01.540
+ As usual, I'll do a few minutes of ads now and never any ads in the middle that can break
+
+01:01.540 --> 01:04.020
+ the flow of the conversation.
+
+01:04.020 --> 01:08.460
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+01:08.460 --> 01:11.780
+ When you get it, use code lexpodcast.
+
+01:11.780 --> 01:15.940
+ Cash App lets you send money to friends, buy Bitcoin, and invest in the stock market with
+
+01:15.940 --> 01:18.380
+ as little as one dollar.
+
+01:18.380 --> 01:23.460
+ Since Cash App does fractional share trading, let me mention that the order execution algorithm
+
+01:23.460 --> 01:29.020
+ that works behind the scenes to create the abstraction of fractional orders is an algorithmic
+
+01:29.020 --> 01:30.020
+ marvel.
+
+01:30.020 --> 01:34.500
+ So, big props to the Cash App engineers for taking a step up to the next layer of abstraction
+
+01:34.500 --> 01:40.100
+ over the stock market, making trading more accessible for new investors and diversification
+
+01:40.100 --> 01:41.100
+ much easier.
+
+01:41.100 --> 01:48.300
+ So, again, if you get Cash App from the App Store or Google Play and use the code lexpodcast,
+
+01:48.300 --> 01:54.220
+ you get $10, and Cash App will also donate $10 to FIRST, an organization that is helping
+
+01:54.220 --> 01:59.840
+ to advance robotics and STEM education for young people around the world.
+
+01:59.840 --> 02:04.220
+ This show is also sponsored by ExpressVPN.
+
+02:04.220 --> 02:11.680
+ Get it at expressvpn.com slash lexpod to support this podcast and to get an extra three months
+
+02:11.680 --> 02:14.500
+ free on a one year package.
+
+02:14.500 --> 02:17.380
+ I've been using ExpressVPN for many years.
+
+02:17.380 --> 02:18.580
+ I love it.
+
+02:18.580 --> 02:22.020
+ I think ExpressVPN is the best VPN out there.
+
+02:22.020 --> 02:26.300
+ They told me to say it, but it happens to be true in my humble opinion.
+
+02:26.300 --> 02:31.160
+ It doesn't log your data, it's crazy fast, and it's easy to use literally just one big
+
+02:31.160 --> 02:32.580
+ power on button.
+
+02:32.580 --> 02:37.700
+ Again, it's probably obvious to you, but I should say it again, it's really important
+
+02:37.700 --> 02:40.140
+ that they don't log your data.
+
+02:40.140 --> 02:45.180
+ It works on Linux and every other operating system, but Linux, of course, is the best
+
+02:45.180 --> 02:46.620
+ operating system.
+
+02:46.620 --> 02:50.780
+ Shout out to my favorite flavor, Ubuntu Mate 2004.
+
+02:50.780 --> 02:56.620
+ Once again, get it at expressvpn.com slash lexpod to support this podcast and to get
+
+02:56.620 --> 03:00.940
+ an extra three months free on a one year package.
+
+03:00.940 --> 03:05.500
+ And now, here's my conversation with Sergey Levine.
+
+03:05.500 --> 03:10.260
+ What's the difference between a state of the art human, such as you and I, well, I don't
+
+03:10.260 --> 03:14.540
+ know if we qualify as state of the art humans, but a state of the art human and a state of
+
+03:14.540 --> 03:16.500
+ the art robot?
+
+03:16.500 --> 03:19.100
+ That's a very interesting question.
+
+03:19.100 --> 03:26.860
+ Robot capability is, it's kind of a, I think it's a very tricky thing to understand because
+
+03:26.860 --> 03:29.620
+ there are some things that are difficult that we wouldn't think are difficult and some things
+
+03:29.620 --> 03:33.060
+ that are easy that we wouldn't think are easy.
+
+03:33.060 --> 03:37.740
+ And there's also a really big gap between capabilities of robots in terms of hardware
+
+03:37.740 --> 03:43.060
+ and their physical capability and capabilities of robots in terms of what they can do autonomously.
+
+03:43.060 --> 03:47.460
+ There is a little video that I think robotics researchers really like to show, especially
+
+03:47.460 --> 03:53.220
+ robotics learning researchers like myself, from 2004 from Stanford, which demonstrates
+
+03:53.220 --> 03:58.340
+ a prototype robot called the PR1, and the PR1 was a robot that was designed as a home
+
+03:58.340 --> 03:59.340
+ assistance robot.
+
+03:59.340 --> 04:03.980
+ And there's this beautiful video showing the PR1 tidying up a living room, putting away
+
+04:03.980 --> 04:10.380
+ toys and at the end bringing a beer to the person sitting on the couch, which looks really
+
+04:10.380 --> 04:11.660
+ amazing.
+
+04:11.660 --> 04:16.060
+ And then the punchline is that this robot is entirely controlled by a person.
+
+04:16.060 --> 04:20.660
+ So in some ways the gap between a state of the art human and state of the art robot,
+
+04:20.660 --> 04:23.980
+ if the robot has a human brain, is actually not that large.
+
+04:23.980 --> 04:28.340
+ Now obviously like human bodies are sophisticated and very robust and resilient in many ways,
+
+04:28.340 --> 04:32.620
+ but on the whole, if we're willing to like spend a bit of money and do a bit of engineering,
+
+04:32.620 --> 04:35.880
+ we can kind of close the hardware gap almost.
+
+04:35.880 --> 04:40.420
+ But the intelligence gap, that one is very wide.
+
+04:40.420 --> 04:43.820
+ And when you say hardware, you're referring to the physical, sort of the actuators, the
+
+04:43.820 --> 04:49.020
+ actual body of the robot, as opposed to the hardware on which the cognition, the hardware
+
+04:49.020 --> 04:50.020
+ of the nervous system.
+
+04:50.020 --> 04:51.020
+ Yes, exactly.
+
+04:51.020 --> 04:54.660
+ I'm referring to the body rather than the mind.
+
+04:54.660 --> 04:56.660
+ So that means that the kind of the work is cut out for us.
+
+04:56.660 --> 05:00.500
+ Like while we can still make the body better, we kind of know that the big bottleneck right
+
+05:00.500 --> 05:02.880
+ now is really the mind.
+
+05:02.880 --> 05:03.980
+ And how big is that gap?
+
+05:03.980 --> 05:11.300
+ How big is the difference in your sense of ability to learn, ability to reason, ability
+
+05:11.300 --> 05:16.880
+ to perceive the world between humans and our best robots?
+
+05:16.880 --> 05:23.720
+ The gap is very large and the gap becomes larger the more unexpected events can happen
+
+05:23.720 --> 05:24.720
+ in the world.
+
+05:24.720 --> 05:30.860
+ So essentially the spectrum along which you can measure the size of that gap is the spectrum
+
+05:30.860 --> 05:32.220
+ of how open the world is.
+
+05:32.220 --> 05:36.120
+ If you control everything in the world very tightly, if you put the robot in like a factory
+
+05:36.120 --> 05:41.420
+ and you tell it where everything is and you rigidly program its motion, then it can do
+
+05:41.420 --> 05:43.580
+ things, you know, one might even say in a superhuman way.
+
+05:43.580 --> 05:47.280
+ It can move faster, it's stronger, it can lift up a car and things like that.
+
+05:47.280 --> 05:51.300
+ But as soon as anything starts to vary in the environment, now it'll trip up.
+
+05:51.300 --> 05:55.700
+ And if many, many things vary like they would like in your kitchen, for example, then things
+
+05:55.700 --> 05:57.940
+ are pretty much like wide open.
+
+05:57.940 --> 06:03.820
+ Now, again, we're going to stick a bit on the philosophical questions, but how much
+
+06:03.820 --> 06:11.140
+ on the human side of the cognitive abilities in your sense is nature versus nurture?
+
+06:11.140 --> 06:18.420
+ So how much of it is a product of evolution and how much of it is something we'll learn
+
+06:18.420 --> 06:22.060
+ from sort of scratch from the day we're born?
+
+06:22.060 --> 06:26.260
+ I'm going to read into your question as asking about the implications of this for AI.
+
+06:26.260 --> 06:30.540
+ Because I'm not a biologist, I can't really like speak authoritatively.
+
+06:30.540 --> 06:36.580
+ So until we go on it, if it's so, if it's all about learning, then there's more hope
+
+06:36.580 --> 06:38.540
+ for AI.
+
+06:38.540 --> 06:44.220
+ So the way that I look at this is that, you know, well, first, of course, biology is very
+
+06:44.220 --> 06:45.300
+ messy.
+
+06:45.300 --> 06:49.980
+ And it's if you ask the question, how does a person do something or has a person's mind
+
+06:49.980 --> 06:54.220
+ do something, you can come up with a bunch of hypotheses and oftentimes you can find
+
+06:54.220 --> 06:58.220
+ support for many different, often conflicting hypotheses.
+
+06:58.220 --> 07:03.380
+ One way that we can approach the question of what the implications of this for AI are
+
+07:03.380 --> 07:05.500
+ is we can think about what's sufficient.
+
+07:05.500 --> 07:11.220
+ So you know, maybe a person is from birth very, very good at some things like, for example,
+
+07:11.220 --> 07:12.220
+ recognizing faces.
+
+07:12.220 --> 07:13.980
+ There's a very strong evolutionary pressure to do that.
+
+07:13.980 --> 07:18.820
+ If you can recognize your mother's face, then you're more likely to survive and therefore
+
+07:18.820 --> 07:20.560
+ people are good at this.
+
+07:20.560 --> 07:23.940
+ But we can also ask like, what's the minimum sufficient thing?
+
+07:23.940 --> 07:27.060
+ And one of the ways that we can study the minimal sufficient thing is we could, for
+
+07:27.060 --> 07:29.380
+ example, see what people do in unusual situations.
+
+07:29.380 --> 07:33.860
+ If you present them with things that evolution couldn't have prepared them for, you know,
+
+07:33.860 --> 07:36.360
+ our daily lives actually do this to us all the time.
+
+07:36.360 --> 07:41.500
+ We didn't evolve to deal with, you know, automobiles and space flight and whatever.
+
+07:41.500 --> 07:45.460
+ So there are all these situations that we can find ourselves in and we do very well
+
+07:45.460 --> 07:46.460
+ there.
+
+07:46.460 --> 07:50.580
+ Like I can give you a joystick to control a robotic arm, which you've never used before
+
+07:50.580 --> 07:52.940
+ and you might be pretty bad for the first couple of seconds.
+
+07:52.940 --> 07:58.260
+ But if I tell you like your life depends on using this robotic arm to like open this door,
+
+07:58.260 --> 07:59.660
+ you'll probably manage it.
+
+07:59.660 --> 08:03.140
+ Even though you've never seen this device before, you've never used the joystick control
+
+08:03.140 --> 08:04.820
+ us and you'll kind of muddle through it.
+
+08:04.820 --> 08:08.580
+ And that's not your evolved natural ability.
+
+08:08.580 --> 08:11.340
+ That's your, your flexibility or your adaptability.
+
+08:11.340 --> 08:14.860
+ And that's exactly where our current robotic systems really kind of fall flat.
+
+08:14.860 --> 08:22.500
+ But I wonder how much general, almost what we think of as common sense, pre trained models
+
+08:22.500 --> 08:24.220
+ underneath all of that.
+
+08:24.220 --> 08:32.100
+ So that ability to adapt to a joystick is, requires you to have a kind of, you know,
+
+08:32.100 --> 08:33.100
+ I'm human.
+
+08:33.100 --> 08:37.220
+ So it's hard for me to introspect all the knowledge I have about the world, but it seems
+
+08:37.220 --> 08:42.180
+ like there might be an iceberg underneath of the amount of knowledge we actually bring
+
+08:42.180 --> 08:43.260
+ to the table.
+
+08:43.260 --> 08:45.260
+ That's kind of the open question.
+
+08:45.260 --> 08:48.900
+ There's absolutely an iceberg of knowledge that we bring to the table, but I think it's
+
+08:48.900 --> 08:54.060
+ very likely that iceberg of knowledge is actually built up over our lifetimes.
+
+08:54.060 --> 08:58.700
+ Because we have, you know, we have a lot of prior experience to draw on.
+
+08:58.700 --> 09:05.060
+ And it kind of makes sense that the right way for us to, you know, to optimize our,
+
+09:05.060 --> 09:10.300
+ our efficiency, our evolutionary fitness and so on is to utilize all of that experience
+
+09:10.300 --> 09:13.360
+ to build up the best iceberg we can get.
+
+09:13.360 --> 09:16.620
+ And that's actually one of the, you know, while that sounds an awful lot like what machine
+
+09:16.620 --> 09:20.240
+ learning actually does, I think that for modern machine learning, it's actually a really big
+
+09:20.240 --> 09:25.320
+ challenge to take this unstructured mass of experience and distill out something that
+
+09:25.320 --> 09:28.340
+ looks like a common sense understanding of the world.
+
+09:28.340 --> 09:32.660
+ And perhaps part of that isn't, it's not because something about machine learning itself is,
+
+09:32.660 --> 09:38.340
+ is broken or hard, but because we've been a little too rigid in subscribing to a very
+
+09:38.340 --> 09:42.460
+ supervised, very rigid notion of learning, you know, kind of the input output, X's go
+
+09:42.460 --> 09:43.980
+ to Y's sort of model.
+
+09:43.980 --> 09:51.260
+ And maybe what we really need to do is to view the world more as like a mass of experience
+
+09:51.260 --> 09:55.060
+ that is not necessarily providing any rigid supervision, but sort of providing many, many
+
+09:55.060 --> 09:56.980
+ instances of things that could be.
+
+09:56.980 --> 10:00.700
+ And then you take that and you distill it into some sort of common sense understanding.
+
+10:00.700 --> 10:06.700
+ I see what you're, you're painting an optimistic, beautiful picture, especially from the robotics
+
+10:06.700 --> 10:12.540
+ perspective because that means we just need to invest and build better learning algorithms,
+
+10:12.540 --> 10:17.620
+ figure out how we can get access to more and more data for those learning algorithms to
+
+10:17.620 --> 10:22.260
+ extract signal from, and then accumulate that iceberg of knowledge.
+
+10:22.260 --> 10:23.740
+ It's a beautiful picture.
+
+10:23.740 --> 10:25.100
+ It's a hopeful one.
+
+10:25.100 --> 10:29.020
+ I think it's potentially a little bit more than just that.
+
+10:29.020 --> 10:32.880
+ And this is, this is where we perhaps reach the limits of our current understanding.
+
+10:32.880 --> 10:37.700
+ But one thing that I think that the research community hasn't really resolved in a satisfactory
+
+10:37.700 --> 10:43.540
+ way is how much it matters where that experience comes from, like, you know, do you just like
+
+10:43.540 --> 10:48.860
+ download everything on the internet and cram it into essentially the 21st century analog
+
+10:48.860 --> 10:54.540
+ of the giant language model and then see what happens or does it actually matter whether
+
+10:54.540 --> 10:59.380
+ your machine physically experiences the world or in the sense that it actually attempts
+
+10:59.380 --> 11:03.860
+ things, observes the outcome of its actions and kind of augments its experience that way.
+
+11:03.860 --> 11:09.500
+ And it chooses which parts of the world it gets to interact with and observe and learn
+
+11:09.500 --> 11:10.500
+ from.
+
+11:10.500 --> 11:11.500
+ Right.
+
+11:11.500 --> 11:16.700
+ It may be that the world is so complex that simply obtaining a large mass of sort of
+
+11:16.700 --> 11:21.140
+ IID samples of the world is a very difficult way to go.
+
+11:21.140 --> 11:25.040
+ But if you are actually interacting with the world and essentially performing this sort
+
+11:25.040 --> 11:30.060
+ of hard negative mining by attempting what you think might work, observing the sometimes
+
+11:30.060 --> 11:35.620
+ happy and sometimes sad outcomes of that and augmenting your understanding using that experience
+
+11:35.620 --> 11:40.140
+ and you're just doing this continually for many years, maybe that sort of data in some
+
+11:40.140 --> 11:44.800
+ sense is actually much more favorable to obtaining a common sense understanding.
+
+11:44.800 --> 11:49.700
+ One reason we might think that this is true is that, you know, what we associate with
+
+11:49.700 --> 11:55.140
+ common sense or lack of common sense is often characterized by the ability to reason about
+
+11:55.140 --> 12:01.000
+ kind of counterfactual questions like, you know, if I were to hear this bottle of water
+
+12:01.000 --> 12:04.780
+ sitting on the table, everything is fine if I were to knock it over, which I'm not going
+
+12:04.780 --> 12:05.780
+ to do.
+
+12:05.780 --> 12:07.700
+ But if I were to do that, what would happen?
+
+12:07.700 --> 12:10.360
+ And I know that nothing good would happen from that.
+
+12:10.360 --> 12:14.100
+ But if I have a bad understanding of the world, I might think that that's a good way for me
+
+12:14.100 --> 12:16.840
+ to like, you know, gain more utility.
+
+12:16.840 --> 12:22.300
+ If I actually go about my daily life doing the things that my current understanding of
+
+12:22.300 --> 12:28.760
+ the world suggests will give me high utility, in some ways, I'll get exactly the right supervision
+
+12:28.760 --> 12:33.200
+ to tell me not to do those bad things and to keep doing the good things.
+
+12:33.200 --> 12:39.220
+ So there's a spectrum between IID, random walk through the space of data, and then there's
+
+12:39.220 --> 12:45.820
+ and what we humans do, I don't even know if we do it optimal, but that might be beyond.
+
+12:45.820 --> 12:52.540
+ So this open question that you raised, where do you think systems, intelligent systems
+
+12:52.540 --> 12:56.460
+ that would be able to deal with this world fall?
+
+12:56.460 --> 13:02.120
+ Can we do pretty well by reading all of Wikipedia, sort of randomly sampling it like language
+
+13:02.120 --> 13:03.900
+ models do?
+
+13:03.900 --> 13:09.620
+ Or do we have to be exceptionally selective and intelligent about which aspects of the
+
+13:09.620 --> 13:12.100
+ world we interact with?
+
+13:12.100 --> 13:15.980
+ So I think this is first an open scientific problem, and I don't have like a clear answer,
+
+13:15.980 --> 13:18.300
+ but I can speculate a little bit.
+
+13:18.300 --> 13:23.580
+ And what I would speculate is that you don't need to be super, super careful.
+
+13:23.580 --> 13:28.480
+ I think it's less about like, being careful to avoid the useless stuff, and more about
+
+13:28.480 --> 13:31.620
+ making sure that you hit on the really important stuff.
+
+13:31.620 --> 13:37.540
+ So perhaps it's okay, if you spend part of your day, just, you know, guided by your curiosity,
+
+13:37.540 --> 13:42.140
+ reading interesting regions of your state space, but it's important for you to, you
+
+13:42.140 --> 13:47.060
+ know, every once in a while, make sure that you really try out the solutions that your
+
+13:47.060 --> 13:51.120
+ current model of the world suggests might be effective, and observe whether those solutions
+
+13:51.120 --> 13:53.060
+ are working as you expect or not.
+
+13:53.060 --> 13:59.740
+ And perhaps some of that is really essential to have kind of a perpetual improvement loop.
+
+13:59.740 --> 14:03.540
+ This perpetual improvement loop is really like, that's really the key, the key that's
+
+14:03.540 --> 14:07.860
+ going to potentially distinguish the best current methods from the best methods of tomorrow
+
+14:07.860 --> 14:08.860
+ in a sense.
+
+14:08.860 --> 14:15.820
+ How important do you think is exploration or total out of the box thinking exploration
+
+14:15.820 --> 14:19.300
+ in this space as you jump to totally different domains?
+
+14:19.300 --> 14:24.260
+ So you kind of mentioned there's an optimization problem, you kind of kind of explore the specifics
+
+14:24.260 --> 14:27.820
+ of a particular strategy, whatever the thing you're trying to solve.
+
+14:27.820 --> 14:33.040
+ How important is it to explore totally outside of the strategies that have been working for
+
+14:33.040 --> 14:34.040
+ you so far?
+
+14:34.040 --> 14:35.040
+ What's your intuition there?
+
+14:35.040 --> 14:38.900
+ Yeah, I think it's a very problem dependent kind of question.
+
+14:38.900 --> 14:45.580
+ And I think that that's actually, you know, in some ways that question gets at one of
+
+14:45.580 --> 14:51.580
+ the big differences between sort of the classic formulation of a reinforcement learning problem
+
+14:51.580 --> 14:57.480
+ and some of the sort of more open ended reformulations of that problem that have been explored in
+
+14:57.480 --> 14:58.480
+ recent years.
+
+14:58.480 --> 15:02.740
+ So classically reinforcement learning is framed as a problem of maximizing utility, like any
+
+15:02.740 --> 15:08.940
+ kind of rational AI agent, and then anything you do is in service to maximizing that utility.
+
+15:08.940 --> 15:15.220
+ But a very interesting kind of way to look at, I'm not necessarily saying this is the
+
+15:15.220 --> 15:17.820
+ best way to look at it, but an interesting alternative way to look at these problems
+
+15:17.820 --> 15:24.300
+ is as something where you first get to explore the world, however you please, and then afterwards
+
+15:24.300 --> 15:26.700
+ you will be tasked with doing something.
+
+15:26.700 --> 15:28.960
+ And that might suggest a somewhat different solution.
+
+15:28.960 --> 15:31.860
+ So if you don't know what you're going to be tasked with doing, and you just want to
+
+15:31.860 --> 15:35.980
+ prepare yourself optimally for whatever your uncertain future holds, maybe then you will
+
+15:35.980 --> 15:41.820
+ choose to attain some sort of coverage, build up sort of an arsenal of cognitive tools,
+
+15:41.820 --> 15:46.400
+ if you will, such that later on when someone tells you, now your job is to fetch the coffee
+
+15:46.400 --> 15:49.180
+ for me, you will be well prepared to undertake that task.
+
+15:49.180 --> 15:54.380
+ And that you see that as the modern formulation of the reinforcement learning problem, as
+
+15:54.380 --> 16:00.460
+ a kind of the more multitask, the general intelligence kind of formulation.
+
+16:00.460 --> 16:04.500
+ I think that's one possible vision of where things might be headed.
+
+16:04.500 --> 16:08.220
+ I don't think that's by any means the mainstream or standard way of doing things, and it's
+
+16:08.220 --> 16:09.940
+ not like if I had to...
+
+16:09.940 --> 16:10.940
+ But I like it.
+
+16:10.940 --> 16:11.940
+ It's a beautiful vision.
+
+16:11.940 --> 16:14.220
+ So maybe you actually take a step back.
+
+16:14.220 --> 16:16.700
+ What is the goal of robotics?
+
+16:16.700 --> 16:18.940
+ What's the general problem of robotics we're trying to solve?
+
+16:18.940 --> 16:21.260
+ You actually kind of painted two pictures here.
+
+16:21.260 --> 16:23.340
+ One of sort of the narrow, one of the general.
+
+16:23.340 --> 16:26.780
+ What in your view is the big problem of robotics?
+
+16:26.780 --> 16:31.200
+ And ridiculously philosophical high level questions.
+
+16:31.200 --> 16:34.620
+ I think that maybe there are two ways I can answer this question.
+
+16:34.620 --> 16:41.100
+ One is there's a very pragmatic problem, which is like what would make robots, what would
+
+16:41.100 --> 16:44.060
+ sort of maximize the usefulness of robots?
+
+16:44.060 --> 16:53.620
+ And there the answer might be something like a system where a system that can perform whatever
+
+16:53.620 --> 16:59.580
+ task a human user sets for it, within the physical constraints, of course.
+
+16:59.580 --> 17:02.560
+ If you tell it to teleport to another planet, it probably can't do that.
+
+17:02.560 --> 17:06.440
+ But if you ask it to do something that's within its physical capability, then potentially
+
+17:06.440 --> 17:10.420
+ with a little bit of additional training or a little bit of additional trial and error,
+
+17:10.420 --> 17:14.180
+ it ought to be able to figure it out in much the same way as like a human teleoperator
+
+17:14.180 --> 17:16.760
+ ought to figure out how to drive the robot to do that.
+
+17:16.760 --> 17:22.740
+ That's kind of the very pragmatic view of what it would take to kind of solve the robotics
+
+17:22.740 --> 17:24.960
+ problem, if you will.
+
+17:24.960 --> 17:29.480
+ But I think that there is a second answer, and that answer is a lot closer to why I want
+
+17:29.480 --> 17:34.300
+ to work on robotics, which is that I think it's less about what it would take to do a
+
+17:34.300 --> 17:39.160
+ really good job in the world of robotics, but more the other way around, what robotics
+
+17:39.160 --> 17:44.840
+ can bring to the table to help us understand artificial intelligence.
+
+17:44.840 --> 17:48.260
+ So your dream fundamentally is to understand intelligence?
+
+17:48.260 --> 17:49.260
+ Yes.
+
+17:49.260 --> 17:53.120
+ And I think that's the dream for many people who actually work in this space.
+
+17:53.120 --> 17:58.640
+ I think that there's something very pragmatic and very useful about studying robotics, but
+
+17:58.640 --> 18:02.920
+ I do think that a lot of people that go into this field actually, you know, the things
+
+18:02.920 --> 18:09.400
+ that they draw inspiration from are the potential for robots to like help us learn about intelligence
+
+18:09.400 --> 18:10.720
+ and about ourselves.
+
+18:10.720 --> 18:18.280
+ So that's fascinating that robotics is basically the space by which you can get closer to understanding
+
+18:18.280 --> 18:20.680
+ the fundamentals of artificial intelligence.
+
+18:20.680 --> 18:25.440
+ So what is it about robotics that's different from some of the other approaches?
+
+18:25.440 --> 18:30.020
+ So if we look at some of the early breakthroughs in deep learning or in the computer vision
+
+18:30.020 --> 18:34.920
+ space and the natural language processing, there's really nice clean benchmarks that
+
+18:34.920 --> 18:38.540
+ a lot of people competed on and thereby came up with a lot of brilliant ideas.
+
+18:38.540 --> 18:43.760
+ What's the fundamental difference to you between computer vision purely defined and ImageNet
+
+18:43.760 --> 18:46.640
+ and kind of the bigger robotics problem?
+
+18:46.640 --> 18:48.480
+ So there are a couple of things.
+
+18:48.480 --> 18:55.520
+ One is that with robotics, you kind of have to take away many of the crutches.
+
+18:55.520 --> 19:01.760
+ So you have to deal with both the particular problems of perception control and so on,
+
+19:01.760 --> 19:04.560
+ but you also have to deal with the integration of those things.
+
+19:04.560 --> 19:08.800
+ And you know, classically, we've always thought of the integration as kind of a separate problem.
+
+19:08.800 --> 19:12.800
+ So a classic kind of modular engineering approach is that we solve the individual subproblems
+
+19:12.800 --> 19:16.080
+ and then wire them together and then the whole thing works.
+
+19:16.080 --> 19:19.720
+ And one of the things that we've been seeing over the last couple of decades is that, well,
+
+19:19.720 --> 19:24.200
+ maybe studying the thing as a whole might lead to just like very different solutions
+
+19:24.200 --> 19:26.640
+ than if we were to study the parts and wire them together.
+
+19:26.640 --> 19:32.320
+ So the integrative nature of robotics research helps us see, you know, the different perspectives
+
+19:32.320 --> 19:34.240
+ on the problem.
+
+19:34.240 --> 19:40.960
+ Another part of the answer is that with robotics, it casts a certain paradox into very clever
+
+19:40.960 --> 19:41.960
+ relief.
+
+19:41.960 --> 19:48.480
+ This is sometimes referred to as Moravec's paradox, the idea that in artificial intelligence,
+
+19:48.480 --> 19:52.800
+ things that are very hard for people can be very easy for machines and vice versa.
+
+19:52.800 --> 19:54.880
+ Things that are very easy for people can be very hard for machines.
+
+19:54.880 --> 20:02.080
+ So you know, integral and differential calculus is pretty difficult to learn for people.
+
+20:02.080 --> 20:06.080
+ But if you program a computer, do it, it can derive derivatives and integrals for you all
+
+20:06.080 --> 20:08.400
+ day long without any trouble.
+
+20:08.400 --> 20:13.320
+ Whereas some things like, you know, drinking from a cup of water, very easy for a person
+
+20:13.320 --> 20:16.720
+ to do, very hard for a robot to deal with.
+
+20:16.720 --> 20:21.680
+ And sometimes when we see such blatant discrepancies, that gives us a really strong hint that we're
+
+20:21.680 --> 20:23.160
+ missing something important.
+
+20:23.160 --> 20:28.000
+ So if we really try to zero in on those discrepancies, we might find that little bit that we're missing.
+
+20:28.000 --> 20:32.320
+ And it's not that we need to make machines better or worse at math and better at drinking
+
+20:32.320 --> 20:37.800
+ water, but just that by studying those discrepancies, we might find some new insight.
+
+20:37.800 --> 20:41.680
+ So that could be in any space, it doesn't have to be robotics.
+
+20:41.680 --> 20:48.560
+ But you're saying, I mean, it's kind of interesting that robotics seems to have a lot of those
+
+20:48.560 --> 20:49.560
+ discrepancies.
+
+20:49.560 --> 20:56.600
+ So the Hans Marvak paradox is probably referring to the space of the physical interaction,
+
+20:56.600 --> 21:00.640
+ like you said, object manipulation, walking, all the kind of stuff we do in the physical
+
+21:00.640 --> 21:01.640
+ world.
+
+21:01.640 --> 21:13.280
+ How do you make sense if you were to try to disentangle the Marvak paradox, like why is
+
+21:13.280 --> 21:17.800
+ there such a gap in our intuition about it?
+
+21:17.800 --> 21:23.420
+ Why do you think manipulating objects is so hard from everything you've learned from applying
+
+21:23.420 --> 21:25.480
+ reinforcement learning in this space?
+
+21:25.480 --> 21:33.760
+ Yeah, I think that one reason is maybe that for many of the other problems that we've
+
+21:33.760 --> 21:41.120
+ studied in AI and computer science and so on, the notion of input output and supervision
+
+21:41.120 --> 21:42.380
+ is much, much cleaner.
+
+21:42.380 --> 21:45.920
+ So computer vision, for example, deals with very complex inputs.
+
+21:45.920 --> 21:52.080
+ But it's comparatively a bit easier, at least up to some level of abstraction, to cast it
+
+21:52.080 --> 21:54.840
+ as a very tightly supervised problem.
+
+21:54.840 --> 21:59.640
+ It's comparatively much, much harder to cast robotic manipulation as a very tightly supervised
+
+21:59.640 --> 22:00.720
+ problem.
+
+22:00.720 --> 22:03.440
+ You can do it, it just doesn't seem to work all that well.
+
+22:03.440 --> 22:06.980
+ So you could say that, well, maybe we get a labeled data set where we know exactly which
+
+22:06.980 --> 22:09.200
+ motor commands to send, and then we train on that.
+
+22:09.200 --> 22:13.800
+ But for various reasons, that's not actually such a great solution.
+
+22:13.800 --> 22:17.440
+ And it also doesn't seem to be even remotely similar to how people and animals learn to
+
+22:17.440 --> 22:22.980
+ do things, because we're not told by our parents, here's how you fire your muscles in order
+
+22:22.980 --> 22:24.280
+ to walk.
+
+22:24.280 --> 22:29.080
+ So we do get some guidance, but the really low level detailed stuff we figure out mostly
+
+22:29.080 --> 22:30.080
+ on our own.
+
+22:30.080 --> 22:34.400
+ And that's what you mean by tightly coupled, that every single little sub action gets a
+
+22:34.400 --> 22:37.560
+ supervised signal of whether it's a good one or not.
+
+22:37.560 --> 22:38.560
+ Right.
+
+22:38.560 --> 22:41.360
+ So while in computer vision, you could sort of imagine up to a level of abstraction that
+
+22:41.360 --> 22:45.640
+ maybe somebody told you this is a car and this is a cat and this is a dog, in motor
+
+22:45.640 --> 22:49.400
+ control, it's very clear that that was not the case.
+
+22:49.400 --> 22:57.120
+ If we look at sort of the sub spaces of robotics, that, again, as you said, robotics integrates
+
+22:57.120 --> 23:00.880
+ all of them together, and we get to see how this beautiful mess interplays.
+
+23:00.880 --> 23:04.040
+ But so there's nevertheless still perception.
+
+23:04.040 --> 23:09.880
+ So it's the computer vision problem, broadly speaking, understanding the environment.
+
+23:09.880 --> 23:14.600
+ And there's also maybe you can correct me on this kind of categorization of the space,
+
+23:14.600 --> 23:20.480
+ and there's prediction in trying to anticipate what things are going to do into the future
+
+23:20.480 --> 23:24.440
+ in order for you to be able to act in that world.
+
+23:24.440 --> 23:31.580
+ And then there's also this game theoretic aspect of how your actions will change the
+
+23:31.580 --> 23:34.120
+ behavior of others.
+
+23:34.120 --> 23:38.640
+ In this kind of space, what, and this is bigger than reinforcement learning, this is just
+
+23:38.640 --> 23:42.840
+ broadly looking at the problem of robotics, what's the hardest problem here?
+
+23:42.840 --> 23:52.280
+ Or is there, or is what you said true that when you start to look at all of them together,
+
+23:52.280 --> 23:57.360
+ that's a whole nother thing, like you can't even say which one individually is harder
+
+23:57.360 --> 24:01.400
+ because all of them together, you should only be looking at them all together.
+
+24:01.400 --> 24:05.240
+ I think when you look at them all together, some things actually become easier.
+
+24:05.240 --> 24:07.520
+ And I think that's actually pretty important.
+
+24:07.520 --> 24:16.040
+ So we had back in 2014, we had some work, basically our first work on end to end reinforcement
+
+24:16.040 --> 24:21.040
+ learning for robotic manipulation skills from vision, which at the time was something that
+
+24:21.040 --> 24:25.520
+ seemed a little inflammatory and controversial in the robotics world.
+
+24:25.520 --> 24:30.320
+ But other than the inflammatory and controversial part of it, the point that we were actually
+
+24:30.320 --> 24:35.720
+ trying to make in that work is that for the particular case of combining perception and
+
+24:35.720 --> 24:39.480
+ control, you could actually do better if you treat them together than if you try to separate
+
+24:39.480 --> 24:40.480
+ them.
+
+24:40.480 --> 24:43.240
+ And the way that we tried to demonstrate this is we picked a fairly simple motor control
+
+24:43.240 --> 24:49.560
+ task where a robot had to insert a little red trapezoid into a trapezoidal hole.
+
+24:49.560 --> 24:54.800
+ And we had our separated solution, which involved first detecting the hole using a pose detector
+
+24:54.800 --> 24:57.720
+ and then actuating the arm to put it in.
+
+24:57.720 --> 25:01.780
+ And then our intent solution, which just mapped pixels to the torques.
+
+25:01.780 --> 25:05.960
+ And one of the things we observed is that if you use the intent solution, essentially
+
+25:05.960 --> 25:08.400
+ the pressure on the perception part of the model is actually lower.
+
+25:08.400 --> 25:11.320
+ Like it doesn't have to figure out exactly where the thing is in 3D space.
+
+25:11.320 --> 25:15.500
+ It just needs to figure out where it is, you know, distributing the errors in such a way
+
+25:15.500 --> 25:19.280
+ that the horizontal difference matters more than the vertical difference because vertically
+
+25:19.280 --> 25:22.320
+ it just pushes it down all the way until it can't go any further.
+
+25:22.320 --> 25:26.480
+ And their perceptual errors are a lot less harmful, whereas perpendicular to the direction
+
+25:26.480 --> 25:29.060
+ of motion, perceptual errors are much more harmful.
+
+25:29.060 --> 25:33.560
+ So the point is that if you combine these two things, you can trade off errors between
+
+25:33.560 --> 25:38.120
+ the components optimally to best accomplish the task.
+
+25:38.120 --> 25:41.680
+ And the components can actually be weaker while still leading to better overall performance.
+
+25:41.680 --> 25:44.000
+ It's a profound idea.
+
+25:44.000 --> 25:48.400
+ I mean, in the space of pegs and things like that, it's quite simple.
+
+25:48.400 --> 25:55.080
+ It almost is tempting to overlook, but that seems to be at least intuitively an idea that
+
+25:55.080 --> 26:01.280
+ should generalize to basically all aspects of perception and control, that one strengthens
+
+26:01.280 --> 26:02.280
+ the other.
+
+26:02.280 --> 26:03.280
+ Yeah.
+
+26:03.280 --> 26:07.080
+ And we, you know, people who have studied sort of perceptual heuristics in humans and
+
+26:07.080 --> 26:08.960
+ animals find things like that all the time.
+
+26:08.960 --> 26:12.400
+ So one very well known example of this is something called the gaze heuristic, which
+
+26:12.400 --> 26:17.280
+ is a little trick that you can use to intercept a flying object.
+
+26:17.280 --> 26:21.960
+ So if you want to catch a ball, for instance, you could try to localize it in 3D space,
+
+26:21.960 --> 26:25.040
+ estimate its velocity, estimate the effect of wind resistance, solve a complex system
+
+26:25.040 --> 26:27.480
+ of differential equations in your head.
+
+26:27.480 --> 26:33.280
+ Or you can maintain a running speed so that the object stays in the same position as in
+
+26:33.280 --> 26:34.280
+ your field of view.
+
+26:34.280 --> 26:35.760
+ So if it dips a little bit, you speed up.
+
+26:35.760 --> 26:38.200
+ If it rises a little bit, you slow down.
+
+26:38.200 --> 26:40.800
+ And if you follow the simple rule, you'll actually arrive at exactly the place where
+
+26:40.800 --> 26:43.060
+ the object lands and you'll catch it.
+
+26:43.060 --> 26:46.960
+ And humans use it when they play baseball, human pilots use it when they fly airplanes
+
+26:46.960 --> 26:50.520
+ to figure out if they're about to collide with somebody, frogs use this to catch insects
+
+26:50.520 --> 26:51.580
+ and so on and so on.
+
+26:51.580 --> 26:53.640
+ So this is something that actually happens in nature.
+
+26:53.640 --> 26:57.120
+ And I'm sure this is just one instance of it that we were able to identify just because
+
+26:57.120 --> 27:00.440
+ all the scientists were able to identify because it's so prevalent, but there are probably
+
+27:00.440 --> 27:01.440
+ many others.
+
+27:01.440 --> 27:06.840
+ Do you have a, just so we can zoom in as we talk about robotics, do you have a canonical
+
+27:06.840 --> 27:12.800
+ problem, sort of a simple, clean, beautiful representative problem in robotics that you
+
+27:12.800 --> 27:16.000
+ think about when you're thinking about some of these problems?
+
+27:16.000 --> 27:23.600
+ We talked about robotic manipulation, to me that seems intuitively, at least the robotics
+
+27:23.600 --> 27:28.760
+ community has converged towards that as a space that's the canonical problem.
+
+27:28.760 --> 27:33.240
+ If you agree, then maybe do you zoom in in some particular aspect of that problem that
+
+27:33.240 --> 27:34.240
+ you just like?
+
+27:34.240 --> 27:44.040
+ Like if we solve that problem perfectly, it'll unlock a major step towards human level intelligence.
+
+27:44.040 --> 27:46.360
+ I don't think I have like a really great answer to that.
+
+27:46.360 --> 27:53.040
+ And I think partly the reason I don't have a great answer kind of has to do with the,
+
+27:53.040 --> 27:57.420
+ it has to do with the fact that the difficulty is really in the flexibility and adaptability
+
+27:57.420 --> 28:01.160
+ rather than in doing a particular thing really, really well.
+
+28:01.160 --> 28:06.680
+ So it's hard to just say like, oh, if you can, I don't know, like shuffle a deck of
+
+28:06.680 --> 28:12.920
+ cards as fast as like a Vegas casino dealer, then you'll be very proficient.
+
+28:12.920 --> 28:21.120
+ It's really the ability to quickly figure out how to do some arbitrary new thing well
+
+28:21.120 --> 28:26.160
+ enough to like, you know, to move on to the next arbitrary thing.
+
+28:26.160 --> 28:33.680
+ But the source of newness and uncertainty, have you found problems in which it's easy
+
+28:33.680 --> 28:38.520
+ to generate new newnessnesses?
+
+28:38.520 --> 28:40.120
+ New types of newness.
+
+28:40.120 --> 28:41.120
+ Yeah.
+
+28:41.120 --> 28:46.920
+ So a few years ago, so if you had asked me this question around like 2016, maybe I would
+
+28:46.920 --> 28:51.840
+ have probably said that robotic grasping is a really great example of that because it's
+
+28:51.840 --> 28:54.320
+ a task with great real world utility.
+
+28:54.320 --> 28:57.320
+ Like you will get a lot of money if you can do it well.
+
+28:57.320 --> 28:58.960
+ What is robotic grasping?
+
+28:58.960 --> 29:02.400
+ Picking up any object with a robotic hand.
+
+29:02.400 --> 29:03.400
+ Exactly.
+
+29:03.400 --> 29:06.680
+ So you will get a lot of money if you do it well, because lots of people want to run warehouses
+
+29:06.680 --> 29:13.360
+ with robots and it's highly non trivial because very different objects will require very different
+
+29:13.360 --> 29:15.240
+ grasping strategies.
+
+29:15.240 --> 29:19.740
+ But actually since then, people have gotten really good at building systems to solve this
+
+29:19.740 --> 29:25.880
+ problem to the point where I'm not actually sure how much more progress we can make with
+
+29:25.880 --> 29:29.560
+ that as like the main guiding thing.
+
+29:29.560 --> 29:32.960
+ But it's kind of interesting to see the kind of methods that have actually worked well
+
+29:32.960 --> 29:39.760
+ in that space because robotic grasping classically used to be regarded very much as kind of almost
+
+29:39.760 --> 29:41.400
+ like a geometry problem.
+
+29:41.400 --> 29:46.620
+ So people who have studied the history of computer vision will find this very familiar
+
+29:46.620 --> 29:49.760
+ that it's kind of in the same way that in the early days of computer vision, people
+
+29:49.760 --> 29:52.480
+ thought of it very much as like an inverse graphics thing.
+
+29:52.480 --> 29:57.000
+ In robotic grasping, people thought of it as an inverse physics problem essentially.
+
+29:57.000 --> 30:01.160
+ You look at what's in front of you, figure out the shapes, then use your best estimate
+
+30:01.160 --> 30:05.960
+ of the laws of physics to figure out where to put your fingers on, you pick up the thing.
+
+30:05.960 --> 30:10.360
+ And it turns out that works really well for robotic grasping instantiated in many different
+
+30:10.360 --> 30:15.960
+ recent works, including our own, but also ones from many other labs is to use learning
+
+30:15.960 --> 30:21.200
+ methods with some combination of either exhaustive simulation or like actual real world trial
+
+30:21.200 --> 30:22.200
+ and error.
+
+30:22.200 --> 30:24.360
+ And it turns out that those things actually work really well and then you don't have to
+
+30:24.360 --> 30:29.160
+ worry about solving geometry problems or physics problems.
+
+30:29.160 --> 30:35.040
+ What are, just by the way, in the grasping, what are the difficulties that have been worked
+
+30:35.040 --> 30:36.040
+ on?
+
+30:36.040 --> 30:41.080
+ So one is like the materials of things, maybe occlusions on the perception side.
+
+30:41.080 --> 30:45.360
+ Why is it such a difficult, why is picking stuff up such a difficult problem?
+
+30:45.360 --> 30:50.920
+ Yeah, it's a difficult problem because the number of things that you might have to deal
+
+30:50.920 --> 30:54.940
+ with or the variety of things that you have to deal with is extremely large.
+
+30:54.940 --> 30:59.680
+ And oftentimes things that work for one class of objects won't work for other classes of
+
+30:59.680 --> 31:00.680
+ objects.
+
+31:00.680 --> 31:05.400
+ So if you, if you get really good at picking up boxes and now you have to pick up plastic
+
+31:05.400 --> 31:09.800
+ bags, you know, you just need to employ a very different strategy.
+
+31:09.800 --> 31:15.440
+ And there are many properties of objects that are more than just their geometry that has
+
+31:15.440 --> 31:19.580
+ to do with, you know, the bits that are easier to pick up, the bits that are hard to pick
+
+31:19.580 --> 31:23.440
+ up, the bits that are more flexible, the bits that will cause the thing to pivot and bend
+
+31:23.440 --> 31:28.000
+ and drop out of your hand versus the bits that result in a nice secure grasp.
+
+31:28.000 --> 31:31.520
+ Things that are flexible, things that if you pick them up the wrong way, they'll fall upside
+
+31:31.520 --> 31:33.840
+ down and the contents will spill out.
+
+31:33.840 --> 31:38.820
+ So there's all these little details that come up, but the task is still kind of can be characterized
+
+31:38.820 --> 31:39.820
+ as one task.
+
+31:39.820 --> 31:43.800
+ Like there's a very clear notion of you did it or you didn't do it.
+
+31:43.800 --> 31:50.880
+ So in terms of spilling things, there creeps in this notion that starts to sound and feel
+
+31:50.880 --> 31:53.060
+ like common sense reasoning.
+
+31:53.060 --> 32:01.720
+ Do you think solving the general problem of robotics requires common sense reasoning,
+
+32:01.720 --> 32:09.440
+ requires general intelligence, this kind of human level capability of, you know, like
+
+32:09.440 --> 32:14.320
+ you said, be robust and deal with uncertainty, but also be able to sort of reason and assimilate
+
+32:14.320 --> 32:17.120
+ different pieces of knowledge that you have?
+
+32:17.120 --> 32:18.120
+ Yeah.
+
+32:18.120 --> 32:23.040
+ What are your thoughts on the needs?
+
+32:23.040 --> 32:28.560
+ Of common sense reasoning in the space of the general robotics problem?
+
+32:28.560 --> 32:32.520
+ So I'm going to slightly dodge that question and say that I think maybe actually it's the
+
+32:32.520 --> 32:38.120
+ other way around is that studying robotics can help us understand how to put common sense
+
+32:38.120 --> 32:40.600
+ into our AI systems.
+
+32:40.600 --> 32:45.080
+ One way to think about common sense is that, and why our current systems might lack common
+
+32:45.080 --> 32:51.640
+ sense is that common sense is an emergent property of actually having to interact with
+
+32:51.640 --> 32:56.120
+ a particular world, a particular universe, and get things done in that universe.
+
+32:56.120 --> 33:01.420
+ So you might think that, for instance, like an image captioning system, maybe it looks
+
+33:01.420 --> 33:05.880
+ at pictures of the world and it types out English sentences.
+
+33:05.880 --> 33:09.360
+ So it kind of deals with our world.
+
+33:09.360 --> 33:12.860
+ And then you can easily construct situations where image captioning systems do things that
+
+33:12.860 --> 33:16.460
+ defy common sense, like give it a picture of a person wearing a fur coat and we'll say
+
+33:16.460 --> 33:18.560
+ it's a teddy bear.
+
+33:18.560 --> 33:22.800
+ But I think what's really happening in those settings is that the system doesn't actually
+
+33:22.800 --> 33:24.160
+ live in our world.
+
+33:24.160 --> 33:28.480
+ It lives in its own world that consists of pixels and English sentences and doesn't actually
+
+33:28.480 --> 33:33.280
+ consist of having to put on a fur coat in the winter so you don't get cold.
+
+33:33.280 --> 33:39.860
+ So perhaps the reason for the disconnect is that the systems that we have now simply inhabit
+
+33:39.860 --> 33:40.860
+ a different universe.
+
+33:40.860 --> 33:45.120
+ And if we build AI systems that are forced to deal with all of the messiness and complexity
+
+33:45.120 --> 33:50.520
+ of our universe, maybe they will have to acquire common sense to essentially maximize their
+
+33:50.520 --> 33:51.680
+ utility.
+
+33:51.680 --> 33:53.600
+ Whereas the systems we're building now don't have to do that.
+
+33:53.600 --> 33:56.560
+ They can take some shortcuts.
+
+33:56.560 --> 33:57.560
+ That's fascinating.
+
+33:57.560 --> 34:02.400
+ You've a couple of times already sort of reframed the role of robotics in this whole thing.
+
+34:02.400 --> 34:08.160
+ And for some reason, I don't know if my way of thinking is common, but I thought like
+
+34:08.160 --> 34:13.240
+ we need to understand and solve intelligence in order to solve robotics.
+
+34:13.240 --> 34:18.080
+ And you're kind of framing it as, no, robotics is one of the best ways to just study artificial
+
+34:18.080 --> 34:24.940
+ intelligence and build sort of like, robotics is like the right space in which you get to
+
+34:24.940 --> 34:33.880
+ explore some of the fundamental learning mechanisms, fundamental sort of multimodal multitask aggregation
+
+34:33.880 --> 34:36.760
+ of knowledge mechanisms that are required for general intelligence.
+
+34:36.760 --> 34:41.580
+ It's really interesting way to think about it, but let me ask about learning.
+
+34:41.580 --> 34:47.000
+ Can the general sort of robotics, the epitome of the robotics problem be solved purely through
+
+34:47.000 --> 34:55.860
+ learning, perhaps end to end learning, sort of learning from scratch as opposed to injecting
+
+34:55.860 --> 35:00.120
+ human expertise and rules and heuristics and so on?
+
+35:00.120 --> 35:04.680
+ I think that in terms of the spirit of the question, I would say yes.
+
+35:04.680 --> 35:12.360
+ I mean, I think that though in some ways it's maybe like an overly sharp dichotomy, I think
+
+35:12.360 --> 35:20.120
+ that in some ways when we build algorithms, at some point a person does something, a person
+
+35:20.120 --> 35:26.460
+ turned on the computer, a person implemented a TensorFlow.
+
+35:26.460 --> 35:29.840
+ But yeah, I think that in terms of the point that you're getting at, I do think the answer
+
+35:29.840 --> 35:30.840
+ is yes.
+
+35:30.840 --> 35:36.600
+ I think that we can solve many problems that have previously required meticulous manual
+
+35:36.600 --> 35:40.120
+ engineering through automated optimization techniques.
+
+35:40.120 --> 35:43.560
+ And actually one thing I will say on this topic is I don't think this is actually a
+
+35:43.560 --> 35:45.200
+ very radical or very new idea.
+
+35:45.200 --> 35:51.300
+ I think people have been thinking about automated optimization techniques as a way to do control
+
+35:51.300 --> 35:53.680
+ for a very, very long time.
+
+35:53.680 --> 35:58.040
+ And in some ways what's changed is really more the name.
+
+35:58.040 --> 36:03.800
+ So today we would say that, oh, my robot does machine learning, it does reinforcement learning.
+
+36:03.800 --> 36:08.520
+ Maybe in the 1960s you'd say, oh, my robot is doing optimal control.
+
+36:08.520 --> 36:12.560
+ And maybe the difference between typing out a system of differential equations and doing
+
+36:12.560 --> 36:17.040
+ feedback linearization versus training a neural net, maybe it's not such a large difference.
+
+36:17.040 --> 36:21.840
+ It's just pushing the optimization deeper and deeper into the thing.
+
+36:21.840 --> 36:28.360
+ Well, it's interesting you think that way, but especially with deep learning that the
+
+36:28.360 --> 36:35.480
+ accumulation of sort of experiences in data form to form deep representations starts to
+
+36:35.480 --> 36:38.880
+ feel like knowledge as opposed to optimal control.
+
+36:38.880 --> 36:42.920
+ So this feels like there's an accumulation of knowledge through the learning process.
+
+36:42.920 --> 36:43.920
+ Yes.
+
+36:43.920 --> 36:44.920
+ Yeah.
+
+36:44.920 --> 36:45.920
+ So I think that is a good point.
+
+36:45.920 --> 36:49.720
+ That one big difference between learning based systems and classic optimal control systems
+
+36:49.720 --> 36:53.840
+ is that learning based systems in principle should get better and better the more they
+
+36:53.840 --> 36:54.840
+ do something.
+
+36:54.840 --> 36:55.840
+ Right.
+
+36:55.840 --> 36:58.160
+ And I do think that that's actually a very, very powerful difference.
+
+36:58.160 --> 37:04.640
+ So if we look back at the world of expert systems and symbolic AI and so on of using
+
+37:04.640 --> 37:11.640
+ logic to accumulate expertise, human expertise, human encoded expertise, do you think that
+
+37:11.640 --> 37:13.680
+ will have a role at some point?
+
+37:13.680 --> 37:20.620
+ The deep learning, machine learning, reinforcement learning has shown incredible results and
+
+37:20.620 --> 37:26.620
+ breakthroughs and just inspired thousands, maybe millions of researchers.
+
+37:26.620 --> 37:32.680
+ But there's this less popular now, but it used to be popular idea of symbolic AI.
+
+37:32.680 --> 37:35.240
+ Do you think that will have a role?
+
+37:35.240 --> 37:44.740
+ I think in some ways the descendants of symbolic AI actually already have a role.
+
+37:44.740 --> 37:49.000
+ So this is the highly biased history from my perspective.
+
+37:49.000 --> 37:53.920
+ You say that, well, initially we thought that rational decision making involves logical
+
+37:53.920 --> 37:54.920
+ manipulation.
+
+37:54.920 --> 37:59.940
+ So you have some model of the world expressed in terms of logic.
+
+37:59.940 --> 38:04.760
+ You have some query, like what action do I take in order for X to be true?
+
+38:04.760 --> 38:08.520
+ And then you manipulate your logical symbolic representation to get an answer.
+
+38:08.520 --> 38:14.240
+ What that turned into somewhere in the 1990s is, well, instead of building kind of predicates
+
+38:14.240 --> 38:20.800
+ and statements that have true or false values, we'll build probabilistic systems where things
+
+38:20.800 --> 38:23.160
+ have probabilities associated and probabilities of being true and false.
+
+38:23.160 --> 38:25.280
+ And that turned into Bayes nets.
+
+38:25.280 --> 38:30.440
+ And that provided sort of a boost to what were really still essentially logical inference
+
+38:30.440 --> 38:33.240
+ systems, just probabilistic logical inference systems.
+
+38:33.240 --> 38:37.940
+ And then people said, well, let's actually learn the individual probabilities inside
+
+38:37.940 --> 38:39.560
+ these models.
+
+38:39.560 --> 38:43.240
+ And then people said, well, let's not even specify the nodes in the models, let's just
+
+38:43.240 --> 38:45.500
+ put a big neural net in there.
+
+38:45.500 --> 38:48.960
+ But in many ways, I see these as actually kind of descendants from the same idea.
+
+38:48.960 --> 38:54.040
+ It's essentially instantiating rational decision making by means of some inference process
+
+38:54.040 --> 38:57.840
+ and learning by means of an optimization process.
+
+38:57.840 --> 39:00.320
+ So in a sense, I would say, yes, that it has a place.
+
+39:00.320 --> 39:04.480
+ And in many ways that place is, it already holds that place.
+
+39:04.480 --> 39:05.480
+ It's already in there.
+
+39:05.480 --> 39:06.480
+ Yeah.
+
+39:06.480 --> 39:07.480
+ It's just quite different.
+
+39:07.480 --> 39:09.000
+ It looks slightly different than it was before.
+
+39:09.000 --> 39:10.000
+ Yeah.
+
+39:10.000 --> 39:13.200
+ But there are some things that we can think about that make this a little bit more obvious.
+
+39:13.200 --> 39:17.760
+ Like if I train a big neural net model to predict what will happen in response to my
+
+39:17.760 --> 39:22.880
+ robot's actions, and then I run probabilistic inference, meaning I invert that model to
+
+39:22.880 --> 39:26.300
+ figure out the actions that lead to some plausible outcome, like to me, that seems like a kind
+
+39:26.300 --> 39:27.520
+ of logic.
+
+39:27.520 --> 39:32.000
+ You have a model of the world that just happens to be expressed by a neural net, and you are
+
+39:32.000 --> 39:37.880
+ doing some inference procedure, some sort of manipulation on that model to figure out
+
+39:37.880 --> 39:39.680
+ the answer to a query that you have.
+
+39:39.680 --> 39:41.160
+ It's the interpretability.
+
+39:41.160 --> 39:46.100
+ It's the explainability, though, that seems to be lacking more so because the nice thing
+
+39:46.100 --> 39:52.200
+ about sort of expert systems is you can follow the reasoning of the system that to us mere
+
+39:52.200 --> 39:56.320
+ humans is somehow compelling.
+
+39:56.320 --> 40:04.020
+ It's just I don't know what to make of this fact that there's a human desire for intelligence
+
+40:04.020 --> 40:12.680
+ systems to be able to convey in a poetic way to us why it made the decisions it did, like
+
+40:12.680 --> 40:15.520
+ tell a convincing story.
+
+40:15.520 --> 40:22.720
+ And perhaps that's like a silly human thing, like we shouldn't expect that of intelligence
+
+40:22.720 --> 40:23.720
+ systems.
+
+40:23.720 --> 40:27.800
+ I'm super happy that there is intelligence systems out there.
+
+40:27.800 --> 40:33.640
+ But if I were to sort of psychoanalyze the researchers at the time, I would say expert
+
+40:33.640 --> 40:40.120
+ systems connected to that part, that desire of AI researchers for systems to be explainable.
+
+40:40.120 --> 40:48.000
+ I mean, maybe on that topic, do you have a hope that sort of inferences of learning based
+
+40:48.000 --> 40:55.040
+ systems will be as explainable as the dream was with expert systems, for example?
+
+40:55.040 --> 40:59.120
+ I think it's a very complicated question because I think that in some ways the question of
+
+40:59.120 --> 41:07.440
+ explainability is kind of very closely tied to the question of like performance, like,
+
+41:07.440 --> 41:11.520
+ you know, why do you want your system to explain itself so that when it screws up, you can
+
+41:11.520 --> 41:14.960
+ kind of figure out why it did it.
+
+41:14.960 --> 41:17.360
+ But in some ways that's a much bigger problem, actually.
+
+41:17.360 --> 41:22.880
+ Like your system might screw up and then it might screw up in how it explains itself.
+
+41:22.880 --> 41:26.640
+ Or you might have some bug somewhere so that it's not actually doing what it was supposed
+
+41:26.640 --> 41:27.640
+ to do.
+
+41:27.640 --> 41:32.360
+ So, you know, maybe a good way to view that problem is really as a problem, as a bigger
+
+41:32.360 --> 41:38.640
+ problem of verification and validation, of which explainability is sort of one component.
+
+41:38.640 --> 41:39.640
+ I see.
+
+41:39.640 --> 41:41.200
+ I just see it differently.
+
+41:41.200 --> 41:45.400
+ I see explainability, you put it beautifully, I think you actually summarize the field of
+
+41:45.400 --> 41:46.400
+ explainability.
+
+41:46.400 --> 41:52.880
+ But to me, there's another aspect of explainability, which is like storytelling that has nothing
+
+41:52.880 --> 42:05.120
+ to do with errors or with, like, it uses errors as elements of its story as opposed to a fundamental
+
+42:05.120 --> 42:08.240
+ need to be explainable when errors occur.
+
+42:08.240 --> 42:12.520
+ It's just that for other intelligent systems to be in our world, we seem to want to tell
+
+42:12.520 --> 42:14.800
+ each other stories.
+
+42:14.800 --> 42:19.840
+ And that's true in the political world, that's true in the academic world.
+
+42:19.840 --> 42:24.480
+ And that, you know, neural networks are less capable of doing that, or perhaps they're
+
+42:24.480 --> 42:26.920
+ equally capable of storytelling and storytelling.
+
+42:26.920 --> 42:30.360
+ Maybe it doesn't matter what the fundamentals of the system are.
+
+42:30.360 --> 42:32.900
+ You just need to be a good storyteller.
+
+42:32.900 --> 42:38.240
+ Maybe one specific story I can tell you about in that space is actually about some work
+
+42:38.240 --> 42:43.360
+ that was done by my former collaborator, who's now a professor at MIT named Jacob Andreas.
+
+42:43.360 --> 42:47.280
+ Jacob actually works in natural language processing, but he had this idea to do a little bit of
+
+42:47.280 --> 42:53.360
+ work in reinforcement learning on how natural language can basically structure the internals
+
+42:53.360 --> 42:55.880
+ of policies trained with RL.
+
+42:55.880 --> 43:01.360
+ And one of the things he did is he set up a model that attempts to perform some task
+
+43:01.360 --> 43:06.560
+ that's defined by a reward function, but the model reads in a natural language instruction.
+
+43:06.560 --> 43:08.880
+ So this is a pretty common thing to do in instruction following.
+
+43:08.880 --> 43:13.640
+ So you tell it like, you know, go to the red house and then it's supposed to go to the red house.
+
+43:13.640 --> 43:18.300
+ But then one of the things that Jacob did is he treated that sentence, not as a command
+
+43:18.300 --> 43:25.600
+ from a person, but as a representation of the internal kind of a state of the mind of
+
+43:25.600 --> 43:26.680
+ this policy, essentially.
+
+43:26.680 --> 43:30.320
+ So that when it was faced with a new task, what it would do is it would basically try
+
+43:30.320 --> 43:34.760
+ to think of possible language descriptions, attempt to do them and see if they led to
+
+43:34.760 --> 43:35.760
+ the right outcome.
+
+43:35.760 --> 43:38.680
+ So it would kind of think out loud, like, you know, I'm faced with this new task.
+
+43:38.680 --> 43:39.680
+ What am I going to do?
+
+43:39.680 --> 43:40.680
+ Let me go to the red house.
+
+43:40.680 --> 43:41.680
+ Oh, that didn't work.
+
+43:41.680 --> 43:43.840
+ Let me go to the blue room or something.
+
+43:43.840 --> 43:45.560
+ Let me go to the green plant.
+
+43:45.560 --> 43:47.700
+ And once it got some reward, it would say, oh, go to the green plant.
+
+43:47.700 --> 43:48.700
+ That's what's working.
+
+43:48.700 --> 43:49.700
+ I'm going to go to the green plant.
+
+43:49.700 --> 43:51.800
+ And then you could look at the string that it came up with, and that was a description
+
+43:51.800 --> 43:54.480
+ of how it thought it should solve the problem.
+
+43:54.480 --> 43:58.800
+ So you could do, you could basically incorporate language as internal state and you can start
+
+43:58.800 --> 44:01.000
+ getting some handle on these kinds of things.
+
+44:01.000 --> 44:05.400
+ And then what I was kind of trying to get to is that also, if you add to the reward
+
+44:05.400 --> 44:10.160
+ function, the convincingness of that story.
+
+44:10.160 --> 44:15.640
+ So I have another reward signal of like people who review that story, how much they like
+
+44:15.640 --> 44:16.640
+ it.
+
+44:16.640 --> 44:22.880
+ So that, you know, initially that could be a hyperparameter sort of hard coded heuristic
+
+44:22.880 --> 44:30.420
+ type of thing, but it's an interesting notion of the convincingness of the story becoming
+
+44:30.420 --> 44:34.160
+ part of the reward function, the objective function of the explainability.
+
+44:34.160 --> 44:40.800
+ That's in the world of sort of Twitter and fake news, that might be a scary notion that
+
+44:40.800 --> 44:45.640
+ the nature of truth may not be as important as the convincingness of the, how convincing
+
+44:45.640 --> 44:49.880
+ you are in telling the story around the facts.
+
+44:49.880 --> 44:55.480
+ Well, let me ask the basic question.
+
+44:55.480 --> 44:58.700
+ You're one of the world class researchers in reinforcement learning, deep reinforcement
+
+44:58.700 --> 45:01.920
+ learning, certainly in the robotic space.
+
+45:01.920 --> 45:04.500
+ What is reinforcement learning?
+
+45:04.500 --> 45:09.960
+ I think that what reinforcement learning refers to today is really just the kind of the modern
+
+45:09.960 --> 45:13.100
+ incarnation of learning based control.
+
+45:13.100 --> 45:16.420
+ So classically reinforcement learning has a much more narrow definition, which is that
+
+45:16.420 --> 45:20.520
+ it's literally learning from reinforcement, like the thing does something and then it
+
+45:20.520 --> 45:22.760
+ gets a reward or punishment.
+
+45:22.760 --> 45:26.680
+ But really I think the way the term is used today is it's used to refer more broadly to
+
+45:26.680 --> 45:28.280
+ learning based control.
+
+45:28.280 --> 45:33.460
+ So some kind of system that's supposed to be controlling something and it uses data
+
+45:33.460 --> 45:34.800
+ to get better.
+
+45:34.800 --> 45:35.920
+ And what does control mean?
+
+45:35.920 --> 45:38.520
+ So this action is the fundamental element there.
+
+45:38.520 --> 45:41.140
+ It means making rational decisions.
+
+45:41.140 --> 45:44.420
+ And rational decisions are decisions that maximize a measure of utility.
+
+45:44.420 --> 45:48.360
+ And sequentially, so you made decisions time and time and time again.
+
+45:48.360 --> 45:54.820
+ Now like it's easier to see that kind of idea in the space of maybe games and the space
+
+45:54.820 --> 45:55.820
+ of robotics.
+
+45:55.820 --> 45:58.880
+ Do you see it bigger than that?
+
+45:58.880 --> 45:59.880
+ Is it applicable?
+
+45:59.880 --> 46:04.280
+ Like where are the limits of the applicability of reinforcement learning?
+
+46:04.280 --> 46:12.120
+ Yeah, so rational decision making is essentially the encapsulation of the AI problem viewed
+
+46:12.120 --> 46:13.120
+ through a particular lens.
+
+46:13.120 --> 46:18.560
+ So any problem that we would want a machine to do, an intelligent machine, can likely
+
+46:18.560 --> 46:20.960
+ be represented as a decision making problem.
+
+46:20.960 --> 46:26.760
+ Learning images is a decision making problem, although not a sequential one typically.
+
+46:26.760 --> 46:30.680
+ Controlling a chemical plant is a decision making problem.
+
+46:30.680 --> 46:34.640
+ Deciding what videos to recommend on YouTube is a decision making problem.
+
+46:34.640 --> 46:39.800
+ And one of the really appealing things about reinforcement learning is if it does encapsulate
+
+46:39.800 --> 46:43.760
+ the range of all these decision making problems, perhaps working on reinforcement learning
+
+46:43.760 --> 46:50.480
+ is one of the ways to reach a very broad swath of AI problems.
+
+46:50.480 --> 46:55.720
+ What is the fundamental difference between reinforcement learning and maybe supervised
+
+46:55.720 --> 46:57.840
+ machine learning?
+
+46:57.840 --> 47:02.840
+ So reinforcement learning can be viewed as a generalization of supervised machine learning.
+
+47:02.840 --> 47:05.680
+ You can certainly cast supervised learning as a reinforcement learning problem.
+
+47:05.680 --> 47:09.120
+ You can just say your loss function is the negative of your reward.
+
+47:09.120 --> 47:10.120
+ But you have stronger assumptions.
+
+47:10.120 --> 47:14.560
+ You have the assumption that someone actually told you what the correct answer was, that
+
+47:14.560 --> 47:16.040
+ your data was IID and so on.
+
+47:16.040 --> 47:20.400
+ So you could view reinforcement learning as essentially relaxing some of those assumptions.
+
+47:20.400 --> 47:22.800
+ Now that's not always a very productive way to look at it because if you actually have
+
+47:22.800 --> 47:26.760
+ a supervised learning problem, you'll probably solve it much more effectively by using supervised
+
+47:26.760 --> 47:29.600
+ learning methods because it's easier.
+
+47:29.600 --> 47:32.560
+ But you can view reinforcement learning as a generalization of that.
+
+47:32.560 --> 47:33.560
+ No, for sure.
+
+47:33.560 --> 47:36.040
+ But they're fundamentally different.
+
+47:36.040 --> 47:37.320
+ That's a mathematical statement.
+
+47:37.320 --> 47:38.960
+ That's absolutely correct.
+
+47:38.960 --> 47:43.480
+ But it seems that reinforcement learning, the kind of tools we bring to the table today
+
+47:43.480 --> 47:44.480
+ of today.
+
+47:44.480 --> 47:49.080
+ So maybe down the line, everything will be a reinforcement learning problem.
+
+47:49.080 --> 47:53.760
+ Just like you said, image classification should be mapped to a reinforcement learning problem.
+
+47:53.760 --> 48:01.000
+ But today, the tools and ideas, the way we think about them are different, sort of supervised
+
+48:01.000 --> 48:07.080
+ learning has been used very effectively to solve basic narrow AI problems.
+
+48:07.080 --> 48:11.680
+ Reinforcement learning kind of represents the dream of AI.
+
+48:11.680 --> 48:17.240
+ It's very much so in the research space now in sort of captivating the imagination of
+
+48:17.240 --> 48:22.960
+ people of what we can do with intelligent systems, but it hasn't yet had as wide of
+
+48:22.960 --> 48:25.520
+ an impact as the supervised learning approaches.
+
+48:25.520 --> 48:32.520
+ So my question comes from the more practical sense, like what do you see is the gap between
+
+48:32.520 --> 48:38.480
+ the more general reinforcement learning and the very specific, yes, it's a question decision
+
+48:38.480 --> 48:43.200
+ making with one step in the sequence of the supervised learning?
+
+48:43.200 --> 48:49.040
+ So from a practical standpoint, I think that one thing that is potentially a little tough
+
+48:49.040 --> 48:53.000
+ now, and this is I think something that we'll see, this is a gap that we might see closing
+
+48:53.000 --> 48:57.680
+ over the next couple of years, is the ability of reinforcement learning algorithms to effectively
+
+48:57.680 --> 49:00.600
+ utilize large amounts of prior data.
+
+49:00.600 --> 49:05.440
+ So one of the reasons why it's a bit difficult today to use reinforcement learning for all
+
+49:05.440 --> 49:10.120
+ the things that we might want to use it for is that in most of the settings where we want
+
+49:10.120 --> 49:15.200
+ to do rational decision making, it's a little bit tough to just deploy some policy that
+
+49:15.200 --> 49:18.960
+ does crazy stuff and learns purely through trial and error.
+
+49:18.960 --> 49:23.260
+ It's much easier to collect a lot of data, a lot of logs of some other policy that you've
+
+49:23.260 --> 49:28.360
+ got, and then maybe if you can get a good policy out of that, then you deploy it and
+
+49:28.360 --> 49:30.880
+ let it kind of fine tune a little bit.
+
+49:30.880 --> 49:33.520
+ But algorithmically, it's quite difficult to do that.
+
+49:33.520 --> 49:37.940
+ So I think that once we figure out how to get reinforcement learning to bootstrap effectively
+
+49:37.940 --> 49:44.160
+ from large data sets, then we'll see very, very rapid growth in applications of these
+
+49:44.160 --> 49:45.160
+ technologies.
+
+49:45.160 --> 49:48.800
+ So this is what's referred to as off policy reinforcement learning or offline RL or batch
+
+49:48.800 --> 49:50.080
+ RL.
+
+49:50.080 --> 49:53.640
+ And I think we're seeing a lot of research right now that's bringing us closer and closer
+
+49:53.640 --> 49:54.640
+ to that.
+
+49:54.640 --> 49:57.160
+ Can you maybe paint the picture of the different methods?
+
+49:57.160 --> 50:02.000
+ So you said off policy, what's value based reinforcement learning?
+
+50:02.000 --> 50:03.000
+ What's policy based?
+
+50:03.000 --> 50:04.000
+ What's model based?
+
+50:04.000 --> 50:05.000
+ What's off policy, on policy?
+
+50:05.000 --> 50:07.600
+ What are the different categories of reinforcement learning?
+
+50:07.600 --> 50:08.600
+ Okay.
+
+50:08.600 --> 50:14.360
+ So one way we can think about reinforcement learning is that it's, in some very fundamental
+
+50:14.360 --> 50:20.200
+ way, it's about learning models that can answer kind of what if questions.
+
+50:20.200 --> 50:24.360
+ So what would happen if I take this action that I hadn't taken before?
+
+50:24.360 --> 50:26.840
+ And you do that, of course, from experience, from data.
+
+50:26.840 --> 50:28.400
+ And oftentimes you do it in a loop.
+
+50:28.400 --> 50:32.900
+ So you build a model that answers these what if questions, use it to figure out the best
+
+50:32.900 --> 50:36.720
+ action you can take, and then go and try taking that and see if the outcome agrees with what
+
+50:36.720 --> 50:38.880
+ you predicted.
+
+50:38.880 --> 50:43.320
+ So the different kinds of techniques basically refer to different ways of doing it.
+
+50:43.320 --> 50:48.840
+ So model based methods answer a question of what state you would get, basically what would
+
+50:48.840 --> 50:50.960
+ happen to the world if you were to take a certain action.
+
+50:50.960 --> 50:55.080
+ Value based methods, they answer the question of what value you would get, meaning what
+
+50:55.080 --> 50:57.180
+ utility you would get.
+
+50:57.180 --> 51:00.940
+ But in a sense, they're not really all that different because they're both really just
+
+51:00.940 --> 51:03.360
+ answering these what if questions.
+
+51:03.360 --> 51:07.240
+ Now unfortunately for us, with current machine learning methods, answering what if questions
+
+51:07.240 --> 51:12.520
+ can be really hard because they are really questions about things that didn't happen.
+
+51:12.520 --> 51:14.960
+ If you wanted to answer what if questions about things that did happen, you wouldn't
+
+51:14.960 --> 51:15.960
+ need a learn model.
+
+51:15.960 --> 51:19.080
+ You would just like repeat the thing that worked before.
+
+51:19.080 --> 51:23.480
+ And that's really a big part of why RL is a little bit tough.
+
+51:23.480 --> 51:28.960
+ So if you have a purely on policy kind of online process, then you ask these what if
+
+51:28.960 --> 51:33.280
+ questions, you make some mistakes, then you go and try doing those mistaken things.
+
+51:33.280 --> 51:36.640
+ And then you observe kind of the counter examples that will teach you not to do those things
+
+51:36.640 --> 51:37.760
+ again.
+
+51:37.760 --> 51:42.240
+ If you have a bunch of off policy data and you just want to synthesize the best policy
+
+51:42.240 --> 51:46.760
+ you can out of that data, then you really have to deal with the challenges of making
+
+51:46.760 --> 51:47.760
+ these counterfactual.
+
+51:47.760 --> 51:50.520
+ First of all, what's a policy?
+
+51:50.520 --> 51:59.200
+ A policy is a model or some kind of function that maps from observations of the world to
+
+51:59.200 --> 52:00.200
+ actions.
+
+52:00.200 --> 52:05.360
+ So in reinforcement learning, we often refer to the current configuration of the world
+
+52:05.360 --> 52:06.360
+ as the state.
+
+52:06.360 --> 52:10.000
+ So we say the state kind of encompasses everything you need to fully define where the world is
+
+52:10.000 --> 52:11.560
+ at the moment.
+
+52:11.560 --> 52:15.200
+ And depending on how we formulate the problem, we might say you either get to see the state
+
+52:15.200 --> 52:19.840
+ or you get to see an observation, which is some snapshot, some piece of the state.
+
+52:19.840 --> 52:25.880
+ So policy just includes everything in it in order to be able to act in this world.
+
+52:25.880 --> 52:26.880
+ Yes.
+
+52:26.880 --> 52:29.200
+ And so what does off policy mean?
+
+52:29.200 --> 52:33.560
+ Yeah, so the terms on policy and off policy refer to how you get your data.
+
+52:33.560 --> 52:37.480
+ So if you get your data from somebody else who was doing some other stuff, maybe you
+
+52:37.480 --> 52:43.760
+ get your data from some manually programmed system that was just running in the world
+
+52:43.760 --> 52:46.640
+ before that's referred to as off policy data.
+
+52:46.640 --> 52:50.200
+ But if you got the data by actually acting in the world based on what your current policy
+
+52:50.200 --> 52:53.420
+ thinks is good, we call that on policy data.
+
+52:53.420 --> 52:58.120
+ And obviously on policy data is more useful to you because if your current policy makes
+
+52:58.120 --> 53:01.860
+ some bad decisions, you will actually see that those decisions are bad.
+
+53:01.860 --> 53:06.040
+ Off policy data, however, might be much easier to obtain because maybe that's all the logged
+
+53:06.040 --> 53:08.680
+ data that you have from before.
+
+53:08.680 --> 53:14.920
+ So we talk about offline, talked about autonomous vehicles so you can envision off policy kind
+
+53:14.920 --> 53:19.880
+ of approaches in robotic spaces where there's already a ton of robots out there, but they
+
+53:19.880 --> 53:26.360
+ don't get the luxury of being able to explore based on a reinforcement learning framework.
+
+53:26.360 --> 53:32.040
+ So how do we make, again, open question, but how do we make off policy methods work?
+
+53:32.040 --> 53:33.040
+ Yeah.
+
+53:33.040 --> 53:37.140
+ So this is something that has been kind of a big open problem for a while.
+
+53:37.140 --> 53:41.800
+ And in the last few years, people have made a little bit of progress on that.
+
+53:41.800 --> 53:44.740
+ You know, I can tell you about, and it's not by any means solved yet, but I can tell you
+
+53:44.740 --> 53:49.680
+ some of the things that, for example, we've done to try to address some of the challenges.
+
+53:49.680 --> 53:53.640
+ It turns out that one really big challenge with off policy reinforcement learning is
+
+53:53.640 --> 53:59.680
+ that you can't really trust your models to give accurate predictions for any possible
+
+53:59.680 --> 54:00.680
+ action.
+
+54:00.680 --> 54:05.880
+ So if I've never tried to, if in my data set I never saw somebody steering the car off
+
+54:05.880 --> 54:11.240
+ the road onto the sidewalk, my value function or my model is probably not going to predict
+
+54:11.240 --> 54:14.480
+ the right thing if I ask what would happen if I were to steer the car off the road onto
+
+54:14.480 --> 54:15.680
+ the sidewalk.
+
+54:15.680 --> 54:20.600
+ So one of the important things you have to do to get off policy RL to work is you have
+
+54:20.600 --> 54:24.600
+ to be able to figure out whether a given action will result in a trustworthy prediction or
+
+54:24.600 --> 54:25.600
+ not.
+
+54:25.600 --> 54:31.240
+ And you can use a kind of distribution estimation methods, kind of density estimation methods
+
+54:31.240 --> 54:32.240
+ to try to figure that out.
+
+54:32.240 --> 54:35.920
+ So you could figure out that, well, this action, my model is telling me that it's great, but
+
+54:35.920 --> 54:38.680
+ it looks totally different from any action I've taken before, so my model is probably
+
+54:38.680 --> 54:39.680
+ not correct.
+
+54:39.680 --> 54:45.200
+ And you can incorporate regularization terms into your learning objective that will essentially
+
+54:45.200 --> 54:50.880
+ tell you not to ask those questions that your model is unable to answer.
+
+54:50.880 --> 54:54.040
+ What would lead to breakthroughs in this space, do you think?
+
+54:54.040 --> 54:55.480
+ Like what's needed?
+
+54:55.480 --> 54:57.240
+ Is this a data set question?
+
+54:57.240 --> 55:03.780
+ Do we need to collect big benchmark data sets that allow us to explore the space?
+
+55:03.780 --> 55:08.560
+ Is it a new kinds of methodologies?
+
+55:08.560 --> 55:09.960
+ Like what's your sense?
+
+55:09.960 --> 55:14.160
+ Or maybe coming together in a space of robotics and defining the right problem to be working
+
+55:14.160 --> 55:15.160
+ on?
+
+55:15.160 --> 55:18.200
+ I think for off policy reinforcement learning in particular, it's very much an algorithms
+
+55:18.200 --> 55:19.880
+ question right now.
+
+55:19.880 --> 55:25.320
+ And this is something that I think is great because an algorithms question is that that
+
+55:25.320 --> 55:29.800
+ just takes some very smart people to get together and think about it really hard, whereas if
+
+55:29.800 --> 55:34.780
+ it was like a data problem or a hardware problem, that would take some serious engineering.
+
+55:34.780 --> 55:38.340
+ So that's why I'm pretty excited about that problem because I think that we're in a position
+
+55:38.340 --> 55:42.200
+ where we can make some real progress on it just by coming up with the right algorithms.
+
+55:42.200 --> 55:47.900
+ In terms of which algorithms they could be, the problems at their core are very related
+
+55:47.900 --> 55:51.640
+ to problems in things like causal inference.
+
+55:51.640 --> 55:55.960
+ Because what you're really dealing with is situations where you have a model, a statistical
+
+55:55.960 --> 56:00.620
+ model, that's trying to make predictions about things that it hadn't seen before.
+
+56:00.620 --> 56:04.840
+ And if it's a model that's generalizing properly, that'll make good predictions.
+
+56:04.840 --> 56:09.000
+ If it's a model that picks up on spurious correlations, that will not generalize properly.
+
+56:09.000 --> 56:11.100
+ And then you have an arsenal of tools you can use.
+
+56:11.100 --> 56:15.200
+ You could, for example, figure out what are the regions where it's trustworthy, or on
+
+56:15.200 --> 56:18.760
+ the other hand, you could try to make it generalize better somehow, or some combination of the
+
+56:18.760 --> 56:20.800
+ two.
+
+56:20.800 --> 56:30.160
+ Is there room for mixing where most of it, like 90, 95% is off policy, you already have
+
+56:30.160 --> 56:36.360
+ the data set, and then you get to send the robot out to do a little exploration?
+
+56:36.360 --> 56:38.880
+ What's that role of mixing them together?
+
+56:38.880 --> 56:39.880
+ Yeah, absolutely.
+
+56:39.880 --> 56:45.320
+ I think that this is something that you actually described very well at the beginning of our
+
+56:45.320 --> 56:47.480
+ discussion when you talked about the iceberg.
+
+56:47.480 --> 56:48.480
+ This is the iceberg.
+
+56:48.480 --> 56:51.720
+ The 99% of your prior experience, that's your iceberg.
+
+56:51.720 --> 56:54.160
+ You'd use that for off policy reinforcement learning.
+
+56:54.160 --> 56:59.240
+ And then, of course, if you've never opened that particular kind of door with that particular
+
+56:59.240 --> 57:02.120
+ lock before, then you have to go out and fiddle with it a little bit.
+
+57:02.120 --> 57:05.320
+ And that's that additional 1% to help you figure out a new task.
+
+57:05.320 --> 57:08.200
+ And I think that's actually a pretty good recipe going forward.
+
+57:08.200 --> 57:12.840
+ Is this, to you, the most exciting space of reinforcement learning now?
+
+57:12.840 --> 57:18.240
+ Or is there, what's, and maybe taking a step back, not just now, but what's, to you, is
+
+57:18.240 --> 57:23.240
+ the most beautiful idea, apologize for the romanticized question, but the beautiful idea
+
+57:23.240 --> 57:27.280
+ or concept in reinforcement learning?
+
+57:27.280 --> 57:32.640
+ In general, I actually think that one of the things that is a very beautiful idea in reinforcement
+
+57:32.640 --> 57:41.800
+ learning is just the idea that you can obtain a near optimal control or near optimal policy
+
+57:41.800 --> 57:45.640
+ without actually having a complete model of the world.
+
+57:45.640 --> 57:53.080
+ This is, you know, it's something that feels perhaps kind of obvious if you just hear the
+
+57:53.080 --> 57:55.880
+ term reinforcement learning or you think about trial and error learning.
+
+57:55.880 --> 58:01.800
+ But from a controls perspective, it's a very weird thing because classically, you know,
+
+58:01.800 --> 58:07.480
+ we think about engineered systems and controlling engineered systems as the problem of writing
+
+58:07.480 --> 58:11.000
+ down some equations and then figuring out given these equations, you know, basically
+
+58:11.000 --> 58:16.820
+ solve for X, figure out the thing that maximizes its performance.
+
+58:16.820 --> 58:21.360
+ And the theory of reinforcement learning actually gives us a mathematically principled framework
+
+58:21.360 --> 58:27.080
+ to think, to reason about, you know, optimizing some quantity when you don't actually know
+
+58:27.080 --> 58:28.900
+ the equations that govern that system.
+
+58:28.900 --> 58:35.040
+ And I don't, to me, that's actually seems kind of, you know, very elegant, not something
+
+58:35.040 --> 58:40.160
+ that sort of becomes immediately obvious, at least in the mathematical sense.
+
+58:40.160 --> 58:42.960
+ Does it make sense to you that it works at all?
+
+58:42.960 --> 58:48.360
+ Well, I think it makes sense when you take some time to think about it, but it is a little
+
+58:48.360 --> 58:49.360
+ surprising.
+
+58:49.360 --> 58:56.720
+ Well, then taking a step into the more deeper representations, which is also very surprising
+
+58:56.720 --> 59:04.840
+ of sort of the richness of the state space, the space of environments that this kind of
+
+59:04.840 --> 59:10.480
+ approach can operate in, can you maybe say what is deep reinforcement learning?
+
+59:10.480 --> 59:16.100
+ Well, deep reinforcement learning simply refers to taking reinforcement learning algorithms
+
+59:16.100 --> 59:20.520
+ and combining them with high capacity neural net representations.
+
+59:20.520 --> 59:24.140
+ Which is, you know, kind of, it might at first seem like a pretty arbitrary thing, just take
+
+59:24.140 --> 59:26.560
+ these two components and stick them together.
+
+59:26.560 --> 59:32.320
+ But the reason that it's something that has become so important in recent years is that
+
+59:32.320 --> 59:38.160
+ reinforcement learning, it kind of faces an exacerbated version of a problem that has
+
+59:38.160 --> 59:40.080
+ faced many other machine learning techniques.
+
+59:40.080 --> 59:45.360
+ So if we go back to like, you know, the early two thousands or the late nineties, we'll
+
+59:45.360 --> 59:50.780
+ see a lot of research on machine learning methods that have some very appealing mathematical
+
+59:50.780 --> 59:56.220
+ properties like they reduce the convex optimization problems, for instance, but they require very
+
+59:56.220 --> 59:57.220
+ special inputs.
+
+59:57.220 --> 1:00:01.600
+ They require a representation of the input that is clean in some way.
+
+1:00:01.600 --> 1:00:06.320
+ Like for example, clean in the sense that the classes in your multi class classification
+
+1:00:06.320 --> 1:00:07.720
+ problems separate linearly.
+
+1:00:07.720 --> 1:00:12.560
+ So they have some kind of good representation and we call this a feature representation.
+
+1:00:12.560 --> 1:00:15.520
+ And for a long time, people were very worried about features in the world of supervised
+
+1:00:15.520 --> 1:00:18.560
+ learning because somebody had to actually build those features so you couldn't just
+
+1:00:18.560 --> 1:00:22.920
+ take an image and plug it into your logistic regression or your SVM or something.
+
+1:00:22.920 --> 1:00:26.840
+ How to take that image and process it using some handwritten code.
+
+1:00:26.840 --> 1:00:30.900
+ And then neural nets came along and they could actually learn the features and suddenly we
+
+1:00:30.900 --> 1:00:35.360
+ could apply learning directly to the raw inputs, which was great for images, but it was even
+
+1:00:35.360 --> 1:00:40.020
+ more great for all the other fields where people hadn't come up with good features yet.
+
+1:00:40.020 --> 1:00:43.400
+ And one of those fields actually reinforcement learning because in reinforcement learning,
+
+1:00:43.400 --> 1:00:46.840
+ the notion of features, if you don't use neural nets and you have to design your own features
+
+1:00:46.840 --> 1:00:48.580
+ is very, very opaque.
+
+1:00:48.580 --> 1:00:53.920
+ Like it's very hard to imagine, let's say I'm playing chess or go.
+
+1:00:53.920 --> 1:00:58.760
+ What is a feature with which I can represent the value function for go or even the optimal
+
+1:00:58.760 --> 1:00:59.760
+ policy for go linearly?
+
+1:00:59.760 --> 1:01:03.100
+ Like I don't even know how to start thinking about it.
+
+1:01:03.100 --> 1:01:06.040
+ And people tried all sorts of things that would write down, you know, an expert chess
+
+1:01:06.040 --> 1:01:09.160
+ player looks for whether the knight is in the middle of the board or not.
+
+1:01:09.160 --> 1:01:11.760
+ So that's a feature is knight in middle of board.
+
+1:01:11.760 --> 1:01:15.960
+ And they would write these like long lists of kind of arbitrary made up stuff.
+
+1:01:15.960 --> 1:01:17.680
+ And that was really kind of getting us nowhere.
+
+1:01:17.680 --> 1:01:21.960
+ And that's a little, chess is a little more accessible than the robotics problem.
+
+1:01:21.960 --> 1:01:22.960
+ Absolutely.
+
+1:01:22.960 --> 1:01:23.960
+ Right.
+
+1:01:23.960 --> 1:01:30.340
+ There's at least experts in the different features for chess, but still like the neural
+
+1:01:30.340 --> 1:01:35.700
+ network there, to me, that's, I mean, you put it eloquently and almost made it seem
+
+1:01:35.700 --> 1:01:41.000
+ like a natural step to add neural networks, but the fact that neural networks are able
+
+1:01:41.000 --> 1:01:45.640
+ to discover features in the control problem, it's very interesting.
+
+1:01:45.640 --> 1:01:46.640
+ It's hopeful.
+
+1:01:46.640 --> 1:01:51.880
+ I'm not sure what to think about it, but it feels hopeful that the control problem has
+
+1:01:51.880 --> 1:01:54.680
+ features to be learned.
+
+1:01:54.680 --> 1:02:02.360
+ Like I guess my question is, is it surprising to you how far the deep side of deep reinforcement
+
+1:02:02.360 --> 1:02:07.560
+ learning was able to like what the space of problems has been able to tackle from, especially
+
+1:02:07.560 --> 1:02:17.600
+ in games with alpha star and alpha zero and just the representation power there and in
+
+1:02:17.600 --> 1:02:23.120
+ the robotics space and what is your sense of the limits of this representation power
+
+1:02:23.120 --> 1:02:26.120
+ and the control context?
+
+1:02:26.120 --> 1:02:32.900
+ I think that in regard to the limits that here, I think that one thing that makes it
+
+1:02:32.900 --> 1:02:39.380
+ a little hard to fully answer this question is because in settings where we would like
+
+1:02:39.380 --> 1:02:44.040
+ to push these things to the limit, we encounter other bottlenecks.
+
+1:02:44.040 --> 1:02:51.480
+ So like the reason that I can't get my robot to learn how to like, I don't know, do the
+
+1:02:51.480 --> 1:02:56.220
+ dishes in the kitchen, it's not because it's neural net is not big enough.
+
+1:02:56.220 --> 1:03:02.680
+ It's because when you try to actually do trial and error learning, reinforcement learning,
+
+1:03:02.680 --> 1:03:07.840
+ directly in the real world where you have the potential to gather these large, highly
+
+1:03:07.840 --> 1:03:11.720
+ varied and complex data sets, you start running into other problems.
+
+1:03:11.720 --> 1:03:16.920
+ Like one problem you run into very quickly, it'll first sound like a very pragmatic problem,
+
+1:03:16.920 --> 1:03:19.480
+ but it actually turns out to be a pretty deep scientific problem.
+
+1:03:19.480 --> 1:03:22.320
+ Take the robot, put it in your kitchen, have it try to learn to do the dishes with trial
+
+1:03:22.320 --> 1:03:23.320
+ and error.
+
+1:03:23.320 --> 1:03:27.120
+ It'll break all your dishes and then we'll have no more dishes to clean.
+
+1:03:27.120 --> 1:03:30.080
+ Now you might think this is a very practical issue, but there's something to this, which
+
+1:03:30.080 --> 1:03:33.720
+ is that if you have a person trying to do this, a person will have some degree of common
+
+1:03:33.720 --> 1:03:34.720
+ sense.
+
+1:03:34.720 --> 1:03:37.360
+ They'll break one dish, they'll be a little more careful with the next one, and if they
+
+1:03:37.360 --> 1:03:41.200
+ break all of them, they're going to go and get more or something like that.
+
+1:03:41.200 --> 1:03:46.800
+ So there's all sorts of scaffolding that comes very naturally to us for our learning process.
+
+1:03:46.800 --> 1:03:50.720
+ Like if I have to learn something through trial and error, I have the common sense to
+
+1:03:50.720 --> 1:03:53.120
+ know that I have to try multiple times.
+
+1:03:53.120 --> 1:03:57.440
+ If I screw something up, I ask for help or I reset things or something like that.
+
+1:03:57.440 --> 1:04:02.100
+ And all of that is kind of outside of the classic reinforcement learning problem formulation.
+
+1:04:02.100 --> 1:04:07.360
+ There are other things that can also be categorized as kind of scaffolding, but are very important.
+
+1:04:07.360 --> 1:04:09.520
+ Like for example, where do you get your reward function?
+
+1:04:09.520 --> 1:04:15.360
+ If I want to learn how to pour a cup of water, well, how do I know if I've done it correctly?
+
+1:04:15.360 --> 1:04:18.840
+ Now that probably requires an entire computer vision system to be built just to determine
+
+1:04:18.840 --> 1:04:21.220
+ that, and that seems a little bit inelegant.
+
+1:04:21.220 --> 1:04:24.460
+ So there are all sorts of things like this that start to come up when we think through
+
+1:04:24.460 --> 1:04:28.560
+ what we really need to get reinforcement learning to happen at scale in the real world.
+
+1:04:28.560 --> 1:04:32.320
+ And many of these things actually suggest a little bit of a shortcoming in the problem
+
+1:04:32.320 --> 1:04:36.240
+ formulation and a few deeper questions that we have to resolve.
+
+1:04:36.240 --> 1:04:37.240
+ That's really interesting.
+
+1:04:37.240 --> 1:04:45.440
+ I talked to David Silver about AlphaZero, and it seems like there's no, again, we haven't
+
+1:04:45.440 --> 1:04:50.200
+ hit the limit at all in the context where there's no broken dishes.
+
+1:04:50.200 --> 1:04:55.080
+ So in the case of Go, you can, it's really about just scaling compute.
+
+1:04:55.080 --> 1:05:00.760
+ So again, like the bottleneck is the amount of money you're willing to invest in compute
+
+1:05:00.760 --> 1:05:06.160
+ and then maybe the different, the scaffolding around how difficult it is to scale compute
+
+1:05:06.160 --> 1:05:09.000
+ maybe, but there, there's no limit.
+
+1:05:09.000 --> 1:05:12.640
+ And it's interesting, now we'll move to the real world and there's the broken dishes,
+
+1:05:12.640 --> 1:05:17.080
+ there's all the, and the reward function, like you mentioned, that's really nice.
+
+1:05:17.080 --> 1:05:19.920
+ So what, how do we push forward there?
+
+1:05:19.920 --> 1:05:25.680
+ Do you think there's, there's this kind of a sample efficiency question that people bring
+
+1:05:25.680 --> 1:05:30.740
+ up of, you know, not having to break a hundred thousand dishes.
+
+1:05:30.740 --> 1:05:33.020
+ Is this an algorithm question?
+
+1:05:33.020 --> 1:05:37.680
+ Is this a data selection like question?
+
+1:05:37.680 --> 1:05:38.680
+ What do you think?
+
+1:05:38.680 --> 1:05:41.320
+ How do we, how do we not break too many dishes?
+
+1:05:41.320 --> 1:05:42.320
+ Yeah.
+
+1:05:42.320 --> 1:05:51.360
+ Well, one way we can think about that is that maybe we need to be better at, at reusing
+
+1:05:51.360 --> 1:05:54.080
+ our data, building that, that iceberg.
+
+1:05:54.080 --> 1:06:02.560
+ So perhaps, perhaps it's too much to hope that you can have a machine that's in isolation
+
+1:06:02.560 --> 1:06:07.280
+ in the vacuum without anything else, can just master complex tasks in like in minutes the
+
+1:06:07.280 --> 1:06:10.840
+ way that people do, but perhaps it also doesn't have to, perhaps what it really needs to do
+
+1:06:10.840 --> 1:06:16.240
+ is have an existence, a lifetime where it does many things and the previous things that
+
+1:06:16.240 --> 1:06:20.400
+ it has done, prepare it to do new things more efficiently.
+
+1:06:20.400 --> 1:06:24.260
+ And you know, the study of these kinds of questions typically falls under categories
+
+1:06:24.260 --> 1:06:29.200
+ like multitask learning or meta learning, but they all fundamentally deal with the same
+
+1:06:29.200 --> 1:06:35.640
+ general theme, which is use experience for doing other things to learn to do new things
+
+1:06:35.640 --> 1:06:37.240
+ efficiently and quickly.
+
+1:06:37.240 --> 1:06:41.880
+ So what do you think about if we just look at the one particular case study of a Tesla
+
+1:06:41.880 --> 1:06:48.520
+ autopilot that has quickly approaching towards a million vehicles on the road where some
+
+1:06:48.520 --> 1:06:54.440
+ percentage of the time, 30, 40% of the time is driven using the computer vision, multitask
+
+1:06:54.440 --> 1:06:57.960
+ hydranet, right?
+
+1:06:57.960 --> 1:07:03.040
+ And then the other percent, that's what they call it, hydranet.
+
+1:07:03.040 --> 1:07:06.360
+ The other percent is human controlled.
+
+1:07:06.360 --> 1:07:09.920
+ In the human side, how can we use that data?
+
+1:07:09.920 --> 1:07:12.920
+ What's your sense?
+
+1:07:12.920 --> 1:07:13.920
+ What's the signal?
+
+1:07:13.920 --> 1:07:17.900
+ Do you have ideas in this autonomous vehicle space when people can lose their lives?
+
+1:07:17.900 --> 1:07:21.560
+ You know, it's a safety critical environment.
+
+1:07:21.560 --> 1:07:23.960
+ So how do we use that data?
+
+1:07:23.960 --> 1:07:33.000
+ So I think that actually the kind of problems that come up when we want systems that are
+
+1:07:33.000 --> 1:07:37.040
+ reliable and that can kind of understand the limits of their capabilities, they're actually
+
+1:07:37.040 --> 1:07:40.680
+ very similar to the kind of problems that come up when we're doing off policy reinforcement
+
+1:07:40.680 --> 1:07:41.680
+ learning.
+
+1:07:41.680 --> 1:07:46.120
+ So as I mentioned before, in off policy reinforcement learning, the big problem is you need to know
+
+1:07:46.120 --> 1:07:50.880
+ when you can trust the predictions of your model, because if you're trying to evaluate
+
+1:07:50.880 --> 1:07:54.240
+ some pattern of behavior for which your model doesn't give you an accurate prediction, then
+
+1:07:54.240 --> 1:07:57.360
+ you shouldn't use that to modify your policy.
+
+1:07:57.360 --> 1:08:00.200
+ It's actually very similar to the problem that we're faced when we actually then deploy
+
+1:08:00.200 --> 1:08:05.120
+ that thing and we want to decide whether we trust it in the moment or not.
+
+1:08:05.120 --> 1:08:08.360
+ So perhaps we just need to do a better job of figuring out that part, and that's a very
+
+1:08:08.360 --> 1:08:11.460
+ deep research question, of course, but it's also a question that a lot of people are working
+
+1:08:11.460 --> 1:08:12.460
+ on.
+
+1:08:12.460 --> 1:08:15.920
+ So I'm pretty optimistic that we can make some progress on that over the next few years.
+
+1:08:15.920 --> 1:08:20.400
+ What's the role of simulation in reinforcement learning, deep reinforcement learning, reinforcement
+
+1:08:20.400 --> 1:08:21.400
+ learning?
+
+1:08:21.400 --> 1:08:23.000
+ Like how essential is it?
+
+1:08:23.000 --> 1:08:28.160
+ It's been essential for the breakthroughs so far for some interesting breakthroughs.
+
+1:08:28.160 --> 1:08:31.440
+ Do you think it's a crutch that we rely on?
+
+1:08:31.440 --> 1:08:37.360
+ I mean, again, this connects to our off policy discussion, but do you think we can ever get
+
+1:08:37.360 --> 1:08:40.160
+ rid of simulation or do you think simulation will actually take over?
+
+1:08:40.160 --> 1:08:46.000
+ We'll create more and more realistic simulations that will allow us to solve actual real world
+
+1:08:46.000 --> 1:08:49.960
+ problems, like transfer the models we learn in simulation to real world problems.
+
+1:08:49.960 --> 1:08:54.360
+ I think that simulation is a very pragmatic tool that we can use to get a lot of useful
+
+1:08:54.360 --> 1:09:00.000
+ stuff to work right now, but I think that in the long run, we will need to build machines
+
+1:09:00.000 --> 1:09:03.400
+ that can learn from real data because that's the only way that we'll get them to improve
+
+1:09:03.400 --> 1:09:08.680
+ perpetually because if we can't have our machines learn from real data, if they have to rely
+
+1:09:08.680 --> 1:09:11.680
+ on simulated data, eventually the simulator becomes the bottleneck.
+
+1:09:11.680 --> 1:09:13.560
+ In fact, this is a general thing.
+
+1:09:13.560 --> 1:09:19.120
+ If your machine has any bottleneck that is built by humans and that doesn't improve from
+
+1:09:19.120 --> 1:09:23.400
+ data, it will eventually be the thing that holds it back.
+
+1:09:23.400 --> 1:09:25.900
+ And if you're entirely reliant on your simulator, that'll be the bottleneck.
+
+1:09:25.900 --> 1:09:30.520
+ If you're entirely reliant on a manually designed controller, that's going to be the bottleneck.
+
+1:09:30.520 --> 1:09:32.160
+ So simulation is very useful.
+
+1:09:32.160 --> 1:09:39.840
+ It's very pragmatic, but it's not a substitute for being able to utilize real experience.
+
+1:09:39.840 --> 1:09:44.600
+ And by the way, this is something that I think is quite relevant now, especially in the context
+
+1:09:44.600 --> 1:09:48.840
+ of some of the things we've discussed, because some of these kind of scaffolding issues that
+
+1:09:48.840 --> 1:09:52.000
+ I mentioned, things like the broken dishes and the unknown reward function, like these
+
+1:09:52.000 --> 1:09:57.700
+ are not problems that you would ever stumble on when working in a purely simulated kind
+
+1:09:57.700 --> 1:10:01.720
+ of environment, but they become very apparent when we try to actually run these things in
+
+1:10:01.720 --> 1:10:02.720
+ the real world.
+
+1:10:02.720 --> 1:10:07.080
+ To throw a brief wrench into our discussion, let me ask, do you think we're living in a
+
+1:10:07.080 --> 1:10:08.080
+ simulation?
+
+1:10:08.080 --> 1:10:09.080
+ Oh, I have no idea.
+
+1:10:09.080 --> 1:10:15.960
+ Do you think that's a useful thing to even think about, about the fundamental physics
+
+1:10:15.960 --> 1:10:18.880
+ nature of reality?
+
+1:10:18.880 --> 1:10:24.520
+ Or another perspective, the reason I think the simulation hypothesis is interesting is
+
+1:10:24.520 --> 1:10:33.080
+ to think about how difficult is it to create sort of a virtual reality game type situation
+
+1:10:33.080 --> 1:10:38.760
+ that will be sufficiently convincing to us humans or sufficiently enjoyable that we wouldn't
+
+1:10:38.760 --> 1:10:39.760
+ want to leave.
+
+1:10:39.760 --> 1:10:43.560
+ I mean, that's actually a practical engineering challenge.
+
+1:10:43.560 --> 1:10:47.820
+ And I personally really enjoy virtual reality, but it's quite far away.
+
+1:10:47.820 --> 1:10:52.520
+ I kind of think about what would it take for me to want to spend more time in virtual reality
+
+1:10:52.520 --> 1:10:55.320
+ versus the real world.
+
+1:10:55.320 --> 1:11:03.920
+ And that's a sort of a nice clean question because at that point, if I want to live in
+
+1:11:03.920 --> 1:11:08.040
+ a virtual reality, that means we're just a few years away where a majority of the population
+
+1:11:08.040 --> 1:11:09.040
+ lives in a virtual reality.
+
+1:11:09.040 --> 1:11:11.480
+ And that's how we create the simulation, right?
+
+1:11:11.480 --> 1:11:19.860
+ You don't need to actually simulate the quantum gravity and just every aspect of the universe.
+
+1:11:19.860 --> 1:11:24.800
+ And that's an interesting question for reinforcement learning too, is if we want to make sufficiently
+
+1:11:24.800 --> 1:11:32.520
+ realistic simulations that may blend the difference between sort of the real world and the simulation,
+
+1:11:32.520 --> 1:11:37.640
+ thereby just some of the things we've been talking about, kind of the problems go away
+
+1:11:37.640 --> 1:11:40.840
+ if we can create actually interesting, rich simulations.
+
+1:11:40.840 --> 1:11:41.840
+ It's an interesting question.
+
+1:11:41.840 --> 1:11:46.320
+ And it actually, I think your question casts your previous question in a very interesting
+
+1:11:46.320 --> 1:11:53.560
+ light, because in some ways asking whether we can, well, the more kind of practical version
+
+1:11:53.560 --> 1:11:57.600
+ is like, you know, can we build simulators that are good enough to train essentially
+
+1:11:57.600 --> 1:12:02.200
+ AI systems that will work in the world?
+
+1:12:02.200 --> 1:12:06.440
+ And it's kind of interesting to think about this, about what this implies, if true, it
+
+1:12:06.440 --> 1:12:11.260
+ kind of implies that it's easier to create the universe than it is to create a brain.
+
+1:12:11.260 --> 1:12:14.520
+ And that seems like, put this way, it seems kind of weird.
+
+1:12:14.520 --> 1:12:21.120
+ The aspect of the simulation most interesting to me is the simulation of other humans.
+
+1:12:21.120 --> 1:12:27.980
+ That seems to be a complexity that makes the robotics problem harder.
+
+1:12:27.980 --> 1:12:32.040
+ Now I don't know if every robotics person agrees with that notion.
+
+1:12:32.040 --> 1:12:38.040
+ Just as a quick aside, what are your thoughts about when the human enters the picture of
+
+1:12:38.040 --> 1:12:39.960
+ the robotics problem?
+
+1:12:39.960 --> 1:12:44.560
+ How does that change the reinforcement learning problem, the learning problem in general?
+
+1:12:44.560 --> 1:12:48.720
+ Yeah, I think that's a, it's a kind of a complex question.
+
+1:12:48.720 --> 1:12:56.680
+ And I guess my hope for a while had been that if we build these robotic learning systems
+
+1:12:56.680 --> 1:13:03.280
+ that are multitask, that utilize lots of prior data and that learn from their own experience,
+
+1:13:03.280 --> 1:13:07.480
+ the bit where they have to interact with people will be perhaps handled in much the same way
+
+1:13:07.480 --> 1:13:08.840
+ as all the other bits.
+
+1:13:08.840 --> 1:13:12.440
+ So if they have prior experience of interacting with people and they can learn from their
+
+1:13:12.440 --> 1:13:16.640
+ own experience of interacting with people for this new task, maybe that'll be enough.
+
+1:13:16.640 --> 1:13:20.700
+ Now, of course, if it's not enough, there are many other things we can do and there's
+
+1:13:20.700 --> 1:13:22.880
+ quite a bit of research in that area.
+
+1:13:22.880 --> 1:13:29.400
+ But I think it's worth a shot to see whether the multi agent interaction, the ability to
+
+1:13:29.400 --> 1:13:35.220
+ understand that other beings in the world have their own goals and tensions and thoughts
+
+1:13:35.220 --> 1:13:41.580
+ and so on, whether that kind of understanding can emerge automatically from simply learning
+
+1:13:41.580 --> 1:13:44.160
+ to do things with and maximize utility.
+
+1:13:44.160 --> 1:13:46.940
+ That information arises from the data.
+
+1:13:46.940 --> 1:13:53.400
+ You've said something about gravity, that you don't need to explicitly inject anything
+
+1:13:53.400 --> 1:13:54.400
+ into the system.
+
+1:13:54.400 --> 1:13:55.840
+ They can be learned from the data.
+
+1:13:55.840 --> 1:13:59.740
+ And gravity is an example of something that could be learned from data, so like the physics
+
+1:13:59.740 --> 1:14:05.300
+ of the world.
+
+1:14:05.300 --> 1:14:08.520
+ What are the limits of what we can learn from data?
+
+1:14:08.520 --> 1:14:10.460
+ Do you really think we can?
+
+1:14:10.460 --> 1:14:15.600
+ So a very simple, clean way to ask that is, do you really think we can learn gravity from
+
+1:14:15.600 --> 1:14:19.920
+ just data, the idea, the laws of gravity?
+
+1:14:19.920 --> 1:14:25.720
+ So something that I think is a common kind of pitfall when thinking about prior knowledge
+
+1:14:25.720 --> 1:14:33.360
+ and learning is to assume that just because we know something, then that it's better to
+
+1:14:33.360 --> 1:14:36.880
+ tell the machine about that rather than have it figured out on its own.
+
+1:14:36.880 --> 1:14:44.060
+ In many cases, things that are important that affect many of the events that the machine
+
+1:14:44.060 --> 1:14:48.360
+ will experience are actually pretty easy to learn.
+
+1:14:48.360 --> 1:14:54.320
+ If every time you drop something, it falls down, yeah, you might get the Newton's version,
+
+1:14:54.320 --> 1:14:58.680
+ not Einstein's version, but it'll be pretty good and it will probably be sufficient for
+
+1:14:58.680 --> 1:15:03.320
+ you to act rationally in the world because you see the phenomenon all the time.
+
+1:15:03.320 --> 1:15:07.640
+ So things that are readily apparent from the data, we might not need to specify those by
+
+1:15:07.640 --> 1:15:08.640
+ hand.
+
+1:15:08.640 --> 1:15:10.320
+ It might actually be easier to let the machine figure them out.
+
+1:15:10.320 --> 1:15:17.400
+ It just feels like that there might be a space of many local minima in terms of theories
+
+1:15:17.400 --> 1:15:25.760
+ of this world that we would discover and get stuck on, that Newtonian mechanics is not necessarily
+
+1:15:25.760 --> 1:15:27.320
+ easy to come by.
+
+1:15:27.320 --> 1:15:28.320
+ Yeah.
+
+1:15:28.320 --> 1:15:33.040
+ And in fact, in some fields of science, for example, human civilization is itself full
+
+1:15:33.040 --> 1:15:34.040
+ of these local optima.
+
+1:15:34.040 --> 1:15:40.520
+ So for example, if you think about how people tried to figure out biology and medicine for
+
+1:15:40.520 --> 1:15:45.800
+ the longest time, the kind of rules, the kind of principles that serve us very well in our
+
+1:15:45.800 --> 1:15:50.160
+ day to day lives actually serve us very poorly in understanding medicine and biology.
+
+1:15:50.160 --> 1:15:55.320
+ We had kind of very superstitious and weird ideas about how the body worked until the
+
+1:15:55.320 --> 1:15:58.020
+ advent of the modern scientific method.
+
+1:15:58.020 --> 1:16:02.080
+ So that does seem to be a failing of this approach, but it's also a failing of human
+
+1:16:02.080 --> 1:16:04.380
+ intelligence arguably.
+
+1:16:04.380 --> 1:16:09.680
+ Maybe a small aside, but some, you know, the idea of self play is fascinating in reinforcement
+
+1:16:09.680 --> 1:16:14.840
+ learning sort of these competitive, creating a competitive context in which agents can
+
+1:16:14.840 --> 1:16:20.340
+ play against each other in a, sort of at the same skill level and thereby increasing each
+
+1:16:20.340 --> 1:16:21.340
+ other skill level.
+
+1:16:21.340 --> 1:16:26.320
+ It seems to be this kind of self improving mechanism is exceptionally powerful in the
+
+1:16:26.320 --> 1:16:29.020
+ context where it could be applied.
+
+1:16:29.020 --> 1:16:34.920
+ First of all, is that beautiful to you that this mechanism work as well as it does?
+
+1:16:34.920 --> 1:16:41.880
+ And also can we generalize to other contexts like in the robotic space or anything that's
+
+1:16:41.880 --> 1:16:43.840
+ applicable to the real world?
+
+1:16:43.840 --> 1:16:51.560
+ I think that it's a very interesting idea, but I suspect that the bottleneck to actually
+
+1:16:51.560 --> 1:16:56.240
+ generalizing it to the robotic setting is actually going to be the same as the bottleneck
+
+1:16:56.240 --> 1:17:01.200
+ for everything else that we need to be able to build machines that can get better and
+
+1:17:01.200 --> 1:17:04.760
+ better through natural interaction with the world.
+
+1:17:04.760 --> 1:17:08.400
+ And once we can do that, then they can go out and play with, they can play with each
+
+1:17:08.400 --> 1:17:13.040
+ other, they can play with people, they can play with the natural environment.
+
+1:17:13.040 --> 1:17:16.040
+ But before we get there, we've got all these other problems we've got, we have to get out
+
+1:17:16.040 --> 1:17:17.040
+ of the way.
+
+1:17:17.040 --> 1:17:18.040
+ So there's no shortcut around that.
+
+1:17:18.040 --> 1:17:21.160
+ You have to interact with a natural environment that.
+
+1:17:21.160 --> 1:17:24.660
+ Well because in a, in a self play setting, you still need a mediating mechanism.
+
+1:17:24.660 --> 1:17:30.080
+ So the, the reason that, you know, self play works for a board game is because the rules
+
+1:17:30.080 --> 1:17:33.780
+ of that board game mediate the interaction between the agents.
+
+1:17:33.780 --> 1:17:37.760
+ So the kind of intelligent behavior that will emerge depends very heavily on the nature
+
+1:17:37.760 --> 1:17:39.920
+ of that mediating mechanism.
+
+1:17:39.920 --> 1:17:44.360
+ So on the side of reward functions, that's coming up with good reward functions seems
+
+1:17:44.360 --> 1:17:50.760
+ to be the thing that we associate with general intelligence, like human beings seem to value
+
+1:17:50.760 --> 1:17:57.000
+ the idea of developing our own reward functions of, you know, at arriving at meaning and so
+
+1:17:57.000 --> 1:17:58.440
+ on.
+
+1:17:58.440 --> 1:18:02.840
+ And yet for reinforcement learning, we often kind of specify that's the given.
+
+1:18:02.840 --> 1:18:08.360
+ What's your sense of how we develop reward, you know, good reward functions?
+
+1:18:08.360 --> 1:18:12.160
+ Yeah, I think that's a very complicated and very deep question.
+
+1:18:12.160 --> 1:18:16.520
+ And you're completely right that classically in reinforcement learning, this question,
+
+1:18:16.520 --> 1:18:21.420
+ I guess, kind of been treated as an on issue that you sort of treat the reward as this
+
+1:18:21.420 --> 1:18:27.360
+ external thing that comes from some other bit of your biology and you kind of don't
+
+1:18:27.360 --> 1:18:28.520
+ worry about it.
+
+1:18:28.520 --> 1:18:32.520
+ And I do think that that's actually, you know, a little bit of a mistake that we should worry
+
+1:18:32.520 --> 1:18:33.520
+ about it.
+
+1:18:33.520 --> 1:18:34.920
+ And we can approach it in a few different ways.
+
+1:18:34.920 --> 1:18:39.040
+ We can approach it, for instance, by thinking of rewards as a communication medium.
+
+1:18:39.040 --> 1:18:43.400
+ We can say, well, how does a person communicate to a robot what its objective is?
+
+1:18:43.400 --> 1:18:47.720
+ You can approach it also as a sort of more of an intrinsic motivation medium.
+
+1:18:47.720 --> 1:18:55.200
+ You could say, can we write down kind of a general objective that leads to good capability?
+
+1:18:55.200 --> 1:18:58.000
+ Like for example, can you write down some objectives such that even in the absence of
+
+1:18:58.000 --> 1:19:02.680
+ any other task, if you maximize that objective, you'll sort of learn useful things.
+
+1:19:02.680 --> 1:19:07.040
+ This is something that has sometimes been called unsupervised reinforcement learning,
+
+1:19:07.040 --> 1:19:11.600
+ which I think is a really fascinating area of research, especially today.
+
+1:19:11.600 --> 1:19:13.040
+ We've done a bit of work on that recently.
+
+1:19:13.040 --> 1:19:19.920
+ One of the things we've studied is whether we can have some notion of unsupervised reinforcement
+
+1:19:19.920 --> 1:19:25.160
+ learning by means of, you know, information theoretic quantities, like for instance, minimizing
+
+1:19:25.160 --> 1:19:26.660
+ a Bayesian measure of surprise.
+
+1:19:26.660 --> 1:19:30.160
+ This is an idea that was, you know, pioneered actually in the computational neuroscience
+
+1:19:30.160 --> 1:19:32.900
+ community by folks like Carl Friston.
+
+1:19:32.900 --> 1:19:35.980
+ And we've done some work recently that shows that you can actually learn pretty interesting
+
+1:19:35.980 --> 1:19:41.920
+ skills by essentially behaving in a way that allows you to make accurate predictions about
+
+1:19:41.920 --> 1:19:42.920
+ the world.
+
+1:19:42.920 --> 1:19:48.840
+ Like do the things that will lead to you getting the right answer for prediction.
+
+1:19:48.840 --> 1:19:52.960
+ But you can, you know, by doing this, you can sort of discover stable niches in the
+
+1:19:52.960 --> 1:19:53.960
+ world.
+
+1:19:53.960 --> 1:19:57.940
+ You can discover that if you're playing Tetris, then correctly, you know, clearing the rows
+
+1:19:57.940 --> 1:20:01.840
+ will let you play Tetris for longer and keep the board nice and clean, which sort of satisfies
+
+1:20:01.840 --> 1:20:04.180
+ some desire for order in the world.
+
+1:20:04.180 --> 1:20:07.400
+ And as a result, get some degree of leverage over your domain.
+
+1:20:07.400 --> 1:20:08.800
+ So we're exploring that pretty actively.
+
+1:20:08.800 --> 1:20:15.960
+ Is there a role for a human notion of curiosity in itself being the reward, sort of discovering
+
+1:20:15.960 --> 1:20:19.880
+ new things about the world?
+
+1:20:19.880 --> 1:20:26.000
+ So one of the things that I'm pretty interested in is actually whether discovering new things
+
+1:20:26.000 --> 1:20:30.760
+ can actually be an emergent property of some other objective that quantifies capability.
+
+1:20:30.760 --> 1:20:36.440
+ So new things for the sake of new things maybe is not, maybe might not by itself be the right
+
+1:20:36.440 --> 1:20:42.280
+ answer, but perhaps we can figure out an objective for which discovering new things is actually
+
+1:20:42.280 --> 1:20:44.480
+ the natural consequence.
+
+1:20:44.480 --> 1:20:47.400
+ That's something we're working on right now, but I don't have a clear answer for you there
+
+1:20:47.400 --> 1:20:49.640
+ yet that's still a work in progress.
+
+1:20:49.640 --> 1:20:57.640
+ You mean just that it's a curious observation to see sort of creative patterns of curiosity
+
+1:20:57.640 --> 1:21:00.980
+ on the way to optimize for a particular task?
+
+1:21:00.980 --> 1:21:05.520
+ On the way to optimize for a particular measure of capability.
+
+1:21:05.520 --> 1:21:15.040
+ Is there ways to understand or anticipate unexpected unintended consequences of particular
+
+1:21:15.040 --> 1:21:22.280
+ reward functions, sort of anticipate the kind of strategies that might be developed and
+
+1:21:22.280 --> 1:21:27.120
+ try to avoid highly detrimental strategies?
+
+1:21:27.120 --> 1:21:30.260
+ So classically, this is something that has been pretty hard in reinforcement learning
+
+1:21:30.260 --> 1:21:35.380
+ because it's difficult for a designer to have good intuition about, you know, what a learning
+
+1:21:35.380 --> 1:21:38.960
+ algorithm will come up with when they give it some objective.
+
+1:21:38.960 --> 1:21:40.340
+ There are ways to mitigate that.
+
+1:21:40.340 --> 1:21:45.240
+ One way to mitigate it is to actually define an objective that says like, don't do weird
+
+1:21:45.240 --> 1:21:46.240
+ stuff.
+
+1:21:46.240 --> 1:21:47.240
+ You can actually quantify it.
+
+1:21:47.240 --> 1:21:52.340
+ You can say just like, don't enter situations that have low probability under the distribution
+
+1:21:52.340 --> 1:21:54.720
+ of states you've seen before.
+
+1:21:54.720 --> 1:21:57.840
+ It turns out that that's actually one very good way to do off policy reinforcement learning
+
+1:21:57.840 --> 1:21:59.560
+ actually.
+
+1:21:59.560 --> 1:22:02.500
+ So we can do some things like that.
+
+1:22:02.500 --> 1:22:08.360
+ If we slowly venture in speaking about reward functions into greater and greater levels
+
+1:22:08.360 --> 1:22:16.280
+ of intelligence, there's, I mean, Stuart Russell thinks about this, the alignment of AI systems
+
+1:22:16.280 --> 1:22:18.160
+ with us humans.
+
+1:22:18.160 --> 1:22:23.040
+ So how do we ensure that AGI systems align with us humans?
+
+1:22:23.040 --> 1:22:32.320
+ It's kind of a reward function question of specifying the behavior of AI systems such
+
+1:22:32.320 --> 1:22:39.640
+ that their success aligns with this, with the broader intended success interest of human
+
+1:22:39.640 --> 1:22:40.640
+ beings.
+
+1:22:40.640 --> 1:22:41.640
+ Do you have thoughts on this?
+
+1:22:41.640 --> 1:22:45.840
+ Do you have kind of concerns of where reinforcement learning fits into this, or are you really
+
+1:22:45.840 --> 1:22:50.840
+ focused on the current moment of us being quite far away and trying to solve the robotics
+
+1:22:50.840 --> 1:22:51.840
+ problem?
+
+1:22:51.840 --> 1:22:56.780
+ I don't have a great answer to this, but, you know, and I do think that this is a problem
+
+1:22:56.780 --> 1:22:59.520
+ that's important to figure out.
+
+1:22:59.520 --> 1:23:04.520
+ For my part, I'm actually a bit more concerned about the other side of the, of this equation
+
+1:23:04.520 --> 1:23:11.920
+ that, you know, maybe rather than unintended consequences for objectives that are specified
+
+1:23:11.920 --> 1:23:15.980
+ too well, I'm actually more worried right now about unintended consequences for objectives
+
+1:23:15.980 --> 1:23:21.480
+ that are not optimized well enough, which might become a very pressing problem when
+
+1:23:21.480 --> 1:23:26.520
+ we, for instance, try to use these techniques for safety critical systems like cars and
+
+1:23:26.520 --> 1:23:28.520
+ aircraft and so on.
+
+1:23:28.520 --> 1:23:32.360
+ I think at some point we'll face the issue of objectives being optimized too well, but
+
+1:23:32.360 --> 1:23:36.240
+ right now I think we're, we're more likely to face the issue of them not being optimized
+
+1:23:36.240 --> 1:23:37.240
+ well enough.
+
+1:23:37.240 --> 1:23:41.360
+ But you don't think unintended consequences can arise even when you're far from optimality,
+
+1:23:41.360 --> 1:23:43.200
+ sort of like on the path to it?
+
+1:23:43.200 --> 1:23:46.960
+ Oh no, I think unintended consequences can absolutely arise.
+
+1:23:46.960 --> 1:23:52.000
+ It's just, I think right now the bottleneck for improving reliability, safety and things
+
+1:23:52.000 --> 1:23:57.400
+ like that is more with systems that like need to work better, that need to optimize their
+
+1:23:57.400 --> 1:23:58.400
+ objectives better.
+
+1:23:58.400 --> 1:24:05.360
+ Do you have thoughts, concerns about existential threats of human level intelligence that have,
+
+1:24:05.360 --> 1:24:11.700
+ if we put on our hat of looking in 10, 20, 100, 500 years from now, do you have concerns
+
+1:24:11.700 --> 1:24:15.720
+ about existential threats of AI systems?
+
+1:24:15.720 --> 1:24:19.400
+ I think there are absolutely existential threats for AI systems, just like there are for any
+
+1:24:19.400 --> 1:24:22.480
+ powerful technology.
+
+1:24:22.480 --> 1:24:28.240
+ But I think that the, these kinds of problems can take many forms and, and some of those
+
+1:24:28.240 --> 1:24:34.200
+ forms will come down to, you know, people with nefarious intent.
+
+1:24:34.200 --> 1:24:38.960
+ Some of them will come down to AI systems that have some fatal flaws.
+
+1:24:38.960 --> 1:24:42.380
+ And some of them will, will of course come down to AI systems that are too capable in
+
+1:24:42.380 --> 1:24:44.740
+ some way.
+
+1:24:44.740 --> 1:24:50.320
+ But among this set of potential concerns, I would actually be much more concerned about
+
+1:24:50.320 --> 1:24:55.040
+ the first two right now, and principally the one with nefarious humans, because, you know,
+
+1:24:55.040 --> 1:24:57.160
+ just through all of human history, actually it's the nefarious humans that have been the
+
+1:24:57.160 --> 1:25:01.680
+ problem, not the nefarious machines, than I am about the others.
+
+1:25:01.680 --> 1:25:07.080
+ And I think that right now the best that I can do to make sure things go well is to build
+
+1:25:07.080 --> 1:25:13.820
+ the best technology I can and also hopefully promote responsible use of that technology.
+
+1:25:13.820 --> 1:25:19.000
+ Do you think RL Systems has something to teach us humans?
+
+1:25:19.000 --> 1:25:21.080
+ You said nefarious humans getting us in trouble.
+
+1:25:21.080 --> 1:25:26.960
+ I mean, machine learning systems have in some ways have revealed to us the ethical flaws
+
+1:25:26.960 --> 1:25:27.960
+ in our data.
+
+1:25:27.960 --> 1:25:32.680
+ In that same kind of way, can reinforcement learning teach us about ourselves?
+
+1:25:32.680 --> 1:25:34.480
+ Has it taught something?
+
+1:25:34.480 --> 1:25:40.600
+ What have you learned about yourself from trying to build robots and reinforcement learning
+
+1:25:40.600 --> 1:25:42.920
+ systems?
+
+1:25:42.920 --> 1:25:49.960
+ I'm not sure what I've learned about myself, but maybe part of the answer to your question
+
+1:25:49.960 --> 1:25:55.180
+ might become a little bit more apparent once we see more widespread deployment of reinforcement
+
+1:25:55.180 --> 1:26:02.720
+ learning for decision making support in domains like healthcare, education, social media,
+
+1:26:02.720 --> 1:26:03.720
+ etc.
+
+1:26:03.720 --> 1:26:06.720
+ And I think we will see some interesting stuff emerge there.
+
+1:26:06.720 --> 1:26:12.800
+ We will see, for instance, what kind of behaviors these systems come up with in situations where
+
+1:26:12.800 --> 1:26:17.840
+ there is interaction with humans and where they have a possibility of influencing human
+
+1:26:17.840 --> 1:26:18.840
+ behavior.
+
+1:26:18.840 --> 1:26:22.360
+ I think we're not quite there yet, but maybe in the next few years we'll see some interesting
+
+1:26:22.360 --> 1:26:23.800
+ stuff come out in that area.
+
+1:26:23.800 --> 1:26:28.880
+ I hope outside the research space, because the exciting space where this could be observed
+
+1:26:28.880 --> 1:26:35.200
+ is sort of large companies that deal with large data, and I hope there's some transparency.
+
+1:26:35.200 --> 1:26:40.400
+ One of the things that's unclear when I look at social networks and just online is why
+
+1:26:40.400 --> 1:26:45.200
+ an algorithm did something or whether even an algorithm was involved.
+
+1:26:45.200 --> 1:26:52.080
+ And that'd be interesting from a research perspective, just to observe the results of
+
+1:26:52.080 --> 1:26:58.320
+ algorithms, to open up that data, or to at least be sufficiently transparent about the
+
+1:26:58.320 --> 1:27:02.280
+ behavior of these AI systems in the real world.
+
+1:27:02.280 --> 1:27:03.280
+ What's your sense?
+
+1:27:03.280 --> 1:27:08.380
+ I don't know if you looked at the blog post, Bitter Lesson, by Rich Sutton, where it looks
+
+1:27:08.380 --> 1:27:16.520
+ at sort of the big lesson of researching AI and reinforcement learning is that simple
+
+1:27:16.520 --> 1:27:21.480
+ methods, general methods that leverage computation seem to work well.
+
+1:27:21.480 --> 1:27:26.280
+ So basically don't try to do any kind of fancy algorithms, just wait for computation to get
+
+1:27:26.280 --> 1:27:28.480
+ fast.
+
+1:27:28.480 --> 1:27:31.160
+ Do you share this kind of intuition?
+
+1:27:31.160 --> 1:27:34.200
+ I think the high level idea makes a lot of sense.
+
+1:27:34.200 --> 1:27:37.480
+ I'm not sure that my takeaway would be that we don't need to work on algorithms.
+
+1:27:37.480 --> 1:27:43.800
+ I think that my takeaway would be that we should work on general algorithms.
+
+1:27:43.800 --> 1:27:52.360
+ And actually, I think that this idea of needing to better automate the acquisition of experience
+
+1:27:52.360 --> 1:27:58.780
+ in the real world actually follows pretty naturally from Rich Sutton's conclusion.
+
+1:27:58.780 --> 1:28:06.600
+ So if the claim is that automated general methods plus data leads to good results, then
+
+1:28:06.600 --> 1:28:09.760
+ it makes sense that we should build general methods and we should build the kind of methods
+
+1:28:09.760 --> 1:28:14.440
+ that we can deploy and get them to go out there and collect their experience autonomously.
+
+1:28:14.440 --> 1:28:19.200
+ I think that one place where I think that the current state of things falls a little
+
+1:28:19.200 --> 1:28:23.560
+ bit short of that is actually the going out there and collecting the data autonomously,
+
+1:28:23.560 --> 1:28:27.440
+ which is easy to do in a simulated board game, but very hard to do in the real world.
+
+1:28:27.440 --> 1:28:31.840
+ Yeah, it keeps coming back to this one problem, right?
+
+1:28:31.840 --> 1:28:35.800
+ Your mind is focused there now in this real world.
+
+1:28:35.800 --> 1:28:43.840
+ It just seems scary, the step of collecting the data, and it seems unclear to me how we
+
+1:28:43.840 --> 1:28:44.840
+ can do it effectively.
+
+1:28:44.840 --> 1:28:49.360
+ Well, you know, seven billion people in the world, each of them had to do that at some
+
+1:28:49.360 --> 1:28:51.040
+ point in their lives.
+
+1:28:51.040 --> 1:28:54.860
+ And we should leverage that experience that they've all done.
+
+1:28:54.860 --> 1:28:58.440
+ We should be able to try to collect that kind of data.
+
+1:28:58.440 --> 1:29:02.760
+ Okay, big questions.
+
+1:29:02.760 --> 1:29:10.480
+ Maybe stepping back through your life, what book or books, technical or fiction or philosophical,
+
+1:29:10.480 --> 1:29:15.840
+ had a big impact on the way you saw the world, on the way you thought about in the world,
+
+1:29:15.840 --> 1:29:19.480
+ your life in general?
+
+1:29:19.480 --> 1:29:24.160
+ And maybe what books, if it's different, would you recommend people consider reading on their
+
+1:29:24.160 --> 1:29:26.320
+ own intellectual journey?
+
+1:29:26.320 --> 1:29:30.280
+ It could be within reinforcement learning, but it could be very much bigger.
+
+1:29:30.280 --> 1:29:39.360
+ I don't know if this is like a scientifically, like, particularly meaningful answer.
+
+1:29:39.360 --> 1:29:45.800
+ But like, the honest answer is that I actually found a lot of the work by Isaac Asimov to
+
+1:29:45.800 --> 1:29:47.720
+ be very inspiring when I was younger.
+
+1:29:47.720 --> 1:29:50.840
+ I don't know if that has anything to do with AI necessarily.
+
+1:29:50.840 --> 1:29:53.380
+ You don't think it had a ripple effect in your life?
+
+1:29:53.380 --> 1:29:56.200
+ Maybe it did.
+
+1:29:56.200 --> 1:30:06.800
+ But yeah, I think that a vision of a future where, well, first of all, artificial, I might
+
+1:30:06.800 --> 1:30:10.880
+ say artificial intelligence system, artificial robotic systems have, you know, kind of a
+
+1:30:10.880 --> 1:30:18.560
+ big place, a big role in society, and where we try to imagine the sort of the limiting
+
+1:30:18.560 --> 1:30:25.640
+ case of technological advancement and how that might play out in our future history.
+
+1:30:25.640 --> 1:30:30.720
+ But yeah, I think that that was in some way influential.
+
+1:30:30.720 --> 1:30:33.720
+ I don't really know how.
+
+1:30:33.720 --> 1:30:34.720
+ I would recommend it.
+
+1:30:34.720 --> 1:30:37.040
+ I mean, if nothing else, you'd be well entertained.
+
+1:30:37.040 --> 1:30:41.840
+ When did you first yourself like fall in love with the idea of artificial intelligence,
+
+1:30:41.840 --> 1:30:45.080
+ get captivated by this field?
+
+1:30:45.080 --> 1:30:52.280
+ So my honest answer here is actually that I only really started to think about it as
+
+1:30:52.280 --> 1:30:56.200
+ something that I might want to do actually in graduate school pretty late.
+
+1:30:56.200 --> 1:31:02.400
+ And a big part of that was that until, you know, somewhere around 2009, 2010, it just
+
+1:31:02.400 --> 1:31:06.920
+ wasn't really high on my priority list because I didn't think that it was something where
+
+1:31:06.920 --> 1:31:11.560
+ we're going to see very substantial advances in my lifetime.
+
+1:31:11.560 --> 1:31:18.120
+ And you know, maybe in terms of my career, the time when I really decided I wanted to
+
+1:31:18.120 --> 1:31:23.480
+ work on this was when I actually took a seminar course that was taught by Professor Andrew
+
+1:31:23.480 --> 1:31:24.480
+ Ng.
+
+1:31:24.480 --> 1:31:29.320
+ And, you know, at that point, I, of course, had like a decent understanding of the technical
+
+1:31:29.320 --> 1:31:30.320
+ things involved.
+
+1:31:30.320 --> 1:31:33.640
+ But one of the things that really resonated with me was when he said in the opening lecture
+
+1:31:33.640 --> 1:31:37.140
+ something to the effect of like, well, he used to have graduate students come to him
+
+1:31:37.140 --> 1:31:40.920
+ and talk about how they want to work on AI, and he would kind of chuckle and give them
+
+1:31:40.920 --> 1:31:42.600
+ some math problem to deal with.
+
+1:31:42.600 --> 1:31:45.940
+ But now he's actually thinking that this is an area where we might see like substantial
+
+1:31:45.940 --> 1:31:47.840
+ advances in our lifetime.
+
+1:31:47.840 --> 1:31:52.280
+ And that kind of got me thinking because, you know, in some abstract sense, yeah, like
+
+1:31:52.280 --> 1:31:56.940
+ you can kind of imagine that, but in a very real sense, when someone who had been working
+
+1:31:56.940 --> 1:32:02.520
+ on that kind of stuff their whole career suddenly says that, yeah, like that had some effect
+
+1:32:02.520 --> 1:32:03.520
+ on me.
+
+1:32:03.520 --> 1:32:08.040
+ Yeah, this might be a special moment in the history of the field.
+
+1:32:08.040 --> 1:32:14.060
+ That this is where we might see some interesting breakthroughs.
+
+1:32:14.060 --> 1:32:19.120
+ So in the space of advice, somebody who's interested in getting started in machine learning
+
+1:32:19.120 --> 1:32:23.720
+ or reinforcement learning, what advice would you give to maybe an undergraduate student
+
+1:32:23.720 --> 1:32:30.520
+ or maybe even younger, how, what are the first steps to take and further on what are the
+
+1:32:30.520 --> 1:32:32.800
+ steps to take on that journey?
+
+1:32:32.800 --> 1:32:43.160
+ So something that I think is important to do is to not be afraid to like spend time
+
+1:32:43.160 --> 1:32:46.280
+ imagining the kind of outcome that you might like to see.
+
+1:32:46.280 --> 1:32:51.480
+ So you know, one outcome might be a successful career, a large paycheck or something, or
+
+1:32:51.480 --> 1:32:54.920
+ state of the art results on some benchmark, but hopefully that's not the thing that's
+
+1:32:54.920 --> 1:32:57.760
+ like the main driving force for somebody.
+
+1:32:57.760 --> 1:33:04.360
+ But I think that if someone who is a student considering a career in AI like takes a little
+
+1:33:04.360 --> 1:33:07.420
+ while, sits down and thinks like, what do I really want to see?
+
+1:33:07.420 --> 1:33:09.120
+ What I want to see a machine do?
+
+1:33:09.120 --> 1:33:10.320
+ What do I want to see a robot do?
+
+1:33:10.320 --> 1:33:11.320
+ What do I want to do?
+
+1:33:11.320 --> 1:33:15.200
+ What do I want to see a natural language system, which is like, imagine, you know, imagine
+
+1:33:15.200 --> 1:33:19.040
+ it almost like a commercial for a future product or something or like, like something that
+
+1:33:19.040 --> 1:33:23.520
+ you'd like to see in the world and then actually sit down and think about the steps that are
+
+1:33:23.520 --> 1:33:25.160
+ necessary to get there.
+
+1:33:25.160 --> 1:33:29.000
+ And hopefully that thing is not a better number on image net classification.
+
+1:33:29.000 --> 1:33:32.000
+ It's like, it's probably like an actual thing that we can't do today that would be really
+
+1:33:32.000 --> 1:33:33.000
+ awesome.
+
+1:33:33.000 --> 1:33:38.280
+ Whether it's a robot Butler or a, you know, a really awesome healthcare decision making
+
+1:33:38.280 --> 1:33:41.760
+ support system, whatever it is that you find inspiring.
+
+1:33:41.760 --> 1:33:45.240
+ And I think that thinking about that and then backtracking from there and imagining the
+
+1:33:45.240 --> 1:33:48.240
+ steps needed to get there will actually lead to much better research.
+
+1:33:48.240 --> 1:33:50.480
+ It'll lead to rethinking the assumptions.
+
+1:33:50.480 --> 1:33:55.880
+ It'll lead to working on the bottlenecks that other people aren't working on.
+
+1:33:55.880 --> 1:34:01.080
+ And then naturally to turn to you, we've talked about reward functions and you just give an
+
+1:34:01.080 --> 1:34:05.440
+ advice on looking forward, how you'd like to see, what kind of change you would like
+
+1:34:05.440 --> 1:34:06.920
+ to make in the world.
+
+1:34:06.920 --> 1:34:11.560
+ What do you think, ridiculous, big question, what do you think is the meaning of life?
+
+1:34:11.560 --> 1:34:13.480
+ What is the meaning of your life?
+
+1:34:13.480 --> 1:34:20.540
+ What gives you fulfillment, purpose, happiness and meaning?
+
+1:34:20.540 --> 1:34:24.600
+ That's a very big question.
+
+1:34:24.600 --> 1:34:27.640
+ What's the reward function under which you are operating?
+
+1:34:27.640 --> 1:34:28.640
+ Yeah.
+
+1:34:28.640 --> 1:34:33.600
+ I think one thing that does give, you know, if not meaning, at least satisfaction is some
+
+1:34:33.600 --> 1:34:37.400
+ degree of confidence that I'm working on a problem that really matters.
+
+1:34:37.400 --> 1:34:42.960
+ I feel like it's less important to me to like actually solve a problem, but it's quite nice
+
+1:34:42.960 --> 1:34:49.400
+ to take things to spend my time on that I believe really matter.
+
+1:34:49.400 --> 1:34:53.080
+ And I try pretty hard to look for that.
+
+1:34:53.080 --> 1:34:59.160
+ I don't know if it's easy to answer this, but if you're successful, what does that look
+
+1:34:59.160 --> 1:35:00.160
+ like?
+
+1:35:00.160 --> 1:35:01.880
+ What's the big dream?
+
+1:35:01.880 --> 1:35:09.840
+ Now, of course, success is built on top of success and you keep going forever, but what
+
+1:35:09.840 --> 1:35:10.840
+ is the dream?
+
+1:35:10.840 --> 1:35:11.840
+ Yeah.
+
+1:35:11.840 --> 1:35:18.040
+ So one very concrete thing or maybe as concrete as it's going to get here is to see machines
+
+1:35:18.040 --> 1:35:23.420
+ that actually get better and better the longer they exist in the world.
+
+1:35:23.420 --> 1:35:26.820
+ And that kind of seems like on the surface, one might even think that that's something
+
+1:35:26.820 --> 1:35:28.840
+ that we have today, but I think we really don't.
+
+1:35:28.840 --> 1:35:38.480
+ I think that there is an ending complexity in the universe and to date, all of the machines
+
+1:35:38.480 --> 1:35:44.200
+ that we've been able to build don't sort of improve up to the limit of that complexity.
+
+1:35:44.200 --> 1:35:45.660
+ They hit a wall somewhere.
+
+1:35:45.660 --> 1:35:50.260
+ Maybe they hit a wall because they're in a simulator that has, that is only a very limited,
+
+1:35:50.260 --> 1:35:54.320
+ very pale imitation of the real world, or they hit a wall because they rely on a label
+
+1:35:54.320 --> 1:36:00.400
+ data set, but they never hit the wall of like running out of stuff to see.
+
+1:36:00.400 --> 1:36:04.920
+ So I'd like to build a machine that can go as far as possible.
+
+1:36:04.920 --> 1:36:08.160
+ Runs up against the ceiling of the complexity of the universe.
+
+1:36:08.160 --> 1:36:09.160
+ Yes.
+
+1:36:09.160 --> 1:36:12.000
+ Well, I don't think there's a better way to end it, Sergey.
+
+1:36:12.000 --> 1:36:13.000
+ Thank you so much.
+
+1:36:13.000 --> 1:36:14.000
+ It's a huge honor.
+
+1:36:14.000 --> 1:36:20.280
+ I can't wait to see the amazing work that you have to publish and in education space
+
+1:36:20.280 --> 1:36:21.820
+ in terms of reinforcement learning.
+
+1:36:21.820 --> 1:36:23.000
+ Thank you for inspiring the world.
+
+1:36:23.000 --> 1:36:24.720
+ Thank you for the great research you do.
+
+1:36:24.720 --> 1:36:25.720
+ Thank you.
+
+1:36:25.720 --> 1:36:31.000
+ Thanks for listening to this conversation with Sergey Levine and thank you to our sponsors,
+
+1:36:31.000 --> 1:36:33.560
+ Cash App and ExpressVPN.
+
+1:36:33.560 --> 1:36:40.360
+ Please consider supporting this podcast by downloading Cash App and using code LexPodcast
+
+1:36:40.360 --> 1:36:44.840
+ and signing up at expressvpn.com slash LexPod.
+
+1:36:44.840 --> 1:36:50.900
+ Click all the links, buy all the stuff, it's the best way to support this podcast and the
+
+1:36:50.900 --> 1:36:51.900
+ journey I'm on.
+
+1:36:51.900 --> 1:36:57.440
+ If you enjoy this thing, subscribe on YouTube, review it with five stars on Apple Podcast,
+
+1:36:57.440 --> 1:37:02.900
+ support it on Patreon, or connect with me on Twitter at Lex Friedman, spelled somehow
+
+1:37:02.900 --> 1:37:08.920
+ if you can figure out how without using the letter E, just F R I D M A N.
+
+1:37:08.920 --> 1:37:14.120
+ And now let me leave you with some words from Salvador Dali.
+
+1:37:14.120 --> 1:37:18.820
+ Intelligence without ambition is a bird without wings.
+
+1:37:18.820 --> 1:37:22.000
+ Thank you for listening and hope to see you next time.
+

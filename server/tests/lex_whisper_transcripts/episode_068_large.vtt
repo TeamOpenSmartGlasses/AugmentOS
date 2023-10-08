@@ -1,0 +1,3812 @@
+WEBVTT
+
+00:00.000 --> 00:02.720
+ The following is a conversation with Christos Goudreau,
+
+00:03.360 --> 00:08.320
+ Vice President of Engineering at Google and Head of Search and Discovery at YouTube,
+
+00:08.320 --> 00:10.560
+ also known as the YouTube Algorithm.
+
+00:11.360 --> 00:15.120
+ YouTube has approximately 1.9 billion users,
+
+00:15.120 --> 00:19.680
+ and every day people watch over 1 billion hours of YouTube video.
+
+00:20.320 --> 00:23.360
+ It is the second most popular search engine behind Google itself.
+
+00:24.080 --> 00:27.200
+ For many people, it is not only a source of entertainment,
+
+00:27.200 --> 00:33.680
+ but also how we learn new ideas from math and physics videos to podcasts to debates, opinions,
+
+00:33.680 --> 00:38.640
+ ideas from out of the box thinkers and activists on some of the most tense,
+
+00:38.640 --> 00:41.520
+ challenging, and impactful topics in the world today.
+
+00:42.400 --> 00:48.080
+ YouTube and other content platforms receive criticism from both viewers and creators,
+
+00:48.080 --> 00:53.600
+ as they should, because the engineering task before them is hard, and they don't always
+
+00:53.600 --> 00:57.520
+ succeed, and the impact of their work is truly world changing.
+
+00:58.560 --> 01:02.400
+ To me, YouTube has been an incredible wellspring of knowledge.
+
+01:02.400 --> 01:06.800
+ I've watched hundreds, if not thousands, of lectures that changed the way I see
+
+01:06.800 --> 01:11.280
+ many fundamental ideas in math, science, engineering, and philosophy.
+
+01:12.480 --> 01:17.600
+ But it does put a mirror to ourselves, and keeps the responsibility of the steps we take
+
+01:17.600 --> 01:21.760
+ in each of our online educational journeys into the hands of each of us.
+
+01:21.760 --> 01:26.480
+ The YouTube algorithm has an important role in that journey of helping us find new,
+
+01:26.480 --> 01:28.080
+ exciting ideas to learn about.
+
+01:28.560 --> 01:32.800
+ That's a difficult and an exciting problem for an artificial intelligence system.
+
+01:33.360 --> 01:37.520
+ As I've said in lectures and other forums, recommendation systems will be one of the
+
+01:37.520 --> 01:43.680
+ most impactful areas of AI in the 21st century, and YouTube is one of the biggest
+
+01:43.680 --> 01:45.760
+ recommendation systems in the world.
+
+01:46.640 --> 01:49.680
+ This is the Artificial Intelligence Podcast.
+
+01:49.680 --> 01:54.640
+ If you enjoy it, subscribe on YouTube, give it five stars on Apple Podcast, follow on
+
+01:54.640 --> 01:59.920
+ Spotify, support it on Patreon, or simply connect with me on Twitter, at Lex Friedman,
+
+01:59.920 --> 02:02.000
+ spelled F R I D M A N.
+
+02:02.880 --> 02:05.920
+ I recently started doing ads at the end of the introduction.
+
+02:05.920 --> 02:10.400
+ I'll do one or two minutes after introducing the episode, and never any ads in the middle
+
+02:10.400 --> 02:12.720
+ that can break the flow of the conversation.
+
+02:12.720 --> 02:16.400
+ I hope that works for you and doesn't hurt the listening experience.
+
+02:16.400 --> 02:20.720
+ This show is presented by Cash App, the number one finance app in the App Store.
+
+02:20.720 --> 02:25.120
+ I personally use Cash App to send money to friends, but you can also use it to buy,
+
+02:25.120 --> 02:27.680
+ sell, and deposit Bitcoin in just seconds.
+
+02:27.680 --> 02:30.640
+ Cash App also has a new investing feature.
+
+02:30.640 --> 02:35.120
+ You can buy fractions of a stock, say, $1 worth, no matter what the stock price is.
+
+02:35.760 --> 02:40.640
+ Broker services are provided by Cash App Investing, a subsidiary of Square and Member
+
+02:40.640 --> 02:41.200
+ SIPC.
+
+02:41.200 --> 02:45.840
+ I'm excited to be working with Cash App to support one of my favorite organizations
+
+02:45.840 --> 02:50.560
+ called FIRST, best known for their FIRST Robotics and Lego competitions.
+
+02:50.560 --> 02:56.000
+ They educate and inspire hundreds of thousands of students in over 110 countries and have
+
+02:56.000 --> 03:00.880
+ a perfect rating and charity navigator, which means that donated money is used to maximum
+
+03:00.880 --> 03:01.680
+ effectiveness.
+
+03:02.320 --> 03:08.240
+ When you get Cash App from the App Store or Google Play and use code LEXPODCAST, you'll
+
+03:08.240 --> 03:14.080
+ get $10, and Cash App will also donate $10 to FIRST, which again is an organization that
+
+03:14.080 --> 03:19.040
+ I've personally seen inspire girls and boys to dream of engineering a better world.
+
+03:19.920 --> 03:23.440
+ And now, here's my conversation with Christos Goudreau.
+
+03:24.640 --> 03:28.640
+ YouTube is the world's second most popular search engine, behind Google, of course.
+
+03:29.360 --> 03:34.800
+ We watch more than 1 billion hours of YouTube videos a day, more than Netflix and Facebook
+
+03:34.800 --> 03:35.760
+ video combined.
+
+03:35.760 --> 03:40.080
+ YouTube creators upload over 500,000 hours of video every day.
+
+03:41.040 --> 03:46.160
+ Average lifespan of a human being, just for comparison, is about 700,000 hours.
+
+03:47.440 --> 03:53.360
+ So, what's uploaded every single day is just enough for a human to watch in a lifetime.
+
+03:53.360 --> 03:55.760
+ So, let me ask an absurd philosophical question.
+
+03:56.640 --> 04:00.960
+ If from birth, when I was born, and there's many people born today with the internet,
+
+04:00.960 --> 04:06.640
+ I watched YouTube videos nonstop, do you think there are trajectories through YouTube video
+
+04:06.640 --> 04:14.240
+ space that can maximize my average happiness, or maybe education, or my growth as a human
+
+04:14.240 --> 04:14.740
+ being?
+
+04:15.760 --> 04:21.200
+ I think there are some great trajectories through YouTube videos, but I wouldn't recommend
+
+04:21.200 --> 04:26.640
+ that anyone spend all of their waking hours or all of their hours watching YouTube.
+
+04:26.640 --> 04:31.200
+ I mean, I think about the fact that YouTube has been really great for my kids, for instance.
+
+04:32.720 --> 04:37.920
+ My oldest daughter, she's been watching YouTube for several years.
+
+04:37.920 --> 04:44.640
+ She watches Tyler Oakley and the Vlogbrothers, and I know that it's had a very profound and
+
+04:44.640 --> 04:46.160
+ positive impact on her character.
+
+04:46.160 --> 04:52.080
+ And my younger daughter, she's a ballerina, and her teachers tell her that YouTube is
+
+04:52.080 --> 04:58.960
+ a huge advantage for her because she can practice a routine and watch professional dancers do
+
+04:58.960 --> 05:03.440
+ that same routine and stop it and back it up and rewind and all that stuff, right?
+
+05:03.440 --> 05:06.240
+ So, it's been really good for them.
+
+05:06.240 --> 05:08.560
+ And then even my son is a sophomore in college.
+
+05:08.560 --> 05:15.360
+ He got through his linear algebra class because of a channel called Three Blue, One Brown,
+
+05:15.360 --> 05:22.240
+ which helps you understand linear algebra, but in a way that would be very hard for anyone
+
+05:22.240 --> 05:24.080
+ to do on a whiteboard or a chalkboard.
+
+05:25.200 --> 05:30.640
+ And so, I think that those experiences, from my point of view, were very good.
+
+05:30.640 --> 05:34.080
+ And so, I can imagine really good trajectories through YouTube, yes.
+
+05:34.080 --> 05:38.880
+ Have you looked at, do you think of broadly about that trajectory over a period?
+
+05:38.880 --> 05:41.120
+ Because YouTube has grown up now.
+
+05:41.120 --> 05:48.480
+ So, over a period of years, you just kind of gave a few anecdotal examples, but I used
+
+05:48.480 --> 05:49.920
+ to watch certain shows on YouTube.
+
+05:49.920 --> 05:50.720
+ I don't anymore.
+
+05:50.720 --> 05:52.880
+ I've moved on to other shows.
+
+05:52.880 --> 05:57.760
+ Ultimately, you want people to, from YouTube's perspective, to stay on YouTube, to grow as
+
+05:57.760 --> 05:59.120
+ human beings on YouTube.
+
+06:00.160 --> 06:07.040
+ So, you have to think not just what makes them engage today or this month, but what
+
+06:07.040 --> 06:12.720
+ makes them engage today or this month, but also for a period of years.
+
+06:12.720 --> 06:13.360
+ Absolutely.
+
+06:13.360 --> 06:13.920
+ That's right.
+
+06:13.920 --> 06:20.320
+ I mean, if YouTube is going to continue to enrich people's lives, then it has to grow
+
+06:20.320 --> 06:25.200
+ with them, and people's interests change over time.
+
+06:25.200 --> 06:31.920
+ And so, I think we've been working on this problem, and I'll just say it broadly as
+
+06:31.920 --> 06:38.720
+ like how to introduce diversity and introduce people who are watching one thing to something
+
+06:38.720 --> 06:40.000
+ else they might like.
+
+06:40.000 --> 06:43.520
+ We've been working on that problem all the eight years I've been at YouTube.
+
+06:45.120 --> 06:51.360
+ It's a hard problem because, I mean, of course, it's trivial to introduce diversity
+
+06:51.360 --> 06:52.640
+ that doesn't help.
+
+06:52.640 --> 06:54.160
+ Yeah, just add a random video.
+
+06:54.160 --> 06:57.840
+ I could just randomly select a video from the billions that we have.
+
+06:58.800 --> 07:01.280
+ It's likely not to even be in your language.
+
+07:01.280 --> 07:07.520
+ So, the likelihood that you would watch it and develop a new interest is very, very low.
+
+07:08.560 --> 07:14.080
+ And so, what you want to do when you're trying to increase diversity is find something that
+
+07:14.640 --> 07:21.520
+ is not too similar to the things that you've watched, but also something that you might
+
+07:21.520 --> 07:22.560
+ be likely to watch.
+
+07:23.440 --> 07:28.720
+ And that balance, finding that spot between those two things is quite challenging.
+
+07:28.720 --> 07:36.400
+ So, the diversity of content, diversity of ideas, it's a really difficult, it's a thing
+
+07:36.400 --> 07:39.360
+ like that's almost impossible to define, right?
+
+07:39.360 --> 07:40.480
+ Like, what's different?
+
+07:41.680 --> 07:43.680
+ So, how do you think about that?
+
+07:43.680 --> 07:51.440
+ So, two examples is I'm a huge fan of Three Blue One Brown, say, and then one diversity.
+
+07:51.440 --> 07:57.200
+ I wasn't even aware of a channel called Veritasium, which is a great science, physics, whatever
+
+07:57.200 --> 07:57.600
+ channel.
+
+07:57.600 --> 08:03.120
+ So, one version of diversity is showing me Derek's Veritasium channel, which I was really
+
+08:03.120 --> 08:04.160
+ excited to discover.
+
+08:04.160 --> 08:06.400
+ I actually now watch a lot of his videos.
+
+08:06.400 --> 08:12.160
+ Okay, so you're a person who's watching some math channels and you might be interested
+
+08:12.160 --> 08:14.560
+ in some other science or math channels.
+
+08:14.560 --> 08:20.160
+ So, like you mentioned, the first kind of diversity is just show you some things from
+
+08:20.160 --> 08:27.600
+ other channels that are related, but not just, you know, not all the Three Blue One Brown
+
+08:27.600 --> 08:29.280
+ channel, throw in a couple others.
+
+08:29.280 --> 08:34.080
+ So, that's maybe the first kind of diversity that we started with many, many years ago.
+
+08:36.400 --> 08:44.640
+ Taking a bigger leap is about, I mean, the mechanisms we use for that is we basically
+
+08:44.640 --> 08:48.400
+ cluster videos and channels together, mostly videos.
+
+08:48.400 --> 08:50.640
+ We do almost everything at the video level.
+
+08:50.640 --> 08:58.000
+ And so, we'll make some kind of a cluster via some embedding process and then measure
+
+08:58.800 --> 09:05.200
+ what is the likelihood that users who watch one cluster might also watch another cluster
+
+09:05.200 --> 09:06.560
+ that's very distinct.
+
+09:06.560 --> 09:14.640
+ So, we may come to find that people who watch science videos also like jazz.
+
+09:15.680 --> 09:16.720
+ This is possible, right?
+
+09:16.720 --> 09:25.600
+ And so, because of that relationship that we've identified through the embeddings and
+
+09:25.600 --> 09:30.640
+ then the measurement of the people who watch both, we might recommend a jazz video once
+
+09:30.640 --> 09:31.440
+ in a while.
+
+09:31.440 --> 09:36.480
+ So, there's this cluster in the embedding space of jazz videos and science videos.
+
+09:36.480 --> 09:42.960
+ And so, you kind of try to look at aggregate statistics where if a lot of people that jump
+
+09:42.960 --> 09:50.880
+ from science cluster to the jazz cluster tend to remain as engaged or become more engaged,
+
+09:51.520 --> 09:57.280
+ then that means those two, they should hop back and forth and they'll be happy.
+
+09:57.280 --> 09:57.520
+ Right.
+
+09:57.520 --> 10:03.200
+ There's a higher likelihood that a person who's watching science would like jazz than
+
+10:03.840 --> 10:08.080
+ the person watching science would like, I don't know, backyard railroads or something
+
+10:08.080 --> 10:08.480
+ else, right?
+
+10:08.480 --> 10:15.120
+ And so, we can try to measure these likelihoods and use that to make the best recommendation
+
+10:15.120 --> 10:15.520
+ we can.
+
+10:16.320 --> 10:16.960
+ So, okay.
+
+10:16.960 --> 10:21.600
+ So, we'll talk about the machine learning of that, but I have to linger on things that
+
+10:21.600 --> 10:24.240
+ neither you or anyone have an answer to.
+
+10:24.240 --> 10:31.440
+ There's gray areas of truth, which is, for example, now I can't believe I'm going there,
+
+10:31.440 --> 10:32.720
+ but politics.
+
+10:32.720 --> 10:36.960
+ It happens so that certain people believe certain things and they're very certain about
+
+10:36.960 --> 10:37.460
+ them.
+
+10:38.400 --> 10:44.080
+ Let's move outside the red versus blue politics of today's world, but there's different ideologies.
+
+10:44.080 --> 10:49.840
+ For example, in college, I read quite a lot of Ayn Rand I studied, and that's a particular
+
+10:49.840 --> 10:53.360
+ philosophical ideology I found interesting to explore.
+
+10:53.360 --> 10:53.840
+ Okay.
+
+10:53.840 --> 10:55.120
+ So, that was that kind of space.
+
+10:55.120 --> 11:00.240
+ I've kind of moved on from that cluster intellectually, but it nevertheless is an interesting cluster.
+
+11:00.240 --> 11:02.720
+ I was born in the Soviet Union.
+
+11:02.720 --> 11:06.880
+ Socialism, communism is a certain kind of political ideology that's really interesting
+
+11:06.880 --> 11:07.840
+ to explore.
+
+11:07.840 --> 11:12.880
+ Again, objectively, there's a set of beliefs about how the economy should work and so on.
+
+11:12.880 --> 11:18.400
+ And so, it's hard to know what's true or not in terms of people within those communities
+
+11:18.400 --> 11:24.000
+ are often advocating that this is how we achieve utopia in this world, and they're pretty
+
+11:24.000 --> 11:25.040
+ certain about it.
+
+11:25.040 --> 11:33.840
+ So, how do you try to manage politics in this chaotic, divisive world?
+
+11:33.840 --> 11:38.560
+ Not positive or any kind of ideas in terms of filtering what people should watch next
+
+11:38.560 --> 11:43.680
+ and in terms of also not letting certain things be on YouTube.
+
+11:44.160 --> 11:47.280
+ This is an exceptionally difficult responsibility.
+
+11:47.280 --> 11:52.240
+ Well, the responsibility to get this right is our top priority.
+
+11:52.240 --> 11:58.640
+ And the first comes down to making sure that we have good, clear rules of the road, right?
+
+11:58.640 --> 12:03.440
+ Like, just because we have freedom of speech doesn't mean that you can literally say anything,
+
+12:03.440 --> 12:03.920
+ right?
+
+12:03.920 --> 12:09.920
+ Like, we as a society have accepted certain restrictions on our freedom of speech.
+
+12:10.800 --> 12:13.760
+ There are things like libel laws and things like that.
+
+12:13.760 --> 12:20.080
+ And so, where we can draw a clear line, we do, and that's what we do.
+
+12:20.080 --> 12:25.360
+ We draw a clear line, we do, and we continue to evolve that line over time.
+
+12:27.360 --> 12:32.240
+ However, as you pointed out, wherever you draw the line, there's going to be a border
+
+12:32.240 --> 12:32.720
+ line.
+
+12:33.360 --> 12:40.800
+ And in that border line area, we are going to maybe not remove videos, but we will try
+
+12:40.800 --> 12:47.440
+ to reduce the recommendations of them or the proliferation of them by demoting them.
+
+12:47.440 --> 12:53.040
+ Alternatively, in those situations, try to raise what we would call authoritative or
+
+12:53.040 --> 12:55.520
+ credible sources of information.
+
+12:55.520 --> 13:00.880
+ So, we're not trying to, I mean, you mentioned Ayn Rand and communism.
+
+13:03.360 --> 13:07.920
+ Those are two valid points of view that people are going to debate and discuss.
+
+13:07.920 --> 13:13.520
+ And of course, people who believe in one or the other of those things are going to try
+
+13:13.520 --> 13:15.600
+ to persuade other people to their point of view.
+
+13:15.600 --> 13:21.840
+ And so, we're not trying to settle that or choose a side or anything like that.
+
+13:21.840 --> 13:26.960
+ What we're trying to do is make sure that the people who are expressing those point
+
+13:26.960 --> 13:32.240
+ of view and offering those positions are authoritative and credible.
+
+13:33.680 --> 13:38.720
+ So, let me ask a question about people I don't like personally.
+
+13:38.720 --> 13:39.360
+ You heard me.
+
+13:39.360 --> 13:41.120
+ I don't care if you leave comments on this.
+
+13:41.120 --> 13:44.400
+ But sometimes, they're brilliantly funny, which is trolls.
+
+13:45.600 --> 13:53.600
+ So, people who kind of mock, I mean, the internet is full, Reddit of mock style
+
+13:53.600 --> 13:59.200
+ comedy where people just kind of make fun of, point out that the emperor has no clothes.
+
+13:59.200 --> 14:02.720
+ And there's brilliant comedy in that, but sometimes it can get cruel and mean.
+
+14:03.920 --> 14:10.560
+ So, on that, on the mean point, and sorry to look at the comments, but I'm going to
+
+14:10.560 --> 14:13.920
+ and sorry to linger on these things that have no good answers.
+
+14:13.920 --> 14:18.640
+ But actually, I totally hear you that this is really important that you're trying to
+
+14:19.520 --> 14:19.920
+ solve it.
+
+14:19.920 --> 14:24.800
+ But how do you reduce the meanness of people on YouTube?
+
+14:26.400 --> 14:33.600
+ I understand that anyone who uploads YouTube videos has to become resilient to a certain
+
+14:33.600 --> 14:35.360
+ amount of meanness.
+
+14:35.360 --> 14:37.440
+ Like I've heard that from many creators.
+
+14:37.440 --> 14:47.920
+ And we are trying in various ways, comment ranking, allowing certain features to block
+
+14:47.920 --> 14:55.840
+ people, to reduce or make that meanness or that trolling behavior less effective on YouTube.
+
+14:55.840 --> 14:56.340
+ Yeah.
+
+14:56.560 --> 15:05.440
+ And so, I mean, it's very important, but it's something that we're going to keep having
+
+15:05.440 --> 15:12.960
+ to work on and as we improve it, like maybe we'll get to a point where people don't have
+
+15:12.960 --> 15:16.320
+ to suffer this sort of meanness when they upload YouTube videos.
+
+15:16.320 --> 15:23.440
+ I hope we do, but it just does seem to be something that you have to be able to deal
+
+15:23.440 --> 15:25.440
+ with as a YouTube creator nowadays.
+
+15:25.440 --> 15:29.040
+ Do you have a hope that, so you mentioned two things that I kind of agree with.
+
+15:29.040 --> 15:37.200
+ So there's like a machine learning approach of ranking comments based on whatever, based
+
+15:37.200 --> 15:39.760
+ on how much they contribute to the healthy conversation.
+
+15:40.320 --> 15:41.600
+ Let's put it that way.
+
+15:41.600 --> 15:48.880
+ Then the other is almost an interface question of how do you, how does the creator filter?
+
+15:48.880 --> 15:56.880
+ So block or how does, how do humans themselves, the users of YouTube manage their own conversation?
+
+15:56.880 --> 16:02.400
+ Do you have hope that these two tools will create a better society without limiting freedom
+
+16:02.400 --> 16:07.840
+ of speech too much, without sort of attacking, even like saying that people, what do you
+
+16:07.840 --> 16:11.840
+ mean limiting, sort of curating speech?
+
+16:12.560 --> 16:16.960
+ I mean, I think that that overall is our whole project here at YouTube.
+
+16:16.960 --> 16:17.280
+ Right.
+
+16:17.280 --> 16:24.160
+ Like we fundamentally believe and I personally believe very much that YouTube can be great.
+
+16:24.720 --> 16:26.080
+ It's been great for my kids.
+
+16:26.080 --> 16:28.400
+ I think it can be great for society.
+
+16:29.360 --> 16:34.400
+ But it's absolutely critical that we get this responsibility part right.
+
+16:34.400 --> 16:36.000
+ And that's why it's our top priority.
+
+16:37.040 --> 16:42.080
+ Susan Wojcicki, who's the CEO of YouTube, she says something that I personally find
+
+16:42.080 --> 16:49.920
+ very inspiring, which is that we want to do our jobs today in a manner so that people
+
+16:49.920 --> 16:54.880
+ 20 and 30 years from now will look back and say, YouTube, they really figured this out.
+
+16:54.880 --> 17:00.960
+ They really found a way to strike the right balance between the openness and the value
+
+17:00.960 --> 17:06.480
+ that the openness has and also making sure that we are meeting our responsibility to
+
+17:06.480 --> 17:07.600
+ users in society.
+
+17:09.040 --> 17:12.080
+ So the burden on YouTube actually is quite incredible.
+
+17:12.080 --> 17:18.400
+ And the one thing that people don't give enough credit to the seriousness and the magnitude
+
+17:18.400 --> 17:19.360
+ of the problem, I think.
+
+17:19.360 --> 17:26.960
+ So I personally hope that you do solve it because a lot is in your hand, a lot is riding
+
+17:26.960 --> 17:28.320
+ on your success or failure.
+
+17:28.320 --> 17:34.240
+ So it's besides, of course, running a successful company, you're also curating the content
+
+17:34.240 --> 17:36.800
+ of the internet and the conversation on the internet.
+
+17:36.800 --> 17:39.040
+ That's a powerful thing.
+
+17:40.160 --> 17:48.320
+ So one thing that people wonder about is how much of it can be solved with pure machine
+
+17:48.320 --> 17:49.360
+ learning.
+
+17:49.360 --> 17:55.600
+ So looking at the data, studying the data and creating algorithms that curate the comments,
+
+17:55.600 --> 18:02.880
+ curate the content, and how much of it needs human intervention, meaning people here at
+
+18:02.880 --> 18:11.920
+ YouTube in a room sitting and thinking about what is the nature of truth, what are the
+
+18:11.920 --> 18:14.480
+ ideals that we should be promoting, that kind of thing.
+
+18:14.480 --> 18:18.000
+ So algorithm versus human input, what's your sense?
+
+18:18.800 --> 18:23.600
+ I mean, my own experience has demonstrated that you need both of those things.
+
+18:25.200 --> 18:29.360
+ Algorithms, I mean, you're familiar with machine learning algorithms and the thing
+
+18:29.360 --> 18:34.640
+ they need most is data and the data is generated by humans.
+
+18:34.640 --> 18:42.000
+ And so, for instance, when we're building a system to try to figure out which are the
+
+18:42.000 --> 18:49.680
+ videos that are misinformation or borderline policy violations, well, the first thing we
+
+18:49.680 --> 18:57.600
+ need to do is get human beings to make decisions about which of those videos are in which category.
+
+18:57.600 --> 19:04.240
+ And then we use that data and basically take that information that's determined and governed
+
+19:04.240 --> 19:12.960
+ by humans and extrapolate it or apply it to the entire set of billions of YouTube videos.
+
+19:12.960 --> 19:20.720
+ And we couldn't get to all the videos on YouTube well without the humans, and we couldn't use
+
+19:20.720 --> 19:23.120
+ the humans to get to all the videos of YouTube.
+
+19:23.120 --> 19:28.320
+ So there's no world in which you have only one or the other of these things.
+
+19:28.320 --> 19:36.880
+ And just as you said, a lot of it comes down to people at YouTube spending a lot of time
+
+19:37.440 --> 19:43.840
+ trying to figure out what are the right policies, what are the outcomes based on those policies,
+
+19:43.840 --> 19:45.680
+ are they the kinds of things we want to see?
+
+19:46.640 --> 19:53.760
+ And then once we kind of get an agreement or build some consensus around what the policies
+
+19:53.760 --> 19:59.040
+ are, well, then we've got to find a way to implement those policies across all of YouTube.
+
+19:59.040 --> 20:05.360
+ And that's where both the human beings, we call them evaluators or reviewers, come into
+
+20:05.360 --> 20:07.360
+ play to help us with that.
+
+20:07.360 --> 20:12.080
+ And then once we get a lot of training data from them, then we apply the machine learning
+
+20:12.080 --> 20:13.840
+ techniques to take it even further.
+
+20:14.560 --> 20:20.480
+ Do you have a sense that these human beings have a bias in some kind of direction?
+
+20:20.480 --> 20:22.880
+ I mean, that's an interesting question.
+
+20:22.880 --> 20:28.000
+ We do sort of in autonomous vehicles and computer vision in general, a lot of annotation, and
+
+20:28.000 --> 20:32.880
+ we rarely ask what bias do the annotators have.
+
+20:35.360 --> 20:42.480
+ Even in the sense that they're better at annotating certain things than others.
+
+20:42.480 --> 20:48.320
+ For example, people are much better at, for example, at writing, they're much better at
+
+20:48.320 --> 20:56.080
+ or much better at annotating segmentation at segmenting cars in a scene versus segmenting
+
+20:56.080 --> 20:57.200
+ bushes or trees.
+
+20:59.120 --> 21:04.960
+ There's specific mechanical reasons for that, but also because it's semantic gray area.
+
+21:04.960 --> 21:09.520
+ And just for a lot of reasons, people are just terrible at annotating trees.
+
+21:09.520 --> 21:15.040
+ Okay, so in the same kind of sense, do you think of, in terms of people reviewing videos
+
+21:15.040 --> 21:21.440
+ or annotating the content of videos, is there some kind of bias that you're aware of or
+
+21:21.440 --> 21:24.160
+ seek out in that human input?
+
+21:24.160 --> 21:30.560
+ Well, we take steps to try to overcome these kinds of biases or biases that we think would
+
+21:30.560 --> 21:31.760
+ be problematic.
+
+21:32.960 --> 21:38.400
+ So for instance, like we ask people to have a bias towards scientific consensus.
+
+21:38.400 --> 21:41.040
+ That's something that we instruct them to do.
+
+21:41.040 --> 21:47.760
+ We ask them to have a bias towards demonstration of expertise or credibility or authoritativeness.
+
+21:48.560 --> 21:53.280
+ But there are other biases that we want to make sure to try to remove.
+
+21:53.280 --> 21:55.600
+ And there's many techniques for doing this.
+
+21:55.600 --> 22:01.520
+ One of them is you send the same thing to be reviewed to many people.
+
+22:01.520 --> 22:04.080
+ And so, that's one technique.
+
+22:04.080 --> 22:09.440
+ Another is that you make sure that the people that are doing these sorts of tasks, that
+
+22:09.440 --> 22:15.920
+ these sorts of tasks are from different backgrounds and different areas of the United States or
+
+22:15.920 --> 22:17.040
+ of the world.
+
+22:17.040 --> 22:25.280
+ But then, even with all of that, it's possible for certain kinds of what we would call unfair
+
+22:25.280 --> 22:31.200
+ biases to creep into machine learning systems, primarily, as you said, because maybe the
+
+22:31.200 --> 22:34.160
+ training data itself comes in in a biased way.
+
+22:34.160 --> 22:41.760
+ So, we also have worked very hard on improving the machine learning systems to remove and
+
+22:41.760 --> 22:50.640
+ reduce unfair biases when it goes against or involves some protected class, for instance.
+
+22:51.520 --> 22:55.680
+ Thank you for exploring with me some of the more challenging things.
+
+22:55.680 --> 22:57.920
+ I'm sure there's a few more that we'll jump back to.
+
+22:57.920 --> 23:05.040
+ But let me jump into the fun part, which is maybe the basics of the quote, unquote, YouTube
+
+23:05.040 --> 23:05.520
+ algorithm.
+
+23:06.880 --> 23:11.600
+ What does the YouTube algorithm look at to make recommendation for what to watch next?
+
+23:11.600 --> 23:14.480
+ And it's from a machine learning perspective.
+
+23:14.480 --> 23:20.320
+ Or when you search for a particular term, how does it know what to show you next?
+
+23:20.320 --> 23:24.400
+ Because it seems to, at least for me, do an incredible job of both.
+
+23:25.200 --> 23:26.400
+ Well, that's kind of you to say.
+
+23:26.400 --> 23:31.840
+ It didn't used to do a very good job, but it's gotten better over the years.
+
+23:31.840 --> 23:34.480
+ Even I observed that it's improved quite a bit.
+
+23:35.440 --> 23:36.960
+ Those are two different situations.
+
+23:36.960 --> 23:44.160
+ Like when you search for something, YouTube uses the best technology we can get from Google
+
+23:45.760 --> 23:50.000
+ to make sure that the YouTube search system finds what someone's looking for.
+
+23:50.000 --> 23:55.680
+ And of course, the very first things that one thinks about is, okay, well, does the
+
+23:55.680 --> 23:58.560
+ word occur in the title, for instance?
+
+24:00.560 --> 24:07.280
+ But there are much more sophisticated things where we're mostly trying to do some syntactic
+
+24:07.280 --> 24:15.600
+ match or maybe a semantic match based on words that we can add to the document itself.
+
+24:15.600 --> 24:21.760
+ For instance, maybe is this video watched a lot after this query?
+
+24:21.760 --> 24:30.080
+ That's something that we can observe and then as a result, make sure that that document
+
+24:30.080 --> 24:31.920
+ would be retrieved for that query.
+
+24:33.040 --> 24:40.480
+ Now, when you talk about what kind of videos would be recommended to watch next, that's
+
+24:40.480 --> 24:50.000
+ something, again, we've been working on for many years and probably the first real attempt
+
+24:50.000 --> 24:54.000
+ to do that well was to use collaborative filtering.
+
+24:55.520 --> 24:57.760
+ Can you describe what collaborative filtering is?
+
+24:57.760 --> 24:58.240
+ Sure.
+
+24:58.240 --> 25:06.320
+ It's just basically what we do is we observe which videos get watched close together by
+
+25:06.320 --> 25:07.120
+ the same person.
+
+25:08.320 --> 25:15.040
+ And if you observe that and if you can imagine creating a graph where the videos that get
+
+25:15.040 --> 25:20.640
+ watched close together by the most people are very close to one another in this graph
+
+25:20.640 --> 25:26.080
+ and videos that don't frequently get watched close together by the same person or the same
+
+25:26.080 --> 25:33.280
+ people are far apart, then you end up with this graph that we call the related graph
+
+25:33.280 --> 25:38.640
+ that basically represents videos that are very similar or related in some way.
+
+25:38.640 --> 25:45.760
+ And what's amazing about that is that it puts all the videos that are in the same
+
+25:45.760 --> 25:49.440
+ language together, for instance, and we didn't even have to think about language.
+
+25:51.280 --> 25:52.880
+ It just does it, right?
+
+25:52.880 --> 25:56.800
+ And it puts all the videos that are about sports together and it puts most of the music
+
+25:56.800 --> 26:02.640
+ videos together and it puts all of these sorts of videos together just because that's sort
+
+26:02.640 --> 26:05.920
+ of the way the people using YouTube behave.
+
+26:05.920 --> 26:09.920
+ So that already cleans up a lot of the problem.
+
+26:10.640 --> 26:16.800
+ It takes care of the lowest hanging fruit, which happens to be a huge one of just managing
+
+26:16.800 --> 26:18.560
+ these millions of videos.
+
+26:18.560 --> 26:19.120
+ That's right.
+
+26:19.680 --> 26:27.520
+ I remember a few years ago I was talking to someone who was trying to propose that we
+
+26:27.520 --> 26:37.680
+ do a research project concerning people who are bilingual, and this person was making
+
+26:37.680 --> 26:44.160
+ this proposal based on the idea that YouTube could not possibly be good at recommending
+
+26:44.160 --> 26:47.200
+ videos well to people who are bilingual.
+
+26:48.000 --> 26:54.400
+ And so she was telling me about this and I said, well, can you give me an example of
+
+26:54.400 --> 26:57.920
+ what problem do you think we have on YouTube with the recommendations?
+
+26:57.920 --> 27:04.960
+ And so she said, well, I'm a researcher in the US and when I'm looking for academic
+
+27:04.960 --> 27:07.920
+ topics, I want to see them in English.
+
+27:07.920 --> 27:12.640
+ And so she searched for one, found a video, and then looked at the watch next suggestions
+
+27:12.640 --> 27:13.920
+ and they were all in English.
+
+27:14.720 --> 27:16.080
+ And so she said, oh, I see.
+
+27:16.080 --> 27:18.480
+ YouTube must think that I speak only English.
+
+27:18.480 --> 27:23.360
+ And so she said, now I'm actually originally from Turkey and sometimes when I'm cooking,
+
+27:23.360 --> 27:27.600
+ let's say I want to make some baklava, I really like to watch videos that are in Turkish.
+
+27:27.600 --> 27:33.040
+ And so she searched for a video about making the baklava and then selected it and it was
+
+27:33.040 --> 27:35.600
+ in Turkish and the watch next recommendations were in Turkish.
+
+27:35.600 --> 27:41.840
+ And she just couldn't believe how this was possible and how is it that you know that
+
+27:41.840 --> 27:44.720
+ I speak both these two languages and put all the videos together?
+
+27:44.720 --> 27:49.520
+ And it's just as a sort of an outcome of this related graph that's created through
+
+27:49.520 --> 27:50.400
+ collaborative filtering.
+
+27:51.440 --> 27:54.800
+ So for me, one of my huge interests is just human psychology, right?
+
+27:54.800 --> 28:02.160
+ And that's such a powerful platform on which to utilize human psychology to discover what
+
+28:02.160 --> 28:04.640
+ people, individual people want to watch next.
+
+28:04.640 --> 28:06.720
+ But it's also be just fascinating to me.
+
+28:06.720 --> 28:13.520
+ You know, I've, Google search has ability to look at your own history and I've done
+
+28:13.520 --> 28:17.760
+ that before, just, just what I've searched three years for many, many years.
+
+28:17.760 --> 28:20.320
+ And it's fascinating picture of who I am actually.
+
+28:21.200 --> 28:24.880
+ And I don't think anyone's ever summarized.
+
+28:24.880 --> 28:26.720
+ I personally would love that.
+
+28:26.720 --> 28:32.480
+ A summary of who I am as a person on the internet to me, because I didn't get a reply
+
+28:32.480 --> 28:38.080
+ of who I am as a person on the internet to me, because I think it reveals, I think it
+
+28:38.080 --> 28:40.960
+ puts a mirror to me or to others.
+
+28:41.920 --> 28:47.840
+ You know, that's actually quite revealing and interesting, you know, just the, maybe
+
+28:47.840 --> 28:53.280
+ in the number of, it's a joke, but not really is the number of cat videos I've watched or
+
+28:53.280 --> 28:59.120
+ videos of people falling, you know, stuff that's absurd, that kind of stuff.
+
+28:59.120 --> 29:00.160
+ It's really interesting.
+
+29:00.160 --> 29:06.240
+ And of course it's really good for the machine learning aspect to, to show, to figure out
+
+29:06.240 --> 29:06.880
+ what to show next.
+
+29:06.880 --> 29:07.840
+ But it's interesting.
+
+29:09.120 --> 29:16.800
+ Have you just as a tangent played around with the idea of giving a map to people sort of,
+
+29:16.800 --> 29:22.320
+ as opposed to just using this information to show what's next, showing them here are
+
+29:22.320 --> 29:25.120
+ the clusters you've loved over the years kind of thing?
+
+29:25.680 --> 29:29.200
+ Well, we do provide the history of all the videos that you've watched.
+
+29:29.200 --> 29:29.440
+ Yes.
+
+29:29.440 --> 29:32.880
+ So you can definitely search through that and look through it and search through it
+
+29:32.880 --> 29:35.600
+ to see what it is that you've been watching on YouTube.
+
+29:35.600 --> 29:44.720
+ We have actually in various times experimented with this sort of cluster idea, finding ways
+
+29:44.720 --> 29:51.120
+ to demonstrate or show people what topics they've been interested in or what clusters
+
+29:51.120 --> 29:51.920
+ they've watched from.
+
+29:51.920 --> 29:58.800
+ It's interesting that you bring this up because in some sense, the way the recommendation
+
+29:58.800 --> 30:04.720
+ system of YouTube sees a user is exactly as the history of all the videos they've
+
+30:04.720 --> 30:05.520
+ watched on YouTube.
+
+30:06.320 --> 30:17.200
+ And so you can think of yourself or any user on YouTube as kind of like a DNA strand of
+
+30:17.200 --> 30:18.640
+ all your videos, right?
+
+30:18.640 --> 30:23.520
+ That sort of represents you, you can also think of it as maybe a vector in the space
+
+30:23.520 --> 30:25.120
+ of all the videos on YouTube.
+
+30:26.160 --> 30:31.680
+ And so now once you think of it as a vector in the space of all the videos on YouTube,
+
+30:31.680 --> 30:39.120
+ then you can start to say, okay, well, which other vectors are close to me and to my vector?
+
+30:39.120 --> 30:44.560
+ And that's one of the ways that we generate some diverse recommendations is because you're
+
+30:44.560 --> 30:50.080
+ like, okay, well, these people seem to be close with respect to the videos they've
+
+30:50.080 --> 30:55.440
+ watched on YouTube, but here's a topic or a video that one of them has watched and
+
+30:55.440 --> 31:01.040
+ enjoyed, but the other one hasn't, that could be an opportunity to make a good recommendation.
+
+31:01.040 --> 31:04.720
+ I got to tell you, I mean, I know I'm going to ask for things that are impossible, but
+
+31:04.720 --> 31:07.760
+ I would love to cluster than human beings.
+
+31:07.760 --> 31:12.400
+ I would love to know who has similar trajectories as me, because you probably would want to
+
+31:12.400 --> 31:14.560
+ hang out, right?
+
+31:14.560 --> 31:18.800
+ There's a social aspect there, like actually finding some of the most fascinating people
+
+31:18.800 --> 31:23.440
+ I find on YouTube, but have like no followers and I start following them and they create
+
+31:23.440 --> 31:29.280
+ incredible content and on that topic, I just love to ask, there's some videos that just
+
+31:29.280 --> 31:37.040
+ blow my mind in terms of quality and depth and just in every regard are amazing videos
+
+31:37.040 --> 31:40.640
+ and they have like 57 views, okay?
+
+31:40.640 --> 31:46.800
+ How do you get videos of quality to be seen by many eyes?
+
+31:46.800 --> 31:53.440
+ So the measure of quality, is it just something, yeah, how do you know that something is good?
+
+31:53.440 --> 31:58.640
+ Well, I mean, I think it depends initially on what sort of video we're talking about.
+
+31:58.640 --> 32:08.400
+ So in the realm of, let's say you mentioned politics and news, in that realm, you know,
+
+32:08.400 --> 32:16.880
+ quality news or quality journalism relies on having a journalism department, right?
+
+32:16.880 --> 32:22.800
+ Like you have to have actual journalists and fact checkers and people like that and so
+
+32:22.800 --> 32:30.000
+ in that situation and in others, maybe science or in medicine, quality has a lot to do with
+
+32:30.000 --> 32:34.000
+ the authoritativeness and the credibility and the expertise of the people who make the
+
+32:34.000 --> 32:36.000
+ video.
+
+32:36.000 --> 32:42.240
+ Now, if you think about the other end of the spectrum, you know, what is the highest quality
+
+32:42.240 --> 32:49.280
+ prank video or what is the highest quality Minecraft video, right?
+
+32:49.280 --> 32:54.320
+ That might be the one that people enjoy watching the most and watch to the end or it might
+
+32:54.320 --> 33:03.200
+ be the one that when we ask people the next day after they watched it, were they satisfied
+
+33:03.200 --> 33:04.200
+ with it?
+
+33:04.200 --> 33:11.600
+ And so we in, especially in the realm of entertainment, have been trying to get at better and better
+
+33:11.600 --> 33:19.320
+ measures of quality or satisfaction or enrichment since I came to YouTube.
+
+33:19.320 --> 33:27.280
+ And we started with, well, you know, the first approximation is the one that gets more views.
+
+33:27.280 --> 33:32.360
+ But you know, we both know that things can get a lot of views and not really be that
+
+33:32.360 --> 33:37.400
+ high quality, especially if people are clicking on something and then immediately realizing
+
+33:37.400 --> 33:41.000
+ that it's not that great and abandoning it.
+
+33:41.000 --> 33:46.160
+ And that's why we moved from views to thinking about the amount of time people spend watching
+
+33:46.160 --> 33:52.840
+ it with the premise that like, you know, in some sense, the time that someone spends watching
+
+33:52.840 --> 33:57.520
+ a video is related to the value that they get from that video.
+
+33:57.520 --> 34:02.120
+ It may not be perfectly related, but it has something to say about how much value they
+
+34:02.120 --> 34:04.040
+ get.
+
+34:04.040 --> 34:05.680
+ But even that's not good enough, right?
+
+34:05.680 --> 34:11.480
+ Because I myself have spent time clicking through channels on television late at night
+
+34:11.480 --> 34:16.560
+ and ended up watching Under Siege 2 for some reason I don't know.
+
+34:16.560 --> 34:21.580
+ And if you were to ask me the next day, are you glad that you watched that show on TV
+
+34:21.580 --> 34:22.580
+ last night?
+
+34:22.580 --> 34:27.800
+ I'd say, yeah, I wish I would have gone to bed or read a book or almost anything else,
+
+34:27.800 --> 34:29.060
+ really.
+
+34:29.060 --> 34:35.600
+ And so that's why some people got the idea a few years ago to try to survey users afterwards.
+
+34:35.600 --> 34:43.340
+ And so we get feedback data from those surveys and then use that in the machine learning
+
+34:43.340 --> 34:47.720
+ system to try to not just predict what you're going to click on right now, what you might
+
+34:47.720 --> 34:54.020
+ watch for a while, but what when we ask you tomorrow, you'll give four or five stars to.
+
+34:54.020 --> 34:59.320
+ So just to summarize, what are the signals from a machine learning perspective that a
+
+34:59.320 --> 35:00.320
+ user can provide?
+
+35:00.320 --> 35:05.000
+ So you mentioned just clicking on the video views, the time watched, maybe the relative
+
+35:05.000 --> 35:12.760
+ time watched, the clicking like and dislike on the video, maybe commenting on the video.
+
+35:12.760 --> 35:14.480
+ All of those things.
+
+35:14.480 --> 35:15.480
+ All of those things.
+
+35:15.480 --> 35:20.640
+ And then the one I wasn't actually quite aware of, even though I might have engaged in it
+
+35:20.640 --> 35:24.660
+ is a survey afterwards, which is a brilliant idea.
+
+35:24.660 --> 35:26.200
+ Is there other signals?
+
+35:26.200 --> 35:30.680
+ I mean, that's already a really rich space of signals to learn from.
+
+35:30.680 --> 35:31.920
+ Is there something else?
+
+35:31.920 --> 35:35.960
+ Well, you mentioned commenting, also sharing the video.
+
+35:35.960 --> 35:39.560
+ If you think it's worthy to be shared with someone else you know.
+
+35:39.560 --> 35:41.600
+ Within YouTube or outside of YouTube as well?
+
+35:41.600 --> 35:42.600
+ Either.
+
+35:42.600 --> 35:44.920
+ Let's see, you mentioned like, dislike.
+
+35:44.920 --> 35:45.920
+ Like and dislike.
+
+35:45.920 --> 35:47.480
+ How important is that?
+
+35:47.480 --> 35:48.480
+ It's very important, right?
+
+35:48.480 --> 35:52.960
+ We want, it's predictive of satisfaction.
+
+35:52.960 --> 35:56.400
+ But it's not perfectly predictive.
+
+35:56.400 --> 35:57.400
+ Subscribe.
+
+35:57.400 --> 36:03.840
+ If you subscribe to the channel of the person who made the video, then that also is a piece
+
+36:03.840 --> 36:07.360
+ of information and it signals satisfaction.
+
+36:07.360 --> 36:13.840
+ Although over the years, we've learned that people have a wide range of attitudes about
+
+36:13.840 --> 36:17.080
+ what it means to subscribe.
+
+36:17.080 --> 36:24.640
+ We would ask some users who didn't subscribe very much, but they watched a lot from a few
+
+36:24.640 --> 36:25.640
+ channels.
+
+36:25.640 --> 36:26.640
+ We'd say, well, why didn't you subscribe?
+
+36:26.640 --> 36:32.000
+ And they would say, well, I can't afford to pay for anything.
+
+36:32.000 --> 36:35.040
+ We tried to let them understand like, actually it doesn't cost anything.
+
+36:35.040 --> 36:36.040
+ It's free.
+
+36:36.040 --> 36:41.180
+ It just helps us know that you are very interested in this creator.
+
+36:41.180 --> 36:47.560
+ But then we've asked other people who subscribe to many things and don't really watch any
+
+36:47.560 --> 36:49.080
+ of the videos from those channels.
+
+36:49.080 --> 36:54.920
+ And we say, well, why did you subscribe to this if you weren't really interested in any
+
+36:54.920 --> 36:56.300
+ more videos from that channel?
+
+36:56.300 --> 37:00.140
+ And they might tell us, well, I just, you know, I thought the person did a great job
+
+37:00.140 --> 37:03.280
+ and I just want to kind of give them a high five.
+
+37:03.280 --> 37:04.280
+ And so.
+
+37:04.280 --> 37:05.280
+ Yeah.
+
+37:05.280 --> 37:06.280
+ That's where I sit.
+
+37:06.280 --> 37:11.320
+ I go to channels where I just, this person is amazing.
+
+37:11.320 --> 37:13.200
+ I like this person.
+
+37:13.200 --> 37:18.000
+ But then I like this person and I really want to support them.
+
+37:18.000 --> 37:19.760
+ That's how I click subscribe.
+
+37:19.760 --> 37:23.200
+ Even though I mean never actually want to click on their videos when they're releasing
+
+37:23.200 --> 37:24.200
+ it.
+
+37:24.200 --> 37:25.200
+ I just love what they're doing.
+
+37:25.200 --> 37:30.440
+ And it's maybe outside of my interest area and so on, which is probably the wrong way
+
+37:30.440 --> 37:31.440
+ to use the subscribe button.
+
+37:31.440 --> 37:32.920
+ But I just want to say congrats.
+
+37:32.920 --> 37:34.920
+ This is great work.
+
+37:34.920 --> 37:39.320
+ Well, so you have to deal with all the space of people that see the subscribe button is
+
+37:39.320 --> 37:40.320
+ totally different.
+
+37:40.320 --> 37:41.320
+ That's right.
+
+37:41.320 --> 37:46.200
+ And so, you know, we can't just close our eyes and say, sorry, you're using it wrong.
+
+37:46.200 --> 37:50.260
+ You know, we're not going to pay attention to what you've done.
+
+37:50.260 --> 37:53.880
+ We need to embrace all the ways in which all the different people in the world use the
+
+37:53.880 --> 37:57.840
+ subscribe button or the like and the dislike button.
+
+37:57.840 --> 38:05.400
+ So in terms of signals of machine learning, using for the search and for the recommendation,
+
+38:05.400 --> 38:06.400
+ you've mentioned title.
+
+38:06.400 --> 38:13.840
+ So like metadata, like text data that people provide description and title and maybe keywords.
+
+38:13.840 --> 38:19.760
+ Maybe you can speak to the value of those things in search and also this incredible
+
+38:19.760 --> 38:22.860
+ fascinating area of the content itself.
+
+38:22.860 --> 38:26.280
+ So the video content itself, trying to understand what's happening in the video.
+
+38:26.280 --> 38:30.960
+ So YouTube released a data set that, you know, in the machine learning computer vision world,
+
+38:30.960 --> 38:33.280
+ this is just an exciting space.
+
+38:33.280 --> 38:35.760
+ How much is that currently?
+
+38:35.760 --> 38:37.300
+ How much are you playing with that currently?
+
+38:37.300 --> 38:42.120
+ How much is your hope for the future of being able to analyze the content of the video itself?
+
+38:42.120 --> 38:46.560
+ Well, we have been working on that also since I came to YouTube.
+
+38:46.560 --> 38:47.560
+ Analyzing the content.
+
+38:47.560 --> 38:50.700
+ Analyzing the content of the video, right?
+
+38:50.700 --> 39:00.280
+ And what I can tell you is that our ability to do it well is still somewhat crude.
+
+39:00.280 --> 39:05.120
+ We can tell if it's a music video, we can tell if it's a sports video, we can probably
+
+39:05.120 --> 39:09.520
+ tell you that people are playing soccer.
+
+39:09.520 --> 39:15.440
+ We probably can't tell whether it's Manchester United or my daughter's soccer team.
+
+39:15.440 --> 39:21.280
+ So these things are kind of difficult and using them, we can use them in some ways.
+
+39:21.280 --> 39:27.080
+ So for instance, we use that kind of information to understand and inform these clusters that
+
+39:27.080 --> 39:30.240
+ I talked about.
+
+39:30.240 --> 39:34.980
+ And also maybe to add some words like soccer, for instance, to the video, if it doesn't
+
+39:34.980 --> 39:40.960
+ occur in the title or the description, which is remarkable that often it doesn't.
+
+39:40.960 --> 39:47.560
+ One of the things that I ask creators to do is please help us out with the title and the
+
+39:47.560 --> 39:48.560
+ description.
+
+39:48.560 --> 39:56.160
+ For instance, we were a few years ago having a live stream of some competition for World
+
+39:56.160 --> 39:59.080
+ of Warcraft on YouTube.
+
+39:59.080 --> 40:04.220
+ And it was a very important competition, but if you typed World of Warcraft in search,
+
+40:04.220 --> 40:05.480
+ you wouldn't find it.
+
+40:05.480 --> 40:07.600
+ World of Warcraft wasn't in the title?
+
+40:07.600 --> 40:09.120
+ World of Warcraft wasn't in the title.
+
+40:09.120 --> 40:14.520
+ It was match 478, you know, A team versus B team and World of Warcraft wasn't in the
+
+40:14.520 --> 40:15.520
+ title.
+
+40:15.520 --> 40:17.940
+ I'm just like, come on, give me.
+
+40:17.940 --> 40:22.120
+ Being literal on the internet is actually very uncool, which is the problem.
+
+40:22.120 --> 40:23.920
+ Oh, is that right?
+
+40:23.920 --> 40:28.520
+ Well, I mean, in some sense, well, some of the greatest videos, I mean, there's a humor
+
+40:28.520 --> 40:31.800
+ to just being indirect, being witty and so on.
+
+40:31.800 --> 40:37.560
+ And actually being, you know, machine learning algorithms want you to be, you know, literal,
+
+40:37.560 --> 40:38.560
+ right?
+
+40:38.560 --> 40:42.840
+ You just want to say what's in the thing, be very, very simple.
+
+40:42.840 --> 40:46.160
+ And in some sense that gets away from wit and humor.
+
+40:46.160 --> 40:48.920
+ So you have to play with both, right?
+
+40:48.920 --> 40:54.280
+ But you're saying that for now, sort of the content of the title, the content of the description,
+
+40:54.280 --> 41:01.920
+ the actual text is one of the best ways for the algorithm to find your video and put them
+
+41:01.920 --> 41:03.080
+ in the right cluster.
+
+41:03.080 --> 41:04.160
+ That's right.
+
+41:04.160 --> 41:10.240
+ And I would go further and say that if you want people, human beings to select your video
+
+41:10.240 --> 41:14.920
+ in search, then it helps to have, let's say World of Warcraft in the title.
+
+41:14.920 --> 41:20.000
+ Because why would a person, you know, if they're looking at a bunch, they type World of Warcraft
+
+41:20.000 --> 41:23.880
+ and they have a bunch of videos, all of whom say World of Warcraft, except the one that
+
+41:23.880 --> 41:24.880
+ you uploaded.
+
+41:24.880 --> 41:29.280
+ Well, even the person is going to think, well, maybe this isn't somehow search made a mistake.
+
+41:29.280 --> 41:31.540
+ This isn't really about World of Warcraft.
+
+41:31.540 --> 41:36.160
+ So it's important not just for the machine learning systems, but also for the people
+
+41:36.160 --> 41:38.000
+ who might be looking for this sort of thing.
+
+41:38.000 --> 41:44.680
+ They get a clue that it's what they're looking for by seeing that same thing prominently
+
+41:44.680 --> 41:45.960
+ in the title of the video.
+
+41:45.960 --> 41:46.960
+ Okay.
+
+41:46.960 --> 41:47.960
+ Let me push back on that.
+
+41:47.960 --> 41:52.640
+ So I think from the algorithm perspective, yes, but if they typed in World of Warcraft
+
+41:52.640 --> 42:02.440
+ and saw a video that with the title simply winning and the thumbnail has like a sad orc
+
+42:02.440 --> 42:04.480
+ or something, I don't know, right?
+
+42:04.480 --> 42:11.760
+ Like I think that's much, it gets your curiosity up.
+
+42:11.760 --> 42:15.920
+ And then if they could trust that the algorithm was smart enough to figure out somehow that
+
+42:15.920 --> 42:20.000
+ this is indeed a World of Warcraft video, that would have created the most beautiful
+
+42:20.000 --> 42:21.000
+ experience.
+
+42:21.000 --> 42:25.720
+ I think in terms of just the wit and the humor and the curiosity that we human beings naturally
+
+42:25.720 --> 42:26.720
+ have.
+
+42:26.720 --> 42:30.080
+ But you're saying, I mean, realistically speaking, it's really hard for the algorithm
+
+42:30.080 --> 42:34.680
+ to figure out that the content of that video will be a World of Warcraft video.
+
+42:34.680 --> 42:37.120
+ And you have to accept that some people are going to skip it.
+
+42:37.120 --> 42:38.120
+ Yeah.
+
+42:38.120 --> 42:39.120
+ Right?
+
+42:39.120 --> 42:41.040
+ I mean, and so you're right.
+
+42:41.040 --> 42:47.120
+ The people who don't skip it and select it are going to be delighted, but other people
+
+42:47.120 --> 42:50.080
+ might say, yeah, this is not what I was looking for.
+
+42:50.080 --> 42:56.600
+ And making stuff discoverable, I think is what you're really working on and hoping.
+
+42:56.600 --> 42:57.600
+ So yeah.
+
+42:57.600 --> 43:00.440
+ So from your perspective, put stuff in the title description.
+
+43:00.440 --> 43:07.960
+ And remember the collaborative filtering part of the system starts by the same user watching
+
+43:07.960 --> 43:09.800
+ videos together, right?
+
+43:09.800 --> 43:14.200
+ So the way that they're probably going to do that is by searching for them.
+
+43:14.200 --> 43:15.480
+ That's a fascinating aspect of it.
+
+43:15.480 --> 43:16.480
+ It's like ant colonies.
+
+43:16.480 --> 43:19.000
+ That's how they find stuff.
+
+43:19.000 --> 43:27.680
+ So I mean, what degree for collaborative filtering in general is one curious ant, one curious
+
+43:27.680 --> 43:28.680
+ user, essential?
+
+43:28.680 --> 43:33.800
+ So just a person who is more willing to click on random videos and sort of explore these
+
+43:33.800 --> 43:35.520
+ cluster spaces.
+
+43:35.520 --> 43:39.640
+ In your sense, how many people are just like watching the same thing over and over and
+
+43:39.640 --> 43:40.640
+ over and over?
+
+43:40.640 --> 43:44.760
+ And how many are just like the explorers and just kind of like click on stuff and then
+
+43:44.760 --> 43:49.680
+ help the other ant in the ant's colony discover the cool stuff?
+
+43:49.680 --> 43:51.080
+ Do you have a sense of that at all?
+
+43:51.080 --> 43:56.040
+ I really don't think I have a sense for the relative sizes of those groups.
+
+43:56.040 --> 44:01.240
+ But I would say that people come to YouTube with some certain amount of intent.
+
+44:01.240 --> 44:08.040
+ And as long as they, to the extent to which they try to satisfy that intent, that certainly
+
+44:08.040 --> 44:09.520
+ helps our systems, right?
+
+44:09.520 --> 44:17.360
+ Because our systems rely on kind of a faithful amount of behavior, right?
+
+44:17.360 --> 44:19.000
+ And there are people who try to trick us, right?
+
+44:19.000 --> 44:25.280
+ There are people and machines that try to associate videos together that really don't
+
+44:25.280 --> 44:30.360
+ belong together, but they're trying to get that association made because it's profitable
+
+44:30.360 --> 44:31.440
+ for them.
+
+44:31.440 --> 44:37.680
+ And so we have to always be resilient to that sort of attempt at gaming the systems.
+
+44:37.680 --> 44:42.760
+ So speaking to that, there's a lot of people that in a positive way, perhaps, I don't know,
+
+44:42.760 --> 44:47.720
+ I don't like it, but like to want to try to game the system to get more attention.
+
+44:47.720 --> 44:51.500
+ Everybody creators in a positive sense want to get attention, right?
+
+44:51.500 --> 45:01.020
+ So how do you work in this space when people create more and more sort of click baity titles
+
+45:01.020 --> 45:02.020
+ and thumbnails?
+
+45:02.020 --> 45:08.080
+ Sort of very to ask him, Derek has made a video where basically describes that it seems
+
+45:08.080 --> 45:12.920
+ what works is to create a high quality video, really good video, where people would want
+
+45:12.920 --> 45:18.040
+ to watch it once they click on it, but have click baity titles and thumbnails to get them
+
+45:18.040 --> 45:19.640
+ to click on it in the first place.
+
+45:19.640 --> 45:23.600
+ And he's saying, I'm embracing this fact, I'm just going to keep doing it.
+
+45:23.600 --> 45:28.520
+ And I hope you forgive me for doing it and you will enjoy my videos once you click on
+
+45:28.520 --> 45:29.520
+ them.
+
+45:29.520 --> 45:38.000
+ So in what sense do you see this kind of click bait style attempt to manipulate, to get people
+
+45:38.000 --> 45:43.400
+ in the door to manipulate the algorithm or play with the algorithm or game the algorithm?
+
+45:43.400 --> 45:47.560
+ I think that you can look at it as an attempt to game the algorithm.
+
+45:47.560 --> 45:52.800
+ But even if you were to take the algorithm out of it and just say, okay, well, all these
+
+45:52.800 --> 45:57.800
+ videos happen to be lined up, which the algorithm didn't make any decision about which one to
+
+45:57.800 --> 46:02.240
+ put at the top or the bottom, but they're all lined up there, which one are the people
+
+46:02.240 --> 46:04.180
+ going to choose?
+
+46:04.180 --> 46:09.640
+ And I'll tell you the same thing that I told Derek is, I have a bookshelf and they have
+
+46:09.640 --> 46:13.560
+ two kinds of books on them, science books.
+
+46:13.560 --> 46:19.340
+ I have my math books from when I was a student and they all look identical except for the
+
+46:19.340 --> 46:21.220
+ titles on the covers.
+
+46:21.220 --> 46:24.920
+ They're all yellow, they're all from Springer and they're every single one of them.
+
+46:24.920 --> 46:27.240
+ The cover is totally the same.
+
+46:27.240 --> 46:28.240
+ Yes.
+
+46:28.240 --> 46:29.240
+ Right?
+
+46:29.240 --> 46:30.240
+ Yeah.
+
+46:30.240 --> 46:34.960
+ On the other hand, I have other more pop science type books and they all have very interesting
+
+46:34.960 --> 46:40.400
+ covers and they have provocative titles and things like that.
+
+46:40.400 --> 46:45.640
+ I wouldn't say that they're click baity because they are indeed good books.
+
+46:45.640 --> 46:52.720
+ And I don't think that they cross any line, but that's just a decision you have to make.
+
+46:52.720 --> 46:58.560
+ Like the people who write classical recursion theory by Piero di Freddie, he was fine with
+
+46:58.560 --> 47:02.240
+ the yellow title and nothing more.
+
+47:02.240 --> 47:10.320
+ Whereas I think other people who wrote a more popular type book understand that they need
+
+47:10.320 --> 47:15.320
+ to have a compelling cover and a compelling title.
+
+47:15.320 --> 47:19.240
+ And I don't think there's anything really wrong with that.
+
+47:19.240 --> 47:24.880
+ We do take steps to make sure that there is a line that you don't cross.
+
+47:24.880 --> 47:32.080
+ And if you go too far, maybe your thumbnail is especially racy or it's all caps with too
+
+47:32.080 --> 47:41.960
+ many exclamation points, we observe that users are sometimes offended by that.
+
+47:41.960 --> 47:51.240
+ And so for the users who are offended by that, we will then depress or suppress those videos.
+
+47:51.240 --> 47:55.640
+ And which reminds me, there's also another signal where users can say, I don't know if
+
+47:55.640 --> 47:58.080
+ it was recently added, but I really enjoy it.
+
+47:58.080 --> 48:04.640
+ Just saying, something like, I don't want to see this video anymore or something like,
+
+48:04.640 --> 48:09.200
+ like this is a, like there's certain videos that just cut me the wrong way.
+
+48:09.200 --> 48:12.160
+ Like just, just jump out at me, it's like, I don't want to, I don't want this.
+
+48:12.160 --> 48:17.120
+ And it feels really good to clean that up, to be like, I don't, that's not, that's not
+
+48:17.120 --> 48:18.120
+ for me.
+
+48:18.120 --> 48:19.120
+ I don't know.
+
+48:19.120 --> 48:22.440
+ I think that might've been recently added, but that's also a really strong signal.
+
+48:22.440 --> 48:23.440
+ Yes, absolutely.
+
+48:23.440 --> 48:24.440
+ Right.
+
+48:24.440 --> 48:29.440
+ We don't want to make a recommendation that people are unhappy with.
+
+48:29.440 --> 48:34.000
+ And that makes me, that particular one makes me feel good as a user in general and as a
+
+48:34.000 --> 48:35.000
+ machine learning person.
+
+48:35.000 --> 48:37.840
+ Cause I feel like I'm helping the algorithm.
+
+48:37.840 --> 48:41.040
+ My interactions on YouTube don't always feel like I'm helping the algorithm.
+
+48:41.040 --> 48:43.920
+ Like I'm not reminded of that fact.
+
+48:43.920 --> 48:50.680
+ Like for example, Tesla and Autopilot and Elon Musk create a feeling for their customers,
+
+48:50.680 --> 48:54.080
+ for people that own Teslas, that they're helping the algorithm of Tesla vehicles.
+
+48:54.080 --> 48:57.160
+ Like they're all, like are really proud they're helping the fleet learn.
+
+48:57.160 --> 49:02.560
+ I think YouTube doesn't always remind people that you're helping the algorithm get smarter.
+
+49:02.560 --> 49:04.560
+ And for me, I love that idea.
+
+49:04.560 --> 49:09.960
+ Like we're all collaboratively, like Wikipedia gives that sense that we're all together creating
+
+49:09.960 --> 49:12.040
+ a beautiful thing.
+
+49:12.040 --> 49:14.720
+ YouTube is a, doesn't always remind me of that.
+
+49:14.720 --> 49:18.560
+ It's a, this conversation is reminding me of that, but.
+
+49:18.560 --> 49:19.560
+ Well that's a good tip.
+
+49:19.560 --> 49:22.520
+ We should keep that fact in mind when we design these features.
+
+49:22.520 --> 49:28.000
+ I'm not sure I really thought about it that way, but that's a very interesting perspective.
+
+49:28.000 --> 49:35.140
+ It's an interesting question of personalization that I feel like when I click like on a video,
+
+49:35.140 --> 49:39.420
+ I'm just improving my experience.
+
+49:39.420 --> 49:40.940
+ It would be great.
+
+49:40.940 --> 49:45.060
+ It would make me personally, people are different, but make me feel great if I was helping also
+
+49:45.060 --> 49:47.640
+ the YouTube algorithm broadly say something.
+
+49:47.640 --> 49:48.640
+ You know what I'm saying?
+
+49:48.640 --> 49:53.720
+ Like there's a, that I don't know if that's human nature, but you want the products you
+
+49:53.720 --> 49:58.960
+ love, and I certainly love YouTube, like you want to help it get smarter, smarter, smarter
+
+49:58.960 --> 50:04.780
+ because there's some kind of coupling between our lives together being better.
+
+50:04.780 --> 50:07.120
+ If YouTube is better than I will, my life will be better.
+
+50:07.120 --> 50:08.120
+ And there's that kind of reasoning.
+
+50:08.120 --> 50:12.240
+ I'm not sure what that is and I'm not sure how many people share that feeling.
+
+50:12.240 --> 50:14.240
+ That could be just a machine learning feeling.
+
+50:14.240 --> 50:22.720
+ But on that point, how much personalization is there in terms of next video recommendations?
+
+50:22.720 --> 50:28.200
+ So is it kind of all really boiling down to clustering?
+
+50:28.200 --> 50:33.400
+ Like if I'm the nearest clusters to me and so on and that kind of thing, or how much
+
+50:33.400 --> 50:36.120
+ is personalized to me, the individual completely?
+
+50:36.120 --> 50:38.900
+ It's very, very personalized.
+
+50:38.900 --> 50:45.160
+ So your experience will be quite a bit different from anybody else's who's watching that same
+
+50:45.160 --> 50:48.640
+ video, at least when they're logged in.
+
+50:48.640 --> 50:56.240
+ And the reason is that we found that users often want two different kinds of things when
+
+50:56.240 --> 50:58.320
+ they're watching a video.
+
+50:58.320 --> 51:05.000
+ Sometimes they want to keep watching more on that topic or more in that genre.
+
+51:05.000 --> 51:09.320
+ And other times they just are done and they're ready to move on to something else.
+
+51:09.320 --> 51:13.200
+ And so the question is, well, what is the something else?
+
+51:13.200 --> 51:19.040
+ And one of the first things one can imagine is, well, maybe something else is the latest
+
+51:19.040 --> 51:22.400
+ video from some channel to which you've subscribed.
+
+51:22.400 --> 51:27.840
+ And that's going to be very different for you than it is for me.
+
+51:27.840 --> 51:31.160
+ And even if it's not something that you subscribe to, it's something that you watch a lot.
+
+51:31.160 --> 51:34.960
+ And again, that'll be very different on a person by person basis.
+
+51:34.960 --> 51:43.800
+ And so even the Watch Next, as well as the homepage, of course, is quite personalized.
+
+51:43.800 --> 51:47.760
+ So what, we mentioned some of the signals, but what does success look like?
+
+51:47.760 --> 51:52.200
+ What does success look like in terms of the algorithm creating a great long term experience
+
+51:52.200 --> 51:53.560
+ for a user?
+
+51:53.560 --> 52:00.240
+ Or to put another way, if you look at the videos I've watched this month, how do you
+
+52:00.240 --> 52:03.680
+ know the algorithm succeeded for me?
+
+52:03.680 --> 52:09.000
+ I think, first of all, if you come back and watch more YouTube, then that's one indication
+
+52:09.000 --> 52:10.840
+ that you found some value from it.
+
+52:10.840 --> 52:13.480
+ So just the number of hours is a powerful indicator.
+
+52:13.480 --> 52:22.120
+ Well, I mean, not the hours themselves, but the fact that you return on another day.
+
+52:22.120 --> 52:26.320
+ So that's probably the most simple indicator.
+
+52:26.320 --> 52:29.240
+ People don't come back to things that they don't find value in, right?
+
+52:29.240 --> 52:32.440
+ There's a lot of other things that they could do.
+
+52:32.440 --> 52:38.320
+ But like I said, ideally, we would like everybody to feel that YouTube enriches their lives
+
+52:38.320 --> 52:43.320
+ and that every video they watched is the best one they've ever watched since they've started
+
+52:43.320 --> 52:44.840
+ watching YouTube.
+
+52:44.840 --> 52:52.960
+ And so that's why we survey them and ask them, is this one to five stars?
+
+52:52.960 --> 52:58.400
+ And so our version of success is every time someone takes that survey, they say it's five
+
+52:58.400 --> 53:00.040
+ stars.
+
+53:00.040 --> 53:03.620
+ And if we ask them, is this the best video you've ever seen on YouTube?
+
+53:03.620 --> 53:05.960
+ They say, yes, every single time.
+
+53:05.960 --> 53:09.760
+ So it's hard to imagine that we would actually achieve that.
+
+53:09.760 --> 53:16.560
+ Maybe asymptotically we would get there, but that would be what we think success is.
+
+53:16.560 --> 53:17.560
+ It's funny.
+
+53:17.560 --> 53:23.640
+ I've recently said somewhere, I don't know, maybe tweeted, but that Ray Dalio has this
+
+53:23.640 --> 53:29.280
+ video on the economic machine, I forget what it's called, but it's a 30 minute video.
+
+53:29.280 --> 53:32.880
+ And I said it's the greatest video I've ever watched on YouTube.
+
+53:32.880 --> 53:38.560
+ It's like I watched the whole thing and my mind was blown as a very crisp, clean description
+
+53:38.560 --> 53:41.400
+ of how the, at least the American economic system works.
+
+53:41.400 --> 53:43.080
+ It's a beautiful video.
+
+53:43.080 --> 53:47.560
+ And I was just, I wanted to click on something to say this is the best thing.
+
+53:47.560 --> 53:48.720
+ This is the best thing ever.
+
+53:48.720 --> 53:51.040
+ Please let me, I can't believe I discovered it.
+
+53:51.040 --> 53:57.400
+ I mean, the views and the likes reflect its quality, but I was almost upset that I haven't
+
+53:57.400 --> 54:01.000
+ found it earlier and wanted to find other things like it.
+
+54:01.000 --> 54:05.000
+ I don't think I've ever felt that this is the best video I've ever watched.
+
+54:05.000 --> 54:06.180
+ That was that.
+
+54:06.180 --> 54:10.960
+ And to me, the ultimate utopia, the best experiences were every single video.
+
+54:10.960 --> 54:15.520
+ Where I don't see any of the videos I regret and every single video I watch is one that
+
+54:15.520 --> 54:25.080
+ actually helps me grow, helps me enjoy life, be happy and so on.
+
+54:25.080 --> 54:31.480
+ So that's a heck of a, that's one of the most beautiful and ambitious, I think, machine
+
+54:31.480 --> 54:32.840
+ learning tasks.
+
+54:32.840 --> 54:37.760
+ So when you look at a society as opposed to the individual user, do you think of how YouTube
+
+54:37.760 --> 54:44.200
+ is changing society when you have these millions of people watching videos, growing, learning,
+
+54:44.200 --> 54:45.840
+ changing, having debates?
+
+54:45.840 --> 54:51.520
+ Do you have a sense of, yeah, what the big impact on society is?
+
+54:51.520 --> 54:55.960
+ I think it's huge, but do you have a sense of what direction we're taking this world?
+
+54:55.960 --> 55:02.520
+ Well, I mean, I think openness has had an impact on society already.
+
+55:02.520 --> 55:03.520
+ There's a lot of...
+
+55:03.520 --> 55:05.680
+ What do you mean by openness?
+
+55:05.680 --> 55:14.160
+ Well, the fact that unlike other mediums, there's not someone sitting at YouTube who
+
+55:14.160 --> 55:20.080
+ decides before you can upload your video, whether it's worth having you upload it or
+
+55:20.080 --> 55:23.120
+ worth anybody seeing it really, right?
+
+55:23.120 --> 55:32.440
+ And so there are some creators who say, like, I wouldn't have this opportunity to reach
+
+55:32.440 --> 55:33.720
+ an audience.
+
+55:33.720 --> 55:39.440
+ Tyler Oakley often said that he wouldn't have had this opportunity to reach this audience
+
+55:39.440 --> 55:44.000
+ if it weren't for YouTube.
+
+55:44.000 --> 55:50.080
+ And so I think that's one way in which YouTube has changed society.
+
+55:50.080 --> 55:56.160
+ I know that there are people that I work with from outside the United States, especially
+
+55:56.160 --> 56:03.760
+ from places where literacy is low, and they think that YouTube can help in those places
+
+56:03.760 --> 56:09.060
+ because you don't need to be able to read and write in order to learn something important
+
+56:09.060 --> 56:15.200
+ for your life, maybe how to do some job or how to fix something.
+
+56:15.200 --> 56:21.520
+ And so that's another way in which I think YouTube is possibly changing society.
+
+56:21.520 --> 56:25.960
+ So I've worked at YouTube for eight, almost nine years now.
+
+56:25.960 --> 56:32.720
+ And it's fun because I meet people and you tell them where you work, you say you work
+
+56:32.720 --> 56:36.740
+ on YouTube and they immediately say, I love YouTube, right?
+
+56:36.740 --> 56:39.260
+ Which is great, makes me feel great.
+
+56:39.260 --> 56:43.680
+ But then of course, when I ask them, well, what is it that you love about YouTube?
+
+56:43.680 --> 56:50.080
+ Not one time ever has anybody said that the search works outstanding or that the recommendations
+
+56:50.080 --> 56:52.760
+ are great.
+
+56:52.760 --> 56:57.860
+ What they always say when I ask them, what do you love about YouTube is they immediately
+
+56:57.860 --> 57:03.600
+ start talking about some channel or some creator or some topic or some community that they
+
+57:03.600 --> 57:07.500
+ found on YouTube and that they just love.
+
+57:07.500 --> 57:16.640
+ And so that has made me realize that YouTube is really about the video and connecting the
+
+57:16.640 --> 57:19.200
+ people with the videos.
+
+57:19.200 --> 57:22.680
+ And then everything else kind of gets out of the way.
+
+57:22.680 --> 57:28.940
+ So beyond the video, it's an interesting, because you kind of mentioned creator.
+
+57:28.940 --> 57:35.240
+ What about the connection with just the individual creators as opposed to just individual video?
+
+57:35.240 --> 57:42.720
+ So like I gave the example of Ray Dalio video that the video itself is incredible, but there's
+
+57:42.720 --> 57:47.640
+ some people who are just creators that I love.
+
+57:47.640 --> 57:52.200
+ One of the cool things about people who call themselves YouTubers or whatever is they have
+
+57:52.200 --> 57:53.200
+ a journey.
+
+57:53.200 --> 57:57.820
+ They usually, almost all of them, they suck horribly in the beginning and then they kind
+
+57:57.820 --> 58:01.800
+ of grow and then there's that genuineness in their growth.
+
+58:01.800 --> 58:07.480
+ So YouTube clearly wants to help creators connect with their audience in this kind of
+
+58:07.480 --> 58:08.480
+ way.
+
+58:08.480 --> 58:12.060
+ So how do you think about that process of helping creators grow, helping them connect
+
+58:12.060 --> 58:17.440
+ with their audience, develop not just individual videos, but the entirety of a creator's life
+
+58:17.440 --> 58:18.440
+ on YouTube?
+
+58:18.440 --> 58:24.700
+ Well, I mean, we're trying to help creators find the biggest audience that they can find.
+
+58:24.700 --> 58:30.580
+ And the reason why that's, you brought up creator versus video, the reason why creator
+
+58:30.580 --> 58:41.120
+ channel is so important is because if we have a hope of people coming back to YouTube, well,
+
+58:41.120 --> 58:46.000
+ they have to have in their minds some sense of what they're going to find when they come
+
+58:46.000 --> 58:48.020
+ back to YouTube.
+
+58:48.020 --> 58:54.740
+ If YouTube were just the next viral video and I have no concept of what the next viral
+
+58:54.740 --> 59:00.000
+ video could be, one time it's a cat playing a piano and the next day it's some children
+
+59:00.000 --> 59:06.600
+ interrupting a reporter and the next day it's some other thing happening, then it's hard
+
+59:06.600 --> 59:14.760
+ for me to, when I'm not watching YouTube, say, gosh, I really would like to see something
+
+59:14.760 --> 59:17.980
+ from someone or about something, right?
+
+59:17.980 --> 59:24.280
+ And so that's why I think this connection between fans and creators is so important
+
+59:24.280 --> 59:31.700
+ for both, because it's a way of sort of fostering a relationship that can play out into the
+
+59:31.700 --> 59:32.700
+ future.
+
+59:32.700 --> 59:40.100
+ Let me talk about kind of a dark and interesting question in general, and again, a topic that
+
+59:40.100 --> 59:42.400
+ you or nobody has an answer to.
+
+59:42.400 --> 59:50.580
+ But social media has a sense of, it gives us highs and it gives us lows in the sense
+
+59:50.580 --> 59:58.180
+ that sort of creators often speak about having sort of burnout and having psychological ups
+
+59:58.180 --> 1:00:02.800
+ and downs and challenges mentally in terms of continuing the creation process.
+
+1:00:02.800 --> 1:00:08.960
+ There's a momentum, there's a huge excited audience that makes creators feel great.
+
+1:00:08.960 --> 1:00:11.740
+ And I think it's more than just financial.
+
+1:00:11.740 --> 1:00:16.220
+ I think it's literally just, they love that sense of community.
+
+1:00:16.220 --> 1:00:18.340
+ It's part of the reason I upload to YouTube.
+
+1:00:18.340 --> 1:00:20.580
+ I don't care about money, never will.
+
+1:00:20.580 --> 1:00:26.420
+ What I care about is the community, but some people feel like this momentum, and even when
+
+1:00:26.420 --> 1:00:31.260
+ there's times in their life when they don't feel, you know, for some reason don't feel
+
+1:00:31.260 --> 1:00:32.260
+ like creating.
+
+1:00:32.260 --> 1:00:38.220
+ So how do you think about burnout, this mental exhaustion that some YouTube creators go through?
+
+1:00:38.220 --> 1:00:40.500
+ Is that something we have an answer for?
+
+1:00:40.500 --> 1:00:42.740
+ Is that something, how do we even think about that?
+
+1:00:42.740 --> 1:00:47.700
+ Well, the first thing is we want to make sure that the YouTube systems are not contributing
+
+1:00:47.700 --> 1:00:49.180
+ to this sense, right?
+
+1:00:49.180 --> 1:00:56.780
+ And so we've done a fair amount of research to demonstrate that you can absolutely take
+
+1:00:56.780 --> 1:00:57.940
+ a break.
+
+1:00:57.940 --> 1:01:03.620
+ If you are a creator and you've been uploading a lot, we have just as many examples of people
+
+1:01:03.620 --> 1:01:08.780
+ who took a break and came back more popular than they were before as we have examples
+
+1:01:08.780 --> 1:01:09.780
+ of going the other way.
+
+1:01:09.780 --> 1:01:10.780
+ Yeah.
+
+1:01:10.780 --> 1:01:11.780
+ Can we pause on that for a second?
+
+1:01:11.780 --> 1:01:17.500
+ So the feeling that people have, I think, is if I take a break, everybody, the party
+
+1:01:17.500 --> 1:01:19.280
+ will leave, right?
+
+1:01:19.280 --> 1:01:21.780
+ So if you could just linger on that.
+
+1:01:21.780 --> 1:01:24.460
+ So in your sense that taking a break is okay.
+
+1:01:24.460 --> 1:01:27.780
+ Yes, taking a break is absolutely okay.
+
+1:01:27.780 --> 1:01:35.100
+ And the reason I say that is because we have, we can observe many examples of being, of
+
+1:01:35.100 --> 1:01:40.780
+ creators coming back very strong and even stronger after they have taken some sort of
+
+1:01:40.780 --> 1:01:41.780
+ break.
+
+1:01:41.780 --> 1:01:50.440
+ And so I just want to dispel the myth that this somehow necessarily means that your channel
+
+1:01:50.440 --> 1:01:53.420
+ is going to go down or lose views.
+
+1:01:53.420 --> 1:01:55.460
+ That is not the case.
+
+1:01:55.460 --> 1:01:59.780
+ We know for sure that this is not a necessary outcome.
+
+1:01:59.780 --> 1:02:04.020
+ And so we want to encourage people to make sure that they take care of themselves.
+
+1:02:04.020 --> 1:02:06.060
+ That is job one, right?
+
+1:02:06.060 --> 1:02:10.340
+ You have to look after yourself and your mental health.
+
+1:02:10.340 --> 1:02:19.140
+ And I think that it probably, in some of these cases, contributes to better videos once they
+
+1:02:19.140 --> 1:02:20.180
+ come back, right?
+
+1:02:20.180 --> 1:02:24.420
+ Because a lot of people, I mean, I know myself, if I burn out on something, then I'm probably
+
+1:02:24.420 --> 1:02:30.180
+ not doing my best work, even though I can keep working until I pass out.
+
+1:02:30.180 --> 1:02:38.020
+ And so I think that the taking a break may even improve the creative ideas that someone
+
+1:02:38.020 --> 1:02:39.020
+ has.
+
+1:02:39.020 --> 1:02:40.020
+ Okay.
+
+1:02:40.020 --> 1:02:42.820
+ I think that's a really important thing to sort of dispel.
+
+1:02:42.820 --> 1:02:47.460
+ I think that applies to all of social media, like literally I've taken a break for a day
+
+1:02:47.460 --> 1:02:49.460
+ every once in a while.
+
+1:02:49.460 --> 1:02:50.460
+ Sorry.
+
+1:02:50.460 --> 1:02:57.620
+ Sorry if that sounds like a short time, but even like, sorry, email, just taking a break
+
+1:02:57.620 --> 1:03:02.060
+ from email, or only checking email once a day, especially when you're going through
+
+1:03:02.060 --> 1:03:06.500
+ something psychologically in your personal life or so on, or really not sleeping much
+
+1:03:06.500 --> 1:03:10.940
+ because of work deadlines, it can refresh you in a way that's profound.
+
+1:03:10.940 --> 1:03:11.940
+ And so the same applies.
+
+1:03:11.940 --> 1:03:13.100
+ It was there when you came back, right?
+
+1:03:13.100 --> 1:03:14.100
+ It's there.
+
+1:03:14.100 --> 1:03:17.380
+ And it looks different, actually, when you come back.
+
+1:03:17.380 --> 1:03:22.340
+ You're sort of brighter eyed with some coffee, everything, the world looks better.
+
+1:03:22.340 --> 1:03:26.400
+ So it's important to take a break when you need it.
+
+1:03:26.400 --> 1:03:33.020
+ So you've mentioned kind of the YouTube algorithm that isn't E equals MC squared, it's not the
+
+1:03:33.020 --> 1:03:41.500
+ single equation, it's potentially sort of more than a million lines of code.
+
+1:03:41.500 --> 1:03:47.940
+ Is it more akin to what successful autonomous vehicles today are, which is they're just
+
+1:03:47.940 --> 1:03:55.540
+ basically patches on top of patches of heuristics and human experts really tuning the algorithm
+
+1:03:55.540 --> 1:03:58.540
+ and have some machine learning modules?
+
+1:03:58.540 --> 1:04:04.740
+ Or is it becoming more and more a giant machine learning system with humans just doing a little
+
+1:04:04.740 --> 1:04:06.300
+ bit of tweaking here and there?
+
+1:04:06.300 --> 1:04:07.300
+ What's your sense?
+
+1:04:07.300 --> 1:04:11.420
+ First of all, do you even have a sense of what is the YouTube algorithm at this point?
+
+1:04:11.420 --> 1:04:15.540
+ And however much you do have a sense, what does it look like?
+
+1:04:15.540 --> 1:04:21.500
+ Well, we don't usually think about it as the algorithm because it's a bunch of systems
+
+1:04:21.500 --> 1:04:24.300
+ that work on different services.
+
+1:04:24.300 --> 1:04:29.940
+ The other thing that I think people don't understand is that what you might refer to
+
+1:04:29.940 --> 1:04:37.820
+ as the YouTube algorithm from outside of YouTube is actually a bunch of code and machine learning
+
+1:04:37.820 --> 1:04:43.620
+ systems and heuristics, but that's married with the behavior of all the people who come
+
+1:04:43.620 --> 1:04:44.780
+ to YouTube every day.
+
+1:04:44.780 --> 1:04:46.780
+ So the people part of the code, essentially.
+
+1:04:46.780 --> 1:04:47.780
+ Exactly.
+
+1:04:47.780 --> 1:04:51.580
+ If there were no people who came to YouTube tomorrow, then the algorithm wouldn't work
+
+1:04:51.580 --> 1:04:52.580
+ anymore.
+
+1:04:52.580 --> 1:04:53.580
+ Right.
+
+1:04:53.580 --> 1:04:55.500
+ That's the whole part of the algorithm.
+
+1:04:55.500 --> 1:05:00.020
+ And so when people talk about, well, the algorithm does this, the algorithm does that, it's sometimes
+
+1:05:00.020 --> 1:05:04.700
+ hard to understand, well, it could be the viewers are doing that.
+
+1:05:04.700 --> 1:05:10.520
+ And the algorithm is mostly just keeping track of what the viewers do and then reacting to
+
+1:05:10.520 --> 1:05:16.220
+ those things in sort of more fine grain situations.
+
+1:05:16.220 --> 1:05:21.280
+ And I think that this is the way that the recommendation system and the search system
+
+1:05:21.280 --> 1:05:28.180
+ and probably many machine learning systems evolve is you start trying to solve a problem
+
+1:05:28.180 --> 1:05:34.380
+ and the first way to solve a problem is often with a simple heuristic.
+
+1:05:34.380 --> 1:05:36.820
+ And you want to say, what are the videos we're going to recommend?
+
+1:05:36.820 --> 1:05:39.540
+ Well, how about the most popular ones?
+
+1:05:39.540 --> 1:05:43.100
+ That's where you start.
+
+1:05:43.100 --> 1:05:48.900
+ And over time, you collect some data and you refine your situation so that you're making
+
+1:05:48.900 --> 1:05:54.620
+ less heuristics and you're building a system that can actually learn what to do in different
+
+1:05:54.620 --> 1:06:00.760
+ situations based on some observations of those situations in the past.
+
+1:06:00.760 --> 1:06:03.600
+ And you keep chipping away at these heuristics over time.
+
+1:06:03.600 --> 1:06:10.980
+ And so I think that just like with diversity, I think the first diversity measure we took
+
+1:06:10.980 --> 1:06:15.460
+ was, okay, not more than three videos in a row from the same channel.
+
+1:06:15.460 --> 1:06:20.700
+ It's a pretty simple heuristic to encourage diversity, but it worked, right?
+
+1:06:20.700 --> 1:06:25.300
+ Who needs to see four, five, six videos in a row from the same channel?
+
+1:06:25.300 --> 1:06:31.320
+ And over time, we try to chip away at that and make it more fine grain and basically
+
+1:06:31.320 --> 1:06:39.380
+ have it remove the heuristics in favor of something that can react to individuals and
+
+1:06:39.380 --> 1:06:41.340
+ individual situations.
+
+1:06:41.340 --> 1:06:46.660
+ So how do you, you mentioned, you know, we know that something worked.
+
+1:06:46.660 --> 1:06:51.860
+ How do you get a sense when decisions are kind of A, B testing that this idea was a
+
+1:06:51.860 --> 1:06:55.180
+ good one, this was not so good?
+
+1:06:55.180 --> 1:07:00.780
+ How do you measure that and across which time scale, across how many users, that kind of
+
+1:07:00.780 --> 1:07:01.780
+ thing?
+
+1:07:01.780 --> 1:07:04.540
+ Well, you mentioned the A, B experiments.
+
+1:07:04.540 --> 1:07:11.780
+ And so just about every single change we make to YouTube, we do it only after we've run
+
+1:07:11.780 --> 1:07:13.800
+ a A, B experiment.
+
+1:07:13.800 --> 1:07:24.280
+ And so in those experiments, which run from one week to months, we measure hundreds, literally
+
+1:07:24.280 --> 1:07:30.460
+ hundreds of different variables and measure changes with confidence intervals in all of
+
+1:07:30.460 --> 1:07:36.900
+ them, because we really are trying to get a sense for ultimately, does this improve
+
+1:07:36.900 --> 1:07:38.340
+ the experience for viewers?
+
+1:07:38.340 --> 1:07:40.540
+ That's the question we're trying to answer.
+
+1:07:40.540 --> 1:07:45.100
+ And an experiment is one way because we can see certain things go up and down.
+
+1:07:45.100 --> 1:07:52.700
+ So for instance, if we noticed in the experiment, people are dismissing videos less frequently,
+
+1:07:52.700 --> 1:07:58.700
+ or they're saying that they're more satisfied, they're giving more videos five stars after
+
+1:07:58.700 --> 1:08:04.540
+ they watch them, then those would be indications that the experiment is successful, that it's
+
+1:08:04.540 --> 1:08:08.180
+ improving the situation for viewers.
+
+1:08:08.180 --> 1:08:12.900
+ But we can also look at other things, like we might do user studies, where we invite
+
+1:08:12.900 --> 1:08:16.060
+ some people in and ask them, like, what do you think about this?
+
+1:08:16.060 --> 1:08:17.060
+ What do you think about that?
+
+1:08:17.060 --> 1:08:19.620
+ How do you feel about this?
+
+1:08:19.620 --> 1:08:22.000
+ And other various kinds of user research.
+
+1:08:22.000 --> 1:08:26.140
+ But ultimately, before we launch something, we're going to want to run an experiment.
+
+1:08:26.140 --> 1:08:31.260
+ So we get a sense for what the impact is going to be, not just to the viewers, but also to
+
+1:08:31.260 --> 1:08:36.640
+ the different channels and all of that.
+
+1:08:36.640 --> 1:08:38.180
+ An absurd question.
+
+1:08:38.180 --> 1:08:39.180
+ Nobody knows.
+
+1:08:39.180 --> 1:08:40.180
+ Well, actually, it's interesting.
+
+1:08:40.180 --> 1:08:41.180
+ Maybe there's an answer.
+
+1:08:41.180 --> 1:08:45.700
+ But if I want to make a viral video, how do I do it?
+
+1:08:45.700 --> 1:08:48.180
+ I don't know how you make a viral video.
+
+1:08:48.180 --> 1:08:55.820
+ I know that we have in the past tried to figure out if we could detect when a video was going
+
+1:08:55.820 --> 1:08:57.500
+ to go viral.
+
+1:08:57.500 --> 1:09:03.100
+ And those were, you take the first and second derivatives of the view count and maybe use
+
+1:09:03.100 --> 1:09:07.780
+ that to do some prediction.
+
+1:09:07.780 --> 1:09:10.860
+ But I can't say we ever got very good at that.
+
+1:09:10.860 --> 1:09:14.660
+ Oftentimes we look at where the traffic was coming from.
+
+1:09:14.660 --> 1:09:20.620
+ If a lot of the viewership is coming from something like Twitter, then maybe it has
+
+1:09:20.620 --> 1:09:26.940
+ a higher chance of becoming viral than if it were coming from search or something.
+
+1:09:26.940 --> 1:09:30.220
+ But that was just trying to detect a video that might be viral.
+
+1:09:30.220 --> 1:09:33.620
+ How to make one, I have no idea.
+
+1:09:33.620 --> 1:09:38.140
+ You get your kids to interrupt you while you're on the news or something.
+
+1:09:38.140 --> 1:09:39.140
+ Absolutely.
+
+1:09:39.140 --> 1:09:44.060
+ But after the fact, on one individual video, sort of ahead of time predicting is a really
+
+1:09:44.060 --> 1:09:45.060
+ hard task.
+
+1:09:45.060 --> 1:09:53.780
+ But after the video went viral, in analysis, can you sometimes understand why it went viral?
+
+1:09:53.780 --> 1:09:58.060
+ From the perspective of YouTube broadly, first of all, is it even interesting for YouTube
+
+1:09:58.060 --> 1:10:04.540
+ that a particular video is viral or does that not matter for the individual, for the experience
+
+1:10:04.540 --> 1:10:05.540
+ of people?
+
+1:10:05.540 --> 1:10:11.260
+ Well, I think people expect that if a video is going viral and it's something they would
+
+1:10:11.260 --> 1:10:16.460
+ be interested in, then I think they would expect YouTube to recommend it to them.
+
+1:10:16.460 --> 1:10:17.460
+ Right.
+
+1:10:17.460 --> 1:10:21.820
+ So if something's going viral, it's good to just let the wave, let people ride the wave
+
+1:10:21.820 --> 1:10:22.820
+ of its violence.
+
+1:10:22.820 --> 1:10:27.780
+ Well, I mean, we want to meet people's expectations in that way, of course.
+
+1:10:27.780 --> 1:10:34.180
+ So like I mentioned, I hung out with Derek Mueller a while ago, a couple of months back.
+
+1:10:34.180 --> 1:10:37.980
+ He's actually the person who suggested I talk to you on this podcast.
+
+1:10:37.980 --> 1:10:38.980
+ All right.
+
+1:10:38.980 --> 1:10:40.700
+ Well, thank you, Derek.
+
+1:10:40.700 --> 1:10:48.020
+ At that time, he just recently posted an awesome science video titled, why are 96 million black
+
+1:10:48.020 --> 1:10:50.500
+ balls on this reservoir?
+
+1:10:50.500 --> 1:10:55.500
+ And in a matter of, I don't know how long, but like a few days, he got 38 million views
+
+1:10:55.500 --> 1:10:57.960
+ and it's still growing.
+
+1:10:57.960 --> 1:11:03.980
+ Is this something you can analyze and understand why it happened, this video and you want a
+
+1:11:03.980 --> 1:11:06.140
+ particular video like it?
+
+1:11:06.140 --> 1:11:13.220
+ I mean, we can surely see where it was recommended, where it was found, who watched it and those
+
+1:11:13.220 --> 1:11:14.220
+ sorts of things.
+
+1:11:14.220 --> 1:11:20.300
+ So it's actually, sorry to interrupt, it is the video which helped me discover who Derek
+
+1:11:20.300 --> 1:11:21.300
+ is.
+
+1:11:21.300 --> 1:11:22.300
+ I didn't know who he is before.
+
+1:11:22.300 --> 1:11:28.060
+ So I remember, you know, usually I just have all of these technical, boring MIT Stanford
+
+1:11:28.060 --> 1:11:30.580
+ talks in my recommendation because that's how I watch.
+
+1:11:30.580 --> 1:11:35.860
+ And then all of a sudden there's this black balls and reservoir video with like an excited
+
+1:11:35.860 --> 1:11:40.940
+ nerd with like just, why is this being recommended to me?
+
+1:11:40.940 --> 1:11:44.060
+ So I clicked on it and watched the whole thing and it was awesome.
+
+1:11:44.060 --> 1:11:48.020
+ And then a lot of people had that experience, like why was I recommended this?
+
+1:11:48.020 --> 1:11:52.900
+ But they all of course watched it and enjoyed it, which is, what's your sense of this just
+
+1:11:52.900 --> 1:11:58.420
+ wave of recommendation that comes with this viral video that ultimately people get enjoy
+
+1:11:58.420 --> 1:11:59.860
+ after they click on it?
+
+1:11:59.860 --> 1:12:05.060
+ Well, I think it's the system, you know, basically doing what anybody who's recommending something
+
+1:12:05.060 --> 1:12:09.820
+ would do, which is you show it to some people and if they like it, you say, okay, well,
+
+1:12:09.820 --> 1:12:12.140
+ can I find some more people who are a little bit like them?
+
+1:12:12.140 --> 1:12:14.060
+ Okay, I'm going to try it with them.
+
+1:12:14.060 --> 1:12:15.180
+ Oh, they like it too.
+
+1:12:15.180 --> 1:12:17.500
+ Let me expand the circle some more, find some more people.
+
+1:12:17.500 --> 1:12:19.460
+ Oh, it turns out they like it too.
+
+1:12:19.460 --> 1:12:23.140
+ And you just keep going until you get some feedback that says that, no, now you've gone
+
+1:12:23.140 --> 1:12:24.140
+ too far.
+
+1:12:24.140 --> 1:12:25.940
+ These people don't like it anymore.
+
+1:12:25.940 --> 1:12:28.900
+ And so I think that's basically what happened.
+
+1:12:28.900 --> 1:12:35.300
+ And you asked me about how to make a video go viral or make a viral video.
+
+1:12:35.300 --> 1:12:41.380
+ I don't think that if you or I decided to make a video about 96 million balls that it
+
+1:12:41.380 --> 1:12:42.700
+ would also go viral.
+
+1:12:42.700 --> 1:12:51.100
+ It's possible that Derek made like the canonical video about those black balls in the lake.
+
+1:12:51.100 --> 1:12:52.100
+ He did actually.
+
+1:12:52.100 --> 1:12:53.100
+ Right.
+
+1:12:53.100 --> 1:12:59.100
+ And I don't know whether or not just following along is the secret.
+
+1:12:59.100 --> 1:13:00.100
+ Yeah.
+
+1:13:00.100 --> 1:13:01.100
+ But it's fascinating.
+
+1:13:01.100 --> 1:13:04.420
+ I mean, just like you said, the algorithm sort of expanding that circle and then figuring
+
+1:13:04.420 --> 1:13:09.880
+ out that more and more people did enjoy it and that sort of phase shift of just a huge
+
+1:13:09.880 --> 1:13:15.100
+ number of people enjoying it and the algorithm quickly, automatically, I assume, figuring
+
+1:13:15.100 --> 1:13:16.100
+ that out.
+
+1:13:16.100 --> 1:13:20.300
+ I don't know, the dynamics of psychology of that is a beautiful thing.
+
+1:13:20.300 --> 1:13:25.340
+ So what do you think about the idea of clipping?
+
+1:13:25.340 --> 1:13:29.780
+ Too many people annoyed me into doing it, which is they were requesting it.
+
+1:13:29.780 --> 1:13:36.580
+ They said it would be very beneficial to add clips in like the coolest points and actually
+
+1:13:36.580 --> 1:13:37.860
+ have explicit videos.
+
+1:13:37.860 --> 1:13:44.420
+ Like I'm re uploading a video, like a short clip, which is what the podcasts are doing.
+
+1:13:44.420 --> 1:13:49.180
+ Do you see as opposed to, like I also add timestamps for the topics, do you want the
+
+1:13:49.180 --> 1:13:50.180
+ clip?
+
+1:13:50.180 --> 1:13:54.820
+ Do you see YouTube somehow helping creators with that process or helping connect clips
+
+1:13:54.820 --> 1:14:00.420
+ to the original videos or is that just on a long list of amazing features to work towards?
+
+1:14:00.420 --> 1:14:01.420
+ Yeah.
+
+1:14:01.420 --> 1:14:08.300
+ I mean, it's not something that I think we've done yet, but I can tell you that I think
+
+1:14:08.300 --> 1:14:12.660
+ clipping is great and I think it's actually great for you as a creator.
+
+1:14:12.660 --> 1:14:15.100
+ And here's the reason.
+
+1:14:15.100 --> 1:14:23.020
+ If you think about, I mean, let's say the NBA is uploading videos of its games.
+
+1:14:23.020 --> 1:14:31.060
+ Well, people might search for warriors versus rockets or they might search for Steph Curry.
+
+1:14:31.060 --> 1:14:37.740
+ And so a highlight from the game in which Steph Curry makes an amazing shot is an opportunity
+
+1:14:37.740 --> 1:14:41.180
+ for someone to find a portion of that video.
+
+1:14:41.180 --> 1:14:48.100
+ And so I think that you never know how people are going to search for something that you've
+
+1:14:48.100 --> 1:14:49.100
+ created.
+
+1:14:49.100 --> 1:14:54.100
+ And so you want to, I would say you want to make clips and add titles and things like
+
+1:14:54.100 --> 1:14:58.340
+ that so that they can find it as easily as possible.
+
+1:14:58.340 --> 1:15:03.980
+ Do you have a dream of a future, perhaps a distant future when the YouTube algorithm
+
+1:15:03.980 --> 1:15:05.580
+ figures that out?
+
+1:15:05.580 --> 1:15:12.260
+ Sort of automatically detects the parts of the video that are really interesting, exciting,
+
+1:15:12.260 --> 1:15:17.420
+ potentially exciting for people and sort of clip them out in this incredibly rich space.
+
+1:15:17.420 --> 1:15:21.260
+ Cause if you talk about, if you talk, even just this conversation, we probably covered
+
+1:15:21.260 --> 1:15:29.620
+ 30, 40 little topics and there's a huge space of users that would find, you know, 30% of
+
+1:15:29.620 --> 1:15:30.620
+ those topics really interesting.
+
+1:15:30.620 --> 1:15:33.460
+ And that space is very different.
+
+1:15:33.460 --> 1:15:37.700
+ It's something that's beyond my ability to clip out, right?
+
+1:15:37.700 --> 1:15:43.580
+ But the algorithm might be able to figure all that out, sort of expand into clips.
+
+1:15:43.580 --> 1:15:46.140
+ Do you have a, do you think about this kind of thing?
+
+1:15:46.140 --> 1:15:49.580
+ Do you have a hope or dream that one day the algorithm will be able to do that kind of
+
+1:15:49.580 --> 1:15:50.820
+ deep content analysis?
+
+1:15:50.820 --> 1:15:57.620
+ Well, we've actually had projects that attempt to achieve this, but it really does depend
+
+1:15:57.620 --> 1:16:03.780
+ on understanding the video well and our understanding of the video right now is quite crude.
+
+1:16:03.780 --> 1:16:11.360
+ And so I think it would be especially hard to do it with a conversation like this.
+
+1:16:11.360 --> 1:16:18.020
+ One might be able to do it with, let's say a soccer match more easily, right?
+
+1:16:18.020 --> 1:16:20.620
+ You could probably find out where the goals were scored.
+
+1:16:20.620 --> 1:16:25.780
+ And then of course you, you need to figure out who it was that scored the goal and, and
+
+1:16:25.780 --> 1:16:28.300
+ that might require a human to do some annotation.
+
+1:16:28.300 --> 1:16:35.140
+ But I think that trying to identify coherent topics in a transcript, like, like the one
+
+1:16:35.140 --> 1:16:42.540
+ of our conversation is, is not something that we're going to be very good at right away.
+
+1:16:42.540 --> 1:16:46.820
+ And I was speaking more to the general problem actually of being able to do both a soccer
+
+1:16:46.820 --> 1:16:52.560
+ match and our conversation without explicit sort of almost my, my hope was that there
+
+1:16:52.560 --> 1:17:00.700
+ exists an algorithm that's able to find exciting things in video.
+
+1:17:00.700 --> 1:17:06.100
+ So Google now on Google search will help you find the segment of the video that you're
+
+1:17:06.100 --> 1:17:07.100
+ interested in.
+
+1:17:07.100 --> 1:17:13.940
+ So if you search for something like how to change the filter in my dishwasher, then if
+
+1:17:13.940 --> 1:17:17.620
+ there's a long video about your dishwasher and this is the part where the person shows
+
+1:17:17.620 --> 1:17:22.140
+ you how to change the filter, then, then it will highlight that area.
+
+1:17:22.140 --> 1:17:24.180
+ And provide a link directly to it.
+
+1:17:24.180 --> 1:17:29.500
+ And do you know if, from your recollection, do you know if the thumbnail reflects, like,
+
+1:17:29.500 --> 1:17:32.700
+ what's the difference between showing the full video and the shorter clip?
+
+1:17:32.700 --> 1:17:34.820
+ Do you know how it's presented in search results?
+
+1:17:34.820 --> 1:17:36.260
+ I don't remember how it's presented.
+
+1:17:36.260 --> 1:17:41.860
+ And the other thing I would say is that right now it's based on creator annotations.
+
+1:17:41.860 --> 1:17:43.100
+ Ah, got it.
+
+1:17:43.100 --> 1:17:45.940
+ So it's not the thing we're talking about.
+
+1:17:45.940 --> 1:17:50.020
+ But folks are working on the more automatic version.
+
+1:17:50.020 --> 1:17:56.740
+ It's interesting, people might not imagine this, but a lot of our systems start by using
+
+1:17:56.740 --> 1:18:00.720
+ almost entirely the audience behavior.
+
+1:18:00.720 --> 1:18:07.780
+ And then as they get better, the refinement comes from using the content.
+
+1:18:07.780 --> 1:18:15.660
+ And I wish, I know there's privacy concerns, but I wish YouTube explored the space, which
+
+1:18:15.660 --> 1:18:21.500
+ is sort of putting a camera on the users if they allowed it, right, to study their, like,
+
+1:18:21.500 --> 1:18:27.260
+ I did a lot of emotion recognition work and so on, to study actual sort of richer signal.
+
+1:18:27.260 --> 1:18:32.660
+ One of the cool things when you upload 360 like VR video to YouTube, and I've done this
+
+1:18:32.660 --> 1:18:37.500
+ a few times, so I've uploaded myself, it's a horrible idea.
+
+1:18:37.500 --> 1:18:39.540
+ Some people enjoyed it, but whatever.
+
+1:18:39.540 --> 1:18:44.220
+ The video of me giving a lecture in 360 with a 360 camera, and it's cool because YouTube
+
+1:18:44.220 --> 1:18:47.460
+ allows you to then watch where did people look at?
+
+1:18:47.460 --> 1:18:53.300
+ There's a heat map of where, you know, of where the center of the VR experience was.
+
+1:18:53.300 --> 1:18:57.340
+ And it's interesting because that reveals to you, like, what people looked at.
+
+1:18:57.340 --> 1:19:00.700
+ It's not always what you were expecting.
+
+1:19:00.700 --> 1:19:05.140
+ In the case of the lecture, it's pretty boring, it is what we were expecting, but we did a
+
+1:19:05.140 --> 1:19:09.500
+ few funny videos where there's a bunch of people doing things, and everybody tracks
+
+1:19:09.500 --> 1:19:10.500
+ those people.
+
+1:19:10.500 --> 1:19:13.540
+ You know, in the beginning, they all look at the main person and they start spreading
+
+1:19:13.540 --> 1:19:15.220
+ around and looking at the other people.
+
+1:19:15.220 --> 1:19:16.220
+ It's fascinating.
+
+1:19:16.220 --> 1:19:21.860
+ So that kind of, that's a really strong signal of what people found exciting in the video.
+
+1:19:21.860 --> 1:19:26.260
+ I don't know how you get that from people just watching, except they tuned out at this
+
+1:19:26.260 --> 1:19:27.260
+ point.
+
+1:19:27.260 --> 1:19:32.540
+ Like, it's hard to measure this moment was super exciting for people.
+
+1:19:32.540 --> 1:19:34.260
+ I don't know how you get that signal.
+
+1:19:34.260 --> 1:19:38.240
+ Maybe comment, is there a way to get that signal where this was like, this is when their
+
+1:19:38.240 --> 1:19:42.580
+ eyes opened up and they're like, like for me with the Ray Dalio video, right?
+
+1:19:42.580 --> 1:19:48.020
+ Like at first I was like, okay, this is another one of these like dumb it down for you videos.
+
+1:19:48.020 --> 1:19:52.660
+ And then you like start watching, it's like, okay, there's really crisp, clean, deep explanation
+
+1:19:52.660 --> 1:19:54.380
+ of how the economy works.
+
+1:19:54.380 --> 1:19:56.700
+ That's where I like set up and started watching, right?
+
+1:19:56.700 --> 1:19:59.800
+ That moment, is there a way to detect that moment?
+
+1:19:59.800 --> 1:20:05.180
+ The only way I can think of is by asking people to label it.
+
+1:20:05.180 --> 1:20:09.900
+ You mentioned that we're quite far away in terms of doing video analysis, deep video
+
+1:20:09.900 --> 1:20:11.820
+ analysis.
+
+1:20:11.820 --> 1:20:18.180
+ Of course, Google, YouTube, you know, we're quite far away from solving autonomous driving
+
+1:20:18.180 --> 1:20:19.180
+ problem too.
+
+1:20:19.180 --> 1:20:20.180
+ So it's a...
+
+1:20:20.180 --> 1:20:21.180
+ I don't know.
+
+1:20:21.180 --> 1:20:22.180
+ I think we're closer to that.
+
+1:20:22.180 --> 1:20:25.340
+ Well, the, you know, you never know.
+
+1:20:25.340 --> 1:20:29.260
+ And the Wright brothers thought they're never, they're not going to fly for 50 years, three
+
+1:20:29.260 --> 1:20:30.760
+ years before they flew.
+
+1:20:30.760 --> 1:20:34.960
+ So what are the biggest challenges would you say?
+
+1:20:34.960 --> 1:20:40.920
+ Is it the broad challenge of understanding video, understanding natural language, understanding
+
+1:20:40.920 --> 1:20:45.140
+ the challenge before the entire machine learning community or just being able to understand
+
+1:20:45.140 --> 1:20:46.140
+ data?
+
+1:20:46.140 --> 1:20:51.460
+ Is there something specific to video that's even more challenging than understanding natural
+
+1:20:51.460 --> 1:20:53.020
+ language understanding?
+
+1:20:53.020 --> 1:20:54.500
+ What's your sense of what the biggest challenge is?
+
+1:20:54.500 --> 1:20:56.960
+ Video is just so much information.
+
+1:20:56.960 --> 1:21:01.140
+ And so precision becomes a real problem.
+
+1:21:01.140 --> 1:21:08.660
+ It's like, you know, you're trying to classify something and you've got a million classes
+
+1:21:08.660 --> 1:21:17.820
+ and the distinctions among them, at least from a machine learning perspective are often
+
+1:21:17.820 --> 1:21:19.820
+ pretty small, right?
+
+1:21:19.820 --> 1:21:28.580
+ Like, you know, you need to see this person's number in order to know which player it is.
+
+1:21:28.580 --> 1:21:35.820
+ And there's a lot of players or you need to see, you know, the logo on their chest in
+
+1:21:35.820 --> 1:21:38.500
+ order to know like which team they play for.
+
+1:21:38.500 --> 1:21:41.900
+ And so, and that's just figuring out who's who, right?
+
+1:21:41.900 --> 1:21:45.620
+ And then you go further and saying, okay, well, you know, was that a goal?
+
+1:21:45.620 --> 1:21:46.620
+ Was it not a goal?
+
+1:21:46.620 --> 1:21:51.600
+ Like, is that an interesting moment as you said, or is that not an interesting moment?
+
+1:21:51.600 --> 1:21:53.080
+ These things can be pretty hard.
+
+1:21:53.080 --> 1:21:54.080
+ So okay.
+
+1:21:54.080 --> 1:21:59.800
+ So Yann LeCun, I'm not sure if you're familiar sort of with his current thinking and work.
+
+1:21:59.800 --> 1:22:05.340
+ So he believes that self, what he's referring to as self supervised learning will be the
+
+1:22:05.340 --> 1:22:09.740
+ solution sort of to achieving this kind of greater level of intelligence.
+
+1:22:09.740 --> 1:22:14.940
+ In fact, the thing he's focusing on is watching video and predicting the next frame.
+
+1:22:14.940 --> 1:22:18.220
+ So predicting the future of video, right?
+
+1:22:18.220 --> 1:22:24.340
+ So for now we're very far from that, but his thought is because it's unsupervised or as
+
+1:22:24.340 --> 1:22:29.540
+ he refers to as self supervised, you know, if you watch enough video, essentially if
+
+1:22:29.540 --> 1:22:34.780
+ you watch YouTube, you'll be able to learn about the nature of reality, the physics,
+
+1:22:34.780 --> 1:22:40.140
+ the common sense reasoning required by just teaching a system to predict the next frame.
+
+1:22:40.140 --> 1:22:42.660
+ So he's confident this is the way to go.
+
+1:22:42.660 --> 1:22:50.220
+ So for you, from the perspective of just working with this video, how do you think an algorithm
+
+1:22:50.220 --> 1:22:55.900
+ that just watches all of YouTube, stays up all day and night watching YouTube would be
+
+1:22:55.900 --> 1:23:02.180
+ able to understand enough of the physics of the world about the way this world works,
+
+1:23:02.180 --> 1:23:05.020
+ be able to do common sense reasoning and so on?
+
+1:23:05.020 --> 1:23:10.940
+ Well, I mean, we have systems that already watch all the videos on YouTube, right?
+
+1:23:10.940 --> 1:23:13.660
+ But they're just looking for very specific things, right?
+
+1:23:13.660 --> 1:23:22.140
+ They're supervised learning systems that are trying to identify something or classify something.
+
+1:23:22.140 --> 1:23:25.580
+ And I don't know if, I don't know if predicting the next frame is really going to get there
+
+1:23:25.580 --> 1:23:32.740
+ because I'm not an expert on compression algorithms, but I understand that that's kind of what
+
+1:23:32.740 --> 1:23:37.060
+ compression video compression algorithms do is they basically try to predict the next
+
+1:23:37.060 --> 1:23:41.920
+ frame and then fix up the places where they got it wrong.
+
+1:23:41.920 --> 1:23:46.180
+ And that leads to higher compression than if you actually put all the bits for the next
+
+1:23:46.180 --> 1:23:48.340
+ frame there.
+
+1:23:48.340 --> 1:23:53.220
+ So I don't know if I believe that just being able to predict the next frame is going to
+
+1:23:53.220 --> 1:24:00.020
+ be enough because there's so many frames and even a tiny bit of error on a per frame basis
+
+1:24:00.020 --> 1:24:02.740
+ can lead to wildly different videos.
+
+1:24:02.740 --> 1:24:08.860
+ So the thing is, the idea of compression is one way to do compression is to describe through
+
+1:24:08.860 --> 1:24:10.460
+ text what's contained in the video.
+
+1:24:10.460 --> 1:24:12.220
+ That's the ultimate high level of compression.
+
+1:24:12.220 --> 1:24:16.940
+ So the idea is traditionally when you think of video image compression, you're trying
+
+1:24:16.940 --> 1:24:22.520
+ to maintain the same visual quality while reducing the size.
+
+1:24:22.520 --> 1:24:27.420
+ But if you think of deep learning from a bigger perspective of what compression is, is you're
+
+1:24:27.420 --> 1:24:29.600
+ trying to summarize the video.
+
+1:24:29.600 --> 1:24:35.460
+ And the idea there is if you have a big enough neural network, just by watching the next,
+
+1:24:35.460 --> 1:24:40.720
+ trying to predict the next frame, you'll be able to form a compression of actually understanding
+
+1:24:40.720 --> 1:24:42.340
+ what's going on in the scene.
+
+1:24:42.340 --> 1:24:47.480
+ If there's two people talking, you can just reduce that entire video into the fact that
+
+1:24:47.480 --> 1:24:51.780
+ two people are talking and maybe the content of what they're saying and so on.
+
+1:24:51.780 --> 1:24:55.440
+ That's kind of the open ended dream.
+
+1:24:55.440 --> 1:25:01.220
+ So I just wanted to sort of express that because it's interesting, compelling notion, but it
+
+1:25:01.220 --> 1:25:07.460
+ is nevertheless true that video, our world is a lot more complicated than we get a credit
+
+1:25:07.460 --> 1:25:08.460
+ for.
+
+1:25:08.460 --> 1:25:12.720
+ I mean, in terms of search and discovery, we have been working on trying to summarize
+
+1:25:12.720 --> 1:25:20.520
+ videos in text or with some kind of labels for eight years at least.
+
+1:25:20.520 --> 1:25:25.180
+ And you know, and we're kind of so, so.
+
+1:25:25.180 --> 1:25:31.460
+ So if you were to say the problem is a hundred percent solved and eight years ago was zero
+
+1:25:31.460 --> 1:25:37.300
+ percent solved, where are we on that timeline would you say?
+
+1:25:37.300 --> 1:25:38.300
+ Yeah.
+
+1:25:38.300 --> 1:25:44.420
+ To summarize a video well, maybe less than a quarter of the way.
+
+1:25:44.420 --> 1:25:50.700
+ So on that topic, what does YouTube look like 10, 20, 30 years from now?
+
+1:25:50.700 --> 1:25:58.140
+ I mean, I think that YouTube is evolving to take the place of TV.
+
+1:25:58.140 --> 1:26:03.700
+ I grew up as a kid in the seventies and I watched a tremendous amount of television
+
+1:26:03.700 --> 1:26:09.580
+ and I feel sorry for my poor mom because people told her at the time that it was going to
+
+1:26:09.580 --> 1:26:14.380
+ rot my brain and that she should kill her television.
+
+1:26:14.380 --> 1:26:21.060
+ But anyway, I mean, I think that YouTube is at least for my family, a better version of
+
+1:26:21.060 --> 1:26:22.120
+ television, right?
+
+1:26:22.120 --> 1:26:24.560
+ It's one that is on demand.
+
+1:26:24.560 --> 1:26:28.740
+ It's more tailored to the things that my kids want to watch.
+
+1:26:28.740 --> 1:26:34.360
+ And also they can find things that they would never have found on television.
+
+1:26:34.360 --> 1:26:40.360
+ And so I think that at least from just observing my own family, that's where we're headed is
+
+1:26:40.360 --> 1:26:46.220
+ that people watch YouTube kind of in the same way that I watched television when I was younger.
+
+1:26:46.220 --> 1:26:51.820
+ So from a search and discovery perspective, what do you, what are you excited about in
+
+1:26:51.820 --> 1:26:54.060
+ the five, 10, 20, 30 years?
+
+1:26:54.060 --> 1:26:55.660
+ Like what kind of things?
+
+1:26:55.660 --> 1:26:56.660
+ It's already really good.
+
+1:26:56.660 --> 1:27:01.980
+ I think it's achieved a lot of, of course we don't know what's possible.
+
+1:27:01.980 --> 1:27:08.140
+ So it's the task of search of typing in the text or discovering new videos by the next
+
+1:27:08.140 --> 1:27:09.140
+ recommendation.
+
+1:27:09.140 --> 1:27:12.060
+ So I personally am really happy with the experience.
+
+1:27:12.060 --> 1:27:18.180
+ I continuously, I rarely watch a video that's not awesome from my own perspective, but what's,
+
+1:27:18.180 --> 1:27:19.940
+ what else is possible?
+
+1:27:19.940 --> 1:27:21.260
+ What are you excited about?
+
+1:27:21.260 --> 1:27:28.840
+ Well, I think introducing people to more of what's available on YouTube is not only very
+
+1:27:28.840 --> 1:27:34.380
+ important to YouTube and to creators, but I think it will help enrich people's lives
+
+1:27:34.380 --> 1:27:38.780
+ because there's a lot that I'm still finding out is available on YouTube that I didn't
+
+1:27:38.780 --> 1:27:39.780
+ even know.
+
+1:27:39.780 --> 1:27:46.220
+ I've been working YouTube eight years and it wasn't until last year that I learned that,
+
+1:27:46.220 --> 1:27:51.140
+ that I could watch USC football games from the 1970s.
+
+1:27:51.140 --> 1:27:55.060
+ Like I didn't even know that was possible until last year and I've been working here
+
+1:27:55.060 --> 1:27:56.060
+ quite some time.
+
+1:27:56.060 --> 1:27:58.980
+ So, you know, what was broken about, about that?
+
+1:27:58.980 --> 1:28:03.060
+ That it took me seven years to learn that this stuff was already on YouTube even when
+
+1:28:03.060 --> 1:28:04.580
+ I got here.
+
+1:28:04.580 --> 1:28:07.100
+ So I think there's a big opportunity there.
+
+1:28:07.100 --> 1:28:16.740
+ And then as I said before, you know, we want to make sure that YouTube finds a way to ensure
+
+1:28:16.740 --> 1:28:23.340
+ that it's acting responsibly with respect to society and enriching people's lives.
+
+1:28:23.340 --> 1:28:28.260
+ So we want to take all of the great things that it does and make sure that we are eliminating
+
+1:28:28.260 --> 1:28:31.820
+ the negative consequences that might happen.
+
+1:28:31.820 --> 1:28:37.300
+ And then lastly, if we could get to a point where all the videos people watch are the
+
+1:28:37.300 --> 1:28:40.940
+ best ones they've ever watched, that'd be outstanding too.
+
+1:28:40.940 --> 1:28:45.660
+ Do you see in many senses becoming a window into the world for people?
+
+1:28:45.660 --> 1:28:49.500
+ It's especially with live video, you get to watch events.
+
+1:28:49.500 --> 1:28:54.580
+ I mean, it's really, it's the way you experience a lot of the world that's out there is better
+
+1:28:54.580 --> 1:28:56.780
+ than TV in many, many ways.
+
+1:28:56.780 --> 1:29:00.900
+ So do you see becoming more than just video?
+
+1:29:00.900 --> 1:29:06.500
+ Do you see creators creating visual experiences and virtual worlds that if I'm, I'm talking
+
+1:29:06.500 --> 1:29:11.000
+ crazy now, but sort of virtual reality and entering that space, or is that at least for
+
+1:29:11.000 --> 1:29:14.020
+ now totally outside what YouTube is thinking about?
+
+1:29:14.020 --> 1:29:18.100
+ I mean, I think Google is thinking about virtual reality.
+
+1:29:18.100 --> 1:29:22.660
+ I don't think about virtual reality too much.
+
+1:29:22.660 --> 1:29:28.880
+ I know that we would want to make sure that YouTube is there when virtual reality becomes
+
+1:29:28.880 --> 1:29:34.620
+ something or if virtual reality becomes something that a lot of people are interested in.
+
+1:29:34.620 --> 1:29:38.220
+ But I haven't seen it really take off yet.
+
+1:29:38.220 --> 1:29:39.220
+ Take off.
+
+1:29:39.220 --> 1:29:41.260
+ Well, the future is wide open.
+
+1:29:41.260 --> 1:29:43.980
+ Christos, I've been really looking forward to this conversation.
+
+1:29:43.980 --> 1:29:45.220
+ It's been a huge honor.
+
+1:29:45.220 --> 1:29:48.580
+ Thank you for answering some of the more difficult questions I've asked.
+
+1:29:48.580 --> 1:29:52.220
+ I'm really excited about what YouTube has in store for us.
+
+1:29:52.220 --> 1:29:54.740
+ It's one of the greatest products I've ever used and continues.
+
+1:29:54.740 --> 1:29:56.500
+ So thank you so much for talking to me.
+
+1:29:56.500 --> 1:29:57.500
+ It's my pleasure.
+
+1:29:57.500 --> 1:29:58.500
+ Thanks for asking me.
+
+1:29:58.500 --> 1:30:01.500
+ Thanks for listening to this conversation.
+
+1:30:01.500 --> 1:30:04.740
+ And thank you to our presenting sponsor, Cash App.
+
+1:30:04.740 --> 1:30:05.740
+ Download it.
+
+1:30:05.740 --> 1:30:07.380
+ Use code LexPodcast.
+
+1:30:07.380 --> 1:30:12.700
+ You'll get $10 and $10 will go to FIRST, a STEM education nonprofit that inspires hundreds
+
+1:30:12.700 --> 1:30:17.460
+ of thousands of young minds to become future leaders and innovators.
+
+1:30:17.460 --> 1:30:22.500
+ If you enjoy this podcast, subscribe on YouTube, give it five stars on Apple Podcast, follow
+
+1:30:22.500 --> 1:30:27.220
+ on Spotify, support on Patreon, or simply connect with me on Twitter.
+
+1:30:27.220 --> 1:30:32.540
+ And now, let me leave you with some words of wisdom from Marcel Proust.
+
+1:30:32.540 --> 1:30:37.940
+ The real voyage of discovery consists not in seeking new landscapes, but in having new
+
+1:30:37.940 --> 1:30:40.140
+ eyes.
+
+1:30:40.140 --> 1:30:57.420
+ Thank you for listening and hope to see you next time.
+

@@ -1,0 +1,5156 @@
+WEBVTT
+
+00:00.000 --> 00:02.680
+ The following is a conversation with Chris Latner.
+
+00:02.680 --> 00:04.560
+ Currently, he's a senior director
+
+00:04.560 --> 00:08.400
+ at Google working on several projects, including CPU, GPU,
+
+00:08.400 --> 00:12.040
+ TPU accelerators for TensorFlow, Swift for TensorFlow,
+
+00:12.040 --> 00:14.400
+ and all kinds of machine learning compiler magic
+
+00:14.400 --> 00:16.360
+ going on behind the scenes.
+
+00:16.360 --> 00:18.440
+ He's one of the top experts in the world
+
+00:18.440 --> 00:21.160
+ on compiler technologies, which means he deeply
+
+00:21.160 --> 00:25.560
+ understands the intricacies of how hardware and software come
+
+00:25.560 --> 00:27.920
+ together to create efficient code.
+
+00:27.920 --> 00:31.400
+ He created the LLVM compiler infrastructure project
+
+00:31.400 --> 00:33.360
+ and the Clang compiler.
+
+00:33.360 --> 00:36.000
+ He led major engineering efforts at Apple,
+
+00:36.000 --> 00:39.000
+ including the creation of the Swift programming language.
+
+00:39.000 --> 00:41.720
+ He also briefly spent time at Tesla
+
+00:41.720 --> 00:44.280
+ as vice president of Autopilot software
+
+00:44.280 --> 00:46.760
+ during the transition from Autopilot hardware 1
+
+00:46.760 --> 00:49.600
+ to hardware 2, when Tesla essentially
+
+00:49.600 --> 00:52.640
+ started from scratch to build an in house software
+
+00:52.640 --> 00:54.800
+ infrastructure for Autopilot.
+
+00:54.800 --> 00:58.040
+ I could have easily talked to Chris for many more hours.
+
+00:58.040 --> 01:01.200
+ Compiling code down across the levels of abstraction
+
+01:01.200 --> 01:04.160
+ is one of the most fundamental and fascinating aspects
+
+01:04.160 --> 01:06.640
+ of what computers do, and he is one of the world
+
+01:06.640 --> 01:08.560
+ experts in this process.
+
+01:08.560 --> 01:12.880
+ It's rigorous science, and it's messy, beautiful art.
+
+01:12.880 --> 01:15.920
+ This conversation is part of the Artificial Intelligence
+
+01:15.920 --> 01:16.760
+ podcast.
+
+01:16.760 --> 01:19.440
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+01:19.440 --> 01:22.760
+ or simply connect with me on Twitter at Lex Friedman,
+
+01:22.760 --> 01:24.680
+ spelled F R I D.
+
+01:24.680 --> 01:29.360
+ And now, here's my conversation with Chris Ladner.
+
+01:29.360 --> 01:33.160
+ What was the first program you've ever written?
+
+01:33.160 --> 01:34.120
+ My first program.
+
+01:34.120 --> 01:35.360
+ Back, and when was it?
+
+01:35.360 --> 01:39.080
+ I think I started as a kid, and my parents
+
+01:39.080 --> 01:41.560
+ got a basic programming book.
+
+01:41.560 --> 01:44.200
+ And so when I started, it was typing out programs
+
+01:44.200 --> 01:46.880
+ from a book, and seeing how they worked,
+
+01:46.880 --> 01:49.680
+ and then typing them in wrong, and trying
+
+01:49.680 --> 01:51.680
+ to figure out why they were not working right,
+
+01:51.680 --> 01:52.960
+ that kind of stuff.
+
+01:52.960 --> 01:54.880
+ So BASIC, what was the first language
+
+01:54.880 --> 01:58.360
+ that you remember yourself maybe falling in love with,
+
+01:58.360 --> 01:59.720
+ like really connecting with?
+
+01:59.720 --> 02:00.400
+ I don't know.
+
+02:00.400 --> 02:02.680
+ I mean, I feel like I've learned a lot along the way,
+
+02:02.680 --> 02:05.800
+ and each of them have a different special thing
+
+02:05.800 --> 02:06.640
+ about them.
+
+02:06.640 --> 02:09.720
+ So I started in BASIC, and then went like GW BASIC,
+
+02:09.720 --> 02:11.440
+ which was the thing back in the DOS days,
+
+02:11.440 --> 02:15.280
+ and then upgraded to QBASIC, and eventually QuickBASIC,
+
+02:15.280 --> 02:18.200
+ which are all slightly more fancy versions of Microsoft
+
+02:18.200 --> 02:19.440
+ BASIC.
+
+02:19.440 --> 02:21.360
+ Made the jump to Pascal, and started
+
+02:21.360 --> 02:23.920
+ doing machine language programming and assembly
+
+02:23.920 --> 02:25.280
+ in Pascal, which was really cool.
+
+02:25.280 --> 02:28.080
+ Turbo Pascal was amazing for its day.
+
+02:28.080 --> 02:31.600
+ Eventually got into C, C++, and then kind of did
+
+02:31.600 --> 02:33.400
+ lots of other weird things.
+
+02:33.400 --> 02:37.080
+ I feel like you took the dark path, which is the,
+
+02:37.080 --> 02:39.480
+ you could have gone Lisp.
+
+02:39.480 --> 02:40.000
+ Yeah.
+
+02:40.000 --> 02:41.680
+ You could have gone higher level sort
+
+02:41.680 --> 02:44.600
+ of functional philosophical hippie route.
+
+02:44.600 --> 02:48.080
+ Instead, you went into like the dark arts of the C.
+
+02:48.080 --> 02:49.720
+ It was straight into the machine.
+
+02:49.720 --> 02:50.680
+ Straight to the machine.
+
+02:50.680 --> 02:53.880
+ So I started with BASIC, Pascal, and then Assembly,
+
+02:53.880 --> 02:55.320
+ and then wrote a lot of Assembly.
+
+02:55.320 --> 03:00.080
+ And I eventually did Smalltalk and other things like that.
+
+03:00.080 --> 03:01.880
+ But that was not the starting point.
+
+03:01.880 --> 03:05.080
+ But so what is this journey to C?
+
+03:05.080 --> 03:06.320
+ Is that in high school?
+
+03:06.320 --> 03:07.560
+ Is that in college?
+
+03:07.560 --> 03:09.320
+ That was in high school, yeah.
+
+03:09.320 --> 03:13.720
+ And then that was really about trying
+
+03:13.720 --> 03:16.240
+ to be able to do more powerful things than what Pascal could
+
+03:16.240 --> 03:18.960
+ do, and also to learn a different world.
+
+03:18.960 --> 03:20.760
+ So he was really confusing to me with pointers
+
+03:20.760 --> 03:23.000
+ and the syntax and everything, and it took a while.
+
+03:23.000 --> 03:28.800
+ But Pascal's much more principled in various ways.
+
+03:28.800 --> 03:33.400
+ C is more, I mean, it has its historical roots,
+
+03:33.400 --> 03:35.520
+ but it's not as easy to learn.
+
+03:35.520 --> 03:39.880
+ With pointers, there's this memory management thing
+
+03:39.880 --> 03:41.680
+ that you have to become conscious of.
+
+03:41.680 --> 03:43.880
+ Is that the first time you start to understand
+
+03:43.880 --> 03:46.520
+ that there's resources that you're supposed to manage?
+
+03:46.520 --> 03:48.480
+ Well, so you have that in Pascal as well.
+
+03:48.480 --> 03:51.440
+ But in Pascal, like the caret instead of the star,
+
+03:51.440 --> 03:53.160
+ there's some small differences like that.
+
+03:53.160 --> 03:55.680
+ But it's not about pointer arithmetic.
+
+03:55.680 --> 03:58.760
+ And in C, you end up thinking about how things get
+
+03:58.760 --> 04:00.840
+ laid out in memory a lot more.
+
+04:00.840 --> 04:04.160
+ And so in Pascal, you have allocating and deallocating
+
+04:04.160 --> 04:07.560
+ and owning the memory, but just the programs are simpler,
+
+04:07.560 --> 04:10.080
+ and you don't have to.
+
+04:10.080 --> 04:12.640
+ Well, for example, Pascal has a string type.
+
+04:12.640 --> 04:14.040
+ And so you can think about a string
+
+04:14.040 --> 04:15.880
+ instead of an array of characters
+
+04:15.880 --> 04:17.720
+ which are consecutive in memory.
+
+04:17.720 --> 04:20.400
+ So it's a little bit of a higher level abstraction.
+
+04:20.400 --> 04:22.800
+ So let's get into it.
+
+04:22.800 --> 04:25.560
+ Let's talk about LLVM, C lang, and compilers.
+
+04:25.560 --> 04:26.560
+ Sure.
+
+04:26.560 --> 04:32.160
+ So can you tell me first what LLVM and C lang are?
+
+04:32.160 --> 04:33.960
+ And how is it that you find yourself
+
+04:33.960 --> 04:35.720
+ the creator and lead developer, one
+
+04:35.720 --> 04:39.400
+ of the most powerful compiler optimization systems
+
+04:39.400 --> 04:40.080
+ in use today?
+
+04:40.080 --> 04:40.580
+ Sure.
+
+04:40.580 --> 04:43.320
+ So I guess they're different things.
+
+04:43.320 --> 04:47.080
+ So let's start with what is a compiler?
+
+04:47.080 --> 04:48.840
+ Is that a good place to start?
+
+04:48.840 --> 04:50.200
+ What are the phases of a compiler?
+
+04:50.200 --> 04:50.920
+ Where are the parts?
+
+04:50.920 --> 04:51.600
+ Yeah, what is it?
+
+04:51.600 --> 04:53.400
+ So what is even a compiler used for?
+
+04:53.400 --> 04:57.880
+ So the way I look at this is you have a two sided problem of you
+
+04:57.880 --> 05:00.120
+ have humans that need to write code.
+
+05:00.120 --> 05:01.880
+ And then you have machines that need to run
+
+05:01.880 --> 05:03.400
+ the program that the human wrote.
+
+05:03.400 --> 05:05.280
+ And for lots of reasons, the humans
+
+05:05.280 --> 05:07.040
+ don't want to be writing in binary
+
+05:07.040 --> 05:09.080
+ and want to think about every piece of hardware.
+
+05:09.080 --> 05:12.100
+ And so at the same time that you have lots of humans,
+
+05:12.100 --> 05:14.800
+ you also have lots of kinds of hardware.
+
+05:14.800 --> 05:17.400
+ And so compilers are the art of allowing
+
+05:17.400 --> 05:19.240
+ humans to think at a level of abstraction
+
+05:19.240 --> 05:20.920
+ that they want to think about.
+
+05:20.920 --> 05:23.600
+ And then get that program, get the thing that they wrote,
+
+05:23.600 --> 05:26.080
+ to run on a specific piece of hardware.
+
+05:26.080 --> 05:29.480
+ And the interesting and exciting part of all this
+
+05:29.480 --> 05:32.080
+ is that there's now lots of different kinds of hardware,
+
+05:32.080 --> 05:35.780
+ chips like x86 and PowerPC and ARM and things like that.
+
+05:35.780 --> 05:37.320
+ But also high performance accelerators
+
+05:37.320 --> 05:38.900
+ for machine learning and other things like that
+
+05:38.900 --> 05:41.520
+ are also just different kinds of hardware, GPUs.
+
+05:41.520 --> 05:42.940
+ These are new kinds of hardware.
+
+05:42.940 --> 05:45.640
+ And at the same time, on the programming side of it,
+
+05:45.640 --> 05:48.680
+ you have basic, you have C, you have JavaScript,
+
+05:48.680 --> 05:50.560
+ you have Python, you have Swift.
+
+05:50.560 --> 05:52.840
+ You have lots of other languages
+
+05:52.840 --> 05:55.200
+ that are all trying to talk to the human in a different way
+
+05:55.200 --> 05:58.320
+ to make them more expressive and capable and powerful.
+
+05:58.320 --> 06:01.500
+ And so compilers are the thing
+
+06:01.500 --> 06:03.460
+ that goes from one to the other.
+
+06:03.460 --> 06:05.200
+ End to end, from the very beginning to the very end.
+
+06:05.200 --> 06:06.040
+ End to end.
+
+06:06.040 --> 06:08.120
+ And so you go from what the human wrote
+
+06:08.120 --> 06:11.600
+ and programming languages end up being about
+
+06:11.600 --> 06:14.560
+ expressing intent, not just for the compiler
+
+06:14.560 --> 06:17.980
+ and the hardware, but the programming language's job
+
+06:17.980 --> 06:20.920
+ is really to capture an expression
+
+06:20.920 --> 06:22.680
+ of what the programmer wanted
+
+06:22.680 --> 06:25.120
+ that then can be maintained and adapted
+
+06:25.120 --> 06:27.120
+ and evolved by other humans,
+
+06:27.120 --> 06:29.720
+ as well as interpreted by the compiler.
+
+06:29.720 --> 06:31.560
+ So when you look at this problem,
+
+06:31.560 --> 06:34.200
+ you have, on the one hand, humans, which are complicated.
+
+06:34.200 --> 06:36.760
+ And you have hardware, which is complicated.
+
+06:36.760 --> 06:39.900
+ And so compilers typically work in multiple phases.
+
+06:39.900 --> 06:42.760
+ And so the software engineering challenge
+
+06:42.760 --> 06:45.000
+ that you have here is try to get maximum reuse
+
+06:45.000 --> 06:47.140
+ out of the amount of code that you write,
+
+06:47.140 --> 06:49.800
+ because these compilers are very complicated.
+
+06:49.800 --> 06:51.240
+ And so the way it typically works out
+
+06:51.240 --> 06:54.480
+ is that you have something called a front end or a parser
+
+06:54.480 --> 06:56.640
+ that is language specific.
+
+06:56.640 --> 06:59.500
+ And so you'll have a C parser, and that's what Clang is,
+
+07:00.400 --> 07:03.480
+ or C++ or JavaScript or Python or whatever.
+
+07:03.480 --> 07:05.000
+ That's the front end.
+
+07:05.000 --> 07:07.120
+ Then you'll have a middle part,
+
+07:07.120 --> 07:09.020
+ which is often the optimizer.
+
+07:09.020 --> 07:11.120
+ And then you'll have a late part,
+
+07:11.120 --> 07:13.320
+ which is hardware specific.
+
+07:13.320 --> 07:15.020
+ And so compilers end up,
+
+07:15.020 --> 07:16.680
+ there's many different layers often,
+
+07:16.680 --> 07:20.860
+ but these three big groups are very common in compilers.
+
+07:20.860 --> 07:22.200
+ And what LLVM is trying to do
+
+07:22.200 --> 07:25.360
+ is trying to standardize that middle and last part.
+
+07:25.360 --> 07:27.880
+ And so one of the cool things about LLVM
+
+07:27.880 --> 07:29.740
+ is that there are a lot of different languages
+
+07:29.740 --> 07:31.080
+ that compile through to it.
+
+07:31.080 --> 07:35.600
+ And so things like Swift, but also Julia, Rust,
+
+07:35.600 --> 07:39.140
+ Clang for C, C++, Subjective C,
+
+07:39.140 --> 07:40.940
+ like these are all very different languages
+
+07:40.940 --> 07:43.780
+ and they can all use the same optimization infrastructure,
+
+07:43.780 --> 07:45.340
+ which gets better performance,
+
+07:45.340 --> 07:47.240
+ and the same code generation infrastructure
+
+07:47.240 --> 07:48.780
+ for hardware support.
+
+07:48.780 --> 07:52.240
+ And so LLVM is really that layer that is common,
+
+07:52.240 --> 07:55.580
+ that all these different specific compilers can use.
+
+07:55.580 --> 07:59.300
+ And is it a standard, like a specification,
+
+07:59.300 --> 08:01.140
+ or is it literally an implementation?
+
+08:01.140 --> 08:02.140
+ It's an implementation.
+
+08:02.140 --> 08:05.900
+ And so I think there's a couple of different ways
+
+08:05.900 --> 08:06.740
+ of looking at it, right?
+
+08:06.740 --> 08:09.700
+ Because it depends on which angle you're looking at it from.
+
+08:09.700 --> 08:12.660
+ LLVM ends up being a bunch of code, okay?
+
+08:12.660 --> 08:14.460
+ So it's a bunch of code that people reuse
+
+08:14.460 --> 08:16.540
+ and they build compilers with.
+
+08:16.540 --> 08:18.060
+ We call it a compiler infrastructure
+
+08:18.060 --> 08:20.060
+ because it's kind of the underlying platform
+
+08:20.060 --> 08:22.580
+ that you build a concrete compiler on top of.
+
+08:22.580 --> 08:23.740
+ But it's also a community.
+
+08:23.740 --> 08:26.820
+ And the LLVM community is hundreds of people
+
+08:26.820 --> 08:27.980
+ that all collaborate.
+
+08:27.980 --> 08:30.620
+ And one of the most fascinating things about LLVM
+
+08:30.620 --> 08:34.260
+ over the course of time is that we've managed somehow
+
+08:34.260 --> 08:37.060
+ to successfully get harsh competitors
+
+08:37.060 --> 08:39.060
+ in the commercial space to collaborate
+
+08:39.060 --> 08:41.120
+ on shared infrastructure.
+
+08:41.120 --> 08:43.900
+ And so you have Google and Apple,
+
+08:43.900 --> 08:45.860
+ you have AMD and Intel,
+
+08:45.860 --> 08:48.860
+ you have Nvidia and AMD on the graphics side,
+
+08:48.860 --> 08:52.620
+ you have Cray and everybody else doing these things.
+
+08:52.620 --> 08:55.420
+ And all these companies are collaborating together
+
+08:55.420 --> 08:58.520
+ to make that shared infrastructure really, really great.
+
+08:58.520 --> 09:01.380
+ And they do this not out of the goodness of their heart,
+
+09:01.380 --> 09:03.420
+ but they do it because it's in their commercial interest
+
+09:03.420 --> 09:05.140
+ of having really great infrastructure
+
+09:05.140 --> 09:06.740
+ that they can build on top of
+
+09:06.740 --> 09:09.080
+ and facing the reality that it's so expensive
+
+09:09.080 --> 09:11.160
+ that no one company, even the big companies,
+
+09:11.160 --> 09:14.580
+ no one company really wants to implement it all themselves.
+
+09:14.580 --> 09:16.100
+ Expensive or difficult?
+
+09:16.100 --> 09:16.940
+ Both.
+
+09:16.940 --> 09:20.540
+ That's a great point because it's also about the skill sets.
+
+09:20.540 --> 09:25.540
+ And the skill sets are very hard to find.
+
+09:26.020 --> 09:27.980
+ How big is the LLVM?
+
+09:27.980 --> 09:30.780
+ It always seems like with open source projects,
+
+09:30.780 --> 09:33.500
+ the kind, an LLVM is open source?
+
+09:33.500 --> 09:34.420
+ Yes, it's open source.
+
+09:34.420 --> 09:38.660
+ It's about, it's 19 years old now, so it's fairly old.
+
+09:38.660 --> 09:40.940
+ It seems like the magic often happens
+
+09:40.940 --> 09:43.020
+ within a very small circle of people.
+
+09:43.020 --> 09:43.860
+ Yes.
+
+09:43.860 --> 09:46.060
+ At least their early birth and whatever.
+
+09:46.060 --> 09:49.660
+ Yes, so the LLVM came from a university project,
+
+09:49.660 --> 09:51.540
+ and so I was at the University of Illinois.
+
+09:51.540 --> 09:53.900
+ And there it was myself, my advisor,
+
+09:53.900 --> 09:57.500
+ and then a team of two or three research students
+
+09:57.500 --> 09:58.380
+ in the research group,
+
+09:58.380 --> 10:02.100
+ and we built many of the core pieces initially.
+
+10:02.100 --> 10:03.740
+ I then graduated and went to Apple,
+
+10:03.740 --> 10:06.480
+ and at Apple brought it to the products,
+
+10:06.480 --> 10:09.340
+ first in the OpenGL graphics stack,
+
+10:09.340 --> 10:11.580
+ but eventually to the C compiler realm,
+
+10:11.580 --> 10:12.780
+ and eventually built Clang,
+
+10:12.780 --> 10:14.640
+ and eventually built Swift and these things.
+
+10:14.640 --> 10:16.380
+ Along the way, building a team of people
+
+10:16.380 --> 10:18.620
+ that are really amazing compiler engineers
+
+10:18.620 --> 10:20.060
+ that helped build a lot of that.
+
+10:20.060 --> 10:21.860
+ And so as it was gaining momentum
+
+10:21.860 --> 10:24.780
+ and as Apple was using it, being open source and public
+
+10:24.780 --> 10:26.440
+ and encouraging contribution,
+
+10:26.440 --> 10:28.780
+ many others, for example, at Google,
+
+10:28.780 --> 10:30.220
+ came in and started contributing.
+
+10:30.220 --> 10:33.740
+ And in some cases, Google effectively owns Clang now
+
+10:33.740 --> 10:35.540
+ because it cares so much about C++
+
+10:35.540 --> 10:37.340
+ and the evolution of that ecosystem,
+
+10:37.340 --> 10:41.420
+ and so it's investing a lot in the C++ world
+
+10:41.420 --> 10:42.980
+ and the tooling and things like that.
+
+10:42.980 --> 10:47.860
+ And so likewise, NVIDIA cares a lot about CUDA.
+
+10:47.860 --> 10:50.780
+ And so CUDA uses Clang and uses LLVM
+
+10:50.780 --> 10:54.060
+ for graphics and GPGPU.
+
+10:54.060 --> 10:58.940
+ And so when you first started as a master's project,
+
+10:58.940 --> 11:02.980
+ I guess, did you think it was gonna go as far as it went?
+
+11:02.980 --> 11:06.340
+ Were you crazy ambitious about it?
+
+11:06.340 --> 11:07.180
+ No.
+
+11:07.180 --> 11:09.840
+ It seems like a really difficult undertaking, a brave one.
+
+11:09.840 --> 11:11.380
+ Yeah, no, no, no, it was nothing like that.
+
+11:11.380 --> 11:13.740
+ So my goal when I went to the University of Illinois
+
+11:13.740 --> 11:17.540
+ was to get in and out with a non thesis masters in a year
+
+11:17.540 --> 11:18.720
+ and get back to work.
+
+11:18.720 --> 11:22.200
+ So I was not planning to stay for five years
+
+11:22.200 --> 11:24.460
+ and build this massive infrastructure.
+
+11:24.460 --> 11:27.380
+ I got nerd sniped into staying.
+
+11:27.380 --> 11:29.580
+ And a lot of it was because LLVM was fun
+
+11:29.580 --> 11:30.900
+ and I was building cool stuff
+
+11:30.900 --> 11:33.420
+ and learning really interesting things
+
+11:33.420 --> 11:36.900
+ and facing both software engineering challenges,
+
+11:36.900 --> 11:38.540
+ but also learning how to work in a team
+
+11:38.540 --> 11:40.100
+ and things like that.
+
+11:40.100 --> 11:43.620
+ I had worked at many companies as interns before that,
+
+11:43.620 --> 11:45.860
+ but it was really a different thing
+
+11:45.860 --> 11:48.060
+ to have a team of people that are working together
+
+11:48.060 --> 11:50.460
+ and try and collaborate in version control.
+
+11:50.460 --> 11:52.420
+ And it was just a little bit different.
+
+11:52.420 --> 11:54.060
+ Like I said, I just talked to Don Knuth
+
+11:54.060 --> 11:56.860
+ and he believes that 2% of the world population
+
+11:56.860 --> 11:58.820
+ have something weird with their brain,
+
+11:58.820 --> 12:01.100
+ that they're geeks, they understand computers,
+
+12:01.100 --> 12:02.580
+ they're connected with computers.
+
+12:02.580 --> 12:04.380
+ He put it at exactly 2%.
+
+12:04.380 --> 12:05.540
+ Okay, so.
+
+12:05.540 --> 12:06.580
+ He's a specific guy.
+
+12:06.580 --> 12:08.780
+ It's very specific.
+
+12:08.780 --> 12:10.180
+ Well, he says, I can't prove it,
+
+12:10.180 --> 12:11.780
+ but it's very empirically there.
+
+12:13.180 --> 12:14.500
+ Is there something that attracts you
+
+12:14.500 --> 12:16.940
+ to the idea of optimizing code?
+
+12:16.940 --> 12:19.180
+ And he seems like that's one of the biggest,
+
+12:19.180 --> 12:20.900
+ coolest things about LLVM.
+
+12:20.900 --> 12:22.500
+ Yeah, that's one of the major things it does.
+
+12:22.500 --> 12:26.460
+ So I got into that because of a person, actually.
+
+12:26.460 --> 12:28.220
+ So when I was in my undergraduate,
+
+12:28.220 --> 12:32.060
+ I had an advisor, or a professor named Steve Vegdahl.
+
+12:32.060 --> 12:35.740
+ And he, I went to this little tiny private school.
+
+12:35.740 --> 12:38.300
+ There were like seven or nine people
+
+12:38.300 --> 12:40.340
+ in my computer science department,
+
+12:40.340 --> 12:43.100
+ students in my class.
+
+12:43.100 --> 12:47.460
+ So it was a very tiny, very small school.
+
+12:47.460 --> 12:49.940
+ It was kind of a wart on the side of the math department
+
+12:49.940 --> 12:51.260
+ kind of a thing at the time.
+
+12:51.260 --> 12:53.820
+ I think it's evolved a lot in the many years since then.
+
+12:53.820 --> 12:58.300
+ But Steve Vegdahl was a compiler guy.
+
+12:58.300 --> 12:59.580
+ And he was super passionate.
+
+12:59.580 --> 13:02.740
+ And his passion rubbed off on me.
+
+13:02.740 --> 13:04.460
+ And one of the things I like about compilers
+
+13:04.460 --> 13:09.100
+ is that they're large, complicated software pieces.
+
+13:09.100 --> 13:12.940
+ And so one of the culminating classes
+
+13:12.940 --> 13:14.540
+ that many computer science departments,
+
+13:14.540 --> 13:16.700
+ at least at the time, did was to say
+
+13:16.700 --> 13:18.380
+ that you would take algorithms and data structures
+
+13:18.380 --> 13:19.460
+ and all these core classes.
+
+13:19.460 --> 13:21.740
+ But then the compilers class was one of the last classes
+
+13:21.740 --> 13:24.380
+ you take because it pulls everything together.
+
+13:24.380 --> 13:26.980
+ And then you work on one piece of code
+
+13:26.980 --> 13:28.700
+ over the entire semester.
+
+13:28.700 --> 13:32.180
+ And so you keep building on your own work,
+
+13:32.180 --> 13:33.460
+ which is really interesting.
+
+13:33.460 --> 13:36.060
+ And it's also very challenging because in many classes,
+
+13:36.060 --> 13:38.380
+ if you don't get a project done, you just forget about it
+
+13:38.380 --> 13:41.300
+ and move on to the next one and get your B or whatever it is.
+
+13:41.300 --> 13:43.860
+ But here you have to live with the decisions you make
+
+13:43.860 --> 13:45.220
+ and continue to reinvest in it.
+
+13:45.220 --> 13:48.500
+ And I really like that.
+
+13:48.500 --> 13:50.700
+ And so I did an extra study project
+
+13:50.700 --> 13:52.420
+ with him the following semester.
+
+13:52.420 --> 13:53.940
+ And he was just really great.
+
+13:53.940 --> 13:56.860
+ And he was also a great mentor in a lot of ways.
+
+13:56.860 --> 13:59.500
+ And so from him and from his advice,
+
+13:59.500 --> 14:01.380
+ he encouraged me to go to graduate school.
+
+14:01.380 --> 14:03.420
+ I wasn't super excited about going to grad school.
+
+14:03.420 --> 14:05.540
+ I wanted the master's degree, but I
+
+14:05.540 --> 14:08.940
+ didn't want to be an academic.
+
+14:08.940 --> 14:11.100
+ But like I said, I kind of got tricked into saying
+
+14:11.100 --> 14:12.180
+ and was having a lot of fun.
+
+14:12.180 --> 14:14.540
+ And I definitely do not regret it.
+
+14:14.540 --> 14:17.940
+ What aspects of compilers were the things you connected with?
+
+14:17.940 --> 14:22.100
+ So LLVM, there's also the other part
+
+14:22.100 --> 14:24.940
+ that's really interesting if you're interested in languages
+
+14:24.940 --> 14:29.620
+ is parsing and just analyzing the language,
+
+14:29.620 --> 14:31.220
+ breaking it down, parsing, and so on.
+
+14:31.220 --> 14:32.580
+ Was that interesting to you, or were you
+
+14:32.580 --> 14:34.060
+ more interested in optimization?
+
+14:34.060 --> 14:37.420
+ For me, it was more so I'm not really a math person.
+
+14:37.420 --> 14:38.180
+ I could do math.
+
+14:38.180 --> 14:41.540
+ I understand some bits of it when I get into it.
+
+14:41.540 --> 14:43.940
+ But math is never the thing that attracted me.
+
+14:43.940 --> 14:46.100
+ And so a lot of the parser part of the compiler
+
+14:46.100 --> 14:47.820
+ has a lot of good formal theories
+
+14:47.820 --> 14:50.060
+ that Don, for example, knows quite well.
+
+14:50.060 --> 14:51.540
+ I'm still waiting for his book on that.
+
+14:54.740 --> 14:57.900
+ But I just like building a thing and seeing what it could do
+
+14:57.900 --> 15:00.740
+ and exploring and getting it to do more things
+
+15:00.740 --> 15:04.020
+ and then setting new goals and reaching for them.
+
+15:04.020 --> 15:09.580
+ And in the case of LLVM, when I started working on that,
+
+15:09.580 --> 15:13.420
+ my research advisor that I was working for was a compiler guy.
+
+15:13.420 --> 15:15.620
+ And so he and I specifically found each other
+
+15:15.620 --> 15:16.940
+ because we were both interested in compilers.
+
+15:16.940 --> 15:19.500
+ And so I started working with him and taking his class.
+
+15:19.500 --> 15:21.580
+ And a lot of LLVM initially was, it's
+
+15:21.580 --> 15:24.380
+ fun implementing all the standard algorithms and all
+
+15:24.380 --> 15:26.380
+ the things that people had been talking about
+
+15:26.380 --> 15:27.220
+ and were well known.
+
+15:27.220 --> 15:30.620
+ And they were in the curricula for advanced studies
+
+15:30.620 --> 15:31.340
+ and compilers.
+
+15:31.340 --> 15:34.580
+ And so just being able to build that was really fun.
+
+15:34.580 --> 15:37.660
+ And I was learning a lot by, instead of reading about it,
+
+15:37.660 --> 15:38.660
+ just building.
+
+15:38.660 --> 15:40.220
+ And so I enjoyed that.
+
+15:40.220 --> 15:42.820
+ So you said compilers are these complicated systems.
+
+15:42.820 --> 15:46.180
+ Can you even just with language try
+
+15:46.180 --> 15:52.220
+ to describe how you turn a C++ program into code?
+
+15:52.220 --> 15:53.460
+ Like, what are the hard parts?
+
+15:53.460 --> 15:54.620
+ Why is it so hard?
+
+15:54.620 --> 15:57.020
+ So I'll give you examples of the hard parts along the way.
+
+15:57.020 --> 16:01.060
+ So C++ is a very complicated programming language.
+
+16:01.060 --> 16:03.500
+ It's something like 1,400 pages in the spec.
+
+16:03.500 --> 16:06.060
+ So C++ by itself is crazy complicated.
+
+16:06.060 --> 16:07.140
+ Can we just pause?
+
+16:07.140 --> 16:09.140
+ What makes the language complicated in terms
+
+16:09.140 --> 16:12.340
+ of what's syntactically?
+
+16:12.340 --> 16:14.300
+ So it's what they call syntax.
+
+16:14.300 --> 16:16.700
+ So the actual how the characters are arranged, yes.
+
+16:16.700 --> 16:20.020
+ It's also semantics, how it behaves.
+
+16:20.020 --> 16:21.900
+ It's also, in the case of C++, there's
+
+16:21.900 --> 16:23.380
+ a huge amount of history.
+
+16:23.380 --> 16:26.700
+ C++ is built on top of C. You play that forward.
+
+16:26.700 --> 16:29.860
+ And then a bunch of suboptimal, in some cases, decisions
+
+16:29.860 --> 16:31.620
+ were made, and they compound.
+
+16:31.620 --> 16:33.380
+ And then more and more and more things
+
+16:33.380 --> 16:36.980
+ keep getting added to C++, and it will probably never stop.
+
+16:36.980 --> 16:38.540
+ But the language is very complicated
+
+16:38.540 --> 16:39.540
+ from that perspective.
+
+16:39.540 --> 16:41.200
+ And so the interactions between subsystems
+
+16:41.200 --> 16:42.420
+ is very complicated.
+
+16:42.420 --> 16:43.580
+ There's just a lot there.
+
+16:43.580 --> 16:45.660
+ And when you talk about the front end,
+
+16:45.660 --> 16:47.060
+ one of the major challenges, which
+
+16:47.060 --> 16:51.140
+ clang as a project, the C, C++ compiler that I built,
+
+16:51.140 --> 16:54.480
+ I and many people built, one of the challenges we took on
+
+16:54.480 --> 16:57.780
+ was we looked at GCC.
+
+16:57.780 --> 17:02.540
+ GCC, at the time, was a really good industry standardized
+
+17:02.540 --> 17:05.260
+ compiler that had really consolidated
+
+17:05.260 --> 17:08.340
+ a lot of the other compilers in the world and was a standard.
+
+17:08.340 --> 17:10.620
+ But it wasn't really great for research.
+
+17:10.620 --> 17:12.580
+ The design was very difficult to work with.
+
+17:12.580 --> 17:16.620
+ And it was full of global variables and other things
+
+17:16.620 --> 17:18.540
+ that made it very difficult to reuse in ways
+
+17:18.540 --> 17:20.420
+ that it wasn't originally designed for.
+
+17:20.420 --> 17:22.740
+ And so with clang, one of the things that we wanted to do
+
+17:22.740 --> 17:25.500
+ is push forward on better user interface,
+
+17:25.500 --> 17:28.060
+ so make error messages that are just better than GCC's.
+
+17:28.060 --> 17:29.580
+ And that's actually hard, because you
+
+17:29.580 --> 17:32.780
+ have to do a lot of bookkeeping in an efficient way
+
+17:32.780 --> 17:33.700
+ to be able to do that.
+
+17:33.700 --> 17:35.180
+ We want to make compile time better.
+
+17:35.180 --> 17:37.500
+ And so compile time is about making it efficient,
+
+17:37.500 --> 17:38.900
+ which is also really hard when you're keeping
+
+17:38.900 --> 17:40.540
+ track of extra information.
+
+17:40.540 --> 17:43.380
+ We wanted to make new tools available,
+
+17:43.380 --> 17:46.380
+ so refactoring tools and other analysis tools
+
+17:46.380 --> 17:50.540
+ that GCC never supported, also leveraging the extra information
+
+17:50.540 --> 17:54.060
+ we kept, but enabling those new classes of tools
+
+17:54.060 --> 17:55.940
+ that then get built into IDEs.
+
+17:55.940 --> 17:59.380
+ And so that's been one of the areas that clang has really
+
+17:59.380 --> 18:01.300
+ helped push the world forward in,
+
+18:01.300 --> 18:05.060
+ is in the tooling for C and C++ and things like that.
+
+18:05.060 --> 18:07.500
+ But C++ and the front end piece is complicated.
+
+18:07.500 --> 18:09.000
+ And you have to build syntax trees.
+
+18:09.000 --> 18:11.340
+ And you have to check every rule in the spec.
+
+18:11.340 --> 18:14.020
+ And you have to turn that back into an error message
+
+18:14.020 --> 18:16.020
+ to the human that the human can understand
+
+18:16.020 --> 18:17.820
+ when they do something wrong.
+
+18:17.820 --> 18:20.740
+ But then you start doing what's called lowering,
+
+18:20.740 --> 18:23.060
+ so going from C++ and the way that it represents
+
+18:23.060 --> 18:24.980
+ code down to the machine.
+
+18:24.980 --> 18:27.380
+ And when you do that, there's many different phases
+
+18:27.380 --> 18:29.660
+ you go through.
+
+18:29.660 --> 18:33.020
+ Often, there are, I think LLVM has something like 150
+
+18:33.020 --> 18:36.260
+ different what are called passes in the compiler
+
+18:36.260 --> 18:38.780
+ that the code passes through.
+
+18:38.780 --> 18:41.860
+ And these get organized in very complicated ways,
+
+18:41.860 --> 18:44.360
+ which affect the generated code and the performance
+
+18:44.360 --> 18:45.980
+ and compile time and many other things.
+
+18:45.980 --> 18:47.300
+ What are they passing through?
+
+18:47.300 --> 18:53.980
+ So after you do the clang parsing, what's the graph?
+
+18:53.980 --> 18:54.900
+ What does it look like?
+
+18:54.900 --> 18:56.100
+ What's the data structure here?
+
+18:56.100 --> 18:59.060
+ Yeah, so in the parser, it's usually a tree.
+
+18:59.060 --> 19:01.100
+ And it's called an abstract syntax tree.
+
+19:01.100 --> 19:04.580
+ And so the idea is you have a node for the plus
+
+19:04.580 --> 19:06.820
+ that the human wrote in their code.
+
+19:06.820 --> 19:09.020
+ Or the function call, you'll have a node for call
+
+19:09.020 --> 19:11.900
+ with the function that they call and the arguments they pass,
+
+19:11.900 --> 19:14.460
+ things like that.
+
+19:14.460 --> 19:16.620
+ This then gets lowered into what's
+
+19:16.620 --> 19:18.620
+ called an intermediate representation.
+
+19:18.620 --> 19:22.100
+ And intermediate representations are like LLVM has one.
+
+19:22.100 --> 19:26.940
+ And there, it's what's called a control flow graph.
+
+19:26.940 --> 19:31.220
+ And so you represent each operation in the program
+
+19:31.220 --> 19:34.480
+ as a very simple, like this is going to add two numbers.
+
+19:34.480 --> 19:35.980
+ This is going to multiply two things.
+
+19:35.980 --> 19:37.460
+ Maybe we'll do a call.
+
+19:37.460 --> 19:40.260
+ But then they get put in what are called blocks.
+
+19:40.260 --> 19:43.580
+ And so you get blocks of these straight line operations,
+
+19:43.580 --> 19:45.340
+ where instead of being nested like in a tree,
+
+19:45.340 --> 19:46.900
+ it's straight line operations.
+
+19:46.900 --> 19:49.780
+ And so there's a sequence and an ordering to these operations.
+
+19:49.780 --> 19:51.820
+ So within the block or outside the block?
+
+19:51.820 --> 19:52.980
+ That's within the block.
+
+19:52.980 --> 19:54.980
+ And so it's a straight line sequence of operations
+
+19:54.980 --> 19:55.740
+ within the block.
+
+19:55.740 --> 19:58.980
+ And then you have branches, like conditional branches,
+
+19:58.980 --> 20:00.140
+ between blocks.
+
+20:00.140 --> 20:04.860
+ And so when you write a loop, for example, in a syntax tree,
+
+20:04.860 --> 20:08.060
+ you would have a for node, like for a for statement
+
+20:08.060 --> 20:10.540
+ in a C like language, you'd have a for node.
+
+20:10.540 --> 20:12.200
+ And you have a pointer to the expression
+
+20:12.200 --> 20:14.080
+ for the initializer, a pointer to the expression
+
+20:14.080 --> 20:16.040
+ for the increment, a pointer to the expression
+
+20:16.040 --> 20:18.900
+ for the comparison, a pointer to the body.
+
+20:18.900 --> 20:21.060
+ And these are all nested underneath it.
+
+20:21.060 --> 20:22.900
+ In a control flow graph, you get a block
+
+20:22.900 --> 20:26.820
+ for the code that runs before the loop, so the initializer
+
+20:26.820 --> 20:27.620
+ code.
+
+20:27.620 --> 20:30.340
+ And you have a block for the body of the loop.
+
+20:30.340 --> 20:33.780
+ And so the body of the loop code goes in there,
+
+20:33.780 --> 20:35.660
+ but also the increment and other things like that.
+
+20:35.660 --> 20:37.860
+ And then you have a branch that goes back to the top
+
+20:37.860 --> 20:39.900
+ and a comparison and a branch that goes out.
+
+20:39.900 --> 20:43.820
+ And so it's more of an assembly level kind of representation.
+
+20:43.820 --> 20:46.060
+ But the nice thing about this level of representation
+
+20:46.060 --> 20:48.700
+ is it's much more language independent.
+
+20:48.700 --> 20:51.900
+ And so there's lots of different kinds of languages
+
+20:51.900 --> 20:54.540
+ with different kinds of, you know,
+
+20:54.540 --> 20:56.840
+ JavaScript has a lot of different ideas of what
+
+20:56.840 --> 20:58.180
+ is false, for example.
+
+20:58.180 --> 21:00.780
+ And all that can stay in the front end.
+
+21:00.780 --> 21:04.220
+ But then that middle part can be shared across all those.
+
+21:04.220 --> 21:07.540
+ How close is that intermediate representation
+
+21:07.540 --> 21:10.620
+ to neural networks, for example?
+
+21:10.620 --> 21:13.540
+ Are they, because everything you describe
+
+21:13.540 --> 21:16.100
+ is a kind of echoes of a neural network graph.
+
+21:16.100 --> 21:18.940
+ Are they neighbors or what?
+
+21:18.940 --> 21:20.980
+ They're quite different in details,
+
+21:20.980 --> 21:22.520
+ but they're very similar in idea.
+
+21:22.520 --> 21:24.320
+ So one of the things that neural networks do
+
+21:24.320 --> 21:26.900
+ is they learn representations for data
+
+21:26.900 --> 21:29.140
+ at different levels of abstraction.
+
+21:29.140 --> 21:33.940
+ And then they transform those through layers, right?
+
+21:33.940 --> 21:35.660
+ So the compiler does very similar things.
+
+21:35.660 --> 21:37.320
+ But one of the things the compiler does
+
+21:37.320 --> 21:40.660
+ is it has relatively few different representations.
+
+21:40.660 --> 21:43.100
+ Where a neural network often, as you get deeper, for example,
+
+21:43.100 --> 21:44.820
+ you get many different representations
+
+21:44.820 --> 21:47.380
+ in each layer or set of ops.
+
+21:47.380 --> 21:50.260
+ It's transforming between these different representations.
+
+21:50.260 --> 21:53.100
+ In a compiler, often you get one representation
+
+21:53.100 --> 21:55.240
+ and they do many transformations to it.
+
+21:55.240 --> 21:59.540
+ And these transformations are often applied iteratively.
+
+21:59.540 --> 22:02.940
+ And for programmers, there's familiar types of things.
+
+22:02.940 --> 22:06.180
+ For example, trying to find expressions inside of a loop
+
+22:06.180 --> 22:08.540
+ and pulling them out of a loop so they execute for times.
+
+22:08.540 --> 22:10.740
+ Or find redundant computation.
+
+22:10.740 --> 22:15.380
+ Or find constant folding or other simplifications,
+
+22:15.380 --> 22:19.060
+ turning two times x into x shift left by one.
+
+22:19.060 --> 22:21.980
+ And things like this are all the examples
+
+22:21.980 --> 22:23.340
+ of the things that happen.
+
+22:23.340 --> 22:26.180
+ But compilers end up getting a lot of theorem proving
+
+22:26.180 --> 22:27.760
+ and other kinds of algorithms that
+
+22:27.760 --> 22:30.100
+ try to find higher level properties of the program that
+
+22:30.100 --> 22:32.280
+ then can be used by the optimizer.
+
+22:32.280 --> 22:32.780
+ Cool.
+
+22:32.780 --> 22:38.140
+ So what's the biggest bang for the buck with optimization?
+
+22:38.140 --> 22:38.640
+ Today?
+
+22:38.640 --> 22:39.140
+ Yeah.
+
+22:39.140 --> 22:40.900
+ Well, no, not even today.
+
+22:40.900 --> 22:42.900
+ At the very beginning, the 80s, I don't know.
+
+22:42.900 --> 22:44.300
+ Yeah, so for the 80s, a lot of it
+
+22:44.300 --> 22:46.420
+ was things like register allocation.
+
+22:46.420 --> 22:50.460
+ So the idea of in a modern microprocessor,
+
+22:50.460 --> 22:51.880
+ what you'll end up having is you'll
+
+22:51.880 --> 22:54.340
+ end up having memory, which is relatively slow.
+
+22:54.340 --> 22:57.060
+ And then you have registers that are relatively fast.
+
+22:57.060 --> 23:00.340
+ But registers, you don't have very many of them.
+
+23:00.340 --> 23:02.600
+ And so when you're writing a bunch of code,
+
+23:02.600 --> 23:04.180
+ you're just saying, compute this,
+
+23:04.180 --> 23:05.940
+ put in a temporary variable, compute this, compute this,
+
+23:05.940 --> 23:07.780
+ compute this, put in a temporary variable.
+
+23:07.780 --> 23:08.220
+ I have a loop.
+
+23:08.220 --> 23:09.780
+ I have some other stuff going on.
+
+23:09.780 --> 23:11.660
+ Well, now you're running on an x86,
+
+23:11.660 --> 23:13.900
+ like a desktop PC or something.
+
+23:13.900 --> 23:16.860
+ Well, it only has, in some cases, some modes,
+
+23:16.860 --> 23:18.700
+ eight registers.
+
+23:18.700 --> 23:21.620
+ And so now the compiler has to choose what values get
+
+23:21.620 --> 23:24.820
+ put in what registers at what points in the program.
+
+23:24.820 --> 23:26.580
+ And this is actually a really big deal.
+
+23:26.580 --> 23:29.500
+ So if you think about, you have a loop, an inner loop
+
+23:29.500 --> 23:31.620
+ that executes millions of times maybe.
+
+23:31.620 --> 23:33.620
+ If you're doing loads and stores inside that loop,
+
+23:33.620 --> 23:35.040
+ then it's going to be really slow.
+
+23:35.040 --> 23:37.740
+ But if you can somehow fit all the values inside that loop
+
+23:37.740 --> 23:40.180
+ in registers, now it's really fast.
+
+23:40.180 --> 23:43.020
+ And so getting that right requires a lot of work,
+
+23:43.020 --> 23:44.940
+ because there's many different ways to do that.
+
+23:44.940 --> 23:46.980
+ And often what the compiler ends up doing
+
+23:46.980 --> 23:48.840
+ is it ends up thinking about things
+
+23:48.840 --> 23:52.020
+ in a different representation than what the human wrote.
+
+23:52.020 --> 23:53.340
+ You wrote into x.
+
+23:53.340 --> 23:56.820
+ Well, the compiler thinks about that as four different values,
+
+23:56.820 --> 23:59.280
+ each which have different lifetimes across the function
+
+23:59.280 --> 24:00.420
+ that it's in.
+
+24:00.420 --> 24:03.180
+ And each of those could be put in a register or memory
+
+24:03.180 --> 24:06.140
+ or different memory or maybe in some parts of the code
+
+24:06.140 --> 24:08.360
+ recomputed instead of stored and reloaded.
+
+24:08.360 --> 24:10.700
+ And there are many of these different kinds of techniques
+
+24:10.700 --> 24:11.460
+ that can be used.
+
+24:11.460 --> 24:15.780
+ So it's adding almost like a time dimension to it's
+
+24:15.780 --> 24:18.300
+ trying to optimize across time.
+
+24:18.300 --> 24:20.340
+ So it's considering when you're programming,
+
+24:20.340 --> 24:21.860
+ you're not thinking in that way.
+
+24:21.860 --> 24:23.220
+ Yeah, absolutely.
+
+24:23.220 --> 24:27.100
+ And so the RISC era made things.
+
+24:27.100 --> 24:32.020
+ So RISC chips, R I S C. The RISC chips,
+
+24:32.020 --> 24:33.740
+ as opposed to CISC chips.
+
+24:33.740 --> 24:36.700
+ The RISC chips made things more complicated for the compiler,
+
+24:36.700 --> 24:40.660
+ because what they ended up doing is ending up
+
+24:40.660 --> 24:42.500
+ adding pipelines to the processor, where
+
+24:42.500 --> 24:45.020
+ the processor can do more than one thing at a time.
+
+24:45.020 --> 24:47.740
+ But this means that the order of operations matters a lot.
+
+24:47.740 --> 24:50.260
+ So one of the classical compiler techniques that you use
+
+24:50.260 --> 24:51.940
+ is called scheduling.
+
+24:51.940 --> 24:54.220
+ And so moving the instructions around
+
+24:54.220 --> 24:57.740
+ so that the processor can keep its pipelines full instead
+
+24:57.740 --> 24:59.220
+ of stalling and getting blocked.
+
+24:59.220 --> 25:01.180
+ And so there's a lot of things like that that
+
+25:01.180 --> 25:03.620
+ are kind of bread and butter compiler techniques
+
+25:03.620 --> 25:06.220
+ that have been studied a lot over the course of decades now.
+
+25:06.220 --> 25:08.540
+ But the engineering side of making them real
+
+25:08.540 --> 25:10.580
+ is also still quite hard.
+
+25:10.580 --> 25:12.460
+ And you talk about machine learning.
+
+25:12.460 --> 25:14.420
+ This is a huge opportunity for machine learning,
+
+25:14.420 --> 25:17.620
+ because many of these algorithms are full of these
+
+25:17.620 --> 25:19.300
+ hokey, hand rolled heuristics, which
+
+25:19.300 --> 25:21.820
+ work well on specific benchmarks that don't generalize,
+
+25:21.820 --> 25:23.940
+ and full of magic numbers.
+
+25:23.940 --> 25:26.620
+ And I hear there's some techniques that
+
+25:26.620 --> 25:28.060
+ are good at handling that.
+
+25:28.060 --> 25:32.220
+ So what would be the, if you were to apply machine learning
+
+25:32.220 --> 25:34.740
+ to this, what's the thing you're trying to optimize?
+
+25:34.740 --> 25:39.100
+ Is it ultimately the running time?
+
+25:39.100 --> 25:41.180
+ You can pick your metric, and there's running time,
+
+25:41.180 --> 25:43.900
+ there's memory use, there's lots of different things
+
+25:43.900 --> 25:44.940
+ that you can optimize for.
+
+25:44.940 --> 25:47.220
+ Code size is another one that some people care about
+
+25:47.220 --> 25:48.860
+ in the embedded space.
+
+25:48.860 --> 25:51.700
+ Is this like the thinking into the future,
+
+25:51.700 --> 25:54.500
+ or has somebody actually been crazy enough
+
+25:54.500 --> 25:58.060
+ to try to have machine learning based parameter
+
+25:58.060 --> 26:01.060
+ tuning for the optimization of compilers?
+
+26:01.060 --> 26:04.860
+ So this is something that is, I would say, research right now.
+
+26:04.860 --> 26:06.820
+ There are a lot of research systems
+
+26:06.820 --> 26:09.100
+ that have been applying search in various forms.
+
+26:09.100 --> 26:11.460
+ And using reinforcement learning is one form,
+
+26:11.460 --> 26:14.460
+ but also brute force search has been tried for quite a while.
+
+26:14.460 --> 26:18.180
+ And usually, these are in small problem spaces.
+
+26:18.180 --> 26:21.900
+ So find the optimal way to code generate a matrix
+
+26:21.900 --> 26:24.460
+ multiply for a GPU, something like that,
+
+26:24.460 --> 26:28.580
+ where you say, there, there's a lot of design space of,
+
+26:28.580 --> 26:29.900
+ do you unroll loops a lot?
+
+26:29.900 --> 26:32.660
+ Do you execute multiple things in parallel?
+
+26:32.660 --> 26:35.340
+ And there's many different confounding factors here
+
+26:35.340 --> 26:38.100
+ because graphics cards have different numbers of threads
+
+26:38.100 --> 26:41.020
+ and registers and execution ports and memory bandwidth
+
+26:41.020 --> 26:42.740
+ and many different constraints that interact
+
+26:42.740 --> 26:44.460
+ in nonlinear ways.
+
+26:44.460 --> 26:46.500
+ And so search is very powerful for that.
+
+26:46.500 --> 26:49.820
+ And it gets used in certain ways,
+
+26:49.820 --> 26:51.220
+ but it's not very structured.
+
+26:51.220 --> 26:52.620
+ This is something that we need,
+
+26:52.620 --> 26:54.500
+ we as an industry need to fix.
+
+26:54.500 --> 26:59.220
+ So you said 80s, but like, so have there been like big jumps
+
+26:59.220 --> 27:01.260
+ in improvement and optimization?
+
+27:01.260 --> 27:02.340
+ Yeah.
+
+27:02.340 --> 27:05.300
+ Yeah, since then, what's the coolest thing?
+
+27:05.300 --> 27:07.100
+ It's largely been driven by hardware.
+
+27:07.100 --> 27:09.860
+ So, well, it's hardware and software.
+
+27:09.860 --> 27:13.700
+ So in the mid nineties, Java totally changed the world,
+
+27:13.700 --> 27:14.540
+ right?
+
+27:14.540 --> 27:17.540
+ And I'm still amazed by how much change was introduced
+
+27:17.540 --> 27:19.340
+ by the way or in a good way.
+
+27:19.340 --> 27:22.420
+ So like reflecting back, Java introduced things like,
+
+27:22.420 --> 27:25.860
+ all at once introduced things like JIT compilation.
+
+27:25.860 --> 27:27.780
+ None of these were novel, but it pulled it together
+
+27:27.780 --> 27:30.580
+ and made it mainstream and made people invest in it.
+
+27:30.580 --> 27:33.620
+ JIT compilation, garbage collection, portable code,
+
+27:33.620 --> 27:36.620
+ safe code, like memory safe code,
+
+27:36.620 --> 27:41.380
+ like a very dynamic dispatch execution model.
+
+27:41.380 --> 27:42.620
+ Like many of these things,
+
+27:42.620 --> 27:44.060
+ which had been done in research systems
+
+27:44.060 --> 27:46.900
+ and had been done in small ways in various places,
+
+27:46.900 --> 27:47.980
+ really came to the forefront,
+
+27:47.980 --> 27:49.740
+ really changed how things worked
+
+27:49.740 --> 27:51.980
+ and therefore changed the way people thought
+
+27:51.980 --> 27:53.060
+ about the problem.
+
+27:53.060 --> 27:56.300
+ JavaScript was another major world change
+
+27:56.300 --> 27:57.740
+ based on the way it works.
+
+27:59.300 --> 28:01.300
+ But also on the hardware side of things,
+
+28:01.300 --> 28:06.300
+ multi core and vector instructions really change
+
+28:06.660 --> 28:08.380
+ the problem space and are very,
+
+28:09.460 --> 28:10.820
+ they don't remove any of the problems
+
+28:10.820 --> 28:12.380
+ that compilers faced in the past,
+
+28:12.380 --> 28:14.540
+ but they add new kinds of problems
+
+28:14.540 --> 28:16.380
+ of how do you find enough work
+
+28:16.380 --> 28:20.020
+ to keep a four wide vector busy, right?
+
+28:20.020 --> 28:22.660
+ Or if you're doing a matrix multiplication,
+
+28:22.660 --> 28:25.860
+ how do you do different columns out of that matrix
+
+28:25.860 --> 28:26.700
+ at the same time?
+
+28:26.700 --> 28:30.140
+ And how do you maximally utilize the arithmetic compute
+
+28:30.140 --> 28:31.460
+ that one core has?
+
+28:31.460 --> 28:33.500
+ And then how do you take it to multiple cores?
+
+28:33.500 --> 28:35.780
+ How did the whole virtual machine thing change
+
+28:35.780 --> 28:38.020
+ the compilation pipeline?
+
+28:38.020 --> 28:40.460
+ Yeah, so what the Java virtual machine does
+
+28:40.460 --> 28:44.180
+ is it splits, just like I was talking about before,
+
+28:44.180 --> 28:46.300
+ where you have a front end that parses the code,
+
+28:46.300 --> 28:48.020
+ and then you have an intermediate representation
+
+28:48.020 --> 28:49.460
+ that gets transformed.
+
+28:49.460 --> 28:51.020
+ What Java did was they said,
+
+28:51.020 --> 28:53.100
+ we will parse the code and then compile to
+
+28:53.100 --> 28:55.500
+ what's known as Java byte code.
+
+28:55.500 --> 28:58.580
+ And that byte code is now a portable code representation
+
+28:58.580 --> 29:02.420
+ that is industry standard and locked down and can't change.
+
+29:02.420 --> 29:05.100
+ And then the back part of the compiler
+
+29:05.100 --> 29:07.300
+ that does optimization and code generation
+
+29:07.300 --> 29:09.460
+ can now be built by different vendors.
+
+29:09.460 --> 29:10.300
+ Okay.
+
+29:10.300 --> 29:13.020
+ And Java byte code can be shipped around across the wire.
+
+29:13.020 --> 29:15.860
+ It's memory safe and relatively trusted.
+
+29:16.860 --> 29:18.660
+ And because of that, it can run in the browser.
+
+29:18.660 --> 29:20.540
+ And that's why it runs in the browser, right?
+
+29:20.540 --> 29:22.980
+ And so that way you can be in,
+
+29:22.980 --> 29:25.020
+ again, back in the day, you would write a Java applet
+
+29:25.020 --> 29:29.300
+ and as a web developer, you'd build this mini app
+
+29:29.300 --> 29:30.860
+ that would run on a webpage.
+
+29:30.860 --> 29:33.620
+ Well, a user of that is running a web browser
+
+29:33.620 --> 29:34.460
+ on their computer.
+
+29:34.460 --> 29:37.860
+ You download that Java byte code, which can be trusted,
+
+29:37.860 --> 29:41.060
+ and then you do all the compiler stuff on your machine
+
+29:41.060 --> 29:42.460
+ so that you know that you trust that.
+
+29:42.460 --> 29:44.060
+ Now, is that a good idea or a bad idea?
+
+29:44.060 --> 29:44.900
+ It's a great idea.
+
+29:44.900 --> 29:46.240
+ I mean, it's a great idea for certain problems.
+
+29:46.240 --> 29:49.540
+ And I'm very much a believer that technology is itself
+
+29:49.540 --> 29:50.520
+ neither good nor bad.
+
+29:50.520 --> 29:51.620
+ It's how you apply it.
+
+29:52.940 --> 29:54.660
+ You know, this would be a very, very bad thing
+
+29:54.660 --> 29:56.980
+ for very low levels of the software stack.
+
+29:56.980 --> 30:00.300
+ But in terms of solving some of these software portability
+
+30:00.300 --> 30:02.820
+ and transparency, or portability problems,
+
+30:02.820 --> 30:04.240
+ I think it's been really good.
+
+30:04.240 --> 30:06.600
+ Now, Java ultimately didn't win out on the desktop.
+
+30:06.600 --> 30:09.420
+ And like, there are good reasons for that.
+
+30:09.420 --> 30:13.220
+ But it's been very successful on servers and in many places,
+
+30:13.220 --> 30:16.300
+ it's been a very successful thing over decades.
+
+30:16.300 --> 30:21.300
+ So what has been LLVMs and C langs improvements
+
+30:21.300 --> 30:26.300
+ and optimization that throughout its history,
+
+30:28.640 --> 30:31.080
+ what are some moments we had set back
+
+30:31.080 --> 30:33.280
+ and really proud of what's been accomplished?
+
+30:33.280 --> 30:36.160
+ Yeah, I think that the interesting thing about LLVM
+
+30:36.160 --> 30:40.120
+ is not the innovations and compiler research.
+
+30:40.120 --> 30:41.900
+ It has very good implementations
+
+30:41.900 --> 30:44.000
+ of various important algorithms, no doubt.
+
+30:44.880 --> 30:48.280
+ And a lot of really smart people have worked on it.
+
+30:48.280 --> 30:50.560
+ But I think that the thing that's most profound about LLVM
+
+30:50.560 --> 30:53.840
+ is that through standardization, it made things possible
+
+30:53.840 --> 30:56.200
+ that otherwise wouldn't have happened, okay?
+
+30:56.200 --> 30:59.120
+ And so interesting things that have happened with LLVM,
+
+30:59.120 --> 31:01.260
+ for example, Sony has picked up LLVM
+
+31:01.260 --> 31:03.920
+ and used it to do all the graphics compilation
+
+31:03.920 --> 31:06.080
+ in their movie production pipeline.
+
+31:06.080 --> 31:07.920
+ And so now they're able to have better special effects
+
+31:07.920 --> 31:09.660
+ because of LLVM.
+
+31:09.660 --> 31:11.180
+ That's kind of cool.
+
+31:11.180 --> 31:13.000
+ That's not what it was designed for, right?
+
+31:13.000 --> 31:15.480
+ But that's the sign of good infrastructure
+
+31:15.480 --> 31:18.800
+ when it can be used in ways it was never designed for
+
+31:18.800 --> 31:20.960
+ because it has good layering and software engineering
+
+31:20.960 --> 31:23.440
+ and it's composable and things like that.
+
+31:23.440 --> 31:26.120
+ Which is where, as you said, it differs from GCC.
+
+31:26.120 --> 31:28.240
+ Yes, GCC is also great in various ways,
+
+31:28.240 --> 31:31.800
+ but it's not as good as infrastructure technology.
+
+31:31.800 --> 31:36.160
+ It's really a C compiler, or it's a Fortran compiler.
+
+31:36.160 --> 31:38.920
+ It's not infrastructure in the same way.
+
+31:38.920 --> 31:41.560
+ Now you can tell I don't know what I'm talking about
+
+31:41.560 --> 31:44.500
+ because I keep saying C lang.
+
+31:44.500 --> 31:48.080
+ You can always tell when a person has clues,
+
+31:48.080 --> 31:49.400
+ by the way, to pronounce something.
+
+31:49.400 --> 31:52.580
+ I don't think, have I ever used C lang?
+
+31:52.580 --> 31:54.120
+ Entirely possible, have you?
+
+31:54.120 --> 31:58.200
+ Well, so you've used code, it's generated probably.
+
+31:58.200 --> 32:01.760
+ So C lang and LLVM are used to compile
+
+32:01.760 --> 32:05.240
+ all the apps on the iPhone effectively and the OSs.
+
+32:05.240 --> 32:09.380
+ It compiles Google's production server applications.
+
+32:10.560 --> 32:14.840
+ It's used to build GameCube games and PlayStation 4
+
+32:14.840 --> 32:16.680
+ and things like that.
+
+32:16.680 --> 32:20.120
+ So as a user, I have, but just everything I've done
+
+32:20.120 --> 32:22.120
+ that I experienced with Linux has been,
+
+32:22.120 --> 32:23.560
+ I believe, always GCC.
+
+32:23.560 --> 32:26.520
+ Yeah, I think Linux still defaults to GCC.
+
+32:26.520 --> 32:27.800
+ And is there a reason for that?
+
+32:27.800 --> 32:29.440
+ Or is it because, I mean, is there a reason for that?
+
+32:29.440 --> 32:32.040
+ It's a combination of technical and social reasons.
+
+32:32.040 --> 32:35.960
+ Many Linux developers do use C lang,
+
+32:35.960 --> 32:39.720
+ but the distributions, for lots of reasons,
+
+32:40.560 --> 32:44.240
+ use GCC historically, and they've not switched, yeah.
+
+32:44.240 --> 32:46.640
+ Because it's just anecdotally online,
+
+32:46.640 --> 32:50.640
+ it seems that LLVM has either reached the level of GCC
+
+32:50.640 --> 32:53.520
+ or superseded on different features or whatever.
+
+32:53.520 --> 32:55.200
+ The way I would say it is that they're so close,
+
+32:55.200 --> 32:56.040
+ it doesn't matter.
+
+32:56.040 --> 32:56.860
+ Yeah, exactly.
+
+32:56.860 --> 32:58.160
+ Like, they're slightly better in some ways,
+
+32:58.160 --> 32:59.160
+ slightly worse than otherwise,
+
+32:59.160 --> 33:03.280
+ but it doesn't actually really matter anymore, that level.
+
+33:03.280 --> 33:06.280
+ So in terms of optimization breakthroughs,
+
+33:06.280 --> 33:09.160
+ it's just been solid incremental work.
+
+33:09.160 --> 33:12.520
+ Yeah, yeah, which describes a lot of compilers.
+
+33:12.520 --> 33:15.000
+ The hard thing about compilers, in my experience,
+
+33:15.000 --> 33:17.440
+ is the engineering, the software engineering,
+
+33:17.440 --> 33:20.160
+ making it so that you can have hundreds of people
+
+33:20.160 --> 33:23.600
+ collaborating on really detailed, low level work
+
+33:23.600 --> 33:25.400
+ and scaling that.
+
+33:25.400 --> 33:27.880
+ And that's really hard.
+
+33:27.880 --> 33:30.680
+ And that's one of the things I think LLVM has done well.
+
+33:32.160 --> 33:34.200
+ And that kind of goes back to the original design goals
+
+33:34.200 --> 33:37.200
+ with it to be modular and things like that.
+
+33:37.200 --> 33:38.880
+ And incidentally, I don't want to take all the credit
+
+33:38.880 --> 33:39.720
+ for this, right?
+
+33:39.720 --> 33:41.760
+ I mean, some of the best parts about LLVM
+
+33:41.760 --> 33:43.600
+ is that it was designed to be modular.
+
+33:43.600 --> 33:45.600
+ And when I started, I would write, for example,
+
+33:45.600 --> 33:48.500
+ a register allocator, and then somebody much smarter than me
+
+33:48.500 --> 33:50.720
+ would come in and pull it out and replace it
+
+33:50.720 --> 33:52.680
+ with something else that they would come up with.
+
+33:52.680 --> 33:55.200
+ And because it's modular, they were able to do that.
+
+33:55.200 --> 33:58.280
+ And that's one of the challenges with GCC, for example,
+
+33:58.280 --> 34:01.280
+ is replacing subsystems is incredibly difficult.
+
+34:01.280 --> 34:04.680
+ It can be done, but it wasn't designed for that.
+
+34:04.680 --> 34:06.080
+ And that's one of the reasons that LLVM's been
+
+34:06.080 --> 34:08.760
+ very successful in the research world as well.
+
+34:08.760 --> 34:12.960
+ But in a community sense, Guido van Rossum, right,
+
+34:12.960 --> 34:17.960
+ from Python, just retired from, what is it?
+
+34:18.480 --> 34:20.500
+ Benevolent Dictator for Life, right?
+
+34:20.500 --> 34:24.720
+ So in managing this community of brilliant compiler folks,
+
+34:24.720 --> 34:28.660
+ is there, did it, for a time at least,
+
+34:28.660 --> 34:31.480
+ fall on you to approve things?
+
+34:31.480 --> 34:34.240
+ Oh yeah, so I mean, I still have something like
+
+34:34.240 --> 34:37.980
+ an order of magnitude more patches in LLVM
+
+34:37.980 --> 34:42.760
+ than anybody else, and many of those I wrote myself.
+
+34:42.760 --> 34:47.760
+ But you still write, I mean, you're still close to the,
+
+34:47.880 --> 34:49.480
+ to the, I don't know what the expression is,
+
+34:49.480 --> 34:51.000
+ to the metal, you still write code.
+
+34:51.000 --> 34:52.220
+ Yeah, I still write code.
+
+34:52.220 --> 34:54.240
+ Not as much as I was able to in grad school,
+
+34:54.240 --> 34:56.760
+ but that's an important part of my identity.
+
+34:56.760 --> 34:58.880
+ But the way that LLVM has worked over time
+
+34:58.880 --> 35:01.360
+ is that when I was a grad student, I could do all the work
+
+35:01.360 --> 35:04.120
+ and steer everything and review every patch
+
+35:04.120 --> 35:05.800
+ and make sure everything was done
+
+35:05.800 --> 35:09.040
+ exactly the way my opinionated sense
+
+35:09.040 --> 35:11.760
+ felt like it should be done, and that was fine.
+
+35:11.760 --> 35:14.300
+ But as things scale, you can't do that, right?
+
+35:14.300 --> 35:17.100
+ And so what ends up happening is LLVM
+
+35:17.100 --> 35:20.520
+ has a hierarchical system of what's called code owners.
+
+35:20.520 --> 35:22.880
+ These code owners are given the responsibility
+
+35:22.880 --> 35:24.880
+ not to do all the work,
+
+35:24.880 --> 35:26.640
+ not necessarily to review all the patches,
+
+35:26.640 --> 35:28.800
+ but to make sure that the patches do get reviewed
+
+35:28.800 --> 35:30.320
+ and make sure that the right thing's happening
+
+35:30.320 --> 35:32.160
+ architecturally in their area.
+
+35:32.160 --> 35:36.720
+ And so what you'll see is you'll see that, for example,
+
+35:36.720 --> 35:38.560
+ hardware manufacturers end up owning
+
+35:38.560 --> 35:43.560
+ the hardware specific parts of their hardware.
+
+35:43.600 --> 35:44.520
+ That's very common.
+
+35:45.520 --> 35:47.720
+ Leaders in the community that have done really good work
+
+35:47.720 --> 35:50.880
+ naturally become the de facto owner of something.
+
+35:50.880 --> 35:53.400
+ And then usually somebody else is like,
+
+35:53.400 --> 35:55.520
+ how about we make them the official code owner?
+
+35:55.520 --> 35:58.600
+ And then we'll have somebody to make sure
+
+35:58.600 --> 36:00.320
+ that all the patches get reviewed in a timely manner.
+
+36:00.320 --> 36:02.080
+ And then everybody's like, yes, that's obvious.
+
+36:02.080 --> 36:03.240
+ And then it happens, right?
+
+36:03.240 --> 36:06.080
+ And usually this is a very organic thing, which is great.
+
+36:06.080 --> 36:08.740
+ And so I'm nominally the top of that stack still,
+
+36:08.740 --> 36:11.560
+ but I don't spend a lot of time reviewing patches.
+
+36:11.560 --> 36:16.520
+ What I do is I help negotiate a lot of the technical
+
+36:16.520 --> 36:18.040
+ disagreements that end up happening
+
+36:18.040 --> 36:19.660
+ and making sure that the community as a whole
+
+36:19.660 --> 36:22.040
+ makes progress and is moving in the right direction
+
+36:22.040 --> 36:23.920
+ and doing that.
+
+36:23.920 --> 36:28.240
+ So we also started a nonprofit six years ago,
+
+36:28.240 --> 36:30.840
+ seven years ago, time's gone away.
+
+36:30.840 --> 36:34.600
+ And the LLVM Foundation nonprofit helps oversee
+
+36:34.600 --> 36:36.440
+ all the business sides of things and make sure
+
+36:36.440 --> 36:38.800
+ that the events that the LLVM community has
+
+36:38.800 --> 36:41.600
+ are funded and set up and run correctly
+
+36:41.600 --> 36:42.800
+ and stuff like that.
+
+36:42.800 --> 36:45.160
+ But the foundation is very much stays out
+
+36:45.160 --> 36:49.060
+ of the technical side of where the project is going.
+
+36:49.060 --> 36:52.160
+ Right, so it sounds like a lot of it is just organic.
+
+36:53.160 --> 36:55.680
+ Yeah, well, LLVM is almost 20 years old,
+
+36:55.680 --> 36:56.600
+ which is hard to believe.
+
+36:56.600 --> 36:59.720
+ Somebody pointed out to me recently that LLVM
+
+36:59.720 --> 37:04.600
+ is now older than GCC was when LLVM started, right?
+
+37:04.600 --> 37:06.860
+ So time has a way of getting away from you.
+
+37:06.860 --> 37:10.400
+ But the good thing about that is it has a really robust,
+
+37:10.400 --> 37:13.520
+ really amazing community of people that are
+
+37:13.520 --> 37:15.460
+ in their professional lives, spread across lots
+
+37:15.460 --> 37:17.720
+ of different companies, but it's a community
+
+37:17.720 --> 37:21.120
+ of people that are interested in similar kinds of problems
+
+37:21.120 --> 37:23.680
+ and have been working together effectively for years
+
+37:23.680 --> 37:26.460
+ and have a lot of trust and respect for each other.
+
+37:26.460 --> 37:29.240
+ And even if they don't always agree that we're able
+
+37:29.240 --> 37:31.200
+ to find a path forward.
+
+37:31.200 --> 37:34.480
+ So then in a slightly different flavor of effort,
+
+37:34.480 --> 37:38.120
+ you started at Apple in 2005 with the task
+
+37:38.120 --> 37:41.800
+ of making, I guess, LLVM production ready.
+
+37:41.800 --> 37:44.640
+ And then eventually 2013 through 2017,
+
+37:44.640 --> 37:48.360
+ leading the entire developer tools department.
+
+37:48.360 --> 37:52.960
+ We're talking about LLVM, Xcode, Objective C to Swift.
+
+37:53.920 --> 37:58.580
+ So in a quick overview of your time there,
+
+37:58.580 --> 37:59.600
+ what were the challenges?
+
+37:59.600 --> 38:03.240
+ First of all, leading such a huge group of developers,
+
+38:03.240 --> 38:06.540
+ what was the big motivator, dream, mission
+
+38:06.540 --> 38:11.400
+ behind creating Swift, the early birth of it
+
+38:11.400 --> 38:13.400
+ from Objective C and so on, and Xcode,
+
+38:13.400 --> 38:14.240
+ what are some challenges?
+
+38:14.240 --> 38:15.900
+ So these are different questions.
+
+38:15.900 --> 38:19.720
+ Yeah, I know, but I wanna talk about the other stuff too.
+
+38:19.720 --> 38:21.240
+ I'll stay on the technical side,
+
+38:21.240 --> 38:24.480
+ then we can talk about the big team pieces, if that's okay.
+
+38:24.480 --> 38:29.060
+ So it's to really oversimplify many years of hard work.
+
+38:29.060 --> 38:32.440
+ LLVM started, joined Apple, became a thing,
+
+38:32.440 --> 38:34.600
+ became successful and became deployed.
+
+38:34.600 --> 38:35.960
+ But then there's a question about
+
+38:35.960 --> 38:38.880
+ how do we actually parse the source code?
+
+38:38.880 --> 38:40.320
+ So LLVM is that back part,
+
+38:40.320 --> 38:42.320
+ the optimizer and the code generator.
+
+38:42.320 --> 38:44.060
+ And LLVM was really good for Apple
+
+38:44.060 --> 38:46.060
+ as it went through a couple of harder transitions.
+
+38:46.060 --> 38:47.960
+ I joined right at the time of the Intel transition,
+
+38:47.960 --> 38:51.820
+ for example, and 64 bit transitions,
+
+38:51.820 --> 38:53.500
+ and then the transition to ARM with the iPhone.
+
+38:53.500 --> 38:54.720
+ And so LLVM was very useful
+
+38:54.720 --> 38:57.000
+ for some of these kinds of things.
+
+38:57.000 --> 38:58.480
+ But at the same time, there's a lot of questions
+
+38:58.480 --> 39:00.120
+ around developer experience.
+
+39:00.120 --> 39:01.960
+ And so if you're a programmer pounding out
+
+39:01.960 --> 39:03.460
+ at the time Objective C code,
+
+39:04.480 --> 39:06.520
+ the error message you get, the compile time,
+
+39:06.520 --> 39:09.760
+ the turnaround cycle, the tooling and the IDE,
+
+39:09.760 --> 39:13.000
+ were not great, were not as good as they could be.
+
+39:13.000 --> 39:18.000
+ And so, as I occasionally do, I'm like,
+
+39:18.080 --> 39:20.720
+ well, okay, how hard is it to write a C compiler?
+
+39:20.720 --> 39:22.560
+ And so I'm not gonna commit to anybody,
+
+39:22.560 --> 39:25.320
+ I'm not gonna tell anybody, I'm just gonna just do it
+
+39:25.320 --> 39:27.480
+ nights and weekends and start working on it.
+
+39:27.480 --> 39:29.740
+ And then I built up in C,
+
+39:29.740 --> 39:31.160
+ there's this thing called the preprocessor,
+
+39:31.160 --> 39:33.040
+ which people don't like,
+
+39:33.040 --> 39:35.480
+ but it's actually really hard and complicated
+
+39:35.480 --> 39:37.700
+ and includes a bunch of really weird things
+
+39:37.700 --> 39:39.280
+ like trigraphs and other stuff like that
+
+39:39.280 --> 39:40.960
+ that are really nasty,
+
+39:40.960 --> 39:44.080
+ and it's the crux of a bunch of the performance issues
+
+39:44.080 --> 39:45.640
+ in the compiler.
+
+39:45.640 --> 39:46.640
+ Started working on the parser
+
+39:46.640 --> 39:47.800
+ and kind of got to the point where I'm like,
+
+39:47.800 --> 39:49.880
+ ah, you know what, we could actually do this.
+
+39:49.880 --> 39:51.460
+ Everybody's saying that this is impossible to do,
+
+39:51.460 --> 39:53.960
+ but it's actually just hard, it's not impossible.
+
+39:53.960 --> 39:57.560
+ And eventually told my manager about it,
+
+39:57.560 --> 39:59.220
+ and he's like, oh, wow, this is great,
+
+39:59.220 --> 40:00.360
+ we do need to solve this problem.
+
+40:00.360 --> 40:02.560
+ Oh, this is great, we can get you one other person
+
+40:02.560 --> 40:04.440
+ to work with you on this, you know?
+
+40:04.440 --> 40:08.360
+ And slowly a team is formed and it starts taking off.
+
+40:08.360 --> 40:12.040
+ And C++, for example, huge, complicated language.
+
+40:12.040 --> 40:14.360
+ People always assume that it's impossible to implement
+
+40:14.360 --> 40:16.260
+ and it's very nearly impossible,
+
+40:16.260 --> 40:18.720
+ but it's just really, really hard.
+
+40:18.720 --> 40:20.840
+ And the way to get there is to build it
+
+40:20.840 --> 40:22.480
+ one piece at a time incrementally.
+
+40:22.480 --> 40:26.440
+ And that was only possible because we were lucky
+
+40:26.440 --> 40:28.160
+ to hire some really exceptional engineers
+
+40:28.160 --> 40:30.380
+ that knew various parts of it very well
+
+40:30.380 --> 40:32.680
+ and could do great things.
+
+40:32.680 --> 40:34.440
+ Swift was kind of a similar thing.
+
+40:34.440 --> 40:39.160
+ So Swift came from, we were just finishing off
+
+40:39.160 --> 40:42.600
+ the first version of C++ support in Clang.
+
+40:42.600 --> 40:47.260
+ And C++ is a very formidable and very important language,
+
+40:47.260 --> 40:49.280
+ but it's also ugly in lots of ways.
+
+40:49.280 --> 40:52.320
+ And you can't influence C++ without thinking
+
+40:52.320 --> 40:54.380
+ there has to be a better thing, right?
+
+40:54.380 --> 40:56.120
+ And so I started working on Swift, again,
+
+40:56.120 --> 40:58.560
+ with no hope or ambition that would go anywhere,
+
+40:58.560 --> 41:00.800
+ just let's see what could be done,
+
+41:00.800 --> 41:02.620
+ let's play around with this thing.
+
+41:02.620 --> 41:06.700
+ It was me in my spare time, not telling anybody about it,
+
+41:06.700 --> 41:09.420
+ kind of a thing, and it made some good progress.
+
+41:09.420 --> 41:11.260
+ I'm like, actually, it would make sense to do this.
+
+41:11.260 --> 41:14.800
+ At the same time, I started talking with the senior VP
+
+41:14.800 --> 41:17.720
+ of software at the time, a guy named Bertrand Serlet.
+
+41:17.720 --> 41:19.280
+ And Bertrand was very encouraging.
+
+41:19.280 --> 41:22.080
+ He was like, well, let's have fun, let's talk about this.
+
+41:22.080 --> 41:23.440
+ And he was a little bit of a language guy,
+
+41:23.440 --> 41:26.160
+ and so he helped guide some of the early work
+
+41:26.160 --> 41:30.420
+ and encouraged me and got things off the ground.
+
+41:30.420 --> 41:34.280
+ And eventually told my manager and told other people,
+
+41:34.280 --> 41:38.800
+ and it started making progress.
+
+41:38.800 --> 41:40.960
+ The complicating thing with Swift
+
+41:40.960 --> 41:43.880
+ was that the idea of doing a new language
+
+41:43.880 --> 41:47.840
+ was not obvious to anybody, including myself.
+
+41:47.840 --> 41:50.240
+ And the tone at the time was that the iPhone
+
+41:50.240 --> 41:53.440
+ was successful because of Objective C.
+
+41:53.440 --> 41:54.440
+ Oh, interesting.
+
+41:54.440 --> 41:57.160
+ Not despite of or just because of.
+
+41:57.160 --> 42:01.160
+ And you have to understand that at the time,
+
+42:01.160 --> 42:05.400
+ Apple was hiring software people that loved Objective C.
+
+42:05.400 --> 42:07.960
+ And it wasn't that they came despite Objective C.
+
+42:07.960 --> 42:10.240
+ They loved Objective C, and that's why they got hired.
+
+42:10.240 --> 42:13.080
+ And so you had a software team that the leadership,
+
+42:13.080 --> 42:15.200
+ in many cases, went all the way back to Next,
+
+42:15.200 --> 42:19.400
+ where Objective C really became real.
+
+42:19.400 --> 42:23.240
+ And so they, quote unquote, grew up writing Objective C.
+
+42:23.240 --> 42:25.720
+ And many of the individual engineers
+
+42:25.720 --> 42:28.360
+ all were hired because they loved Objective C.
+
+42:28.360 --> 42:30.560
+ And so this notion of, OK, let's do new language
+
+42:30.560 --> 42:34.120
+ was kind of heretical in many ways.
+
+42:34.120 --> 42:36.960
+ Meanwhile, my sense was that the outside community wasn't really
+
+42:36.960 --> 42:38.560
+ in love with Objective C. Some people were,
+
+42:38.560 --> 42:40.360
+ and some of the most outspoken people were.
+
+42:40.360 --> 42:42.620
+ But other people were hitting challenges
+
+42:42.620 --> 42:44.760
+ because it has very sharp corners
+
+42:44.760 --> 42:46.840
+ and it's difficult to learn.
+
+42:46.840 --> 42:50.160
+ And so one of the challenges of making Swift happen that
+
+42:50.160 --> 42:57.720
+ was totally non technical is the social part of what do we do?
+
+42:57.720 --> 43:00.320
+ If we do a new language, which at Apple, many things
+
+43:00.320 --> 43:02.240
+ happen that don't ship.
+
+43:02.240 --> 43:05.560
+ So if we ship it, what is the metrics of success?
+
+43:05.560 --> 43:06.400
+ Why would we do this?
+
+43:06.400 --> 43:08.060
+ Why wouldn't we make Objective C better?
+
+43:08.060 --> 43:10.160
+ If Objective C has problems, let's file off
+
+43:10.160 --> 43:12.160
+ those rough corners and edges.
+
+43:12.160 --> 43:15.640
+ And one of the major things that became the reason to do this
+
+43:15.640 --> 43:18.960
+ was this notion of safety, memory safety.
+
+43:18.960 --> 43:23.240
+ And the way Objective C works is that a lot of the object system
+
+43:23.240 --> 43:27.560
+ and everything else is built on top of pointers in C.
+
+43:27.560 --> 43:29.960
+ Objective C is an extension on top of C.
+
+43:29.960 --> 43:32.680
+ And so pointers are unsafe.
+
+43:32.680 --> 43:34.640
+ And if you get rid of the pointers,
+
+43:34.640 --> 43:36.480
+ it's not Objective C anymore.
+
+43:36.480 --> 43:39.080
+ And so fundamentally, that was an issue
+
+43:39.080 --> 43:42.200
+ that you could not fix safety or memory safety
+
+43:42.200 --> 43:45.640
+ without fundamentally changing the language.
+
+43:45.640 --> 43:49.920
+ And so once we got through that part of the mental process
+
+43:49.920 --> 43:53.200
+ and the thought process, it became a design process
+
+43:53.200 --> 43:55.400
+ of saying, OK, well, if we're going to do something new,
+
+43:55.400 --> 43:56.280
+ what is good?
+
+43:56.280 --> 43:57.400
+ How do we think about this?
+
+43:57.400 --> 43:58.200
+ And what do we like?
+
+43:58.200 --> 44:00.040
+ And what are we looking for?
+
+44:00.040 --> 44:02.440
+ And that was a very different phase of it.
+
+44:02.440 --> 44:05.960
+ So what are some design choices early on in Swift?
+
+44:05.960 --> 44:10.120
+ Like we're talking about braces, are you
+
+44:10.120 --> 44:13.240
+ making a typed language or not, all those kinds of things.
+
+44:13.240 --> 44:16.040
+ Yeah, so some of those were obvious given the context.
+
+44:16.040 --> 44:17.800
+ So a typed language, for example,
+
+44:17.800 --> 44:19.200
+ Objective C is a typed language.
+
+44:19.200 --> 44:22.480
+ And going with an untyped language
+
+44:22.480 --> 44:24.320
+ wasn't really seriously considered.
+
+44:24.320 --> 44:26.000
+ We wanted the performance, and we
+
+44:26.000 --> 44:27.680
+ wanted refactoring tools and other things
+
+44:27.680 --> 44:29.600
+ like that that go with typed languages.
+
+44:29.600 --> 44:31.440
+ Quick, dumb question.
+
+44:31.440 --> 44:34.600
+ Was it obvious, I think this would be a dumb question,
+
+44:34.600 --> 44:36.360
+ but was it obvious that the language
+
+44:36.360 --> 44:40.120
+ has to be a compiled language?
+
+44:40.120 --> 44:42.080
+ Yes, that's not a dumb question.
+
+44:42.080 --> 44:44.520
+ Earlier, I think late 90s, Apple had seriously
+
+44:44.520 --> 44:49.000
+ considered moving its development experience to Java.
+
+44:49.000 --> 44:53.160
+ But Swift started in 2010, which was several years
+
+44:53.160 --> 44:53.880
+ after the iPhone.
+
+44:53.880 --> 44:55.380
+ It was when the iPhone was definitely
+
+44:55.380 --> 44:56.640
+ on an upward trajectory.
+
+44:56.640 --> 44:58.760
+ And the iPhone was still extremely,
+
+44:58.760 --> 45:01.800
+ and is still a bit memory constrained.
+
+45:01.800 --> 45:04.440
+ And so being able to compile the code
+
+45:04.440 --> 45:08.160
+ and then ship it and then having standalone code that
+
+45:08.160 --> 45:11.320
+ is not JIT compiled is a very big deal
+
+45:11.320 --> 45:15.200
+ and is very much part of the Apple value system.
+
+45:15.200 --> 45:17.480
+ Now, JavaScript's also a thing.
+
+45:17.480 --> 45:19.360
+ I mean, it's not that this is exclusive,
+
+45:19.360 --> 45:21.640
+ and technologies are good depending
+
+45:21.640 --> 45:23.880
+ on how they're applied.
+
+45:23.880 --> 45:26.600
+ But in the design of Swift, saying,
+
+45:26.600 --> 45:28.320
+ how can we make Objective C better?
+
+45:28.320 --> 45:29.760
+ Objective C is statically compiled,
+
+45:29.760 --> 45:32.520
+ and that was the contiguous, natural thing to do.
+
+45:32.520 --> 45:35.360
+ Just skip ahead a little bit, and we'll go right back.
+
+45:35.360 --> 45:40.040
+ Just as a question, as you think about today in 2019
+
+45:40.040 --> 45:42.400
+ in your work at Google, TensorFlow and so on,
+
+45:42.400 --> 45:48.600
+ is, again, compilations, static compilation still
+
+45:48.600 --> 45:49.460
+ the right thing?
+
+45:49.460 --> 45:52.000
+ Yeah, so the funny thing after working
+
+45:52.000 --> 45:55.880
+ on compilers for a really long time is that,
+
+45:55.880 --> 45:59.040
+ and this is one of the things that LLVM has helped with,
+
+45:59.040 --> 46:01.440
+ is that I don't look at compilations
+
+46:01.440 --> 46:05.240
+ being static or dynamic or interpreted or not.
+
+46:05.240 --> 46:07.680
+ This is a spectrum.
+
+46:07.680 --> 46:09.140
+ And one of the cool things about Swift
+
+46:09.140 --> 46:12.160
+ is that Swift is not just statically compiled.
+
+46:12.160 --> 46:14.080
+ It's actually dynamically compiled as well,
+
+46:14.080 --> 46:15.320
+ and it can also be interpreted.
+
+46:15.320 --> 46:17.440
+ Though, nobody's actually done that.
+
+46:17.440 --> 46:20.400
+ And so what ends up happening when
+
+46:20.400 --> 46:24.080
+ you use Swift in a workbook, for example in Colab or in Jupyter,
+
+46:24.080 --> 46:26.360
+ is it's actually dynamically compiling the statements
+
+46:26.360 --> 46:28.160
+ as you execute them.
+
+46:28.160 --> 46:32.840
+ And so this gets back to the software engineering problems,
+
+46:32.840 --> 46:34.960
+ where if you layer the stack properly,
+
+46:34.960 --> 46:37.320
+ you can actually completely change
+
+46:37.320 --> 46:39.360
+ how and when things get compiled because you
+
+46:39.360 --> 46:41.120
+ have the right abstractions there.
+
+46:41.120 --> 46:44.800
+ And so the way that a Colab workbook works with Swift
+
+46:44.800 --> 46:47.720
+ is that when you start typing into it,
+
+46:47.720 --> 46:50.280
+ it creates a process, a Unix process.
+
+46:50.280 --> 46:52.160
+ And then each line of code you type in,
+
+46:52.160 --> 46:56.120
+ it compiles it through the Swift compiler, the front end part,
+
+46:56.120 --> 46:58.360
+ and then sends it through the optimizer,
+
+46:58.360 --> 47:01.120
+ JIT compiles machine code, and then
+
+47:01.120 --> 47:03.800
+ injects it into that process.
+
+47:03.800 --> 47:05.400
+ And so as you're typing new stuff,
+
+47:05.400 --> 47:09.360
+ it's like squirting in new code and overwriting and replacing
+
+47:09.360 --> 47:11.200
+ and updating code in place.
+
+47:11.200 --> 47:13.680
+ And the fact that it can do this is not an accident.
+
+47:13.680 --> 47:15.560
+ Swift was designed for this.
+
+47:15.560 --> 47:18.120
+ But it's an important part of how the language was set up
+
+47:18.120 --> 47:21.320
+ and how it's layered, and this is a nonobvious piece.
+
+47:21.320 --> 47:23.160
+ And one of the things with Swift that
+
+47:23.160 --> 47:25.880
+ was, for me, a very strong design point
+
+47:25.880 --> 47:29.640
+ is to make it so that you can learn it very quickly.
+
+47:29.640 --> 47:31.880
+ And so from a language design perspective,
+
+47:31.880 --> 47:33.340
+ the thing that I always come back to
+
+47:33.340 --> 47:36.440
+ is this UI principle of progressive disclosure
+
+47:36.440 --> 47:37.960
+ of complexity.
+
+47:37.960 --> 47:41.680
+ And so in Swift, you can start by saying print, quote,
+
+47:41.680 --> 47:44.040
+ hello world, quote.
+
+47:44.040 --> 47:47.160
+ And there's no slash n, just like Python, one line of code,
+
+47:47.160 --> 47:51.520
+ no main, no header files, no public static class void,
+
+47:51.520 --> 47:55.640
+ blah, blah, blah, string like Java has, one line of code.
+
+47:55.640 --> 47:58.400
+ And you can teach that, and it works great.
+
+47:58.400 --> 48:00.400
+ Then you can say, well, let's introduce variables.
+
+48:00.400 --> 48:02.400
+ And so you can declare a variable with var.
+
+48:02.400 --> 48:03.780
+ So var x equals 4.
+
+48:03.780 --> 48:04.700
+ What is a variable?
+
+48:04.700 --> 48:06.280
+ You can use x, x plus 1.
+
+48:06.280 --> 48:07.600
+ This is what it means.
+
+48:07.600 --> 48:09.520
+ Then you can say, well, how about control flow?
+
+48:09.520 --> 48:10.860
+ Well, this is what an if statement is.
+
+48:10.860 --> 48:12.280
+ This is what a for statement is.
+
+48:12.280 --> 48:15.280
+ This is what a while statement is.
+
+48:15.280 --> 48:17.280
+ Then you can say, let's introduce functions.
+
+48:17.280 --> 48:20.020
+ And many languages like Python have
+
+48:20.020 --> 48:22.820
+ had this kind of notion of let's introduce small things,
+
+48:22.820 --> 48:24.400
+ and then you can add complexity.
+
+48:24.400 --> 48:25.760
+ Then you can introduce classes.
+
+48:25.760 --> 48:28.040
+ And then you can add generics, in the case of Swift.
+
+48:28.040 --> 48:29.520
+ And then you can build in modules
+
+48:29.520 --> 48:32.200
+ and build out in terms of the things that you're expressing.
+
+48:32.200 --> 48:35.800
+ But this is not very typical for compiled languages.
+
+48:35.800 --> 48:38.000
+ And so this was a very strong design point,
+
+48:38.000 --> 48:40.960
+ and one of the reasons that Swift, in general,
+
+48:40.960 --> 48:43.480
+ is designed with this factoring of complexity in mind
+
+48:43.480 --> 48:46.440
+ so that the language can express powerful things.
+
+48:46.440 --> 48:49.280
+ You can write firmware in Swift if you want to.
+
+48:49.280 --> 48:51.900
+ But it has a very high level feel,
+
+48:51.900 --> 48:55.200
+ which is really this perfect blend, because often you
+
+48:55.200 --> 48:57.520
+ have very advanced library writers that
+
+48:57.520 --> 49:00.520
+ want to be able to use the nitty gritty details.
+
+49:00.520 --> 49:02.960
+ But then other people just want to use the libraries
+
+49:02.960 --> 49:04.880
+ and work at a higher abstraction level.
+
+49:04.880 --> 49:07.240
+ It's kind of cool that I saw that you can just
+
+49:07.240 --> 49:09.240
+ interoperability.
+
+49:09.240 --> 49:11.320
+ I don't think I pronounced that word enough.
+
+49:11.320 --> 49:14.960
+ But you can just drag in Python.
+
+49:14.960 --> 49:16.000
+ It's just strange.
+
+49:16.000 --> 49:19.640
+ You can import, like I saw this in the demo.
+
+49:19.640 --> 49:21.280
+ How do you make that happen?
+
+49:21.280 --> 49:23.120
+ What's up with that?
+
+49:23.120 --> 49:25.560
+ Is that as easy as it looks, or is it?
+
+49:25.560 --> 49:27.000
+ Yes, as easy as it looks.
+
+49:27.000 --> 49:29.600
+ That's not a stage magic hack or anything like that.
+
+49:29.600 --> 49:31.400
+ I don't mean from the user perspective.
+
+49:31.400 --> 49:34.120
+ I mean from the implementation perspective to make it happen.
+
+49:34.120 --> 49:37.000
+ So it's easy once all the pieces are in place.
+
+49:37.000 --> 49:39.280
+ The way it works, so if you think about a dynamically typed
+
+49:39.280 --> 49:41.480
+ language like Python, you can think about it
+
+49:41.480 --> 49:42.360
+ in two different ways.
+
+49:42.360 --> 49:45.800
+ You can say it has no types, which
+
+49:45.800 --> 49:47.480
+ is what most people would say.
+
+49:47.480 --> 49:50.400
+ Or you can say it has one type.
+
+49:50.400 --> 49:53.320
+ And you can say it has one type, and it's the Python object.
+
+49:53.320 --> 49:55.000
+ And the Python object gets passed around.
+
+49:55.000 --> 49:58.200
+ And because there's only one type, it's implicit.
+
+49:58.200 --> 50:00.880
+ And so what happens with Swift and Python talking
+
+50:00.880 --> 50:02.760
+ to each other, Swift has lots of types.
+
+50:02.760 --> 50:05.840
+ It has arrays, and it has strings, and all classes,
+
+50:05.840 --> 50:07.000
+ and that kind of stuff.
+
+50:07.000 --> 50:11.120
+ But it now has a Python object type.
+
+50:11.120 --> 50:12.720
+ So there is one Python object type.
+
+50:12.720 --> 50:16.440
+ And so when you say import NumPy, what you get
+
+50:16.440 --> 50:19.840
+ is a Python object, which is the NumPy module.
+
+50:19.840 --> 50:21.960
+ And then you say np.array.
+
+50:21.960 --> 50:24.960
+ It says, OK, hey, Python object, I have no idea what you are.
+
+50:24.960 --> 50:27.280
+ Give me your array member.
+
+50:27.280 --> 50:27.960
+ OK, cool.
+
+50:27.960 --> 50:31.160
+ And it just uses dynamic stuff, talks to the Python interpreter,
+
+50:31.160 --> 50:33.680
+ and says, hey, Python, what's the.array member
+
+50:33.680 --> 50:35.720
+ in that Python object?
+
+50:35.720 --> 50:37.400
+ It gives you back another Python object.
+
+50:37.400 --> 50:40.040
+ And now you say parentheses for the call and the arguments
+
+50:40.040 --> 50:40.920
+ you're going to pass.
+
+50:40.920 --> 50:43.520
+ And so then it says, hey, a Python object
+
+50:43.520 --> 50:47.840
+ that is the result of np.array, call with these arguments.
+
+50:47.840 --> 50:50.320
+ Again, calling into the Python interpreter to do that work.
+
+50:50.320 --> 50:53.680
+ And so right now, this is all really simple.
+
+50:53.680 --> 50:55.960
+ And if you dive into the code, what you'll see
+
+50:55.960 --> 50:58.440
+ is that the Python module in Swift
+
+50:58.440 --> 51:01.360
+ is something like 1,200 lines of code or something.
+
+51:01.360 --> 51:02.400
+ It's written in pure Swift.
+
+51:02.400 --> 51:03.560
+ It's super simple.
+
+51:03.560 --> 51:06.560
+ And it's built on top of the C interoperability
+
+51:06.560 --> 51:09.520
+ because it just talks to the Python interpreter.
+
+51:09.520 --> 51:11.080
+ But making that possible required
+
+51:11.080 --> 51:13.480
+ us to add two major language features to Swift
+
+51:13.480 --> 51:15.400
+ to be able to express these dynamic calls
+
+51:15.400 --> 51:17.240
+ and the dynamic member lookups.
+
+51:17.240 --> 51:19.480
+ And so what we've done over the last year
+
+51:19.480 --> 51:23.960
+ is we've proposed, implement, standardized, and contributed
+
+51:23.960 --> 51:26.160
+ new language features to the Swift language
+
+51:26.160 --> 51:29.560
+ in order to make it so it is really trivial.
+
+51:29.560 --> 51:31.320
+ And this is one of the things about Swift
+
+51:31.320 --> 51:35.000
+ that is critical to the Swift for TensorFlow work, which
+
+51:35.000 --> 51:37.200
+ is that we can actually add new language features.
+
+51:37.200 --> 51:39.160
+ And the bar for adding those is high,
+
+51:39.160 --> 51:42.280
+ but it's what makes it possible.
+
+51:42.280 --> 51:45.240
+ So you're now at Google doing incredible work
+
+51:45.240 --> 51:47.680
+ on several things, including TensorFlow.
+
+51:47.680 --> 51:53.080
+ So TensorFlow 2.0 or whatever leading up to 2.0 has,
+
+51:53.080 --> 51:56.840
+ by default, in 2.0, has eager execution.
+
+51:56.840 --> 52:00.520
+ And yet, in order to make code optimized for GPU or TPU
+
+52:00.520 --> 52:04.120
+ or some of these systems, computation
+
+52:04.120 --> 52:06.000
+ needs to be converted to a graph.
+
+52:06.000 --> 52:07.440
+ So what's that process like?
+
+52:07.440 --> 52:08.960
+ What are the challenges there?
+
+52:08.960 --> 52:11.720
+ Yeah, so I am tangentially involved in this.
+
+52:11.720 --> 52:15.280
+ But the way that it works with Autograph
+
+52:15.280 --> 52:21.600
+ is that you mark your function with a decorator.
+
+52:21.600 --> 52:24.280
+ And when Python calls it, that decorator is invoked.
+
+52:24.280 --> 52:28.240
+ And then it says, before I call this function,
+
+52:28.240 --> 52:29.480
+ you can transform it.
+
+52:29.480 --> 52:32.400
+ And so the way Autograph works is, as far as I understand,
+
+52:32.400 --> 52:34.440
+ is it actually uses the Python parser
+
+52:34.440 --> 52:37.160
+ to go parse that, turn it into a syntax tree,
+
+52:37.160 --> 52:39.400
+ and now apply compiler techniques to, again,
+
+52:39.400 --> 52:42.320
+ transform this down into TensorFlow graphs.
+
+52:42.320 --> 52:44.920
+ And so you can think of it as saying, hey,
+
+52:44.920 --> 52:45.880
+ I have an if statement.
+
+52:45.880 --> 52:48.360
+ I'm going to create an if node in the graph,
+
+52:48.360 --> 52:51.080
+ like you say tf.cond.
+
+52:51.080 --> 52:53.040
+ You have a multiply.
+
+52:53.040 --> 52:55.320
+ Well, I'll turn that into a multiply node in the graph.
+
+52:55.320 --> 52:57.760
+ And it becomes this tree transformation.
+
+52:57.760 --> 53:00.480
+ So where does the Swift for TensorFlow
+
+53:00.480 --> 53:04.960
+ come in, which is parallels?
+
+53:04.960 --> 53:06.960
+ For one, Swift is an interface.
+
+53:06.960 --> 53:09.200
+ Like, Python is an interface to TensorFlow.
+
+53:09.200 --> 53:11.760
+ But it seems like there's a lot more going on in just
+
+53:11.760 --> 53:13.120
+ a different language interface.
+
+53:13.120 --> 53:15.960
+ There's optimization methodology.
+
+53:15.960 --> 53:17.920
+ So the TensorFlow world has a couple
+
+53:17.920 --> 53:21.240
+ of different what I'd call front end technologies.
+
+53:21.240 --> 53:25.240
+ And so Swift and Python and Go and Rust and Julia
+
+53:25.240 --> 53:29.320
+ and all these things share the TensorFlow graphs
+
+53:29.320 --> 53:32.760
+ and all the runtime and everything that's later.
+
+53:32.760 --> 53:36.640
+ And so Swift for TensorFlow is merely another front end
+
+53:36.640 --> 53:40.640
+ for TensorFlow, just like any of these other systems are.
+
+53:40.640 --> 53:43.080
+ There's a major difference between, I would say,
+
+53:43.080 --> 53:44.600
+ three camps of technologies here.
+
+53:44.600 --> 53:46.880
+ There's Python, which is a special case,
+
+53:46.880 --> 53:49.160
+ because the vast majority of the community effort
+
+53:49.160 --> 53:51.120
+ is going to the Python interface.
+
+53:51.120 --> 53:52.920
+ And Python has its own approaches
+
+53:52.920 --> 53:54.480
+ for automatic differentiation.
+
+53:54.480 --> 53:58.160
+ It has its own APIs and all this kind of stuff.
+
+53:58.160 --> 54:00.320
+ There's Swift, which I'll talk about in a second.
+
+54:00.320 --> 54:02.040
+ And then there's kind of everything else.
+
+54:02.040 --> 54:05.400
+ And so the everything else are effectively language bindings.
+
+54:05.400 --> 54:07.960
+ So they call into the TensorFlow runtime,
+
+54:07.960 --> 54:10.920
+ but they usually don't have automatic differentiation
+
+54:10.920 --> 54:14.560
+ or they usually don't provide anything other than APIs
+
+54:14.560 --> 54:16.440
+ that call the C APIs in TensorFlow.
+
+54:16.440 --> 54:18.360
+ And so they're kind of wrappers for that.
+
+54:18.360 --> 54:19.840
+ Swift is really kind of special.
+
+54:19.840 --> 54:22.760
+ And it's a very different approach.
+
+54:22.760 --> 54:25.360
+ Swift for TensorFlow, that is, is a very different approach.
+
+54:25.360 --> 54:26.880
+ Because there we're saying, let's
+
+54:26.880 --> 54:28.400
+ look at all the problems that need
+
+54:28.400 --> 54:34.080
+ to be solved in the full stack of the TensorFlow compilation
+
+54:34.080 --> 54:35.680
+ process, if you think about it that way.
+
+54:35.680 --> 54:38.200
+ Because TensorFlow is fundamentally a compiler.
+
+54:38.200 --> 54:42.760
+ It takes models, and then it makes them go fast on hardware.
+
+54:42.760 --> 54:43.880
+ That's what a compiler does.
+
+54:43.880 --> 54:47.560
+ And it has a front end, it has an optimizer,
+
+54:47.560 --> 54:49.320
+ and it has many back ends.
+
+54:49.320 --> 54:51.680
+ And so if you think about it the right way,
+
+54:51.680 --> 54:54.800
+ or if you look at it in a particular way,
+
+54:54.800 --> 54:55.560
+ it is a compiler.
+
+54:59.280 --> 55:02.120
+ And so Swift is merely another front end.
+
+55:02.120 --> 55:05.560
+ But it's saying, and the design principle is saying,
+
+55:05.560 --> 55:08.240
+ let's look at all the problems that we face as machine
+
+55:08.240 --> 55:11.320
+ learning practitioners and what is the best possible way we
+
+55:11.320 --> 55:13.840
+ can do that, given the fact that we can change literally
+
+55:13.840 --> 55:15.920
+ anything in this entire stack.
+
+55:15.920 --> 55:18.440
+ And Python, for example, where the vast majority
+
+55:18.440 --> 55:22.600
+ of the engineering and effort has gone into,
+
+55:22.600 --> 55:25.000
+ is constrained by being the best possible thing you
+
+55:25.000 --> 55:27.320
+ can do with a Python library.
+
+55:27.320 --> 55:29.320
+ There are no Python language features
+
+55:29.320 --> 55:31.040
+ that are added because of machine learning
+
+55:31.040 --> 55:32.600
+ that I'm aware of.
+
+55:32.600 --> 55:34.640
+ They added a matrix multiplication operator
+
+55:34.640 --> 55:38.320
+ with that, but that's as close as you get.
+
+55:38.320 --> 55:41.460
+ And so with Swift, it's hard, but you
+
+55:41.460 --> 55:43.800
+ can add language features to the language.
+
+55:43.800 --> 55:46.040
+ And there's a community process for that.
+
+55:46.040 --> 55:48.200
+ And so we look at these things and say, well,
+
+55:48.200 --> 55:49.720
+ what is the right division of labor
+
+55:49.720 --> 55:52.000
+ between the human programmer and the compiler?
+
+55:52.000 --> 55:55.280
+ And Swift has a number of things that shift that balance.
+
+55:55.280 --> 56:00.560
+ So because it has a type system, for example,
+
+56:00.560 --> 56:02.680
+ that makes certain things possible for analysis
+
+56:02.680 --> 56:05.560
+ of the code, and the compiler can automatically
+
+56:05.560 --> 56:08.880
+ build graphs for you without you thinking about them.
+
+56:08.880 --> 56:10.520
+ That's a big deal for a programmer.
+
+56:10.520 --> 56:11.680
+ You just get free performance.
+
+56:11.680 --> 56:14.400
+ You get clustering and fusion and optimization,
+
+56:14.400 --> 56:17.040
+ things like that, without you as a programmer
+
+56:17.040 --> 56:20.080
+ having to manually do it because the compiler can do it for you.
+
+56:20.080 --> 56:22.240
+ Automatic differentiation is another big deal.
+
+56:22.240 --> 56:25.960
+ And I think one of the key contributions of the Swift
+
+56:25.960 --> 56:29.640
+ TensorFlow project is that there's
+
+56:29.640 --> 56:32.120
+ this entire body of work on automatic differentiation
+
+56:32.120 --> 56:34.120
+ that dates back to the Fortran days.
+
+56:34.120 --> 56:36.400
+ People doing a tremendous amount of numerical computing
+
+56:36.400 --> 56:39.360
+ in Fortran used to write these what they call source
+
+56:39.360 --> 56:43.280
+ to source translators, where you take a bunch of code,
+
+56:43.280 --> 56:46.640
+ shove it into a mini compiler, and it would push out
+
+56:46.640 --> 56:48.080
+ more Fortran code.
+
+56:48.080 --> 56:50.240
+ But it would generate the backwards passes
+
+56:50.240 --> 56:53.000
+ for your functions for you, the derivatives.
+
+56:53.000 --> 56:57.840
+ And so in that work in the 70s, a tremendous number
+
+56:57.840 --> 57:01.160
+ of optimizations, a tremendous number of techniques
+
+57:01.160 --> 57:02.920
+ for fixing numerical instability,
+
+57:02.920 --> 57:05.080
+ and other kinds of problems were developed.
+
+57:05.080 --> 57:07.600
+ But they're very difficult to port into a world
+
+57:07.600 --> 57:11.280
+ where, in eager execution, you get an op by op at a time.
+
+57:11.280 --> 57:13.280
+ You need to be able to look at an entire function
+
+57:13.280 --> 57:15.720
+ and be able to reason about what's going on.
+
+57:15.720 --> 57:18.720
+ And so when you have a language integrated automatic
+
+57:18.720 --> 57:20.520
+ differentiation, which is one of the things
+
+57:20.520 --> 57:22.760
+ that the Swift project is focusing on,
+
+57:22.760 --> 57:24.680
+ you can open all these techniques
+
+57:24.680 --> 57:28.640
+ and reuse them in familiar ways.
+
+57:28.640 --> 57:30.120
+ But the language integration piece
+
+57:30.120 --> 57:33.240
+ has a bunch of design room in it, and it's also complicated.
+
+57:33.240 --> 57:35.680
+ The other piece of the puzzle here that's kind of interesting
+
+57:35.680 --> 57:37.560
+ is TPUs at Google.
+
+57:37.560 --> 57:40.200
+ So we're in a new world with deep learning.
+
+57:40.200 --> 57:42.960
+ It constantly is changing, and I imagine,
+
+57:42.960 --> 57:46.360
+ without disclosing anything, I imagine
+
+57:46.360 --> 57:48.400
+ you're still innovating on the TPU front, too.
+
+57:48.400 --> 57:49.040
+ Indeed.
+
+57:49.040 --> 57:53.560
+ So how much interplay is there between software and hardware
+
+57:53.560 --> 57:55.240
+ in trying to figure out how to together move
+
+57:55.240 --> 57:56.680
+ towards an optimized solution?
+
+57:56.680 --> 57:57.760
+ There's an incredible amount.
+
+57:57.760 --> 57:59.480
+ So we're on our third generation of TPUs,
+
+57:59.480 --> 58:04.640
+ which are now 100 petaflops in a very large liquid cooled box,
+
+58:04.640 --> 58:07.720
+ virtual box with no cover.
+
+58:07.720 --> 58:11.240
+ And as you might imagine, we're not out of ideas yet.
+
+58:11.240 --> 58:14.360
+ The great thing about TPUs is that they're
+
+58:14.360 --> 58:17.520
+ a perfect example of hardware software co design.
+
+58:17.520 --> 58:19.800
+ And so it's about saying, what hardware
+
+58:19.800 --> 58:23.240
+ do we build to solve certain classes of machine learning
+
+58:23.240 --> 58:23.840
+ problems?
+
+58:23.840 --> 58:26.480
+ Well, the algorithms are changing.
+
+58:26.480 --> 58:30.360
+ The hardware takes some cases years to produce.
+
+58:30.360 --> 58:32.760
+ And so you have to make bets and decide
+
+58:32.760 --> 58:36.520
+ what is going to happen and what is the best way to spend
+
+58:36.520 --> 58:39.920
+ the transistors to get the maximum performance per watt
+
+58:39.920 --> 58:44.000
+ or area per cost or whatever it is that you're optimizing for.
+
+58:44.000 --> 58:46.560
+ And so one of the amazing things about TPUs
+
+58:46.560 --> 58:49.960
+ is this numeric format called bfloat16.
+
+58:49.960 --> 58:54.120
+ bfloat16 is a compressed 16 bit floating point format,
+
+58:54.120 --> 58:55.960
+ but it puts the bits in different places.
+
+58:55.960 --> 58:58.960
+ And in numeric terms, it has a smaller mantissa
+
+58:58.960 --> 59:00.400
+ and a larger exponent.
+
+59:00.400 --> 59:02.960
+ That means that it's less precise,
+
+59:02.960 --> 59:05.680
+ but it can represent larger ranges of values,
+
+59:05.680 --> 59:07.280
+ which in the machine learning context
+
+59:07.280 --> 59:09.960
+ is really important and useful because sometimes you
+
+59:09.960 --> 59:13.920
+ have very small gradients you want to accumulate
+
+59:13.920 --> 59:17.480
+ and very, very small numbers that
+
+59:17.480 --> 59:20.520
+ are important to move things as you're learning.
+
+59:20.520 --> 59:23.160
+ But sometimes you have very large magnitude numbers as well.
+
+59:23.160 --> 59:26.880
+ And bfloat16 is not as precise.
+
+59:26.880 --> 59:28.040
+ The mantissa is small.
+
+59:28.040 --> 59:30.360
+ But it turns out the machine learning algorithms actually
+
+59:30.360 --> 59:31.520
+ want to generalize.
+
+59:31.520 --> 59:34.320
+ And so there's theories that this actually
+
+59:34.320 --> 59:36.440
+ increases the ability for the network
+
+59:36.440 --> 59:37.960
+ to generalize across data sets.
+
+59:37.960 --> 59:41.160
+ And regardless of whether it's good or bad,
+
+59:41.160 --> 59:43.680
+ it's much cheaper at the hardware level to implement
+
+59:43.680 --> 59:48.080
+ because the area and time of a multiplier
+
+59:48.080 --> 59:50.840
+ is n squared in the number of bits in the mantissa,
+
+59:50.840 --> 59:53.320
+ but it's linear with size of the exponent.
+
+59:53.320 --> 59:55.400
+ And you're connected to both efforts
+
+59:55.400 --> 59:57.160
+ here both on the hardware and the software side?
+
+59:57.160 --> 59:58.880
+ Yeah, and so that was a breakthrough
+
+59:58.880 --> 1:00:01.440
+ coming from the research side and people
+
+1:00:01.440 --> 1:00:06.000
+ working on optimizing network transport of weights
+
+1:00:06.000 --> 1:00:08.240
+ across the network originally and trying
+
+1:00:08.240 --> 1:00:10.160
+ to find ways to compress that.
+
+1:00:10.160 --> 1:00:12.120
+ But then it got burned into silicon.
+
+1:00:12.120 --> 1:00:14.560
+ And it's a key part of what makes TPU performance
+
+1:00:14.560 --> 1:00:17.880
+ so amazing and great.
+
+1:00:17.880 --> 1:00:20.680
+ Now, TPUs have many different aspects that are important.
+
+1:00:20.680 --> 1:00:25.080
+ But the co design between the low level compiler bits
+
+1:00:25.080 --> 1:00:27.360
+ and the software bits and the algorithms
+
+1:00:27.360 --> 1:00:28.680
+ is all super important.
+
+1:00:28.680 --> 1:00:32.880
+ And it's this amazing trifecta that only Google can do.
+
+1:00:32.880 --> 1:00:34.240
+ Yeah, that's super exciting.
+
+1:00:34.240 --> 1:00:39.800
+ So can you tell me about MLIR project, previously
+
+1:00:39.800 --> 1:00:41.400
+ the secretive one?
+
+1:00:41.400 --> 1:00:43.040
+ Yeah, so MLIR is a project that we
+
+1:00:43.040 --> 1:00:47.000
+ announced at a compiler conference three weeks ago
+
+1:00:47.000 --> 1:00:49.280
+ or something at the Compilers for Machine Learning
+
+1:00:49.280 --> 1:00:50.920
+ conference.
+
+1:00:50.920 --> 1:00:53.760
+ Basically, again, if you look at TensorFlow as a compiler stack,
+
+1:00:53.760 --> 1:00:56.120
+ it has a number of compiler algorithms within it.
+
+1:00:56.120 --> 1:00:57.660
+ It also has a number of compilers
+
+1:00:57.660 --> 1:00:59.000
+ that get embedded into it.
+
+1:00:59.000 --> 1:01:00.480
+ And they're made by different vendors.
+
+1:01:00.480 --> 1:01:02.840
+ For example, Google has XLA, which
+
+1:01:02.840 --> 1:01:04.680
+ is a great compiler system.
+
+1:01:04.680 --> 1:01:06.480
+ NVIDIA has TensorRT.
+
+1:01:06.480 --> 1:01:08.640
+ Intel has NGRAPH.
+
+1:01:08.640 --> 1:01:10.840
+ There's a number of these different compiler systems.
+
+1:01:10.840 --> 1:01:13.840
+ And they're very hardware specific.
+
+1:01:13.840 --> 1:01:16.480
+ And they're trying to solve different parts of the problems.
+
+1:01:16.480 --> 1:01:19.400
+ But they're all kind of similar in a sense of they
+
+1:01:19.400 --> 1:01:20.880
+ want to integrate with TensorFlow.
+
+1:01:20.880 --> 1:01:22.960
+ Now, TensorFlow has an optimizer.
+
+1:01:22.960 --> 1:01:25.540
+ And it has these different code generation technologies
+
+1:01:25.540 --> 1:01:26.440
+ built in.
+
+1:01:26.440 --> 1:01:28.720
+ The idea of MLIR is to build a common infrastructure
+
+1:01:28.720 --> 1:01:31.160
+ to support all these different subsystems.
+
+1:01:31.160 --> 1:01:33.500
+ And initially, it's to be able to make it
+
+1:01:33.500 --> 1:01:34.880
+ so that they all plug in together
+
+1:01:34.880 --> 1:01:37.880
+ and they can share a lot more code and can be reusable.
+
+1:01:37.880 --> 1:01:39.680
+ But over time, we hope that the industry
+
+1:01:39.680 --> 1:01:42.480
+ will start collaborating and sharing code.
+
+1:01:42.480 --> 1:01:45.320
+ And instead of reinventing the same things over and over again,
+
+1:01:45.320 --> 1:01:49.280
+ that we can actually foster some of that working together
+
+1:01:49.280 --> 1:01:51.560
+ to solve common problem energy that
+
+1:01:51.560 --> 1:01:54.480
+ has been useful in the compiler field before.
+
+1:01:54.480 --> 1:01:57.360
+ Beyond that, MLIR is some people have joked
+
+1:01:57.360 --> 1:01:59.320
+ that it's kind of LLVM too.
+
+1:01:59.320 --> 1:02:01.840
+ It learns a lot about what LLVM has been good
+
+1:02:01.840 --> 1:02:04.360
+ and what LLVM has done wrong.
+
+1:02:04.360 --> 1:02:06.880
+ And it's a chance to fix that.
+
+1:02:06.880 --> 1:02:09.840
+ And also, there are challenges in the LLVM ecosystem as well,
+
+1:02:09.840 --> 1:02:12.760
+ where LLVM is very good at the thing it was designed to do.
+
+1:02:12.760 --> 1:02:15.560
+ But 20 years later, the world has changed.
+
+1:02:15.560 --> 1:02:17.980
+ And people are trying to solve higher level problems.
+
+1:02:17.980 --> 1:02:20.360
+ And we need some new technology.
+
+1:02:20.360 --> 1:02:24.720
+ And what's the future of open source in this context?
+
+1:02:24.720 --> 1:02:25.760
+ Very soon.
+
+1:02:25.760 --> 1:02:27.480
+ So it is not yet open source.
+
+1:02:27.480 --> 1:02:29.320
+ But it will be hopefully in the next couple months.
+
+1:02:29.320 --> 1:02:31.040
+ So you still believe in the value of open source
+
+1:02:31.040 --> 1:02:31.640
+ in these kinds of contexts?
+
+1:02:31.640 --> 1:02:31.880
+ Oh, yeah.
+
+1:02:31.880 --> 1:02:32.440
+ Absolutely.
+
+1:02:32.440 --> 1:02:36.160
+ And I think that the TensorFlow community at large
+
+1:02:36.160 --> 1:02:37.720
+ fully believes in open source.
+
+1:02:37.720 --> 1:02:40.120
+ So I mean, there is a difference between Apple,
+
+1:02:40.120 --> 1:02:42.480
+ where you were previously, and Google now,
+
+1:02:42.480 --> 1:02:43.520
+ in spirit and culture.
+
+1:02:43.520 --> 1:02:45.480
+ And I would say the open source in TensorFlow
+
+1:02:45.480 --> 1:02:48.400
+ was a seminal moment in the history of software,
+
+1:02:48.400 --> 1:02:51.680
+ because here's this large company releasing
+
+1:02:51.680 --> 1:02:56.200
+ a very large code base that's open sourcing.
+
+1:02:56.200 --> 1:02:58.520
+ What are your thoughts on that?
+
+1:02:58.520 --> 1:03:00.840
+ Happy or not, were you to see that kind
+
+1:03:00.840 --> 1:03:02.920
+ of degree of open sourcing?
+
+1:03:02.920 --> 1:03:05.360
+ So between the two, I prefer the Google approach,
+
+1:03:05.360 --> 1:03:07.800
+ if that's what you're saying.
+
+1:03:07.800 --> 1:03:12.400
+ The Apple approach makes sense, given the historical context
+
+1:03:12.400 --> 1:03:13.400
+ that Apple came from.
+
+1:03:13.400 --> 1:03:15.760
+ But that's been 35 years ago.
+
+1:03:15.760 --> 1:03:18.200
+ And I think that Apple is definitely adapting.
+
+1:03:18.200 --> 1:03:20.280
+ And the way I look at it is that there's
+
+1:03:20.280 --> 1:03:23.160
+ different kinds of concerns in the space.
+
+1:03:23.160 --> 1:03:24.880
+ It is very rational for a business
+
+1:03:24.880 --> 1:03:28.720
+ to care about making money.
+
+1:03:28.720 --> 1:03:31.640
+ That fundamentally is what a business is about.
+
+1:03:31.640 --> 1:03:34.880
+ But I think it's also incredibly realistic to say,
+
+1:03:34.880 --> 1:03:36.360
+ it's not your string library that's
+
+1:03:36.360 --> 1:03:38.080
+ the thing that's going to make you money.
+
+1:03:38.080 --> 1:03:41.480
+ It's going to be the amazing UI product differentiating
+
+1:03:41.480 --> 1:03:43.840
+ features and other things like that that you built on top
+
+1:03:43.840 --> 1:03:45.280
+ of your string library.
+
+1:03:45.280 --> 1:03:48.280
+ And so keeping your string library
+
+1:03:48.280 --> 1:03:50.360
+ proprietary and secret and things
+
+1:03:50.360 --> 1:03:54.760
+ like that is maybe not the important thing anymore.
+
+1:03:54.760 --> 1:03:57.720
+ Where before, platforms were different.
+
+1:03:57.720 --> 1:04:01.520
+ And even 15 years ago, things were a little bit different.
+
+1:04:01.520 --> 1:04:02.920
+ But the world is changing.
+
+1:04:02.920 --> 1:04:04.840
+ So Google strikes a very good balance,
+
+1:04:04.840 --> 1:04:05.340
+ I think.
+
+1:04:05.340 --> 1:04:09.040
+ And I think that TensorFlow being open source really
+
+1:04:09.040 --> 1:04:12.000
+ changed the entire machine learning field
+
+1:04:12.000 --> 1:04:14.080
+ and caused a revolution in its own right.
+
+1:04:14.080 --> 1:04:17.560
+ And so I think it's amazingly forward looking
+
+1:04:17.560 --> 1:04:20.880
+ because I could have imagined, and I wasn't at Google
+
+1:04:20.880 --> 1:04:23.160
+ at the time, but I could imagine a different context
+
+1:04:23.160 --> 1:04:25.520
+ and different world where a company says,
+
+1:04:25.520 --> 1:04:27.640
+ machine learning is critical to what we're doing.
+
+1:04:27.640 --> 1:04:29.640
+ We're not going to give it to other people.
+
+1:04:29.640 --> 1:04:35.560
+ And so that decision is a profoundly brilliant insight
+
+1:04:35.560 --> 1:04:37.480
+ that I think has really led to the world being
+
+1:04:37.480 --> 1:04:40.120
+ better and better for Google as well.
+
+1:04:40.120 --> 1:04:42.200
+ And has all kinds of ripple effects.
+
+1:04:42.200 --> 1:04:45.160
+ I think it is really, I mean, you
+
+1:04:45.160 --> 1:04:48.800
+ can't understate Google deciding how profound that
+
+1:04:48.800 --> 1:04:49.840
+ is for software.
+
+1:04:49.840 --> 1:04:50.880
+ It's awesome.
+
+1:04:50.880 --> 1:04:54.900
+ Well, and again, I can understand the concern
+
+1:04:54.900 --> 1:04:58.440
+ about if we release our machine learning software,
+
+1:04:58.440 --> 1:05:00.000
+ our competitors could go faster.
+
+1:05:00.000 --> 1:05:02.500
+ But on the other hand, I think that open sourcing TensorFlow
+
+1:05:02.500 --> 1:05:03.960
+ has been fantastic for Google.
+
+1:05:03.960 --> 1:05:09.120
+ And I'm sure that decision was very nonobvious at the time,
+
+1:05:09.120 --> 1:05:11.480
+ but I think it's worked out very well.
+
+1:05:11.480 --> 1:05:13.240
+ So let's try this real quick.
+
+1:05:13.240 --> 1:05:15.640
+ You were at Tesla for five months
+
+1:05:15.640 --> 1:05:17.640
+ as the VP of autopilot software.
+
+1:05:17.640 --> 1:05:20.520
+ You led the team during the transition from H hardware
+
+1:05:20.520 --> 1:05:22.360
+ one to hardware two.
+
+1:05:22.360 --> 1:05:23.520
+ I have a couple of questions.
+
+1:05:23.520 --> 1:05:26.320
+ So one, first of all, to me, that's
+
+1:05:26.320 --> 1:05:33.000
+ one of the bravest engineering decisions undertaking really
+
+1:05:33.000 --> 1:05:36.040
+ ever in the automotive industry to me, software wise,
+
+1:05:36.040 --> 1:05:37.440
+ starting from scratch.
+
+1:05:37.440 --> 1:05:39.200
+ It's a really brave engineering decision.
+
+1:05:39.200 --> 1:05:42.600
+ So my one question there is, what was that like?
+
+1:05:42.600 --> 1:05:43.920
+ What was the challenge of that?
+
+1:05:43.920 --> 1:05:45.720
+ Do you mean the career decision of jumping
+
+1:05:45.720 --> 1:05:48.800
+ from a comfortable good job into the unknown, or?
+
+1:05:48.800 --> 1:05:51.480
+ That combined, so at the individual level,
+
+1:05:51.480 --> 1:05:54.560
+ you making that decision.
+
+1:05:54.560 --> 1:05:57.960
+ And then when you show up, it's a really hard engineering
+
+1:05:57.960 --> 1:05:58.760
+ problem.
+
+1:05:58.760 --> 1:06:03.560
+ So you could just stay, maybe slow down,
+
+1:06:03.560 --> 1:06:06.680
+ say hardware one, or those kinds of decisions.
+
+1:06:06.680 --> 1:06:10.160
+ Just taking it full on, let's do this from scratch.
+
+1:06:10.160 --> 1:06:11.080
+ What was that like?
+
+1:06:11.080 --> 1:06:12.640
+ Well, so I mean, I don't think Tesla
+
+1:06:12.640 --> 1:06:16.080
+ has a culture of taking things slow and seeing how it goes.
+
+1:06:16.080 --> 1:06:18.080
+ And one of the things that attracted me about Tesla
+
+1:06:18.080 --> 1:06:20.020
+ is it's very much a gung ho, let's change the world,
+
+1:06:20.020 --> 1:06:21.520
+ let's figure it out kind of a place.
+
+1:06:21.520 --> 1:06:25.640
+ And so I have a huge amount of respect for that.
+
+1:06:25.640 --> 1:06:28.680
+ Tesla has done very smart things with hardware one
+
+1:06:28.680 --> 1:06:29.400
+ in particular.
+
+1:06:29.400 --> 1:06:32.200
+ And the hardware one design was originally
+
+1:06:32.200 --> 1:06:36.560
+ designed to be very simple automation features
+
+1:06:36.560 --> 1:06:39.360
+ in the car for like traffic aware cruise control and things
+
+1:06:39.360 --> 1:06:39.840
+ like that.
+
+1:06:39.840 --> 1:06:42.920
+ And the fact that they were able to effectively feature creep
+
+1:06:42.920 --> 1:06:47.720
+ it into lane holding and a very useful driver assistance
+
+1:06:47.720 --> 1:06:50.120
+ feature is pretty astounding, particularly given
+
+1:06:50.120 --> 1:06:52.560
+ the details of the hardware.
+
+1:06:52.560 --> 1:06:54.640
+ Hardware two built on that in a lot of ways.
+
+1:06:54.640 --> 1:06:56.180
+ And the challenge there was that they
+
+1:06:56.180 --> 1:07:00.040
+ were transitioning from a third party provided vision stack
+
+1:07:00.040 --> 1:07:01.720
+ to an in house built vision stack.
+
+1:07:01.720 --> 1:07:05.680
+ And so for the first step, which I mostly helped with,
+
+1:07:05.680 --> 1:07:08.480
+ was getting onto that new vision stack.
+
+1:07:08.480 --> 1:07:10.800
+ And that was very challenging.
+
+1:07:10.800 --> 1:07:14.000
+ And it was time critical for various reasons,
+
+1:07:14.000 --> 1:07:14.960
+ and it was a big leap.
+
+1:07:14.960 --> 1:07:16.640
+ But it was fortunate that it built
+
+1:07:16.640 --> 1:07:18.800
+ on a lot of the knowledge and expertise and the team
+
+1:07:18.800 --> 1:07:22.920
+ that had built hardware one's driver assistance features.
+
+1:07:22.920 --> 1:07:25.360
+ So you spoke in a collected and kind way
+
+1:07:25.360 --> 1:07:28.960
+ about your time at Tesla, but it was ultimately not a good fit.
+
+1:07:28.960 --> 1:07:31.840
+ Elon Musk, we've talked on this podcast,
+
+1:07:31.840 --> 1:07:33.880
+ several guests to the course, Elon Musk
+
+1:07:33.880 --> 1:07:36.880
+ continues to do some of the most bold and innovative engineering
+
+1:07:36.880 --> 1:07:39.560
+ work in the world, at times at the cost
+
+1:07:39.560 --> 1:07:41.280
+ some of the members of the Tesla team.
+
+1:07:41.280 --> 1:07:45.080
+ What did you learn about working in this chaotic world
+
+1:07:45.080 --> 1:07:46.720
+ with Elon?
+
+1:07:46.720 --> 1:07:50.560
+ Yeah, so I guess I would say that when I was at Tesla,
+
+1:07:50.560 --> 1:07:54.440
+ I experienced and saw the highest degree of turnover
+
+1:07:54.440 --> 1:07:58.240
+ I'd ever seen in a company, which was a bit of a shock.
+
+1:07:58.240 --> 1:08:00.520
+ But one of the things I learned and I came to respect
+
+1:08:00.520 --> 1:08:03.760
+ is that Elon's able to attract amazing talent because he
+
+1:08:03.760 --> 1:08:05.660
+ has a very clear vision of the future,
+
+1:08:05.660 --> 1:08:07.200
+ and he can get people to buy into it
+
+1:08:07.200 --> 1:08:09.840
+ because they want that future to happen.
+
+1:08:09.840 --> 1:08:11.840
+ And the power of vision is something
+
+1:08:11.840 --> 1:08:14.240
+ that I have a tremendous amount of respect for.
+
+1:08:14.240 --> 1:08:17.040
+ And I think that Elon is fairly singular
+
+1:08:17.040 --> 1:08:20.120
+ in the world in terms of the things
+
+1:08:20.120 --> 1:08:22.360
+ he's able to get people to believe in.
+
+1:08:22.360 --> 1:08:27.360
+ And there are many people that stand in the street corner
+
+1:08:27.360 --> 1:08:30.200
+ and say, ah, we're going to go to Mars, right?
+
+1:08:30.200 --> 1:08:31.600
+ But then there are a few people that
+
+1:08:31.600 --> 1:08:35.200
+ can get others to buy into it and believe and build the path
+
+1:08:35.200 --> 1:08:36.160
+ and make it happen.
+
+1:08:36.160 --> 1:08:39.120
+ And so I respect that.
+
+1:08:39.120 --> 1:08:41.880
+ I don't respect all of his methods,
+
+1:08:41.880 --> 1:08:45.000
+ but I have a huge amount of respect for that.
+
+1:08:45.000 --> 1:08:46.920
+ You've mentioned in a few places,
+
+1:08:46.920 --> 1:08:50.440
+ including in this context, working hard.
+
+1:08:50.440 --> 1:08:52.000
+ What does it mean to work hard?
+
+1:08:52.000 --> 1:08:53.520
+ And when you look back at your life,
+
+1:08:53.520 --> 1:08:57.080
+ what were some of the most brutal periods
+
+1:08:57.080 --> 1:09:00.760
+ of having to really put everything
+
+1:09:00.760 --> 1:09:03.360
+ you have into something?
+
+1:09:03.360 --> 1:09:05.040
+ Yeah, good question.
+
+1:09:05.040 --> 1:09:07.440
+ So working hard can be defined a lot of different ways,
+
+1:09:07.440 --> 1:09:12.480
+ so a lot of hours, and so that is true.
+
+1:09:12.480 --> 1:09:14.520
+ The thing to me that's the hardest
+
+1:09:14.520 --> 1:09:18.760
+ is both being short term focused on delivering and executing
+
+1:09:18.760 --> 1:09:21.120
+ and making a thing happen while also thinking
+
+1:09:21.120 --> 1:09:24.400
+ about the longer term and trying to balance that.
+
+1:09:24.400 --> 1:09:28.520
+ Because if you are myopically focused on solving a task
+
+1:09:28.520 --> 1:09:31.240
+ and getting that done and only think
+
+1:09:31.240 --> 1:09:32.600
+ about that incremental next step,
+
+1:09:32.600 --> 1:09:36.440
+ you will miss the next big hill you should jump over to.
+
+1:09:36.440 --> 1:09:39.600
+ And so I've been really fortunate that I've
+
+1:09:39.600 --> 1:09:42.120
+ been able to kind of oscillate between the two.
+
+1:09:42.120 --> 1:09:45.480
+ And historically at Apple, for example, that
+
+1:09:45.480 --> 1:09:47.920
+ was made possible because I was able to work with some really
+
+1:09:47.920 --> 1:09:50.360
+ amazing people and build up teams and leadership
+
+1:09:50.360 --> 1:09:55.280
+ structures and allow them to grow in their careers
+
+1:09:55.280 --> 1:09:58.280
+ and take on responsibility, thereby freeing up
+
+1:09:58.280 --> 1:10:02.960
+ me to be a little bit crazy and thinking about the next thing.
+
+1:10:02.960 --> 1:10:04.640
+ And so it's a lot of that.
+
+1:10:04.640 --> 1:10:06.760
+ But it's also about with experience,
+
+1:10:06.760 --> 1:10:10.080
+ you make connections that other people don't necessarily make.
+
+1:10:10.080 --> 1:10:12.880
+ And so I think that's a big part as well.
+
+1:10:12.880 --> 1:10:16.000
+ But the bedrock is just a lot of hours.
+
+1:10:16.000 --> 1:10:19.600
+ And that's OK with me.
+
+1:10:19.600 --> 1:10:21.480
+ There's different theories on work life balance.
+
+1:10:21.480 --> 1:10:25.200
+ And my theory for myself, which I do not project onto the team,
+
+1:10:25.200 --> 1:10:28.520
+ but my theory for myself is that I
+
+1:10:28.520 --> 1:10:30.400
+ want to love what I'm doing and work really hard.
+
+1:10:30.400 --> 1:10:35.000
+ And my purpose, I feel like, and my goal is to change the world
+
+1:10:35.000 --> 1:10:36.280
+ and make it a better place.
+
+1:10:36.280 --> 1:10:40.000
+ And that's what I'm really motivated to do.
+
+1:10:40.000 --> 1:10:44.760
+ So last question, LLVM logo is a dragon.
+
+1:10:44.760 --> 1:10:47.880
+ You explain that this is because dragons have connotations
+
+1:10:47.880 --> 1:10:50.320
+ of power, speed, intelligence.
+
+1:10:50.320 --> 1:10:53.320
+ It can also be sleek, elegant, and modular,
+
+1:10:53.320 --> 1:10:56.280
+ though you remove the modular part.
+
+1:10:56.280 --> 1:10:58.920
+ What is your favorite dragon related character
+
+1:10:58.920 --> 1:11:01.440
+ from fiction, video, or movies?
+
+1:11:01.440 --> 1:11:03.840
+ So those are all very kind ways of explaining it.
+
+1:11:03.840 --> 1:11:06.200
+ Do you want to know the real reason it's a dragon?
+
+1:11:06.200 --> 1:11:07.000
+ Yeah.
+
+1:11:07.000 --> 1:11:07.920
+ Is that better?
+
+1:11:07.920 --> 1:11:11.040
+ So there is a seminal book on compiler design
+
+1:11:11.040 --> 1:11:12.520
+ called The Dragon Book.
+
+1:11:12.520 --> 1:11:16.320
+ And so this is a really old now book on compilers.
+
+1:11:16.320 --> 1:11:22.080
+ And so the dragon logo for LLVM came about because at Apple,
+
+1:11:22.080 --> 1:11:24.720
+ we kept talking about LLVM related technologies
+
+1:11:24.720 --> 1:11:26.960
+ and there's no logo to put on a slide.
+
+1:11:26.960 --> 1:11:28.480
+ And so we're like, what do we do?
+
+1:11:28.480 --> 1:11:30.480
+ And somebody's like, well, what kind of logo
+
+1:11:30.480 --> 1:11:32.160
+ should a compiler technology have?
+
+1:11:32.160 --> 1:11:33.360
+ And I'm like, I don't know.
+
+1:11:33.360 --> 1:11:37.320
+ I mean, the dragon is the best thing that we've got.
+
+1:11:37.320 --> 1:11:41.520
+ And Apple somehow magically came up with the logo.
+
+1:11:41.520 --> 1:11:42.680
+ And it was a great thing.
+
+1:11:42.680 --> 1:11:44.520
+ And the whole community rallied around it.
+
+1:11:44.520 --> 1:11:46.760
+ And then it got better as other graphic designers
+
+1:11:46.760 --> 1:11:47.360
+ got involved.
+
+1:11:47.360 --> 1:11:49.360
+ But that's originally where it came from.
+
+1:11:49.360 --> 1:11:50.160
+ The story.
+
+1:11:50.160 --> 1:11:51.960
+ Is there dragons from fiction that you
+
+1:11:51.960 --> 1:11:57.240
+ connect with, that Game of Thrones, Lord of the Rings,
+
+1:11:57.240 --> 1:11:58.080
+ that kind of thing?
+
+1:11:58.080 --> 1:11:59.200
+ Lord of the Rings is great.
+
+1:11:59.200 --> 1:12:00.760
+ I also like role playing games and things
+
+1:12:00.760 --> 1:12:02.240
+ like computer role playing games.
+
+1:12:02.240 --> 1:12:04.280
+ And so dragons often show up in there.
+
+1:12:04.280 --> 1:12:07.160
+ But really, it comes back to the book.
+
+1:12:07.160 --> 1:12:09.960
+ Oh, no, we need a thing.
+
+1:12:09.960 --> 1:12:13.720
+ And hilariously, one of the funny things about LLVM
+
+1:12:13.720 --> 1:12:19.520
+ is that my wife, who's amazing, runs the LLVM Foundation.
+
+1:12:19.520 --> 1:12:21.080
+ And she goes to Grace Hopper and is
+
+1:12:21.080 --> 1:12:23.360
+ trying to get more women involved in the.
+
+1:12:23.360 --> 1:12:24.640
+ She's also a compiler engineer.
+
+1:12:24.640 --> 1:12:26.080
+ So she's trying to get other women
+
+1:12:26.080 --> 1:12:28.020
+ to get interested in compilers and things like this.
+
+1:12:28.020 --> 1:12:30.000
+ And so she hands out the stickers.
+
+1:12:30.000 --> 1:12:34.320
+ And people like the LLVM sticker because of Game of Thrones.
+
+1:12:34.320 --> 1:12:36.880
+ And so sometimes culture has this helpful effect
+
+1:12:36.880 --> 1:12:39.960
+ to get the next generation of compiler engineers
+
+1:12:39.960 --> 1:12:42.400
+ engaged with the cause.
+
+1:12:42.400 --> 1:12:43.320
+ OK, awesome.
+
+1:12:43.320 --> 1:12:44.800
+ Chris, thanks so much for talking with us.
+
+1:12:44.800 --> 1:13:05.920
+ It's been great talking with you.
+

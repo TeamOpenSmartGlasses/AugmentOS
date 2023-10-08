@@ -1,0 +1,2198 @@
+WEBVTT
+
+00:00.000 --> 00:05.680
+ The following is a conversation with Daniel Kahneman, winner of the Nobel Prize in Economics
+
+00:05.680 --> 00:10.080
+ for his integration of economic science with the psychology of human behavior,
+
+00:10.080 --> 00:16.240
+ judgment, and decision making. He's the author of the popular book Thinking Fast and Slow that
+
+00:16.240 --> 00:22.160
+ summarizes in an accessible way his research of several decades, often in collaboration with
+
+00:22.160 --> 00:29.600
+ Amos Tversky on cognitive biases, prospect theory, and happiness. The central thesis of this work
+
+00:29.600 --> 00:35.520
+ is the dichotomy between two modes of thought. What he calls system one is fast, instinctive,
+
+00:35.520 --> 00:41.440
+ and emotional. System two is slower, more deliberative, and more logical. The book
+
+00:41.440 --> 00:45.840
+ delineates cognitive biases associated with each of these two types of thinking.
+
+00:46.960 --> 00:53.040
+ His study of the human mind and its peculiar and fascinating limitations are both instructive and
+
+00:53.040 --> 00:59.200
+ inspiring for those of us seeking to engineer intelligent systems. This is the Artificial
+
+00:59.200 --> 01:05.120
+ Intelligence Podcast. If you enjoy it, subscribe on YouTube, give it five stars on Apple Podcast,
+
+01:05.120 --> 01:10.000
+ follow on Spotify, support it on Patreon, or simply connect with me on Twitter at
+
+01:10.000 --> 01:16.800
+ Lex Friedman spelled F R I D M A N. I recently started doing ads at the end of the introduction.
+
+01:16.800 --> 01:21.280
+ I'll do one or two minutes after introducing the episode and never any ads in the middle
+
+01:21.280 --> 01:25.920
+ that can break the flow of the conversation. I hope that works for you and doesn't hurt the
+
+01:25.920 --> 01:32.160
+ listening experience. This show is presented by Cash App, the number one finance app in the App
+
+01:32.160 --> 01:37.440
+ Store. I personally use Cash App to send money to friends, but you can also use it to buy, sell,
+
+01:37.440 --> 01:43.280
+ and deposit Bitcoin in just seconds. Cash App also has a new investing feature. You can buy
+
+01:43.280 --> 01:48.640
+ fractions of a stock, say one dollar's worth, no matter what the stock price is. Broker services
+
+01:48.640 --> 01:55.280
+ are provided by Cash App Investing, a subsidiary of Square and member SIPC. I'm excited to be
+
+01:55.280 --> 02:00.480
+ working with Cash App to support one of my favorite organizations called First, best known
+
+02:00.480 --> 02:05.760
+ for their FIRST Robotics and Lego competitions. They educate and inspire hundreds of thousands
+
+02:05.760 --> 02:11.360
+ of students in over 110 countries and have a perfect rating at Charity Navigator, which means
+
+02:11.360 --> 02:17.120
+ that donated money is used to maximum effectiveness. When you get Cash App from the App Store or Google
+
+02:17.120 --> 02:24.480
+ Play and use code LEXPODCAST, you'll get $10 and Cash App will also donate $10 to FIRST,
+
+02:24.480 --> 02:29.920
+ which again is an organization that I've personally seen inspire girls and boys to dream
+
+02:29.920 --> 02:35.520
+ of engineering a better world. And now here's my conversation with Daniel Kahneman.
+
+02:36.800 --> 02:43.600
+ You tell a story of an SS soldier early in the war, World War II, in Nazi occupied France in
+
+02:43.600 --> 02:50.160
+ Paris, where you grew up. He picked you up and hugged you and showed you a picture of a boy,
+
+02:50.160 --> 02:53.840
+ Daniel Kahneman. Maybe not realizing that you were Jewish.
+
+02:53.840 --> 02:55.520
+ Not maybe, certainly not.
+
+02:56.400 --> 03:01.360
+ So I told you I'm from the Soviet Union that was significantly impacted by the war as well,
+
+03:01.360 --> 03:08.720
+ and I'm Jewish as well. What do you think World War II taught us about human psychology broadly?
+
+03:09.680 --> 03:17.520
+ Well, I think the only big surprise is the extermination policy, genocide,
+
+03:17.520 --> 03:27.040
+ by the German people. That's when you look back on it, and I think that's a major surprise.
+
+03:27.040 --> 03:28.240
+ It's a surprise because...
+
+03:28.240 --> 03:34.720
+ It's a surprise that they could do it. It's a surprise that enough people
+
+03:34.720 --> 03:41.520
+ willingly participated in that. This is a surprise. Now it's no longer a surprise,
+
+03:41.520 --> 03:49.840
+ but it's changed many people's views, I think, about human beings. Certainly for me,
+
+03:50.720 --> 03:58.080
+ the Ackman trial, that teaches you something because it's very clear that if it could happen
+
+03:58.080 --> 04:04.080
+ in Germany, it could happen anywhere. It's not that the Germans were special.
+
+04:04.080 --> 04:05.280
+ This could happen anywhere.
+
+04:05.280 --> 04:13.600
+ So what do you think that is? Do you think we're all capable of evil? We're all capable of cruelty?
+
+04:13.600 --> 04:22.400
+ I don't think in those terms. I think that what is certainly possible is you can dehumanize people
+
+04:23.200 --> 04:32.480
+ so that you treat them not as people anymore, but as animals. And the same way that you can slaughter
+
+04:32.480 --> 04:39.520
+ animals without feeling much of anything, it can be the same. And when you feel that,
+
+04:41.120 --> 04:49.360
+ I think, the combination of dehumanizing the other side and having uncontrolled power over
+
+04:49.360 --> 04:54.560
+ other people, I think that doesn't bring out the most generous aspect of human nature.
+
+04:54.560 --> 05:07.920
+ So that Nazi soldier, he was a good man. And he was perfectly capable of killing a lot of people,
+
+05:08.480 --> 05:09.440
+ and I'm sure he did.
+
+05:10.080 --> 05:20.160
+ But what did the Jewish people mean to Nazis? So what the dismissal of Jewish as worthy of?
+
+05:20.160 --> 05:24.560
+ IA Again, this is surprising that it was so extreme,
+
+05:25.120 --> 05:32.480
+ but it's not one thing in human nature. I don't want to call it evil, but the distinction between
+
+05:32.480 --> 05:40.160
+ the in group and the out group, that is very basic. So that's built in. The loyalty and
+
+05:40.160 --> 05:50.320
+ affection towards in group and the willingness to dehumanize the out group, that is in human nature.
+
+05:50.320 --> 05:57.920
+ That's what I think probably didn't need the Holocaust to teach us that. But the Holocaust is
+
+05:57.920 --> 06:05.120
+ a very sharp lesson of what can happen to people and what people can do.
+
+06:05.120 --> 06:12.640
+ SL. So the effect of the in group and the out group. IA It's clear. Those were people,
+
+06:13.600 --> 06:22.000
+ you could shoot them. They were not human. There was no empathy, or very, very little empathy left.
+
+06:23.680 --> 06:32.720
+ So occasionally, there might have been. And very quickly, by the way, the empathy disappeared,
+
+06:32.720 --> 06:37.680
+ if there was initially. And the fact that everybody around you was doing it,
+
+06:39.840 --> 06:51.120
+ that completely, the group doing it, and everybody shooting Jews, I think that makes it permissible.
+
+06:51.120 --> 07:01.280
+ Now, how much, whether it could happen in every culture, or whether the Germans were just
+
+07:01.280 --> 07:10.000
+ particularly efficient and disciplined, so they could get away with it. It's an interesting
+
+07:10.000 --> 07:15.360
+ question. SL. Are these artifacts of history or is it human nature? IA I think that's really human
+
+07:15.360 --> 07:24.480
+ nature. You put some people in a position of power relative to other people, and then they become
+
+07:24.480 --> 07:32.240
+ less human, they become different. SL. But in general, in war, outside of concentration camps
+
+07:32.240 --> 07:39.760
+ in World War Two, it seems that war brings out darker sides of human nature, but also the beautiful
+
+07:39.760 --> 07:49.120
+ things about human nature. IA Well, I mean, what it brings out is the loyalty among soldiers. I mean,
+
+07:49.120 --> 07:57.920
+ it brings out the bonding, male bonding, I think is a very real thing that happens. And there is
+
+07:57.920 --> 08:03.840
+ a certain thrill to friendship, and there is certainly a certain thrill to friendship under
+
+08:03.840 --> 08:12.400
+ risk and to shared risk. And so people have very profound emotions, up to the point where it gets
+
+08:12.400 --> 08:23.040
+ so traumatic that little is left. SL. So let's talk about psychology a little bit. In your book,
+
+08:23.040 --> 08:30.640
+ Thinking Fast and Slow, you describe two modes of thought, system one, the fast and instinctive,
+
+08:31.200 --> 08:37.360
+ and emotional one, and system two, the slower, deliberate, logical one. At the risk of asking
+
+08:37.360 --> 08:46.320
+ Darwin to discuss theory of evolution, can you describe distinguishing characteristics for people
+
+08:46.320 --> 08:52.800
+ who have not read your book of the two systems? IA Well, I mean, the word system is a bit
+
+08:52.800 --> 09:01.440
+ misleading, but at the same time it's misleading, it's also very useful. But what I call system one,
+
+09:01.440 --> 09:09.120
+ it's easier to think of it as a family of activities. And primarily, the way I describe it
+
+09:09.120 --> 09:17.200
+ is there are different ways for ideas to come to mind. And some ideas come to mind automatically,
+
+09:17.920 --> 09:26.480
+ and the standard example is two plus two, and then something happens to you. And in other cases,
+
+09:26.480 --> 09:32.240
+ you've got to do something, you've got to work in order to produce the idea. And my example,
+
+09:32.240 --> 09:38.000
+ I always give the same pair of numbers as 27 times 14, I think. SL. You have to perform some
+
+09:38.000 --> 09:44.560
+ algorithm in your head, some steps. IA Yes, and it takes time. It's a very difference. Nothing
+
+09:44.560 --> 09:50.640
+ comes to mind except something comes to mind, which is the algorithm, I mean, that you've got
+
+09:50.640 --> 09:58.000
+ to perform. And then it's work, and it engages short term memory, it engages executive function,
+
+09:58.000 --> 10:04.560
+ and it makes you incapable of doing other things at the same time. So the main characteristic of
+
+10:04.560 --> 10:10.960
+ system two is that there is mental effort involved, and there is a limited capacity for mental effort,
+
+10:10.960 --> 10:15.600
+ whereas system one is effortless, essentially. That's the major distinction.
+
+10:15.600 --> 10:21.040
+ SL. So you talk about there, you know, it's really convenient to talk about two systems,
+
+10:21.040 --> 10:28.240
+ but you also mentioned just now and in general that there's no distinct two systems in the brain
+
+10:29.120 --> 10:36.240
+ from a neurobiological, even from a psychology perspective. But why does it seem to, from the
+
+10:36.240 --> 10:46.160
+ experiments you've conducted, there does seem to be kind of emergent two modes of thinking? So
+
+10:47.120 --> 10:55.680
+ at some point, these kinds of systems came into a brain architecture. Maybe mammals share it.
+
+10:57.440 --> 11:01.520
+ Or do you not think of it at all in those terms that it's all a mush and these two things just
+
+11:01.520 --> 11:11.840
+ emerge? RL. Evolutionary theorizing about this is cheap and easy. So it's the way I think about it
+
+11:12.560 --> 11:20.720
+ is that it's very clear that animals have perceptual system, and that includes an ability
+
+11:20.720 --> 11:27.120
+ to understand the world, at least to the extent that they can predict, they can't explain anything,
+
+11:27.120 --> 11:34.000
+ but they can anticipate what's going to happen. And that's a key form of understanding the world.
+
+11:34.720 --> 11:44.400
+ And my crude idea is that what I call system two, well, system two grew out of this.
+
+11:45.200 --> 11:51.840
+ And, you know, there is language and there is the capacity of manipulating ideas and the capacity
+
+11:51.840 --> 11:57.520
+ of imagining futures and of imagining counterfactual things that haven't happened
+
+11:58.240 --> 12:05.600
+ and to do conditional thinking. And there are really a lot of abilities that without language
+
+12:06.240 --> 12:13.120
+ and without the very large brain that we have compared to others would be impossible. Now,
+
+12:13.760 --> 12:20.960
+ system one is more like what the animals are, but system one also can talk. I mean,
+
+12:20.960 --> 12:26.480
+ it has language. It understands language. Indeed, it speaks for us. I mean, you know,
+
+12:26.480 --> 12:32.800
+ I'm not choosing every word as a deliberate process. The words, I have some idea and then
+
+12:32.800 --> 12:39.040
+ the words come out and that's automatic and effortless. And many of the experiments you've
+
+12:39.040 --> 12:44.480
+ done is to show that, listen, system one exists and it does speak for us and we should be careful
+
+12:44.480 --> 12:54.400
+ about the voice it provides. Well, I mean, you know, we have to trust it because it's
+
+12:55.280 --> 13:01.760
+ the speed at which it acts. System two, if we're dependent on system two for survival,
+
+13:01.760 --> 13:06.480
+ we wouldn't survive very long because it's very slow. Yeah. Crossing the street.
+
+13:06.480 --> 13:12.560
+ Crossing the street. I mean, many things depend on their being automatic. One very important aspect
+
+13:12.560 --> 13:20.320
+ of system one is that it's not instinctive. You use the word instinctive. It contains skills that
+
+13:20.320 --> 13:27.360
+ clearly have been learned. So that skilled behavior like driving a car or speaking, in fact,
+
+13:28.800 --> 13:34.960
+ skilled behavior has to be learned. And so it doesn't, you know, you don't come equipped with
+
+13:35.920 --> 13:41.840
+ driving. You have to learn how to drive and you have to go through a period where driving is not
+
+13:41.840 --> 13:48.880
+ automatic before it becomes automatic. So. Yeah. You construct, I mean, this is where you talk
+
+13:48.880 --> 13:57.360
+ about heuristic and biases is you, to make it automatic, you create a pattern and then system
+
+13:57.360 --> 14:02.960
+ one essentially matches a new experience against the previously seen pattern. And when that match
+
+14:02.960 --> 14:08.160
+ is not a good one, that's when the cognitive, all the mess happens, but it's most of the time
+
+14:08.160 --> 14:13.840
+ it works. And so it's pretty. Most of the time, the anticipation of what's going to happen next
+
+14:13.840 --> 14:22.000
+ is correct. And most of the time the plan about what you have to do is correct. And so most of
+
+14:22.000 --> 14:29.040
+ the time everything works just fine. What's interesting actually is that in some sense,
+
+14:29.040 --> 14:36.240
+ system one is much better at what it does than system two is at what it does. That is there is
+
+14:36.240 --> 14:44.480
+ that quality of effortlessly solving enormously complicated problems, which clearly exists so
+
+14:44.480 --> 14:52.160
+ that the chess player, a very good chess player, all the moves that come to their mind are strong
+
+14:52.160 --> 14:58.960
+ moves. So all the selection of strong moves happens unconsciously and automatically and
+
+14:58.960 --> 15:05.840
+ very, very fast. And all that is in system one. So system two verifies.
+
+15:07.280 --> 15:11.840
+ So along this line of thinking, really what we are are machines that construct
+
+15:12.480 --> 15:19.360
+ a pretty effective system one. You could think of it that way. So we're not talking about humans,
+
+15:19.360 --> 15:26.400
+ but if we think about building artificial intelligence systems, robots, do you think
+
+15:26.400 --> 15:32.480
+ all the features and bugs that you have highlighted in human beings are useful
+
+15:32.480 --> 15:38.320
+ for constructing AI systems? So both systems are useful for perhaps instilling in robots?
+
+15:39.280 --> 15:50.320
+ What is happening these days is that actually what is happening in deep learning is more like
+
+15:50.320 --> 15:56.480
+ a system one product than like a system two product. I mean, deep learning matches patterns
+
+15:57.120 --> 16:04.480
+ and anticipate what's going to happen. So it's highly predictive. What deep learning
+
+16:05.120 --> 16:12.000
+ doesn't have and many people think that this is the critical, it doesn't have the ability to
+
+16:12.000 --> 16:19.040
+ reason. So there is no system two there. But I think very importantly, it doesn't have any
+
+16:19.040 --> 16:27.520
+ causality or any way to represent meaning and to represent real interactions. So until that is
+
+16:27.520 --> 16:34.880
+ solved, what can be accomplished is marvelous and very exciting, but limited.
+
+16:35.600 --> 16:40.560
+ That's actually really nice to think of current advances in machine learning as essentially
+
+16:40.560 --> 16:46.960
+ system one advances. So how far can we get with just system one? If we think of deep learning
+
+16:46.960 --> 16:52.320
+ in artificial intelligence systems? I mean, you know, it's very clear that deep mind has already
+
+16:52.320 --> 17:00.560
+ gone way beyond what people thought was possible. I think the thing that has impressed me most about
+
+17:00.560 --> 17:07.840
+ the developments in AI is the speed. It's that things, at least in the context of deep learning,
+
+17:07.840 --> 17:14.400
+ and maybe this is about to slow down, but things moved a lot faster than anticipated.
+
+17:14.400 --> 17:24.320
+ The transition from solving chess to solving Go, that's bewildering how quickly it went.
+
+17:25.600 --> 17:31.840
+ The move from Alpha Go to Alpha Zero is sort of bewildering the speed at which they accomplished
+
+17:31.840 --> 17:41.360
+ that. Now, clearly, there are many problems that you can solve that way, but there are some problems
+
+17:41.360 --> 17:45.120
+ for which you need something else. Something like reasoning.
+
+17:45.760 --> 17:54.160
+ Well, reasoning and also, you know, one of the real mysteries, psychologist Gary Marcus, who is
+
+17:54.160 --> 18:05.920
+ also a critic of AI. I mean, what he points out, and I think he has a point, is that humans learn
+
+18:05.920 --> 18:16.000
+ quickly. Children don't need a million examples, they need two or three examples. So, clearly,
+
+18:16.000 --> 18:25.280
+ there is a fundamental difference. And what enables a machine to learn quickly, what you have
+
+18:25.280 --> 18:30.400
+ to build into the machine, because it's clear that you have to build some expectations or
+
+18:30.400 --> 18:38.320
+ or something in the machine to make it ready to learn quickly. That at the moment seems to be
+
+18:38.320 --> 18:47.680
+ unsolved. I'm pretty sure that DeepMind is working on it, but if they have solved it, I haven't heard
+
+18:47.680 --> 18:54.640
+ yet. They're trying to actually, them and OpenAI are trying to start to get to use neural networks
+
+18:54.640 --> 19:02.960
+ to reason. So, assemble knowledge. Of course, causality is, temporal causality, is out of
+
+19:02.960 --> 19:09.200
+ reach to most everybody. You mentioned the benefits of System 1 is essentially that it's
+
+19:09.200 --> 19:10.960
+ fast, allows us to function in the world.
+
+19:10.960 --> 19:12.400
+ Fast and skilled, yeah.
+
+19:13.040 --> 19:13.680
+ It's skill.
+
+19:13.680 --> 19:19.920
+ And it has a model of the world. You know, in a sense, I mean, there was the early phase of
+
+19:19.920 --> 19:29.440
+ AI attempted to model reasoning. And they were moderately successful, but, you know, reasoning
+
+19:29.440 --> 19:37.440
+ by itself doesn't get you much. Deep learning has been much more successful in terms of, you know,
+
+19:37.440 --> 19:43.920
+ what they can do. But now, it's an interesting question, whether it's approaching its limits.
+
+19:43.920 --> 19:44.640
+ What do you think?
+
+19:44.640 --> 19:51.840
+ I think absolutely. So, I just talked to Gian LeCun. He mentioned, you know, so he thinks
+
+19:51.840 --> 19:57.840
+ that the limits, we're not going to hit the limits with neural networks, that ultimately,
+
+19:57.840 --> 20:06.720
+ this kind of System 1 pattern matching will start to look like System 2 without significant
+
+20:06.720 --> 20:12.480
+ transformation of the architecture. So, I'm more with the majority of the people who think that,
+
+20:12.480 --> 20:16.400
+ yes, neural networks will hit a limit in their capability.
+
+20:16.400 --> 20:22.960
+ He, on the one hand, I have heard him tell them it's a sub, it's essentially that, you know,
+
+20:22.960 --> 20:28.080
+ what they have accomplished is not a big deal, that they have just touched, that basically,
+
+20:28.080 --> 20:35.520
+ you know, they can't do unsupervised learning in an effective way. But you're telling me that he
+
+20:35.520 --> 20:41.520
+ thinks that the current, within the current architecture, you can do causality and reasoning?
+
+20:41.520 --> 20:47.200
+ So, he's very much a pragmatist in a sense that's saying that we're very far away,
+
+20:47.200 --> 20:52.960
+ that there's still, I think there's this idea that he says is, we can only see
+
+20:54.240 --> 20:59.280
+ one or two mountain peaks ahead and there might be either a few more after or
+
+20:59.280 --> 21:01.920
+ thousands more after. Yeah, so that kind of idea.
+
+21:01.920 --> 21:03.120
+ I heard that metaphor.
+
+21:03.120 --> 21:13.520
+ Yeah, right. But nevertheless, it doesn't see the final answer not fundamentally looking like one
+
+21:13.520 --> 21:18.160
+ that we currently have. So, neural networks being a huge part of that.
+
+21:18.720 --> 21:25.520
+ Yeah, I mean, that's very likely because pattern matching is so much of what's going on.
+
+21:26.400 --> 21:30.640
+ And you can think of neural networks as processing information sequentially.
+
+21:30.640 --> 21:39.680
+ Yeah, I mean, you know, there is an important aspect to, for example, you get systems that
+
+21:39.680 --> 21:44.640
+ translate and they do a very good job, but they really don't know what they're talking about.
+
+21:45.760 --> 21:55.920
+ And for that, I'm really quite surprised. For that, you would need an AI that has sensation,
+
+21:55.920 --> 21:58.000
+ an AI that is in touch with the world.
+
+21:58.000 --> 22:04.480
+ Yes, self awareness and maybe even something resembles consciousness kind of ideas.
+
+22:04.480 --> 22:10.640
+ Certainly awareness of, you know, awareness of what's going on so that the words have meaning
+
+22:10.640 --> 22:15.680
+ or can get, are in touch with some perception or some action.
+
+22:16.400 --> 22:23.920
+ Yeah, so that's a big thing for Jan and as what he refers to as grounding to the physical space.
+
+22:23.920 --> 22:26.160
+ So that's what we're talking about the same thing.
+
+22:26.160 --> 22:29.360
+ Yeah, so how do you ground?
+
+22:29.360 --> 22:35.200
+ I mean, the grounding, without grounding, then you get a machine that doesn't know what
+
+22:35.200 --> 22:39.680
+ it's talking about because it is talking about the world ultimately.
+
+22:40.240 --> 22:43.600
+ The question, the open question is what it means to ground. I mean, we're very
+
+22:44.880 --> 22:50.240
+ human centric in our thinking, but what does it mean for a machine to understand what it means
+
+22:50.240 --> 22:57.280
+ to be in this world? Does it need to have a body? Does it need to have a finiteness like we humans
+
+22:57.280 --> 23:02.240
+ have all of these elements? It's a very, it's an open question.
+
+23:02.240 --> 23:05.920
+ You know, I'm not sure about having a body, but having a perceptual system,
+
+23:05.920 --> 23:12.480
+ having a body would be very helpful too. I mean, if you think about human, mimicking human,
+
+23:12.480 --> 23:19.360
+ you know, but having a perception that seems to be essential so that you can build,
+
+23:20.080 --> 23:27.680
+ you can accumulate knowledge about the world. So if you can imagine a human completely paralyzed,
+
+23:28.240 --> 23:33.520
+ and there's a lot that the human brain could learn, you know, with a paralyzed body.
+
+23:33.520 --> 23:38.640
+ So if we got a machine that could do that, that would be a big deal.
+
+23:38.640 --> 23:44.960
+ TK And then the flip side of that, something you see in children and something in machine
+
+23:44.960 --> 23:51.040
+ learning world is called active learning. Maybe it is also in, is being able to play with the world.
+
+23:52.640 --> 23:59.760
+ How important for developing System 1 or System 2 do you think it is to play with the world?
+
+23:59.760 --> 24:00.960
+ To be able to interact with the world?
+
+24:00.960 --> 24:08.960
+ MG A lot of what you learn is you learn to anticipate the outcomes of your actions. I mean,
+
+24:08.960 --> 24:15.600
+ you can see that how babies learn it, you know, with their hands, how they learn, you know,
+
+24:15.600 --> 24:20.640
+ to connect, you know, the movements of their hands with something that clearly is something
+
+24:20.640 --> 24:28.320
+ that happens in the brain and the ability of the brain to learn new patterns. So, you know,
+
+24:28.320 --> 24:34.880
+ it's the kind of thing that you get with artificial limbs, that you connect it and then people learn
+
+24:34.880 --> 24:42.960
+ to operate the artificial limb, you know, really impressively quickly, at least from what I hear.
+
+24:44.000 --> 24:47.760
+ So we have a system that is ready to learn the world through action.
+
+24:49.040 --> 24:52.640
+ TK At the risk of going into way too mysterious of land,
+
+24:52.640 --> 25:00.000
+ what do you think it takes to build a system like that? Obviously, we're very far from understanding
+
+25:00.000 --> 25:08.000
+ how the brain works, but how difficult is it to build this mind of ours?
+
+25:08.000 --> 25:13.200
+ MG You know, I mean, I think that Jan LeCun's answer that we don't know how many mountains
+
+25:13.200 --> 25:20.080
+ there are, I think that's a very good answer. I think that, you know, if you look at what Ray
+
+25:20.080 --> 25:28.800
+ Kurzweil is saying, that strikes me as off the wall. But I think people are much more realistic
+
+25:28.800 --> 25:35.520
+ than that, where actually Demis Hassabis is and Jan is, and so the people are actually doing the
+
+25:35.520 --> 25:41.440
+ work fairly realistic, I think. TK To maybe phrase it another way,
+
+25:41.440 --> 25:44.960
+ from a perspective not of building it, but from understanding it,
+
+25:44.960 --> 25:52.240
+ how complicated are human beings in the following sense? You know, I work with autonomous vehicles
+
+25:52.240 --> 25:59.520
+ and pedestrians, so we tried to model pedestrians. How difficult is it to model a human being,
+
+26:00.480 --> 26:06.080
+ their perception of the world, the two systems they operate under, sufficiently to be able to
+
+26:06.080 --> 26:09.280
+ predict whether the pedestrian is going to cross the road or not?
+
+26:09.280 --> 26:17.200
+ MG I'm, you know, I'm fairly optimistic about that, actually, because what we're talking about
+
+26:18.000 --> 26:26.800
+ is a huge amount of information that every vehicle has, and that feeds into one system,
+
+26:26.800 --> 26:33.440
+ into one gigantic system. And so anything that any vehicle learns becomes part of what the whole
+
+26:33.440 --> 26:40.480
+ system knows. And with a system multiplier like that, there is a lot that you can do.
+
+26:41.040 --> 26:48.560
+ So human beings are very complicated, and the system is going to make mistakes, but human
+
+26:48.560 --> 26:56.400
+ makes mistakes. I think that they'll be able to, I think they are able to anticipate pedestrians,
+
+26:56.400 --> 27:03.840
+ otherwise a lot would happen. They're able to, you know, they're able to get into a roundabout
+
+27:04.640 --> 27:14.000
+ and into traffic, so they must know both to expect or to anticipate how people will react
+
+27:14.000 --> 27:18.800
+ when they're sneaking in. And there's a lot of learning that's involved in that.
+
+27:18.800 --> 27:28.080
+ RL Currently, the pedestrians are treated as things that cannot be hit, and they're not
+
+27:28.080 --> 27:37.040
+ treated as agents with whom you interact in a game theoretic way. So, I mean, it's not,
+
+27:37.040 --> 27:41.520
+ it's a totally open problem, and every time somebody tries to solve it, it seems to be harder
+
+27:41.520 --> 27:46.640
+ than we think. And nobody's really tried to seriously solve the problem of that dance,
+
+27:46.640 --> 27:52.080
+ because I'm not sure if you've thought about the problem of pedestrians, but you're really
+
+27:52.080 --> 27:54.960
+ putting your life in the hands of the driver.
+
+27:54.960 --> 27:59.760
+ RL You know, there is a dance, there's part of the dance that would be quite complicated,
+
+28:00.320 --> 28:05.920
+ but for example, when I cross the street and there is a vehicle approaching, I look the driver
+
+28:05.920 --> 28:13.360
+ in the eye, and I think many people do that. And, you know, that's a signal that I'm sending,
+
+28:13.360 --> 28:18.480
+ and I would be sending that machine to an autonomous vehicle, and it had better understand
+
+28:18.480 --> 28:20.720
+ it, because it means I'm crossing.
+
+28:20.720 --> 28:26.240
+ RL So, and there's another thing you do, that actually, so I'll tell you what you do,
+
+28:26.240 --> 28:31.440
+ because we watched, I've watched hundreds of hours of video on this, is when you step
+
+28:31.440 --> 28:35.440
+ in the street, you do that before you step in the street, and when you step in the street,
+
+28:35.440 --> 28:36.400
+ you actually look away.
+
+28:36.400 --> 28:36.960
+ RL Look away.
+
+28:36.960 --> 28:45.360
+ RL Yeah. Now, what is that? What that's saying is, I mean, you're trusting that the car who
+
+28:45.360 --> 28:48.000
+ hasn't slowed down yet will slow down.
+
+28:48.000 --> 28:53.680
+ RL Yeah. And you're telling him, I'm committed. I mean, this is like in a game of chicken,
+
+28:53.680 --> 28:59.840
+ so I'm committed, and if I'm committed, I'm looking away. So, there is, you just have
+
+28:59.840 --> 29:00.320
+ to stop.
+
+29:00.320 --> 29:06.880
+ RL So, the question is whether a machine that observes that needs to understand mortality.
+
+29:06.880 --> 29:16.480
+ RL Here, I'm not sure that it's got to understand so much as it's got to anticipate. So, and
+
+29:17.120 --> 29:24.400
+ here, but you know, you're surprising me, because here I would think that maybe you
+
+29:24.400 --> 29:30.560
+ can anticipate without understanding, because I think this is clearly what's happening in
+
+29:30.560 --> 29:35.600
+ playing go or in playing chess. There's a lot of anticipation, and there is zero understanding.
+
+29:35.600 --> 29:36.240
+ RL Exactly.
+
+29:36.240 --> 29:46.400
+ RL So, I thought that you didn't need a model of the human and a model of the human mind
+
+29:46.400 --> 29:50.880
+ to avoid hitting pedestrians, but you are suggesting that actually…
+
+29:50.880 --> 29:51.840
+ RL There you go, yeah.
+
+29:51.840 --> 29:56.720
+ RL You do. Then it's a lot harder, I thought.
+
+29:56.720 --> 30:02.560
+ RL And I have a follow up question to see where your intuition lies. It seems that almost
+
+30:02.560 --> 30:10.800
+ every robot human collaboration system is a lot harder than people realize. So, do you
+
+30:10.800 --> 30:17.200
+ think it's possible for robots and humans to collaborate successfully? We talked a little
+
+30:17.200 --> 30:23.360
+ bit about semi autonomous vehicles, like in the Tesla autopilot, but just in tasks in
+
+30:23.360 --> 30:30.160
+ general. If you think we talked about current neural networks being kind of system one,
+
+30:30.160 --> 30:40.240
+ do you think those same systems can borrow humans for system two type tasks and collaborate
+
+30:40.240 --> 30:40.880
+ successfully?
+
+30:40.880 --> 30:49.520
+ RL Well, I think that in any system where humans and the machine interact, the human
+
+30:49.520 --> 30:55.760
+ will be superfluous within a fairly short time. That is, if the machine is advanced
+
+30:55.760 --> 31:01.600
+ enough so that it can really help the human, then it may not need the human for a long
+
+31:01.600 --> 31:08.320
+ time. Now, it would be very interesting if there are problems that for some reason the
+
+31:08.320 --> 31:14.240
+ machine cannot solve, but that people could solve. Then you would have to build into the
+
+31:14.240 --> 31:22.080
+ machine an ability to recognize that it is in that kind of problematic situation and
+
+31:22.080 --> 31:30.880
+ to call the human. That cannot be easy without understanding. That is, it must be very difficult
+
+31:30.880 --> 31:38.400
+ to program a recognition that you are in a problematic situation without understanding
+
+31:38.400 --> 31:39.440
+ the problem.
+
+31:39.440 --> 31:47.360
+ SL. That's very true. In order to understand the full scope of situations that are problematic,
+
+31:47.360 --> 31:51.680
+ you almost need to be smart enough to solve all those problems.
+
+31:51.680 --> 32:01.120
+ RL It's not clear to me how much the machine will need the human. I think the example of
+
+32:01.120 --> 32:06.160
+ chess is very instructive. I mean, there was a time at which Kasparov was saying that human
+
+32:06.160 --> 32:13.440
+ machine combinations will beat everybody. Even stockfish doesn't need people and Alpha
+
+32:13.440 --> 32:15.280
+ Zero certainly doesn't need people.
+
+32:15.280 --> 32:20.880
+ SL. The question is, just like you said, how many problems are like chess and how many
+
+32:20.880 --> 32:27.760
+ problems are not like chess? Every problem probably in the end is like chess. The question
+
+32:27.760 --> 32:29.760
+ is, how long is that transition period?
+
+32:29.760 --> 32:38.880
+ RL That's a question I would ask you. Autonomous vehicle, just driving, is probably a lot more
+
+32:38.880 --> 32:47.840
+ complicated than Go to solve that problem. Because it's open. That's not surprising to
+
+32:47.840 --> 32:58.960
+ me because there is a hierarchical aspect to this, which is recognizing a situation
+
+32:58.960 --> 33:09.280
+ and then within the situation bringing up the relevant knowledge. For that hierarchical
+
+33:09.280 --> 33:15.760
+ type of system to work, you need a more complicated system than we currently have.
+
+33:15.760 --> 33:22.720
+ SL. A lot of people think, because as human beings, this is probably the cognitive biases,
+
+33:22.720 --> 33:28.720
+ they think of driving as pretty simple because they think of their own experience. This is
+
+33:28.720 --> 33:36.400
+ actually a big problem for AI researchers or people thinking about AI because they evaluate
+
+33:36.400 --> 33:43.280
+ how hard a particular problem is based on very limited knowledge, based on how hard
+
+33:43.280 --> 33:49.120
+ it is for them to do the task. And then they take for granted, maybe you can speak to that
+
+33:49.120 --> 33:56.720
+ because most people tell me driving is trivial and humans in fact are terrible at driving
+
+33:56.720 --> 34:02.040
+ is what people tell me. And I see humans and humans are actually incredible at driving
+
+34:02.040 --> 34:08.520
+ and driving is really terribly difficult. Is that just another element of the effects
+
+34:08.520 --> 34:13.680
+ that you've described in your work on the psychology side?
+
+34:13.680 --> 34:22.000
+ No, I mean, I haven't really, I would say that my research has contributed nothing to
+
+34:22.000 --> 34:27.800
+ understanding the ecology and to understanding the structure of situations and the complexity
+
+34:27.800 --> 34:38.720
+ of problems. So all we know is very clear that that goal, it's endlessly complicated,
+
+34:38.720 --> 34:46.840
+ but it's very constrained. And in the real world, there are far fewer constraints and
+
+34:46.840 --> 34:49.320
+ many more potential surprises.
+
+34:49.320 --> 34:54.720
+ SL. So that's obvious because it's not always obvious to people, right? So when you think
+
+34:54.720 --> 34:55.720
+ about…
+
+34:55.720 --> 35:02.880
+ Well, I mean, you know, people thought that reasoning was hard and perceiving was easy,
+
+35:02.880 --> 35:09.920
+ but you know, they quickly learned that actually modeling vision was tremendously complicated
+
+35:09.920 --> 35:15.960
+ and modeling, even proving theorems was relatively straightforward.
+
+35:15.960 --> 35:22.800
+ To push back on that a little bit on the quickly part, it took several decades to learn that
+
+35:22.800 --> 35:28.400
+ and most people still haven't learned that. I mean, our intuition, of course, AI researchers
+
+35:28.400 --> 35:34.760
+ have, but you drift a little bit outside the specific AI field, the intuition is still
+
+35:34.760 --> 35:36.320
+ perceptible to solve that.
+
+35:36.320 --> 35:41.280
+ No, I mean, that's true. Intuitions, the intuitions of the public haven't changed
+
+35:41.280 --> 35:48.760
+ radically. And they are, as you said, they're evaluating the complexity of problems by how
+
+35:48.760 --> 35:55.720
+ difficult it is for them to solve the problems. And that's got very little to do with the
+
+35:55.720 --> 35:58.360
+ complexities of solving them in AI.
+
+35:58.360 --> 36:06.120
+ SL. How do you think from the perspective of an AI researcher, do we deal with the intuitions
+
+36:06.120 --> 36:15.080
+ of the public? So in trying to think, arguably, the combination of hype investment and the
+
+36:15.080 --> 36:21.160
+ public intuition is what led to the AI winters. I'm sure that same could be applied to tech
+
+36:21.160 --> 36:29.700
+ or that the intuition of the public leads to media hype, leads to companies investing
+
+36:29.700 --> 36:36.700
+ in the tech, and then the tech doesn't make the company's money. And then there's a crash.
+
+36:36.700 --> 36:43.280
+ Is there a way to educate people to fight the, let's call it system one thinking?
+
+36:43.280 --> 36:54.600
+ In general, no. I think that's the simple answer. And it's going to take a long time
+
+36:54.600 --> 37:09.240
+ before the understanding of what those systems can do becomes public knowledge. And then
+
+37:09.240 --> 37:20.920
+ the expectations, there are several aspects that are going to be very complicated. The
+
+37:20.920 --> 37:29.720
+ fact that you have a device that cannot explain itself is a major, major difficulty. And we're
+
+37:29.720 --> 37:35.520
+ already seeing that. I mean, this is really something that is happening. So it's happening
+
+37:35.520 --> 37:43.600
+ in the judicial system. So you have system that are clearly better at predicting parole
+
+37:43.600 --> 37:54.220
+ violations than judges, but they can't explain their reasoning. And so people don't want
+
+37:54.220 --> 37:56.040
+ to trust them.
+
+37:56.040 --> 38:05.400
+ We seem to in system one, even use cues to make judgements about our environment. So
+
+38:05.400 --> 38:11.040
+ this explainability point, do you think humans can explain stuff?
+
+38:11.040 --> 38:20.400
+ No, but I mean, there is a very interesting aspect of that. Humans think they can explain
+
+38:20.400 --> 38:28.160
+ themselves. So when you say something and I ask you, why do you believe that? Then reasons
+
+38:28.160 --> 38:35.880
+ will occur to you. But actually, my own belief is that in most cases, the reasons have very
+
+38:35.880 --> 38:41.880
+ little to do with why you believe what you believe. So that the reasons are a story that
+
+38:41.880 --> 38:50.200
+ comes to your mind when you need to explain yourself. But people traffic in those explanations
+
+38:50.200 --> 38:56.680
+ I mean, the human interaction depends on those shared fictions and, and the stories that
+
+38:56.680 --> 38:58.580
+ people tell themselves.
+
+38:58.580 --> 39:05.960
+ You just made me actually realize and we'll talk about stories in a second. That not to
+
+39:05.960 --> 39:11.520
+ be cynical about it, but perhaps there's a whole movement of people trying to do explainable
+
+39:11.520 --> 39:19.360
+ AI. And really, we don't necessarily need to explain AI doesn't need to explain itself.
+
+39:19.360 --> 39:21.880
+ It just needs to tell a convincing story.
+
+39:21.880 --> 39:23.560
+ Yeah, absolutely.
+
+39:23.560 --> 39:29.160
+ It doesn't necessarily, the story doesn't necessarily need to reflect the truth as it
+
+39:29.160 --> 39:32.800
+ might, it just needs to be convincing. There's something to that.
+
+39:32.800 --> 39:38.840
+ You can say exactly the same thing in a way that sounds cynical or doesn't sound cynical.
+
+39:38.840 --> 39:39.840
+ Right.
+
+39:39.840 --> 39:48.000
+ But the objective of having an explanation is to tell a story that will be acceptable
+
+39:48.000 --> 39:56.360
+ to people. And, and, and for it to be acceptable and to be robustly acceptable, it has to have
+
+39:56.360 --> 40:04.480
+ some elements of truth. But, but the objective is for people to accept it.
+
+40:04.480 --> 40:11.720
+ It's quite brilliant, actually. But so on the, on the stories that we tell, sorry to
+
+40:11.720 --> 40:18.000
+ ask me, ask you the question that most people know the answer to, but you talk about two
+
+40:18.000 --> 40:24.780
+ selves in terms of how life is lived, the experienced self and remembering self. Can
+
+40:24.780 --> 40:26.920
+ you describe the distinction between the two?
+
+40:26.920 --> 40:33.680
+ Well, sure. I mean, the, there is an aspect of, of life that occasionally, you know, most
+
+40:33.680 --> 40:38.520
+ of the time we just live and we have experiences and they're better and they're worse and it
+
+40:38.520 --> 40:45.760
+ goes on over time. And mostly we forget everything that happens or we forget most of what happens.
+
+40:45.760 --> 40:56.280
+ Then occasionally you, when something ends or at different points, you evaluate the past
+
+40:56.280 --> 41:03.560
+ and you form a memory and the memory is schematic. It's not that you can roll a film of an interaction.
+
+41:03.560 --> 41:12.960
+ You construct, in effect, the elements of a story about an, about an episode. So there
+
+41:12.960 --> 41:18.360
+ is the experience and there is the story that is created about the experience. And that's
+
+41:18.360 --> 41:24.320
+ what I call the remembering. So I had the image of two selves. So there is a self that
+
+41:24.320 --> 41:32.200
+ lives and there is a self that evaluates life. Now the paradox and the deep paradox in that
+
+41:32.200 --> 41:41.960
+ is that we have one system or one self that does the living, but the other system, the
+
+41:41.960 --> 41:49.180
+ remembering self is all we get to keep. And basically decision making and, and everything
+
+41:49.180 --> 41:55.000
+ that we do is governed by our memories, not by what actually happened. It's, it's governed
+
+41:55.000 --> 42:02.280
+ by, by the story that we told ourselves or by the story that we're keeping. So that's,
+
+42:02.280 --> 42:03.280
+ that's the distinction.
+
+42:03.280 --> 42:08.000
+ I mean, there's a lot of brilliant ideas about the pursuit of happiness that come out of
+
+42:08.000 --> 42:14.160
+ that. What are the properties of happiness which emerge from a remembering self?
+
+42:14.160 --> 42:19.160
+ There are, there are properties of how we construct stories that are really important.
+
+42:19.160 --> 42:29.720
+ So that I studied a few, but, but a couple are really very striking. And one is that
+
+42:29.720 --> 42:37.080
+ in stories, time doesn't matter. There's a sequence of events or there are highlights
+
+42:37.080 --> 42:45.240
+ or not. And, and how long it took, you know, they lived happily ever after or three years
+
+42:45.240 --> 42:53.480
+ later or something. It, time really doesn't matter. And in stories, events matter, but
+
+42:53.480 --> 43:03.740
+ time doesn't. That, that leads to a very interesting set of problems because time is all we got
+
+43:03.740 --> 43:11.040
+ to live. I mean, you know, time is the currency of life. And yet time is not represented basically
+
+43:11.040 --> 43:18.520
+ in evaluated memories. So that, that creates a lot of paradoxes that I've thought about.
+
+43:18.520 --> 43:27.520
+ Yeah. They're fascinating. But if you were to give advice on how one lives a happy life
+
+43:27.520 --> 43:33.120
+ based on such properties, what's the optimal?
+
+43:33.120 --> 43:38.880
+ You know, I gave up, I abandoned happiness research because I couldn't solve that problem.
+
+43:38.880 --> 43:46.160
+ I couldn't, I couldn't see. And in the first place, it's very clear that if you do talk
+
+43:46.160 --> 43:51.520
+ in terms of those two selves, then that what makes the remembering self happy and what
+
+43:51.520 --> 43:59.320
+ makes the experiencing self happy are different things. And I, I asked the question of, suppose
+
+43:59.320 --> 44:04.160
+ you're planning a vacation and you're just told that at the end of the vacation, you'll
+
+44:04.160 --> 44:10.160
+ get an amnesic drug, so you remember nothing. And they'll also destroy all your photos.
+
+44:10.160 --> 44:20.640
+ So there'll be nothing. Would you still go to the same vacation? And, and it's, it turns
+
+44:20.640 --> 44:26.600
+ out we go to vacations in large part to construct memories, not to have experiences, but to
+
+44:26.600 --> 44:32.520
+ construct memories. And it turns out that the vacation that you would want for yourself,
+
+44:32.520 --> 44:38.080
+ if you knew, you will not remember is probably not the same vacation that you will want for
+
+44:38.080 --> 44:46.240
+ yourself if you will remember. So I have no solution to these problems, but clearly those
+
+44:46.240 --> 44:47.240
+ are big issues.
+
+44:47.240 --> 44:53.060
+ And you've talked about, you've talked about sort of how many minutes or hours you spend
+
+44:53.060 --> 44:58.120
+ about the vacation. It's an interesting way to think about it because that's how you really
+
+44:58.120 --> 45:03.640
+ experience the vacation outside the being in it. But there's also a modern, I don't
+
+45:03.640 --> 45:11.440
+ know if you think about this or interact with it. There's a modern way to, um, magnify the
+
+45:11.440 --> 45:17.820
+ remembering self, which is by posting on Instagram, on Twitter, on social networks. A lot of people
+
+45:17.820 --> 45:24.680
+ live life for the picture that you take, that you post somewhere. And now thousands of people
+
+45:24.680 --> 45:29.040
+ share and potentially potentially millions. And then you can relive it even much more
+
+45:29.040 --> 45:34.280
+ than just those minutes. Do you think about that magnification much?
+
+45:34.280 --> 45:41.960
+ You know, I'm too old for social networks. I, you know, I've never seen Instagram, so
+
+45:41.960 --> 45:46.640
+ I cannot really speak intelligently about those things. I'm just too old.
+
+45:46.640 --> 45:49.840
+ But it's interesting to watch the exact effects you've described.
+
+45:49.840 --> 45:55.560
+ Make a very big difference. I mean, and it will make, it will also make a difference.
+
+45:55.560 --> 46:06.040
+ And that I don't know whether, uh, it's clear that in some ways the devices that serve us
+
+46:06.040 --> 46:12.960
+ are supplant functions. So you don't have to remember phone numbers. You don't have,
+
+46:12.960 --> 46:19.080
+ you really don't have to know facts. I mean, the number of conversations I'm involved with,
+
+46:19.080 --> 46:27.640
+ somebody says, well, let's look it up. Uh, so it's, it's in a way it's made conversations.
+
+46:27.640 --> 46:33.360
+ Well it's, it means that it's much less important to know things. You know, it used to be very
+
+46:33.360 --> 46:43.200
+ important to know things. This is changing. So the requirements of that, that we have
+
+46:43.200 --> 46:50.560
+ for ourselves and for other people are changing because of all those supports and because,
+
+46:50.560 --> 46:57.600
+ and I have no idea what Instagram does, but it's, uh, well, I'll tell you, I wish I could
+
+46:57.600 --> 47:03.600
+ just have the, my remembering self could enjoy this conversation, but I'll get to enjoy it
+
+47:03.600 --> 47:08.520
+ even more by having watched, by watching it and then talking to others. It'll be about
+
+47:08.520 --> 47:14.880
+ a hundred thousand people as scary as this to say, well, listen or watch this, right?
+
+47:14.880 --> 47:20.320
+ It changes things. It changes the experience of the world that you seek out experiences
+
+47:20.320 --> 47:25.920
+ which could be shared in that way. It's in, and I haven't seen, it's, it's the same effects
+
+47:25.920 --> 47:30.760
+ that you described. And I don't think the psychology of that magnification has been
+
+47:30.760 --> 47:33.240
+ described yet because it's a new world.
+
+47:33.240 --> 47:43.240
+ But the sharing, there was a, there was a time when people read books and, uh, and,
+
+47:43.240 --> 47:51.140
+ and you could assume that your friends had read the same books that you read. So there
+
+47:51.140 --> 47:57.760
+ was kind of invisible sharing. There was a lot of sharing going on and there was a lot
+
+47:57.760 --> 48:03.780
+ of assumed common knowledge and, you know, that was built in. I mean, it was obvious
+
+48:03.780 --> 48:09.520
+ that you had read the New York Times. It was obvious that you had read the reviews. I mean,
+
+48:09.520 --> 48:17.040
+ so a lot was taken for granted that was shared. And, you know, when there were, when there
+
+48:17.040 --> 48:26.000
+ were three television channels, it was obvious that you'd seen one of them probably the same.
+
+48:26.000 --> 48:32.400
+ So sharing, sharing always was always there. It was just different.
+
+48:32.400 --> 48:40.920
+ At the risk of, uh, inviting mockery from you, let me say that I'm also a fan of Sartre
+
+48:40.920 --> 48:47.560
+ and Camus and existentialist philosophers. And, um, I'm joking of course about mockery,
+
+48:47.560 --> 48:54.180
+ but from the perspective of the two selves, what do you think of the existentialist philosophy
+
+48:54.180 --> 49:03.680
+ of life? So trying to really emphasize the experiencing self as the proper way to, or
+
+49:03.680 --> 49:05.960
+ the best way to live life.
+
+49:05.960 --> 49:13.600
+ I don't know enough philosophy to answer that, but it's not, uh, you know, the emphasis on,
+
+49:13.600 --> 49:16.760
+ on experience is also the emphasis in Buddhism.
+
+49:16.760 --> 49:18.040
+ Yeah, right. That's right.
+
+49:18.040 --> 49:27.280
+ So, uh, that's, you just have got to, to experience things and, and, and not to evaluate and not
+
+49:27.280 --> 49:33.560
+ to pass judgment and not to score, not to keep score. So, uh,
+
+49:33.560 --> 49:37.760
+ If, when you look at the grand picture of experience, you think there's something to
+
+49:37.760 --> 49:44.480
+ that, that one, one of the ways to achieve contentment and maybe even happiness is letting
+
+49:44.480 --> 49:51.800
+ go of any of the things, any of the procedures of the remembering self.
+
+49:51.800 --> 49:58.080
+ Well, yeah, I mean, I think, you know, if one could imagine a life in which people don't
+
+49:58.080 --> 50:05.960
+ score themselves, uh, it, it feels as if that would be a better life as if the self scoring
+
+50:05.960 --> 50:18.040
+ and you know, how am I doing a kind of question, uh, is not, is not a very happy thing to have.
+
+50:18.040 --> 50:25.360
+ But I got out of that field because I couldn't solve that problem and, and that was because
+
+50:25.360 --> 50:31.500
+ my intuition was that the experiencing self, that's reality.
+
+50:31.500 --> 50:36.560
+ But then it turns out that what people want for themselves is not experiences. They want
+
+50:36.560 --> 50:41.600
+ memories and they want a good story about their life. And so you cannot have a theory
+
+50:41.600 --> 50:47.880
+ of happiness that doesn't correspond to what people want for themselves. And when I, when
+
+50:47.880 --> 50:53.760
+ I realized that this, this was where things were going, I really sort of left the field
+
+50:53.760 --> 50:54.760
+ of research.
+
+50:54.760 --> 51:01.100
+ Do you think there's something instructive about this emphasis of reliving memories in
+
+51:01.100 --> 51:09.200
+ building AI systems. So currently artificial intelligence systems are more like experiencing
+
+51:09.200 --> 51:16.280
+ self in that they react to the environment. There's some pattern formation like a learning
+
+51:16.280 --> 51:23.120
+ so on, but you really don't construct memories, uh, except in reinforcement learning every
+
+51:23.120 --> 51:25.720
+ once in a while that you replay over and over.
+
+51:25.720 --> 51:30.280
+ Yeah, but you know, that would in principle would not be.
+
+51:30.280 --> 51:36.000
+ Do you think that's useful? Do you think it's a feature or a bug of human beings that we,
+
+51:36.000 --> 51:37.000
+ that we look back?
+
+51:37.000 --> 51:43.360
+ Oh, I think that's definitely a feature. That's not a bug. I mean, you, you have to look back
+
+51:43.360 --> 51:50.440
+ in order to look forward. So, uh, without, without looking back, you couldn't, you couldn't
+
+51:50.440 --> 51:53.080
+ really intelligently look forward.
+
+51:53.080 --> 51:57.080
+ You're looking for the echoes of the same kind of experience in order to predict what
+
+51:57.080 --> 51:58.080
+ the future holds.
+
+51:58.080 --> 51:59.080
+ Yeah.
+
+51:59.080 --> 52:05.320
+ So though Victor Frankel in his book, man's search for meaning, I'm not sure if you've
+
+52:05.320 --> 52:10.720
+ read, describes his experience at the consecration concentration camps during world war two as
+
+52:10.720 --> 52:18.480
+ a way to describe that finding identifying a purpose in life, a positive purpose in life
+
+52:18.480 --> 52:23.840
+ can save one from suffering. First of all, do you connect with the philosophy that he
+
+52:23.840 --> 52:28.420
+ describes there?
+
+52:28.420 --> 52:37.040
+ Not really. I mean, the, so I can, I can really see that somebody who has that feeling of
+
+52:37.040 --> 52:44.640
+ purpose and meaning and so on, that, that could sustain you. Uh, I in general don't
+
+52:44.640 --> 52:50.800
+ have that feeling and I'm pretty sure that if I were in a concentration camp, I'd give
+
+52:50.800 --> 52:56.240
+ up and die, you know? So he talks, he is, he is a survivor.
+
+52:56.240 --> 52:57.240
+ Yeah.
+
+52:57.240 --> 53:04.000
+ And, you know, he survived with that. And I'm, and I'm not sure how essential to survival
+
+53:04.000 --> 53:12.220
+ this sense is, but I do know when I think about myself that I would have given up. Oh,
+
+53:12.220 --> 53:20.140
+ this isn't going anywhere. And there is, there is a sort of character that, that, that manages
+
+53:20.140 --> 53:26.120
+ to survive in conditions like that. And then because they survive, they tell stories and
+
+53:26.120 --> 53:31.840
+ it sounds as if they survive because of what they were doing. We have no idea. They survived
+
+53:31.840 --> 53:36.240
+ because the kind of people that they are and the other kind of people who survives and
+
+53:36.240 --> 53:41.800
+ would tell themselves stories of a particular kind. So I'm not, uh,
+
+53:41.800 --> 53:46.840
+ So you don't think seeking purpose is a significant driver in our being?
+
+53:46.840 --> 53:52.400
+ Oh, I mean, it's, it's a very interesting question because when you ask people whether
+
+53:52.400 --> 53:56.240
+ it's very important to have meaning in their life, they say, oh yes, that's the most important
+
+53:56.240 --> 54:03.880
+ thing. But when you ask people, what kind of a day did you have? And, and you know,
+
+54:03.880 --> 54:10.320
+ what were the experiences that you remember? You don't get much meaning. You get social
+
+54:10.320 --> 54:21.480
+ experiences. Then, uh, and, and some people say that, for example, in, in, in child, you
+
+54:21.480 --> 54:25.720
+ know, in taking care of children, the fact that they are your children and you're taking
+
+54:25.720 --> 54:34.040
+ care of them, uh, makes a very big difference. I think that's entirely true. Uh, but it's
+
+54:34.040 --> 54:40.560
+ more because of a story that we're telling ourselves, which is a very different story
+
+54:40.560 --> 54:45.140
+ when we're taking care of our children or when we're taking care of other things.
+
+54:45.140 --> 54:50.880
+ Jumping around a little bit in doing a lot of experiments, let me ask a question. Most
+
+54:50.880 --> 54:56.840
+ of the work I do, for example, is in the, in the real world, but most of the clean good
+
+54:56.840 --> 55:04.480
+ science that you can do is in the lab. So that distinction, do you think we can understand
+
+55:04.480 --> 55:12.680
+ the fundamentals of human behavior through controlled experiments in the lab? If we talk
+
+55:12.680 --> 55:18.920
+ about pupil diameter, for example, it's much easier to do when you can control lighting
+
+55:18.920 --> 55:27.680
+ conditions, right? So when we look at driving, lighting variation destroys almost completely
+
+55:27.680 --> 55:34.740
+ your ability to use pupil diameter. But in the lab for, as I mentioned, semi autonomous
+
+55:34.740 --> 55:43.080
+ or autonomous vehicles in driving simulators, we can't, we don't capture true, honest, uh,
+
+55:43.080 --> 55:49.000
+ human behavior in that particular domain. So what's your intuition? How much of human
+
+55:49.000 --> 55:56.160
+ behavior can we study in this controlled environment of the lab? A lot, but you'd have to verify
+
+55:56.160 --> 56:03.240
+ it, you know, that your, your conclusions are basically limited to the situation, to
+
+56:03.240 --> 56:09.000
+ the experimental situation. Then you have to jump the big inductive leap to the real
+
+56:09.000 --> 56:17.920
+ world. Uh, so, and, and that's the flare. That's where the difference, I think, between
+
+56:17.920 --> 56:25.840
+ the good psychologists and others that are mediocre is in the sense of that your experiment
+
+56:25.840 --> 56:33.520
+ captures something that's important and something that's real and others are just running experiments.
+
+56:33.520 --> 56:39.000
+ So what is that? Like the birth of an idea to his development in your mind to something
+
+56:39.000 --> 56:44.840
+ that leads to an experiment. Is that similar to maybe like what Einstein or a good physicist
+
+56:44.840 --> 56:48.840
+ do is your intuition. You basically use your intuition to build up.
+
+56:48.840 --> 56:54.280
+ Yeah, but I mean, you know, it's, it's very skilled intuition. I mean, I just had that
+
+56:54.280 --> 57:00.840
+ experience actually. I had an idea that turns out to be very good idea a couple of days
+
+57:00.840 --> 57:08.400
+ ago and, and you, and you have a sense of that building up. So I'm working with a collaborator
+
+57:08.400 --> 57:14.280
+ and he essentially was saying, you know, what, what are you doing? What's, what's going on?
+
+57:14.280 --> 57:21.000
+ And I was, I really, I couldn't exactly explain it, but I knew this is going somewhere, but
+
+57:21.000 --> 57:26.920
+ you know, I've been around that game for a very long time. And so I can, you, you develop
+
+57:26.920 --> 57:34.640
+ that anticipation that yes, this, this is worth following up. That's part of the skill.
+
+57:34.640 --> 57:41.560
+ Is that something you can reduce to words in describing a process in the form of advice
+
+57:41.560 --> 57:42.560
+ to others?
+
+57:42.560 --> 57:43.560
+ No.
+
+57:43.560 --> 57:45.560
+ Follow your heart, essentially.
+
+57:45.560 --> 57:51.680
+ I mean, you know, it's, it's like trying to explain what it's like to drive. It's not,
+
+57:51.680 --> 57:54.140
+ you've got to break it apart and it's not.
+
+57:54.140 --> 57:55.140
+ And then you lose.
+
+57:55.140 --> 57:58.080
+ And then you lose the experience.
+
+57:58.080 --> 58:05.140
+ You mentioned collaboration. You've written about your collaboration with Amos Tversky
+
+58:05.140 --> 58:10.780
+ that this is you writing, the 12 or 13 years in which most of our work was joint were years
+
+58:10.780 --> 58:16.720
+ of interpersonal and intellectual bliss. Everything was interesting. Almost everything
+
+58:16.720 --> 58:22.080
+ was funny. And there was a current joy of seeing an idea take shape. So many times in
+
+58:22.080 --> 58:27.320
+ those years, we shared the magical experience of one of us saying something, which the other
+
+58:27.320 --> 58:32.520
+ one would understand more deeply than the speaker had done. Contrary to the old laws
+
+58:32.520 --> 58:38.000
+ of information theory, it was common for us to find that more information was received
+
+58:38.000 --> 58:43.860
+ than had been sent. I have almost never had the experience with anyone else. If you have
+
+58:43.860 --> 58:49.120
+ not had it, you don't know how marvelous collaboration can be.
+
+58:49.120 --> 58:58.840
+ So let me ask a perhaps a silly question. How does one find and create such a collaboration?
+
+58:58.840 --> 59:01.120
+ That may be asking like, how does one find love?
+
+59:01.120 --> 59:10.600
+ Yeah, you have to be lucky. And I think you have to have the character for that because
+
+59:10.600 --> 59:17.600
+ I've had many collaborations. I mean, none were as exciting as with Amos, but I've had
+
+59:17.600 --> 59:27.040
+ and I'm having just very. So it's a skill. I think I'm good at it. Not everybody is good
+
+59:27.040 --> 59:32.100
+ at it. And then it's the luck of finding people who are also good at it.
+
+59:32.100 --> 59:39.420
+ Is there advice in a form for a young scientist who also seeks to violate this law of information
+
+59:39.420 --> 59:48.520
+ theory?
+
+59:48.520 --> 59:59.560
+ I really think it's so much luck is involved. And in those really serious collaborations,
+
+59:59.560 --> 1:00:06.660
+ at least in my experience, are a very personal experience. And I have to like the person
+
+1:00:06.660 --> 1:00:13.280
+ I'm working with. Otherwise, I mean, there is that kind of collaboration, which is like
+
+1:00:13.280 --> 1:00:21.880
+ an exchange, a commercial exchange of giving this, you give me that. But the real ones
+
+1:00:21.880 --> 1:00:28.080
+ are interpersonal. They're between people who like each other and who like making each
+
+1:00:28.080 --> 1:00:34.400
+ other think and who like the way that the other person responds to your thoughts. You
+
+1:00:34.400 --> 1:00:37.080
+ have to be lucky.
+
+1:00:37.080 --> 1:00:43.760
+ But I already noticed that even just me showing up here, you've quickly started to digging
+
+1:00:43.760 --> 1:00:49.840
+ in on a particular problem I'm working on and already new information started to emerge.
+
+1:00:49.840 --> 1:00:56.420
+ Is that a process, just the process of curiosity of talking to people about problems and seeing?
+
+1:00:56.420 --> 1:01:03.400
+ I'm curious about anything to do with AI and robotics. And I knew you were dealing with
+
+1:01:03.400 --> 1:01:05.240
+ that. So I was curious.
+
+1:01:05.240 --> 1:01:13.100
+ Just follow your curiosity. Jumping around on the psychology front, the dramatic sounding
+
+1:01:13.100 --> 1:01:24.960
+ terminology of replication crisis, but really just the, at times, this effect that at times
+
+1:01:24.960 --> 1:01:29.240
+ studies do not, are not fully generalizable. They don't.
+
+1:01:29.240 --> 1:01:33.040
+ You are being polite. It's worse than that.
+
+1:01:33.040 --> 1:01:39.360
+ Is it? So I'm actually not fully familiar to the degree how bad it is, right? So what
+
+1:01:39.360 --> 1:01:41.520
+ do you think is the source? Where do you think?
+
+1:01:41.520 --> 1:01:47.520
+ I think I know what's going on actually. I mean, I have a theory about what's going on
+
+1:01:47.520 --> 1:01:55.460
+ and what's going on is that there is, first of all, a very important distinction between
+
+1:01:55.460 --> 1:02:03.120
+ two types of experiments. And one type is within subject. So it's the same person has
+
+1:02:03.120 --> 1:02:09.200
+ two experimental conditions. And the other type is between subjects where some people
+
+1:02:09.200 --> 1:02:14.160
+ are this condition, other people are that condition. They're different worlds. And between
+
+1:02:14.160 --> 1:02:25.560
+ subject experiments are much harder to predict and much harder to anticipate. And the reason,
+
+1:02:25.560 --> 1:02:31.880
+ and they're also more expensive because you need more people. And it's just, so between
+
+1:02:31.880 --> 1:02:38.600
+ subject experiments is where the problem is. It's not so much in within subject experiments,
+
+1:02:38.600 --> 1:02:46.920
+ it's really between. And there is a very good reason why the intuitions of researchers about
+
+1:02:46.920 --> 1:02:54.180
+ between subject experiments are wrong. And that's because when you are a researcher,
+
+1:02:54.180 --> 1:03:00.560
+ you're in a within subject situation. That is you are imagining the two conditions and
+
+1:03:00.560 --> 1:03:09.680
+ you see the causality and you feel it. But in the between subject condition, they live
+
+1:03:09.680 --> 1:03:18.440
+ in one condition and the other one is just nowhere. So our intuitions are very weak about
+
+1:03:18.440 --> 1:03:26.520
+ between subject experiments. And that I think is something that people haven't realized.
+
+1:03:26.520 --> 1:03:34.800
+ And in addition, because of that, we have no idea about the power of manipulations of
+
+1:03:34.800 --> 1:03:42.420
+ experimental manipulations because the same manipulation is much more powerful when you
+
+1:03:42.420 --> 1:03:48.880
+ are in the two conditions than when you live in only one condition. And so the experimenters
+
+1:03:48.880 --> 1:03:56.760
+ have very poor intuitions about between subject experiments. And there is something else which
+
+1:03:56.760 --> 1:04:04.080
+ is very important, I think, which is that almost all psychological hypotheses are true.
+
+1:04:04.080 --> 1:04:13.200
+ That is in the sense that, you know, directionally, if you have a hypothesis that A really causes
+
+1:04:13.200 --> 1:04:21.000
+ B, that it's not true that A causes the opposite of B. Maybe A just has very little effect,
+
+1:04:21.000 --> 1:04:28.840
+ but hypotheses are true mostly, except mostly they're very weak. They're much weaker than
+
+1:04:28.840 --> 1:04:38.000
+ you think when you are having images. So the reason I'm excited about that is that I recently
+
+1:04:38.000 --> 1:04:50.560
+ heard about some friends of mine who they essentially funded 53 studies of behavioral
+
+1:04:50.560 --> 1:04:59.420
+ change by 20 different teams of people with a very precise objective of changing the number
+
+1:04:59.420 --> 1:05:12.600
+ of times that people go to the gym. And the success rate was zero. Not one of the 53 studies
+
+1:05:12.600 --> 1:05:18.160
+ worked. Now, what's interesting about that is those are the best people in the field
+
+1:05:18.160 --> 1:05:24.440
+ and they have no idea what's going on. So they're not calibrated. They think that it's
+
+1:05:24.440 --> 1:05:30.760
+ going to be powerful because they can imagine it, but actually it's just weak because you
+
+1:05:30.760 --> 1:05:37.880
+ are focusing on your manipulation and it feels powerful to you. There's a thing that I've
+
+1:05:37.880 --> 1:05:43.480
+ written about that's called the focusing illusion. That is that when you think about something,
+
+1:05:43.480 --> 1:05:48.400
+ it looks very important, more important than it really is.
+
+1:05:48.400 --> 1:05:53.800
+ More important than it really is. But if you don't see that effect, the 53 studies, doesn't
+
+1:05:53.800 --> 1:05:59.320
+ that mean you just report that? So what was, I guess, the solution to that?
+
+1:05:59.320 --> 1:06:07.600
+ Well, I mean, the solution is for people to trust their intuitions less or to try out
+
+1:06:07.600 --> 1:06:14.760
+ their intuitions before. I mean, experiments have to be pre registered and by the time
+
+1:06:14.760 --> 1:06:20.960
+ you run an experiment, you have to be committed to it and you have to run the experiment seriously
+
+1:06:20.960 --> 1:06:32.800
+ enough and in a public. And so this is happening. The interesting thing is what happens before
+
+1:06:32.800 --> 1:06:37.920
+ and how do people prepare themselves and how they run pilot experiments. It's going to
+
+1:06:37.920 --> 1:06:41.360
+ train the way psychology is done and it's already happening.
+
+1:06:41.360 --> 1:06:48.520
+ Do you have a hope for, this might connect to the study sample size.
+
+1:06:48.520 --> 1:06:49.520
+ Yeah.
+
+1:06:49.520 --> 1:06:51.320
+ Do you have a hope for the internet?
+
+1:06:51.320 --> 1:06:59.040
+ Well, I mean, you know, this is really happening. MTurk, everybody's running experiments on
+
+1:06:59.040 --> 1:07:03.640
+ MTurk and it's very cheap and very effective.
+
+1:07:03.640 --> 1:07:09.200
+ Do you think that changes psychology essentially? Because you're thinking you cannot run 10,000
+
+1:07:09.200 --> 1:07:10.200
+ subjects.
+
+1:07:10.200 --> 1:07:18.480
+ Eventually it will. I mean, I, you know, I can't put my finger on how exactly, but it's,
+
+1:07:18.480 --> 1:07:24.880
+ that's been true in psychology with whenever an important new method came in, it changes
+
+1:07:24.880 --> 1:07:33.160
+ the field. So, and MTurk is really a method because it makes it very much easier to do
+
+1:07:33.160 --> 1:07:35.520
+ something, to do some things.
+
+1:07:35.520 --> 1:07:40.680
+ Is there a undergrad students who'll ask me, you know, how big a neural network should
+
+1:07:40.680 --> 1:07:49.080
+ be for a particular problem? So let me ask you an equivalent question. How big, how many
+
+1:07:49.080 --> 1:07:53.560
+ subjects does the study have for it to have a conclusive result?
+
+1:07:53.560 --> 1:08:00.760
+ Well, it depends on the strength of the effect. So if you're studying visual perception or
+
+1:08:00.760 --> 1:08:08.600
+ the perception of color, many of the classic results in visual, in color perception were
+
+1:08:08.600 --> 1:08:14.600
+ done on three or four people. And I think one of them was colorblind, but partly colorblind,
+
+1:08:14.600 --> 1:08:24.820
+ but on vision, you know, it's highly reliable. Many people don't need a lot of replications
+
+1:08:24.820 --> 1:08:35.800
+ for some type of neurological experiment. When you're studying weaker phenomena and
+
+1:08:35.800 --> 1:08:41.120
+ especially when you're studying them between subjects, then you need a lot more subjects
+
+1:08:41.120 --> 1:08:47.000
+ than people have been running. And that is, that's one of the things that are happening
+
+1:08:47.000 --> 1:08:54.220
+ in psychology now is that the power, the statistical power of experiments is increasing rapidly.
+
+1:08:54.220 --> 1:08:59.200
+ Does the between subject, as the number of subjects goes to infinity approach?
+
+1:08:59.200 --> 1:09:06.440
+ Well, I mean, you know, it goes to infinity is exaggerated, but people, the standard number
+
+1:09:06.440 --> 1:09:15.040
+ of subjects for an experiment in psychology were 30 or 40. And for a weak effect, that's
+
+1:09:15.040 --> 1:09:25.720
+ simply not enough. And you may need a couple of hundred. I mean, it's that sort of order
+
+1:09:25.720 --> 1:09:28.760
+ of magnitude.
+
+1:09:28.760 --> 1:09:35.840
+ What are the major disagreements in theories and effects that you've observed throughout
+
+1:09:35.840 --> 1:09:42.520
+ your career that still stand today? You've worked on several fields, but what still is
+
+1:09:42.520 --> 1:09:47.320
+ out there as a major disagreement that pops into your mind?
+
+1:09:47.320 --> 1:09:54.840
+ I've had one extreme experience of, you know, controversy with somebody who really doesn't
+
+1:09:54.840 --> 1:10:01.720
+ like the work that Amos Tversky and I did. And he's been after us for 30 years or more,
+
+1:10:01.720 --> 1:10:02.720
+ at least.
+
+1:10:02.720 --> 1:10:03.720
+ Do you want to talk about it?
+
+1:10:03.720 --> 1:10:10.400
+ Well, I mean, his name is Gerd Gigerenzer. He's a well known German psychologist. And
+
+1:10:10.400 --> 1:10:18.960
+ that's the one controversy, which I, it's been unpleasant. And no, I don't particularly
+
+1:10:18.960 --> 1:10:21.040
+ want to talk about it.
+
+1:10:21.040 --> 1:10:25.680
+ But is there is there open questions, even in your own mind, every once in a while? You
+
+1:10:25.680 --> 1:10:31.640
+ know, we talked about semi autonomous vehicles. In my own mind, I see what the data says,
+
+1:10:31.640 --> 1:10:38.200
+ but I also constantly torn. Do you have things where you or your studies have found something,
+
+1:10:38.200 --> 1:10:44.800
+ but you're also intellectually torn about what it means? And there's maybe disagreements
+
+1:10:44.800 --> 1:10:47.560
+ within your own mind about particular things.
+
+1:10:47.560 --> 1:10:52.280
+ I mean, it's, you know, one of the things that are interesting is how difficult it is
+
+1:10:52.280 --> 1:11:00.440
+ for people to change their mind. Essentially, you know, once they are committed, people
+
+1:11:00.440 --> 1:11:05.600
+ just don't change their mind about anything that matters. And that is surprisingly, but
+
+1:11:05.600 --> 1:11:12.240
+ it's true about scientists. So the controversy that I described, you know, that's been going
+
+1:11:12.240 --> 1:11:19.000
+ on like 30 years and it's never going to be resolved. And you build a system and you live
+
+1:11:19.000 --> 1:11:27.000
+ within that system and other other systems of ideas look foreign to you and there is
+
+1:11:27.000 --> 1:11:33.400
+ very little contact and very little mutual influence. That happens a fair amount.
+
+1:11:33.400 --> 1:11:41.000
+ Do you have a hopeful advice or message on that? Thinking about science, thinking about
+
+1:11:41.000 --> 1:11:47.840
+ politics, thinking about things that have impact on this world, how can we change our
+
+1:11:47.840 --> 1:11:49.760
+ mind?
+
+1:11:49.760 --> 1:11:56.920
+ I think that, I mean, on things that matter, which are political or really political or
+
+1:11:56.920 --> 1:12:04.360
+ religious and people just don't, don't change their mind. And by and large, and there's
+
+1:12:04.360 --> 1:12:13.360
+ very little that you can do about it. The, what does happen is that if leaders change
+
+1:12:13.360 --> 1:12:19.840
+ their minds. So for example, the public, the American public doesn't really believe in
+
+1:12:19.840 --> 1:12:26.920
+ climate change, doesn't take it very seriously. But if some religious leaders decided this
+
+1:12:26.920 --> 1:12:34.600
+ is a major threat to humanity, that would have a big effect. So that we have the opinions
+
+1:12:34.600 --> 1:12:39.840
+ that we have, not because we know why we have them, but because we trust some people and
+
+1:12:39.840 --> 1:12:49.120
+ we don't trust other people. And so it's much less about evidence than it is about stories.
+
+1:12:49.120 --> 1:12:55.040
+ So the way, one way to change your mind isn't at the individual level, is that the leaders
+
+1:12:55.040 --> 1:12:59.640
+ of the communities you look up with, the stories change and therefore your mind changes with
+
+1:12:59.640 --> 1:13:08.400
+ them. So there's a guy named Alan Turing, came up with a Turing test. What do you think
+
+1:13:08.400 --> 1:13:18.760
+ is a good test of intelligence? Perhaps we're drifting in a topic that we're maybe philosophizing
+
+1:13:18.760 --> 1:13:22.240
+ about, but what do you think is a good test for intelligence, for an artificial intelligence
+
+1:13:22.240 --> 1:13:23.240
+ system?
+
+1:13:23.240 --> 1:13:32.760
+ Well, the standard definition of artificial general intelligence is that it can do anything
+
+1:13:32.760 --> 1:13:39.540
+ that people can do and it can do them better. What we are seeing is that in many domains,
+
+1:13:39.540 --> 1:13:51.360
+ you have domain specific devices or programs or software, and they beat people easily in
+
+1:13:51.360 --> 1:14:04.080
+ a specified way. What we are very far from is that general ability, general purpose intelligence.
+
+1:14:04.080 --> 1:14:08.800
+ In machine learning, people are approaching something more general. I mean, for Alpha
+
+1:14:08.800 --> 1:14:18.840
+ Zero was much more general than Alpha Go, but it's still extraordinarily narrow and
+
+1:14:18.840 --> 1:14:28.160
+ specific in what it can do. So we're quite far from something that can, in every domain,
+
+1:14:28.160 --> 1:14:30.960
+ think like a human except better.
+
+1:14:30.960 --> 1:14:36.560
+ What aspect, so the Turing test has been criticized, it's natural language conversation that is
+
+1:14:36.560 --> 1:14:44.080
+ too simplistic. It's easy to quote unquote pass under constraints specified. What aspect
+
+1:14:44.080 --> 1:14:52.120
+ of conversation would impress you if you heard it? Is it humor? What would impress the heck
+
+1:14:52.120 --> 1:14:55.680
+ out of you if you saw it in conversation?
+
+1:14:55.680 --> 1:15:06.120
+ Yeah, I mean, certainly wit would be impressive and humor would be more impressive than just
+
+1:15:06.120 --> 1:15:17.080
+ factual conversation, which I think is easy. And allusions would be interesting and metaphors
+
+1:15:17.080 --> 1:15:25.640
+ would be interesting. I mean, but new metaphors, not practiced metaphors. So there is a lot
+
+1:15:25.640 --> 1:15:33.160
+ that would be sort of impressive that is completely natural in conversation, but that you really
+
+1:15:33.160 --> 1:15:34.160
+ wouldn't expect.
+
+1:15:34.160 --> 1:15:40.440
+ Does the possibility of creating a human level intelligence or superhuman level intelligence
+
+1:15:40.440 --> 1:15:47.440
+ system excite you, scare you? How does it make you feel?
+
+1:15:47.440 --> 1:15:51.520
+ I find the whole thing fascinating. Absolutely fascinating.
+
+1:15:51.520 --> 1:15:52.520
+ So exciting.
+
+1:15:52.520 --> 1:16:00.360
+ I think. And exciting. It's also terrifying, you know, but I'm not going to be around
+
+1:16:00.360 --> 1:16:09.200
+ to see it. And so I'm curious about what is happening now, but I also know that predictions
+
+1:16:09.200 --> 1:16:16.160
+ about it are silly. We really have no idea what it will look like 30 years from now.
+
+1:16:16.160 --> 1:16:18.360
+ No idea.
+
+1:16:18.360 --> 1:16:26.480
+ Speaking of silly, bordering on the profound, let me ask the question of, in your view,
+
+1:16:26.480 --> 1:16:32.400
+ what is the meaning of it all? The meaning of life? He's a descendant of great apes that
+
+1:16:32.400 --> 1:16:40.680
+ we are. Why, what drives us as a civilization, as a human being, as a force behind everything
+
+1:16:40.680 --> 1:16:49.920
+ that you've observed and studied? Is there any answer or is it all just a beautiful mess?
+
+1:16:49.920 --> 1:16:58.760
+ There is no answer that I can understand and I'm not, and I'm not actively looking for
+
+1:16:58.760 --> 1:16:59.760
+ one.
+
+1:16:59.760 --> 1:17:02.160
+ Do you think an answer exists?
+
+1:17:02.160 --> 1:17:08.200
+ No. There is no answer that we can understand. I'm not qualified to speak about what we cannot
+
+1:17:08.200 --> 1:17:17.400
+ understand, but there is, I know that we cannot understand reality, you know. I mean, there
+
+1:17:17.400 --> 1:17:22.720
+ are a lot of things that we can do. I mean, you know, gravity waves, I mean, that's a
+
+1:17:22.720 --> 1:17:29.800
+ big moment for humanity. And when you imagine that ape, you know, being able to go back
+
+1:17:29.800 --> 1:17:34.200
+ to the Big Bang, that's, that's, but...
+
+1:17:34.200 --> 1:17:35.200
+ But the why.
+
+1:17:35.200 --> 1:17:36.200
+ Yeah, the why.
+
+1:17:36.200 --> 1:17:37.200
+ It's bigger than us.
+
+1:17:37.200 --> 1:17:40.200
+ The why is hopeless, really.
+
+1:17:40.200 --> 1:17:43.640
+ Danny, thank you so much. It was an honor. Thank you for speaking today.
+
+1:17:43.640 --> 1:17:44.640
+ Thank you.
+
+1:17:44.640 --> 1:17:49.480
+ Thanks for listening to this conversation. And thank you to our presenting sponsor, Cash
+
+1:17:49.480 --> 1:17:56.720
+ App. Download it, use code LexPodcast, you'll get $10 and $10 will go to FIRST, a STEM education
+
+1:17:56.720 --> 1:18:01.880
+ nonprofit that inspires hundreds of thousands of young minds to become future leaders and
+
+1:18:01.880 --> 1:18:08.280
+ innovators. If you enjoy this podcast, subscribe on YouTube, give it five stars on Apple Podcast,
+
+1:18:08.280 --> 1:18:13.880
+ follow on Spotify, support it on Patreon, or simply connect with me on Twitter.
+
+1:18:13.880 --> 1:18:19.160
+ And now, let me leave you with some words of wisdom from Daniel Kahneman.
+
+1:18:19.160 --> 1:18:24.780
+ Intelligence is not only the ability to reason, it is also the ability to find relevant material
+
+1:18:24.780 --> 1:18:29.320
+ and memory and to deploy attention when needed.
+
+1:18:29.320 --> 1:18:44.400
+ Thank you for listening and hope to see you next time.
+

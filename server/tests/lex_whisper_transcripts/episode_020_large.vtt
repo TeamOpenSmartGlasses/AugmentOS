@@ -1,0 +1,7031 @@
+WEBVTT
+
+00:00.000 --> 00:03.280
+ The following is a conversation with Ariel Vinales.
+
+00:03.280 --> 00:05.880
+ He's a senior research scientist at Google DeepMind,
+
+00:05.880 --> 00:09.120
+ and before that, he was at Google Brain and Berkeley.
+
+00:09.120 --> 00:13.280
+ His research has been cited over 39,000 times.
+
+00:13.280 --> 00:16.520
+ He's truly one of the most brilliant and impactful minds
+
+00:16.520 --> 00:18.160
+ in the field of deep learning.
+
+00:18.160 --> 00:20.960
+ He's behind some of the biggest papers and ideas in AI,
+
+00:20.960 --> 00:23.080
+ including sequence to sequence learning,
+
+00:23.080 --> 00:25.480
+ audio generation, image captioning,
+
+00:25.480 --> 00:27.000
+ neural machine translation,
+
+00:27.000 --> 00:29.600
+ and, of course, reinforcement learning.
+
+00:29.600 --> 00:32.800
+ He's a lead researcher of the AlphaStar project,
+
+00:32.800 --> 00:35.760
+ creating an agent that defeated a top professional
+
+00:35.760 --> 00:38.080
+ at the game of StarCraft.
+
+00:38.080 --> 00:39.800
+ This conversation is part
+
+00:39.800 --> 00:41.800
+ of the Artificial Intelligence podcast.
+
+00:41.800 --> 00:44.920
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+00:44.920 --> 00:48.800
+ or simply connect with me on Twitter at Lex Friedman,
+
+00:48.800 --> 00:51.240
+ spelled F R I D.
+
+00:51.240 --> 00:55.440
+ And now, here's my conversation with Ariel Vinales.
+
+00:55.440 --> 00:59.600
+ You spearheaded the DeepMind team behind AlphaStar
+
+00:59.600 --> 01:02.840
+ that recently beat a top professional player at StarCraft.
+
+01:04.040 --> 01:07.720
+ So you have an incredible wealth of work
+
+01:07.720 --> 01:09.480
+ in deep learning and a bunch of fields,
+
+01:09.480 --> 01:11.840
+ but let's talk about StarCraft first.
+
+01:11.840 --> 01:13.760
+ Let's go back to the very beginning,
+
+01:13.760 --> 01:16.680
+ even before AlphaStar, before DeepMind,
+
+01:16.680 --> 01:18.840
+ before deep learning first.
+
+01:18.840 --> 01:21.280
+ What came first for you,
+
+01:21.280 --> 01:24.960
+ a love for programming or a love for video games?
+
+01:24.960 --> 01:28.560
+ I think for me, it definitely came first
+
+01:28.560 --> 01:31.960
+ the drive to play video games.
+
+01:31.960 --> 01:35.280
+ I really liked computers.
+
+01:35.280 --> 01:38.840
+ I didn't really code much, but what I would do is
+
+01:38.840 --> 01:42.080
+ I would just mess with the computer, break it and fix it.
+
+01:42.080 --> 01:43.800
+ That was the level of skills, I guess,
+
+01:43.800 --> 01:46.400
+ that I gained in my very early days,
+
+01:46.400 --> 01:48.520
+ I mean, when I was 10 or 11.
+
+01:48.520 --> 01:50.960
+ And then I really got into video games,
+
+01:50.960 --> 01:53.680
+ especially StarCraft, actually, the first version.
+
+01:53.680 --> 01:55.240
+ I spent most of my time
+
+01:55.240 --> 01:57.080
+ just playing kind of pseudo professionally,
+
+01:57.080 --> 02:01.040
+ as professionally as you could play back in 98 in Europe,
+
+02:01.040 --> 02:03.080
+ which was not a very main scene
+
+02:03.080 --> 02:05.840
+ like what's called nowadays eSports.
+
+02:05.840 --> 02:07.400
+ Right, of course, in the 90s.
+
+02:07.400 --> 02:09.920
+ So how'd you get into StarCraft?
+
+02:09.920 --> 02:11.680
+ What was your favorite race?
+
+02:11.680 --> 02:15.080
+ How did you develop your skill?
+
+02:15.080 --> 02:16.880
+ What was your strategy?
+
+02:16.880 --> 02:18.040
+ All that kind of thing.
+
+02:18.040 --> 02:21.520
+ So as a player, I tended to try to play not many games,
+
+02:21.520 --> 02:23.720
+ not to kind of disclose the strategies
+
+02:23.720 --> 02:25.400
+ that I kind of developed.
+
+02:25.400 --> 02:27.560
+ And I like to play random, actually,
+
+02:27.560 --> 02:30.040
+ not in competitions, but just to...
+
+02:30.040 --> 02:33.400
+ I think in StarCraft, there's three main races
+
+02:33.400 --> 02:36.280
+ and I found it very useful to play with all of them.
+
+02:36.280 --> 02:38.360
+ And so I would choose random many times,
+
+02:38.360 --> 02:40.200
+ even sometimes in tournaments,
+
+02:40.200 --> 02:42.360
+ to gain skill on the three races
+
+02:42.360 --> 02:45.440
+ because it's not how you play against someone,
+
+02:45.440 --> 02:48.760
+ but also if you understand the race because you played,
+
+02:48.760 --> 02:51.040
+ you also understand what's annoying,
+
+02:51.040 --> 02:52.480
+ then when you're on the other side,
+
+02:52.480 --> 02:54.160
+ what to do to annoy that person,
+
+02:54.160 --> 02:57.280
+ to try to gain advantages here and there and so on.
+
+02:57.280 --> 02:59.080
+ So I actually played random,
+
+02:59.080 --> 03:02.000
+ although I must say in terms of favorite race,
+
+03:02.000 --> 03:03.640
+ I really liked Zerg.
+
+03:03.640 --> 03:05.480
+ I was probably best at Zerg
+
+03:05.480 --> 03:08.320
+ and that's probably what I tend to use
+
+03:08.320 --> 03:11.400
+ towards the end of my career before starting university.
+
+03:11.400 --> 03:13.280
+ So let's step back a little bit.
+
+03:13.280 --> 03:15.600
+ Could you try to describe StarCraft
+
+03:15.600 --> 03:18.880
+ to people that may never have played video games,
+
+03:18.880 --> 03:22.280
+ especially the massively online variety like StarCraft?
+
+03:22.280 --> 03:25.880
+ So StarCraft is a real time strategy game.
+
+03:25.880 --> 03:27.760
+ And the way to think about StarCraft,
+
+03:27.760 --> 03:30.920
+ perhaps if you understand a bit chess,
+
+03:30.920 --> 03:34.200
+ is that there's a board which is called map
+
+03:34.200 --> 03:39.120
+ or the map where people play against each other.
+
+03:39.120 --> 03:40.960
+ There's obviously many ways you can play,
+
+03:40.960 --> 03:44.600
+ but the most interesting one is the one versus one setup
+
+03:44.600 --> 03:47.360
+ where you just play against someone else
+
+03:47.360 --> 03:49.280
+ or even the built in AI, right?
+
+03:49.280 --> 03:51.600
+ Blizzard put a system that can play the game
+
+03:51.600 --> 03:54.480
+ reasonably well if you don't know how to play.
+
+03:54.480 --> 03:57.080
+ And then in this board, you have again,
+
+03:57.080 --> 03:58.680
+ pieces like in chess,
+
+03:58.680 --> 04:01.400
+ but these pieces are not there initially
+
+04:01.400 --> 04:02.360
+ like they are in chess.
+
+04:02.360 --> 04:05.800
+ You actually need to decide to gather resources
+
+04:05.800 --> 04:07.920
+ to decide which pieces to build.
+
+04:07.920 --> 04:10.760
+ So in a way you're starting almost with no pieces.
+
+04:10.760 --> 04:13.400
+ You start gathering resources in StarCraft.
+
+04:13.400 --> 04:16.200
+ There's minerals and gas that you can gather.
+
+04:16.200 --> 04:19.440
+ And then you must decide how much do you wanna focus
+
+04:19.440 --> 04:21.480
+ for instance, on gathering more resources
+
+04:21.480 --> 04:24.360
+ or starting to build units or pieces.
+
+04:24.360 --> 04:27.200
+ And then once you have enough pieces
+
+04:27.200 --> 04:32.120
+ or maybe like attack, a good attack composition,
+
+04:32.120 --> 04:35.480
+ then you go and attack the other side of the map.
+
+04:35.480 --> 04:37.800
+ And now the other main difference with chess
+
+04:37.800 --> 04:39.920
+ is that you don't see the other side of the map.
+
+04:39.920 --> 04:43.360
+ So you're not seeing the moves of the enemy.
+
+04:43.360 --> 04:45.440
+ It's what we call partially observable.
+
+04:45.440 --> 04:48.680
+ So as a result, you must not only decide
+
+04:48.680 --> 04:52.320
+ trading off economy versus building your own units,
+
+04:52.320 --> 04:54.960
+ but you also must decide whether you wanna scout
+
+04:54.960 --> 04:57.840
+ to gather information, but also by scouting,
+
+04:57.840 --> 04:59.520
+ you might be giving away some information
+
+04:59.520 --> 05:01.960
+ that you might be hiding from the enemy.
+
+05:01.960 --> 05:04.960
+ So there's a lot of complex decision making
+
+05:04.960 --> 05:06.000
+ all in real time.
+
+05:06.000 --> 05:10.120
+ There's also unlike chess, this is not a turn based game.
+
+05:10.120 --> 05:13.680
+ You play basically all the time continuously
+
+05:13.680 --> 05:16.280
+ and thus some skill in terms of speed
+
+05:16.280 --> 05:18.920
+ and accuracy of clicking is also very important.
+
+05:18.920 --> 05:21.480
+ And people that train for this really play this game
+
+05:21.480 --> 05:23.560
+ at an amazing skill level.
+
+05:23.560 --> 05:25.800
+ I've seen many times these
+
+05:25.800 --> 05:27.360
+ and if you can witness this life,
+
+05:27.360 --> 05:29.480
+ it's really, really impressive.
+
+05:29.480 --> 05:31.400
+ So in a way, it's kind of a chess
+
+05:31.400 --> 05:33.400
+ where you don't see the other side of the board,
+
+05:33.400 --> 05:35.200
+ you're building your own pieces
+
+05:35.200 --> 05:37.200
+ and you also need to gather resources
+
+05:37.200 --> 05:40.680
+ to basically get some money to build other buildings,
+
+05:40.680 --> 05:42.840
+ pieces, technology and so on.
+
+05:42.840 --> 05:45.120
+ From the perspective of a human player,
+
+05:45.120 --> 05:47.200
+ the difference between that and chess
+
+05:47.200 --> 05:50.760
+ or maybe that and a game like turn based strategy
+
+05:50.760 --> 05:55.160
+ like Heroes of Might and Magic is that there's an anxiety
+
+05:55.160 --> 05:58.760
+ because you have to make these decisions really quickly.
+
+05:58.760 --> 06:03.760
+ And if you are not actually aware of what decisions work,
+
+06:04.360 --> 06:06.480
+ it's a very stressful balance.
+
+06:06.480 --> 06:08.880
+ Everything you describe is actually quite stressful,
+
+06:08.880 --> 06:11.680
+ difficult to balance for an amateur human player.
+
+06:11.680 --> 06:14.120
+ I don't know if it gets easier at the professional level,
+
+06:14.120 --> 06:16.440
+ like if they're fully aware of what they have to do,
+
+06:16.440 --> 06:19.240
+ but at the amateur level, there's this anxiety.
+
+06:19.240 --> 06:20.440
+ Oh crap, I'm being attacked.
+
+06:20.440 --> 06:22.760
+ Oh crap, I have to build up resource.
+
+06:22.760 --> 06:24.320
+ Oh, I have to probably expand.
+
+06:24.320 --> 06:26.120
+ And all these, the time,
+
+06:26.120 --> 06:29.440
+ the real time strategy aspect is really stressful
+
+06:29.440 --> 06:31.320
+ and computationally I'm sure difficult.
+
+06:31.320 --> 06:32.240
+ We'll get into it.
+
+06:32.240 --> 06:35.960
+ But for me, Battle.net,
+
+06:35.960 --> 06:40.960
+ so StarCraft was released in 98, 20 years ago,
+
+06:42.600 --> 06:44.640
+ which is hard to believe.
+
+06:44.640 --> 06:49.640
+ And Blizzard Battle.net with Diablo in 96 came out.
+
+06:50.160 --> 06:52.560
+ And to me, it might be a narrow perspective,
+
+06:52.560 --> 06:56.800
+ but it changed online gaming and perhaps society forever.
+
+06:56.800 --> 06:57.640
+ Yeah.
+
+06:57.640 --> 07:00.280
+ But I may have made way too narrow viewpoint,
+
+07:00.280 --> 07:02.200
+ but from your perspective,
+
+07:02.200 --> 07:05.040
+ can you talk about the history of gaming
+
+07:05.040 --> 07:06.440
+ over the past 20 years?
+
+07:06.440 --> 07:09.120
+ Is this, how transformational,
+
+07:09.120 --> 07:12.200
+ how important is this line of games?
+
+07:12.200 --> 07:16.400
+ Right, so I think I kind of was an active gamer
+
+07:16.400 --> 07:20.040
+ whilst this was developing, the internet, online gaming.
+
+07:20.040 --> 07:24.800
+ So for me, the way it came was I played other games,
+
+07:24.800 --> 07:27.880
+ strategy related, I played a bit of Common and Conquer,
+
+07:27.880 --> 07:31.320
+ and then I played Warcraft II, which is from Blizzard.
+
+07:31.320 --> 07:32.520
+ But at the time, I didn't know,
+
+07:32.520 --> 07:35.520
+ I didn't understand about what Blizzard was or anything.
+
+07:35.520 --> 07:36.800
+ Warcraft II was just a game,
+
+07:36.800 --> 07:39.760
+ which was actually very similar to StarCraft in many ways.
+
+07:39.760 --> 07:41.960
+ It's also real time strategy game
+
+07:41.960 --> 07:44.880
+ where there's orcs and humans, so there's only two races.
+
+07:44.880 --> 07:46.000
+ But it was offline.
+
+07:46.000 --> 07:47.480
+ And it was offline, right?
+
+07:47.480 --> 07:51.120
+ So I remember a friend of mine came to school,
+
+07:51.120 --> 07:53.480
+ say, oh, there's this new cool game called StarCraft.
+
+07:53.480 --> 07:54.920
+ And I just said, oh, this sounds like
+
+07:54.920 --> 07:59.240
+ just a copy of Warcraft II, until I kind of installed it.
+
+07:59.240 --> 08:01.520
+ And at the time, I am from Spain,
+
+08:01.520 --> 08:04.160
+ so we didn't have very good internet, right?
+
+08:04.160 --> 08:05.720
+ So there was, for us,
+
+08:05.720 --> 08:09.080
+ StarCraft became first kind of an offline experience
+
+08:09.080 --> 08:12.480
+ where you kind of start to play these missions, right?
+
+08:12.480 --> 08:15.280
+ You play against some sort of scripted things
+
+08:15.280 --> 08:18.520
+ to develop the story of the characters in the game.
+
+08:18.520 --> 08:23.040
+ And then later on, I start playing against the built in AI,
+
+08:23.040 --> 08:25.680
+ and I thought it was impossible to defeat it.
+
+08:25.680 --> 08:27.000
+ Then eventually you defeat one
+
+08:27.000 --> 08:29.240
+ and you can actually play against seven built in AIs
+
+08:29.240 --> 08:32.240
+ at the same time, which also felt impossible.
+
+08:32.240 --> 08:34.840
+ But actually, it's not that hard to beat
+
+08:34.840 --> 08:36.520
+ seven built in AIs at once.
+
+08:36.520 --> 08:40.120
+ So once we achieved that, also we discovered that
+
+08:40.120 --> 08:43.400
+ we could play, as I said, internet wasn't that great,
+
+08:43.400 --> 08:45.480
+ but we could play with the LAN, right?
+
+08:45.480 --> 08:47.600
+ Like basically against each other
+
+08:47.600 --> 08:49.480
+ if we were in the same place
+
+08:49.480 --> 08:51.880
+ because you could just connect machines with like cables,
+
+08:51.880 --> 08:53.200
+ right?
+
+08:53.200 --> 08:55.480
+ So we started playing in LAN mode
+
+08:55.480 --> 08:58.080
+ and as a group of friends,
+
+08:58.080 --> 09:00.520
+ and it was really, really like much more entertaining
+
+09:00.520 --> 09:02.280
+ than playing against AIs.
+
+09:02.280 --> 09:05.120
+ And later on, as internet was starting to develop
+
+09:05.120 --> 09:07.400
+ and being a bit faster and more reliable,
+
+09:07.400 --> 09:09.720
+ then it's when I started experiencing Battle.net,
+
+09:09.720 --> 09:11.560
+ which is this amazing universe,
+
+09:11.560 --> 09:13.720
+ not only because of the fact
+
+09:13.720 --> 09:16.440
+ that you can play the game against anyone in the world,
+
+09:16.440 --> 09:20.200
+ but you can also get to know more people.
+
+09:20.200 --> 09:23.080
+ You just get exposed to now like this vast variety of,
+
+09:23.080 --> 09:25.320
+ it's kind of a bit when the chats came about, right?
+
+09:25.320 --> 09:27.320
+ There was a chat system.
+
+09:27.320 --> 09:29.040
+ You could play against people,
+
+09:29.040 --> 09:30.720
+ but you could also chat with people,
+
+09:30.720 --> 09:32.480
+ not only about Stalker, but about anything.
+
+09:32.480 --> 09:36.640
+ And that became a way of life for kind of two years.
+
+09:36.640 --> 09:38.880
+ And obviously then it became like kind of,
+
+09:38.880 --> 09:42.240
+ it exploded in me in that I started to play more seriously,
+
+09:42.240 --> 09:44.680
+ going to tournaments and so on and so forth.
+
+09:44.680 --> 09:49.680
+ Do you have a sense on a societal, sociological level,
+
+09:49.840 --> 09:52.240
+ what's this whole part of society
+
+09:52.240 --> 09:53.800
+ that many of us are not aware of
+
+09:53.800 --> 09:56.840
+ and it's a huge part of society, which is gamers.
+
+09:56.840 --> 10:00.920
+ I mean, every time I come across that in YouTube
+
+10:00.920 --> 10:03.160
+ or streaming sites, I mean,
+
+10:03.160 --> 10:07.600
+ this is the huge number of people play games religiously.
+
+10:07.600 --> 10:08.880
+ Do you have a sense of those folks,
+
+10:08.880 --> 10:10.840
+ especially now that you've returned to that realm
+
+10:10.840 --> 10:12.600
+ a little bit on the AI side?
+
+10:12.600 --> 10:15.880
+ Yeah, so in fact, even after Stalker,
+
+10:15.880 --> 10:17.600
+ I actually played World of Warcraft,
+
+10:17.600 --> 10:21.360
+ which is maybe the main sort of online worlds
+
+10:21.360 --> 10:23.880
+ or in presence that you get to interact
+
+10:23.880 --> 10:24.720
+ with lots of people.
+
+10:24.720 --> 10:26.320
+ So I played that for a little bit.
+
+10:26.320 --> 10:29.000
+ It was to me, it was a bit less stressful than StarCraft
+
+10:29.000 --> 10:30.840
+ because winning was kind of a given.
+
+10:30.840 --> 10:32.320
+ You just put in this world
+
+10:32.320 --> 10:34.960
+ and you can always complete missions.
+
+10:34.960 --> 10:38.040
+ But I think it was actually the social aspect
+
+10:38.040 --> 10:40.400
+ of especially StarCraft first
+
+10:40.400 --> 10:43.360
+ and then games like World of Warcraft
+
+10:43.360 --> 10:46.880
+ really shaped me in a very interesting ways
+
+10:46.880 --> 10:48.480
+ because what you get to experience
+
+10:48.480 --> 10:51.600
+ is just people you wouldn't usually interact with, right?
+
+10:51.600 --> 10:54.920
+ So even nowadays, I still have many Facebook friends
+
+10:54.920 --> 10:56.880
+ from the area where I played online
+
+10:56.880 --> 11:00.040
+ and their ways of thinking is even political.
+
+11:00.040 --> 11:01.560
+ They just, we don't live in,
+
+11:01.560 --> 11:03.640
+ like we don't interact in the real world,
+
+11:03.640 --> 11:06.680
+ but we were connected by basically fiber.
+
+11:06.680 --> 11:10.760
+ And that way I actually get to understand a bit better
+
+11:10.760 --> 11:12.760
+ that we live in a diverse world.
+
+11:12.760 --> 11:15.560
+ And these were just connections that were made by,
+
+11:15.560 --> 11:18.040
+ because, you know, I happened to go in a city
+
+11:18.040 --> 11:22.400
+ in a virtual city as a priest and I met this warrior
+
+11:22.400 --> 11:23.600
+ and we became friends
+
+11:23.600 --> 11:25.640
+ and then we start like playing together, right?
+
+11:25.640 --> 11:28.720
+ So I think it's transformative
+
+11:28.720 --> 11:31.240
+ and more and more and more people are more aware of it.
+
+11:31.240 --> 11:33.440
+ I mean, it's becoming quite mainstream,
+
+11:33.440 --> 11:37.560
+ but back in the day, as you were saying in 2000, 2005,
+
+11:37.560 --> 11:42.040
+ even it was very, still very strange thing to do,
+
+11:42.040 --> 11:44.200
+ especially in Europe.
+
+11:44.200 --> 11:47.080
+ I think there were exceptions like Korea, for instance,
+
+11:47.080 --> 11:50.560
+ it was amazing that everything happened so early
+
+11:50.560 --> 11:54.400
+ in terms of cybercafes, like if you go to Seoul,
+
+11:54.400 --> 11:57.040
+ it's a city that back in the day,
+
+11:57.040 --> 11:58.360
+ StarCraft was kind of,
+
+11:58.360 --> 12:00.600
+ you could be a celebrity by playing StarCraft,
+
+12:00.600 --> 12:03.000
+ but this was like 99, 2000, right?
+
+12:03.000 --> 12:04.120
+ It's not like recently.
+
+12:04.120 --> 12:08.520
+ So yeah, it's quite interesting to look back
+
+12:08.520 --> 12:10.920
+ and yeah, I think it's changing society.
+
+12:10.920 --> 12:13.080
+ The same way, of course, like technology
+
+12:13.080 --> 12:16.880
+ and social networks and so on are also transforming things.
+
+12:16.880 --> 12:18.440
+ And a quick tangent, let me ask,
+
+12:18.440 --> 12:20.960
+ you're also one of the most productive people
+
+12:20.960 --> 12:25.960
+ in your particular chosen passion and path in life.
+
+12:26.400 --> 12:29.440
+ And yet you're also appreciate and enjoy video games.
+
+12:29.440 --> 12:31.040
+ Do you think it's possible to do,
+
+12:32.680 --> 12:35.760
+ to enjoy video games in moderation?
+
+12:35.760 --> 12:39.880
+ Someone told me that you could choose two out of three.
+
+12:39.880 --> 12:41.120
+ When I was playing video games,
+
+12:41.120 --> 12:43.680
+ you could choose having a girlfriend,
+
+12:43.680 --> 12:46.200
+ playing video games or studying.
+
+12:46.200 --> 12:50.520
+ And I think for the most part, it was relatively true.
+
+12:50.520 --> 12:52.320
+ These things do take time.
+
+12:52.320 --> 12:53.320
+ Games like StarCraft,
+
+12:53.320 --> 12:55.360
+ if you take the game pretty seriously
+
+12:55.360 --> 12:56.480
+ and you wanna study it,
+
+12:56.480 --> 12:59.040
+ then you obviously will dedicate more time to it.
+
+12:59.040 --> 13:01.160
+ And I definitely took gaming
+
+13:01.160 --> 13:03.640
+ and obviously studying very seriously.
+
+13:03.640 --> 13:08.640
+ I love learning science and et cetera.
+
+13:08.680 --> 13:13.080
+ So to me, especially when I started university undergrad,
+
+13:13.080 --> 13:14.880
+ I kind of step off StarCraft.
+
+13:14.880 --> 13:16.800
+ I actually fully stopped playing.
+
+13:16.800 --> 13:19.000
+ And then World of Warcraft was a bit more casual.
+
+13:19.000 --> 13:20.400
+ You could just connect online.
+
+13:20.400 --> 13:22.880
+ And I mean, it was fun.
+
+13:22.880 --> 13:26.800
+ But as I said, that was not as much time investment
+
+13:26.800 --> 13:29.440
+ as it was for me in StarCraft.
+
+13:29.440 --> 13:31.600
+ Okay, so let's get into AlphaStar.
+
+13:31.600 --> 13:35.160
+ What are the, you're behind the team.
+
+13:35.160 --> 13:37.200
+ So DeepMind has been working on StarCraft
+
+13:37.200 --> 13:39.360
+ and released a bunch of cool open source agents
+
+13:39.360 --> 13:41.280
+ and so on the past few years.
+
+13:41.280 --> 13:43.160
+ But AlphaStar really is the moment
+
+13:43.160 --> 13:48.160
+ where the first time you beat a world class player.
+
+13:49.120 --> 13:51.560
+ So what are the parameters of the challenge
+
+13:51.560 --> 13:53.440
+ in the way that AlphaStar took it on
+
+13:53.440 --> 13:55.240
+ and how did you and David
+
+13:55.240 --> 13:58.240
+ and the rest of the DeepMind team get into it?
+
+13:58.240 --> 14:00.920
+ Consider that you can even beat the best in the world
+
+14:00.920 --> 14:02.440
+ or top players.
+
+14:02.440 --> 14:05.440
+ I think it all started back in 2015.
+
+14:08.040 --> 14:08.880
+ Actually, I'm lying.
+
+14:08.880 --> 14:13.880
+ I think it was 2014 when DeepMind was acquired by Google.
+
+14:14.000 --> 14:15.680
+ And I at the time was at Google Brain,
+
+14:15.680 --> 14:18.880
+ which was in California, is still in California.
+
+14:18.880 --> 14:21.800
+ We had this summit where we got together, the two groups.
+
+14:21.800 --> 14:24.360
+ So Google Brain and Google DeepMind got together
+
+14:24.360 --> 14:26.320
+ and we gave a series of talks.
+
+14:26.320 --> 14:28.600
+ And given that they were doing
+
+14:28.600 --> 14:30.560
+ deep reinforcement learning for games,
+
+14:30.560 --> 14:33.600
+ I decided to bring up part of my past,
+
+14:33.600 --> 14:35.080
+ which I had developed at Berkeley,
+
+14:35.080 --> 14:37.400
+ like this thing which we call Berkeley OverMind,
+
+14:37.400 --> 14:40.160
+ which is really just a StarCraft one bot, right?
+
+14:40.160 --> 14:42.120
+ So I talked about that.
+
+14:42.120 --> 14:44.280
+ And I remember Demis just came to me and said,
+
+14:44.280 --> 14:47.120
+ well, maybe not now, it's perhaps a bit too early,
+
+14:47.120 --> 14:48.920
+ but you should just come to DeepMind
+
+14:48.920 --> 14:53.720
+ and do this again with deep reinforcement learning, right?
+
+14:53.720 --> 14:56.600
+ And at the time it sounded very science fiction
+
+14:56.600 --> 14:58.760
+ for several reasons.
+
+14:58.760 --> 15:01.520
+ But then in 2016, when I actually moved to London
+
+15:01.520 --> 15:04.760
+ and joined DeepMind transferring from Brain,
+
+15:04.760 --> 15:08.200
+ it became apparent that because of the AlphaGo moment
+
+15:08.200 --> 15:11.280
+ and kind of Blizzard reaching out to us to say,
+
+15:11.280 --> 15:13.000
+ wait, like, do you want the next challenge?
+
+15:13.000 --> 15:15.080
+ And also me being full time at DeepMind,
+
+15:15.080 --> 15:17.440
+ so sort of kind of all these came together.
+
+15:17.440 --> 15:20.960
+ And then I went to Irvine in California,
+
+15:20.960 --> 15:23.800
+ to the Blizzard headquarters to just chat with them
+
+15:23.800 --> 15:26.320
+ and try to explain how would it all work
+
+15:26.320 --> 15:27.800
+ before you do anything.
+
+15:27.800 --> 15:30.680
+ And the approach has always been
+
+15:30.680 --> 15:33.640
+ about the learning perspective, right?
+
+15:33.640 --> 15:38.640
+ So in Berkeley, we did a lot of rule based conditioning
+
+15:39.160 --> 15:42.520
+ and if you have more than three units, then go attack.
+
+15:42.520 --> 15:44.200
+ And if the other has more units than me,
+
+15:44.200 --> 15:46.360
+ I retreat and so on and so forth.
+
+15:46.360 --> 15:48.840
+ And of course, the point of deep reinforcement learning,
+
+15:48.840 --> 15:50.480
+ deep learning, machine learning in general
+
+15:50.480 --> 15:53.440
+ is that all these should be learned behavior.
+
+15:53.440 --> 15:56.960
+ So that kind of was the DNA of the project
+
+15:56.960 --> 15:59.480
+ since its inception in 2016,
+
+15:59.480 --> 16:02.880
+ where we just didn't even have an environment to work with.
+
+16:02.880 --> 16:05.840
+ And so that's how it all started really.
+
+16:05.840 --> 16:08.600
+ So if you go back to that conversation with Demis
+
+16:08.600 --> 16:12.200
+ or even in your own head, how far away did you,
+
+16:12.200 --> 16:14.480
+ because we're talking about Atari games,
+
+16:14.480 --> 16:16.680
+ we're talking about Go, which is kind of,
+
+16:16.680 --> 16:20.120
+ if you're honest about it, really far away from StarCraft.
+
+16:20.120 --> 16:22.160
+ In, well, now that you've beaten it,
+
+16:22.160 --> 16:23.280
+ maybe you could say it's close,
+
+16:23.280 --> 16:25.880
+ but it's much, it seems like StarCraft
+
+16:25.880 --> 16:29.120
+ is way harder than Go philosophically
+
+16:29.120 --> 16:30.880
+ and mathematically speaking.
+
+16:30.880 --> 16:34.240
+ So how far away did you think you were?
+
+16:34.240 --> 16:36.560
+ Do you think it's 2019 and 18
+
+16:36.560 --> 16:37.960
+ you could be doing as well as you have?
+
+16:37.960 --> 16:40.120
+ Yeah, when I kind of thought about,
+
+16:40.120 --> 16:43.000
+ okay, I'm gonna dedicate a lot of my time
+
+16:43.000 --> 16:44.080
+ and focus on this.
+
+16:44.080 --> 16:47.320
+ And obviously I do a lot of different research
+
+16:47.320 --> 16:48.160
+ in deep learning.
+
+16:48.160 --> 16:50.000
+ So spending time on it, I mean,
+
+16:50.000 --> 16:51.480
+ I really had to kind of think
+
+16:51.480 --> 16:55.120
+ there's gonna be something good happening out of this.
+
+16:55.120 --> 16:58.400
+ So really I thought, well, this sounds impossible.
+
+16:58.400 --> 17:01.000
+ And it probably is impossible to do the full thing,
+
+17:01.000 --> 17:06.000
+ like the full game where you play one versus one
+
+17:06.080 --> 17:09.120
+ and it's only a neural network playing and so on.
+
+17:09.120 --> 17:10.360
+ So it really felt like,
+
+17:10.360 --> 17:13.360
+ I just didn't even think it was possible.
+
+17:13.360 --> 17:14.200
+ But on the other hand,
+
+17:14.200 --> 17:18.440
+ I could see some stepping stones towards that goal.
+
+17:18.440 --> 17:21.000
+ Clearly you could define sub problems in StarCraft
+
+17:21.000 --> 17:22.760
+ and sort of dissect it a bit and say,
+
+17:22.760 --> 17:26.080
+ okay, here is a part of the game, here's another part.
+
+17:26.080 --> 17:29.240
+ And also obviously the fact,
+
+17:29.240 --> 17:31.120
+ so this was really also critical to me,
+
+17:31.120 --> 17:34.240
+ the fact that we could access human replays, right?
+
+17:34.240 --> 17:35.560
+ So Blizzard was very kind.
+
+17:35.560 --> 17:38.400
+ And in fact, they open source these for the whole community
+
+17:38.400 --> 17:39.800
+ where you can just go
+
+17:39.800 --> 17:42.880
+ and it's not every single StarCraft game ever played,
+
+17:42.880 --> 17:45.720
+ but it's a lot of them you can just go and download.
+
+17:45.720 --> 17:47.000
+ And every day they will,
+
+17:47.000 --> 17:48.800
+ you can just query a data set and say,
+
+17:48.800 --> 17:51.520
+ well, give me all the games that were played today.
+
+17:51.520 --> 17:55.640
+ And given my kind of experience with language
+
+17:55.640 --> 17:57.760
+ and sequences and supervised learning,
+
+17:57.760 --> 18:00.600
+ I thought, well, that's definitely gonna be very helpful
+
+18:00.600 --> 18:02.240
+ and something quite unique now,
+
+18:02.240 --> 18:07.240
+ because ever before we had such a large data set of replays,
+
+18:08.040 --> 18:10.840
+ of people playing the game at this scale
+
+18:10.840 --> 18:12.400
+ of such a complex video game, right?
+
+18:12.400 --> 18:15.480
+ So that to me was a precious resource.
+
+18:15.480 --> 18:17.240
+ And as soon as I knew that Blizzard
+
+18:17.240 --> 18:20.800
+ was able to kind of give this to the community,
+
+18:20.800 --> 18:22.080
+ I started to feel positive
+
+18:22.080 --> 18:24.120
+ about something non trivial happening.
+
+18:24.120 --> 18:28.240
+ But I also thought the full thing, like really no rules,
+
+18:28.240 --> 18:31.120
+ no single line of code that tries to say,
+
+18:31.120 --> 18:33.200
+ well, I mean, if you see this unit, build a detector,
+
+18:33.200 --> 18:36.560
+ all these, not having any of these specializations
+
+18:36.560 --> 18:38.960
+ seemed really, really, really difficult to me.
+
+18:38.960 --> 18:39.800
+ Intuitively.
+
+18:39.800 --> 18:42.520
+ I do also like that Blizzard was teasing
+
+18:42.520 --> 18:43.840
+ or even trolling you,
+
+18:45.360 --> 18:48.440
+ sort of almost, yeah, pulling you in
+
+18:48.440 --> 18:50.160
+ into this really difficult challenge.
+
+18:50.160 --> 18:51.680
+ Do they have any awareness?
+
+18:51.680 --> 18:55.600
+ What's the interest from the perspective of Blizzard,
+
+18:55.600 --> 18:57.240
+ except just curiosity?
+
+18:57.240 --> 18:59.360
+ Yeah, I think Blizzard has really understood
+
+18:59.360 --> 19:03.200
+ and really bring forward this competitiveness
+
+19:03.200 --> 19:04.720
+ of esports in games.
+
+19:04.720 --> 19:07.800
+ The StarCraft really kind of sparked a lot of,
+
+19:07.800 --> 19:10.680
+ like something that almost was never seen,
+
+19:10.680 --> 19:13.920
+ especially as I was saying, back in Korea.
+
+19:13.920 --> 19:16.200
+ So they just probably thought,
+
+19:16.200 --> 19:18.840
+ well, this is such a pure one versus one setup
+
+19:18.840 --> 19:21.120
+ that it would be great to see
+
+19:21.120 --> 19:24.840
+ if something that can play Atari or Go
+
+19:24.840 --> 19:27.920
+ and then later on chess could even tackle
+
+19:27.920 --> 19:30.600
+ these kind of complex real time strategy game, right?
+
+19:30.600 --> 19:33.320
+ So for them, they wanted to see first,
+
+19:33.320 --> 19:36.440
+ obviously whether it was possible,
+
+19:36.440 --> 19:39.760
+ if the game they created was in a way solvable
+
+19:39.760 --> 19:40.840
+ to some extent.
+
+19:40.840 --> 19:42.160
+ And I think on the other hand,
+
+19:42.160 --> 19:45.760
+ they also are a pretty modern company that innovates a lot.
+
+19:45.760 --> 19:48.520
+ So just starting to understand AI for them
+
+19:48.520 --> 19:50.240
+ to how to bring AI into games
+
+19:50.240 --> 19:54.320
+ is not AI for games, but games for AI, right?
+
+19:54.320 --> 19:56.120
+ I mean, both ways I think can work.
+
+19:56.120 --> 20:00.040
+ And we obviously at DeepMind use games for AI, right?
+
+20:00.040 --> 20:01.240
+ To drive AI progress,
+
+20:01.240 --> 20:03.680
+ but Blizzard might actually be able to do
+
+20:03.680 --> 20:06.040
+ and many other companies to start to understand
+
+20:06.040 --> 20:06.880
+ and do the opposite.
+
+20:06.880 --> 20:08.600
+ So I think that is also something
+
+20:08.600 --> 20:09.760
+ they can get out of these.
+
+20:09.760 --> 20:12.400
+ And they definitely, we have brainstormed a lot
+
+20:12.400 --> 20:13.680
+ about these, right?
+
+20:13.680 --> 20:15.120
+ But one of the interesting things to me
+
+20:15.120 --> 20:17.560
+ about StarCraft and Diablo
+
+20:17.560 --> 20:19.360
+ and these games that Blizzard has created
+
+20:19.360 --> 20:23.520
+ is the task of balancing classes, for example.
+
+20:23.520 --> 20:27.440
+ Sort of making the game fair from the starting point
+
+20:27.440 --> 20:29.840
+ and then let skill determine the outcome.
+
+20:30.920 --> 20:33.560
+ Is there, I mean, can you first comment,
+
+20:33.560 --> 20:36.760
+ there's three races, Zerg, Protoss and Terran.
+
+20:36.760 --> 20:38.920
+ I don't know if I've ever said that out loud.
+
+20:38.920 --> 20:40.040
+ Is that how you pronounce it?
+
+20:40.040 --> 20:40.880
+ Terran?
+
+20:40.880 --> 20:41.720
+ Yeah, Terran.
+
+20:41.720 --> 20:42.560
+ Yeah.
+
+20:44.120 --> 20:46.480
+ Yeah, I don't think I've ever in person interacted
+
+20:46.480 --> 20:49.600
+ with anybody about StarCraft, that's funny.
+
+20:49.600 --> 20:51.800
+ So they seem to be pretty balanced.
+
+20:51.800 --> 20:56.280
+ I wonder if the AI, the work that you're doing
+
+20:56.280 --> 20:59.200
+ with AlphaStar would help balance them even further.
+
+20:59.200 --> 21:00.560
+ Is that something you think about?
+
+21:00.560 --> 21:03.360
+ Is that something that Blizzard is thinking about?
+
+21:03.360 --> 21:06.440
+ Right, so balancing when you add a new unit
+
+21:06.440 --> 21:09.160
+ or a new spell type is obviously possible
+
+21:09.160 --> 21:13.240
+ given that you can always train or pre train at scale
+
+21:13.240 --> 21:16.720
+ some agent that might start using that in unintended ways.
+
+21:16.720 --> 21:19.200
+ But I think actually, if you understand
+
+21:19.200 --> 21:22.240
+ how StarCraft has kind of co evolved with players,
+
+21:22.240 --> 21:24.360
+ in a way, I think it's actually very cool
+
+21:24.360 --> 21:27.440
+ the ways that many of the things and strategies
+
+21:27.440 --> 21:28.720
+ that people came up with, right?
+
+21:28.720 --> 21:32.320
+ So I think we've seen it over and over in StarCraft
+
+21:32.320 --> 21:35.000
+ that Blizzard comes up with maybe a new unit
+
+21:35.000 --> 21:37.280
+ and then some players get creative
+
+21:37.280 --> 21:39.120
+ and do something kind of unintentional
+
+21:39.120 --> 21:40.920
+ or something that Blizzard designers
+
+21:40.920 --> 21:43.600
+ that just simply didn't test or think about.
+
+21:43.600 --> 21:46.240
+ And then after that becomes kind of mainstream
+
+21:46.240 --> 21:48.280
+ in the community, Blizzard patches the game
+
+21:48.280 --> 21:51.920
+ and then they kind of maybe weaken that strategy
+
+21:51.920 --> 21:53.920
+ or make it actually more interesting
+
+21:53.920 --> 21:55.440
+ but a bit more balanced.
+
+21:55.440 --> 21:57.760
+ So these kind of continual talk between players
+
+21:57.760 --> 22:01.720
+ and Blizzard is kind of what has defined them actually
+
+22:01.720 --> 22:04.040
+ in actually most games in StarCraft
+
+22:04.040 --> 22:06.440
+ but also in World of Warcraft, they would do that.
+
+22:06.440 --> 22:09.280
+ There are several classes and it would be not good
+
+22:09.280 --> 22:13.240
+ that everyone plays absolutely the same race and so on, right?
+
+22:13.240 --> 22:17.280
+ So I think they do care about balancing of course
+
+22:17.280 --> 22:19.640
+ and they do a fair amount of testing
+
+22:19.640 --> 22:22.120
+ but it's also beautiful to also see
+
+22:22.120 --> 22:24.480
+ how players get creative anyways.
+
+22:24.480 --> 22:27.440
+ And I mean, whether AI can be more creative at this point,
+
+22:27.440 --> 22:28.680
+ I don't think so, right?
+
+22:28.680 --> 22:31.560
+ I mean, it's just sometimes something so amazing happens.
+
+22:31.560 --> 22:33.680
+ Like I remember back in the days,
+
+22:33.680 --> 22:36.920
+ like you have these drop ships that could drop the rivers
+
+22:36.920 --> 22:39.600
+ and that was actually not thought about
+
+22:39.600 --> 22:41.280
+ that you could drop this unit
+
+22:41.280 --> 22:43.240
+ that has this what's called splash damage
+
+22:43.240 --> 22:45.640
+ that would basically eliminate
+
+22:45.640 --> 22:47.840
+ all the enemies workers at once.
+
+22:47.840 --> 22:50.120
+ No one thought that you could actually put them
+
+22:50.120 --> 22:53.080
+ in really early game, do that kind of damage
+
+22:53.080 --> 22:55.440
+ and then things change in the game.
+
+22:55.440 --> 22:58.040
+ But I don't know, I think it's quite an amazing
+
+22:58.040 --> 23:00.320
+ exploration process from both sides,
+
+23:00.320 --> 23:01.880
+ players and Blizzard alike.
+
+23:01.880 --> 23:05.040
+ Well, it's almost like a reinforcement learning exploration
+
+23:05.040 --> 23:10.040
+ but the scale of humans that play Blizzard games
+
+23:11.240 --> 23:13.720
+ is almost on the scale of a large scale
+
+23:13.720 --> 23:15.360
+ deep mind RL experiment.
+
+23:15.360 --> 23:17.640
+ I mean, if you look at the numbers,
+
+23:17.640 --> 23:19.560
+ I mean, you're talking about, I don't know how many games
+
+23:19.560 --> 23:22.080
+ but hundreds of thousands of games probably a month.
+
+23:22.080 --> 23:22.920
+ Yeah.
+
+23:22.920 --> 23:27.920
+ I mean, so it's almost the same as running RL agents.
+
+23:28.800 --> 23:31.240
+ What aspect of the problem of Starcraft
+
+23:31.240 --> 23:32.160
+ do you think is the hardest?
+
+23:32.160 --> 23:35.400
+ Is it the, like you said, the imperfect information?
+
+23:35.400 --> 23:38.160
+ Is it the fact they have to do longterm planning?
+
+23:38.160 --> 23:40.320
+ Is it the real time aspects?
+
+23:40.320 --> 23:42.240
+ We have to do stuff really quickly.
+
+23:42.240 --> 23:44.760
+ Is it the fact that a large action space
+
+23:44.760 --> 23:47.640
+ so you can do so many possible things?
+
+23:47.640 --> 23:51.120
+ Or is it, you know, in the game theoretic sense
+
+23:51.120 --> 23:52.400
+ there is no Nash equilibrium
+
+23:52.400 --> 23:54.280
+ or at least you don't know what the optimal strategy is
+
+23:54.280 --> 23:56.520
+ because there's way too many options.
+
+23:56.520 --> 23:57.360
+ Right.
+
+23:57.360 --> 23:59.520
+ Is there something that stands out as just like the hardest
+
+23:59.520 --> 24:01.000
+ the most annoying thing?
+
+24:01.000 --> 24:04.200
+ So when we sort of looked at the problem
+
+24:04.200 --> 24:07.640
+ and start to define like the parameters of it, right?
+
+24:07.640 --> 24:08.800
+ What are the observations?
+
+24:08.800 --> 24:10.520
+ What are the actions?
+
+24:10.520 --> 24:13.880
+ It became very apparent that, you know,
+
+24:13.880 --> 24:17.160
+ the very first barrier that one would hit in Starcraft
+
+24:17.160 --> 24:20.720
+ would be because of the action space being so large
+
+24:20.720 --> 24:24.880
+ and as not being able to search like you could in chess
+
+24:24.880 --> 24:27.320
+ or go even though the search space is vast.
+
+24:28.640 --> 24:30.600
+ The main problem that we identified
+
+24:30.600 --> 24:32.440
+ was that of exploration, right?
+
+24:32.440 --> 24:36.720
+ So without any sort of human knowledge or human prior,
+
+24:36.720 --> 24:38.040
+ if you think about Starcraft
+
+24:38.040 --> 24:40.880
+ and you know how deep reinforcement learnings algorithm
+
+24:40.880 --> 24:45.400
+ work which is essentially by issuing random actions
+
+24:45.400 --> 24:47.840
+ and hoping that they will get some wins sometimes
+
+24:47.840 --> 24:49.240
+ so they could learn.
+
+24:49.240 --> 24:52.840
+ So if you think of the action space in Starcraft
+
+24:52.840 --> 24:55.920
+ almost anything you can do in the early game is bad
+
+24:55.920 --> 24:58.760
+ because any action involves taking workers
+
+24:58.760 --> 25:01.360
+ which are mining minerals for free.
+
+25:01.360 --> 25:03.560
+ That's something that the game does automatically
+
+25:03.560 --> 25:04.920
+ sends them to mine.
+
+25:04.920 --> 25:07.760
+ And you would immediately just take them out of mining
+
+25:07.760 --> 25:09.080
+ and send them around.
+
+25:09.080 --> 25:13.640
+ So just thinking how is it gonna be possible
+
+25:13.640 --> 25:16.920
+ to get to understand these concepts
+
+25:16.920 --> 25:19.280
+ but even more like expanding, right?
+
+25:19.280 --> 25:21.080
+ There's these buildings you can place
+
+25:21.080 --> 25:24.160
+ in other locations in the map to gather more resources
+
+25:24.160 --> 25:26.840
+ but the location of the building is important
+
+25:26.840 --> 25:28.880
+ and you have to select a worker,
+
+25:28.880 --> 25:32.680
+ send it walking to that location, build the building,
+
+25:32.680 --> 25:34.120
+ wait for the building to be built
+
+25:34.120 --> 25:37.800
+ and then put extra workers there so they start mining.
+
+25:37.800 --> 25:41.720
+ That feels like impossible if you just randomly click
+
+25:41.720 --> 25:44.480
+ to produce that state, desirable state
+
+25:44.480 --> 25:46.960
+ that then you could hope to learn from
+
+25:46.960 --> 25:49.800
+ because eventually that may yield to an extra win, right?
+
+25:49.800 --> 25:51.760
+ So for me, the exploration problem
+
+25:51.760 --> 25:53.760
+ and due to the action space
+
+25:53.760 --> 25:56.080
+ and the fact that there's not really turns,
+
+25:56.080 --> 25:59.120
+ there's so many turns because the game essentially
+
+25:59.120 --> 26:02.040
+ takes that 22 times per second.
+
+26:02.040 --> 26:05.520
+ I mean, that's how they could discretize sort of time.
+
+26:05.520 --> 26:07.280
+ Obviously you always have to discretize time
+
+26:07.280 --> 26:09.600
+ but there's no such thing as real time
+
+26:09.600 --> 26:12.520
+ but it's really a lot of time steps
+
+26:12.520 --> 26:14.240
+ of things that could go wrong.
+
+26:14.240 --> 26:17.920
+ And that definitely felt a priori like the hardest.
+
+26:17.920 --> 26:19.320
+ You mentioned many good ones.
+
+26:19.320 --> 26:21.120
+ I think partial observability
+
+26:21.120 --> 26:23.440
+ and the fact that there is no perfect strategy
+
+26:23.440 --> 26:25.520
+ because of the partial observability.
+
+26:25.520 --> 26:26.840
+ Those are very interesting problems.
+
+26:26.840 --> 26:28.520
+ We start seeing more and more now
+
+26:28.520 --> 26:31.040
+ in terms of as we solve the previous ones
+
+26:31.040 --> 26:34.240
+ but the core problem to me was exploration
+
+26:34.240 --> 26:37.720
+ and solving it has been basically kind of the focus
+
+26:37.720 --> 26:39.760
+ and how we saw the first breakthroughs.
+
+26:39.760 --> 26:43.680
+ So exploration in a multi hierarchical way.
+
+26:43.680 --> 26:46.560
+ So like 22 times a second exploration
+
+26:46.560 --> 26:48.600
+ has a very different meaning than it does
+
+26:48.600 --> 26:51.440
+ in terms of should I gather resources early
+
+26:51.440 --> 26:53.200
+ or should I wait or so on.
+
+26:53.200 --> 26:56.200
+ So how do you solve the longterm?
+
+26:56.200 --> 26:58.080
+ Let's talk about the internals of AlphaStar.
+
+26:58.080 --> 27:02.480
+ So first of all, how do you represent the state
+
+27:02.480 --> 27:05.440
+ of the game as an input?
+
+27:05.440 --> 27:08.800
+ How do you then do the longterm sequence modeling?
+
+27:08.800 --> 27:10.760
+ How do you build a policy?
+
+27:10.760 --> 27:12.560
+ What's the architecture like?
+
+27:12.560 --> 27:16.840
+ So AlphaStar has obviously several components
+
+27:16.840 --> 27:20.880
+ but everything passes through what we call the policy
+
+27:20.880 --> 27:22.280
+ which is a neural network.
+
+27:22.280 --> 27:24.280
+ And that's kind of the beauty of it.
+
+27:24.280 --> 27:27.160
+ There is, I could just now give you a neural network
+
+27:27.160 --> 27:28.520
+ and some weights.
+
+27:28.520 --> 27:30.440
+ And if you fed the right observations
+
+27:30.440 --> 27:32.560
+ and you understood the actions the same way we do
+
+27:32.560 --> 27:35.120
+ you would have basically the agent playing the game.
+
+27:35.120 --> 27:37.240
+ There's absolutely nothing else needed
+
+27:37.240 --> 27:40.320
+ other than those weights that were trained.
+
+27:40.320 --> 27:43.360
+ Now, the first step is observing the game
+
+27:43.360 --> 27:46.640
+ and we've experimented with a few alternatives.
+
+27:46.640 --> 27:50.280
+ The one that we currently use mixes both spatial
+
+27:50.280 --> 27:53.800
+ sort of images that you would process from the game
+
+27:53.800 --> 27:56.400
+ that is the zoomed out version of the map
+
+27:56.400 --> 27:58.960
+ and also a zoomed in version of the camera
+
+27:58.960 --> 28:00.880
+ or the screen as we call it.
+
+28:00.880 --> 28:04.840
+ But also we give to the agent the list of units
+
+28:04.840 --> 28:09.000
+ that it sees more of as a set of objects
+
+28:09.000 --> 28:11.040
+ that it can operate on.
+
+28:11.040 --> 28:14.760
+ That is not necessarily required to use it.
+
+28:14.760 --> 28:16.840
+ And we have versions of the game that play well
+
+28:16.840 --> 28:19.760
+ without this set vision that is a bit not like
+
+28:19.760 --> 28:21.640
+ how humans perceive the game.
+
+28:21.640 --> 28:23.600
+ But it certainly helps a lot
+
+28:23.600 --> 28:26.520
+ because it's a very natural way to encode the game
+
+28:26.520 --> 28:29.360
+ is by just looking at all the units that there are.
+
+28:29.360 --> 28:33.920
+ They have properties like health, position, type of unit
+
+28:33.920 --> 28:36.160
+ whether it's my unit or the enemies.
+
+28:36.160 --> 28:40.760
+ And that sort of is kind of the summary
+
+28:40.760 --> 28:43.040
+ of the state of the game,
+
+28:43.040 --> 28:45.480
+ that list of units or set of units
+
+28:45.480 --> 28:47.360
+ that you see all the time.
+
+28:47.360 --> 28:49.560
+ But that's pretty close to the way humans see the game.
+
+28:49.560 --> 28:51.520
+ Why do you say it's not, isn't that,
+
+28:51.520 --> 28:55.040
+ you're saying the exactness of it is not similar to humans?
+
+28:55.040 --> 28:57.200
+ The exactness of it is perhaps not the problem.
+
+28:57.200 --> 28:59.800
+ I guess maybe the problem if you look at it
+
+28:59.800 --> 29:02.320
+ from how actually humans play the game
+
+29:02.320 --> 29:05.720
+ is that they play with a mouse and a keyboard and a screen
+
+29:05.720 --> 29:08.720
+ and they don't see sort of a structured object
+
+29:08.720 --> 29:09.560
+ with all the units.
+
+29:09.560 --> 29:12.200
+ What they see is what they see on the screen, right?
+
+29:12.200 --> 29:13.040
+ So.
+
+29:13.040 --> 29:14.360
+ Remember that there's a, sorry to interrupt,
+
+29:14.360 --> 29:16.960
+ there's a plot that you showed with camera base
+
+29:16.960 --> 29:18.600
+ where you do exactly that, right?
+
+29:18.600 --> 29:21.080
+ You move around and that seems to converge
+
+29:21.080 --> 29:22.240
+ to similar performance.
+
+29:22.240 --> 29:23.520
+ Yeah, I think that's what I,
+
+29:23.520 --> 29:26.320
+ we're kind of experimenting with what's necessary or not,
+
+29:26.320 --> 29:28.720
+ but using the set.
+
+29:28.720 --> 29:32.360
+ So, actually, if you look at research in computer vision,
+
+29:32.360 --> 29:35.960
+ where it makes a lot of sense to treat images
+
+29:35.960 --> 29:38.160
+ as two dimensional arrays,
+
+29:38.160 --> 29:40.360
+ there's actually a very nice paper from Facebook.
+
+29:40.360 --> 29:42.720
+ I think, I forgot who the authors are,
+
+29:42.720 --> 29:46.360
+ but I think it's part of Caming's group.
+
+29:46.360 --> 29:49.520
+ And what they do is they take an image,
+
+29:49.520 --> 29:51.920
+ which is this two dimensional signal,
+
+29:51.920 --> 29:54.280
+ and they actually take pixel by pixel
+
+29:54.280 --> 29:59.120
+ and scramble the image as if it was just a list of pixels.
+
+29:59.120 --> 30:01.760
+ Crucially, they encode the position of the pixels
+
+30:01.760 --> 30:03.680
+ with the X, Y coordinates.
+
+30:03.680 --> 30:06.120
+ And this is just kind of a new architecture,
+
+30:06.120 --> 30:08.480
+ which we incidentally also use in StarCraft
+
+30:08.480 --> 30:09.800
+ called the Transformer,
+
+30:09.800 --> 30:11.960
+ which is a very popular paper from last year,
+
+30:11.960 --> 30:15.560
+ which yielded very nice result in machine translation.
+
+30:15.560 --> 30:18.000
+ And if you actually believe in this kind of,
+
+30:18.000 --> 30:20.280
+ oh, it's actually a set of pixels,
+
+30:20.280 --> 30:22.520
+ as long as you encode X, Y, it's okay,
+
+30:22.520 --> 30:26.080
+ then you could argue that the list of units that we see
+
+30:26.080 --> 30:26.920
+ is precisely that,
+
+30:26.920 --> 30:31.440
+ because we have each unit as a kind of pixel, if you will,
+
+30:31.440 --> 30:33.200
+ and then their X, Y coordinates.
+
+30:33.200 --> 30:36.360
+ So in that perspective, we, without knowing it,
+
+30:36.360 --> 30:38.680
+ we use the same architecture that was shown
+
+30:38.680 --> 30:41.360
+ to work very well on Pascal and ImageNet and so on.
+
+30:41.360 --> 30:45.400
+ So the interesting thing here is putting it in that way
+
+30:45.400 --> 30:46.880
+ it starts to move it towards
+
+30:46.880 --> 30:49.400
+ the way you usually work with language.
+
+30:49.400 --> 30:52.680
+ So what, and especially with your expertise
+
+30:52.680 --> 30:55.440
+ and work in language,
+
+30:55.440 --> 30:57.880
+ it seems like there's echoes of a lot of
+
+30:58.920 --> 31:00.640
+ the way you would work with natural language
+
+31:00.640 --> 31:02.320
+ in the way you've approached AlphaStar.
+
+31:02.320 --> 31:03.160
+ Right.
+
+31:03.160 --> 31:05.000
+ What's, does that help
+
+31:05.000 --> 31:08.120
+ with the longterm sequence modeling there somehow?
+
+31:08.120 --> 31:10.160
+ Exactly, so now that we understand
+
+31:10.160 --> 31:13.520
+ what an observation for a given time step is,
+
+31:13.520 --> 31:14.600
+ we need to move on to say,
+
+31:14.600 --> 31:17.680
+ well, there's going to be a sequence of such observations
+
+31:17.680 --> 31:21.040
+ and an agent will need to, given all that it's seen,
+
+31:21.040 --> 31:24.040
+ not only the current time step, but all that it's seen, why?
+
+31:24.040 --> 31:25.880
+ Because there is partial observability.
+
+31:25.880 --> 31:29.000
+ We must remember whether we saw a worker going somewhere,
+
+31:29.000 --> 31:30.040
+ for instance, right?
+
+31:30.040 --> 31:31.680
+ Because then there might be an expansion
+
+31:31.680 --> 31:33.560
+ on the top right of the map.
+
+31:33.560 --> 31:37.920
+ So given that, what you must then think about is
+
+31:37.920 --> 31:40.320
+ there is the problem of given all the observations,
+
+31:40.320 --> 31:42.560
+ you have to predict the next action.
+
+31:42.560 --> 31:44.440
+ And not only given all the observations,
+
+31:44.440 --> 31:45.880
+ but given all the observations
+
+31:45.880 --> 31:47.840
+ and given all the actions you've taken,
+
+31:47.840 --> 31:49.280
+ predict the next action.
+
+31:49.280 --> 31:53.520
+ And that sounds exactly like machine translation where,
+
+31:53.520 --> 31:57.080
+ and that's exactly how kind of I saw the problem,
+
+31:57.080 --> 31:59.920
+ especially when you are given supervised data
+
+31:59.920 --> 32:01.680
+ or replays from humans,
+
+32:01.680 --> 32:03.520
+ because the problem is exactly the same.
+
+32:03.520 --> 32:07.600
+ You're translating essentially a prefix of observations
+
+32:07.600 --> 32:10.080
+ and actions onto what's going to happen next,
+
+32:10.080 --> 32:12.920
+ which is exactly how you would train a model to translate
+
+32:12.920 --> 32:14.680
+ or to generate language as well, right?
+
+32:14.680 --> 32:16.560
+ Do you have a certain prefix?
+
+32:16.560 --> 32:18.920
+ You must remember everything that comes in the past
+
+32:18.920 --> 32:22.560
+ because otherwise you might start having noncoherent text.
+
+32:22.560 --> 32:26.480
+ And the same architectures we're using LSTMs
+
+32:26.480 --> 32:29.680
+ and transformers to operate on across time
+
+32:29.680 --> 32:33.000
+ to kind of integrate all that's happened in the past.
+
+32:33.000 --> 32:35.640
+ Those architectures that work so well in translation
+
+32:35.640 --> 32:38.320
+ or language modeling are exactly the same
+
+32:38.320 --> 32:42.280
+ than what the agent is using to issue actions in the game.
+
+32:42.280 --> 32:44.680
+ And the way we train it, moreover, for imitation,
+
+32:44.680 --> 32:47.040
+ which is step one of AlphaStar is,
+
+32:47.040 --> 32:49.800
+ take all the human experience and try to imitate it,
+
+32:49.800 --> 32:52.840
+ much like you try to imitate translators
+
+32:52.840 --> 32:55.280
+ that translated many pairs of sentences
+
+32:55.280 --> 32:57.200
+ from French to English say,
+
+32:57.200 --> 33:00.120
+ that sort of principle applies exactly the same.
+
+33:00.120 --> 33:04.440
+ It's almost the same code, except that instead of words,
+
+33:04.440 --> 33:06.600
+ you have a slightly more complicated objects,
+
+33:06.600 --> 33:08.840
+ which are the observations and the actions
+
+33:08.840 --> 33:11.720
+ are also a bit more complicated than a word.
+
+33:11.720 --> 33:13.920
+ Is there a self play component then too?
+
+33:13.920 --> 33:16.480
+ So once you run out of imitation?
+
+33:16.480 --> 33:21.480
+ Right, so indeed you can bootstrap from human replays,
+
+33:22.240 --> 33:25.960
+ but then the agents you get are actually not as good
+
+33:25.960 --> 33:28.160
+ as the humans you imitated, right?
+
+33:28.160 --> 33:30.440
+ So how do we imitate?
+
+33:30.440 --> 33:34.280
+ Well, we take humans from 3000 MMR and higher.
+
+33:34.280 --> 33:37.960
+ 3000 MMR is just a metric of human skill
+
+33:37.960 --> 33:41.880
+ and 3000 MMR might be like 50% percentile, right?
+
+33:41.880 --> 33:43.760
+ So it's just average human.
+
+33:43.760 --> 33:44.600
+ What's that?
+
+33:44.600 --> 33:47.760
+ So maybe quick pause, MMR is a ranking scale,
+
+33:47.760 --> 33:50.320
+ the matchmaking rating for players.
+
+33:50.320 --> 33:52.320
+ So it's 3000, I remember there's like a master
+
+33:52.320 --> 33:54.120
+ and a grand master, what's 3000?
+
+33:54.120 --> 33:56.720
+ So 3000 is pretty bad.
+
+33:56.720 --> 33:58.440
+ I think it's kind of goals level.
+
+33:58.440 --> 34:00.680
+ It just sounds really good relative to chess, I think.
+
+34:00.680 --> 34:02.440
+ Oh yeah, yeah, no, the ratings,
+
+34:02.440 --> 34:05.320
+ the best in the world are at 7,000 MMR.
+
+34:05.320 --> 34:07.840
+ So 3000, it's a bit like Elo indeed, right?
+
+34:07.840 --> 34:12.840
+ So 3,500 just allows us to not filter a lot of the data.
+
+34:13.200 --> 34:15.680
+ So we like to have a lot of data in deep learning
+
+34:15.680 --> 34:17.320
+ as you probably know.
+
+34:17.320 --> 34:20.640
+ So we take these kind of 3,500 and above,
+
+34:20.640 --> 34:22.680
+ but then we do a very interesting trick,
+
+34:22.680 --> 34:25.000
+ which is we tell the neural network
+
+34:25.000 --> 34:27.560
+ what level they are imitating.
+
+34:27.560 --> 34:30.800
+ So we say, this replay you're gonna try to imitate
+
+34:30.800 --> 34:33.040
+ to predict the next action for all the actions
+
+34:33.040 --> 34:36.120
+ that you're gonna see is a 4,000 MMR replay.
+
+34:36.120 --> 34:38.840
+ This one is a 6,000 MMR replay.
+
+34:38.840 --> 34:42.520
+ And what's cool about this is then we take this policy
+
+34:42.520 --> 34:44.320
+ that is being trained from human,
+
+34:44.320 --> 34:47.440
+ and then we can ask it to play like a 3000 MMR player
+
+34:47.440 --> 34:49.600
+ by setting a beat saying, well, okay,
+
+34:49.600 --> 34:51.280
+ play like a 3000 MMR player
+
+34:51.280 --> 34:53.720
+ or play like a 6,000 MMR player.
+
+34:53.720 --> 34:57.320
+ And you actually see how the policy behaves differently.
+
+34:57.320 --> 35:01.520
+ It gets worse economy if you play like a goal level player,
+
+35:01.520 --> 35:03.000
+ it does less actions per minute,
+
+35:03.000 --> 35:05.360
+ which is the number of clicks or number of actions
+
+35:05.360 --> 35:07.800
+ that you will issue in a whole minute.
+
+35:07.800 --> 35:09.240
+ And it's very interesting to see
+
+35:09.240 --> 35:12.360
+ that it kind of imitates the skill level quite well.
+
+35:12.360 --> 35:15.480
+ But if we ask it to play like a 6,000 MMR player,
+
+35:15.480 --> 35:18.640
+ we tested, of course, these policies to see how well they do.
+
+35:18.640 --> 35:20.600
+ They actually beat all the built in AIs
+
+35:20.600 --> 35:22.440
+ that Blizzard put in the game,
+
+35:22.440 --> 35:25.000
+ but they're nowhere near 6,000 MMR players, right?
+
+35:25.000 --> 35:29.280
+ They might be maybe around goal level, platinum, perhaps.
+
+35:29.280 --> 35:32.240
+ So there's still a lot of work to be done for the policy
+
+35:32.240 --> 35:35.000
+ to truly understand what it means to win.
+
+35:35.000 --> 35:38.240
+ So far, we only asked them, okay, here is the screen.
+
+35:38.240 --> 35:41.680
+ And that's what's happened on the game until this point.
+
+35:41.680 --> 35:46.160
+ What would the next action be if we ask a pro to now say,
+
+35:46.160 --> 35:49.160
+ oh, you're gonna click here or here or there.
+
+35:49.160 --> 35:53.720
+ And the point is experiencing wins and losses
+
+35:53.720 --> 35:56.400
+ is very important to then start to refine.
+
+35:56.400 --> 35:58.400
+ Otherwise the policy can get loose,
+
+35:58.400 --> 36:00.520
+ can just go off policy as we call it.
+
+36:00.520 --> 36:03.480
+ That's so interesting that you can at least hope eventually
+
+36:03.480 --> 36:06.840
+ to be able to control a policy
+
+36:06.840 --> 36:10.000
+ approximately to be at some MMR level.
+
+36:10.000 --> 36:12.720
+ That's so interesting, especially given that you have
+
+36:12.720 --> 36:15.080
+ ground truth for a lot of these cases.
+
+36:15.080 --> 36:17.560
+ Can I ask you a personal question?
+
+36:17.560 --> 36:19.240
+ What's your MMR?
+
+36:19.240 --> 36:23.680
+ Well, I haven't played StarCraft II, so I am unranked,
+
+36:23.680 --> 36:26.200
+ which is the kind of lowest league.
+
+36:26.200 --> 36:29.600
+ So I used to play StarCraft, the first one.
+
+36:29.600 --> 36:32.680
+ But you haven't seriously played StarCraft II.
+
+36:32.680 --> 36:37.680
+ So the best player we have at DeepMind is about 5,000 MMR,
+
+36:37.760 --> 36:39.640
+ which is high masters.
+
+36:39.640 --> 36:42.120
+ It's not at grand master level.
+
+36:42.120 --> 36:44.680
+ Grand master level will be the top 200 players
+
+36:44.680 --> 36:47.960
+ in a certain region like Europe or America or Asia.
+
+36:49.160 --> 36:51.640
+ But for me, it would be hard to say.
+
+36:51.640 --> 36:53.760
+ I am very bad at the game.
+
+36:53.760 --> 36:56.680
+ I actually played AlphaStar a bit too late and it beat me.
+
+36:56.680 --> 36:59.760
+ I remember the whole team was, oh, Oreo, you should play.
+
+36:59.760 --> 37:02.240
+ And I was, oh, it looks like it's not so good yet.
+
+37:02.240 --> 37:04.960
+ And then I remember I kind of got busy
+
+37:04.960 --> 37:07.320
+ and waited an extra week and I played
+
+37:07.320 --> 37:09.760
+ and it really beat me very badly.
+
+37:09.760 --> 37:11.560
+ Was that, I mean, how did that feel?
+
+37:11.560 --> 37:12.720
+ Isn't that an amazing feeling?
+
+37:12.720 --> 37:13.640
+ That's amazing, yeah.
+
+37:13.640 --> 37:16.560
+ I mean, obviously I tried my best
+
+37:16.560 --> 37:18.120
+ and I tried to also impress my,
+
+37:18.120 --> 37:19.840
+ because I actually played the first game.
+
+37:19.840 --> 37:23.160
+ So I'm still pretty good at micromanagement.
+
+37:23.160 --> 37:25.320
+ The problem is I just don't understand StarCraft II.
+
+37:25.320 --> 37:27.000
+ I understand StarCraft.
+
+37:27.000 --> 37:28.560
+ And when I played StarCraft,
+
+37:28.560 --> 37:32.760
+ I probably was consistently like for a couple of years,
+
+37:32.760 --> 37:34.720
+ top 32 in Europe.
+
+37:34.720 --> 37:37.280
+ So I was decent, but at the time we didn't have
+
+37:37.280 --> 37:40.400
+ this kind of MMR system as well established.
+
+37:40.400 --> 37:43.240
+ So it would be hard to know what it was back then.
+
+37:43.240 --> 37:44.720
+ So what's the difference in interface
+
+37:44.720 --> 37:47.800
+ between AlphaStar and StarCraft
+
+37:47.800 --> 37:49.720
+ and a human player in StarCraft?
+
+37:49.720 --> 37:52.120
+ Is there any significant differences
+
+37:52.120 --> 37:54.200
+ between the way they both see the game?
+
+37:54.200 --> 37:56.080
+ I would say the way they see the game,
+
+37:56.080 --> 37:59.760
+ there's a few things that are just very hard to simulate.
+
+38:01.080 --> 38:05.240
+ The main one perhaps, which is obvious in hindsight
+
+38:05.240 --> 38:10.240
+ is what's called cloaked units, which are invisible units.
+
+38:10.600 --> 38:13.280
+ So in StarCraft, you can make some units
+
+38:13.280 --> 38:16.800
+ that you need to have a particular kind of unit
+
+38:16.800 --> 38:18.080
+ to detect it.
+
+38:18.080 --> 38:20.600
+ So these units are invisible.
+
+38:20.600 --> 38:22.760
+ If you cannot detect them, you cannot target them.
+
+38:22.760 --> 38:25.800
+ So they would just destroy your buildings
+
+38:25.800 --> 38:27.760
+ or kill your workers.
+
+38:27.760 --> 38:31.680
+ But despite the fact you cannot target the unit,
+
+38:31.680 --> 38:34.640
+ there's a shimmer that as a human you observe.
+
+38:34.640 --> 38:35.960
+ I mean, you need to train a little bit,
+
+38:35.960 --> 38:37.480
+ you need to pay attention,
+
+38:37.480 --> 38:41.920
+ but you would see this kind of space time distortion
+
+38:41.920 --> 38:44.880
+ and you would know, okay, there are, yeah.
+
+38:44.880 --> 38:46.080
+ Yeah, there's like a wave thing.
+
+38:46.080 --> 38:47.720
+ Yeah, it's called shimmer.
+
+38:47.720 --> 38:49.200
+ Space time distortion, I like it.
+
+38:49.200 --> 38:51.960
+ That's really like, the Blizzard term is shimmer.
+
+38:51.960 --> 38:52.800
+ Shimmer, okay.
+
+38:52.800 --> 38:55.600
+ And so these shimmer professional players
+
+38:55.600 --> 38:57.160
+ actually can see it immediately.
+
+38:57.160 --> 38:59.520
+ They understand it very well,
+
+38:59.520 --> 39:01.440
+ but it's still something that requires
+
+39:01.440 --> 39:02.720
+ certain amount of attention
+
+39:02.720 --> 39:05.680
+ and it's kind of a bit annoying to deal with.
+
+39:05.680 --> 39:08.640
+ Whereas for AlphaStar, in terms of vision,
+
+39:08.640 --> 39:11.120
+ it's very hard for us to simulate sort of,
+
+39:11.120 --> 39:14.200
+ oh, are you looking at this pixel in the screen and so on?
+
+39:14.200 --> 39:17.520
+ So the only thing we can do is,
+
+39:17.520 --> 39:19.720
+ there is a unit that's invisible over there.
+
+39:19.720 --> 39:22.520
+ So AlphaStar would know that immediately.
+
+39:22.520 --> 39:24.040
+ Obviously still obeys the rules.
+
+39:24.040 --> 39:25.200
+ You cannot attack the unit.
+
+39:25.200 --> 39:27.440
+ You must have a detector and so on,
+
+39:27.440 --> 39:29.360
+ but it's kind of one of the main things
+
+39:29.360 --> 39:32.720
+ that it just doesn't feel there's a very proper way.
+
+39:32.720 --> 39:35.520
+ I mean, you could imagine, oh, you don't have hypers.
+
+39:35.520 --> 39:37.000
+ Maybe you don't know exactly where it is,
+
+39:37.000 --> 39:39.280
+ or sometimes you see it, sometimes you don't,
+
+39:39.280 --> 39:43.040
+ but it's just really, really complicated to get it
+
+39:43.040 --> 39:44.320
+ so that everyone would agree,
+
+39:44.320 --> 39:47.680
+ oh, that's the best way to simulate this, right?
+
+39:47.680 --> 39:49.320
+ It seems like a perception problem.
+
+39:49.320 --> 39:50.640
+ It is a perception problem.
+
+39:50.640 --> 39:54.280
+ So the only problem is people, you ask,
+
+39:54.280 --> 39:55.320
+ oh, what's the difference between
+
+39:55.320 --> 39:56.760
+ how humans perceive the game?
+
+39:56.760 --> 39:59.960
+ I would say they wouldn't be able to tell a shimmer
+
+39:59.960 --> 40:02.240
+ immediately as it appears on the screen,
+
+40:02.240 --> 40:05.640
+ whereas AlphaStar in principle sees it very sharply, right?
+
+40:05.640 --> 40:08.680
+ It sees that the bit turned from zero to one,
+
+40:08.680 --> 40:10.480
+ meaning there's now a unit there,
+
+40:10.480 --> 40:11.960
+ although you don't know the unit,
+
+40:11.960 --> 40:15.840
+ or you know that you cannot attack it and so on.
+
+40:15.840 --> 40:18.080
+ So that from a vision standpoint,
+
+40:18.080 --> 40:22.960
+ that probably is the one that is kind of the most obvious one.
+
+40:22.960 --> 40:25.160
+ Then there are things humans cannot do perfectly,
+
+40:25.160 --> 40:28.080
+ even professionals, which is they might miss a detail,
+
+40:28.080 --> 40:30.600
+ or they might have not seen a unit.
+
+40:30.600 --> 40:32.240
+ And obviously as a computer,
+
+40:32.240 --> 40:35.000
+ if there's a corner of the screen that turns green
+
+40:35.000 --> 40:37.680
+ because a unit enters the field of view,
+
+40:37.680 --> 40:41.040
+ that can go into the memory of the agent, the LSTM,
+
+40:41.040 --> 40:42.480
+ and persist there for a while,
+
+40:42.480 --> 40:45.680
+ and for however long is relevant, right?
+
+40:45.680 --> 40:47.680
+ And in terms of action,
+
+40:47.680 --> 40:50.720
+ it seems like the rate of action from AlphaStar
+
+40:50.720 --> 40:54.280
+ is comparative, if not slower than professional players,
+
+40:54.280 --> 40:57.120
+ but it's more precise is what I read.
+
+40:57.120 --> 41:01.840
+ So that's really probably the one that is causing us
+
+41:01.840 --> 41:05.000
+ more issues for a couple of reasons, right?
+
+41:05.000 --> 41:08.400
+ The first one is StarCraft has been an AI environment
+
+41:08.400 --> 41:09.960
+ for quite a few years.
+
+41:09.960 --> 41:12.760
+ In fact, I mean, I was participating
+
+41:12.760 --> 41:15.880
+ in the very first competition back in 2010.
+
+41:15.880 --> 41:19.880
+ And there's really not been a kind of a very clear set
+
+41:19.880 --> 41:22.320
+ of rules how the actions per minute,
+
+41:22.320 --> 41:24.720
+ the rate of actions that you can issue is.
+
+41:24.720 --> 41:29.280
+ And as a result, these agents or bots that people build
+
+41:29.280 --> 41:31.080
+ in a kind of almost very cool way,
+
+41:31.080 --> 41:35.400
+ they do like 20,000, 40,000 actions per minute.
+
+41:35.400 --> 41:37.200
+ Now, to put this in perspective,
+
+41:37.200 --> 41:39.520
+ a very good professional human
+
+41:39.520 --> 41:44.080
+ might do 300 to 800 actions per minute.
+
+41:44.080 --> 41:45.480
+ They might not be as precise.
+
+41:45.480 --> 41:49.040
+ That's why the range is a bit tricky to identify exactly.
+
+41:49.040 --> 41:51.560
+ I mean, 300 actions per minute precisely
+
+41:51.560 --> 41:53.400
+ is probably realistic.
+
+41:53.400 --> 41:56.960
+ 800 is probably not, but you see humans doing a lot of actions
+
+41:56.960 --> 41:59.480
+ because they warm up and they kind of select things
+
+41:59.480 --> 42:02.240
+ and spam and so on just so that when they need,
+
+42:02.240 --> 42:04.320
+ they have the accuracy.
+
+42:04.320 --> 42:09.680
+ So we came into this by not having kind of a standard way
+
+42:09.680 --> 42:13.240
+ to say, well, how do we measure whether an agent is
+
+42:13.240 --> 42:15.760
+ at human level or not?
+
+42:15.760 --> 42:18.320
+ On the other hand, we had a huge advantage,
+
+42:18.320 --> 42:21.360
+ which is because we do imitation learning,
+
+42:21.360 --> 42:24.480
+ agents turned out to act like humans
+
+42:24.480 --> 42:26.240
+ in terms of rate of actions, even
+
+42:26.240 --> 42:28.720
+ precisions and imprecisions of actions
+
+42:28.720 --> 42:30.160
+ in the supervised policy.
+
+42:30.160 --> 42:31.160
+ You could see all these.
+
+42:31.160 --> 42:34.600
+ You could see how agents like to spam click, to move here.
+
+42:34.600 --> 42:37.280
+ If you played especially Diablo, you wouldn't know what I mean.
+
+42:37.280 --> 42:39.720
+ I mean, you just like spam, oh, move here, move here,
+
+42:39.720 --> 42:40.320
+ move here.
+
+42:40.320 --> 42:43.280
+ You're doing literally like maybe five actions
+
+42:43.280 --> 42:45.640
+ in two seconds, but these actions are not
+
+42:45.640 --> 42:46.840
+ very meaningful.
+
+42:46.840 --> 42:48.720
+ One would have sufficed.
+
+42:48.720 --> 42:52.080
+ So on the one hand, we start from this imitation policy
+
+42:52.080 --> 42:55.600
+ that is at the ballpark of the actions per minutes of humans
+
+42:55.600 --> 42:57.280
+ because it's actually statistically
+
+42:57.280 --> 42:58.920
+ trying to imitate humans.
+
+42:58.920 --> 43:01.040
+ So we see these very nicely in the curves
+
+43:01.040 --> 43:02.480
+ that we showed in the blog post.
+
+43:02.480 --> 43:04.480
+ There's these actions per minute,
+
+43:04.480 --> 43:07.640
+ and the distribution looks very human like.
+
+43:07.640 --> 43:10.920
+ But then, of course, as self play kicks in,
+
+43:10.920 --> 43:13.240
+ and that's the part we haven't talked too much yet,
+
+43:13.240 --> 43:17.160
+ but of course, the agent must play against itself to improve,
+
+43:17.160 --> 43:19.600
+ then there's almost no guarantees
+
+43:19.600 --> 43:22.400
+ that these actions will not become more precise
+
+43:22.400 --> 43:26.120
+ or even the rate of actions is going to increase over time.
+
+43:26.120 --> 43:29.080
+ So what we did, and this is probably
+
+43:29.080 --> 43:31.200
+ the first attempt that we thought was reasonable,
+
+43:31.200 --> 43:33.120
+ is we looked at the distribution of actions
+
+43:33.120 --> 43:36.360
+ for humans for certain windows of time.
+
+43:36.360 --> 43:39.280
+ And just to give a perspective, because I guess I mentioned
+
+43:39.280 --> 43:41.640
+ that some of these agents that are programmatic,
+
+43:41.640 --> 43:42.320
+ let's call them.
+
+43:42.320 --> 43:44.560
+ They do 40,000 actions per minute.
+
+43:44.560 --> 43:47.320
+ Professionals, as I said, do 300 to 800.
+
+43:47.320 --> 43:49.400
+ So what we looked is we look at the distribution
+
+43:49.400 --> 43:53.680
+ over professional gamers, and we took reasonably high actions
+
+43:53.680 --> 43:57.400
+ per minute, but we kind of identify certain cutoffs
+
+43:57.400 --> 44:00.520
+ after which, even if the agent wanted to act,
+
+44:00.520 --> 44:02.920
+ these actions would be dropped.
+
+44:02.920 --> 44:07.040
+ But the problem is this cutoff is probably set a bit too high.
+
+44:07.040 --> 44:10.040
+ And what ends up happening, even though the games,
+
+44:10.040 --> 44:12.040
+ and when we ask the professionals and the gamers,
+
+44:12.040 --> 44:15.840
+ by and large, they feel like it's playing humanlike,
+
+44:15.840 --> 44:20.640
+ there are some agents that developed maybe slightly
+
+44:20.640 --> 44:24.200
+ too high APMs, which is actions per minute,
+
+44:24.200 --> 44:27.000
+ combined with the precision, which
+
+44:27.000 --> 44:30.520
+ made people start discussing a very interesting issue, which
+
+44:30.520 --> 44:32.440
+ is, should we have limited these?
+
+44:32.440 --> 44:35.880
+ Should we just let it lose and see what cool things
+
+44:35.880 --> 44:37.040
+ it can come up with?
+
+44:37.040 --> 44:37.520
+ Right?
+
+44:37.520 --> 44:38.200
+ Interesting.
+
+44:38.200 --> 44:41.520
+ So this is in itself an extremely interesting
+
+44:41.520 --> 44:44.000
+ question, but the same way that modeling the shimmer
+
+44:44.000 --> 44:47.720
+ would be so difficult, modeling absolutely all the details
+
+44:47.720 --> 44:51.680
+ about muscles and precision and tiredness of humans
+
+44:51.680 --> 44:52.960
+ would be quite difficult.
+
+44:52.960 --> 44:56.280
+ So we're really here kind of innovating
+
+44:56.280 --> 44:58.960
+ in this sense of, OK, what could be maybe
+
+44:58.960 --> 45:02.040
+ the next iteration of putting more rules that
+
+45:02.040 --> 45:06.360
+ makes the agents more humanlike in terms of restrictions?
+
+45:06.360 --> 45:08.120
+ Yeah, putting constraints that.
+
+45:08.120 --> 45:09.240
+ More constraints, yeah.
+
+45:09.240 --> 45:10.200
+ That's really interesting.
+
+45:10.200 --> 45:11.200
+ That's really innovative.
+
+45:11.200 --> 45:15.360
+ So one of the constraints you put on yourself,
+
+45:15.360 --> 45:18.040
+ or at least focused in, is on the Protoss race,
+
+45:18.040 --> 45:19.920
+ as far as I understand.
+
+45:19.920 --> 45:21.920
+ Can you tell me about the different races
+
+45:21.920 --> 45:26.000
+ and how they, so Protoss, Terran, and Zerg,
+
+45:26.000 --> 45:27.080
+ how do they compare?
+
+45:27.080 --> 45:28.160
+ How do they interact?
+
+45:28.160 --> 45:30.360
+ Why did you choose Protoss?
+
+45:30.360 --> 45:34.000
+ Yeah, in the dynamics of the game seen
+
+45:34.000 --> 45:35.680
+ from a strategic perspective.
+
+45:35.680 --> 45:39.680
+ So Protoss, so in StarCraft there are three races.
+
+45:39.680 --> 45:43.880
+ Indeed, in the demonstration, we saw only the Protoss race.
+
+45:43.880 --> 45:45.560
+ So maybe let's start with that one.
+
+45:45.560 --> 45:49.440
+ Protoss is kind of the most technologically advanced race.
+
+45:49.440 --> 45:53.800
+ It has units that are expensive but powerful.
+
+45:53.800 --> 45:57.880
+ So in general, you want to kind of conserve your units
+
+45:57.880 --> 45:59.520
+ as you go attack.
+
+45:59.520 --> 46:03.280
+ And then you want to utilize these tactical advantages
+
+46:03.280 --> 46:07.320
+ of very fancy spells and so on and so forth.
+
+46:07.320 --> 46:11.480
+ And at the same time, they're kind of,
+
+46:11.480 --> 46:15.280
+ people say they're a bit easier to play perhaps.
+
+46:15.280 --> 46:17.160
+ But that I actually didn't know.
+
+46:17.160 --> 46:20.160
+ I mean, I just talked now a lot to the players
+
+46:20.160 --> 46:23.360
+ that we work with, TLO and Mana, and they said, oh yeah,
+
+46:23.360 --> 46:24.720
+ Protoss is actually, people think,
+
+46:24.720 --> 46:26.360
+ is actually one of the easiest races.
+
+46:26.360 --> 46:28.840
+ So perhaps the easier, that doesn't
+
+46:28.840 --> 46:32.680
+ mean that it's obviously professional players
+
+46:32.680 --> 46:34.120
+ excel at the three races.
+
+46:34.120 --> 46:37.560
+ And there's never a race that dominates
+
+46:37.560 --> 46:38.800
+ for a very long time anyway.
+
+46:38.800 --> 46:41.680
+ So if you look at the top, I don't know, 100 in the world,
+
+46:41.680 --> 46:44.280
+ is there one race that dominates that list?
+
+46:44.280 --> 46:46.840
+ It would be hard to know because it depends on the regions.
+
+46:46.840 --> 46:50.600
+ I think it's pretty equal in terms of distribution.
+
+46:50.600 --> 46:53.360
+ And Blizzard wants it to be equal.
+
+46:53.360 --> 46:56.280
+ They wouldn't want one race like Protoss
+
+46:56.280 --> 46:59.880
+ to not be representative in the top place.
+
+46:59.880 --> 47:03.800
+ So definitely, they tried it to be balanced.
+
+47:03.800 --> 47:07.280
+ So then maybe the opposite race of Protoss is Zerg.
+
+47:07.280 --> 47:11.680
+ Zerg is a race where you just kind of expand and take over
+
+47:11.680 --> 47:14.360
+ as many resources as you can, and they
+
+47:14.360 --> 47:17.760
+ have a very high capacity to regenerate their units.
+
+47:17.760 --> 47:20.920
+ So if you have an army, it's not that valuable in terms
+
+47:20.920 --> 47:23.920
+ of losing the whole army is not a big deal as Zerg
+
+47:23.920 --> 47:25.840
+ because you can then rebuild it.
+
+47:25.840 --> 47:28.320
+ And given that you generally accumulate
+
+47:28.320 --> 47:31.800
+ a huge bank of resources, Zergs typically
+
+47:31.800 --> 47:34.200
+ play by applying a lot of pressure,
+
+47:34.200 --> 47:37.040
+ maybe losing their whole army, but then rebuilding it
+
+47:37.040 --> 47:37.920
+ quickly.
+
+47:37.920 --> 47:42.560
+ So although, of course, every race, I mean, there's never,
+
+47:42.560 --> 47:43.960
+ I mean, they're pretty diverse.
+
+47:43.960 --> 47:45.320
+ I mean, there are some units in Zerg that
+
+47:45.320 --> 47:47.160
+ are technologically advanced, and they do
+
+47:47.160 --> 47:48.760
+ some very interesting spells.
+
+47:48.760 --> 47:51.360
+ And there's some units in Protoss that are less valuable,
+
+47:51.360 --> 47:53.480
+ and you could lose a lot of them and rebuild them,
+
+47:53.480 --> 47:55.080
+ and it wouldn't be a big deal.
+
+47:55.080 --> 47:57.840
+ All right, so maybe I'm missing out.
+
+47:57.840 --> 48:01.680
+ Maybe I'm going to say some dumb stuff, but summary
+
+48:01.680 --> 48:02.520
+ of strategy.
+
+48:02.520 --> 48:05.720
+ So first, there's collection of a lot of resources.
+
+48:05.720 --> 48:06.560
+ That's one option.
+
+48:06.560 --> 48:11.560
+ The other one is expanding, so building other bases.
+
+48:11.920 --> 48:15.640
+ Then the other is obviously building units
+
+48:15.640 --> 48:17.160
+ and attacking with those units.
+
+48:17.160 --> 48:20.640
+ And then I don't know what else there is.
+
+48:20.640 --> 48:24.080
+ Maybe there's the different timing of attacks,
+
+48:24.080 --> 48:26.000
+ like do I attack early, attack late?
+
+48:26.000 --> 48:28.000
+ What are the different strategies that emerged
+
+48:28.000 --> 48:29.120
+ that you've learned about?
+
+48:29.120 --> 48:31.360
+ I've read that a bunch of people are super happy
+
+48:31.360 --> 48:34.440
+ that you guys have apparently, that Alpha Star apparently
+
+48:34.440 --> 48:36.400
+ has discovered that it's really good to,
+
+48:36.400 --> 48:38.040
+ what is it, saturate?
+
+48:38.040 --> 48:39.600
+ Oh yeah, the mineral line.
+
+48:39.600 --> 48:41.400
+ Yeah, the mineral line.
+
+48:41.400 --> 48:42.240
+ Yeah, yeah.
+
+48:42.240 --> 48:45.640
+ And that's for greedy amateur players like myself.
+
+48:45.640 --> 48:47.520
+ That's always been a good strategy.
+
+48:47.520 --> 48:49.040
+ You just build up a lot of money,
+
+48:49.040 --> 48:53.320
+ and it just feels good to just accumulate and accumulate.
+
+48:53.320 --> 48:56.720
+ So thank you for discovering that and validating all of us.
+
+48:56.720 --> 48:59.240
+ But is there other strategies that you discovered
+
+48:59.240 --> 49:01.840
+ that are interesting, unique to this game?
+
+49:01.840 --> 49:05.280
+ Yeah, so if you look at the kind of,
+
+49:05.280 --> 49:06.480
+ not being a StarCraft II player,
+
+49:06.480 --> 49:08.080
+ but of course StarCraft and StarCraft II
+
+49:08.080 --> 49:11.040
+ and real time strategy games in general are very similar.
+
+49:12.120 --> 49:17.120
+ I would classify perhaps the openings of the game.
+
+49:17.560 --> 49:18.760
+ They're very important.
+
+49:18.760 --> 49:21.760
+ And generally I would say there's two kinds of openings.
+
+49:21.760 --> 49:23.400
+ One that's a standard opening.
+
+49:23.400 --> 49:28.400
+ That's generally how players find sort of a balance
+
+49:28.400 --> 49:32.880
+ between risk and economy and building some units early on
+
+49:32.880 --> 49:34.080
+ so that they could defend,
+
+49:34.080 --> 49:36.280
+ but they're not too exposed basically,
+
+49:36.280 --> 49:38.920
+ but also expanding quite quickly.
+
+49:38.920 --> 49:41.520
+ So this would be kind of a standard opening.
+
+49:41.520 --> 49:43.120
+ And within a standard opening,
+
+49:43.120 --> 49:45.320
+ then what you do choose generally is
+
+49:45.320 --> 49:47.840
+ what technology are you aiming towards?
+
+49:47.840 --> 49:49.760
+ So there's a bit of rock, paper, scissors
+
+49:49.760 --> 49:52.400
+ of you could go for spaceships
+
+49:52.400 --> 49:54.560
+ or you could go for invisible units
+
+49:54.560 --> 49:55.920
+ or you could go for, I don't know,
+
+49:55.920 --> 49:58.760
+ like massive units that attack against certain kinds
+
+49:58.760 --> 50:01.080
+ of units, but they're weak against others.
+
+50:01.080 --> 50:05.200
+ So standard openings themselves have some choices
+
+50:05.200 --> 50:06.960
+ like rock, paper, scissors style.
+
+50:06.960 --> 50:08.480
+ Of course, if you scout and you're good
+
+50:08.480 --> 50:10.520
+ at guessing what the opponent is doing,
+
+50:10.520 --> 50:12.240
+ then you can play as an advantage
+
+50:12.240 --> 50:13.920
+ because if you know you're gonna play rock,
+
+50:13.920 --> 50:15.920
+ I mean, I'm gonna play paper obviously.
+
+50:15.920 --> 50:18.600
+ So you can imagine that normal standard games
+
+50:18.600 --> 50:22.400
+ in StarCraft looks like a continuous rock, paper,
+
+50:22.400 --> 50:26.080
+ scissors game where you guess what the distribution
+
+50:26.080 --> 50:29.400
+ of rock, paper, and scissors is from the enemy
+
+50:29.400 --> 50:32.840
+ and reacting accordingly to try to beat it
+
+50:32.840 --> 50:36.880
+ or put the paper out before he kind of changes his mind
+
+50:36.880 --> 50:38.360
+ from rock to scissors,
+
+50:38.360 --> 50:39.960
+ and then you would be in a weak position.
+
+50:39.960 --> 50:41.640
+ So, sorry to pause on that.
+
+50:41.640 --> 50:42.800
+ I didn't realize this element
+
+50:42.800 --> 50:44.360
+ because I know it's true with poker.
+
+50:44.360 --> 50:45.840
+ I know I looked at Labratus.
+
+50:48.320 --> 50:51.720
+ So you're also estimating trying to guess the distribution,
+
+50:51.720 --> 50:53.680
+ trying to better and better estimate the distribution
+
+50:53.680 --> 50:55.560
+ of what the opponent is likely to be doing.
+
+50:55.560 --> 50:56.960
+ Yeah, I mean, as a player,
+
+50:56.960 --> 50:59.360
+ you definitely wanna have a belief state
+
+50:59.360 --> 51:02.520
+ over what's up on the other side of the map.
+
+51:02.520 --> 51:05.080
+ And when your belief state becomes inaccurate,
+
+51:05.080 --> 51:07.560
+ when you start having that serious doubts,
+
+51:07.560 --> 51:10.800
+ whether he's gonna play something that you must know,
+
+51:10.800 --> 51:11.920
+ that's when you scout.
+
+51:11.920 --> 51:14.040
+ You wanna then gather information, right?
+
+51:14.040 --> 51:15.960
+ Is improving the accuracy of the belief
+
+51:15.960 --> 51:19.360
+ or improving the belief state part of the loss
+
+51:19.360 --> 51:20.560
+ that you're trying to optimize?
+
+51:20.560 --> 51:22.360
+ Or is it just a side effect?
+
+51:22.360 --> 51:25.440
+ It's implicit, but you could explicitly model it,
+
+51:25.440 --> 51:27.880
+ and it would be quite good at probably predicting
+
+51:27.880 --> 51:30.000
+ what's on the other side of the map.
+
+51:30.000 --> 51:32.520
+ But so far, it's all implicit.
+
+51:32.520 --> 51:36.320
+ There's no additional reward for predicting the enemy.
+
+51:36.320 --> 51:38.400
+ So there's these standard openings,
+
+51:38.400 --> 51:41.240
+ and then there's what people call cheese,
+
+51:41.240 --> 51:42.400
+ which is very interesting.
+
+51:42.400 --> 51:46.360
+ And AlphaStar sometimes really likes this kind of cheese.
+
+51:46.360 --> 51:50.440
+ These cheeses, what they are is kind of an all in strategy.
+
+51:50.440 --> 51:53.240
+ You're gonna do something sneaky.
+
+51:53.240 --> 51:56.680
+ You're gonna hide your own buildings
+
+51:56.680 --> 51:58.200
+ close to the enemy base,
+
+51:58.200 --> 52:01.600
+ or you're gonna go for hiding your technological buildings
+
+52:01.600 --> 52:03.040
+ so that you do invisible units
+
+52:03.040 --> 52:06.040
+ and the enemy just cannot react to detect it
+
+52:06.040 --> 52:07.960
+ and thus lose the game.
+
+52:07.960 --> 52:10.000
+ And there's quite a few of these cheeses
+
+52:10.000 --> 52:11.760
+ and variants of them.
+
+52:11.760 --> 52:14.480
+ And there it's where actually the belief state
+
+52:14.480 --> 52:16.360
+ becomes even more important.
+
+52:16.360 --> 52:20.200
+ Because if I scout your base and I see no buildings at all,
+
+52:20.200 --> 52:22.480
+ any human player knows something's up.
+
+52:22.480 --> 52:23.320
+ They might know, well,
+
+52:23.320 --> 52:25.640
+ you're hiding something close to my base.
+
+52:25.640 --> 52:28.400
+ Should I build suddenly a lot of units to defend?
+
+52:28.400 --> 52:31.000
+ Should I actually block my ramp with workers
+
+52:31.000 --> 52:33.520
+ so that you cannot come and destroy my base?
+
+52:33.520 --> 52:35.680
+ So there's all this is happening
+
+52:35.680 --> 52:39.440
+ and defending against cheeses is extremely important.
+
+52:39.440 --> 52:40.800
+ And in the AlphaStar League,
+
+52:40.800 --> 52:45.080
+ many agents actually develop some cheesy strategies.
+
+52:45.080 --> 52:48.040
+ And in the games we saw against TLO and Mana,
+
+52:48.040 --> 52:49.240
+ two out of the 10 agents
+
+52:49.240 --> 52:51.760
+ were actually doing these kind of strategies
+
+52:51.760 --> 52:53.640
+ which are cheesy strategies.
+
+52:53.640 --> 52:55.600
+ And then there's a variant of cheesy strategy
+
+52:55.600 --> 52:57.360
+ which is called all in.
+
+52:57.360 --> 53:00.440
+ So an all in strategy is not perhaps as drastic as,
+
+53:00.440 --> 53:02.520
+ oh, I'm gonna build cannons on your base
+
+53:02.520 --> 53:03.840
+ and then bring all my workers
+
+53:03.840 --> 53:06.800
+ and try to just disrupt your base and game over,
+
+53:06.800 --> 53:08.760
+ or GG as we say in StarCraft.
+
+53:09.800 --> 53:11.960
+ There's these kind of very cool things
+
+53:11.960 --> 53:14.720
+ that you can align precisely at a certain time mark.
+
+53:14.720 --> 53:15.680
+ So for instance,
+
+53:15.680 --> 53:19.520
+ you can generate exactly 10 unit composition
+
+53:19.520 --> 53:21.440
+ that is perfect, like five of this type,
+
+53:21.440 --> 53:22.920
+ five of this other type,
+
+53:22.920 --> 53:24.360
+ and align the upgrade
+
+53:24.360 --> 53:27.240
+ so that at four minutes and a half, let's say,
+
+53:27.240 --> 53:30.600
+ you have these 10 units and the upgrade just finished.
+
+53:30.600 --> 53:33.960
+ And at that point, that army is really scary.
+
+53:33.960 --> 53:36.440
+ And unless the enemy really knows what's going on,
+
+53:36.440 --> 53:40.240
+ if you push, you might then have an advantage
+
+53:40.240 --> 53:42.440
+ because maybe the enemy is doing something more standard,
+
+53:42.440 --> 53:45.760
+ it expanded too much, it developed too much economy,
+
+53:45.760 --> 53:49.720
+ and it trade off badly against having defenses,
+
+53:49.720 --> 53:51.120
+ and the enemy will lose.
+
+53:51.120 --> 53:53.640
+ But it's called all in because if you don't win,
+
+53:53.640 --> 53:55.040
+ then you're gonna lose.
+
+53:55.040 --> 53:57.960
+ So you see players that do these kinds of strategies,
+
+53:57.960 --> 54:00.000
+ if they don't succeed, game is not over.
+
+54:00.000 --> 54:01.200
+ I mean, they still have a base
+
+54:01.200 --> 54:02.840
+ and they still gathering minerals,
+
+54:02.840 --> 54:04.760
+ but they will just GG out of the game
+
+54:04.760 --> 54:06.760
+ because they know, well, game is over.
+
+54:06.760 --> 54:08.840
+ I gambled and I failed.
+
+54:08.840 --> 54:12.480
+ So if we start entering the game theoretic aspects
+
+54:12.480 --> 54:15.200
+ of the game, it's really rich and it's really,
+
+54:15.200 --> 54:17.960
+ that's why it also makes it quite entertaining to watch.
+
+54:17.960 --> 54:21.760
+ Even if I don't play, I still enjoy watching the game.
+
+54:21.760 --> 54:26.760
+ But the agents are trying to do this mostly implicitly.
+
+54:26.880 --> 54:29.120
+ But one element that we improved in self play
+
+54:29.120 --> 54:31.400
+ is creating the Alpha Star League.
+
+54:31.400 --> 54:34.640
+ And the Alpha Star League is not pure self play.
+
+54:34.640 --> 54:37.960
+ It's trying to create a different personalities of agents
+
+54:37.960 --> 54:41.560
+ so that some of them will become cheesy agents.
+
+54:41.560 --> 54:44.440
+ Some of them might become very economical, very greedy,
+
+54:44.440 --> 54:46.240
+ like getting all the resources,
+
+54:46.240 --> 54:48.840
+ but then being maybe early on, they're gonna be weak,
+
+54:48.840 --> 54:51.080
+ but later on, they're gonna be very strong.
+
+54:51.080 --> 54:53.480
+ And by creating this personality of agents,
+
+54:53.480 --> 54:55.440
+ which sometimes it just happens naturally
+
+54:55.440 --> 54:58.280
+ that you can see kind of an evolution of agents
+
+54:58.280 --> 55:00.840
+ that given the previous generation,
+
+55:00.840 --> 55:02.000
+ they train against all of them
+
+55:02.000 --> 55:04.400
+ and then they generate kind of the perfect counter
+
+55:04.400 --> 55:05.800
+ to that distribution.
+
+55:05.800 --> 55:09.320
+ But these agents, you must have them in the populations
+
+55:09.320 --> 55:11.320
+ because if you don't have them,
+
+55:11.320 --> 55:13.440
+ you're not covered against these things.
+
+55:13.440 --> 55:17.120
+ You wanna create all sorts of the opponents
+
+55:17.120 --> 55:18.680
+ that you will find in the wild.
+
+55:18.680 --> 55:23.120
+ So you can be exposed to these cheeses, early aggression,
+
+55:23.120 --> 55:25.760
+ later aggression, more expansions,
+
+55:25.760 --> 55:29.600
+ dropping units in your base from the side, all these things.
+
+55:29.600 --> 55:32.800
+ And pure self play is getting a bit stuck
+
+55:32.800 --> 55:36.240
+ at finding some subset of these, but not all of these.
+
+55:36.240 --> 55:38.400
+ So the Alpha Star League is a way
+
+55:38.400 --> 55:41.600
+ to kind of do an ensemble of agents
+
+55:41.600 --> 55:43.520
+ that they're all playing in a league,
+
+55:43.520 --> 55:45.560
+ much like people play on Battle.net, right?
+
+55:45.560 --> 55:47.480
+ They play, you play against someone
+
+55:47.480 --> 55:50.280
+ who does a new cool strategy and you immediately,
+
+55:50.280 --> 55:53.080
+ oh my God, I wanna try it, I wanna play again.
+
+55:53.080 --> 55:57.600
+ And this to me was another critical part of the problem,
+
+55:57.600 --> 56:01.280
+ which was, can we create a Battle.net for agents?
+
+56:01.280 --> 56:03.560
+ And that's kind of what the Alpha Star League really is.
+
+56:03.560 --> 56:04.400
+ That's fascinating.
+
+56:04.400 --> 56:06.920
+ And where they stick to their different strategies.
+
+56:06.920 --> 56:09.880
+ Yeah, wow, that's really, really interesting.
+
+56:09.880 --> 56:13.240
+ But that said, you were fortunate enough
+
+56:13.240 --> 56:16.280
+ or just skilled enough to win five, zero.
+
+56:17.320 --> 56:19.280
+ And so how hard is it to win?
+
+56:19.280 --> 56:20.320
+ I mean, that's not the goal.
+
+56:20.320 --> 56:21.880
+ I guess, I don't know what the goal is.
+
+56:21.880 --> 56:25.400
+ The goal should be to win majority, not five, zero,
+
+56:25.400 --> 56:29.360
+ but how hard is it in general to win all matchups
+
+56:29.360 --> 56:31.080
+ on a one V one?
+
+56:31.080 --> 56:33.600
+ So that's a very interesting question
+
+56:33.600 --> 56:38.600
+ because once you see Alpha Star and superficially
+
+56:38.680 --> 56:40.520
+ you think, well, okay, it won.
+
+56:40.520 --> 56:42.960
+ Let's, if you sum all the games like 10 to one, right?
+
+56:42.960 --> 56:46.280
+ It lost the game that it played with the camera interface.
+
+56:46.280 --> 56:48.760
+ You might think, well, that's done, right?
+
+56:48.760 --> 56:50.800
+ It's superhuman at the game.
+
+56:50.800 --> 56:54.760
+ And that's not really the claim we really can make actually.
+
+56:55.960 --> 56:58.800
+ The claim is we beat a professional gamer
+
+56:58.800 --> 57:00.080
+ for the first time.
+
+57:00.080 --> 57:02.440
+ StarCraft has really been a thing
+
+57:02.440 --> 57:04.080
+ that has been going on for a few years,
+
+57:04.080 --> 57:09.080
+ but a moment like this had not occurred before yet.
+
+57:09.480 --> 57:12.360
+ But are these agents impossible to beat?
+
+57:12.360 --> 57:13.400
+ Absolutely not, right?
+
+57:13.400 --> 57:17.320
+ So that's a bit what's kind of the difference is
+
+57:17.320 --> 57:19.520
+ the agents play at grandmaster level.
+
+57:19.520 --> 57:21.480
+ They definitely understand the game enough
+
+57:21.480 --> 57:24.920
+ to play extremely well, but are they unbeatable?
+
+57:24.920 --> 57:26.600
+ Do they play perfect?
+
+57:26.600 --> 57:29.280
+ No, and actually in StarCraft,
+
+57:29.280 --> 57:32.160
+ because of these sneaky strategies,
+
+57:32.160 --> 57:34.920
+ it's always possible that you might take a huge risk
+
+57:34.920 --> 57:36.880
+ sometimes, but you might get wins, right?
+
+57:36.880 --> 57:38.160
+ Out of this.
+
+57:38.160 --> 57:41.560
+ So I think that as a domain,
+
+57:41.560 --> 57:43.320
+ it still has a lot of opportunities,
+
+57:43.320 --> 57:45.840
+ not only because of course we wanna learn
+
+57:45.840 --> 57:47.720
+ with less experience, we would like to,
+
+57:47.720 --> 57:49.680
+ I mean, if I learned to play Protoss,
+
+57:49.680 --> 57:52.520
+ I can play Terran and learn it much quicker
+
+57:52.520 --> 57:53.640
+ than Alpha Star can, right?
+
+57:53.640 --> 57:56.720
+ So there are obvious interesting research challenges
+
+57:56.720 --> 58:01.720
+ as well, but even as the raw performance goes,
+
+58:02.320 --> 58:05.200
+ really the claim here can be we are at pro level
+
+58:05.200 --> 58:08.320
+ or at high grandmaster level,
+
+58:08.320 --> 58:13.320
+ but obviously the players also did not know what to expect,
+
+58:13.440 --> 58:14.280
+ right?
+
+58:14.280 --> 58:15.960
+ Their prior distribution was a bit off
+
+58:15.960 --> 58:19.400
+ because they played this kind of new like alien brain
+
+58:19.400 --> 58:21.000
+ as they like to say it, right?
+
+58:21.000 --> 58:24.120
+ And that's what makes it exciting for them.
+
+58:24.120 --> 58:27.160
+ But also I think if you look at the games closely,
+
+58:27.160 --> 58:30.680
+ you see there were weaknesses in some points,
+
+58:30.680 --> 58:32.520
+ maybe Alpha Star did not scout,
+
+58:32.520 --> 58:35.240
+ or if it had invisible units going against
+
+58:35.240 --> 58:37.400
+ at certain points, it wouldn't have known
+
+58:37.400 --> 58:38.800
+ and it would have been bad.
+
+58:38.800 --> 58:42.160
+ So there's still quite a lot of work to do,
+
+58:42.160 --> 58:44.680
+ but it's really a very exciting moment for us
+
+58:44.680 --> 58:48.400
+ to be seeing, wow, a single neural net on a GPU
+
+58:48.400 --> 58:50.240
+ is actually playing against these guys
+
+58:50.240 --> 58:51.280
+ who are amazing.
+
+58:51.280 --> 58:52.920
+ I mean, you have to see them play in life.
+
+58:52.920 --> 58:55.040
+ They're really, really amazing players.
+
+58:55.040 --> 58:59.320
+ Yeah, I'm sure there must be a guy in Poland
+
+58:59.320 --> 59:02.000
+ somewhere right now training his butt off
+
+59:02.000 --> 59:05.920
+ to make sure that this never happens again with Alpha Star.
+
+59:05.920 --> 59:09.080
+ So that's really exciting in terms of Alpha Star
+
+59:09.080 --> 59:11.520
+ having some holes to exploit, which is great.
+
+59:11.520 --> 59:13.720
+ And then we build on top of each other
+
+59:13.720 --> 59:16.360
+ and it feels like StarCraft on let go,
+
+59:16.360 --> 59:20.640
+ even if you win, it's still not,
+
+59:20.640 --> 59:23.120
+ there's so many different dimensions
+
+59:23.120 --> 59:24.200
+ in which you can explore.
+
+59:24.200 --> 59:25.560
+ So that's really, really interesting.
+
+59:25.560 --> 59:28.520
+ Do you think there's a ceiling to Alpha Star?
+
+59:28.520 --> 59:31.360
+ You've said that it hasn't reached,
+
+59:31.360 --> 59:32.840
+ you know, this is a big,
+
+59:32.840 --> 59:35.520
+ wait, let me actually just pause for a second.
+
+59:35.520 --> 59:40.200
+ How did it feel to come here to this point,
+
+59:40.200 --> 59:42.240
+ to beat a top professional player?
+
+59:42.240 --> 59:44.600
+ Like that night, I mean, you know,
+
+59:44.600 --> 59:47.120
+ Olympic athletes have their gold medal, right?
+
+59:47.120 --> 59:48.840
+ This is your gold medal in a sense.
+
+59:48.840 --> 59:50.400
+ Sure, you're cited a lot,
+
+59:50.400 --> 59:53.120
+ you've published a lot of prestigious papers, whatever,
+
+59:53.120 --> 59:55.280
+ but this is like a win.
+
+59:55.280 --> 59:56.480
+ How did it feel?
+
+59:56.480 --> 59:59.440
+ I mean, it was, for me, it was unbelievable
+
+59:59.440 --> 1:00:03.920
+ because first the win itself,
+
+1:00:03.920 --> 1:00:05.080
+ I mean, it was so exciting.
+
+1:00:05.080 --> 1:00:10.080
+ I mean, so looking back to those last days of 2018 really,
+
+1:00:11.040 --> 1:00:13.120
+ that's when the games were played.
+
+1:00:13.120 --> 1:00:15.240
+ I'm sure I look back at that moment, I'll say,
+
+1:00:15.240 --> 1:00:18.000
+ oh my God, I want to be in a project like that.
+
+1:00:18.000 --> 1:00:21.120
+ It's like, I already feel the nostalgia of like,
+
+1:00:21.120 --> 1:00:24.240
+ yeah, that was huge in terms of the energy
+
+1:00:24.240 --> 1:00:26.360
+ and the team effort that went into it.
+
+1:00:26.360 --> 1:00:29.240
+ And so in that sense, as soon as it happened,
+
+1:00:29.240 --> 1:00:31.280
+ I already knew it was kind of,
+
+1:00:31.280 --> 1:00:33.000
+ I was losing it a little bit.
+
+1:00:33.000 --> 1:00:36.320
+ So it is almost like sad that it happened and oh my God,
+
+1:00:36.320 --> 1:00:41.320
+ but on the other hand, it also verifies the approach.
+
+1:00:41.320 --> 1:00:43.800
+ But to me also, there's so many challenges
+
+1:00:43.800 --> 1:00:46.080
+ and interesting aspects of intelligence
+
+1:00:46.080 --> 1:00:49.840
+ that even though we can train a neural network
+
+1:00:49.840 --> 1:00:52.680
+ to play at the level of the best humans,
+
+1:00:52.680 --> 1:00:54.200
+ there's still so many challenges.
+
+1:00:54.200 --> 1:00:55.680
+ So for me, it's also like, well,
+
+1:00:55.680 --> 1:00:57.440
+ this is really an amazing achievement,
+
+1:00:57.440 --> 1:00:59.920
+ but I already was also thinking about next steps.
+
+1:00:59.920 --> 1:01:04.080
+ I mean, as I said, these Asians play Protoss versus Protoss,
+
+1:01:04.080 --> 1:01:07.200
+ but they should be able to play a different race
+
+1:01:07.200 --> 1:01:08.120
+ much quicker, right?
+
+1:01:08.120 --> 1:01:10.640
+ So that would be an amazing achievement.
+
+1:01:10.640 --> 1:01:13.360
+ Some people call this meta reinforcement learning,
+
+1:01:13.360 --> 1:01:15.200
+ meta learning and so on, right?
+
+1:01:15.200 --> 1:01:18.960
+ So there's so many possibilities after that moment,
+
+1:01:18.960 --> 1:01:21.520
+ but the moment itself, it really felt great.
+
+1:01:23.600 --> 1:01:27.760
+ We had this bet, so I'm kind of a pessimist in general.
+
+1:01:27.760 --> 1:01:29.920
+ So I kind of send an email to the team.
+
+1:01:29.920 --> 1:01:33.680
+ I said, okay, let's against TLO first, right?
+
+1:01:33.680 --> 1:01:35.120
+ Like what's gonna be the result?
+
+1:01:35.120 --> 1:01:38.680
+ And I really thought we would lose like five zero, right?
+
+1:01:38.680 --> 1:01:43.680
+ We had some calibration made against the 5,000 MMR player.
+
+1:01:44.080 --> 1:01:47.360
+ TLO was much stronger than that player,
+
+1:01:47.360 --> 1:01:50.040
+ even if he played Protoss, which is his off race.
+
+1:01:51.040 --> 1:01:53.120
+ But yeah, I was not imagining we would win.
+
+1:01:53.120 --> 1:01:55.600
+ So for me, that was just kind of a test run or something.
+
+1:01:55.600 --> 1:01:59.000
+ And then it really kind of, he was really surprised.
+
+1:01:59.000 --> 1:02:04.000
+ And unbelievably, we went to this bar to celebrate
+
+1:02:04.560 --> 1:02:08.360
+ and Dave tells me, well, why don't we invite someone
+
+1:02:08.360 --> 1:02:10.960
+ who is a thousand MMR stronger in Protoss,
+
+1:02:10.960 --> 1:02:12.520
+ like actual Protoss player,
+
+1:02:12.520 --> 1:02:16.160
+ like that it turned up being Mana, right?
+
+1:02:16.160 --> 1:02:19.360
+ And we had some drinks and I said, sure, why not?
+
+1:02:19.360 --> 1:02:20.200
+ But then I thought, well,
+
+1:02:20.200 --> 1:02:22.040
+ that's really gonna be impossible to beat.
+
+1:02:22.040 --> 1:02:24.560
+ I mean, even because it's so much ahead,
+
+1:02:24.560 --> 1:02:28.400
+ a thousand MMR is really like 99% probability
+
+1:02:28.400 --> 1:02:33.040
+ that Mana would beat TLO as Protoss versus Protoss, right?
+
+1:02:33.040 --> 1:02:34.200
+ So we did that.
+
+1:02:34.200 --> 1:02:38.960
+ And to me, the second game was much more important,
+
+1:02:38.960 --> 1:02:42.080
+ even though a lot of uncertainty kind of disappeared
+
+1:02:42.080 --> 1:02:43.640
+ after we kind of beat TLO.
+
+1:02:43.640 --> 1:02:45.640
+ I mean, he is a professional player.
+
+1:02:45.640 --> 1:02:46.840
+ So that was kind of, oh,
+
+1:02:46.840 --> 1:02:49.720
+ but that's really a very nice achievement.
+
+1:02:49.720 --> 1:02:51.760
+ But Mana really was at the top
+
+1:02:51.760 --> 1:02:53.840
+ and you could see he played much better,
+
+1:02:53.840 --> 1:02:55.360
+ but our agents got much better too.
+
+1:02:55.360 --> 1:02:59.480
+ So it's like, ah, and then after the first game,
+
+1:02:59.480 --> 1:03:00.880
+ I said, if we take a single game,
+
+1:03:00.880 --> 1:03:02.720
+ at least we can say we beat a game.
+
+1:03:02.720 --> 1:03:04.320
+ I mean, even if we don't beat the series,
+
+1:03:04.320 --> 1:03:06.920
+ for me, that was a huge relief.
+
+1:03:06.920 --> 1:03:09.200
+ And I mean, I remember the hugging demis.
+
+1:03:09.200 --> 1:03:10.840
+ And I mean, it was really like,
+
+1:03:10.840 --> 1:03:14.160
+ this moment for me will resonate forever as a researcher.
+
+1:03:14.160 --> 1:03:15.360
+ And I mean, as a person,
+
+1:03:15.360 --> 1:03:18.240
+ and yeah, it's a really like great accomplishment.
+
+1:03:18.240 --> 1:03:21.360
+ And it was great also to be there with the team in the room.
+
+1:03:21.360 --> 1:03:23.040
+ I don't know if you saw like this.
+
+1:03:23.040 --> 1:03:24.720
+ So it was really like.
+
+1:03:24.720 --> 1:03:25.960
+ I mean, from my perspective,
+
+1:03:25.960 --> 1:03:29.840
+ the other interesting thing is just like watching Kasparov,
+
+1:03:29.840 --> 1:03:33.720
+ watching Mana was also interesting
+
+1:03:33.720 --> 1:03:36.120
+ because he didn't, he has kind of a loss of words.
+
+1:03:36.120 --> 1:03:38.600
+ I mean, whenever you lose, I've done a lot of sports.
+
+1:03:38.600 --> 1:03:43.520
+ You sometimes say excuses, you look for reasons.
+
+1:03:43.520 --> 1:03:46.240
+ And he couldn't really come up with reasons.
+
+1:03:46.240 --> 1:03:50.000
+ I mean, so with the off race for Protoss,
+
+1:03:50.000 --> 1:03:52.280
+ you could say, well, it felt awkward, it wasn't,
+
+1:03:52.280 --> 1:03:55.160
+ but here it was just beaten.
+
+1:03:55.160 --> 1:03:57.920
+ And it was beautiful to look at a human being
+
+1:03:57.920 --> 1:04:00.240
+ being superseded by an AI system.
+
+1:04:00.240 --> 1:04:04.400
+ I mean, it's a beautiful moment for researchers, so.
+
+1:04:04.400 --> 1:04:05.960
+ Yeah, for sure it was.
+
+1:04:05.960 --> 1:04:09.920
+ I mean, probably the highlight of my career so far
+
+1:04:09.920 --> 1:04:11.760
+ because of its uniqueness and coolness.
+
+1:04:11.760 --> 1:04:14.240
+ And I don't know, I mean, it's obviously, as you said,
+
+1:04:14.240 --> 1:04:16.200
+ you can look at papers, citations and so on,
+
+1:04:16.200 --> 1:04:19.240
+ but these really is like a testament
+
+1:04:19.240 --> 1:04:21.200
+ of the whole machine learning approach
+
+1:04:22.400 --> 1:04:24.640
+ and using games to advance technology.
+
+1:04:24.640 --> 1:04:26.840
+ I mean, it really was,
+
+1:04:26.840 --> 1:04:28.840
+ everything came together at that moment.
+
+1:04:28.840 --> 1:04:29.840
+ That's really the summary.
+
+1:04:29.840 --> 1:04:34.040
+ Also on the other side, it's a popularization of AI too,
+
+1:04:34.040 --> 1:04:38.200
+ because it's just like traveling to the moon and so on.
+
+1:04:38.200 --> 1:04:41.000
+ I mean, this is where a very large community of people
+
+1:04:41.000 --> 1:04:43.120
+ that don't really know AI,
+
+1:04:43.120 --> 1:04:45.200
+ they get to really interact with it.
+
+1:04:45.200 --> 1:04:46.040
+ Which is very important.
+
+1:04:46.040 --> 1:04:48.640
+ I mean, we must, you know,
+
+1:04:48.640 --> 1:04:51.400
+ writing papers helps our peers, researchers,
+
+1:04:51.400 --> 1:04:52.520
+ to understand what we're doing.
+
+1:04:52.520 --> 1:04:55.880
+ But I think AI is becoming mature enough
+
+1:04:55.880 --> 1:04:59.000
+ that we must sort of try to explain what it is.
+
+1:04:59.000 --> 1:05:01.440
+ And perhaps through games is an obvious way
+
+1:05:01.440 --> 1:05:03.640
+ because these games always had built in AI.
+
+1:05:03.640 --> 1:05:07.680
+ So it may be everyone experience an AI playing a video game,
+
+1:05:07.680 --> 1:05:08.520
+ even if they don't know,
+
+1:05:08.520 --> 1:05:10.240
+ because there's always some scripted element
+
+1:05:10.240 --> 1:05:13.040
+ and some people might even call that AI already, right?
+
+1:05:13.920 --> 1:05:16.320
+ So what are other applications
+
+1:05:16.320 --> 1:05:19.080
+ of the approaches underlying AlphaStar
+
+1:05:19.080 --> 1:05:20.280
+ that you see happening?
+
+1:05:20.280 --> 1:05:22.360
+ There's a lot of echoes of, you said,
+
+1:05:22.360 --> 1:05:25.440
+ transformer of language modeling and so on.
+
+1:05:25.440 --> 1:05:27.120
+ Have you already started thinking
+
+1:05:27.120 --> 1:05:30.400
+ where the breakthroughs in AlphaStar
+
+1:05:30.400 --> 1:05:32.280
+ get expanded to other applications?
+
+1:05:32.280 --> 1:05:34.640
+ Right, so I thought about a few things
+
+1:05:34.640 --> 1:05:37.280
+ for like kind of next month, next years.
+
+1:05:38.440 --> 1:05:41.480
+ The main thing I'm thinking about actually is what's next
+
+1:05:41.480 --> 1:05:43.160
+ as a kind of a grand challenge.
+
+1:05:43.160 --> 1:05:47.120
+ Because for me, like we've seen Atari
+
+1:05:47.120 --> 1:05:50.280
+ and then there's like the sort of three dimensional walls
+
+1:05:50.280 --> 1:05:52.520
+ that we've seen also like pretty good performance
+
+1:05:52.520 --> 1:05:54.120
+ from these capture the flag agents
+
+1:05:54.120 --> 1:05:56.440
+ that also some people at DeepMind and elsewhere
+
+1:05:56.440 --> 1:05:57.600
+ are working on.
+
+1:05:57.600 --> 1:05:59.600
+ We've also seen some amazing results on like,
+
+1:05:59.600 --> 1:06:03.280
+ for instance, Dota 2, which is also a very complicated game.
+
+1:06:03.280 --> 1:06:05.960
+ So for me, like the main thing I'm thinking about
+
+1:06:05.960 --> 1:06:07.960
+ is what's next in terms of challenge.
+
+1:06:07.960 --> 1:06:12.960
+ So as a researcher, I see sort of two tensions
+
+1:06:12.960 --> 1:06:16.760
+ between research and then applications or areas
+
+1:06:16.760 --> 1:06:18.480
+ or domains where you apply them.
+
+1:06:18.480 --> 1:06:20.480
+ So on the one hand, we've done,
+
+1:06:20.480 --> 1:06:23.320
+ thanks to the application of StarCraft is very hard.
+
+1:06:23.320 --> 1:06:25.600
+ We developed some techniques, some new research
+
+1:06:25.600 --> 1:06:27.480
+ that now we could look at elsewhere.
+
+1:06:27.480 --> 1:06:30.520
+ Like are there other applications where we can apply these?
+
+1:06:30.520 --> 1:06:32.880
+ And the obvious ones, absolutely.
+
+1:06:32.880 --> 1:06:37.440
+ You can think of feeding back to sort of the community
+
+1:06:37.440 --> 1:06:40.240
+ we took from, which was mostly sequence modeling
+
+1:06:40.240 --> 1:06:41.680
+ or natural language processing.
+
+1:06:41.680 --> 1:06:46.120
+ So we've developed and extended things from the transformer
+
+1:06:46.120 --> 1:06:48.120
+ and we use pointer networks.
+
+1:06:48.120 --> 1:06:51.280
+ We combine LSTM and transformers in interesting ways.
+
+1:06:51.280 --> 1:06:54.200
+ So that's perhaps the kind of lowest hanging fruit
+
+1:06:54.200 --> 1:06:57.600
+ of feeding back to now a different field
+
+1:06:57.600 --> 1:07:00.880
+ of machine learning that's not playing video games.
+
+1:07:00.880 --> 1:07:05.680
+ Let me go old school and jump to Mr. Alan Turing.
+
+1:07:05.680 --> 1:07:09.920
+ So the Turing test is a natural language test,
+
+1:07:09.920 --> 1:07:11.560
+ a conversational test.
+
+1:07:11.560 --> 1:07:15.760
+ What's your thought of it as a test for intelligence?
+
+1:07:15.760 --> 1:07:17.320
+ Do you think it is a grand challenge
+
+1:07:17.320 --> 1:07:18.920
+ that's worthy of undertaking?
+
+1:07:18.920 --> 1:07:22.440
+ Maybe if it is, would you reformulate it or phrase it
+
+1:07:22.440 --> 1:07:23.640
+ somehow differently?
+
+1:07:23.640 --> 1:07:25.600
+ Right, so I really love the Turing test
+
+1:07:25.600 --> 1:07:29.480
+ because I also like sequences and language understanding.
+
+1:07:29.480 --> 1:07:32.120
+ And in fact, some of the early work
+
+1:07:32.120 --> 1:07:33.640
+ we did in machine translation, we
+
+1:07:33.640 --> 1:07:38.680
+ tried to apply to kind of a neural chatbot, which obviously
+
+1:07:38.680 --> 1:07:42.200
+ would never pass the Turing test because it was very limited.
+
+1:07:42.200 --> 1:07:45.160
+ But it is a very fascinating idea
+
+1:07:45.160 --> 1:07:49.760
+ that you could really have an AI that
+
+1:07:49.760 --> 1:07:53.840
+ would be indistinguishable from humans in terms of asking
+
+1:07:53.840 --> 1:07:56.000
+ or conversing with it.
+
+1:07:56.000 --> 1:08:00.680
+ So I think the test itself seems very nice.
+
+1:08:00.680 --> 1:08:02.560
+ And it's kind of well defined, actually,
+
+1:08:02.560 --> 1:08:04.840
+ like the passing it or not.
+
+1:08:04.840 --> 1:08:06.520
+ I think there's quite a few rules
+
+1:08:06.520 --> 1:08:09.080
+ that feel pretty simple.
+
+1:08:09.080 --> 1:08:14.680
+ And I think they have these competitions every year.
+
+1:08:14.680 --> 1:08:15.920
+ Yes, there's the Lebner Prize.
+
+1:08:15.920 --> 1:08:22.240
+ But I don't know if you've seen the kind of bots
+
+1:08:22.240 --> 1:08:24.120
+ that emerge from that competition.
+
+1:08:24.120 --> 1:08:27.960
+ They're not quite as what you would.
+
+1:08:27.960 --> 1:08:30.640
+ So it feels like that there's weaknesses with the way Turing
+
+1:08:30.640 --> 1:08:31.400
+ formulated it.
+
+1:08:31.400 --> 1:08:34.960
+ It needs to be that the definition
+
+1:08:34.960 --> 1:08:39.880
+ of a genuine, rich, fulfilling human conversation,
+
+1:08:39.880 --> 1:08:41.640
+ it needs to be something else.
+
+1:08:41.640 --> 1:08:44.880
+ Like the Alexa Prize, which I'm not as well familiar with,
+
+1:08:44.880 --> 1:08:46.440
+ has tried to define that more, I think,
+
+1:08:46.440 --> 1:08:48.560
+ by saying you have to continue keeping
+
+1:08:48.560 --> 1:08:52.200
+ a conversation for 30 minutes, something like that.
+
+1:08:52.200 --> 1:08:55.480
+ So basically forcing the agent not to just fool,
+
+1:08:55.480 --> 1:08:57.600
+ but to have an engaging conversation kind of thing.
+
+1:09:02.320 --> 1:09:06.520
+ Have you thought about this problem richly?
+
+1:09:06.520 --> 1:09:10.720
+ And if you have in general, how far away are we from?
+
+1:09:10.720 --> 1:09:14.160
+ You worked a lot on language understanding,
+
+1:09:14.160 --> 1:09:16.640
+ language generation, but the full dialogue,
+
+1:09:16.640 --> 1:09:19.880
+ the conversation, just sitting at the bar
+
+1:09:19.880 --> 1:09:21.680
+ having a couple of beers for an hour,
+
+1:09:21.680 --> 1:09:22.920
+ that kind of conversation.
+
+1:09:22.920 --> 1:09:23.640
+ Have you thought about it?
+
+1:09:23.640 --> 1:09:25.160
+ Yeah, so I think you touched here
+
+1:09:25.160 --> 1:09:28.960
+ on the critical point, which is feasibility.
+
+1:09:28.960 --> 1:09:32.840
+ So there's a great essay by Hamming,
+
+1:09:32.840 --> 1:09:37.280
+ which describes sort of grand challenges of physics.
+
+1:09:37.280 --> 1:09:41.040
+ And he argues that, well, OK, for instance,
+
+1:09:41.040 --> 1:09:44.680
+ teleportation or time travel are great grand challenges
+
+1:09:44.680 --> 1:09:46.600
+ of physics, but there's no attacks.
+
+1:09:46.600 --> 1:09:50.360
+ We really don't know or cannot kind of make any progress.
+
+1:09:50.360 --> 1:09:53.320
+ So that's why most physicists and so on,
+
+1:09:53.320 --> 1:09:55.320
+ they don't work on these in their PhDs
+
+1:09:55.320 --> 1:09:57.840
+ and as part of their careers.
+
+1:09:57.840 --> 1:10:00.880
+ So I see the Turing test, in the full Turing test,
+
+1:10:00.880 --> 1:10:02.720
+ as a bit still too early.
+
+1:10:02.720 --> 1:10:06.680
+ Like I think we're, especially with the current trend
+
+1:10:06.680 --> 1:10:10.040
+ of deep learning language models,
+
+1:10:10.040 --> 1:10:11.600
+ we've seen some amazing examples.
+
+1:10:11.600 --> 1:10:14.360
+ I think GPT2 being the most recent one, which
+
+1:10:14.360 --> 1:10:15.760
+ is very impressive.
+
+1:10:15.760 --> 1:10:21.000
+ But to understand to fully solve passing or fooling a human
+
+1:10:21.000 --> 1:10:23.440
+ to think that there's a human on the other side,
+
+1:10:23.440 --> 1:10:24.880
+ I think we're quite far.
+
+1:10:24.880 --> 1:10:27.240
+ So as a result, I don't see myself
+
+1:10:27.240 --> 1:10:30.480
+ and I probably would not recommend people doing a PhD
+
+1:10:30.480 --> 1:10:32.360
+ on solving the Turing test because it just
+
+1:10:32.360 --> 1:10:35.400
+ feels it's kind of too early or too hard of a problem.
+
+1:10:35.400 --> 1:10:37.800
+ Yeah, but that said, you said the exact same thing
+
+1:10:37.800 --> 1:10:40.560
+ about StarCraft about a few years ago.
+
+1:10:40.560 --> 1:10:41.040
+ Indeed.
+
+1:10:41.040 --> 1:10:41.560
+ To Demis.
+
+1:10:41.560 --> 1:10:46.200
+ So you'll probably also be the person who passes
+
+1:10:46.200 --> 1:10:48.120
+ the Turing test in three years.
+
+1:10:48.120 --> 1:10:50.920
+ I mean, I think that, yeah.
+
+1:10:50.920 --> 1:10:52.040
+ So we have this on record.
+
+1:10:52.040 --> 1:10:52.640
+ This is nice.
+
+1:10:52.640 --> 1:10:53.520
+ It's true.
+
+1:10:53.520 --> 1:10:56.560
+ I mean, it's true that progress sometimes
+
+1:10:56.560 --> 1:10:57.800
+ is a bit unpredictable.
+
+1:10:57.800 --> 1:10:59.200
+ I really wouldn't have not.
+
+1:10:59.200 --> 1:11:02.440
+ Even six months ago, I would not have predicted the level
+
+1:11:02.440 --> 1:11:06.160
+ that we see that these agents can deliver at grandmaster
+
+1:11:06.160 --> 1:11:07.800
+ level.
+
+1:11:07.800 --> 1:11:10.040
+ But I have worked on language enough.
+
+1:11:10.040 --> 1:11:13.600
+ And basically, my concern is not that something could happen,
+
+1:11:13.600 --> 1:11:16.400
+ a breakthrough could happen that would bring us to solving
+
+1:11:16.400 --> 1:11:19.160
+ or passing the Turing test, is that I just
+
+1:11:19.160 --> 1:11:24.120
+ think the statistical approach to it is not going to cut it.
+
+1:11:24.120 --> 1:11:28.240
+ So we need a breakthrough, which is great for the community.
+
+1:11:28.240 --> 1:11:31.800
+ But given that, I think there's quite more uncertainty.
+
+1:11:31.800 --> 1:11:36.120
+ Whereas for StarCraft, I knew what the steps would
+
+1:11:36.120 --> 1:11:38.120
+ be to get us there.
+
+1:11:38.120 --> 1:11:41.560
+ I think it was clear that using the imitation learning part
+
+1:11:41.560 --> 1:11:44.320
+ and then using this battle net for agents
+
+1:11:44.320 --> 1:11:45.440
+ were going to be key.
+
+1:11:45.440 --> 1:11:48.280
+ And it turned out that this was the case.
+
+1:11:48.280 --> 1:11:51.560
+ And a little more was needed, but not much more.
+
+1:11:51.560 --> 1:11:53.640
+ For Turing test, I just don't know
+
+1:11:53.640 --> 1:11:56.080
+ what the plan or execution plan would look like.
+
+1:11:56.080 --> 1:12:00.680
+ So that's why I myself working on it as a grand challenge
+
+1:12:00.680 --> 1:12:01.480
+ is hard.
+
+1:12:01.480 --> 1:12:03.880
+ But there are quite a few sub challenges
+
+1:12:03.880 --> 1:12:05.600
+ that are related that you could say,
+
+1:12:05.600 --> 1:12:09.040
+ well, I mean, what if you create a great assistant
+
+1:12:09.040 --> 1:12:11.400
+ like Google already has, like the Google Assistant.
+
+1:12:11.400 --> 1:12:13.120
+ So can we make it better?
+
+1:12:13.120 --> 1:12:15.400
+ And can we make it fully neural and so on?
+
+1:12:15.400 --> 1:12:17.440
+ That I start to believe maybe we're
+
+1:12:17.440 --> 1:12:20.640
+ reaching a point where we should attempt these challenges.
+
+1:12:20.640 --> 1:12:23.520
+ I like this conversation so much because it echoes very much
+
+1:12:23.520 --> 1:12:24.840
+ the StarCraft conversation.
+
+1:12:24.840 --> 1:12:26.880
+ It's exactly how you approach StarCraft.
+
+1:12:26.880 --> 1:12:29.600
+ Let's break it down into small pieces and solve those.
+
+1:12:29.600 --> 1:12:31.320
+ And you end up solving the whole game.
+
+1:12:31.320 --> 1:12:31.920
+ Great.
+
+1:12:31.920 --> 1:12:34.120
+ But that said, you're behind some
+
+1:12:34.120 --> 1:12:37.960
+ of the biggest pieces of work in deep learning
+
+1:12:37.960 --> 1:12:40.360
+ in the last several years.
+
+1:12:40.360 --> 1:12:42.280
+ So you mentioned some limits.
+
+1:12:42.280 --> 1:12:44.880
+ What do you think of the current limits of deep learning?
+
+1:12:44.880 --> 1:12:47.160
+ And how do we overcome those limits?
+
+1:12:47.160 --> 1:12:50.160
+ So if I had to actually use a single word
+
+1:12:50.160 --> 1:12:53.240
+ to define the main challenge in deep learning,
+
+1:12:53.240 --> 1:12:55.120
+ it's a challenge that probably has
+
+1:12:55.120 --> 1:12:56.960
+ been the challenge for many years.
+
+1:12:56.960 --> 1:12:59.720
+ And it's that of generalization.
+
+1:12:59.720 --> 1:13:04.560
+ So what that means is that all that we're doing
+
+1:13:04.560 --> 1:13:06.720
+ is fitting functions to data.
+
+1:13:06.720 --> 1:13:12.160
+ And when the data we see is not from the same distribution,
+
+1:13:12.160 --> 1:13:14.520
+ or even if there are some times that it
+
+1:13:14.520 --> 1:13:17.320
+ is very close to distribution, but because
+
+1:13:17.320 --> 1:13:20.240
+ of the way we train it with limited samples,
+
+1:13:20.240 --> 1:13:23.560
+ we then get to this stage where we just
+
+1:13:23.560 --> 1:13:27.800
+ don't see generalization as much as we can generalize.
+
+1:13:27.800 --> 1:13:31.240
+ And I think adversarial examples are a clear example of this.
+
+1:13:31.240 --> 1:13:34.640
+ But if you study machine learning and literature,
+
+1:13:34.640 --> 1:13:38.280
+ and the reason why SVMs came very popular
+
+1:13:38.280 --> 1:13:40.040
+ were because they were dealing and they
+
+1:13:40.040 --> 1:13:42.640
+ had some guarantees about generalization, which
+
+1:13:42.640 --> 1:13:45.600
+ is unseen data or out of distribution,
+
+1:13:45.600 --> 1:13:48.280
+ or even within distribution where you take an image adding
+
+1:13:48.280 --> 1:13:51.360
+ a bit of noise, these models fail.
+
+1:13:51.360 --> 1:13:56.680
+ So I think, really, I don't see a lot of progress
+
+1:13:56.680 --> 1:14:00.520
+ on generalization in the strong generalization
+
+1:14:00.520 --> 1:14:01.800
+ sense of the word.
+
+1:14:01.800 --> 1:14:05.960
+ I think our neural networks, you can always
+
+1:14:05.960 --> 1:14:11.040
+ find design examples that will make their outputs arbitrary,
+
+1:14:11.040 --> 1:14:15.600
+ which is not good because we humans would never
+
+1:14:15.600 --> 1:14:17.880
+ be fooled by these kind of images
+
+1:14:17.880 --> 1:14:19.880
+ or manipulation of the image.
+
+1:14:19.880 --> 1:14:21.760
+ And if you look at the mathematics,
+
+1:14:21.760 --> 1:14:23.960
+ you kind of understand this is a bunch of matrices
+
+1:14:23.960 --> 1:14:26.160
+ multiplied together.
+
+1:14:26.160 --> 1:14:28.040
+ There's probably numerics and instability
+
+1:14:28.040 --> 1:14:30.920
+ that you can just find corner cases.
+
+1:14:30.920 --> 1:14:35.240
+ So I think that's really the underlying topic many times
+
+1:14:35.240 --> 1:14:40.120
+ we see when even at the grand stage of Turing test
+
+1:14:40.120 --> 1:14:44.520
+ generalization, if you start passing the Turing test,
+
+1:14:44.520 --> 1:14:48.840
+ should it be in English or should it be in any language?
+
+1:14:48.840 --> 1:14:53.200
+ As a human, if you ask something in a different language,
+
+1:14:53.200 --> 1:14:54.920
+ you actually will go and do some research
+
+1:14:54.920 --> 1:14:57.720
+ and try to translate it and so on.
+
+1:14:57.720 --> 1:15:01.000
+ Should the Turing test include that?
+
+1:15:01.000 --> 1:15:02.920
+ And it's really a difficult problem
+
+1:15:02.920 --> 1:15:05.480
+ and very fascinating and very mysterious, actually.
+
+1:15:05.480 --> 1:15:06.280
+ Yeah, absolutely.
+
+1:15:06.280 --> 1:15:10.760
+ But do you think if you were to try to solve it,
+
+1:15:10.760 --> 1:15:14.240
+ can you not grow the size of data intelligently
+
+1:15:14.240 --> 1:15:17.080
+ in such a way that the distribution of your training
+
+1:15:17.080 --> 1:15:20.880
+ set does include the entirety of the testing set?
+
+1:15:20.880 --> 1:15:21.760
+ Is that one path?
+
+1:15:21.760 --> 1:15:23.840
+ The other path is totally a new methodology.
+
+1:15:23.840 --> 1:15:24.960
+ It's not statistical.
+
+1:15:24.960 --> 1:15:27.920
+ So a path that has worked well, and it worked well
+
+1:15:27.920 --> 1:15:30.720
+ in StarCraft and in machine translation and in languages,
+
+1:15:30.720 --> 1:15:32.800
+ scaling up the data and the model.
+
+1:15:32.800 --> 1:15:38.480
+ And that's kind of been maybe the only single formula that
+
+1:15:38.480 --> 1:15:40.480
+ still delivers today in deep learning, right?
+
+1:15:40.480 --> 1:15:44.960
+ It's that data scale and model scale really
+
+1:15:44.960 --> 1:15:47.040
+ do more and more of the things that we thought,
+
+1:15:47.040 --> 1:15:49.240
+ oh, there's no way it can generalize to these,
+
+1:15:49.240 --> 1:15:51.320
+ or there's no way it can generalize to that.
+
+1:15:51.320 --> 1:15:54.760
+ But I don't think fundamentally it will be solved with this.
+
+1:15:54.760 --> 1:15:59.600
+ And for instance, I'm really liking some style or approach
+
+1:15:59.600 --> 1:16:02.120
+ that would not only have neural networks,
+
+1:16:02.120 --> 1:16:06.360
+ but it would have programs or some discrete decision making,
+
+1:16:06.360 --> 1:16:10.320
+ because there is where I feel there's a bit more.
+
+1:16:10.320 --> 1:16:13.520
+ I mean, the best example, I think, for understanding this
+
+1:16:13.520 --> 1:16:16.640
+ is I also worked a bit on, oh, we
+
+1:16:16.640 --> 1:16:18.820
+ can learn an algorithm with a neural network, right?
+
+1:16:18.820 --> 1:16:20.560
+ So you give it many examples, and it's
+
+1:16:20.560 --> 1:16:24.360
+ going to sort the input numbers or something like that.
+
+1:16:24.360 --> 1:16:29.520
+ But really strong generalization is you give me some numbers
+
+1:16:29.520 --> 1:16:32.320
+ or you ask me to create an algorithm that sorts numbers.
+
+1:16:32.320 --> 1:16:34.760
+ And instead of creating a neural net, which will be fragile
+
+1:16:34.760 --> 1:16:37.960
+ because it's going to go out of range at some point,
+
+1:16:37.960 --> 1:16:40.840
+ you're going to give it numbers that are too large, too small,
+
+1:16:40.840 --> 1:16:45.600
+ and whatnot, if you just create a piece of code that
+
+1:16:45.600 --> 1:16:47.240
+ sorts the numbers, then you can prove
+
+1:16:47.240 --> 1:16:50.600
+ that that will generalize to absolutely all the possible
+
+1:16:50.600 --> 1:16:51.960
+ input you could give.
+
+1:16:51.960 --> 1:16:55.920
+ So I think the problem comes with some exciting prospects.
+
+1:16:55.920 --> 1:16:59.460
+ I mean, scale is a bit more boring, but it really works.
+
+1:16:59.460 --> 1:17:02.840
+ And then maybe programs and discrete abstractions
+
+1:17:02.840 --> 1:17:04.840
+ are a bit less developed.
+
+1:17:04.840 --> 1:17:07.840
+ But clearly, I think they're quite exciting in terms
+
+1:17:07.840 --> 1:17:09.960
+ of future for the field.
+
+1:17:09.960 --> 1:17:14.040
+ Do you draw any insight wisdom from the 80s and expert
+
+1:17:14.040 --> 1:17:16.920
+ systems and symbolic systems, symbolic computing?
+
+1:17:16.920 --> 1:17:20.760
+ Do you ever go back to those reasoning, that kind of logic?
+
+1:17:20.760 --> 1:17:23.200
+ Do you think that might make a comeback?
+
+1:17:23.200 --> 1:17:24.920
+ You'll have to dust off those books?
+
+1:17:24.920 --> 1:17:31.320
+ Yeah, I actually love actually adding more inductive biases.
+
+1:17:31.320 --> 1:17:34.280
+ To me, the problem really is, what are you trying to solve?
+
+1:17:34.280 --> 1:17:37.440
+ If what you're trying to solve is so important that try
+
+1:17:37.440 --> 1:17:42.480
+ to solve it no matter what, then absolutely use rules,
+
+1:17:42.480 --> 1:17:45.240
+ use domain knowledge, and then use
+
+1:17:45.240 --> 1:17:46.920
+ a bit of the magic of machine learning
+
+1:17:46.920 --> 1:17:50.640
+ to empower to make the system as the best system that
+
+1:17:50.640 --> 1:17:56.040
+ will detect cancer or detect weather patterns, right?
+
+1:17:56.040 --> 1:17:59.240
+ Or in terms of StarCraft, it also was a very big challenge.
+
+1:17:59.240 --> 1:18:01.920
+ So I was definitely happy that if we
+
+1:18:01.920 --> 1:18:04.560
+ had to cut a corner here and there,
+
+1:18:04.560 --> 1:18:07.040
+ it could have been interesting to do.
+
+1:18:07.040 --> 1:18:09.240
+ And in fact, in StarCraft, we start
+
+1:18:09.240 --> 1:18:11.640
+ thinking about expert systems because it's a very,
+
+1:18:11.640 --> 1:18:12.800
+ you know, you can define.
+
+1:18:12.800 --> 1:18:15.560
+ I mean, people actually build StarCraft bots by thinking
+
+1:18:15.560 --> 1:18:20.240
+ about those principles, like state machines and rule based.
+
+1:18:20.240 --> 1:18:22.240
+ And then you could think of combining
+
+1:18:22.240 --> 1:18:25.560
+ a bit of a rule based system, but that has also
+
+1:18:25.560 --> 1:18:28.600
+ neural networks incorporated to make it generalize a bit
+
+1:18:28.600 --> 1:18:29.080
+ better.
+
+1:18:29.080 --> 1:18:31.480
+ So absolutely, I mean, we should definitely
+
+1:18:31.480 --> 1:18:32.840
+ go back to those ideas.
+
+1:18:32.840 --> 1:18:35.440
+ And anything that makes the problem simpler,
+
+1:18:35.440 --> 1:18:37.960
+ as long as your problem is important, that's OK.
+
+1:18:37.960 --> 1:18:41.080
+ And that's research driving a very important problem.
+
+1:18:41.080 --> 1:18:44.520
+ And on the other hand, if you want to really focus
+
+1:18:44.520 --> 1:18:46.560
+ on the limits of reinforcement learning,
+
+1:18:46.560 --> 1:18:50.720
+ then of course, you must try not to look at imitation data
+
+1:18:50.720 --> 1:18:55.200
+ or to look for some rules of the domain that would help a lot
+
+1:18:55.200 --> 1:18:56.960
+ or even feature engineering, right?
+
+1:18:56.960 --> 1:19:00.720
+ So this is a tension that depending on what you do,
+
+1:19:00.720 --> 1:19:03.280
+ I think both ways are definitely fine.
+
+1:19:03.280 --> 1:19:06.760
+ And I would never not do one or the other
+
+1:19:06.760 --> 1:19:08.840
+ as long as what you're doing is important
+
+1:19:08.840 --> 1:19:10.000
+ and needs to be solved, right?
+
+1:19:10.000 --> 1:19:13.440
+ Right, so there's a bunch of different ideas
+
+1:19:13.440 --> 1:19:16.840
+ that you developed that I really enjoy.
+
+1:19:16.840 --> 1:19:22.160
+ But one is translating from image captioning,
+
+1:19:22.160 --> 1:19:27.480
+ translating from image to text, just another beautiful idea,
+
+1:19:27.480 --> 1:19:33.160
+ I think, that resonates throughout your work, actually.
+
+1:19:33.160 --> 1:19:35.080
+ So the underlying nature of reality
+
+1:19:35.080 --> 1:19:38.760
+ being language always, somehow.
+
+1:19:38.760 --> 1:19:42.480
+ So what's the connection between images and text,
+
+1:19:42.480 --> 1:19:44.880
+ or rather the visual world and the world
+
+1:19:44.880 --> 1:19:46.480
+ of language in your view?
+
+1:19:46.480 --> 1:19:51.440
+ Right, so I think a piece of research that's been central
+
+1:19:51.440 --> 1:19:54.320
+ to, I would say, even extending into StarGraph
+
+1:19:54.320 --> 1:19:57.600
+ is this idea of sequence to sequence learning,
+
+1:19:57.600 --> 1:19:59.800
+ which what we really meant by that
+
+1:19:59.800 --> 1:20:03.440
+ is that you can now really input anything
+
+1:20:03.440 --> 1:20:06.040
+ to a neural network as the input x.
+
+1:20:06.040 --> 1:20:09.520
+ And then the neural network will learn a function f
+
+1:20:09.520 --> 1:20:12.720
+ that will take x as an input and produce any output y.
+
+1:20:12.720 --> 1:20:19.200
+ And these x and y's don't need to be static or features,
+
+1:20:19.200 --> 1:20:22.200
+ like fixed vectors or anything like that.
+
+1:20:22.200 --> 1:20:26.520
+ It could be really sequences and now beyond data structures.
+
+1:20:26.520 --> 1:20:31.560
+ So that paradigm was tested in a very interesting way
+
+1:20:31.560 --> 1:20:35.720
+ when we moved from translating French to English
+
+1:20:35.720 --> 1:20:37.920
+ to translating an image to its caption.
+
+1:20:37.920 --> 1:20:40.720
+ But the beauty of it is that, really,
+
+1:20:40.720 --> 1:20:43.000
+ and that's actually how it happened.
+
+1:20:43.000 --> 1:20:45.440
+ I changed a line of code in this thing that
+
+1:20:45.440 --> 1:20:47.480
+ was doing machine translation.
+
+1:20:47.480 --> 1:20:50.080
+ And I came the next day, and I saw
+
+1:20:50.080 --> 1:20:54.160
+ how it was producing captions that seemed like, oh my god,
+
+1:20:54.160 --> 1:20:55.960
+ this is really, really working.
+
+1:20:55.960 --> 1:20:57.640
+ And the principle is the same.
+
+1:20:57.640 --> 1:21:04.080
+ So I think I don't see text, vision, speech, waveforms
+
+1:21:04.080 --> 1:21:09.000
+ as something different as long as you basically
+
+1:21:09.000 --> 1:21:14.760
+ learn a function that will vectorize these into.
+
+1:21:14.760 --> 1:21:16.640
+ And then after we vectorize it, we
+
+1:21:16.640 --> 1:21:20.040
+ can then use transformers, LSTMs, whatever
+
+1:21:20.040 --> 1:21:22.680
+ the flavor of the month of the model is.
+
+1:21:22.680 --> 1:21:25.720
+ And then as long as we have enough supervised data,
+
+1:21:25.720 --> 1:21:30.040
+ really, this formula will work and will keep working,
+
+1:21:30.040 --> 1:21:31.800
+ I believe, to some extent.
+
+1:21:31.800 --> 1:21:35.200
+ Modulo these generalization issues that I mentioned before.
+
+1:21:35.200 --> 1:21:36.760
+ But the task there is to vectorize,
+
+1:21:36.760 --> 1:21:39.840
+ so to form a representation that's meaningful.
+
+1:21:39.840 --> 1:21:42.720
+ And your intuition now, having worked with all this media,
+
+1:21:42.720 --> 1:21:46.520
+ is that once you are able to form that representation,
+
+1:21:46.520 --> 1:21:51.280
+ you could basically take any things, any sequence.
+
+1:21:51.280 --> 1:21:52.880
+ Going back to StarCraft, is there
+
+1:21:52.880 --> 1:21:56.760
+ limits on the length so that we didn't really
+
+1:21:56.760 --> 1:21:59.520
+ touch on the long term aspect?
+
+1:21:59.520 --> 1:22:02.480
+ How did you overcome the whole really long term
+
+1:22:02.480 --> 1:22:03.800
+ aspect of things here?
+
+1:22:03.800 --> 1:22:05.200
+ Is there some tricks?
+
+1:22:05.200 --> 1:22:08.680
+ So the main trick, so StarCraft, if you
+
+1:22:08.680 --> 1:22:10.880
+ look at absolutely every frame, you
+
+1:22:10.880 --> 1:22:12.600
+ might think it's quite a long game.
+
+1:22:12.600 --> 1:22:18.400
+ So we would have to multiply 22 times 60 seconds per minute
+
+1:22:18.400 --> 1:22:21.840
+ times maybe at least 10 minutes per game on average.
+
+1:22:21.840 --> 1:22:25.640
+ So there are quite a few frames.
+
+1:22:25.640 --> 1:22:30.200
+ But the trick really was to only observe, in fact,
+
+1:22:30.200 --> 1:22:32.280
+ which might be seen as a limitation,
+
+1:22:32.280 --> 1:22:35.160
+ but it is also a computational advantage.
+
+1:22:35.160 --> 1:22:37.720
+ Only observe when you act.
+
+1:22:37.720 --> 1:22:40.000
+ And then what the neural network decides
+
+1:22:40.000 --> 1:22:44.680
+ is what is the gap going to be until the next action.
+
+1:22:44.680 --> 1:22:48.080
+ And if you look at most StarCraft games
+
+1:22:48.080 --> 1:22:51.920
+ that we have in the data set that Blizzard provided,
+
+1:22:51.920 --> 1:22:56.000
+ it turns out that most games are actually only,
+
+1:22:56.000 --> 1:22:58.000
+ I mean, it is still a long sequence,
+
+1:22:58.000 --> 1:23:02.160
+ but it's maybe like 1,000 to 1,500 actions,
+
+1:23:02.160 --> 1:23:07.200
+ which if you start looking at LSTMs, large LSTMs,
+
+1:23:07.200 --> 1:23:12.320
+ transformers, it's not that difficult, especially
+
+1:23:12.320 --> 1:23:14.320
+ if you have supervised learning.
+
+1:23:14.320 --> 1:23:16.240
+ If you had to do it with reinforcement learning,
+
+1:23:16.240 --> 1:23:18.080
+ the credit assignment problem, what
+
+1:23:18.080 --> 1:23:19.800
+ is it in this game that made you win?
+
+1:23:19.800 --> 1:23:21.640
+ That would be really difficult.
+
+1:23:21.640 --> 1:23:24.640
+ But thankfully, because of imitation learning,
+
+1:23:24.640 --> 1:23:27.400
+ we didn't have to deal with these directly.
+
+1:23:27.400 --> 1:23:29.600
+ Although if we had to, we tried it.
+
+1:23:29.600 --> 1:23:31.840
+ And what happened is you just take all your workers
+
+1:23:31.840 --> 1:23:33.280
+ and attack with them.
+
+1:23:33.280 --> 1:23:36.080
+ And that is kind of obvious in retrospect
+
+1:23:36.080 --> 1:23:38.120
+ because you start trying random actions.
+
+1:23:38.120 --> 1:23:40.280
+ One of the actions will be a worker
+
+1:23:40.280 --> 1:23:41.440
+ that goes to the enemy base.
+
+1:23:41.440 --> 1:23:43.560
+ And because it's self play, it's not
+
+1:23:43.560 --> 1:23:45.680
+ going to know how to defend because it basically
+
+1:23:45.680 --> 1:23:47.000
+ doesn't know almost anything.
+
+1:23:47.000 --> 1:23:50.320
+ And eventually, what you develop is this take all workers
+
+1:23:50.320 --> 1:23:54.680
+ and attack because the credit assignment issue in a rally
+
+1:23:54.680 --> 1:23:55.840
+ is really, really hard.
+
+1:23:55.840 --> 1:23:57.600
+ I do believe we could do better.
+
+1:23:57.600 --> 1:24:01.520
+ And that's maybe a research challenge for the future.
+
+1:24:01.520 --> 1:24:04.160
+ But yeah, even in StarCraft, the sequences
+
+1:24:04.160 --> 1:24:07.640
+ are maybe 1,000, which I believe is
+
+1:24:07.640 --> 1:24:10.360
+ within the realm of what transformers can do.
+
+1:24:10.360 --> 1:24:12.800
+ Yeah, I guess the difference between StarCraft and Go
+
+1:24:12.800 --> 1:24:18.160
+ is in Go and Chess, stuff starts happening right away.
+
+1:24:18.160 --> 1:24:22.240
+ So there's not, yeah, it's pretty easy to self play.
+
+1:24:22.240 --> 1:24:24.560
+ Not easy, but to self play, it's possible to develop
+
+1:24:24.560 --> 1:24:27.240
+ reasonable strategies quickly as opposed to StarCraft.
+
+1:24:27.240 --> 1:24:30.600
+ I mean, in Go, there's only 400 actions.
+
+1:24:30.600 --> 1:24:34.200
+ But one action is what people would call the God action.
+
+1:24:34.200 --> 1:24:38.480
+ That would be if you had expanded the whole search
+
+1:24:38.480 --> 1:24:40.840
+ tree, that's the best action if you did minimax
+
+1:24:40.840 --> 1:24:42.800
+ or whatever algorithm you would do if you
+
+1:24:42.800 --> 1:24:44.960
+ had the computational capacity.
+
+1:24:44.960 --> 1:24:48.720
+ But in StarCraft, 400 is minuscule.
+
+1:24:48.720 --> 1:24:51.960
+ Like in 400, you couldn't even click
+
+1:24:51.960 --> 1:24:53.840
+ on the pixels around a unit.
+
+1:24:53.840 --> 1:24:58.880
+ So I think the problem there is in terms of action space size
+
+1:24:58.880 --> 1:25:01.640
+ is way harder.
+
+1:25:01.640 --> 1:25:03.960
+ And that search is impossible.
+
+1:25:03.960 --> 1:25:06.000
+ So there's quite a few challenges indeed
+
+1:25:06.000 --> 1:25:10.640
+ that make this kind of a step up in terms of machine learning.
+
+1:25:10.640 --> 1:25:13.560
+ For humans, maybe playing StarCraft
+
+1:25:13.560 --> 1:25:16.000
+ seems more intuitive because it looks real.
+
+1:25:16.000 --> 1:25:18.840
+ I mean, the graphics and everything moves smoothly,
+
+1:25:18.840 --> 1:25:20.240
+ whereas I don't know how to.
+
+1:25:20.240 --> 1:25:22.680
+ I mean, Go is a game that I would really need to study.
+
+1:25:22.680 --> 1:25:23.920
+ It feels quite complicated.
+
+1:25:23.920 --> 1:25:27.040
+ But for machines, kind of maybe it's the reverse, yes.
+
+1:25:27.040 --> 1:25:30.240
+ Which shows you the gap actually between deep learning
+
+1:25:30.240 --> 1:25:34.040
+ and however the heck our brains work.
+
+1:25:34.040 --> 1:25:36.080
+ So you developed a lot of really interesting ideas.
+
+1:25:36.080 --> 1:25:38.480
+ It's interesting to just ask, what's
+
+1:25:38.480 --> 1:25:41.200
+ your process of developing new ideas?
+
+1:25:41.200 --> 1:25:42.960
+ Do you like brainstorming with others?
+
+1:25:42.960 --> 1:25:44.560
+ Do you like thinking alone?
+
+1:25:44.560 --> 1:25:49.200
+ Do you like, what was it, Ian Goodfellow said
+
+1:25:49.200 --> 1:25:52.840
+ he came up with GANs after a few beers.
+
+1:25:52.840 --> 1:25:55.880
+ He thinks beers are essential for coming up with new ideas.
+
+1:25:55.880 --> 1:25:59.160
+ We had beers to decide to play another game of StarCraft
+
+1:25:59.160 --> 1:25:59.720
+ after a week.
+
+1:25:59.720 --> 1:26:02.760
+ So it's really similar to that story.
+
+1:26:02.760 --> 1:26:05.880
+ Actually, I explained this in a DeepMind retreat.
+
+1:26:05.880 --> 1:26:08.000
+ And I said, this is the same as the GAN story.
+
+1:26:08.000 --> 1:26:09.080
+ I mean, we were in a bar.
+
+1:26:09.080 --> 1:26:10.920
+ And we decided, let's play a GAN next week.
+
+1:26:10.920 --> 1:26:11.880
+ And that's what happened.
+
+1:26:11.880 --> 1:26:13.600
+ I feel like we're giving the wrong message
+
+1:26:13.600 --> 1:26:15.120
+ to young undergrads.
+
+1:26:15.120 --> 1:26:15.760
+ Yeah, I know.
+
+1:26:15.760 --> 1:26:18.320
+ But in general, do you like brainstorming?
+
+1:26:18.320 --> 1:26:20.280
+ Do you like thinking alone, working stuff out?
+
+1:26:20.280 --> 1:26:23.960
+ So I think throughout the years, also, things changed.
+
+1:26:23.960 --> 1:26:29.320
+ So initially, I was very fortunate to be
+
+1:26:29.320 --> 1:26:33.120
+ with great minds like Jeff Hinton, Jeff Dean,
+
+1:26:33.120 --> 1:26:34.040
+ Ilya Sutskever.
+
+1:26:34.040 --> 1:26:37.800
+ I was really fortunate to join Brain at a very good time.
+
+1:26:37.800 --> 1:26:41.000
+ So at that point, ideas, I was just
+
+1:26:41.000 --> 1:26:44.040
+ brainstorming with my colleagues and learned a lot.
+
+1:26:44.040 --> 1:26:46.400
+ And keep learning is actually something
+
+1:26:46.400 --> 1:26:48.160
+ you should never stop doing.
+
+1:26:48.160 --> 1:26:51.520
+ So learning implies reading papers and also
+
+1:26:51.520 --> 1:26:53.200
+ discussing ideas with others.
+
+1:26:53.200 --> 1:26:56.680
+ It's very hard at some point to not communicate
+
+1:26:56.680 --> 1:26:59.160
+ that being reading a paper from someone
+
+1:26:59.160 --> 1:27:00.520
+ or actually discussing.
+
+1:27:00.520 --> 1:27:04.680
+ So definitely, that communication aspect
+
+1:27:04.680 --> 1:27:08.520
+ needs to be there, whether it's written or oral.
+
+1:27:08.520 --> 1:27:12.840
+ Nowadays, I'm also trying to be a bit more strategic
+
+1:27:12.840 --> 1:27:15.160
+ about what research to do.
+
+1:27:15.160 --> 1:27:18.480
+ So I was describing a little bit this tension
+
+1:27:18.480 --> 1:27:21.440
+ between research for the sake of research,
+
+1:27:21.440 --> 1:27:23.000
+ and then you have, on the other hand,
+
+1:27:23.000 --> 1:27:25.520
+ applications that can drive the research.
+
+1:27:25.520 --> 1:27:28.560
+ And honestly, the formula that has worked best for me
+
+1:27:28.560 --> 1:27:32.240
+ is just find a hard problem and then
+
+1:27:32.240 --> 1:27:34.600
+ try to see how research fits into it,
+
+1:27:34.600 --> 1:27:37.880
+ how it doesn't fit into it, and then you must innovate.
+
+1:27:37.880 --> 1:27:43.040
+ So I think machine translation drove sequence to sequence.
+
+1:27:43.040 --> 1:27:47.360
+ Then maybe learning algorithms that had to,
+
+1:27:47.360 --> 1:27:50.560
+ combinatorial algorithms led to pointer networks.
+
+1:27:50.560 --> 1:27:53.840
+ StarCraft led to really scaling up imitation learning
+
+1:27:53.840 --> 1:27:55.520
+ and the AlphaStarLeague.
+
+1:27:55.520 --> 1:27:58.360
+ So that's been a formula that I personally like.
+
+1:27:58.360 --> 1:28:00.000
+ But the other one is also valid.
+
+1:28:00.000 --> 1:28:02.760
+ And I've seen it succeed a lot of the times
+
+1:28:02.760 --> 1:28:05.680
+ where you just want to investigate model based
+
+1:28:05.680 --> 1:28:08.160
+ RL as a research topic.
+
+1:28:08.160 --> 1:28:11.360
+ And then you must then start to think, well,
+
+1:28:11.360 --> 1:28:12.160
+ how are the tests?
+
+1:28:12.160 --> 1:28:14.240
+ How are you going to test these ideas?
+
+1:28:14.240 --> 1:28:17.920
+ You need a minimal environment to try things.
+
+1:28:17.920 --> 1:28:19.720
+ You need to read a lot of papers and so on.
+
+1:28:19.720 --> 1:28:21.520
+ And that's also very fun to do and something
+
+1:28:21.520 --> 1:28:24.000
+ I've also done quite a few times,
+
+1:28:24.000 --> 1:28:28.920
+ both at Brain, at DeepMind, and obviously as a PhD.
+
+1:28:28.920 --> 1:28:32.880
+ So I think besides the ideas and discussions,
+
+1:28:32.880 --> 1:28:35.920
+ I think it's important also because you start
+
+1:28:35.920 --> 1:28:40.200
+ sort of guiding not only your own goals,
+
+1:28:40.200 --> 1:28:44.000
+ but other people's goals to the next breakthrough.
+
+1:28:44.000 --> 1:28:48.400
+ So you must really kind of understand this feasibility
+
+1:28:48.400 --> 1:28:50.400
+ also, as we were discussing before,
+
+1:28:50.400 --> 1:28:53.960
+ whether this domain is ready to be tackled or not.
+
+1:28:53.960 --> 1:28:55.480
+ And you don't want to be too early.
+
+1:28:55.480 --> 1:28:57.080
+ You obviously don't want to be too late.
+
+1:28:57.080 --> 1:29:00.520
+ So it's really interesting, this strategic component
+
+1:29:00.520 --> 1:29:03.200
+ of research, which I think as a grad student,
+
+1:29:03.200 --> 1:29:05.120
+ I just had no idea.
+
+1:29:05.120 --> 1:29:07.400
+ I just read papers and discussed ideas.
+
+1:29:07.400 --> 1:29:09.760
+ And I think this has been maybe the major change.
+
+1:29:09.760 --> 1:29:13.520
+ And I recommend people kind of feed forward
+
+1:29:13.520 --> 1:29:16.040
+ to success how it looks like and try to backtrack,
+
+1:29:16.040 --> 1:29:18.680
+ other than just kind of looking, oh, this looks cool.
+
+1:29:18.680 --> 1:29:19.320
+ This looks cool.
+
+1:29:19.320 --> 1:29:21.080
+ And then you do a bit of random work,
+
+1:29:21.080 --> 1:29:23.880
+ which sometimes you stumble upon some interesting things.
+
+1:29:23.880 --> 1:29:27.440
+ But in general, it's also good to plan a bit.
+
+1:29:27.440 --> 1:29:28.960
+ Yeah, I like it.
+
+1:29:28.960 --> 1:29:31.960
+ Especially like your approach of taking a really hard problem,
+
+1:29:31.960 --> 1:29:33.680
+ stepping right in, and then being
+
+1:29:33.680 --> 1:29:37.840
+ super skeptical about being able to solve the problem.
+
+1:29:37.840 --> 1:29:40.120
+ I mean, there's a balance of both, right?
+
+1:29:40.120 --> 1:29:46.920
+ There's a silly optimism and a critical sort of skepticism
+
+1:29:46.920 --> 1:29:49.000
+ that's good to balance, which is why
+
+1:29:49.000 --> 1:29:52.400
+ it's good to have a team of people that balance that.
+
+1:29:52.400 --> 1:29:53.880
+ You don't do that on your own.
+
+1:29:53.880 --> 1:29:56.440
+ You have both mentors that have seen,
+
+1:29:56.440 --> 1:29:59.680
+ or you obviously want to chat and discuss
+
+1:29:59.680 --> 1:30:00.920
+ whether it's the right time.
+
+1:30:00.920 --> 1:30:03.960
+ I mean, Demis came in 2014.
+
+1:30:03.960 --> 1:30:06.600
+ And he said, maybe in a bit we'll do StarCraft.
+
+1:30:06.600 --> 1:30:08.240
+ And maybe he knew.
+
+1:30:08.240 --> 1:30:11.200
+ And I'm just following his lead, which is great,
+
+1:30:11.200 --> 1:30:12.600
+ because he's brilliant, right?
+
+1:30:12.600 --> 1:30:17.280
+ So these things are obviously quite important,
+
+1:30:17.280 --> 1:30:22.280
+ that you want to be surrounded by people who are diverse.
+
+1:30:22.280 --> 1:30:23.960
+ They have their knowledge.
+
+1:30:23.960 --> 1:30:26.640
+ There's also important to, I mean,
+
+1:30:26.640 --> 1:30:30.960
+ I've learned a lot from people who actually have an idea
+
+1:30:30.960 --> 1:30:32.440
+ that I might not think it's good.
+
+1:30:32.440 --> 1:30:34.880
+ But if I give them the space to try it,
+
+1:30:34.880 --> 1:30:37.080
+ I've been proven wrong many, many times as well.
+
+1:30:37.080 --> 1:30:38.200
+ So that's great.
+
+1:30:38.200 --> 1:30:42.760
+ I think your colleagues are more important than yourself,
+
+1:30:42.760 --> 1:30:43.480
+ I think.
+
+1:30:43.480 --> 1:30:44.480
+ Sure.
+
+1:30:44.480 --> 1:30:48.600
+ Now let's real quick talk about another impossible problem,
+
+1:30:48.600 --> 1:30:49.560
+ AGI.
+
+1:30:49.560 --> 1:30:50.280
+ Right.
+
+1:30:50.280 --> 1:30:52.680
+ What do you think it takes to build a system that's
+
+1:30:52.680 --> 1:30:54.080
+ human level intelligence?
+
+1:30:54.080 --> 1:30:56.400
+ We talked a little bit about the Turing test, StarCraft.
+
+1:30:56.400 --> 1:30:58.960
+ All of these have echoes of general intelligence.
+
+1:30:58.960 --> 1:31:01.400
+ But if you think about just something
+
+1:31:01.400 --> 1:31:03.400
+ that you would sit back and say, wow,
+
+1:31:03.400 --> 1:31:06.720
+ this is really something that resembles
+
+1:31:06.720 --> 1:31:07.800
+ human level intelligence.
+
+1:31:07.800 --> 1:31:09.520
+ What do you think it takes to build that?
+
+1:31:09.520 --> 1:31:17.160
+ So I find that AGI oftentimes is maybe not very well defined.
+
+1:31:17.160 --> 1:31:20.520
+ So what I'm trying to then come up with for myself
+
+1:31:20.520 --> 1:31:25.040
+ is what would be a result look like that you would start
+
+1:31:25.040 --> 1:31:28.640
+ to believe that you would have agents or neural nets that
+
+1:31:28.640 --> 1:31:31.800
+ no longer overfeed to a single task,
+
+1:31:31.800 --> 1:31:37.840
+ but actually learn the skill of learning, so to speak.
+
+1:31:37.840 --> 1:31:40.480
+ And that actually is a field that I
+
+1:31:40.480 --> 1:31:43.560
+ am fascinated by, which is the learning to learn,
+
+1:31:43.560 --> 1:31:47.120
+ or meta learning, which is about no longer learning
+
+1:31:47.120 --> 1:31:48.680
+ about a single domain.
+
+1:31:48.680 --> 1:31:51.040
+ So you can think about the learning algorithm
+
+1:31:51.040 --> 1:31:52.680
+ itself is general.
+
+1:31:52.680 --> 1:31:56.800
+ So the same formula we applied for AlphaStar or StarCraft,
+
+1:31:56.800 --> 1:31:59.440
+ we can now apply to almost any video game,
+
+1:31:59.440 --> 1:32:03.520
+ or you could apply to many other problems and domains.
+
+1:32:03.520 --> 1:32:07.040
+ But the algorithm is what's generalizing.
+
+1:32:07.040 --> 1:32:09.640
+ But the neural network, those weights
+
+1:32:09.640 --> 1:32:12.120
+ are useless even to play another race.
+
+1:32:12.120 --> 1:32:15.400
+ I train a network to play very well at Protos versus Protos.
+
+1:32:15.400 --> 1:32:17.680
+ I need to throw away those weights.
+
+1:32:17.680 --> 1:32:20.640
+ If I want to play now Terran versus Terran,
+
+1:32:20.640 --> 1:32:23.720
+ I would need to retrain a network from scratch
+
+1:32:23.720 --> 1:32:24.800
+ with the same algorithm.
+
+1:32:24.800 --> 1:32:26.000
+ That's beautiful.
+
+1:32:26.000 --> 1:32:28.640
+ But the network itself will not be useful.
+
+1:32:28.640 --> 1:32:32.840
+ So I think if I see an approach that
+
+1:32:32.840 --> 1:32:38.040
+ can absorb or start solving new problems without the need
+
+1:32:38.040 --> 1:32:40.280
+ to kind of restart the process, I
+
+1:32:40.280 --> 1:32:42.600
+ think that, to me, would be a nice way
+
+1:32:42.600 --> 1:32:45.600
+ to define some form of AGI.
+
+1:32:45.600 --> 1:32:48.120
+ Again, I don't know the grandiose like age.
+
+1:32:48.120 --> 1:32:50.600
+ I mean, should Turing tests be solved before AGI?
+
+1:32:50.600 --> 1:32:51.720
+ I mean, I don't know.
+
+1:32:51.720 --> 1:32:54.760
+ I think concretely, I would like to see clearly
+
+1:32:54.760 --> 1:32:57.560
+ that meta learning happen, meaning
+
+1:32:57.560 --> 1:33:01.320
+ that there is an architecture or a network that
+
+1:33:01.320 --> 1:33:04.920
+ as it sees new problem or new data, it solves it.
+
+1:33:04.920 --> 1:33:08.240
+ And to make it kind of a benchmark,
+
+1:33:08.240 --> 1:33:09.800
+ it should solve it at the same speed
+
+1:33:09.800 --> 1:33:11.400
+ that we do solve new problems.
+
+1:33:11.400 --> 1:33:13.520
+ When I define you a new object and you
+
+1:33:13.520 --> 1:33:16.240
+ have to recognize it, when you start playing a new game,
+
+1:33:16.240 --> 1:33:17.480
+ you played all the Atari games.
+
+1:33:17.480 --> 1:33:19.360
+ But now you play a new Atari game.
+
+1:33:19.360 --> 1:33:22.000
+ Well, you're going to be pretty quickly pretty good
+
+1:33:22.000 --> 1:33:22.560
+ at the game.
+
+1:33:22.560 --> 1:33:25.840
+ So that's perhaps what's the domain
+
+1:33:25.840 --> 1:33:28.120
+ and what's the exact benchmark is a bit difficult.
+
+1:33:28.120 --> 1:33:29.760
+ I think as a community, we might need
+
+1:33:29.760 --> 1:33:32.600
+ to do some work to define it.
+
+1:33:32.600 --> 1:33:34.720
+ But I think this first step, I could
+
+1:33:34.720 --> 1:33:36.840
+ see it happen relatively soon.
+
+1:33:36.840 --> 1:33:40.600
+ But then the whole what AGI means and so on,
+
+1:33:40.600 --> 1:33:43.120
+ I am a bit more confused about what
+
+1:33:43.120 --> 1:33:44.800
+ I think people mean different things.
+
+1:33:44.800 --> 1:33:48.680
+ There's an emotional, psychological level
+
+1:33:48.680 --> 1:33:53.080
+ that like even the Turing test, passing the Turing test
+
+1:33:53.080 --> 1:33:55.840
+ is something that we just pass judgment on as human beings
+
+1:33:55.840 --> 1:34:03.560
+ what it means to be as a dog in AGI system.
+
+1:34:03.560 --> 1:34:04.080
+ Yeah.
+
+1:34:04.080 --> 1:34:07.520
+ What level, what does it mean, what does it mean?
+
+1:34:07.520 --> 1:34:08.960
+ But I like the generalization.
+
+1:34:08.960 --> 1:34:10.680
+ And maybe as a community, we converge
+
+1:34:10.680 --> 1:34:14.960
+ towards a group of domains that are sufficiently far away.
+
+1:34:14.960 --> 1:34:16.560
+ That would be really damn impressive
+
+1:34:16.560 --> 1:34:18.280
+ if it was able to generalize.
+
+1:34:18.280 --> 1:34:21.360
+ So perhaps not as close as Protoss and Zerg,
+
+1:34:21.360 --> 1:34:22.720
+ but like Wikipedia.
+
+1:34:22.720 --> 1:34:23.600
+ That would be a step.
+
+1:34:23.600 --> 1:34:26.400
+ Yeah, that would be a good step and then a really good step.
+
+1:34:26.400 --> 1:34:30.800
+ But then like from StarCraft to Wikipedia and back.
+
+1:34:30.800 --> 1:34:31.880
+ Yeah, that kind of thing.
+
+1:34:31.880 --> 1:34:34.200
+ And that feels also quite hard and far.
+
+1:34:34.200 --> 1:34:38.200
+ But I think as long as you put the benchmark out,
+
+1:34:38.200 --> 1:34:41.080
+ as we discovered, for instance, with ImageNet,
+
+1:34:41.080 --> 1:34:43.120
+ then tremendous progress can be had.
+
+1:34:43.120 --> 1:34:46.360
+ So I think maybe there's a lack of benchmark,
+
+1:34:46.360 --> 1:34:49.520
+ but I'm sure we'll find one and the community will then
+
+1:34:49.520 --> 1:34:52.360
+ work towards that.
+
+1:34:52.360 --> 1:34:56.920
+ And then beyond what AGI might mean or would imply,
+
+1:34:56.920 --> 1:35:01.040
+ I really am hopeful to see basically machine learning
+
+1:35:01.040 --> 1:35:05.280
+ or AI just scaling up and helping people
+
+1:35:05.280 --> 1:35:08.640
+ that might not have the resources to hire an assistant
+
+1:35:08.640 --> 1:35:13.800
+ or that they might not even know what the weather is like.
+
+1:35:13.800 --> 1:35:18.000
+ So I think in terms of the positive impact of AI,
+
+1:35:18.000 --> 1:35:22.440
+ I think that's maybe what we should also not lose focus.
+
+1:35:22.440 --> 1:35:23.960
+ The research community building AGI,
+
+1:35:23.960 --> 1:35:25.520
+ I mean, that's a real nice goal.
+
+1:35:25.520 --> 1:35:28.480
+ But I think the way that DeepMind puts it is,
+
+1:35:28.480 --> 1:35:30.760
+ and then use it to solve everything else.
+
+1:35:30.760 --> 1:35:33.440
+ So I think we should paralyze.
+
+1:35:33.440 --> 1:35:36.160
+ Yeah, we shouldn't forget about all the positive things
+
+1:35:36.160 --> 1:35:38.000
+ that are actually coming out of AI already
+
+1:35:38.000 --> 1:35:40.600
+ and are going to be coming out.
+
+1:35:40.600 --> 1:35:41.600
+ Right.
+
+1:35:41.600 --> 1:35:45.400
+ But on that note, let me ask relative
+
+1:35:45.400 --> 1:35:47.760
+ to popular perception, do you have
+
+1:35:47.760 --> 1:35:49.640
+ any worry about the existential threat
+
+1:35:49.640 --> 1:35:53.200
+ of artificial intelligence in the near or far future
+
+1:35:53.200 --> 1:35:55.080
+ that some people have?
+
+1:35:55.080 --> 1:35:58.080
+ I think in the near future, I'm skeptical.
+
+1:35:58.080 --> 1:35:59.280
+ So I hope I'm not wrong.
+
+1:35:59.280 --> 1:36:04.720
+ But I'm not concerned, but I appreciate efforts,
+
+1:36:04.720 --> 1:36:07.760
+ ongoing efforts, and even like whole research
+
+1:36:07.760 --> 1:36:10.720
+ field on AI safety emerging and in conferences and so on.
+
+1:36:10.720 --> 1:36:12.560
+ I think that's great.
+
+1:36:12.560 --> 1:36:16.200
+ In the long term, I really hope we just
+
+1:36:16.200 --> 1:36:19.120
+ can simply have the benefits outweigh
+
+1:36:19.120 --> 1:36:20.600
+ the potential dangers.
+
+1:36:20.600 --> 1:36:23.400
+ I am hopeful for that.
+
+1:36:23.400 --> 1:36:27.400
+ But also, we must remain vigilant to monitor and assess
+
+1:36:27.400 --> 1:36:32.640
+ whether the tradeoffs are there and we have enough also lead
+
+1:36:32.640 --> 1:36:37.720
+ time to prevent or to redirect our efforts if need be.
+
+1:36:37.720 --> 1:36:41.440
+ But I'm quite optimistic about the technology
+
+1:36:41.440 --> 1:36:45.000
+ and definitely more fearful of other threats
+
+1:36:45.000 --> 1:36:48.600
+ in terms of planetary level at this point.
+
+1:36:48.600 --> 1:36:52.520
+ But obviously, that's the one I have more power on.
+
+1:36:52.520 --> 1:36:56.280
+ So clearly, I do start thinking more and more about this.
+
+1:36:56.280 --> 1:37:00.840
+ And it's grown in me actually to start reading more
+
+1:37:00.840 --> 1:37:04.120
+ about AI safety, which is a field that so far I have not
+
+1:37:04.120 --> 1:37:05.360
+ really contributed to.
+
+1:37:05.360 --> 1:37:07.720
+ But maybe there's something to be done there as well.
+
+1:37:07.720 --> 1:37:09.280
+ I think it's really important.
+
+1:37:09.280 --> 1:37:11.440
+ I talk about this with a few folks.
+
+1:37:11.440 --> 1:37:14.800
+ But it's important to ask you and shove it in your head
+
+1:37:14.800 --> 1:37:18.040
+ because you're at the leading edge of actually what
+
+1:37:18.040 --> 1:37:19.880
+ people are excited about in AI.
+
+1:37:19.880 --> 1:37:22.800
+ The work with AlphaStar, it's arguably
+
+1:37:22.800 --> 1:37:25.400
+ at the very cutting edge of the kind of thing
+
+1:37:25.400 --> 1:37:27.160
+ that people are afraid of.
+
+1:37:27.160 --> 1:37:31.640
+ And so you speaking to that fact and that we're actually
+
+1:37:31.640 --> 1:37:33.520
+ quite far away to the kind of thing
+
+1:37:33.520 --> 1:37:35.160
+ that people might be afraid of.
+
+1:37:35.160 --> 1:37:38.320
+ But it's still worthwhile to think about.
+
+1:37:38.320 --> 1:37:43.480
+ And it's also good that you're not as worried
+
+1:37:43.480 --> 1:37:45.720
+ and you're also open to thinking about it.
+
+1:37:45.720 --> 1:37:46.560
+ There's two aspects.
+
+1:37:46.560 --> 1:37:47.720
+ I mean, me not being worried.
+
+1:37:47.720 --> 1:37:53.880
+ But obviously, we should prepare for things
+
+1:37:53.880 --> 1:37:56.800
+ that could go wrong, misuse of the technologies
+
+1:37:56.800 --> 1:37:58.360
+ as with any technologies.
+
+1:37:58.360 --> 1:38:02.400
+ So I think there's always trade offs.
+
+1:38:02.400 --> 1:38:06.800
+ And as a society, we've kind of solved this to some extent
+
+1:38:06.800 --> 1:38:07.360
+ in the past.
+
+1:38:07.360 --> 1:38:10.720
+ So I'm hoping that by having the researchers
+
+1:38:10.720 --> 1:38:14.120
+ and the whole community brainstorm and come up
+
+1:38:14.120 --> 1:38:16.960
+ with interesting solutions to the new things that
+
+1:38:16.960 --> 1:38:20.320
+ will happen in the future, that we can still also push
+
+1:38:20.320 --> 1:38:23.000
+ the research to the avenue that I think
+
+1:38:23.000 --> 1:38:25.800
+ is kind of the greatest avenue, which is
+
+1:38:25.800 --> 1:38:27.760
+ to understand intelligence.
+
+1:38:27.760 --> 1:38:29.920
+ How are we doing what we're doing?
+
+1:38:29.920 --> 1:38:32.560
+ And obviously, from a scientific standpoint,
+
+1:38:32.560 --> 1:38:37.000
+ that is kind of my personal drive of all the time
+
+1:38:37.000 --> 1:38:40.000
+ that I spend doing what I'm doing, really.
+
+1:38:40.000 --> 1:38:42.960
+ Where do you see the deep learning as a field heading?
+
+1:38:42.960 --> 1:38:46.720
+ Where do you think the next big breakthrough might be?
+
+1:38:46.720 --> 1:38:49.880
+ So I think deep learning, I discussed a little of this
+
+1:38:49.880 --> 1:38:50.720
+ before.
+
+1:38:50.720 --> 1:38:54.000
+ Deep learning has to be combined with some form
+
+1:38:54.000 --> 1:38:56.680
+ of discretization, program synthesis.
+
+1:38:56.680 --> 1:38:59.240
+ I think that's kind of as a research in itself
+
+1:38:59.240 --> 1:39:02.000
+ is an interesting topic to expand and start
+
+1:39:02.000 --> 1:39:04.080
+ doing more research.
+
+1:39:04.080 --> 1:39:07.080
+ And then as kind of what will deep learning
+
+1:39:07.080 --> 1:39:08.560
+ enable to do in the future?
+
+1:39:08.560 --> 1:39:11.480
+ I don't think that's going to be what's going to happen this year.
+
+1:39:11.480 --> 1:39:16.480
+ But also this idea of starting not to throw away all the weights,
+
+1:39:16.480 --> 1:39:18.840
+ that this idea of learning to learn
+
+1:39:18.840 --> 1:39:23.400
+ and really having these agents not having
+
+1:39:23.400 --> 1:39:24.960
+ to restart their weights.
+
+1:39:24.960 --> 1:39:29.760
+ And you can have an agent that is kind of solving or classifying
+
+1:39:29.760 --> 1:39:32.760
+ images on ImageNet, but also generating speech
+
+1:39:32.760 --> 1:39:34.680
+ if you ask it to generate some speech.
+
+1:39:34.680 --> 1:39:39.760
+ And it should really be kind of almost the same network,
+
+1:39:39.760 --> 1:39:41.760
+ but it might not be a neural network.
+
+1:39:41.760 --> 1:39:44.240
+ It might be a neural network with an optimization
+
+1:39:44.240 --> 1:39:45.600
+ algorithm attached to it.
+
+1:39:45.600 --> 1:39:49.280
+ But I think this idea of generalization to new task
+
+1:39:49.280 --> 1:39:52.160
+ is something that we first must define good benchmarks.
+
+1:39:52.160 --> 1:39:54.680
+ But then I think that's going to be exciting.
+
+1:39:54.680 --> 1:39:56.480
+ And I'm not sure how close we are.
+
+1:39:56.480 --> 1:40:00.880
+ But I think if you have a very limited domain,
+
+1:40:00.880 --> 1:40:02.800
+ I think we can start doing some progress.
+
+1:40:02.800 --> 1:40:07.200
+ And much like how we did a lot of programs in computer vision,
+
+1:40:07.200 --> 1:40:09.040
+ we should start thinking.
+
+1:40:09.040 --> 1:40:12.720
+ I really like a talk that Leon Buto gave at ICML
+
+1:40:12.720 --> 1:40:16.800
+ a few years ago, which is this train test paradigm should
+
+1:40:16.800 --> 1:40:17.920
+ be broken.
+
+1:40:17.920 --> 1:40:23.160
+ We should stop thinking about a training set and a test set.
+
+1:40:23.160 --> 1:40:26.640
+ And these are closed things that are untouchable.
+
+1:40:26.640 --> 1:40:28.200
+ I think we should go beyond these.
+
+1:40:28.200 --> 1:40:30.840
+ And in meta learning, we call these the meta training
+
+1:40:30.840 --> 1:40:35.320
+ set and the meta test set, which is really thinking about,
+
+1:40:35.320 --> 1:40:39.040
+ if I know about ImageNet, why would that network not
+
+1:40:39.040 --> 1:40:41.320
+ work on MNIST, which is a much simpler problem?
+
+1:40:41.320 --> 1:40:44.560
+ But right now, it really doesn't.
+
+1:40:44.560 --> 1:40:46.200
+ But it just feels wrong.
+
+1:40:46.200 --> 1:40:50.960
+ So I think that's kind of the, on the application
+
+1:40:50.960 --> 1:40:52.960
+ or the benchmark sites, we probably
+
+1:40:52.960 --> 1:40:56.520
+ will see quite a few more interest and progress
+
+1:40:56.520 --> 1:41:00.240
+ and hopefully people defining new and exciting challenges
+
+1:41:00.240 --> 1:41:00.960
+ really.
+
+1:41:00.960 --> 1:41:04.160
+ Do you have any hope or interest in knowledge graphs
+
+1:41:04.160 --> 1:41:05.280
+ within this context?
+
+1:41:05.280 --> 1:41:08.160
+ So this kind of constructing graph.
+
+1:41:08.160 --> 1:41:10.480
+ So going back to graphs.
+
+1:41:10.480 --> 1:41:12.120
+ Well, neural networks and graphs.
+
+1:41:12.120 --> 1:41:14.840
+ But I mean, a different kind of knowledge graph,
+
+1:41:14.840 --> 1:41:18.000
+ sort of like semantic graphs or those concepts.
+
+1:41:18.000 --> 1:41:18.800
+ Yeah.
+
+1:41:18.800 --> 1:41:23.520
+ So I think the idea of graphs is,
+
+1:41:23.520 --> 1:41:26.680
+ so I've been quite interested in sequences first and then
+
+1:41:26.680 --> 1:41:29.720
+ more interesting or different data structures like graphs.
+
+1:41:29.720 --> 1:41:33.960
+ And I've studied graph neural networks in the last three
+
+1:41:33.960 --> 1:41:34.520
+ years or so.
+
+1:41:34.520 --> 1:41:37.680
+ I found these models just very interesting
+
+1:41:37.680 --> 1:41:42.160
+ from deep learning sites standpoint.
+
+1:41:42.160 --> 1:41:45.840
+ But then why do we want these models
+
+1:41:45.840 --> 1:41:47.280
+ and why would we use them?
+
+1:41:47.280 --> 1:41:48.640
+ What's the application?
+
+1:41:48.640 --> 1:41:51.320
+ What's kind of the killer application of graphs?
+
+1:41:51.320 --> 1:41:58.520
+ And perhaps if we could extract a knowledge graph
+
+1:41:58.520 --> 1:42:01.680
+ from Wikipedia automatically, that
+
+1:42:01.680 --> 1:42:04.680
+ would be interesting because then these graphs have
+
+1:42:04.680 --> 1:42:07.920
+ this very interesting structure that also is a bit more
+
+1:42:07.920 --> 1:42:11.560
+ compatible with this idea of programs and deep learning
+
+1:42:11.560 --> 1:42:14.360
+ kind of working together, jumping neighborhoods
+
+1:42:14.360 --> 1:42:14.840
+ and so on.
+
+1:42:14.840 --> 1:42:17.080
+ You could imagine defining some primitives
+
+1:42:17.080 --> 1:42:18.800
+ to go around graphs, right?
+
+1:42:18.800 --> 1:42:23.720
+ So I think I really like the idea of a knowledge graph.
+
+1:42:23.720 --> 1:42:29.640
+ And in fact, when we started or as part of the research
+
+1:42:29.640 --> 1:42:31.960
+ we did for StarCraft, I thought, wouldn't it
+
+1:42:31.960 --> 1:42:38.000
+ be cool to give the graph of all these buildings that
+
+1:42:38.000 --> 1:42:41.440
+ depend on each other and units that have prerequisites
+
+1:42:41.440 --> 1:42:42.440
+ of being built by that.
+
+1:42:42.440 --> 1:42:45.680
+ And so this is information that the network
+
+1:42:45.680 --> 1:42:46.920
+ can learn and extract.
+
+1:42:46.920 --> 1:42:50.120
+ But it would have been great to see
+
+1:42:50.120 --> 1:42:53.880
+ or to think of really StarCraft as a giant graph that even
+
+1:42:53.880 --> 1:42:57.040
+ also as the game evolves, you start taking branches
+
+1:42:57.040 --> 1:42:57.960
+ and so on.
+
+1:42:57.960 --> 1:42:59.920
+ And we did a bit of research on these,
+
+1:42:59.920 --> 1:43:04.080
+ nothing too relevant, but I really like the idea.
+
+1:43:04.080 --> 1:43:06.360
+ And it has elements that are something
+
+1:43:06.360 --> 1:43:08.840
+ you also worked with in terms of visualizing your networks.
+
+1:43:08.840 --> 1:43:13.280
+ It has elements of having human interpretable,
+
+1:43:13.280 --> 1:43:15.840
+ being able to generate knowledge representations that
+
+1:43:15.840 --> 1:43:18.640
+ are human interpretable that maybe human experts can then
+
+1:43:18.640 --> 1:43:20.960
+ tweak or at least understand.
+
+1:43:20.960 --> 1:43:22.880
+ So there's a lot of interesting aspect there.
+
+1:43:22.880 --> 1:43:25.600
+ And for me personally, I'm just a huge fan of Wikipedia.
+
+1:43:25.600 --> 1:43:29.360
+ And it's a shame that our neural networks aren't
+
+1:43:29.360 --> 1:43:31.600
+ taking advantage of all the structured knowledge that's
+
+1:43:31.600 --> 1:43:32.400
+ on the web.
+
+1:43:32.400 --> 1:43:34.920
+ What's next for you?
+
+1:43:34.920 --> 1:43:36.400
+ What's next for DeepMind?
+
+1:43:36.400 --> 1:43:39.680
+ What are you excited about for AlphaStar?
+
+1:43:39.680 --> 1:43:43.560
+ Yeah, so I think the obvious next steps
+
+1:43:43.560 --> 1:43:48.040
+ would be to apply AlphaStar to other races.
+
+1:43:48.040 --> 1:43:51.640
+ I mean, that sort of shows that the algorithm works
+
+1:43:51.640 --> 1:43:56.120
+ because we wouldn't want to have created by mistake something
+
+1:43:56.120 --> 1:43:58.840
+ in the architecture that happens to work for Protoss
+
+1:43:58.840 --> 1:44:00.120
+ but not for other races.
+
+1:44:00.120 --> 1:44:03.480
+ So as verification, I think that's an obvious next step
+
+1:44:03.480 --> 1:44:05.640
+ that we are working on.
+
+1:44:05.640 --> 1:44:11.440
+ And then I would like to see so agents and players can
+
+1:44:11.440 --> 1:44:13.920
+ specialize on different skill sets that
+
+1:44:13.920 --> 1:44:15.920
+ allow them to be very good.
+
+1:44:15.920 --> 1:44:19.480
+ I think we've seen AlphaStar understanding very well
+
+1:44:19.480 --> 1:44:22.360
+ when to take battles and when to not to do that.
+
+1:44:22.360 --> 1:44:24.880
+ Also very good at micromanagement
+
+1:44:24.880 --> 1:44:27.520
+ and moving the units around and so on.
+
+1:44:27.520 --> 1:44:30.400
+ And also very good at producing nonstop and trading off
+
+1:44:30.400 --> 1:44:33.360
+ economy with building units.
+
+1:44:33.360 --> 1:44:36.520
+ But I have not perhaps seen as much
+
+1:44:36.520 --> 1:44:39.000
+ as I would like this idea of the poker idea
+
+1:44:39.000 --> 1:44:40.360
+ that you mentioned, right?
+
+1:44:40.360 --> 1:44:42.600
+ I'm not sure StarCraft or AlphaStar
+
+1:44:42.600 --> 1:44:47.160
+ rather has developed a very deep understanding of what
+
+1:44:47.160 --> 1:44:50.120
+ the opponent is doing and reacting to that
+
+1:44:50.120 --> 1:44:54.080
+ and sort of trying to trick the player to do something else
+
+1:44:54.080 --> 1:44:55.440
+ or that.
+
+1:44:55.440 --> 1:44:58.320
+ So this kind of reasoning, I would like to see more.
+
+1:44:58.320 --> 1:45:01.600
+ So I think purely from a research standpoint,
+
+1:45:01.600 --> 1:45:03.920
+ there's perhaps also quite a few things
+
+1:45:03.920 --> 1:45:06.000
+ to be done there in the domain of StarCraft.
+
+1:45:06.000 --> 1:45:08.320
+ Yeah, in the domain of games, I've
+
+1:45:08.320 --> 1:45:11.960
+ seen some interesting work in even auctions,
+
+1:45:11.960 --> 1:45:15.160
+ manipulating other players, sort of forming a belief state
+
+1:45:15.160 --> 1:45:17.160
+ and just messing with people.
+
+1:45:17.160 --> 1:45:18.800
+ Yeah, it's called theory of mind, I guess.
+
+1:45:18.800 --> 1:45:20.080
+ Theory of mind, yeah.
+
+1:45:20.080 --> 1:45:21.440
+ So it's a fascinating.
+
+1:45:21.440 --> 1:45:24.400
+ Theory of mind on StarCraft is kind of they're
+
+1:45:24.400 --> 1:45:26.080
+ really made for each other.
+
+1:45:26.080 --> 1:45:29.840
+ So that would be very exciting to see those techniques apply
+
+1:45:29.840 --> 1:45:32.040
+ to StarCraft or perhaps StarCraft
+
+1:45:32.040 --> 1:45:33.280
+ driving new techniques, right?
+
+1:45:33.280 --> 1:45:36.600
+ As I said, this is always the tension between the two.
+
+1:45:36.600 --> 1:45:38.800
+ Well, Orel, thank you so much for talking today.
+
+1:45:38.800 --> 1:45:39.320
+ Awesome.
+
+1:45:39.320 --> 1:45:40.280
+ It was great to be here.
+
+1:45:40.280 --> 1:46:00.600
+ Thanks.
+

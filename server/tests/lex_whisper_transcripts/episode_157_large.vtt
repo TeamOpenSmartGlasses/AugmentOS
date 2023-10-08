@@ -1,0 +1,5648 @@
+WEBVTT
+
+00:00.000 --> 00:02.840
+ The following is a conversation with Natalia Bailey,
+
+00:02.840 --> 00:06.000
+ a rocket scientist and spacecraft propulsion engineer
+
+00:06.000 --> 00:09.540
+ previously at MIT and now the founder and CTO
+
+00:09.540 --> 00:11.160
+ of Axion Systems,
+
+00:11.160 --> 00:14.880
+ specializing in efficient space propulsion engines
+
+00:14.880 --> 00:16.840
+ for satellites and spacecraft.
+
+00:16.840 --> 00:19.360
+ So these are not the engines that get us
+
+00:19.360 --> 00:22.000
+ from the ground on Earth out to space,
+
+00:22.000 --> 00:25.600
+ but rather the engines that move us around in space
+
+00:25.600 --> 00:27.280
+ once we get out there.
+
+00:27.280 --> 00:29.120
+ Quick mention of our sponsors,
+
+00:29.120 --> 00:31.320
+ Monk Pack Low Carb Snacks,
+
+00:31.320 --> 00:33.360
+ Four Sigmatic Mushroom Coffee,
+
+00:33.360 --> 00:35.880
+ Blinkist, an app that summarizes books,
+
+00:35.880 --> 00:38.600
+ and Sun Basket, meal delivery service.
+
+00:38.600 --> 00:41.640
+ So the choice is snacks, caffeine,
+
+00:41.640 --> 00:44.120
+ knowledge, or a delicious meal.
+
+00:44.120 --> 00:45.400
+ Choose wisely, my friends,
+
+00:45.400 --> 00:48.120
+ and if you wish, click the sponsor links below
+
+00:48.120 --> 00:51.320
+ to get a discount and to support this podcast.
+
+00:51.320 --> 00:54.600
+ As a side note, let me say something about Natalia's story.
+
+00:54.600 --> 00:57.240
+ She has talked about how when she was young,
+
+00:57.240 --> 00:59.340
+ she would often look up at the stars
+
+00:59.340 --> 01:01.400
+ and dream of alien intelligences
+
+01:01.400 --> 01:03.840
+ that one day we could communicate with.
+
+01:03.840 --> 01:06.520
+ This moment of childlike cosmic curiosity
+
+01:06.520 --> 01:09.800
+ is at the core of my own interest in space
+
+01:09.800 --> 01:12.480
+ and extraterrestrial life and in general
+
+01:12.480 --> 01:15.600
+ in artificial intelligence, science, and engineering.
+
+01:15.600 --> 01:19.320
+ Amid the meetings and the papers and the career rat race
+
+01:19.320 --> 01:21.240
+ and all the awards,
+
+01:21.240 --> 01:24.680
+ let's not let ourselves lose that childlike wonder.
+
+01:24.680 --> 01:27.680
+ Sadly, we're on Earth for only a very short time,
+
+01:27.680 --> 01:30.040
+ so let's have fun solving some of the biggest puzzles
+
+01:30.040 --> 01:32.100
+ in the universe while we're here.
+
+01:32.100 --> 01:34.520
+ If you enjoy this thing, subscribe on YouTube,
+
+01:34.520 --> 01:37.540
+ review it on Apple Podcast, follow on Spotify,
+
+01:37.540 --> 01:38.840
+ support it on Patreon,
+
+01:38.840 --> 01:41.800
+ or connect with me on Twitter at Lex Friedman.
+
+01:41.800 --> 01:45.460
+ And now, here's my conversation with Natalia Bailey.
+
+01:46.400 --> 01:49.840
+ You said that you spent your whole life dreaming about space
+
+01:49.840 --> 01:52.600
+ and also pondering the big existential question
+
+01:52.600 --> 01:56.760
+ of whether there is or isn't intelligent life,
+
+01:56.760 --> 01:58.640
+ intelligent alien civilizations out there.
+
+01:58.640 --> 02:00.080
+ So what do you think?
+
+02:00.080 --> 02:02.120
+ Do you think there's life out there?
+
+02:02.120 --> 02:03.560
+ Intelligent life?
+
+02:03.560 --> 02:07.360
+ Intelligent life, that's trickier.
+
+02:07.360 --> 02:11.120
+ I think looking at the likelihood
+
+02:11.120 --> 02:15.920
+ of a self replicating organism
+
+02:15.920 --> 02:20.440
+ given how much time the universe has existed
+
+02:20.440 --> 02:23.360
+ and how many stars with planets,
+
+02:23.360 --> 02:26.360
+ I think it's likely that there's other life.
+
+02:27.240 --> 02:30.400
+ Intelligent life, I'm hopeful,
+
+02:30.400 --> 02:34.420
+ I'm a little discouraged that we haven't yet been in touch.
+
+02:34.420 --> 02:35.260
+ As I'm hopeful.
+
+02:35.260 --> 02:37.000
+ Allegedly, I mean, it's also.
+
+02:37.000 --> 02:39.520
+ In our dimensions and so on, yeah.
+
+02:39.520 --> 02:42.180
+ It's also possible that they have been in touch
+
+02:42.180 --> 02:46.120
+ and we just haven't, we're too dumb to realize
+
+02:46.120 --> 02:47.480
+ they're communicating with us.
+
+02:47.480 --> 02:51.300
+ In whichever, it's the Carl Sagan idea
+
+02:51.300 --> 02:53.240
+ that they may be communicating at a time scale
+
+02:53.240 --> 02:54.580
+ that's totally different.
+
+02:54.580 --> 02:57.800
+ Like their signals are in a totally different time scale
+
+02:57.800 --> 03:01.900
+ or in a totally different kind of medium of communication.
+
+03:01.900 --> 03:06.900
+ It could be our own, it could be the birth of human beings.
+
+03:10.960 --> 03:13.380
+ Whatever the magic that makes us who we are,
+
+03:13.380 --> 03:15.440
+ the collective intelligence thing,
+
+03:15.440 --> 03:17.680
+ that could be aliens themselves.
+
+03:17.680 --> 03:19.540
+ That could be the medium of communication.
+
+03:19.540 --> 03:21.320
+ Like the nature of our consciousness
+
+03:21.320 --> 03:24.140
+ and intelligence itself is the medium of communication.
+
+03:24.140 --> 03:28.920
+ And like being able to ask the questions themselves,
+
+03:28.920 --> 03:30.480
+ I've never thought of it that way.
+
+03:30.480 --> 03:32.480
+ Like actually, yeah, asking the question
+
+03:32.480 --> 03:34.720
+ whether aliens exist might be the very medium
+
+03:34.720 --> 03:35.920
+ by which they communicate.
+
+03:35.920 --> 03:38.600
+ It's like they send questions.
+
+03:38.600 --> 03:42.720
+ So some of this like collective emergent behavior
+
+03:42.720 --> 03:44.480
+ is the signal.
+
+03:44.480 --> 03:45.780
+ Is the signal, yeah.
+
+03:46.640 --> 03:47.480
+ So.
+
+03:47.480 --> 03:48.760
+ That's interesting, yeah.
+
+03:48.760 --> 03:50.620
+ Because maybe that's how we would communicate with,
+
+03:50.620 --> 03:53.480
+ if you think about it, if we were way, way, way smarter,
+
+03:53.480 --> 03:56.400
+ like a thousand years from now, we somehow survive,
+
+03:56.400 --> 03:58.280
+ like how would we actually communicate?
+
+03:59.280 --> 04:03.220
+ In a way that's like, if we broadcast the signal,
+
+04:05.040 --> 04:07.660
+ and then it could somehow like percolate
+
+04:07.660 --> 04:09.080
+ throughout the universe,
+
+04:09.080 --> 04:10.920
+ like that signal having an impact on.
+
+04:10.920 --> 04:11.840
+ Multiverse.
+
+04:11.840 --> 04:16.840
+ Multiverse, of course, that would have a signal,
+
+04:16.960 --> 04:19.160
+ an effect on the most possible,
+
+04:19.160 --> 04:21.240
+ the highest number of possible civilizations.
+
+04:21.240 --> 04:22.520
+ What would that signal be?
+
+04:22.520 --> 04:24.960
+ It might not be like sending a few
+
+04:24.960 --> 04:28.160
+ like stupid little hello world messages.
+
+04:28.160 --> 04:31.300
+ It might be something more impactful.
+
+04:32.480 --> 04:36.280
+ It's almost like impactful in a way
+
+04:36.280 --> 04:40.200
+ where they don't have to have the capability to hear it.
+
+04:40.200 --> 04:42.760
+ It like forces the message to have an impact.
+
+04:42.760 --> 04:43.720
+ Right.
+
+04:43.720 --> 04:46.700
+ My train of thought has never gone there,
+
+04:46.700 --> 04:47.560
+ but I like it.
+
+04:47.560 --> 04:50.320
+ And also somewhere in there,
+
+04:50.320 --> 04:53.860
+ I think it's implied that something travels faster
+
+04:53.860 --> 04:58.080
+ than the speed of light, which I'm also really hopeful for.
+
+04:58.080 --> 04:59.480
+ Oh, you're hopeful.
+
+04:59.480 --> 05:01.700
+ Are you excited by the possibility
+
+05:01.700 --> 05:03.960
+ that there's intelligent life out there?
+
+05:03.960 --> 05:08.040
+ Sort of, you work on the engineering side of things.
+
+05:08.040 --> 05:10.880
+ It's this very kind of focused pursuit
+
+05:10.880 --> 05:15.800
+ of moving things through space efficiently.
+
+05:15.800 --> 05:18.480
+ But if you zoom out,
+
+05:18.480 --> 05:22.680
+ one of the cool things that this enables us to do is find,
+
+05:22.680 --> 05:23.720
+ get even intelligent life,
+
+05:23.720 --> 05:28.180
+ just life on Mars or on Europa or something like that.
+
+05:28.180 --> 05:29.640
+ Does that excite you?
+
+05:29.640 --> 05:30.800
+ Does that scare you?
+
+05:31.760 --> 05:32.920
+ Oh, it's very exciting.
+
+05:32.920 --> 05:36.840
+ I mean, it's the whole reason I went into the field
+
+05:36.840 --> 05:41.840
+ I'm in is to contribute to building the body of knowledge
+
+05:42.240 --> 05:46.200
+ that we have as a species.
+
+05:46.200 --> 05:47.480
+ So very exciting.
+
+05:47.480 --> 05:49.180
+ Do you think there's life on Mars?
+
+05:50.680 --> 05:54.360
+ Like no longer, well, already living,
+
+05:54.360 --> 05:57.300
+ but currently living, but also no longer living,
+
+05:57.300 --> 05:59.840
+ like that we might be able to find life,
+
+05:59.840 --> 06:03.560
+ as some people suspect, basic microbial life.
+
+06:03.560 --> 06:07.360
+ I'm not so sure about in our own solar system.
+
+06:07.360 --> 06:10.360
+ And I do think it might be hard to untangle
+
+06:10.360 --> 06:15.360
+ if we somehow contaminated other things as well.
+
+06:15.680 --> 06:19.160
+ So I'm not sure about this close to home.
+
+06:19.160 --> 06:20.540
+ That'd be really exciting.
+
+06:20.540 --> 06:21.380
+ Yes.
+
+06:21.380 --> 06:24.000
+ Do you think about the Drake equation much of like?
+
+06:24.000 --> 06:28.520
+ That was what got me into all of this, yeah.
+
+06:28.520 --> 06:31.520
+ Yeah, because one of the questions is how hard is it
+
+06:31.520 --> 06:34.280
+ for life to start on a habitable planet?
+
+06:34.280 --> 06:36.280
+ Like if you have a lot of the basic conditions,
+
+06:36.280 --> 06:39.860
+ not exactly like Earth, but basic Earth like conditions,
+
+06:39.860 --> 06:41.440
+ how hard is it for life to start?
+
+06:41.440 --> 06:44.960
+ And if you find life on Mars or find life on Europa,
+
+06:46.200 --> 06:48.560
+ that means it's way easier.
+
+06:48.560 --> 06:49.960
+ That's a good thing to confirm
+
+06:49.960 --> 06:52.540
+ that if you have a habitable planet,
+
+06:53.760 --> 06:55.560
+ then there's going to be life.
+
+06:55.560 --> 06:58.840
+ And that like immediately, that would be super exciting
+
+06:58.840 --> 07:02.680
+ because that means there's like trillions of planets
+
+07:02.680 --> 07:04.640
+ with basic life out there.
+
+07:04.640 --> 07:07.360
+ Though of all the planets in our solar system,
+
+07:07.360 --> 07:09.400
+ Earth is clearly the most habitable.
+
+07:09.400 --> 07:12.440
+ So I would not be discouraged
+
+07:12.440 --> 07:17.040
+ if we didn't find it on another planet in our solar system.
+
+07:17.040 --> 07:19.080
+ True, and again, that life could look very different.
+
+07:19.080 --> 07:21.040
+ It's habitable for Earth like life,
+
+07:21.040 --> 07:23.560
+ but it could be totally different.
+
+07:23.560 --> 07:25.880
+ I still think that trees are quite possibly
+
+07:25.880 --> 07:27.400
+ more intelligent than humans,
+
+07:27.400 --> 07:31.280
+ but their intelligence is carried out over a time scale
+
+07:31.280 --> 07:33.040
+ that we're just not able to appreciate.
+
+07:33.040 --> 07:34.120
+ Like they might be running
+
+07:34.120 --> 07:36.280
+ the entirety of human civilization,
+
+07:36.280 --> 07:38.600
+ and we're just like too dumb to realize
+
+07:38.600 --> 07:40.340
+ that they're the smart ones.
+
+07:40.340 --> 07:43.720
+ Maybe that's the alien message.
+
+07:43.720 --> 07:44.760
+ It's in the trees.
+
+07:44.760 --> 07:46.480
+ It's in the trees.
+
+07:47.720 --> 07:50.400
+ Yeah, it's not in the monolith in the Utah desert.
+
+07:50.400 --> 07:51.240
+ It's in the trees.
+
+07:51.240 --> 07:52.680
+ Right, yeah.
+
+07:52.680 --> 07:55.080
+ So let's go to space exploration.
+
+07:55.080 --> 07:57.200
+ How do you think we would get humans to Mars?
+
+07:57.200 --> 08:01.320
+ I think SpaceX and Elon Musk will be the ones
+
+08:01.320 --> 08:05.920
+ that get the first human setting foot on Mars,
+
+08:06.920 --> 08:10.080
+ and probably not that long from now
+
+08:10.080 --> 08:12.640
+ from us having this conversation.
+
+08:12.640 --> 08:14.920
+ Maybe we'll inflate his timeline a little bit,
+
+08:14.920 --> 08:19.160
+ but I tend to believe the goals he sets.
+
+08:19.160 --> 08:22.320
+ So I think that will happen relatively soon.
+
+08:22.320 --> 08:25.040
+ As far as when and what it will take
+
+08:25.040 --> 08:28.800
+ to get humans living there in a more permanent way,
+
+08:30.840 --> 08:34.720
+ I have a glib answer, which is when we can invent
+
+08:34.720 --> 08:38.600
+ a time machine to go back to the early Cold War,
+
+08:38.600 --> 08:43.240
+ and instead of uniting around sending people to the moon,
+
+08:43.240 --> 08:45.760
+ we pick Mars as the destination.
+
+08:45.760 --> 08:48.920
+ So really, I say that because there's nothing
+
+08:49.920 --> 08:54.640
+ truly scientifically or technologically impossible
+
+08:54.640 --> 08:57.720
+ about doing that soon.
+
+08:57.720 --> 09:00.960
+ It's more politically and financially,
+
+09:00.960 --> 09:04.480
+ and those are the obstacles, I think, to that.
+
+09:04.480 --> 09:07.120
+ Well, I wonder of when you colonize
+
+09:07.120 --> 09:10.760
+ with more than, I say, five people on Mars,
+
+09:10.760 --> 09:14.960
+ you have to start thinking about the kind of rules
+
+09:14.960 --> 09:18.520
+ you have on Mars, and just speaking of the Cold War,
+
+09:18.520 --> 09:21.840
+ who gets to own the land?
+
+09:21.840 --> 09:23.760
+ You know, you start planting flags,
+
+09:23.760 --> 09:25.760
+ and you start to make decisions.
+
+09:25.760 --> 09:30.120
+ And like SpaceX says, it's probably a little bit trolly,
+
+09:30.120 --> 09:34.360
+ but they have this nice paragraph in their contracts
+
+09:34.360 --> 09:39.360
+ where it talks about that human governments on Earth
+
+09:41.760 --> 09:46.760
+ or Earth governments have no jurisdiction on Mars.
+
+09:46.760 --> 09:50.280
+ Like the rules, the Martians get to define their own rules.
+
+09:50.280 --> 09:53.920
+ It sounds very much like the founding fathers
+
+09:53.920 --> 09:54.840
+ for this country.
+
+09:54.840 --> 09:56.240
+ That's the kind of language.
+
+09:57.360 --> 10:02.120
+ It's interesting that that's in there,
+
+10:02.120 --> 10:07.120
+ and it makes you think perhaps that needs to be leveraged.
+
+10:07.360 --> 10:10.040
+ Like you have to be very clever about leveraging that
+
+10:10.040 --> 10:14.800
+ to create a little bit of a Cold War feeling.
+
+10:14.800 --> 10:18.960
+ It seems like we humans need a little bit of a competition.
+
+10:18.960 --> 10:21.200
+ Do you think that's necessary to succeed
+
+10:21.200 --> 10:25.480
+ and to get the necessary investment,
+
+10:25.480 --> 10:28.840
+ or can the pure pursuit of science be enough?
+
+10:28.840 --> 10:30.920
+ No, I think we're seeing right now
+
+10:30.920 --> 10:33.440
+ the pure pursuit of science.
+
+10:33.440 --> 10:38.440
+ I mean, that results in pretty tiny budgets for exploration.
+
+10:39.360 --> 10:43.920
+ There has to be some disaster impending doom
+
+10:43.920 --> 10:48.280
+ to get us onto another planet in a permanent way.
+
+10:48.280 --> 10:50.840
+ I don't know, financially, I just don't know
+
+10:50.840 --> 10:54.120
+ if the private sector can support that,
+
+10:55.000 --> 10:59.800
+ but I don't wish that there is some catastrophe
+
+10:59.800 --> 11:03.840
+ coming our way that spurs us to do that.
+
+11:03.840 --> 11:05.960
+ Yeah, I'm unsure what the business model is
+
+11:05.960 --> 11:07.960
+ for colonizing Mars.
+
+11:07.960 --> 11:09.160
+ Yeah, exactly.
+
+11:09.160 --> 11:11.320
+ Yeah, like there is for, we'll talk about satellites.
+
+11:11.320 --> 11:14.800
+ There's probably a lot of business models around satellites,
+
+11:14.800 --> 11:18.160
+ but there's not enough short term business.
+
+11:18.160 --> 11:19.520
+ I guess that's how business works.
+
+11:19.520 --> 11:23.000
+ Like you should have a path to making money
+
+11:23.000 --> 11:25.120
+ in like the next 10 years.
+
+11:25.120 --> 11:29.720
+ Well, and maybe even more broadly,
+
+11:29.720 --> 11:33.400
+ and looping back to something we said earlier,
+
+11:33.400 --> 11:37.860
+ I don't know that getting humans off this planet
+
+11:37.860 --> 11:42.040
+ and spreading like bacteria
+
+11:42.040 --> 11:45.480
+ is what we're supposed to be doing in the first place.
+
+11:45.480 --> 11:49.000
+ So maybe we can go, but should we?
+
+11:49.000 --> 11:54.000
+ And I'm probably an unusual person
+
+11:54.360 --> 11:56.280
+ for thinking that in my industry
+
+11:56.280 --> 11:59.380
+ because humans want to explore,
+
+11:59.380 --> 12:03.880
+ but I almost wonder, are we putting unnecessary obstacles?
+
+12:03.880 --> 12:07.480
+ Like we're very finicky biological things
+
+12:07.480 --> 12:12.120
+ in the way of some more robotic or more
+
+12:12.120 --> 12:15.240
+ silicon based exploration.
+
+12:15.240 --> 12:19.040
+ And yeah, do we need to colonize and spread?
+
+12:19.040 --> 12:20.360
+ I'm not sure.
+
+12:20.360 --> 12:22.900
+ What do you think is the role of AI in space?
+
+12:22.900 --> 12:25.640
+ Do you, in your work, again, we'll talk about it,
+
+12:25.640 --> 12:30.640
+ but do you see more and more of the space vehicles,
+
+12:32.320 --> 12:37.320
+ spacecraft being run by artificial intelligence systems?
+
+12:37.320 --> 12:39.120
+ More than just like the flight control,
+
+12:39.120 --> 12:41.000
+ but like the management?
+
+12:41.000 --> 12:43.880
+ Yeah, I don't have a lot of color to the dreams
+
+12:43.880 --> 12:46.200
+ I have about way in the future in AI,
+
+12:46.200 --> 12:51.200
+ but I do think that removing,
+
+12:51.840 --> 12:54.760
+ it's hard for humans to even make a trip to Mars,
+
+12:54.760 --> 12:58.060
+ much less go anywhere farther than that.
+
+12:58.060 --> 13:01.680
+ And I think we'll have more,
+
+13:03.400 --> 13:05.940
+ again, I'm probably unusual in having these thoughts,
+
+13:05.940 --> 13:09.440
+ but perhaps be able to generate more knowledge
+
+13:09.440 --> 13:13.000
+ and understand more if we stop trying to send humans
+
+13:13.000 --> 13:17.780
+ and instead, I don't know if we're talking about AI
+
+13:17.780 --> 13:20.700
+ in a truly artificial intelligence way
+
+13:20.700 --> 13:23.840
+ or AI as we kind of use it today,
+
+13:23.840 --> 13:28.840
+ but maybe sending a Petri dish or two of like stem cells
+
+13:29.040 --> 13:32.000
+ and some robotic handlers instead,
+
+13:32.000 --> 13:34.000
+ if we still need to send our DNA
+
+13:34.000 --> 13:36.060
+ because we're really stuck on that,
+
+13:36.060 --> 13:40.020
+ but if not, maybe not even that Petri dish.
+
+13:40.020 --> 13:42.440
+ So I see, I think what I'm saying is,
+
+13:42.440 --> 13:44.800
+ I see a much bigger role in the future
+
+13:44.800 --> 13:47.080
+ of AI for space exploration.
+
+13:47.080 --> 13:50.080
+ It's kind of sad to think that,
+
+13:50.080 --> 13:53.680
+ I mean, I'm sure we'll eventually send a spacecraft
+
+13:53.680 --> 13:55.600
+ with efficient propulsion,
+
+13:55.600 --> 13:57.920
+ like some of the stuff you work on out
+
+13:57.920 --> 14:00.680
+ that travels just really far with some robots on it
+
+14:00.680 --> 14:05.000
+ and with some DNA in a Petri dish,
+
+14:05.000 --> 14:08.640
+ and then human civilization destroys itself,
+
+14:08.640 --> 14:11.280
+ and then there'll just be this floating spacecraft
+
+14:11.280 --> 14:13.920
+ that eventually gets somewhere or not.
+
+14:13.920 --> 14:16.560
+ That's a sad thought, like this lonely spacecraft
+
+14:16.560 --> 14:18.620
+ just kind of traveling through space
+
+14:18.620 --> 14:20.600
+ and humans are all dead.
+
+14:20.600 --> 14:25.600
+ Well, it depends on what the goal is, right?
+
+14:27.200 --> 14:29.640
+ Another way to look at it is we've preserved,
+
+14:29.640 --> 14:33.000
+ it's like a little time capsule of knowledge, DNA,
+
+14:33.000 --> 14:36.400
+ that will outlive us.
+
+14:36.400 --> 14:37.240
+ Well, that's beautiful.
+
+14:37.240 --> 14:38.060
+ Yeah.
+
+14:39.920 --> 14:41.400
+ It's how I sleep at night.
+
+14:41.400 --> 14:43.760
+ So you also mentioned that you wanted to be an astronaut.
+
+14:43.760 --> 14:44.600
+ Yes.
+
+14:45.560 --> 14:47.480
+ So even though you said you're unusual
+
+14:47.480 --> 14:50.840
+ in thinking like, it's nice here on Earth,
+
+14:50.840 --> 14:53.880
+ and then we might want to be sending robots up there,
+
+14:53.880 --> 14:57.140
+ you wanted to be a human that goes out there.
+
+14:57.140 --> 15:00.700
+ Would you like to one day travel to Mars?
+
+15:01.580 --> 15:04.860
+ You know, if it becomes sort of more open
+
+15:04.860 --> 15:07.340
+ to civilian travel and that kind of thing?
+
+15:07.340 --> 15:09.980
+ Like are you, like vacation wise,
+
+15:09.980 --> 15:12.480
+ like if we're talking vacations,
+
+15:12.480 --> 15:15.420
+ would you like to vacation on Earth or vacation on Mars?
+
+15:15.420 --> 15:20.260
+ I wish that I had a better answer, but no.
+
+15:20.260 --> 15:23.580
+ I wanted to be an astronaut because I,
+
+15:23.580 --> 15:28.480
+ first of all, I like working in labs and doing experiments.
+
+15:28.480 --> 15:33.480
+ And I wanted to go to like the coolest lab, the ISS,
+
+15:34.220 --> 15:37.020
+ and do some experiments there.
+
+15:37.020 --> 15:39.660
+ That's being decommissioned, which is sad,
+
+15:39.660 --> 15:42.260
+ but you know, there will be others, I'm sure.
+
+15:43.380 --> 15:44.660
+ The ISS is being decommissioned?
+
+15:44.660 --> 15:49.380
+ Yes, I think by 2025, it's not going to be in use anymore.
+
+15:49.380 --> 15:51.000
+ But I think there are other,
+
+15:51.000 --> 15:54.120
+ there are private companies that are going to be putting up
+
+15:54.120 --> 15:55.320
+ stations and things.
+
+15:55.320 --> 15:57.260
+ So it's primarily like a research lab, essentially.
+
+15:57.260 --> 15:58.100
+ Yes.
+
+15:58.100 --> 15:59.860
+ A research lab in space, that's a cool way to say it.
+
+15:59.860 --> 16:02.420
+ It's like the coolest possible research lobby.
+
+16:02.420 --> 16:03.700
+ That's where I wanted to go.
+
+16:03.700 --> 16:08.700
+ And now though, my risk profile has changed a little bit.
+
+16:08.980 --> 16:13.980
+ I have three little ones and I won't be in the first
+
+16:15.880 --> 16:18.660
+ thousand people to go to Mars, let's put it that way.
+
+16:18.660 --> 16:20.420
+ Yeah, Earth is kind of nice.
+
+16:20.420 --> 16:23.980
+ We have our troubles, but overall, it's pretty nice.
+
+16:23.980 --> 16:25.980
+ Again, it's the Netflix.
+
+16:25.980 --> 16:28.540
+ Okay, let's talk rockets.
+
+16:28.540 --> 16:31.940
+ How does a rocket engine work or any kind of engine
+
+16:31.940 --> 16:36.820
+ that can get us to space or float around in space?
+
+16:36.820 --> 16:40.500
+ The basic principle is conservation of momentum.
+
+16:40.500 --> 16:45.500
+ So you throw stuff out the back of the engine
+
+16:47.460 --> 16:50.060
+ and that pushes the rocket and the spacecraft
+
+16:50.060 --> 16:51.020
+ in the other direction.
+
+16:51.020 --> 16:56.020
+ So there are two main types of rocket propulsion.
+
+16:57.900 --> 17:00.780
+ The one people are more familiar with is chemical
+
+17:00.780 --> 17:03.460
+ because it's loud and there's fire.
+
+17:04.500 --> 17:08.140
+ And that's what's used for launch and is more televised.
+
+17:08.140 --> 17:12.700
+ So in those types of systems, you usually have a fuel
+
+17:12.700 --> 17:15.920
+ on an oxidizer and they react and combust
+
+17:15.920 --> 17:18.660
+ and release stored chemical energy.
+
+17:18.660 --> 17:23.620
+ And that energy heats the resultant gas
+
+17:23.620 --> 17:26.780
+ and that's funneled out the back through a nozzle,
+
+17:26.780 --> 17:30.780
+ directed out the back and then that momentum exchange
+
+17:30.780 --> 17:32.380
+ pushes the spacecraft forward.
+
+17:32.380 --> 17:34.020
+ Is there an interesting difference in liquid
+
+17:34.020 --> 17:36.740
+ and solid fuel in those contexts?
+
+17:36.740 --> 17:38.700
+ They're both lumped in the same.
+
+17:38.700 --> 17:43.100
+ So chemical just means that the release of energy
+
+17:43.100 --> 17:45.680
+ from those bonds essentially.
+
+17:45.680 --> 17:48.700
+ So a solid fuel works the same way.
+
+17:48.700 --> 17:52.780
+ And the other main category is electric propulsion.
+
+17:52.780 --> 17:54.500
+ So instead of chemical energy,
+
+17:54.500 --> 17:56.820
+ you're using electrical energy,
+
+17:56.820 --> 18:00.660
+ usually from batteries or solar panels.
+
+18:00.660 --> 18:05.660
+ And in this case, the stuff you're pushing out the back
+
+18:05.940 --> 18:07.740
+ would be charged particles.
+
+18:07.740 --> 18:11.500
+ So instead of combustion and heat,
+
+18:11.500 --> 18:13.820
+ you end up with charged particles
+
+18:13.820 --> 18:16.220
+ and you force them out the back of the spacecraft
+
+18:16.220 --> 18:20.180
+ using either an electrostatic field or electromagnetic.
+
+18:21.680 --> 18:23.620
+ But it's the same momentum exchange
+
+18:23.620 --> 18:25.460
+ and same idea stuff out the back
+
+18:25.460 --> 18:27.820
+ and everything else goes forward.
+
+18:27.820 --> 18:30.200
+ Cool, so those are the big two categories.
+
+18:30.200 --> 18:35.200
+ What's the difference maybe in the challenges of each,
+
+18:35.200 --> 18:40.200
+ in the challenges of each, the use cases of each
+
+18:41.480 --> 18:45.000
+ and how they're used today, the physics of each
+
+18:45.880 --> 18:48.280
+ and where they're used, all that kind of stuff.
+
+18:48.280 --> 18:49.960
+ Anything interesting about the two categories
+
+18:49.960 --> 18:51.520
+ that distinguishes them?
+
+18:51.520 --> 18:56.520
+ Besides the chemical one being the big sexy flames.
+
+18:56.720 --> 18:57.800
+ Yeah, fire.
+
+18:57.800 --> 18:59.680
+ Fire, yeah.
+
+18:59.680 --> 19:02.280
+ Chemical is very well understood
+
+19:02.280 --> 19:06.980
+ in its simplest form, it's like a firework.
+
+19:06.980 --> 19:11.080
+ So it's been around since 400 BC or something like that.
+
+19:12.080 --> 19:15.040
+ So that even the big engines are quite well understood.
+
+19:15.040 --> 19:20.040
+ I think one of the last gaps there is probably
+
+19:23.640 --> 19:27.400
+ what exactly are the products of combustion?
+
+19:27.400 --> 19:32.400
+ Our modeling abilities kind of fall apart there
+
+19:32.520 --> 19:35.560
+ because it's hot and gases are moving
+
+19:35.560 --> 19:40.560
+ and you end up kind of having to venture
+
+19:41.200 --> 19:46.200
+ into lots of different interdisciplinary fields of science
+
+19:46.840 --> 19:47.720
+ to try to solve that.
+
+19:47.720 --> 19:51.920
+ And that's quite complex, but we have pretty good models
+
+19:51.920 --> 19:54.120
+ for some of the more like emergent behaviors
+
+19:54.120 --> 19:55.200
+ of that system anyways.
+
+19:55.200 --> 20:00.200
+ But that's I think one of the last unsolved pieces.
+
+20:00.640 --> 20:04.760
+ And really the kind of what people care about there
+
+20:04.760 --> 20:07.760
+ is making it more fuel efficient.
+
+20:07.760 --> 20:11.660
+ So the chemical stuff, you can get a lot
+
+20:11.660 --> 20:15.360
+ of instantaneous thrusts, but it's not very fuel efficient.
+
+20:15.360 --> 20:16.880
+ It's much more fuel efficient to go
+
+20:16.880 --> 20:19.980
+ with the electric type of propulsion.
+
+20:19.980 --> 20:23.260
+ So that's where people spend a lot of their time
+
+20:23.260 --> 20:25.280
+ is trying to make that more efficient in terms
+
+20:25.280 --> 20:28.320
+ of thrust per unit of fuel.
+
+20:28.320 --> 20:31.860
+ And then there's always considerations
+
+20:31.860 --> 20:33.700
+ like heating and cooling.
+
+20:33.700 --> 20:36.360
+ It's very hot, which is good if it heats the gases,
+
+20:36.360 --> 20:40.680
+ but bad if it melts the rocket and things like that.
+
+20:40.680 --> 20:42.080
+ So there's always a lot of work on heating
+
+20:42.080 --> 20:45.340
+ and cooling and the engine cycles and things like that.
+
+20:46.520 --> 20:48.680
+ And then on electric propulsion,
+
+20:48.680 --> 20:53.680
+ I find it like much more refreshingly poorly understood.
+
+20:56.040 --> 20:57.240
+ Lots more mysteries.
+
+20:57.240 --> 20:58.800
+ Yeah, I think so.
+
+20:58.800 --> 21:01.920
+ One of the classes I took in college,
+
+21:03.080 --> 21:06.120
+ we spent 90% of the class on chemical propulsion
+
+21:06.120 --> 21:07.920
+ and then the last 10% on electric.
+
+21:07.920 --> 21:09.520
+ And the professor said like,
+
+21:09.520 --> 21:12.280
+ we only sort of understand how it works,
+
+21:12.280 --> 21:13.880
+ but it works kind of.
+
+21:13.880 --> 21:16.880
+ And it's like, that's interesting.
+
+21:16.880 --> 21:20.120
+ Yeah, and even an ion engine,
+
+21:20.120 --> 21:22.800
+ which is probably one of the most straightforward
+
+21:22.800 --> 21:27.500
+ because it's just an electrostatic engine,
+
+21:27.500 --> 21:29.900
+ but it has this really awesome combination
+
+21:29.900 --> 21:34.160
+ of like quantum mechanics and material science
+
+21:34.160 --> 21:38.560
+ and fluid dynamics and electrostatics.
+
+21:38.560 --> 21:41.520
+ And it's just very intriguing to me.
+
+21:42.440 --> 21:44.760
+ First of all, can you actually zoom out even more?
+
+21:44.760 --> 21:47.960
+ Like, cause you mentioned ion propulsion engine
+
+21:47.960 --> 21:51.040
+ is a subset of electric.
+
+21:51.040 --> 21:53.520
+ So like maybe, is there a categories of electric engines
+
+21:53.520 --> 21:55.760
+ and then we can zoom in on ion propulsion?
+
+21:55.760 --> 21:57.720
+ Yes, so sure.
+
+21:57.720 --> 22:01.520
+ There's the two most kind of conventional types
+
+22:01.520 --> 22:03.680
+ that have been around since the sixties
+
+22:03.680 --> 22:06.800
+ are ion engines and hall thrusters.
+
+22:06.800 --> 22:08.840
+ And ion engines are a little bit simpler
+
+22:08.840 --> 22:11.480
+ because they don't use a magnetic field
+
+22:11.480 --> 22:12.880
+ for generating thrust.
+
+22:12.880 --> 22:17.880
+ And then there are also some other types of plasma engines,
+
+22:20.000 --> 22:21.960
+ but that don't fit into those two categories.
+
+22:21.960 --> 22:23.640
+ So just kind of other plasma,
+
+22:23.640 --> 22:27.600
+ like a VASMIR engine, which we could get into.
+
+22:28.640 --> 22:32.640
+ And then those are probably the main three categories
+
+22:32.640 --> 22:33.800
+ that would be fun to talk about.
+
+22:33.800 --> 22:36.480
+ Oh, and then of course, the category of engine
+
+22:36.480 --> 22:39.400
+ that I work on, which has a lot of similarities
+
+22:39.400 --> 22:42.600
+ to an ion engine, but could be considered its own class
+
+22:42.600 --> 22:44.560
+ called a colloid thruster.
+
+22:44.560 --> 22:45.560
+ Colloid, cool.
+
+22:45.560 --> 22:48.960
+ Okay, so what is an ion propulsion, I imagine?
+
+22:48.960 --> 22:53.960
+ Okay, so in an ion engine, you have an ionization chamber
+
+22:54.320 --> 22:57.640
+ and you inject the propellant into that chamber.
+
+22:57.640 --> 23:02.640
+ And this is usually a neutral gas like xenon or argon.
+
+23:03.640 --> 23:05.000
+ So you inject that into the chamber
+
+23:05.000 --> 23:10.000
+ and you also inject a stream of really high energy electrons
+
+23:10.000 --> 23:15.000
+ and everything's just moving around very randomly in there.
+
+23:16.680 --> 23:21.320
+ And the whole goal is to have one of those electrons
+
+23:21.320 --> 23:24.200
+ collide with one of those neutral atoms
+
+23:24.200 --> 23:26.000
+ and turn it into an ion.
+
+23:26.000 --> 23:29.400
+ So kick off a secondary electron and now you have...
+
+23:29.400 --> 23:30.240
+ Plasma.
+
+23:30.240 --> 23:31.060
+ Yes.
+
+23:31.060 --> 23:31.900
+ Okay.
+
+23:31.900 --> 23:36.900
+ And now you have a charged xenon or argon ion
+
+23:36.900 --> 23:39.020
+ and more electrons and so on.
+
+23:39.020 --> 23:44.020
+ And then some fraction of those ions will happen
+
+23:44.020 --> 23:47.620
+ to make it to this downstream electric field
+
+23:47.620 --> 23:50.860
+ that we set up between two grids with holes in them.
+
+23:50.860 --> 23:55.220
+ And in terms of area, the same amount of those ions
+
+23:55.220 --> 23:58.740
+ also runs into the walls and lose their charge
+
+23:58.740 --> 24:01.420
+ and that's where some of the inefficiencies come in.
+
+24:01.420 --> 24:05.420
+ But the very lucky few make it to the downstream
+
+24:05.420 --> 24:09.540
+ and the very lucky few make it to those holes in that grid
+
+24:09.540 --> 24:11.740
+ and there are two grids actually
+
+24:11.740 --> 24:14.980
+ and you apply a voltage differential between them
+
+24:14.980 --> 24:17.700
+ and that sets up an electric field.
+
+24:17.700 --> 24:20.580
+ And a charged particle in an electric field
+
+24:20.580 --> 24:21.780
+ creates a force.
+
+24:21.780 --> 24:25.460
+ And so those ions are accelerated out the back of the engine
+
+24:25.460 --> 24:30.460
+ and the reaction force is what pushes the spacecraft forward.
+
+24:30.460 --> 24:35.460
+ If you're following along and tallying these charges,
+
+24:35.540 --> 24:39.740
+ now we've just sent a positive beam of ions
+
+24:39.740 --> 24:44.020
+ out the back of the spacecraft and for our purposes here,
+
+24:44.020 --> 24:45.700
+ the spacecraft is neutral.
+
+24:45.700 --> 24:48.980
+ So eventually those ions will come back
+
+24:48.980 --> 24:51.560
+ and hit the spacecraft because it's a positive beam.
+
+24:51.560 --> 24:56.300
+ So you also have to have an external cathode producer
+
+24:56.300 --> 24:58.820
+ of electrons outside the engine
+
+24:58.820 --> 25:02.300
+ that pumps electrons into that beam and neutralizes that.
+
+25:02.300 --> 25:03.980
+ So now it's net neutral everywhere
+
+25:03.980 --> 25:05.300
+ and it won't come back to the spacecraft.
+
+25:05.300 --> 25:07.780
+ So that's an ion engine.
+
+25:07.780 --> 25:09.780
+ What temperature are we talking about here?
+
+25:09.780 --> 25:13.060
+ So in terms of like the chemical based engines,
+
+25:13.060 --> 25:14.860
+ those are super hot.
+
+25:14.860 --> 25:16.740
+ You mentioned plasma here.
+
+25:16.740 --> 25:18.140
+ How hot does this thing get?
+
+25:20.020 --> 25:22.140
+ I mean, is that an interesting thing to talk about
+
+25:22.140 --> 25:25.260
+ in a sense that is that an interesting distinction
+
+25:25.260 --> 25:28.300
+ or is the heat, I mean, it's all gonna be hot.
+
+25:28.300 --> 25:31.020
+ No, so it's important especially
+
+25:31.020 --> 25:32.820
+ for some of these smaller satellites
+
+25:32.820 --> 25:35.300
+ people are into launching these days.
+
+25:35.300 --> 25:39.260
+ So it's important because you have the plasma
+
+25:39.260 --> 25:42.380
+ but also those high energy electrons are hot
+
+25:42.380 --> 25:46.620
+ and if you have a lot of those that are going into the walls
+
+25:46.620 --> 25:48.200
+ you do have to care about the temperature.
+
+25:48.200 --> 25:52.540
+ So I'm having trouble remembering off the top of my head.
+
+25:52.540 --> 25:54.960
+ I think they're at like a hundred electron volts
+
+25:54.960 --> 25:56.820
+ in terms of the electron energy
+
+25:56.820 --> 25:59.620
+ and then I'd have to remember how to convert that
+
+25:59.620 --> 26:00.700
+ into Kelvin.
+
+26:00.700 --> 26:02.620
+ Can you stick your hand in it?
+
+26:02.620 --> 26:03.660
+ Not move the temperature.
+
+26:03.660 --> 26:05.660
+ Not recommended, yeah.
+
+26:05.660 --> 26:07.700
+ So what's a colloid engine?
+
+26:07.700 --> 26:12.700
+ So the same rocket people that came up with these ideas
+
+26:16.180 --> 26:19.540
+ for electric propulsion probably in the middle
+
+26:19.540 --> 26:24.540
+ of last century also realized that there's one more place
+
+26:24.540 --> 26:28.940
+ to get charged particles from if you're going
+
+26:28.940 --> 26:30.340
+ to be using electric propulsion.
+
+26:30.340 --> 26:33.220
+ So you can take a gas and you can ionize it
+
+26:33.220 --> 26:37.500
+ but there are also some liquids particularly ionic liquids
+
+26:37.500 --> 26:41.020
+ which is what we use that you also can use
+
+26:41.020 --> 26:43.740
+ as a source of ions and if you have ions
+
+26:43.740 --> 26:45.580
+ and you put them in a field you generate a force.
+
+26:45.580 --> 26:50.580
+ So they recognize that but part of being able
+
+26:51.220 --> 26:53.380
+ to leverage that technique is being able
+
+26:53.380 --> 26:57.340
+ to kind of manipulate those liquids on a scale
+
+26:57.340 --> 27:01.260
+ of nanometers or very few microns.
+
+27:01.260 --> 27:05.320
+ So the diameter of a human hair or something like that
+
+27:05.320 --> 27:08.660
+ and in the 50s there was no way to do that.
+
+27:08.660 --> 27:10.500
+ So they wrote about it in some books
+
+27:10.500 --> 27:12.900
+ and then it kind of died for a little bit
+
+27:12.900 --> 27:17.900
+ and then with silicon mems, computer processors
+
+27:17.940 --> 27:21.460
+ and when foundry started becoming more ubiquitous
+
+27:21.460 --> 27:26.460
+ and my advisor started at MIT kind of put those ideas
+
+27:28.340 --> 27:31.680
+ back together and was like, hey actually there's now a way
+
+27:31.680 --> 27:35.080
+ to build this and bring this other technique to life.
+
+27:36.160 --> 27:40.880
+ And so the way that you actually get the ions
+
+27:40.880 --> 27:43.980
+ out of those liquids is you put the liquid
+
+27:43.980 --> 27:47.220
+ in again a strong electric field
+
+27:47.220 --> 27:50.220
+ and the electric field stresses the liquid
+
+27:50.220 --> 27:51.800
+ and you keep increasing the field
+
+27:51.800 --> 27:56.800
+ and eventually the liquid will assume a conical shape.
+
+27:57.060 --> 28:01.200
+ It's when the electric field pressure that's pulling on it
+
+28:01.200 --> 28:04.740
+ exactly balances the liquid's own restoring force
+
+28:04.740 --> 28:06.900
+ which is its surface tension.
+
+28:06.900 --> 28:10.080
+ So you have this balance and the liquid assumes a cone
+
+28:10.080 --> 28:12.400
+ when it's perfectly balanced like that
+
+28:12.400 --> 28:16.340
+ and at the tip of a cone the radius of curvature
+
+28:16.340 --> 28:18.500
+ goes to zero right at the tip
+
+28:18.500 --> 28:23.500
+ and the electric field right at the tip of a sharp object
+
+28:24.540 --> 28:29.540
+ would go to infinity because it goes as one over the radius
+
+28:31.200 --> 28:33.180
+ and one over the radius squared
+
+28:33.180 --> 28:37.420
+ and instead of the electric field going to infinity
+
+28:37.420 --> 28:40.940
+ and maybe like generating a wormhole or something,
+
+28:40.940 --> 28:44.260
+ a jet of ions instead starts issuing
+
+28:44.260 --> 28:46.220
+ from the tip of that liquid.
+
+28:46.220 --> 28:47.740
+ So the field becomes strong enough there
+
+28:47.740 --> 28:50.460
+ that you can pull ions out of the liquid.
+
+28:50.460 --> 28:51.620
+ What is the liquid?
+
+28:51.620 --> 28:54.580
+ We're talking about, there's a bunch of different ones.
+
+28:54.580 --> 28:58.460
+ You can do it with different types of liquids.
+
+28:58.460 --> 29:02.020
+ It depends on how easily you can free ions
+
+29:02.020 --> 29:06.480
+ from their neighbors and if it has enough surface tension
+
+29:06.480 --> 29:09.040
+ so that you can build up a high enough electric field
+
+29:09.040 --> 29:12.340
+ but what we use are called ionic liquids
+
+29:12.340 --> 29:13.960
+ and they're really just positive.
+
+29:13.960 --> 29:17.100
+ They're very similar to salts but they happen to be liquid
+
+29:17.100 --> 29:19.380
+ over a really wide range of temperatures.
+
+29:19.380 --> 29:21.540
+ This sounds like really cool.
+
+29:21.540 --> 29:25.140
+ Okay, so how big is the cone we're talking about?
+
+29:25.140 --> 29:27.620
+ What's the size of this cone that generates the ions?
+
+29:27.620 --> 29:30.520
+ So if you have a cone that's emitting pure ions,
+
+29:33.100 --> 29:35.100
+ I can't remember if it's the radius or diameter
+
+29:35.100 --> 29:39.140
+ but that emission is happening from,
+
+29:39.140 --> 29:41.820
+ of that cone is something like 20 nanometers.
+
+29:41.820 --> 29:45.340
+ Oh, I was imagining something slightly bigger
+
+29:45.340 --> 29:49.220
+ but so like this is tiny, tiny.
+
+29:49.220 --> 29:52.100
+ Hence the only being able to do it recently.
+
+29:52.100 --> 29:52.940
+ Yeah, that's right.
+
+29:52.940 --> 29:55.700
+ So this is all controlled by a computer, I guess.
+
+29:55.700 --> 30:00.460
+ Like, or like, how do you create a cone
+
+30:00.460 --> 30:04.020
+ that generates ions at a scale of nanometers exactly?
+
+30:04.020 --> 30:08.460
+ So the kind of main trick to making this work
+
+30:08.460 --> 30:12.620
+ is that physically we manufacture hundreds
+
+30:12.620 --> 30:16.320
+ or thousands of sharp structures and then supply the liquid
+
+30:16.320 --> 30:17.160
+ to the tips.
+
+30:17.160 --> 30:20.220
+ So that does a few things.
+
+30:20.220 --> 30:23.020
+ It makes sure that we know where the ion beams are forming.
+
+30:23.020 --> 30:25.260
+ So we can put holes in the grid above them
+
+30:25.260 --> 30:27.940
+ to let them actually leave instead of hitting, right?
+
+30:27.940 --> 30:29.380
+ Cool.
+
+30:29.380 --> 30:32.980
+ But it also reduces the actual field we have,
+
+30:32.980 --> 30:35.280
+ the voltage we have to apply to create that field
+
+30:35.280 --> 30:36.780
+ because the field will be much stronger
+
+30:36.780 --> 30:41.780
+ if we can already give the liquid a tip to form on.
+
+30:41.780 --> 30:45.260
+ And those tips we form have radii of curvature
+
+30:46.380 --> 30:50.900
+ on the order of probably like single microns.
+
+30:50.900 --> 30:53.440
+ So we are working at a little bit larger scale
+
+30:53.440 --> 30:55.660
+ but once we create that support
+
+30:55.660 --> 30:57.940
+ and the electric field can be focused at that tip,
+
+30:57.940 --> 31:00.100
+ then the tiny little cone can form on top of that.
+
+31:00.100 --> 31:01.980
+ So wait, so there's something in them,
+
+31:01.980 --> 31:04.680
+ there's already like a hard material
+
+31:04.680 --> 31:07.140
+ that like gives you the base for the cone
+
+31:07.140 --> 31:08.700
+ and then you're pouring like liquid over it,
+
+31:08.700 --> 31:10.140
+ whatever the heck. From the bottom, yeah.
+
+31:10.140 --> 31:12.020
+ It's porous, so we actually supply it
+
+31:12.020 --> 31:13.540
+ from the back of the chip and then it wicks.
+
+31:13.540 --> 31:17.020
+ And then liquid forms on top on that structure.
+
+31:17.020 --> 31:20.540
+ And then you somehow make it like super sharp, the liquid,
+
+31:20.540 --> 31:22.500
+ so the ions can leave.
+
+31:24.860 --> 31:28.500
+ And then we've applied that field to get those ions
+
+31:28.500 --> 31:31.620
+ and that same field then accelerates them.
+
+31:31.620 --> 31:33.940
+ That's awesome. And there's like a bunch of these?
+
+31:33.940 --> 31:37.460
+ Yeah, I should have brought something.
+
+31:37.460 --> 31:38.740
+ So we...
+
+31:38.740 --> 31:41.260
+ You could just pretend that you have some nanometer cones
+
+31:41.260 --> 31:42.100
+ on a table here.
+
+31:42.100 --> 31:44.980
+ So actually, you know, kind of about this scale,
+
+31:44.980 --> 31:47.620
+ we build, we call them thruster chips
+
+31:47.620 --> 31:49.980
+ and it's just a convenient form factor
+
+31:49.980 --> 31:51.820
+ and it's a square centimeter.
+
+31:51.820 --> 31:53.740
+ And on each square centimeter today,
+
+31:53.740 --> 31:56.700
+ we have about 500 of the actual physical,
+
+31:56.700 --> 31:59.420
+ we call them emitters, those physical cones.
+
+32:00.500 --> 32:04.500
+ And we're working on increasing that by a factor of four
+
+32:04.500 --> 32:05.660
+ in the coming months.
+
+32:05.660 --> 32:07.260
+ In size or in the density?
+
+32:07.260 --> 32:10.340
+ In number, in the density, the number of emitters
+
+32:10.340 --> 32:12.300
+ within the same square centimeter chip.
+
+32:12.300 --> 32:14.380
+ So that thing, cause I think I've seen pictures of you
+
+32:14.380 --> 32:15.820
+ with like a tiny thing in your hand.
+
+32:15.820 --> 32:17.300
+ That must be the...
+
+32:17.300 --> 32:19.860
+ Okay, so that's an engine.
+
+32:19.860 --> 32:24.380
+ So that is kind of the ionization chamber
+
+32:24.380 --> 32:26.100
+ and thrust producing part of it.
+
+32:26.100 --> 32:28.900
+ What's not shown, you know, in that picture
+
+32:29.860 --> 32:31.740
+ is the propellant tank.
+
+32:31.740 --> 32:34.380
+ So we can keep supplying more and more of the liquid
+
+32:34.380 --> 32:36.740
+ to those emission sites.
+
+32:36.740 --> 32:40.540
+ And then we also provide a power electronic system
+
+32:40.540 --> 32:41.820
+ that talks to the spacecraft
+
+32:41.820 --> 32:43.820
+ and turns our device on and off.
+
+32:43.820 --> 32:45.740
+ So that's the colloid engine.
+
+32:45.740 --> 32:47.620
+ That's the core of the colloid engine.
+
+32:47.620 --> 32:50.380
+ It's, the way I've been talking about it,
+
+32:50.380 --> 32:53.940
+ it's more of ion electrospray colloid
+
+32:55.580 --> 33:00.500
+ tends to mean like liquid droplets coming off of the jet.
+
+33:00.500 --> 33:03.380
+ But if you make smaller and smaller cones,
+
+33:03.380 --> 33:04.820
+ you get pure ions.
+
+33:04.820 --> 33:07.460
+ So we're kind of like a subset of colloid, yes.
+
+33:07.460 --> 33:10.700
+ What aspects of this, you said that it's been full
+
+33:10.700 --> 33:13.260
+ of mysteries from the physics perspective.
+
+33:13.260 --> 33:15.820
+ What aspects of this are understood
+
+33:15.820 --> 33:19.660
+ and what are still full of mystery?
+
+33:19.660 --> 33:24.660
+ Yeah, recently we've been understanding
+
+33:24.740 --> 33:29.740
+ the kind of instabilities and stable regimes of,
+
+33:30.660 --> 33:32.660
+ you know, how much liquid do you supply
+
+33:32.660 --> 33:34.540
+ and what field do you apply?
+
+33:34.540 --> 33:37.980
+ And why is it flickering on and off?
+
+33:37.980 --> 33:39.780
+ Or why does it have these weird behaviors?
+
+33:39.780 --> 33:41.940
+ So that's, in the past just couple of years,
+
+33:41.940 --> 33:45.900
+ that's become much more understood.
+
+33:47.100 --> 33:49.260
+ I think the two areas that come to mind
+
+33:49.260 --> 33:53.460
+ as far as not as well understood are
+
+33:54.660 --> 33:57.340
+ the boundary between, you know, you have,
+
+33:58.660 --> 34:03.060
+ we actually use kind of big molecular ions.
+
+34:03.060 --> 34:06.740
+ And if you're looking at the molecular scale,
+
+34:07.700 --> 34:10.460
+ you have, you know, some ions that you've extracted
+
+34:10.460 --> 34:12.820
+ and they're in this electric field.
+
+34:12.820 --> 34:16.180
+ One ion, you know, it's a big molecule,
+
+34:16.180 --> 34:19.220
+ it's getting energy from the electric field.
+
+34:19.220 --> 34:21.780
+ And some of that energy is going into the bonds
+
+34:21.780 --> 34:24.260
+ and making it vibrate and doing weird things to it.
+
+34:24.260 --> 34:26.460
+ Sometimes it breaks them apart.
+
+34:26.460 --> 34:30.460
+ And then zooming out to the whole beam,
+
+34:30.460 --> 34:34.740
+ the beam has some behaviors as this beam of ions.
+
+34:34.740 --> 34:38.100
+ And there's a big gap between what are those,
+
+34:38.100 --> 34:40.540
+ how do you connect those?
+
+34:40.540 --> 34:42.260
+ And how do we understand that better
+
+34:42.260 --> 34:44.460
+ so that we can understand the beam performance
+
+34:44.460 --> 34:45.780
+ of the engine?
+
+34:45.780 --> 34:48.740
+ Is that a theory question or is it an engineering question?
+
+34:48.740 --> 34:50.140
+ Theory, definitely.
+
+34:50.140 --> 34:54.380
+ We're, Axion is a startup and we're more in the business
+
+34:54.380 --> 34:59.380
+ of building and testing and observing and characterizing.
+
+34:59.380 --> 35:03.060
+ And we're not really diving much into that theory right now.
+
+35:03.060 --> 35:06.300
+ Okay, zooming out a little bit on the physics,
+
+35:06.300 --> 35:08.300
+ apologize for the way too big of a question,
+
+35:08.300 --> 35:13.300
+ but to you from either, you mentioned Axion is,
+
+35:13.700 --> 35:16.740
+ you know, more of sort of an engineering endeavor, right?
+
+35:16.740 --> 35:19.740
+ But from a perspective of physics in general,
+
+35:19.740 --> 35:22.500
+ science in general, or the side of engineering,
+
+35:22.500 --> 35:24.700
+ what do you think is the most, to you,
+
+35:24.700 --> 35:26.980
+ like beautiful and captivating
+
+35:26.980 --> 35:29.740
+ and inspiring idea in this space?
+
+35:30.620 --> 35:33.420
+ In this space, and then I'm gonna zoom out
+
+35:33.420 --> 35:35.660
+ a little bit more, but in this space,
+
+35:35.660 --> 35:40.660
+ I keep butting up against material science questions.
+
+35:41.780 --> 35:45.020
+ So I, over the past 10 years,
+
+35:45.020 --> 35:49.660
+ I feel like every problem or interesting thing
+
+35:49.660 --> 35:52.460
+ I want to work on, if you dig deep enough,
+
+35:52.460 --> 35:55.380
+ you end up in material science land,
+
+35:55.380 --> 35:57.860
+ which I find kind of exciting
+
+35:57.860 --> 36:00.740
+ and it makes me want to dig in more there.
+
+36:00.740 --> 36:05.740
+ And I was just, you know, even for our technology,
+
+36:06.340 --> 36:09.140
+ when we have to move the propellant from the tank
+
+36:09.140 --> 36:12.820
+ to the tip of the emitters, we rely a lot on capillary action
+
+36:12.820 --> 36:15.980
+ and you're getting into wetting and surface energies.
+
+36:15.980 --> 36:17.900
+ At a scale of like nano scale.
+
+36:17.900 --> 36:22.180
+ Yeah, I mean, it's, if you look further, it's quantum too,
+
+36:22.180 --> 36:25.220
+ but it all is, you know,
+
+36:25.220 --> 36:27.860
+ a capillary action at the quantum level.
+
+36:27.860 --> 36:32.780
+ Yeah, so I would, it all comes back to me to, you know,
+
+36:32.780 --> 36:35.420
+ material science, there's so much we don't understand
+
+36:35.420 --> 36:40.420
+ at these sizes and I find that inspiring and exciting.
+
+36:43.340 --> 36:45.980
+ And then more broadly, you know,
+
+36:45.980 --> 36:49.980
+ I remember when I learned that the same equation
+
+36:49.980 --> 36:53.740
+ that describes flow over an airfoil
+
+36:53.740 --> 36:57.420
+ is used to price options, the Black Scholes equation,
+
+36:57.420 --> 37:01.420
+ and it's, you know, just a partial differential equation,
+
+37:01.420 --> 37:06.420
+ but that kind of connectedness of the universe,
+
+37:06.500 --> 37:09.300
+ you know, I don't want to use options pricing
+
+37:09.300 --> 37:11.540
+ and the universe in the same, but you know what I mean,
+
+37:11.540 --> 37:15.300
+ this connectedness I find really magical.
+
+37:15.300 --> 37:17.820
+ Yeah, the patterns that mathematics reveals
+
+37:17.820 --> 37:20.340
+ seems to echo in a bunch of different places.
+
+37:20.340 --> 37:21.180
+ Yes.
+
+37:21.180 --> 37:22.260
+ Yeah, there's just weirdness.
+
+37:22.260 --> 37:25.060
+ It's like, it really makes you think,
+
+37:25.060 --> 37:27.260
+ I think you're definitely living in a simulation,
+
+37:27.260 --> 37:29.020
+ like whoever programmed it.
+
+37:29.020 --> 37:30.380
+ I like that that's your conclusion.
+
+37:30.380 --> 37:34.340
+ Is using like shortcuts to program it,
+
+37:34.340 --> 37:36.940
+ like they didn't, they're just copying and pasting some codes
+
+37:36.940 --> 37:38.180
+ for the different parts.
+
+37:38.180 --> 37:41.540
+ Yeah, think of something new or just paste from over there.
+
+37:41.540 --> 37:42.780
+ They won't notice.
+
+37:42.780 --> 37:45.780
+ My conclusion from that was I'm gonna go interview
+
+37:45.780 --> 37:49.540
+ for a finance job, so I had like a little detour.
+
+37:49.540 --> 37:51.700
+ That's the backup option.
+
+37:51.700 --> 37:56.020
+ So in terms of using call it engines,
+
+37:56.020 --> 37:59.260
+ what's an interesting difference between a propulsion
+
+37:59.260 --> 38:02.340
+ of a rocket from earth when you're standing
+
+38:02.340 --> 38:06.100
+ on the ground to orbit and then the kind of propulsion
+
+38:06.100 --> 38:08.420
+ necessary for once you get out to orbit
+
+38:08.420 --> 38:12.800
+ or to like deep space to move around.
+
+38:13.980 --> 38:18.980
+ Yes, the reason you can't use an engine like mine
+
+38:18.980 --> 38:23.980
+ to get off the ground is, the thrust it generates
+
+38:24.500 --> 38:27.180
+ is instantaneous thrust is very small,
+
+38:27.180 --> 38:31.380
+ but if you have the time and can accumulate
+
+38:31.380 --> 38:33.780
+ that acceleration, you can still reach speeds
+
+38:33.780 --> 38:37.140
+ that are very interesting for exploration
+
+38:37.140 --> 38:40.140
+ and even for missions with humans on them.
+
+38:41.540 --> 38:45.860
+ An interesting direction I think we need to go
+
+38:45.860 --> 38:50.860
+ as humans exploring space is the power supplies
+
+38:51.820 --> 38:55.140
+ for electric propulsion are limiting us
+
+38:55.140 --> 38:58.940
+ in that solar panels are really inefficient
+
+38:58.940 --> 39:01.060
+ and bulky and batteries.
+
+39:01.060 --> 39:04.420
+ I don't know when anybody's ever gonna improve
+
+39:04.420 --> 39:05.860
+ battery technology.
+
+39:05.860 --> 39:07.860
+ I know a lot of people that work on that.
+
+39:09.180 --> 39:14.180
+ And nuclear power, we could have a lot more powerful
+
+39:14.420 --> 39:15.660
+ electric propulsion system.
+
+39:15.660 --> 39:17.940
+ So they would be extremely fuel efficient,
+
+39:17.940 --> 39:20.940
+ but more instantaneous thrust to do more interesting
+
+39:20.940 --> 39:25.260
+ missions if we could start launching more nuclear systems.
+
+39:25.260 --> 39:29.660
+ So like something that's powered, nuclear powered,
+
+39:29.660 --> 39:31.420
+ that's the right way to say it.
+
+39:31.420 --> 39:32.720
+ Yeah.
+
+39:32.720 --> 39:36.420
+ But is in a small enough container that could be launched?
+
+39:36.420 --> 39:41.420
+ Yeah, so I mean, as a world we do launch spacecraft
+
+39:42.100 --> 39:45.180
+ with nuclear power systems on board,
+
+39:45.180 --> 39:47.780
+ but size is one consideration.
+
+39:47.780 --> 39:49.140
+ It hasn't been a big focus.
+
+39:49.140 --> 39:53.940
+ So the reactors and the heaters and everything are bulky.
+
+39:53.940 --> 39:56.300
+ And so they're really only suitable for some
+
+39:56.300 --> 39:59.900
+ of the much bigger interplanetary stuff.
+
+39:59.900 --> 40:03.340
+ So that's one issue, but then it's a whole like rat's nest
+
+40:03.340 --> 40:06.340
+ of political stuff as well.
+
+40:06.340 --> 40:10.180
+ I heard, I think Elon described or somebody,
+
+40:10.180 --> 40:13.300
+ I think it was Elon that described the EV to all
+
+40:13.300 --> 40:17.700
+ like electrical, vertical takeoff and landing vehicles.
+
+40:17.700 --> 40:21.220
+ So basically saying rockets, obviously Elon is interested
+
+40:21.220 --> 40:22.580
+ in electric vehicles, right?
+
+40:22.580 --> 40:27.580
+ But he said that rockets can't, in the near term,
+
+40:27.940 --> 40:30.300
+ it doesn't make sense for them to be electrical.
+
+40:32.540 --> 40:36.020
+ What, do you see a world with the rockets that we use
+
+40:36.020 --> 40:39.500
+ to get into orbit are also electric based?
+
+40:39.500 --> 40:43.660
+ It's possible, you can produce the thrust levels you need,
+
+40:43.660 --> 40:46.940
+ but you need this, a much bigger power supply.
+
+40:46.940 --> 40:49.180
+ And I think that would be nuclear.
+
+40:49.180 --> 40:52.380
+ And the only way people have been able to launch them at all
+
+40:52.380 --> 40:57.020
+ is that they're in a 100 times redundancy safe mode
+
+40:57.020 --> 40:59.060
+ while they're being launched and they're not turned on
+
+40:59.060 --> 41:00.620
+ until they're farther off.
+
+41:00.620 --> 41:04.020
+ So if you were to actually try to use it on launch,
+
+41:04.020 --> 41:06.680
+ I think a lot of people would still have an issue with that,
+
+41:06.680 --> 41:08.180
+ but someday.
+
+41:08.180 --> 41:11.020
+ It's an interesting concept, nuclear.
+
+41:11.020 --> 41:13.420
+ It seems like people, like everybody that works
+
+41:13.420 --> 41:16.740
+ on nuclear power has shown how safe it is
+
+41:16.740 --> 41:18.380
+ as a source of energy.
+
+41:18.380 --> 41:23.380
+ And yet we are, seem to be, I mean, based on the history,
+
+41:23.740 --> 41:26.180
+ based on the excellent HBO series,
+
+41:26.180 --> 41:28.220
+ I'm Russian with a Chernobyl.
+
+41:28.220 --> 41:31.220
+ It seems like we have our risk estimation
+
+41:31.220 --> 41:35.580
+ about this particular power source is drastically inaccurate,
+
+41:35.580 --> 41:39.660
+ but that's a fascinating idea that we would use nuclear
+
+41:39.660 --> 41:44.220
+ as a source for our vehicles and not just in outer space.
+
+41:44.220 --> 41:45.060
+ That's cool.
+
+41:45.060 --> 41:45.980
+ I'm gonna have to look into that.
+
+41:45.980 --> 41:47.000
+ That's super interesting.
+
+41:47.000 --> 41:50.980
+ Well, just last year, Trump eased up a little bit
+
+41:50.980 --> 41:55.140
+ on the regulations and NASA and hopefully others
+
+41:55.140 --> 41:57.860
+ are starting to pick up on the development.
+
+41:57.860 --> 42:00.260
+ So now is a good time to look into it
+
+42:00.260 --> 42:02.340
+ because there's actually some movement.
+
+42:02.340 --> 42:05.660
+ Is that a hope for you to explore different energy sources
+
+42:05.660 --> 42:09.180
+ that the entirety of the vehicle uses something
+
+42:09.180 --> 42:13.060
+ like the entirety of the propulsion systems
+
+42:13.060 --> 42:16.980
+ for all aspects of the vehicle's life travel
+
+42:16.980 --> 42:19.000
+ is the same or electric?
+
+42:19.000 --> 42:20.460
+ Is it possible for it to be the same?
+
+42:20.460 --> 42:24.340
+ Like the colloid engine being used for everything?
+
+42:24.340 --> 42:27.440
+ You could, and you would have to do it in the same way
+
+42:27.440 --> 42:29.580
+ we do different stages of rockets now
+
+42:29.580 --> 42:34.580
+ where once you've used up an engine or a stage,
+
+42:34.820 --> 42:36.740
+ you let it go because there's really no point
+
+42:36.740 --> 42:37.580
+ in holding onto it.
+
+42:37.580 --> 42:41.140
+ So I wouldn't necessarily want to use the same engine
+
+42:41.140 --> 42:42.860
+ for the whole thing, but the same technology
+
+42:42.860 --> 42:45.060
+ I think would be interesting.
+
+42:45.060 --> 42:46.260
+ Okay, so it's possible.
+
+42:46.260 --> 42:47.780
+ All right, but in terms of.
+
+42:47.780 --> 42:49.420
+ Yeah, it comes down to the power source.
+
+42:49.420 --> 42:51.100
+ The power source, that's really interesting.
+
+42:51.100 --> 42:52.540
+ But for the current power sources
+
+42:52.540 --> 42:55.020
+ and its current use cases, what's the use case
+
+42:55.020 --> 42:58.940
+ for electric, like the colloid engine?
+
+42:58.940 --> 43:01.600
+ Can you talk about where they're used today?
+
+43:01.600 --> 43:06.600
+ Sure, so chemical engines are still used quite a bit
+
+43:06.600 --> 43:09.340
+ once you're in orbit, but that's also
+
+43:09.340 --> 43:12.500
+ where you might choose instead to use an electric system
+
+43:12.500 --> 43:15.460
+ and what people do with them.
+
+43:15.460 --> 43:18.620
+ And this includes the ion engines and hall thrusters
+
+43:18.620 --> 43:22.580
+ and our engine is basically any maneuvering you need to do
+
+43:22.580 --> 43:24.060
+ once you're dropped off.
+
+43:24.060 --> 43:29.060
+ Even if your only goal was to just stay in your orbit
+
+43:30.140 --> 43:32.540
+ and not move for the life of your mission,
+
+43:32.540 --> 43:34.620
+ you need propulsion to accomplish that
+
+43:34.620 --> 43:38.300
+ because the Earth's gravity field changes
+
+43:38.300 --> 43:40.260
+ as you go around in orbit and pulls you
+
+43:40.260 --> 43:42.580
+ out of your little box.
+
+43:42.580 --> 43:47.580
+ There are other perturbations that can throw you off a bit.
+
+43:47.940 --> 43:50.740
+ And then most people want to do things
+
+43:50.740 --> 43:53.460
+ a little bit more interesting like maneuver
+
+43:53.460 --> 43:55.940
+ to avoid being hit by space debris
+
+43:55.940 --> 44:00.280
+ or perhaps lower their orbit to take a higher resolution
+
+44:00.280 --> 44:02.980
+ image of something and then return.
+
+44:02.980 --> 44:06.500
+ At the end of your mission, you're supposed
+
+44:06.500 --> 44:09.460
+ to responsibly get rid of your satellite,
+
+44:09.460 --> 44:13.560
+ whether that's burning it up, but if you're in geo,
+
+44:13.560 --> 44:15.980
+ you want to push it higher into graveyard orbit.
+
+44:17.380 --> 44:19.340
+ What's geo and what's graveyard?
+
+44:19.340 --> 44:21.920
+ So low Earth orbit and then geosynchronous orbit
+
+44:21.920 --> 44:23.220
+ or geostationary orbit.
+
+44:23.220 --> 44:24.740
+ And there's a graveyard?
+
+44:24.740 --> 44:29.380
+ Yeah, so those satellites are at like 40,000 kilometers.
+
+44:29.380 --> 44:33.100
+ So if they were to try to push their satellites
+
+44:33.100 --> 44:35.460
+ back down to burn up in the atmosphere,
+
+44:35.460 --> 44:37.840
+ they would need even more propulsion
+
+44:37.840 --> 44:40.580
+ than they've had for the whole lifetime of their mission.
+
+44:40.580 --> 44:42.420
+ So instead they push them higher
+
+44:42.420 --> 44:44.220
+ where it'll take a million years
+
+44:44.220 --> 44:46.820
+ for it to naturally deorbit.
+
+44:46.820 --> 44:50.220
+ So we're also cluttering that higher bit up as well,
+
+44:50.220 --> 44:54.180
+ but it's not as pressing as Leo, which is low Earth orbit
+
+44:54.180 --> 44:56.340
+ where more of these commercial missions are going now.
+
+44:56.340 --> 44:59.300
+ Well, so how hard is the collision avoidance problem there?
+
+44:59.300 --> 45:00.840
+ You said some debris and stuff.
+
+45:00.840 --> 45:03.780
+ So like how much propulsion is needed?
+
+45:03.780 --> 45:05.860
+ Like how much is the life of a satellite
+
+45:05.860 --> 45:08.380
+ is just like a crap trying to avoid
+
+45:08.380 --> 45:09.580
+ like little things down there?
+
+45:09.580 --> 45:14.580
+ I think one of the recent rules of thumb I heard
+
+45:14.620 --> 45:17.520
+ was per year some of these small satellites
+
+45:17.520 --> 45:20.840
+ are doing like three collision avoidance maneuvers.
+
+45:21.860 --> 45:25.320
+ So that's not, yeah, but it's not zero.
+
+45:25.320 --> 45:30.320
+ And it takes a lot of planning and people on the ground
+
+45:30.860 --> 45:34.700
+ and none of that really, I don't think right now
+
+45:34.700 --> 45:36.260
+ is autonomous.
+
+45:36.260 --> 45:37.620
+ Oh, that's not good.
+
+45:37.620 --> 45:39.900
+ Yeah, and then we have a lot of folks
+
+45:39.900 --> 45:42.980
+ taking advantage of Moore's law and cheaper spacecraft.
+
+45:42.980 --> 45:44.020
+ So they're launching them up
+
+45:44.020 --> 45:46.060
+ without the ability to maneuver themselves.
+
+45:46.060 --> 45:49.140
+ And they're like, well, I don't know, just don't hit me.
+
+45:49.140 --> 45:51.580
+ And three times a year that could become affordable
+
+45:51.580 --> 45:56.380
+ if it gets hit, maybe it won't be damaged kind of thing,
+
+45:56.380 --> 45:57.660
+ that kind of logic.
+
+45:57.660 --> 46:00.940
+ Affordable in that instead of launching one satellite,
+
+46:00.940 --> 46:02.740
+ they'll launch 20 small ones.
+
+46:02.740 --> 46:05.100
+ Yeah, so if one gets taken out, that's okay.
+
+46:05.100 --> 46:08.100
+ But the problem is that one good sized satellite
+
+46:08.100 --> 46:11.740
+ getting hit, that's like a ballistic event
+
+46:11.740 --> 46:14.080
+ that turns into 10,000 pieces of debris
+
+46:14.080 --> 46:17.460
+ that then are the things that go and hit the other satellites.
+
+46:17.460 --> 46:18.300
+ Yeah.
+
+46:18.300 --> 46:22.380
+ So do you see a world where, like in your sense,
+
+46:22.380 --> 46:25.780
+ in your own work and just in the space industry in general,
+
+46:25.780 --> 46:28.220
+ do you see the people moving towards bigger satellites
+
+46:28.220 --> 46:29.820
+ or smaller satellites?
+
+46:29.820 --> 46:31.260
+ Is there going to be a mix?
+
+46:31.260 --> 46:32.860
+ Like what's, and what do we talk,
+
+46:32.860 --> 46:36.300
+ what does it mean for a satellite to be big and small?
+
+46:36.300 --> 46:37.140
+ What size are we talking about?
+
+46:37.140 --> 46:42.140
+ So big, the space industry prior to,
+
+46:42.140 --> 46:45.660
+ I don't know, 1990, I guess the bulk of,
+
+46:45.660 --> 46:49.020
+ the majority of satellites were the size of a school bus
+
+46:49.020 --> 46:53.220
+ and cost a couple billion dollars.
+
+46:53.220 --> 46:58.220
+ And now our first launches were on satellites
+
+47:00.020 --> 47:01.860
+ the size of shoe boxes that were built
+
+47:01.860 --> 47:03.060
+ by high school students.
+
+47:03.060 --> 47:05.380
+ So that's a very different,
+
+47:05.380 --> 47:07.500
+ to give you the two ends of the spectrum.
+
+47:07.500 --> 47:12.320
+ So big satellites will, I think they're here to stay,
+
+47:12.320 --> 47:15.640
+ at least as far as I can see into the future
+
+47:15.640 --> 47:18.700
+ for things like broadcasting.
+
+47:18.700 --> 47:21.720
+ You want to be able to broadcast
+
+47:21.720 --> 47:24.020
+ to as many people as possible.
+
+47:25.920 --> 47:28.840
+ You also can't just go to small satellites
+
+47:28.840 --> 47:32.040
+ and say Moore's law for things like optics.
+
+47:32.040 --> 47:34.680
+ So if you have an aperture on your satellite,
+
+47:34.680 --> 47:36.640
+ that just, that doesn't follow Moore's law.
+
+47:36.640 --> 47:37.800
+ That's different.
+
+47:37.800 --> 47:40.560
+ So it's always going to be the size that it will be,
+
+47:40.560 --> 47:43.120
+ unless there's some new physics that comes out
+
+47:43.120 --> 47:44.320
+ that I'm not aware of.
+
+47:44.320 --> 47:46.640
+ But if you need a resolution and you're at an altitude,
+
+47:46.640 --> 47:49.200
+ that kind of sets your, the size of your telescope.
+
+47:50.320 --> 47:52.800
+ But because of Moore's law,
+
+47:52.800 --> 47:56.840
+ we are able to do a lot more with smaller packages.
+
+47:56.840 --> 48:00.320
+ And with that comes more affordability
+
+48:00.320 --> 48:03.800
+ and opening up access to space to more and more people.
+
+48:03.800 --> 48:06.280
+ Well, what's the smallest satellite you've seen go up there?
+
+48:06.280 --> 48:09.360
+ Like what are the smallest kind of, you said shoe boxes.
+
+48:09.360 --> 48:14.360
+ Yeah, so I think the smallest common form factor
+
+48:14.800 --> 48:17.680
+ can fit a softball inside.
+
+48:17.680 --> 48:21.360
+ So that's 10 centimeters on each side.
+
+48:21.360 --> 48:24.440
+ But then there are some companies working on
+
+48:24.440 --> 48:26.360
+ fractions of that even.
+
+48:26.360 --> 48:30.480
+ And they're doing things like IOT type application.
+
+48:30.480 --> 48:34.520
+ So it's very low bandwidth type things,
+
+48:34.520 --> 48:37.320
+ but they're finding some niches for those.
+
+48:37.320 --> 48:38.520
+ Do you mean like there's a business,
+
+48:38.520 --> 48:40.440
+ there's a thing to do with them?
+
+48:40.440 --> 48:41.280
+ Yes, either.
+
+48:41.280 --> 48:44.040
+ What do you do with a small satellite like that?
+
+48:44.040 --> 48:48.360
+ You can track a ship going across the ocean.
+
+48:48.360 --> 48:51.120
+ Like if you need to, if you're just pinging something,
+
+48:51.120 --> 48:53.800
+ you can handle that amount of data
+
+48:53.800 --> 48:56.160
+ and those latencies and so on.
+
+48:56.160 --> 48:57.400
+ You have to have propulsion on that.
+
+48:57.400 --> 48:58.760
+ You have to have a little engine.
+
+48:58.760 --> 49:02.720
+ No, those are just letting fall out of the sky.
+
+49:02.720 --> 49:06.440
+ Okay, so what kind of satellite
+
+49:06.440 --> 49:08.920
+ would you equip a colloid engine on?
+
+49:08.920 --> 49:13.080
+ Anything that's bigger than probably about 20 kilograms,
+
+49:13.080 --> 49:16.400
+ anything that needs to stay up for more than a year
+
+49:16.400 --> 49:20.280
+ or anything somebody spent more than like 100K to build
+
+49:20.280 --> 49:21.920
+ are kind of the ways I would think about it.
+
+49:21.920 --> 49:23.560
+ That's a lot of use cases.
+
+49:23.560 --> 49:26.080
+ What's a small sat?
+
+49:26.080 --> 49:26.920
+ Like what category?
+
+49:26.920 --> 49:28.560
+ Small sat is actually very big.
+
+49:28.560 --> 49:31.360
+ I think it's like 700 kilograms,
+
+49:31.360 --> 49:33.840
+ or I keep hitting my microphone,
+
+49:33.840 --> 49:38.840
+ maybe 1,000 kilograms down to 200 kilograms.
+
+49:40.080 --> 49:42.360
+ People have their own kind of definitions
+
+49:42.360 --> 49:43.320
+ of how they break them up,
+
+49:43.320 --> 49:46.000
+ but small sat is still quite large.
+
+49:46.000 --> 49:49.880
+ And then it's kind of also applied as a blanket term
+
+49:49.880 --> 49:52.920
+ for anything that's not a school bus size satellite.
+
+49:52.920 --> 49:56.360
+ So we need to get our jargon straight in the industry.
+
+49:56.360 --> 50:00.040
+ So do you see a possible future where,
+
+50:00.040 --> 50:02.520
+ you know, there's a few thousand satellites up there now,
+
+50:02.520 --> 50:04.520
+ a couple of thousand of them functioning.
+
+50:05.440 --> 50:07.520
+ Do you see a future where there's like millions
+
+50:07.520 --> 50:09.960
+ of satellites up in orbit?
+
+50:09.960 --> 50:13.000
+ Or forget millions, tens of thousands,
+
+50:13.000 --> 50:16.200
+ which just seems like where the natural trajectory
+
+50:16.200 --> 50:20.160
+ of the way things are going now is going.
+
+50:20.160 --> 50:22.480
+ Tens of thousands, yes.
+
+50:22.480 --> 50:26.360
+ The two buckets of applications,
+
+50:26.360 --> 50:30.480
+ one is imaging and the other is communication.
+
+50:30.480 --> 50:35.160
+ So imaging, I think that will plateau
+
+50:35.160 --> 50:39.120
+ because one satellite or one constellation
+
+50:39.120 --> 50:40.680
+ can take an image or a video
+
+50:40.680 --> 50:44.320
+ and sell it to, you know, infinity customers.
+
+50:44.320 --> 50:47.560
+ But if you're providing communications
+
+50:47.560 --> 50:51.640
+ like broadband internet or satellite cell
+
+50:51.640 --> 50:54.120
+ or something like that, satellite phone,
+
+50:54.120 --> 50:58.680
+ you know, you're limited by your transponders and so on.
+
+50:58.680 --> 51:02.040
+ So to serve more people, you actually need more satellites
+
+51:02.040 --> 51:06.440
+ and perhaps at the rate, you know, our data consumption
+
+51:06.440 --> 51:08.840
+ and things are going these days.
+
+51:08.840 --> 51:11.200
+ Yeah, I can see tens of thousands of satellites.
+
+51:12.720 --> 51:14.480
+ Can I ask you a ridiculous question?
+
+51:14.480 --> 51:15.360
+ Yes.
+
+51:15.360 --> 51:18.720
+ So I've recently watched this documentary on Netflix
+
+51:18.720 --> 51:23.240
+ about flat earthers, you know,
+
+51:23.240 --> 51:25.920
+ the people that believe in a flat earth.
+
+51:25.920 --> 51:30.040
+ As somebody who develops propulsion systems
+
+51:30.040 --> 51:33.080
+ for satellites and for spacecraft,
+
+51:33.960 --> 51:37.600
+ what's, do you use the most convincing evidence
+
+51:37.600 --> 51:38.840
+ that the earth is round?
+
+51:40.760 --> 51:45.760
+ Probably some of the photos taken from the moon.
+
+51:48.800 --> 51:49.760
+ Photos from the moon?
+
+51:49.760 --> 51:52.960
+ Okay, so it's not from the satellite space.
+
+51:52.960 --> 51:56.080
+ Yeah, I think seeing that perspective,
+
+51:57.560 --> 52:00.400
+ maybe I'm just, I'm answering too personally
+
+52:00.400 --> 52:03.000
+ because I really love those photos.
+
+52:03.000 --> 52:04.000
+ Because they're beautiful, yeah.
+
+52:04.000 --> 52:06.400
+ I really like the ones that show the moon
+
+52:06.400 --> 52:09.920
+ and the lunar lander and they're taken
+
+52:09.920 --> 52:10.840
+ a little bit farther back.
+
+52:10.840 --> 52:14.280
+ So you see earth and first you're like, wow, that's tiny
+
+52:14.280 --> 52:17.800
+ and we're insignificant and that's kind of sad.
+
+52:17.800 --> 52:19.720
+ But then you see this really cool thing
+
+52:19.720 --> 52:23.760
+ that we landed on another planetary body
+
+52:23.760 --> 52:24.840
+ and you're like, oh, okay.
+
+52:24.840 --> 52:26.760
+ Can you actually see earth?
+
+52:26.760 --> 52:27.600
+ I don't know if I remember this.
+
+52:27.600 --> 52:29.160
+ Yeah, I'll send you that picture.
+
+52:29.160 --> 52:31.520
+ Because I love the pictures or videos
+
+52:31.520 --> 52:34.040
+ of just earth from orbit and so on.
+
+52:34.040 --> 52:34.880
+ Right, yeah.
+
+52:34.880 --> 52:36.240
+ Just like those, that's really beautiful.
+
+52:36.240 --> 52:38.080
+ That's like a perspective shifter.
+
+52:38.080 --> 52:39.760
+ That's the pale blue dot, right?
+
+52:39.760 --> 52:41.400
+ It probably appears tiny.
+
+52:41.400 --> 52:46.280
+ Yeah, and just that juxtaposition of the insignificance,
+
+52:46.280 --> 52:49.240
+ but we built this, really cool thing.
+
+52:49.240 --> 52:50.720
+ And I just love that, yeah.
+
+52:50.720 --> 52:51.560
+ Oh, that'd be cool.
+
+52:51.560 --> 52:53.080
+ I can't, I personally love the idea
+
+52:53.080 --> 52:54.480
+ of humans stepping on Mars.
+
+52:54.480 --> 52:57.840
+ I'm such a sucker for the romantic notion of that
+
+52:57.840 --> 53:01.680
+ and being able to take pictures from Mars next.
+
+53:01.680 --> 53:03.160
+ So you would go?
+
+53:03.160 --> 53:08.080
+ I, yeah, I would be, what did you say?
+
+53:08.080 --> 53:09.120
+ You said you wouldn't be the first one.
+
+53:09.120 --> 53:10.600
+ Not in the first 1,000.
+
+53:10.600 --> 53:14.400
+ 1,000, which it's funny because to me,
+
+53:14.400 --> 53:17.200
+ that's brave to be in the first million.
+
+53:17.200 --> 53:21.160
+ I think when the Declaration of Independence
+
+53:21.160 --> 53:22.680
+ was signed in the United States,
+
+53:22.680 --> 53:25.640
+ that was like two million people.
+
+53:25.640 --> 53:27.320
+ So I would like to show up
+
+53:27.320 --> 53:29.200
+ when they're signing those documents.
+
+53:29.200 --> 53:30.040
+ Okay.
+
+53:30.040 --> 53:31.080
+ So maybe the two million.
+
+53:31.080 --> 53:32.880
+ Oh, that's an interesting way to think about it.
+
+53:32.880 --> 53:35.160
+ Because like then we're like participating
+
+53:35.160 --> 53:38.040
+ in citizenry and defining the direction.
+
+53:38.040 --> 53:41.160
+ So it's not the technical risk.
+
+53:41.160 --> 53:43.440
+ You just don't wanna show up somewhere
+
+53:43.440 --> 53:46.120
+ that's like America before.
+
+53:46.120 --> 53:51.120
+ Yeah, because I, from a psychological perspective,
+
+53:51.560 --> 53:54.120
+ it's just gonna be a stressful mess
+
+53:54.120 --> 53:56.240
+ as people have studied, right?
+
+53:56.240 --> 54:01.240
+ It's like, it's people, most likely the process
+
+54:02.080 --> 54:07.080
+ of colonization like looks like basically a prison.
+
+54:07.320 --> 54:10.520
+ Like you're in a very tight and closed space with people.
+
+54:10.520 --> 54:13.440
+ And it's just a really stressful environment.
+
+54:13.440 --> 54:15.400
+ How do you select the kind of people that will go
+
+54:15.400 --> 54:16.480
+ and then there'll be drama.
+
+54:16.480 --> 54:17.520
+ There's always drama.
+
+54:17.520 --> 54:21.360
+ And I just wanna show up when there's some rules.
+
+54:21.360 --> 54:22.960
+ But I mean, you know, it depends.
+
+54:22.960 --> 54:24.360
+ So I'm not worried about the health
+
+54:24.360 --> 54:26.120
+ and the technical difficulties.
+
+54:26.120 --> 54:29.520
+ I'm more worried about the psychological difficulties.
+
+54:29.520 --> 54:31.320
+ And also just not being able to tweet.
+
+54:31.320 --> 54:33.640
+ Like what are you gonna, how are you talking?
+
+54:33.640 --> 54:34.640
+ There's no Netflix.
+
+54:34.640 --> 54:37.360
+ So yeah, maybe not in the first million,
+
+54:37.360 --> 54:39.880
+ but the first 100,000.
+
+54:39.880 --> 54:42.680
+ It's exciting to define the direction of a new,
+
+54:42.680 --> 54:46.240
+ like how often do we not just have a revolution
+
+54:46.240 --> 54:48.200
+ to redefine our government,
+
+54:48.200 --> 54:51.240
+ as smaller countries are still doing to this day,
+
+54:51.240 --> 54:54.200
+ but literally start over from scratch.
+
+54:54.200 --> 54:56.840
+ There's just our financial system.
+
+54:56.840 --> 54:59.640
+ It could be like based on cryptocurrency,
+
+54:59.640 --> 55:02.560
+ you could think about like how democracy,
+
+55:02.560 --> 55:06.880
+ we have now the technology that can enable pure democracy,
+
+55:06.880 --> 55:09.720
+ for example, if we choose to do that,
+
+55:09.720 --> 55:11.520
+ as opposed to representative democracy,
+
+55:11.520 --> 55:12.800
+ all those kinds of things.
+
+55:12.800 --> 55:16.560
+ So we talked about two different forms of propulsion,
+
+55:16.560 --> 55:18.000
+ which are super exciting.
+
+55:18.000 --> 55:20.720
+ So the chemical based, that's doing pretty well.
+
+55:20.720 --> 55:23.000
+ And then the electric based is,
+
+55:24.440 --> 55:26.880
+ are there types of propulsion
+
+55:26.880 --> 55:29.200
+ that might sound like science fiction right now,
+
+55:29.200 --> 55:31.280
+ but are actually within the reach of science
+
+55:31.280 --> 55:34.240
+ in the next 10, 20, 30, 50 years
+
+55:34.240 --> 55:35.960
+ that you kind of think about,
+
+55:35.960 --> 55:39.280
+ or maybe even within the space of even just like,
+
+55:39.280 --> 55:42.400
+ like even ION engines,
+
+55:42.400 --> 55:45.600
+ is there like breakthroughs that might 10 X the thing,
+
+55:45.600 --> 55:47.760
+ like really improve it?
+
+55:47.760 --> 55:50.520
+ So, you know, the real game changer
+
+55:50.520 --> 55:54.160
+ would be propellantless propulsion.
+
+55:54.160 --> 55:57.600
+ And so every couple of years you see a new,
+
+55:57.600 --> 56:02.600
+ now a startup or a researcher comes up with some contraption
+
+56:03.080 --> 56:06.080
+ for producing thrust that didn't require,
+
+56:06.080 --> 56:08.280
+ you know, we've been talking about conservation of momentum,
+
+56:08.280 --> 56:11.680
+ mass times velocity out the back,
+
+56:11.680 --> 56:13.520
+ mass times velocity forward.
+
+56:13.520 --> 56:14.840
+ Yes, exactly.
+
+56:14.840 --> 56:18.600
+ And you have to, you know, carry that up with you
+
+56:18.600 --> 56:21.840
+ or find it on an asteroid or harvest it from somewhere
+
+56:21.840 --> 56:22.960
+ if you didn't bring it with you.
+
+56:22.960 --> 56:25.960
+ So not having to do that would be, you know,
+
+56:25.960 --> 56:28.720
+ one of the ultimate game changers.
+
+56:28.720 --> 56:33.720
+ And I, you know, unless there are new types of physics,
+
+56:35.360 --> 56:36.800
+ I don't know how we do it,
+
+56:36.800 --> 56:39.800
+ but it comes up often, so it's something I do think about.
+
+56:39.800 --> 56:41.680
+ And, you know, the one,
+
+56:41.680 --> 56:44.360
+ I think it's called the Casimir effect.
+
+56:44.360 --> 56:46.640
+ If you can, if you have two plates
+
+56:46.640 --> 56:49.920
+ and the space between them is on the order of these,
+
+56:49.920 --> 56:53.520
+ like the wavelength of these ephemeral vacuum particles
+
+56:53.520 --> 56:56.040
+ that pop into and out of existence or something.
+
+56:57.760 --> 57:01.440
+ I may be confusing multiple types of propellantless forces,
+
+57:01.440 --> 57:06.440
+ but that could be real
+
+57:06.920 --> 57:10.640
+ and could be something that we use eventually.
+
+57:10.640 --> 57:12.280
+ What would be the power source?
+
+57:12.280 --> 57:15.120
+ Yeah, the most recent engine like this
+
+57:15.120 --> 57:19.640
+ that was just debunked this year, I think,
+
+57:19.640 --> 57:22.400
+ in March or something was called the M drive.
+
+57:22.400 --> 57:26.080
+ And supposedly you used a power source,
+
+57:26.080 --> 57:27.960
+ so, you know, batteries or solar panels
+
+57:27.960 --> 57:32.640
+ to generate microwaves into this resonant cavity.
+
+57:32.640 --> 57:35.480
+ And people claimed it produced thrust.
+
+57:35.480 --> 57:38.640
+ So they went straight from this really loose concept
+
+57:38.640 --> 57:40.160
+ to building a device and testing it.
+
+57:40.160 --> 57:42.200
+ And they said, we've measured thrust
+
+57:42.200 --> 57:44.520
+ and sure on their thrust balance, they saw thrust
+
+57:44.520 --> 57:47.960
+ and different researchers built it and tested it
+
+57:47.960 --> 57:49.240
+ and got the same measurements.
+
+57:49.240 --> 57:52.080
+ And so it was looking actually pretty good.
+
+57:52.080 --> 57:53.440
+ No one could explain how it worked,
+
+57:53.440 --> 57:58.440
+ but what they said was that this inside the cavity,
+
+57:59.160 --> 58:01.320
+ the microwaves themselves didn't change,
+
+58:01.320 --> 58:03.960
+ but the speed of light changed inside the cavity.
+
+58:03.960 --> 58:06.520
+ So relative to that, you know,
+
+58:06.520 --> 58:08.880
+ their momentum was conserved.
+
+58:09.880 --> 58:14.640
+ And I don't, you know, whatever.
+
+58:14.640 --> 58:17.800
+ But finally someone, I think at NASA built the device,
+
+58:17.800 --> 58:20.560
+ tested it, got the same thrust, then unhooked it,
+
+58:20.560 --> 58:22.240
+ flipped it backwards and turned it on,
+
+58:22.240 --> 58:24.760
+ but got the same thrust in the same direction again.
+
+58:24.760 --> 58:26.800
+ And so they're like, this is just an interaction
+
+58:26.800 --> 58:28.520
+ with the test setup or, you know,
+
+58:28.520 --> 58:30.640
+ some of the chamber or something like that.
+
+58:30.640 --> 58:34.640
+ So forwarded again, but, you know,
+
+58:34.640 --> 58:36.640
+ it would be so wonderful for everybody
+
+58:36.640 --> 58:39.560
+ if we could figure out how to do it, but I don't know.
+
+58:39.560 --> 58:41.480
+ That's an interesting twist on it
+
+58:41.480 --> 58:44.920
+ because that's more about efficient travel,
+
+58:44.920 --> 58:46.160
+ long distance travel, right?
+
+58:46.160 --> 58:47.960
+ That's not necessarily about speed.
+
+58:49.040 --> 58:51.160
+ That's more about enabling like,
+
+58:51.160 --> 58:55.400
+ let's hook that up to the nuclear power supply.
+
+58:55.400 --> 58:56.240
+ There you go.
+
+58:56.240 --> 58:57.560
+ Okay.
+
+58:57.560 --> 59:01.360
+ But still in terms of speed, in terms of trying to,
+
+59:01.360 --> 59:06.000
+ so there's recently, already I think been debunked
+
+59:06.000 --> 59:09.680
+ or close to being debunked, but the signal,
+
+59:09.680 --> 59:13.680
+ a weird signal from our nearby friends,
+
+59:13.680 --> 59:16.560
+ nearby exoplanets from Proxima Centauri,
+
+59:16.560 --> 59:21.560
+ a signal that's 4.2 light years away.
+
+59:22.440 --> 59:27.440
+ So, you know, the thought is it'd be kind of cool
+
+59:28.120 --> 59:30.320
+ if there's life out there, alien life,
+
+59:31.440 --> 59:34.360
+ but it'd be really cool if it could fly out there and check.
+
+59:34.360 --> 59:37.000
+ And so what kind of propulsion,
+
+59:37.000 --> 59:39.360
+ and do you think about what kind of propulsion
+
+59:39.360 --> 59:42.120
+ will allow us to travel close to the speed of light
+
+59:42.120 --> 59:43.680
+ or, you know, half the speed of light,
+
+59:43.680 --> 59:45.520
+ all those kinds of things that would allow us
+
+59:45.520 --> 59:48.360
+ to get to Proxima Centauri and have reasonable,
+
+59:48.360 --> 59:49.360
+ in a lifetime?
+
+59:50.560 --> 59:54.800
+ You know, there's the project Breakthrough Starshot.
+
+59:54.800 --> 59:55.640
+ Yeah.
+
+59:55.640 --> 59:59.640
+ That's looking at sending those tiny little chip sets.
+
+59:59.640 --> 1:00:01.840
+ They're like accelerating really fast.
+
+1:00:01.840 --> 1:00:04.160
+ Yeah, using a laser, so launching them
+
+1:00:04.160 --> 1:00:06.800
+ and then while they're still relatively close to the earth,
+
+1:00:06.800 --> 1:00:09.160
+ you know, blasting them with some,
+
+1:00:09.160 --> 1:00:12.800
+ I forget what, even what power level you needed
+
+1:00:12.800 --> 1:00:15.720
+ to accelerate them fast enough to get there in 20 years.
+
+1:00:15.720 --> 1:00:16.760
+ Super crazy sounding,
+
+1:00:16.760 --> 1:00:19.440
+ but a lot of people say that's a legitimate,
+
+1:00:19.440 --> 1:00:22.320
+ like it's crazy sounding, but it can actually pull it off.
+
+1:00:22.320 --> 1:00:24.160
+ Yeah, I love that project
+
+1:00:24.160 --> 1:00:26.080
+ because there are a lot of different aspects.
+
+1:00:26.080 --> 1:00:27.360
+ You know, there's the laser,
+
+1:00:27.360 --> 1:00:31.280
+ there's how do you then get enough power
+
+1:00:31.280 --> 1:00:33.200
+ when you're there to send a signal back.
+
+1:00:33.200 --> 1:00:35.640
+ No part of that project is possible right now,
+
+1:00:35.640 --> 1:00:38.320
+ but I think it's really exciting.
+
+1:00:38.320 --> 1:00:42.880
+ But do you see like human, like a spacecraft
+
+1:00:42.880 --> 1:00:45.520
+ with a human on it, so it's like a heavy one,
+
+1:00:45.520 --> 1:00:49.120
+ being like us inventing new propulsion systems entirely.
+
+1:00:49.120 --> 1:00:52.400
+ Like, do you ever see that on the radar
+
+1:00:52.400 --> 1:00:54.000
+ of propulsion systems like that
+
+1:00:54.000 --> 1:00:57.280
+ or are they completely out there in the impossible?
+
+1:00:57.280 --> 1:00:59.720
+ Well, we're going to quickly leave the realm
+
+1:00:59.720 --> 1:01:03.200
+ of what I can describe with any credibility,
+
+1:01:03.200 --> 1:01:08.080
+ but I think because of special relativity,
+
+1:01:08.080 --> 1:01:10.640
+ if we try to accelerate some mass
+
+1:01:10.640 --> 1:01:15.280
+ close to the speed of light, it becomes infinitely heavy
+
+1:01:15.280 --> 1:01:17.080
+ and then we just don't,
+
+1:01:17.080 --> 1:01:20.400
+ we'd have to like harness a lot of suns to do that.
+
+1:01:20.400 --> 1:01:25.080
+ Or, you know, it's just that math doesn't quite work out,
+
+1:01:25.080 --> 1:01:30.080
+ but, you know, in my child's, my childlike heart,
+
+1:01:30.600 --> 1:01:33.840
+ I believe that, you know, we're missing something,
+
+1:01:33.840 --> 1:01:38.320
+ whether it's, you know, dark matter or other dimensions.
+
+1:01:38.320 --> 1:01:41.920
+ And if you can just have some anti matter
+
+1:01:41.920 --> 1:01:46.640
+ and a black hole and then ride that around
+
+1:01:46.640 --> 1:01:49.520
+ and somehow, you know, turn that into some.
+
+1:01:49.520 --> 1:01:51.240
+ Mess with gravity somehow.
+
+1:01:51.240 --> 1:01:55.520
+ Yeah, I feel like we're missing lots of things
+
+1:01:55.520 --> 1:02:00.080
+ in this puzzle and that, you know.
+
+1:02:00.080 --> 1:02:01.280
+ I want to heart that puzzle.
+
+1:02:01.280 --> 1:02:02.120
+ Yeah, right.
+
+1:02:02.120 --> 1:02:06.240
+ I can speak with confidence as a descendant of apes
+
+1:02:06.240 --> 1:02:08.520
+ that we don't know what the hell we're doing.
+
+1:02:08.520 --> 1:02:09.600
+ Yeah.
+
+1:02:09.600 --> 1:02:12.760
+ So there's, we're like really confident,
+
+1:02:12.760 --> 1:02:14.760
+ like physicists are really confident
+
+1:02:14.760 --> 1:02:17.480
+ that we've like got most of the picture down,
+
+1:02:17.480 --> 1:02:20.880
+ but it feels like, oh boy,
+
+1:02:20.880 --> 1:02:25.400
+ it feels like that we might not even be getting started
+
+1:02:25.400 --> 1:02:26.920
+ on some of the essential things
+
+1:02:26.920 --> 1:02:31.320
+ that would allow us to engineer systems
+
+1:02:31.320 --> 1:02:36.320
+ that would allow us to travel to space much, much faster.
+
+1:02:36.720 --> 1:02:38.200
+ Yeah, and there's even things
+
+1:02:38.200 --> 1:02:42.440
+ that are much more commonplace that we can't explain,
+
+1:02:42.440 --> 1:02:44.080
+ but we've started to take for granted,
+
+1:02:44.080 --> 1:02:48.360
+ like quantum tunneling, you know,
+
+1:02:48.360 --> 1:02:50.680
+ just things like, oh, the electron was here
+
+1:02:50.680 --> 1:02:53.160
+ with this energy and now it's here with this energy
+
+1:02:53.160 --> 1:02:55.600
+ and it's just tunneling.
+
+1:02:55.600 --> 1:02:58.080
+ But so, you know, we're missing a lot of the picture.
+
+1:02:58.080 --> 1:03:02.120
+ So yeah, I don't know, to, you know,
+
+1:03:02.120 --> 1:03:03.440
+ use your same question from earlier,
+
+1:03:03.440 --> 1:03:05.480
+ I don't know if you and I will see it,
+
+1:03:05.480 --> 1:03:07.920
+ but yeah, someday.
+
+1:03:07.920 --> 1:03:09.640
+ You're the cofounder of,
+
+1:03:09.640 --> 1:03:12.440
+ just like we've been talking about, Axion Systems.
+
+1:03:12.440 --> 1:03:15.920
+ It's a, would you say a space propulsion company?
+
+1:03:15.920 --> 1:03:16.760
+ Yes.
+
+1:03:16.760 --> 1:03:17.600
+ Broadly speaking.
+
+1:03:18.480 --> 1:03:22.240
+ So how do you, big question,
+
+1:03:22.240 --> 1:03:25.640
+ how do you build a rocket company
+
+1:03:25.640 --> 1:03:30.640
+ from like a propulsion company from one person,
+
+1:03:30.880 --> 1:03:35.240
+ from two people to 10 people plus,
+
+1:03:35.240 --> 1:03:40.240
+ and actually, you know, take it to a successful product?
+
+1:03:41.280 --> 1:03:44.480
+ Yeah, well, I think the early stage is quite,
+
+1:03:46.280 --> 1:03:48.440
+ I'm not supposed to use the word easy
+
+1:03:48.440 --> 1:03:49.760
+ when you work in rocket science,
+
+1:03:49.760 --> 1:03:53.160
+ but straightforward when you're working on something,
+
+1:03:53.160 --> 1:03:55.680
+ you know, sexy, like an ion engine,
+
+1:03:55.680 --> 1:03:58.680
+ it's more straightforward to raise money
+
+1:03:58.680 --> 1:04:00.800
+ and get people to come work for you
+
+1:04:00.800 --> 1:04:02.280
+ because the vision's really exciting.
+
+1:04:02.280 --> 1:04:04.640
+ And actually that's something I would say
+
+1:04:04.640 --> 1:04:06.120
+ is very important throughout,
+
+1:04:06.120 --> 1:04:10.040
+ is a really exciting vision
+
+1:04:10.040 --> 1:04:13.280
+ because when everything, you know, goes to crap,
+
+1:04:13.280 --> 1:04:15.360
+ you need that to get people
+
+1:04:15.360 --> 1:04:17.160
+ getting themselves out of bed in the morning
+
+1:04:17.160 --> 1:04:20.480
+ and thinking of the higher purpose there.
+
+1:04:20.480 --> 1:04:24.160
+ And, you know, another thing along the way
+
+1:04:24.160 --> 1:04:27.440
+ that I think is key in building any company
+
+1:04:27.440 --> 1:04:31.120
+ is the right early employees
+
+1:04:31.120 --> 1:04:33.800
+ that also have their own networks
+
+1:04:33.800 --> 1:04:36.960
+ and can bring in a lot of people
+
+1:04:36.960 --> 1:04:41.960
+ that, you know, really make the whole greater
+
+1:04:43.520 --> 1:04:46.640
+ than just the sum of the early team.
+
+1:04:46.640 --> 1:04:47.640
+ How do you build that?
+
+1:04:47.640 --> 1:04:49.360
+ Like, how do you find people?
+
+1:04:49.360 --> 1:04:52.400
+ It's like asking, like, how do you make friends?
+
+1:04:52.400 --> 1:04:55.920
+ But is there, is it luck?
+
+1:04:55.920 --> 1:04:57.840
+ Is there a system?
+
+1:04:57.840 --> 1:05:00.840
+ Like how, in terms of the people you've connected with,
+
+1:05:00.840 --> 1:05:05.440
+ the people you built the company with,
+
+1:05:07.360 --> 1:05:10.360
+ is there some thread, some commonality,
+
+1:05:10.360 --> 1:05:13.160
+ some pattern that you find to be,
+
+1:05:13.160 --> 1:05:15.720
+ to hold for what makes a great team?
+
+1:05:15.720 --> 1:05:18.320
+ I think, you know, personally,
+
+1:05:18.320 --> 1:05:21.840
+ a thread for me has been my network
+
+1:05:21.840 --> 1:05:25.840
+ and being able to draw on that a lot,
+
+1:05:25.840 --> 1:05:29.960
+ but also giving back to it as much as possible
+
+1:05:29.960 --> 1:05:32.040
+ in like an unsolicited sort of way,
+
+1:05:32.040 --> 1:05:34.840
+ like making connections between people
+
+1:05:34.840 --> 1:05:36.800
+ that, you know, maybe didn't ask,
+
+1:05:36.800 --> 1:05:39.520
+ but that I think could be really fruitful.
+
+1:05:39.520 --> 1:05:42.960
+ And even, you know, weirder than that
+
+1:05:42.960 --> 1:05:46.920
+ is just really getting, you know,
+
+1:05:46.920 --> 1:05:49.520
+ having weird, uncomfortable conversations
+
+1:05:49.520 --> 1:05:51.160
+ with people like at a conference
+
+1:05:51.160 --> 1:05:55.360
+ and getting over the small talk quickly
+
+1:05:55.360 --> 1:05:56.800
+ and getting to know them quickly
+
+1:05:56.800 --> 1:05:59.240
+ and having a relationship that stands out
+
+1:05:59.240 --> 1:06:03.040
+ and then being able to call on them later because of that.
+
+1:06:03.040 --> 1:06:07.120
+ And I think that's been because I'm introverted
+
+1:06:07.120 --> 1:06:09.920
+ and I, you know, want to poke my eyes out
+
+1:06:09.920 --> 1:06:13.840
+ instead of go and do small talk.
+
+1:06:13.840 --> 1:06:16.720
+ And so I huddle in a corner with one person
+
+1:06:16.720 --> 1:06:19.600
+ and, you know, we talk about aliens or things like that.
+
+1:06:19.600 --> 1:06:23.000
+ And so, you know, that's all to say that,
+
+1:06:23.000 --> 1:06:24.440
+ you know, having a strong network,
+
+1:06:24.440 --> 1:06:28.200
+ I think is really important, but a genuine one.
+
+1:06:28.200 --> 1:06:31.960
+ And let's see, other ways to build a rocket company,
+
+1:06:31.960 --> 1:06:33.560
+ kind of making sure you're paying attention
+
+1:06:33.560 --> 1:06:35.800
+ to the sweeping trends of the industry
+
+1:06:35.800 --> 1:06:37.880
+ so everybody just cares about cost
+
+1:06:37.880 --> 1:06:41.480
+ and being able to get out ahead of that
+
+1:06:41.480 --> 1:06:44.120
+ and even more than we ever thought we'd need to
+
+1:06:44.120 --> 1:06:46.920
+ as far as what we needed to price our systems at.
+
+1:06:46.920 --> 1:06:50.200
+ You know, people for,
+
+1:06:50.200 --> 1:06:53.000
+ since the start of the US space industry,
+
+1:06:53.000 --> 1:06:57.080
+ they've been paying 20, 25 million in adjusted dollars
+
+1:06:57.080 --> 1:06:58.160
+ for an ion engine.
+
+1:06:58.160 --> 1:07:03.160
+ And seeing that now people are going to want to pay 10K
+
+1:07:03.160 --> 1:07:08.160
+ for an ion engine and just staying out ahead of that
+
+1:07:08.920 --> 1:07:10.600
+ and those kinds of things.
+
+1:07:10.600 --> 1:07:12.400
+ So, you know, being out in the industry
+
+1:07:12.400 --> 1:07:15.040
+ and talking to as many people as possible.
+
+1:07:15.040 --> 1:07:15.960
+ So there's a drive.
+
+1:07:15.960 --> 1:07:18.440
+ I mean, I suppose SpaceX really pushed that.
+
+1:07:18.440 --> 1:07:20.240
+ Frustrating for me.
+
+1:07:20.240 --> 1:07:22.600
+ So SpaceX really pushed this,
+
+1:07:24.880 --> 1:07:26.960
+ the application of, I guess, capitalism
+
+1:07:26.960 --> 1:07:28.440
+ of driving the price down,
+
+1:07:28.440 --> 1:07:31.800
+ of basically forcing people to ask the question,
+
+1:07:31.800 --> 1:07:34.600
+ can this be done cheaper?
+
+1:07:35.760 --> 1:07:40.760
+ This can lead to like big problems, I would say,
+
+1:07:41.040 --> 1:07:43.080
+ in the following sense.
+
+1:07:43.080 --> 1:07:46.200
+ I see this in the car industry, for example,
+
+1:07:46.200 --> 1:07:49.480
+ that people have,
+
+1:07:49.480 --> 1:07:53.840
+ it's such a small margin for profit.
+
+1:07:53.840 --> 1:07:57.120
+ Like they've driven the cost of everything down so much
+
+1:07:57.120 --> 1:07:59.880
+ that there's literally no room for innovation
+
+1:07:59.880 --> 1:08:01.240
+ for taking risks.
+
+1:08:01.240 --> 1:08:04.520
+ So like cars, which is funny
+
+1:08:04.520 --> 1:08:07.560
+ because not until Tesla, really,
+
+1:08:07.560 --> 1:08:10.520
+ which is one of the, in a long, long time,
+
+1:08:10.520 --> 1:08:14.400
+ one of the first successful new car companies
+
+1:08:14.400 --> 1:08:16.240
+ that's constantly innovating,
+
+1:08:16.240 --> 1:08:19.200
+ every other car company is really pouring
+
+1:08:19.200 --> 1:08:21.600
+ in terms of their technological innovation.
+
+1:08:21.600 --> 1:08:24.360
+ They innovate on design and style and so on,
+
+1:08:25.280 --> 1:08:27.360
+ that people fall in love with the look and so on,
+
+1:08:27.360 --> 1:08:29.800
+ but it's not really innovation.
+
+1:08:29.800 --> 1:08:31.280
+ In terms of the technology in it,
+
+1:08:31.280 --> 1:08:33.360
+ it's really boringly the same thing,
+
+1:08:33.360 --> 1:08:35.840
+ and they're really afraid of taking risks.
+
+1:08:35.840 --> 1:08:38.520
+ And that's a big problem for rocket space, too,
+
+1:08:38.520 --> 1:08:41.240
+ is like if you're cutting out costs,
+
+1:08:41.240 --> 1:08:44.120
+ you can't afford to innovate, to try out new things,
+
+1:08:44.120 --> 1:08:48.480
+ and that's definitely true with ion engines, right?
+
+1:08:51.880 --> 1:08:54.680
+ So how do you compete in this space?
+
+1:08:54.680 --> 1:08:57.440
+ Do you, by the way, see SpaceX as a competitor?
+
+1:08:57.440 --> 1:08:59.840
+ And what do you say in general
+
+1:08:59.840 --> 1:09:01.440
+ about the competition in this space?
+
+1:09:01.440 --> 1:09:05.920
+ Is it really difficult as a business to compete here?
+
+1:09:05.920 --> 1:09:09.080
+ No, I don't see SpaceX as a competitor,
+
+1:09:09.080 --> 1:09:12.960
+ and I see them as one day, not too long from now,
+
+1:09:12.960 --> 1:09:14.640
+ a customer, hopefully.
+
+1:09:16.560 --> 1:09:18.680
+ I mean, to compete against that,
+
+1:09:18.680 --> 1:09:23.080
+ I think you just have to do things in an unconventional way.
+
+1:09:23.080 --> 1:09:27.000
+ So bringing silicon MEMS manufacturing
+
+1:09:27.000 --> 1:09:30.600
+ to propulsion, NASA doesn't make ion engines
+
+1:09:30.600 --> 1:09:34.880
+ using a batch mass producible technique.
+
+1:09:34.880 --> 1:09:38.320
+ They have one guy that's been making their ion engines
+
+1:09:38.320 --> 1:09:41.760
+ for 20 years bespoke pieces of jewelry.
+
+1:09:41.760 --> 1:09:46.760
+ So bringing things to what you're trying to innovate
+
+1:09:47.680 --> 1:09:51.080
+ to make them, in our case, more cost effective
+
+1:09:51.080 --> 1:09:52.480
+ was really key.
+
+1:09:53.520 --> 1:09:56.360
+ I like the idea of somebody putting out ion engines
+
+1:09:56.360 --> 1:09:57.520
+ on like Etsy.
+
+1:09:57.520 --> 1:10:00.880
+ Yeah, my advisor at MIT would,
+
+1:10:00.880 --> 1:10:02.320
+ the thruster chip I was holding up,
+
+1:10:02.320 --> 1:10:05.680
+ he would wear one as a lapel pin.
+
+1:10:05.680 --> 1:10:08.520
+ But in general, just on the topic of SpaceX,
+
+1:10:09.880 --> 1:10:12.520
+ 2020 has seen some difficult things
+
+1:10:12.520 --> 1:10:14.800
+ for human civilization.
+
+1:10:14.800 --> 1:10:17.800
+ And it's been a lot of, first of all, it's an election year,
+
+1:10:17.800 --> 1:10:20.520
+ there's been a lot of drama and division about that.
+
+1:10:20.520 --> 1:10:24.840
+ There's been riots of all different reasons,
+
+1:10:24.840 --> 1:10:28.440
+ racial division, there's been obviously a virus
+
+1:10:28.440 --> 1:10:31.440
+ that's testing the very fabric of our society.
+
+1:10:31.440 --> 1:10:34.480
+ But there's been really, for me at least,
+
+1:10:34.480 --> 1:10:36.960
+ super positive things, inspiring things,
+
+1:10:36.960 --> 1:10:41.960
+ which is SpaceX and NASA doing the first commercial
+
+1:10:43.320 --> 1:10:47.800
+ human flight, launching humans to space
+
+1:10:47.800 --> 1:10:49.600
+ and did it twice successfully.
+
+1:10:50.640 --> 1:10:54.520
+ What is that, did you get to watch that launch?
+
+1:10:54.520 --> 1:10:57.000
+ Did you, what does it make you feel?
+
+1:10:57.960 --> 1:11:00.960
+ Do you think this is first days
+
+1:11:00.960 --> 1:11:04.480
+ for a new era of space exploration?
+
+1:11:05.600 --> 1:11:06.640
+ Yeah, I did watch it.
+
+1:11:06.640 --> 1:11:09.840
+ We played it outside on a big screen at our place.
+
+1:11:09.840 --> 1:11:13.520
+ And I was a little, they kept saying Bob and Doug,
+
+1:11:13.520 --> 1:11:18.200
+ Bob and Doug, and astronauts usually are treated
+
+1:11:19.200 --> 1:11:20.680
+ with a little bit more fanfare.
+
+1:11:20.680 --> 1:11:24.000
+ So it felt very casual, but maybe that was a good,
+
+1:11:24.000 --> 1:11:26.280
+ a good thing, like this is the era
+
+1:11:26.280 --> 1:11:30.160
+ of commercial crewed missions.
+
+1:11:30.160 --> 1:11:34.000
+ It was a little bit more, what is it?
+
+1:11:34.000 --> 1:11:34.840
+ What's his name?
+
+1:11:34.840 --> 1:11:37.360
+ Chris Hadfield, like playing guitar.
+
+1:11:37.360 --> 1:11:38.200
+ Yeah.
+
+1:11:38.200 --> 1:11:41.160
+ It's more, it's a different flavor to it of.
+
+1:11:41.160 --> 1:11:42.560
+ Yeah, exactly.
+
+1:11:42.560 --> 1:11:46.120
+ More like fun, playful, celebrity type.
+
+1:11:46.120 --> 1:11:47.080
+ Yes, exactly.
+
+1:11:47.080 --> 1:11:51.760
+ Astronaut versus the aura of the magical
+
+1:11:51.760 --> 1:11:55.440
+ sort of heroic element of the single human
+
+1:11:55.440 --> 1:11:56.920
+ representing us in space.
+
+1:11:56.920 --> 1:12:00.360
+ Yes, I think that's all for the better though.
+
+1:12:00.360 --> 1:12:02.960
+ It's so cool that it's such a commonplace thing
+
+1:12:02.960 --> 1:12:04.600
+ now that we send.
+
+1:12:04.600 --> 1:12:07.120
+ I can't believe that sometimes I'll have to,
+
+1:12:07.960 --> 1:12:10.600
+ you don't even realize that astronauts are coming
+
+1:12:10.600 --> 1:12:13.600
+ and going all the time, splashing back down.
+
+1:12:13.600 --> 1:12:15.080
+ And it's just so common now,
+
+1:12:15.080 --> 1:12:19.080
+ but that's quite magical, I think.
+
+1:12:19.080 --> 1:12:20.960
+ So yes, we did watch that.
+
+1:12:20.960 --> 1:12:24.760
+ I love, love, love that we finally have that capability
+
+1:12:24.760 --> 1:12:27.760
+ again to send people to the space station.
+
+1:12:28.840 --> 1:12:32.800
+ And it's just really exciting to see the private sector
+
+1:12:32.800 --> 1:12:34.920
+ stepping up to fill in where the government
+
+1:12:34.920 --> 1:12:36.200
+ has pulled back in the US.
+
+1:12:36.200 --> 1:12:38.400
+ And I think pulled back way too soon
+
+1:12:38.400 --> 1:12:42.520
+ as far as exploration and science goes.
+
+1:12:42.520 --> 1:12:44.120
+ Probably pulled back at the right time
+
+1:12:44.120 --> 1:12:47.920
+ for commercial things and getting that started.
+
+1:12:47.920 --> 1:12:51.880
+ But I'm really happy that it's even possible
+
+1:12:51.880 --> 1:12:55.800
+ to do that with private money and companies.
+
+1:12:55.800 --> 1:12:58.520
+ Do you like the kind of the model of competition
+
+1:12:58.520 --> 1:13:01.440
+ of NASA funding?
+
+1:13:01.440 --> 1:13:02.520
+ I guess that's how it works,
+
+1:13:02.520 --> 1:13:04.320
+ is like they're providing quite a bit of money
+
+1:13:04.320 --> 1:13:08.240
+ from the government and then private companies compete
+
+1:13:08.240 --> 1:13:12.400
+ to be the delivery vehicles for whichever
+
+1:13:12.400 --> 1:13:17.400
+ the government missions, like NASA missions.
+
+1:13:17.400 --> 1:13:20.640
+ Yes, I think for this type of mission
+
+1:13:20.640 --> 1:13:25.640
+ is a little bit kind of straddles commercial and science.
+
+1:13:25.640 --> 1:13:29.400
+ So I think it's good, but I do in general feel
+
+1:13:29.400 --> 1:13:34.040
+ like we've pulled back too much on NASA's role
+
+1:13:34.040 --> 1:13:36.960
+ in the science and exploration part.
+
+1:13:36.960 --> 1:13:40.960
+ And I think our pace is too slow there,
+
+1:13:40.960 --> 1:13:42.960
+ for my liking, I suppose.
+
+1:13:42.960 --> 1:13:43.800
+ What do you mean?
+
+1:13:43.800 --> 1:13:48.520
+ Okay, so did you have, I mean, on the cost thing,
+
+1:13:48.520 --> 1:13:52.560
+ do you feel like NASA was a little too bureaucratic
+
+1:13:52.560 --> 1:13:57.560
+ in a sense, like too slow, too heavy cost wise
+
+1:13:58.080 --> 1:14:00.880
+ in their effort, like when they were running things
+
+1:14:00.880 --> 1:14:03.720
+ purely without any commercial involvement?
+
+1:14:03.720 --> 1:14:06.780
+ So I suppose it's more that I just want
+
+1:14:06.780 --> 1:14:08.720
+ the government to fund.
+
+1:14:08.720 --> 1:14:09.560
+ I see, yeah.
+
+1:14:09.560 --> 1:14:12.720
+ And maybe NASA's not the best organization
+
+1:14:12.720 --> 1:14:15.560
+ to do it rapidly.
+
+1:14:15.560 --> 1:14:20.560
+ But I think that, again, depending on the goals,
+
+1:14:20.560 --> 1:14:23.480
+ we're just kind of at the very starting point
+
+1:14:23.480 --> 1:14:28.480
+ of space exploration and science and understanding.
+
+1:14:28.960 --> 1:14:32.320
+ So we should be spending more money there and not less.
+
+1:14:32.320 --> 1:14:34.960
+ And other countries are starting to spend more and more,
+
+1:14:34.960 --> 1:14:38.140
+ and I think we'll fall behind because of that.
+
+1:14:38.140 --> 1:14:41.000
+ So you have quite a bit of experience, first of all,
+
+1:14:41.000 --> 1:14:43.720
+ starting a company yourself, but also I saw,
+
+1:14:43.720 --> 1:14:46.800
+ maybe you can correct me, but you have quite a bit
+
+1:14:46.800 --> 1:14:50.880
+ of knowledge of just in general the startup experience
+
+1:14:50.880 --> 1:14:54.400
+ of building companies that you've interacted with people.
+
+1:14:54.400 --> 1:14:59.400
+ Is there advice that you can give to somebody,
+
+1:14:59.480 --> 1:15:02.220
+ to a founder or cofounder who wants to launch
+
+1:15:02.220 --> 1:15:07.220
+ and grow a new company and do something big and impactful
+
+1:15:07.840 --> 1:15:08.680
+ in this world?
+
+1:15:08.680 --> 1:15:13.680
+ Yes, I would say, like I mentioned earlier,
+
+1:15:13.740 --> 1:15:18.740
+ but make sure the vision is something that will get you
+
+1:15:19.060 --> 1:15:23.060
+ out of bed in the morning and that you can rally
+
+1:15:23.060 --> 1:15:27.180
+ other people around you to achieve.
+
+1:15:27.180 --> 1:15:31.100
+ Because I see a lot of folks that sort of cared
+
+1:15:31.100 --> 1:15:33.900
+ about something or saw a window of opportunity
+
+1:15:33.900 --> 1:15:37.300
+ to do something, and startups are hard,
+
+1:15:37.300 --> 1:15:42.300
+ and more often than not, just being opportunistic
+
+1:15:42.300 --> 1:15:44.980
+ isn't going to be enough to make it through
+
+1:15:44.980 --> 1:15:48.860
+ all the really crappy things that are going to happen.
+
+1:15:48.860 --> 1:15:51.300
+ So the vision just helps you psychologically
+
+1:15:51.300 --> 1:15:52.820
+ to carry through the hardships,
+
+1:15:52.820 --> 1:15:53.660
+ for you and the team.
+
+1:15:53.660 --> 1:15:56.180
+ Yeah, you and the team, yeah, exactly.
+
+1:15:56.180 --> 1:15:59.100
+ To kind of younger people interested in getting
+
+1:15:59.100 --> 1:16:02.240
+ into entrepreneurship, I would say stay as close
+
+1:16:02.240 --> 1:16:06.700
+ to first principles and fundamentals as you can
+
+1:16:06.700 --> 1:16:11.100
+ for as long as you can, because really understanding
+
+1:16:11.100 --> 1:16:13.660
+ the problems, if it's something scientific
+
+1:16:13.660 --> 1:16:16.780
+ or hardware related, or even if it's not,
+
+1:16:16.780 --> 1:16:20.380
+ but having a deep understanding of the problem
+
+1:16:20.380 --> 1:16:22.660
+ and the customers and what people care about
+
+1:16:22.660 --> 1:16:26.380
+ and how to move something forward is more important
+
+1:16:26.380 --> 1:16:30.480
+ than taking all of the entrepreneurship classes
+
+1:16:30.480 --> 1:16:31.620
+ in undergrad.
+
+1:16:31.620 --> 1:16:33.400
+ So being able to think deeply, yeah.
+
+1:16:33.400 --> 1:16:35.120
+ Yeah, exactly.
+
+1:16:35.120 --> 1:16:38.180
+ Yeah, have you been surprised about how much pivoting
+
+1:16:38.180 --> 1:16:41.780
+ is involved, basically rethinking what you thought
+
+1:16:41.780 --> 1:16:44.260
+ initially would be the right direction to go?
+
+1:16:44.260 --> 1:16:46.540
+ Or is there, if you think deeply enough,
+
+1:16:46.540 --> 1:16:50.540
+ that you can stick in the same direction for long enough?
+
+1:16:50.540 --> 1:16:55.540
+ So our guiding star hasn't changed at all,
+
+1:16:56.320 --> 1:16:57.860
+ so that's been pretty consistent,
+
+1:16:57.860 --> 1:17:02.860
+ but within that, we flip flop on so many things
+
+1:17:02.860 --> 1:17:06.020
+ all the time, and to give you one example,
+
+1:17:06.020 --> 1:17:10.220
+ it's do you stop and build a first product
+
+1:17:10.220 --> 1:17:14.140
+ that's well suited to maybe a smaller,
+
+1:17:14.140 --> 1:17:16.660
+ less exciting segment of the market,
+
+1:17:16.660 --> 1:17:21.660
+ or do you stay head down and focus on the big swing
+
+1:17:22.940 --> 1:17:25.280
+ and trying to hit it out of the park right away?
+
+1:17:25.280 --> 1:17:27.540
+ And we've flip flopped between that,
+
+1:17:27.540 --> 1:17:30.240
+ and there's not a blanket answer,
+
+1:17:30.240 --> 1:17:33.560
+ and there are a lot of factors, but that's a hard one.
+
+1:17:33.560 --> 1:17:38.560
+ And I think one other piece for the aspiring founder,
+
+1:17:40.640 --> 1:17:44.700
+ spending a lot of time and effort on the culture
+
+1:17:44.700 --> 1:17:47.780
+ and people piece is so important
+
+1:17:47.780 --> 1:17:52.060
+ and is always an afterthought and something
+
+1:17:52.060 --> 1:17:57.060
+ that I haven't really seen the founders or executives
+
+1:17:57.060 --> 1:18:00.860
+ or executives at companies purposefully carve out time
+
+1:18:00.860 --> 1:18:04.500
+ and acknowledge that, yes, this is going to take
+
+1:18:04.500 --> 1:18:06.500
+ a lot of my time and resources,
+
+1:18:06.500 --> 1:18:09.480
+ but you see them after the fact trying to repair
+
+1:18:09.480 --> 1:18:14.060
+ the bro culture or whatever else is broken at the company.
+
+1:18:14.060 --> 1:18:16.440
+ And I think that it's starting to change,
+
+1:18:16.440 --> 1:18:19.580
+ but just to be aware of it from the beginning is important.
+
+1:18:19.580 --> 1:18:21.780
+ Right, I guess it should be part of the vision
+
+1:18:21.780 --> 1:18:24.180
+ of what kind of place you want to create,
+
+1:18:24.180 --> 1:18:28.540
+ or what kind of human beings.
+
+1:18:28.540 --> 1:18:31.900
+ Yeah, exactly, you can't wait five, 10 years
+
+1:18:31.900 --> 1:18:35.300
+ and then just slap an HR person onto trying to fix it.
+
+1:18:35.300 --> 1:18:37.820
+ It has to be thoughtful from the beginning.
+
+1:18:37.820 --> 1:18:40.940
+ Yeah, don't get me started on HR people.
+
+1:18:43.780 --> 1:18:46.540
+ Don't leave HR to HR people, but I'll just leave it at that.
+
+1:18:46.540 --> 1:18:48.540
+ You didn't say that, I said it, okay.
+
+1:18:48.540 --> 1:18:53.540
+ Yeah, HR's actual HR is really important,
+
+1:18:53.540 --> 1:18:58.540
+ is so important, culture is so important.
+
+1:18:58.540 --> 1:19:03.540
+ And then I also was surprised, I thought you could say,
+
+1:19:04.040 --> 1:19:06.460
+ here will be our culture and our values,
+
+1:19:06.460 --> 1:19:08.900
+ and that it was kind of distinct from who I
+
+1:19:08.900 --> 1:19:11.140
+ and my co founder were as people,
+
+1:19:11.140 --> 1:19:12.940
+ and I was like, no, that's not how that works.
+
+1:19:12.940 --> 1:19:16.480
+ We just kind of ooze out our behaviors
+
+1:19:16.480 --> 1:19:18.220
+ and then the company grows around that.
+
+1:19:18.220 --> 1:19:22.640
+ So you have to do a lot of introspection and self work
+
+1:19:22.640 --> 1:19:24.900
+ to not end up with a shitty culture.
+
+1:19:24.900 --> 1:19:27.580
+ It's kind of a, it's a relationship,
+
+1:19:27.580 --> 1:19:29.700
+ but it's supposed to be a relationship with two people,
+
+1:19:29.700 --> 1:19:31.620
+ it's a relationship with many people.
+
+1:19:31.620 --> 1:19:32.440
+ Yeah.
+
+1:19:32.440 --> 1:19:35.620
+ And you communicate so much indirectly by who you are.
+
+1:19:35.620 --> 1:19:38.260
+ You have to be, you have to live it, yeah.
+
+1:19:40.780 --> 1:19:42.420
+ As somebody, I think about this a lot
+
+1:19:42.420 --> 1:19:45.300
+ because generally I'm full of love
+
+1:19:45.300 --> 1:19:47.100
+ and all those kinds of things,
+
+1:19:47.100 --> 1:19:49.940
+ but I also get really passionate
+
+1:19:49.940 --> 1:19:54.580
+ and when I see somebody in the context of work, especially,
+
+1:19:54.580 --> 1:19:58.420
+ when I see somebody who I know can do a much better job
+
+1:19:58.420 --> 1:20:02.980
+ and they don't do a great job, I can lose my shit
+
+1:20:02.980 --> 1:20:05.700
+ in a way that's like Steve Jobsian.
+
+1:20:06.680 --> 1:20:09.960
+ And you have to think about exactly the right way
+
+1:20:09.960 --> 1:20:13.460
+ to lose your shit if you're going to, or if at all.
+
+1:20:13.460 --> 1:20:14.900
+ You have to really think through that
+
+1:20:14.900 --> 1:20:16.620
+ because it sends a big signal.
+
+1:20:16.620 --> 1:20:21.180
+ You know, sometimes it's okay, like if you do it deliberately,
+
+1:20:21.180 --> 1:20:23.260
+ like if you're going to do it deliberately,
+
+1:20:23.260 --> 1:20:24.260
+ if you're going to say like,
+
+1:20:24.260 --> 1:20:26.780
+ I'm going to be the kind of person that allows this
+
+1:20:26.780 --> 1:20:27.940
+ and pays the cost of it,
+
+1:20:27.940 --> 1:20:30.800
+ but you can't just think it's not gonna have a cost.
+
+1:20:30.800 --> 1:20:33.480
+ Yes, this was like the first thing I worked on
+
+1:20:33.480 --> 1:20:38.480
+ with my leadership coach was how not to just snap at people
+
+1:20:39.660 --> 1:20:41.660
+ when they were being an idiot.
+
+1:20:41.660 --> 1:20:46.660
+ And first I got really good at apologizing.
+
+1:20:46.660 --> 1:20:49.700
+ That was the first step because it was going to take longer
+
+1:20:49.700 --> 1:20:51.820
+ to fix the behavior.
+
+1:20:51.820 --> 1:20:54.980
+ And then she, I'm actually a lot better at it now
+
+1:20:54.980 --> 1:20:56.140
+ and it started with things.
+
+1:20:56.140 --> 1:20:58.880
+ She's like, every time you walk through a doorway,
+
+1:20:58.880 --> 1:21:03.340
+ think, you know, calm and take breaths before responding.
+
+1:21:03.340 --> 1:21:05.740
+ And there were all sorts of these little things we did
+
+1:21:05.740 --> 1:21:08.620
+ and it was mostly just changing the habit.
+
+1:21:08.620 --> 1:21:13.180
+ Yeah, oh boy, it's a long road.
+
+1:21:13.180 --> 1:21:18.180
+ Okay, so people love it and we talk about books.
+
+1:21:18.180 --> 1:21:21.660
+ Is there books, maybe three or so technical fiction,
+
+1:21:21.660 --> 1:21:24.700
+ philosophical that had an impact on your life
+
+1:21:24.700 --> 1:21:27.460
+ and you might recommend and for each,
+
+1:21:27.460 --> 1:21:30.660
+ is there an idea or so that you take away from it?
+
+1:21:31.540 --> 1:21:36.540
+ Yes, so I've been a voracious reader all my life
+
+1:21:36.540 --> 1:21:40.700
+ and I'm always reading like three or four or five books
+
+1:21:40.700 --> 1:21:45.700
+ at a time and now I use Audible a lot too
+
+1:21:46.380 --> 1:21:48.580
+ and you know, podcasts and things like that.
+
+1:21:50.020 --> 1:21:54.340
+ So I think the first one that stands out to me is 10,
+
+1:21:54.340 --> 1:21:57.700
+ it's a novel, Tender is the Night by Fitzgerald.
+
+1:21:57.700 --> 1:22:01.180
+ And I read it when I was much younger
+
+1:22:01.180 --> 1:22:03.700
+ but I went back and read it recently and it's not that good.
+
+1:22:03.700 --> 1:22:07.940
+ So I'm not sure why it has like such an important place
+
+1:22:07.940 --> 1:22:12.940
+ in my literary history but I love Fitzgerald as an author
+
+1:22:13.380 --> 1:22:17.380
+ because he's very like flowery prose
+
+1:22:17.380 --> 1:22:21.220
+ that I can just picture what he's saying
+
+1:22:21.220 --> 1:22:24.860
+ but he does it in such a creative way.
+
+1:22:24.860 --> 1:22:26.740
+ I remember that one in particular
+
+1:22:26.740 --> 1:22:29.300
+ because I read a ton as a kid too
+
+1:22:29.300 --> 1:22:33.980
+ but it kind of set me, it was like the beginning of my adult
+
+1:22:33.980 --> 1:22:38.500
+ reading life and getting into classics
+
+1:22:38.500 --> 1:22:43.500
+ and I kind of, I do feel like they seem intimidating maybe
+
+1:22:44.740 --> 1:22:47.980
+ and then I realized that they're all just like love stories.
+
+1:22:50.260 --> 1:22:51.260
+ So.
+
+1:22:51.260 --> 1:22:53.140
+ Yeah, isn't everything a love story?
+
+1:22:53.140 --> 1:22:54.460
+ Yeah, it's really.
+
+1:22:54.460 --> 1:22:55.300
+ At the bottom.
+
+1:22:55.300 --> 1:22:57.100
+ Even, you know, I don't know.
+
+1:22:57.100 --> 1:23:02.100
+ I was surprised that even like a lot of the Russian authors,
+
+1:23:02.540 --> 1:23:04.740
+ you know, they're all just love stories.
+
+1:23:04.740 --> 1:23:05.900
+ We're humans are pretty simple.
+
+1:23:05.900 --> 1:23:08.460
+ There's not much to worry, there's not much to work with.
+
+1:23:08.460 --> 1:23:09.620
+ So I think maybe that was it.
+
+1:23:09.620 --> 1:23:12.780
+ It made like that whole world less intimidating to me
+
+1:23:12.780 --> 1:23:17.100
+ and cemented my love for reading.
+
+1:23:17.100 --> 1:23:18.740
+ People should have just approached the classics
+
+1:23:18.740 --> 1:23:20.620
+ like there's probably a love story in here.
+
+1:23:20.620 --> 1:23:21.460
+ Chick flicks, yeah.
+
+1:23:21.460 --> 1:23:24.580
+ So somehow it boils down to a chick flick.
+
+1:23:24.580 --> 1:23:27.500
+ So just relax and enjoy the ride.
+
+1:23:27.500 --> 1:23:28.500
+ And then.
+
+1:23:28.500 --> 1:23:29.340
+ So what else?
+
+1:23:30.420 --> 1:23:33.860
+ Changing gears quite a bit.
+
+1:23:33.860 --> 1:23:35.900
+ The Beginning of Infinity, do you know it?
+
+1:23:35.900 --> 1:23:37.460
+ By David Deutsch.
+
+1:23:37.460 --> 1:23:41.380
+ So he's a physicist at Cambridge or Oxford.
+
+1:23:41.380 --> 1:23:45.060
+ And so I was introduced like more formally
+
+1:23:45.060 --> 1:23:47.620
+ to a lot of the ideas, like a lot of the things
+
+1:23:47.620 --> 1:23:52.460
+ we've talked about, he has a lot more like formalism
+
+1:23:52.460 --> 1:23:55.220
+ and physics rigor around.
+
+1:23:55.220 --> 1:23:59.020
+ And so I got introduced to, you know, more like jargon
+
+1:23:59.020 --> 1:24:01.060
+ of how to think about some of these ideas,
+
+1:24:02.780 --> 1:24:07.780
+ you know, like memes and, you know, DNA as ultimate meme,
+
+1:24:10.580 --> 1:24:15.580
+ the concept of infinity and objective beauty.
+
+1:24:16.060 --> 1:24:19.220
+ But he has a really strong grounding in physics.
+
+1:24:19.220 --> 1:24:20.060
+ And then.
+
+1:24:20.060 --> 1:24:22.660
+ There's a rigorous way of talking about these like big.
+
+1:24:22.660 --> 1:24:23.500
+ Yeah.
+
+1:24:23.500 --> 1:24:28.140
+ So that was very mind opening to me to read that.
+
+1:24:28.140 --> 1:24:30.740
+ But it also, I think it's probably part of why
+
+1:24:30.740 --> 1:24:33.620
+ I ended up marrying my husband is related to that book.
+
+1:24:33.620 --> 1:24:36.420
+ And then I've had some other really great connections
+
+1:24:36.420 --> 1:24:40.020
+ with people because I had read it and so had they.
+
+1:24:40.020 --> 1:24:43.020
+ I like how you turned that, even that book
+
+1:24:43.020 --> 1:24:44.260
+ into a love story.
+
+1:24:44.260 --> 1:24:45.660
+ I did, oh no.
+
+1:24:45.660 --> 1:24:46.500
+ Somehow.
+
+1:24:46.500 --> 1:24:47.740
+ No, it's good, it's good.
+
+1:24:47.740 --> 1:24:49.340
+ Your robot has a heart.
+
+1:24:49.340 --> 1:24:50.580
+ Exactly.
+
+1:24:50.580 --> 1:24:55.580
+ And okay, the third series is, it's just, it's Harry Potter.
+
+1:24:57.580 --> 1:24:59.700
+ Of course, which somehow connects to,
+
+1:24:59.700 --> 1:25:01.140
+ I haven't read Harry Potter.
+
+1:25:01.140 --> 1:25:01.980
+ I'm really sorry.
+
+1:25:01.980 --> 1:25:02.820
+ Oh no.
+
+1:25:02.820 --> 1:25:04.660
+ Forgive me, forgive me.
+
+1:25:05.540 --> 1:25:08.260
+ But I've read Tolkien, but just Harry Potter,
+
+1:25:08.260 --> 1:25:09.860
+ just haven't gotten to it.
+
+1:25:09.860 --> 1:25:12.460
+ But your company name is somehow I think
+
+1:25:12.460 --> 1:25:13.300
+ connected to Harry Potter, right?
+
+1:25:13.300 --> 1:25:14.140
+ Yes.
+
+1:25:14.140 --> 1:25:15.380
+ I think I heard this.
+
+1:25:15.380 --> 1:25:20.380
+ My, I always feel like I have to justify my fandom.
+
+1:25:22.660 --> 1:25:25.060
+ The first three books came out when I was 10.
+
+1:25:25.060 --> 1:25:28.980
+ So I went along this journey with Harry, age wise.
+
+1:25:28.980 --> 1:25:33.980
+ And I read them all like nine or 10 times, all seven books.
+
+1:25:34.900 --> 1:25:39.380
+ And I think anything that just keeps you reading
+
+1:25:39.380 --> 1:25:41.540
+ is what's important.
+
+1:25:41.540 --> 1:25:44.580
+ And I have lulls where I don't feel like reading anything.
+
+1:25:44.580 --> 1:25:49.580
+ So I'll reread a Harry Potter or a trashy detective novel
+
+1:25:50.580 --> 1:25:52.340
+ or something, and I don't really care.
+
+1:25:52.340 --> 1:25:55.100
+ And that's why I mentioned Harry Potter
+
+1:25:55.100 --> 1:25:58.620
+ because whatever just keeps me reading,
+
+1:25:58.620 --> 1:25:59.700
+ I think is important.
+
+1:25:59.700 --> 1:26:02.820
+ And it was a big part of my life growing up.
+
+1:26:02.820 --> 1:26:07.820
+ And then yes, Axion, the official story of the naming
+
+1:26:09.060 --> 1:26:12.900
+ of the company is that Axion is like a concatenation
+
+1:26:12.900 --> 1:26:15.380
+ of accelerate and ion.
+
+1:26:15.380 --> 1:26:18.820
+ But it actually came from accio, the summoning charm.
+
+1:26:18.820 --> 1:26:21.500
+ And then we just added an N and it was perfect.
+
+1:26:22.500 --> 1:26:23.700
+ What's the summoning charm?
+
+1:26:23.700 --> 1:26:25.460
+ It's one of the spells in Harry Potter.
+
+1:26:25.460 --> 1:26:30.460
+ Yeah, probably most notably Harry uses it
+
+1:26:31.740 --> 1:26:35.420
+ to summon his broomstick out of his dorm room
+
+1:26:35.420 --> 1:26:37.820
+ when he's battling a dragon somewhere else.
+
+1:26:37.820 --> 1:26:40.180
+ So he says the spell and the broomstick comes to him.
+
+1:26:40.180 --> 1:26:43.020
+ So summoning in that way.
+
+1:26:43.020 --> 1:26:44.740
+ Okay, there we go.
+
+1:26:44.740 --> 1:26:45.740
+ This is brilliant.
+
+1:26:45.740 --> 1:26:48.820
+ So the big thing is that it's something
+
+1:26:48.820 --> 1:26:52.820
+ that you've carry with, it's like your safe place
+
+1:26:52.820 --> 1:26:55.300
+ you return to something like the Harry Potter.
+
+1:26:55.300 --> 1:26:59.980
+ That, I reread them still, whatever keeps me reading
+
+1:26:59.980 --> 1:27:02.980
+ I think is the most important thing.
+
+1:27:02.980 --> 1:27:03.820
+ Okay, I got it.
+
+1:27:03.820 --> 1:27:07.660
+ So I'm actually the same way in terms of the habit of it.
+
+1:27:07.660 --> 1:27:12.620
+ It's important to just keep reading.
+
+1:27:12.620 --> 1:27:16.620
+ But I have found myself struggling a little bit too
+
+1:27:16.620 --> 1:27:19.140
+ because I listen to a lot of audio books now.
+
+1:27:19.140 --> 1:27:24.140
+ I've struggled to then switch back to reading seriously.
+
+1:27:26.020 --> 1:27:27.540
+ It's just I read so many papers,
+
+1:27:27.540 --> 1:27:28.980
+ I read so many other things.
+
+1:27:28.980 --> 1:27:30.620
+ It feels like if I'm gonna sit down
+
+1:27:30.620 --> 1:27:33.580
+ and have the time to actually focus on the reading
+
+1:27:33.580 --> 1:27:36.740
+ I should be reading like blog posts or papers
+
+1:27:36.740 --> 1:27:38.940
+ or more condensed kind of things.
+
+1:27:38.940 --> 1:27:42.700
+ But there's a huge value to just reading long form still.
+
+1:27:42.700 --> 1:27:47.460
+ Yeah, and my husband was never that into fiction
+
+1:27:47.460 --> 1:27:50.580
+ but then someone told him or he heard,
+
+1:27:51.540 --> 1:27:55.140
+ you learn a lot of empathy through reading fiction.
+
+1:27:55.140 --> 1:27:56.780
+ So you could think of it that way.
+
+1:27:56.780 --> 1:27:58.700
+ Well, yeah, that's kind of what, yeah, yeah.
+
+1:27:58.700 --> 1:28:00.620
+ And it's also fiction is a nice,
+
+1:28:01.460 --> 1:28:06.340
+ unlike not less so with nonfiction is a chance to travel.
+
+1:28:06.340 --> 1:28:08.260
+ I see it as kind of traveling.
+
+1:28:08.260 --> 1:28:11.340
+ As you go to this other world and it's nice
+
+1:28:11.340 --> 1:28:12.700
+ because it's like much more efficient.
+
+1:28:12.700 --> 1:28:14.140
+ You don't have to get on a plane,
+
+1:28:14.140 --> 1:28:17.540
+ and you get to meet all kinds of new people.
+
+1:28:17.540 --> 1:28:19.860
+ It's like people say they love traveling
+
+1:28:19.860 --> 1:28:21.300
+ and I say I love traveling too.
+
+1:28:21.300 --> 1:28:23.140
+ I just, yeah, read fiction.
+
+1:28:23.140 --> 1:28:28.140
+ I told my three year old that that was why we read so much
+
+1:28:29.540 --> 1:28:32.540
+ because we see the places in our mind
+
+1:28:32.540 --> 1:28:36.180
+ and I'm like, it's basically like we're watching a movie.
+
+1:28:36.180 --> 1:28:37.020
+ That's how it feels.
+
+1:28:37.020 --> 1:28:39.580
+ And she's like, I prefer watching Frozen with popcorn,
+
+1:28:39.580 --> 1:28:41.980
+ was her response that.
+
+1:28:41.980 --> 1:28:43.540
+ Okay, well, you're three.
+
+1:28:43.540 --> 1:28:45.260
+ That's a good point.
+
+1:28:45.260 --> 1:28:47.620
+ But yeah, there's some power to the imagination, right?
+
+1:28:47.620 --> 1:28:49.460
+ That's not just like watching a movie
+
+1:28:49.460 --> 1:28:53.260
+ because something about our imagination
+
+1:28:53.260 --> 1:28:56.740
+ because it's the words in the world that's painted
+
+1:28:56.740 --> 1:29:00.100
+ somehow mixing in with our own understanding
+
+1:29:00.100 --> 1:29:02.580
+ of our own hopes and dreams, our fears.
+
+1:29:02.580 --> 1:29:03.820
+ It like mixes up in there
+
+1:29:03.820 --> 1:29:07.660
+ and the way we can build up that world from just the page.
+
+1:29:07.660 --> 1:29:10.260
+ Yeah, you're really creating the world
+
+1:29:10.260 --> 1:29:13.340
+ just with the prompts from the book, right?
+
+1:29:13.340 --> 1:29:15.900
+ Yeah, that's different than watching a movie.
+
+1:29:15.900 --> 1:29:17.380
+ Yeah, which is why it hurts sometimes
+
+1:29:17.380 --> 1:29:19.220
+ to watch the movie version
+
+1:29:19.220 --> 1:29:23.660
+ and then you're like, that's not at all how I imagined it.
+
+1:29:23.660 --> 1:29:26.740
+ Well, we kind of brought this up in terms of
+
+1:29:29.140 --> 1:29:31.700
+ depending on what the goals are.
+
+1:29:31.700 --> 1:29:35.060
+ Let me ask the big, you're friends with Manolis,
+
+1:29:35.060 --> 1:29:36.620
+ he's obsessed with this question.
+
+1:29:36.620 --> 1:29:38.460
+ So let me ask the big ridiculous question
+
+1:29:38.460 --> 1:29:40.540
+ about the meaning of life.
+
+1:29:41.820 --> 1:29:44.140
+ Do you ever think about this one?
+
+1:29:44.140 --> 1:29:49.140
+ Do you ever ponder the reason we're here?
+
+1:29:49.340 --> 1:29:52.860
+ Descends as the vapes on this spinning ball
+
+1:29:52.860 --> 1:29:54.060
+ in the middle of nowhere?
+
+1:29:54.060 --> 1:29:57.620
+ Yeah, I don't think one ends up
+
+1:29:57.620 --> 1:29:59.820
+ in the field of space propulsion
+
+1:29:59.820 --> 1:30:04.460
+ without thinking of these existential questions.
+
+1:30:04.460 --> 1:30:05.780
+ Yeah, all the time.
+
+1:30:05.780 --> 1:30:07.220
+ Or builds a business.
+
+1:30:07.220 --> 1:30:09.540
+ Yeah, I know, right?
+
+1:30:09.540 --> 1:30:12.900
+ Yeah, we've touched on a lot of the different pieces
+
+1:30:12.900 --> 1:30:13.820
+ of this, I think.
+
+1:30:13.820 --> 1:30:18.820
+ So I have a bunch of thoughts.
+
+1:30:18.860 --> 1:30:23.260
+ I do think that the goal isn't,
+
+1:30:23.260 --> 1:30:28.260
+ the meaning isn't anymore just to be like a Petri dish
+
+1:30:28.260 --> 1:30:31.060
+ of bacteria that reproduces
+
+1:30:31.060 --> 1:30:36.060
+ and where survival and reproduction are the main objectives.
+
+1:30:36.660 --> 1:30:40.460
+ And maybe it's because now we're able to answer these,
+
+1:30:40.460 --> 1:30:42.500
+ ask those questions.
+
+1:30:42.500 --> 1:30:44.900
+ That's maybe the turning point.
+
+1:30:45.900 --> 1:30:49.540
+ And instead, I think it's really the pursuit
+
+1:30:49.540 --> 1:30:52.060
+ and generation of knowledge.
+
+1:30:52.060 --> 1:30:56.860
+ And so if we're taken out by an asteroid or something,
+
+1:30:56.860 --> 1:31:01.860
+ I think that it will have been a meaningful endeavor
+
+1:31:03.660 --> 1:31:06.860
+ if somehow our knowledge about the universe
+
+1:31:06.860 --> 1:31:11.860
+ is preserved somehow and the next civilization
+
+1:31:12.620 --> 1:31:14.780
+ isn't starting over again.
+
+1:31:16.340 --> 1:31:21.340
+ So that's, I always, yeah, I resonate with that.
+
+1:31:21.860 --> 1:31:25.300
+ I always loved the mission of Google from the early days
+
+1:31:25.300 --> 1:31:28.660
+ of making the world's sort of information
+
+1:31:28.660 --> 1:31:30.660
+ and knowledge searchable.
+
+1:31:30.660 --> 1:31:31.700
+ I always loved that idea.
+
+1:31:31.700 --> 1:31:35.660
+ I always loved, I was donated as people should to Wikipedia.
+
+1:31:37.020 --> 1:31:38.500
+ I just love Wikipedia.
+
+1:31:38.500 --> 1:31:43.340
+ I feel like it's the, that's one of the greatest
+
+1:31:43.340 --> 1:31:46.340
+ accomplishments of just a humanity of us together,
+
+1:31:46.340 --> 1:31:48.620
+ especially Wikipedia and this opens like
+
+1:31:48.620 --> 1:31:50.140
+ in this open community way,
+
+1:31:50.140 --> 1:31:52.620
+ putting together different knowledge is like,
+
+1:31:52.620 --> 1:31:53.940
+ on everything we've talked about today,
+
+1:31:53.940 --> 1:31:57.540
+ I'm sure there's a Wikipedia page about ion engines
+
+1:31:57.540 --> 1:31:59.500
+ and I'm sure it's pretty good.
+
+1:31:59.500 --> 1:32:02.420
+ Like, it's, I don't know, that's incredible.
+
+1:32:02.420 --> 1:32:05.180
+ And obviously that can be preserved pretty efficiently,
+
+1:32:05.180 --> 1:32:06.540
+ at least Wikipedia.
+
+1:32:06.540 --> 1:32:09.260
+ I don't know, you'll be like, human civilization
+
+1:32:09.260 --> 1:32:11.500
+ is all like burning up in flames
+
+1:32:11.500 --> 1:32:14.300
+ as there's this one USB drive slowly traveling out.
+
+1:32:14.300 --> 1:32:15.140
+ Yeah, I know, exactly.
+
+1:32:15.140 --> 1:32:16.420
+ With Wikipedia on it.
+
+1:32:16.420 --> 1:32:17.700
+ Yep.
+
+1:32:17.700 --> 1:32:20.460
+ That's on, from the beginning of our chat,
+
+1:32:20.460 --> 1:32:22.420
+ that one lonely spacecraft.
+
+1:32:22.420 --> 1:32:24.940
+ It just needs Wikipedia.
+
+1:32:24.940 --> 1:32:28.700
+ And then it will have been a civilization well spent.
+
+1:32:28.700 --> 1:32:30.900
+ So pushing that knowledge along.
+
+1:32:30.900 --> 1:32:31.740
+ Yeah.
+
+1:32:31.740 --> 1:32:35.060
+ Through like one little discovery at a time
+
+1:32:35.060 --> 1:32:39.100
+ is one of, is a core aspect to the meaning of it all.
+
+1:32:39.100 --> 1:32:42.860
+ Yes, and I also, I haven't yet figured out
+
+1:32:42.860 --> 1:32:46.740
+ what the connection, you know, an explanation
+
+1:32:46.740 --> 1:32:48.940
+ I'm happy with yet for how it's connected,
+
+1:32:48.940 --> 1:32:53.940
+ but evolving beyond just the survival piece too,
+
+1:32:55.300 --> 1:32:59.460
+ I think like we touched on the emotional aspect,
+
+1:32:59.460 --> 1:33:04.180
+ something in there about cooperation and, you know, love.
+
+1:33:04.180 --> 1:33:08.900
+ And so I, in my day to day that just boils down to,
+
+1:33:08.900 --> 1:33:11.340
+ you know, the pursuit of knowledge
+
+1:33:11.340 --> 1:33:16.340
+ or improving the human condition and being kind.
+
+1:33:16.500 --> 1:33:18.140
+ Love and knowledge.
+
+1:33:18.140 --> 1:33:19.860
+ Yeah, exactly.
+
+1:33:19.860 --> 1:33:23.740
+ So I'm pretty at peace with that as the meaning right now.
+
+1:33:23.740 --> 1:33:24.580
+ Makes sense to me.
+
+1:33:24.580 --> 1:33:27.980
+ While you work on spacecraft propulsion.
+
+1:33:27.980 --> 1:33:29.820
+ Yes, exactly.
+
+1:33:29.820 --> 1:33:32.100
+ Like literal rocket science.
+
+1:33:32.100 --> 1:33:34.100
+ Natalia, this is an amazing conversation.
+
+1:33:34.100 --> 1:33:36.740
+ You work on such an exciting engineering field.
+
+1:33:36.740 --> 1:33:40.860
+ And I think this is like what 20th, 21st century
+
+1:33:40.860 --> 1:33:43.140
+ will be remembered for is space exploration.
+
+1:33:43.140 --> 1:33:46.820
+ So this is super exciting space that you're working on.
+
+1:33:46.820 --> 1:33:48.860
+ So, and thank you so much
+
+1:33:48.860 --> 1:33:50.940
+ for spending your time with me today.
+
+1:33:50.940 --> 1:33:51.940
+ Thanks for having me.
+
+1:33:51.940 --> 1:33:52.780
+ This was fun.
+
+1:33:53.620 --> 1:33:55.300
+ Thanks for listening to this conversation
+
+1:33:55.300 --> 1:33:56.540
+ with Natalia Bailey.
+
+1:33:56.540 --> 1:33:58.420
+ And thank you to our sponsors,
+
+1:33:58.420 --> 1:34:00.580
+ Monk Pack Low Carb Snacks,
+
+1:34:00.580 --> 1:34:03.380
+ Four Sigmatic Mushroom Coffee, Blinkist,
+
+1:34:03.380 --> 1:34:05.340
+ an app that summarizes books,
+
+1:34:05.340 --> 1:34:08.300
+ and Sun Basket, meal delivery service.
+
+1:34:08.300 --> 1:34:11.580
+ So the choice is snacks, caffeine, knowledge,
+
+1:34:11.580 --> 1:34:13.180
+ or a delicious meal.
+
+1:34:13.180 --> 1:34:14.660
+ Choose wisely, my friends.
+
+1:34:14.660 --> 1:34:16.900
+ And if you wish, click the sponsor links below
+
+1:34:16.900 --> 1:34:20.500
+ to get a discount and to support this podcast.
+
+1:34:20.500 --> 1:34:22.620
+ And now let me leave you with some words
+
+1:34:22.620 --> 1:34:24.300
+ from Carl Sagan.
+
+1:34:24.300 --> 1:34:28.860
+ All civilizations become either space faring or extinct.
+
+1:34:28.860 --> 1:34:48.860
+ Thank you for listening and hope to see you next time.
+

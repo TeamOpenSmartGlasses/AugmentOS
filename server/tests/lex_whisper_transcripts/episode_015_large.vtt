@@ -1,0 +1,1823 @@
+WEBVTT
+
+00:00.000 --> 00:05.360
+ The following is a conversation with Leslie Kaelbling. She is a roboticist and professor at
+
+00:05.360 --> 00:12.080
+ MIT. She is recognized for her work in reinforcement learning, planning, robot navigation, and several
+
+00:12.080 --> 00:18.560
+ other topics in AI. She won the IJCAI Computers and Thought Award and was the editor in chief
+
+00:18.560 --> 00:24.320
+ of the prestigious Journal of Machine Learning Research. This conversation is part of the
+
+00:24.320 --> 00:30.400
+ Artificial Intelligence podcast at MIT and beyond. If you enjoy it, subscribe on YouTube,
+
+00:30.400 --> 00:36.240
+ iTunes, or simply connect with me on Twitter at Lex Friedman, spelled F R I D.
+
+00:36.960 --> 00:41.040
+ And now, here's my conversation with Leslie Kaelbling.
+
+00:42.800 --> 00:47.680
+ What made me get excited about AI, I can say that, is I read Gödel Escher Bach when I was
+
+00:47.680 --> 00:56.240
+ in high school. That was pretty formative for me because it exposed the interestingness of
+
+00:57.200 --> 01:01.520
+ primitives and combination and how you can make complex things out of simple parts
+
+01:02.320 --> 01:07.760
+ and ideas of AI and what kinds of programs might generate intelligent behavior. So...
+
+01:07.760 --> 01:12.720
+ So you first fell in love with AI reasoning logic versus robots?
+
+01:12.720 --> 01:18.160
+ Yeah, the robots came because my first job, so I finished an undergraduate degree in philosophy
+
+01:18.160 --> 01:24.160
+ at Stanford and was about to finish a master's in computer science. And I got hired at SRI
+
+01:25.360 --> 01:30.960
+ in their AI lab and they were building a robot. It was a kind of a follow on to shaky,
+
+01:30.960 --> 01:35.840
+ but all the shaky people were not there anymore. And so my job was to try to get this robot to
+
+01:35.840 --> 01:39.280
+ do stuff. And that's really kind of what got me interested in robots.
+
+01:39.280 --> 01:44.400
+ So maybe taking a small step back to your bachelor's in Stanford in philosophy,
+
+01:44.400 --> 01:49.440
+ did master's and PhD in computer science, but the bachelor's in philosophy. So what was that
+
+01:49.440 --> 01:55.200
+ journey like? What elements of philosophy do you think you bring to your work in computer science?
+
+01:55.200 --> 01:59.840
+ So it's surprisingly relevant. So the part of the reason that I didn't do a computer
+
+01:59.840 --> 02:03.440
+ science undergraduate degree was that there wasn't one at Stanford at the time,
+
+02:03.440 --> 02:07.360
+ but that there's a part of philosophy and in fact, Stanford has a special submajor in
+
+02:07.360 --> 02:13.280
+ something called now symbolic systems, which is logic, model theory, formal semantics of
+
+02:13.280 --> 02:20.080
+ natural language. And so that's actually a perfect preparation for work in AI and computer science.
+
+02:20.080 --> 02:23.840
+ That's kind of interesting. So if you were interested in artificial intelligence,
+
+02:26.000 --> 02:30.800
+ what kind of majors were people even thinking about taking? What is it in your science?
+
+02:31.840 --> 02:37.120
+ So besides philosophies, what were you supposed to do if you were fascinated by the idea of creating
+
+02:37.120 --> 02:41.920
+ intelligence? There weren't enough people who did that for that even to be a conversation.
+
+02:41.920 --> 02:47.600
+ I mean, I think probably, probably philosophy. I mean, it's interesting in my class,
+
+02:48.320 --> 02:56.800
+ my graduating class of undergraduate philosophers, probably maybe slightly less than half went on in
+
+02:56.800 --> 03:02.320
+ computer science, slightly less than half went on in law and like one or two went on in philosophy.
+
+03:02.320 --> 03:06.960
+ So it was a common kind of connection. Do you think AI researchers have a role
+
+03:06.960 --> 03:11.440
+ to be part time philosophers or should they stick to the solid science and engineering
+
+03:11.440 --> 03:16.240
+ without sort of taking the philosophizing tangents? I mean, you work with robots,
+
+03:16.240 --> 03:21.200
+ you think about what it takes to create intelligent beings. Aren't you the perfect
+
+03:21.200 --> 03:25.920
+ person to think about the big picture philosophy at all? The parts of philosophy that are closest
+
+03:25.920 --> 03:29.680
+ to AI, I think, or at least the closest to AI that I think about are stuff like
+
+03:29.680 --> 03:35.040
+ belief and knowledge and denotation and that kind of stuff. And that's, you know,
+
+03:35.040 --> 03:40.800
+ it's quite formal. And it's like just one step away from the kinds of computer science work that
+
+03:40.800 --> 03:50.160
+ we do kind of routinely. I think that there are important questions still about what you can do
+
+03:50.160 --> 03:54.560
+ with a machine and what you can't and so on. Although at least my personal view is that I'm
+
+03:54.560 --> 04:00.080
+ completely a materialist. And I don't think that there's any reason why we can't make a robot be
+
+04:00.960 --> 04:04.880
+ behaviorally indistinguishable from a human. And the question of whether it's
+
+04:06.560 --> 04:11.680
+ distinguishable internally, whether it's a zombie or not in philosophy terms, I actually don't,
+
+04:12.720 --> 04:15.280
+ I don't know. And I don't know if I care too much about that.
+
+04:15.280 --> 04:20.400
+ Right. But there is a philosophical notions. They're mathematical and philosophical because
+
+04:20.400 --> 04:25.600
+ we don't know so much of how difficult it is. How difficult is the perception problem?
+
+04:25.600 --> 04:30.800
+ How difficult is the planning problem? How difficult is it to operate in this world successfully?
+
+04:30.800 --> 04:35.920
+ Because our robots are not currently as successful as human beings in many tasks.
+
+04:35.920 --> 04:42.480
+ The question about the gap between current robots and human beings borders a little bit
+
+04:42.480 --> 04:50.160
+ on philosophy. You know, the expanse of knowledge that's required to operate in a human world,
+
+04:50.160 --> 04:55.520
+ required to operate in this world and the ability to form common sense knowledge, the ability to
+
+04:55.520 --> 05:01.520
+ reason about uncertainty. Much of the work you've been doing, there's open questions there that,
+
+05:02.880 --> 05:07.280
+ I don't know, required to activate a certain big picture view.
+
+05:07.840 --> 05:12.960
+ To me, that doesn't seem like a philosophical gap at all. To me, there is a big technical gap.
+
+05:12.960 --> 05:19.360
+ There's a huge technical gap, but I don't see any reason why it's more than a technical gap.
+
+05:19.360 --> 05:28.400
+ Perfect. So, when you mentioned AI, you mentioned SRI, and maybe can you describe to me when you
+
+05:28.400 --> 05:37.680
+ first fell in love with robotics, with robots or inspired, so you mentioned Flaky or Shaky Flaky,
+
+05:38.400 --> 05:42.800
+ and what was the robot that first captured your imagination, what's possible?
+
+05:42.800 --> 05:47.120
+ Right. Well, so the first robot I worked with was Flaky. Shaky was a robot that the SRI
+
+05:47.120 --> 05:52.960
+ people had built, but by the time, I think when I arrived, it was sitting in a corner of somebody's
+
+05:52.960 --> 06:00.240
+ office dripping hydraulic fluid into a pan, but it's iconic and really everybody should read the
+
+06:00.240 --> 06:06.560
+ Shaky Tech Report because it has so many good ideas in it. I mean, they invented ASTAR search
+
+06:06.560 --> 06:14.240
+ and symbolic planning and learning macro operators. They had low level kind of
+
+06:14.240 --> 06:19.360
+ configuration space planning for their robot. They had vision. That's the basic ideas of
+
+06:19.360 --> 06:26.240
+ a ton of things. Can you take a step back? Shaky have arms. What was the job? Shaky was a mobile
+
+06:26.240 --> 06:32.080
+ robot, but it could push objects, and so it would move things around. With which actuator? With
+
+06:32.080 --> 06:43.600
+ itself, with its base. Okay, great. And they had painted the baseboards black, so it used vision
+
+06:43.600 --> 06:49.360
+ to localize itself in a map. It detected objects. It could detect objects that were surprising to
+
+06:49.360 --> 06:55.520
+ it. It would plan and replan based on what it saw. It reasoned about whether to look and take
+
+06:55.520 --> 07:02.240
+ pictures. I mean, it really had the basics of so many of the things that we think about now.
+
+07:03.280 --> 07:08.960
+ How did it represent the space around it? So it had representations at a bunch of different levels
+
+07:08.960 --> 07:13.920
+ of abstraction. So it had, I think, a kind of an occupancy grid of some sort at the lowest level.
+
+07:14.880 --> 07:21.440
+ At the high level, it was abstract symbolic kind of rooms and connectivity. So where does flaky
+
+07:21.440 --> 07:28.240
+ come in? Yeah, okay. So I showed up at SRI and we were building a brand new robot. As I said,
+
+07:28.240 --> 07:33.200
+ none of the people from the previous project were kind of there or involved anymore. So we were kind
+
+07:33.200 --> 07:40.880
+ of starting from scratch and my advisor was Stan Rosenstein. He ended up being my thesis advisor
+
+07:40.880 --> 07:48.000
+ and he was motivated by this idea of situated computation or situated automata. And the idea was
+
+07:49.600 --> 07:58.480
+ that the tools of logical reasoning were important, but possibly only for the engineers
+
+07:58.480 --> 08:04.560
+ or designers to use in the analysis of a system, but not necessarily to be manipulated in the head
+
+08:04.560 --> 08:09.920
+ of the system itself. So I might use logic to prove a theorem about the behavior of my robot,
+
+08:10.480 --> 08:14.400
+ even if the robot's not using logic in its head to prove theorems. So that was kind of the
+
+08:14.400 --> 08:23.440
+ distinction. And so the idea was to kind of use those principles to make a robot do stuff. But
+
+08:23.440 --> 08:29.600
+ a lot of the basic things we had to kind of learn for ourselves because I had zero background in
+
+08:29.600 --> 08:33.600
+ robotics. I didn't know anything about control. I didn't know anything about sensors. So we
+
+08:33.600 --> 08:37.280
+ reinvented a lot of wheels on the way to getting that robot to do stuff. Do you think that was
+
+08:37.280 --> 08:44.800
+ an advantage or a hindrance? Oh no, I mean, I'm big in favor of wheel reinvention actually. I mean,
+
+08:44.800 --> 08:49.680
+ I think you learn a lot by doing it. It's important though to eventually have the pointers
+
+08:49.680 --> 08:56.640
+ to, so that you can see what's really going on. But I think you can appreciate much better the
+
+08:56.640 --> 09:00.400
+ good solutions once you've messed around a little bit on your own and found a bad one.
+
+09:00.400 --> 09:04.880
+ Yeah. I think you mentioned reinventing reinforcement learning and referring to
+
+09:04.880 --> 09:11.440
+ rewards as pleasures, pleasure. Yeah. Or I think, which I think is a nice name for it.
+
+09:11.440 --> 09:18.960
+ Yeah. It's more fun almost. Do you think you could tell the history of AI machine learning
+
+09:18.960 --> 09:23.600
+ reinforcement learning and how you think about it from the fifties to now?
+
+09:23.600 --> 09:29.360
+ One thing is that it's oscillates, right? So things become fashionable and then they go out
+
+09:29.360 --> 09:33.680
+ and then something else becomes cool and that goes out and so on. And I think there's, so there's
+
+09:33.680 --> 09:38.160
+ some interesting sociological process that actually drives a lot of what's going on.
+
+09:38.880 --> 09:46.240
+ Early days was kind of cybernetics and control, right? And the idea that of homeostasis,
+
+09:46.240 --> 09:51.680
+ right? People have made these robots that could, I don't know, try to plug into the wall when they
+
+09:51.680 --> 09:59.200
+ needed power and then come loose and roll around and do stuff. And then I think over time, the
+
+09:59.200 --> 10:03.200
+ thought, well, that was inspiring, but people said, no, no, no, we want to get maybe closer to what
+
+10:03.200 --> 10:10.160
+ feels like real intelligence or human intelligence. And then maybe the expert systems people tried
+
+10:10.160 --> 10:20.240
+ to do that, but maybe a little too superficially, right? So, oh, we get the surface understanding of
+
+10:20.240 --> 10:24.960
+ what intelligence is like, because I understand how a steel mill works and I can try to explain
+
+10:24.960 --> 10:28.480
+ it to you and you can write it down in logic and then we can make a computer and for that.
+
+10:29.200 --> 10:36.400
+ And then that didn't work out. But what's interesting, I think, is when a thing starts to not
+
+10:36.400 --> 10:43.200
+ be working very well, it's not only do we change methods, we change problems, right? So it's not
+
+10:43.200 --> 10:47.040
+ like we have better ways of doing the problem of the expert systems people were trying to do. We
+
+10:47.040 --> 10:54.880
+ have no ways of trying to do that problem. Oh, yeah, no, I think maybe a few, but we kind of
+
+10:54.880 --> 11:00.720
+ give up on that problem and we switched to a different problem and we worked that for a while
+
+11:00.720 --> 11:04.320
+ and we make progress. As a broad community. As a community, yeah. And there's a lot of people who
+
+11:04.320 --> 11:09.520
+ would argue, you don't give up on the problem, it's just you decrease the number of people working
+
+11:09.520 --> 11:13.920
+ on it. You almost kind of like put it on the shelf, say, we'll come back to this 20 years later.
+
+11:13.920 --> 11:19.360
+ Yeah, I think that's right. Or you might decide that it's malformed. Like you might say,
+
+11:21.600 --> 11:26.160
+ it's wrong to just try to make something that does superficial symbolic reasoning
+
+11:26.160 --> 11:33.200
+ behave like a doctor. You can't do that until you've had the sensory motor experience of being
+
+11:33.200 --> 11:38.320
+ a doctor or something. So there's arguments that say that that problem was not well formed. Or it
+
+11:38.320 --> 11:43.760
+ could be that it is well formed, but we just weren't approaching it well. So you mentioned
+
+11:43.760 --> 11:48.800
+ that your favorite part of logic and symbolic systems is that they give short names for large
+
+11:48.800 --> 11:56.400
+ sets. So there is some use to this. They use symbolic reasoning. So looking at expert systems
+
+11:56.960 --> 12:01.680
+ and symbolic computing, what do you think are the roadblocks that were hit in the 80s and 90s?
+
+12:01.680 --> 12:07.920
+ Ah, okay. So right. So the fact that I'm not a fan of expert systems doesn't mean that I'm not a
+
+12:07.920 --> 12:15.520
+ fan of some kinds of symbolic reasoning, right? So let's see, roadblocks. Well, the main road
+
+12:15.520 --> 12:21.280
+ block, I think, was that the idea that humans could articulate their knowledge effectively
+
+12:22.080 --> 12:26.240
+ into some kind of logical statements.
+
+12:26.240 --> 12:31.280
+ So it's not just the cost, the effort, but really just the capability of doing it.
+
+12:31.280 --> 12:36.720
+ Right. Because we're all experts in vision, right? But totally don't have introspective
+
+12:36.720 --> 12:44.960
+ access into how we do that. Right. And it's true that, I mean, I think the idea was, well,
+
+12:44.960 --> 12:48.240
+ of course, even people then would know, of course, I wouldn't ask you to please write
+
+12:48.240 --> 12:52.800
+ down the rules that you use for recognizing a water bottle. That's crazy. And everyone
+
+12:52.800 --> 12:58.640
+ understood that. But we might ask you to please write down the rules you use for deciding,
+
+12:58.640 --> 13:04.640
+ I don't know, what tie to put on or how to set up a microphone or something like that.
+
+13:04.640 --> 13:10.880
+ But even those things, I think people maybe, I think what they found, I'm not sure about
+
+13:10.880 --> 13:16.000
+ this, but I think what they found was that the so called experts could give explanations
+
+13:16.000 --> 13:20.080
+ that sort of post hoc explanations for how and why they did things, but they weren't
+
+13:20.080 --> 13:28.960
+ necessarily very good. And then they depended on maybe some kinds of perceptual things,
+
+13:28.960 --> 13:35.840
+ which again, they couldn't really define very well. So I think fundamentally, I think the
+
+13:35.840 --> 13:40.960
+ underlying problem with that was the assumption that people could articulate how and why they
+
+13:40.960 --> 13:45.680
+ make their decisions. Right. So it's almost encoding the knowledge
+
+13:45.680 --> 13:51.440
+ from converting from expert to something that a machine could understand and reason with.
+
+13:51.440 --> 13:54.560
+ No, no, no, no, not even just encoding, but getting it out of you.
+
+13:56.320 --> 14:01.520
+ Right. Not, not, not writing it. I mean, yes, hard also to write it down for the computer,
+
+14:02.240 --> 14:08.320
+ but I don't think that people can produce it. You can tell me a story about why you do stuff,
+
+14:08.320 --> 14:14.400
+ but I'm not so sure that's the why. Great. So there are still on the
+
+14:14.400 --> 14:24.560
+ hierarchical planning side, places where symbolic reasoning is very useful. So as you've talked
+
+14:24.560 --> 14:34.960
+ about, so where's the gap? Yeah. Okay, good. So saying that humans can't provide a description
+
+14:34.960 --> 14:41.040
+ of their reasoning processes. That's okay. Fine. But that doesn't mean that it's not good to do
+
+14:41.040 --> 14:47.120
+ reasoning of various styles inside a computer. Those are just two orthogonal points. So then
+
+14:47.120 --> 14:50.720
+ the question is what kind of reasoning should you do inside a computer? Right.
+
+14:52.240 --> 14:56.240
+ And the answer is, I think you need to do all different kinds of reasoning inside a computer,
+
+14:56.240 --> 15:02.400
+ depending on what kinds of problems you face. I guess the question is what kind of things can you
+
+15:02.400 --> 15:12.480
+ encode symbolically so you can reason about? I think the idea about, and even symbolic,
+
+15:12.480 --> 15:17.040
+ I don't even like that terminology because I don't know what it means technically and formally.
+
+15:17.760 --> 15:24.160
+ I do believe in abstractions. So abstractions are critical, right? You cannot reason at completely
+
+15:24.160 --> 15:29.520
+ fine grain about everything in your life, right? You can't make a plan at the level of images and
+
+15:29.520 --> 15:36.960
+ torques for getting a PhD. So you have to reduce the size of the state space and you have to reduce
+
+15:36.960 --> 15:42.160
+ the horizon if you're going to reason about getting a PhD or even buying the ingredients to
+
+15:42.160 --> 15:49.280
+ make dinner. And so how can you reduce the spaces and the horizon of the reasoning you have to do?
+
+15:49.280 --> 15:53.760
+ And the answer is abstraction, spatial abstraction, temporal abstraction. I think abstraction along
+
+15:53.760 --> 16:00.480
+ the lines of goals is also interesting, like you might, well, abstraction and decomposition. Goals
+
+16:00.480 --> 16:05.600
+ is maybe more of a decomposition thing. So I think that's where these kinds of, if you want to call
+
+16:05.600 --> 16:12.800
+ it symbolic or discrete models come in. You talk about a room of your house instead of your pose.
+
+16:12.800 --> 16:20.800
+ You talk about doing something during the afternoon instead of at 2.54. And you do that because it
+
+16:20.800 --> 16:25.200
+ and you do that because it makes your reasoning problem easier. And also because
+
+16:27.120 --> 16:34.800
+ you have, you don't have enough information to reason in high fidelity about your pose of your
+
+16:34.800 --> 16:39.520
+ elbow at 2.35 this afternoon anyway. Right. When you're trying to get a PhD.
+
+16:39.520 --> 16:42.000
+ Or when you're doing anything really. Yeah. Okay.
+
+16:42.720 --> 16:46.080
+ Except for at that moment, at that moment, you do have to reason about the pose of your elbow,
+
+16:46.080 --> 16:50.000
+ maybe, but then you, maybe you do that in some continuous joint space kind of model.
+
+16:50.000 --> 16:57.840
+ And so again, I, my biggest point about all of this is that there should be the dogma is not
+
+16:58.640 --> 17:02.880
+ the thing, right? We shouldn't, it shouldn't be that I'm in favor against symbolic reasoning
+
+17:02.880 --> 17:08.800
+ and you're in favor against neural networks. It should be that just, just computer science
+
+17:08.800 --> 17:12.560
+ tells us what the right answer to all these questions is. If we were smart enough to figure
+
+17:12.560 --> 17:17.200
+ it out. Well, yeah. When you try to actually solve the problem with computers, the right answer comes
+
+17:17.200 --> 17:22.880
+ out. But you mentioned abstractions. I mean, neural networks form abstractions or rather
+
+17:24.480 --> 17:28.960
+ there's, there's automated ways to form abstractions and there's expert driven ways to
+
+17:28.960 --> 17:35.280
+ form abstractions and expert human driven ways. And humans just seem to be way better at forming
+
+17:35.280 --> 17:44.000
+ abstractions currently and certain problems. So when you're referring to 2.45 PM versus afternoon,
+
+17:44.000 --> 17:49.200
+ how do we construct that taxonomy? Is there any room for automated construction of such
+
+17:50.080 --> 17:54.400
+ abstractions? Oh, I think eventually, yeah. I mean, I think when we get to be better
+
+17:55.280 --> 18:01.120
+ and machine learning engineers, we'll build algorithms that build awesome abstractions.
+
+18:01.120 --> 18:05.760
+ That are useful in this kind of way that you're describing. Yeah. So let's then step from
+
+18:05.760 --> 18:14.800
+ the, the abstraction discussion and let's talk about POMM MDPs. Partially observable
+
+18:14.800 --> 18:20.080
+ Markov decision processes. So uncertainty. So first, what are Markov decision processes?
+
+18:20.080 --> 18:26.320
+ What are Markov decision processes? And maybe how much of our world can be models and MDPs? How
+
+18:26.320 --> 18:30.160
+ much, when you wake up in the morning and you're making breakfast, how do you, do you think of
+
+18:30.160 --> 18:36.640
+ yourself as an MDP? So how do you think about MDPs and how they relate to our world? Well, so
+
+18:36.640 --> 18:41.520
+ there's a stance question, right? So a stance is a position that I take with respect to a problem.
+
+18:42.240 --> 18:50.720
+ So I, as a researcher or a person who designs systems, can decide to make a model of the world
+
+18:50.720 --> 18:57.600
+ around me in some terms. So I take this messy world and I say, I'm going to treat it as if it
+
+18:57.600 --> 19:02.960
+ were a problem of this formal kind, and then I can apply solution concepts or algorithms or whatever
+
+19:02.960 --> 19:07.920
+ to solve that formal thing, right? So of course the world is not anything. It's not an MDP or a
+
+19:07.920 --> 19:12.880
+ POMM DP. I don't know what it is, but I can model aspects of it in some way or some other way.
+
+19:12.880 --> 19:17.600
+ And when I model some aspect of it in a certain way, that gives me some set of algorithms I can
+
+19:17.600 --> 19:26.160
+ use. You can model the world in all kinds of ways. Some have, some are, some are, some are
+
+19:26.160 --> 19:33.360
+ more accepting of uncertainty, more easily modeling uncertainty of the world. Some really force the
+
+19:33.360 --> 19:42.000
+ world to be deterministic. And so certainly MDPs model the uncertainty of the world. Yes. Model
+
+19:42.000 --> 19:47.520
+ some uncertainty. They model not present state uncertainty, but they model uncertainty in the
+
+19:47.520 --> 19:54.560
+ way the future will unfold. Right. So what are Markov decision processes? So Markov decision
+
+19:54.560 --> 19:59.760
+ process is a model. It's a kind of a model that you could make that says, I know completely the
+
+19:59.760 --> 20:05.760
+ current state of my system. And what it means to be a state is that I, that all the, I have all
+
+20:05.760 --> 20:11.120
+ the information right now that will let me make predictions about the future as well as I can.
+
+20:11.120 --> 20:14.720
+ So that remembering anything about my history wouldn't make my predictions any better.
+
+20:17.760 --> 20:23.280
+ And, but then it also says that then I can take some actions that might change the state of the
+
+20:23.280 --> 20:28.400
+ world. And that I don't have a deterministic model of those changes. I have a probabilistic
+
+20:28.400 --> 20:34.160
+ model of how the world might change. It's a, it's a useful model for some kinds of systems.
+
+20:34.160 --> 20:42.480
+ I think it's a, I mean, it's certainly not a good model for most problems, I think, because for most
+
+20:42.480 --> 20:48.720
+ problems you don't actually know the state. For most problems you, it's partially observed. So
+
+20:48.720 --> 20:55.600
+ that's now a different problem class. So, okay. That's where the POMDPs, the part that we observe
+
+20:55.600 --> 21:01.360
+ with the Markov decision processes step in. So how do they address the fact that you can't
+
+21:01.360 --> 21:07.760
+ observe most incomplete information about most of the world around you? Right. So now the idea is
+
+21:07.760 --> 21:12.880
+ we still kind of postulate that there exists a state. We think that there is some information
+
+21:12.880 --> 21:18.000
+ about the world out there such that if we knew that we could make good predictions, but we don't
+
+21:18.000 --> 21:23.680
+ know the state. And so then we have to think about how, but we do get observations. Maybe I get
+
+21:23.680 --> 21:29.680
+ images or I hear things or I feel things, and those might be local or noisy. And so therefore
+
+21:29.680 --> 21:34.720
+ they don't tell me everything about what's going on. And then I have to reason about given the
+
+21:34.720 --> 21:39.920
+ history of actions I've taken and observations I've gotten, what do I think is going on in the
+
+21:39.920 --> 21:43.760
+ world? And then given my own kind of uncertainty about what's going on in the world, I can decide
+
+21:43.760 --> 21:50.080
+ what actions to take. And so how difficult is this problem of planning under uncertainty in your
+
+21:50.080 --> 21:57.840
+ view and your long experience of modeling the world, trying to deal with this uncertainty in
+
+21:57.840 --> 22:05.040
+ especially in real world systems? Optimal planning for even discrete POMDPs can be undecidable
+
+22:05.040 --> 22:12.960
+ depending on how you set it up. And so lots of people say, I don't use POMDPs because they are
+
+22:12.960 --> 22:19.600
+ intractable. And I think that that's kind of a very funny thing to say because the problem you
+
+22:19.600 --> 22:24.320
+ have to solve is the problem you have to solve. So if the problem you have to solve is intractable,
+
+22:24.320 --> 22:28.720
+ that's what makes us AI people, right? So we solve, we understand that the problem we're
+
+22:28.720 --> 22:34.320
+ solving is wildly intractable that we can't, we will never be able to solve it optimally,
+
+22:34.320 --> 22:41.360
+ at least I don't. Yeah, right. So later we can come back to an idea about bounded optimality
+
+22:41.360 --> 22:44.960
+ and something. But anyway, we can't come up with optimal solutions to these problems.
+
+22:45.520 --> 22:50.640
+ So we have to make approximations, approximations in modeling, approximations in the solution
+
+22:50.640 --> 22:56.960
+ algorithms and so on. And so I don't have a problem with saying, yeah, my problem actually,
+
+22:56.960 --> 23:02.480
+ it is POMDP in continuous space with continuous observations. And it's so computationally complex,
+
+23:02.480 --> 23:09.600
+ I can't even think about it's, you know, big O whatever. But that doesn't prevent me from,
+
+23:09.600 --> 23:16.160
+ it helps me, gives me some clarity to think about it that way and to then take steps to
+
+23:16.160 --> 23:20.880
+ make approximation after approximation to get down to something that's like computable
+
+23:20.880 --> 23:26.720
+ in some reasonable time. When you think about optimality, the community broadly has shifted on
+
+23:26.720 --> 23:34.880
+ that, I think a little bit in how much they value the idea of optimality, of chasing an optimal
+
+23:34.880 --> 23:40.960
+ solution. How has your views of chasing an optimal solution changed over the years when
+
+23:40.960 --> 23:48.880
+ you work with robots? That's interesting. I think we have a little bit of a methodological crisis
+
+23:48.880 --> 23:53.520
+ actually from the theoretical side. I mean, I do think that theory is important and that right now
+
+23:53.520 --> 24:00.080
+ we're not doing much of it. So there's lots of empirical hacking around and training this and
+
+24:00.080 --> 24:05.120
+ doing that and reporting numbers, but is it good? Is it bad? We don't know. It's very hard to say
+
+24:05.120 --> 24:16.400
+ things. And if you look at like computer science theory, so people talked for a while, everyone was
+
+24:16.400 --> 24:22.320
+ about solving problems optimally or completely. And then there were interesting relaxations. So
+
+24:22.320 --> 24:30.640
+ people look at, oh, are there regret bounds or can I do some kind of approximation? Can I prove
+
+24:30.640 --> 24:34.880
+ something that I can approximately solve this problem or that I get closer to the solution as
+
+24:34.880 --> 24:42.560
+ I spend more time and so on? What's interesting I think is that we don't have good approximate
+
+24:42.560 --> 24:51.520
+ solution concepts for very difficult problems. I like to say that I'm interested in doing a very
+
+24:51.520 --> 25:00.400
+ bad job of very big problems. Right. So very bad job, very big problems. I like to do that,
+
+25:00.400 --> 25:09.120
+ but I wish I could say something. I wish I had a, I don't know, some kind of a formal solution
+
+25:09.120 --> 25:16.240
+ concept that I could use to say, oh, this algorithm actually, it gives me something.
+
+25:16.240 --> 25:19.840
+ Like I know what I'm going to get. I can do something other than just run it and get out.
+
+25:19.840 --> 25:26.240
+ So that, that notion is still somewhere deeply compelling to you. The notion that you can say,
+
+25:27.520 --> 25:32.400
+ you can drop thing on the table says this, you can expect this, this algorithm will
+
+25:32.400 --> 25:36.400
+ give me some good results. I hope there's, I hope science will, I mean,
+
+25:37.280 --> 25:40.880
+ there's engineering and there's science. I think that they're not exactly the same.
+
+25:42.320 --> 25:47.040
+ And I think right now we're making huge engineering, like leaps and bounds. So the
+
+25:47.040 --> 25:52.240
+ engineering is running away ahead of the science, which is cool. And often how it goes, right? So
+
+25:52.240 --> 25:59.680
+ we're making things and nobody knows how and why they work roughly, but we need to turn that into
+
+25:59.680 --> 26:05.440
+ science. There's some form. It's a, yeah, there's some room for formalizing. We need to know what
+
+26:05.440 --> 26:09.840
+ the principles are. Why does this work? Why does that not work? I mean, for a while, people built
+
+26:09.840 --> 26:14.480
+ bridges by trying, but now we can often predict whether it's going to work or not without building
+
+26:14.480 --> 26:20.640
+ it. Can we do that for learning systems or for robots? So your hope is from a materialistic
+
+26:20.640 --> 26:27.600
+ perspective that intelligence, artificial intelligence systems, robots are just fancier
+
+26:27.600 --> 26:33.040
+ bridges. Belief space. What's the difference between belief space and state space? So you
+
+26:33.040 --> 26:39.840
+ mentioned MDPs, FOMDPs, reasoning about, you sense the world, there's a state.
+
+26:39.840 --> 26:44.400
+ Uh, what, what's this belief space idea? That sounds so good.
+
+26:44.400 --> 26:51.600
+ It sounds good. So belief space, that is instead of thinking about what's the state of the world
+
+26:51.600 --> 26:58.880
+ and trying to control that as a robot, I think about what is the space of beliefs that I could
+
+26:58.880 --> 27:03.520
+ have about the world. What's, if I think of a belief as a probability distribution of our ways
+
+27:03.520 --> 27:10.080
+ the world could be, a belief state is a distribution. And then my control problem, if I'm reasoning
+
+27:10.080 --> 27:16.160
+ about how to move through a world I'm uncertain about, my control problem is actually the problem
+
+27:16.160 --> 27:21.360
+ of controlling my beliefs. So I think about taking actions, not just what effect they'll have on the
+
+27:21.360 --> 27:26.080
+ world outside, but what effect they'll have on my own understanding of the world outside. And so
+
+27:26.080 --> 27:32.800
+ that might compel me to ask a question or look somewhere to gather information, which may not
+
+27:32.800 --> 27:38.400
+ really change the world state, but it changes my own belief about the world. That's a powerful way
+
+27:38.400 --> 27:46.320
+ to, to empower the agent, to reason about the world, to explore the world. So what kind of
+
+27:46.320 --> 27:51.680
+ problems does it allow you to solve to, to consider belief space versus just state space?
+
+27:52.400 --> 27:58.400
+ Well, any problem that requires deliberate information gathering, right? So if in some
+
+27:58.400 --> 28:04.240
+ problems like chess, there's no uncertainty, or maybe there's uncertainty about the opponent,
+
+28:05.040 --> 28:10.320
+ there's no uncertainty about the state. And some problems, there's uncertainty,
+
+28:10.320 --> 28:16.080
+ but you gather information as you go, right? You might say, Oh, I'm driving my autonomous car down
+
+28:16.080 --> 28:20.000
+ the road and it doesn't know perfectly where it is, but the light hours are all going all the time.
+
+28:20.560 --> 28:25.360
+ So I don't have to think about whether to gather information. But if you're a human driving down
+
+28:25.360 --> 28:30.480
+ the road, you sometimes look over your shoulder to see what's going on behind you in the lane.
+
+28:31.360 --> 28:37.840
+ And you have to decide whether you should do that now. And you have to trade off the fact that
+
+28:37.840 --> 28:41.520
+ you're not seeing in front of you and you're looking behind you and how valuable is that
+
+28:41.520 --> 28:47.200
+ information and so on. And so to make choices about information gathering, you have to reasonably
+
+28:47.200 --> 28:56.800
+ space. Also, I mean, also to just take into account your own uncertainty before trying to
+
+28:56.800 --> 29:03.840
+ do things. So you might say, if I understand where I'm standing relative to the door jam,
+
+29:05.360 --> 29:08.640
+ pretty accurately, then it's okay for me to go through the door. But if I'm really
+
+29:08.640 --> 29:12.960
+ not sure where the door is, then it might be better to not do that right now.
+
+29:12.960 --> 29:17.760
+ The degree of your uncertainty about the world is actually part of the thing you're trying to
+
+29:17.760 --> 29:25.760
+ optimize in forming the plan, right? So this idea of a long horizon of planning for a PhD or just
+
+29:25.760 --> 29:31.920
+ even how to get out of the house or how to make breakfast. You show this presentation of the WTF,
+
+29:31.920 --> 29:40.640
+ where's the fork of robot looking at a sink. And can you describe how we plan in this world
+
+29:40.640 --> 29:47.360
+ of this idea of hierarchical planning we've mentioned? So yeah, how can a robot hope to
+
+29:47.360 --> 29:53.840
+ plan about something with such a long horizon where the goal is quite far away?
+
+29:54.480 --> 29:59.840
+ People since probably reasoning began have thought about hierarchical reasoning,
+
+29:59.840 --> 30:03.040
+ the temporal hierarchy in particular. Well, there's spatial hierarchy, but let's talk
+
+30:03.040 --> 30:08.960
+ about temporal hierarchy. So you might say, oh, I have this long execution I have to do,
+
+30:08.960 --> 30:15.360
+ but I can divide it into some segments abstractly, right? So maybe you have to get out of the house,
+
+30:15.360 --> 30:22.720
+ I have to get in the car, I have to drive and so on. And so you can plan if you can build
+
+30:22.720 --> 30:26.960
+ abstractions. So this we started out by talking about abstractions. And we're back to that now,
+
+30:26.960 --> 30:34.560
+ if you can build abstractions in your state space, and abstractions sort of temporal abstractions,
+
+30:34.560 --> 30:39.760
+ then you can make plans at a high level. And you can say, I'm going to go to town and then I'll
+
+30:39.760 --> 30:43.520
+ have to get gas and then I can go here and I can do this other thing. And you can reason about the
+
+30:43.520 --> 30:49.440
+ dependencies and constraints among these actions, again, without thinking about the complete
+
+30:50.080 --> 30:56.800
+ details. What we do in our hierarchical planning work is then say, all right, I make a plan at a
+
+30:56.800 --> 31:03.760
+ high level of abstraction, I have to have some reason to think that it's feasible without working
+
+31:03.760 --> 31:08.720
+ it out in complete detail. And that's actually the interesting step. I always like to talk about
+
+31:08.720 --> 31:15.120
+ walking through an airport, like you can plan to go to New York and arrive at the airport, and then
+
+31:15.120 --> 31:20.080
+ find yourself an office building later. You can't even tell me in advance what your plan is for
+
+31:20.080 --> 31:24.960
+ walking through the airport, partly because you're too lazy to think about it, maybe, but partly
+
+31:24.960 --> 31:28.800
+ also because you just don't have the information, you don't know what gate you're landing in, or
+
+31:28.800 --> 31:34.080
+ what people are going to be in front of you or anything. So there's no point in planning in
+
+31:34.080 --> 31:40.640
+ detail, but you have to have, you have to make a leap of faith that you can figure it out once you
+
+31:40.640 --> 31:50.000
+ get there. And it's really interesting to me how you arrive at that. How do you, so you have learned
+
+31:50.000 --> 31:54.720
+ over your lifetime to be able to make some kinds of predictions about how hard it is to achieve some
+
+31:54.720 --> 32:00.720
+ kinds of sub goals. And that's critical. Like you would never plan to fly somewhere if you couldn't,
+
+32:00.720 --> 32:04.800
+ didn't have a model of how hard it was to do some of the intermediate steps. So one of the things
+
+32:04.800 --> 32:12.480
+ we're thinking about now is how do you do this kind of very aggressive generalization to situations
+
+32:12.480 --> 32:16.880
+ that you haven't been in and so on to predict how long will it take to walk through the Kuala Lumpur
+
+32:16.880 --> 32:22.480
+ airport. Like you could give me an estimate and it wouldn't be crazy. And you have to have an
+
+32:22.480 --> 32:27.280
+ estimate of that in order to make plans that involve walking through the Kuala Lumpur airport,
+
+32:27.280 --> 32:32.480
+ even if you don't need to know it in detail. So I'm really interested in these kinds of abstract
+
+32:32.480 --> 32:37.280
+ models and how do we acquire them. But once we have them, we can use them to do hierarchical
+
+32:37.280 --> 32:43.280
+ reasoning, which is, I think is very important. Yeah. There's this notion of goal regression and
+
+32:43.280 --> 32:50.080
+ preimage backchaining, this idea of starting at the goal and just forming these big clouds of
+
+32:50.080 --> 33:01.920
+ states. I mean, it's almost like saying to the airport, you know, once you show up to the airport
+
+33:01.920 --> 33:08.160
+ that you're like a few steps away from the goal. So like thinking of it this way, it's kind of
+
+33:08.160 --> 33:14.480
+ interesting. I don't know if you have sort of further comments on that of starting at the goal.
+
+33:14.480 --> 33:22.000
+ Yeah. I mean, it's interesting that Simon, Herb Simon back in the early days of AI talked a lot
+
+33:22.000 --> 33:26.480
+ about means ends reasoning and reasoning back from the goal. There's a kind of an intuition that
+
+33:26.480 --> 33:34.480
+ people have that the number of that state space is big. The number of actions you could take is
+
+33:34.480 --> 33:39.120
+ really big. So if you say, here I sit and I want to search forward from where I am, what are all
+
+33:39.120 --> 33:44.720
+ the things I could do? That's just overwhelming. If you say, if you can reason at this other level
+
+33:44.720 --> 33:49.520
+ and say, here's what I'm hoping to achieve, what could I do to make that true? That somehow the
+
+33:49.520 --> 33:54.000
+ branching is smaller. Now what's interesting is that like in the AI planning community,
+
+33:54.880 --> 33:59.120
+ that hasn't worked out in the class of problems that they look at and the methods that they tend
+
+33:59.120 --> 34:04.560
+ to use. It hasn't turned out that it's better to go backward. It's still kind of my intuition that
+
+34:04.560 --> 34:10.000
+ it is, but I can't prove that to you right now. Right. I share your intuition, at least for us
+
+34:10.720 --> 34:21.120
+ mere humans. Speaking of which, when you maybe now we take a little step into that philosophy circle.
+
+34:22.400 --> 34:28.080
+ How hard would it, when you think about human life, you give those examples often. How hard do
+
+34:28.080 --> 34:33.360
+ you think it is to formulate human life as a planning problem or aspects of human life? So
+
+34:33.360 --> 34:37.600
+ when you look at robots, you're often trying to think about object manipulation,
+
+34:38.640 --> 34:46.240
+ tasks about moving a thing. When you take a slight step outside the room, let the robot
+
+34:46.240 --> 34:54.480
+ leave and go get lunch, or maybe try to pursue more fuzzy goals. How hard do you think is that
+
+34:54.480 --> 35:00.800
+ problem? If you were to try to maybe put another way, try to formulate human life as a planning
+
+35:00.800 --> 35:05.760
+ problem. Well, that would be a mistake. I mean, it's not all a planning problem, right? I think
+
+35:05.760 --> 35:11.920
+ it's really, really important that we understand that you have to put together pieces and parts
+
+35:11.920 --> 35:18.080
+ that have different styles of reasoning and representation and learning. I think it seems
+
+35:18.640 --> 35:25.680
+ probably clear to anybody that it can't all be this or all be that. Brains aren't all like this
+
+35:25.680 --> 35:30.160
+ or all like that, right? They have different pieces and parts and substructure and so on.
+
+35:30.160 --> 35:34.320
+ So I don't think that there's any good reason to think that there's going to be like one true
+
+35:34.320 --> 35:40.720
+ algorithmic thing that's going to do the whole job. So it's a bunch of pieces together designed
+
+35:40.720 --> 35:49.120
+ to solve a bunch of specific problems. Or maybe styles of problems. I mean, there's probably some
+
+35:49.120 --> 35:57.360
+ reasoning that needs to go on in image space. I think, again, there's this model based versus
+
+35:57.360 --> 36:01.200
+ model free idea, right? So in reinforcement learning, people talk about, oh, should I learn,
+
+36:02.480 --> 36:08.400
+ I could learn a policy, just straight up a way of behaving. I could learn it's popular
+
+36:08.400 --> 36:14.960
+ on a value function. That's some kind of weird intermediate ground. Or I could learn a transition
+
+36:14.960 --> 36:20.240
+ model, which tells me something about the dynamics of the world. If I take it, imagine that I learned
+
+36:20.240 --> 36:25.600
+ a transition model and I couple it with a planner and I draw a box around that, I have a policy
+
+36:25.600 --> 36:32.800
+ again. It's just stored a different way, right? But it's just as much of a policy as the other
+
+36:32.800 --> 36:39.520
+ policy. It's just I've made, I think the way I see it is it's a time space trade off in computation,
+
+36:40.160 --> 36:46.160
+ right? A more overt policy representation. Maybe it takes more space, but maybe I can
+
+36:46.160 --> 36:51.200
+ compute quickly what action I should take. On the other hand, maybe a very compact model of
+
+36:51.200 --> 36:57.120
+ the world dynamics plus a planner lets me compute what action to take to just more slowly. There's
+
+36:57.120 --> 37:02.320
+ no, I don't, I mean, I don't think there's no argument to be had. It's just like a question of
+
+37:02.320 --> 37:09.360
+ what form of computation is best for us for the various sub problems. Right. So, and, and so like
+
+37:10.320 --> 37:16.000
+ learning to do algebra manipulations for some reason is, I mean, that's probably gonna want
+
+37:16.000 --> 37:21.280
+ naturally a sort of a different representation than writing a unicycle at the time constraints
+
+37:21.280 --> 37:27.760
+ on the unicycle are serious. The space is maybe smaller. I don't know, but so I could be the more
+
+37:27.760 --> 37:36.000
+ human size of falling in love, having a relationship that might be another, another style of how to
+
+37:36.000 --> 37:43.280
+ model that. Yeah. Let's first solve the algebra and the object manipulation. What do you think
+
+37:43.280 --> 37:52.160
+ is harder perception or planning perception? That's why understanding that's why. So what do you think
+
+37:52.160 --> 37:56.480
+ is so hard about perception by understanding the world around you? Well, I mean, I think the big
+
+37:56.480 --> 38:08.160
+ question is representational. Hugely the question is representation. So perception has made great
+
+38:08.160 --> 38:15.360
+ strides lately, right? And we can classify images and we can play certain kinds of games and predict
+
+38:15.360 --> 38:23.520
+ how to steer the car and all this sort of stuff. Um, I don't think we have a very good idea of
+
+38:24.800 --> 38:29.760
+ what perception should deliver, right? So if you, if you believe in modularity, okay, there's,
+
+38:29.760 --> 38:38.000
+ there's a very strong view which says we shouldn't build in any modularity. We should make a giant
+
+38:38.000 --> 38:43.440
+ gigantic neural network, train it end to end to do the thing. And that's the best way forward.
+
+38:44.320 --> 38:51.440
+ And it's hard to argue with that except on a sample complexity basis, right? So you might say,
+
+38:51.440 --> 38:55.280
+ Oh, well if I want to do end to end reinforcement learning on this giant, giant neural network,
+
+38:55.280 --> 39:05.520
+ it's going to take a lot of data and a lot of like broken robots and stuff. So then the only answer
+
+39:05.520 --> 39:11.760
+ is to say, okay, we have to build something in, build in some structure or some bias. We know
+
+39:11.760 --> 39:15.760
+ from theory of machine learning, the only way to cut down the sample complexity is to kind of cut
+
+39:15.760 --> 39:22.480
+ down, somehow cut down the hypothesis space. You can do that by building in bias. There's all kinds
+
+39:22.480 --> 39:30.640
+ of reasons to think that nature built bias into humans. Um, convolution is a bias, right? It's a
+
+39:30.640 --> 39:37.520
+ very strong bias and it's a very critical bias. So my own view is that we should look for more
+
+39:37.520 --> 39:42.880
+ things that are like convolution, but the address other aspects of reasoning, right? So convolution
+
+39:42.880 --> 39:46.960
+ helps us a lot with a certain kind of spatial reasoning. That's quite close to the imaging.
+
+39:48.320 --> 39:56.880
+ I think there's other ideas like that. Maybe some amount of forward search, maybe some notions of
+
+39:56.880 --> 40:02.080
+ abstraction, maybe the notion that objects exist. Actually, I think that's pretty important. And a
+
+40:02.080 --> 40:07.440
+ lot of people won't give you that to start with. Right? So almost like a convolution in the, uh,
+
+40:08.960 --> 40:13.840
+ uh, in the object, semantic object space or some kind of, some kind of ideas in there.
+
+40:13.840 --> 40:17.760
+ That's right. And people are starting like the graph, graph convolutions are an idea that are
+
+40:17.760 --> 40:25.840
+ related to relation, relational representations. And so, so I think there are, so you, I've come
+
+40:25.840 --> 40:30.720
+ I've come far field from perception, but I think, um, I think the thing that's going to make
+
+40:30.720 --> 40:36.240
+ perception that kind of the next step is actually understanding better what it should produce.
+
+40:36.800 --> 40:40.640
+ Right? So what are we going to do with the output of it? Right? It's fine when what we're going to
+
+40:40.640 --> 40:46.960
+ do with the output is steer. It's less clear when we're just trying to make a one integrated
+
+40:46.960 --> 40:52.560
+ intelligent agent, what should the output of perception be? We have no idea. And how should
+
+40:52.560 --> 40:57.920
+ that hook up to the other stuff? We don't know. So I think the pressing question is,
+
+40:59.040 --> 41:02.960
+ what kinds of structure can we build in that are like the moral equivalent of convolution
+
+41:03.520 --> 41:09.440
+ that will make a really awesome superstructure that then learning can kind of progress on
+
+41:09.440 --> 41:13.840
+ efficiently. I agree. Very compelling description of actually where we stand with the perception
+
+41:13.840 --> 41:19.120
+ problem. You're teaching a course on embodied intelligence. What do you think it takes to
+
+41:19.120 --> 41:24.800
+ build a robot with human level intelligence? I don't know if we knew we would do it.
+
+41:27.680 --> 41:34.240
+ If you were to, I mean, okay. So do you think a robot needs to have a self awareness,
+
+41:36.000 --> 41:44.160
+ consciousness, fear of mortality, or is it, is it simpler than that? Or is consciousness a simple
+
+41:44.160 --> 41:50.240
+ thing? Like, do you think about these notions? I don't think much about consciousness. Even
+
+41:50.880 --> 41:55.840
+ most philosophers who care about it will give you that you could have robots that are zombies,
+
+41:55.840 --> 42:00.320
+ right? That behave like humans, but are not conscious. And I, at this moment would be happy
+
+42:00.320 --> 42:03.760
+ enough with that. So I'm not really worried one way or the other. So the technical side,
+
+42:03.760 --> 42:09.920
+ you're not thinking of the use of self awareness. Well, but I, okay, but then what does self
+
+42:09.920 --> 42:16.960
+ awareness mean? I mean, that you need to have some part of the system that can observe other
+
+42:16.960 --> 42:20.560
+ parts of the system and tell whether they're working well or not. That seems critical.
+
+42:21.200 --> 42:27.360
+ So does that count as, I mean, does that count as self awareness or not? Well, it depends on whether
+
+42:27.360 --> 42:33.120
+ you think that there's somebody at home who can articulate whether they're self aware. But clearly,
+
+42:33.120 --> 42:37.600
+ if I have like, you know, some piece of code that's counting how many times this procedure gets
+
+42:37.600 --> 42:43.680
+ executed, that's a kind of self awareness, right? So there's a big spectrum. It's clear you have to
+
+42:43.680 --> 42:48.160
+ have some of it. Right. You know, we're quite far away in many dimensions, but is there a direction
+
+42:48.160 --> 42:54.720
+ of research that's most compelling to you for, you know, trying to achieve human level intelligence
+
+42:54.720 --> 43:00.880
+ in our robots? Well, to me, I guess the thing that seems most compelling to me at the moment is this
+
+43:00.880 --> 43:10.160
+ question of what to build in and what to learn. Um, I think we're, we don't, we're missing a bunch
+
+43:10.160 --> 43:17.200
+ of ideas and, and we, you know, people, you know, don't you dare ask me how many years it's going to
+
+43:17.200 --> 43:22.320
+ be until that happens because I won't even participate in the conversation because I think
+
+43:22.320 --> 43:26.400
+ we're missing ideas and I don't know how long it's going to take to find them. So I won't ask you how
+
+43:26.400 --> 43:34.240
+ many years, but, uh, maybe I'll ask you what it, when you'll be sufficiently impressed that we've
+
+43:34.240 --> 43:40.080
+ achieved it. So what's, what's a good test of intelligence? Do you like the Turing test, the
+
+43:40.080 --> 43:46.400
+ natural language in the robotic space? Is there something where you would sit back and think,
+
+43:46.400 --> 43:52.000
+ Oh, that's, that's pretty impressive. Uh, as a test, as a benchmark, do you think about these
+
+43:52.000 --> 43:57.760
+ kinds of problems? No, I resist. I mean, I think all the time that we spend arguing about those
+
+43:57.760 --> 44:03.520
+ kinds of things could be better spent just making the robots work better. Uh, so you don't value
+
+44:03.520 --> 44:10.000
+ competition. So, I mean, there's a nature of benchmark benchmarks and datasets or Turing
+
+44:10.000 --> 44:14.240
+ test challenges where everybody kind of gets together and tries to build a better robot
+
+44:14.240 --> 44:18.640
+ cause they want to out compete each other. Like the DARPA challenge with the autonomous vehicles.
+
+44:18.640 --> 44:25.040
+ Do you see the value of that or it can get in the way? I think it can get in the way. I mean,
+
+44:25.040 --> 44:29.520
+ some people, many people find it motivating. And so that's good. I find it anti motivating
+
+44:29.520 --> 44:36.800
+ personally. Uh, but I think what, I mean, I think you get an interesting cycle where for a contest,
+
+44:37.440 --> 44:42.000
+ a bunch of smart people get super motivated and they hack their brains out and much of what gets
+
+44:42.000 --> 44:47.200
+ done is just hacks, but sometimes really cool ideas emerge. And then that gives us something
+
+44:47.200 --> 44:54.400
+ to chew on after that. So I'm, it's not a thing for me, but I don't, I don't regret that other
+
+44:54.400 --> 44:59.120
+ people do it. Yeah. It's like you said with everything else that it makes us good. So jumping
+
+44:59.120 --> 45:05.440
+ topics a little bit, you started the journal of machine learning research and served as its editor
+
+45:05.440 --> 45:13.760
+ in chief. Uh, how did the publication come about and what do you think about the current publishing
+
+45:13.760 --> 45:19.680
+ model space in machine learning artificial intelligence? Okay, good. So it came about
+
+45:19.680 --> 45:24.000
+ because there was a journal called machine learning, which still exists, which was owned by
+
+45:24.000 --> 45:30.880
+ Cluer and there was, I was on the editorial board and we used to have these meetings annually where
+
+45:30.880 --> 45:34.640
+ we would complain to Cluer that it was too expensive for the libraries and that people
+
+45:34.640 --> 45:39.200
+ couldn't publish. And we would really like to have some kind of relief on those fronts and they would
+
+45:39.200 --> 45:46.960
+ always sympathize, but not do anything. So, uh, we just decided to make a new journal and, uh,
+
+45:46.960 --> 45:52.720
+ there was the journal of AI research, which has, was on the same model, which had been in existence
+
+45:52.720 --> 45:59.920
+ for maybe five years or so, and it was going on pretty well. So, uh, we just made a new journal.
+
+45:59.920 --> 46:05.280
+ It wasn't, I mean, um, I don't know, I guess it was work, but it wasn't that hard. So basically
+
+46:05.280 --> 46:14.560
+ the editorial board, probably 75% of the editorial board of, uh, machine learning resigned and we
+
+46:14.560 --> 46:21.760
+ founded the new journal, but it was sort of, it was more open. Yeah. Right. So it's completely
+
+46:21.760 --> 46:28.960
+ open. It's open access. Actually, uh, uh, I had a postdoc, George Conidaris who wanted to call
+
+46:28.960 --> 46:36.240
+ these journals free for all, uh, because there were, I mean, it both has no page charges and has
+
+46:36.240 --> 46:44.640
+ no, uh, uh, access restrictions. And the reason, and so lots of people, I mean, there were, there
+
+46:44.640 --> 46:48.960
+ were people who were mad about the existence of this journal who thought it was a fraud or
+
+46:48.960 --> 46:54.320
+ something. It would be impossible. They said to run a journal like this with basically, I mean,
+
+46:54.320 --> 47:00.320
+ for a long time, I didn't even have a bank account. Uh, I paid for the lawyer to incorporate and the
+
+47:00.320 --> 47:06.960
+ IP address and it just did cost a couple of hundred dollars a year to run. It's a little bit
+
+47:06.960 --> 47:13.920
+ more now, but not that much more, but that's because I think computer scientists are competent
+
+47:13.920 --> 47:19.440
+ and autonomous in a way that many scientists and other fields aren't. I mean, at doing these kinds
+
+47:19.440 --> 47:24.480
+ of things, we already types out our own papers. We all have students and people who can hack a
+
+47:24.480 --> 47:29.280
+ website together in an afternoon. So the infrastructure for us was like, not a problem,
+
+47:29.280 --> 47:33.760
+ but for other people in other fields, it's a harder thing to do. Yeah. And this kind of
+
+47:34.320 --> 47:40.640
+ open access journal is nevertheless one of the most prestigious journals. So it's not like, uh,
+
+47:41.600 --> 47:47.520
+ prestige and it can be achieved without any of the... Paper is not required for prestige.
+
+47:47.520 --> 47:53.600
+ Yeah. It turns out. Yeah. So on the review process side of actually a long time ago,
+
+47:53.600 --> 47:59.440
+ I don't remember when I reviewed a paper where you were also a reviewer. And I remember reading
+
+47:59.440 --> 48:04.080
+ your review being influenced by it and it was really well written. It influenced how I write
+
+48:04.080 --> 48:11.520
+ feature reviews. Uh, you disagreed with me actually. Uh, and you made it, uh, my review,
+
+48:11.520 --> 48:18.480
+ but much better. So, but nevertheless, the review process, you know, has its, uh, flaws.
+
+48:19.280 --> 48:23.600
+ And how do you think, what do you think works well? How can it be improved?
+
+48:23.600 --> 48:27.600
+ So actually when I started JMLR, I wanted to do something completely different.
+
+48:28.720 --> 48:34.800
+ And I didn't because it felt like we needed a traditional journal of record. And so we just
+
+48:34.800 --> 48:41.680
+ made JMLR be almost like a normal journal, except for the open access parts of it, basically. Um,
+
+48:43.200 --> 48:47.600
+ increasingly of course, publication is not even a sensible word. You can publish something by
+
+48:47.600 --> 48:54.240
+ putting it in an archive so I can publish everything tomorrow. So making stuff public
+
+48:54.240 --> 49:04.560
+ is, there's no barrier. We still need curation and evaluation. I don't have time to read all
+
+49:04.560 --> 49:20.000
+ of archive. And you could argue that kind of social thumbs upping of articles suffices,
+
+49:20.000 --> 49:24.880
+ right? You might say, Oh, heck with this. We don't need journals at all. We'll put everything
+
+49:24.880 --> 49:29.840
+ on archive and people will upvote and downvote the articles. And then your CV will say, Oh man,
+
+49:29.840 --> 49:36.960
+ he got a lot upvotes. So, uh, that's good. Um, but I think there's still
+
+49:39.040 --> 49:46.320
+ value in careful reading and commentary of things. And it's hard to tell when people are
+
+49:46.320 --> 49:53.280
+ upvoting and downvoting or arguing about your paper on Twitter and Reddit, whether they know
+
+49:53.280 --> 49:57.760
+ what they're talking about, right? So then I have the second order problem of trying to decide whose
+
+49:57.760 --> 50:04.480
+ opinions I should value and such. So I don't know what I w if I had infinite time, which I don't,
+
+50:04.480 --> 50:10.160
+ and I'm not going to do this because I really want to make robots work. But if I felt inclined to do
+
+50:10.160 --> 50:14.560
+ something more in the publication direction, I would do this other thing, which I thought about
+
+50:14.560 --> 50:19.840
+ doing the first time, which is to get together some set of people whose opinions I value and
+
+50:19.840 --> 50:25.200
+ who are pretty articulate. And I guess we would be public, although we could be private. I'm not sure.
+
+50:25.200 --> 50:29.360
+ And we would review papers. We wouldn't publish them and you wouldn't submit them. We would just
+
+50:29.360 --> 50:36.240
+ find papers and we would write reviews and we would make those reviews public. And maybe if you,
+
+50:37.040 --> 50:42.880
+ you know, so we're Leslie's friends who review papers and maybe eventually if, if we, our opinion
+
+50:42.880 --> 50:48.560
+ was sufficiently valued, like the opinion of JMLR is valued, then you'd say on your CV that Leslie's
+
+50:48.560 --> 50:53.200
+ friends gave my paper a five star rating. And that would be just as good as saying, I got it,
+
+50:53.200 --> 51:00.880
+ so, you know, accepted into this journal. So I think, I think we should have good public commentary
+
+51:01.840 --> 51:06.320
+ and organize it in some way, but I don't really know how to do it. It's interesting times.
+
+51:06.320 --> 51:10.000
+ The way you describe it actually is really interesting. I mean, we do it for movies,
+
+51:10.000 --> 51:15.440
+ imdb.com. There's experts, critics come in, they write reviews, but there's also
+
+51:16.000 --> 51:19.840
+ regular non critics, humans write reviews and they're separated.
+
+51:19.840 --> 51:29.280
+ I like open review. The iClear process I think is interesting.
+
+51:29.280 --> 51:35.760
+ It's a step in the right direction, but it's still not as compelling as reviewing movies or
+
+51:35.760 --> 51:41.600
+ video games. I mean, it sometimes almost, it might be silly, at least from my perspective to say,
+
+51:41.600 --> 51:46.720
+ but it boils down to the user interface, how fun and easy it is to actually perform the reviews,
+
+51:46.720 --> 51:54.400
+ how efficient, how much you as a reviewer get street cred for being a good reviewer.
+
+51:54.400 --> 51:56.640
+ Those elements, those human elements come into play.
+
+51:57.200 --> 52:04.000
+ No, it's a big investment to do a good review of a paper and the flood of papers is out of control.
+
+52:04.000 --> 52:08.480
+ Right. So, you know, there aren't 3000 new, I don't know how many new movies are there in a year.
+
+52:08.480 --> 52:12.160
+ I don't know, but that's probably going to be less than how many machine learning papers are
+
+52:12.160 --> 52:21.760
+ in a year now. And I'm worried, you know, I, right. So I'm like an old person. So of course,
+
+52:21.760 --> 52:28.720
+ I'm going to say, things are moving too fast. I'm a stick in the mud. So I can say that,
+
+52:28.720 --> 52:35.760
+ but my particular flavor of that is I think the horizon for researchers has gotten very short,
+
+52:35.760 --> 52:41.760
+ that students want to publish a lot of papers and there's a huge, there's value. It's exciting. And
+
+52:41.760 --> 52:49.200
+ there's value in that and you get patted on the head for it and so on. But, and some of that is
+
+52:49.200 --> 52:59.200
+ fine, but I'm worried that we're driving out people who would spend two years thinking about
+
+52:59.200 --> 53:06.080
+ something. Back in my day, when we worked on our thesis, we did not publish papers. You did your
+
+53:06.080 --> 53:11.360
+ thesis for years. You picked a hard problem and then you worked and chewed on it and did stuff
+
+53:11.360 --> 53:16.320
+ and wasted time and for a long time. And when it was roughly, when it was done, you would write
+
+53:16.320 --> 53:23.520
+ papers. And so I don't know how to, and I don't think that everybody has to work in that mode,
+
+53:23.520 --> 53:27.760
+ but I think there's some problems that are hard enough that it's important to have a long
+
+53:27.760 --> 53:33.040
+ research horizon. And I'm worried that we don't incentivize that at all at this point.
+
+53:33.040 --> 53:41.840
+ In this current structure. Yeah. So what do you see as, what are your hopes and fears about the
+
+53:41.840 --> 53:50.080
+ future of AI and continuing on this theme? So AI has gone through a few winters, ups and downs. Do
+
+53:50.080 --> 53:58.720
+ you see another winter of AI coming? Are you more hopeful about making robots work, as you said?
+
+53:58.720 --> 54:05.680
+ I think the cycles are inevitable, but I think each time we get higher, right? I mean, so, you
+
+54:05.680 --> 54:15.280
+ know, it's like climbing some kind of landscape with a noisy optimizer. So it's clear that the,
+
+54:15.280 --> 54:22.560
+ you know, the deep learning stuff has made deep and important improvements. And so the high water
+
+54:22.560 --> 54:29.360
+ mark is now higher. There's no question. But of course, I think people are overselling and
+
+54:29.360 --> 54:37.040
+ eventually investors, I guess, and other people will look around and say, well, you're not quite
+
+54:37.040 --> 54:43.120
+ delivering on this grand claim and that wild hypothesis. It's probably, it's going to crash
+
+54:43.120 --> 54:49.760
+ some amount and then it's okay. I mean, but I don't, I can't imagine that there's like
+
+54:49.760 --> 54:58.320
+ some awesome monotonic improvement from here to human level AI. So in, you know, I have to ask
+
+54:58.320 --> 55:05.520
+ this question, I probably anticipate answers, the answers, but do you have a worry short term or
+
+55:05.520 --> 55:14.560
+ long term about the existential threats of AI and maybe short term, less existential, but more
+
+55:15.280 --> 55:17.120
+ robots taking away jobs?
+
+55:17.120 --> 55:25.520
+ Well, actually, let me talk a little bit about utility. Actually, I had an interesting
+
+55:25.520 --> 55:30.880
+ conversation with some military ethicists who wanted to talk to me about autonomous weapons.
+
+55:30.880 --> 55:37.440
+ And they're, they were interesting, smart, well educated guys who didn't know too much about AI
+
+55:37.440 --> 55:41.440
+ or machine learning. And the first question they asked me was, has your robot ever done
+
+55:41.440 --> 55:46.480
+ something you didn't expect? And I like burst out laughing because anybody who's ever done
+
+55:46.480 --> 55:51.680
+ something on the robot right knows that they don't do it. And what I realized was that their
+
+55:51.680 --> 55:56.960
+ model of how we program a robot was completely wrong. Their model of how we can program a robot
+
+55:56.960 --> 56:03.120
+ was like Lego mind storms, like, Oh, go forward a meter, turn left, take a picture, do this, do
+
+56:03.120 --> 56:08.800
+ that. And so if you have that model of programming, then it's true. It's kind of weird that your robot
+
+56:08.800 --> 56:13.760
+ would do something that you didn't anticipate. But the fact is, and actually, so now this is my
+
+56:13.760 --> 56:20.640
+ new educational mission. If I have to talk to non experts, I try to teach them the idea that
+
+56:20.640 --> 56:26.400
+ we don't operate, we operate at least one or maybe many levels of abstraction about that. And we say,
+
+56:26.400 --> 56:31.200
+ Oh, here's a hypothesis class, maybe it's a space of plans, or maybe it's a space of
+
+56:31.200 --> 56:36.400
+ classifiers or whatever. But there's some set of answers and an objective function. And then we
+
+56:36.400 --> 56:41.840
+ work on some optimization method that tries to optimize a solution solution in that class.
+
+56:43.200 --> 56:47.600
+ And we don't know what solution is going to come out. Right. So I think it's important to
+
+56:47.600 --> 56:52.160
+ communicate that. So I mean, of course, probably people who listen to this, they, they know that
+
+56:52.160 --> 56:56.320
+ lesson. But I think it's really critical to communicate that lesson. And then lots of people
+
+56:56.320 --> 57:01.840
+ are now talking about, you know, the value alignment problem. So you want to be sure as
+
+57:01.840 --> 57:07.840
+ robots or software systems get more competent, that their objectives are aligned with your
+
+57:07.840 --> 57:13.760
+ objectives, or that our objectives are compatible in some way, or we have a good way of mediating
+
+57:13.760 --> 57:19.120
+ when they have different objectives. And so I think it is important to start thinking in terms
+
+57:19.120 --> 57:25.360
+ like, you don't have to be freaked out by the robot apocalypse, to accept that it's important
+
+57:25.360 --> 57:30.080
+ to think about objective functions of value alignment. Yes. And that you have to really
+
+57:30.080 --> 57:34.160
+ everyone who's done optimization knows that you have to be careful what you wish for that,
+
+57:34.160 --> 57:38.800
+ you know, sometimes you get the optimal solution, and you realize, man, that was that objective was
+
+57:38.800 --> 57:47.040
+ wrong. So pragmatically, in the shortest term, it seems to me that that that those are really
+
+57:47.040 --> 57:50.960
+ interesting and critical questions. And the idea that we're going to go from being people who
+
+57:50.960 --> 57:56.480
+ engineer algorithms to being people who engineer objective functions. I think that's, that's
+
+57:56.480 --> 58:00.560
+ definitely going to happen. And that's going to change our thinking and methodology. And so we're
+
+58:00.560 --> 58:05.920
+ gonna you started at Stanford philosophy, that's where she could be. And I will go back to
+
+58:05.920 --> 58:11.920
+ philosophy maybe. Well, I mean, they're mixed together, because because, as we also know,
+
+58:11.920 --> 58:16.160
+ as machine learning people, right? When you design, in fact, this is the lecture I gave in
+
+58:16.160 --> 58:20.960
+ class today, when you design an objective function, you have to wear both hats, there's
+
+58:21.600 --> 58:26.080
+ the hat that says, what do I want? And there's the hat that says, but I know what my optimizer
+
+58:26.080 --> 58:31.840
+ can do to some degree. And I have to take that into account. So it's it's always a trade off,
+
+58:31.840 --> 58:38.560
+ and we have to kind of be mindful of that. The part about taking people's jobs, I understand
+
+58:38.560 --> 58:45.440
+ that that's important. I don't understand sociology or economics or people very well. So I
+
+58:45.440 --> 58:50.160
+ don't know how to think about that. So that's Yeah, so there might be a sociological aspect
+
+58:50.160 --> 58:54.640
+ there, the economic aspect that's very difficult to think about. Okay. I mean, I think other people
+
+58:54.640 --> 58:58.480
+ should be thinking about it. But I'm just that's not my strength. So what do you think is the most
+
+58:58.480 --> 59:03.600
+ exciting area of research in the short term, for the community and for your for yourself?
+
+59:03.600 --> 59:10.160
+ Well, so I mean, there's the story I've been telling about how to engineer intelligent robots.
+
+59:10.160 --> 59:15.680
+ So that's what we want to do. We all kind of want to do well, I mean, some set of us want to do this.
+
+59:16.160 --> 59:20.560
+ And the question is, what's the most effective strategy? And we've tried it. And there's a bunch
+
+59:20.560 --> 59:25.360
+ of different things you could do at the extremes, right? One super extreme is, what's the most
+
+59:25.360 --> 59:29.600
+ effective strategy? And there's a bunch of different things you could do at the extremes,
+
+59:29.600 --> 59:35.920
+ right? One super extreme is, we do introspection, and we write a program. Okay, that has not worked
+
+59:35.920 --> 59:41.280
+ out very well. Another extreme is we take a giant bunch of neural goo, and we try and train it up to
+
+59:41.280 --> 59:46.960
+ do something. I don't think that's going to work either. So the question is, what's the middle
+
+59:46.960 --> 59:54.240
+ ground? And, and again, this isn't a theological question or anything like that. It's just like,
+
+59:54.240 --> 1:00:00.640
+ what's the middle ground? And I think it's clear, it's a combination of learning, to me, it's clear,
+
+1:00:00.640 --> 1:00:05.760
+ it's a combination of learning and not learning. And what should that combination be? And what's
+
+1:00:05.760 --> 1:00:10.080
+ the stuff we build in? So to me, that's the most compelling question. And when you say engineer
+
+1:00:10.080 --> 1:00:16.560
+ robots, you mean engineering systems that work in the real world? Is that, that's the emphasis?
+
+1:00:16.560 --> 1:00:23.200
+ Okay. Last question. Which robots or robot is your favorite from science fiction?
+
+1:00:24.480 --> 1:00:30.400
+ So you can go with Star Wars or RTD2, or you can go with more modern,
+
+1:00:32.240 --> 1:00:37.040
+ maybe Hal from... I don't think I have a favorite robot from science fiction.
+
+1:00:38.080 --> 1:00:45.520
+ This is, this is back to, you like to make robots work in the real world here, not, not in...
+
+1:00:45.520 --> 1:00:50.000
+ I mean, I love the process and I care more about the process.
+
+1:00:50.000 --> 1:00:51.040
+ The engineering process.
+
+1:00:51.600 --> 1:00:55.760
+ Yeah. I mean, I do research because it's fun, not because I care about what we produce.
+
+1:00:57.520 --> 1:01:00.640
+ Well, that's a, that's a beautiful note actually. And Leslie,
+
+1:01:00.640 --> 1:01:02.000
+ thank you so much for talking today.
+
+1:01:02.000 --> 1:01:16.800
+ Sure. It's been fun.
+

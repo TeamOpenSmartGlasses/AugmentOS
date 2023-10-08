@@ -1,0 +1,4745 @@
+WEBVTT
+
+00:00.000 --> 00:03.240
+ The following is a conversation with Judea Pearl,
+
+00:03.240 --> 00:06.720
+ professor at UCLA and a winner of the Turing Award
+
+00:06.720 --> 00:10.640
+ that's generally recognized as the Nobel Prize of Computing.
+
+00:10.640 --> 00:12.400
+ He's one of the seminal figures
+
+00:12.400 --> 00:14.440
+ in the field of artificial intelligence,
+
+00:14.440 --> 00:16.640
+ computer science, and statistics.
+
+00:16.640 --> 00:19.960
+ He has developed and championed probabilistic approaches
+
+00:19.960 --> 00:22.680
+ to AI, including Beijing networks,
+
+00:22.680 --> 00:26.040
+ and profound ideas in causality in general.
+
+00:26.040 --> 00:29.080
+ These ideas are important not just to AI,
+
+00:29.080 --> 00:32.800
+ but to our understanding and practice of science.
+
+00:32.800 --> 00:35.840
+ But in the field of AI, the idea of causality,
+
+00:35.840 --> 00:39.400
+ cause and effect, to many, lie at the core
+
+00:39.400 --> 00:42.080
+ of what is currently missing and what must be developed
+
+00:42.080 --> 00:45.060
+ in order to build truly intelligent systems.
+
+00:46.080 --> 00:48.000
+ For this reason, and many others,
+
+00:48.000 --> 00:50.760
+ his work is worth returning to often.
+
+00:50.760 --> 00:54.200
+ I recommend his most recent book called Book of Why
+
+00:54.200 --> 00:57.160
+ that presents key ideas from a lifetime of work
+
+00:57.160 --> 01:00.440
+ in a way that is accessible to the general public.
+
+01:00.440 --> 01:03.480
+ This is the Artificial Intelligence Podcast.
+
+01:03.480 --> 01:05.880
+ If you enjoy it, subscribe on YouTube,
+
+01:05.880 --> 01:07.840
+ give it five stars on Apple Podcast,
+
+01:07.840 --> 01:11.360
+ support it on Patreon, or simply connect with me on Twitter
+
+01:11.360 --> 01:15.320
+ at Lex Friedman, spelled F R I D M A N.
+
+01:15.320 --> 01:18.200
+ If you leave a review on Apple Podcasts especially,
+
+01:18.200 --> 01:20.960
+ but also a cast box or comment on YouTube,
+
+01:20.960 --> 01:23.920
+ consider mentioning topics, people, ideas, questions,
+
+01:23.920 --> 01:26.120
+ quotes, and science, tech, and philosophy
+
+01:26.120 --> 01:29.560
+ you find interesting, and I'll read them on this podcast.
+
+01:29.560 --> 01:31.960
+ I won't call out names, but I love comments
+
+01:31.960 --> 01:33.880
+ with kindness and thoughtfulness in them,
+
+01:33.880 --> 01:35.760
+ so I thought I'd share them with you.
+
+01:35.760 --> 01:37.840
+ Someone on YouTube highlighted a quote
+
+01:37.840 --> 01:40.040
+ from the conversation with Noam Chomsky,
+
+01:40.040 --> 01:42.800
+ where he said that the significance of your life
+
+01:42.800 --> 01:44.780
+ is something you create.
+
+01:44.780 --> 01:46.600
+ I like this line as well.
+
+01:46.600 --> 01:49.880
+ On most days, the existentialist approach to life
+
+01:49.880 --> 01:53.660
+ is one I find liberating and fulfilling.
+
+01:53.660 --> 01:55.040
+ I recently started doing ads
+
+01:55.040 --> 01:56.640
+ at the end of the introduction.
+
+01:56.640 --> 01:59.400
+ I'll do one or two minutes after introducing the episode,
+
+01:59.400 --> 02:01.080
+ and never any ads in the middle
+
+02:01.080 --> 02:03.280
+ that break the flow of the conversation.
+
+02:03.280 --> 02:04.760
+ I hope that works for you
+
+02:04.760 --> 02:07.160
+ and doesn't hurt the listening experience.
+
+02:08.280 --> 02:10.600
+ This show is presented by Cash App,
+
+02:10.600 --> 02:13.040
+ the number one finance app in the App Store.
+
+02:13.040 --> 02:15.520
+ I personally use Cash App to send money to friends,
+
+02:15.520 --> 02:17.420
+ but you can also use it to buy, sell,
+
+02:17.420 --> 02:20.100
+ and deposit Bitcoin in just seconds.
+
+02:20.100 --> 02:22.800
+ Cash App also has a new investing feature.
+
+02:22.800 --> 02:25.860
+ You can buy fractions of a stock, say $1 worth,
+
+02:25.860 --> 02:28.040
+ no matter what the stock price is.
+
+02:28.040 --> 02:30.720
+ Broker services are provided by Cash App Investing,
+
+02:30.720 --> 02:34.280
+ a subsidiary of Square, a member of SIPC.
+
+02:34.280 --> 02:36.600
+ I'm excited to be working with Cash App
+
+02:36.600 --> 02:39.940
+ to support one of my favorite organizations called First,
+
+02:39.940 --> 02:43.440
+ best known for their first robotics and Lego competitions.
+
+02:43.440 --> 02:47.120
+ They educate and inspire hundreds of thousands of students
+
+02:47.120 --> 02:49.000
+ in over 110 countries,
+
+02:49.000 --> 02:51.760
+ and have a perfect rating on Charity Navigator,
+
+02:51.760 --> 02:53.120
+ which means the donated money
+
+02:53.120 --> 02:56.000
+ is used to the maximum effectiveness.
+
+02:56.000 --> 02:58.680
+ When you get Cash App from the App Store or Google Play,
+
+02:58.680 --> 03:02.640
+ and use the code LEXPODCAST, you'll get $10,
+
+03:02.640 --> 03:05.600
+ and Cash App will also donate $10 to First,
+
+03:05.600 --> 03:07.560
+ which again, is an organization
+
+03:07.560 --> 03:10.120
+ that I've personally seen inspire girls and boys
+
+03:10.120 --> 03:12.800
+ to dream of engineering a better world.
+
+03:12.800 --> 03:16.940
+ And now, here's my conversation with Judea Pearl.
+
+03:18.080 --> 03:19.720
+ You mentioned in an interview
+
+03:19.720 --> 03:21.840
+ that science is not a collection of facts,
+
+03:21.840 --> 03:23.960
+ but a constant human struggle
+
+03:23.960 --> 03:25.560
+ with the mysteries of nature.
+
+03:26.700 --> 03:29.240
+ What was the first mystery that you can recall
+
+03:29.240 --> 03:30.800
+ that hooked you, that kept you in the creaset?
+
+03:30.800 --> 03:33.480
+ Oh, the first mystery, that's a good one.
+
+03:34.440 --> 03:36.240
+ Yeah, I remember that.
+
+03:37.840 --> 03:40.000
+ I had a fever for three days.
+
+03:41.440 --> 03:45.680
+ And when I learned about Descartes, analytic geometry,
+
+03:45.680 --> 03:49.880
+ and I found out that you can do all the construction
+
+03:49.880 --> 03:51.820
+ in geometry using algebra.
+
+03:52.880 --> 03:54.480
+ And I couldn't get over it.
+
+03:54.480 --> 03:56.360
+ I simply couldn't get out of bed.
+
+03:58.280 --> 04:01.900
+ So what kind of world does analytic geometry unlock?
+
+04:02.800 --> 04:05.580
+ Well, it connects algebra with geometry.
+
+04:07.320 --> 04:09.360
+ Okay, so Descartes had the idea
+
+04:09.360 --> 04:14.360
+ that geometrical construction and geometrical theorems
+
+04:14.360 --> 04:17.520
+ and assumptions can be articulated
+
+04:17.520 --> 04:19.520
+ in the language of algebra,
+
+04:19.520 --> 04:24.520
+ which means that all the proof that we did in high school,
+
+04:24.840 --> 04:28.560
+ and trying to prove that the three bisectors
+
+04:28.560 --> 04:32.360
+ meet at one point, and that, okay,
+
+04:33.640 --> 04:38.640
+ all this can be proven by just shuffling around notation.
+
+04:39.440 --> 04:43.560
+ Yeah, that was a traumatic experience.
+
+04:43.560 --> 04:44.400
+ That was a traumatic experience.
+
+04:44.400 --> 04:45.520
+ For me, it was, I'm telling you.
+
+04:45.520 --> 04:46.960
+ So it's the connection
+
+04:46.960 --> 04:49.120
+ between the different mathematical disciplines,
+
+04:49.120 --> 04:49.960
+ that they all.
+
+04:49.960 --> 04:52.960
+ Not in between two different languages.
+
+04:52.960 --> 04:53.800
+ Languages.
+
+04:53.800 --> 04:54.640
+ Yeah.
+
+04:54.640 --> 04:57.200
+ So which mathematic discipline is most beautiful?
+
+04:57.200 --> 04:58.560
+ Is geometry it for you?
+
+04:58.560 --> 04:59.440
+ Both are beautiful.
+
+04:59.440 --> 05:02.400
+ They have almost the same power.
+
+05:02.400 --> 05:04.920
+ But there's a visual element to geometry, being a.
+
+05:04.920 --> 05:08.080
+ Visually, it's more transparent.
+
+05:08.080 --> 05:10.680
+ But once you get over to algebra,
+
+05:10.680 --> 05:14.400
+ then the linear equation is a straight line.
+
+05:14.400 --> 05:18.160
+ This translation is easily absorbed, okay?
+
+05:18.160 --> 05:22.760
+ And to pass a tangent to a circle,
+
+05:22.760 --> 05:25.480
+ you know, you have the basic theorems,
+
+05:25.480 --> 05:27.480
+ and you can do it with algebra.
+
+05:27.480 --> 05:31.520
+ So but the transition from one to another was really,
+
+05:31.520 --> 05:34.120
+ I thought that Descartes was the greatest mathematician
+
+05:34.120 --> 05:35.160
+ of all times.
+
+05:35.160 --> 05:40.160
+ So you have been at the, if you think of engineering
+
+05:40.840 --> 05:43.240
+ and mathematics as a spectrum.
+
+05:43.240 --> 05:44.080
+ Yes.
+
+05:44.080 --> 05:49.080
+ You have been, you have walked casually along this spectrum
+
+05:49.200 --> 05:51.520
+ throughout your life.
+
+05:51.520 --> 05:53.000
+ You know, a little bit of engineering,
+
+05:53.000 --> 05:54.920
+ and then, you know,
+
+05:55.920 --> 05:58.800
+ you've done a little bit of mathematics here and there.
+
+05:58.800 --> 05:59.640
+ Not a little bit.
+
+05:59.640 --> 06:04.080
+ I mean, we got a very solid background in mathematics,
+
+06:04.080 --> 06:07.080
+ because our teachers were geniuses.
+
+06:07.080 --> 06:09.720
+ Our teachers came from Germany in the 1930s,
+
+06:09.720 --> 06:11.880
+ running away from Hitler.
+
+06:11.880 --> 06:15.080
+ They left their careers in Heidelberg and Berlin,
+
+06:15.080 --> 06:17.840
+ and came to teach high school in Israel.
+
+06:17.840 --> 06:21.600
+ And we were the beneficiary of that experiment.
+
+06:21.600 --> 06:25.200
+ So I, and they taught us math the good way.
+
+06:25.200 --> 06:26.720
+ What's the good way to teach math?
+
+06:26.720 --> 06:27.720
+ Chronologically.
+
+06:29.040 --> 06:29.880
+ The people.
+
+06:29.880 --> 06:33.320
+ The people behind the theorems, yeah.
+
+06:33.320 --> 06:37.720
+ Their cousins, and their nieces, and their faces.
+
+06:39.040 --> 06:41.520
+ And how they jumped from the bathtub when they scream,
+
+06:41.520 --> 06:42.360
+ Eureka!
+
+06:43.480 --> 06:45.160
+ And ran naked in town.
+
+06:46.000 --> 06:49.240
+ So you're almost educated as a historian of math.
+
+06:49.240 --> 06:51.920
+ No, we just got a glimpse of that history
+
+06:51.920 --> 06:53.760
+ together with a theorem,
+
+06:53.760 --> 06:58.200
+ so every exercise in math was connected with a person.
+
+06:59.600 --> 07:01.040
+ And the time of the person.
+
+07:01.040 --> 07:03.520
+ The period.
+
+07:03.520 --> 07:05.600
+ The period, also mathematically speaking.
+
+07:05.600 --> 07:06.880
+ Mathematically speaking, yes.
+
+07:06.880 --> 07:09.040
+ Not the politics, no.
+
+07:09.040 --> 07:14.000
+ So, and then in university,
+
+07:14.000 --> 07:16.240
+ you have gone on to do engineering.
+
+07:16.240 --> 07:17.200
+ Yeah.
+
+07:17.200 --> 07:20.680
+ I get a B.S. in engineering and a technical, right?
+
+07:20.680 --> 07:25.600
+ And then I moved here for graduate work,
+
+07:25.600 --> 07:30.280
+ and I got, I did engineering in addition to physics
+
+07:30.280 --> 07:35.280
+ in Rutgers, and it combined very nicely with my thesis,
+
+07:35.840 --> 07:39.280
+ which I did in RCA Laboratories in superconductivity.
+
+07:40.480 --> 07:43.760
+ And then somehow thought to switch
+
+07:43.760 --> 07:46.720
+ to almost computer science, software,
+
+07:46.720 --> 07:50.800
+ even, not switch, but long to become,
+
+07:50.800 --> 07:53.000
+ to get into software engineering a little bit.
+
+07:53.000 --> 07:53.840
+ Yes.
+
+07:53.840 --> 07:56.200
+ And programming, if you can call it that in the 70s.
+
+07:56.200 --> 07:58.120
+ So there's all these disciplines.
+
+07:58.120 --> 07:58.960
+ Yeah.
+
+07:58.960 --> 08:02.880
+ So to pick a favorite, in terms of engineering
+
+08:02.880 --> 08:07.120
+ and mathematics, which path do you think has more beauty?
+
+08:07.120 --> 08:08.600
+ Which path has more power?
+
+08:08.600 --> 08:10.560
+ It's hard to choose, no.
+
+08:10.560 --> 08:14.640
+ I enjoy doing physics, and even have a vortex
+
+08:14.640 --> 08:16.000
+ named on my name.
+
+08:16.000 --> 08:20.840
+ So I have investment in immortality.
+
+08:23.400 --> 08:25.160
+ So what is a vortex?
+
+08:25.160 --> 08:27.000
+ Vortex is in superconductivity.
+
+08:27.000 --> 08:27.840
+ In the superconductivity, yeah.
+
+08:27.840 --> 08:30.880
+ You have permanent current swirling around.
+
+08:30.880 --> 08:34.560
+ One way or the other, you can have a store one or zero
+
+08:34.560 --> 08:35.400
+ for a computer.
+
+08:35.400 --> 08:39.680
+ That's what we worked on in the 1960 in RCA.
+
+08:39.680 --> 08:44.080
+ And I discovered a few nice phenomena with the vortices.
+
+08:44.080 --> 08:44.920
+ You push current and they move.
+
+08:44.920 --> 08:46.600
+ So that's a pearl vortex.
+
+08:46.600 --> 08:50.240
+ Pearl vortex, right, you can Google it, right?
+
+08:50.240 --> 08:52.360
+ I didn't know about it, but the physicists,
+
+08:52.360 --> 08:57.200
+ they picked up on my thesis, on my PhD thesis,
+
+08:57.200 --> 09:02.200
+ and it becomes popular when thin film superconductors
+
+09:03.240 --> 09:06.920
+ became important for high temperature superconductors.
+
+09:06.920 --> 09:10.840
+ So they called it pearl vortex without my knowledge.
+
+09:10.840 --> 09:13.800
+ I discovered it only about 15 years ago.
+
+09:14.760 --> 09:17.560
+ You have footprints in all of the sciences.
+
+09:17.560 --> 09:20.960
+ So let's talk about the universe a little bit.
+
+09:20.960 --> 09:23.880
+ Is the universe at the lowest level deterministic
+
+09:23.880 --> 09:27.400
+ or stochastic in your amateur philosophy view?
+
+09:27.400 --> 09:30.120
+ Put another way, does God play dice?
+
+09:30.120 --> 09:33.000
+ We know it is stochastic, right?
+
+09:33.000 --> 09:35.160
+ Today, today we think it is stochastic.
+
+09:35.160 --> 09:36.000
+ Yes.
+
+09:37.000 --> 09:40.120
+ We think because we have the Heisenberg uncertainty principle
+
+09:40.120 --> 09:44.680
+ and we have some experiments to confirm that.
+
+09:45.760 --> 09:47.960
+ All we have is experiments to confirm it.
+
+09:47.960 --> 09:49.240
+ We don't understand why.
+
+09:50.400 --> 09:51.440
+ Why is already?
+
+09:51.440 --> 09:52.960
+ You wrote a book about why.
+
+09:52.960 --> 09:57.240
+ Yeah, it's a puzzle.
+
+09:57.240 --> 10:02.240
+ It's a puzzle that you have the dice flipping machine,
+
+10:02.400 --> 10:07.400
+ oh God, and the result of the flipping
+
+10:08.560 --> 10:12.280
+ propagate with the speed faster than the speed of light.
+
+10:12.280 --> 10:14.240
+ We can't explain it, okay?
+
+10:14.240 --> 10:19.240
+ So, but it only governs microscopic phenomena.
+
+10:19.240 --> 10:21.320
+ Microscopic phenomena.
+
+10:21.320 --> 10:23.560
+ So you don't think of quantum mechanics
+
+10:23.560 --> 10:28.240
+ as useful for understanding the nature of reality?
+
+10:28.240 --> 10:30.400
+ No, diversionary.
+
+10:30.400 --> 10:34.520
+ So in your thinking, the world might
+
+10:34.520 --> 10:36.000
+ as well be deterministic.
+
+10:36.000 --> 10:38.480
+ The world is deterministic,
+
+10:38.480 --> 10:42.800
+ and as far as the neuron firing is concerned,
+
+10:42.800 --> 10:47.240
+ it is deterministic to first approximation.
+
+10:47.240 --> 10:48.920
+ What about free will?
+
+10:48.920 --> 10:52.920
+ Free will is also a nice exercise.
+
+10:52.920 --> 10:57.920
+ Free will is an illusion that we AI people are gonna solve.
+
+10:59.320 --> 11:01.800
+ So what do you think once we solve it,
+
+11:01.800 --> 11:03.360
+ that solution will look like?
+
+11:03.360 --> 11:04.200
+ Once we put it in the page.
+
+11:04.200 --> 11:06.240
+ The solution will look like,
+
+11:06.240 --> 11:08.920
+ first of all, it will look like a machine.
+
+11:08.920 --> 11:12.560
+ A machine that act as though it has free will.
+
+11:12.560 --> 11:14.760
+ It communicates with other machines
+
+11:14.760 --> 11:17.160
+ as though they have free will,
+
+11:17.160 --> 11:19.480
+ and you wouldn't be able to tell the difference
+
+11:19.480 --> 11:21.560
+ between a machine that does
+
+11:21.560 --> 11:24.680
+ and a machine that doesn't have free will, okay?
+
+11:24.680 --> 11:26.840
+ So the illusion, it propagates the illusion
+
+11:26.840 --> 11:28.960
+ of free will amongst the other machines.
+
+11:28.960 --> 11:33.120
+ And faking it is having it, okay?
+
+11:33.120 --> 11:35.120
+ That's what Turing test is all about.
+
+11:35.120 --> 11:37.160
+ Faking intelligence is intelligent
+
+11:37.160 --> 11:41.080
+ because it's not easy to fake.
+
+11:41.080 --> 11:43.200
+ It's very hard to fake,
+
+11:43.200 --> 11:45.200
+ and you can only fake if you have it.
+
+11:45.200 --> 11:50.200
+ So that's such a beautiful statement.
+
+11:54.080 --> 11:57.960
+ Yeah, you can't fake it if you don't have it, yeah.
+
+11:59.520 --> 12:04.520
+ So let's begin at the beginning with probability,
+
+12:06.800 --> 12:09.360
+ both philosophically and mathematically.
+
+12:09.360 --> 12:11.560
+ What does it mean to say the probability
+
+12:11.560 --> 12:15.160
+ of something happening is 50%?
+
+12:15.160 --> 12:16.960
+ What is probability?
+
+12:16.960 --> 12:18.680
+ It's a degree of uncertainty
+
+12:18.680 --> 12:22.400
+ that an agent has about the world.
+
+12:22.400 --> 12:24.760
+ You're still expressing some knowledge in that statement.
+
+12:24.760 --> 12:26.000
+ Of course.
+
+12:26.000 --> 12:27.840
+ If the probability is 90%,
+
+12:27.840 --> 12:29.800
+ it's absolutely a different kind of knowledge
+
+12:29.800 --> 12:32.480
+ than if it is 10%.
+
+12:32.480 --> 12:36.080
+ But it's still not solid knowledge, it's...
+
+12:36.080 --> 12:38.520
+ It is solid knowledge, but hey,
+
+12:38.520 --> 12:43.520
+ if you tell me that 90% assurance smoking
+
+12:43.520 --> 12:48.520
+ will give you lung cancer in five years versus 10%,
+
+12:48.880 --> 12:52.400
+ it's a piece of useful knowledge.
+
+12:52.400 --> 12:56.120
+ So the statistical view of the universe,
+
+12:56.120 --> 12:57.600
+ why is it useful?
+
+12:57.600 --> 13:00.760
+ So we're swimming in complete uncertainty,
+
+13:00.760 --> 13:01.600
+ most of everything around us.
+
+13:01.600 --> 13:06.120
+ It allows you to predict things with a certain probability,
+
+13:06.120 --> 13:09.240
+ and computing those probabilities are very useful.
+
+13:09.240 --> 13:14.160
+ That's the whole idea of prediction.
+
+13:15.080 --> 13:18.160
+ And you need prediction to be able to survive.
+
+13:18.160 --> 13:19.640
+ If you can't predict the future,
+
+13:19.640 --> 13:22.320
+ then you're just crossing the street,
+
+13:22.320 --> 13:25.040
+ will be extremely fearful.
+
+13:26.080 --> 13:28.840
+ And so you've done a lot of work in causation,
+
+13:28.840 --> 13:32.120
+ and so let's think about correlation.
+
+13:32.120 --> 13:34.320
+ I started with probability.
+
+13:34.320 --> 13:35.640
+ You started with probability.
+
+13:35.640 --> 13:38.760
+ You've invented the Bayesian networks.
+
+13:38.760 --> 13:39.600
+ Yeah.
+
+13:39.600 --> 13:43.880
+ And so we'll dance back and forth
+
+13:43.880 --> 13:47.480
+ between these levels of uncertainty.
+
+13:47.480 --> 13:49.320
+ But what is correlation?
+
+13:49.320 --> 13:50.360
+ What is it?
+
+13:50.360 --> 13:54.000
+ So probability of something happening is something,
+
+13:54.000 --> 13:56.480
+ but then there's a bunch of things happening.
+
+13:56.480 --> 13:58.680
+ And sometimes they happen together,
+
+13:58.680 --> 14:00.760
+ sometimes not, they're independent or not.
+
+14:00.760 --> 14:03.640
+ So how do you think about correlation of things?
+
+14:03.640 --> 14:06.280
+ Correlation occurs when two things vary together
+
+14:06.280 --> 14:09.720
+ over a very long time is one way of measuring it.
+
+14:09.720 --> 14:11.840
+ Or when you have a bunch of variables
+
+14:11.840 --> 14:14.560
+ that they all vary cohesively,
+
+14:15.880 --> 14:18.600
+ then because we have a correlation here.
+
+14:18.600 --> 14:21.720
+ And usually when we think about correlation,
+
+14:21.720 --> 14:24.400
+ we really think causally.
+
+14:24.400 --> 14:27.960
+ Things cannot be correlated unless there is a reason
+
+14:27.960 --> 14:30.280
+ for them to vary together.
+
+14:30.280 --> 14:32.040
+ Why should they vary together?
+
+14:32.040 --> 14:35.560
+ If they don't see each other, why should they vary together?
+
+14:35.560 --> 14:38.240
+ So underlying it somewhere is causation.
+
+14:38.240 --> 14:39.240
+ Yes.
+
+14:39.240 --> 14:43.160
+ Hidden in our intuition, there is a notion of causation
+
+14:43.160 --> 14:48.160
+ because we cannot grasp any other logic except causation.
+
+14:48.600 --> 14:53.600
+ And how does conditional probability differ from causation?
+
+14:55.600 --> 14:57.920
+ So what is conditional probability?
+
+14:57.920 --> 15:00.560
+ Conditional probability, how things vary
+
+15:00.560 --> 15:05.040
+ when one of them stays the same.
+
+15:05.040 --> 15:09.320
+ Now staying the same means that I have chosen
+
+15:09.320 --> 15:11.720
+ to look only at those incidents
+
+15:11.720 --> 15:16.120
+ where the guy has the same value as previous one.
+
+15:16.120 --> 15:19.280
+ It's my choice as an experimenter.
+
+15:19.280 --> 15:22.280
+ So things that are not correlated before
+
+15:22.280 --> 15:24.240
+ could become correlated.
+
+15:24.240 --> 15:26.840
+ Like for instance, if I have two coins
+
+15:26.840 --> 15:29.240
+ which are uncorrelated, okay,
+
+15:29.240 --> 15:33.760
+ and I choose only those flippings, experiments
+
+15:33.760 --> 15:36.680
+ in which a bell rings, and the bell rings
+
+15:36.680 --> 15:40.760
+ when at least one of them is a tail, okay,
+
+15:40.760 --> 15:44.360
+ then suddenly I see correlation between the two coins
+
+15:44.360 --> 15:48.400
+ because I only look at the cases where the bell rang.
+
+15:49.280 --> 15:53.680
+ You see, it's my design, with my ignorance essentially,
+
+15:53.680 --> 15:58.680
+ with my audacity to ignore certain incidents,
+
+15:58.680 --> 16:03.680
+ I suddenly create a correlation
+
+16:04.760 --> 16:06.760
+ where it doesn't exist physically.
+
+16:07.760 --> 16:11.400
+ Right, so that's, you just outlined one of the flaws
+
+16:11.400 --> 16:14.960
+ of observing the world and trying to infer something
+
+16:14.960 --> 16:16.080
+ from the math about the world
+
+16:16.080 --> 16:17.520
+ from looking at the correlation.
+
+16:17.520 --> 16:20.960
+ I don't look at it as a flaw, the world works like that.
+
+16:20.960 --> 16:24.960
+ But the flaws comes if we try to impose
+
+16:24.960 --> 16:29.960
+ causal logic on correlation, it doesn't work too well.
+
+16:34.680 --> 16:36.320
+ I mean, but that's exactly what we do.
+
+16:36.320 --> 16:40.040
+ That's what, that has been the majority of science.
+
+16:40.040 --> 16:45.040
+ The majority of naive science, the decisions know it.
+
+16:45.040 --> 16:47.840
+ The decisions know that if you condition
+
+16:47.840 --> 16:50.960
+ on a third variable, then you can destroy
+
+16:50.960 --> 16:55.640
+ or create correlations among two other variables.
+
+16:55.640 --> 16:57.360
+ They know it, it's in their data.
+
+16:58.480 --> 17:01.120
+ It's nothing surprising, that's why they all dismiss
+
+17:01.120 --> 17:04.120
+ the Simpson Paradox, ah, we know it.
+
+17:04.120 --> 17:05.880
+ They don't know anything about it.
+
+17:07.280 --> 17:09.680
+ Well, there's disciplines like psychology
+
+17:09.680 --> 17:12.880
+ where all the variables are hard to account for.
+
+17:12.880 --> 17:15.200
+ And so oftentimes there's a leap
+
+17:15.200 --> 17:17.520
+ between correlation to causation.
+
+17:17.520 --> 17:18.840
+ You're imposing.
+
+17:18.840 --> 17:21.120
+ You're implying a leap.
+
+17:21.120 --> 17:24.440
+ Who is trying to get causation from correlation?
+
+17:26.520 --> 17:27.960
+ You're not proving causation,
+
+17:27.960 --> 17:31.680
+ but you're sort of discussing it,
+
+17:31.680 --> 17:35.360
+ implying, sort of hypothesizing with our ability to prove.
+
+17:35.360 --> 17:37.040
+ Which discipline you have in mind?
+
+17:37.040 --> 17:40.440
+ I'll tell you if they are obsolete,
+
+17:40.440 --> 17:44.240
+ or if they are outdated, or they are about to get outdated.
+
+17:44.240 --> 17:45.440
+ Yes, yes.
+
+17:45.440 --> 17:46.760
+ Tell me which one you have in mind.
+
+17:46.760 --> 17:48.160
+ Oh, psychology, you know.
+
+17:48.160 --> 17:50.760
+ Psychology, what, is it SEM, structural equation?
+
+17:50.760 --> 17:54.280
+ No, no, I was thinking of applied psychology studying.
+
+17:54.280 --> 17:57.200
+ For example, we work with human behavior
+
+17:57.200 --> 18:00.360
+ in semi autonomous vehicles, how people behave.
+
+18:00.360 --> 18:02.560
+ And you have to conduct these studies
+
+18:02.560 --> 18:03.960
+ of people driving cars.
+
+18:03.960 --> 18:05.520
+ Everything starts with the question.
+
+18:05.520 --> 18:07.800
+ What is the research question?
+
+18:07.800 --> 18:09.400
+ What is the research question?
+
+18:10.400 --> 18:14.320
+ The research question, do people fall asleep
+
+18:14.320 --> 18:18.560
+ when the car is driving itself?
+
+18:18.560 --> 18:22.240
+ Do they fall asleep, or do they tend to fall asleep
+
+18:22.240 --> 18:23.160
+ more frequently?
+
+18:23.160 --> 18:24.000
+ More frequently.
+
+18:24.000 --> 18:25.960
+ Than the car not driving itself.
+
+18:25.960 --> 18:26.880
+ Not driving itself.
+
+18:26.880 --> 18:28.720
+ That's a good question, okay.
+
+18:28.720 --> 18:32.480
+ And so you measure, you put people in the car
+
+18:32.480 --> 18:33.720
+ because it's real world.
+
+18:33.720 --> 18:35.160
+ You can't conduct an experiment
+
+18:35.160 --> 18:36.320
+ where you control everything.
+
+18:36.320 --> 18:37.840
+ Why can't you control?
+
+18:37.840 --> 18:38.680
+ You could.
+
+18:38.680 --> 18:43.680
+ Why can't you control the automatic module on and off?
+
+18:44.760 --> 18:47.720
+ Because it's on road, public.
+
+18:47.720 --> 18:52.680
+ I mean, there's aspects to it that's unethical.
+
+18:52.680 --> 18:54.920
+ Because it's testing on public roads.
+
+18:54.920 --> 18:56.640
+ So you can only use vehicle.
+
+18:56.640 --> 19:00.240
+ They have to, the people, the drivers themselves
+
+19:00.240 --> 19:02.840
+ have to make that choice themselves.
+
+19:02.840 --> 19:05.080
+ And so they regulate that.
+
+19:05.080 --> 19:09.040
+ And so you just observe when they drive autonomously
+
+19:09.040 --> 19:10.320
+ and when they don't.
+
+19:10.320 --> 19:11.160
+ And then.
+
+19:11.160 --> 19:13.120
+ But maybe they turn it off when they were very tired.
+
+19:13.120 --> 19:14.520
+ Yeah, that kind of thing.
+
+19:14.520 --> 19:16.600
+ But you don't know those variables.
+
+19:16.600 --> 19:19.360
+ Okay, so that you have now uncontrolled experiment.
+
+19:19.360 --> 19:20.680
+ Uncontrolled experiment.
+
+19:20.680 --> 19:23.200
+ We call it observational study.
+
+19:23.200 --> 19:27.160
+ And we form the correlation detected.
+
+19:27.160 --> 19:30.520
+ We have to infer causal relationship.
+
+19:30.520 --> 19:33.440
+ Whether it was the automatic piece
+
+19:33.440 --> 19:35.960
+ has caused them to fall asleep, or.
+
+19:35.960 --> 19:40.960
+ So that is an issue that is about 120 years old.
+
+19:45.440 --> 19:48.640
+ I should only go 100 years old, okay.
+
+19:51.400 --> 19:52.840
+ Well, maybe it's not.
+
+19:52.840 --> 19:55.240
+ Actually I should say it's 2,000 years old.
+
+19:55.240 --> 19:58.520
+ Because we have this experiment by Daniel.
+
+19:58.520 --> 20:03.520
+ But the Babylonian king that wanted the exiled,
+
+20:07.440 --> 20:12.440
+ the people from Israel that were taken in exile
+
+20:12.760 --> 20:14.720
+ to Babylon to serve the king.
+
+20:14.720 --> 20:18.080
+ He wanted to serve them king's food, which was meat.
+
+20:18.080 --> 20:22.760
+ And Daniel as a good Jew couldn't eat non kosher food.
+
+20:22.760 --> 20:26.640
+ So he asked them to eat vegetarian food.
+
+20:26.640 --> 20:29.320
+ But the king overseer says, I'm sorry,
+
+20:29.320 --> 20:34.320
+ but if the king sees that your performance falls below
+
+20:34.760 --> 20:39.360
+ that of other kids, he's going to kill me.
+
+20:39.360 --> 20:41.600
+ Daniel said, let's make an experiment.
+
+20:41.600 --> 20:44.320
+ Let's take four of us from Jerusalem, okay.
+
+20:44.320 --> 20:46.440
+ Give us vegetarian food.
+
+20:46.440 --> 20:50.280
+ Let's take the other guys to eat the king's food.
+
+20:50.280 --> 20:54.080
+ And in about a week's time, we'll test our performance.
+
+20:54.080 --> 20:55.440
+ And you know the answer.
+
+20:55.440 --> 20:57.840
+ Of course he did the experiment.
+
+20:57.840 --> 21:02.120
+ And they were so much better than the others.
+
+21:02.120 --> 21:07.120
+ And the kings nominated them to super position in his king.
+
+21:08.000 --> 21:10.160
+ So it was a first experiment, yes.
+
+21:10.160 --> 21:12.760
+ So there was a very simple,
+
+21:12.760 --> 21:15.520
+ it's also the same research questions.
+
+21:15.520 --> 21:17.440
+ We want to know if vegetarian food
+
+21:18.640 --> 21:23.480
+ assist or obstruct your mental ability.
+
+21:23.480 --> 21:28.480
+ And okay, so the question is very old one.
+
+21:30.440 --> 21:35.440
+ Even Democritus said, if I could discover one cause
+
+21:38.040 --> 21:41.480
+ of things, I would rather discover one cause
+
+21:41.480 --> 21:43.720
+ and be a king of Persia, okay.
+
+21:43.720 --> 21:48.720
+ The task of discovering causes was in the mind
+
+21:48.720 --> 21:53.480
+ of ancient people from many, many years ago.
+
+21:53.480 --> 21:58.360
+ But the mathematics of doing that was only developed
+
+21:58.360 --> 22:00.480
+ in the 1920s.
+
+22:00.480 --> 22:05.120
+ So science has left us orphan, okay.
+
+22:05.120 --> 22:08.320
+ Science has not provided us with the mathematics
+
+22:08.320 --> 22:12.000
+ to capture the idea of X causes Y
+
+22:12.000 --> 22:14.320
+ and Y does not cause X.
+
+22:14.320 --> 22:17.400
+ Because all the question of physics are symmetrical,
+
+22:17.400 --> 22:20.660
+ algebraic, the equality sign goes both ways.
+
+22:21.680 --> 22:23.120
+ Okay, let's look at machine learning.
+
+22:23.120 --> 22:26.880
+ Machine learning today, if you look at deep neural networks,
+
+22:26.880 --> 22:31.880
+ you can think of it as kind of conditional probability
+
+22:32.840 --> 22:33.680
+ estimators.
+
+22:33.680 --> 22:35.520
+ Correct, beautiful.
+
+22:35.520 --> 22:38.120
+ So where did you say that?
+
+22:39.280 --> 22:41.520
+ Conditional probability estimators.
+
+22:41.520 --> 22:44.440
+ None of the machine learning people clevered you?
+
+22:45.360 --> 22:46.840
+ Attacked you?
+
+22:46.840 --> 22:51.840
+ Listen, most people, and this is why today's conversation
+
+22:52.400 --> 22:55.800
+ I think is interesting, is most people would agree with you.
+
+22:55.800 --> 22:58.680
+ There's certain aspects that are just effective today,
+
+22:58.680 --> 23:02.440
+ but we're going to hit a wall and there's a lot of ideas.
+
+23:02.440 --> 23:05.400
+ I think you're very right that we're gonna have to return to
+
+23:05.400 --> 23:10.400
+ about causality and it would be, let's try to explore it.
+
+23:11.560 --> 23:13.160
+ Let's even take a step back.
+
+23:13.160 --> 23:18.160
+ You've invented Bayesian networks that look awfully a lot
+
+23:19.800 --> 23:22.040
+ like they express something like causation,
+
+23:22.040 --> 23:24.020
+ but they don't, not necessarily.
+
+23:25.280 --> 23:28.600
+ So how do we turn Bayesian networks
+
+23:28.600 --> 23:30.840
+ into expressing causation?
+
+23:30.840 --> 23:33.160
+ How do we build causal networks?
+
+23:33.160 --> 23:36.480
+ This A causes B, B causes C,
+
+23:36.480 --> 23:38.840
+ how do we start to infer that kind of thing?
+
+23:38.840 --> 23:41.460
+ We start asking ourselves question,
+
+23:41.460 --> 23:44.520
+ what are the factors that would determine
+
+23:44.520 --> 23:46.360
+ the value of X?
+
+23:46.360 --> 23:51.360
+ X could be blood pressure, death, hunger.
+
+23:53.820 --> 23:56.240
+ But these are hypotheses that we propose for ourselves.
+
+23:56.240 --> 23:59.040
+ Hypothesis, everything which has to do with causality
+
+23:59.040 --> 24:00.780
+ comes from a theory.
+
+24:03.400 --> 24:06.960
+ The difference is only how you interrogate
+
+24:06.960 --> 24:09.080
+ the theory that you have in your mind.
+
+24:09.080 --> 24:14.080
+ So it still needs the human expert to propose.
+
+24:14.280 --> 24:19.280
+ You need the human expert to specify the initial model.
+
+24:20.980 --> 24:24.040
+ Initial model could be very qualitative.
+
+24:24.040 --> 24:27.040
+ Just who listens to whom?
+
+24:27.040 --> 24:31.240
+ By whom listen to, I mean one variable listen to the other.
+
+24:31.240 --> 24:34.720
+ So I say, okay, the tide is listening to the moon.
+
+24:34.720 --> 24:39.720
+ And not to the rooster crow.
+
+24:42.280 --> 24:43.120
+ And so forth.
+
+24:43.120 --> 24:46.840
+ This is our understanding of the world in which we live.
+
+24:46.840 --> 24:50.340
+ Scientific understanding of reality.
+
+24:51.540 --> 24:53.480
+ We have to start there.
+
+24:53.480 --> 24:56.960
+ Because if we don't know how to handle
+
+24:56.960 --> 24:58.560
+ cause and effect relationship,
+
+24:58.560 --> 25:01.240
+ when we do have a model,
+
+25:01.240 --> 25:03.720
+ and we certainly do not know how to handle it
+
+25:03.720 --> 25:05.400
+ when we don't have a model.
+
+25:05.400 --> 25:07.240
+ So let's start first.
+
+25:07.240 --> 25:12.160
+ In AI, slogan is representation first, discovery second.
+
+25:13.440 --> 25:17.240
+ But if I give you all the information that you need,
+
+25:17.240 --> 25:19.840
+ can you do anything useful with it?
+
+25:19.840 --> 25:21.520
+ That is the first, representation.
+
+25:21.520 --> 25:22.520
+ How do you represent it?
+
+25:22.520 --> 25:24.560
+ I give you all the knowledge in the world.
+
+25:24.560 --> 25:25.760
+ How do you represent it?
+
+25:26.920 --> 25:30.680
+ When you represent it, I ask you,
+
+25:30.680 --> 25:33.200
+ can you infer X or Y or Z?
+
+25:33.200 --> 25:35.240
+ Can you answer certain queries?
+
+25:35.240 --> 25:36.920
+ Is it complex?
+
+25:36.920 --> 25:37.840
+ Is it polynomial?
+
+25:39.280 --> 25:42.040
+ All the computer science exercises we do,
+
+25:42.040 --> 25:47.040
+ once you give me a representation for my knowledge,
+
+25:47.260 --> 25:48.280
+ then you can ask me,
+
+25:48.280 --> 25:51.680
+ now I understand how to represent things.
+
+25:51.680 --> 25:52.800
+ How do I discover them?
+
+25:52.800 --> 25:54.040
+ It's a secondary thing.
+
+25:54.920 --> 25:57.040
+ So first of all, I should echo the statement
+
+25:57.040 --> 25:59.840
+ that mathematics and the current,
+
+25:59.840 --> 26:04.280
+ much of the machine learning world has not considered
+
+26:04.280 --> 26:07.880
+ causation that A causes B, just in anything.
+
+26:07.880 --> 26:12.880
+ So that seems like a non obvious thing
+
+26:15.360 --> 26:18.280
+ that you think we would have really acknowledged it,
+
+26:18.280 --> 26:19.200
+ but we haven't.
+
+26:19.200 --> 26:21.080
+ So we have to put that on the table.
+
+26:21.080 --> 26:26.080
+ So knowledge, how hard is it to create a knowledge
+
+26:26.420 --> 26:28.480
+ from which to work?
+
+26:28.480 --> 26:31.280
+ In certain area, it's easy,
+
+26:31.280 --> 26:36.080
+ because we have only four or five major variables,
+
+26:37.400 --> 26:41.560
+ and an epidemiologist or an economist can put them down,
+
+26:43.440 --> 26:48.440
+ what, minimum wage, unemployment, policy, X, Y, Z,
+
+26:52.040 --> 26:54.320
+ and start collecting data,
+
+26:54.320 --> 26:59.160
+ and quantify the parameters that were left unquantified
+
+27:00.240 --> 27:01.560
+ with the initial knowledge.
+
+27:01.560 --> 27:06.560
+ That's the routine work that you find
+
+27:07.680 --> 27:12.680
+ in experimental psychology, in economics, everywhere.
+
+27:13.000 --> 27:16.600
+ In the health science, that's a routine thing.
+
+27:16.600 --> 27:18.800
+ But I should emphasize,
+
+27:18.800 --> 27:21.240
+ you should start with the research question.
+
+27:21.240 --> 27:24.880
+ What do you want to estimate?
+
+27:24.880 --> 27:27.480
+ Once you have that, you have to have a language
+
+27:27.480 --> 27:30.200
+ of expressing what you want to estimate.
+
+27:30.200 --> 27:31.680
+ You think it's easy?
+
+27:31.680 --> 27:32.760
+ No.
+
+27:32.760 --> 27:34.880
+ So we can talk about two things, I think.
+
+27:35.840 --> 27:40.840
+ One is how the science of causation is very useful
+
+27:42.920 --> 27:47.360
+ for answering certain questions.
+
+27:47.360 --> 27:51.240
+ And then the other is, how do we create intelligent systems
+
+27:51.240 --> 27:53.600
+ that need to reason with causation?
+
+27:53.600 --> 27:55.200
+ So if my research question is,
+
+27:55.200 --> 27:58.640
+ how do I pick up this water bottle from the table?
+
+28:00.920 --> 28:03.560
+ All of the knowledge that is required
+
+28:03.560 --> 28:05.280
+ to be able to do that,
+
+28:05.280 --> 28:07.960
+ how do we construct that knowledge base?
+
+28:07.960 --> 28:11.000
+ Do we return back to the problem
+
+28:11.000 --> 28:13.580
+ that we didn't solve in the 80s with expert systems?
+
+28:13.580 --> 28:15.440
+ Do we have to solve that problem
+
+28:15.440 --> 28:17.860
+ of automated construction of knowledge?
+
+28:19.680 --> 28:23.560
+ You're talking about the task
+
+28:23.560 --> 28:26.560
+ of eliciting knowledge from an expert.
+
+28:26.560 --> 28:28.520
+ Task of eliciting knowledge from an expert,
+
+28:28.520 --> 28:31.540
+ or the self discovery of more knowledge,
+
+28:32.720 --> 28:34.240
+ more and more knowledge.
+
+28:34.240 --> 28:38.600
+ So automating the building of knowledge as much as possible.
+
+28:38.600 --> 28:42.400
+ It's a different game in the causal domain,
+
+28:42.400 --> 28:46.480
+ because it's essentially the same thing.
+
+28:46.480 --> 28:48.680
+ You have to start with some knowledge,
+
+28:48.680 --> 28:51.520
+ and you're trying to enrich it.
+
+28:51.520 --> 28:56.460
+ But you don't enrich it by asking for more rules.
+
+28:56.460 --> 28:58.960
+ You enrich it by asking for the data,
+
+28:58.960 --> 29:01.800
+ to look at the data and quantifying,
+
+29:01.800 --> 29:05.520
+ and ask queries that you couldn't answer when you started.
+
+29:06.480 --> 29:11.480
+ You couldn't because the question is quite complex,
+
+29:11.480 --> 29:16.480
+ and it's not within the capability
+
+29:16.600 --> 29:19.840
+ of ordinary cognition, of ordinary person,
+
+29:19.840 --> 29:22.320
+ or ordinary expert even, to answer.
+
+29:23.200 --> 29:24.920
+ So what kind of questions do you think
+
+29:24.920 --> 29:26.960
+ we can start to answer?
+
+29:26.960 --> 29:27.800
+ Even a simple one.
+
+29:27.800 --> 29:31.200
+ Suppose, yeah, I'll start with easy one.
+
+29:31.200 --> 29:32.040
+ Let's do it.
+
+29:32.040 --> 29:35.880
+ Okay, what's the effect of a drug on recovery?
+
+29:37.520 --> 29:39.500
+ What is the aspirin that caused my headache
+
+29:39.500 --> 29:44.500
+ to be cured, or what did the television program,
+
+29:44.640 --> 29:46.320
+ or the good news I received?
+
+29:47.680 --> 29:49.920
+ This is already, you see, it's a difficult question,
+
+29:49.920 --> 29:52.840
+ because it's find the cause from effect.
+
+29:53.680 --> 29:55.880
+ The easy one is find the effect from cause.
+
+29:56.760 --> 29:57.720
+ That's right.
+
+29:57.720 --> 29:59.180
+ So first you construct a model,
+
+29:59.180 --> 30:01.280
+ saying that this is an important research question.
+
+30:01.280 --> 30:02.840
+ This is an important question.
+
+30:02.840 --> 30:04.320
+ Then you do.
+
+30:04.320 --> 30:05.520
+ I didn't construct a model yet.
+
+30:05.520 --> 30:07.680
+ I just said it's an important question.
+
+30:07.680 --> 30:12.280
+ And the first exercise is express it mathematically.
+
+30:12.280 --> 30:13.800
+ What do you want to do?
+
+30:13.800 --> 30:17.000
+ Like, if I tell you what will be the effect
+
+30:17.000 --> 30:21.320
+ of taking this drug, you have to say that in mathematics.
+
+30:21.320 --> 30:22.880
+ How do you say that?
+
+30:22.880 --> 30:23.720
+ Yes.
+
+30:23.720 --> 30:26.400
+ Can you write down the question, not the answer?
+
+30:27.720 --> 30:32.420
+ I want to find the effect of the drug on my headache.
+
+30:32.420 --> 30:33.260
+ Right.
+
+30:33.260 --> 30:34.680
+ Write down, write it down.
+
+30:34.680 --> 30:35.920
+ That's where the do calculus comes in.
+
+30:35.920 --> 30:36.760
+ Yes.
+
+30:36.760 --> 30:38.240
+ The do operator, what is the do operator?
+
+30:38.240 --> 30:40.080
+ Do operator, yeah.
+
+30:40.080 --> 30:40.920
+ Which is nice.
+
+30:40.920 --> 30:43.280
+ It's the difference in association and intervention.
+
+30:43.280 --> 30:45.760
+ Very beautifully sort of constructed.
+
+30:45.760 --> 30:48.880
+ Yeah, so we have a do operator.
+
+30:48.880 --> 30:52.560
+ So the do calculus connected on the do operator itself
+
+30:52.560 --> 30:55.560
+ connects the operation of doing
+
+30:55.560 --> 30:57.880
+ to something that we can see.
+
+30:57.880 --> 30:58.720
+ Right.
+
+30:58.720 --> 31:01.740
+ So as opposed to the purely observing,
+
+31:01.740 --> 31:05.920
+ you're making the choice to change a variable.
+
+31:05.920 --> 31:08.240
+ That's what it expresses.
+
+31:08.240 --> 31:10.960
+ And then the way that we interpret it,
+
+31:11.840 --> 31:15.400
+ the mechanism by which we take your query
+
+31:15.400 --> 31:18.640
+ and we translate it into something that we can work with
+
+31:18.640 --> 31:21.040
+ is by giving it semantics,
+
+31:21.040 --> 31:23.320
+ saying that you have a model of the world
+
+31:23.320 --> 31:26.840
+ and you cut off all the incoming error into X
+
+31:26.840 --> 31:30.680
+ and you're looking now in the modified mutilated model,
+
+31:30.680 --> 31:33.660
+ you ask for the probability of Y.
+
+31:33.660 --> 31:36.360
+ That is interpretation of doing X
+
+31:36.360 --> 31:40.240
+ because by doing things, you've liberated them
+
+31:40.240 --> 31:45.200
+ from all influences that acted upon them earlier
+
+31:45.200 --> 31:49.200
+ and you subject them to the tyranny of your muscles.
+
+31:50.080 --> 31:54.040
+ So you remove all the questions about causality
+
+31:54.040 --> 31:55.740
+ by doing them.
+
+31:55.740 --> 31:56.580
+ So you're now.
+
+31:56.580 --> 31:58.160
+ There's one level of questions.
+
+31:58.160 --> 31:59.000
+ Yeah.
+
+31:59.000 --> 32:01.920
+ Answer questions about what will happen if you do things.
+
+32:01.920 --> 32:03.320
+ If you do, if you drink the coffee,
+
+32:03.320 --> 32:04.160
+ if you take the aspirin.
+
+32:04.160 --> 32:05.320
+ Right.
+
+32:05.320 --> 32:10.100
+ So how do we get the doing data?
+
+32:11.360 --> 32:15.660
+ Now the question is, if we cannot run experiments,
+
+32:16.560 --> 32:20.960
+ then we have to rely on observational study.
+
+32:20.960 --> 32:22.560
+ So first we could, sorry to interrupt,
+
+32:22.560 --> 32:25.880
+ we could run an experiment where we do something,
+
+32:25.880 --> 32:28.200
+ where we drink the coffee and this,
+
+32:28.200 --> 32:31.120
+ the do operator allows you to sort of be systematic
+
+32:31.120 --> 32:31.960
+ about expressing.
+
+32:31.960 --> 32:34.560
+ So imagine how the experiment will look like
+
+32:34.560 --> 32:36.880
+ even though we cannot physically
+
+32:36.880 --> 32:38.760
+ and technologically conduct it.
+
+32:38.760 --> 32:40.600
+ I'll give you an example.
+
+32:40.600 --> 32:43.680
+ What is the effect of blood pressure on mortality?
+
+32:44.960 --> 32:47.360
+ I cannot go down into your vein
+
+32:47.360 --> 32:49.400
+ and change your blood pressure,
+
+32:49.400 --> 32:50.800
+ but I can ask the question,
+
+32:52.060 --> 32:55.120
+ which means I can even have a model of your body.
+
+32:55.120 --> 32:58.600
+ I can imagine the effect of your,
+
+32:58.600 --> 33:03.600
+ how the blood pressure change will affect your mortality.
+
+33:04.720 --> 33:05.560
+ How?
+
+33:05.560 --> 33:09.760
+ I go into the model and I conduct this surgery
+
+33:09.760 --> 33:12.080
+ about the blood pressure,
+
+33:12.080 --> 33:15.840
+ even though physically I can do, I cannot do it.
+
+33:17.200 --> 33:19.760
+ Let me ask the quantum mechanics question.
+
+33:19.760 --> 33:22.240
+ Does the doing change the observation?
+
+33:23.720 --> 33:28.240
+ Meaning the surgery of changing the blood pressure is,
+
+33:28.240 --> 33:29.080
+ I mean.
+
+33:29.080 --> 33:31.160
+ No, the surgery is,
+
+33:31.160 --> 33:35.440
+ I call the very delicate.
+
+33:35.440 --> 33:37.840
+ It's very delicate, infinitely delicate.
+
+33:37.840 --> 33:40.760
+ Incisive and delicate, which means,
+
+33:40.760 --> 33:44.720
+ do means, do X means,
+
+33:44.720 --> 33:46.480
+ I'm gonna touch only X.
+
+33:46.480 --> 33:47.320
+ Only X.
+
+33:47.320 --> 33:48.760
+ Directly into X.
+
+33:50.160 --> 33:52.800
+ So that means that I change only things
+
+33:52.800 --> 33:56.800
+ which depends on X by virtue of X changing,
+
+33:56.800 --> 34:00.400
+ but I don't depend things which are not depend on X.
+
+34:00.400 --> 34:04.240
+ Like I wouldn't change your sex or your age,
+
+34:04.240 --> 34:06.080
+ I just change your blood pressure.
+
+34:06.880 --> 34:08.720
+ So in the case of blood pressure,
+
+34:08.720 --> 34:11.160
+ it may be difficult or impossible
+
+34:11.160 --> 34:12.800
+ to construct such an experiment.
+
+34:12.800 --> 34:16.560
+ No, physically yes, but hypothetically no.
+
+34:16.560 --> 34:17.400
+ Hypothetically no.
+
+34:17.400 --> 34:20.720
+ If we have a model, that is what the model is for.
+
+34:20.720 --> 34:24.640
+ So you conduct surgeries on a model,
+
+34:24.640 --> 34:26.880
+ you take it apart, put it back,
+
+34:26.880 --> 34:28.880
+ that's the idea of a model.
+
+34:28.880 --> 34:31.640
+ It's the idea of thinking counterfactually, imagining,
+
+34:31.640 --> 34:35.120
+ and that's the idea of creativity.
+
+34:35.120 --> 34:36.400
+ So by constructing that model,
+
+34:36.400 --> 34:41.400
+ you can start to infer if the higher the blood pressure
+
+34:43.040 --> 34:47.320
+ leads to mortality, which increases or decreases by.
+
+34:47.320 --> 34:50.800
+ I construct the model, I still cannot answer it.
+
+34:50.800 --> 34:53.800
+ I have to see if I have enough information in the model
+
+34:53.800 --> 34:58.360
+ that would allow me to find out the effects of intervention
+
+34:58.360 --> 35:03.360
+ from a noninterventional study, hence of study.
+
+35:04.520 --> 35:06.240
+ So what's needed?
+
+35:06.240 --> 35:11.240
+ You need to have assumptions about who affects whom.
+
+35:13.480 --> 35:16.400
+ If the graph had a certain property,
+
+35:16.400 --> 35:20.560
+ the answer is yes, you can get it from observational study.
+
+35:20.560 --> 35:23.760
+ If the graph is too mushy, bushy, bushy,
+
+35:23.760 --> 35:25.680
+ the answer is no, you cannot.
+
+35:25.680 --> 35:30.680
+ Then you need to find either different kind of observation
+
+35:30.680 --> 35:34.120
+ that you haven't considered, or one experiment.
+
+35:35.120 --> 35:38.880
+ So basically, that puts a lot of pressure on you
+
+35:38.880 --> 35:41.920
+ to encode wisdom into that graph.
+
+35:41.920 --> 35:42.960
+ Correct.
+
+35:42.960 --> 35:47.520
+ But you don't have to encode more than what you know.
+
+35:47.520 --> 35:49.680
+ God forbid, if you put the,
+
+35:49.680 --> 35:51.400
+ like economists are doing this,
+
+35:51.400 --> 35:52.880
+ they call identifying assumption.
+
+35:52.880 --> 35:55.120
+ They put assumptions, even if they don't prevail
+
+35:55.120 --> 35:56.840
+ in the world, they put assumptions
+
+35:56.840 --> 35:59.240
+ so they can identify things.
+
+35:59.240 --> 36:01.480
+ But the problem is, yes, beautifully put,
+
+36:01.480 --> 36:04.440
+ but the problem is you don't know what you don't know.
+
+36:04.440 --> 36:05.920
+ So.
+
+36:05.920 --> 36:07.560
+ You know what you don't know.
+
+36:07.560 --> 36:10.600
+ Because if you don't know, you say it's possible.
+
+36:10.600 --> 36:15.600
+ It's possible that X affect the traffic tomorrow.
+
+36:17.720 --> 36:18.640
+ It's possible.
+
+36:18.640 --> 36:20.880
+ You put down an arrow which says it's possible.
+
+36:20.880 --> 36:23.960
+ Every arrow in the graph says it's possible.
+
+36:23.960 --> 36:28.000
+ So there's not a significant cost to adding arrows that.
+
+36:28.000 --> 36:32.240
+ The more arrow you add, the less likely you are
+
+36:32.240 --> 36:36.420
+ to identify things from purely observational data.
+
+36:37.680 --> 36:39.520
+ So if the whole world is bushy,
+
+36:41.360 --> 36:45.400
+ and everybody affect everybody else,
+
+36:45.400 --> 36:49.160
+ the answer is, you can answer it ahead of time.
+
+36:49.160 --> 36:54.160
+ I cannot answer my query from observational data.
+
+36:54.240 --> 36:55.680
+ I have to go to experiments.
+
+36:56.640 --> 36:58.360
+ So you talk about machine learning
+
+36:58.360 --> 37:01.600
+ is essentially learning by association,
+
+37:01.600 --> 37:03.120
+ or reasoning by association,
+
+37:03.120 --> 37:07.120
+ and this do calculus is allowing for intervention.
+
+37:07.120 --> 37:07.960
+ I like that word.
+
+37:09.000 --> 37:09.840
+ Action.
+
+37:09.840 --> 37:12.400
+ So you also talk about counterfactuals.
+
+37:12.400 --> 37:13.220
+ Yeah.
+
+37:13.220 --> 37:15.880
+ And trying to sort of understand the difference
+
+37:15.880 --> 37:19.360
+ between counterfactuals and intervention.
+
+37:19.360 --> 37:22.320
+ First of all, what is counterfactuals,
+
+37:22.320 --> 37:25.120
+ and why are they useful?
+
+37:26.200 --> 37:29.700
+ Why are they especially useful,
+
+37:29.700 --> 37:34.700
+ as opposed to just reasoning what effect actions have?
+
+37:34.880 --> 37:37.040
+ Well, counterfactual contains
+
+37:37.040 --> 37:40.280
+ what we normally call explanations.
+
+37:40.280 --> 37:41.600
+ Can you give an example of a counterfactual?
+
+37:41.600 --> 37:45.240
+ If I tell you that acting one way affects something else,
+
+37:45.240 --> 37:46.840
+ I didn't explain anything yet.
+
+37:47.720 --> 37:52.720
+ But if I ask you, was it the aspirin that cured my headache?
+
+37:55.400 --> 37:58.640
+ I'm asking for explanation, what cured my headache?
+
+37:58.640 --> 38:03.640
+ And putting a finger on aspirin provide an explanation.
+
+38:04.640 --> 38:08.160
+ It was aspirin that was responsible
+
+38:08.160 --> 38:11.560
+ for your headache going away.
+
+38:11.560 --> 38:14.420
+ If you didn't take the aspirin,
+
+38:14.420 --> 38:16.000
+ you would still have a headache.
+
+38:16.000 --> 38:20.280
+ So by saying if I didn't take aspirin,
+
+38:20.280 --> 38:22.760
+ I would have a headache, you're thereby saying
+
+38:22.760 --> 38:26.360
+ that aspirin is the thing that removes the headache.
+
+38:26.360 --> 38:30.440
+ But you have to have another important information.
+
+38:30.440 --> 38:33.680
+ I took the aspirin, and my headache is gone.
+
+38:34.560 --> 38:36.400
+ It's very important information.
+
+38:36.400 --> 38:38.080
+ Now I'm reasoning backward,
+
+38:38.080 --> 38:40.520
+ and I said, was it the aspirin?
+
+38:40.520 --> 38:42.080
+ Yeah.
+
+38:42.080 --> 38:44.440
+ By considering what would have happened
+
+38:44.440 --> 38:47.000
+ if everything else is the same, but I didn't take aspirin.
+
+38:47.000 --> 38:47.840
+ That's right.
+
+38:47.840 --> 38:49.560
+ So you know that things took place.
+
+38:51.040 --> 38:56.040
+ Joe killed Schmoe, and Schmoe would be alive
+
+38:56.360 --> 38:59.320
+ had John not used his gun.
+
+38:59.320 --> 39:02.080
+ Okay, so that is the counterfactual.
+
+39:02.080 --> 39:06.640
+ It had the conflict here, or clash,
+
+39:06.640 --> 39:09.600
+ between observed fact,
+
+39:09.600 --> 39:13.600
+ but he did shoot, okay?
+
+39:13.600 --> 39:16.600
+ And the hypothetical predicate,
+
+39:16.600 --> 39:18.800
+ which says had he not shot,
+
+39:18.800 --> 39:21.540
+ you have a logical clash.
+
+39:21.540 --> 39:23.820
+ They cannot exist together.
+
+39:23.820 --> 39:24.920
+ That's the counterfactual.
+
+39:24.920 --> 39:28.280
+ And that is the source of our explanation
+
+39:28.280 --> 39:33.280
+ of the idea of responsibility, regret, and free will.
+
+39:34.820 --> 39:37.200
+ Yeah, so it certainly seems
+
+39:37.200 --> 39:39.760
+ that's the highest level of reasoning, right?
+
+39:39.760 --> 39:41.880
+ Yeah, and physicists do it all the time.
+
+39:41.880 --> 39:42.760
+ Who does it all the time?
+
+39:42.760 --> 39:43.580
+ Physicists.
+
+39:43.580 --> 39:44.920
+ Physicists.
+
+39:44.920 --> 39:47.120
+ In every equation of physics,
+
+39:47.120 --> 39:49.560
+ let's say you have a Hooke's law,
+
+39:49.560 --> 39:52.240
+ and you put one kilogram on the spring,
+
+39:52.240 --> 39:54.680
+ and the spring is one meter,
+
+39:54.680 --> 39:58.400
+ and you say, had this weight been two kilogram,
+
+39:58.400 --> 40:00.400
+ the spring would have been twice as long.
+
+40:02.060 --> 40:05.560
+ It's no problem for physicists to say that,
+
+40:05.560 --> 40:10.240
+ except that mathematics is only in the form of equation,
+
+40:10.240 --> 40:13.280
+ okay, equating the weight,
+
+40:14.680 --> 40:18.520
+ proportionality constant, and the length of the string.
+
+40:18.520 --> 40:22.080
+ So you don't have the asymmetry
+
+40:22.080 --> 40:23.280
+ in the equation of physics,
+
+40:23.280 --> 40:26.840
+ although every physicist thinks counterfactually.
+
+40:26.840 --> 40:29.160
+ Ask the high school kids,
+
+40:29.160 --> 40:31.120
+ had the weight been three kilograms,
+
+40:31.120 --> 40:33.360
+ what would be the length of the spring?
+
+40:33.360 --> 40:35.160
+ They can answer it immediately,
+
+40:35.160 --> 40:38.760
+ because they do the counterfactual processing in their mind,
+
+40:38.760 --> 40:41.120
+ and then they put it into equation,
+
+40:41.120 --> 40:44.280
+ algebraic equation, and they solve it, okay?
+
+40:44.280 --> 40:46.720
+ But a robot cannot do that.
+
+40:46.720 --> 40:51.000
+ How do you make a robot learn these relationships?
+
+40:51.000 --> 40:53.240
+ Well, why you would learn?
+
+40:53.240 --> 40:55.560
+ Suppose you tell him, can you do it?
+
+40:55.560 --> 40:57.520
+ So before you go learning,
+
+40:57.520 --> 40:59.360
+ you have to ask yourself,
+
+40:59.360 --> 41:01.820
+ suppose I give you all the information, okay?
+
+41:01.820 --> 41:06.820
+ Can the robot perform the task that I ask him to perform?
+
+41:07.820 --> 41:10.980
+ Can he reason and say, no, it wasn't the aspirin.
+
+41:10.980 --> 41:13.320
+ It was the good news you received on the phone.
+
+41:15.500 --> 41:19.620
+ Right, because, well, unless the robot had a model,
+
+41:19.620 --> 41:23.620
+ a causal model of the world.
+
+41:23.620 --> 41:24.740
+ Right, right.
+
+41:24.740 --> 41:26.260
+ I'm sorry I have to linger on this.
+
+41:26.260 --> 41:27.860
+ But now we have to linger and we have to say,
+
+41:27.860 --> 41:29.100
+ how do we do it?
+
+41:29.100 --> 41:29.940
+ How do we build it?
+
+41:29.940 --> 41:30.760
+ Yes.
+
+41:30.760 --> 41:32.180
+ How do we build a causal model
+
+41:32.180 --> 41:37.180
+ without a team of human experts running around?
+
+41:37.260 --> 41:39.560
+ Why don't you go to learning right away?
+
+41:39.560 --> 41:41.180
+ You're too much involved with learning.
+
+41:41.180 --> 41:42.100
+ Because I like babies.
+
+41:42.100 --> 41:43.140
+ Babies learn fast.
+
+41:43.140 --> 41:45.140
+ I'm trying to figure out how they do it.
+
+41:45.140 --> 41:45.980
+ Good.
+
+41:45.980 --> 41:47.660
+ So that's another question.
+
+41:47.660 --> 41:50.340
+ How do the babies come out with a counterfactual
+
+41:50.340 --> 41:51.760
+ model of the world?
+
+41:51.760 --> 41:53.540
+ And babies do that.
+
+41:53.540 --> 41:56.860
+ They know how to play in the crib.
+
+41:56.860 --> 41:59.500
+ They know which balls hit another one.
+
+41:59.500 --> 42:04.500
+ And they learn it by playful manipulation of the world.
+
+42:06.820 --> 42:07.660
+ Yes.
+
+42:07.660 --> 42:11.880
+ The simple world involves only toys and balls and chimes.
+
+42:13.620 --> 42:17.260
+ But if you think about it, it's a complex world.
+
+42:17.260 --> 42:20.700
+ We take for granted how complicated.
+
+42:20.700 --> 42:23.740
+ And kids do it by playful manipulation
+
+42:23.740 --> 42:28.740
+ plus parents guidance, peer wisdom, and hearsay.
+
+42:30.860 --> 42:34.780
+ They meet each other and they say,
+
+42:34.780 --> 42:38.940
+ you shouldn't have taken my toy.
+
+42:38.940 --> 42:39.780
+ Right.
+
+42:40.820 --> 42:43.540
+ And these multiple sources of information,
+
+42:43.540 --> 42:44.900
+ they're able to integrate.
+
+42:45.780 --> 42:49.260
+ So the challenge is about how to integrate,
+
+42:49.260 --> 42:52.620
+ how to form these causal relationships
+
+42:52.620 --> 42:54.260
+ from different sources of data.
+
+42:54.260 --> 42:55.600
+ Correct.
+
+42:55.600 --> 42:59.980
+ So how much information is it to play,
+
+42:59.980 --> 43:03.060
+ how much causal information is required
+
+43:03.060 --> 43:06.900
+ to be able to play in the crib with different objects?
+
+43:06.900 --> 43:08.260
+ I don't know.
+
+43:08.260 --> 43:11.340
+ I haven't experimented with the crib.
+
+43:11.340 --> 43:12.700
+ Okay, not a crib.
+
+43:12.700 --> 43:15.860
+ Picking up, manipulating physical objects
+
+43:15.860 --> 43:19.800
+ on this very, opening the pages of a book,
+
+43:19.800 --> 43:23.740
+ all the tasks, the physical manipulation tasks.
+
+43:23.740 --> 43:25.260
+ Do you have a sense?
+
+43:25.260 --> 43:27.980
+ Because my sense is the world is extremely complicated.
+
+43:27.980 --> 43:29.420
+ It's extremely complicated.
+
+43:29.420 --> 43:31.260
+ I agree, and I don't know how to organize it
+
+43:31.260 --> 43:34.660
+ because I've been spoiled by easy problems
+
+43:34.660 --> 43:37.240
+ such as cancer and death, okay?
+
+43:37.240 --> 43:39.820
+ And I'm a, but she's a.
+
+43:39.820 --> 43:41.060
+ First we have to start trying to.
+
+43:41.060 --> 43:42.660
+ No, but it's easy.
+
+43:42.660 --> 43:46.980
+ There is in a sense that you have only 20 variables.
+
+43:46.980 --> 43:51.060
+ And they are just variables and not mechanics.
+
+43:51.060 --> 43:52.300
+ Okay, it's easy.
+
+43:52.300 --> 43:56.060
+ You just put them on the graph and they speak to you.
+
+43:57.980 --> 44:00.540
+ Yeah, and you're providing a methodology
+
+44:00.540 --> 44:02.380
+ for letting them speak.
+
+44:02.380 --> 44:03.220
+ Yeah.
+
+44:03.220 --> 44:05.140
+ I'm working only in the abstract.
+
+44:05.140 --> 44:08.980
+ The abstract was knowledge in, knowledge out,
+
+44:08.980 --> 44:10.740
+ data in between.
+
+44:11.820 --> 44:15.100
+ Now, can we take a leap to trying to learn
+
+44:15.100 --> 44:18.140
+ in this very, when it's not 20 variables,
+
+44:18.140 --> 44:23.140
+ but 20 million variables, trying to learn causation
+
+44:23.180 --> 44:24.060
+ in this world?
+
+44:24.060 --> 44:27.180
+ Not learn, but somehow construct models.
+
+44:27.180 --> 44:29.620
+ I mean, it seems like you would only have to be able
+
+44:29.620 --> 44:33.920
+ to learn because constructing it manually
+
+44:33.920 --> 44:35.580
+ would be too difficult.
+
+44:35.580 --> 44:36.900
+ Do you have ideas of?
+
+44:37.900 --> 44:41.220
+ I think it's a matter of combining simple models
+
+44:41.220 --> 44:45.460
+ from many, many sources, from many, many disciplines,
+
+44:45.460 --> 44:46.980
+ and many metaphors.
+
+44:48.220 --> 44:51.940
+ Metaphors are the basics of human intelligence, basis.
+
+44:51.940 --> 44:53.940
+ Yeah, so how do you think of about a metaphor
+
+44:53.940 --> 44:56.180
+ in terms of its use in human intelligence?
+
+44:56.180 --> 45:00.280
+ Metaphors is an expert system.
+
+45:01.900 --> 45:05.700
+ An expert, it's mapping problem
+
+45:05.700 --> 45:09.580
+ from a problem with which you are not familiar
+
+45:09.580 --> 45:13.800
+ to a problem with which you are familiar.
+
+45:13.800 --> 45:15.980
+ Like, I'll give you a good example.
+
+45:15.980 --> 45:20.980
+ The Greek believed that the sky is an opaque shell.
+
+45:22.240 --> 45:25.940
+ It's not really infinite space.
+
+45:25.940 --> 45:29.340
+ It's an opaque shell, and the stars are holes
+
+45:30.580 --> 45:32.980
+ poked in the shells through which you see
+
+45:32.980 --> 45:34.260
+ the eternal light.
+
+45:34.260 --> 45:35.940
+ That was a metaphor.
+
+45:35.940 --> 45:36.960
+ Why?
+
+45:36.960 --> 45:41.000
+ Because they understand how you poke holes in the shells.
+
+45:42.800 --> 45:45.760
+ They were not familiar with infinite space.
+
+45:47.260 --> 45:52.260
+ And we are walking on a shell of a turtle,
+
+45:52.780 --> 45:54.520
+ and if you get too close to the edge,
+
+45:54.520 --> 45:56.940
+ you're gonna fall down to Hades or wherever.
+
+45:58.940 --> 45:59.900
+ That's a metaphor.
+
+46:00.780 --> 46:02.180
+ It's not true.
+
+46:02.180 --> 46:07.180
+ But this kind of metaphor enabled Aristoteles
+
+46:07.220 --> 46:10.680
+ to measure the radius of the Earth,
+
+46:10.680 --> 46:15.140
+ because he said, Kamal, if we are walking on a turtle shell,
+
+46:15.140 --> 46:18.140
+ then the ray of light coming to this place
+
+46:20.700 --> 46:23.040
+ will be a different angle than coming to this place.
+
+46:23.040 --> 46:26.420
+ I know the distance, I'll measure the two angles,
+
+46:26.420 --> 46:31.420
+ and then I have the radius of the shell of the turtle.
+
+46:33.640 --> 46:38.460
+ And he did, and he found his measurement
+
+46:38.460 --> 46:42.320
+ very close to the measurements we have today,
+
+46:43.300 --> 46:48.300
+ through the, what, 6,700 kilometers of the Earth.
+
+46:52.020 --> 46:55.060
+ That's something that would not occur
+
+46:55.060 --> 46:59.760
+ to Babylonian astronomer,
+
+46:59.760 --> 47:01.900
+ even though the Babylonian experiment
+
+47:01.900 --> 47:04.600
+ were the machine learning people of the time.
+
+47:04.600 --> 47:07.900
+ They fit curves, and they could predict
+
+47:07.900 --> 47:12.220
+ the eclipse of the moon much more accurately
+
+47:12.220 --> 47:14.800
+ than the Greek, because they fit curve.
+
+47:17.160 --> 47:19.220
+ That's a different metaphor.
+
+47:19.220 --> 47:20.580
+ Something that you're familiar with,
+
+47:20.580 --> 47:21.820
+ a game, a turtle shell.
+
+47:21.820 --> 47:22.660
+ Okay?
+
+47:24.380 --> 47:27.520
+ What does it mean if you are familiar?
+
+47:27.520 --> 47:31.900
+ Familiar means that answers to certain questions
+
+47:31.900 --> 47:33.460
+ are explicit.
+
+47:33.460 --> 47:35.580
+ You don't have to derive them.
+
+47:35.580 --> 47:39.700
+ And they were made explicit because somewhere in the past
+
+47:39.700 --> 47:42.400
+ you've constructed a model of that.
+
+47:43.540 --> 47:44.940
+ Yeah, you're familiar with,
+
+47:44.940 --> 47:48.340
+ so the child is familiar with billiard balls.
+
+47:48.340 --> 47:51.420
+ So the child could predict that if you let loose
+
+47:51.420 --> 47:54.180
+ of one ball, the other one will bounce off.
+
+47:55.740 --> 48:00.180
+ You obtain that by familiarity.
+
+48:00.180 --> 48:02.920
+ Familiarity is answering questions,
+
+48:02.920 --> 48:05.880
+ and you store the answer explicitly.
+
+48:05.880 --> 48:08.020
+ You don't have to derive them.
+
+48:08.020 --> 48:09.620
+ So this is the idea of a metaphor.
+
+48:09.620 --> 48:11.620
+ All our life, all our intelligence
+
+48:11.620 --> 48:13.420
+ is built around metaphors,
+
+48:13.420 --> 48:16.220
+ mapping from the unfamiliar to the familiar.
+
+48:16.220 --> 48:20.540
+ But the marriage between the two is a tough thing,
+
+48:20.540 --> 48:24.740
+ which we haven't yet been able to algorithmatize.
+
+48:24.740 --> 48:29.300
+ So you think of that process of using metaphor
+
+48:29.300 --> 48:31.180
+ to leap from one place to another,
+
+48:31.900 --> 48:33.540
+ we can call it reasoning?
+
+48:34.540 --> 48:35.900
+ Is it a kind of reasoning?
+
+48:35.900 --> 48:39.500
+ It is reasoning by metaphor, metaphorical reasoning.
+
+48:39.500 --> 48:43.060
+ Do you think of that as learning?
+
+48:44.220 --> 48:46.500
+ So learning is a popular terminology today
+
+48:46.500 --> 48:47.620
+ in a narrow sense.
+
+48:47.620 --> 48:49.780
+ It is, it is, it is definitely a form.
+
+48:49.780 --> 48:51.620
+ So you may not, okay, right.
+
+48:51.620 --> 48:53.780
+ It's one of the most important learnings,
+
+48:53.780 --> 48:57.620
+ taking something which theoretically is derivable
+
+48:57.620 --> 49:01.700
+ and store it in accessible format.
+
+49:01.700 --> 49:05.580
+ I'll give you an example, chess, okay?
+
+49:07.780 --> 49:12.780
+ Finding the winning starting move in chess is hard.
+
+49:12.780 --> 49:17.780
+ It is hard, but there is an answer.
+
+49:21.260 --> 49:23.780
+ Either there is a winning move for white
+
+49:23.780 --> 49:26.820
+ or there isn't, or there is a draw, okay?
+
+49:26.820 --> 49:30.260
+ So it is, the answer to that
+
+49:30.260 --> 49:33.700
+ is available through the rule of the games.
+
+49:33.700 --> 49:35.460
+ But we don't know the answer.
+
+49:35.460 --> 49:38.500
+ So what does a chess master have that we don't have?
+
+49:38.500 --> 49:41.780
+ He has stored explicitly an evaluation
+
+49:41.780 --> 49:45.340
+ of certain complex pattern of the board.
+
+49:45.340 --> 49:46.180
+ We don't have it.
+
+49:46.180 --> 49:50.020
+ Ordinary people like me, I don't know about you,
+
+49:50.940 --> 49:52.820
+ I'm not a chess master.
+
+49:52.820 --> 49:57.820
+ So for me, I have to derive things that for him is explicit.
+
+49:58.620 --> 50:02.500
+ He has seen it before, or he has seen the pattern before,
+
+50:02.500 --> 50:05.100
+ or similar pattern, you see metaphor, yeah?
+
+50:05.100 --> 50:12.100
+ And he generalize and said, don't move, it's a dangerous move.
+
+50:13.460 --> 50:15.540
+ It's just that not in the game of chess,
+
+50:15.540 --> 50:18.940
+ but in the game of billiard balls,
+
+50:18.940 --> 50:22.420
+ we humans are able to initially derive very effectively
+
+50:22.420 --> 50:25.100
+ and then reason by metaphor very effectively
+
+50:25.100 --> 50:28.700
+ and make it look so easy that it makes one wonder
+
+50:28.700 --> 50:31.260
+ how hard is it to build it in a machine.
+
+50:31.260 --> 50:36.260
+ So in your sense, how far away are we
+
+50:38.260 --> 50:40.660
+ to be able to construct?
+
+50:40.660 --> 50:42.780
+ I don't know, I'm not a futurist.
+
+50:42.780 --> 50:47.780
+ All I can tell you is that we are making tremendous progress
+
+50:48.380 --> 50:51.260
+ in the causal reasoning domain.
+
+50:52.100 --> 50:57.100
+ Something that I even dare to call it revolution,
+
+50:57.100 --> 51:02.100
+ the code of revolution, because what we have achieved
+
+51:02.780 --> 51:07.780
+ in the past three decades is something that dwarf
+
+51:09.660 --> 51:13.660
+ everything that was derived in the entire history.
+
+51:13.660 --> 51:15.860
+ So there's an excitement about
+
+51:15.860 --> 51:18.700
+ current machine learning methodologies,
+
+51:18.700 --> 51:22.100
+ and there's really important good work you're doing
+
+51:22.100 --> 51:24.620
+ in causal inference.
+
+51:24.620 --> 51:29.620
+ Where does the future, where do these worlds collide
+
+51:32.980 --> 51:35.060
+ and what does that look like?
+
+51:35.060 --> 51:37.780
+ First, they're gonna work without collision.
+
+51:37.780 --> 51:40.580
+ It's gonna work in harmony.
+
+51:40.580 --> 51:41.740
+ Harmony, it's not collision.
+
+51:41.740 --> 51:46.740
+ The human is going to jumpstart the exercise
+
+51:46.740 --> 51:53.740
+ by providing qualitative, noncommitting models
+
+51:55.060 --> 52:00.060
+ of how the universe works, how in reality
+
+52:00.300 --> 52:03.780
+ the domain of discourse works.
+
+52:03.780 --> 52:06.820
+ The machine is gonna take over from that point of view
+
+52:06.820 --> 52:11.820
+ and derive whatever the calculus says can be derived.
+
+52:11.820 --> 52:15.100
+ Namely, quantitative answer to our questions.
+
+52:15.100 --> 52:18.420
+ Now, these are complex questions.
+
+52:18.420 --> 52:21.220
+ I'll give you some example of complex questions
+
+52:21.220 --> 52:26.220
+ that will bug your mind if you think about it.
+
+52:27.580 --> 52:32.580
+ You take result of studies in diverse population
+
+52:33.660 --> 52:38.660
+ under diverse condition, and you infer the cause effect
+
+52:38.660 --> 52:43.140
+ of a new population which doesn't even resemble
+
+52:43.140 --> 52:48.140
+ any of the ones studied, and you do that by do calculus.
+
+52:48.300 --> 52:52.660
+ You do that by generalizing from one study to another.
+
+52:52.660 --> 52:54.940
+ See, what's common with Berto?
+
+52:54.940 --> 52:57.020
+ What is different?
+
+52:57.020 --> 53:01.180
+ Let's ignore the differences and pull out the commonality,
+
+53:01.180 --> 53:06.140
+ and you do it over maybe 100 hospitals around the world.
+
+53:06.140 --> 53:11.140
+ From that, you can get really mileage from big data.
+
+53:11.140 --> 53:15.060
+ It's not only that you have many samples,
+
+53:15.060 --> 53:18.740
+ you have many sources of data.
+
+53:18.740 --> 53:21.340
+ So that's a really powerful thing, I think,
+
+53:21.340 --> 53:23.420
+ especially for medical applications.
+
+53:23.420 --> 53:25.860
+ I mean, cure cancer, right?
+
+53:25.860 --> 53:28.580
+ That's how from data you can cure cancer.
+
+53:28.580 --> 53:30.100
+ So we're talking about causation,
+
+53:30.100 --> 53:35.100
+ which is the temporal relationships between things.
+
+53:35.180 --> 53:38.700
+ Not only temporal, it's both structural and temporal.
+
+53:38.700 --> 53:43.020
+ Temporal enough, temporal precedence by itself
+
+53:43.020 --> 53:45.220
+ cannot replace causation.
+
+53:46.820 --> 53:50.900
+ Is temporal precedence the arrow of time in physics?
+
+53:50.900 --> 53:52.220
+ It's important, necessary.
+
+53:52.220 --> 53:53.060
+ It's important.
+
+53:53.060 --> 53:54.260
+ It's efficient, yes.
+
+53:54.260 --> 53:55.780
+ Is it?
+
+53:55.780 --> 54:00.220
+ Yes, I never seen cause propagate backward.
+
+54:00.220 --> 54:03.940
+ But if we use the word cause,
+
+54:03.940 --> 54:07.060
+ but there's relationships that are timeless.
+
+54:07.060 --> 54:10.380
+ I suppose that's still forward in the arrow of time.
+
+54:10.380 --> 54:14.860
+ But are there relationships, logical relationships,
+
+54:14.860 --> 54:17.140
+ that fit into the structure?
+
+54:18.580 --> 54:21.980
+ Sure, the whole do calculus is logical relationship.
+
+54:21.980 --> 54:23.780
+ That doesn't require a temporal.
+
+54:23.780 --> 54:25.540
+ It has just the condition that
+
+54:26.940 --> 54:28.580
+ you're not traveling back in time.
+
+54:28.580 --> 54:31.180
+ Yes, correct.
+
+54:31.180 --> 54:34.020
+ So it's really a generalization of,
+
+54:34.020 --> 54:39.020
+ a powerful generalization of what?
+
+54:39.740 --> 54:40.700
+ Of Boolean logic.
+
+54:40.700 --> 54:41.700
+ Yeah, Boolean logic.
+
+54:41.700 --> 54:42.540
+ Yes.
+
+54:43.460 --> 54:46.260
+ That is sort of simply put,
+
+54:46.260 --> 54:51.260
+ and allows us to reason about the order of events,
+
+54:53.620 --> 54:54.460
+ the source, the.
+
+54:54.460 --> 54:58.020
+ Not about, between, we're not deriving the order of events.
+
+54:58.020 --> 55:01.340
+ We are given cause effects relationship, okay?
+
+55:01.340 --> 55:06.340
+ They ought to be obeying the time presidents relationship.
+
+55:08.900 --> 55:09.940
+ We are given it.
+
+55:09.940 --> 55:12.500
+ And now that we ask questions about
+
+55:12.500 --> 55:14.260
+ other causes of relationship,
+
+55:14.260 --> 55:17.860
+ that could be derived from the initial ones,
+
+55:17.860 --> 55:19.980
+ but were not given to us explicitly.
+
+55:20.940 --> 55:25.940
+ Like the case of the firing squad I gave you
+
+55:26.260 --> 55:28.220
+ in the first chapter.
+
+55:28.220 --> 55:33.220
+ And I ask, what if rifleman A declined to shoot?
+
+55:33.860 --> 55:36.100
+ Would the prisoner still be dead?
+
+55:37.940 --> 55:42.020
+ To decline to shoot, it means that he disobey order.
+
+55:42.020 --> 55:46.700
+ And the rule of the games were that he is a
+
+55:48.180 --> 55:51.820
+ obedient marksman, okay?
+
+55:51.820 --> 55:52.660
+ That's how you start.
+
+55:52.660 --> 55:53.500
+ That's the initial order.
+
+55:53.500 --> 55:56.540
+ But now you ask question about breaking the rules.
+
+55:56.540 --> 56:00.420
+ What if he decided not to pull the trigger?
+
+56:00.420 --> 56:02.140
+ He just became a pacifist.
+
+56:03.620 --> 56:06.020
+ And you and I can answer that.
+
+56:06.020 --> 56:09.220
+ The other rifleman would have killed him, okay?
+
+56:09.220 --> 56:10.740
+ I want the machine to do that.
+
+56:12.300 --> 56:15.420
+ Is it so hard to ask a machine to do that?
+
+56:15.420 --> 56:16.740
+ It's such a simple task.
+
+56:16.740 --> 56:19.380
+ You have to have a calculus for that.
+
+56:19.380 --> 56:21.180
+ Yes, yeah.
+
+56:21.180 --> 56:24.300
+ But the curiosity, the natural curiosity for me is
+
+56:24.300 --> 56:27.980
+ that yes, you're absolutely correct and important.
+
+56:27.980 --> 56:31.060
+ And it's hard to believe that we haven't done this
+
+56:31.060 --> 56:35.380
+ seriously extensively already a long time ago.
+
+56:35.380 --> 56:37.020
+ So this is really important work.
+
+56:37.020 --> 56:41.340
+ But I also wanna know, maybe you can philosophize
+
+56:41.340 --> 56:43.340
+ about how hard is it to learn.
+
+56:43.340 --> 56:44.420
+ Okay, let's assume we're learning.
+
+56:44.420 --> 56:45.620
+ We wanna learn it, okay?
+
+56:45.620 --> 56:46.460
+ We wanna learn.
+
+56:46.460 --> 56:47.280
+ So what do we do?
+
+56:47.280 --> 56:51.980
+ We put a learning machine that watches execution trials
+
+56:51.980 --> 56:56.980
+ in many countries and many locations, okay?
+
+56:57.220 --> 57:01.040
+ All the machine can learn is to see shut or not shut.
+
+57:01.040 --> 57:02.920
+ Dead, not dead.
+
+57:02.920 --> 57:05.620
+ A court issued an order or didn't, okay?
+
+57:05.620 --> 57:07.340
+ Just the facts.
+
+57:07.340 --> 57:10.140
+ For the fact you don't know who listens to whom.
+
+57:10.140 --> 57:13.740
+ You don't know that the condemned person
+
+57:13.740 --> 57:15.280
+ listened to the bullets,
+
+57:15.280 --> 57:19.300
+ that the bullets are listening to the captain, okay?
+
+57:19.300 --> 57:24.300
+ All we hear is one command, two shots, dead, okay?
+
+57:24.300 --> 57:27.100
+ A triple of variable.
+
+57:27.100 --> 57:29.300
+ Yes, no, yes, no.
+
+57:29.300 --> 57:32.140
+ Okay, that you can learn who listens to whom
+
+57:32.140 --> 57:33.980
+ and you can answer the question, no.
+
+57:33.980 --> 57:35.220
+ Definitively no.
+
+57:35.220 --> 57:39.120
+ But don't you think you can start proposing ideas
+
+57:39.120 --> 57:40.460
+ for humans to review?
+
+57:41.660 --> 57:44.380
+ You want machine to learn, you want a robot.
+
+57:44.380 --> 57:49.380
+ So robot is watching trials like that, 200 trials,
+
+57:50.780 --> 57:52.580
+ and then he has to answer the question,
+
+57:52.580 --> 57:56.920
+ what if rifleman A refrain from shooting?
+
+57:56.920 --> 57:57.760
+ Yeah.
+
+57:58.660 --> 58:00.260
+ How do I do that?
+
+58:00.260 --> 58:03.620
+ That's exactly my point.
+
+58:03.620 --> 58:04.900
+ It's looking at the facts,
+
+58:04.900 --> 58:07.140
+ don't give you the strings behind the facts.
+
+58:07.140 --> 58:11.860
+ Absolutely, but do you think of machine learning
+
+58:11.860 --> 58:15.220
+ as it's currently defined as only something
+
+58:15.220 --> 58:17.620
+ that looks at the facts and tries to do?
+
+58:17.620 --> 58:19.180
+ Right now, they only look at the facts, yeah.
+
+58:19.180 --> 58:23.500
+ So is there a way to modify, in your sense?
+
+58:23.500 --> 58:25.140
+ Playful manipulation.
+
+58:25.140 --> 58:26.140
+ Playful manipulation.
+
+58:26.140 --> 58:26.980
+ Yes, once in a while.
+
+58:26.980 --> 58:29.700
+ Doing the interventionist kind of thing, intervention.
+
+58:29.700 --> 58:31.140
+ But it could be at random.
+
+58:31.140 --> 58:34.540
+ For instance, the rifleman is sick that day
+
+58:34.540 --> 58:37.260
+ or he just vomits or whatever.
+
+58:37.260 --> 58:41.240
+ So machine can observe this unexpected event
+
+58:41.240 --> 58:43.580
+ which introduce noise.
+
+58:43.580 --> 58:46.420
+ The noise still have to be random
+
+58:46.420 --> 58:51.420
+ to be able to relate it to randomized experiment.
+
+58:51.660 --> 58:55.460
+ And then you have observational studies
+
+58:55.460 --> 58:59.940
+ from which to infer the strings behind the facts.
+
+58:59.940 --> 59:02.980
+ It's doable to a certain extent.
+
+59:02.980 --> 59:06.260
+ But now that we are expert in what you can do
+
+59:06.260 --> 59:09.080
+ once you have a model, we can reason back and say,
+
+59:09.080 --> 59:13.020
+ what kind of data you need to build a model.
+
+59:13.020 --> 59:17.300
+ Got it, so I know you're not a futurist,
+
+59:17.300 --> 59:19.760
+ but are you excited?
+
+59:19.760 --> 59:22.500
+ Have you, when you look back at your life,
+
+59:22.500 --> 59:24.540
+ longed for the idea of creating
+
+59:24.540 --> 59:25.940
+ a human level intelligence system?
+
+59:25.940 --> 59:28.340
+ Yeah, I'm driven by that.
+
+59:28.340 --> 59:30.500
+ All my life, I'm driven just by one thing.
+
+59:33.780 --> 59:34.900
+ But I go slowly.
+
+59:34.900 --> 59:39.380
+ I go from what I know to the next step incrementally.
+
+59:39.380 --> 59:42.440
+ So without imagining what the end goal looks like.
+
+59:42.440 --> 59:44.860
+ Do you imagine what an eight?
+
+59:44.860 --> 59:47.780
+ The end goal is gonna be a machine
+
+59:47.780 --> 59:50.900
+ that can answer sophisticated questions,
+
+59:50.900 --> 59:53.860
+ counterfactuals of regret, compassion,
+
+59:55.500 --> 59:57.840
+ responsibility, and free will.
+
+59:59.380 --> 1:00:01.620
+ So what is a good test?
+
+1:00:01.620 --> 1:00:04.980
+ Is a Turing test a reasonable test?
+
+1:00:04.980 --> 1:00:06.780
+ A test of free will doesn't exist yet.
+
+1:00:08.380 --> 1:00:09.940
+ How would you test free will?
+
+1:00:10.940 --> 1:00:12.540
+ So far, we know only one thing.
+
+1:00:14.940 --> 1:00:19.940
+ If robots can communicate with reward and punishment
+
+1:00:20.500 --> 1:00:25.420
+ among themselves and hitting each other on the wrist
+
+1:00:25.420 --> 1:00:27.820
+ and say, you shouldn't have done that, okay?
+
+1:00:27.820 --> 1:00:32.260
+ Playing better soccer because they can do that.
+
+1:00:33.900 --> 1:00:35.940
+ What do you mean, because they can do that?
+
+1:00:35.940 --> 1:00:38.100
+ Because they can communicate among themselves.
+
+1:00:38.100 --> 1:00:40.100
+ Because of the communication they can do.
+
+1:00:40.100 --> 1:00:42.660
+ Because they communicate like us.
+
+1:00:42.660 --> 1:00:44.580
+ Reward and punishment, yes.
+
+1:00:44.580 --> 1:00:47.580
+ You didn't pass the ball at the right time,
+
+1:00:47.580 --> 1:00:50.060
+ and so therefore you're gonna sit on the bench
+
+1:00:50.060 --> 1:00:51.540
+ for the next two.
+
+1:00:51.540 --> 1:00:53.660
+ If they start communicating like that,
+
+1:00:53.660 --> 1:00:56.380
+ the question is, will they play better soccer?
+
+1:00:56.380 --> 1:00:57.660
+ As opposed to what?
+
+1:00:57.660 --> 1:00:59.660
+ As opposed to what they do now?
+
+1:00:59.660 --> 1:01:04.660
+ Without this ability to reason about reward and punishment.
+
+1:01:04.980 --> 1:01:06.420
+ Responsibility.
+
+1:01:06.420 --> 1:01:07.940
+ And?
+
+1:01:07.940 --> 1:01:08.780
+ Artifactions.
+
+1:01:08.780 --> 1:01:11.700
+ So far, I can only think about communication.
+
+1:01:11.700 --> 1:01:15.380
+ Communication is, and not necessarily natural language,
+
+1:01:15.380 --> 1:01:16.380
+ but just communication.
+
+1:01:16.380 --> 1:01:17.580
+ Just communication.
+
+1:01:17.580 --> 1:01:21.980
+ And that's important to have a quick and effective means
+
+1:01:21.980 --> 1:01:24.100
+ of communicating knowledge.
+
+1:01:24.100 --> 1:01:26.460
+ If the coach tells you you should have passed the ball,
+
+1:01:26.460 --> 1:01:28.740
+ pink, he conveys so much knowledge to you
+
+1:01:28.740 --> 1:01:30.460
+ as opposed to what?
+
+1:01:30.460 --> 1:01:32.540
+ Go down and change your software.
+
+1:01:33.420 --> 1:01:35.300
+ That's the alternative.
+
+1:01:35.300 --> 1:01:37.700
+ But the coach doesn't know your software.
+
+1:01:37.700 --> 1:01:39.580
+ So how can the coach tell you
+
+1:01:39.580 --> 1:01:41.540
+ you should have passed the ball?
+
+1:01:41.540 --> 1:01:44.260
+ But our language is very effective.
+
+1:01:44.260 --> 1:01:45.580
+ You should have passed the ball.
+
+1:01:45.580 --> 1:01:47.020
+ You know your software.
+
+1:01:47.020 --> 1:01:50.940
+ You tweak the right module, and next time you don't do it.
+
+1:01:52.180 --> 1:01:53.620
+ Now that's for playing soccer,
+
+1:01:53.620 --> 1:01:55.180
+ the rules are well defined.
+
+1:01:55.180 --> 1:01:57.420
+ No, no, no, no, they're not well defined.
+
+1:01:57.420 --> 1:01:58.820
+ When you should pass the ball.
+
+1:01:58.820 --> 1:02:00.020
+ Is not well defined.
+
+1:02:00.020 --> 1:02:04.420
+ No, it's very soft, very noisy.
+
+1:02:04.420 --> 1:02:06.700
+ Yes, you have to do it under pressure.
+
+1:02:06.700 --> 1:02:07.820
+ It's art.
+
+1:02:07.820 --> 1:02:11.340
+ But in terms of aligning values
+
+1:02:11.340 --> 1:02:14.340
+ between computers and humans,
+
+1:02:15.260 --> 1:02:20.220
+ do you think this cause and effect type of thinking
+
+1:02:20.220 --> 1:02:22.300
+ is important to align the values,
+
+1:02:22.300 --> 1:02:25.540
+ values, morals, ethics under which the machines
+
+1:02:25.540 --> 1:02:28.500
+ make decisions, is the cause effect
+
+1:02:28.500 --> 1:02:32.100
+ where the two can come together?
+
+1:02:32.100 --> 1:02:34.780
+ Cause and effect is necessary component
+
+1:02:34.780 --> 1:02:38.300
+ to build an ethical machine.
+
+1:02:38.300 --> 1:02:40.460
+ Because the machine has to empathize
+
+1:02:40.460 --> 1:02:42.660
+ to understand what's good for you,
+
+1:02:42.660 --> 1:02:47.180
+ to build a model of you as a recipient,
+
+1:02:47.180 --> 1:02:50.900
+ which should be very much, what is compassion?
+
+1:02:50.900 --> 1:02:55.900
+ They imagine that you suffer pain as much as me.
+
+1:02:56.020 --> 1:02:57.020
+ As much as me.
+
+1:02:57.020 --> 1:03:00.300
+ I do have already a model of myself, right?
+
+1:03:00.300 --> 1:03:02.780
+ So it's very easy for me to map you to mine.
+
+1:03:02.780 --> 1:03:04.620
+ I don't have to rebuild the model.
+
+1:03:04.620 --> 1:03:06.940
+ It's much easier to say, oh, you're like me.
+
+1:03:06.940 --> 1:03:09.620
+ Okay, therefore I would not hate you.
+
+1:03:09.620 --> 1:03:12.100
+ And the machine has to imagine,
+
+1:03:12.100 --> 1:03:14.540
+ has to try to fake to be human essentially
+
+1:03:14.540 --> 1:03:19.420
+ so you can imagine that you're like me, right?
+
+1:03:19.420 --> 1:03:21.660
+ And moreover, who is me?
+
+1:03:21.660 --> 1:03:24.180
+ That's the first, that's consciousness.
+
+1:03:24.180 --> 1:03:25.740
+ They have a model of yourself.
+
+1:03:26.860 --> 1:03:28.100
+ Where do you get this model?
+
+1:03:28.100 --> 1:03:30.980
+ You look at yourself as if you are a part
+
+1:03:30.980 --> 1:03:32.380
+ of the environment.
+
+1:03:32.380 --> 1:03:33.940
+ If you build a model of yourself
+
+1:03:33.940 --> 1:03:36.100
+ versus the environment, then you can say,
+
+1:03:36.100 --> 1:03:38.220
+ I need to have a model of myself.
+
+1:03:38.220 --> 1:03:41.820
+ I have abilities, I have desires and so forth, okay?
+
+1:03:41.820 --> 1:03:44.340
+ I have a blueprint of myself though.
+
+1:03:44.340 --> 1:03:46.140
+ Not the full detail because I cannot
+
+1:03:46.140 --> 1:03:49.220
+ get the whole thing problem.
+
+1:03:49.220 --> 1:03:50.700
+ But I have a blueprint.
+
+1:03:50.700 --> 1:03:54.220
+ So on that level of a blueprint, I can modify things.
+
+1:03:54.220 --> 1:03:56.580
+ I can look at myself in the mirror and say,
+
+1:03:56.580 --> 1:03:59.180
+ hmm, if I change this model, tweak this model,
+
+1:03:59.180 --> 1:04:01.140
+ I'm gonna perform differently.
+
+1:04:02.340 --> 1:04:04.340
+ That is what we mean by free will.
+
+1:04:05.740 --> 1:04:06.940
+ And consciousness.
+
+1:04:06.940 --> 1:04:08.260
+ And consciousness.
+
+1:04:08.260 --> 1:04:10.380
+ What do you think is consciousness?
+
+1:04:10.380 --> 1:04:11.820
+ Is it simply self awareness?
+
+1:04:11.820 --> 1:04:14.660
+ So including yourself into the model of the world?
+
+1:04:14.660 --> 1:04:15.500
+ That's right.
+
+1:04:15.500 --> 1:04:19.620
+ Some people tell me, no, this is only part of consciousness.
+
+1:04:19.620 --> 1:04:21.460
+ And then they start telling me what they really mean
+
+1:04:21.460 --> 1:04:23.180
+ by consciousness, and I lose them.
+
+1:04:24.740 --> 1:04:29.420
+ For me, consciousness is having a blueprint
+
+1:04:29.420 --> 1:04:30.420
+ of your software.
+
+1:04:31.580 --> 1:04:36.580
+ Do you have concerns about the future of AI?
+
+1:04:37.020 --> 1:04:39.660
+ All the different trajectories of all of our research?
+
+1:04:39.660 --> 1:04:40.700
+ Yes.
+
+1:04:40.700 --> 1:04:43.300
+ Where's your hope, where the movement has,
+
+1:04:43.300 --> 1:04:44.380
+ where are your concerns?
+
+1:04:44.380 --> 1:04:49.380
+ I'm concerned, because I know we are building a new species
+
+1:04:49.500 --> 1:04:54.500
+ that has a capability of exceeding our, exceeding us,
+
+1:04:56.820 --> 1:05:01.300
+ exceeding our capabilities, and can breed itself
+
+1:05:01.300 --> 1:05:02.540
+ and take over the world.
+
+1:05:02.540 --> 1:05:03.580
+ Absolutely.
+
+1:05:03.580 --> 1:05:07.660
+ It's a new species that is uncontrolled.
+
+1:05:07.660 --> 1:05:10.140
+ We don't know the degree to which we control it.
+
+1:05:10.140 --> 1:05:12.660
+ We don't even understand what it means
+
+1:05:12.660 --> 1:05:15.180
+ to be able to control this new species.
+
+1:05:16.500 --> 1:05:17.740
+ So I'm concerned.
+
+1:05:18.660 --> 1:05:21.100
+ I don't have anything to add to that,
+
+1:05:21.100 --> 1:05:26.100
+ because it's such a gray area, it's unknown.
+
+1:05:26.100 --> 1:05:27.740
+ It never happened in history.
+
+1:05:29.820 --> 1:05:34.260
+ The only time it happened in history
+
+1:05:34.260 --> 1:05:35.980
+ was evolution with human beings.
+
+1:05:37.580 --> 1:05:39.420
+ It wasn't very successful, was it?
+
+1:05:39.420 --> 1:05:42.700
+ Some people say it was a great success.
+
+1:05:42.700 --> 1:05:46.380
+ For us it was, but a few people along the way,
+
+1:05:46.380 --> 1:05:49.340
+ a few creatures along the way would not agree.
+
+1:05:49.340 --> 1:05:53.100
+ So it's just because it's such a gray area,
+
+1:05:53.100 --> 1:05:54.980
+ there's nothing else to say.
+
+1:05:54.980 --> 1:05:56.820
+ We have a sample of one.
+
+1:05:56.820 --> 1:05:58.100
+ Sample of one.
+
+1:05:58.100 --> 1:05:58.940
+ It's us.
+
+1:05:59.860 --> 1:06:04.860
+ But some people would look at you and say,
+
+1:06:04.860 --> 1:06:09.780
+ yeah, but we were looking to you to help us
+
+1:06:09.780 --> 1:06:13.180
+ make sure that the sample two works out okay.
+
+1:06:13.180 --> 1:06:14.860
+ We have more than a sample of one.
+
+1:06:14.860 --> 1:06:18.700
+ We have theories, and that's a good.
+
+1:06:18.700 --> 1:06:20.740
+ We don't need to be statisticians.
+
+1:06:20.740 --> 1:06:25.420
+ So sample of one doesn't mean poverty of knowledge.
+
+1:06:25.420 --> 1:06:26.460
+ It's not.
+
+1:06:26.460 --> 1:06:30.540
+ Sample of one plus theory, conjectural theory,
+
+1:06:30.540 --> 1:06:31.780
+ of what could happen.
+
+1:06:32.940 --> 1:06:34.380
+ That we do have.
+
+1:06:34.380 --> 1:06:38.260
+ But I really feel helpless in contributing
+
+1:06:38.260 --> 1:06:41.980
+ to this argument, because I know so little,
+
+1:06:41.980 --> 1:06:46.640
+ and my imagination is limited,
+
+1:06:46.640 --> 1:06:50.140
+ and I know how much I don't know,
+
+1:06:50.140 --> 1:06:54.480
+ and I, but I'm concerned.
+
+1:06:55.540 --> 1:06:57.780
+ You were born and raised in Israel.
+
+1:06:57.780 --> 1:06:59.260
+ Born and raised in Israel, yes.
+
+1:06:59.260 --> 1:07:03.900
+ And later served in Israel military,
+
+1:07:03.900 --> 1:07:05.220
+ defense forces.
+
+1:07:05.220 --> 1:07:07.980
+ In the Israel Defense Force.
+
+1:07:07.980 --> 1:07:08.820
+ Yeah.
+
+1:07:09.720 --> 1:07:13.820
+ What did you learn from that experience?
+
+1:07:13.820 --> 1:07:15.140
+ From this experience?
+
+1:07:16.540 --> 1:07:18.140
+ There's a kibbutz in there as well.
+
+1:07:18.140 --> 1:07:20.540
+ Yes, because I was in the nachal,
+
+1:07:20.540 --> 1:07:25.540
+ which is a combination of agricultural work
+
+1:07:26.140 --> 1:07:28.540
+ and military service.
+
+1:07:28.540 --> 1:07:31.220
+ We were supposed, I was really idealist.
+
+1:07:31.220 --> 1:07:36.180
+ I wanted to be a member of the kibbutz throughout my life,
+
+1:07:36.180 --> 1:07:38.700
+ and to live a communal life,
+
+1:07:38.700 --> 1:07:43.700
+ and so I prepared myself for that.
+
+1:07:46.060 --> 1:07:49.980
+ Slowly, slowly, I wanted a greater challenge.
+
+1:07:51.360 --> 1:07:55.340
+ So that's a far world away, both.
+
+1:07:55.340 --> 1:07:57.780
+ What I learned from that, what I can add,
+
+1:07:57.780 --> 1:08:00.300
+ it was a miracle.
+
+1:08:01.340 --> 1:08:05.700
+ It was a miracle that I served in the 1950s.
+
+1:08:07.700 --> 1:08:09.460
+ I don't know how we survived.
+
+1:08:11.380 --> 1:08:13.720
+ The country was under austerity.
+
+1:08:15.380 --> 1:08:20.380
+ It tripled its population from 600,000 to a million point eight
+
+1:08:21.460 --> 1:08:23.320
+ when I finished college.
+
+1:08:23.320 --> 1:08:24.860
+ No one went hungry.
+
+1:08:24.860 --> 1:08:28.040
+ And austerity, yes.
+
+1:08:29.380 --> 1:08:34.220
+ When you wanted to make an omelet in a restaurant,
+
+1:08:34.220 --> 1:08:35.620
+ you had to bring your own egg.
+
+1:08:38.140 --> 1:08:43.140
+ And they imprisoned people from bringing the food
+
+1:08:43.740 --> 1:08:47.940
+ from farming here, from the villages, to the city.
+
+1:08:49.380 --> 1:08:50.780
+ But no one went hungry.
+
+1:08:50.780 --> 1:08:53.620
+ And I always add to it,
+
+1:08:53.620 --> 1:08:58.620
+ and higher education did not suffer any budget cut.
+
+1:09:00.220 --> 1:09:05.220
+ They still invested in me, in my wife, in our generation
+
+1:09:05.460 --> 1:09:09.700
+ to get the best education that they could, okay?
+
+1:09:09.700 --> 1:09:14.700
+ So I'm really grateful for the opportunity,
+
+1:09:15.200 --> 1:09:18.620
+ and I'm trying to pay back now, okay?
+
+1:09:18.620 --> 1:09:22.900
+ It's a miracle that we survived the war of 1948.
+
+1:09:22.900 --> 1:09:26.340
+ We were so close to a second genocide.
+
+1:09:27.260 --> 1:09:29.080
+ It was all planned.
+
+1:09:30.160 --> 1:09:32.180
+ But we survived it by miracle,
+
+1:09:32.180 --> 1:09:33.580
+ and then the second miracle
+
+1:09:33.580 --> 1:09:37.780
+ that not many people talk about, the next phase.
+
+1:09:37.780 --> 1:09:40.280
+ How no one went hungry,
+
+1:09:40.280 --> 1:09:43.940
+ and the country managed to triple its population.
+
+1:09:43.940 --> 1:09:45.300
+ You know what it means to triple?
+
+1:09:45.300 --> 1:09:50.220
+ Imagine United States going from what, 350 million
+
+1:09:50.220 --> 1:09:53.860
+ to a trillion, unbelievable.
+
+1:09:53.860 --> 1:09:57.020
+ So it's a really tense part of the world.
+
+1:09:57.020 --> 1:09:59.060
+ It's a complicated part of the world,
+
+1:09:59.060 --> 1:10:00.740
+ Israel and all around.
+
+1:10:01.820 --> 1:10:06.820
+ Religion is at the core of that complexity.
+
+1:10:08.100 --> 1:10:09.460
+ One of the components.
+
+1:10:09.460 --> 1:10:12.420
+ Religion is a strong motivating cause
+
+1:10:12.420 --> 1:10:16.500
+ to many, many people in the Middle East, yes.
+
+1:10:16.500 --> 1:10:21.020
+ In your view, looking back, is religion good for society?
+
+1:10:23.180 --> 1:10:25.500
+ That's a good question for robotic, you know?
+
+1:10:26.900 --> 1:10:28.300
+ There's echoes of that question.
+
+1:10:28.300 --> 1:10:30.980
+ Equip robot with religious belief.
+
+1:10:32.260 --> 1:10:34.660
+ Suppose we find out, or we agree
+
+1:10:34.660 --> 1:10:37.940
+ that religion is good to you, to keep you in line, okay?
+
+1:10:37.940 --> 1:10:42.940
+ Should we give the robot the metaphor of a god?
+
+1:10:43.340 --> 1:10:46.460
+ As a matter of fact, the robot will get it without us also.
+
+1:10:47.340 --> 1:10:48.180
+ Why?
+
+1:10:48.180 --> 1:10:51.020
+ The robot will reason by metaphor.
+
+1:10:51.020 --> 1:10:56.020
+ And what is the most primitive metaphor
+
+1:10:56.380 --> 1:10:57.580
+ a child grows with?
+
+1:10:58.940 --> 1:11:02.940
+ Mother smile, father teaching,
+
+1:11:02.940 --> 1:11:05.380
+ father image and mother image, that's god.
+
+1:11:05.380 --> 1:11:08.800
+ So, whether you want it or not,
+
+1:11:08.800 --> 1:11:12.560
+ the robot will, well, assuming that the robot
+
+1:11:12.560 --> 1:11:14.800
+ is gonna have a mother and a father,
+
+1:11:14.800 --> 1:11:16.360
+ it may only have a programmer,
+
+1:11:16.360 --> 1:11:20.960
+ which doesn't supply warmth and discipline.
+
+1:11:20.960 --> 1:11:22.440
+ Well, discipline it does.
+
+1:11:22.440 --> 1:11:26.220
+ So the robot will have a model of the trainer,
+
+1:11:27.360 --> 1:11:29.320
+ and everything that happens in the world,
+
+1:11:29.320 --> 1:11:32.280
+ cosmology and so on, is going to be mapped
+
+1:11:32.280 --> 1:11:36.520
+ into the programmer, it's god.
+
+1:11:36.520 --> 1:11:41.380
+ Man, the thing that represents the origin
+
+1:11:41.380 --> 1:11:43.960
+ of everything for that robot.
+
+1:11:43.960 --> 1:11:46.340
+ It's the most primitive relationship.
+
+1:11:46.340 --> 1:11:48.680
+ So it's gonna arrive there by metaphor.
+
+1:11:48.680 --> 1:11:51.880
+ And so the question is if overall
+
+1:11:51.880 --> 1:11:56.200
+ that metaphor has served us well as humans.
+
+1:11:56.200 --> 1:11:58.000
+ I really don't know.
+
+1:11:58.000 --> 1:12:01.680
+ I think it did, but as long as you keep
+
+1:12:01.680 --> 1:12:03.160
+ in mind it's only a metaphor.
+
+1:12:05.160 --> 1:12:10.160
+ So, if you think we can, can we talk about your son?
+
+1:12:11.580 --> 1:12:13.240
+ Yes, yes.
+
+1:12:13.240 --> 1:12:15.080
+ Can you tell his story?
+
+1:12:15.080 --> 1:12:15.920
+ His story?
+
+1:12:17.180 --> 1:12:18.020
+ Daniel?
+
+1:12:18.020 --> 1:12:21.200
+ His story is known, he was abducted
+
+1:12:21.200 --> 1:12:26.200
+ in Pakistan by Al Qaeda driven sect,
+
+1:12:26.200 --> 1:12:31.200
+ and under various pretenses.
+
+1:12:32.040 --> 1:12:35.200
+ I don't even pay attention to what the pretence was.
+
+1:12:35.200 --> 1:12:39.840
+ Originally they wanted to have the United States
+
+1:12:42.720 --> 1:12:46.120
+ deliver some promised airplanes.
+
+1:12:47.520 --> 1:12:51.520
+ It was all made up, and all these demands were bogus.
+
+1:12:51.520 --> 1:12:56.520
+ Bogus, I don't know really, but eventually
+
+1:12:57.000 --> 1:13:02.000
+ he was executed in front of a camera.
+
+1:13:03.680 --> 1:13:07.400
+ At the core of that is hate and intolerance.
+
+1:13:07.400 --> 1:13:10.000
+ At the core, yes, absolutely, yes.
+
+1:13:10.000 --> 1:13:15.000
+ We don't really appreciate the depth of the hate
+
+1:13:15.000 --> 1:13:20.000
+ at which billions of peoples are educated.
+
+1:13:26.080 --> 1:13:27.560
+ We don't understand it.
+
+1:13:27.560 --> 1:13:31.360
+ I just listened recently to what they teach you
+
+1:13:31.360 --> 1:13:32.320
+ in Mogadishu.
+
+1:13:32.320 --> 1:13:37.320
+ Okay, okay, when the water stopped in the tap,
+
+1:13:45.680 --> 1:13:49.360
+ we knew exactly who did it, the Jews.
+
+1:13:49.360 --> 1:13:50.600
+ The Jews.
+
+1:13:50.600 --> 1:13:54.020
+ We didn't know how, but we knew who did it.
+
+1:13:55.280 --> 1:13:58.080
+ We don't appreciate what it means to us.
+
+1:13:58.080 --> 1:14:00.440
+ The depth is unbelievable.
+
+1:14:00.440 --> 1:14:04.680
+ Do you think all of us are capable of evil?
+
+1:14:06.920 --> 1:14:09.840
+ And the education, the indoctrination
+
+1:14:09.840 --> 1:14:10.680
+ is really what creates evil.
+
+1:14:10.680 --> 1:14:12.240
+ Absolutely we are capable of evil.
+
+1:14:12.240 --> 1:14:17.240
+ If you're indoctrinated sufficiently long and in depth,
+
+1:14:18.800 --> 1:14:23.800
+ you're capable of ISIS, you're capable of Nazism.
+
+1:14:24.840 --> 1:14:28.400
+ Yes, we are, but the question is whether we,
+
+1:14:28.400 --> 1:14:32.840
+ after we have gone through some Western education
+
+1:14:32.840 --> 1:14:35.680
+ and we learn that everything is really relative.
+
+1:14:35.680 --> 1:14:37.680
+ It is not absolute God.
+
+1:14:37.680 --> 1:14:40.120
+ It's only a belief in God.
+
+1:14:40.120 --> 1:14:43.520
+ Whether we are capable now of being transformed
+
+1:14:43.520 --> 1:14:47.520
+ under certain circumstances to become brutal.
+
+1:14:49.920 --> 1:14:50.760
+ Yeah.
+
+1:14:51.680 --> 1:14:55.080
+ I'm worried about it because some people say yes,
+
+1:14:55.080 --> 1:14:57.360
+ given the right circumstances,
+
+1:14:57.360 --> 1:15:02.360
+ given bad economical crisis,
+
+1:15:04.120 --> 1:15:06.160
+ you are capable of doing it too.
+
+1:15:06.160 --> 1:15:07.240
+ That worries me.
+
+1:15:08.420 --> 1:15:10.520
+ I want to believe it, I'm not capable.
+
+1:15:12.200 --> 1:15:14.560
+ So seven years after Daniel's death,
+
+1:15:14.560 --> 1:15:16.800
+ you wrote an article at the Wall Street Journal
+
+1:15:16.800 --> 1:15:19.760
+ titled Daniel Pearl and the Normalization of Evil.
+
+1:15:19.760 --> 1:15:20.580
+ Yes.
+
+1:15:20.580 --> 1:15:23.040
+ What was your message back then
+
+1:15:23.040 --> 1:15:27.560
+ and how did it change today over the years?
+
+1:15:27.560 --> 1:15:28.840
+ I lost.
+
+1:15:30.600 --> 1:15:31.840
+ What was the message?
+
+1:15:31.840 --> 1:15:36.840
+ The message was that we are not treating terrorism
+
+1:15:39.960 --> 1:15:40.800
+ as a taboo.
+
+1:15:41.840 --> 1:15:46.840
+ We are treating it as a bargaining device that is accepted.
+
+1:15:46.840 --> 1:15:51.840
+ People have grievance and they go and bomb restaurants.
+
+1:15:54.000 --> 1:15:55.240
+ It's normal.
+
+1:15:55.240 --> 1:15:58.180
+ Look, you're even not surprised when I tell you that.
+
+1:15:59.600 --> 1:16:01.640
+ 20 years ago you say, what?
+
+1:16:01.640 --> 1:16:04.060
+ For grievance you go and blow a restaurant?
+
+1:16:05.000 --> 1:16:06.960
+ Today it's becoming normalized.
+
+1:16:07.960 --> 1:16:09.820
+ The banalization of evil.
+
+1:16:11.080 --> 1:16:16.080
+ And we have created that to ourselves by normalizing,
+
+1:16:16.080 --> 1:16:21.080
+ by making it part of political life.
+
+1:16:23.960 --> 1:16:26.800
+ It's a political debate.
+
+1:16:27.760 --> 1:16:32.760
+ Every terrorist yesterday becomes a freedom fighter today
+
+1:16:34.440 --> 1:16:36.600
+ and tomorrow it becomes terrorist again.
+
+1:16:36.600 --> 1:16:37.680
+ It's switchable.
+
+1:16:38.600 --> 1:16:42.220
+ Right, and so we should call out evil when there's evil.
+
+1:16:42.220 --> 1:16:46.860
+ If we don't want to be part of it.
+
+1:16:46.860 --> 1:16:47.700
+ Becoming.
+
+1:16:49.020 --> 1:16:52.300
+ Yeah, if we want to separate good from evil,
+
+1:16:52.300 --> 1:16:54.100
+ that's one of the first things that,
+
+1:16:55.060 --> 1:16:57.540
+ what was it, in the Garden of Eden,
+
+1:16:57.540 --> 1:17:02.540
+ remember the first thing that God told him was,
+
+1:17:02.900 --> 1:17:07.380
+ hey, you want some knowledge, here's a tree of good and evil.
+
+1:17:07.380 --> 1:17:12.260
+ Yeah, so this evil touched your life personally.
+
+1:17:12.260 --> 1:17:17.260
+ Does your heart have anger, sadness, or is it hope?
+
+1:17:20.300 --> 1:17:25.300
+ Look, I see some beautiful people coming from Pakistan.
+
+1:17:26.140 --> 1:17:29.420
+ I see beautiful people everywhere.
+
+1:17:29.420 --> 1:17:34.420
+ But I see horrible propagation of evil in this country too.
+
+1:17:38.700 --> 1:17:42.780
+ It shows you how populistic slogans
+
+1:17:42.780 --> 1:17:47.260
+ can catch the mind of the best intellectuals.
+
+1:17:48.220 --> 1:17:50.100
+ Today is Father's Day.
+
+1:17:50.100 --> 1:17:51.060
+ I didn't know that.
+
+1:17:51.060 --> 1:17:56.060
+ Yeah, what's a fond memory you have of Daniel?
+
+1:17:56.060 --> 1:17:58.380
+ What's a fond memory you have of Daniel?
+
+1:17:58.380 --> 1:18:01.760
+ Oh, very good memories, immense.
+
+1:18:02.660 --> 1:18:03.920
+ He was my mentor.
+
+1:18:06.100 --> 1:18:11.100
+ He had a sense of balance that I didn't have.
+
+1:18:15.340 --> 1:18:17.540
+ He saw the beauty in every person.
+
+1:18:19.460 --> 1:18:22.020
+ He was not as emotional as I am,
+
+1:18:22.020 --> 1:18:26.220
+ the more looking things in perspective.
+
+1:18:26.220 --> 1:18:29.340
+ He really liked every person.
+
+1:18:29.340 --> 1:18:33.420
+ He really grew up with the idea that a foreigner
+
+1:18:34.740 --> 1:18:39.740
+ is a reason for curiosity, not for fear.
+
+1:18:42.780 --> 1:18:45.280
+ That one time we went in Berkeley,
+
+1:18:45.280 --> 1:18:49.220
+ and a homeless came out from some dark alley,
+
+1:18:49.220 --> 1:18:51.180
+ and said, hey, man, can you spare a dime?
+
+1:18:51.180 --> 1:18:54.620
+ I retreated back, two feet back,
+
+1:18:54.620 --> 1:18:56.220
+ and then I just hugged him and say,
+
+1:18:56.220 --> 1:18:58.420
+ here's a dime, enjoy yourself.
+
+1:18:58.420 --> 1:19:03.420
+ Maybe you want some money to take a bus or whatever.
+
+1:19:05.340 --> 1:19:06.580
+ Where did you get it?
+
+1:19:06.580 --> 1:19:07.420
+ Not from me.
+
+1:19:10.460 --> 1:19:12.400
+ Do you have advice for young minds today,
+
+1:19:12.400 --> 1:19:16.200
+ dreaming about creating as you have dreamt,
+
+1:19:16.200 --> 1:19:17.880
+ creating intelligent systems?
+
+1:19:17.880 --> 1:19:21.380
+ What is the best way to arrive at new breakthrough ideas
+
+1:19:21.380 --> 1:19:23.820
+ and carry them through the fire of criticism
+
+1:19:23.820 --> 1:19:27.020
+ and past conventional ideas?
+
+1:19:28.780 --> 1:19:33.720
+ Ask your questions freely.
+
+1:19:34.920 --> 1:19:36.640
+ Your questions are never dumb.
+
+1:19:37.660 --> 1:19:39.380
+ And solve them your own way.
+
+1:19:40.700 --> 1:19:42.680
+ And don't take no for an answer.
+
+1:19:42.680 --> 1:19:46.240
+ Look, if they are really dumb,
+
+1:19:46.240 --> 1:19:49.880
+ you will find out quickly by trying an arrow
+
+1:19:49.880 --> 1:19:52.420
+ to see that they're not leading any place.
+
+1:19:52.420 --> 1:19:57.420
+ But follow them and try to understand things your way.
+
+1:19:59.440 --> 1:20:01.600
+ That is my advice.
+
+1:20:01.600 --> 1:20:03.980
+ I don't know if it's gonna help anyone.
+
+1:20:03.980 --> 1:20:05.520
+ Not as brilliantly.
+
+1:20:05.520 --> 1:20:10.520
+ There is a lot of inertia in science, in academia.
+
+1:20:15.120 --> 1:20:17.460
+ It is slowing down science.
+
+1:20:18.560 --> 1:20:23.320
+ Yeah, those two words, your way, that's a powerful thing.
+
+1:20:23.320 --> 1:20:27.000
+ It's against inertia, potentially, against the flow.
+
+1:20:27.000 --> 1:20:28.640
+ Against your professor.
+
+1:20:28.640 --> 1:20:30.440
+ Against your professor.
+
+1:20:30.440 --> 1:20:34.840
+ I wrote the Book of Why in order to democratize
+
+1:20:34.840 --> 1:20:35.960
+ common sense.
+
+1:20:38.680 --> 1:20:43.680
+ In order to instill rebellious spirit in students
+
+1:20:45.460 --> 1:20:50.000
+ so they wouldn't wait until the professor get things right.
+
+1:20:53.720 --> 1:20:56.640
+ So you wrote the manifesto of the rebellion
+
+1:20:56.640 --> 1:20:58.360
+ against the professor.
+
+1:20:58.360 --> 1:21:00.360
+ Against the professor, yes.
+
+1:21:00.360 --> 1:21:02.840
+ So looking back at your life of research,
+
+1:21:02.840 --> 1:21:06.200
+ what ideas do you hope ripple through the next many decades?
+
+1:21:06.200 --> 1:21:09.460
+ What do you hope your legacy will be?
+
+1:21:10.600 --> 1:21:13.600
+ I already have a tombstone carved.
+
+1:21:19.880 --> 1:21:21.560
+ Oh, boy.
+
+1:21:21.560 --> 1:21:24.840
+ The fundamental law of counterfactuals.
+
+1:21:25.840 --> 1:21:29.800
+ That's what, it's a simple equation.
+
+1:21:29.800 --> 1:21:34.460
+ Counterfactual in terms of a model surgery.
+
+1:21:35.560 --> 1:21:37.960
+ That's it, because everything follows from that.
+
+1:21:40.000 --> 1:21:45.000
+ If you get that, all the rest, I can die in peace.
+
+1:21:46.600 --> 1:21:49.640
+ And my student can derive all my knowledge
+
+1:21:49.640 --> 1:21:51.920
+ by mathematical means.
+
+1:21:51.920 --> 1:21:53.520
+ The rest follows.
+
+1:21:53.520 --> 1:21:55.040
+ Yeah.
+
+1:21:55.040 --> 1:21:56.420
+ Thank you so much for talking today.
+
+1:21:56.420 --> 1:21:57.260
+ I really appreciate it.
+
+1:21:57.260 --> 1:22:02.260
+ Thank you for being so attentive and instigating.
+
+1:22:03.920 --> 1:22:05.240
+ We did it.
+
+1:22:05.240 --> 1:22:06.080
+ We did it.
+
+1:22:06.080 --> 1:22:07.520
+ The coffee helped.
+
+1:22:07.520 --> 1:22:11.280
+ Thanks for listening to this conversation with Judea Pearl.
+
+1:22:11.280 --> 1:22:14.280
+ And thank you to our presenting sponsor, Cash App.
+
+1:22:14.280 --> 1:22:18.320
+ Download it, use code LexPodcast, you'll get $10,
+
+1:22:18.320 --> 1:22:21.960
+ and $10 will go to FIRST, a STEM education nonprofit
+
+1:22:21.960 --> 1:22:24.880
+ that inspires hundreds of thousands of young minds
+
+1:22:24.880 --> 1:22:28.320
+ to learn and to dream of engineering our future.
+
+1:22:28.320 --> 1:22:31.120
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:22:31.120 --> 1:22:33.040
+ give it five stars on Apple Podcast,
+
+1:22:33.040 --> 1:22:36.880
+ support on Patreon, or simply connect with me on Twitter.
+
+1:22:36.880 --> 1:22:39.320
+ And now, let me leave you with some words of wisdom
+
+1:22:39.320 --> 1:22:41.080
+ from Judea Pearl.
+
+1:22:41.080 --> 1:22:44.000
+ You cannot answer a question that you cannot ask,
+
+1:22:44.000 --> 1:22:47.400
+ and you cannot ask a question that you have no words for.
+
+1:22:47.400 --> 1:22:52.400
+ Thank you for listening, and hope to see you next time.
+

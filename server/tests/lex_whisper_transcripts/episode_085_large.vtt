@@ -1,0 +1,6158 @@
+WEBVTT
+
+00:00.000 --> 00:02.780
+ The following is a conversation with Roger Penrose,
+
+00:02.780 --> 00:05.300
+ physicist, mathematician, and philosopher
+
+00:05.300 --> 00:07.020
+ at University of Oxford.
+
+00:07.020 --> 00:10.860
+ He has made fundamental contributions in many disciplines
+
+00:10.860 --> 00:13.340
+ from the mathematical physics of general relativity
+
+00:13.340 --> 00:15.780
+ and cosmology to the limitations
+
+00:15.780 --> 00:18.660
+ of a computational view of consciousness.
+
+00:18.660 --> 00:20.820
+ In his book, The Emperor's New Mind,
+
+00:20.820 --> 00:22.820
+ Roger writes that, quote,
+
+00:22.820 --> 00:26.160
+ "'Children are not afraid to pose basic questions
+
+00:26.160 --> 00:29.900
+ that may embarrass us as adults to ask.'
+
+00:29.900 --> 00:32.000
+ In many ways, my goal with this podcast
+
+00:32.000 --> 00:33.680
+ is to embrace the inner child
+
+00:33.680 --> 00:36.540
+ that is not constrained by how one should behave,
+
+00:36.540 --> 00:40.100
+ speak, and think in the adult world.
+
+00:41.180 --> 00:44.780
+ Roger is one of the most important minds of our time,
+
+00:44.780 --> 00:48.300
+ so it was truly a pleasure and an honor to talk with him.
+
+00:49.140 --> 00:50.620
+ This conversation was recorded
+
+00:50.620 --> 00:52.920
+ before the outbreak of the pandemic.
+
+00:52.920 --> 00:55.820
+ For everyone feeling the medical, psychological,
+
+00:55.820 --> 00:57.740
+ and financial burden of the crisis,
+
+00:57.740 --> 00:59.780
+ I'm sending love your way.
+
+00:59.780 --> 01:03.060
+ Stay strong, we're in this together, we'll beat this thing.
+
+01:04.100 --> 01:06.660
+ This is the Artificial Intelligence Podcast.
+
+01:06.660 --> 01:08.860
+ If you enjoy it, subscribe on YouTube,
+
+01:08.860 --> 01:11.220
+ review it with five stars on Apple Podcast,
+
+01:11.220 --> 01:12.620
+ support it on Patreon,
+
+01:12.620 --> 01:14.660
+ or simply connect with me on Twitter
+
+01:14.660 --> 01:18.780
+ at Lex Friedman, spelled F R I D M A N.
+
+01:18.780 --> 01:21.180
+ As usual, I'll do a few minutes of ads now
+
+01:21.180 --> 01:22.380
+ and never any ads in the middle
+
+01:22.380 --> 01:24.580
+ that can break the flow of the conversation.
+
+01:24.580 --> 01:25.720
+ I hope that works for you
+
+01:25.720 --> 01:27.860
+ and doesn't hurt the listening experience.
+
+01:27.860 --> 01:29.340
+ Quick summary of the ads.
+
+01:29.340 --> 01:33.380
+ Two sponsors, ExpressVPN and Cash App.
+
+01:33.380 --> 01:35.500
+ Please consider supporting the podcast
+
+01:35.500 --> 01:40.500
+ by getting ExpressVPN at expressvpn.com slash lexpod
+
+01:40.900 --> 01:45.900
+ and downloading Cash App and using code LEX PODCAST.
+
+01:46.260 --> 01:48.260
+ This show is presented by Cash App,
+
+01:48.260 --> 01:50.460
+ the number one finance app in the app store.
+
+01:50.460 --> 01:53.540
+ When you get it, use code LEX PODCAST.
+
+01:53.540 --> 01:55.660
+ Cash App lets you send money to friends,
+
+01:55.660 --> 01:58.020
+ buy Bitcoin, and invest in the stock market
+
+01:58.020 --> 01:59.940
+ with as little as $1.
+
+01:59.940 --> 02:02.220
+ Since Cash App does fractional share trading,
+
+02:02.220 --> 02:05.060
+ let me mention that the order execution algorithm
+
+02:05.060 --> 02:06.780
+ that works behind the scenes
+
+02:06.780 --> 02:09.460
+ to create the abstraction of the fractional orders
+
+02:09.460 --> 02:11.260
+ is an algorithmic marvel.
+
+02:11.260 --> 02:13.740
+ So big props to the Cash App engineers
+
+02:13.740 --> 02:15.460
+ for solving a hard problem
+
+02:15.460 --> 02:18.040
+ that in the end provides an easy interface
+
+02:18.040 --> 02:21.040
+ that takes a step up to the next layer of abstraction
+
+02:21.040 --> 02:22.980
+ over the stock market,
+
+02:22.980 --> 02:25.460
+ making trading more accessible for new investors
+
+02:25.460 --> 02:28.480
+ and diversification much easier.
+
+02:28.480 --> 02:30.900
+ So again, if you get Cash App from the App Store
+
+02:30.900 --> 02:34.340
+ or Google Play and use the code LEX PODCAST,
+
+02:34.340 --> 02:38.500
+ you get $10 and Cash App will also donate $10 to FIRST,
+
+02:38.500 --> 02:41.180
+ an organization that is helping to advance robotics
+
+02:41.180 --> 02:44.260
+ and STEM education for young people around the world.
+
+02:45.120 --> 02:47.700
+ This show is sponsored by ExpressVPN.
+
+02:47.700 --> 02:52.540
+ Get it at expressvpn.com slash lexpod
+
+02:52.540 --> 02:55.580
+ to get a discount and to support this podcast.
+
+02:55.580 --> 02:58.280
+ I've been using ExpressVPN for many years.
+
+02:58.280 --> 02:59.300
+ I love it.
+
+02:59.300 --> 03:03.100
+ It's easy to use, press the big power on button
+
+03:03.100 --> 03:04.900
+ and your privacy is protected.
+
+03:04.900 --> 03:08.340
+ And if you like, you can make it look like your location
+
+03:08.340 --> 03:10.100
+ is anywhere else in the world.
+
+03:10.100 --> 03:12.040
+ I might be in Boston now,
+
+03:12.040 --> 03:14.220
+ but I can make it look like I'm in New York,
+
+03:14.220 --> 03:17.720
+ London, Paris or anywhere else.
+
+03:17.720 --> 03:20.380
+ This has a large number of obvious benefits.
+
+03:20.380 --> 03:23.300
+ Certainly, it allows you to access international versions
+
+03:23.300 --> 03:26.140
+ of streaming websites like the Japanese Netflix
+
+03:26.140 --> 03:28.140
+ or the UK Hulu.
+
+03:28.140 --> 03:31.660
+ ExpressVPN works on any device you can imagine.
+
+03:31.660 --> 03:36.320
+ I use it on Linux, shout out to Ubuntu, Windows, Android,
+
+03:36.320 --> 03:38.640
+ but it's available everywhere else too.
+
+03:38.640 --> 03:43.380
+ Once again, get it at expressvpn.com slash lexpod
+
+03:43.380 --> 03:46.440
+ to get a discount and to support this podcast.
+
+03:46.440 --> 03:50.640
+ And now, here's my conversation with Roger Penrose.
+
+03:51.660 --> 03:54.240
+ You mentioned in conversation with Eric Weinstein
+
+03:54.240 --> 03:57.620
+ on the Portal podcast that 2001 Space Odyssey
+
+03:57.620 --> 03:58.980
+ is your favorite movie.
+
+03:59.940 --> 04:02.100
+ Which aspect, if you could mention,
+
+04:02.100 --> 04:05.100
+ of its representation of artificial intelligence,
+
+04:05.100 --> 04:07.740
+ science, engineering connected with you?
+
+04:07.740 --> 04:11.460
+ There are all sorts of scenes there which are so amazing.
+
+04:11.460 --> 04:14.820
+ And how science was so well done.
+
+04:14.820 --> 04:19.060
+ I mean, people say, oh no, Interstellar is this amazing movie
+
+04:19.060 --> 04:21.700
+ which is the most scientific movie.
+
+04:21.700 --> 04:23.780
+ I thought it's not a patch on 2001.
+
+04:24.660 --> 04:29.260
+ I mean, 2001, they really went into all sorts of details.
+
+04:29.260 --> 04:33.220
+ And regarding getting the free fall well done and everything,
+
+04:33.220 --> 04:35.940
+ I thought it was extremely well done.
+
+04:35.940 --> 04:38.980
+ So just the details were mesmerizing in terms of this.
+
+04:38.980 --> 04:43.180
+ And also things like the scene where at the beginning
+
+04:43.180 --> 04:45.700
+ they have these sort of human ancestors
+
+04:45.700 --> 04:49.540
+ which are sort of apes becoming humans.
+
+04:49.540 --> 04:50.820
+ The monolith.
+
+04:50.820 --> 04:53.900
+ Yes, and well, it's the one where he throws the bone
+
+04:53.900 --> 04:56.300
+ up into the air and then it becomes this.
+
+04:57.220 --> 05:00.140
+ I mean, that's an amazing sequence there.
+
+05:00.140 --> 05:01.860
+ What do you make of the monolith?
+
+05:01.860 --> 05:06.140
+ Does it have any scientific or philosophical meaning to you,
+
+05:06.140 --> 05:08.220
+ this kind of thing that sparks innovation?
+
+05:08.220 --> 05:09.060
+ Not really.
+
+05:09.060 --> 05:12.260
+ That comes from Arthur C. Clarke.
+
+05:12.260 --> 05:14.220
+ I was always a great fan of Arthur C. Clarke.
+
+05:14.220 --> 05:16.020
+ So it's just a nice plot device.
+
+05:16.020 --> 05:18.140
+ Yeah, that plot is excellent, yes.
+
+05:18.140 --> 05:22.020
+ So Hal 9000 decides to get rid of the astronauts
+
+05:22.020 --> 05:26.900
+ because he, it, she believes that they will interfere
+
+05:26.900 --> 05:27.740
+ with the mission.
+
+05:27.740 --> 05:28.580
+ That's right.
+
+05:28.580 --> 05:29.420
+ Yeah, well, there you are.
+
+05:29.420 --> 05:30.380
+ It's this view.
+
+05:30.380 --> 05:31.580
+ I don't know whether I disagree with it
+
+05:31.580 --> 05:35.180
+ because in a certain sense it was telling you it's wrong.
+
+05:35.180 --> 05:39.460
+ See, the machine seemed to think it was superior
+
+05:39.460 --> 05:44.460
+ to the human and so it was entitled to get rid
+
+05:45.060 --> 05:47.380
+ of the human beings and run the show itself.
+
+05:47.380 --> 05:49.460
+ Well, do you think Hal did the right thing?
+
+05:49.460 --> 05:52.020
+ Do you think Hal's flawed evil?
+
+05:52.020 --> 05:55.340
+ Or if we think about systems like Hal,
+
+05:55.340 --> 05:58.020
+ would we want Hal to do the same thing in the future?
+
+05:58.020 --> 05:58.940
+ What was the flaw there?
+
+05:58.940 --> 06:01.660
+ Well, you're basically touching on questions.
+
+06:01.660 --> 06:04.540
+ You see, it's one supposed to believe
+
+06:04.540 --> 06:06.420
+ that Hal was actually conscious.
+
+06:06.420 --> 06:10.140
+ I mean, it was played rather that way,
+
+06:10.140 --> 06:13.500
+ as though Hal was a conscious being.
+
+06:13.500 --> 06:18.500
+ Because Hal showed some pain, some cognizance,
+
+06:19.820 --> 06:24.180
+ Hal appeared to be cognizant of what it means to die.
+
+06:24.180 --> 06:25.020
+ Yes.
+
+06:25.020 --> 06:28.220
+ And therefore had an inkling of consciousness.
+
+06:28.220 --> 06:30.780
+ Yeah, I mean, I'm not sure that aspect
+
+06:30.780 --> 06:32.700
+ of it was made completely clear,
+
+06:32.700 --> 06:37.100
+ whether Hal was really just a very sophisticated computer,
+
+06:37.100 --> 06:39.300
+ which really didn't actually have these feelings
+
+06:39.300 --> 06:42.180
+ and somehow, but you're right,
+
+06:42.180 --> 06:44.660
+ it didn't like the idea of being turned off.
+
+06:45.620 --> 06:48.780
+ How does it change things if Hal was or wasn't conscious?
+
+06:49.700 --> 06:53.100
+ Well, it might say that it would be wrong to turn it off
+
+06:53.100 --> 06:55.180
+ if it was actually conscious.
+
+06:55.180 --> 06:57.340
+ I mean, these questions arise if you think.
+
+06:57.340 --> 07:00.020
+ I mean, AI, one of the ideas,
+
+07:00.020 --> 07:01.460
+ it's sort of a mixture in a sense.
+
+07:01.460 --> 07:05.260
+ You say, if it's trying to do everything a human can do,
+
+07:05.260 --> 07:08.660
+ and if you take the view that consciousness
+
+07:08.660 --> 07:10.500
+ is something which would come along
+
+07:10.500 --> 07:13.420
+ when the computer is sufficiently complicated,
+
+07:13.420 --> 07:16.460
+ sufficiently whatever criterion you use
+
+07:16.460 --> 07:20.860
+ to characterize its consciousness
+
+07:20.860 --> 07:24.860
+ in terms of some computational criteria,
+
+07:24.860 --> 07:27.780
+ computational criterion.
+
+07:28.620 --> 07:33.580
+ So how does consciousness change our evaluation
+
+07:33.580 --> 07:35.940
+ of the decision that Hal made?
+
+07:35.940 --> 07:36.780
+ I guess I was trying to say
+
+07:36.780 --> 07:38.940
+ that people are a bit confused about this,
+
+07:38.940 --> 07:42.100
+ because if they say these machines will become conscious,
+
+07:42.100 --> 07:45.300
+ but just simply because it's a degree of computation,
+
+07:45.300 --> 07:48.260
+ and when you get beyond that certain degree of computation,
+
+07:48.260 --> 07:49.420
+ it will become conscious,
+
+07:49.420 --> 07:52.340
+ then of course you have all these problems.
+
+07:52.340 --> 07:53.380
+ I mean, you might say, well,
+
+07:53.380 --> 07:55.100
+ one of the reasons you're doing AI
+
+07:55.100 --> 07:57.100
+ is because you want to send a device
+
+07:57.100 --> 07:59.060
+ out to some distant planet,
+
+07:59.060 --> 08:01.180
+ and you don't want to send a human out there,
+
+08:01.180 --> 08:02.780
+ because then you'd have to bring it back again,
+
+08:02.780 --> 08:04.900
+ and that costs you far more
+
+08:04.900 --> 08:07.100
+ than just sending it there and leaving it there.
+
+08:07.100 --> 08:10.020
+ But if this device is actually a conscious entity,
+
+08:10.020 --> 08:13.060
+ then you have to face up to the fact that that's immoral.
+
+08:13.060 --> 08:17.820
+ And so the mere fact that you're making some AI device
+
+08:17.820 --> 08:22.820
+ and thinking that removes your responsibility to it
+
+08:24.140 --> 08:25.820
+ would be incorrect.
+
+08:25.820 --> 08:29.700
+ And so this is a sign of flaw in that kind of viewpoint.
+
+08:29.700 --> 08:34.180
+ I'm not sure how people who take it very seriously,
+
+08:35.460 --> 08:37.140
+ I mean, I had this curious conversation
+
+08:37.140 --> 08:40.780
+ with, I'm going to forget names, I'm afraid,
+
+08:40.780 --> 08:43.860
+ because this is what happens to me at the wrong moment,
+
+08:43.860 --> 08:45.860
+ Hofstadter, Douglas Hofstadter.
+
+08:45.860 --> 08:46.820
+ Douglas Hofstadter, yeah.
+
+08:46.820 --> 08:48.860
+ And he'd written this book,
+
+08:48.860 --> 08:50.340
+ God Will Let You Up, which I liked.
+
+08:50.340 --> 08:52.300
+ I thought it was a fantastic book.
+
+08:52.300 --> 08:55.700
+ But I didn't agree with his conclusion
+
+08:55.700 --> 08:56.580
+ from Gödel's theorem.
+
+08:56.580 --> 08:58.580
+ I think he got it wrong, you see.
+
+08:58.580 --> 09:01.220
+ Well, I'll just tell you my story, you see,
+
+09:01.220 --> 09:02.700
+ because I'd never met him.
+
+09:02.700 --> 09:04.740
+ And then I knew I was going to meet him,
+
+09:04.740 --> 09:06.860
+ the occasion I realized he was coming in,
+
+09:06.860 --> 09:09.140
+ he wanted to talk to me, and I said, that's fine.
+
+09:09.140 --> 09:10.460
+ And I thought in my mind,
+
+09:10.460 --> 09:12.620
+ well, I'm going to paint him into a corner, you see,
+
+09:12.620 --> 09:15.780
+ because I'll use his arguments to convince him
+
+09:15.780 --> 09:19.340
+ that certain numbers are conscious.
+
+09:19.340 --> 09:22.620
+ Some integers, large enough integers are actually conscious.
+
+09:22.620 --> 09:25.420
+ And this was going to be my reductio ad absurdum.
+
+09:25.420 --> 09:26.900
+ So I started having this argument with him.
+
+09:26.900 --> 09:28.660
+ He simply leapt into the corner.
+
+09:28.660 --> 09:31.020
+ He didn't even need to be painted into it.
+
+09:31.020 --> 09:33.900
+ He took the view that certain numbers were conscious.
+
+09:33.900 --> 09:35.780
+ I thought that was a reductio ad absurdum,
+
+09:35.780 --> 09:37.620
+ but he seemed to think it was perfectly
+
+09:37.620 --> 09:38.860
+ a reasonable point of view.
+
+09:38.860 --> 09:40.620
+ Without the absurdum there.
+
+09:40.620 --> 09:41.540
+ Yes.
+
+09:41.540 --> 09:44.580
+ Interesting, but the thing you mentioned about how
+
+09:44.580 --> 09:46.940
+ is the intuition that a lot of the people,
+
+09:46.940 --> 09:48.900
+ at least in the artificial intelligence world,
+
+09:48.900 --> 09:51.500
+ had and have, I think.
+
+09:51.500 --> 09:52.700
+ They don't make it explicit,
+
+09:52.700 --> 09:56.820
+ but that if you increase the power of computation,
+
+09:56.820 --> 09:58.980
+ naturally consciousness will emerge.
+
+09:58.980 --> 10:00.300
+ Yes, I think that's what they think.
+
+10:00.300 --> 10:01.300
+ But basically that's because
+
+10:01.300 --> 10:02.740
+ they can't think of anything else.
+
+10:02.740 --> 10:03.580
+ Well, that's right.
+
+10:03.580 --> 10:05.340
+ And so it's a reasonable thing.
+
+10:05.340 --> 10:06.540
+ I mean, you think, what does the brain do?
+
+10:06.540 --> 10:09.140
+ Well, it does do a lot of computation.
+
+10:09.140 --> 10:11.540
+ I think most of what you actually call computation
+
+10:11.540 --> 10:13.260
+ is done by the cerebellum.
+
+10:13.260 --> 10:15.620
+ I mean, this is one of the things
+
+10:15.620 --> 10:17.820
+ that people don't much mention.
+
+10:17.820 --> 10:19.740
+ I mean, I come to this subject from the outside
+
+10:19.740 --> 10:21.860
+ and certain things strike me,
+
+10:21.860 --> 10:24.700
+ which you hardly ever hear mentioned.
+
+10:24.700 --> 10:28.420
+ I mean, you hear mentioned about the left right business.
+
+10:28.420 --> 10:30.340
+ They move your right arm,
+
+10:30.340 --> 10:31.900
+ that's the left side of the brain
+
+10:31.900 --> 10:34.940
+ and so on and all that sort of stuff.
+
+10:34.940 --> 10:36.780
+ And it's more than that.
+
+10:36.780 --> 10:40.460
+ If you have these plots of different parts of the brain,
+
+10:40.460 --> 10:43.300
+ there are two of these things called the homunculi,
+
+10:43.300 --> 10:47.500
+ which you see these pictures of a distorted human figure
+
+10:47.500 --> 10:51.420
+ and showing different parts of the brain,
+
+10:51.420 --> 10:53.140
+ controlling different parts of the body.
+
+10:53.140 --> 10:55.900
+ And it's not simply things like,
+
+10:55.900 --> 10:58.020
+ okay, the right hand is controlled
+
+10:58.020 --> 11:03.020
+ and both sensory and motor on the left side,
+
+11:03.020 --> 11:04.820
+ left hand on the right side.
+
+11:04.820 --> 11:05.940
+ It's more than that.
+
+11:05.940 --> 11:08.620
+ Vision is the back basically,
+
+11:08.620 --> 11:11.020
+ your feet at the top.
+
+11:11.020 --> 11:13.060
+ And it's as though it's about the worst organization
+
+11:13.060 --> 11:14.820
+ you could imagine.
+
+11:14.820 --> 11:17.540
+ So it can't just be a mistake in nature.
+
+11:17.540 --> 11:19.460
+ There's something going on there.
+
+11:19.460 --> 11:22.660
+ And this is made more pronounced
+
+11:22.660 --> 11:25.660
+ when you think of the cerebellum.
+
+11:25.660 --> 11:27.540
+ The cerebellum has,
+
+11:27.540 --> 11:29.340
+ when I was first thinking about these things,
+
+11:29.340 --> 11:32.020
+ I was told that it had half as many neurons
+
+11:32.020 --> 11:33.940
+ or something like that, comparable.
+
+11:33.940 --> 11:36.500
+ And now they tell me it's got far more neurons
+
+11:36.500 --> 11:39.780
+ than the cerebrum, and cerebrum is this sort of
+
+11:39.780 --> 11:42.020
+ convoluted thing at the top people always talk about.
+
+11:42.020 --> 11:44.220
+ Cerebellum is this thing just looks a bit like
+
+11:44.220 --> 11:47.900
+ a ball of wool right at the back underneath them.
+
+11:47.900 --> 11:49.460
+ It's got more neurons.
+
+11:49.460 --> 11:51.620
+ It's got more connections.
+
+11:51.620 --> 11:55.140
+ Computationally, it's got much more going on
+
+11:55.140 --> 11:57.100
+ than this from the cerebrum.
+
+11:58.420 --> 12:01.380
+ But as far as we know, that's slightly controversial,
+
+12:01.380 --> 12:04.820
+ the cerebellum is entirely unconscious.
+
+12:04.820 --> 12:07.300
+ So the actions, you have a pianist
+
+12:07.300 --> 12:09.020
+ who plays an incredible piece of music
+
+12:09.020 --> 12:11.940
+ and think of, and he moves his little finger
+
+12:11.940 --> 12:14.140
+ into this little key to get it, hit it,
+
+12:14.140 --> 12:15.900
+ just the right moment.
+
+12:15.900 --> 12:20.780
+ Does he or she consciously will that movement?
+
+12:20.780 --> 12:21.620
+ No.
+
+12:23.060 --> 12:24.660
+ Okay, the consciousness is coming in.
+
+12:24.660 --> 12:26.060
+ It's probably to do with the feeling
+
+12:26.060 --> 12:28.780
+ of the piece of music that's being performed
+
+12:28.780 --> 12:31.220
+ and that sort of thing, which is going on.
+
+12:31.220 --> 12:35.020
+ But the details of what's going on are controlled.
+
+12:35.020 --> 12:37.540
+ I would think almost entirely by the cerebellum.
+
+12:38.620 --> 12:40.380
+ That's where you have this precision
+
+12:40.380 --> 12:44.020
+ and the really detailed.
+
+12:44.020 --> 12:47.260
+ Once you get, I mean, you think of a tennis player
+
+12:47.260 --> 12:48.860
+ or something, does that tennis player
+
+12:48.860 --> 12:51.940
+ think exactly which muscles should be moved
+
+12:51.940 --> 12:52.940
+ in what direction and so on?
+
+12:52.940 --> 12:54.380
+ No, of course not.
+
+12:54.380 --> 12:56.220
+ But he or she will maybe think,
+
+12:56.220 --> 12:59.340
+ well, if the ball is angled in such a way in that corner,
+
+12:59.340 --> 13:02.020
+ that will be tricky for the opponent.
+
+13:02.020 --> 13:05.060
+ And the details of that are all done
+
+13:06.420 --> 13:08.740
+ largely with the cerebellum.
+
+13:08.740 --> 13:11.540
+ That's where all the precise motions,
+
+13:11.540 --> 13:13.060
+ but it's unconscious.
+
+13:13.060 --> 13:14.420
+ So why is it interesting to you
+
+13:14.420 --> 13:17.940
+ that so much computation is done in the cerebellum
+
+13:17.940 --> 13:19.340
+ and yet it is unconscious?
+
+13:19.340 --> 13:21.980
+ Because it doesn't, it's the view
+
+13:21.980 --> 13:24.580
+ that somehow it's computation
+
+13:24.580 --> 13:27.340
+ which is producing the consciousness.
+
+13:27.340 --> 13:30.740
+ And it's here you have an incredible amount
+
+13:30.740 --> 13:32.100
+ of computation going on.
+
+13:33.220 --> 13:35.820
+ And as far as we know, it's completely unconscious.
+
+13:36.980 --> 13:39.460
+ So why, what's the difference?
+
+13:39.460 --> 13:41.860
+ And I think it's an important thing.
+
+13:41.860 --> 13:42.980
+ What's the difference?
+
+13:43.900 --> 13:47.620
+ Why is the cerebrum, all this very peculiar stuff
+
+13:47.620 --> 13:51.300
+ that very hard to see on a computational perspective,
+
+13:51.300 --> 13:53.940
+ like having the, everything have to cross over
+
+13:53.940 --> 13:55.620
+ under the other side and do something
+
+13:55.620 --> 13:57.300
+ which looks completely inefficient.
+
+13:58.300 --> 14:01.540
+ And you've got funny things like the frontal lobe
+
+14:01.540 --> 14:04.660
+ and the, what do we call the lobes?
+
+14:04.660 --> 14:06.620
+ And the place where they come together,
+
+14:07.820 --> 14:12.340
+ you have the different parts, the control,
+
+14:12.340 --> 14:13.740
+ you see one to do with motor
+
+14:13.740 --> 14:15.340
+ and the other to do with sensory.
+
+14:16.340 --> 14:17.900
+ And they're sort of opposite each other
+
+14:17.900 --> 14:19.460
+ rather than being connected by,
+
+14:20.860 --> 14:23.460
+ it's not as though you've got electrical circuits.
+
+14:23.460 --> 14:26.300
+ There's something else going on there.
+
+14:26.300 --> 14:30.260
+ So it's just the idea that it's like a complicated computer
+
+14:30.260 --> 14:34.580
+ just seems to me to be completely missing the point.
+
+14:34.580 --> 14:37.380
+ There must be a lot of computation going on,
+
+14:37.380 --> 14:40.340
+ but the cerebellum seems to be much better at doing that
+
+14:40.340 --> 14:41.540
+ than the cerebrum is.
+
+14:42.820 --> 14:47.820
+ So for sure, I think what explains it is like half hope
+
+14:47.940 --> 14:49.700
+ and half we don't know what's going on.
+
+14:49.700 --> 14:52.420
+ And therefore from the computer science perspective,
+
+14:52.420 --> 14:56.340
+ you hope that a Turing machine can be perfectly,
+
+14:56.340 --> 14:58.020
+ can achieve general intelligence.
+
+14:58.020 --> 15:02.220
+ Well, you have this wonderful thing about Turing
+
+15:02.220 --> 15:07.220
+ and Gödel and Church and Curry and various people,
+
+15:07.500 --> 15:11.660
+ particularly Turing, and I guess Post was the other one.
+
+15:11.660 --> 15:14.340
+ These people who developed the idea
+
+15:14.340 --> 15:15.880
+ of what a computation is.
+
+15:17.740 --> 15:19.900
+ And there were different ideas of what a computation,
+
+15:19.900 --> 15:20.740
+ developed differently.
+
+15:20.740 --> 15:21.820
+ I mean, Church's way of doing it,
+
+15:21.820 --> 15:24.620
+ was very different from Turing's,
+
+15:24.620 --> 15:26.820
+ but then they were shown to be equivalent.
+
+15:26.820 --> 15:30.860
+ And so the view emerged that what we mean by computation
+
+15:32.060 --> 15:33.860
+ is a very clear concept.
+
+15:34.820 --> 15:37.860
+ And one of the wonderful things that Turing did
+
+15:37.860 --> 15:40.180
+ was to show that you could have
+
+15:40.180 --> 15:43.260
+ what we call the universal Turing machine.
+
+15:43.260 --> 15:46.300
+ It's you just have to have a certain finite device.
+
+15:46.300 --> 15:48.580
+ Okay, it has to have an unlimited storage space,
+
+15:48.580 --> 15:50.180
+ which is accessible to it,
+
+15:50.180 --> 15:51.960
+ but the actual computation, if you like,
+
+15:51.960 --> 15:55.980
+ is performed by this one universal device.
+
+15:55.980 --> 15:57.740
+ And so the view comes away,
+
+15:57.740 --> 16:01.340
+ well, you have this universal Turing machine,
+
+16:01.340 --> 16:03.820
+ and maybe the brain is something like that,
+
+16:03.820 --> 16:05.140
+ a universal Turing machine,
+
+16:05.140 --> 16:08.620
+ and it's got maybe not unlimited storage,
+
+16:08.620 --> 16:12.660
+ but a huge storage accessible to it.
+
+16:12.660 --> 16:14.380
+ And this model is one,
+
+16:14.380 --> 16:17.380
+ which is what's used in ordinary computation.
+
+16:17.380 --> 16:19.260
+ It's a very powerful model.
+
+16:19.260 --> 16:24.260
+ And the universallness of computation is very useful.
+
+16:24.520 --> 16:26.180
+ You could have some problem
+
+16:26.180 --> 16:27.580
+ and you may not see immediately
+
+16:27.580 --> 16:29.140
+ how to put it onto a computer,
+
+16:29.140 --> 16:32.200
+ but if it is something of that nature,
+
+16:32.200 --> 16:36.220
+ then there are all sorts of subprograms
+
+16:36.220 --> 16:37.580
+ and subroutines when all the,
+
+16:37.580 --> 16:38.940
+ I mean, I learned a little bit of computing
+
+16:38.940 --> 16:42.580
+ when I was a student, but not very much.
+
+16:42.580 --> 16:45.060
+ But it was enough to get the general ideas.
+
+16:45.060 --> 16:46.480
+ And there's something really pleasant
+
+16:46.480 --> 16:48.980
+ about a formal system like that.
+
+16:48.980 --> 16:49.820
+ Yeah.
+
+16:49.820 --> 16:51.420
+ Where you can start discussing about what's provable,
+
+16:51.420 --> 16:52.740
+ what's not, these kinds of things.
+
+16:52.740 --> 16:55.340
+ And you've got a notion, which is an absolute notion,
+
+16:55.340 --> 16:56.820
+ this notion of computability,
+
+16:56.820 --> 17:00.260
+ and you can address when things are,
+
+17:00.260 --> 17:02.820
+ mathematical problems are computably solvable
+
+17:02.820 --> 17:03.660
+ and what chance.
+
+17:03.660 --> 17:04.500
+ So.
+
+17:04.500 --> 17:06.720
+ And it's a very beautiful area of mathematics,
+
+17:06.720 --> 17:09.700
+ and it's a very powerful area of mathematics.
+
+17:09.700 --> 17:13.620
+ And it underlies the whole sort of,
+
+17:14.580 --> 17:18.500
+ I won't say, the principles of computing machines
+
+17:18.500 --> 17:19.700
+ that we have today.
+
+17:19.700 --> 17:22.820
+ Could you say, what is Gayle's Incompleteness Theorem?
+
+17:22.820 --> 17:24.860
+ And how does it, maybe also say,
+
+17:24.860 --> 17:26.500
+ is it heartbreaking to you?
+
+17:26.500 --> 17:31.100
+ And how does it interfere with this notion of computation
+
+17:31.100 --> 17:32.660
+ and consciousness?
+
+17:32.660 --> 17:33.500
+ Sure.
+
+17:33.500 --> 17:36.060
+ Well, the ideas, basically ideas,
+
+17:36.060 --> 17:39.140
+ which I formulated in my first year
+
+17:39.140 --> 17:41.540
+ as a graduate student in Cambridge.
+
+17:41.540 --> 17:44.700
+ I did my undergraduate work in mathematics in London,
+
+17:44.700 --> 17:47.460
+ and I had a colleague, Ian Percival.
+
+17:47.460 --> 17:49.780
+ We used to discuss things like computational
+
+17:49.780 --> 17:52.300
+ and logical systems quite a lot.
+
+17:52.300 --> 17:53.660
+ I'd heard about Gayle's theorem.
+
+17:53.660 --> 17:55.860
+ I was a bit worried by the idea that it seemed to say
+
+17:55.860 --> 17:59.620
+ there were things in mathematics that you could never prove.
+
+17:59.620 --> 18:03.140
+ And so when I went to Cambridge as a graduate student,
+
+18:04.100 --> 18:06.020
+ I went to various courses.
+
+18:06.900 --> 18:08.540
+ You see, I was doing pure mathematics.
+
+18:08.540 --> 18:11.980
+ I was doing algebraic geometry of a sort.
+
+18:11.980 --> 18:15.280
+ A little bit different from what my supervisor and people,
+
+18:15.280 --> 18:16.780
+ but it was algebraic geometry.
+
+18:16.780 --> 18:17.620
+ Yeah.
+
+18:17.620 --> 18:20.260
+ And I was interested,
+
+18:20.260 --> 18:24.860
+ I got particularly interested in three lecture courses
+
+18:24.860 --> 18:27.020
+ that were nothing to do with what I was supposed
+
+18:27.020 --> 18:28.260
+ to be doing.
+
+18:28.260 --> 18:30.580
+ One was a course by Herman Bondy
+
+18:30.580 --> 18:33.500
+ on Einstein's general theory of relativity,
+
+18:33.500 --> 18:34.620
+ which was a beautiful course.
+
+18:34.620 --> 18:37.540
+ He was an amazing lecturer,
+
+18:37.540 --> 18:40.260
+ brought these things alive, absolutely.
+
+18:40.260 --> 18:43.360
+ Another was a course on quantum mechanics
+
+18:43.360 --> 18:47.060
+ given by a great physicist, Paul Dirac.
+
+18:47.060 --> 18:50.560
+ Very beautiful course in a completely different way.
+
+18:50.560 --> 18:52.460
+ It was, he was very kind of organized
+
+18:52.460 --> 18:56.380
+ and never got excited about anything seemingly.
+
+18:58.540 --> 19:00.640
+ But it was extremely well put together.
+
+19:00.640 --> 19:03.340
+ And I found that amazing too.
+
+19:03.340 --> 19:04.780
+ Third course that was nothing to do
+
+19:04.780 --> 19:06.580
+ with what I should be doing was a course
+
+19:06.580 --> 19:08.100
+ on mathematical logic.
+
+19:08.960 --> 19:12.860
+ I got excited, as I say, my discussions with Ian Percival
+
+19:12.860 --> 19:15.980
+ was incompleteness theorem already deeply
+
+19:15.980 --> 19:18.740
+ within mathematical logic space.
+
+19:18.740 --> 19:20.200
+ Were you introduced to it?
+
+19:20.200 --> 19:23.880
+ I was introduced to it in detail by the course, by Steen.
+
+19:25.020 --> 19:27.820
+ And he, it was two things he described
+
+19:27.820 --> 19:31.040
+ which were very fundamental to my understanding.
+
+19:31.040 --> 19:34.260
+ One was Turing machines and the whole idea
+
+19:34.260 --> 19:35.820
+ of computability and all that.
+
+19:35.820 --> 19:38.300
+ So that was all very much part of the course.
+
+19:38.300 --> 19:41.460
+ The other one was the Gödel theorem.
+
+19:41.460 --> 19:43.500
+ And it wasn't what I was afraid it was
+
+19:43.500 --> 19:45.180
+ to tell you there were things in mathematics
+
+19:45.180 --> 19:46.180
+ you couldn't prove.
+
+19:47.060 --> 19:51.340
+ It was basically, and he phrased it in a way
+
+19:51.340 --> 19:53.100
+ which often people didn't.
+
+19:53.100 --> 19:54.860
+ And if you read Douglas Soft status book,
+
+19:54.860 --> 19:56.420
+ he doesn't, you see.
+
+19:56.420 --> 19:58.220
+ But Steen made it very clear.
+
+19:58.220 --> 20:01.140
+ And also in a sort of public lecture
+
+20:01.140 --> 20:02.900
+ that he gave to a mathematical,
+
+20:02.900 --> 20:04.340
+ I think it may be the Adams Society,
+
+20:04.340 --> 20:07.140
+ one of the mathematical undergraduate societies.
+
+20:07.140 --> 20:09.460
+ And he made this point again very clearly.
+
+20:09.460 --> 20:11.780
+ That if you've got a formal system of proof,
+
+20:11.780 --> 20:15.160
+ so suppose what you mean by proof
+
+20:15.160 --> 20:19.140
+ is something which you could check with a computer.
+
+20:19.140 --> 20:21.220
+ So to say whether you've got it right or not,
+
+20:21.220 --> 20:22.340
+ you've got a lot of steps.
+
+20:22.340 --> 20:25.940
+ Have you carried this computational procedure?
+
+20:25.940 --> 20:30.520
+ Well, following the proof, steps of the proof correctly,
+
+20:30.520 --> 20:35.420
+ that can be checked by an algorithm, by a computer.
+
+20:35.420 --> 20:38.780
+ So that's the key thing.
+
+20:38.780 --> 20:43.780
+ Now what you have to, now you see, is this any good?
+
+20:44.420 --> 20:47.260
+ If you've got an algorithmic system,
+
+20:47.260 --> 20:49.940
+ which claims to say, yes, this is right,
+
+20:49.940 --> 20:52.620
+ this you've proved it correctly, this is true.
+
+20:52.620 --> 20:54.820
+ If you've proved it, if you made a mistake,
+
+20:54.820 --> 20:55.980
+ it doesn't say it's true or false.
+
+20:55.980 --> 20:57.940
+ But if you have, if you've done it right,
+
+20:57.940 --> 21:01.980
+ then the conclusion you've come to is correct.
+
+21:01.980 --> 21:03.900
+ Now you say, why do you believe it's correct?
+
+21:03.900 --> 21:05.420
+ Because you've looked at the rules and you said,
+
+21:05.420 --> 21:06.720
+ well, okay, that one's all right.
+
+21:06.720 --> 21:07.560
+ Yeah, that one's all right.
+
+21:07.560 --> 21:08.380
+ What about that?
+
+21:08.380 --> 21:10.100
+ Oh, yeah, I see, I see why it's all right.
+
+21:10.100 --> 21:12.020
+ Okay, you go through all the rules.
+
+21:12.020 --> 21:13.840
+ You say, yes, following those rules,
+
+21:13.840 --> 21:16.940
+ if it says, yes, it's true, it is true.
+
+21:17.860 --> 21:19.940
+ So you've got to make sure that these rules
+
+21:19.940 --> 21:21.980
+ are ones that you trust.
+
+21:21.980 --> 21:25.020
+ If you follow the rules and it says it's a proof,
+
+21:25.020 --> 21:27.060
+ is the result actually true?
+
+21:27.060 --> 21:27.900
+ Right.
+
+21:27.900 --> 21:29.660
+ And that your belief that it's true
+
+21:29.660 --> 21:33.140
+ depends upon looking at the rules and understanding them.
+
+21:33.140 --> 21:37.300
+ Now, what Gödel shows, that if you have such a system,
+
+21:38.180 --> 21:41.220
+ then you can construct a statement of the very kind
+
+21:41.220 --> 21:44.380
+ that it's supposed to look at, a mathematical statement,
+
+21:44.380 --> 21:47.660
+ and you can see by the way it's constructed
+
+21:47.660 --> 21:51.180
+ and what it means that it's true,
+
+21:52.380 --> 21:56.620
+ but not provable by the rules that you've been given.
+
+21:56.620 --> 21:59.660
+ And it depends on your trust in the rules.
+
+21:59.660 --> 22:02.300
+ Do you believe that the rules only give you truths?
+
+22:02.300 --> 22:04.260
+ If you believe the rules only give you truths,
+
+22:04.260 --> 22:07.620
+ then you believe this other statement is also true.
+
+22:07.620 --> 22:09.900
+ I found this absolutely mind blowing.
+
+22:09.900 --> 22:12.660
+ When I saw this, it blew my mind.
+
+22:12.660 --> 22:17.060
+ I thought, my God, you can see that this statement is true.
+
+22:17.060 --> 22:18.940
+ It's as good as any proof,
+
+22:18.940 --> 22:21.860
+ because it only depends on your belief
+
+22:21.860 --> 22:25.700
+ in the reliability of the proof procedure, that's all it is,
+
+22:25.700 --> 22:29.260
+ and understanding that the coding is done correctly.
+
+22:29.260 --> 22:32.900
+ And it enables you to transcend that system.
+
+22:33.820 --> 22:36.260
+ So whatever system you have,
+
+22:36.260 --> 22:39.020
+ as long as you can understand what it's doing
+
+22:39.020 --> 22:41.980
+ and why you believe it only gives you truths,
+
+22:41.980 --> 22:43.780
+ then you can see beyond that system.
+
+22:44.700 --> 22:46.220
+ Now, how do you see beyond it?
+
+22:46.220 --> 22:51.220
+ What is it that enables you to transcend that system?
+
+22:51.740 --> 22:53.260
+ Well, it's your understanding
+
+22:53.260 --> 22:55.740
+ of what the system is actually saying
+
+22:55.740 --> 22:57.620
+ and what the statement that you've constructed
+
+22:57.620 --> 22:59.460
+ is actually saying.
+
+22:59.460 --> 23:03.140
+ So it's this quality of understanding, whatever it is,
+
+23:03.140 --> 23:05.540
+ which is not governed by rules.
+
+23:05.540 --> 23:07.420
+ It's not a computational procedure.
+
+23:07.420 --> 23:09.660
+ So this idea of understanding is not going to be
+
+23:09.660 --> 23:13.420
+ within the rules of the, within the formal system.
+
+23:13.420 --> 23:15.940
+ Yes, you're only using those rules anyway,
+
+23:15.940 --> 23:18.340
+ because you have understood them to be rules
+
+23:18.340 --> 23:20.260
+ which only give you truths.
+
+23:20.260 --> 23:22.260
+ There'd be no point in it otherwise.
+
+23:22.260 --> 23:24.300
+ I mean, people say, well, okay, this is,
+
+23:24.300 --> 23:28.020
+ it's one set of rules as good as any other.
+
+23:28.020 --> 23:28.860
+ Well, it's not true.
+
+23:28.860 --> 23:31.580
+ You see, you have to understand what the rules mean.
+
+23:31.580 --> 23:33.580
+ And why does that understanding of the mean
+
+23:33.580 --> 23:36.340
+ give you something beyond the rules themselves?
+
+23:36.340 --> 23:37.340
+ And that's what it was.
+
+23:37.340 --> 23:38.620
+ That's what blew my mind.
+
+23:38.620 --> 23:43.620
+ It's somehow understanding why the rules give you truths
+
+23:43.820 --> 23:45.900
+ enables you to transcend the rules.
+
+23:45.900 --> 23:48.060
+ So that's where, I mean, even at that time,
+
+23:48.060 --> 23:50.900
+ that's already where the thought entered your mind
+
+23:50.900 --> 23:55.340
+ that the idea of understanding, or we can start calling it
+
+23:55.340 --> 23:57.980
+ things like intelligence or even consciousness
+
+23:57.980 --> 23:59.660
+ is outside the rules.
+
+23:59.660 --> 24:00.500
+ Yes.
+
+24:00.500 --> 24:02.900
+ See, I've always concentrated on understanding.
+
+24:02.900 --> 24:05.300
+ You know, people say, people come and point out things.
+
+24:05.300 --> 24:07.140
+ Well, you know, what about creativity?
+
+24:07.140 --> 24:09.100
+ That's something a machine can't do is create.
+
+24:09.100 --> 24:09.940
+ Well, I don't know.
+
+24:09.940 --> 24:11.260
+ What is creativity?
+
+24:11.260 --> 24:12.100
+ And I don't know.
+
+24:12.100 --> 24:13.860
+ You know, somebody can put some funny things
+
+24:13.860 --> 24:15.620
+ on a piece of paper and say that's creative
+
+24:15.620 --> 24:16.900
+ and you could make a machine do that.
+
+24:16.900 --> 24:18.100
+ Is it really creative?
+
+24:18.100 --> 24:18.940
+ I don't know.
+
+24:18.940 --> 24:20.540
+ You see, I worry about that one.
+
+24:20.540 --> 24:22.860
+ I sort of agree with it in a sense,
+
+24:22.860 --> 24:25.460
+ but it's so hard to do anything with that statement.
+
+24:25.460 --> 24:27.740
+ But understanding, yes, you can.
+
+24:27.740 --> 24:32.580
+ You can make, go see that understanding, whatever it is,
+
+24:32.580 --> 24:34.300
+ and it's very hard to put your finger on it.
+
+24:34.300 --> 24:35.740
+ That's absolutely true.
+
+24:35.740 --> 24:39.620
+ Can you try to define or maybe dance around
+
+24:39.620 --> 24:41.980
+ a definition of understanding?
+
+24:41.980 --> 24:45.980
+ To some degree, but I don't, I often wondered about this,
+
+24:45.980 --> 24:48.900
+ but there is something there which is very slippery.
+
+24:48.900 --> 24:52.700
+ It's something like standing back.
+
+24:52.700 --> 24:54.140
+ And it's got to be something, you see,
+
+24:54.140 --> 24:56.940
+ it's also got to be something which was of value
+
+24:56.940 --> 24:58.900
+ to our remote ancestors.
+
+24:58.900 --> 24:59.740
+ Right.
+
+24:59.740 --> 25:01.540
+ Because sometimes, there's a cartoon
+
+25:01.540 --> 25:04.940
+ which I drew sometimes showing you how all these,
+
+25:04.940 --> 25:07.140
+ there's in the foreground, you see this mathematician
+
+25:07.140 --> 25:08.860
+ just doing some mathematical theorem.
+
+25:08.860 --> 25:10.500
+ There's a little bit of a joke in that theorem,
+
+25:10.500 --> 25:12.300
+ but let's not go into that.
+
+25:12.300 --> 25:14.420
+ He's trying to prove some theorem.
+
+25:14.420 --> 25:17.820
+ And he's about to be eaten by a saber tooth tiger
+
+25:17.820 --> 25:21.260
+ who's hiding in the undergrowth, you see.
+
+25:21.260 --> 25:24.340
+ And in the distance, you see his cousins
+
+25:24.340 --> 25:29.100
+ building, growing crops, building shelters,
+
+25:29.100 --> 25:31.980
+ domesticating animals, and in the slight foreground,
+
+25:31.980 --> 25:33.340
+ you see they've built a mammoth trap
+
+25:33.340 --> 25:36.660
+ and this poor old mammoth is falling into a pit, you see,
+
+25:36.660 --> 25:39.540
+ and all these people around them are about to grab him,
+
+25:39.540 --> 25:43.380
+ you see, and well, you see, those are the ones who,
+
+25:43.380 --> 25:47.300
+ the quality of understanding, which goes with all,
+
+25:47.300 --> 25:50.740
+ it's not just the mathematician doing his mathematics,
+
+25:50.740 --> 25:53.660
+ this understanding quality is something else,
+
+25:53.660 --> 25:58.100
+ which has been a tremendous advantage to us,
+
+25:58.100 --> 25:59.660
+ not just to us.
+
+25:59.660 --> 26:03.700
+ See, I don't think consciousness is limited to humans.
+
+26:03.700 --> 26:04.900
+ Yeah, that's the interesting question,
+
+26:04.900 --> 26:07.380
+ at which point, if it is indeed connected
+
+26:07.380 --> 26:09.140
+ to the evolutionary process,
+
+26:09.140 --> 26:11.420
+ at which point did we pick up this?
+
+26:11.420 --> 26:13.420
+ A very hard question.
+
+26:13.420 --> 26:15.860
+ It's certainly, I don't think it's primates,
+
+26:15.860 --> 26:20.380
+ you know, you see these pictures of African hunting dogs
+
+26:20.380 --> 26:22.780
+ and how they can plan amongst themselves
+
+26:22.780 --> 26:24.340
+ how to catch the antelopes.
+
+26:25.700 --> 26:27.540
+ Some of these David Attenborough films,
+
+26:27.540 --> 26:29.180
+ I think this probably was one of them,
+
+26:29.180 --> 26:31.740
+ and you could see the hunting dogs,
+
+26:31.740 --> 26:34.300
+ and they divide themselves into two groups
+
+26:34.300 --> 26:36.820
+ and they go in two routes, two different routes.
+
+26:36.820 --> 26:39.660
+ One of them goes and they sort of hide next to the river.
+
+26:40.700 --> 26:42.420
+ And the other group goes around
+
+26:42.420 --> 26:46.460
+ and they start yelping at these, they don't bark,
+
+26:46.460 --> 26:48.980
+ I guess whatever noise hunting dogs do,
+
+26:48.980 --> 26:51.020
+ the antelopes, and they sort of round them up
+
+26:51.020 --> 26:54.500
+ and they chase them in the direction of the river.
+
+26:54.500 --> 26:56.580
+ And there are the other ones just waiting for them,
+
+26:56.580 --> 26:58.900
+ just to get, because when they get to the river,
+
+26:58.900 --> 27:00.300
+ it slows them down.
+
+27:00.300 --> 27:02.060
+ And so they pounce on them.
+
+27:02.060 --> 27:05.460
+ So they've obviously planned this all out somehow.
+
+27:05.460 --> 27:06.740
+ I have no idea how.
+
+27:07.660 --> 27:11.460
+ And there is some element of conscious planning,
+
+27:11.460 --> 27:12.300
+ as far as I can see.
+
+27:12.300 --> 27:14.300
+ I don't think it's just some kind of,
+
+27:16.140 --> 27:19.580
+ so much of AI these days is done on what they call
+
+27:19.580 --> 27:21.060
+ bottom up systems, is it?
+
+27:21.060 --> 27:23.660
+ Yeah, where you have neural networks
+
+27:23.660 --> 27:27.460
+ and you give them a zillion different things to look at
+
+27:27.460 --> 27:32.460
+ and then they sort of can choose one thing over another,
+
+27:33.780 --> 27:35.460
+ just because it's seen so many examples
+
+27:35.460 --> 27:38.380
+ and picks up on little signals,
+
+27:38.380 --> 27:41.540
+ which one may not even be conscious of.
+
+27:41.540 --> 27:43.140
+ And that doesn't feel like understanding.
+
+27:43.140 --> 27:46.100
+ There's no understanding in that whatsoever.
+
+27:46.100 --> 27:49.460
+ Well, you're being a little bit human centric, so.
+
+27:49.460 --> 27:52.860
+ Well, I'm talking about, I'm not with the dogs, am I?
+
+27:52.860 --> 27:53.700
+ No, you're not.
+
+27:53.700 --> 27:56.740
+ Sorry, not human centric, but I misspoke.
+
+27:56.740 --> 27:59.340
+ Biology centric.
+
+27:59.340 --> 28:00.940
+ Is it possible that consciousness
+
+28:00.940 --> 28:03.220
+ would just look slightly different?
+
+28:03.220 --> 28:04.700
+ Well, I'm not saying it's biological,
+
+28:04.700 --> 28:06.620
+ because we don't know.
+
+28:06.620 --> 28:08.500
+ I think other examples of elephants
+
+28:08.500 --> 28:10.660
+ is a wonderful example, too.
+
+28:10.660 --> 28:13.980
+ Where they, this was, I think this was an Attenborough one,
+
+28:13.980 --> 28:17.220
+ where the elephants have to go from along,
+
+28:17.220 --> 28:20.100
+ the troop of them have to go long distances.
+
+28:20.100 --> 28:21.620
+ And the leader of a troop is a female.
+
+28:21.620 --> 28:23.500
+ They all are, apparently.
+
+28:23.500 --> 28:26.820
+ And this female, she had to go all the way
+
+28:26.820 --> 28:30.100
+ from one part of the country to another.
+
+28:30.100 --> 28:32.460
+ And at a certain point, she made a detour.
+
+28:32.460 --> 28:35.020
+ And they went off in this big detour.
+
+28:35.020 --> 28:37.100
+ All the troop came with her.
+
+28:37.100 --> 28:39.580
+ And this was where her sister had died.
+
+28:39.580 --> 28:41.540
+ And there were her bones lying around.
+
+28:41.540 --> 28:42.820
+ And they're going to pick up the bones,
+
+28:42.820 --> 28:45.780
+ and they hand it around, and they caress the bones.
+
+28:45.780 --> 28:48.580
+ And then they put them back, and they go back again.
+
+28:48.580 --> 28:51.300
+ What in the hell are they doing?
+
+28:51.300 --> 28:52.260
+ That's so interesting.
+
+28:52.260 --> 28:54.540
+ I mean, there's something going on.
+
+28:54.540 --> 28:59.500
+ There's no clear connection with natural selection.
+
+28:59.500 --> 29:03.060
+ There's just some deep feeling going on there,
+
+29:03.060 --> 29:05.660
+ which has to do with their conscious experience.
+
+29:06.980 --> 29:09.940
+ And I think it's something that, overall,
+
+29:09.940 --> 29:14.940
+ is advantageous, our natural selection,
+
+29:15.020 --> 29:17.380
+ but not directly to do with natural selection.
+
+29:18.740 --> 29:19.580
+ I like that.
+
+29:19.580 --> 29:22.540
+ There's something going on there.
+
+29:22.540 --> 29:24.340
+ Like I told you, I'm Russian,
+
+29:24.340 --> 29:28.140
+ so I tend to romanticize all things of this nature,
+
+29:28.140 --> 29:33.140
+ that it's not merely cold, hard computation.
+
+29:33.300 --> 29:35.660
+ Perhaps I could just slightly answer your question.
+
+29:35.660 --> 29:38.620
+ You were asking me, what is it?
+
+29:38.620 --> 29:41.820
+ There's something about sort of standing back
+
+29:41.820 --> 29:44.820
+ and thinking about your own thought processes.
+
+29:44.820 --> 29:47.780
+ I mean, there is something like that in the Gödel thing,
+
+29:47.780 --> 29:50.260
+ because you're not following the rules.
+
+29:50.260 --> 29:53.500
+ You're standing back and thinking about the rules.
+
+29:53.500 --> 29:56.940
+ And so there is something that you might say,
+
+29:56.940 --> 29:58.220
+ you think about you're doing something,
+
+29:58.220 --> 30:00.140
+ and you think, what the hell am I doing?
+
+30:00.140 --> 30:02.140
+ And you sort of stand back and think about
+
+30:02.140 --> 30:05.060
+ what it is that's making you think in such a way.
+
+30:05.060 --> 30:08.500
+ Just take a step back outside the game you've been playing.
+
+30:08.500 --> 30:10.660
+ Yeah, you back up and you think about,
+
+30:10.660 --> 30:12.580
+ you're just not playing the game anymore.
+
+30:12.580 --> 30:14.660
+ You're thinking about what the hell you're doing
+
+30:14.660 --> 30:16.060
+ in playing this game.
+
+30:16.060 --> 30:18.260
+ And that's somehow,
+
+30:18.260 --> 30:20.540
+ it's not a very precise description,
+
+30:20.540 --> 30:22.260
+ but somehow it feels very true
+
+30:22.260 --> 30:24.620
+ that that's somehow understanding.
+
+30:24.620 --> 30:26.420
+ This kind of reflection.
+
+30:26.420 --> 30:27.740
+ The reflection, yes.
+
+30:27.740 --> 30:30.580
+ Yeah, it's a bit hard to put your finger on,
+
+30:30.580 --> 30:31.580
+ but there is something there,
+
+30:31.580 --> 30:34.420
+ which I think maybe could be unearthed at some point
+
+30:34.420 --> 30:36.860
+ and see this is really what's going on,
+
+30:36.860 --> 30:40.100
+ why conscious beings have this advantage,
+
+30:40.100 --> 30:42.740
+ what it is that gives them advantage.
+
+30:42.740 --> 30:44.220
+ And I think it goes way back.
+
+30:44.220 --> 30:46.780
+ I don't think we're talking about the hunting dogs
+
+30:46.780 --> 30:47.700
+ and the elephants.
+
+30:48.700 --> 30:51.860
+ It's pretty clear that octopuses have
+
+30:51.860 --> 30:53.380
+ the same sort of quality,
+
+30:53.380 --> 30:54.460
+ and we call it consciousness.
+
+30:54.460 --> 30:55.700
+ Yeah, I think so.
+
+30:55.700 --> 30:58.740
+ Seen enough examples of the way that they behave
+
+30:58.740 --> 31:02.500
+ and the evolution route is completely different.
+
+31:03.620 --> 31:05.900
+ Does it go way back to some common ancestor
+
+31:05.900 --> 31:07.580
+ or did it come separately?
+
+31:07.580 --> 31:09.380
+ My hope is it's something simple,
+
+31:09.380 --> 31:13.460
+ but the hard question if there's a hardware prerequisite.
+
+31:13.460 --> 31:17.820
+ We have to develop some kind of hardware mechanisms
+
+31:17.820 --> 31:19.180
+ in our computers.
+
+31:19.180 --> 31:21.100
+ Like basically, as you suggest,
+
+31:21.100 --> 31:22.580
+ we'll get to in a second,
+
+31:22.580 --> 31:24.460
+ we kind of have to throw away the computer
+
+31:24.460 --> 31:26.100
+ as we know it today.
+
+31:26.100 --> 31:26.940
+ Yeah.
+
+31:26.940 --> 31:28.340
+ The deterministic machines we know today
+
+31:28.340 --> 31:29.740
+ to try to create it.
+
+31:29.740 --> 31:33.380
+ I mean, my hope, of course, is not, but...
+
+31:35.180 --> 31:37.740
+ Well, I should go really back to the story
+
+31:37.740 --> 31:39.820
+ which, in a sense, I haven't finished
+
+31:39.820 --> 31:41.780
+ because I went to these three courses, you see,
+
+31:41.780 --> 31:43.900
+ when I was a graduate student.
+
+31:43.900 --> 31:46.940
+ And so I started to think, well, I'm really,
+
+31:46.940 --> 31:49.660
+ I'm a pretty, what you might call a materialist
+
+31:49.660 --> 31:53.620
+ in the sense of thinking that there's no kind of mystical
+
+31:53.620 --> 31:55.980
+ something or other which comes in from who knows where.
+
+31:55.980 --> 31:56.820
+ You still that?
+
+31:56.820 --> 31:58.540
+ Are you still, throughout your life, been a materialist?
+
+31:58.540 --> 32:00.020
+ I don't like the word materialist
+
+32:00.020 --> 32:02.820
+ because it suggests we know what material is.
+
+32:02.820 --> 32:06.060
+ And that is a bad word because...
+
+32:06.060 --> 32:07.620
+ But there's no mystical.
+
+32:07.620 --> 32:09.180
+ It's not some mystical something
+
+32:09.180 --> 32:11.740
+ which is not treatable by science.
+
+32:11.740 --> 32:12.700
+ That's so beautifully put,
+
+32:12.700 --> 32:14.300
+ just to pause on that for a second.
+
+32:14.300 --> 32:17.020
+ You're a materialist, but you acknowledge
+
+32:17.020 --> 32:19.140
+ that we don't really know what the material is.
+
+32:19.140 --> 32:19.980
+ That's right.
+
+32:19.980 --> 32:24.300
+ I mean, I like to call myself a scientist, I suppose,
+
+32:24.300 --> 32:26.180
+ but it means that...
+
+32:27.700 --> 32:30.500
+ Yes, well, you see, the question goes on here.
+
+32:30.500 --> 32:33.180
+ So I began thinking, okay, if consciousness
+
+32:33.180 --> 32:35.900
+ or understanding is something
+
+32:35.900 --> 32:40.020
+ which is not a computational process, what can it be?
+
+32:40.020 --> 32:42.300
+ And I knew enough from my undergraduate work.
+
+32:42.300 --> 32:44.500
+ I knew about Newtonian mechanics,
+
+32:44.500 --> 32:50.140
+ and I knew how basically you could put it on a computer.
+
+32:50.140 --> 32:54.180
+ There is a fundamental issue, which is it important or not?
+
+32:54.180 --> 32:59.620
+ That computation depends upon discrete things.
+
+32:59.620 --> 33:02.300
+ So you're using discrete elements,
+
+33:02.300 --> 33:06.260
+ whereas the physical laws depend on the continuum.
+
+33:06.260 --> 33:09.660
+ Now, is this something to do with it?
+
+33:09.660 --> 33:12.820
+ Is it the fact that we use the continuum in our physics?
+
+33:12.820 --> 33:15.260
+ And if we model our physical system,
+
+33:15.260 --> 33:17.940
+ we use discrete systems like ordinary computers?
+
+33:19.020 --> 33:22.180
+ I came to the view that that's probably not it.
+
+33:22.180 --> 33:24.860
+ I might have to retract on that someday,
+
+33:24.860 --> 33:28.340
+ but the view was no, you can get close enough.
+
+33:28.340 --> 33:30.900
+ It's not altogether clear, I have to say,
+
+33:30.900 --> 33:32.980
+ but you can get close enough.
+
+33:32.980 --> 33:37.020
+ And I went to this course by Bondi on general relativity,
+
+33:37.020 --> 33:39.500
+ and I thought, well, you can put that on a computer,
+
+33:39.500 --> 33:42.820
+ because that was a long time before people,
+
+33:42.820 --> 33:43.980
+ and I've sort of grown up with this,
+
+33:43.980 --> 33:46.220
+ how people have done better and better calculations,
+
+33:46.220 --> 33:48.300
+ and they could work out about black holes,
+
+33:48.300 --> 33:50.380
+ and they can then work out how black holes
+
+33:50.380 --> 33:52.700
+ can interact with each other, spiral around,
+
+33:52.700 --> 33:55.020
+ and what kind of gravitational waves can out.
+
+33:55.020 --> 33:58.620
+ And it's a very impressive piece of computational work,
+
+33:58.620 --> 34:01.900
+ how you can actually work out the shapes of those signals.
+
+34:01.900 --> 34:04.020
+ And now we have LIGO seeing these signals,
+
+34:04.020 --> 34:07.340
+ and they say, yeah, those black holes spiral into each other.
+
+34:07.340 --> 34:11.700
+ This is just a vindication of the power of computation
+
+34:11.700 --> 34:16.020
+ in describing Einstein's general relativity.
+
+34:16.020 --> 34:18.620
+ So in that case, we can get close,
+
+34:18.620 --> 34:22.060
+ but with computation, we can get close
+
+34:22.060 --> 34:23.340
+ to our understanding of the physics.
+
+34:23.340 --> 34:24.620
+ You can get very, very close.
+
+34:24.620 --> 34:26.900
+ Now, is that close enough, you see?
+
+34:26.900 --> 34:29.620
+ And then I went to this course by Dirac.
+
+34:29.620 --> 34:32.500
+ Now, you see, I think it was the very first lecture
+
+34:32.500 --> 34:35.420
+ that he gave, and he was talking about
+
+34:35.420 --> 34:37.500
+ a superposition principle.
+
+34:37.500 --> 34:39.900
+ And he said, if you have a particle,
+
+34:39.900 --> 34:41.860
+ you usually think of particle can be over here
+
+34:41.860 --> 34:44.100
+ or over there, but in quantum mechanics,
+
+34:44.100 --> 34:48.060
+ it can be over here and over there at the same time.
+
+34:48.060 --> 34:50.500
+ And you have these states which involve
+
+34:50.500 --> 34:52.740
+ a superposition in some sense
+
+34:52.740 --> 34:56.660
+ of different locations for that particle.
+
+34:56.660 --> 34:58.540
+ And then he got out his piece of chalk.
+
+34:58.540 --> 35:00.020
+ Some people say he broke it in two
+
+35:00.020 --> 35:03.020
+ as a kind of illustration of how the piece of chalk
+
+35:03.020 --> 35:05.820
+ might be over here and over there at the same time.
+
+35:06.700 --> 35:10.900
+ And he was talking about this, and my mind wandered.
+
+35:10.900 --> 35:13.340
+ I don't remember what he said.
+
+35:13.340 --> 35:16.460
+ All I can remember, he's just moved on to the next topic,
+
+35:16.460 --> 35:18.580
+ and something about energy he'd mentioned,
+
+35:18.580 --> 35:21.020
+ which I had no idea what it had to do with anything.
+
+35:21.020 --> 35:22.900
+ And so I'd been struck with this
+
+35:22.900 --> 35:25.260
+ and worried about it ever since.
+
+35:25.260 --> 35:27.780
+ It's probably just as well I didn't hear his explanation
+
+35:27.780 --> 35:29.340
+ because it was probably one of these things
+
+35:29.340 --> 35:32.100
+ to calm me down and not worry about it anymore.
+
+35:32.100 --> 35:35.900
+ Whereas in my case, I've worried about it ever since.
+
+35:35.900 --> 35:38.420
+ So I thought maybe that's the catch.
+
+35:38.420 --> 35:41.220
+ There is something in quantum mechanics
+
+35:41.220 --> 35:45.060
+ where the superpositions become one or the other,
+
+35:45.060 --> 35:47.820
+ and that's not part of quantum mechanics.
+
+35:47.820 --> 35:50.020
+ There's something missing in the theory.
+
+35:50.020 --> 35:51.620
+ The theory is incomplete.
+
+35:51.620 --> 35:52.580
+ It's not just incomplete.
+
+35:52.580 --> 35:54.900
+ It's in a certain sense not quite right
+
+35:54.900 --> 35:57.500
+ because if you follow the equation,
+
+35:57.500 --> 35:59.340
+ the basic equation of quantum mechanics,
+
+35:59.340 --> 36:01.220
+ that's the Schrodinger equation,
+
+36:01.220 --> 36:02.660
+ you could put that on a computer too.
+
+36:02.660 --> 36:03.780
+ There are lots of difficulties
+
+36:03.780 --> 36:06.180
+ about how many parameters you have to put in and so on.
+
+36:06.180 --> 36:07.500
+ That can be very tricky,
+
+36:07.500 --> 36:10.860
+ but nevertheless, it is a computational process.
+
+36:10.860 --> 36:14.940
+ Modulo this question about the continuum as before,
+
+36:14.940 --> 36:16.900
+ but it's not clear that makes any difference.
+
+36:16.900 --> 36:18.940
+ So our theories of quantum mechanics
+
+36:18.940 --> 36:20.980
+ may be missing the same element
+
+36:20.980 --> 36:23.740
+ that the universal Turing machine
+
+36:23.740 --> 36:25.500
+ is missing about consciousness.
+
+36:25.500 --> 36:26.420
+ Yes, yes.
+
+36:26.420 --> 36:29.700
+ Yeah, this is the view I held is that you need a theory
+
+36:29.700 --> 36:33.580
+ and that what people call the reduction of the state
+
+36:33.580 --> 36:35.780
+ or the collapse of the wave function,
+
+36:35.780 --> 36:36.780
+ which you have to have,
+
+36:36.780 --> 36:38.500
+ otherwise quantum mechanics doesn't relate
+
+36:38.500 --> 36:39.900
+ to the world we see.
+
+36:39.900 --> 36:41.420
+ To make it relate to the world we see,
+
+36:41.420 --> 36:45.140
+ you've got to break the Schrodinger equation.
+
+36:45.140 --> 36:49.220
+ Schrodinger himself was absolutely appalled by this idea,
+
+36:49.220 --> 36:50.900
+ his own equation.
+
+36:50.900 --> 36:52.620
+ I mean, that's why he introduced
+
+36:52.620 --> 36:56.340
+ this famous Schrodinger's cat as a thought experiment.
+
+36:56.340 --> 36:57.180
+ He's really saying, look,
+
+36:57.180 --> 36:59.580
+ this is where my equation leads you into it.
+
+36:59.580 --> 37:01.340
+ There's something wrong,
+
+37:01.340 --> 37:02.620
+ something we haven't understood,
+
+37:02.620 --> 37:05.260
+ which is basically fundamental.
+
+37:05.260 --> 37:07.860
+ And so I was trying to put all these things together
+
+37:07.860 --> 37:09.100
+ and said, well, it's got to be
+
+37:09.100 --> 37:11.860
+ the noncomputability comes in there.
+
+37:11.860 --> 37:14.780
+ And I also can't quite remember when I thought this,
+
+37:14.780 --> 37:18.100
+ but it's when gravity is involved in quantum mechanics.
+
+37:18.100 --> 37:19.820
+ It's the combination of those two.
+
+37:19.820 --> 37:20.980
+ And that's that point
+
+37:22.260 --> 37:25.980
+ when you have good reasons to believe,
+
+37:25.980 --> 37:27.580
+ this came much later,
+
+37:27.580 --> 37:29.860
+ that I have good reason to believe
+
+37:29.860 --> 37:32.860
+ that the principles of general relativity
+
+37:32.860 --> 37:34.180
+ and those of quantum mechanics,
+
+37:34.180 --> 37:35.980
+ most particularly,
+
+37:35.980 --> 37:39.260
+ it's the basic principle of equivalence,
+
+37:39.260 --> 37:41.340
+ which goes back to Galileo.
+
+37:41.340 --> 37:43.580
+ If you fall freely,
+
+37:43.580 --> 37:46.420
+ you eliminate the gravitational field.
+
+37:46.420 --> 37:48.140
+ So you imagine Galileo
+
+37:49.660 --> 37:51.460
+ dropping his big rock and his little rock
+
+37:51.460 --> 37:52.580
+ from the leaning tower,
+
+37:52.580 --> 37:54.300
+ whether he actually ever did that or not,
+
+37:54.300 --> 37:55.580
+ pretty irrelevant.
+
+37:55.580 --> 37:57.780
+ And as the rocks fall to the ground,
+
+37:57.780 --> 37:59.820
+ you have a little insect sitting on one of them,
+
+37:59.820 --> 38:01.380
+ looking at the other one.
+
+38:01.380 --> 38:04.220
+ And it seems to think, oh, there's no gravity here.
+
+38:04.220 --> 38:05.340
+ Of course, it hits the ground
+
+38:05.340 --> 38:07.900
+ and then you realize something's difference going on.
+
+38:07.900 --> 38:10.140
+ But when it's in free fall,
+
+38:10.140 --> 38:11.980
+ the gravity has been eliminated.
+
+38:11.980 --> 38:15.420
+ Galileo understood that very beautifully.
+
+38:15.420 --> 38:18.540
+ He gives these wonderful examples of fireworks.
+
+38:18.540 --> 38:20.380
+ And you see the fireworks and explode,
+
+38:20.380 --> 38:23.500
+ and you see this fear of sparkling fireworks.
+
+38:23.500 --> 38:26.860
+ It remains as fear as it falls down,
+
+38:26.860 --> 38:29.260
+ as though there were no gravity.
+
+38:29.260 --> 38:31.300
+ So he understood that principle,
+
+38:31.300 --> 38:33.580
+ but he couldn't make a theory out of it.
+
+38:33.580 --> 38:34.620
+ Einstein came along,
+
+38:34.620 --> 38:36.780
+ used exactly the same principle.
+
+38:36.780 --> 38:38.060
+ And that's the basis
+
+38:38.060 --> 38:40.420
+ of Einstein's general theory of relativity.
+
+38:41.420 --> 38:43.580
+ Now, there is a conflict.
+
+38:43.580 --> 38:45.260
+ This is something I did much, much later.
+
+38:45.260 --> 38:47.540
+ So this wasn't at those days,
+
+38:47.540 --> 38:48.940
+ much, much later.
+
+38:48.940 --> 38:51.460
+ You can see there is a basic conflict
+
+38:51.460 --> 38:54.580
+ between the principle of superposition,
+
+38:54.580 --> 38:56.380
+ the thing that Dirac was talking about,
+
+38:56.380 --> 38:58.740
+ and the principle of general covariance.
+
+38:58.740 --> 39:01.060
+ Well, principle of equivalence.
+
+39:01.060 --> 39:03.740
+ Gravitational field's equivalent to an acceleration.
+
+39:03.740 --> 39:04.780
+ Can you pause for a second?
+
+39:04.780 --> 39:06.900
+ What is the principle of equivalence?
+
+39:06.900 --> 39:08.300
+ It's this Galileo principle
+
+39:08.300 --> 39:11.580
+ that we can eliminate, at least locally.
+
+39:11.580 --> 39:13.580
+ You have to be in a small neighborhood
+
+39:13.580 --> 39:16.460
+ because if you have people dropping rocks
+
+39:16.460 --> 39:18.100
+ all around the world somewhere,
+
+39:18.100 --> 39:19.940
+ you can't get rid of it all at once.
+
+39:19.940 --> 39:22.100
+ But in the local neighborhood,
+
+39:22.100 --> 39:24.300
+ you can eliminate the gravitational field
+
+39:24.300 --> 39:26.820
+ by falling freely with it.
+
+39:26.820 --> 39:28.540
+ And we now see this with astronauts,
+
+39:28.540 --> 39:30.700
+ and they don't, you know, the Earth is right there.
+
+39:30.700 --> 39:32.580
+ You can see the great globe of the Earth
+
+39:32.580 --> 39:33.980
+ right beneath them.
+
+39:33.980 --> 39:35.460
+ But they don't care about it.
+
+39:35.460 --> 39:37.860
+ As far as they're concerned, there's no gravity.
+
+39:39.140 --> 39:42.140
+ They fall freely within the gravitational field,
+
+39:42.140 --> 39:45.140
+ and that gets rid of the gravitational field.
+
+39:45.140 --> 39:46.740
+ And that's the principle of equivalence.
+
+39:46.740 --> 39:48.980
+ So what's the contradiction?
+
+39:48.980 --> 39:50.460
+ What's the tension with superposition
+
+39:50.460 --> 39:51.300
+ and equivalence?
+
+39:51.300 --> 39:52.780
+ Oh, well, that's technical.
+
+39:52.780 --> 39:55.100
+ So just to backtrack for a second
+
+39:55.100 --> 39:57.980
+ just to see if we can weave a thread through it all.
+
+39:57.980 --> 40:02.340
+ So we started to think about consciousness
+
+40:02.340 --> 40:06.740
+ as potentially needing some of the same,
+
+40:06.740 --> 40:08.780
+ not mystical, but some of the same magic.
+
+40:08.780 --> 40:10.580
+ You see, it is a complicated story.
+
+40:10.580 --> 40:11.820
+ So, you know, people think,
+
+40:11.820 --> 40:14.180
+ oh, I'm drifting away from the point or something.
+
+40:14.180 --> 40:16.700
+ But I think it is a complicated story.
+
+40:16.700 --> 40:17.780
+ So what I'm trying to say,
+
+40:17.780 --> 40:19.380
+ I mean, I try to put it in a nutshell,
+
+40:19.380 --> 40:20.700
+ but it's not so easy.
+
+40:20.700 --> 40:24.900
+ I'm trying to say that whatever consciousness is,
+
+40:24.900 --> 40:27.220
+ it's not a computation.
+
+40:27.220 --> 40:29.260
+ Or it's not a physical process
+
+40:29.260 --> 40:33.340
+ which can be described by computation.
+
+40:33.340 --> 40:34.860
+ But it nevertheless could be,
+
+40:34.860 --> 40:37.940
+ so one of the interesting models
+
+40:37.940 --> 40:39.860
+ that you've proposed
+
+40:39.860 --> 40:41.980
+ is the orchestrated objective reduction.
+
+40:41.980 --> 40:44.660
+ Yes, well, you see, that's going from there, you see.
+
+40:44.660 --> 40:46.740
+ So I say I have no idea.
+
+40:46.740 --> 40:50.340
+ So I wrote this book through my scientific career.
+
+40:50.340 --> 40:52.660
+ I thought, you know, when I'm retired,
+
+40:52.660 --> 40:55.700
+ I'll have enough time to write a sort of a popularish book
+
+40:56.860 --> 41:01.180
+ which I will explain my ideas and puzzles,
+
+41:01.180 --> 41:04.140
+ what I like, beautiful things about physics and mathematics,
+
+41:04.140 --> 41:07.460
+ and this puzzle about computability
+
+41:07.460 --> 41:09.540
+ and consciousness and so on.
+
+41:09.540 --> 41:13.100
+ And in the process of writing this book,
+
+41:13.100 --> 41:14.460
+ well, I thought I'd do it when I was retired.
+
+41:14.460 --> 41:16.260
+ I didn't actually, I didn't wait that long
+
+41:16.260 --> 41:19.380
+ because there was a radio discussion
+
+41:19.380 --> 41:24.140
+ between Edward Fredkin and Marvin Minsky.
+
+41:24.140 --> 41:28.180
+ And they were talking about what computers could do.
+
+41:28.180 --> 41:30.540
+ And they were entering a big room.
+
+41:30.540 --> 41:32.020
+ They imagined entering this big room
+
+41:32.020 --> 41:33.780
+ where at the other end of the room,
+
+41:33.780 --> 41:36.900
+ two computers were talking to each other.
+
+41:36.900 --> 41:39.220
+ And as you walk up to the computers,
+
+41:39.220 --> 41:41.700
+ they will have communicated to each other
+
+41:41.700 --> 41:46.620
+ more ideas, concepts, things than the entire human race
+
+41:46.620 --> 41:47.540
+ had ever done.
+
+41:49.100 --> 41:51.620
+ So I thought, well, I know where you're coming from,
+
+41:51.620 --> 41:53.620
+ but I just don't believe you.
+
+41:53.620 --> 41:54.860
+ There's something missing.
+
+41:57.020 --> 41:59.180
+ So I thought, well, I should write my book.
+
+42:00.380 --> 42:01.620
+ And so I did.
+
+42:01.620 --> 42:04.060
+ It was roughly the same time Stephen Hawking
+
+42:04.060 --> 42:07.620
+ was writing his brief history of time.
+
+42:07.620 --> 42:11.220
+ In the 80s at some point.
+
+42:11.220 --> 42:12.860
+ The book you're talking about is The Emperor's New Mind.
+
+42:12.860 --> 42:13.980
+ The Emperor's New Mind, that's right.
+
+42:13.980 --> 42:16.140
+ And both are incredible books,
+
+42:16.140 --> 42:18.500
+ The Brief History of Time and The Emperor's New Mind.
+
+42:18.500 --> 42:19.900
+ Yes, it was quite interesting
+
+42:19.900 --> 42:23.460
+ because he told me he'd got Carl Sagan, I think,
+
+42:23.460 --> 42:26.580
+ to write a foreword for the book, you see.
+
+42:26.580 --> 42:28.220
+ So I thought, gosh, what am I gonna do?
+
+42:28.220 --> 42:31.060
+ I'm not gonna get anywhere unless I get somebody.
+
+42:31.060 --> 42:32.700
+ So I said, oh, I know Martin Gardner,
+
+42:32.700 --> 42:34.380
+ so I wonder if he'd do it.
+
+42:34.380 --> 42:36.660
+ So he did, and he did a very nice foreword.
+
+42:36.660 --> 42:38.260
+ So that's an incredible book,
+
+42:38.260 --> 42:40.420
+ and some of the same people you mentioned,
+
+42:40.420 --> 42:44.620
+ Ed Franken, which I guess of expert systems fame,
+
+42:44.620 --> 42:46.980
+ and Minsky, of course, people know in the AI world,
+
+42:46.980 --> 42:49.820
+ but they represent the artificial intelligence world
+
+42:49.820 --> 42:53.740
+ that do hope and dream that AI's intelligence is.
+
+42:53.740 --> 42:54.860
+ Well, you see, it was my thinking,
+
+42:54.860 --> 42:57.420
+ well, you know, I see where they're coming from.
+
+42:57.420 --> 42:59.940
+ From that perspective, yeah, you're right.
+
+42:59.940 --> 43:01.620
+ But that's not my perspective.
+
+43:01.620 --> 43:03.460
+ So I thought I had to say it.
+
+43:03.460 --> 43:05.060
+ And as I was writing my book, you see,
+
+43:05.060 --> 43:06.740
+ I thought, well, I don't really know anything
+
+43:06.740 --> 43:07.780
+ about neurophysiology.
+
+43:07.780 --> 43:09.220
+ What am I doing writing this book?
+
+43:09.220 --> 43:12.140
+ So I started reading up about neurophysiology,
+
+43:12.140 --> 43:13.100
+ and I read up, and I think,
+
+43:13.100 --> 43:14.580
+ now, I'm trying to find out how it is
+
+43:14.580 --> 43:16.460
+ that nerve signals could possibly
+
+43:16.460 --> 43:18.340
+ preserve quantum coherence.
+
+43:18.340 --> 43:20.900
+ And all I read is that the electrical signals
+
+43:20.900 --> 43:25.540
+ which go along the nerves create effects through the brain.
+
+43:25.540 --> 43:28.260
+ There's no chance you can isolate it.
+
+43:28.260 --> 43:29.860
+ So I thought, this is hopeless.
+
+43:29.860 --> 43:31.660
+ So I come to the end of the book,
+
+43:31.660 --> 43:33.580
+ and I more or less give up.
+
+43:33.580 --> 43:36.380
+ I just think of something which I didn't believe in.
+
+43:36.380 --> 43:38.420
+ Maybe this is a way around it, but no.
+
+43:39.460 --> 43:40.540
+ And then, you see, I thought, well,
+
+43:40.540 --> 43:43.380
+ maybe this book will at least stimulate young people
+
+43:43.380 --> 43:45.140
+ to do science or something.
+
+43:45.140 --> 43:48.420
+ And I got all these letters from old, retired people instead.
+
+43:48.420 --> 43:51.180
+ These are the only people who had time to read my book.
+
+43:52.260 --> 43:53.100
+ So, I mean, but.
+
+43:53.100 --> 43:54.900
+ Except for Stuart Hameroff.
+
+43:54.900 --> 43:56.420
+ Except for Stuart Hameroff.
+
+43:56.420 --> 43:58.460
+ Stuart Hameroff wrote to me, and he said,
+
+43:58.460 --> 44:00.060
+ I think you're missing something.
+
+44:01.060 --> 44:03.420
+ You don't know about microtubules, do you?
+
+44:03.420 --> 44:04.820
+ He didn't put it quite like that.
+
+44:04.820 --> 44:05.940
+ But that was more or less it.
+
+44:05.940 --> 44:08.860
+ And he said, this is what you really need to consider.
+
+44:08.860 --> 44:10.620
+ So I thought, my God, yes.
+
+44:10.620 --> 44:12.980
+ That's a much more promising structure.
+
+44:12.980 --> 44:16.340
+ So, I mean, fundamentally, you were searching
+
+44:16.340 --> 44:21.340
+ for the source of, noncomputable source of consciousness
+
+44:22.100 --> 44:25.060
+ within the human brain, in the biology.
+
+44:25.060 --> 44:30.060
+ And so, what are, if I may ask, what are microtubules?
+
+44:30.060 --> 44:33.860
+ Well, you see, I was ignorant in what I'd read.
+
+44:33.860 --> 44:37.700
+ I never came across them in the books I looked at.
+
+44:37.700 --> 44:40.860
+ Perhaps I only read rather superficially, which is true.
+
+44:40.860 --> 44:43.100
+ But I didn't know about microtubules.
+
+44:43.100 --> 44:45.300
+ Stuart, I think one of the things
+
+44:45.300 --> 44:47.060
+ that impressed him about them was,
+
+44:47.060 --> 44:51.380
+ when you see pictures of mitosis, that's a cell dividing,
+
+44:51.380 --> 44:53.300
+ and you see all the chromosomes.
+
+44:53.300 --> 44:55.700
+ And the chromosomes, they all get lined up,
+
+44:55.700 --> 44:57.980
+ and then they get pulled apart.
+
+44:57.980 --> 45:02.100
+ And so, as the cell divides, half the chromosomes go,
+
+45:02.100 --> 45:04.940
+ they divide into the two parts,
+
+45:04.940 --> 45:07.460
+ and they go two different ways.
+
+45:07.460 --> 45:09.860
+ And what is it that's pulling them apart?
+
+45:09.860 --> 45:12.900
+ Well, those are these little things called microtubules.
+
+45:12.900 --> 45:15.580
+ And so, he started to get interested in them.
+
+45:15.580 --> 45:18.900
+ And he formed the view, well, he was,
+
+45:18.900 --> 45:21.100
+ his day job or night job or whatever you call it,
+
+45:21.100 --> 45:23.060
+ is to put people to sleep,
+
+45:23.060 --> 45:24.700
+ except he doesn't like calling it sleep
+
+45:24.700 --> 45:25.820
+ because it's different.
+
+45:25.820 --> 45:29.340
+ General anesthetics in a reversible way.
+
+45:29.340 --> 45:32.500
+ So, you want to make sure that they don't experience
+
+45:32.500 --> 45:36.780
+ the pain that would otherwise be something that they feel.
+
+45:36.780 --> 45:40.380
+ And consciousness is turned off for a while,
+
+45:40.380 --> 45:41.940
+ and it can be turned back on again.
+
+45:41.940 --> 45:44.980
+ So, it's crucial that you can turn it off and turn it on.
+
+45:44.980 --> 45:47.460
+ And what do you do when you're doing that?
+
+45:47.460 --> 45:49.700
+ What do general anesthetic gases do?
+
+45:50.580 --> 45:54.980
+ And see, he formed the view that it's the microtubules
+
+45:54.980 --> 45:56.860
+ that they affect.
+
+45:56.860 --> 46:01.020
+ And the details of why he formed that view is not,
+
+46:01.020 --> 46:02.300
+ well, they're clear to me,
+
+46:02.300 --> 46:05.660
+ but there's an interesting story he keeps talking about.
+
+46:05.660 --> 46:08.500
+ But I found this very exciting
+
+46:08.500 --> 46:11.500
+ because I thought these structures,
+
+46:11.500 --> 46:15.420
+ these little tubes which inhabit pretty well all cells,
+
+46:15.420 --> 46:16.780
+ it's not just neurons,
+
+46:17.980 --> 46:20.580
+ apart from red blood cells,
+
+46:20.580 --> 46:23.940
+ they inhabit pretty well all the other cells in the body.
+
+46:23.940 --> 46:25.380
+ But they're not all the same kind.
+
+46:25.380 --> 46:28.020
+ You get different kinds of microtubules.
+
+46:28.020 --> 46:31.780
+ And the ones that excited me the most,
+
+46:31.780 --> 46:34.500
+ this may still not be totally clear,
+
+46:34.500 --> 46:36.180
+ but the ones that excited me most
+
+46:36.180 --> 46:39.300
+ were the only ones that I knew about at the time
+
+46:39.300 --> 46:43.260
+ because they're very, very symmetrical structures.
+
+46:44.180 --> 46:45.620
+ And I had reason to believe
+
+46:45.620 --> 46:48.100
+ that these very symmetrical structures
+
+46:48.100 --> 46:52.140
+ would be much better at preserving a quantum state,
+
+46:52.140 --> 46:54.700
+ quantum coherence, preserving the thing without,
+
+46:55.700 --> 46:58.780
+ you just need to preserve certain degrees of freedom
+
+46:58.780 --> 47:01.060
+ without them leaking into the environment.
+
+47:01.060 --> 47:03.420
+ Once they leak into the environment, you're lost.
+
+47:03.420 --> 47:08.140
+ So you've got to preserve these quantum states at a level
+
+47:08.140 --> 47:12.420
+ which the state reduction process comes in
+
+47:12.420 --> 47:16.140
+ and that's where I think the noncomputability comes in
+
+47:17.380 --> 47:19.700
+ and it's the measurement process in quantum mechanics,
+
+47:19.700 --> 47:20.820
+ what's going on.
+
+47:20.820 --> 47:23.580
+ So something about the measurement process
+
+47:23.580 --> 47:24.420
+ and what's going on,
+
+47:24.420 --> 47:27.140
+ something about the structure of the microtubules,
+
+47:27.140 --> 47:29.540
+ your intuition says maybe there's something here,
+
+47:29.540 --> 47:32.500
+ maybe this kind of structure allows
+
+47:32.500 --> 47:35.500
+ for the mystery of the quantum mechanics.
+
+47:35.500 --> 47:37.260
+ There was a much better chance, yes.
+
+47:37.260 --> 47:40.780
+ It just struck me that partly it was the symmetry
+
+47:40.780 --> 47:43.180
+ because there is a feature of symmetry
+
+47:43.180 --> 47:46.300
+ you can preserve quantum coherence
+
+47:46.300 --> 47:48.140
+ much better with symmetrical structures.
+
+47:48.140 --> 47:50.340
+ There's a good reason for that.
+
+47:50.340 --> 47:52.540
+ And that impressed me a lot.
+
+47:52.540 --> 47:54.700
+ I didn't know the difference between the A lattice
+
+47:54.700 --> 47:57.940
+ and B lattice at that time, which could be important.
+
+47:57.940 --> 48:00.860
+ Now that could even, see, which isn't talked about much.
+
+48:00.860 --> 48:02.620
+ But that's some, in some sense, details.
+
+48:02.620 --> 48:04.380
+ We've got to take a step back just to say
+
+48:04.380 --> 48:06.140
+ in case people are not familiar.
+
+48:06.140 --> 48:11.140
+ So this was called the orchestrated objective reduction
+
+48:13.220 --> 48:18.220
+ idea or ORCOR, which is a biological philosophy of mind
+
+48:18.220 --> 48:20.740
+ that postulates that consciousness originates
+
+48:20.740 --> 48:22.340
+ at the quantum level inside neurons.
+
+48:22.340 --> 48:25.340
+ So that has to do with your search for where,
+
+48:25.340 --> 48:26.700
+ where is it coming from?
+
+48:26.700 --> 48:29.580
+ So that's counter to the notion that consciousness
+
+48:29.580 --> 48:33.220
+ may arise from the computation performed by the synapses.
+
+48:33.220 --> 48:35.620
+ Yes, I think the key point.
+
+48:35.620 --> 48:40.620
+ Sometimes people say it's because it's quantum mechanical.
+
+48:40.820 --> 48:42.660
+ It's not just that.
+
+48:42.660 --> 48:45.060
+ See, it's more outrageous than that.
+
+48:45.060 --> 48:46.300
+ You see, this is one reason I think
+
+48:46.300 --> 48:48.340
+ we're so far off from it,
+
+48:48.340 --> 48:51.060
+ because we don't even know the physics right.
+
+48:51.060 --> 48:53.860
+ You see, it's not just quantum mechanics.
+
+48:53.860 --> 48:55.900
+ People say, oh, you know, quantum systems
+
+48:55.900 --> 48:57.340
+ and biological structures.
+
+48:57.340 --> 49:00.340
+ No, will you starting to see that
+
+49:00.340 --> 49:04.700
+ some basic biological systems does depend on quantum.
+
+49:05.900 --> 49:07.620
+ I mean, look, in the first place,
+
+49:07.620 --> 49:09.860
+ all of chemistry is quantum mechanics.
+
+49:09.860 --> 49:13.140
+ People got used to that, so they don't count that.
+
+49:13.140 --> 49:16.660
+ So he said, let's not count quantum chemistry.
+
+49:16.660 --> 49:19.100
+ We sort of got the hang of that, I think.
+
+49:19.100 --> 49:21.340
+ But you have quantum effects,
+
+49:21.340 --> 49:25.460
+ which are not just chemical, in photosynthesis.
+
+49:25.460 --> 49:27.220
+ And this is one of the striking things
+
+49:27.220 --> 49:29.300
+ in the last several years,
+
+49:29.300 --> 49:34.220
+ that photosynthesis seems to be a basically quantum process,
+
+49:34.220 --> 49:36.860
+ which is not simply chemical.
+
+49:36.860 --> 49:41.460
+ It's using quantum mechanics in a very basic way.
+
+49:41.460 --> 49:43.100
+ So you could start saying, oh, well,
+
+49:43.100 --> 49:45.580
+ if photosynthesis is based on quantum mechanics,
+
+49:45.580 --> 49:50.260
+ why not behavior of neurons and things like that?
+
+49:50.260 --> 49:52.140
+ Maybe there's something
+
+49:52.140 --> 49:55.060
+ which is a bit like photosynthesis in that respect.
+
+49:55.060 --> 49:58.140
+ But what I'm saying is even more outrageous than that,
+
+49:58.140 --> 50:00.780
+ because those things are talking
+
+50:00.780 --> 50:03.700
+ about conventional quantum mechanics.
+
+50:03.700 --> 50:07.540
+ Now, my argument says that conventional quantum mechanics,
+
+50:07.540 --> 50:09.420
+ if you're just following the Schrodinger equation,
+
+50:09.420 --> 50:11.700
+ that's still computable.
+
+50:11.700 --> 50:13.900
+ So you've got to go beyond that.
+
+50:13.900 --> 50:15.860
+ So you've got to go to where
+
+50:17.420 --> 50:21.060
+ quantum mechanics goes wrong in a certain sense.
+
+50:21.940 --> 50:23.820
+ You have to be a little bit careful about that,
+
+50:23.820 --> 50:26.060
+ because the way people do quantum mechanics
+
+50:26.060 --> 50:31.060
+ is a sort of mixture of two different processes.
+
+50:32.820 --> 50:35.460
+ One of them is the Schrodinger equation,
+
+50:35.460 --> 50:38.820
+ which is an equation Schrodinger wrote down,
+
+50:38.820 --> 50:42.580
+ and it tells you how the state of a system evolves.
+
+50:42.580 --> 50:44.740
+ And it evolves according to this equation,
+
+50:44.740 --> 50:47.300
+ completely deterministic,
+
+50:47.300 --> 50:50.300
+ but it evolves into ridiculous situations.
+
+50:50.300 --> 50:51.540
+ And this was what Schrodinger
+
+50:51.540 --> 50:54.260
+ was very much pointing out with his cat.
+
+50:54.260 --> 50:55.820
+ He said, you follow my equation,
+
+50:55.820 --> 50:57.380
+ that's Schrodinger's equation,
+
+50:57.380 --> 51:01.300
+ and you could say that you have to get a cat,
+
+51:01.300 --> 51:04.260
+ a cat which is dead and alive at the same time.
+
+51:04.260 --> 51:07.140
+ That would be the evolution of the Schrodinger equation,
+
+51:07.140 --> 51:10.380
+ would lead to a state, which is the cat being dead
+
+51:10.380 --> 51:12.700
+ and alive at the same time.
+
+51:12.700 --> 51:15.700
+ And he's more or less saying, this is an absurdity.
+
+51:16.620 --> 51:18.380
+ People nowadays say, oh, well, Schrodinger said
+
+51:18.380 --> 51:20.140
+ you can have a cat which is dead, that's not that.
+
+51:20.140 --> 51:23.380
+ You see, he was saying, this is an absurdity.
+
+51:23.380 --> 51:24.740
+ There's something missing.
+
+51:25.620 --> 51:28.620
+ And that the reduction of the state
+
+51:28.620 --> 51:31.940
+ or the collapse of the wave function or whatever it is,
+
+51:31.940 --> 51:34.700
+ is something which has to be understood.
+
+51:34.700 --> 51:37.780
+ It's not following the Schrodinger equation.
+
+51:37.780 --> 51:41.940
+ It's not the way we conventionally do quantum mechanics.
+
+51:41.940 --> 51:43.580
+ There's something more than that.
+
+51:44.700 --> 51:48.220
+ And it's easy to quote authority here because Einstein,
+
+51:49.820 --> 51:52.540
+ at least three of the greatest physicists
+
+51:52.540 --> 51:57.180
+ of 20th century who were very fundamental
+
+51:57.180 --> 51:58.780
+ in developing quantum mechanics,
+
+51:58.780 --> 52:01.820
+ Einstein, one of them, Schrodinger, another,
+
+52:01.820 --> 52:03.580
+ Dirac, another.
+
+52:03.580 --> 52:05.500
+ You have to look carefully at Dirac's writing
+
+52:05.500 --> 52:09.180
+ because he didn't tend to say this out loud too much
+
+52:09.180 --> 52:11.300
+ because he was very cautious about what he said.
+
+52:11.300 --> 52:14.220
+ You find the right place and you see he says
+
+52:14.220 --> 52:16.620
+ quantum mechanics is a provisional theory.
+
+52:18.060 --> 52:21.660
+ We need something which explains
+
+52:21.660 --> 52:23.500
+ the collapse of the wave function.
+
+52:23.500 --> 52:26.220
+ We need to go beyond the theory we have now.
+
+52:27.900 --> 52:29.900
+ I happen to be one of the kinds of people,
+
+52:29.900 --> 52:31.860
+ there are many, there is a whole group of people,
+
+52:31.860 --> 52:35.580
+ they're all considered to be a bit mavericks,
+
+52:35.580 --> 52:38.900
+ who believe that quantum mechanics needs to be modified.
+
+52:38.900 --> 52:41.180
+ There's a small minority of those people,
+
+52:41.180 --> 52:42.740
+ which are already a minority,
+
+52:42.740 --> 52:46.220
+ who think that the way in which it's modified
+
+52:46.220 --> 52:47.500
+ has to be with gravity.
+
+52:48.700 --> 52:51.420
+ And there is an even smaller minority of those people
+
+52:51.420 --> 52:53.580
+ who think it's the particular way that I think it is.
+
+52:53.580 --> 52:55.180
+ You see.
+
+52:55.180 --> 52:56.860
+ So those are the quantum gravity folks.
+
+52:56.860 --> 52:57.700
+ But what's...
+
+52:57.700 --> 53:00.740
+ You see, quantum gravity is already not this.
+
+53:00.740 --> 53:02.660
+ Because when you say quantum gravity,
+
+53:02.660 --> 53:05.460
+ what you really mean is quantum mechanics
+
+53:05.460 --> 53:08.020
+ applied to gravitational theory.
+
+53:08.020 --> 53:10.660
+ So you say, let's take this wonderful formalism
+
+53:10.660 --> 53:15.220
+ of quantum mechanics and make gravity fit into it.
+
+53:15.220 --> 53:18.060
+ So that is what quantum gravity is meant to be.
+
+53:18.060 --> 53:21.500
+ Now I'm saying you've got to be more even handed
+
+53:21.500 --> 53:24.460
+ that gravity affects the structure of quantum mechanics too.
+
+53:24.460 --> 53:26.860
+ It's not just you quantize gravity,
+
+53:26.860 --> 53:29.460
+ you've got to gravitate quantum mechanics.
+
+53:29.460 --> 53:31.140
+ And it's a two way thing.
+
+53:31.140 --> 53:32.980
+ But then when do you even get started?
+
+53:32.980 --> 53:35.260
+ So that you're saying that we have to figure out
+
+53:35.260 --> 53:36.860
+ a totally new ideas in there.
+
+53:36.860 --> 53:37.940
+ Exactly.
+
+53:37.940 --> 53:39.980
+ No, you're stuck.
+
+53:39.980 --> 53:41.260
+ You don't have a theory.
+
+53:41.260 --> 53:42.780
+ That's the trouble.
+
+53:42.780 --> 53:44.540
+ So this is a big problem.
+
+53:44.540 --> 53:46.020
+ If you say, okay, well, what's the theory?
+
+53:46.020 --> 53:47.300
+ I don't know.
+
+53:47.300 --> 53:49.420
+ So maybe in the very early days, sort of...
+
+53:49.420 --> 53:51.020
+ It is in the very early days.
+
+53:51.020 --> 53:52.620
+ But just making this point.
+
+53:52.620 --> 53:53.780
+ Yes.
+
+53:53.780 --> 53:55.780
+ You see, Stuart Hammeroff tends to be,
+
+53:55.780 --> 53:58.700
+ oh, Penrose says that it's got to be a reduction
+
+53:58.700 --> 54:00.620
+ of the state and so on, so let's use it.
+
+54:00.620 --> 54:02.140
+ The trouble is Penrose doesn't say that.
+
+54:02.140 --> 54:06.940
+ Penrose says, well, I think that we have no experiments
+
+54:06.940 --> 54:10.100
+ as yet, which shows that.
+
+54:10.100 --> 54:12.580
+ There are experiments which are being thought through
+
+54:12.580 --> 54:15.740
+ and which I'm hoping will be performed.
+
+54:15.740 --> 54:18.340
+ There is an experiment which is being developed
+
+54:18.340 --> 54:22.060
+ by Dirk Baumeister, who I've known for a long time,
+
+54:22.060 --> 54:25.340
+ who shares his time between Leiden in the Netherlands
+
+54:25.340 --> 54:27.900
+ and Santa Barbara in the US.
+
+54:27.900 --> 54:29.700
+ And he's been working on an experiment
+
+54:29.700 --> 54:34.700
+ which could perhaps demonstrate that quantum mechanics,
+
+54:35.180 --> 54:37.420
+ as we now understand it, if you don't bring in
+
+54:37.420 --> 54:41.720
+ the gravitational effects, it has to be modified.
+
+54:42.580 --> 54:45.980
+ And then there's also experiments that are underway
+
+54:45.980 --> 54:50.620
+ that kind of look at the microtubule side of things
+
+54:50.620 --> 54:52.580
+ to see if there's, in the biology,
+
+54:52.580 --> 54:53.820
+ you could see something like that.
+
+54:53.820 --> 54:55.060
+ Could you briefly mention it?
+
+54:55.060 --> 54:58.140
+ Because that's really sort of one of the only
+
+54:58.140 --> 55:00.860
+ experimental attempts in the very early days
+
+55:00.860 --> 55:02.740
+ of even thinking about consciousness.
+
+55:02.740 --> 55:05.420
+ I think there's a very serious area here,
+
+55:05.420 --> 55:07.300
+ which is what Stuart Hammeroff is doing,
+
+55:07.300 --> 55:09.020
+ and I think it's very important.
+
+55:09.020 --> 55:11.740
+ One of the few places that you can really get
+
+55:11.740 --> 55:14.780
+ a bit of a handle on what consciousness is
+
+55:14.780 --> 55:17.040
+ is what turns it off.
+
+55:17.040 --> 55:20.020
+ And when you're thinking about general anesthetics,
+
+55:20.020 --> 55:21.660
+ it's very specific.
+
+55:21.660 --> 55:24.220
+ These things turn consciousness off.
+
+55:24.220 --> 55:26.300
+ What the hell do they do?
+
+55:26.300 --> 55:29.900
+ Well, Stuart and a number of people who work with him
+
+55:29.900 --> 55:34.420
+ and others happen to believe that the general anesthetics
+
+55:34.420 --> 55:36.720
+ directly affect microtubules.
+
+55:36.720 --> 55:38.660
+ And there is some evidence for this.
+
+55:38.660 --> 55:40.180
+ I don't know how strong it is
+
+55:40.180 --> 55:43.800
+ and how watertight the case is,
+
+55:43.800 --> 55:46.740
+ but I think there is some evidence pointing
+
+55:46.740 --> 55:49.140
+ in that kind of direction.
+
+55:49.140 --> 55:51.180
+ It's not just an ordinary chemical process.
+
+55:51.180 --> 55:53.500
+ There's something quite different about it.
+
+55:53.500 --> 55:56.900
+ And one of the main candidates
+
+55:56.900 --> 55:59.260
+ is that these anesthetic gases
+
+55:59.260 --> 56:01.660
+ do affect directly microtubules.
+
+56:02.620 --> 56:04.460
+ And how strong that evidence is,
+
+56:04.460 --> 56:07.100
+ I wouldn't be in a position to say,
+
+56:07.100 --> 56:10.060
+ but I think there is fairly impressive evidence.
+
+56:10.060 --> 56:12.700
+ And the point is the experiments are being undertaken,
+
+56:12.700 --> 56:13.540
+ which is. Yeah.
+
+56:13.540 --> 56:14.660
+ I mean, that is experimental.
+
+56:14.660 --> 56:17.260
+ You see, so it's a very clear direction
+
+56:17.260 --> 56:18.720
+ where you can think of experiments
+
+56:18.720 --> 56:21.800
+ which could indicate whether or not
+
+56:21.800 --> 56:24.980
+ it's really microtubules which the anesthetic gases
+
+56:24.980 --> 56:26.100
+ directly affect.
+
+56:26.100 --> 56:27.300
+ That's really exciting.
+
+56:27.300 --> 56:30.380
+ One of the sad things is as far as I'm,
+
+56:30.380 --> 56:31.820
+ from my outside perspective,
+
+56:31.820 --> 56:34.420
+ is not many people are working on this.
+
+56:34.420 --> 56:37.220
+ So there's a very, like with Stuart,
+
+56:37.220 --> 56:38.940
+ it feels like there's very few people
+
+56:38.940 --> 56:41.280
+ are carrying the flag forward on this.
+
+56:41.280 --> 56:44.860
+ I think it's not many in the sense it's a minority,
+
+56:44.860 --> 56:46.420
+ but it's not zero anymore.
+
+56:46.420 --> 56:49.840
+ You see, when Stuart and I were originally taught by us,
+
+56:49.840 --> 56:52.860
+ we were just us and a few of our friends,
+
+56:52.860 --> 56:54.220
+ there weren't many people taking it,
+
+56:54.220 --> 56:59.220
+ but it's grown into one of the main viewpoints.
+
+56:59.500 --> 57:02.540
+ There might be about four or five or six different
+
+57:03.540 --> 57:06.260
+ views which people hold,
+
+57:06.260 --> 57:07.660
+ and it's one of them.
+
+57:07.660 --> 57:11.100
+ So it's considered as one of the possible
+
+57:12.060 --> 57:13.340
+ lines of thinking, yes.
+
+57:13.340 --> 57:15.100
+ You describe physics theories
+
+57:15.100 --> 57:16.940
+ as falling into one of three categories,
+
+57:16.940 --> 57:19.860
+ the superb, the useful, or the tentative.
+
+57:19.860 --> 57:21.700
+ I like those words.
+
+57:21.700 --> 57:23.580
+ It's a beautiful categorization.
+
+57:23.580 --> 57:26.980
+ Do you think we'll ever have a superb theory
+
+57:26.980 --> 57:29.800
+ of intelligence and of consciousness?
+
+57:29.800 --> 57:30.640
+ We might.
+
+57:31.700 --> 57:33.740
+ We're a long way from it.
+
+57:33.740 --> 57:35.020
+ I don't think we're even,
+
+57:35.020 --> 57:36.940
+ whether we're in the tentative scale.
+
+57:36.940 --> 57:37.980
+ I mean, it's...
+
+57:40.020 --> 57:42.420
+ You don't think we've even entered the realm of tentative?
+
+57:42.420 --> 57:43.260
+ Probably not.
+
+57:43.260 --> 57:44.580
+ Yeah, that's right.
+
+57:44.580 --> 57:47.140
+ Now, when you see this, it's so controversial.
+
+57:47.140 --> 57:49.180
+ We don't have a clear view
+
+57:49.180 --> 57:53.100
+ which is accepted by a majority.
+
+57:53.100 --> 57:54.340
+ I mean, you see, yeah, people,
+
+57:54.340 --> 57:57.300
+ most views are computational in one form or another.
+
+57:57.300 --> 57:59.260
+ They think it's some, but it's not very clear,
+
+57:59.260 --> 58:03.460
+ because even the IIT people who
+
+58:04.700 --> 58:06.540
+ think of them as computational,
+
+58:06.540 --> 58:08.020
+ but I've heard them say,
+
+58:08.020 --> 58:09.980
+ no, consciousness is supposed to be not computational.
+
+58:09.980 --> 58:10.980
+ I say, well, if it's not computational,
+
+58:10.980 --> 58:12.140
+ what in the hell is it?
+
+58:12.140 --> 58:14.100
+ What's going on?
+
+58:14.100 --> 58:17.120
+ What physical processes are going on which are that?
+
+58:18.900 --> 58:21.700
+ What does it mean for something to be computational then?
+
+58:21.700 --> 58:23.900
+ So, is...
+
+58:25.100 --> 58:27.740
+ Well, there has to be a process which is...
+
+58:29.380 --> 58:30.500
+ You see, it's very curious
+
+58:30.500 --> 58:34.140
+ the way the history has developed in quantum mechanics,
+
+58:34.140 --> 58:35.460
+ because very early on,
+
+58:35.460 --> 58:37.780
+ people thought there was something to do with consciousness,
+
+58:37.780 --> 58:39.980
+ but it was almost the other way around.
+
+58:39.980 --> 58:42.980
+ You see, you have to say the Schrodinger equation
+
+58:42.980 --> 58:46.020
+ says all these different alternatives happen all at once,
+
+58:46.020 --> 58:48.540
+ and then when is it that only one of them happens?
+
+58:48.540 --> 58:50.820
+ Well, one of the views, which was quite commonly held
+
+58:50.820 --> 58:53.460
+ by a few distinguished quantum physicists,
+
+58:53.460 --> 58:56.620
+ that's when a conscious being looks at the system
+
+58:56.620 --> 58:57.940
+ or becomes aware of it,
+
+58:57.940 --> 59:00.700
+ and at that point, it becomes one or the other.
+
+59:01.740 --> 59:03.700
+ That's a role where consciousness
+
+59:03.700 --> 59:07.020
+ is somehow actively reducing the state.
+
+59:07.020 --> 59:10.140
+ My view is almost the exact opposite of that.
+
+59:10.140 --> 59:14.180
+ It's the state reduces itself in some way which...
+
+59:14.180 --> 59:17.100
+ Some noncomputational way which we don't understand,
+
+59:17.100 --> 59:19.180
+ we don't have a proper theory of,
+
+59:19.180 --> 59:24.180
+ and that is the building block of what consciousness is.
+
+59:24.420 --> 59:26.220
+ So consciousness is the other way around.
+
+59:26.220 --> 59:31.220
+ It depends on that choice which nature makes all the time
+
+59:31.220 --> 59:33.100
+ when the state becomes one or the other
+
+59:33.100 --> 59:36.020
+ rather than the superposition of one and the other,
+
+59:36.020 --> 59:39.540
+ and when that happens, there is what we're saying now,
+
+59:39.540 --> 59:43.100
+ an element of proto consciousness takes place.
+
+59:43.100 --> 59:45.620
+ Proto consciousness is, roughly speaking,
+
+59:45.620 --> 59:47.380
+ the building block out of which
+
+59:47.380 --> 59:50.060
+ actual consciousness is constructed.
+
+59:50.060 --> 59:53.180
+ So you have these proto conscious elements,
+
+59:53.180 --> 59:55.020
+ which are when the state decides
+
+59:55.020 --> 59:57.540
+ to do one thing or the other,
+
+59:57.540 --> 1:00:01.540
+ and that's the thing which when organized together,
+
+1:00:01.540 --> 1:00:05.420
+ that's the OR part in ORCOR, but the ORC part,
+
+1:00:05.420 --> 1:00:08.580
+ that's the OR part at least one can see
+
+1:00:08.580 --> 1:00:10.260
+ where we're driving at a theory.
+
+1:00:10.260 --> 1:00:13.140
+ You can say it's the quantum choice
+
+1:00:13.140 --> 1:00:14.700
+ of going this way or that way,
+
+1:00:14.700 --> 1:00:17.700
+ but the ORC part, which is the orchestration of this,
+
+1:00:17.700 --> 1:00:19.580
+ is much more mysterious,
+
+1:00:19.580 --> 1:00:23.260
+ and how does the brain somehow orchestrate
+
+1:00:23.260 --> 1:00:26.580
+ all these individual OR processes
+
+1:00:26.580 --> 1:00:31.580
+ into a genuine, genuine conscious experience?
+
+1:00:32.500 --> 1:00:35.100
+ And it might be something that's beautifully simple,
+
+1:00:35.100 --> 1:00:37.780
+ but we're completely in the dark about.
+
+1:00:37.780 --> 1:00:40.220
+ Yeah, I think at the moment, that's the thing,
+
+1:00:40.220 --> 1:00:42.940
+ you know, we happily put the word ORC down there
+
+1:00:42.940 --> 1:00:47.500
+ to say orchestrated, but that's even more unclear
+
+1:00:47.500 --> 1:00:49.020
+ what that really means.
+
+1:00:49.020 --> 1:00:54.020
+ Just like the word material, orchestrated, who knows?
+
+1:00:54.700 --> 1:00:56.220
+ And we've been dancing a little bit
+
+1:00:56.220 --> 1:00:58.780
+ between the word intelligence
+
+1:00:58.780 --> 1:01:00.980
+ or understanding and consciousness.
+
+1:01:00.980 --> 1:01:03.060
+ Do you kind of see those as sitting
+
+1:01:03.060 --> 1:01:05.820
+ in the same space of mystery as we discussed?
+
+1:01:05.820 --> 1:01:07.820
+ Yes, well, you see, I tend to say
+
+1:01:07.820 --> 1:01:12.820
+ you have understanding and intelligence and awareness,
+
+1:01:14.100 --> 1:01:19.100
+ and somehow understanding is in the middle of it, you see.
+
+1:01:21.220 --> 1:01:25.660
+ I like to say, could you say of an entity
+
+1:01:25.660 --> 1:01:27.860
+ that is actually intelligent
+
+1:01:27.860 --> 1:01:30.380
+ if it doesn't have the quality of understanding?
+
+1:01:30.380 --> 1:01:33.740
+ Now, you see, I'm using terms I don't even know how to define,
+
+1:01:33.740 --> 1:01:34.580
+ but who cares?
+
+1:01:34.580 --> 1:01:35.420
+ I'm just relating them.
+
+1:01:35.420 --> 1:01:38.500
+ They're somewhat poetic, so if I somehow understand them.
+
+1:01:38.500 --> 1:01:40.900
+ Yes, that's right, we don't, exactly.
+
+1:01:40.900 --> 1:01:42.300
+ But they're not mathematical in nature.
+
+1:01:42.300 --> 1:01:44.100
+ Yes, you see, as a mathematician,
+
+1:01:44.100 --> 1:01:45.420
+ I don't know how to define any of them,
+
+1:01:45.420 --> 1:01:47.460
+ but at least I can point to the connections.
+
+1:01:47.460 --> 1:01:50.260
+ So the idea is intelligence is something
+
+1:01:50.260 --> 1:01:53.980
+ which I believe needs understanding,
+
+1:01:53.980 --> 1:01:56.420
+ otherwise you wouldn't say it's really intelligence.
+
+1:01:56.420 --> 1:01:59.460
+ And understanding needs awareness,
+
+1:01:59.460 --> 1:02:02.020
+ otherwise you wouldn't really say it's understanding.
+
+1:02:02.020 --> 1:02:04.420
+ Do you say of an entity that understands something,
+
+1:02:04.420 --> 1:02:08.420
+ unless it's really aware of it, you know, normal usage.
+
+1:02:08.420 --> 1:02:10.940
+ So there's a three sort of awareness,
+
+1:02:10.940 --> 1:02:13.780
+ understanding, and intelligence.
+
+1:02:13.780 --> 1:02:17.500
+ And I just tend to concentrate on understanding
+
+1:02:17.500 --> 1:02:19.220
+ because that's where I can say something.
+
+1:02:19.220 --> 1:02:20.060
+ Okay.
+
+1:02:20.060 --> 1:02:21.940
+ And that's the Gödel theorem, things like that.
+
+1:02:21.940 --> 1:02:24.900
+ But what does it mean to be,
+
+1:02:24.900 --> 1:02:26.900
+ perceive the color blue or something?
+
+1:02:26.900 --> 1:02:28.460
+ I mean, I'm foggiest.
+
+1:02:28.460 --> 1:02:31.020
+ It's a much more difficult question.
+
+1:02:31.020 --> 1:02:34.020
+ I mean, is it the same if I see a color blue and you see it?
+
+1:02:34.020 --> 1:02:36.540
+ If you're somebody with this condition,
+
+1:02:36.540 --> 1:02:38.260
+ what's it called then?
+
+1:02:38.260 --> 1:02:41.500
+ Or where you assign a sound to a color.
+
+1:02:41.500 --> 1:02:42.340
+ Yeah, yeah, that's right.
+
+1:02:42.340 --> 1:02:44.700
+ You get colors and sounds mixed up.
+
+1:02:44.700 --> 1:02:45.820
+ And that sort of thing.
+
+1:02:45.820 --> 1:02:47.740
+ I mean, an interesting subject.
+
+1:02:49.020 --> 1:02:50.820
+ But from the physics perspective,
+
+1:02:50.820 --> 1:02:53.180
+ from the fundamentals perspective, we don't.
+
+1:02:53.180 --> 1:02:56.260
+ I think we're way off having much understanding
+
+1:02:56.260 --> 1:02:57.860
+ what's going on there.
+
+1:02:57.860 --> 1:03:01.300
+ In your 2010 book, Cycles of Time,
+
+1:03:01.300 --> 1:03:04.300
+ you suggest that another universe may have existed
+
+1:03:04.300 --> 1:03:06.220
+ before the Big Bang.
+
+1:03:06.220 --> 1:03:08.740
+ Can you describe this idea?
+
+1:03:08.740 --> 1:03:10.900
+ First of all, what is the Big Bang?
+
+1:03:10.900 --> 1:03:13.020
+ Sounds like a funny word.
+
+1:03:13.020 --> 1:03:17.060
+ And what may have been there before it?
+
+1:03:17.060 --> 1:03:17.900
+ Yes.
+
+1:03:17.900 --> 1:03:19.300
+ Just as a matter of terminology,
+
+1:03:19.300 --> 1:03:21.740
+ I don't like to call it another universe.
+
+1:03:21.740 --> 1:03:23.020
+ Because when you have another universe,
+
+1:03:23.020 --> 1:03:25.500
+ you think of it kind of quite separate from us.
+
+1:03:25.500 --> 1:03:28.660
+ But these things, they're not separate.
+
+1:03:28.660 --> 1:03:31.820
+ Now the Big Bang, conventional theory.
+
+1:03:31.820 --> 1:03:34.180
+ You see, I was actually brought up
+
+1:03:34.180 --> 1:03:35.900
+ in the sense of when I started getting
+
+1:03:35.900 --> 1:03:36.860
+ interested in cosmology,
+
+1:03:36.860 --> 1:03:39.220
+ there was a thing called the Steady State Model,
+
+1:03:39.220 --> 1:03:41.340
+ which was sort of philosophically very interesting.
+
+1:03:41.340 --> 1:03:43.020
+ And there wasn't a Big Bang in that theory.
+
+1:03:43.020 --> 1:03:46.980
+ But somehow, new material was created all the time
+
+1:03:46.980 --> 1:03:48.060
+ in the form of hydrogen,
+
+1:03:48.060 --> 1:03:50.500
+ and the universe kept on expanding, expanding, expanding,
+
+1:03:50.500 --> 1:03:52.540
+ and there was room for more hydrogen.
+
+1:03:52.540 --> 1:03:54.940
+ It was a rather philosophically nice picture.
+
+1:03:54.940 --> 1:03:59.940
+ It was disproved when the Big Bang,
+
+1:03:59.940 --> 1:04:01.820
+ well, when I say the Big Bang,
+
+1:04:01.820 --> 1:04:04.900
+ this was theoretically discovered
+
+1:04:04.900 --> 1:04:07.860
+ by people trying to solve Einstein's equations
+
+1:04:07.860 --> 1:04:09.340
+ and apply it to cosmology.
+
+1:04:09.340 --> 1:04:10.700
+ Einstein didn't like the idea.
+
+1:04:10.700 --> 1:04:14.340
+ He liked a universe which was there all the time.
+
+1:04:14.340 --> 1:04:16.740
+ And he had a model which was there all the time.
+
+1:04:16.740 --> 1:04:19.540
+ But then there was this discovery,
+
+1:04:19.540 --> 1:04:22.340
+ accidental discovery, very important discovery,
+
+1:04:22.340 --> 1:04:25.140
+ of this microwave background.
+
+1:04:25.140 --> 1:04:28.460
+ And if you, there's the crackle on your television screen
+
+1:04:28.460 --> 1:04:32.740
+ which is already sensing this microwave background,
+
+1:04:32.740 --> 1:04:35.140
+ which is coming at us from all directions.
+
+1:04:35.140 --> 1:04:37.740
+ And you can trace it back and back and back and back.
+
+1:04:37.740 --> 1:04:40.820
+ And it came from a very early stage of the universe.
+
+1:04:41.740 --> 1:04:43.700
+ Well, it's part of the Big Bang theory.
+
+1:04:43.700 --> 1:04:45.660
+ The Big Bang theory was when people tried
+
+1:04:45.660 --> 1:04:47.660
+ to solve Einstein's equations.
+
+1:04:47.660 --> 1:04:50.780
+ They really found you had to have this initial state
+
+1:04:50.780 --> 1:04:52.420
+ where the universe, it used to be called
+
+1:04:52.420 --> 1:04:55.340
+ the primordial atom and things like this.
+
+1:04:55.340 --> 1:04:57.860
+ There's Friedman and Lemaitre.
+
+1:04:58.900 --> 1:05:01.420
+ Friedman was a Russian, Lemaitre was a Belgian.
+
+1:05:01.420 --> 1:05:04.780
+ And they independently, well, basically Friedman first.
+
+1:05:04.780 --> 1:05:08.860
+ And Lemaitre talked about the initial state,
+
+1:05:08.860 --> 1:05:11.420
+ which is a very, very concentrated initial state
+
+1:05:11.420 --> 1:05:13.500
+ which seemed to be the origin of the universe.
+
+1:05:13.500 --> 1:05:14.820
+ Primordial atom.
+
+1:05:14.820 --> 1:05:17.620
+ Primordial atom is what he called it, yes.
+
+1:05:17.620 --> 1:05:20.220
+ And then it became, well, Fred Hoyle used the term
+
+1:05:20.220 --> 1:05:22.540
+ Big Bang in a kind of derogatory sense.
+
+1:05:22.540 --> 1:05:25.140
+ Just like with the Schrodinger and the cats, right?
+
+1:05:25.140 --> 1:05:28.340
+ Yes, it's like sort of got picked up on
+
+1:05:28.340 --> 1:05:30.780
+ whereas it wasn't his intention originally.
+
+1:05:30.780 --> 1:05:33.620
+ But then the evidence piled up and piled up.
+
+1:05:33.620 --> 1:05:36.460
+ And one of my friends and I learned a lot from him
+
+1:05:36.460 --> 1:05:38.060
+ when I was in Cambridge was Dennis Sharma.
+
+1:05:38.060 --> 1:05:40.580
+ He was a great proponent of steady state.
+
+1:05:40.580 --> 1:05:41.980
+ And then he got converted.
+
+1:05:41.980 --> 1:05:43.420
+ He said, no, I'm sorry.
+
+1:05:43.420 --> 1:05:44.500
+ I had a great respect for him.
+
+1:05:44.500 --> 1:05:46.780
+ He went around lecturing and said, I was wrong.
+
+1:05:46.780 --> 1:05:48.900
+ The steady state model doesn't work.
+
+1:05:48.900 --> 1:05:50.900
+ There was this Big Bang.
+
+1:05:50.900 --> 1:05:53.620
+ And this microwave background that you see,
+
+1:05:53.620 --> 1:05:55.380
+ okay, it's not actually quite the Big Bang.
+
+1:05:55.380 --> 1:05:58.660
+ When I say not quite, it's about 380,000 years
+
+1:05:58.660 --> 1:06:01.460
+ after the Big Bang, but that's what you see.
+
+1:06:01.460 --> 1:06:03.780
+ But then you have to have had this Big Bang before it
+
+1:06:03.780 --> 1:06:05.740
+ in order to make the equations work.
+
+1:06:05.740 --> 1:06:09.660
+ And it works beautifully except for one little thing,
+
+1:06:09.660 --> 1:06:11.060
+ which is this thing called inflation,
+
+1:06:11.060 --> 1:06:14.060
+ which people had to put into it to make it work.
+
+1:06:14.060 --> 1:06:16.860
+ When I first heard of it, I didn't like it at all.
+
+1:06:16.860 --> 1:06:17.940
+ What's inflation?
+
+1:06:17.940 --> 1:06:20.380
+ Inflation is that in the first,
+
+1:06:20.380 --> 1:06:22.740
+ I'm gonna give you a very tiny number.
+
+1:06:22.740 --> 1:06:23.940
+ Think of a second.
+
+1:06:23.940 --> 1:06:25.180
+ That's not very long.
+
+1:06:25.180 --> 1:06:26.980
+ Now I'm gonna give you a fraction of a second,
+
+1:06:26.980 --> 1:06:29.460
+ one over a number.
+
+1:06:29.460 --> 1:06:34.340
+ This number has 32 digits between,
+
+1:06:34.340 --> 1:06:37.740
+ well, let's say between 36 and 32 digits.
+
+1:06:37.740 --> 1:06:41.260
+ Tiny, tiny time between those two tiny,
+
+1:06:41.260 --> 1:06:44.500
+ ridiculous seconds, fraction of a second,
+
+1:06:44.500 --> 1:06:46.580
+ the universe was supposed to have expanded
+
+1:06:46.580 --> 1:06:49.700
+ in this exponential way, an enormous way.
+
+1:06:49.700 --> 1:06:52.060
+ For no apparent reason, you had to invent
+
+1:06:52.060 --> 1:06:54.700
+ a particular thing called the inflaton field
+
+1:06:54.700 --> 1:06:56.060
+ to make it do it.
+
+1:06:56.060 --> 1:06:58.180
+ And I thought this is completely crazy.
+
+1:06:58.180 --> 1:07:01.980
+ There are reasons why people stuck with this idea.
+
+1:07:01.980 --> 1:07:04.180
+ You see, the thing is that I formed my model
+
+1:07:04.180 --> 1:07:07.700
+ for reasons which are very fundamental, if you like.
+
+1:07:07.700 --> 1:07:10.420
+ It has to do with this very fundamental principle,
+
+1:07:10.420 --> 1:07:13.780
+ which is known as the second law of thermodynamics.
+
+1:07:13.780 --> 1:07:16.100
+ The second law of thermodynamics says more or less,
+
+1:07:16.100 --> 1:07:18.700
+ things get more and more random as time goes on.
+
+1:07:20.020 --> 1:07:22.100
+ Now, another way of saying exactly the same thing
+
+1:07:22.100 --> 1:07:24.340
+ is things get less and less random.
+
+1:07:24.340 --> 1:07:26.380
+ As things go back, as you go back in time,
+
+1:07:26.380 --> 1:07:28.060
+ they get less and less random.
+
+1:07:28.060 --> 1:07:30.100
+ They go back and back and back and back.
+
+1:07:30.100 --> 1:07:32.020
+ And the earliest thing you can directly see
+
+1:07:32.020 --> 1:07:33.540
+ is this microwave background.
+
+1:07:34.580 --> 1:07:37.540
+ What's one of the most striking features of it
+
+1:07:37.540 --> 1:07:39.220
+ is that it's random.
+
+1:07:39.220 --> 1:07:42.500
+ It has this, what you call this spectrum of,
+
+1:07:43.700 --> 1:07:46.060
+ which is what's called the Planck spectrum,
+
+1:07:46.060 --> 1:07:48.740
+ of frequencies, different intensities
+
+1:07:48.740 --> 1:07:49.660
+ for different frequencies.
+
+1:07:49.660 --> 1:07:53.340
+ And it's this wonderful curve due to Max Planck.
+
+1:07:53.340 --> 1:07:54.700
+ And what's it telling you?
+
+1:07:54.700 --> 1:07:58.020
+ It's telling you that the entropy is at a maximum.
+
+1:07:58.020 --> 1:08:02.140
+ Started off at a maximum and it's going up ever since.
+
+1:08:02.140 --> 1:08:03.900
+ I call that the mammoth in the room.
+
+1:08:03.900 --> 1:08:05.580
+ I mean, it's a paradox.
+
+1:08:05.580 --> 1:08:07.220
+ A mammoth, yeah, it is.
+
+1:08:07.220 --> 1:08:10.500
+ And so people, why don't cosmologists worry about this?
+
+1:08:10.500 --> 1:08:11.940
+ So I worried about it.
+
+1:08:11.940 --> 1:08:14.940
+ And then I thought, well, it's not really a paradox
+
+1:08:14.940 --> 1:08:19.060
+ because you're looking at matter and radiation
+
+1:08:19.060 --> 1:08:20.700
+ at a maximum entropy state.
+
+1:08:20.700 --> 1:08:25.420
+ What you're not seeing directly in that is the gravitation.
+
+1:08:25.420 --> 1:08:28.460
+ It's gravitation, which is not thermalized.
+
+1:08:28.460 --> 1:08:32.020
+ The gravitation was very, very low entropy.
+
+1:08:32.020 --> 1:08:34.500
+ And it's low entropy by the uniformity.
+
+1:08:34.500 --> 1:08:35.980
+ And you see that in the microwave too.
+
+1:08:35.980 --> 1:08:38.260
+ It's very uniform over the whole sky.
+
+1:08:38.260 --> 1:08:39.500
+ I'm compressing a long story
+
+1:08:39.500 --> 1:08:40.820
+ into a very short few sentences.
+
+1:08:40.820 --> 1:08:42.060
+ And doing a great job, yeah.
+
+1:08:42.060 --> 1:08:45.780
+ So what I'm saying is that there's a huge puzzle.
+
+1:08:45.780 --> 1:08:50.700
+ Why was gravity in this very low entropy state,
+
+1:08:50.700 --> 1:08:55.260
+ very highly organized state, everything else was all random?
+
+1:08:55.260 --> 1:08:59.060
+ And that to me was the biggest problem in cosmology.
+
+1:08:59.060 --> 1:09:02.860
+ The biggest problem, nobody seems to even worry about it.
+
+1:09:02.860 --> 1:09:04.540
+ People say they solved all the problems
+
+1:09:04.540 --> 1:09:05.620
+ and they don't even worry about it.
+
+1:09:05.620 --> 1:09:07.420
+ They think inflation solves it.
+
+1:09:07.420 --> 1:09:08.860
+ It doesn't, it can't.
+
+1:09:08.860 --> 1:09:12.260
+ Because it's just that...
+
+1:09:12.260 --> 1:09:14.660
+ Just to clarify, that was your problem
+
+1:09:14.660 --> 1:09:18.140
+ with the inflation describing some aspect
+
+1:09:18.140 --> 1:09:20.540
+ of the moments right after the Big Bang?
+
+1:09:20.540 --> 1:09:22.220
+ Inflation is supposed to stretch it out
+
+1:09:22.220 --> 1:09:23.940
+ and make it all uniform, you see.
+
+1:09:23.940 --> 1:09:25.420
+ It doesn't do it because it can only do it
+
+1:09:25.420 --> 1:09:27.180
+ if it's uniform already at the beginning.
+
+1:09:27.180 --> 1:09:28.540
+ It's, you just have to look at,
+
+1:09:28.540 --> 1:09:31.700
+ I can't go into the details, but it doesn't solve it.
+
+1:09:31.700 --> 1:09:33.820
+ And it was completely clear to me it doesn't solve it.
+
+1:09:33.820 --> 1:09:36.340
+ But where does the conformal cyclic cosmology
+
+1:09:36.340 --> 1:09:40.260
+ of starting to talk about something before
+
+1:09:40.260 --> 1:09:41.820
+ that singular and the Big Bang?
+
+1:09:41.820 --> 1:09:44.220
+ I was just thinking to myself,
+
+1:09:44.220 --> 1:09:47.660
+ how boring this universe is going to be.
+
+1:09:47.660 --> 1:09:49.500
+ You've got this exponential expansion.
+
+1:09:49.500 --> 1:09:51.460
+ This was discovered early in the,
+
+1:09:51.460 --> 1:09:56.460
+ in this century, 21st century.
+
+1:09:56.740 --> 1:10:01.060
+ People discovered that these supernova exploding stars
+
+1:10:01.060 --> 1:10:04.580
+ showed that the universe is actually undergoing
+
+1:10:04.580 --> 1:10:06.580
+ this exponential expansion.
+
+1:10:07.460 --> 1:10:09.540
+ So it's a self similar expansion.
+
+1:10:10.580 --> 1:10:14.260
+ And it seems to be a feature of this term
+
+1:10:14.260 --> 1:10:17.140
+ that Einstein introduced into his cosmology
+
+1:10:17.140 --> 1:10:18.540
+ for the wrong reason.
+
+1:10:18.540 --> 1:10:20.580
+ He wanted a universe that was static.
+
+1:10:20.580 --> 1:10:23.500
+ He put this new term into his cosmology.
+
+1:10:23.500 --> 1:10:24.420
+ To make it make sense,
+
+1:10:24.420 --> 1:10:26.460
+ it's called the cosmological constant.
+
+1:10:26.460 --> 1:10:28.260
+ And then when he got convinced
+
+1:10:28.260 --> 1:10:29.540
+ that the universe had a Big Bang,
+
+1:10:29.540 --> 1:10:33.300
+ he retracted it complaining this was his greatest blunder.
+
+1:10:33.300 --> 1:10:34.660
+ The trouble is it wasn't a blunder.
+
+1:10:34.660 --> 1:10:37.900
+ It was actually right, very ironic.
+
+1:10:37.900 --> 1:10:40.260
+ And so the universe seems to be behaving
+
+1:10:40.260 --> 1:10:41.980
+ with this cosmological constant.
+
+1:10:41.980 --> 1:10:45.100
+ Okay, so this universe is expanding and expanding.
+
+1:10:45.100 --> 1:10:46.340
+ What's going to happen in the future?
+
+1:10:46.340 --> 1:10:48.860
+ Well, it gets more and more boring for a while.
+
+1:10:48.860 --> 1:10:50.580
+ What's the most interesting thing in the universe?
+
+1:10:50.580 --> 1:10:51.860
+ Well, there's black holes.
+
+1:10:51.860 --> 1:10:53.660
+ The black holes more or less gulp down
+
+1:10:53.660 --> 1:10:56.660
+ entire clusters of galaxies.
+
+1:10:56.660 --> 1:10:59.100
+ The cluster, it'll swallow up most of our galaxy.
+
+1:10:59.100 --> 1:11:01.460
+ We will run into our Andromeda galaxy's black hole.
+
+1:11:01.460 --> 1:11:03.660
+ That black hole will swallow our one.
+
+1:11:03.660 --> 1:11:04.700
+ They'll get bigger and bigger
+
+1:11:04.700 --> 1:11:07.100
+ and they'll basically swallow up
+
+1:11:07.100 --> 1:11:10.060
+ the whole cluster of galaxies, gulp it all down.
+
+1:11:10.060 --> 1:11:13.780
+ Pretty well all, most of it, maybe not all, most of it.
+
+1:11:13.780 --> 1:11:15.300
+ Okay, then that'll happen to,
+
+1:11:15.300 --> 1:11:16.820
+ there'll be just these black holes around.
+
+1:11:16.820 --> 1:11:19.620
+ Pretty boring, but still not as boring as it's gonna get.
+
+1:11:19.620 --> 1:11:21.660
+ It's gonna get more boring because these black holes,
+
+1:11:21.660 --> 1:11:24.060
+ you wait and you wait and you wait and you wait
+
+1:11:24.060 --> 1:11:26.140
+ an unbelievable length of time
+
+1:11:26.140 --> 1:11:30.300
+ and Hawking's black hole evaporation starts to come in.
+
+1:11:30.300 --> 1:11:34.340
+ And the black holes, you just, it's incredibly tedious.
+
+1:11:34.340 --> 1:11:36.340
+ Finally evaporate away.
+
+1:11:36.340 --> 1:11:39.700
+ Each one goes away, disappears with a pop at the end.
+
+1:11:39.700 --> 1:11:40.940
+ What could be more boring?
+
+1:11:40.940 --> 1:11:43.820
+ It was boring then, now this is really boring.
+
+1:11:43.820 --> 1:11:46.620
+ There's nothing, not even black holes.
+
+1:11:46.620 --> 1:11:48.940
+ Universe gets colder and colder and colder and colder.
+
+1:11:48.940 --> 1:11:52.460
+ And I thought, this is very, very boring.
+
+1:11:52.460 --> 1:11:54.540
+ Now that's not science, is it?
+
+1:11:54.540 --> 1:11:56.420
+ But it's emotional.
+
+1:11:56.420 --> 1:11:59.620
+ So I thought, who's gonna be bored by this universe?
+
+1:11:59.620 --> 1:12:01.540
+ Not us, we won't be around.
+
+1:12:01.540 --> 1:12:04.100
+ It'll be mostly photons running around.
+
+1:12:04.100 --> 1:12:06.180
+ And what the photons do, they don't get bored
+
+1:12:06.180 --> 1:12:08.780
+ because it's part of relativity, you see.
+
+1:12:08.780 --> 1:12:10.900
+ It's not really that they don't experience anything.
+
+1:12:10.900 --> 1:12:12.420
+ That's not the point.
+
+1:12:12.420 --> 1:12:15.820
+ Photons get right out to infinity
+
+1:12:15.820 --> 1:12:18.580
+ without experience any time.
+
+1:12:18.580 --> 1:12:21.020
+ It's the way relativity works.
+
+1:12:21.020 --> 1:12:23.500
+ And this was part of what I used to do in my old days
+
+1:12:23.500 --> 1:12:25.260
+ when I was looking at gravitational radiation
+
+1:12:25.260 --> 1:12:27.500
+ and how things behaved to infinity.
+
+1:12:27.500 --> 1:12:30.060
+ Infinity is just like another place.
+
+1:12:30.060 --> 1:12:31.900
+ You can squash it down.
+
+1:12:31.900 --> 1:12:34.460
+ As long as you don't have any mass in the world,
+
+1:12:34.460 --> 1:12:36.460
+ infinity is just another place.
+
+1:12:36.460 --> 1:12:39.700
+ The photons get there, the gravitons get there.
+
+1:12:39.700 --> 1:12:40.540
+ What do they get?
+
+1:12:40.540 --> 1:12:42.100
+ They've run into infinity.
+
+1:12:42.100 --> 1:12:44.300
+ They say, well, now I'm here, what do I?
+
+1:12:44.300 --> 1:12:46.660
+ There's something on the other side, is there?
+
+1:12:46.660 --> 1:12:48.620
+ The usual view, it's just a mathematical notion.
+
+1:12:48.620 --> 1:12:49.620
+ There's nothing on the other side.
+
+1:12:49.620 --> 1:12:51.740
+ That's just the boundary of it.
+
+1:12:51.740 --> 1:12:54.980
+ A nice example is this beautiful series of pictures
+
+1:12:54.980 --> 1:12:57.180
+ by the Dutch artist MC Escher.
+
+1:12:57.180 --> 1:12:58.020
+ You may know them.
+
+1:12:58.020 --> 1:12:59.660
+ The one's called Circle Limits.
+
+1:12:59.660 --> 1:13:02.500
+ They're a very famous one with the angels and the devils.
+
+1:13:02.500 --> 1:13:04.220
+ And you can see them crowding and crowding
+
+1:13:04.220 --> 1:13:06.020
+ and crowding up to the edge.
+
+1:13:06.020 --> 1:13:09.060
+ Now, the kind of geometry that these angels and devils
+
+1:13:09.060 --> 1:13:11.500
+ inhabit, that's their infinity.
+
+1:13:12.380 --> 1:13:16.820
+ But from our perspective, infinity is just a place.
+
+1:13:16.820 --> 1:13:17.660
+ Okay, there is...
+
+1:13:17.660 --> 1:13:20.220
+ I'm sorry, can you just take a brief pause?
+
+1:13:20.220 --> 1:13:21.060
+ Yes.
+
+1:13:21.060 --> 1:13:22.860
+ In just the words you're saying,
+
+1:13:22.860 --> 1:13:24.100
+ infinity is just a place.
+
+1:13:24.100 --> 1:13:28.820
+ So for the most part, infinity, sort of even just going back,
+
+1:13:28.820 --> 1:13:31.220
+ infinity is a mathematical concept.
+
+1:13:31.220 --> 1:13:32.060
+ I think this is one of the things...
+
+1:13:32.060 --> 1:13:35.500
+ You think there's an actual physical manifest...
+
+1:13:35.500 --> 1:13:38.420
+ In which way does infinity ever manifest itself
+
+1:13:38.420 --> 1:13:40.140
+ in our physical universe?
+
+1:13:40.140 --> 1:13:41.820
+ Well, it does in various places.
+
+1:13:41.820 --> 1:13:44.500
+ You see, it's a thing that if you're not a mathematician,
+
+1:13:44.500 --> 1:13:46.500
+ you think, oh, infinity, I can't think about that.
+
+1:13:46.500 --> 1:13:48.700
+ Mathematicians think about affinity all the time.
+
+1:13:48.700 --> 1:13:50.940
+ They get used to the idea and they just play around
+
+1:13:50.940 --> 1:13:52.340
+ with different kinds of infinities
+
+1:13:52.340 --> 1:13:54.220
+ and it becomes no problem.
+
+1:13:54.220 --> 1:13:57.260
+ But you just have to take my word for it.
+
+1:13:57.260 --> 1:13:58.500
+ Now, one of the things is,
+
+1:13:58.500 --> 1:14:00.820
+ you see, you take a Euclidean geometry.
+
+1:14:00.820 --> 1:14:04.660
+ Well, it just keeps on going and it goes out to infinity.
+
+1:14:04.660 --> 1:14:06.180
+ Now, there's other kinds of geometry
+
+1:14:06.180 --> 1:14:09.260
+ and this is what's called hyperbolic geometry.
+
+1:14:09.260 --> 1:14:10.820
+ It's a bit like Euclidean geometry,
+
+1:14:10.820 --> 1:14:12.140
+ it's a little bit different.
+
+1:14:12.140 --> 1:14:14.660
+ It's like what Escher was trying to describe
+
+1:14:14.660 --> 1:14:17.260
+ in his angels and devils.
+
+1:14:17.260 --> 1:14:19.700
+ And he learned about this from Coxeter
+
+1:14:19.700 --> 1:14:21.780
+ and he think that's a very nice thing.
+
+1:14:21.780 --> 1:14:24.060
+ That's why I represent this infinity
+
+1:14:24.060 --> 1:14:25.820
+ to this kind of geometry.
+
+1:14:25.820 --> 1:14:27.140
+ So it's not quite Euclidean geometry,
+
+1:14:27.140 --> 1:14:28.300
+ it's a bit like it,
+
+1:14:28.300 --> 1:14:30.900
+ that the angels and the devils inhabit.
+
+1:14:30.900 --> 1:14:34.180
+ And their infinity, by this nice transformation,
+
+1:14:34.180 --> 1:14:36.820
+ you squash their infinity down
+
+1:14:36.820 --> 1:14:39.580
+ so you can draw it as this nice circle boundary
+
+1:14:39.580 --> 1:14:42.220
+ to their universe.
+
+1:14:42.220 --> 1:14:44.260
+ Now, from our outside perspective,
+
+1:14:44.260 --> 1:14:47.420
+ we can see their infinity as this boundary.
+
+1:14:47.420 --> 1:14:50.540
+ Now, what I'm saying is that it's very like that.
+
+1:14:50.540 --> 1:14:53.540
+ The infinity that we might experience
+
+1:14:53.540 --> 1:14:56.180
+ like those angels and devils in their world
+
+1:14:56.180 --> 1:14:59.460
+ can be thought of as a boundary.
+
+1:14:59.460 --> 1:15:01.940
+ Now, I found this a very useful way
+
+1:15:01.940 --> 1:15:03.940
+ of talking about radiation,
+
+1:15:03.940 --> 1:15:07.100
+ gravitational radiation and things like that.
+
+1:15:07.100 --> 1:15:10.020
+ It was a trick, mathematical trick.
+
+1:15:10.020 --> 1:15:11.340
+ So now what I'm saying is that
+
+1:15:11.340 --> 1:15:14.940
+ that mathematical trick becomes real.
+
+1:15:14.940 --> 1:15:17.860
+ That somehow, the photons,
+
+1:15:17.860 --> 1:15:19.980
+ they need to go somewhere
+
+1:15:19.980 --> 1:15:22.780
+ because from their perspective,
+
+1:15:22.780 --> 1:15:25.060
+ infinity is just another place.
+
+1:15:25.060 --> 1:15:28.340
+ Now, this is a difficult idea to get your mind around.
+
+1:15:28.340 --> 1:15:31.660
+ So that's one of the reasons cosmologists
+
+1:15:31.660 --> 1:15:34.820
+ are finding a lot of trouble taking me seriously.
+
+1:15:34.820 --> 1:15:37.540
+ But to me, it's not such a wild idea.
+
+1:15:37.540 --> 1:15:39.780
+ What's on the other side of that infinity?
+
+1:15:39.780 --> 1:15:43.060
+ You have to think, why am I allowed to think of this?
+
+1:15:43.060 --> 1:15:45.340
+ Why am I allowed to think of this?
+
+1:15:45.340 --> 1:15:48.940
+ Because photons don't have any mass.
+
+1:15:48.940 --> 1:15:53.620
+ And we in physics have beautiful ways of measuring time.
+
+1:15:53.620 --> 1:15:55.940
+ There are incredibly precise clocks,
+
+1:15:55.940 --> 1:15:59.620
+ atomic and nuclear clocks, unbelievably precise.
+
+1:15:59.620 --> 1:16:01.660
+ Why are they so precise?
+
+1:16:01.660 --> 1:16:04.660
+ Because of the two most famous equations
+
+1:16:04.660 --> 1:16:06.820
+ of 20th century physics.
+
+1:16:06.820 --> 1:16:10.060
+ One of them is Einstein's E equals MC squared.
+
+1:16:10.060 --> 1:16:11.100
+ What's that tell us?
+
+1:16:11.100 --> 1:16:13.980
+ Energy and mass are equivalent.
+
+1:16:14.900 --> 1:16:16.660
+ The other one is even older than that,
+
+1:16:16.660 --> 1:16:18.540
+ still 20th century, only just.
+
+1:16:18.540 --> 1:16:22.660
+ Max Planck, E equals h nu.
+
+1:16:22.660 --> 1:16:24.420
+ Nu is a frequency,
+
+1:16:24.420 --> 1:16:26.460
+ h is a constant, again, like C.
+
+1:16:26.460 --> 1:16:28.020
+ E is energy.
+
+1:16:28.020 --> 1:16:30.660
+ Energy and frequency are equivalent.
+
+1:16:31.620 --> 1:16:33.060
+ Put the two together,
+
+1:16:33.060 --> 1:16:34.980
+ energy and mass are equivalent, Einstein.
+
+1:16:34.980 --> 1:16:37.340
+ Energy and frequency are equivalent, Max Planck.
+
+1:16:37.340 --> 1:16:41.420
+ Put the two together, mass and frequency are equivalent.
+
+1:16:41.420 --> 1:16:44.100
+ Absolutely basic physical principle.
+
+1:16:44.100 --> 1:16:47.500
+ If you have a massive entity, a massive particle,
+
+1:16:47.500 --> 1:16:51.980
+ it is a clock with a very, very precise frequency.
+
+1:16:53.460 --> 1:16:55.020
+ It's not, you can't directly use it,
+
+1:16:55.020 --> 1:16:56.140
+ you have to scale it down.
+
+1:16:56.140 --> 1:16:57.660
+ So your atomic and nuclear clocks,
+
+1:16:57.660 --> 1:16:59.180
+ but that's the basic principle.
+
+1:16:59.180 --> 1:17:02.260
+ You scale it down to something you can actually perceive.
+
+1:17:02.260 --> 1:17:03.860
+ But it's the same principle.
+
+1:17:03.860 --> 1:17:07.900
+ If you have mass, you have beautiful clocks.
+
+1:17:07.900 --> 1:17:10.340
+ But the other side of that coin is,
+
+1:17:10.340 --> 1:17:13.940
+ if you don't have mass, you don't have clocks.
+
+1:17:14.820 --> 1:17:18.060
+ If you don't have clocks, you don't have rulers.
+
+1:17:18.060 --> 1:17:20.180
+ You don't have scale.
+
+1:17:20.180 --> 1:17:21.380
+ So you don't have space and time.
+
+1:17:21.380 --> 1:17:24.820
+ You don't have a measure of the scale of space and time.
+
+1:17:24.820 --> 1:17:26.500
+ Oh, scale of space and time.
+
+1:17:26.500 --> 1:17:29.180
+ You do have the structure,
+
+1:17:29.180 --> 1:17:30.860
+ what's called the conformal structure.
+
+1:17:30.860 --> 1:17:33.100
+ You see, it's what the angels and devils have.
+
+1:17:33.100 --> 1:17:35.060
+ If you look at the eye of the devil,
+
+1:17:35.060 --> 1:17:36.900
+ no matter how close to the boundary it is,
+
+1:17:36.900 --> 1:17:40.820
+ it has the same shape, but it has a different size.
+
+1:17:40.820 --> 1:17:43.380
+ So you can scale up and you can scale down,
+
+1:17:43.380 --> 1:17:45.340
+ but you mustn't change the shape.
+
+1:17:46.420 --> 1:17:48.540
+ So it's basically the same idea,
+
+1:17:48.540 --> 1:17:50.780
+ but applied to space time now.
+
+1:17:50.780 --> 1:17:52.620
+ In the very remote future,
+
+1:17:52.620 --> 1:17:55.700
+ you have things which don't measure the scale,
+
+1:17:55.700 --> 1:17:58.460
+ but the shape, if you like, is still there.
+
+1:17:58.460 --> 1:17:59.940
+ Now that's in the remote future.
+
+1:17:59.940 --> 1:18:01.980
+ Now I'm gonna do the exact opposite.
+
+1:18:01.980 --> 1:18:04.660
+ Now I'm gonna go way back into the Big Bang.
+
+1:18:04.660 --> 1:18:08.100
+ Now as you get there, things get hotter and hotter,
+
+1:18:08.100 --> 1:18:09.420
+ denser and denser.
+
+1:18:10.660 --> 1:18:13.020
+ What's the universe dominated by?
+
+1:18:13.020 --> 1:18:16.580
+ Particles moving around almost with the speed of light.
+
+1:18:16.580 --> 1:18:19.060
+ When they get almost with the speed of light,
+
+1:18:19.060 --> 1:18:21.820
+ okay, they begin to lose the mass too.
+
+1:18:21.820 --> 1:18:24.260
+ So for completely opposite reason,
+
+1:18:24.260 --> 1:18:26.900
+ they lose the sense of scale as well.
+
+1:18:26.900 --> 1:18:31.900
+ So my crazy idea is the Big Bang and the remote future,
+
+1:18:32.260 --> 1:18:33.500
+ they seem completely different.
+
+1:18:33.500 --> 1:18:36.140
+ One is extremely dense, extremely hot.
+
+1:18:36.140 --> 1:18:39.820
+ The other is very, very rarefied and very, very cold.
+
+1:18:39.820 --> 1:18:42.860
+ But if you squash one down by this conformal scaling,
+
+1:18:42.860 --> 1:18:44.340
+ you get the other.
+
+1:18:44.340 --> 1:18:48.020
+ So although they look and feel very different,
+
+1:18:48.020 --> 1:18:50.460
+ they're really almost the same.
+
+1:18:50.460 --> 1:18:53.180
+ The remote future on the other side,
+
+1:18:53.180 --> 1:18:55.620
+ I'm claiming is that where do the photons go?
+
+1:18:55.620 --> 1:18:57.260
+ They go into the next Big Bang.
+
+1:18:58.740 --> 1:19:01.260
+ You've got to get your mind around that crazy idea.
+
+1:19:01.260 --> 1:19:03.820
+ Taking a step on the other side of the place
+
+1:19:03.820 --> 1:19:05.660
+ that is infinity.
+
+1:19:05.660 --> 1:19:07.260
+ Okay, but.
+
+1:19:07.260 --> 1:19:09.100
+ So I'm saying the other side of our Big Bang,
+
+1:19:09.100 --> 1:19:10.620
+ now I'm going back into the Big Bang.
+
+1:19:10.620 --> 1:19:11.460
+ Back, backwards.
+
+1:19:11.460 --> 1:19:13.820
+ There was the remote future of a previous eon.
+
+1:19:13.820 --> 1:19:15.140
+ Previous eon.
+
+1:19:15.140 --> 1:19:17.620
+ And what I'm saying is that previous eon,
+
+1:19:17.620 --> 1:19:20.300
+ there are signals coming through to us,
+
+1:19:20.300 --> 1:19:23.860
+ which we can see and which we do see.
+
+1:19:23.860 --> 1:19:25.180
+ And these are both signals,
+
+1:19:25.180 --> 1:19:29.540
+ the two main signals are to do with black holes.
+
+1:19:29.540 --> 1:19:33.140
+ One of them is the collisions between black holes.
+
+1:19:33.140 --> 1:19:35.300
+ And as they spiral into each other,
+
+1:19:35.300 --> 1:19:37.060
+ they release a lot of energy
+
+1:19:37.060 --> 1:19:39.220
+ in the form of gravitational waves.
+
+1:19:39.220 --> 1:19:42.300
+ Those gravitational waves get through
+
+1:19:42.300 --> 1:19:44.260
+ in a certain form into the next eon.
+
+1:19:44.260 --> 1:19:46.340
+ That's fascinating that there's some,
+
+1:19:46.340 --> 1:19:49.140
+ I mean, maybe you can correct me if I'm wrong,
+
+1:19:49.140 --> 1:19:52.100
+ but that means that some information can travel
+
+1:19:52.100 --> 1:19:53.420
+ from another eon.
+
+1:19:53.420 --> 1:19:54.340
+ Exactly.
+
+1:19:54.340 --> 1:19:58.860
+ That is fascinating.
+
+1:19:58.860 --> 1:20:01.700
+ I mean, I've seen somewhere described
+
+1:20:01.700 --> 1:20:05.340
+ sort of the discussion of the Fermi Paradox,
+
+1:20:05.340 --> 1:20:08.260
+ you know, that if there's intelligent life.
+
+1:20:08.260 --> 1:20:09.100
+ Yes.
+
+1:20:09.100 --> 1:20:12.140
+ Being, you know, communication immediately takes you there.
+
+1:20:12.140 --> 1:20:13.180
+ So.
+
+1:20:13.180 --> 1:20:16.020
+ We have a paper, I have my colleague,
+
+1:20:16.020 --> 1:20:19.820
+ Vahid Guzajan, who I worked with on these ideas for a while.
+
+1:20:19.820 --> 1:20:21.740
+ We have a crazy paper on that, yes.
+
+1:20:21.740 --> 1:20:22.580
+ So.
+
+1:20:22.580 --> 1:20:23.540
+ Looking at the Fermi Paradox, yes.
+
+1:20:23.540 --> 1:20:25.980
+ Right, so if the universe is just cycling
+
+1:20:25.980 --> 1:20:27.260
+ over and over and over,
+
+1:20:27.260 --> 1:20:31.660
+ punctuated by the, punctuated the singularity
+
+1:20:31.660 --> 1:20:32.780
+ of the Big Bang,
+
+1:20:32.780 --> 1:20:36.780
+ and then intelligent or any kind of intelligent systems
+
+1:20:36.780 --> 1:20:39.580
+ can communicate through from eon to eon,
+
+1:20:39.580 --> 1:20:44.580
+ why haven't we heard anything from our alien friends?
+
+1:20:44.700 --> 1:20:46.980
+ Because we don't know how to look.
+
+1:20:46.980 --> 1:20:48.900
+ That's fundamentally the reason, is we.
+
+1:20:48.900 --> 1:20:51.820
+ I don't know, you see, it's speculation.
+
+1:20:51.820 --> 1:20:55.460
+ I mean, the SETI program is a reasonable thing to do,
+
+1:20:55.460 --> 1:20:56.940
+ but still speculation.
+
+1:20:56.940 --> 1:21:01.860
+ It's trying to say, okay, maybe not too far away
+
+1:21:01.860 --> 1:21:05.620
+ was a civilization which got there first, before us,
+
+1:21:05.620 --> 1:21:08.740
+ early enough that they could send us signals,
+
+1:21:08.740 --> 1:21:11.060
+ but how far away would you need to go before,
+
+1:21:11.060 --> 1:21:13.340
+ I mean, I don't know, we have so little knowledge
+
+1:21:13.340 --> 1:21:15.820
+ about that, we haven't seen any signals yet,
+
+1:21:15.820 --> 1:21:18.260
+ but it's worth looking, it's worth looking.
+
+1:21:18.260 --> 1:21:21.380
+ What I'm trying to say, here's another possible place
+
+1:21:21.380 --> 1:21:22.580
+ where you might look.
+
+1:21:22.580 --> 1:21:24.620
+ Now you're not looking at civilizations
+
+1:21:24.620 --> 1:21:26.220
+ which got there first,
+
+1:21:26.220 --> 1:21:27.980
+ you're looking at those civilizations
+
+1:21:27.980 --> 1:21:29.180
+ which were so successful,
+
+1:21:29.180 --> 1:21:32.420
+ probably a lot more successful than they're likely to be
+
+1:21:32.420 --> 1:21:33.580
+ by the looks of things,
+
+1:21:34.900 --> 1:21:38.100
+ which knew how to handle their own global warming
+
+1:21:38.100 --> 1:21:40.460
+ or whatever it is and to get through it all
+
+1:21:40.460 --> 1:21:45.460
+ and to live to a ripe old age in the sense of a civilization
+
+1:21:45.460 --> 1:21:49.180
+ to the extent that they could harness signals
+
+1:21:49.180 --> 1:21:52.340
+ that they could propagate through for some reason
+
+1:21:52.340 --> 1:21:55.700
+ of their own desires, whatever we wouldn't know
+
+1:21:55.700 --> 1:21:57.780
+ to other civilizations
+
+1:21:57.780 --> 1:22:00.180
+ which might be able to pick up the signals.
+
+1:22:00.180 --> 1:22:01.980
+ But what kind of signals would they be?
+
+1:22:01.980 --> 1:22:03.260
+ I haven't the foggiest.
+
+1:22:05.180 --> 1:22:06.460
+ Let me ask the question.
+
+1:22:06.460 --> 1:22:07.300
+ Yes.
+
+1:22:07.300 --> 1:22:09.060
+ What to you is the most beautiful idea
+
+1:22:09.060 --> 1:22:12.620
+ in physics or mathematics or the art
+
+1:22:12.620 --> 1:22:14.180
+ at the intersection of the two?
+
+1:22:15.100 --> 1:22:17.180
+ I'm gonna have to say complex analysis.
+
+1:22:17.180 --> 1:22:19.620
+ I might've said infinities.
+
+1:22:19.620 --> 1:22:22.620
+ And one of the most single, most beautiful idea
+
+1:22:22.620 --> 1:22:24.460
+ I think was the fact that you can have
+
+1:22:24.460 --> 1:22:26.860
+ infinities of different sizes and so on.
+
+1:22:26.860 --> 1:22:30.380
+ But that's in a way, I think complex analysis.
+
+1:22:30.380 --> 1:22:32.940
+ It's got so much magic in it.
+
+1:22:32.940 --> 1:22:34.860
+ It's a very simple idea.
+
+1:22:36.020 --> 1:22:39.460
+ You take these, you take numbers,
+
+1:22:39.460 --> 1:22:41.820
+ you take the integers and then you fill them up
+
+1:22:41.820 --> 1:22:44.180
+ into the fractions and the real numbers.
+
+1:22:44.180 --> 1:22:46.780
+ You imagine you're trying to measure a continuous line
+
+1:22:46.780 --> 1:22:50.420
+ and then you think of how you can solve equations.
+
+1:22:50.420 --> 1:22:53.420
+ Then what about X squared equals minus one?
+
+1:22:54.460 --> 1:22:57.460
+ Well, there's no real number which has to satisfy that.
+
+1:22:57.460 --> 1:23:01.340
+ So you have to think of, well, there's a number called I.
+
+1:23:01.340 --> 1:23:02.340
+ You think you invent it.
+
+1:23:02.340 --> 1:23:05.180
+ Well, in a certain sense, it's there already.
+
+1:23:05.180 --> 1:23:07.460
+ But this number, when you add that square root
+
+1:23:07.460 --> 1:23:08.300
+ of minus one to it,
+
+1:23:08.300 --> 1:23:10.940
+ you have what's called the complex numbers.
+
+1:23:10.940 --> 1:23:12.740
+ And they're an incredible system.
+
+1:23:13.860 --> 1:23:15.700
+ If you like, you put one little thing in,
+
+1:23:15.700 --> 1:23:17.340
+ you put square root of minus one in
+
+1:23:17.340 --> 1:23:20.620
+ and you get how much benefit out of it.
+
+1:23:20.620 --> 1:23:23.420
+ All sorts of things that you'd never imagined before.
+
+1:23:23.420 --> 1:23:27.740
+ And it's that amazing, all hiding there
+
+1:23:27.740 --> 1:23:30.140
+ in putting that square root of minus one in.
+
+1:23:30.140 --> 1:23:32.660
+ I think that's the most magical thing I've seen
+
+1:23:32.660 --> 1:23:34.020
+ in mathematics or physics.
+
+1:23:34.020 --> 1:23:35.580
+ And it's in quantum mechanics.
+
+1:23:35.580 --> 1:23:36.420
+ And in quantum mechanics.
+
+1:23:36.420 --> 1:23:38.220
+ You see, it's there already.
+
+1:23:38.220 --> 1:23:39.700
+ You might think, what's it doing there?
+
+1:23:39.700 --> 1:23:41.660
+ Okay, just a nice beautiful piece of mathematics.
+
+1:23:41.660 --> 1:23:44.180
+ And then suddenly we see, nope.
+
+1:23:44.180 --> 1:23:47.220
+ It's the very crucial basis of quantum mechanics.
+
+1:23:47.220 --> 1:23:49.540
+ It's there and the way the world works.
+
+1:23:49.540 --> 1:23:50.980
+ So on the question of whether math
+
+1:23:50.980 --> 1:23:52.820
+ is discovered or invented,
+
+1:23:52.820 --> 1:23:54.620
+ it sounds like you may be suggesting
+
+1:23:54.620 --> 1:23:56.180
+ that partially it's possible
+
+1:23:56.180 --> 1:23:57.860
+ that math is indeed discovered.
+
+1:23:57.860 --> 1:23:59.660
+ Oh, absolutely, yes.
+
+1:23:59.660 --> 1:24:02.180
+ No, it's more like archeology than you might think.
+
+1:24:02.180 --> 1:24:03.900
+ Yes, yes.
+
+1:24:03.900 --> 1:24:06.580
+ So let me ask the most ridiculous,
+
+1:24:06.580 --> 1:24:08.660
+ maybe the most important question.
+
+1:24:08.660 --> 1:24:11.580
+ What is the meaning of life?
+
+1:24:11.580 --> 1:24:15.060
+ What gives your life fulfillment, purpose,
+
+1:24:15.060 --> 1:24:16.020
+ happiness, and meaning?
+
+1:24:16.020 --> 1:24:18.260
+ Why do you think we're here on this?
+
+1:24:18.260 --> 1:24:20.980
+ Given all the big bang and the infinities of photons
+
+1:24:20.980 --> 1:24:21.820
+ that we've talked about.
+
+1:24:21.820 --> 1:24:24.340
+ All I would say, I think it's not a stupid question.
+
+1:24:26.620 --> 1:24:28.180
+ I mean, there are some people, you know,
+
+1:24:28.180 --> 1:24:29.780
+ many of my colleagues who are scientists,
+
+1:24:29.780 --> 1:24:31.340
+ and they say, well, that's a stupid question,
+
+1:24:31.340 --> 1:24:32.540
+ meaning, yeah, well, we're just here
+
+1:24:32.540 --> 1:24:35.420
+ because things came together and produced life
+
+1:24:35.420 --> 1:24:36.260
+ and so what.
+
+1:24:37.660 --> 1:24:39.260
+ I think there's more to it.
+
+1:24:39.260 --> 1:24:41.100
+ But what there is that's more to it,
+
+1:24:41.100 --> 1:24:43.140
+ I have really much idea.
+
+1:24:43.140 --> 1:24:44.420
+ And it might be somehow connected
+
+1:24:44.420 --> 1:24:46.300
+ to the mechanisms of consciousness
+
+1:24:46.300 --> 1:24:49.540
+ that we've been talking about, the mystery there.
+
+1:24:49.540 --> 1:24:51.060
+ It's connected with all sorts of, yeah,
+
+1:24:51.060 --> 1:24:53.660
+ I think these things are tied up in ways which are,
+
+1:24:54.900 --> 1:24:56.780
+ you see, I tend to think the mystery of consciousness
+
+1:24:56.780 --> 1:25:00.980
+ is tied up with the mystery of quantum mechanics
+
+1:25:00.980 --> 1:25:04.020
+ and how it fits in with the classical world,
+
+1:25:04.020 --> 1:25:07.460
+ and that's all to do with the mystery of complex numbers.
+
+1:25:08.500 --> 1:25:10.700
+ And there are mysteries there
+
+1:25:10.700 --> 1:25:13.060
+ which look like mathematical mysteries,
+
+1:25:13.060 --> 1:25:15.740
+ but they seem to have a bearing
+
+1:25:15.740 --> 1:25:17.740
+ on the way the physical world operates.
+
+1:25:18.700 --> 1:25:20.780
+ We're scratching the surface.
+
+1:25:20.780 --> 1:25:22.980
+ We have a long, huge way to go
+
+1:25:22.980 --> 1:25:24.820
+ before we really understand that.
+
+1:25:24.820 --> 1:25:28.340
+ And it's a beautiful idea that the depth,
+
+1:25:28.340 --> 1:25:30.700
+ the mathematical depth could be discovered,
+
+1:25:30.700 --> 1:25:32.940
+ and then there's tragedies of ghettos
+
+1:25:32.940 --> 1:25:34.460
+ and completeness along the way
+
+1:25:34.460 --> 1:25:37.540
+ that we'll have to somehow figure our ways around.
+
+1:25:37.540 --> 1:25:38.900
+ Yeah.
+
+1:25:38.900 --> 1:25:42.100
+ So, Roger, it was a huge honor to talk to you.
+
+1:25:42.100 --> 1:25:43.500
+ Thank you so much for your time today.
+
+1:25:43.500 --> 1:25:44.540
+ It's been my pleasure.
+
+1:25:44.540 --> 1:25:46.100
+ Thank you.
+
+1:25:46.100 --> 1:25:47.620
+ Thanks for listening to this conversation
+
+1:25:47.620 --> 1:25:48.980
+ with Roger Penrose,
+
+1:25:48.980 --> 1:25:52.020
+ and thank you to our presenting sponsor, Cash App.
+
+1:25:52.020 --> 1:25:53.940
+ Please consider supporting this podcast
+
+1:25:53.940 --> 1:25:58.940
+ by getting ExpressVPN at expressvpn.com slash lexpod
+
+1:25:59.020 --> 1:26:03.940
+ and downloading Cash App and using code lexpodcast.
+
+1:26:03.940 --> 1:26:06.460
+ If you enjoy this podcast, subscribe on YouTube,
+
+1:26:06.460 --> 1:26:09.060
+ review it with five stars on Apple Podcasts,
+
+1:26:09.060 --> 1:26:10.460
+ support on Patreon,
+
+1:26:10.460 --> 1:26:14.060
+ or simply connect with me on Twitter at lexfreedman.
+
+1:26:14.980 --> 1:26:17.020
+ And now let me leave you with some words of wisdom
+
+1:26:17.020 --> 1:26:19.340
+ that Roger Penrose wrote in his book,
+
+1:26:19.340 --> 1:26:20.580
+ The Emperor's New Mind.
+
+1:26:21.660 --> 1:26:24.460
+ Beneath all this technicality is the feeling
+
+1:26:24.460 --> 1:26:28.060
+ that it is indeed, quote unquote, obvious
+
+1:26:28.060 --> 1:26:31.220
+ that the conscious mind cannot work like a computer,
+
+1:26:31.220 --> 1:26:33.060
+ even though much of what is involved
+
+1:26:33.060 --> 1:26:35.460
+ in mental activity might do so.
+
+1:26:35.460 --> 1:26:39.580
+ This is the kind of obviousness that a child can see,
+
+1:26:39.580 --> 1:26:42.740
+ though the child may later in life become browbeaten
+
+1:26:42.740 --> 1:26:44.820
+ into believing that the obvious problems
+
+1:26:44.820 --> 1:26:47.260
+ are quote unquote, non problems,
+
+1:26:47.260 --> 1:26:51.060
+ to be argued into nonexistence by careful reasoning
+
+1:26:51.060 --> 1:26:52.900
+ and clever choices of definition.
+
+1:26:53.820 --> 1:26:56.540
+ Children sometimes see things clearly
+
+1:26:56.540 --> 1:26:59.100
+ that are obscured in later life.
+
+1:26:59.100 --> 1:27:02.460
+ We often forget the wonder that we felt as children
+
+1:27:02.460 --> 1:27:05.300
+ when the cares of the quote unquote, real world
+
+1:27:05.300 --> 1:27:07.860
+ had begun to settle on our shoulders.
+
+1:27:07.860 --> 1:27:10.540
+ Children are not afraid to pose basic questions
+
+1:27:10.540 --> 1:27:13.620
+ that may embarrass us as adults to ask.
+
+1:27:13.620 --> 1:27:15.740
+ What happens to each of our streams of consciousness
+
+1:27:15.740 --> 1:27:17.220
+ after we die?
+
+1:27:17.220 --> 1:27:19.580
+ Where was it before we were born?
+
+1:27:19.580 --> 1:27:23.220
+ Might we become or have been someone else?
+
+1:27:23.220 --> 1:27:25.180
+ Why do we perceive it all?
+
+1:27:25.180 --> 1:27:26.900
+ Why are we here?
+
+1:27:26.900 --> 1:27:28.620
+ Why is there a universe here at all
+
+1:27:28.620 --> 1:27:30.900
+ in which we can actually be?
+
+1:27:30.900 --> 1:27:32.660
+ These are puzzles that tend to come
+
+1:27:32.660 --> 1:27:35.980
+ with the awakenings of awareness in any of us
+
+1:27:35.980 --> 1:27:39.980
+ and no doubt with the awakening of self awareness
+
+1:27:39.980 --> 1:27:43.700
+ within whichever creature or other entity it first came.
+
+1:27:43.700 --> 1:28:01.700
+ Thank you for listening and hope to see you next time.
+

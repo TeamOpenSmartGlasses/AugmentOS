@@ -1,0 +1,2837 @@
+WEBVTT
+
+00:00.000 --> 00:03.320
+ The following is a conversation with Gilbert Strang.
+
+00:03.320 --> 00:05.760
+ He's a professor of mathematics at MIT
+
+00:05.760 --> 00:07.480
+ and perhaps one of the most famous
+
+00:07.480 --> 00:10.600
+ and impactful teachers of math in the world.
+
+00:10.600 --> 00:13.640
+ His MIT OpenCourseWare lectures on linear algebra
+
+00:13.640 --> 00:15.920
+ have been viewed millions of times.
+
+00:15.920 --> 00:17.480
+ As an undergraduate student,
+
+00:17.480 --> 00:19.960
+ I was one of those millions of students.
+
+00:19.960 --> 00:22.760
+ There's something inspiring about the way he teaches.
+
+00:22.760 --> 00:26.120
+ There's at once calm, simple, and yet full of passion
+
+00:26.120 --> 00:29.080
+ for the elegance inherent to mathematics.
+
+00:29.080 --> 00:31.200
+ I remember doing the exercise in his book,
+
+00:31.200 --> 00:33.000
+ Introduction to Linear Algebra,
+
+00:33.000 --> 00:35.880
+ and slowly realizing that the world of matrices,
+
+00:35.880 --> 00:39.360
+ of vector spaces, of determinants and eigenvalues,
+
+00:39.360 --> 00:43.040
+ of geometric transformations and matrix decompositions
+
+00:43.040 --> 00:45.120
+ reveal a set of powerful tools
+
+00:45.120 --> 00:47.920
+ in the toolbox of artificial intelligence.
+
+00:47.920 --> 00:49.720
+ From signals to images,
+
+00:49.720 --> 00:51.920
+ from numerical optimization to robotics,
+
+00:51.920 --> 00:54.880
+ computer vision, deep learning, computer graphics,
+
+00:54.880 --> 00:56.600
+ and everywhere outside AI,
+
+00:56.600 --> 01:00.080
+ including, of course, a quantum mechanical study
+
+01:00.080 --> 01:01.520
+ of our universe.
+
+01:01.520 --> 01:04.440
+ This is the Artificial Intelligence Podcast.
+
+01:04.440 --> 01:06.840
+ If you enjoy it, subscribe on YouTube,
+
+01:06.840 --> 01:08.880
+ give it five stars on Apple Podcast,
+
+01:08.880 --> 01:10.240
+ support on Patreon,
+
+01:10.240 --> 01:12.360
+ or simply connect with me on Twitter
+
+01:12.360 --> 01:15.520
+ at Lex Friedman, spelled F R I D M A N.
+
+01:16.440 --> 01:19.040
+ This podcast is supported by ZipRecruiter.
+
+01:19.040 --> 01:21.200
+ Hiring great people is hard,
+
+01:21.200 --> 01:23.280
+ and to me is the most important element
+
+01:23.280 --> 01:26.080
+ of a successful mission driven team.
+
+01:26.080 --> 01:28.120
+ I've been fortunate to be a part of
+
+01:28.120 --> 01:30.720
+ and to lead several great engineering teams.
+
+01:30.720 --> 01:32.680
+ The hiring I've done in the past
+
+01:32.680 --> 01:35.400
+ was mostly through tools that we built ourselves,
+
+01:35.400 --> 01:38.400
+ but reinventing the wheel was painful.
+
+01:38.400 --> 01:41.240
+ ZipRecruiter is a tool that's already available for you.
+
+01:41.240 --> 01:45.000
+ It seeks to make hiring simple, fast, and smart.
+
+01:45.000 --> 01:47.960
+ For example, Codable cofounder Gretchen Huebner
+
+01:47.960 --> 01:50.400
+ used ZipRecruiter to find a new game artist
+
+01:50.400 --> 01:52.720
+ to join her education tech company.
+
+01:52.720 --> 01:54.840
+ By using ZipRecruiter's screening questions
+
+01:54.840 --> 01:56.280
+ to filter candidates,
+
+01:56.280 --> 01:59.080
+ Gretchen found it easier to focus on the best candidates
+
+01:59.080 --> 02:02.440
+ and finally hiring the perfect person for the role
+
+02:02.440 --> 02:05.440
+ in less than two weeks from start to finish.
+
+02:05.440 --> 02:08.560
+ ZipRecruiter, the smartest way to hire.
+
+02:08.560 --> 02:10.200
+ See why ZipRecruiter is effective
+
+02:10.200 --> 02:12.680
+ for businesses of all sizes by signing up,
+
+02:12.680 --> 02:17.600
+ as I did, for free at ziprecruiter.com slash lexpod.
+
+02:17.600 --> 02:21.360
+ That's ziprecruiter.com slash lexpod.
+
+02:22.280 --> 02:24.360
+ This show is presented by Cash App,
+
+02:24.360 --> 02:26.880
+ the number one finance app in the App Store.
+
+02:26.880 --> 02:29.640
+ I personally use Cash App to send money to friends,
+
+02:29.640 --> 02:33.080
+ but you can also use it to buy, sell, and deposit Bitcoin.
+
+02:33.080 --> 02:34.880
+ Most Bitcoin exchanges take days
+
+02:34.880 --> 02:37.120
+ for a bank transfer to become investable.
+
+02:37.120 --> 02:39.480
+ Through Cash App, it takes seconds.
+
+02:39.480 --> 02:42.840
+ Cash App also has a new investing feature.
+
+02:42.840 --> 02:44.600
+ You can buy fractions of a stock,
+
+02:44.600 --> 02:47.320
+ which to me is a really interesting concept.
+
+02:47.320 --> 02:51.600
+ So you can buy $1 worth no matter what the stock price is.
+
+02:51.600 --> 02:54.520
+ Brokerage services are provided by Cash App Investing,
+
+02:54.520 --> 02:58.320
+ a subsidiary of Square, and member SIPC.
+
+02:58.320 --> 03:00.120
+ I'm excited to be working with Cash App
+
+03:00.120 --> 03:02.800
+ to support one of my favorite organizations
+
+03:02.800 --> 03:05.720
+ that many of you may know and have benefited from,
+
+03:05.720 --> 03:09.200
+ called First, best known for their first robotics
+
+03:09.200 --> 03:10.840
+ and Lego competitions.
+
+03:10.840 --> 03:14.560
+ They educate and inspire hundreds of thousands of students
+
+03:14.560 --> 03:16.520
+ in over 110 countries,
+
+03:16.520 --> 03:19.000
+ and have a perfect rating on Charity Navigator,
+
+03:19.000 --> 03:21.600
+ which means the donated money is used
+
+03:21.600 --> 03:23.920
+ to maximum effectiveness.
+
+03:23.920 --> 03:26.920
+ When you get Cash App from the App Store or Google Play,
+
+03:26.920 --> 03:29.400
+ and use code LexPodcast,
+
+03:29.400 --> 03:33.200
+ you get $10, and Cash App will also donate $10 to First,
+
+03:33.200 --> 03:35.200
+ which again, is an organization
+
+03:35.200 --> 03:38.000
+ that I've personally seen inspire girls and boys
+
+03:38.000 --> 03:41.000
+ to dream of engineering a better world.
+
+03:41.000 --> 03:44.740
+ And now, here's my conversation with Gilbert Strang.
+
+03:44.740 --> 03:49.740
+ How does it feel to be one of the modern day rock stars
+
+03:50.500 --> 03:51.760
+ of mathematics?
+
+03:51.760 --> 03:53.900
+ I don't feel like a rock star.
+
+03:53.900 --> 03:57.340
+ That's kind of crazy for an old math person.
+
+03:57.340 --> 04:02.340
+ But it's true that the videos in linear algebra
+
+04:03.540 --> 04:07.180
+ that I made way back in 2000, I think,
+
+04:08.540 --> 04:09.880
+ have been watched a lot.
+
+04:09.880 --> 04:14.420
+ And well, partly the importance of linear algebra,
+
+04:14.420 --> 04:15.940
+ which I'm sure you'll ask me,
+
+04:15.940 --> 04:19.220
+ and give me a chance to say that linear algebra
+
+04:19.220 --> 04:22.580
+ as a subject has just surged in importance.
+
+04:22.580 --> 04:26.460
+ But also, it was a class that I taught a bunch of times,
+
+04:26.460 --> 04:31.460
+ so I kind of got it organized and enjoyed doing it.
+
+04:32.220 --> 04:34.180
+ The videos were just the class.
+
+04:34.180 --> 04:36.740
+ So they're on OpenCourseWare and on YouTube
+
+04:36.740 --> 04:38.900
+ and translated, and it's fun.
+
+04:38.900 --> 04:41.100
+ But there's something about that chalkboard
+
+04:41.100 --> 04:44.460
+ and the simplicity of the way you explain
+
+04:44.460 --> 04:46.820
+ the basic concepts in the beginning.
+
+04:46.820 --> 04:50.440
+ To be honest, when I went to undergrad.
+
+04:50.440 --> 04:52.660
+ You didn't do linear algebra, probably.
+
+04:52.660 --> 04:53.980
+ Of course I didn't do linear algebra.
+
+04:53.980 --> 04:54.820
+ You did.
+
+04:54.820 --> 04:55.640
+ Yeah, yeah, yeah, of course.
+
+04:55.640 --> 05:00.640
+ But before going through the course at my university,
+
+05:00.940 --> 05:02.540
+ there was going through OpenCourseWare.
+
+05:02.540 --> 05:04.620
+ You were my instructor for linear algebra.
+
+05:04.620 --> 05:05.500
+ Right, yeah.
+
+05:05.500 --> 05:07.560
+ And that, I mean, we're using your book.
+
+05:07.560 --> 05:12.560
+ And I mean, the fact that there is thousands,
+
+05:13.100 --> 05:14.860
+ hundreds of thousands, millions of people
+
+05:14.860 --> 05:18.260
+ that watch that video, I think that's really powerful.
+
+05:18.260 --> 05:23.260
+ So how do you think the idea of putting lectures online,
+
+05:23.700 --> 05:27.260
+ what really MIT OpenCourseWare has innovated?
+
+05:27.260 --> 05:29.140
+ That was a wonderful idea.
+
+05:29.140 --> 05:34.140
+ I think the story that I've heard is the committee
+
+05:34.140 --> 05:37.740
+ was appointed by the president, President Vest,
+
+05:37.740 --> 05:40.020
+ at that time, a wonderful guy.
+
+05:40.020 --> 05:43.500
+ And the idea of the committee was to figure out
+
+05:43.500 --> 05:48.500
+ how MIT could be like other universities,
+
+05:48.660 --> 05:52.620
+ market the work we were doing.
+
+05:52.620 --> 05:54.500
+ And then they didn't see a way.
+
+05:54.500 --> 05:57.300
+ And after a weekend, and they had an inspiration,
+
+05:57.300 --> 06:00.020
+ came back to President Vest and said,
+
+06:00.020 --> 06:02.260
+ what if we just gave it away?
+
+06:02.260 --> 06:07.260
+ And he decided that was okay, good idea.
+
+06:07.700 --> 06:08.540
+ So.
+
+06:08.540 --> 06:10.660
+ You know, that's a crazy idea.
+
+06:10.660 --> 06:12.740
+ If we think of a university as a thing
+
+06:12.740 --> 06:16.060
+ that creates a product, isn't knowledge,
+
+06:17.780 --> 06:19.580
+ the kind of educational knowledge,
+
+06:19.580 --> 06:22.660
+ isn't the product and giving that away,
+
+06:22.660 --> 06:26.140
+ are you surprised that it went through?
+
+06:26.140 --> 06:28.300
+ The result that he did it,
+
+06:28.300 --> 06:32.300
+ well, knowing a little bit President Vest, it was like him,
+
+06:32.300 --> 06:36.420
+ I think, and it was really the right idea.
+
+06:38.780 --> 06:43.220
+ MIT is a kind of, it's known for being high level,
+
+06:43.220 --> 06:48.220
+ technical things, and this is the best way we can say,
+
+06:48.300 --> 06:52.580
+ tell, we can show what MIT really is like,
+
+06:52.580 --> 06:57.380
+ because in my case, those 1806 videos
+
+06:57.380 --> 06:59.940
+ are just teaching the class.
+
+06:59.940 --> 07:03.660
+ They were there in 26, 100.
+
+07:03.660 --> 07:04.860
+ They're kind of fun to look at.
+
+07:04.860 --> 07:08.300
+ People write to me and say, oh, you've got a sense of humor,
+
+07:08.300 --> 07:10.940
+ but I don't know where that comes through.
+
+07:10.940 --> 07:15.140
+ Somehow I'm friendly with the class, I like students.
+
+07:15.140 --> 07:19.260
+ And then your algebra, the subject,
+
+07:19.260 --> 07:21.700
+ we gotta give the subject most of the credit.
+
+07:21.700 --> 07:26.700
+ It really has come forward in importance in these years.
+
+07:29.980 --> 07:32.740
+ So let's talk about linear algebra a little bit,
+
+07:32.740 --> 07:34.580
+ because it is such a, it's both a powerful
+
+07:34.580 --> 07:39.100
+ and a beautiful subfield of mathematics.
+
+07:39.100 --> 07:44.100
+ So what's your favorite specific topic in linear algebra,
+
+07:44.300 --> 07:46.620
+ or even math in general to give a lecture on,
+
+07:46.620 --> 07:50.220
+ to convey, to tell a story, to teach students?
+
+07:50.220 --> 07:53.460
+ Okay, well, on the teaching side,
+
+07:54.500 --> 07:56.820
+ so it's not deep mathematics at all,
+
+07:56.820 --> 08:01.820
+ but I'm kind of proud of the idea of the four subspaces,
+
+08:02.380 --> 08:05.180
+ the four fundamental subspaces,
+
+08:06.460 --> 08:09.660
+ which are of course known before,
+
+08:09.660 --> 08:13.660
+ long before my name for them, but.
+
+08:13.660 --> 08:14.700
+ Can you go through them?
+
+08:14.700 --> 08:15.540
+ Can you go through the four subspaces?
+
+08:15.540 --> 08:17.020
+ Sure I can, yeah.
+
+08:17.020 --> 08:19.660
+ So the first one to understand is,
+
+08:19.660 --> 08:22.900
+ so the matrix is, maybe I should say the matrix is.
+
+08:22.900 --> 08:23.780
+ What is a matrix?
+
+08:23.780 --> 08:24.860
+ What's a matrix?
+
+08:24.860 --> 08:28.500
+ Well, so we have like a rectangle of numbers.
+
+08:28.500 --> 08:32.220
+ So it's got n columns, got a bunch of columns,
+
+08:32.220 --> 08:36.500
+ and also got an m rows, let's say,
+
+08:36.500 --> 08:37.940
+ and the relation between,
+
+08:37.940 --> 08:39.860
+ so of course the columns and the rows,
+
+08:39.860 --> 08:41.580
+ it's the same numbers.
+
+08:41.580 --> 08:44.340
+ So there's gotta be connections there,
+
+08:44.340 --> 08:45.660
+ but they're not simple.
+
+08:45.660 --> 08:50.060
+ The columns might be longer than the rows,
+
+08:50.060 --> 08:53.700
+ and they're all different, the numbers are mixed up.
+
+08:53.700 --> 08:57.740
+ First space to think about is take the columns,
+
+08:57.740 --> 09:01.860
+ so those are vectors, those are points in n dimensions.
+
+09:01.860 --> 09:02.700
+ What's a vector?
+
+09:02.700 --> 09:05.660
+ So a physicist would imagine a vector
+
+09:05.660 --> 09:10.660
+ or might imagine a vector as a arrow in space
+
+09:10.860 --> 09:14.820
+ or the point it ends at in space.
+
+09:14.820 --> 09:17.260
+ For me, it's a column of numbers.
+
+09:18.300 --> 09:20.940
+ You often think of, this is very interesting
+
+09:20.940 --> 09:23.940
+ in terms of linear algebra, in terms of a vector,
+
+09:23.940 --> 09:26.660
+ you think a little bit more abstract
+
+09:26.660 --> 09:30.660
+ than how it's very commonly used, perhaps.
+
+09:30.660 --> 09:34.700
+ You think this arbitrary multidimensional space.
+
+09:34.700 --> 09:38.180
+ Right away, I'm in high dimensions.
+
+09:38.180 --> 09:39.020
+ Dreamland.
+
+09:39.020 --> 09:40.060
+ Yeah, that's right.
+
+09:40.060 --> 09:42.420
+ In the lecture, I try to,
+
+09:42.420 --> 09:46.780
+ so if you think of two vectors in 10 dimensions,
+
+09:46.780 --> 09:50.420
+ I'll do this in class, and I'll readily admit
+
+09:50.420 --> 09:54.380
+ that I have no good image in my mind
+
+09:54.380 --> 09:58.260
+ of a vector of an arrow in 10 dimensional space,
+
+09:58.260 --> 09:59.220
+ but whatever.
+
+10:00.700 --> 10:03.780
+ You can add one bunch of 10 numbers
+
+10:03.780 --> 10:05.300
+ to another bunch of 10 numbers,
+
+10:05.300 --> 10:08.060
+ so you can add a vector to a vector,
+
+10:08.060 --> 10:10.300
+ and you can multiply a vector by three,
+
+10:10.300 --> 10:12.180
+ and that's, if you know how to do those,
+
+10:12.180 --> 10:14.380
+ you've got linear algebra.
+
+10:14.380 --> 10:18.860
+ 10 dimensions, there's this beautiful thing about math,
+
+10:18.860 --> 10:21.700
+ if we look at string theory and all these theories,
+
+10:21.700 --> 10:24.460
+ which are really fundamentally derived through math,
+
+10:24.460 --> 10:26.500
+ but are very difficult to visualize.
+
+10:26.500 --> 10:28.900
+ How do you think about the things,
+
+10:28.900 --> 10:31.140
+ like a 10 dimensional vector,
+
+10:31.140 --> 10:33.020
+ that we can't really visualize?
+
+10:34.780 --> 10:39.780
+ And yet, math reveals some beauty underlying our world
+
+10:39.780 --> 10:43.820
+ in that weird thing we can't visualize.
+
+10:43.820 --> 10:46.020
+ How do you think about that difference?
+
+10:46.020 --> 10:48.900
+ Well, probably, I'm not a very geometric person,
+
+10:48.900 --> 10:51.700
+ so I'm probably thinking in three dimensions,
+
+10:51.700 --> 10:53.940
+ and the beauty of linear algebra is that
+
+10:55.500 --> 10:58.180
+ it goes on to 10 dimensions with no problem.
+
+10:58.180 --> 11:01.220
+ I mean, that if you're just seeing what happens
+
+11:01.220 --> 11:04.580
+ if you add two vectors in 3D,
+
+11:04.580 --> 11:06.460
+ yeah, then you can add them in 10D.
+
+11:06.460 --> 11:10.900
+ You're just adding the 10 components.
+
+11:10.900 --> 11:14.860
+ So, I can't say that I have a picture,
+
+11:14.860 --> 11:16.860
+ but yet I try to push the class
+
+11:16.860 --> 11:21.220
+ to think of a flat surface in 10 dimensions.
+
+11:21.220 --> 11:23.420
+ So a plane in 10 dimensions,
+
+11:23.420 --> 11:27.180
+ and so that's one of the spaces.
+
+11:27.180 --> 11:29.900
+ Take all the columns of the matrix,
+
+11:29.900 --> 11:31.820
+ take all their combinations,
+
+11:31.820 --> 11:35.180
+ so much of this column, so much of this one,
+
+11:35.180 --> 11:36.820
+ then if you put all those together,
+
+11:36.820 --> 11:39.940
+ you get some kind of a flat surface
+
+11:39.940 --> 11:44.700
+ that I call a vector space, space of vectors.
+
+11:44.700 --> 11:47.260
+ And my imagination is just seeing
+
+11:47.260 --> 11:52.260
+ like a piece of paper in 3D, but anyway,
+
+11:52.500 --> 11:55.940
+ so that's one of the spaces, that's space number one,
+
+11:55.940 --> 11:58.460
+ the column space of the matrix.
+
+11:58.460 --> 12:01.580
+ And then there's the row space, which is, as I said,
+
+12:01.580 --> 12:04.740
+ different, but came from the same numbers.
+
+12:04.740 --> 12:07.100
+ So we got the column space,
+
+12:07.100 --> 12:10.040
+ all combinations of the columns,
+
+12:10.040 --> 12:11.960
+ and then we've got the row space,
+
+12:11.960 --> 12:14.580
+ all combinations of the rows.
+
+12:14.580 --> 12:17.520
+ So those words are easy for me to say,
+
+12:17.520 --> 12:20.240
+ and I can't really draw them on a blackboard,
+
+12:20.240 --> 12:22.540
+ but I try with my thick chalk.
+
+12:22.540 --> 12:27.380
+ Everybody likes that railroad chalk, and me too.
+
+12:27.380 --> 12:30.220
+ I wouldn't use anything else now.
+
+12:30.220 --> 12:35.060
+ And then the other two spaces are perpendicular to those.
+
+12:35.060 --> 12:39.100
+ So like if you have a plane in 3D,
+
+12:39.100 --> 12:43.500
+ just a plane is just a flat surface in 3D,
+
+12:43.500 --> 12:47.060
+ then perpendicular to that plane would be a line.
+
+12:47.060 --> 12:50.200
+ So that would be the null space.
+
+12:50.200 --> 12:54.000
+ So we've got two, we've got a column space, a row space,
+
+12:54.000 --> 12:56.940
+ and there are two perpendicular spaces.
+
+12:56.940 --> 13:01.540
+ So those four fit together in a beautiful picture
+
+13:01.540 --> 13:03.740
+ of a matrix, yeah, yeah.
+
+13:03.740 --> 13:06.740
+ It's sort of a fundamental, it's not a difficult idea.
+
+13:06.740 --> 13:11.240
+ It comes pretty early in 1806, and it's basic.
+
+13:12.740 --> 13:16.380
+ Planes in these multidimensional spaces,
+
+13:16.380 --> 13:20.140
+ how difficult of an idea is that to come to, do you think?
+
+13:20.140 --> 13:23.620
+ If you look back in time,
+
+13:23.620 --> 13:26.820
+ I think mathematically it makes sense,
+
+13:26.820 --> 13:29.600
+ but I don't know if it's intuitive for us to imagine,
+
+13:29.600 --> 13:31.100
+ just as we were talking about.
+
+13:31.100 --> 13:34.800
+ It feels like calculus is easier to intuit.
+
+13:34.800 --> 13:38.400
+ Well, I have to admit, calculus came earlier,
+
+13:38.400 --> 13:39.860
+ earlier than linear algebra.
+
+13:39.860 --> 13:42.180
+ So Newton and Leibniz were the great men
+
+13:42.180 --> 13:45.800
+ to understand the key ideas of calculus.
+
+13:47.100 --> 13:50.100
+ But linear algebra to me is like, okay,
+
+13:50.100 --> 13:51.620
+ it's the starting point,
+
+13:51.620 --> 13:54.180
+ because it's all about flat things.
+
+13:54.180 --> 13:57.160
+ Calculus has got, all the complications of calculus
+
+13:57.160 --> 14:02.160
+ come from the curves, the bending, the curved surfaces.
+
+14:03.060 --> 14:05.900
+ Linear algebra, the surfaces are all flat.
+
+14:05.900 --> 14:08.060
+ Nothing bends in linear algebra.
+
+14:08.060 --> 14:11.660
+ So it should have come first, but it didn't.
+
+14:11.660 --> 14:16.660
+ And calculus also comes first in high school classes,
+
+14:17.440 --> 14:20.900
+ in college class, it'll be freshman math,
+
+14:20.900 --> 14:24.340
+ it'll be calculus, and then I say, enough of it.
+
+14:24.340 --> 14:27.820
+ Like, okay, get to the good stuff.
+
+14:27.820 --> 14:28.660
+ And that's...
+
+14:28.660 --> 14:30.900
+ Do you think linear algebra should come first?
+
+14:30.900 --> 14:34.700
+ Well, it really, I'm okay with it not coming first,
+
+14:34.700 --> 14:37.100
+ but it should, yeah, it should.
+
+14:37.100 --> 14:38.040
+ It's simpler.
+
+14:39.060 --> 14:40.180
+ Because everything is flat.
+
+14:40.180 --> 14:41.660
+ Yeah, everything's flat.
+
+14:41.660 --> 14:43.580
+ Well, of course, for that reason,
+
+14:43.580 --> 14:46.620
+ calculus sort of sticks to one dimension,
+
+14:46.620 --> 14:49.500
+ or eventually you do multivariate,
+
+14:49.500 --> 14:52.260
+ but that basically means two dimensions.
+
+14:52.260 --> 14:55.500
+ Linear algebra, you take off into 10 dimensions, no problem.
+
+14:55.500 --> 14:57.620
+ It just feels scary and dangerous
+
+14:57.620 --> 14:59.840
+ to go beyond two dimensions, that's all.
+
+15:01.100 --> 15:03.700
+ If everything's flat, you can't go wrong.
+
+15:03.700 --> 15:08.700
+ So what concept or theorem in linear algebra or in math
+
+15:09.780 --> 15:12.700
+ you find most beautiful,
+
+15:12.700 --> 15:15.420
+ that gives you pause that leaves you in awe?
+
+15:15.420 --> 15:18.060
+ Well, I'll stick with linear algebra here.
+
+15:18.060 --> 15:20.700
+ I hope the viewer knows that really,
+
+15:20.700 --> 15:23.420
+ mathematics is amazing, amazing subject
+
+15:23.420 --> 15:28.420
+ and deep, deep connections between ideas
+
+15:28.740 --> 15:32.620
+ that didn't look connected, they turned out they were.
+
+15:32.620 --> 15:35.580
+ But if we stick with linear algebra...
+
+15:35.580 --> 15:37.060
+ So we have a matrix.
+
+15:37.060 --> 15:40.740
+ That's like the basic thing, a rectangle of numbers.
+
+15:40.740 --> 15:42.660
+ And it might be a rectangle of data.
+
+15:42.660 --> 15:46.740
+ You're probably gonna ask me later about data science,
+
+15:46.740 --> 15:50.380
+ where often data comes in a matrix.
+
+15:50.380 --> 15:55.380
+ You have maybe every column corresponds to a drug
+
+15:57.420 --> 16:00.380
+ and every row corresponds to a patient.
+
+16:00.380 --> 16:05.380
+ And if the patient reacted favorably to the drug,
+
+16:06.580 --> 16:09.180
+ then you put up some positive number in there.
+
+16:09.180 --> 16:14.180
+ Anyway, rectangle of numbers, a matrix is basic.
+
+16:14.180 --> 16:18.140
+ So the big problem is to understand all those numbers.
+
+16:18.140 --> 16:20.980
+ You got a big, big set of numbers.
+
+16:20.980 --> 16:23.660
+ And what are the patterns, what's going on?
+
+16:23.660 --> 16:28.660
+ And so one of the ways to break down that matrix
+
+16:29.780 --> 16:34.780
+ into simple pieces is uses something called singular values.
+
+16:36.100 --> 16:41.100
+ And that's come on as fundamental in the last,
+
+16:41.100 --> 16:44.540
+ certainly in my lifetime.
+
+16:44.540 --> 16:48.500
+ Eigenvalues, if you have viewers who've done engineering,
+
+16:48.500 --> 16:53.500
+ math, or basic linear algebra, eigenvalues were in there.
+
+16:55.620 --> 16:58.780
+ But those are restricted to square matrices.
+
+16:58.780 --> 17:01.340
+ And data comes in rectangular matrices.
+
+17:01.340 --> 17:04.380
+ So you gotta take that next step.
+
+17:04.380 --> 17:09.380
+ I'm always pushing math faculty, get on, do it, do it.
+
+17:09.380 --> 17:11.180
+ Singular values.
+
+17:11.180 --> 17:16.180
+ So those are a way to break, to find the important pieces
+
+17:18.540 --> 17:22.140
+ of the matrix, which add up to the whole matrix.
+
+17:22.140 --> 17:26.100
+ So you're breaking a matrix into simple pieces.
+
+17:26.100 --> 17:30.300
+ And the first piece is the most important part of the data.
+
+17:30.300 --> 17:33.100
+ The second piece is the second most important part.
+
+17:33.100 --> 17:38.100
+ And then often, so a data set is a matrix.
+
+17:38.100 --> 17:41.540
+ And often, so a data scientist will like,
+
+17:41.540 --> 17:46.540
+ if a data scientist can find those first and second pieces,
+
+17:46.820 --> 17:51.820
+ stop there, the rest of the data is probably round off,
+
+17:55.660 --> 17:57.660
+ experimental error maybe.
+
+17:57.660 --> 18:00.180
+ So you're looking for the important part.
+
+18:00.180 --> 18:03.020
+ So what do you find beautiful about singular values?
+
+18:03.020 --> 18:06.260
+ Well, yeah, I didn't give the theorem.
+
+18:06.260 --> 18:09.420
+ So here's the idea of singular values.
+
+18:09.420 --> 18:14.420
+ Every matrix, every matrix, rectangular, square, whatever,
+
+18:15.180 --> 18:16.980
+ can be written as a product
+
+18:16.980 --> 18:20.020
+ of three very simple special matrices.
+
+18:20.020 --> 18:21.340
+ So that's the theorem.
+
+18:21.340 --> 18:26.220
+ Every matrix can be written as a rotation times a stretch,
+
+18:26.220 --> 18:30.340
+ which is just a diagonal matrix,
+
+18:30.340 --> 18:34.220
+ otherwise all zeros except on the one diagonal.
+
+18:34.220 --> 18:37.980
+ And then the third factor is another rotation.
+
+18:37.980 --> 18:41.420
+ So rotation, stretch, rotation
+
+18:41.420 --> 18:45.940
+ is the breakup of any matrix.
+
+18:45.940 --> 18:48.420
+ The structure of that, the ability that you can do that,
+
+18:48.420 --> 18:49.860
+ what do you find appealing?
+
+18:49.860 --> 18:51.060
+ What do you find beautiful about it?
+
+18:51.060 --> 18:54.220
+ Well, geometrically, as I freely admit,
+
+18:54.220 --> 18:59.220
+ the action of a matrix is not so easy to visualize,
+
+18:59.620 --> 19:02.380
+ but everybody can visualize a rotation.
+
+19:02.380 --> 19:07.060
+ Take two dimensional space and just turn it
+
+19:07.060 --> 19:09.260
+ around the center.
+
+19:09.260 --> 19:10.740
+ Take three dimensional space.
+
+19:10.740 --> 19:13.220
+ So a pilot has to know about,
+
+19:13.220 --> 19:16.860
+ well, what are the three, the yaw is one of them.
+
+19:16.860 --> 19:20.780
+ I've forgotten all the three turns that a pilot makes.
+
+19:22.260 --> 19:25.460
+ Up to 10 dimensions, you've got 10 ways to turn,
+
+19:25.460 --> 19:28.540
+ but you can visualize a rotation.
+
+19:28.540 --> 19:30.300
+ Take the space and turn it.
+
+19:30.300 --> 19:32.100
+ And you can visualize a stretch.
+
+19:32.100 --> 19:37.100
+ So to break a matrix with all those numbers in it
+
+19:38.660 --> 19:41.100
+ into something you can visualize,
+
+19:41.100 --> 19:44.860
+ rotate, stretch, rotate is pretty neat.
+
+19:44.860 --> 19:45.740
+ It's pretty neat.
+
+19:45.740 --> 19:47.660
+ That's pretty powerful.
+
+19:47.660 --> 19:51.980
+ On YouTube, just consuming a bunch of videos
+
+19:51.980 --> 19:53.980
+ and just watching what people connect with
+
+19:53.980 --> 19:57.300
+ and what they really enjoy and are inspired by,
+
+19:57.300 --> 19:59.580
+ math seems to come up again and again.
+
+19:59.580 --> 20:03.940
+ I'm trying to understand why that is.
+
+20:03.940 --> 20:06.500
+ Perhaps you can help give me clues.
+
+20:06.500 --> 20:10.740
+ So it's not just the kinds of lectures that you give,
+
+20:10.740 --> 20:14.180
+ but it's also just other folks like with Numberphile,
+
+20:14.180 --> 20:16.940
+ there's a channel where they just chat about things
+
+20:16.940 --> 20:19.860
+ that are extremely complicated, actually.
+
+20:19.860 --> 20:21.940
+ People nevertheless connect with them.
+
+20:22.820 --> 20:24.580
+ What do you think that is?
+
+20:24.580 --> 20:25.820
+ It's wonderful, isn't it?
+
+20:25.820 --> 20:28.500
+ I mean, I wasn't really aware of it.
+
+20:28.500 --> 20:32.020
+ We're conditioned to think math is hard,
+
+20:32.020 --> 20:35.300
+ math is abstract, math is just for a few people,
+
+20:35.300 --> 20:36.620
+ but it isn't that way.
+
+20:36.620 --> 20:41.380
+ A lot of people quite like math and they liked it.
+
+20:41.380 --> 20:44.100
+ I get messages from people saying,
+
+20:44.100 --> 20:46.780
+ now I'm retired, I'm gonna learn some more math.
+
+20:46.780 --> 20:47.980
+ I get a lot of those.
+
+20:47.980 --> 20:49.940
+ It's really encouraging.
+
+20:49.940 --> 20:53.460
+ And I think what people like is that there's some order,
+
+20:53.460 --> 20:58.460
+ a lot of order and things are not obvious, but they're true.
+
+21:00.380 --> 21:05.380
+ So it's really cheering to think that so many people
+
+21:06.180 --> 21:08.100
+ really wanna learn more about math.
+
+21:08.100 --> 21:08.940
+ Yeah.
+
+21:08.940 --> 21:11.820
+ And in terms of truth, again,
+
+21:11.820 --> 21:15.500
+ sorry to slide into philosophy at times,
+
+21:15.500 --> 21:20.500
+ but math does reveal pretty strongly what things are true.
+
+21:20.500 --> 21:23.500
+ I mean, that's the whole point of proving things.
+
+21:23.500 --> 21:24.340
+ It is, yeah.
+
+21:24.340 --> 21:29.340
+ And yet, sort of our real world is messy and complicated.
+
+21:29.420 --> 21:30.260
+ It is.
+
+21:30.260 --> 21:33.220
+ What do you think about the nature of truth
+
+21:33.220 --> 21:34.540
+ that math reveals?
+
+21:34.540 --> 21:35.500
+ Oh, wow.
+
+21:35.500 --> 21:37.980
+ Because it is a source of comfort like you've mentioned.
+
+21:37.980 --> 21:39.540
+ Yeah, that's right.
+
+21:39.540 --> 21:43.020
+ Well, I have to say, I'm not much of a philosopher.
+
+21:43.020 --> 21:44.740
+ I just like numbers.
+
+21:44.740 --> 21:49.740
+ As a kid, this was before you had to go in,
+
+21:52.100 --> 21:54.020
+ when you had a filly in your teeth,
+
+21:54.020 --> 21:56.060
+ you had to kind of just take it.
+
+21:56.060 --> 21:59.260
+ So what I did was think about math,
+
+21:59.260 --> 22:03.100
+ like take powers of two, two, four, eight, 16,
+
+22:03.100 --> 22:05.900
+ up until the time the tooth stopped hurting
+
+22:05.900 --> 22:07.700
+ and the dentist said you're through.
+
+22:08.700 --> 22:09.900
+ Or counting.
+
+22:09.900 --> 22:10.740
+ Yeah.
+
+22:10.740 --> 22:14.700
+ So that was a source of just, source of peace almost.
+
+22:14.700 --> 22:15.540
+ Yeah.
+
+22:15.540 --> 22:19.660
+ What is it about math do you think that brings that?
+
+22:19.660 --> 22:20.500
+ Yeah.
+
+22:20.500 --> 22:21.340
+ What is that?
+
+22:21.340 --> 22:22.380
+ Well, you know where you are.
+
+22:22.380 --> 22:25.820
+ Yeah, it's symmetry, it's certainty.
+
+22:25.820 --> 22:29.820
+ The fact that, you know, if you multiply two by itself
+
+22:29.820 --> 22:33.220
+ 10 times, you get 1,024 period.
+
+22:33.220 --> 22:34.900
+ Everybody's gonna get that.
+
+22:34.900 --> 22:39.020
+ Do you see math as a powerful tool or as an art form?
+
+22:39.020 --> 22:40.300
+ So it's both.
+
+22:40.300 --> 22:42.420
+ That's really one of the neat things.
+
+22:42.420 --> 22:46.380
+ You can be an artist and like math,
+
+22:46.380 --> 22:50.940
+ you can be an engineer and use math.
+
+22:50.940 --> 22:51.940
+ Which are you?
+
+22:51.940 --> 22:53.500
+ Which am I?
+
+22:53.500 --> 22:54.820
+ What did you connect with most?
+
+22:54.820 --> 22:57.300
+ Yeah, I'm somewhere between.
+
+22:57.300 --> 23:01.540
+ I'm certainly not a artist type, philosopher type person.
+
+23:01.540 --> 23:04.060
+ Might sound that way this morning, but I'm not.
+
+23:04.060 --> 23:09.060
+ Yeah, I really enjoy teaching engineers
+
+23:09.060 --> 23:13.260
+ because they go for an answer.
+
+23:13.260 --> 23:18.260
+ And yeah, so probably within the MIT math department,
+
+23:20.380 --> 23:23.620
+ most people enjoy teaching people,
+
+23:23.620 --> 23:26.940
+ teaching students who get the abstract idea.
+
+23:26.940 --> 23:31.940
+ I'm okay with, I'm good with engineers
+
+23:32.220 --> 23:34.780
+ who are looking for a way to find answers.
+
+23:34.780 --> 23:35.620
+ Yeah.
+
+23:35.620 --> 23:37.700
+ Actually, that's an interesting question.
+
+23:37.700 --> 23:41.340
+ Do you think for teaching and in general,
+
+23:41.340 --> 23:42.740
+ thinking about new concepts,
+
+23:42.740 --> 23:45.500
+ do you think it's better to plug in the numbers
+
+23:46.820 --> 23:49.060
+ or to think more abstractly?
+
+23:49.060 --> 23:53.620
+ So looking at theorems and proving the theorems
+
+23:53.620 --> 23:58.220
+ or actually building up a basic intuition of the theorem
+
+23:58.220 --> 23:59.900
+ or the method, the approach,
+
+23:59.900 --> 24:02.940
+ and then just plugging in numbers and seeing it work.
+
+24:02.940 --> 24:07.940
+ Yeah, well, certainly many of us like to see examples.
+
+24:09.220 --> 24:11.060
+ First, we understand,
+
+24:11.060 --> 24:13.980
+ it might be a pretty abstract sounding example,
+
+24:13.980 --> 24:16.820
+ like a three dimensional rotation.
+
+24:16.820 --> 24:21.660
+ How are you gonna understand a rotation in 3D?
+
+24:22.780 --> 24:24.020
+ Or in 10D?
+
+24:28.100 --> 24:30.860
+ And then some of us like to keep going with it
+
+24:30.860 --> 24:32.740
+ to the point where you got numbers,
+
+24:32.740 --> 24:37.100
+ where you got 10 angles, 10 axes, 10 angles.
+
+24:38.100 --> 24:43.100
+ But the best, the great mathematicians probably,
+
+24:43.620 --> 24:44.740
+ I don't know if they do that,
+
+24:44.740 --> 24:49.740
+ because for them, an example would be a highly abstract thing
+
+24:53.980 --> 24:54.820
+ to the rest of it.
+
+24:54.820 --> 24:57.540
+ Right, but nevertheless, working in the space of examples.
+
+24:57.540 --> 24:58.380
+ Yeah, examples.
+
+24:58.380 --> 24:59.220
+ It seems to.
+
+24:59.220 --> 25:01.820
+ Examples of structure.
+
+25:01.820 --> 25:03.620
+ Our brains seem to connect with that.
+
+25:03.620 --> 25:04.620
+ Yeah, yeah.
+
+25:04.620 --> 25:07.180
+ So I'm not sure if you're familiar with him,
+
+25:07.180 --> 25:10.260
+ but Andrew Yang is a presidential candidate
+
+25:11.820 --> 25:16.820
+ currently running with math in all capital letters
+
+25:17.060 --> 25:18.820
+ and his hats as a slogan.
+
+25:18.820 --> 25:19.660
+ I see.
+
+25:19.660 --> 25:21.700
+ Stands for Make America Think Hard.
+
+25:21.700 --> 25:23.860
+ Okay, I'll vote for him.
+
+25:25.180 --> 25:28.660
+ So, and his name rhymes with yours, Yang, Strang.
+
+25:28.660 --> 25:31.260
+ But he also loves math and he comes from that world
+
+25:31.260 --> 25:35.500
+ of, but he also, looking at it,
+
+25:35.500 --> 25:38.580
+ makes me realize that math, science, and engineering
+
+25:38.580 --> 25:43.300
+ are not really part of our politics, political discourse,
+
+25:43.300 --> 25:46.140
+ about political government in general.
+
+25:46.140 --> 25:48.620
+ Why do you think that is?
+
+25:48.620 --> 25:49.460
+ Well.
+
+25:49.460 --> 25:51.180
+ What are your thoughts on that in general?
+
+25:51.180 --> 25:52.740
+ Well, certainly somewhere in the system,
+
+25:52.740 --> 25:56.860
+ we need people who are comfortable with numbers,
+
+25:56.860 --> 25:58.340
+ comfortable with quantities.
+
+25:58.340 --> 26:02.460
+ You know, if you say this leads to that,
+
+26:02.460 --> 26:05.940
+ they see it and it's undeniable.
+
+26:05.940 --> 26:10.180
+ But isn't that strange to you that we have almost no,
+
+26:10.180 --> 26:14.420
+ I mean, I'm pretty sure we have no elected officials
+
+26:14.420 --> 26:18.380
+ in Congress or obviously the president
+
+26:18.380 --> 26:22.900
+ that either has an engineering degree or a math degree.
+
+26:22.900 --> 26:25.820
+ Yeah, well, that's too bad.
+
+26:25.820 --> 26:30.660
+ A few could, a few who could make the connection.
+
+26:30.660 --> 26:35.420
+ Yeah, it would have to be people who understand
+
+26:35.420 --> 26:38.580
+ engineering or science and at the same time
+
+26:38.580 --> 26:43.580
+ can make speeches and lead, yeah.
+
+26:44.420 --> 26:45.540
+ Yeah, inspire people.
+
+26:45.540 --> 26:46.580
+ Yeah, inspire, yeah.
+
+26:46.580 --> 26:49.260
+ You were, speaking of inspiration,
+
+26:49.260 --> 26:50.580
+ the president of the Society
+
+26:50.580 --> 26:52.860
+ for Industrial and Applied Mathematics.
+
+26:52.860 --> 26:53.700
+ Oh, yes.
+
+26:53.700 --> 26:57.940
+ It's a major organization in math, applied math.
+
+26:57.940 --> 27:01.180
+ What do you see as a role of that society,
+
+27:01.180 --> 27:02.860
+ you know, in our public discourse?
+
+27:02.860 --> 27:03.700
+ Right.
+
+27:03.700 --> 27:04.540
+ In public.
+
+27:04.540 --> 27:08.380
+ Yeah, so, well, it was fun to be president at the time.
+
+27:08.380 --> 27:09.420
+ A couple years, a few years.
+
+27:09.420 --> 27:12.140
+ Two years, around 2000.
+
+27:13.660 --> 27:16.820
+ I just hope that's president of a pretty small society.
+
+27:16.820 --> 27:19.620
+ But nevertheless, it was a time when math
+
+27:19.620 --> 27:24.380
+ was getting some more attention in Washington.
+
+27:24.380 --> 27:29.220
+ But yeah, I got to give a little 10 minutes
+
+27:29.220 --> 27:33.900
+ to a committee of the House of Representatives
+
+27:33.900 --> 27:35.300
+ talking about who I met.
+
+27:35.300 --> 27:36.980
+ And then, actually, it was fun
+
+27:36.980 --> 27:40.780
+ because one of the members of the House
+
+27:42.460 --> 27:44.860
+ had been a student, had been in my class.
+
+27:44.860 --> 27:46.060
+ What do you think of that?
+
+27:46.060 --> 27:49.980
+ Yeah, as you say, pretty rare, most members of the House
+
+27:49.980 --> 27:52.860
+ have had a different training, different background.
+
+27:52.860 --> 27:56.340
+ But there was one from New Hampshire
+
+27:56.340 --> 28:01.340
+ who was my friend, really, by being in the class.
+
+28:02.460 --> 28:05.780
+ Yeah, so those years were good.
+
+28:05.780 --> 28:10.780
+ Then, of course, other things take over in importance
+
+28:10.780 --> 28:15.780
+ in Washington, and math just, at this point,
+
+28:16.980 --> 28:18.260
+ is not so visible.
+
+28:18.260 --> 28:20.220
+ But for a little moment, it was.
+
+28:20.220 --> 28:23.780
+ There's some excitement, some concern
+
+28:23.780 --> 28:26.300
+ about artificial intelligence in Washington now.
+
+28:26.300 --> 28:27.460
+ Yes, sure. About the future.
+
+28:27.460 --> 28:28.820
+ Yeah. And I think at the core
+
+28:28.820 --> 28:30.020
+ of that is math.
+
+28:30.020 --> 28:32.020
+ Well, it is, yeah.
+
+28:32.020 --> 28:32.860
+ Maybe it's hidden.
+
+28:32.860 --> 28:34.380
+ Maybe it's wearing a different hat.
+
+28:34.380 --> 28:39.220
+ Well, artificial intelligence, and particularly,
+
+28:39.220 --> 28:41.980
+ can I use the words deep learning?
+
+28:41.980 --> 28:44.260
+ Deep learning is a particular approach
+
+28:44.260 --> 28:47.580
+ to understanding data.
+
+28:47.580 --> 28:50.180
+ Again, you've got a big, whole lot of data
+
+28:51.060 --> 28:56.060
+ where data is just swamping the computers of the world.
+
+28:56.140 --> 29:00.660
+ And to understand it, out of all those numbers,
+
+29:00.660 --> 29:05.180
+ to find what's important in climate, in everything.
+
+29:05.180 --> 29:08.500
+ And artificial intelligence is two words
+
+29:08.500 --> 29:11.700
+ for one approach to data.
+
+29:11.700 --> 29:15.540
+ Deep learning is a specific approach there,
+
+29:15.540 --> 29:17.420
+ which uses a lot of linear algebra.
+
+29:17.420 --> 29:19.300
+ So I got into it.
+
+29:19.300 --> 29:21.580
+ I thought, okay, I've gotta learn about this.
+
+29:21.580 --> 29:24.140
+ So maybe from your perspective,
+
+29:24.140 --> 29:27.900
+ let me ask the most basic question.
+
+29:27.900 --> 29:30.340
+ How do you think of a neural network?
+
+29:30.340 --> 29:31.700
+ What is a neural network?
+
+29:31.700 --> 29:32.660
+ Yeah, okay.
+
+29:32.660 --> 29:37.220
+ So can I start with the idea about deep learning?
+
+29:37.220 --> 29:38.860
+ What does that mean?
+
+29:38.860 --> 29:39.940
+ What is deep learning?
+
+29:39.940 --> 29:41.980
+ What is deep learning, yeah.
+
+29:41.980 --> 29:46.300
+ So we're trying to learn, from all this data,
+
+29:46.300 --> 29:47.900
+ we're trying to learn what's important.
+
+29:47.900 --> 29:50.260
+ What's it telling us?
+
+29:50.260 --> 29:55.260
+ So you've got data, you've got some inputs
+
+29:55.300 --> 29:57.620
+ for which you know the right outputs.
+
+29:57.620 --> 30:02.100
+ The question is, can you see the pattern there?
+
+30:02.100 --> 30:04.660
+ Can you figure out a way for a new input,
+
+30:04.660 --> 30:09.660
+ which we haven't seen, to understand
+
+30:09.740 --> 30:12.220
+ what the output will be from that new input?
+
+30:12.220 --> 30:15.940
+ So we've got a million inputs with their outputs.
+
+30:15.940 --> 30:19.260
+ So we're trying to create some pattern,
+
+30:19.260 --> 30:22.180
+ some rule that'll take those inputs,
+
+30:22.180 --> 30:25.580
+ those million training inputs, which we know about,
+
+30:25.580 --> 30:28.180
+ to the correct million outputs.
+
+30:28.180 --> 30:32.780
+ And this idea of a neural net
+
+30:32.780 --> 30:37.780
+ is part of the structure of our new way to create a rule.
+
+30:40.700 --> 30:43.900
+ We're looking for a rule that will take
+
+30:43.900 --> 30:48.460
+ these training inputs to the known outputs.
+
+30:48.460 --> 30:51.660
+ And then we're gonna use that rule on new inputs
+
+30:51.660 --> 30:56.100
+ that we don't know the output and see what comes.
+
+30:56.100 --> 30:59.140
+ Linear algebra is a big part of finding that rule.
+
+30:59.140 --> 31:01.860
+ That's right, linear algebra is a big part.
+
+31:01.860 --> 31:03.500
+ Not all the part.
+
+31:03.500 --> 31:08.300
+ People were leaning on matrices, that's good, still do.
+
+31:08.300 --> 31:10.300
+ Linear is something special.
+
+31:10.300 --> 31:13.980
+ It's all about straight lines and flat planes.
+
+31:13.980 --> 31:18.860
+ And data isn't quite like that.
+
+31:18.860 --> 31:21.220
+ It's more complicated.
+
+31:21.220 --> 31:23.700
+ So you gotta introduce some complication.
+
+31:23.700 --> 31:25.460
+ So you have to have some function
+
+31:25.460 --> 31:27.460
+ that's not a straight line.
+
+31:27.460 --> 31:31.620
+ And it turned out, nonlinear, nonlinear, not linear.
+
+31:31.620 --> 31:35.860
+ And it turned out that it was enough to use the function
+
+31:35.860 --> 31:38.340
+ that's one straight line and then a different one.
+
+31:38.340 --> 31:40.900
+ Halfway, so piecewise linear.
+
+31:40.900 --> 31:44.420
+ One piece has one slope,
+
+31:44.420 --> 31:47.340
+ one piece, the other piece has the second slope.
+
+31:47.340 --> 31:52.340
+ And so that, getting that nonlinear,
+
+31:52.380 --> 31:56.700
+ simple nonlinearity in blew the problem open.
+
+31:56.700 --> 31:58.980
+ That little piece makes it sufficiently complicated
+
+31:58.980 --> 32:00.460
+ to make things interesting.
+
+32:00.460 --> 32:02.020
+ Because you're gonna use that piece
+
+32:02.020 --> 32:03.820
+ over and over a million times.
+
+32:03.820 --> 32:08.820
+ So it has a fold in the graph, the graph, two pieces.
+
+32:10.740 --> 32:13.700
+ But when you fold something a million times,
+
+32:13.700 --> 32:17.860
+ you've got a pretty complicated function
+
+32:17.860 --> 32:19.260
+ that's pretty realistic.
+
+32:19.260 --> 32:21.140
+ So that's the thing about neural networks
+
+32:21.140 --> 32:23.900
+ is they have a lot of these.
+
+32:23.900 --> 32:25.220
+ A lot of these, that's right.
+
+32:25.220 --> 32:29.660
+ So why do you think neural networks,
+
+32:29.660 --> 32:34.660
+ by using sort of formulating an objective function,
+
+32:34.940 --> 32:39.380
+ very not a plain function of the folds,
+
+32:39.380 --> 32:42.340
+ lots of folds of the inputs, the outputs,
+
+32:42.340 --> 32:47.300
+ why do you think they work to be able to find a rule
+
+32:47.300 --> 32:48.780
+ that we don't know is optimal,
+
+32:48.780 --> 32:53.300
+ but it just seems to be pretty good in a lot of cases?
+
+32:53.300 --> 32:54.580
+ What's your intuition?
+
+32:54.580 --> 32:58.180
+ Is it surprising to you as it is to many people?
+
+32:58.180 --> 33:01.140
+ Do you have an intuition of why this works at all?
+
+33:01.140 --> 33:04.300
+ Well, I'm beginning to have a better intuition.
+
+33:04.300 --> 33:08.500
+ This idea of things that are piecewise linear,
+
+33:08.500 --> 33:12.140
+ flat pieces but with folds between them.
+
+33:12.140 --> 33:14.980
+ Like think of a roof of a complicated,
+
+33:14.980 --> 33:17.780
+ infinitely complicated house or something.
+
+33:17.780 --> 33:22.780
+ That curve, it almost curved, but every piece is flat.
+
+33:24.700 --> 33:26.820
+ That's been used by engineers,
+
+33:26.820 --> 33:29.660
+ that idea has been used by engineers,
+
+33:29.660 --> 33:32.140
+ is used by engineers, big time.
+
+33:32.140 --> 33:34.220
+ Something called the finite element method.
+
+33:34.220 --> 33:36.980
+ If you want to design a bridge,
+
+33:36.980 --> 33:40.860
+ design a building, design an airplane,
+
+33:40.860 --> 33:45.860
+ you're using this idea of piecewise flat
+
+33:47.300 --> 33:52.260
+ as a good, simple, computable approximation.
+
+33:52.260 --> 33:57.260
+ But you have a sense that there's a lot of expressive power
+
+33:57.260 --> 33:58.580
+ in this kind of piecewise linear.
+
+33:58.580 --> 34:01.820
+ Yeah, you used the right word.
+
+34:01.820 --> 34:04.460
+ If you measure the expressivity,
+
+34:04.460 --> 34:09.460
+ how complicated a thing can this piecewise flat guys express?
+
+34:12.300 --> 34:15.500
+ The answer is very complicated, yeah.
+
+34:15.500 --> 34:20.380
+ What do you think are the limits of such piecewise linear
+
+34:20.380 --> 34:22.660
+ or just of neural networks?
+
+34:22.660 --> 34:24.100
+ The expressivity of neural networks.
+
+34:24.100 --> 34:26.660
+ Well, you would have said a while ago
+
+34:26.660 --> 34:28.700
+ that they're just computational limits.
+
+34:28.700 --> 34:33.700
+ It's a problem beyond a certain size.
+
+34:33.740 --> 34:36.060
+ A supercomputer isn't gonna do it.
+
+34:36.060 --> 34:39.420
+ But those keep getting more powerful.
+
+34:39.420 --> 34:42.660
+ So that limit has been moved
+
+34:44.260 --> 34:47.420
+ to allow more and more complicated surfaces.
+
+34:47.420 --> 34:52.420
+ So in terms of just mapping from inputs to outputs,
+
+34:52.940 --> 34:57.940
+ looking at data, what do you think of,
+
+34:58.460 --> 35:00.500
+ in the context of neural networks in general,
+
+35:00.500 --> 35:04.180
+ data is just tensor, vectors, matrices, tensors.
+
+35:04.180 --> 35:05.820
+ Right.
+
+35:05.820 --> 35:09.380
+ How do you think about learning from data?
+
+35:09.380 --> 35:12.780
+ How much of our world can be expressed in this way?
+
+35:12.780 --> 35:16.540
+ How useful is this process?
+
+35:16.540 --> 35:17.980
+ I guess that's another way to ask you,
+
+35:17.980 --> 35:19.340
+ what are the limits of this approach?
+
+35:19.340 --> 35:21.380
+ Well, that's a good question, yeah.
+
+35:21.380 --> 35:24.220
+ So I guess the whole idea of deep learning
+
+35:24.220 --> 35:26.220
+ is that there's something there to learn.
+
+35:26.220 --> 35:28.500
+ If the data is totally random,
+
+35:28.500 --> 35:31.380
+ just produced by random number generators,
+
+35:31.380 --> 35:36.220
+ then we're not gonna find a useful rule
+
+35:36.220 --> 35:37.380
+ because there isn't one.
+
+35:38.620 --> 35:43.620
+ So the extreme of having a rule is like knowing Newton's law.
+
+35:43.620 --> 35:46.220
+ If you hit a ball, it moves.
+
+35:46.220 --> 35:48.940
+ So that's where you had laws of physics.
+
+35:48.940 --> 35:53.940
+ Newton and Einstein and other great, great people
+
+35:54.140 --> 35:59.140
+ have found those laws and laws of the distribution
+
+36:02.940 --> 36:05.900
+ of oil in an underground thing.
+
+36:05.900 --> 36:10.900
+ I mean, so engineers, petroleum engineers understand
+
+36:10.900 --> 36:15.900
+ how oil will sit in an underground basin.
+
+36:18.180 --> 36:20.060
+ So there were rules.
+
+36:20.060 --> 36:25.060
+ Now, the new idea of artificial intelligence is
+
+36:25.620 --> 36:29.940
+ learn the rules instead of figuring out the rules
+
+36:29.940 --> 36:32.740
+ with help from Newton or Einstein.
+
+36:32.740 --> 36:35.660
+ The computer is looking for the rules.
+
+36:35.660 --> 36:36.900
+ So that's another step.
+
+36:36.900 --> 36:39.860
+ But if there are no rules at all
+
+36:39.860 --> 36:41.220
+ that the computer could find,
+
+36:41.220 --> 36:45.300
+ if it's totally random data, well, you've got nothing.
+
+36:45.300 --> 36:48.300
+ You've got no science to discover.
+
+36:48.300 --> 36:51.380
+ It's an automated search for the underlying rules.
+
+36:51.380 --> 36:53.380
+ Yeah, search for the rules.
+
+36:53.380 --> 36:54.780
+ Yeah, exactly.
+
+36:54.780 --> 36:57.820
+ And there will be a lot of random parts.
+
+36:57.820 --> 36:59.860
+ A lot of, I mean, I'm not knocking random
+
+36:59.860 --> 37:02.740
+ because that's there.
+
+37:05.580 --> 37:07.340
+ There's a lot of randomness built in,
+
+37:07.340 --> 37:09.380
+ but there's gotta be some basic.
+
+37:09.380 --> 37:10.900
+ It's almost always signal, right?
+
+37:10.900 --> 37:11.740
+ In most things.
+
+37:11.740 --> 37:12.820
+ There's gotta be some signal, yeah.
+
+37:12.820 --> 37:17.420
+ If it's all noise, then you're not gonna get anywhere.
+
+37:17.420 --> 37:19.900
+ Well, this world around us does seem to be,
+
+37:19.900 --> 37:22.420
+ does seem to always have a signal of some kind.
+
+37:22.420 --> 37:23.340
+ Yeah, yeah, that's right.
+
+37:23.340 --> 37:24.220
+ To be discovered.
+
+37:24.220 --> 37:25.900
+ Right, that's it.
+
+37:25.900 --> 37:29.460
+ So what excites you more?
+
+37:30.580 --> 37:32.860
+ We just talked about a little bit of application.
+
+37:32.860 --> 37:34.540
+ What excites you more, theory
+
+37:35.580 --> 37:38.380
+ or the application of mathematics?
+
+37:38.380 --> 37:43.260
+ Well, for myself, I'm probably a theory person.
+
+37:43.260 --> 37:48.260
+ I'm not, I'm speaking here pretty freely about applications,
+
+37:49.700 --> 37:53.220
+ but I'm not the person who really,
+
+37:53.220 --> 37:57.060
+ I'm not a physicist or a chemist or a neuroscientist.
+
+37:58.100 --> 38:03.100
+ So for myself, I like the structure
+
+38:03.220 --> 38:06.460
+ and the flat subspaces
+
+38:06.460 --> 38:11.460
+ and the relation of matrices, columns to rows.
+
+38:12.260 --> 38:17.260
+ That's my part in the spectrum.
+
+38:17.860 --> 38:22.420
+ So really, science is a big spectrum of people
+
+38:22.420 --> 38:25.740
+ from asking practical questions
+
+38:25.740 --> 38:28.740
+ and answering them using some math,
+
+38:28.740 --> 38:33.740
+ then some math guys like myself who are in the middle of it
+
+38:33.740 --> 38:38.740
+ and then the geniuses of math and physics and chemistry
+
+38:40.620 --> 38:43.300
+ who are finding fundamental rules
+
+38:43.300 --> 38:48.300
+ and then doing the really understanding nature.
+
+38:50.060 --> 38:51.820
+ That's incredible.
+
+38:51.820 --> 38:54.980
+ At its lowest, simplest level,
+
+38:54.980 --> 38:58.980
+ maybe just a quick in broad strokes from your perspective,
+
+38:58.980 --> 39:03.980
+ where does linear algebra sit as a subfield of mathematics?
+
+39:04.740 --> 39:09.740
+ What are the various subfields that you think about
+
+39:10.300 --> 39:12.180
+ in relation to linear algebra?
+
+39:12.180 --> 39:17.180
+ So the big fields of math are algebra as a whole
+
+39:18.020 --> 39:21.340
+ and problems like calculus and differential equations.
+
+39:21.340 --> 39:24.340
+ So that's a second, quite different field.
+
+39:24.340 --> 39:28.780
+ Then maybe geometry deserves to be thought of
+
+39:28.780 --> 39:31.540
+ as a different field to understand the geometry
+
+39:31.540 --> 39:34.100
+ of high dimensional surfaces.
+
+39:35.700 --> 39:39.700
+ So I think, am I allowed to say this here?
+
+39:39.700 --> 39:44.700
+ I think this is where personal view comes in.
+
+39:46.180 --> 39:51.180
+ I think math, we're thinking about undergraduate math,
+
+39:51.980 --> 39:54.260
+ what millions of students study.
+
+39:54.260 --> 39:59.260
+ I think we overdo the calculus at the cost of the algebra,
+
+40:00.780 --> 40:02.660
+ at the cost of linear.
+
+40:02.660 --> 40:05.300
+ So you have this talk titled Calculus Versus Linear Algebra.
+
+40:05.300 --> 40:07.380
+ That's right, that's right.
+
+40:07.380 --> 40:09.420
+ And you say that linear algebra wins.
+
+40:09.420 --> 40:13.780
+ So can you dig into that a little bit?
+
+40:13.780 --> 40:17.020
+ Why does linear algebra win?
+
+40:17.020 --> 40:21.100
+ Right, well, okay, the viewer is gonna think
+
+40:21.100 --> 40:22.700
+ this guy is biased.
+
+40:22.700 --> 40:27.060
+ Not true, I'm just telling the truth as it is.
+
+40:27.060 --> 40:31.940
+ Yeah, so I feel linear algebra is just a nice part of math
+
+40:31.940 --> 40:34.420
+ that people can get the idea of.
+
+40:34.420 --> 40:37.780
+ They can understand something that's a little bit abstract
+
+40:37.780 --> 40:40.660
+ because once you get to 10 or 100 dimensions
+
+40:42.140 --> 40:44.380
+ and very, very, very useful,
+
+40:44.380 --> 40:47.860
+ that's what's happened in my lifetime
+
+40:47.860 --> 40:52.540
+ is the importance of data,
+
+40:52.540 --> 40:54.660
+ which does come in matrix form.
+
+40:54.660 --> 40:56.660
+ So it's really set up for algebra.
+
+40:56.660 --> 40:59.260
+ It's not set up for differential equation.
+
+40:59.260 --> 41:03.300
+ And let me fairly add probability,
+
+41:03.300 --> 41:06.860
+ the ideas of probability and statistics
+
+41:06.860 --> 41:11.260
+ have become very, very important, have also jumped forward.
+
+41:11.260 --> 41:14.060
+ So, and that's different from linear algebra,
+
+41:14.060 --> 41:15.220
+ quite different.
+
+41:15.220 --> 41:20.220
+ So now we really have three major areas to me,
+
+41:20.220 --> 41:25.220
+ calculus, linear algebra, matrices,
+
+41:26.180 --> 41:28.980
+ and probability statistics.
+
+41:28.980 --> 41:33.980
+ And they all deserve an important place.
+
+41:33.980 --> 41:38.980
+ And calculus has traditionally had a lion's share
+
+41:40.020 --> 41:40.860
+ of the time.
+
+41:40.860 --> 41:41.900
+ A disproportionate share.
+
+41:41.900 --> 41:44.700
+ It is, thank you, disproportionate, that's a good word.
+
+41:45.700 --> 41:50.020
+ Of the love and attention from the excited young minds.
+
+41:50.020 --> 41:50.860
+ Yeah.
+
+41:52.900 --> 41:55.500
+ I know it's hard to pick favorites,
+
+41:55.500 --> 41:57.700
+ but what is your favorite matrix?
+
+41:57.700 --> 41:59.380
+ What's my favorite matrix?
+
+41:59.380 --> 42:03.220
+ Okay, so my favorite matrix is square, I admit it.
+
+42:03.220 --> 42:05.460
+ It's a square bunch of numbers
+
+42:05.460 --> 42:10.180
+ and it has twos running down the main diagonal.
+
+42:10.180 --> 42:13.020
+ And on the next diagonal,
+
+42:13.020 --> 42:15.380
+ so think of top left to bottom right,
+
+42:15.380 --> 42:18.900
+ twos down the middle of the matrix
+
+42:18.900 --> 42:22.140
+ and minus ones just above those twos
+
+42:22.140 --> 42:25.020
+ and minus ones just below those twos
+
+42:25.020 --> 42:26.620
+ and otherwise all zeros.
+
+42:26.620 --> 42:31.620
+ So mostly zeros, just three nonzero diagonals coming down.
+
+42:32.900 --> 42:34.380
+ What is interesting about it?
+
+42:34.380 --> 42:37.180
+ Well, all the different ways it comes up.
+
+42:37.180 --> 42:39.260
+ You see it in engineering,
+
+42:39.260 --> 42:44.100
+ you see it as analogous in calculus to second derivative.
+
+42:44.100 --> 42:47.180
+ So calculus learns about taking the derivative,
+
+42:47.180 --> 42:50.620
+ the figuring out how much, how fast something's changing.
+
+42:51.500 --> 42:55.740
+ But second derivative, now that's also important.
+
+42:55.740 --> 42:58.740
+ That's how fast the change is changing,
+
+42:58.740 --> 43:03.740
+ how fast the graph is bending, how fast it's curving.
+
+43:06.460 --> 43:10.140
+ And Einstein showed that that's fundamental
+
+43:10.140 --> 43:11.540
+ to understand space.
+
+43:11.540 --> 43:16.540
+ So second derivatives should have a bigger place in calculus.
+
+43:17.380 --> 43:21.020
+ Second, my matrices,
+
+43:21.020 --> 43:24.980
+ which are like the linear algebra version
+
+43:24.980 --> 43:29.980
+ of second derivatives are neat in linear algebra.
+
+43:30.020 --> 43:32.780
+ Yeah, just everything comes out right with those guys.
+
+43:34.020 --> 43:35.220
+ Beautiful.
+
+43:35.220 --> 43:38.380
+ What did you learn about the process of learning
+
+43:38.380 --> 43:42.820
+ by having taught so many students math over the years?
+
+43:42.820 --> 43:44.820
+ Ooh, that is hard.
+
+43:45.700 --> 43:50.700
+ I'll have to admit here that I'm not really a good teacher
+
+43:51.260 --> 43:55.540
+ because I don't get into the exam part.
+
+43:55.540 --> 43:59.020
+ The exam is the part of my life that I don't like
+
+43:59.020 --> 44:04.020
+ and grading them and giving the students A or B or whatever.
+
+44:04.380 --> 44:08.260
+ I do it because I'm supposed to do it,
+
+44:08.260 --> 44:11.900
+ but I tell the class at the beginning,
+
+44:11.900 --> 44:13.180
+ I don't know if they believe me.
+
+44:13.180 --> 44:14.580
+ Probably they don't.
+
+44:14.580 --> 44:18.020
+ I tell the class, I'm here to teach you.
+
+44:18.020 --> 44:21.620
+ I'm here to teach you math and not to grade you.
+
+44:22.700 --> 44:26.300
+ But they're thinking, okay, this guy is gonna,
+
+44:26.300 --> 44:28.820
+ when is he gonna give me an A minus?
+
+44:28.820 --> 44:30.580
+ Is he gonna give me a B plus?
+
+44:30.580 --> 44:31.420
+ What?
+
+44:31.420 --> 44:34.060
+ What have you learned about the process of learning?
+
+44:34.060 --> 44:34.940
+ Of learning.
+
+44:34.940 --> 44:39.940
+ Yeah, well, maybe to give you a legitimate answer
+
+44:40.220 --> 44:43.900
+ about learning, I should have paid more attention
+
+44:43.900 --> 44:47.660
+ to the assessment, the evaluation part at the end.
+
+44:47.660 --> 44:49.980
+ But I like the teaching part at the start.
+
+44:49.980 --> 44:52.060
+ That's the sexy part.
+
+44:52.060 --> 44:56.060
+ To tell somebody for the first time about a matrix, wow.
+
+44:56.060 --> 44:58.700
+ Is there, are there moments,
+
+44:58.700 --> 45:01.900
+ so you are teaching a concept,
+
+45:01.900 --> 45:05.500
+ are there moments of learning that you just see
+
+45:05.500 --> 45:06.460
+ in the student's eyes?
+
+45:06.460 --> 45:08.220
+ You don't need to look at the grades.
+
+45:08.220 --> 45:11.540
+ But you see in their eyes that you hook them,
+
+45:11.540 --> 45:16.260
+ that you connect with them in a way where,
+
+45:16.260 --> 45:18.620
+ you know what, they fall in love
+
+45:18.620 --> 45:21.180
+ with this beautiful world of math.
+
+45:21.180 --> 45:24.460
+ They see that it's got some beauty there.
+
+45:24.460 --> 45:28.060
+ Or conversely, that they give up at that point
+
+45:28.060 --> 45:29.140
+ is the opposite.
+
+45:29.140 --> 45:32.420
+ The dark could say that math, I'm just not good at math.
+
+45:32.420 --> 45:33.260
+ I don't wanna walk away.
+
+45:33.260 --> 45:34.300
+ Yeah, yeah, yeah.
+
+45:34.300 --> 45:37.700
+ Maybe because of the approach in the past,
+
+45:37.700 --> 45:40.500
+ they were discouraged, but don't be discouraged.
+
+45:40.500 --> 45:43.100
+ It's too good to miss.
+
+45:44.420 --> 45:48.420
+ Yeah, well, if I'm teaching a big class,
+
+45:48.420 --> 45:51.900
+ do I know when, I think maybe I do.
+
+45:51.900 --> 45:55.460
+ Sort of, I mentioned at the very start,
+
+45:55.460 --> 45:59.340
+ the four fundamental subspaces
+
+45:59.340 --> 46:03.100
+ and the structure of the fundamental theorem
+
+46:03.100 --> 46:04.740
+ of linear algebra.
+
+46:04.740 --> 46:06.780
+ The fundamental theorem of linear algebra.
+
+46:06.780 --> 46:11.740
+ That is the relation of those four subspaces,
+
+46:11.740 --> 46:13.420
+ those four spaces.
+
+46:13.420 --> 46:17.740
+ Yeah, so I think that, I feel that the class gets it.
+
+46:17.740 --> 46:18.580
+ At length.
+
+46:18.580 --> 46:19.940
+ Yeah.
+
+46:19.940 --> 46:22.420
+ What advice do you have to a student
+
+46:22.420 --> 46:25.140
+ just starting their journey in mathematics today?
+
+46:25.140 --> 46:27.060
+ How do they get started?
+
+46:27.060 --> 46:30.100
+ Oh, yeah, that's hard.
+
+46:30.100 --> 46:34.780
+ Well, I hope you have a teacher, professor,
+
+46:34.780 --> 46:39.780
+ who is still enjoying what he's doing,
+
+46:39.860 --> 46:41.380
+ what he's teaching.
+
+46:41.380 --> 46:44.020
+ They're still looking for new ways to teach
+
+46:44.020 --> 46:46.700
+ and to understand math.
+
+46:47.940 --> 46:49.660
+ Cause that's the pleasure,
+
+46:51.140 --> 46:54.980
+ the moment when you see, oh yeah, that works.
+
+46:54.980 --> 46:58.500
+ So it's less about the material you study,
+
+46:58.500 --> 47:02.460
+ it's more about the source of the teacher
+
+47:02.460 --> 47:03.900
+ being full of passion.
+
+47:03.900 --> 47:05.740
+ Yeah, more about the fun.
+
+47:05.740 --> 47:10.500
+ Yeah, the moment of getting it.
+
+47:10.500 --> 47:14.140
+ But in terms of topics, linear algebra?
+
+47:14.140 --> 47:16.940
+ Well, that's my topic,
+
+47:16.940 --> 47:21.220
+ but oh, there's beautiful things in geometry to understand.
+
+47:21.220 --> 47:24.140
+ What's wonderful is that in the end,
+
+47:24.140 --> 47:28.620
+ there's a pattern, there are rules
+
+47:28.620 --> 47:33.620
+ that are followed in biology as there are in every field.
+
+47:37.260 --> 47:41.420
+ You describe the life of a mathematician
+
+47:41.420 --> 47:44.260
+ as 100% wonderful.
+
+47:44.260 --> 47:45.620
+ No.
+
+47:45.620 --> 47:47.140
+ Except for the grade stuff.
+
+47:47.140 --> 47:47.980
+ Yeah.
+
+47:47.980 --> 47:48.820
+ And the grades.
+
+47:48.820 --> 47:49.660
+ Except for grades.
+
+47:49.660 --> 47:52.140
+ Yeah, when you look back at your life,
+
+47:52.140 --> 47:54.940
+ what memories bring you the most joy and pride?
+
+47:55.980 --> 47:58.220
+ Well, that's a good question.
+
+47:59.500 --> 48:01.620
+ I certainly feel good when I,
+
+48:01.620 --> 48:06.140
+ maybe I'm giving a class in 1806,
+
+48:06.140 --> 48:09.380
+ that's MIT's linear algebra course that I started.
+
+48:09.380 --> 48:11.620
+ So sort of, there's a good feeling that,
+
+48:11.620 --> 48:13.740
+ okay, I started this course,
+
+48:13.740 --> 48:17.340
+ a lot of students take it, quite a few like it.
+
+48:17.340 --> 48:21.380
+ Yeah, so I'm sort of happy
+
+48:21.380 --> 48:25.060
+ when I feel I'm helping make a connection
+
+48:25.060 --> 48:27.740
+ between ideas and students,
+
+48:27.740 --> 48:31.860
+ between theory and the reader.
+
+48:32.980 --> 48:37.340
+ Yeah, it's, I get a lot of very nice messages
+
+48:38.540 --> 48:43.460
+ from people who've watched the videos and it's inspiring.
+
+48:43.460 --> 48:47.220
+ I just, I'll maybe take this chance to say thank you.
+
+48:48.060 --> 48:50.380
+ Well, there's millions of students
+
+48:50.380 --> 48:54.220
+ who you've taught and I am grateful to be one of them.
+
+48:54.220 --> 48:56.540
+ So Gilbert, thank you so much, it's been an honor.
+
+48:56.540 --> 48:58.140
+ Thank you for talking today.
+
+48:58.140 --> 48:59.740
+ It was a pleasure, thanks.
+
+49:00.700 --> 49:02.500
+ Thank you for listening to this conversation
+
+49:02.500 --> 49:04.220
+ with Gilbert Strang.
+
+49:04.220 --> 49:07.380
+ And thank you to our presenting sponsor, Cash App.
+
+49:07.380 --> 49:09.940
+ Download it, use code LexPodcast,
+
+49:09.940 --> 49:12.780
+ you'll get $10 and $10 will go to FIRST,
+
+49:12.780 --> 49:14.500
+ a STEM education nonprofit
+
+49:14.500 --> 49:17.500
+ that inspires hundreds of thousands of young minds
+
+49:17.500 --> 49:20.660
+ to learn and to dream of engineering our future.
+
+49:20.660 --> 49:23.780
+ If you enjoy this podcast, subscribe on YouTube.
+
+49:23.780 --> 49:25.900
+ We have five stars in Apple Podcast,
+
+49:25.900 --> 49:29.300
+ support on Patreon or connect with me on Twitter.
+
+49:29.300 --> 49:31.860
+ Finally, some closing words of advice
+
+49:31.860 --> 49:33.940
+ from the great Richard Feynman.
+
+49:33.940 --> 49:36.300
+ Study hard what interests you the most
+
+49:36.300 --> 49:38.980
+ in the most undisciplined, irreverent
+
+49:38.980 --> 49:41.220
+ and original manner possible.
+
+49:41.220 --> 49:52.900
+ Thank you for listening and hope to see you next time.
+

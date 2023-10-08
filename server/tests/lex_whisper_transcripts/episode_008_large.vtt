@@ -1,0 +1,2210 @@
+WEBVTT
+
+00:00.000 --> 00:03.180
+ The following is a conversation with Eric Schmidt.
+
+00:03.180 --> 00:05.140
+ He was the CEO of Google for 10 years
+
+00:05.140 --> 00:06.780
+ and a chairman for six more,
+
+00:06.780 --> 00:10.100
+ guiding the company through an incredible period of growth
+
+00:10.100 --> 00:12.940
+ and a series of world changing innovations.
+
+00:12.940 --> 00:15.300
+ He is one of the most impactful leaders
+
+00:15.300 --> 00:19.340
+ in the era of the internet and the powerful voice
+
+00:19.340 --> 00:22.300
+ for the promise of technology in our society.
+
+00:22.300 --> 00:24.780
+ It was truly an honor to speak with him
+
+00:24.780 --> 00:26.900
+ as part of the MIT course
+
+00:26.900 --> 00:28.660
+ on artificial general intelligence
+
+00:28.660 --> 00:31.900
+ and the artificial intelligence podcast.
+
+00:31.900 --> 00:36.120
+ And now here's my conversation with Eric Schmidt.
+
+00:37.020 --> 00:38.020
+ What was the first moment
+
+00:38.020 --> 00:40.000
+ when you fell in love with technology?
+
+00:40.900 --> 00:44.380
+ I grew up in the 1960s as a boy
+
+00:44.380 --> 00:46.820
+ where every boy wanted to be an astronaut
+
+00:46.820 --> 00:48.900
+ and part of the space program.
+
+00:48.900 --> 00:51.340
+ So like everyone else of my age,
+
+00:51.340 --> 00:54.340
+ we would go out to the cow pasture behind my house,
+
+00:54.340 --> 00:56.260
+ which was literally a cow pasture
+
+00:56.260 --> 00:58.540
+ and we would shoot model rockets off.
+
+00:58.540 --> 01:00.820
+ And that I think is the beginning.
+
+01:00.820 --> 01:03.540
+ And of course, generationally today,
+
+01:03.540 --> 01:05.760
+ it would be video games and all the amazing things
+
+01:05.760 --> 01:08.180
+ that you can do online with computers.
+
+01:09.100 --> 01:12.620
+ There's a transformative, inspiring aspect of science
+
+01:12.620 --> 01:15.740
+ and math that maybe rockets would bring
+
+01:15.740 --> 01:17.420
+ would instill in individuals.
+
+01:17.420 --> 01:20.140
+ You've mentioned yesterday that eighth grade math
+
+01:20.140 --> 01:22.180
+ is where the journey through mathematical universe
+
+01:22.180 --> 01:23.780
+ diverges from many people.
+
+01:23.780 --> 01:26.900
+ It's this fork in the roadway.
+
+01:26.900 --> 01:30.260
+ There's a professor of math at Berkeley, Edward Frankel.
+
+01:30.260 --> 01:32.460
+ He, I'm not sure if you're familiar with him.
+
+01:32.460 --> 01:33.300
+ I am.
+
+01:33.300 --> 01:35.420
+ He has written this amazing book
+
+01:35.420 --> 01:37.700
+ I recommend to everybody called Love and Math.
+
+01:37.700 --> 01:39.880
+ Two of my favorite words.
+
+01:41.460 --> 01:46.460
+ He says that if painting was taught like math,
+
+01:46.700 --> 01:49.620
+ then the students would be asked to paint a fence,
+
+01:49.620 --> 01:52.540
+ which is his analogy of essentially how math is taught.
+
+01:52.540 --> 01:55.860
+ And so you never get a chance to discover the beauty
+
+01:55.860 --> 01:59.260
+ of the art of painting or the beauty of the art of math.
+
+01:59.260 --> 02:03.860
+ So how, when, and where did you discover that beauty?
+
+02:05.260 --> 02:08.040
+ I think what happens with people like myself
+
+02:08.040 --> 02:11.380
+ is that your math enabled pretty early
+
+02:11.380 --> 02:14.320
+ and all of a sudden you discover that you can use that
+
+02:14.320 --> 02:16.560
+ to discover new insights.
+
+02:16.560 --> 02:19.100
+ The great scientists will all tell a story,
+
+02:19.100 --> 02:22.020
+ the men and women who are fantastic today,
+
+02:22.020 --> 02:24.600
+ that somewhere when they were in high school or in college,
+
+02:24.600 --> 02:26.060
+ they discovered that they could discover
+
+02:26.060 --> 02:27.780
+ something themselves.
+
+02:27.780 --> 02:29.860
+ And that sense of building something,
+
+02:29.860 --> 02:32.260
+ of having an impact that you own,
+
+02:32.260 --> 02:35.460
+ drives knowledge acquisition and learning.
+
+02:35.460 --> 02:37.020
+ In my case, it was programming.
+
+02:37.020 --> 02:39.820
+ And the notion that I could build things
+
+02:39.820 --> 02:42.300
+ that had not existed that I had built,
+
+02:42.300 --> 02:44.400
+ that it had my name on it.
+
+02:44.400 --> 02:46.160
+ And this was before open source,
+
+02:46.160 --> 02:49.100
+ but you could think of it as open source contributions.
+
+02:49.100 --> 02:51.780
+ So today, if I were a 16 or 17 year old boy,
+
+02:51.780 --> 02:54.660
+ I'm sure that I would aspire as a computer scientist
+
+02:54.660 --> 02:58.060
+ to make a contribution like the open source heroes
+
+02:58.060 --> 02:58.920
+ of the world today.
+
+02:58.920 --> 03:00.380
+ That would be what would be driving me.
+
+03:00.380 --> 03:03.700
+ And I'd be trying and learning and making mistakes
+
+03:03.700 --> 03:06.620
+ and so forth in the ways that it works.
+
+03:06.620 --> 03:09.940
+ The repository that GitHub represents
+
+03:09.940 --> 03:12.200
+ and that open source libraries represent
+
+03:12.200 --> 03:14.900
+ is an enormous bank of knowledge
+
+03:14.900 --> 03:17.100
+ of all of the people who are doing that.
+
+03:17.100 --> 03:19.540
+ And one of the lessons that I learned at Google
+
+03:19.540 --> 03:21.500
+ was that the world is a very big place
+
+03:21.500 --> 03:23.540
+ and there's an awful lot of smart people.
+
+03:23.540 --> 03:26.300
+ And an awful lot of them are underutilized.
+
+03:26.300 --> 03:28.940
+ So here's an opportunity, for example,
+
+03:28.940 --> 03:31.700
+ building parts of programs, building new ideas
+
+03:31.700 --> 03:33.840
+ to contribute to the greater of society.
+
+03:36.540 --> 03:38.340
+ So in that moment in the 70s,
+
+03:38.340 --> 03:40.660
+ the inspiring moment where there was nothing
+
+03:40.660 --> 03:42.820
+ and then you created something through programming,
+
+03:42.820 --> 03:44.720
+ that magical moment.
+
+03:44.720 --> 03:49.180
+ So in 1975, I think you've created a program called Lex,
+
+03:49.180 --> 03:51.460
+ which I especially like because my name is Lex.
+
+03:51.460 --> 03:54.620
+ So thank you, thank you for creating a brand
+
+03:54.620 --> 03:58.260
+ that established a reputation that's long lasting, reliable
+
+03:58.260 --> 04:01.180
+ and has a big impact on the world and still used today.
+
+04:01.180 --> 04:02.820
+ So thank you for that.
+
+04:02.820 --> 04:07.820
+ But more seriously, in that time, in the 70s,
+
+04:08.220 --> 04:11.180
+ as an engineer, personal computers were being born.
+
+04:12.540 --> 04:15.580
+ Do you think you'd be able to predict the 80s, 90s
+
+04:15.580 --> 04:18.900
+ and the aughts of where computers would go?
+
+04:18.900 --> 04:22.120
+ I'm sure I could not and would not have gotten it right.
+
+04:23.180 --> 04:25.420
+ I was the beneficiary of the great work
+
+04:25.420 --> 04:29.060
+ of many, many people who saw it clearer than I did.
+
+04:29.060 --> 04:32.540
+ With Lex, I worked with a fellow named Michael Lesk,
+
+04:32.540 --> 04:33.980
+ who was my supervisor.
+
+04:33.980 --> 04:36.300
+ And he essentially helped me architect
+
+04:36.300 --> 04:39.180
+ and deliver a system that's still in use today.
+
+04:39.180 --> 04:42.220
+ After that, I worked at Xerox Palo Alto Research Center,
+
+04:42.220 --> 04:43.660
+ where the Alto was invented.
+
+04:43.660 --> 04:46.060
+ And the Alto is the predecessor
+
+04:46.060 --> 04:50.180
+ of the modern personal computer or Macintosh and so forth.
+
+04:50.180 --> 04:52.300
+ And the Altos were very rare.
+
+04:52.300 --> 04:55.260
+ And I had to drive an hour from Berkeley to go use them.
+
+04:55.260 --> 04:57.380
+ But I made a point of skipping classes
+
+04:57.380 --> 05:00.960
+ and doing whatever it took to have access
+
+05:00.960 --> 05:02.500
+ to this extraordinary achievement.
+
+05:02.500 --> 05:04.900
+ I knew that they were consequential.
+
+05:04.900 --> 05:08.260
+ What I did not understand was scaling.
+
+05:08.260 --> 05:09.860
+ I did not understand what would happen
+
+05:09.860 --> 05:12.820
+ when you had 100 million as opposed to 100.
+
+05:12.820 --> 05:14.200
+ And so the, since then,
+
+05:14.200 --> 05:16.260
+ and I have learned the benefit of scale,
+
+05:16.260 --> 05:17.460
+ I always look for things
+
+05:17.460 --> 05:19.660
+ which are going to scale to platforms, right?
+
+05:19.660 --> 05:23.060
+ So mobile phones, Android, all those things.
+
+05:23.060 --> 05:25.820
+ There are, the world is in numerous,
+
+05:25.820 --> 05:27.380
+ there are many, many people in the world,
+
+05:27.380 --> 05:28.500
+ people really have needs.
+
+05:28.500 --> 05:29.940
+ They really will use these platforms
+
+05:29.940 --> 05:32.560
+ and you can build big businesses on top of them.
+
+05:32.560 --> 05:33.400
+ So it's interesting.
+
+05:33.400 --> 05:34.860
+ So when you see a piece of technology,
+
+05:34.860 --> 05:37.300
+ now you think, what will this technology look like
+
+05:37.300 --> 05:39.020
+ when it's in the hands of a billion people?
+
+05:39.020 --> 05:39.900
+ That's right.
+
+05:39.900 --> 05:44.900
+ So an example would be that the market is so competitive now
+
+05:44.940 --> 05:46.940
+ that if you can't figure out a way
+
+05:46.940 --> 05:50.780
+ for something to have a million users or a billion users,
+
+05:50.780 --> 05:53.100
+ it probably is not going to be successful
+
+05:53.100 --> 05:56.820
+ because something else will become the general platform
+
+05:56.820 --> 06:01.060
+ and your idea will become a lost idea
+
+06:01.060 --> 06:04.260
+ or a specialized service with relatively few users.
+
+06:04.260 --> 06:05.900
+ So it's a path to generality.
+
+06:05.900 --> 06:07.660
+ It's a path to general platform use.
+
+06:07.660 --> 06:10.060
+ It's a path to broad applicability.
+
+06:10.060 --> 06:12.660
+ Now there are plenty of good businesses that are tiny.
+
+06:12.660 --> 06:14.900
+ So luxury goods, for example.
+
+06:14.900 --> 06:18.500
+ But if you want to have an impact at scale,
+
+06:18.500 --> 06:21.340
+ you have to look for things which are of common value,
+
+06:21.340 --> 06:23.300
+ common pricing, common distribution
+
+06:23.300 --> 06:24.740
+ and solve common problems.
+
+06:24.740 --> 06:26.140
+ They're problems that everyone has.
+
+06:26.140 --> 06:28.100
+ And by the way, people have lots of problems.
+
+06:28.100 --> 06:31.140
+ Information, medicine, health, education and so forth.
+
+06:31.140 --> 06:32.940
+ Work on those problems.
+
+06:32.940 --> 06:36.780
+ Like you said, you're a big fan of the middle class.
+
+06:36.780 --> 06:37.820
+ Because there's so many of them.
+
+06:37.820 --> 06:38.740
+ There's so many of them.
+
+06:38.740 --> 06:40.140
+ By definition.
+
+06:40.140 --> 06:44.380
+ So any product, any thing that has a huge impact
+
+06:44.380 --> 06:47.460
+ and improves their lives is a great business decision
+
+06:47.460 --> 06:48.860
+ and it's just good for society.
+
+06:48.860 --> 06:52.340
+ And there's nothing wrong with starting off in the high end
+
+06:52.340 --> 06:55.420
+ as long as you have a plan to get to the middle class.
+
+06:55.420 --> 06:57.580
+ There's nothing wrong with starting with a specialized
+
+06:57.580 --> 07:01.020
+ market in order to learn and to build and to fund things.
+
+07:01.020 --> 07:02.540
+ So you start with a luxury market
+
+07:02.540 --> 07:04.460
+ to build a general purpose market.
+
+07:04.460 --> 07:07.500
+ But if you define yourself as only a narrow market,
+
+07:07.500 --> 07:10.940
+ someone else can come along with a general purpose market
+
+07:10.940 --> 07:12.340
+ that can push you to the corner,
+
+07:12.340 --> 07:14.260
+ can restrict the scale of operation,
+
+07:14.260 --> 07:17.820
+ can force you to be a lesser impact than you might be.
+
+07:17.820 --> 07:21.020
+ So it's very important to think in terms of broad businesses
+
+07:21.020 --> 07:22.340
+ and broad impact.
+
+07:22.340 --> 07:24.980
+ Even if you start in a little corner somewhere.
+
+07:26.260 --> 07:30.980
+ So as you look to the 70s but also in the decades to come
+
+07:30.980 --> 07:34.860
+ and you saw computers, did you see them as tools
+
+07:34.860 --> 07:39.860
+ or was there a little element of another entity?
+
+07:40.260 --> 07:44.660
+ I remember a quote saying AI began with our dream
+
+07:44.660 --> 07:46.140
+ to create the gods.
+
+07:46.140 --> 07:48.620
+ Is there a feeling when you wrote that program
+
+07:48.620 --> 07:51.300
+ that you were creating another entity,
+
+07:51.300 --> 07:52.820
+ giving life to something?
+
+07:52.820 --> 07:54.660
+ I wish I could say otherwise,
+
+07:54.660 --> 07:58.740
+ but I simply found the technology platforms so exciting.
+
+07:58.740 --> 08:00.460
+ That's what I was focused on.
+
+08:00.460 --> 08:03.380
+ I think the majority of the people that I've worked with,
+
+08:03.380 --> 08:06.700
+ and there are a few exceptions, Steve Jobs being an example,
+
+08:06.700 --> 08:09.980
+ really saw this as a great technological play.
+
+08:09.980 --> 08:13.700
+ I think relatively few of the technical people understood
+
+08:13.700 --> 08:15.380
+ the scale of its impact.
+
+08:15.380 --> 08:19.620
+ So I used NCP, which is a predecessor to TCPIP.
+
+08:19.620 --> 08:21.180
+ It just made sense to connect things.
+
+08:21.180 --> 08:23.780
+ We didn't think of it in terms of the internet
+
+08:23.780 --> 08:27.020
+ and then companies and then Facebook and then Twitter
+
+08:27.020 --> 08:29.180
+ and then politics and so forth.
+
+08:29.180 --> 08:30.740
+ We never did that build.
+
+08:30.740 --> 08:32.860
+ We didn't have that vision.
+
+08:32.860 --> 08:35.300
+ And I think most people, it's a rare person
+
+08:35.300 --> 08:38.020
+ who can see compounding at scale.
+
+08:38.020 --> 08:39.060
+ Most people can see,
+
+08:39.060 --> 08:40.580
+ if you ask people to predict the future,
+
+08:40.580 --> 08:43.060
+ they'll give you an answer of six to nine months
+
+08:43.060 --> 08:44.500
+ or 12 months,
+
+08:44.500 --> 08:47.500
+ because that's about as far as people can imagine.
+
+08:47.500 --> 08:48.700
+ But there's an old saying,
+
+08:48.700 --> 08:50.860
+ which actually was attributed to a professor at MIT
+
+08:50.860 --> 08:52.060
+ a long time ago,
+
+08:52.060 --> 08:56.380
+ that we overestimate what can be done in one year
+
+08:56.380 --> 09:00.100
+ and we underestimate what can be done in a decade.
+
+09:00.100 --> 09:02.460
+ And there's a great deal of evidence
+
+09:02.460 --> 09:05.580
+ that these core platforms at hardware and software
+
+09:05.580 --> 09:07.740
+ take a decade, right?
+
+09:07.740 --> 09:09.420
+ So think about self driving cars.
+
+09:09.420 --> 09:12.100
+ Self driving cars were thought about in the 90s.
+
+09:12.100 --> 09:13.340
+ There were projects around them.
+
+09:13.340 --> 09:17.100
+ The first DARPA Grand Challenge was roughly 2004.
+
+09:17.100 --> 09:19.700
+ So that's roughly 15 years ago.
+
+09:19.700 --> 09:22.060
+ And today we have self driving cars operating
+
+09:22.060 --> 09:23.940
+ in a city in Arizona, right?
+
+09:23.940 --> 09:26.620
+ It's 15 years and we still have a ways to go
+
+09:26.620 --> 09:28.620
+ before they're more generally available.
+
+09:31.620 --> 09:33.780
+ So you've spoken about the importance,
+
+09:33.780 --> 09:37.100
+ you just talked about predicting into the future.
+
+09:37.100 --> 09:39.940
+ You've spoken about the importance of thinking
+
+09:39.940 --> 09:42.860
+ five years ahead and having a plan for those five years.
+
+09:42.860 --> 09:45.980
+ The way to say it is that almost everybody
+
+09:45.980 --> 09:47.500
+ has a one year plan.
+
+09:47.500 --> 09:50.940
+ Almost no one has a proper five year plan.
+
+09:50.940 --> 09:52.780
+ And the key thing to having a five year plan
+
+09:52.780 --> 09:55.260
+ is to having a model for what's going to happen
+
+09:55.260 --> 09:56.900
+ under the underlying platforms.
+
+09:56.900 --> 09:58.180
+ So here's an example.
+
+09:59.980 --> 10:01.140
+ Moore's Law as we know it,
+
+10:01.140 --> 10:04.260
+ the thing that powered improvements in CPUs
+
+10:04.260 --> 10:07.580
+ has largely halted in its traditional shrinking mechanism
+
+10:07.580 --> 10:10.340
+ because the costs have just gotten so high.
+
+10:10.340 --> 10:12.160
+ It's getting harder and harder.
+
+10:12.160 --> 10:14.580
+ But there's plenty of algorithmic improvements
+
+10:14.580 --> 10:16.580
+ and specialized hardware improvements.
+
+10:16.580 --> 10:19.660
+ So you need to understand the nature of those improvements
+
+10:19.660 --> 10:21.940
+ and where they'll go in order to understand
+
+10:21.940 --> 10:24.300
+ how it will change the platform.
+
+10:24.300 --> 10:26.060
+ In the area of network connectivity,
+
+10:26.060 --> 10:29.400
+ what are the gains that are gonna be possible in wireless?
+
+10:29.400 --> 10:33.380
+ It looks like there's an enormous expansion
+
+10:33.380 --> 10:36.900
+ of wireless connectivity at many different bands.
+
+10:36.900 --> 10:38.660
+ And that we will primarily,
+
+10:38.660 --> 10:39.860
+ historically I've always thought
+
+10:39.860 --> 10:42.080
+ that we were primarily gonna be using fiber,
+
+10:42.080 --> 10:43.940
+ but now it looks like we're gonna be using fiber
+
+10:43.940 --> 10:46.580
+ plus very powerful high bandwidth
+
+10:47.380 --> 10:49.320
+ sort of short distance connectivity
+
+10:49.320 --> 10:51.460
+ to bridge the last mile.
+
+10:51.460 --> 10:53.060
+ That's an amazing achievement.
+
+10:53.060 --> 10:54.440
+ If you know that,
+
+10:54.440 --> 10:56.900
+ then you're gonna build your systems differently.
+
+10:56.900 --> 10:57.780
+ By the way, those networks
+
+10:57.780 --> 10:59.640
+ have different latency properties, right?
+
+10:59.640 --> 11:01.620
+ Because they're more symmetric,
+
+11:01.620 --> 11:03.880
+ the algorithms feel faster for that reason.
+
+11:04.980 --> 11:07.860
+ And so when you think about whether it's a fiber
+
+11:07.860 --> 11:09.860
+ or just technologies in general,
+
+11:09.860 --> 11:14.180
+ so there's this barber wooden poem or quote
+
+11:14.180 --> 11:15.860
+ that I really like.
+
+11:15.860 --> 11:18.240
+ It's from the champions of the impossible
+
+11:18.240 --> 11:20.340
+ rather than the slaves of the possible
+
+11:20.340 --> 11:23.220
+ that evolution draws its creative force.
+
+11:23.220 --> 11:25.980
+ So in predicting the next five years,
+
+11:25.980 --> 11:29.220
+ I'd like to talk about the impossible and the possible.
+
+11:29.220 --> 11:32.280
+ Well, and again, one of the great things about humanity
+
+11:32.280 --> 11:34.720
+ is that we produce dreamers, right?
+
+11:34.720 --> 11:37.780
+ We literally have people who have a vision and a dream.
+
+11:37.780 --> 11:40.100
+ They are, if you will, disagreeable
+
+11:40.100 --> 11:42.740
+ in the sense that they disagree with the,
+
+11:42.740 --> 11:45.780
+ they disagree with what the sort of zeitgeist is.
+
+11:45.780 --> 11:48.020
+ They say there is another way.
+
+11:48.020 --> 11:50.280
+ They have a belief, they have a vision.
+
+11:50.280 --> 11:54.060
+ If you look at science, science is always marked
+
+11:54.060 --> 11:58.380
+ by such people who went against some conventional wisdom,
+
+11:58.380 --> 12:00.220
+ collected the knowledge at the time
+
+12:00.220 --> 12:03.660
+ and assembled it in a way that produced a powerful platform.
+
+12:03.660 --> 12:08.300
+ And you've been amazingly honest about,
+
+12:08.300 --> 12:11.260
+ in an inspiring way, about things you've been wrong
+
+12:11.260 --> 12:13.860
+ about predicting and you've obviously been right
+
+12:13.860 --> 12:18.860
+ about a lot of things, but in this kind of tension,
+
+12:18.860 --> 12:21.260
+ how do you balance, as a company,
+
+12:21.260 --> 12:23.580
+ in predicting the next five years,
+
+12:23.580 --> 12:26.300
+ the impossible, planning for the impossible,
+
+12:26.300 --> 12:30.380
+ so listening to those crazy dreamers, letting them do,
+
+12:30.380 --> 12:34.140
+ letting them run away and make the impossible real,
+
+12:34.140 --> 12:36.940
+ make it happen, and slow, you know,
+
+12:36.940 --> 12:38.740
+ that's how programmers often think,
+
+12:38.740 --> 12:41.560
+ and slowing things down and saying,
+
+12:41.560 --> 12:44.600
+ well, this is the rational, this is the possible,
+
+12:44.600 --> 12:48.380
+ the pragmatic, the dreamer versus the pragmatist,
+
+12:48.380 --> 12:51.380
+ so it's helpful to have a model
+
+12:51.380 --> 12:56.020
+ which encourages a predictable revenue stream
+
+12:56.020 --> 12:58.660
+ as well as the ability to do new things.
+
+12:58.660 --> 13:00.540
+ So in Google's case, we're big enough
+
+13:00.540 --> 13:02.340
+ and well enough managed and so forth
+
+13:02.340 --> 13:05.200
+ that we have a pretty good sense of what our revenue will be
+
+13:05.200 --> 13:07.900
+ for the next year or two, at least for a while.
+
+13:07.900 --> 13:11.540
+ And so we have enough cash generation
+
+13:11.540 --> 13:14.700
+ that we can make bets, and indeed,
+
+13:14.700 --> 13:16.780
+ Google has become alphabet,
+
+13:16.780 --> 13:19.500
+ so the corporation is organized around these bets,
+
+13:19.500 --> 13:22.740
+ and these bets are in areas of fundamental importance
+
+13:22.740 --> 13:26.720
+ to the world, whether it's artificial intelligence,
+
+13:26.720 --> 13:29.700
+ medical technology, self driving cars,
+
+13:29.700 --> 13:33.300
+ connectivity through balloons, on and on and on.
+
+13:33.300 --> 13:35.980
+ And there's more coming and more coming.
+
+13:35.980 --> 13:38.020
+ So one way you could express this
+
+13:38.020 --> 13:41.500
+ is that the current business is successful enough
+
+13:41.500 --> 13:43.700
+ that we have the luxury of making bets.
+
+13:44.580 --> 13:45.940
+ And another one that you could say
+
+13:45.940 --> 13:49.140
+ is that we have the wisdom of being able to see
+
+13:49.140 --> 13:51.580
+ that a corporate structure needs to be created
+
+13:51.580 --> 13:55.260
+ to enhance the likelihood of the success of those bets.
+
+13:55.260 --> 13:58.860
+ So we essentially turned ourselves into a conglomerate
+
+13:58.860 --> 14:02.100
+ of bets and then this underlying corporation, Google,
+
+14:02.100 --> 14:04.280
+ which is itself innovative.
+
+14:04.280 --> 14:05.900
+ So in order to pull this off,
+
+14:05.900 --> 14:08.060
+ you have to have a bunch of belief systems,
+
+14:08.060 --> 14:09.580
+ and one of them is that you have to have
+
+14:09.580 --> 14:11.460
+ bottoms up and tops down.
+
+14:11.460 --> 14:13.580
+ The bottoms up we call 20% time,
+
+14:13.580 --> 14:15.780
+ and the idea is that people can spend 20% of the time
+
+14:15.780 --> 14:17.740
+ whatever they want, and the top down
+
+14:17.740 --> 14:19.700
+ is that our founders in particular
+
+14:19.700 --> 14:21.740
+ have a keen eye on technology
+
+14:21.740 --> 14:23.880
+ and they're reviewing things constantly.
+
+14:23.880 --> 14:26.540
+ So an example would be they'll hear about an idea
+
+14:26.540 --> 14:28.700
+ or I'll hear about something and it sounds interesting,
+
+14:28.700 --> 14:30.380
+ let's go visit them.
+
+14:30.380 --> 14:33.060
+ And then let's begin to assemble the pieces
+
+14:33.060 --> 14:34.780
+ to see if that's possible.
+
+14:34.780 --> 14:35.980
+ And if you do this long enough,
+
+14:35.980 --> 14:39.780
+ you get pretty good at predicting what's likely to work.
+
+14:39.780 --> 14:42.020
+ So that's a beautiful balance that struck.
+
+14:42.020 --> 14:44.420
+ Is this something that applies at all scale?
+
+14:44.420 --> 14:49.420
+ It seems to be that Sergey, again, 15 years ago,
+
+14:53.060 --> 14:56.840
+ came up with a concept called 10% of the budget
+
+14:56.840 --> 14:58.980
+ should be on things that are unrelated.
+
+14:58.980 --> 15:00.860
+ It was called 70, 20, 10.
+
+15:00.860 --> 15:03.540
+ 70% of our time on core business,
+
+15:03.540 --> 15:06.780
+ 20% on adjacent business, and 10% on other.
+
+15:06.780 --> 15:08.700
+ And he proved mathematically,
+
+15:08.700 --> 15:10.580
+ of course he's a brilliant mathematician,
+
+15:10.580 --> 15:13.860
+ that you needed that 10% to make the sum
+
+15:13.860 --> 15:14.700
+ of the growth work.
+
+15:14.700 --> 15:16.140
+ And it turns out he was right.
+
+15:18.620 --> 15:20.940
+ So getting into the world of artificial intelligence,
+
+15:20.940 --> 15:25.380
+ you've talked quite extensively and effectively
+
+15:25.380 --> 15:28.780
+ to the impact in the near term,
+
+15:28.780 --> 15:32.020
+ the positive impact of artificial intelligence,
+
+15:32.020 --> 15:34.140
+ whether it's especially machine learning
+
+15:34.140 --> 15:38.580
+ in medical applications and education,
+
+15:38.580 --> 15:41.600
+ and just making information more accessible, right?
+
+15:41.600 --> 15:45.860
+ In the AI community, there is a kind of debate.
+
+15:45.860 --> 15:47.700
+ There's this shroud of uncertainty
+
+15:47.700 --> 15:49.020
+ as we face this new world
+
+15:49.020 --> 15:50.460
+ with artificial intelligence in it.
+
+15:50.460 --> 15:54.260
+ And there's some people, like Elon Musk,
+
+15:54.260 --> 15:57.660
+ you've disagreed, at least on the degree of emphasis
+
+15:57.660 --> 16:00.700
+ he places on the existential threat of AI.
+
+16:00.700 --> 16:02.540
+ So I've spoken with Stuart Russell,
+
+16:02.540 --> 16:05.340
+ Max Tegmark, who share Elon Musk's view,
+
+16:05.340 --> 16:09.180
+ and Yoshua Bengio, Steven Pinker, who do not.
+
+16:09.180 --> 16:11.860
+ And so there's a lot of very smart people
+
+16:11.860 --> 16:14.620
+ who are thinking about this stuff, disagreeing,
+
+16:14.620 --> 16:17.180
+ which is really healthy, of course.
+
+16:17.180 --> 16:19.100
+ So what do you think is the healthiest way
+
+16:19.100 --> 16:22.020
+ for the AI community to,
+
+16:22.020 --> 16:23.860
+ and really for the general public,
+
+16:23.860 --> 16:26.780
+ to think about AI and the concern
+
+16:27.700 --> 16:32.700
+ of the technology being mismanaged in some kind of way?
+
+16:32.920 --> 16:35.060
+ So the source of education for the general public
+
+16:35.060 --> 16:37.380
+ has been robot killer movies.
+
+16:37.380 --> 16:38.220
+ Right.
+
+16:38.220 --> 16:40.860
+ And Terminator, et cetera.
+
+16:40.860 --> 16:44.500
+ And the one thing I can assure you we're not building
+
+16:44.500 --> 16:46.620
+ are those kinds of solutions.
+
+16:46.620 --> 16:48.420
+ Furthermore, if they were to show up,
+
+16:48.420 --> 16:51.140
+ someone would notice and unplug them, right?
+
+16:51.140 --> 16:53.140
+ So as exciting as those movies are,
+
+16:53.140 --> 16:54.700
+ and they're great movies,
+
+16:54.700 --> 16:57.500
+ were the killer robots to start,
+
+16:57.500 --> 17:00.500
+ we would find a way to stop them, right?
+
+17:00.500 --> 17:02.860
+ So I'm not concerned about that.
+
+17:04.060 --> 17:05.980
+ And much of this has to do
+
+17:05.980 --> 17:08.540
+ with the timeframe of conversation.
+
+17:08.540 --> 17:13.300
+ So you can imagine a situation 100 years from now
+
+17:13.300 --> 17:15.920
+ when the human brain is fully understood
+
+17:15.920 --> 17:18.140
+ and the next generation and next generation
+
+17:18.140 --> 17:20.940
+ of brilliant MIT scientists have figured all this out,
+
+17:20.940 --> 17:25.140
+ we're gonna have a large number of ethics questions, right?
+
+17:25.140 --> 17:28.060
+ Around science and thinking and robots and computers
+
+17:28.060 --> 17:29.700
+ and so forth and so on.
+
+17:29.700 --> 17:32.260
+ So it depends on the question of the timeframe.
+
+17:32.260 --> 17:34.780
+ In the next five to 10 years,
+
+17:34.780 --> 17:37.220
+ we're not facing those questions.
+
+17:37.220 --> 17:39.100
+ What we're facing in the next five to 10 years
+
+17:39.100 --> 17:42.140
+ is how do we spread this disruptive technology
+
+17:42.140 --> 17:46.500
+ as broadly as possible to gain the maximum benefit of it?
+
+17:46.500 --> 17:48.980
+ The primary benefits should be in healthcare
+
+17:48.980 --> 17:50.860
+ and in education.
+
+17:50.860 --> 17:52.320
+ Healthcare because it's obvious.
+
+17:52.320 --> 17:55.780
+ We're all the same even though we somehow believe we're not.
+
+17:55.780 --> 17:57.340
+ As a medical matter,
+
+17:57.340 --> 17:59.180
+ the fact that we have big data about our health
+
+17:59.180 --> 18:02.700
+ will save lives, allow us to deal with skin cancer
+
+18:02.700 --> 18:05.500
+ and other cancers, ophthalmological problems.
+
+18:05.500 --> 18:08.420
+ There's people working on psychological diseases
+
+18:08.420 --> 18:10.260
+ and so forth using these techniques.
+
+18:10.260 --> 18:11.700
+ I can go on and on.
+
+18:11.700 --> 18:15.840
+ The promise of AI in medicine is extraordinary.
+
+18:15.840 --> 18:17.980
+ There are many, many companies and startups
+
+18:17.980 --> 18:19.480
+ and funds and solutions
+
+18:19.480 --> 18:22.140
+ and we will all live much better for that.
+
+18:22.140 --> 18:25.580
+ The same argument in education.
+
+18:25.580 --> 18:28.540
+ Can you imagine that for each generation of child
+
+18:28.540 --> 18:33.020
+ and even adult, you have a tutor educator that's AI based,
+
+18:33.020 --> 18:35.900
+ that's not a human but is properly trained,
+
+18:35.900 --> 18:37.140
+ that helps you get smarter,
+
+18:37.140 --> 18:39.280
+ helps you address your language difficulties
+
+18:39.280 --> 18:41.340
+ or your math difficulties or what have you.
+
+18:41.340 --> 18:43.300
+ Why don't we focus on those two?
+
+18:43.300 --> 18:47.300
+ The gains societally of making humans smarter and healthier
+
+18:47.300 --> 18:51.460
+ are enormous and those translate for decades and decades
+
+18:51.460 --> 18:53.020
+ and we'll all benefit from them.
+
+18:53.900 --> 18:56.300
+ There are people who are working on AI safety,
+
+18:56.300 --> 18:58.060
+ which is the issue that you're describing
+
+18:58.060 --> 19:00.660
+ and there are conversations in the community
+
+19:00.660 --> 19:02.500
+ that should there be such problems,
+
+19:02.500 --> 19:04.380
+ what should the rules be like?
+
+19:04.380 --> 19:07.540
+ Google, for example, has announced its policies
+
+19:07.540 --> 19:10.140
+ with respect to AI safety, which I certainly support
+
+19:10.140 --> 19:12.300
+ and I think most everybody would support
+
+19:12.300 --> 19:14.140
+ and they make sense, right?
+
+19:14.140 --> 19:16.300
+ So it helps guide the research
+
+19:16.300 --> 19:19.540
+ but the killer robots are not arriving this year
+
+19:19.540 --> 19:21.180
+ and they're not even being built.
+
+19:22.540 --> 19:26.720
+ And on that line of thinking, you said the time scale.
+
+19:26.720 --> 19:30.440
+ In this topic or other topics,
+
+19:30.440 --> 19:34.560
+ have you found it useful on the business side
+
+19:34.560 --> 19:37.480
+ or the intellectual side to think beyond five, 10 years,
+
+19:37.480 --> 19:39.360
+ to think 50 years out?
+
+19:39.360 --> 19:41.960
+ Has it ever been useful or productive?
+
+19:41.960 --> 19:45.160
+ In our industry, there are essentially no examples
+
+19:45.160 --> 19:47.460
+ of 50 year predictions that have been correct.
+
+19:48.840 --> 19:50.400
+ Let's review AI, right?
+
+19:50.400 --> 19:53.060
+ AI, which was largely invented here at MIT
+
+19:53.060 --> 19:56.440
+ and a couple of other universities in the 1956, 1957,
+
+19:56.440 --> 20:01.320
+ 1958, the original claims were a decade or two.
+
+20:01.320 --> 20:05.180
+ And when I was a PhD student, I studied AI a bit
+
+20:05.180 --> 20:07.680
+ and it entered during my looking at it,
+
+20:07.680 --> 20:10.360
+ a period which is known as AI winter,
+
+20:10.360 --> 20:12.760
+ which went on for about 30 years,
+
+20:12.760 --> 20:14.720
+ which is a whole generation of science,
+
+20:14.720 --> 20:16.640
+ scientists and a whole group of people
+
+20:16.640 --> 20:18.400
+ who didn't make a lot of progress
+
+20:18.400 --> 20:20.160
+ because the algorithms had not improved
+
+20:20.160 --> 20:22.060
+ and the computers had not approved.
+
+20:22.060 --> 20:23.840
+ It took some brilliant mathematicians
+
+20:23.840 --> 20:25.360
+ starting with a fellow named Jeff Hinton
+
+20:25.360 --> 20:29.460
+ at Toronto and Montreal who basically invented
+
+20:29.460 --> 20:33.020
+ this deep learning model which empowers us today.
+
+20:33.020 --> 20:36.060
+ The seminal work there was 20 years ago
+
+20:36.060 --> 20:39.960
+ and in the last 10 years, it's become popularized.
+
+20:39.960 --> 20:43.840
+ So think about the timeframes for that level of discovery.
+
+20:43.840 --> 20:45.880
+ It's very hard to predict.
+
+20:45.880 --> 20:47.700
+ Many people think that we'll be flying around
+
+20:47.700 --> 20:51.160
+ in the equivalent of flying cars, who knows?
+
+20:51.160 --> 20:54.440
+ My own view, if I wanna go out on a limb,
+
+20:54.440 --> 20:56.840
+ is to say that we know a couple of things
+
+20:56.840 --> 20:57.960
+ about 50 years from now.
+
+20:57.960 --> 21:00.440
+ We know that there'll be more people alive.
+
+21:00.440 --> 21:02.160
+ We know that we'll have to have platforms
+
+21:02.160 --> 21:05.680
+ that are more sustainable because the earth is limited
+
+21:05.680 --> 21:09.160
+ in the ways we all know and that the kind of platforms
+
+21:09.160 --> 21:11.360
+ that are gonna get built will be consistent
+
+21:11.360 --> 21:13.000
+ with the principles that I've described.
+
+21:13.000 --> 21:15.720
+ They will be much more empowering of individuals.
+
+21:15.720 --> 21:17.720
+ They'll be much more sensitive to the ecology
+
+21:17.720 --> 21:20.520
+ because they have to be, they just have to be.
+
+21:20.520 --> 21:23.760
+ I also think that humans are gonna be a great deal smarter
+
+21:23.760 --> 21:25.040
+ and I think they're gonna be a lot smarter
+
+21:25.040 --> 21:27.720
+ because of the tools that I've discussed with you
+
+21:27.720 --> 21:29.160
+ and of course, people will live longer.
+
+21:29.160 --> 21:32.160
+ Life extension is continuing apace.
+
+21:32.160 --> 21:34.600
+ A baby born today has a reasonable chance
+
+21:34.600 --> 21:37.080
+ of living to 100, which is pretty exciting.
+
+21:37.080 --> 21:38.580
+ It's well past the 21st century,
+
+21:38.580 --> 21:40.600
+ so we better take care of them.
+
+21:40.600 --> 21:42.600
+ And you mentioned an interesting statistic
+
+21:42.600 --> 21:46.080
+ on some very large percentage, 60, 70% of people
+
+21:46.080 --> 21:48.160
+ may live in cities.
+
+21:48.160 --> 21:50.460
+ Today, more than half the world lives in cities
+
+21:50.460 --> 21:53.720
+ and one of the great stories of humanity
+
+21:53.720 --> 21:57.440
+ in the last 20 years has been the rural to urban migration.
+
+21:57.440 --> 21:59.200
+ This has occurred in the United States,
+
+21:59.200 --> 22:02.760
+ it's occurred in Europe, it's occurring in Asia
+
+22:02.760 --> 22:04.660
+ and it's occurring in Africa.
+
+22:04.660 --> 22:07.760
+ When people move to cities, the cities get more crowded,
+
+22:07.760 --> 22:10.480
+ but believe it or not, their health gets better,
+
+22:10.480 --> 22:12.280
+ their productivity gets better,
+
+22:12.280 --> 22:15.440
+ their IQ and educational capabilities improve.
+
+22:15.440 --> 22:18.500
+ So it's good news that people are moving to cities,
+
+22:18.500 --> 22:20.820
+ but we have to make them livable and safe.
+
+22:20.820 --> 22:25.820
+ So you, first of all, you are,
+
+22:25.860 --> 22:28.300
+ but you've also worked with some of the greatest leaders
+
+22:28.300 --> 22:29.940
+ in the history of tech.
+
+22:29.940 --> 22:32.940
+ What insights do you draw from the difference
+
+22:32.940 --> 22:35.660
+ in leadership styles of yourself,
+
+22:35.660 --> 22:39.140
+ Steve Jobs, Elon Musk, Larry Page,
+
+22:39.140 --> 22:42.740
+ now the new CEO, Sandra Pichai and others?
+
+22:42.740 --> 22:47.740
+ From the, I would say, calm sages to the mad geniuses.
+
+22:47.740 --> 22:50.660
+ One of the things that I learned as a young executive
+
+22:50.660 --> 22:53.300
+ is that there's no single formula for leadership.
+
+22:54.500 --> 22:58.380
+ They try to teach one, but that's not how it really works.
+
+22:58.380 --> 23:01.020
+ There are people who just understand what they need to do
+
+23:01.020 --> 23:02.540
+ and they need to do it quickly.
+
+23:02.540 --> 23:05.060
+ Those people are often entrepreneurs.
+
+23:05.060 --> 23:07.340
+ They just know and they move fast.
+
+23:07.340 --> 23:09.100
+ There are other people who are systems thinkers
+
+23:09.100 --> 23:11.420
+ and planners, that's more who I am,
+
+23:11.420 --> 23:15.060
+ somewhat more conservative, more thorough in execution,
+
+23:15.060 --> 23:16.740
+ a little bit more risk of risk.
+
+23:16.740 --> 23:18.620
+ A little bit more risk averse.
+
+23:18.620 --> 23:22.140
+ There's also people who are sort of slightly insane,
+
+23:22.140 --> 23:26.060
+ in the sense that they are emphatic and charismatic
+
+23:26.060 --> 23:28.900
+ and they feel it and they drive it and so forth.
+
+23:28.900 --> 23:31.340
+ There's no single formula to success.
+
+23:31.340 --> 23:33.620
+ There is one thing that unifies all of the people
+
+23:33.620 --> 23:36.900
+ that you named, which is very high intelligence.
+
+23:36.900 --> 23:40.180
+ At the end of the day, the thing that characterizes
+
+23:40.180 --> 23:43.620
+ all of them is that they saw the world quicker, faster,
+
+23:43.620 --> 23:45.700
+ they processed information faster.
+
+23:45.700 --> 23:47.300
+ They didn't necessarily make the right decisions
+
+23:47.300 --> 23:49.940
+ all the time, but they were on top of it.
+
+23:49.940 --> 23:51.180
+ And the other thing that's interesting
+
+23:51.180 --> 23:54.140
+ about all those people is they all started young.
+
+23:54.140 --> 23:56.940
+ So think about Steve Jobs starting Apple
+
+23:56.940 --> 23:58.380
+ roughly at 18 or 19.
+
+23:58.380 --> 24:01.620
+ Think about Bill Gates starting at roughly 20, 21.
+
+24:01.620 --> 24:03.700
+ Think about by the time they were 30,
+
+24:03.700 --> 24:06.900
+ Mark Zuckerberg, a good example, at 19, 20.
+
+24:06.900 --> 24:10.620
+ By the time they were 30, they had 10 years.
+
+24:10.620 --> 24:13.700
+ At 30 years old, they had 10 years of experience
+
+24:13.700 --> 24:16.940
+ of dealing with people and products and shipments
+
+24:16.940 --> 24:19.740
+ and the press and business and so forth.
+
+24:19.740 --> 24:22.740
+ It's incredible how much experience they had
+
+24:22.740 --> 24:25.220
+ compared to the rest of us who were busy getting our PhDs.
+
+24:25.220 --> 24:26.060
+ Yes, exactly.
+
+24:26.060 --> 24:28.460
+ So we should celebrate these people
+
+24:28.460 --> 24:32.180
+ because they've just had more life experience, right?
+
+24:32.180 --> 24:34.340
+ And that helps inform the judgment.
+
+24:34.340 --> 24:38.220
+ At the end of the day, when you're at the top
+
+24:38.220 --> 24:41.380
+ of these organizations, all the easy questions
+
+24:41.380 --> 24:43.500
+ have been dealt with, right?
+
+24:43.500 --> 24:45.620
+ How should we design the buildings?
+
+24:45.620 --> 24:48.180
+ Where should we put the colors on our product?
+
+24:48.180 --> 24:51.300
+ What should the box look like, right?
+
+24:51.300 --> 24:53.340
+ The problems, that's why it's so interesting
+
+24:53.340 --> 24:56.420
+ to be in these rooms, the problems that they face, right,
+
+24:56.420 --> 24:58.340
+ in terms of the way they operate,
+
+24:58.340 --> 25:00.060
+ the way they deal with their employees,
+
+25:00.060 --> 25:01.860
+ their customers, their innovation,
+
+25:01.860 --> 25:03.900
+ are profoundly challenging.
+
+25:03.900 --> 25:08.900
+ Each of the companies is demonstrably different culturally.
+
+25:09.340 --> 25:11.700
+ They are not, in fact, cut of the same.
+
+25:11.700 --> 25:14.180
+ They behave differently based on input.
+
+25:14.180 --> 25:15.820
+ Their internal cultures are different.
+
+25:15.820 --> 25:17.460
+ Their compensation schemes are different.
+
+25:17.460 --> 25:19.340
+ Their values are different.
+
+25:19.340 --> 25:21.940
+ So there's proof that diversity works.
+
+25:24.700 --> 25:28.620
+ So, so when faced with a tough decision,
+
+25:29.780 --> 25:33.500
+ in need of advice, it's been said that the best thing
+
+25:33.500 --> 25:36.740
+ one can do is to find the best person in the world
+
+25:36.740 --> 25:40.780
+ who can give that advice and find a way to be
+
+25:40.780 --> 25:43.620
+ in a room with them, one on one and ask.
+
+25:44.740 --> 25:48.060
+ So here we are, and let me ask in a long winded way,
+
+25:48.060 --> 25:49.140
+ I wrote this down.
+
+25:50.740 --> 25:53.420
+ In 1998, there were many good search engines,
+
+25:53.420 --> 25:58.300
+ Lycos, Excite, AltaVista, Infoseek, Ask Jeeves maybe,
+
+25:59.260 --> 26:00.300
+ Yahoo even.
+
+26:01.860 --> 26:04.660
+ So Google stepped in and disrupted everything.
+
+26:04.660 --> 26:06.580
+ They disrupted the nature of search,
+
+26:06.580 --> 26:08.860
+ the nature of our access to information,
+
+26:08.860 --> 26:10.660
+ the way we discover new knowledge.
+
+26:11.900 --> 26:16.020
+ So now it's 2018, actually 20 years later.
+
+26:16.020 --> 26:18.740
+ There are many good personal AI assistants,
+
+26:18.740 --> 26:21.020
+ including, of course, the best from Google.
+
+26:22.260 --> 26:25.540
+ So you've spoken in medical and education,
+
+26:25.540 --> 26:28.620
+ the impact of such an AI assistant could bring.
+
+26:28.620 --> 26:30.340
+ So we arrive at this question.
+
+26:30.340 --> 26:32.180
+ So it's a personal one for me,
+
+26:32.180 --> 26:36.300
+ but I hope my situation represents that of many other,
+
+26:36.300 --> 26:40.580
+ as we said, dreamers and the crazy engineers.
+
+26:40.580 --> 26:43.900
+ So my whole life, I've dreamed of creating
+
+26:43.900 --> 26:45.860
+ such an AI assistant.
+
+26:45.860 --> 26:48.420
+ Every step I've taken has been towards that goal.
+
+26:48.420 --> 26:51.060
+ Now I'm a research scientist in human centered AI
+
+26:51.060 --> 26:52.300
+ here at MIT.
+
+26:52.300 --> 26:54.860
+ So the next step for me as I sit here,
+
+26:54.860 --> 26:59.860
+ so facing my passion is to do what Larry and Sergey did
+
+26:59.860 --> 27:04.180
+ in 98, this simple startup.
+
+27:04.180 --> 27:06.820
+ And so here's my simple question.
+
+27:06.820 --> 27:10.620
+ Given the low odds of success, the timing and luck required,
+
+27:10.620 --> 27:12.700
+ the countless other factors that can't be controlled
+
+27:12.700 --> 27:14.660
+ or predicted, which is all the things
+
+27:14.660 --> 27:16.460
+ that Larry and Sergey faced,
+
+27:16.460 --> 27:19.180
+ is there some calculation, some strategy
+
+27:20.140 --> 27:21.580
+ to follow in this step?
+
+27:21.580 --> 27:23.700
+ Or do you simply follow the passion
+
+27:23.700 --> 27:25.540
+ just because there's no other choice?
+
+27:26.580 --> 27:29.660
+ I think the people who are in universities
+
+27:29.660 --> 27:31.860
+ are always trying to study
+
+27:31.860 --> 27:35.180
+ the extraordinarily chaotic nature of innovation
+
+27:35.180 --> 27:37.260
+ and entrepreneurship.
+
+27:37.260 --> 27:41.180
+ My answer is that they didn't have that conversation.
+
+27:41.180 --> 27:42.820
+ They just did it.
+
+27:42.820 --> 27:47.220
+ They sensed a moment when in the case of Google,
+
+27:47.220 --> 27:49.700
+ there was all of this data that needed to be organized
+
+27:49.700 --> 27:51.300
+ and they had a better algorithm.
+
+27:51.300 --> 27:53.780
+ They had invented a better way.
+
+27:53.780 --> 27:56.300
+ So today with human centered AI,
+
+27:56.300 --> 27:58.060
+ which is your area of research,
+
+27:58.060 --> 28:00.860
+ there must be new approaches.
+
+28:00.860 --> 28:02.460
+ It's such a big field.
+
+28:02.460 --> 28:04.900
+ There must be new approaches,
+
+28:04.900 --> 28:07.220
+ different from what we and others are doing.
+
+28:07.220 --> 28:09.540
+ There must be startups to fund.
+
+28:09.540 --> 28:11.940
+ There must be research projects to try.
+
+28:11.940 --> 28:15.020
+ There must be graduate students to work on new approaches.
+
+28:15.020 --> 28:18.180
+ Here at MIT, there are people who are looking at learning
+
+28:18.180 --> 28:20.580
+ from the standpoint of looking at child learning.
+
+28:20.580 --> 28:23.500
+ How do children learn starting at age one and two?
+
+28:23.500 --> 28:25.340
+ And the work is fantastic.
+
+28:25.340 --> 28:28.180
+ Those approaches are different from the approach
+
+28:28.180 --> 28:29.780
+ that most people are taking.
+
+28:29.780 --> 28:31.940
+ Perhaps that's a bet that you should make
+
+28:31.940 --> 28:33.820
+ or perhaps there's another one.
+
+28:33.820 --> 28:35.860
+ But at the end of the day,
+
+28:35.860 --> 28:40.100
+ the successful entrepreneurs are not as crazy as they sound.
+
+28:40.100 --> 28:43.100
+ They see an opportunity based on what's happened.
+
+28:43.100 --> 28:45.300
+ Let's use Uber as an example.
+
+28:45.300 --> 28:46.740
+ As Travis sells the story,
+
+28:46.740 --> 28:48.940
+ he and his co founder were sitting in Paris
+
+28:48.940 --> 28:52.060
+ and they had this idea because they couldn't get a cab.
+
+28:52.060 --> 28:56.660
+ And they said, we have smartphones and the rest is history.
+
+28:56.660 --> 29:00.980
+ So what's the equivalent of that Travis Eiffel Tower,
+
+29:00.980 --> 29:03.980
+ where is a cab moment that you could,
+
+29:03.980 --> 29:05.940
+ as an entrepreneur, take advantage of?
+
+29:05.940 --> 29:08.500
+ Whether it's in human centered AI or something else.
+
+29:08.500 --> 29:10.100
+ That's the next great startup.
+
+29:11.260 --> 29:13.660
+ And the psychology of that moment.
+
+29:13.660 --> 29:16.140
+ So when Sergey and Larry talk about,
+
+29:17.540 --> 29:20.180
+ and listen to a few interviews, it's very nonchalant.
+
+29:20.180 --> 29:23.780
+ Well, here's the very fascinating web data
+
+29:23.780 --> 29:27.700
+ and here's an algorithm we have for,
+
+29:27.700 --> 29:29.420
+ we just kind of want to play around with that data.
+
+29:29.420 --> 29:31.020
+ And it seems like that's a really nice way
+
+29:31.020 --> 29:32.300
+ to organize this data.
+
+29:34.180 --> 29:35.580
+ I should say what happened to remember
+
+29:35.580 --> 29:38.100
+ is that they were graduate students at Stanford
+
+29:38.100 --> 29:39.300
+ and they thought this was interesting.
+
+29:39.300 --> 29:40.540
+ So they built a search engine
+
+29:40.540 --> 29:42.140
+ and they kept it in their room.
+
+29:43.020 --> 29:46.300
+ And they had to get power from the room next door
+
+29:46.300 --> 29:48.020
+ because they were using too much power in the room.
+
+29:48.020 --> 29:51.460
+ So they ran an extension cord over, right?
+
+29:51.460 --> 29:53.500
+ And then they went and they found a house
+
+29:53.500 --> 29:56.500
+ and they had Google world headquarters of five people,
+
+29:56.500 --> 29:57.540
+ right, to start the company.
+
+29:57.540 --> 30:00.460
+ And they raised $100,000 from Andy Bechtolsheim,
+
+30:00.460 --> 30:02.220
+ who was the Sun founder to do this
+
+30:02.220 --> 30:04.460
+ and Dave Cheriton and a few others.
+
+30:04.460 --> 30:08.220
+ The point is their beginnings were very simple
+
+30:08.220 --> 30:10.460
+ but they were based on a powerful insight.
+
+30:11.700 --> 30:14.860
+ That is a replicable model for any startup.
+
+30:14.860 --> 30:16.500
+ It has to be a powerful insight.
+
+30:16.500 --> 30:17.620
+ The beginnings are simple.
+
+30:17.620 --> 30:19.860
+ And there has to be an innovation.
+
+30:19.860 --> 30:22.820
+ In Larry and Sergey's case, it was PageRank,
+
+30:22.820 --> 30:23.980
+ which was a brilliant idea,
+
+30:23.980 --> 30:26.700
+ one of the most cited papers in the world today.
+
+30:26.700 --> 30:27.820
+ What's the next one?
+
+30:29.740 --> 30:33.500
+ So you're one of, if I may say,
+
+30:33.500 --> 30:35.020
+ richest people in the world.
+
+30:36.180 --> 30:38.700
+ And yet it seems that money is simply a side effect
+
+30:38.700 --> 30:41.940
+ of your passions and not an inherent goal.
+
+30:42.980 --> 30:47.980
+ But you're a fascinating person to ask.
+
+30:48.220 --> 30:51.540
+ So much of our society at the individual level
+
+30:51.540 --> 30:55.020
+ and at the company level and as nations
+
+30:55.020 --> 30:57.380
+ is driven by the desire for wealth.
+
+30:58.660 --> 31:01.100
+ What do you think about this drive?
+
+31:01.100 --> 31:03.140
+ And what have you learned about,
+
+31:03.140 --> 31:05.020
+ if I may romanticize the notion,
+
+31:05.020 --> 31:06.860
+ the meaning of life,
+
+31:06.860 --> 31:10.420
+ having achieved success on so many dimensions?
+
+31:10.420 --> 31:13.580
+ There have been many studies of human happiness
+
+31:13.580 --> 31:16.340
+ and above some threshold,
+
+31:16.340 --> 31:19.500
+ which is typically relatively low for this conversation,
+
+31:19.500 --> 31:23.580
+ there's no difference in happiness about money.
+
+31:23.580 --> 31:27.060
+ The happiness is correlated with meaning and purpose,
+
+31:27.060 --> 31:30.020
+ a sense of family, a sense of impact.
+
+31:30.020 --> 31:31.900
+ So if you organize your life,
+
+31:31.900 --> 31:33.620
+ assuming you have enough to get around
+
+31:33.620 --> 31:35.860
+ and have a nice home and so forth,
+
+31:35.860 --> 31:38.300
+ you'll be far happier if you figure out
+
+31:38.300 --> 31:41.660
+ what you care about and work on that.
+
+31:41.660 --> 31:44.580
+ It's often being in service to others.
+
+31:44.580 --> 31:46.860
+ There's a great deal of evidence that people are happiest
+
+31:46.860 --> 31:49.540
+ when they're serving others and not themselves.
+
+31:49.540 --> 31:52.540
+ This goes directly against the sort of
+
+31:52.540 --> 31:56.100
+ press induced excitement about
+
+31:56.100 --> 31:59.220
+ powerful and wealthy leaders of one kind.
+
+31:59.220 --> 32:01.700
+ And indeed these are consequential people.
+
+32:01.700 --> 32:03.860
+ But if you are in a situation
+
+32:03.860 --> 32:06.100
+ where you've been very fortunate as I have,
+
+32:06.100 --> 32:09.020
+ you also have to take that as a responsibility
+
+32:09.020 --> 32:12.180
+ and you have to basically work both to educate others
+
+32:12.180 --> 32:13.580
+ and give them that opportunity,
+
+32:13.580 --> 32:16.700
+ but also use that wealth to advance human society.
+
+32:16.700 --> 32:18.540
+ In my case, I'm particularly interested in
+
+32:18.540 --> 32:20.580
+ using the tools of artificial intelligence
+
+32:20.580 --> 32:22.860
+ and machine learning to make society better.
+
+32:22.860 --> 32:26.020
+ I've mentioned education, I've mentioned inequality
+
+32:26.020 --> 32:28.060
+ and middle class and things like this,
+
+32:28.060 --> 32:30.100
+ all of which are a passion of mine.
+
+32:30.100 --> 32:31.860
+ It doesn't matter what you do,
+
+32:31.860 --> 32:33.700
+ it matters that you believe in it,
+
+32:33.700 --> 32:35.380
+ that it's important to you,
+
+32:35.380 --> 32:38.100
+ and that your life will be far more satisfying
+
+32:38.100 --> 32:40.540
+ if you spend your life doing that.
+
+32:40.540 --> 32:43.460
+ I think there's no better place to end
+
+32:43.460 --> 32:45.220
+ than a discussion of the meaning of life.
+
+32:45.220 --> 32:46.900
+ Eric, thank you so much.
+

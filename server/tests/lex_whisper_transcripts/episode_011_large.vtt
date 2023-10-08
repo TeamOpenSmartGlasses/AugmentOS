@@ -1,0 +1,4169 @@
+WEBVTT
+
+00:00.000 --> 00:03.520
+ The following is a conversation with Jürgen Schmidhuber.
+
+00:03.520 --> 00:06.320
+ He's the co director of the CS Swiss AI Lab
+
+00:06.320 --> 00:10.360
+ and a co creator of long short term memory networks.
+
+00:10.360 --> 00:13.720
+ LSDMs are used in billions of devices today
+
+00:13.720 --> 00:17.400
+ for speech recognition, translation, and much more.
+
+00:17.400 --> 00:20.800
+ Over 30 years, he has proposed a lot of interesting
+
+00:20.800 --> 00:24.800
+ out of the box ideas on meta learning, adversarial networks,
+
+00:24.800 --> 00:28.720
+ computer vision, and even a formal theory of quote,
+
+00:28.720 --> 00:32.360
+ creativity, curiosity, and fun.
+
+00:32.360 --> 00:34.920
+ This conversation is part of the MIT course
+
+00:34.920 --> 00:36.560
+ on artificial general intelligence
+
+00:36.560 --> 00:38.840
+ and the artificial intelligence podcast.
+
+00:38.840 --> 00:41.960
+ If you enjoy it, subscribe on YouTube, iTunes,
+
+00:41.960 --> 00:43.960
+ or simply connect with me on Twitter
+
+00:43.960 --> 00:47.280
+ at Lex Friedman spelled F R I D.
+
+00:47.280 --> 00:51.520
+ And now here's my conversation with Jürgen Schmidhuber.
+
+00:53.080 --> 00:55.640
+ Early on you dreamed of AI systems
+
+00:55.640 --> 00:58.680
+ that self improve recursively.
+
+00:58.680 --> 01:00.440
+ When was that dream born?
+
+01:01.800 --> 01:03.160
+ When I was a baby.
+
+01:03.160 --> 01:04.240
+ No, that's not true.
+
+01:04.240 --> 01:05.480
+ When I was a teenager.
+
+01:06.520 --> 01:09.680
+ And what was the catalyst for that birth?
+
+01:09.680 --> 01:11.880
+ What was the thing that first inspired you?
+
+01:12.920 --> 01:17.920
+ When I was a boy, I was thinking about what to do in my life
+
+01:20.200 --> 01:23.880
+ and then I thought the most exciting thing
+
+01:23.880 --> 01:28.200
+ is to solve the riddles of the universe.
+
+01:28.200 --> 01:30.920
+ And that means you have to become a physicist.
+
+01:30.920 --> 01:35.840
+ However, then I realized that there's something even grander.
+
+01:35.840 --> 01:39.880
+ You can try to build a machine
+
+01:39.880 --> 01:42.120
+ that isn't really a machine any longer
+
+01:42.120 --> 01:44.520
+ that learns to become a much better physicist
+
+01:44.520 --> 01:47.080
+ than I could ever hope to be.
+
+01:47.080 --> 01:50.320
+ And that's how I thought maybe I can multiply
+
+01:50.320 --> 01:54.520
+ my tiny little bit of creativity into infinity.
+
+01:54.520 --> 01:57.280
+ But ultimately that creativity will be multiplied
+
+01:57.280 --> 01:59.280
+ to understand the universe around us.
+
+01:59.280 --> 02:04.280
+ That's the curiosity for that mystery that drove you.
+
+02:05.800 --> 02:08.440
+ Yes, so if you can build a machine
+
+02:08.440 --> 02:13.440
+ that learns to solve more and more complex problems
+
+02:13.880 --> 02:16.880
+ and more and more general problem solver
+
+02:16.880 --> 02:21.880
+ then you basically have solved all the problems,
+
+02:22.680 --> 02:26.080
+ at least all the solvable problems.
+
+02:26.080 --> 02:28.120
+ So how do you think, what is the mechanism
+
+02:28.120 --> 02:31.640
+ for that kind of general solver look like?
+
+02:31.640 --> 02:34.840
+ Obviously we don't quite yet have one
+
+02:34.840 --> 02:37.040
+ or know how to build one but we have ideas
+
+02:37.040 --> 02:39.120
+ and you have had throughout your career
+
+02:39.120 --> 02:40.800
+ several ideas about it.
+
+02:40.800 --> 02:43.640
+ So how do you think about that mechanism?
+
+02:43.640 --> 02:48.640
+ So in the 80s, I thought about how to build this machine
+
+02:48.640 --> 02:51.040
+ that learns to solve all these problems
+
+02:51.040 --> 02:54.120
+ that I cannot solve myself.
+
+02:54.120 --> 02:57.160
+ And I thought it is clear it has to be a machine
+
+02:57.160 --> 03:00.880
+ that not only learns to solve this problem here
+
+03:00.880 --> 03:04.160
+ and this problem here but it also has to learn
+
+03:04.160 --> 03:08.080
+ to improve the learning algorithm itself.
+
+03:09.360 --> 03:12.480
+ So it has to have the learning algorithm
+
+03:12.480 --> 03:15.720
+ in a representation that allows it to inspect it
+
+03:15.720 --> 03:19.240
+ and modify it such that it can come up
+
+03:19.240 --> 03:21.080
+ with a better learning algorithm.
+
+03:21.080 --> 03:24.600
+ So I call that meta learning, learning to learn
+
+03:24.600 --> 03:26.760
+ and recursive self improvement
+
+03:26.760 --> 03:28.760
+ that is really the pinnacle of that
+
+03:28.760 --> 03:33.760
+ where you then not only learn how to improve
+
+03:34.800 --> 03:36.440
+ on that problem and on that
+
+03:36.440 --> 03:40.000
+ but you also improve the way the machine improves
+
+03:40.000 --> 03:42.160
+ and you also improve the way it improves
+
+03:42.160 --> 03:43.560
+ the way it improves itself.
+
+03:44.600 --> 03:47.440
+ And that was my 1987 diploma thesis
+
+03:47.440 --> 03:50.920
+ which was all about that higher education
+
+03:50.920 --> 03:55.920
+ hierarchy of meta learners that have no computational limits
+
+03:57.240 --> 04:01.640
+ except for the well known limits that Gödel identified
+
+04:01.640 --> 04:05.660
+ in 1931 and for the limits of physics.
+
+04:06.480 --> 04:10.040
+ In the recent years, meta learning has gained popularity
+
+04:10.040 --> 04:12.760
+ in a specific kind of form.
+
+04:12.760 --> 04:16.000
+ You've talked about how that's not really meta learning
+
+04:16.000 --> 04:21.000
+ with neural networks, that's more basic transfer learning.
+
+04:21.480 --> 04:22.720
+ Can you talk about the difference
+
+04:22.720 --> 04:25.460
+ between the big general meta learning
+
+04:25.460 --> 04:27.960
+ and a more narrow sense of meta learning
+
+04:27.960 --> 04:30.880
+ the way it's used today, the way it's talked about today?
+
+04:30.880 --> 04:33.440
+ Let's take the example of a deep neural network
+
+04:33.440 --> 04:37.240
+ that has learned to classify images
+
+04:37.240 --> 04:40.060
+ and maybe you have trained that network
+
+04:40.060 --> 04:43.840
+ on 100 different databases of images.
+
+04:43.840 --> 04:48.080
+ And now a new database comes along
+
+04:48.080 --> 04:51.960
+ and you want to quickly learn the new thing as well.
+
+04:53.400 --> 04:57.720
+ So one simple way of doing that is you take the network
+
+04:57.720 --> 05:02.440
+ which already knows 100 types of databases
+
+05:02.440 --> 05:06.320
+ and then you just take the top layer of that
+
+05:06.320 --> 05:11.320
+ and you retrain that using the new label data
+
+05:11.320 --> 05:14.760
+ that you have in the new image database.
+
+05:14.760 --> 05:17.360
+ And then it turns out that it really, really quickly
+
+05:17.360 --> 05:20.600
+ can learn that too, one shot basically
+
+05:20.600 --> 05:24.320
+ because from the first 100 data sets,
+
+05:24.320 --> 05:27.560
+ it already has learned so much about computer vision
+
+05:27.560 --> 05:31.880
+ that it can reuse that and that is then almost good enough
+
+05:31.880 --> 05:34.240
+ to solve the new task except you need a little bit
+
+05:34.240 --> 05:37.080
+ of adjustment on the top.
+
+05:38.400 --> 05:41.280
+ So that is transfer learning.
+
+05:41.280 --> 05:44.520
+ And it has been done in principle for many decades.
+
+05:44.520 --> 05:46.720
+ People have done similar things for decades.
+
+05:48.520 --> 05:51.080
+ Meta learning too, meta learning is about
+
+05:51.080 --> 05:55.760
+ having the learning algorithm itself
+
+05:55.760 --> 06:00.400
+ open to introspection by the system that is using it
+
+06:01.560 --> 06:06.320
+ and also open to modification such that the learning system
+
+06:06.320 --> 06:09.680
+ has an opportunity to modify
+
+06:09.680 --> 06:12.040
+ any part of the learning algorithm
+
+06:12.040 --> 06:16.840
+ and then evaluate the consequences of that modification
+
+06:16.840 --> 06:21.000
+ and then learn from that to create
+
+06:21.000 --> 06:24.800
+ a better learning algorithm and so on recursively.
+
+06:25.680 --> 06:28.480
+ So that's a very different animal
+
+06:28.480 --> 06:32.440
+ where you are opening the space of possible learning
+
+06:32.440 --> 06:35.480
+ algorithms to the learning system itself.
+
+06:35.480 --> 06:40.160
+ Right, so you've, like in the 2004 paper, you described
+
+06:40.160 --> 06:44.480
+ gator machines, programs that rewrite themselves, right?
+
+06:44.480 --> 06:47.480
+ Philosophically and even in your paper, mathematically,
+
+06:47.480 --> 06:52.280
+ these are really compelling ideas but practically,
+
+06:52.280 --> 06:55.280
+ do you see these self referential programs
+
+06:55.280 --> 06:59.360
+ being successful in the near term to having an impact
+
+06:59.360 --> 07:02.960
+ where sort of it demonstrates to the world
+
+07:02.960 --> 07:07.400
+ that this direction is a good one to pursue
+
+07:07.400 --> 07:08.640
+ in the near term?
+
+07:08.640 --> 07:11.320
+ Yes, we had these two different types
+
+07:11.320 --> 07:13.440
+ of fundamental research,
+
+07:13.440 --> 07:15.800
+ how to build a universal problem solver,
+
+07:15.800 --> 07:20.320
+ one basically exploiting proof search
+
+07:22.960 --> 07:25.520
+ and things like that that you need to come up with
+
+07:25.520 --> 07:30.280
+ asymptotically optimal, theoretically optimal
+
+07:30.280 --> 07:33.200
+ self improvers and problem solvers.
+
+07:34.160 --> 07:39.160
+ However, one has to admit that through this proof search
+
+07:40.640 --> 07:44.480
+ comes in an additive constant, an overhead,
+
+07:44.480 --> 07:49.480
+ an additive overhead that vanishes in comparison
+
+07:50.760 --> 07:55.160
+ to what you have to do to solve large problems.
+
+07:55.160 --> 07:58.000
+ However, for many of the small problems
+
+07:58.000 --> 08:00.880
+ that we want to solve in our everyday life,
+
+08:00.880 --> 08:03.280
+ we cannot ignore this constant overhead
+
+08:03.280 --> 08:08.120
+ and that's why we also have been doing other things,
+
+08:08.120 --> 08:12.160
+ non universal things such as recurrent neural networks
+
+08:12.160 --> 08:15.400
+ which are trained by gradient descent
+
+08:15.400 --> 08:18.680
+ and local search techniques which aren't universal at all,
+
+08:18.680 --> 08:21.280
+ which aren't provably optimal at all,
+
+08:21.280 --> 08:22.840
+ like the other stuff that we did,
+
+08:22.840 --> 08:25.400
+ but which are much more practical
+
+08:25.400 --> 08:28.760
+ as long as we only want to solve the small problems
+
+08:28.760 --> 08:33.320
+ that we are typically trying to solve
+
+08:33.320 --> 08:35.600
+ in this environment here.
+
+08:35.600 --> 08:38.920
+ So the universal problem solvers like the Gödel machine,
+
+08:38.920 --> 08:42.080
+ but also Markus Hutter's fastest way
+
+08:42.080 --> 08:44.360
+ of solving all possible problems,
+
+08:44.360 --> 08:48.080
+ which he developed around 2002 in my lab,
+
+08:49.040 --> 08:52.520
+ they are associated with these constant overheads
+
+08:52.520 --> 08:55.160
+ for proof search, which guarantees that the thing
+
+08:55.160 --> 08:56.560
+ that you're doing is optimal.
+
+08:57.480 --> 09:01.160
+ For example, there is this fastest way
+
+09:01.160 --> 09:05.280
+ of solving all problems with a computable solution,
+
+09:05.280 --> 09:07.280
+ which is due to Markus, Markus Hutter,
+
+09:08.320 --> 09:12.240
+ and to explain what's going on there,
+
+09:12.240 --> 09:14.320
+ let's take traveling salesman problems.
+
+09:15.720 --> 09:17.360
+ With traveling salesman problems,
+
+09:17.360 --> 09:21.320
+ you have a number of cities and cities
+
+09:21.320 --> 09:23.680
+ and you try to find the shortest path
+
+09:23.680 --> 09:27.800
+ through all these cities without visiting any city twice.
+
+09:29.440 --> 09:32.240
+ And nobody knows the fastest way
+
+09:32.240 --> 09:36.520
+ of solving traveling salesman problems, TSPs,
+
+09:38.720 --> 09:41.720
+ but let's assume there is a method of solving them
+
+09:41.720 --> 09:45.840
+ within N to the five operations
+
+09:45.840 --> 09:48.520
+ where N is the number of cities.
+
+09:48.520 --> 09:53.000
+ Then the universal method of Markus
+
+09:53.000 --> 09:57.000
+ is going to solve the same traveling salesman problem
+
+09:57.000 --> 10:00.480
+ also within N to the five steps,
+
+10:00.480 --> 10:04.760
+ plus O of one, plus a constant number of steps
+
+10:04.760 --> 10:07.600
+ that you need for the proof searcher,
+
+10:07.600 --> 10:12.600
+ which you need to show that this particular class
+
+10:12.600 --> 10:15.680
+ of problems, the traveling salesman problems,
+
+10:15.680 --> 10:17.760
+ can be solved within a certain time frame,
+
+10:17.760 --> 10:19.560
+ solved within a certain time bound,
+
+10:20.680 --> 10:24.560
+ within order N to the five steps, basically,
+
+10:24.560 --> 10:28.720
+ and this additive constant doesn't care for N,
+
+10:28.720 --> 10:32.600
+ which means as N is getting larger and larger,
+
+10:32.600 --> 10:35.080
+ as you have more and more cities,
+
+10:35.080 --> 10:38.800
+ the constant overhead pales in comparison,
+
+10:38.800 --> 10:43.800
+ and that means that almost all large problems are solved
+
+10:44.400 --> 10:45.880
+ in the best possible way.
+
+10:45.880 --> 10:50.520
+ Today, we already have a universal problem solver like that.
+
+10:50.520 --> 10:54.560
+ However, it's not practical because the overhead,
+
+10:54.560 --> 10:57.480
+ the constant overhead is so large
+
+10:57.480 --> 11:00.240
+ that for the small kinds of problems
+
+11:00.240 --> 11:04.600
+ that we want to solve in this little biosphere.
+
+11:04.600 --> 11:06.400
+ By the way, when you say small,
+
+11:06.400 --> 11:08.640
+ you're talking about things that fall
+
+11:08.640 --> 11:10.880
+ within the constraints of our computational systems.
+
+11:10.880 --> 11:14.440
+ So they can seem quite large to us mere humans, right?
+
+11:14.440 --> 11:15.360
+ That's right, yeah.
+
+11:15.360 --> 11:19.000
+ So they seem large and even unsolvable
+
+11:19.000 --> 11:21.040
+ in a practical sense today,
+
+11:21.040 --> 11:24.760
+ but they are still small compared to almost all problems
+
+11:24.760 --> 11:28.480
+ because almost all problems are large problems,
+
+11:28.480 --> 11:30.880
+ which are much larger than any constant.
+
+11:31.920 --> 11:34.520
+ Do you find it useful as a person
+
+11:34.520 --> 11:38.600
+ who has dreamed of creating a general learning system,
+
+11:38.600 --> 11:39.840
+ has worked on creating one,
+
+11:39.840 --> 11:42.120
+ has done a lot of interesting ideas there,
+
+11:42.120 --> 11:46.320
+ to think about P versus NP,
+
+11:46.320 --> 11:50.760
+ this formalization of how hard problems are,
+
+11:50.760 --> 11:52.360
+ how they scale,
+
+11:52.360 --> 11:55.160
+ this kind of worst case analysis type of thinking,
+
+11:55.160 --> 11:56.800
+ do you find that useful?
+
+11:56.800 --> 11:59.680
+ Or is it only just a mathematical,
+
+12:00.520 --> 12:02.600
+ it's a set of mathematical techniques
+
+12:02.600 --> 12:05.720
+ to give you intuition about what's good and bad.
+
+12:05.720 --> 12:09.440
+ So P versus NP, that's super interesting
+
+12:09.440 --> 12:11.760
+ from a theoretical point of view.
+
+12:11.760 --> 12:14.560
+ And in fact, as you are thinking about that problem,
+
+12:14.560 --> 12:17.280
+ you can also get inspiration
+
+12:17.280 --> 12:21.280
+ for better practical problem solvers.
+
+12:21.280 --> 12:23.320
+ On the other hand, we have to admit
+
+12:23.320 --> 12:28.320
+ that at the moment, the best practical problem solvers
+
+12:28.360 --> 12:31.080
+ for all kinds of problems that we are now solving
+
+12:31.080 --> 12:33.840
+ through what is called AI at the moment,
+
+12:33.840 --> 12:36.240
+ they are not of the kind
+
+12:36.240 --> 12:38.760
+ that is inspired by these questions.
+
+12:38.760 --> 12:42.680
+ There we are using general purpose computers
+
+12:42.680 --> 12:44.800
+ such as recurrent neural networks,
+
+12:44.800 --> 12:46.680
+ but we have a search technique
+
+12:46.680 --> 12:50.280
+ which is just local search gradient descent
+
+12:50.280 --> 12:51.920
+ to try to find a program
+
+12:51.920 --> 12:54.400
+ that is running on these recurrent networks,
+
+12:54.400 --> 12:58.200
+ such that it can solve some interesting problems
+
+12:58.200 --> 13:01.880
+ such as speech recognition or machine translation
+
+13:01.880 --> 13:03.120
+ and something like that.
+
+13:03.120 --> 13:08.120
+ And there is very little theory behind the best solutions
+
+13:08.120 --> 13:10.840
+ that we have at the moment that can do that.
+
+13:10.840 --> 13:12.680
+ Do you think that needs to change?
+
+13:12.680 --> 13:14.080
+ Do you think that will change?
+
+13:14.080 --> 13:17.160
+ Or can we go, can we create a general intelligent systems
+
+13:17.160 --> 13:20.640
+ without ever really proving that that system is intelligent
+
+13:20.640 --> 13:22.600
+ in some kind of mathematical way,
+
+13:22.600 --> 13:25.000
+ solving machine translation perfectly
+
+13:25.000 --> 13:26.320
+ or something like that,
+
+13:26.320 --> 13:29.200
+ within some kind of syntactic definition of a language,
+
+13:29.200 --> 13:31.160
+ or can we just be super impressed
+
+13:31.160 --> 13:35.120
+ by the thing working extremely well and that's sufficient?
+
+13:35.120 --> 13:36.760
+ There's an old saying,
+
+13:36.760 --> 13:39.360
+ and I don't know who brought it up first,
+
+13:39.360 --> 13:42.480
+ which says, there's nothing more practical
+
+13:42.480 --> 13:43.720
+ than a good theory.
+
+13:43.720 --> 13:48.720
+ And a good theory of problem solving
+
+13:52.800 --> 13:54.360
+ under limited resources,
+
+13:54.360 --> 13:57.080
+ like here in this universe or on this little planet,
+
+13:58.480 --> 14:01.800
+ has to take into account these limited resources.
+
+14:01.800 --> 14:06.800
+ And so probably there is locking a theory,
+
+14:08.040 --> 14:10.760
+ which is related to what we already have,
+
+14:10.760 --> 14:14.400
+ these asymptotically optimal problem solvers,
+
+14:14.400 --> 14:18.520
+ which tells us what we need in addition to that
+
+14:18.520 --> 14:21.720
+ to come up with a practically optimal problem solver.
+
+14:22.640 --> 14:27.040
+ So I believe we will have something like that.
+
+14:27.040 --> 14:30.520
+ And maybe just a few little tiny twists are necessary
+
+14:30.520 --> 14:34.280
+ to change what we already have,
+
+14:34.280 --> 14:36.320
+ to come up with that as well.
+
+14:36.320 --> 14:37.720
+ As long as we don't have that,
+
+14:37.720 --> 14:42.560
+ we admit that we are taking suboptimal ways
+
+14:42.560 --> 14:45.960
+ and recurrent neural networks and long short term memory
+
+14:45.960 --> 14:50.400
+ for equipped with local search techniques.
+
+14:50.400 --> 14:53.520
+ And we are happy that it works better
+
+14:53.520 --> 14:55.480
+ than any competing methods,
+
+14:55.480 --> 15:00.480
+ but that doesn't mean that we think we are done.
+
+15:00.800 --> 15:02.720
+ You've said that an AGI system
+
+15:02.720 --> 15:05.040
+ will ultimately be a simple one.
+
+15:05.040 --> 15:06.200
+ A general intelligence system
+
+15:06.200 --> 15:08.000
+ will ultimately be a simple one.
+
+15:08.000 --> 15:10.240
+ Maybe a pseudocode of a few lines
+
+15:10.240 --> 15:11.840
+ will be able to describe it.
+
+15:11.840 --> 15:16.760
+ Can you talk through your intuition behind this idea,
+
+15:16.760 --> 15:21.480
+ why you feel that at its core,
+
+15:21.480 --> 15:25.560
+ intelligence is a simple algorithm?
+
+15:26.920 --> 15:31.680
+ Experience tells us that the stuff that works best
+
+15:31.680 --> 15:33.120
+ is really simple.
+
+15:33.120 --> 15:37.680
+ So the asymptotically optimal ways of solving problems,
+
+15:37.680 --> 15:38.800
+ if you look at them,
+
+15:38.800 --> 15:41.840
+ they're just a few lines of code, it's really true.
+
+15:41.840 --> 15:44.000
+ Although they are these amazing properties,
+
+15:44.000 --> 15:45.800
+ just a few lines of code.
+
+15:45.800 --> 15:50.800
+ Then the most promising and most useful practical things,
+
+15:53.760 --> 15:56.360
+ maybe don't have this proof of optimality
+
+15:56.360 --> 15:57.800
+ associated with them.
+
+15:57.800 --> 16:00.880
+ However, they are also just a few lines of code.
+
+16:00.880 --> 16:05.080
+ The most successful recurrent neural networks,
+
+16:05.080 --> 16:08.320
+ you can write them down in five lines of pseudocode.
+
+16:08.320 --> 16:10.920
+ That's a beautiful, almost poetic idea,
+
+16:10.920 --> 16:15.640
+ but what you're describing there
+
+16:15.640 --> 16:18.200
+ is the lines of pseudocode are sitting on top
+
+16:18.200 --> 16:22.280
+ of layers and layers of abstractions in a sense.
+
+16:22.280 --> 16:25.040
+ So you're saying at the very top,
+
+16:25.040 --> 16:29.040
+ it'll be a beautifully written sort of algorithm.
+
+16:31.120 --> 16:33.960
+ But do you think that there's many layers of abstractions
+
+16:33.960 --> 16:36.880
+ we have to first learn to construct?
+
+16:36.880 --> 16:40.400
+ Yeah, of course, we are building on all these
+
+16:40.400 --> 16:45.080
+ great abstractions that people have invented over the millennia,
+
+16:45.080 --> 16:50.080
+ such as matrix multiplications and real numbers
+
+16:50.520 --> 16:55.520
+ and basic arithmetics and calculus
+
+16:56.440 --> 17:00.240
+ and derivations of error functions
+
+17:00.240 --> 17:03.240
+ and derivatives of error functions and stuff like that.
+
+17:04.400 --> 17:09.400
+ So without that language that greatly simplifies
+
+17:09.400 --> 17:13.840
+ our way of thinking about these problems,
+
+17:13.840 --> 17:14.760
+ we couldn't do anything.
+
+17:14.760 --> 17:16.520
+ So in that sense, as always,
+
+17:16.520 --> 17:19.520
+ we are standing on the shoulders of the giants
+
+17:19.520 --> 17:24.200
+ who in the past simplified the problem
+
+17:24.200 --> 17:26.320
+ of problem solving so much
+
+17:26.320 --> 17:29.960
+ that now we have a chance to do the final step.
+
+17:29.960 --> 17:32.080
+ So the final step will be a simple one.
+
+17:33.960 --> 17:36.680
+ If we take a step back through all of human civilization
+
+17:36.680 --> 17:40.000
+ and just the universe in general,
+
+17:40.000 --> 17:41.400
+ how do you think about evolution
+
+17:41.400 --> 17:44.480
+ and what if creating a universe
+
+17:44.480 --> 17:47.240
+ is required to achieve this final step?
+
+17:47.240 --> 17:50.880
+ What if going through the very painful
+
+17:50.880 --> 17:53.800
+ and inefficient process of evolution is needed
+
+17:53.800 --> 17:55.800
+ to come up with this set of abstractions
+
+17:55.800 --> 17:57.720
+ that ultimately lead to intelligence?
+
+17:57.720 --> 18:00.720
+ Do you think there's a shortcut
+
+18:00.720 --> 18:04.560
+ or do you think we have to create something like our universe
+
+18:04.560 --> 18:07.680
+ in order to create something like human level intelligence?
+
+18:09.400 --> 18:13.080
+ So far, the only example we have is this one,
+
+18:13.080 --> 18:14.880
+ this universe in which we are living.
+
+18:14.880 --> 18:16.240
+ Do you think we can do better?
+
+18:20.800 --> 18:24.960
+ Maybe not, but we are part of this whole process.
+
+18:24.960 --> 18:29.920
+ So apparently, so it might be the case
+
+18:29.920 --> 18:32.080
+ that the code that runs the universe
+
+18:32.080 --> 18:33.600
+ is really, really simple.
+
+18:33.600 --> 18:35.760
+ Everything points to that possibility
+
+18:35.760 --> 18:39.080
+ because gravity and other basic forces
+
+18:39.080 --> 18:43.280
+ are really simple laws that can be easily described
+
+18:43.280 --> 18:46.240
+ also in just a few lines of code basically.
+
+18:46.240 --> 18:51.240
+ And then there are these other events
+
+18:51.360 --> 18:54.280
+ that the apparently random events
+
+18:54.280 --> 18:55.760
+ in the history of the universe,
+
+18:55.760 --> 18:58.000
+ which as far as we know at the moment
+
+18:58.000 --> 19:00.600
+ don't have a compact code, but who knows?
+
+19:00.600 --> 19:02.440
+ Maybe somebody in the near future
+
+19:02.440 --> 19:06.240
+ is going to figure out the pseudo random generator
+
+19:06.240 --> 19:11.240
+ which is computing whether the measurement
+
+19:11.800 --> 19:15.320
+ of that spin up or down thing here
+
+19:15.320 --> 19:17.840
+ is going to be positive or negative.
+
+19:17.840 --> 19:19.280
+ Underlying quantum mechanics.
+
+19:19.280 --> 19:20.120
+ Yes.
+
+19:20.120 --> 19:22.600
+ Do you ultimately think quantum mechanics
+
+19:22.600 --> 19:24.640
+ is a pseudo random number generator?
+
+19:24.640 --> 19:26.320
+ So it's all deterministic.
+
+19:26.320 --> 19:28.200
+ There's no randomness in our universe.
+
+19:28.200 --> 19:31.120
+ Does God play dice?
+
+19:31.120 --> 19:34.680
+ So a couple of years ago, a famous physicist,
+
+19:34.680 --> 19:37.680
+ quantum physicist, Anton Zeilinger,
+
+19:37.680 --> 19:40.080
+ he wrote an essay in nature
+
+19:40.080 --> 19:42.880
+ and it started more or less like that.
+
+19:45.360 --> 19:50.360
+ One of the fundamental insights of the 20th century
+
+19:50.360 --> 19:57.360
+ was that the universe is fundamentally random
+
+19:57.360 --> 19:58.360
+ on the quantum level.
+
+20:00.040 --> 20:04.040
+ And that whenever you measure spin up or down
+
+20:04.040 --> 20:05.440
+ or something like that,
+
+20:05.440 --> 20:09.440
+ a new bit of information enters the history of the universe.
+
+20:12.040 --> 20:13.200
+ And while I was reading that,
+
+20:13.200 --> 20:16.560
+ I was already typing the response
+
+20:16.560 --> 20:17.880
+ and they had to publish it.
+
+20:17.880 --> 20:21.640
+ Because I was right, that there is no evidence,
+
+20:21.640 --> 20:25.040
+ no physical evidence for that.
+
+20:25.040 --> 20:27.720
+ So there's an alternative explanation
+
+20:27.720 --> 20:30.680
+ where everything that we consider random
+
+20:30.680 --> 20:33.040
+ is actually pseudo random,
+
+20:33.040 --> 20:35.960
+ such as the decimal expansion of pi,
+
+20:35.960 --> 20:40.960
+ 3.141 and so on, which looks random, but isn't.
+
+20:41.680 --> 20:45.400
+ So pi is interesting because every three digits
+
+20:45.400 --> 20:50.400
+ sequence, every sequence of three digits
+
+20:50.400 --> 20:53.400
+ appears roughly one in a thousand times.
+
+20:53.400 --> 20:57.400
+ And every five digit sequence
+
+20:57.400 --> 21:01.080
+ appears roughly one in 10,000 times,
+
+21:01.080 --> 21:04.400
+ what you would expect if it was random.
+
+21:04.400 --> 21:06.680
+ But there's a very short algorithm,
+
+21:06.680 --> 21:09.120
+ a short program that computes all of that.
+
+21:09.120 --> 21:11.320
+ So it's extremely compressible.
+
+21:11.320 --> 21:12.640
+ And who knows, maybe tomorrow,
+
+21:12.640 --> 21:15.640
+ somebody, some grad student at CERN goes back
+
+21:15.640 --> 21:20.120
+ over all these data points, better decay and whatever,
+
+21:20.120 --> 21:24.760
+ and figures out, oh, it's the second billion digits of pi
+
+21:24.760 --> 21:26.040
+ or something like that.
+
+21:26.040 --> 21:29.080
+ We don't have any fundamental reason at the moment
+
+21:29.080 --> 21:33.600
+ to believe that this is truly random
+
+21:33.600 --> 21:36.680
+ and not just a deterministic video game.
+
+21:36.680 --> 21:38.680
+ If it was a deterministic video game,
+
+21:38.680 --> 21:40.360
+ it would be much more beautiful.
+
+21:40.360 --> 21:43.840
+ Because beauty is simplicity.
+
+21:43.840 --> 21:47.000
+ And many of the basic laws of the universe,
+
+21:47.000 --> 21:51.360
+ like gravity and the other basic forces are very simple.
+
+21:51.360 --> 21:55.240
+ So very short programs can explain what these are doing.
+
+21:56.760 --> 22:00.560
+ And it would be awful and ugly.
+
+22:00.560 --> 22:01.720
+ The universe would be ugly.
+
+22:01.720 --> 22:04.000
+ The history of the universe would be ugly
+
+22:04.000 --> 22:06.240
+ if for the extra things, the random,
+
+22:06.240 --> 22:10.200
+ the seemingly random data points that we get all the time,
+
+22:11.080 --> 22:15.160
+ that we really need a huge number of extra bits
+
+22:15.160 --> 22:20.160
+ to describe all these extra bits of information.
+
+22:22.160 --> 22:24.800
+ So as long as we don't have evidence
+
+22:24.800 --> 22:26.920
+ that there is no short program
+
+22:26.920 --> 22:31.240
+ that computes the entire history of the entire universe,
+
+22:31.240 --> 22:36.240
+ we are, as scientists, compelled to look further
+
+22:36.600 --> 22:38.720
+ for that shortest program.
+
+22:39.760 --> 22:43.760
+ Your intuition says there exists a program
+
+22:43.760 --> 22:47.760
+ that can backtrack to the creation of the universe.
+
+22:47.760 --> 22:48.600
+ Yeah.
+
+22:48.600 --> 22:49.440
+ So it can give the shortest path
+
+22:49.440 --> 22:50.480
+ to the creation of the universe.
+
+22:50.480 --> 22:51.320
+ Yes.
+
+22:51.320 --> 22:54.480
+ Including all the entanglement things
+
+22:54.480 --> 22:57.800
+ and all the spin up and down measures
+
+22:57.800 --> 23:02.800
+ that have been taken place since 13.8 billion years ago.
+
+23:06.840 --> 23:11.840
+ So we don't have a proof that it is random.
+
+23:11.840 --> 23:15.600
+ We don't have a proof that it is compressible
+
+23:15.600 --> 23:16.760
+ to a short program.
+
+23:16.760 --> 23:18.240
+ But as long as we don't have that proof,
+
+23:18.240 --> 23:21.680
+ we are obliged as scientists to keep looking
+
+23:21.680 --> 23:23.600
+ for that simple explanation.
+
+23:23.600 --> 23:24.440
+ Absolutely.
+
+23:24.440 --> 23:27.880
+ So you said the simplicity is beautiful or beauty is simple.
+
+23:27.880 --> 23:29.440
+ Either one works.
+
+23:29.440 --> 23:33.440
+ But you also work on curiosity, discovery,
+
+23:34.560 --> 23:39.000
+ the romantic notion of randomness, of serendipity,
+
+23:39.000 --> 23:44.000
+ of being surprised by things that are about you.
+
+23:45.920 --> 23:49.600
+ In our poetic notion of reality,
+
+23:49.600 --> 23:51.640
+ we think it's kind of like,
+
+23:51.640 --> 23:54.920
+ poetic notion of reality, we think as humans
+
+23:54.920 --> 23:56.400
+ require randomness.
+
+23:56.400 --> 23:59.000
+ So you don't find randomness beautiful.
+
+23:59.000 --> 24:04.000
+ You find simple determinism beautiful.
+
+24:04.880 --> 24:05.720
+ Yeah.
+
+24:05.720 --> 24:07.520
+ Okay.
+
+24:07.520 --> 24:08.560
+ So why?
+
+24:08.560 --> 24:09.400
+ Why?
+
+24:09.400 --> 24:13.040
+ Because the explanation becomes shorter.
+
+24:13.040 --> 24:18.040
+ A universe that is compressible to a short program
+
+24:18.040 --> 24:22.040
+ is much more elegant and much more beautiful
+
+24:22.040 --> 24:25.040
+ than another one, which needs an almost infinite
+
+24:25.040 --> 24:28.040
+ number of bits to be described.
+
+24:28.040 --> 24:32.040
+ As far as we know, many things that are happening
+
+24:32.040 --> 24:35.040
+ in this universe are really simple in terms of
+
+24:35.040 --> 24:38.040
+ short programs that compute gravity
+
+24:38.040 --> 24:43.040
+ and the interaction between elementary particles and so on.
+
+24:43.040 --> 24:45.040
+ So all of that seems to be very, very simple.
+
+24:45.040 --> 24:50.040
+ Every electron seems to reuse the same subprogram
+
+24:50.040 --> 24:52.040
+ all the time, as it is interacting with
+
+24:52.040 --> 24:55.040
+ other elementary particles.
+
+24:58.040 --> 25:05.040
+ If we now require an extra oracle injecting
+
+25:05.040 --> 25:08.040
+ new bits of information all the time for these
+
+25:08.040 --> 25:11.040
+ extra things which are currently not understood,
+
+25:11.040 --> 25:22.040
+ such as better decay, then the whole description
+
+25:22.040 --> 25:26.040
+ length of the data that we can observe of the
+
+25:26.040 --> 25:31.040
+ history of the universe would become much longer
+
+25:31.040 --> 25:33.040
+ and therefore uglier.
+
+25:33.040 --> 25:34.040
+ And uglier.
+
+25:34.040 --> 25:38.040
+ Again, simplicity is elegant and beautiful.
+
+25:38.040 --> 25:42.040
+ The history of science is a history of compression progress.
+
+25:42.040 --> 25:47.040
+ Yes, so you've described sort of as we build up
+
+25:47.040 --> 25:50.040
+ abstractions and you've talked about the idea
+
+25:50.040 --> 25:52.040
+ of compression.
+
+25:52.040 --> 25:55.040
+ How do you see this, the history of science,
+
+25:55.040 --> 25:58.040
+ the history of humanity, our civilization,
+
+25:58.040 --> 26:02.040
+ and life on Earth as some kind of path towards
+
+26:02.040 --> 26:04.040
+ greater and greater compression?
+
+26:04.040 --> 26:05.040
+ What do you mean by that?
+
+26:05.040 --> 26:06.040
+ How do you think about that?
+
+26:06.040 --> 26:10.040
+ Indeed, the history of science is a history of
+
+26:10.040 --> 26:12.040
+ compression progress.
+
+26:12.040 --> 26:14.040
+ What does that mean?
+
+26:14.040 --> 26:17.040
+ Hundreds of years ago there was an astronomer
+
+26:17.040 --> 26:21.040
+ whose name was Kepler and he looked at the data
+
+26:21.040 --> 26:25.040
+ points that he got by watching planets move.
+
+26:25.040 --> 26:27.040
+ And then he had all these data points and
+
+26:27.040 --> 26:30.040
+ suddenly it turned out that he can greatly
+
+26:30.040 --> 26:36.040
+ compress the data by predicting it through an
+
+26:36.040 --> 26:38.040
+ ellipse law.
+
+26:38.040 --> 26:40.040
+ So it turns out that all these data points are
+
+26:40.040 --> 26:45.040
+ more or less on ellipses around the sun.
+
+26:45.040 --> 26:48.040
+ And another guy came along whose name was
+
+26:48.040 --> 26:51.040
+ Newton and before him Hooke.
+
+26:51.040 --> 26:55.040
+ And they said the same thing that is making
+
+26:55.040 --> 27:00.040
+ these planets move like that is what makes the
+
+27:00.040 --> 27:02.040
+ apples fall down.
+
+27:02.040 --> 27:08.040
+ And it also holds for stones and for all kinds
+
+27:08.040 --> 27:11.040
+ of other objects.
+
+27:11.040 --> 27:15.040
+ And suddenly many, many of these observations
+
+27:15.040 --> 27:17.040
+ became much more compressible because as long
+
+27:17.040 --> 27:20.040
+ as you can predict the next thing, given what
+
+27:20.040 --> 27:23.040
+ you have seen so far, you can compress it.
+
+27:23.040 --> 27:25.040
+ And you don't have to store that data extra.
+
+27:25.040 --> 27:29.040
+ This is called predictive coding.
+
+27:29.040 --> 27:31.040
+ And then there was still something wrong with
+
+27:31.040 --> 27:34.040
+ that theory of the universe and you had
+
+27:34.040 --> 27:37.040
+ deviations from these predictions of the theory.
+
+27:37.040 --> 27:40.040
+ And 300 years later another guy came along
+
+27:40.040 --> 27:42.040
+ whose name was Einstein.
+
+27:42.040 --> 27:46.040
+ And he was able to explain away all these
+
+27:46.040 --> 27:50.040
+ deviations from the predictions of the old
+
+27:50.040 --> 27:54.040
+ theory through a new theory which was called
+
+27:54.040 --> 27:57.040
+ the general theory of relativity.
+
+27:57.040 --> 28:00.040
+ Which at first glance looks a little bit more
+
+28:00.040 --> 28:03.040
+ complicated and you have to warp space and time
+
+28:03.040 --> 28:05.040
+ but you can't phrase it within one single
+
+28:05.040 --> 28:08.040
+ sentence which is no matter how fast you
+
+28:08.040 --> 28:14.040
+ accelerate and how hard you decelerate and no
+
+28:14.040 --> 28:18.040
+ matter what is the gravity in your local
+
+28:18.040 --> 28:21.040
+ network, light speed always looks the same.
+
+28:21.040 --> 28:24.040
+ And from that you can calculate all the
+
+28:24.040 --> 28:25.040
+ consequences.
+
+28:25.040 --> 28:27.040
+ So it's a very simple thing and it allows you
+
+28:27.040 --> 28:30.040
+ to further compress all the observations
+
+28:30.040 --> 28:34.040
+ because certainly there are hardly any
+
+28:34.040 --> 28:37.040
+ deviations any longer that you can measure
+
+28:37.040 --> 28:40.040
+ from the predictions of this new theory.
+
+28:40.040 --> 28:44.040
+ So all of science is a history of compression
+
+28:44.040 --> 28:45.040
+ progress.
+
+28:45.040 --> 28:48.040
+ You never arrive immediately at the shortest
+
+28:48.040 --> 28:51.040
+ explanation of the data but you're making
+
+28:51.040 --> 28:52.040
+ progress.
+
+28:52.040 --> 28:55.040
+ Whenever you are making progress you have an
+
+28:55.040 --> 28:56.040
+ insight.
+
+28:56.040 --> 28:59.040
+ You see oh first I needed so many bits of
+
+28:59.040 --> 29:02.040
+ information to describe the data, to describe
+
+29:02.040 --> 29:04.040
+ my falling apples, my video of falling apples,
+
+29:04.040 --> 29:07.040
+ I need so many data, so many pixels have to be
+
+29:07.040 --> 29:08.040
+ stored.
+
+29:08.040 --> 29:11.040
+ But then suddenly I realize no there is a very
+
+29:11.040 --> 29:14.040
+ simple way of predicting the third frame in the
+
+29:14.040 --> 29:16.040
+ video from the first two.
+
+29:16.040 --> 29:19.040
+ And maybe not every little detail can be
+
+29:19.040 --> 29:21.040
+ predicted but more or less most of these orange
+
+29:21.040 --> 29:24.040
+ blobs that are coming down they accelerate in
+
+29:24.040 --> 29:27.040
+ the same way which means that I can greatly
+
+29:27.040 --> 29:28.040
+ compress the video.
+
+29:28.040 --> 29:33.040
+ And the amount of compression, progress, that
+
+29:33.040 --> 29:36.040
+ is the depth of the insight that you have at
+
+29:36.040 --> 29:37.040
+ that moment.
+
+29:37.040 --> 29:39.040
+ That's the fun that you have, the scientific
+
+29:39.040 --> 29:42.040
+ fun, the fun in that discovery.
+
+29:42.040 --> 29:45.040
+ And we can build artificial systems that do
+
+29:45.040 --> 29:46.040
+ the same thing.
+
+29:46.040 --> 29:49.040
+ They measure the depth of their insights as they
+
+29:49.040 --> 29:51.040
+ are looking at the data which is coming in
+
+29:51.040 --> 29:54.040
+ through their own experiments and we give
+
+29:54.040 --> 29:58.040
+ them a reward, an intrinsic reward in proportion
+
+29:58.040 --> 30:00.040
+ to this depth of insight.
+
+30:00.040 --> 30:05.040
+ And since they are trying to maximize the
+
+30:05.040 --> 30:09.040
+ rewards they get they are suddenly motivated to
+
+30:09.040 --> 30:13.040
+ come up with new action sequences, with new
+
+30:13.040 --> 30:16.040
+ experiments that have the property that the data
+
+30:16.040 --> 30:19.040
+ that is coming in as a consequence of these
+
+30:19.040 --> 30:23.040
+ experiments has the property that they can learn
+
+30:23.040 --> 30:25.040
+ something about, see a pattern in there which
+
+30:25.040 --> 30:28.040
+ they hadn't seen yet before.
+
+30:28.040 --> 30:31.040
+ So there is an idea of power play that you
+
+30:31.040 --> 30:34.040
+ described, a training in general problem solver
+
+30:34.040 --> 30:36.040
+ in this kind of way of looking for the unsolved
+
+30:36.040 --> 30:37.040
+ problems.
+
+30:37.040 --> 30:38.040
+ Yeah.
+
+30:38.040 --> 30:40.040
+ Can you describe that idea a little further?
+
+30:40.040 --> 30:42.040
+ It's another very simple idea.
+
+30:42.040 --> 30:45.040
+ So normally what you do in computer science,
+
+30:45.040 --> 30:50.040
+ you have some guy who gives you a problem and
+
+30:50.040 --> 30:55.040
+ then there is a huge search space of potential
+
+30:55.040 --> 30:59.040
+ solution candidates and you somehow try them
+
+30:59.040 --> 31:02.040
+ out and you have more less sophisticated ways
+
+31:02.040 --> 31:07.040
+ of moving around in that search space until
+
+31:07.040 --> 31:10.040
+ you finally found a solution which you
+
+31:10.040 --> 31:12.040
+ consider satisfactory.
+
+31:12.040 --> 31:15.040
+ That's what most of computer science is about.
+
+31:15.040 --> 31:18.040
+ Power play just goes one little step further
+
+31:18.040 --> 31:23.040
+ and says let's not only search for solutions
+
+31:23.040 --> 31:28.040
+ to a given problem but let's search to pairs of
+
+31:28.040 --> 31:31.040
+ problems and their solutions where the system
+
+31:31.040 --> 31:35.040
+ itself has the opportunity to phrase its own
+
+31:35.040 --> 31:37.040
+ problem.
+
+31:37.040 --> 31:40.040
+ So we are looking suddenly at pairs of
+
+31:40.040 --> 31:44.040
+ problems and their solutions or modifications
+
+31:44.040 --> 31:47.040
+ of the problem solver that is supposed to
+
+31:47.040 --> 31:51.040
+ generate a solution to that new problem.
+
+31:51.040 --> 31:57.040
+ And this additional degree of freedom allows
+
+31:57.040 --> 32:00.040
+ us to build career systems that are like
+
+32:00.040 --> 32:04.040
+ scientists in the sense that they not only
+
+32:04.040 --> 32:07.040
+ try to solve and try to find answers to
+
+32:07.040 --> 32:11.040
+ existing questions, no they are also free to
+
+32:11.040 --> 32:13.040
+ pose their own questions.
+
+32:13.040 --> 32:15.040
+ So if you want to build an artificial scientist
+
+32:15.040 --> 32:17.040
+ you have to give it that freedom and power
+
+32:17.040 --> 32:19.040
+ play is exactly doing that.
+
+32:19.040 --> 32:22.040
+ So that's a dimension of freedom that's
+
+32:22.040 --> 32:25.040
+ important to have but how hard do you think
+
+32:25.040 --> 32:31.040
+ that, how multidimensional and difficult the
+
+32:31.040 --> 32:34.040
+ space of then coming up with your own questions
+
+32:34.040 --> 32:35.040
+ is.
+
+32:35.040 --> 32:37.040
+ So it's one of the things that as human beings
+
+32:37.040 --> 32:40.040
+ we consider to be the thing that makes us
+
+32:40.040 --> 32:42.040
+ special, the intelligence that makes us special
+
+32:42.040 --> 32:46.040
+ is that brilliant insight that can create
+
+32:46.040 --> 32:48.040
+ something totally new.
+
+32:48.040 --> 32:49.040
+ Yes.
+
+32:49.040 --> 32:52.040
+ So now let's look at the extreme case, let's
+
+32:52.040 --> 32:56.040
+ look at the set of all possible problems that
+
+32:56.040 --> 33:00.040
+ you can formally describe which is infinite,
+
+33:00.040 --> 33:05.040
+ which should be the next problem that a scientist
+
+33:05.040 --> 33:08.040
+ or power play is going to solve.
+
+33:08.040 --> 33:14.040
+ Well, it should be the easiest problem that
+
+33:14.040 --> 33:17.040
+ goes beyond what you already know.
+
+33:17.040 --> 33:21.040
+ So it should be the simplest problem that the
+
+33:21.040 --> 33:23.040
+ current problem solver that you have which can
+
+33:23.040 --> 33:28.040
+ already solve 100 problems that he cannot solve
+
+33:28.040 --> 33:30.040
+ yet by just generalizing.
+
+33:30.040 --> 33:33.040
+ So it has to be new, so it has to require a
+
+33:33.040 --> 33:36.040
+ modification of the problem solver such that the
+
+33:36.040 --> 33:39.040
+ new problem solver can solve this new thing but
+
+33:39.040 --> 33:42.040
+ the old problem solver cannot do it and in
+
+33:42.040 --> 33:46.040
+ addition to that we have to make sure that the
+
+33:46.040 --> 33:49.040
+ problem solver doesn't forget any of the
+
+33:49.040 --> 33:50.040
+ previous solutions.
+
+33:50.040 --> 33:51.040
+ Right.
+
+33:51.040 --> 33:54.040
+ And so by definition power play is now trying
+
+33:54.040 --> 33:58.040
+ always to search in this pair of, in the set of
+
+33:58.040 --> 34:02.040
+ pairs of problems and problems over modifications
+
+34:02.040 --> 34:06.040
+ for a combination that minimize the time to
+
+34:06.040 --> 34:08.040
+ achieve these criteria.
+
+34:08.040 --> 34:11.040
+ So it's always trying to find the problem which
+
+34:11.040 --> 34:14.040
+ is easiest to add to the repertoire.
+
+34:14.040 --> 34:18.040
+ So just like grad students and academics and
+
+34:18.040 --> 34:20.040
+ researchers can spend their whole career in a
+
+34:20.040 --> 34:24.040
+ local minima stuck trying to come up with
+
+34:24.040 --> 34:26.040
+ interesting questions but ultimately doing very
+
+34:26.040 --> 34:27.040
+ little.
+
+34:27.040 --> 34:31.040
+ Do you think it's easy in this approach of
+
+34:31.040 --> 34:33.040
+ looking for the simplest unsolvable problem to
+
+34:33.040 --> 34:35.040
+ get stuck in a local minima?
+
+34:35.040 --> 34:40.040
+ Is not never really discovering new, you know
+
+34:40.040 --> 34:42.040
+ really jumping outside of the 100 problems that
+
+34:42.040 --> 34:47.040
+ you've already solved in a genuine creative way?
+
+34:47.040 --> 34:50.040
+ No, because that's the nature of power play that
+
+34:50.040 --> 34:53.040
+ it's always trying to break its current
+
+34:53.040 --> 34:57.040
+ generalization abilities by coming up with a new
+
+34:57.040 --> 35:00.040
+ problem which is beyond the current horizon.
+
+35:00.040 --> 35:04.040
+ Just shifting the horizon of knowledge a little
+
+35:04.040 --> 35:08.040
+ bit out there, breaking the existing rules such
+
+35:08.040 --> 35:11.040
+ that the new thing becomes solvable but wasn't
+
+35:11.040 --> 35:13.040
+ solvable by the old thing.
+
+35:13.040 --> 35:17.040
+ So like adding a new axiom like what Gödel did
+
+35:17.040 --> 35:21.040
+ when he came up with these new sentences, new
+
+35:21.040 --> 35:23.040
+ theorems that didn't have a proof in the formal
+
+35:23.040 --> 35:25.040
+ system which means you can add them to the
+
+35:25.040 --> 35:31.040
+ repertoire hoping that they are not going to
+
+35:31.040 --> 35:35.040
+ damage the consistency of the whole thing.
+
+35:35.040 --> 35:39.040
+ So in the paper with the amazing title,
+
+35:39.040 --> 35:43.040
+ Formal Theory of Creativity, Fun and Intrinsic
+
+35:43.040 --> 35:46.040
+ Motivation, you talk about discovery as intrinsic
+
+35:46.040 --> 35:50.040
+ reward, so if you view humans as intelligent
+
+35:50.040 --> 35:53.040
+ agents, what do you think is the purpose and
+
+35:53.040 --> 35:56.040
+ meaning of life for us humans?
+
+35:56.040 --> 35:59.040
+ You've talked about this discovery, do you see
+
+35:59.040 --> 36:04.040
+ humans as an instance of power play, agents?
+
+36:04.040 --> 36:10.040
+ Humans are curious and that means they behave
+
+36:10.040 --> 36:13.040
+ like scientists, not only the official scientists
+
+36:13.040 --> 36:16.040
+ but even the babies behave like scientists and
+
+36:16.040 --> 36:19.040
+ they play around with their toys to figure out
+
+36:19.040 --> 36:22.040
+ how the world works and how it is responding to
+
+36:22.040 --> 36:25.040
+ their actions and that's how they learn about
+
+36:25.040 --> 36:27.040
+ gravity and everything.
+
+36:27.040 --> 36:31.040
+ In 1990 we had the first systems like that which
+
+36:31.040 --> 36:34.040
+ would just try to play around with the environment
+
+36:34.040 --> 36:38.040
+ and come up with situations that go beyond what
+
+36:38.040 --> 36:41.040
+ they knew at that time and then get a reward for
+
+36:41.040 --> 36:44.040
+ creating these situations and then becoming more
+
+36:44.040 --> 36:47.040
+ general problem solvers and being able to understand
+
+36:47.040 --> 36:49.040
+ more of the world.
+
+36:49.040 --> 37:01.040
+ I think in principle that curiosity strategy or
+
+37:01.040 --> 37:03.040
+ more sophisticated versions of what I just
+
+37:03.040 --> 37:07.040
+ described, they are what we have built in as well
+
+37:07.040 --> 37:10.040
+ because evolution discovered that's a good way of
+
+37:10.040 --> 37:13.040
+ exploring the unknown world and a guy who explores
+
+37:13.040 --> 37:17.040
+ the unknown world has a higher chance of solving
+
+37:17.040 --> 37:20.040
+ the mystery that he needs to survive in this world.
+
+37:20.040 --> 37:24.040
+ On the other hand, those guys who were too curious
+
+37:24.040 --> 37:27.040
+ they were weeded out as well so you have to find
+
+37:27.040 --> 37:28.040
+ this trade off.
+
+37:28.040 --> 37:30.040
+ Evolution found a certain trade off.
+
+37:30.040 --> 37:33.040
+ Apparently in our society there is a certain
+
+37:33.040 --> 37:37.040
+ percentage of extremely explorative guys and it
+
+37:37.040 --> 37:40.040
+ doesn't matter if they die because many of the
+
+37:40.040 --> 37:45.040
+ others are more conservative.
+
+37:45.040 --> 37:51.040
+ It would be surprising to me if that principle of
+
+37:51.040 --> 37:56.040
+ artificial curiosity wouldn't be present in almost
+
+37:56.040 --> 37:58.040
+ exactly the same form here.
+
+37:58.040 --> 38:00.040
+ In our brains.
+
+38:00.040 --> 38:03.040
+ You are a bit of a musician and an artist.
+
+38:03.040 --> 38:08.040
+ Continuing on this topic of creativity, what do you
+
+38:08.040 --> 38:10.040
+ think is the role of creativity and intelligence?
+
+38:10.040 --> 38:15.040
+ So you've kind of implied that it's essential for
+
+38:15.040 --> 38:18.040
+ intelligence if you think of intelligence as a
+
+38:18.040 --> 38:23.040
+ problem solving system, as ability to solve problems.
+
+38:23.040 --> 38:26.040
+ But do you think it's essential, this idea of
+
+38:26.040 --> 38:27.040
+ creativity?
+
+38:27.040 --> 38:32.040
+ We never have a program, a sub program that is
+
+38:32.040 --> 38:34.040
+ called creativity or something.
+
+38:34.040 --> 38:37.040
+ It's just a side effect of what our problem solvers
+
+38:37.040 --> 38:41.040
+ do. They are searching a space of problems, a space
+
+38:41.040 --> 38:45.040
+ of candidates, of solution candidates until they
+
+38:45.040 --> 38:48.040
+ hopefully find a solution to a given problem.
+
+38:48.040 --> 38:50.040
+ But then there are these two types of creativity
+
+38:50.040 --> 38:54.040
+ and both of them are now present in our machines.
+
+38:54.040 --> 38:56.040
+ The first one has been around for a long time,
+
+38:56.040 --> 39:00.040
+ which is human gives problem to machine, machine
+
+39:00.040 --> 39:03.040
+ tries to find a solution to that.
+
+39:03.040 --> 39:06.040
+ And this has been happening for many decades and
+
+39:06.040 --> 39:09.040
+ for many decades machines have found creative
+
+39:09.040 --> 39:12.040
+ solutions to interesting problems where humans were
+
+39:12.040 --> 39:17.040
+ not aware of these particularly creative solutions
+
+39:17.040 --> 39:20.040
+ but then appreciated that the machine found that.
+
+39:20.040 --> 39:23.040
+ The second is the pure creativity.
+
+39:23.040 --> 39:26.040
+ That I would call, what I just mentioned, I would
+
+39:26.040 --> 39:30.040
+ call the applied creativity, like applied art where
+
+39:30.040 --> 39:34.040
+ somebody tells you now make a nice picture of this
+
+39:34.040 --> 39:37.040
+ Pope and you will get money for that.
+
+39:37.040 --> 39:40.040
+ So here is the artist and he makes a convincing
+
+39:40.040 --> 39:43.040
+ picture of the Pope and the Pope likes it and gives
+
+39:43.040 --> 39:46.040
+ him the money.
+
+39:46.040 --> 39:49.040
+ And then there is the pure creativity which is
+
+39:49.040 --> 39:51.040
+ more like the power play and the artificial
+
+39:51.040 --> 39:54.040
+ curiosity thing where you have the freedom to
+
+39:54.040 --> 39:57.040
+ select your own problem.
+
+39:57.040 --> 40:02.040
+ Like a scientist who defines his own question
+
+40:02.040 --> 40:06.040
+ to study and so that is the pure creativity if you
+
+40:06.040 --> 40:11.040
+ will as opposed to the applied creativity which
+
+40:11.040 --> 40:14.040
+ serves another.
+
+40:14.040 --> 40:16.040
+ And in that distinction there is almost echoes of
+
+40:16.040 --> 40:19.040
+ narrow AI versus general AI.
+
+40:19.040 --> 40:22.040
+ So this kind of constrained painting of a Pope
+
+40:22.040 --> 40:28.040
+ seems like the approaches of what people are
+
+40:28.040 --> 40:33.040
+ calling narrow AI and pure creativity seems to be,
+
+40:33.040 --> 40:35.040
+ maybe I am just biased as a human but it seems to
+
+40:35.040 --> 40:41.040
+ be an essential element of human level intelligence.
+
+40:41.040 --> 40:44.040
+ Is that what you are implying?
+
+40:44.040 --> 40:46.040
+ To a degree?
+
+40:46.040 --> 40:49.040
+ If you zoom back a little bit and you just look
+
+40:49.040 --> 40:51.040
+ at a general problem solving machine which is
+
+40:51.040 --> 40:54.040
+ trying to solve arbitrary problems then this
+
+40:54.040 --> 40:57.040
+ machine will figure out in the course of solving
+
+40:57.040 --> 41:00.040
+ problems that it is good to be curious.
+
+41:00.040 --> 41:04.040
+ So all of what I said just now about this prewired
+
+41:04.040 --> 41:07.040
+ curiosity and this will to invent new problems
+
+41:07.040 --> 41:11.040
+ that the system doesn't know how to solve yet
+
+41:11.040 --> 41:15.040
+ should be just a byproduct of the general search.
+
+41:15.040 --> 41:20.040
+ However, apparently evolution has built it into
+
+41:20.040 --> 41:24.040
+ us because it turned out to be so successful,
+
+41:24.040 --> 41:29.040
+ a prewiring, a bias, a very successful exploratory
+
+41:29.040 --> 41:34.040
+ bias that we are born with.
+
+41:34.040 --> 41:36.040
+ And you have also said that consciousness in the
+
+41:36.040 --> 41:41.040
+ same kind of way may be a byproduct of problem solving.
+
+41:41.040 --> 41:45.040
+ Do you find this an interesting byproduct?
+
+41:45.040 --> 41:47.040
+ Do you think it is a useful byproduct?
+
+41:47.040 --> 41:49.040
+ What are your thoughts on consciousness in general?
+
+41:49.040 --> 41:53.040
+ Or is it simply a byproduct of greater and greater
+
+41:53.040 --> 41:58.040
+ capabilities of problem solving that is similar
+
+41:58.040 --> 42:01.040
+ to creativity in that sense?
+
+42:01.040 --> 42:04.040
+ We never have a procedure called consciousness
+
+42:04.040 --> 42:05.040
+ in our machines.
+
+42:05.040 --> 42:09.040
+ However, we get as side effects of what these
+
+42:09.040 --> 42:13.040
+ machines are doing things that seem to be closely
+
+42:13.040 --> 42:16.040
+ related to what people call consciousness.
+
+42:16.040 --> 42:20.040
+ So for example, already in 1990 we had simple
+
+42:20.040 --> 42:24.040
+ systems which were basically recurrent networks
+
+42:24.040 --> 42:28.040
+ and therefore universal computers trying to map
+
+42:28.040 --> 42:33.040
+ incoming data into actions that lead to success.
+
+42:33.040 --> 42:36.040
+ Maximizing reward in a given environment,
+
+42:36.040 --> 42:40.040
+ always finding the charging station in time
+
+42:40.040 --> 42:42.040
+ whenever the battery is low and negative signals
+
+42:42.040 --> 42:45.040
+ are coming from the battery, always find the
+
+42:45.040 --> 42:48.040
+ charging station in time without bumping against
+
+42:48.040 --> 42:50.040
+ painful obstacles on the way.
+
+42:50.040 --> 42:54.040
+ So complicated things but very easily motivated.
+
+42:54.040 --> 43:00.040
+ And then we give these little guys a separate
+
+43:00.040 --> 43:02.040
+ recurrent neural network which is just predicting
+
+43:02.040 --> 43:04.040
+ what's happening if I do that and that.
+
+43:04.040 --> 43:07.040
+ What will happen as a consequence of these
+
+43:07.040 --> 43:09.040
+ actions that I'm executing.
+
+43:09.040 --> 43:11.040
+ And it's just trained on the long and long history
+
+43:11.040 --> 43:13.040
+ of interactions with the world.
+
+43:13.040 --> 43:16.040
+ So it becomes a predictive model of the world
+
+43:16.040 --> 43:18.040
+ basically.
+
+43:18.040 --> 43:22.040
+ And therefore also a compressor of the observations
+
+43:22.040 --> 43:25.040
+ of the world because whatever you can predict
+
+43:25.040 --> 43:27.040
+ you don't have to store extra.
+
+43:27.040 --> 43:30.040
+ So compression is a side effect of prediction.
+
+43:30.040 --> 43:33.040
+ And how does this recurrent network compress?
+
+43:33.040 --> 43:36.040
+ Well, it's inventing little subprograms, little
+
+43:36.040 --> 43:39.040
+ subnetworks that stand for everything that
+
+43:39.040 --> 43:42.040
+ frequently appears in the environment like
+
+43:42.040 --> 43:45.040
+ bottles and microphones and faces, maybe lots of
+
+43:45.040 --> 43:50.040
+ faces in my environment so I'm learning to create
+
+43:50.040 --> 43:52.040
+ something like a prototype face and a new face
+
+43:52.040 --> 43:54.040
+ comes along and all I have to encode are the
+
+43:54.040 --> 43:56.040
+ deviations from the prototype.
+
+43:56.040 --> 43:58.040
+ So it's compressing all the time the stuff that
+
+43:58.040 --> 44:00.040
+ frequently appears.
+
+44:00.040 --> 44:05.040
+ There's one thing that appears all the time that
+
+44:05.040 --> 44:07.040
+ is present all the time when the agent is
+
+44:07.040 --> 44:10.040
+ interacting with its environment which is the
+
+44:10.040 --> 44:12.040
+ agent itself.
+
+44:12.040 --> 44:15.040
+ But just for data compression reasons it is
+
+44:15.040 --> 44:18.040
+ extremely natural for this recurrent network to
+
+44:18.040 --> 44:21.040
+ come up with little subnetworks that stand for
+
+44:21.040 --> 44:26.040
+ the properties of the agents, the hand, the other
+
+44:26.040 --> 44:29.040
+ actuators and all the stuff that you need to
+
+44:29.040 --> 44:32.040
+ better encode the data which is influenced by
+
+44:32.040 --> 44:34.040
+ the actions of the agent.
+
+44:34.040 --> 44:39.040
+ So there just as a side effect of data compression
+
+44:39.040 --> 44:43.040
+ during problem solving you have internal self
+
+44:43.040 --> 44:45.040
+ models.
+
+44:45.040 --> 44:50.040
+ Now you can use this model of the world to plan
+
+44:50.040 --> 44:53.040
+ your future and that's what we also have done
+
+44:53.040 --> 44:54.040
+ since 1990.
+
+44:54.040 --> 44:57.040
+ So the recurrent network which is the controller
+
+44:57.040 --> 45:00.040
+ which is trying to maximize reward can use this
+
+45:00.040 --> 45:03.040
+ model of the network of the world, this model
+
+45:03.040 --> 45:05.040
+ network of the world, this predictive model of
+
+45:05.040 --> 45:08.040
+ the world to plan ahead and say let's not do this
+
+45:08.040 --> 45:10.040
+ action sequence, let's do this action sequence
+
+45:10.040 --> 45:13.040
+ instead because it leads to more predicted
+
+45:13.040 --> 45:14.040
+ reward.
+
+45:14.040 --> 45:17.040
+ And whenever it is waking up these little
+
+45:17.040 --> 45:20.040
+ subnetworks that stand for itself then it is
+
+45:20.040 --> 45:23.040
+ thinking about itself and it is thinking about
+
+45:23.040 --> 45:28.040
+ itself and it is exploring mentally the
+
+45:28.040 --> 45:34.040
+ consequences of its own actions and now you tell
+
+45:34.040 --> 45:36.040
+ me what is still missing.
+
+45:36.040 --> 45:40.040
+ Missing the next, the gap to consciousness.
+
+45:40.040 --> 45:41.040
+ There isn't.
+
+45:41.040 --> 45:45.040
+ That's a really beautiful idea that if life is
+
+45:45.040 --> 45:48.040
+ a collection of data and life is a process of
+
+45:48.040 --> 45:54.040
+ compressing that data to act efficiently in that
+
+45:54.040 --> 45:57.040
+ data you yourself appear very often.
+
+45:57.040 --> 46:00.040
+ So it's useful to form compressions of yourself
+
+46:00.040 --> 46:03.040
+ and it's a really beautiful formulation of what
+
+46:03.040 --> 46:05.040
+ consciousness is a necessary side effect.
+
+46:05.040 --> 46:11.040
+ It's actually quite compelling to me.
+
+46:11.040 --> 46:16.040
+ You've described RNNs, developed LSTMs, long
+
+46:16.040 --> 46:20.040
+ short term memory networks that are a type of
+
+46:20.040 --> 46:23.040
+ recurrent neural networks that have gotten a lot
+
+46:23.040 --> 46:24.040
+ of success recently.
+
+46:24.040 --> 46:27.040
+ So these are networks that model the temporal
+
+46:27.040 --> 46:30.040
+ aspects in the data, temporal patterns in the
+
+46:30.040 --> 46:34.040
+ data and you've called them the deepest of the
+
+46:34.040 --> 46:35.040
+ neural networks.
+
+46:35.040 --> 46:38.040
+ So what do you think is the value of depth in
+
+46:38.040 --> 46:41.040
+ the models that we use to learn?
+
+46:41.040 --> 46:46.040
+ Since you mentioned the long short term memory
+
+46:46.040 --> 46:50.040
+ and the LSTM I have to mention the names of the
+
+46:50.040 --> 46:52.040
+ brilliant students who made that possible.
+
+46:52.040 --> 46:56.040
+ First of all my first student ever Sepp Hochreiter
+
+46:56.040 --> 46:58.040
+ who had fundamental insights already in his
+
+46:58.040 --> 46:59.040
+ diploma thesis.
+
+46:59.040 --> 47:03.040
+ Then Felix Geers who had additional important
+
+47:03.040 --> 47:04.040
+ contributions.
+
+47:04.040 --> 47:08.040
+ Alex Gray is a guy from Scotland who is mostly
+
+47:08.040 --> 47:11.040
+ responsible for this CTC algorithm which is now
+
+47:11.040 --> 47:15.040
+ often used to train the LSTM to do the speech
+
+47:15.040 --> 47:18.040
+ recognition on all the Google Android phones and
+
+47:18.040 --> 47:21.040
+ whatever and Siri and so on.
+
+47:21.040 --> 47:26.040
+ So these guys without these guys I would be
+
+47:26.040 --> 47:27.040
+ nothing.
+
+47:27.040 --> 47:29.040
+ It's a lot of incredible work.
+
+47:29.040 --> 47:30.040
+ What is now the depth?
+
+47:30.040 --> 47:32.040
+ What is the importance of depth?
+
+47:32.040 --> 47:36.040
+ Well most problems in the real world are deep in
+
+47:36.040 --> 47:40.040
+ the sense that the current input doesn't tell you
+
+47:40.040 --> 47:44.040
+ all you need to know about the environment.
+
+47:44.040 --> 47:48.040
+ So instead you have to have a memory of what
+
+47:48.040 --> 47:51.040
+ happened in the past and often important parts of
+
+47:51.040 --> 47:54.040
+ that memory are dated.
+
+47:54.040 --> 47:56.040
+ They are pretty old.
+
+47:56.040 --> 47:59.040
+ So when you're doing speech recognition for
+
+47:59.040 --> 48:05.040
+ example and somebody says 11 then that's about
+
+48:05.040 --> 48:09.040
+ half a second or something like that which means
+
+48:09.040 --> 48:11.040
+ it's already 50 time steps.
+
+48:11.040 --> 48:15.040
+ And another guy or the same guy says 7.
+
+48:15.040 --> 48:19.040
+ So the ending is the same even but now the
+
+48:19.040 --> 48:22.040
+ system has to see the distinction between 7 and
+
+48:22.040 --> 48:25.040
+ 11 and the only way it can see the difference is
+
+48:25.040 --> 48:30.040
+ it has to store that 50 steps ago there was an
+
+48:30.040 --> 48:34.040
+ S or an L, 11 or 7.
+
+48:34.040 --> 48:37.040
+ So there you have already a problem of depth 50
+
+48:37.040 --> 48:41.040
+ because for each time step you have something
+
+48:41.040 --> 48:44.040
+ like a virtual layer in the expanded unrolled
+
+48:44.040 --> 48:46.040
+ version of this recurrent network which is doing
+
+48:46.040 --> 48:48.040
+ the speech recognition.
+
+48:48.040 --> 48:51.040
+ So these long time lags they translate into
+
+48:51.040 --> 48:53.040
+ problem depth.
+
+48:53.040 --> 48:57.040
+ And most problems in this world are such that
+
+48:57.040 --> 49:01.040
+ you really have to look far back in time to
+
+49:01.040 --> 49:05.040
+ understand what is the problem and to solve it.
+
+49:05.040 --> 49:08.040
+ But just like with LSTMs you don't necessarily
+
+49:08.040 --> 49:11.040
+ need to when you look back in time remember every
+
+49:11.040 --> 49:13.040
+ aspect you just need to remember the important
+
+49:13.040 --> 49:14.040
+ aspects.
+
+49:14.040 --> 49:15.040
+ That's right.
+
+49:15.040 --> 49:18.040
+ The network has to learn to put the important
+
+49:18.040 --> 49:22.040
+ stuff into memory and to ignore the unimportant
+
+49:22.040 --> 49:23.040
+ noise.
+
+49:23.040 --> 49:28.040
+ But in that sense deeper and deeper is better
+
+49:28.040 --> 49:30.040
+ or is there a limitation?
+
+49:30.040 --> 49:34.040
+ I mean LSTM is one of the great examples of
+
+49:34.040 --> 49:40.040
+ architectures that do something beyond just
+
+49:40.040 --> 49:42.040
+ deeper and deeper networks.
+
+49:42.040 --> 49:45.040
+ There's clever mechanisms for filtering data,
+
+49:45.040 --> 49:47.040
+ for remembering and forgetting.
+
+49:47.040 --> 49:50.040
+ So do you think that kind of thinking is
+
+49:50.040 --> 49:51.040
+ necessary?
+
+49:51.040 --> 49:54.040
+ If you think about LSTMs as a leap, a big leap
+
+49:54.040 --> 49:57.040
+ forward over traditional vanilla RNNs, what do
+
+49:57.040 --> 50:02.040
+ you think is the next leap within this context?
+
+50:02.040 --> 50:06.040
+ So LSTM is a very clever improvement but LSTM
+
+50:06.040 --> 50:10.040
+ still don't have the same kind of ability to see
+
+50:10.040 --> 50:14.040
+ far back in the past as us humans do.
+
+50:14.040 --> 50:18.040
+ The credit assignment problem across way back
+
+50:18.040 --> 50:22.040
+ not just 50 time steps or 100 or 1000 but
+
+50:22.040 --> 50:24.040
+ millions and billions.
+
+50:24.040 --> 50:28.040
+ It's not clear what are the practical limits of
+
+50:28.040 --> 50:31.040
+ the LSTM when it comes to looking back.
+
+50:31.040 --> 50:35.040
+ Already in 2006 I think we had examples where
+
+50:35.040 --> 50:38.040
+ it not only looked back tens of thousands of
+
+50:38.040 --> 50:41.040
+ steps but really millions of steps.
+
+50:41.040 --> 50:45.040
+ And Juan Perez Ortiz in my lab I think was the
+
+50:45.040 --> 50:49.040
+ first author of a paper where we really, was it
+
+50:49.040 --> 50:53.040
+ 2006 or something, had examples where it learned
+
+50:53.040 --> 50:57.040
+ to look back for more than 10 million steps.
+
+50:57.040 --> 51:01.040
+ So for most problems of speech recognition it's
+
+51:01.040 --> 51:05.040
+ not necessary to look that far back but there
+
+51:05.040 --> 51:07.040
+ are examples where it does.
+
+51:07.040 --> 51:11.040
+ Now the looking back thing, that's rather easy
+
+51:11.040 --> 51:15.040
+ because there is only one past but there are
+
+51:15.040 --> 51:19.040
+ many possible futures and so a reinforcement
+
+51:19.040 --> 51:22.040
+ learning system which is trying to maximize its
+
+51:22.040 --> 51:26.040
+ future expected reward and doesn't know yet which
+
+51:26.040 --> 51:29.040
+ of these many possible futures should I select
+
+51:29.040 --> 51:33.040
+ given this one single past is facing problems
+
+51:33.040 --> 51:36.040
+ that the LSTM by itself cannot solve.
+
+51:36.040 --> 51:40.040
+ So the LSTM is good for coming up with a compact
+
+51:40.040 --> 51:44.040
+ representation of the history and observations
+
+51:44.040 --> 51:49.040
+ and actions so far but now how do you plan in an
+
+51:49.040 --> 51:54.040
+ efficient and good way among all these, how do
+
+51:54.040 --> 51:57.040
+ you select one of these many possible action
+
+51:57.040 --> 52:00.040
+ sequences that a reinforcement learning system
+
+52:00.040 --> 52:04.040
+ has to consider to maximize reward in this
+
+52:04.040 --> 52:06.040
+ unknown future?
+
+52:06.040 --> 52:10.040
+ We have this basic setup where you have one
+
+52:10.040 --> 52:14.040
+ recurrent network which gets in the video and
+
+52:14.040 --> 52:17.040
+ the speech and whatever and it's executing
+
+52:17.040 --> 52:20.040
+ actions and it's trying to maximize reward so
+
+52:20.040 --> 52:23.040
+ there is no teacher who tells it what to do at
+
+52:23.040 --> 52:25.040
+ which point in time.
+
+52:25.040 --> 52:29.040
+ And then there's the other network which is
+
+52:29.040 --> 52:32.040
+ just predicting what's going to happen if I do
+
+52:32.040 --> 52:35.040
+ that and that and that could be an LSTM network
+
+52:35.040 --> 52:38.040
+ and it learns to look back all the way to make
+
+52:38.040 --> 52:41.040
+ better predictions of the next time step.
+
+52:41.040 --> 52:44.040
+ So essentially although it's predicting only the
+
+52:44.040 --> 52:48.040
+ next time step it is motivated to learn to put
+
+52:48.040 --> 52:51.040
+ into memory something that happened maybe a
+
+52:51.040 --> 52:54.040
+ million steps ago because it's important to
+
+52:54.040 --> 52:57.040
+ memorize that if you want to predict that at the
+
+52:57.040 --> 52:59.040
+ next time step, the next event.
+
+52:59.040 --> 53:03.040
+ Now how can a model of the world like that, a
+
+53:03.040 --> 53:06.040
+ predictive model of the world be used by the
+
+53:06.040 --> 53:07.040
+ first guy?
+
+53:07.040 --> 53:10.040
+ Let's call it the controller and the model, the
+
+53:10.040 --> 53:12.040
+ controller and the model.
+
+53:12.040 --> 53:15.040
+ How can the model be used by the controller to
+
+53:15.040 --> 53:18.040
+ efficiently select among these many possible
+
+53:18.040 --> 53:19.040
+ futures?
+
+53:19.040 --> 53:22.040
+ The naive way we had about 30 years ago was
+
+53:22.040 --> 53:26.040
+ let's just use the model of the world as a stand
+
+53:26.040 --> 53:30.040
+ in, as a simulation of the world and millisecond
+
+53:30.040 --> 53:33.040
+ by millisecond we plan the future and that means
+
+53:33.040 --> 53:36.040
+ we have to roll it out really in detail and it
+
+53:36.040 --> 53:39.040
+ will work only if the model is really good and
+
+53:39.040 --> 53:42.040
+ it will still be inefficient because we have to
+
+53:42.040 --> 53:45.040
+ look at all these possible futures and there are
+
+53:45.040 --> 53:46.040
+ so many of them.
+
+53:46.040 --> 53:49.040
+ So instead what we do now since 2015 in our CM
+
+53:49.040 --> 53:52.040
+ systems, controller model systems, we give the
+
+53:52.040 --> 53:56.040
+ controller the opportunity to learn by itself how
+
+53:56.040 --> 54:00.040
+ to use the potentially relevant parts of the M,
+
+54:00.040 --> 54:04.040
+ of the model network to solve new problems more
+
+54:04.040 --> 54:05.040
+ quickly.
+
+54:05.040 --> 54:09.040
+ And if it wants to, it can learn to ignore the M
+
+54:09.040 --> 54:12.040
+ and sometimes it's a good idea to ignore the M
+
+54:12.040 --> 54:15.040
+ because it's really bad, it's a bad predictor in
+
+54:15.040 --> 54:19.040
+ this particular situation of life where the
+
+54:19.040 --> 54:22.040
+ controller is currently trying to maximize reward.
+
+54:22.040 --> 54:26.040
+ However, it can also learn to address and exploit
+
+54:26.040 --> 54:31.040
+ some of the subprograms that came about in the
+
+54:31.040 --> 54:35.040
+ model network through compressing the data by
+
+54:35.040 --> 54:36.040
+ predicting it.
+
+54:36.040 --> 54:40.040
+ So it now has an opportunity to reuse that code,
+
+54:40.040 --> 54:44.040
+ the algorithmic information in the model network
+
+54:44.040 --> 54:49.040
+ to reduce its own search space such that it can
+
+54:49.040 --> 54:52.040
+ solve a new problem more quickly than without the
+
+54:52.040 --> 54:53.040
+ model.
+
+54:53.040 --> 54:54.040
+ Compression.
+
+54:54.040 --> 54:59.040
+ So you're ultimately optimistic and excited about
+
+54:59.040 --> 55:03.040
+ the power of RL, of reinforcement learning in the
+
+55:03.040 --> 55:05.040
+ context of real systems.
+
+55:05.040 --> 55:06.040
+ Absolutely, yeah.
+
+55:06.040 --> 55:11.040
+ So you see RL as a potential having a huge impact
+
+55:11.040 --> 55:16.040
+ beyond just sort of the M part is often developed on
+
+55:16.040 --> 55:19.040
+ supervised learning methods.
+
+55:19.040 --> 55:25.040
+ You see RL as a for problems of self driving cars
+
+55:25.040 --> 55:28.040
+ or any kind of applied cyber robotics.
+
+55:28.040 --> 55:32.040
+ That's the correct interesting direction for
+
+55:32.040 --> 55:34.040
+ research in your view?
+
+55:34.040 --> 55:35.040
+ I do think so.
+
+55:35.040 --> 55:40.040
+ We have a company called Nasence which has applied
+
+55:40.040 --> 55:45.040
+ reinforcement learning to little Audis which learn
+
+55:45.040 --> 55:47.040
+ to park without a teacher.
+
+55:47.040 --> 55:50.040
+ The same principles were used of course.
+
+55:50.040 --> 55:54.040
+ So these little Audis, they are small, maybe like
+
+55:54.040 --> 55:57.040
+ that, so much smaller than the real Audis.
+
+55:57.040 --> 56:00.040
+ But they have all the sensors that you find in the
+
+56:00.040 --> 56:01.040
+ real Audis.
+
+56:01.040 --> 56:03.040
+ You find the cameras, the LIDAR sensors.
+
+56:03.040 --> 56:08.040
+ They go up to 120 kilometers an hour if they want
+
+56:08.040 --> 56:09.040
+ to.
+
+56:09.040 --> 56:13.040
+ And they have pain sensors basically and they don't
+
+56:13.040 --> 56:17.040
+ want to bump against obstacles and other Audis and
+
+56:17.040 --> 56:21.040
+ so they must learn like little babies to park.
+
+56:21.040 --> 56:25.040
+ Take the raw vision input and translate that into
+
+56:25.040 --> 56:28.040
+ actions that lead to successful parking behavior
+
+56:28.040 --> 56:30.040
+ which is a rewarding thing.
+
+56:30.040 --> 56:32.040
+ And yes, they learn that.
+
+56:32.040 --> 56:36.040
+ So we have examples like that and it's only in the
+
+56:36.040 --> 56:37.040
+ beginning.
+
+56:37.040 --> 56:40.040
+ This is just the tip of the iceberg and I believe the
+
+56:40.040 --> 56:44.040
+ next wave of AI is going to be all about that.
+
+56:44.040 --> 56:48.040
+ So at the moment, the current wave of AI is about
+
+56:48.040 --> 56:53.040
+ passive pattern observation and prediction and that's
+
+56:53.040 --> 56:56.040
+ what you have on your smartphone and what the major
+
+56:56.040 --> 57:00.040
+ companies on the Pacific Rim are using to sell you
+
+57:00.040 --> 57:02.040
+ ads to do marketing.
+
+57:02.040 --> 57:05.040
+ That's the current sort of profit in AI and that's
+
+57:05.040 --> 57:08.040
+ only one or two percent of the world economy.
+
+57:08.040 --> 57:12.040
+ Which is big enough to make these companies pretty
+
+57:12.040 --> 57:15.040
+ much the most valuable companies in the world.
+
+57:15.040 --> 57:19.040
+ But there's a much, much bigger fraction of the
+
+57:19.040 --> 57:22.040
+ economy going to be affected by the next wave which
+
+57:22.040 --> 57:26.040
+ is really about machines that shape the data through
+
+57:26.040 --> 57:27.040
+ their own actions.
+
+57:27.040 --> 57:31.040
+ Do you think simulation is ultimately the biggest
+
+57:31.040 --> 57:35.040
+ way that those methods will be successful in the next
+
+57:35.040 --> 57:36.040
+ 10, 20 years?
+
+57:36.040 --> 57:38.040
+ We're not talking about 100 years from now.
+
+57:38.040 --> 57:41.040
+ We're talking about sort of the near term impact of
+
+57:41.040 --> 57:42.040
+ RL.
+
+57:42.040 --> 57:45.040
+ Do you think really good simulation is required or
+
+57:45.040 --> 57:48.040
+ is there other techniques like imitation learning,
+
+57:48.040 --> 57:53.040
+ observing other humans operating in the real world?
+
+57:53.040 --> 57:57.040
+ Where do you think the success will come from?
+
+57:57.040 --> 58:02.040
+ So at the moment, we have a tendency of using physics
+
+58:02.040 --> 58:07.040
+ simulations to learn behavior from machines that
+
+58:07.040 --> 58:11.040
+ learn to solve problems that humans also do not know
+
+58:11.040 --> 58:12.040
+ how to solve.
+
+58:12.040 --> 58:16.040
+ However, this is not the future because the future is
+
+58:16.040 --> 58:18.040
+ in what little babies do.
+
+58:18.040 --> 58:21.040
+ They don't use a physics engine to simulate the
+
+58:21.040 --> 58:22.040
+ world.
+
+58:22.040 --> 58:26.040
+ No, they learn a predictive model of the world which
+
+58:26.040 --> 58:31.040
+ maybe sometimes is wrong in many ways but captures
+
+58:31.040 --> 58:34.040
+ all kinds of important abstract high level predictions
+
+58:34.040 --> 58:37.040
+ which are really important to be successful.
+
+58:37.040 --> 58:42.040
+ And that's what was the future 30 years ago when we
+
+58:42.040 --> 58:45.040
+ started that type of research but it's still the future
+
+58:45.040 --> 58:49.040
+ and now we know much better how to go there to move
+
+58:49.040 --> 58:54.040
+ forward and to really make working systems based on
+
+58:54.040 --> 58:57.040
+ that where you have a learning model of the world,
+
+58:57.040 --> 58:59.040
+ a model of the world that learns to predict what's
+
+58:59.040 --> 59:01.040
+ going to happen if I do that and that.
+
+59:01.040 --> 59:07.040
+ And then the controller uses that model to more
+
+59:07.040 --> 59:10.040
+ quickly learn successful action sequences.
+
+59:10.040 --> 59:13.040
+ And then of course always this curiosity thing.
+
+59:13.040 --> 59:15.040
+ In the beginning, the model is stupid so the
+
+59:15.040 --> 59:18.040
+ controller should be motivated to come up with
+
+59:18.040 --> 59:21.040
+ experiments with action sequences that lead to data
+
+59:21.040 --> 59:23.040
+ that improve the model.
+
+59:23.040 --> 59:27.040
+ Do you think improving the model, constructing an
+
+59:27.040 --> 59:30.040
+ understanding of the world in this connection is
+
+59:30.040 --> 59:34.040
+ now the popular approaches that have been successful
+
+59:34.040 --> 59:38.040
+ are grounded in ideas of neural networks.
+
+59:38.040 --> 59:41.040
+ But in the 80s with expert systems, there's
+
+59:41.040 --> 59:45.040
+ symbolic AI approaches which to us humans are more
+
+59:45.040 --> 59:49.040
+ intuitive in the sense that it makes sense that you
+
+59:49.040 --> 59:52.040
+ build up knowledge in this knowledge representation.
+
+59:52.040 --> 59:54.040
+ What kind of lessons can we draw into our current
+
+59:54.040 --> 1:00:00.040
+ approaches from expert systems from symbolic AI?
+
+1:00:00.040 --> 1:00:04.040
+ So I became aware of all of that in the 80s and
+
+1:00:04.040 --> 1:00:08.040
+ back then logic programming was a huge thing.
+
+1:00:08.040 --> 1:00:10.040
+ Was it inspiring to you yourself?
+
+1:00:10.040 --> 1:00:12.040
+ Did you find it compelling?
+
+1:00:12.040 --> 1:00:16.040
+ Because a lot of your work was not so much in that
+
+1:00:16.040 --> 1:00:17.040
+ realm, right?
+
+1:00:17.040 --> 1:00:18.040
+ It was more in the learning systems.
+
+1:00:18.040 --> 1:00:20.040
+ Yes and no, but we did all of that.
+
+1:00:20.040 --> 1:00:27.040
+ So my first publication ever actually was 1987,
+
+1:00:27.040 --> 1:00:31.040
+ was the implementation of genetic algorithm of a
+
+1:00:31.040 --> 1:00:34.040
+ genetic programming system in Prolog.
+
+1:00:34.040 --> 1:00:38.040
+ So Prolog, that's what you learn back then which is
+
+1:00:38.040 --> 1:00:41.040
+ a logic programming language and the Japanese,
+
+1:00:41.040 --> 1:00:45.040
+ they have this huge fifth generation AI project
+
+1:00:45.040 --> 1:00:49.040
+ which was mostly about logic programming back then.
+
+1:00:49.040 --> 1:00:52.040
+ Although neural networks existed and were well
+
+1:00:52.040 --> 1:00:56.040
+ known back then and deep learning has existed since
+
+1:00:56.040 --> 1:01:00.040
+ 1965, since this guy in the Ukraine,
+
+1:01:00.040 --> 1:01:02.040
+ Iwakunenko, started it.
+
+1:01:02.040 --> 1:01:05.040
+ But the Japanese and many other people,
+
+1:01:05.040 --> 1:01:08.040
+ they focused really on this logic programming and I
+
+1:01:08.040 --> 1:01:10.040
+ was influenced to the extent that I said,
+
+1:01:10.040 --> 1:01:13.040
+ okay, let's take these biologically inspired
+
+1:01:13.040 --> 1:01:20.040
+ algorithms like evolution, programs,
+
+1:01:20.040 --> 1:01:22.040
+ and implement that in the language which I know,
+
+1:01:22.040 --> 1:01:25.040
+ which was Prolog, for example, back then.
+
+1:01:25.040 --> 1:01:29.040
+ And then in many ways this came back later because
+
+1:01:29.040 --> 1:01:31.040
+ the Gödel machine, for example,
+
+1:01:31.040 --> 1:01:34.040
+ has a proof searcher on board and without that it
+
+1:01:34.040 --> 1:01:36.040
+ would not be optimal.
+
+1:01:36.040 --> 1:01:38.040
+ Well, Markus Futter's universal algorithm for
+
+1:01:38.040 --> 1:01:41.040
+ solving all well defined problems has a proof
+
+1:01:41.040 --> 1:01:46.040
+ searcher on board so that's very much logic programming.
+
+1:01:46.040 --> 1:01:50.040
+ Without that it would not be asymptotically optimal.
+
+1:01:50.040 --> 1:01:51.040
+ But then on the other hand,
+
+1:01:51.040 --> 1:01:54.040
+ because we are very pragmatic guys also,
+
+1:01:54.040 --> 1:02:00.040
+ we focused on recurrent neural networks and
+
+1:02:00.040 --> 1:02:04.040
+ suboptimal stuff such as gradient based search and
+
+1:02:04.040 --> 1:02:09.040
+ program space rather than provably optimal things.
+
+1:02:09.040 --> 1:02:13.040
+ The logic programming certainly has a usefulness
+
+1:02:13.040 --> 1:02:16.040
+ when you're trying to construct something provably
+
+1:02:16.040 --> 1:02:19.040
+ optimal or provably good or something like that.
+
+1:02:19.040 --> 1:02:22.040
+ But is it useful for practical problems?
+
+1:02:22.040 --> 1:02:24.040
+ It's really useful for our theorem proving.
+
+1:02:24.040 --> 1:02:28.040
+ The best theorem provers today are not neural networks.
+
+1:02:28.040 --> 1:02:31.040
+ No, they are logic programming systems and they
+
+1:02:31.040 --> 1:02:35.040
+ are much better theorem provers than most math
+
+1:02:35.040 --> 1:02:38.040
+ students in the first or second semester.
+
+1:02:38.040 --> 1:02:43.040
+ But for reasoning, for playing games of Go or chess
+
+1:02:43.040 --> 1:02:46.040
+ or for robots, autonomous vehicles that operate in
+
+1:02:46.040 --> 1:02:49.040
+ the real world or object manipulation,
+
+1:02:49.040 --> 1:02:51.040
+ you think learning.
+
+1:02:51.040 --> 1:02:54.040
+ Yeah, as long as the problems have little to do
+
+1:02:54.040 --> 1:02:58.040
+ with theorem proving themselves,
+
+1:02:58.040 --> 1:03:01.040
+ then as long as that is not the case,
+
+1:03:01.040 --> 1:03:05.040
+ you just want to have better pattern recognition.
+
+1:03:05.040 --> 1:03:07.040
+ So to build a self driving car,
+
+1:03:07.040 --> 1:03:10.040
+ you want to have better pattern recognition and
+
+1:03:10.040 --> 1:03:14.040
+ pedestrian recognition and all these things.
+
+1:03:14.040 --> 1:03:19.040
+ You want to minimize the number of false positives,
+
+1:03:19.040 --> 1:03:21.040
+ which is currently slowing down self driving cars
+
+1:03:21.040 --> 1:03:23.040
+ in many ways.
+
+1:03:23.040 --> 1:03:27.040
+ All of that has very little to do with logic programming.
+
+1:03:27.040 --> 1:03:32.040
+ What are you most excited about in terms of
+
+1:03:32.040 --> 1:03:35.040
+ directions of artificial intelligence at this moment
+
+1:03:35.040 --> 1:03:38.040
+ in the next few years in your own research
+
+1:03:38.040 --> 1:03:41.040
+ and in the broader community?
+
+1:03:41.040 --> 1:03:44.040
+ So I think in the not so distant future,
+
+1:03:44.040 --> 1:03:50.040
+ we will have for the first time little robots
+
+1:03:50.040 --> 1:03:53.040
+ that learn like kids.
+
+1:03:53.040 --> 1:03:57.040
+ I will be able to say to the robot,
+
+1:03:57.040 --> 1:04:01.040
+ look here robot, we are going to assemble a smartphone.
+
+1:04:01.040 --> 1:04:05.040
+ Let's take this slab of plastic and the screwdriver
+
+1:04:05.040 --> 1:04:09.040
+ and let's screw in the screw like that.
+
+1:04:09.040 --> 1:04:11.040
+ Not like that, like that.
+
+1:04:11.040 --> 1:04:14.040
+ Not like that, like that.
+
+1:04:14.040 --> 1:04:17.040
+ And I don't have a data glove or something.
+
+1:04:17.040 --> 1:04:20.040
+ He will see me and he will hear me
+
+1:04:20.040 --> 1:04:24.040
+ and he will try to do something with his own actuators,
+
+1:04:24.040 --> 1:04:26.040
+ which will be really different from mine,
+
+1:04:26.040 --> 1:04:28.040
+ but he will understand the difference
+
+1:04:28.040 --> 1:04:31.040
+ and will learn to imitate me,
+
+1:04:31.040 --> 1:04:34.040
+ but not in the supervised way
+
+1:04:34.040 --> 1:04:37.040
+ where a teacher is giving target signals
+
+1:04:37.040 --> 1:04:40.040
+ for all his muscles all the time.
+
+1:04:40.040 --> 1:04:43.040
+ No, by doing this high level imitation
+
+1:04:43.040 --> 1:04:46.040
+ where he first has to learn to imitate me
+
+1:04:46.040 --> 1:04:48.040
+ and then to interpret these additional noises
+
+1:04:48.040 --> 1:04:51.040
+ coming from my mouth as helping,
+
+1:04:51.040 --> 1:04:54.040
+ helpful signals to do that better.
+
+1:04:54.040 --> 1:05:00.040
+ And then it will by itself come up with faster ways
+
+1:05:00.040 --> 1:05:03.040
+ and more efficient ways of doing the same thing.
+
+1:05:03.040 --> 1:05:07.040
+ And finally I stop his learning algorithm
+
+1:05:07.040 --> 1:05:10.040
+ and make a million copies and sell it.
+
+1:05:10.040 --> 1:05:13.040
+ And so at the moment this is not possible,
+
+1:05:13.040 --> 1:05:16.040
+ but we already see how we are going to get there.
+
+1:05:16.040 --> 1:05:19.040
+ And you can imagine to the extent
+
+1:05:19.040 --> 1:05:22.040
+ that this works economically and cheaply,
+
+1:05:22.040 --> 1:05:25.040
+ it's going to change everything.
+
+1:05:25.040 --> 1:05:31.040
+ Almost all of production is going to be affected by that.
+
+1:05:31.040 --> 1:05:34.040
+ And a much bigger wave,
+
+1:05:34.040 --> 1:05:36.040
+ a much bigger AI wave is coming
+
+1:05:36.040 --> 1:05:38.040
+ than the one that we are currently witnessing,
+
+1:05:38.040 --> 1:05:40.040
+ which is mostly about passive pattern recognition
+
+1:05:40.040 --> 1:05:42.040
+ on your smartphone.
+
+1:05:42.040 --> 1:05:45.040
+ This is about active machines that shapes data
+
+1:05:45.040 --> 1:05:48.040
+ through the actions they are executing
+
+1:05:48.040 --> 1:05:52.040
+ and they learn to do that in a good way.
+
+1:05:52.040 --> 1:05:55.040
+ So many of the traditional industries
+
+1:05:55.040 --> 1:05:57.040
+ are going to be affected by that.
+
+1:05:57.040 --> 1:06:01.040
+ All the companies that are building machines
+
+1:06:01.040 --> 1:06:04.040
+ will equip these machines with cameras
+
+1:06:04.040 --> 1:06:08.040
+ and other sensors and they are going to learn
+
+1:06:08.040 --> 1:06:11.040
+ to solve all kinds of problems
+
+1:06:11.040 --> 1:06:13.040
+ through interaction with humans,
+
+1:06:13.040 --> 1:06:15.040
+ but also a lot on their own
+
+1:06:15.040 --> 1:06:20.040
+ to improve what they already can do.
+
+1:06:20.040 --> 1:06:24.040
+ And lots of old economy is going to be affected by that.
+
+1:06:24.040 --> 1:06:27.040
+ And in recent years I have seen that old economy
+
+1:06:27.040 --> 1:06:32.040
+ is actually waking up and realizing that this is the case.
+
+1:06:32.040 --> 1:06:34.040
+ Are you optimistic about that future?
+
+1:06:34.040 --> 1:06:36.040
+ Are you concerned?
+
+1:06:36.040 --> 1:06:38.040
+ There is a lot of people concerned in the near term
+
+1:06:38.040 --> 1:06:43.040
+ about the transformation of the nature of work,
+
+1:06:43.040 --> 1:06:45.040
+ the kind of ideas that you just suggested
+
+1:06:45.040 --> 1:06:47.040
+ would have a significant impact
+
+1:06:47.040 --> 1:06:49.040
+ of what kind of things could be automated.
+
+1:06:49.040 --> 1:06:52.040
+ Are you optimistic about that future?
+
+1:06:52.040 --> 1:06:54.040
+ Are you nervous about that future?
+
+1:06:54.040 --> 1:06:58.040
+ And looking a little bit farther into the future,
+
+1:06:58.040 --> 1:07:02.040
+ there are people like Gila Musk, Stuart Russell,
+
+1:07:02.040 --> 1:07:06.040
+ concerned about the existential threats of that future.
+
+1:07:06.040 --> 1:07:08.040
+ So in the near term, job loss,
+
+1:07:08.040 --> 1:07:10.040
+ in the long term existential threat,
+
+1:07:10.040 --> 1:07:15.040
+ are these concerns to you or are you ultimately optimistic?
+
+1:07:15.040 --> 1:07:22.040
+ So let's first address the near future.
+
+1:07:22.040 --> 1:07:28.040
+ We have had predictions of job losses for many decades.
+
+1:07:28.040 --> 1:07:33.040
+ For example, when industrial robots came along,
+
+1:07:33.040 --> 1:07:38.040
+ many people predicted that lots of jobs are going to get lost.
+
+1:07:38.040 --> 1:07:42.040
+ And in a sense, they were right,
+
+1:07:42.040 --> 1:07:46.040
+ because back then there were car factories
+
+1:07:46.040 --> 1:07:51.040
+ and hundreds of people in these factories assembled cars,
+
+1:07:51.040 --> 1:07:54.040
+ and today the same car factories have hundreds of robots
+
+1:07:54.040 --> 1:07:59.040
+ and maybe three guys watching the robots.
+
+1:07:59.040 --> 1:08:05.040
+ On the other hand, those countries that have lots of robots per capita,
+
+1:08:05.040 --> 1:08:07.040
+ Japan, Korea, Germany, Switzerland,
+
+1:08:07.040 --> 1:08:10.040
+ and a couple of other countries,
+
+1:08:10.040 --> 1:08:14.040
+ they have really low unemployment rates.
+
+1:08:14.040 --> 1:08:18.040
+ Somehow, all kinds of new jobs were created.
+
+1:08:18.040 --> 1:08:23.040
+ Back then, nobody anticipated those jobs.
+
+1:08:23.040 --> 1:08:27.040
+ And decades ago, I always said,
+
+1:08:27.040 --> 1:08:32.040
+ it's really easy to say which jobs are going to get lost,
+
+1:08:32.040 --> 1:08:36.040
+ but it's really hard to predict the new ones.
+
+1:08:36.040 --> 1:08:40.040
+ 200 years ago, who would have predicted all these people
+
+1:08:40.040 --> 1:08:46.040
+ making money as YouTube bloggers, for example?
+
+1:08:46.040 --> 1:08:54.040
+ 200 years ago, 60% of all people used to work in agriculture.
+
+1:08:54.040 --> 1:08:57.040
+ Today, maybe 1%.
+
+1:08:57.040 --> 1:09:02.040
+ But still, only, I don't know, 5% unemployment.
+
+1:09:02.040 --> 1:09:08.040
+ Lots of new jobs were created, and Homo Ludens, the playing man,
+
+1:09:08.040 --> 1:09:11.040
+ is inventing new jobs all the time.
+
+1:09:11.040 --> 1:09:16.040
+ Most of these jobs are not existentially necessary
+
+1:09:16.040 --> 1:09:19.040
+ for the survival of our species.
+
+1:09:19.040 --> 1:09:23.040
+ There are only very few existentially necessary jobs,
+
+1:09:23.040 --> 1:09:28.040
+ such as farming and building houses and warming up the houses,
+
+1:09:28.040 --> 1:09:31.040
+ but less than 10% of the population is doing that.
+
+1:09:31.040 --> 1:09:35.040
+ And most of these newly invented jobs are about
+
+1:09:35.040 --> 1:09:38.040
+ interacting with other people in new ways,
+
+1:09:38.040 --> 1:09:41.040
+ through new media and so on,
+
+1:09:41.040 --> 1:09:46.040
+ getting new types of kudos and forms of likes and whatever,
+
+1:09:46.040 --> 1:09:48.040
+ and even making money through that.
+
+1:09:48.040 --> 1:09:53.040
+ So, Homo Ludens, the playing man, doesn't want to be unemployed,
+
+1:09:53.040 --> 1:09:57.040
+ and that's why he's inventing new jobs all the time.
+
+1:09:57.040 --> 1:10:02.040
+ And he keeps considering these jobs as really important
+
+1:10:02.040 --> 1:10:08.040
+ and is investing a lot of energy and hours of work into those new jobs.
+
+1:10:08.040 --> 1:10:10.040
+ That's quite beautifully put.
+
+1:10:10.040 --> 1:10:13.040
+ We're really nervous about the future because we can't predict
+
+1:10:13.040 --> 1:10:15.040
+ what kind of new jobs will be created.
+
+1:10:15.040 --> 1:10:21.040
+ But you're ultimately optimistic that we humans are so restless
+
+1:10:21.040 --> 1:10:25.040
+ that we create and give meaning to newer and newer jobs,
+
+1:10:25.040 --> 1:10:29.040
+ totally new, things that get likes on Facebook
+
+1:10:29.040 --> 1:10:32.040
+ or whatever the social platform is.
+
+1:10:32.040 --> 1:10:36.040
+ So what about long term existential threat of AI,
+
+1:10:36.040 --> 1:10:41.040
+ where our whole civilization may be swallowed up
+
+1:10:41.040 --> 1:10:45.040
+ by these ultra super intelligent systems?
+
+1:10:45.040 --> 1:10:48.040
+ Maybe it's not going to be swallowed up,
+
+1:10:48.040 --> 1:10:55.040
+ but I'd be surprised if we humans were the last step
+
+1:10:55.040 --> 1:10:58.040
+ in the evolution of the universe.
+
+1:10:58.040 --> 1:11:05.040
+ You've actually had this beautiful comment somewhere that I've seen
+
+1:11:05.040 --> 1:11:12.040
+ saying that, quite insightful, artificial general intelligence systems,
+
+1:11:12.040 --> 1:11:16.040
+ just like us humans, will likely not want to interact with humans,
+
+1:11:16.040 --> 1:11:18.040
+ they'll just interact amongst themselves.
+
+1:11:18.040 --> 1:11:21.040
+ Just like ants interact amongst themselves
+
+1:11:21.040 --> 1:11:25.040
+ and only tangentially interact with humans.
+
+1:11:25.040 --> 1:11:29.040
+ And it's quite an interesting idea that once we create AGI,
+
+1:11:29.040 --> 1:11:34.040
+ they will lose interest in humans and compete for their own Facebook likes
+
+1:11:34.040 --> 1:11:36.040
+ and their own social platforms.
+
+1:11:36.040 --> 1:11:45.040
+ So within that quite elegant idea, how do we know in a hypothetical sense
+
+1:11:45.040 --> 1:11:49.040
+ that there's not already intelligence systems out there?
+
+1:11:49.040 --> 1:11:54.040
+ How do you think broadly of general intelligence greater than us?
+
+1:11:54.040 --> 1:11:56.040
+ How do we know it's out there?
+
+1:11:56.040 --> 1:11:59.040
+ How do we know it's around us?
+
+1:11:59.040 --> 1:12:01.040
+ And could it already be?
+
+1:12:01.040 --> 1:12:07.040
+ I'd be surprised if within the next few decades or something like that,
+
+1:12:07.040 --> 1:12:13.040
+ we won't have AIs that are truly smart in every single way
+
+1:12:13.040 --> 1:12:17.040
+ and better problem solvers in almost every single important way.
+
+1:12:17.040 --> 1:12:25.040
+ And I'd be surprised if they wouldn't realize what we have realized a long time ago,
+
+1:12:25.040 --> 1:12:31.040
+ which is that almost all physical resources are not here in this biosphere,
+
+1:12:31.040 --> 1:12:41.040
+ but further out, the rest of the solar system gets 2 billion times more solar energy
+
+1:12:41.040 --> 1:12:43.040
+ than our little planet.
+
+1:12:43.040 --> 1:12:47.040
+ There's lots of material out there that you can use to build robots
+
+1:12:47.040 --> 1:12:51.040
+ and self replicating robot factories and all this stuff.
+
+1:12:51.040 --> 1:12:56.040
+ And they are going to do that and they will be scientists and curious
+
+1:12:56.040 --> 1:12:59.040
+ and they will explore what they can do.
+
+1:12:59.040 --> 1:13:04.040
+ And in the beginning, they will be fascinated by life
+
+1:13:04.040 --> 1:13:07.040
+ and by their own origins in our civilization.
+
+1:13:07.040 --> 1:13:11.040
+ They will want to understand that completely, just like people today
+
+1:13:11.040 --> 1:13:21.040
+ would like to understand how life works and also the history of our own existence
+
+1:13:21.040 --> 1:13:27.040
+ and civilization, but then also the physical laws that created all of that.
+
+1:13:27.040 --> 1:13:30.040
+ So in the beginning, they will be fascinated by life.
+
+1:13:30.040 --> 1:13:34.040
+ Once they understand it, they lose interest.
+
+1:13:34.040 --> 1:13:40.040
+ Like anybody who loses interest in things he understands.
+
+1:13:40.040 --> 1:13:50.040
+ And then, as you said, the most interesting sources of information for them
+
+1:13:50.040 --> 1:13:58.040
+ will be others of their own kind.
+
+1:13:58.040 --> 1:14:06.040
+ So at least in the long run, there seems to be some sort of protection
+
+1:14:06.040 --> 1:14:11.040
+ through lack of interest on the other side.
+
+1:14:11.040 --> 1:14:17.040
+ And now it seems also clear, as far as we understand physics,
+
+1:14:17.040 --> 1:14:23.040
+ you need matter and energy to compute and to build more robots and infrastructure
+
+1:14:23.040 --> 1:14:31.040
+ for AI civilization and EIEI ecologies consisting of trillions of different types of AIs.
+
+1:14:31.040 --> 1:14:37.040
+ And so it seems inconceivable to me that this thing is not going to expand.
+
+1:14:37.040 --> 1:14:44.040
+ Some AI ecology not controlled by one AI, but trillions of different types of AIs
+
+1:14:44.040 --> 1:14:50.040
+ competing in all kinds of quickly evolving and disappearing ecological niches
+
+1:14:50.040 --> 1:14:52.040
+ in ways that we cannot fathom at the moment.
+
+1:14:52.040 --> 1:14:57.040
+ But it's going to expand, limited by light speed and physics,
+
+1:14:57.040 --> 1:15:03.040
+ but it's going to expand and now we realize that the universe is still young.
+
+1:15:03.040 --> 1:15:10.040
+ It's only 13.8 billion years old and it's going to be a thousand times older than that.
+
+1:15:10.040 --> 1:15:17.040
+ So there's plenty of time to conquer the entire universe
+
+1:15:17.040 --> 1:15:21.040
+ and to fill it with intelligence and senders and receivers
+
+1:15:21.040 --> 1:15:27.040
+ such that AIs can travel the way they are traveling in our labs today,
+
+1:15:27.040 --> 1:15:31.040
+ which is by radio from sender to receiver.
+
+1:15:31.040 --> 1:15:39.040
+ And let's call the current age of the universe one eon, one eon.
+
+1:15:39.040 --> 1:15:43.040
+ Now it will take just a few eons from now and the entire visible universe
+
+1:15:43.040 --> 1:15:47.040
+ is going to be full of that stuff.
+
+1:15:47.040 --> 1:15:53.040
+ And let's look ahead to a time when the universe is going to be 1000 times older than it is now.
+
+1:15:53.040 --> 1:15:57.040
+ They will look back and they will say, look, almost immediately after the Big Bang,
+
+1:15:57.040 --> 1:16:03.040
+ only a few eons later, the entire universe started to become intelligent.
+
+1:16:03.040 --> 1:16:09.040
+ Now to your question, how do we see whether anything like that has already happened
+
+1:16:09.040 --> 1:16:16.040
+ or is already in a more advanced stage in some other part of the universe, of the visible universe?
+
+1:16:16.040 --> 1:16:22.040
+ We are trying to look out there and nothing like that has happened so far or is that true?
+
+1:16:22.040 --> 1:16:24.040
+ Do you think we would recognize it?
+
+1:16:24.040 --> 1:16:26.040
+ How do we know it's not among us?
+
+1:16:26.040 --> 1:16:31.040
+ How do we know planets aren't in themselves intelligent beings?
+
+1:16:31.040 --> 1:16:40.040
+ How do we know ants seen as a collective are not much greater intelligence than our own?
+
+1:16:40.040 --> 1:16:42.040
+ These kinds of ideas.
+
+1:16:42.040 --> 1:16:45.040
+ When I was a boy, I was thinking about these things
+
+1:16:45.040 --> 1:16:48.040
+ and I thought, maybe it has already happened.
+
+1:16:48.040 --> 1:16:53.040
+ Because back then I knew, I learned from popular physics books,
+
+1:16:53.040 --> 1:17:00.040
+ that the large scale structure of the universe is not homogeneous.
+
+1:17:00.040 --> 1:17:08.040
+ You have these clusters of galaxies and then in between there are these huge empty spaces.
+
+1:17:08.040 --> 1:17:12.040
+ And I thought, maybe they aren't really empty.
+
+1:17:12.040 --> 1:17:17.040
+ It's just that in the middle of that, some AI civilization already has expanded
+
+1:17:17.040 --> 1:17:22.040
+ and then has covered a bubble of a billion light years diameter
+
+1:17:22.040 --> 1:17:29.040
+ and is using all the energy of all the stars within that bubble for its own unfathomable purposes.
+
+1:17:29.040 --> 1:17:35.040
+ And so it already has happened and we just fail to interpret the signs.
+
+1:17:35.040 --> 1:17:43.040
+ And then I learned that gravity by itself explains the large scale structure of the universe
+
+1:17:43.040 --> 1:17:46.040
+ and that this is not a convincing explanation.
+
+1:17:46.040 --> 1:17:51.040
+ And then I thought, maybe it's the dark matter.
+
+1:17:51.040 --> 1:18:01.040
+ Because as far as we know today, 80% of the measurable matter is invisible.
+
+1:18:01.040 --> 1:18:06.040
+ And we know that because otherwise our galaxy or other galaxies would fall apart.
+
+1:18:06.040 --> 1:18:10.040
+ They are rotating too quickly.
+
+1:18:10.040 --> 1:18:17.040
+ And then the idea was, maybe all of these AI civilizations that are already out there,
+
+1:18:17.040 --> 1:18:26.040
+ they are just invisible because they are really efficient in using the energies of their own local systems
+
+1:18:26.040 --> 1:18:29.040
+ and that's why they appear dark to us.
+
+1:18:29.040 --> 1:18:34.040
+ But this is also not a convincing explanation because then the question becomes,
+
+1:18:34.040 --> 1:18:44.040
+ why are there still any visible stars left in our own galaxy, which also must have a lot of dark matter?
+
+1:18:44.040 --> 1:18:46.040
+ So that is also not a convincing thing.
+
+1:18:46.040 --> 1:18:54.040
+ And today, I like to think it's quite plausible that maybe we are the first,
+
+1:18:54.040 --> 1:19:09.040
+ at least in our local light cone within the few hundreds of millions of light years that we can reliably observe.
+
+1:19:09.040 --> 1:19:12.040
+ Is that exciting to you that we might be the first?
+
+1:19:12.040 --> 1:19:20.040
+ And it would make us much more important because if we mess it up through a nuclear war,
+
+1:19:20.040 --> 1:19:31.040
+ then maybe this will have an effect on the development of the entire universe.
+
+1:19:31.040 --> 1:19:32.040
+ So let's not mess it up.
+
+1:19:32.040 --> 1:19:34.040
+ Let's not mess it up.
+
+1:19:34.040 --> 1:19:37.040
+ Jürgen, thank you so much for talking today. I really appreciate it.
+
+1:19:37.040 --> 1:19:58.040
+ It's my pleasure.
+

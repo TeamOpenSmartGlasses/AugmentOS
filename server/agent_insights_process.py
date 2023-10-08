@@ -54,8 +54,8 @@ def agent_insights_processing_loop():
                 if len(transcript['text']) < 2: # Around 150-200 words, no point to generate insight below this
                     print("Transcript too short, skipping...")
                     continue
-                print("Run Insights generation with... userId: '{}' ... text: '{}'".format(
-                    transcript['userId'], transcript['text']))
+                print("Run Insights generation with... user_id: '{}' ... text: '{}'".format(
+                    transcript['user_id'], transcript['text']))
                 insightGenerationStartTime = time.time()
                 length = len(transcript['text'])
                 new_chunk_length = int(length * 0.05)
@@ -68,7 +68,7 @@ def agent_insights_processing_loop():
                     insight_obj['timestamp'] = math.trunc(time.time())
                     insight_obj['uuid'] = str(uuid.uuid4())
                     insight_obj['text'] = insight
-                    dbHandler.add_agent_insights_results_for_user(transcript['userId'], [insight_obj])
+                    dbHandler.add_agent_insights_results_for_user(transcript['user_id'], [insight_obj])
                 except Exception as e:
                     print("Exception in agent.run()...:")
                     print(e)

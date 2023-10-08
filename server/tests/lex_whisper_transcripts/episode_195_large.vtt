@@ -1,0 +1,5738 @@
+WEBVTT
+
+00:00.000 --> 00:04.900
+ The following is a conversation with Clara Souza Silva, a quantum astrochemist at Harvard
+
+00:04.900 --> 00:11.520
+ specializing in spectroscopy of gases that serve as possible signs of life on other planets,
+
+00:11.520 --> 00:14.340
+ most especially the gas phosphine.
+
+00:14.340 --> 00:20.560
+ She was a coauthor of the paper that in 2020 found that there is phosphine in the atmosphere
+
+00:20.560 --> 00:26.920
+ of Venus and, thus, possible extraterrestrial life that lives in its atmosphere.
+
+00:26.920 --> 00:31.320
+ The detection of phosphine was challenged, reaffirmed, and is now still under active
+
+00:31.320 --> 00:32.720
+ research.
+
+00:32.720 --> 00:38.000
+ Quick mention of our sponsors, Onnit, Grammarly, Blinkist, and Indeed.
+
+00:38.000 --> 00:41.440
+ Check them out in the description to support this podcast.
+
+00:41.440 --> 00:45.520
+ As a side note, let me say that I think the search for life on other planets is one of
+
+00:45.520 --> 00:47.560
+ the most important endeavors in science.
+
+00:47.560 --> 00:53.240
+ If we find extraterrestrial life and study it, we may find insights into the mechanisms
+
+00:53.240 --> 00:58.240
+ that originated life here on Earth, and more than life, the mechanisms that originated
+
+00:58.240 --> 01:00.800
+ intelligence and consciousness.
+
+01:00.800 --> 01:04.360
+ If we understand these mechanisms, we can build them.
+
+01:04.360 --> 01:09.100
+ But more than this, the discovery of life on other planets means that our galaxy and
+
+01:09.100 --> 01:11.960
+ our universe is teeming with life.
+
+01:11.960 --> 01:15.980
+ This is humbling and terrifying, but it is also exciting.
+
+01:15.980 --> 01:17.940
+ We humans are natural explorers.
+
+01:17.940 --> 01:22.880
+ For most of our history, we explored the surface of the Earth and the contents of our minds.
+
+01:22.880 --> 01:27.960
+ But now, with spacefaring vessels, we have a chance to explore life beyond Earth, their
+
+01:27.960 --> 01:33.300
+ physics, their biology, and perhaps the contents of their minds.
+
+01:33.300 --> 01:40.120
+ This is the Lux Friedman Podcast, and here is my conversation with Clara Souza Silva.
+
+01:40.120 --> 01:45.960
+ Since you're the world expert in, well, in many things, but one of them is phosphine,
+
+01:45.960 --> 01:52.840
+ would it technically be correct to call you the queen of phosphine?
+
+01:52.840 --> 01:54.640
+ I go for Dr. Phosphine.
+
+01:54.640 --> 01:57.000
+ Queen is an inherited title, I feel.
+
+01:57.000 --> 02:05.760
+ But you still rule by love and power, so, but while having the doctor title, I got it.
+
+02:05.760 --> 02:06.760
+ Kindness.
+
+02:06.760 --> 02:07.760
+ Kindness.
+
+02:07.760 --> 02:08.760
+ Kindness.
+
+02:08.760 --> 02:13.400
+ In September 2020, you coauthored a paper announcing possible presence of phosphine
+
+02:13.400 --> 02:21.120
+ in the atmosphere of Venus, and that it may be a signature of extraterrestrial life.
+
+02:21.120 --> 02:22.120
+ Big maybe.
+
+02:22.120 --> 02:23.120
+ Big maybe.
+
+02:23.120 --> 02:29.080
+ There was some pushback, of course, from the scientific community that followed, friendly,
+
+02:29.080 --> 02:31.940
+ loving pushback.
+
+02:31.940 --> 02:37.540
+ Then in January, another paper from University of Wisconsin, I believe, confirmed the finding.
+
+02:37.540 --> 02:44.440
+ So where do we stand in this saga, in this mystery of what the heck is going on, on Venus
+
+02:44.440 --> 02:46.880
+ in terms of phosphine and in terms of aliens?
+
+02:46.880 --> 02:50.720
+ Let's try to break it down.
+
+02:50.720 --> 02:53.920
+ The short answer is we don't know.
+
+02:53.920 --> 02:59.200
+ I think you and the rest of the public are now witnessing a pretty exciting discovery,
+
+02:59.200 --> 03:07.520
+ but as it evolves, as it unfolds, we did not wait until we had, you know, years of
+
+03:07.520 --> 03:14.080
+ data from 10 different instruments across several layers of the atmosphere.
+
+03:14.080 --> 03:21.480
+ We waited until we had two telescopes with independent data months apart, but still,
+
+03:21.480 --> 03:23.100
+ the data is weak.
+
+03:23.100 --> 03:24.100
+ It's noisy.
+
+03:24.100 --> 03:25.100
+ It's delicate.
+
+03:25.100 --> 03:31.480
+ It's very much at the edge of instrument sensitivity, sensitivity, and so we still don't even know
+
+03:31.480 --> 03:33.080
+ if it is phosphine.
+
+03:33.080 --> 03:35.660
+ We don't even really know if the signal is real.
+
+03:35.660 --> 03:37.560
+ People still disagree about that.
+
+03:37.560 --> 03:44.400
+ I think at the more philosophical end of how this happened, I think it is a distinction,
+
+03:44.400 --> 03:49.600
+ and myself and other coauthors were talking about this, it's a distinction between hypothesis
+
+03:49.600 --> 03:52.560
+ generation and hypothesis testing.
+
+03:52.560 --> 04:01.160
+ Now hypothesis testing is something that I think is the backbone of the scientific method,
+
+04:01.160 --> 04:05.040
+ but it has a problem, which is if you're looking through very noisy data and you want to test
+
+04:05.040 --> 04:10.960
+ the hypothesis, you may by mistake create a spurious signal.
+
+04:10.960 --> 04:14.720
+ The safest, more conservative approach is hypothesis generation.
+
+04:14.720 --> 04:17.500
+ You see some data and you go, what's in there?
+
+04:17.500 --> 04:18.500
+ With no bias.
+
+04:18.500 --> 04:24.000
+ Now this is much safer, much more conservative, and when there's a lot of data, that's great.
+
+04:24.000 --> 04:28.360
+ When there isn't, you can clean the noise and take out the signal with it.
+
+04:28.360 --> 04:33.280
+ The signal with a bath water, whatever the equivalent of the analogy would be.
+
+04:33.280 --> 04:37.400
+ And so I think the healthy discourse that you described is exactly this.
+
+04:37.400 --> 04:41.720
+ There are ways of processing the data, completely legitimate ways, checked by multiple people
+
+04:41.720 --> 04:47.800
+ and experts where the signal shows up and then phosphine is in the atmosphere of Venus,
+
+04:47.800 --> 04:52.420
+ and some where it doesn't, and then we disagree what that signal means.
+
+04:52.420 --> 04:58.420
+ If it's real and it is an ambiguously phosphine, it is very exciting because we don't know
+
+04:58.420 --> 05:05.960
+ how to explain it without life, but going from there to Venusians is still a huge jump.
+
+05:05.960 --> 05:06.960
+ And so...
+
+05:06.960 --> 05:07.960
+ Venusians.
+
+05:07.960 --> 05:12.920
+ So that would be the title for the civilization, if it is a living and thriving on Venus's
+
+05:12.920 --> 05:14.480
+ Venusians.
+
+05:14.480 --> 05:18.600
+ Until we know what they call themselves and that's the name, yes.
+
+05:18.600 --> 05:25.040
+ So this is the early analysis of data or analysis of early data.
+
+05:25.040 --> 05:30.000
+ It was nevertheless, you waited until the actual peer reviewed publication to know?
+
+05:30.000 --> 05:31.000
+ Of course.
+
+05:31.000 --> 05:33.220
+ And analysis of the two different instruments months apart.
+
+05:33.220 --> 05:35.840
+ So that's ALMA and JCMT, the two telescopes.
+
+05:35.840 --> 05:39.540
+ I mean, it's still, I mean, it's really exciting.
+
+05:39.540 --> 05:42.520
+ What did it feel like sort of sitting on this data?
+
+05:42.520 --> 05:50.480
+ Like kind of anticipating the publication and wondering and still wondering, is it true?
+
+05:50.480 --> 05:55.560
+ Like how does it make you feel that a planet in our solar system might have phosphine in
+
+05:55.560 --> 05:56.560
+ the atmosphere?
+
+05:56.560 --> 05:57.560
+ It's nuts.
+
+05:57.560 --> 06:01.360
+ It's absolutely nuts.
+
+06:01.360 --> 06:02.360
+ I mean...
+
+06:02.360 --> 06:04.360
+ In the best possible way?
+
+06:04.360 --> 06:08.080
+ I've been working on phosphine for over a decade.
+
+06:08.080 --> 06:10.160
+ Before it was cool.
+
+06:10.160 --> 06:12.640
+ Way before it was cool.
+
+06:12.640 --> 06:15.640
+ Before anyone could spell it or heard of it.
+
+06:15.640 --> 06:21.120
+ And at the time people either didn't know what phosphine was or only knew it for being
+
+06:21.120 --> 06:26.880
+ just possibly the most horrendous molecule that ever graced the earth.
+
+06:26.880 --> 06:30.660
+ And so no one was a fan.
+
+06:30.660 --> 06:34.740
+ And I had been considering looking for it because I did think it was an unusual and
+
+06:34.740 --> 06:37.480
+ disgusting but very promising sign of life.
+
+06:37.480 --> 06:40.040
+ I've been looking for it everywhere.
+
+06:40.040 --> 06:42.280
+ I really didn't think to look in the solar system.
+
+06:42.280 --> 06:49.280
+ I thought it was all pretty rough around here for life.
+
+06:49.280 --> 06:53.760
+ And so I wasn't even considering the solar system at all, never mind next door Venus.
+
+06:53.760 --> 06:58.800
+ It was only the lead author of the study, Jane Greaves, who thought to look in the clouds
+
+06:58.800 --> 07:05.380
+ of Venus and then reached out to me to say, I don't know phosphine but I know it's weird.
+
+07:05.380 --> 07:06.920
+ How weird is it?
+
+07:06.920 --> 07:09.060
+ And the answer is very weird.
+
+07:09.060 --> 07:12.400
+ And so the telescopes we're looking at, this is visual data.
+
+07:12.400 --> 07:14.560
+ That's what I mean by visual.
+
+07:14.560 --> 07:15.560
+ You wouldn't see the phosphine.
+
+07:15.560 --> 07:18.920
+ Well, but I mean it's a telescope.
+
+07:18.920 --> 07:19.920
+ It's remote.
+
+07:19.920 --> 07:20.920
+ It's remote.
+
+07:20.920 --> 07:27.480
+ You're observing, you're what zooming in on this particular planet and what does the sensor
+
+07:27.480 --> 07:28.920
+ actually look like?
+
+07:28.920 --> 07:30.760
+ How many pixels are there?
+
+07:30.760 --> 07:32.840
+ What does the data kind of look like?
+
+07:32.840 --> 07:39.640
+ It'd be nice to kind of build up intuition of how little data we have based on which,
+
+07:39.640 --> 07:44.640
+ I mean, if you look at like, I've just been reading a lot about gravitational waves and
+
+07:44.640 --> 07:50.600
+ it's kind of incredible how from just very little, like probably the world's most precise
+
+07:50.600 --> 07:57.600
+ instrument, we can derive some very foundational ideas about our early universe.
+
+07:57.600 --> 08:01.360
+ And in that same way, it's kind of incredible how much data, how much information you can
+
+08:01.360 --> 08:03.200
+ get from just a few pixels.
+
+08:03.200 --> 08:10.880
+ So what are we talking about here in terms of based on which this paper saw possible
+
+08:10.880 --> 08:13.700
+ signs of phosphine in the atmosphere?
+
+08:13.700 --> 08:18.400
+ So phosphine, like every other molecule has a unique spectroscopic fingerprint, meaning
+
+08:18.400 --> 08:21.860
+ it rotates and it vibrates in special ways.
+
+08:21.860 --> 08:28.620
+ I calculated how many of those ways it can rotate and vibrate, 16.8 billion ways.
+
+08:28.620 --> 08:33.360
+ What this means is that if you look at the spectrum of light and that light has gone
+
+08:33.360 --> 08:41.840
+ through phosphine gas on the other end, there should be 16.8 billion tiny marks left, indentations
+
+08:41.840 --> 08:43.960
+ left in that spectrum.
+
+08:43.960 --> 08:49.000
+ We found one of those on Venus, one of those 16.8 billion.
+
+08:49.000 --> 08:53.760
+ So now the game is, can we find any of the other ones?
+
+08:53.760 --> 08:55.200
+ But they're really hard to spot.
+
+08:55.200 --> 08:59.800
+ They're all in terrible places in the electromagnetic spectrum.
+
+08:59.800 --> 09:04.440
+ And the instruments we use to find this one can't really find any other one.
+
+09:04.440 --> 09:08.820
+ There's another one of the 16.8 billion we could find, but it would take many, many days
+
+09:08.820 --> 09:14.560
+ of continuous observations and that's not really in the cards right now.
+
+09:14.560 --> 09:16.760
+ There's all kinds of noise, first of all.
+
+09:16.760 --> 09:20.920
+ There's all kinds of other signal.
+
+09:20.920 --> 09:28.760
+ So how do you separate all of that out to pull out just this particular signature that's
+
+09:28.760 --> 09:31.120
+ associated with phosphine?
+
+09:31.120 --> 09:36.760
+ So the data kind of looks somewhat like a wave and a lot of that is noise and it's a
+
+09:36.760 --> 09:37.880
+ baseline.
+
+09:37.880 --> 09:42.120
+ And so if you can figure out the exact shape of the wave, you can cancel that shape out
+
+09:42.120 --> 09:46.840
+ and you should be left with a straight line and if there's something there, an absorption,
+
+09:46.840 --> 09:47.840
+ so a signal.
+
+09:47.840 --> 09:49.580
+ So that's what we did.
+
+09:49.580 --> 09:54.880
+ We tried to find out what was this baseline shape, cleaned it out and got the signal.
+
+09:54.880 --> 09:55.880
+ That's part of the problem.
+
+09:55.880 --> 09:59.040
+ If you do this wrong, you can create a signal.
+
+09:59.040 --> 10:07.000
+ But that signal is at 8.904 wave numbers and we actually have more digits than that, but
+
+10:07.000 --> 10:08.560
+ I don't remember by heart.
+
+10:08.560 --> 10:14.600
+ And ALMA in particular is a very, very good telescope, array of telescopes and it can
+
+10:14.600 --> 10:16.960
+ focus on exactly that frequency.
+
+10:16.960 --> 10:22.520
+ And in that frequency, there are only two known molecules that absorb it all.
+
+10:22.520 --> 10:23.520
+ So that's how we do it.
+
+10:23.520 --> 10:30.280
+ We look at that exact spot where we know phosphine absorbs the other molecules SO2.
+
+10:30.280 --> 10:36.460
+ If there is extraterrestrial life, whether it's on Venus or on exoplanets where you
+
+10:36.460 --> 10:40.560
+ looked before, how does that make you feel?
+
+10:40.560 --> 10:42.400
+ How should it make us feel?
+
+10:42.400 --> 10:43.480
+ Should we be scared?
+
+10:43.480 --> 10:46.160
+ Should we be excited?
+
+10:46.160 --> 10:48.040
+ Let's say it's not intelligent life.
+
+10:48.040 --> 10:51.760
+ Let's say it's microbial life.
+
+10:51.760 --> 10:53.000
+ Is it a threat to us?
+
+10:53.000 --> 10:55.120
+ Are we a threat to it?
+
+10:55.120 --> 11:00.920
+ Or is it only, not only, but mostly a possibility to understand something fundamental, something
+
+11:00.920 --> 11:04.400
+ beautiful about life in the universe?
+
+11:04.400 --> 11:05.400
+ Hard to know.
+
+11:05.400 --> 11:11.640
+ You would have to bring on a poet or a philosopher on the show.
+
+11:11.640 --> 11:12.640
+ I feel those things.
+
+11:12.640 --> 11:14.880
+ I just don't know if those are the right things to feel.
+
+11:14.880 --> 11:16.520
+ I certainly don't feel scared.
+
+11:16.520 --> 11:19.240
+ I think it's rather silly to feel scared.
+
+11:19.240 --> 11:21.140
+ Definitely don't touch them.
+
+11:21.140 --> 11:24.920
+ Sometimes in movies, don't go near it.
+
+11:24.920 --> 11:26.200
+ Don't interfere.
+
+11:26.200 --> 11:33.940
+ I think one of the things with Venus is because of phosphine, now there is a chance that Venus
+
+11:33.940 --> 11:34.940
+ is inhabited.
+
+11:34.940 --> 11:39.020
+ And in that case, we shouldn't go there.
+
+11:39.020 --> 11:46.480
+ We should be very careful with messing with them, bringing our own stuff there that contaminates
+
+11:46.480 --> 11:48.240
+ it.
+
+11:48.240 --> 11:49.720
+ And Venus has suffered enough.
+
+11:49.720 --> 11:56.160
+ If there's life there, it's probably the remains of a living planet, the very last survivors
+
+11:56.160 --> 12:00.920
+ of what once was potentially a thriving world.
+
+12:00.920 --> 12:06.720
+ And so I don't want our first interaction with alien life to be a massacre.
+
+12:06.720 --> 12:12.160
+ So I definitely wouldn't want to go near out of a, let's say, galactic responsibility,
+
+12:12.160 --> 12:14.400
+ galactic ethics.
+
+12:14.400 --> 12:19.620
+ And I often think of alien astronomers watching us and how disappointed they would be if we
+
+12:19.620 --> 12:20.620
+ messed this up.
+
+12:20.620 --> 12:25.960
+ So I really want to be very careful with anything that could be life.
+
+12:25.960 --> 12:28.320
+ But certainly I wouldn't be scared.
+
+12:28.320 --> 12:30.360
+ Humans are plenty capable of killing one another.
+
+12:30.360 --> 12:34.760
+ We don't need extraterrestrial help to destroy ourselves.
+
+12:34.760 --> 12:36.120
+ Scared mostly of other humans.
+
+12:36.120 --> 12:37.120
+ Exactly.
+
+12:37.120 --> 12:41.600
+ But these, this life, if there is life there, it does seem just like you said, it would
+
+12:41.600 --> 12:43.200
+ be pretty rugged.
+
+12:43.200 --> 12:47.200
+ It's like the cockroaches or Chuck Norris, I don't know.
+
+12:47.200 --> 12:53.120
+ It's the, some kind of, it's something that survived through some very difficult conditions.
+
+12:53.120 --> 12:58.160
+ That doesn't mean it would handle us, you know, it could be like war of the worlds.
+
+12:58.160 --> 13:02.440
+ You come, just because you're resilient in your own planet doesn't mean you can survive
+
+13:02.440 --> 13:03.440
+ another.
+
+13:03.440 --> 13:08.520
+ The extremophiles, which are very impressive, we should all be very proud of our extremophiles.
+
+13:08.520 --> 13:12.000
+ They wouldn't really make it in the Venusian clouds.
+
+13:12.000 --> 13:18.080
+ So I wouldn't expect, because you're tough, even Chuck Norris tough, that you would survive
+
+13:18.080 --> 13:20.800
+ on an alien planet.
+
+13:20.800 --> 13:25.520
+ And then from the scientific perspective, you don't want to pollute the data gathering
+
+13:25.520 --> 13:27.960
+ process by showing up there.
+
+13:27.960 --> 13:31.240
+ The observer can affect the observed.
+
+13:31.240 --> 13:35.360
+ How heartbreaking would it be if we found life on another planet and then we're like,
+
+13:35.360 --> 13:37.080
+ oh, we brought it with us.
+
+13:37.080 --> 13:38.320
+ It was my sandwich.
+
+13:38.320 --> 13:40.520
+ But that's always the problem, right?
+
+13:40.520 --> 13:47.280
+ And it's certainly a problem with Mars because we've visited the, if there is life on Mars
+
+13:47.280 --> 13:52.320
+ or like remains of life on Mars, it's always going to be a question of like, well, maybe
+
+13:52.320 --> 13:53.680
+ we planted it there.
+
+13:53.680 --> 13:55.060
+ Let's not do the same with Venus.
+
+13:55.060 --> 13:59.200
+ It's harder because when we try to go to Venus, things melt very quickly.
+
+13:59.200 --> 14:04.160
+ So it's a little harder to pollute Venus.
+
+14:04.160 --> 14:06.760
+ It's very good at destroying foreigners.
+
+14:06.760 --> 14:07.760
+ Yeah.
+
+14:07.760 --> 14:13.880
+ Well, in terms of Elon Musk and terraforming planets, Mars is stop number one, then Venus
+
+14:13.880 --> 14:15.480
+ maybe after that.
+
+14:15.480 --> 14:19.080
+ So can we talk about phosphine a little bit?
+
+14:19.080 --> 14:20.560
+ So you mentioned it's a pretty...
+
+14:20.560 --> 14:21.560
+ Love talking about phosphine.
+
+14:21.560 --> 14:22.560
+ Love phosphine.
+
+14:22.560 --> 14:23.560
+ What's your Twitter handle?
+
+14:23.560 --> 14:24.560
+ It's like Dr. Phosphine.
+
+14:24.560 --> 14:25.560
+ It's Dr. Phosphine.
+
+14:25.560 --> 14:26.560
+ Yes.
+
+14:26.560 --> 14:27.560
+ You will be surprised here.
+
+14:27.560 --> 14:28.560
+ It wasn't taken already.
+
+14:28.560 --> 14:29.560
+ I just grabbed it.
+
+14:29.560 --> 14:32.560
+ I didn't have to buy it off anyone.
+
+14:32.560 --> 14:33.560
+ Yeah.
+
+14:33.560 --> 14:35.320
+ So what is it?
+
+14:35.320 --> 14:36.320
+ What's phosphine?
+
+14:36.320 --> 14:43.560
+ You already mentioned it's pretty toxic and troublesome and outside, troublesome, sorry.
+
+14:43.560 --> 14:45.240
+ No, I love it.
+
+14:45.240 --> 14:48.860
+ I'm going to stop calling it troublesome.
+
+14:48.860 --> 14:56.560
+ So maybe what are some things that make it interesting chemically and why is it a good
+
+14:56.560 --> 15:00.440
+ sign of life when it's present in the atmosphere?
+
+15:00.440 --> 15:06.120
+ Like you've described in your paper, aptly titled the phosphine as a biosignature gas
+
+15:06.120 --> 15:08.320
+ in exoplanet atmospheres.
+
+15:08.320 --> 15:10.960
+ I suppose you wrote that paper before Venus.
+
+15:10.960 --> 15:11.960
+ I did.
+
+15:11.960 --> 15:12.960
+ Yes.
+
+15:12.960 --> 15:13.960
+ I did.
+
+15:13.960 --> 15:14.960
+ And no one cared.
+
+15:14.960 --> 15:19.280
+ In that paper, I said something like, if we find phosphine on any terrestrial planet can
+
+15:19.280 --> 15:20.280
+ only mean life.
+
+15:20.280 --> 15:21.680
+ And everyone's like, yeah, that sounds about right.
+
+15:21.680 --> 15:22.680
+ Let's go.
+
+15:22.680 --> 15:24.440
+ And then Venus shows up and I was like, are you sure?
+
+15:24.440 --> 15:27.720
+ I'm like, I was sure before I was sure.
+
+15:27.720 --> 15:35.900
+ Now that it's right here, I'm less sure now that my claims are being tested.
+
+15:35.900 --> 15:38.680
+ So phosphine, phosphine is a fascinating molecule.
+
+15:38.680 --> 15:43.920
+ So it's shaped like a pyramid with a phosphorus up top and then three hydrogens.
+
+15:43.920 --> 15:49.240
+ It's actually quite a simple molecule in many ways and you know, it's the most popular elements
+
+15:49.240 --> 15:54.920
+ in the universe, carbon, hydrogen, nitrogen, oxygen, phosphorus, sulfur.
+
+15:54.920 --> 16:00.080
+ When you add hydrogen to them, it makes quite simple, quite famous molecules.
+
+16:00.080 --> 16:04.360
+ You do it to oxygen, you get water, you do it to carbon, you get methane, you do it to
+
+16:04.360 --> 16:06.260
+ nitrogen, you get ammonia.
+
+16:06.260 --> 16:11.560
+ These are all molecules people have heard of, but you do it to phosphorus, you get phosphine.
+
+16:11.560 --> 16:16.560
+ People haven't heard of phosphine because it's not really popular on earth.
+
+16:16.560 --> 16:22.400
+ You really shouldn't find it anywhere on earth because it is extremely toxic to life.
+
+16:22.400 --> 16:30.600
+ It interacts with oxygen metabolism and everything you know and love uses oxygen metabolism and
+
+16:30.600 --> 16:31.840
+ it interacts fatally.
+
+16:31.840 --> 16:37.740
+ So it kills in several very imaginative and very macabre ways.
+
+16:37.740 --> 16:43.040
+ So it was used as a chemical warfare agent in the first world war and most recently by
+
+16:43.040 --> 16:44.040
+ ISIS.
+
+16:44.040 --> 16:46.100
+ So really bad.
+
+16:46.100 --> 16:48.220
+ Most life avoids it.
+
+16:48.220 --> 16:51.940
+ Even life that might not avoid it, so life that doesn't use oxygen metabolism, anaerobic
+
+16:51.940 --> 16:56.180
+ life still has to put crazy amounts of effort into making it.
+
+16:56.180 --> 16:59.440
+ It's a really difficult molecule to make, thermodynamically speaking.
+
+16:59.440 --> 17:04.220
+ It's really difficult to make that phosphorus want to be together with that hydrogen.
+
+17:04.220 --> 17:07.040
+ So it's horrible.
+
+17:07.040 --> 17:08.040
+ Everyone avoids it.
+
+17:08.040 --> 17:10.520
+ When they're not avoiding it, it's extremely difficult to make.
+
+17:10.520 --> 17:14.160
+ You would have to put energy in, sacrifice energy to make it.
+
+17:14.160 --> 17:19.660
+ And if you did go through all that trouble and made it, it gets reacted with the radicals
+
+17:19.660 --> 17:22.320
+ in the atmosphere and gets destroyed.
+
+17:22.320 --> 17:24.480
+ So we shouldn't find it anywhere and yet we do.
+
+17:24.480 --> 17:30.740
+ This is kind of weird molecule that seems to be made by life and we don't even know
+
+17:30.740 --> 17:31.780
+ why.
+
+17:31.780 --> 17:33.680
+ Life clearly finds a use for it.
+
+17:33.680 --> 17:37.620
+ It's not the only molecule that life is willing to sacrifice energy to make, but we don't
+
+17:37.620 --> 17:39.860
+ know how or why life is even making it.
+
+17:39.860 --> 17:46.340
+ So absolutely mysterious, absolutely deadly, smells horrifically.
+
+17:46.340 --> 17:50.580
+ When it's made, it produces other kind of diphosphenes and it's been reported as smelling
+
+17:50.580 --> 17:54.060
+ like garlicky, fishy death.
+
+17:54.060 --> 17:58.140
+ Once someone referred to it as smelling like the, let me see if I remember, the rancid
+
+17:58.140 --> 18:00.140
+ diapers of the spawn of Satan.
+
+18:00.140 --> 18:01.620
+ Oh, very nice.
+
+18:01.620 --> 18:03.620
+ Yeah, very vivid.
+
+18:03.620 --> 18:04.620
+ And so...
+
+18:04.620 --> 18:05.620
+ You're a poet after all.
+
+18:05.620 --> 18:08.180
+ I didn't call it that, someone else did.
+
+18:08.180 --> 18:12.700
+ And so it's just this horrific molecule, but it is produced by life.
+
+18:12.700 --> 18:14.220
+ We don't know why.
+
+18:14.220 --> 18:18.780
+ And when it is produced by life, it's done with enormous sacrifice and the universe does
+
+18:18.780 --> 18:22.460
+ not sacrifice, life sacrifices.
+
+18:22.460 --> 18:27.920
+ And so it's this strange, contradictory molecule that we should all be avoiding and yet seems
+
+18:27.920 --> 18:31.500
+ to be an almost an ambiguous sign of life on rocky planets.
+
+18:31.500 --> 18:32.500
+ Okay.
+
+18:32.500 --> 18:34.660
+ Can we dig into that a little bit?
+
+18:34.660 --> 18:43.900
+ So on rocky planets, is there biological mechanisms that can produce it?
+
+18:43.900 --> 18:50.340
+ You said that why is unclear, why life might produce it, but is there an understanding
+
+18:50.340 --> 18:54.260
+ of what kind of mechanisms might be able to produce it, this very difficult to produce
+
+18:54.260 --> 18:55.260
+ molecule?
+
+18:55.260 --> 18:57.220
+ We don't know yet.
+
+18:57.220 --> 19:02.060
+ The enzymatic pathways of phosphine production by life are not yet known.
+
+19:02.060 --> 19:04.420
+ This is not actually as surprising as it might sound.
+
+19:04.420 --> 19:10.300
+ I think something like 80% of all the natural products that we know of, so we know biology
+
+19:10.300 --> 19:11.580
+ makes them.
+
+19:11.580 --> 19:12.580
+ We don't know how.
+
+19:12.580 --> 19:17.340
+ It is much easier to know life produces something because you can put bacteria in a Petri dish
+
+19:17.340 --> 19:21.300
+ and then watch and then that gas is produced, you go, oh, life made it.
+
+19:21.300 --> 19:23.460
+ That actually happened with phosphine.
+
+19:23.460 --> 19:29.380
+ But that's much easier to do of course, than figuring out what is the exact metabolic pathway
+
+19:29.380 --> 19:33.100
+ within that life form that created this molecule.
+
+19:33.100 --> 19:35.340
+ So we don't know yet.
+
+19:35.340 --> 19:38.140
+ Phosphine is really understudied.
+
+19:38.140 --> 19:40.700
+ No one had really heard of it until nowish.
+
+19:40.700 --> 19:46.200
+ What you were presenting is the fact that life produces phosphine, not the process by
+
+19:46.200 --> 19:47.780
+ which it produces phosphine.
+
+19:47.780 --> 19:49.980
+ Is there an urgency now?
+
+19:49.980 --> 19:55.420
+ Like if you were to try to understand the mechanisms, the, what did you call them, enzymatic
+
+19:55.420 --> 20:00.380
+ pathways that produce phosphine, how difficult is that of a problem to crack?
+
+20:00.380 --> 20:01.380
+ It's really difficult.
+
+20:01.380 --> 20:08.740
+ If I'm not mistaken, even the scent of truffles, obviously a billion dollar industry, huge
+
+20:08.740 --> 20:09.740
+ deal.
+
+20:09.740 --> 20:14.340
+ Until quite recently, it wasn't known exactly how those scents, those molecules that create
+
+20:14.340 --> 20:16.500
+ this incredible smell were produced.
+
+20:16.500 --> 20:17.980
+ This is a billion dollar industry.
+
+20:17.980 --> 20:21.060
+ As you can imagine, there is no such pressure.
+
+20:21.060 --> 20:26.420
+ There's no phosphine lobby or anything that would push for this research, but I hope someone
+
+20:26.420 --> 20:29.100
+ picks it up and does it.
+
+20:29.100 --> 20:33.620
+ And it isn't crazy because we know that phosphine is really hard to make.
+
+20:33.620 --> 20:36.620
+ We know it's really hard for it to happen accidentally.
+
+20:36.620 --> 20:41.920
+ Even lightning and volcanoes that can produce small amounts of phosphine, it's extremely
+
+20:41.920 --> 20:44.740
+ difficult for even these extreme processes to make it.
+
+20:44.740 --> 20:49.260
+ So it's not really surprising that only life can do it because life is willing to make
+
+20:49.260 --> 20:52.180
+ things at a cost.
+
+20:52.180 --> 20:58.780
+ So maybe on the topic of phosphine, what, again, you've gotten yourself into trouble.
+
+20:58.780 --> 21:01.300
+ I'm going to ask you all these high level poetic questions.
+
+21:01.300 --> 21:02.300
+ I apologize.
+
+21:02.300 --> 21:04.700
+ No, I would love it.
+
+21:04.700 --> 21:05.700
+ Okay.
+
+21:05.700 --> 21:09.980
+ When did you first fall in love with phosphine?
+
+21:09.980 --> 21:11.500
+ It wasn't love at first sight.
+
+21:11.500 --> 21:20.460
+ It was somewhere between a long relationship and Stockholm syndrome.
+
+21:20.460 --> 21:25.500
+ When I first started my PhD, I knew I wanted to learn about molecular spectra and how to
+
+21:25.500 --> 21:26.500
+ simulate it.
+
+21:26.500 --> 21:32.220
+ I thought it was really outrageous that we as a species couldn't detect molecules remotely.
+
+21:32.220 --> 21:36.660
+ We didn't have this perfect catalog ready of the molecular fingerprint of every molecule
+
+21:36.660 --> 21:39.000
+ we may want to find in the universe.
+
+21:39.000 --> 21:43.580
+ And something as basic as phosphine, the fact that we didn't really know how it interacted
+
+21:43.580 --> 21:50.100
+ with light and so we couldn't detect it properly in the galaxy, I was so indignant.
+
+21:50.100 --> 21:55.900
+ And so initially I just started working on phosphine because people hadn't before.
+
+21:55.900 --> 22:01.260
+ And I thought we should know what phosphine looks like and that was it.
+
+22:01.260 --> 22:04.340
+ And then I read every paper that's ever been published about phosphine.
+
+22:04.340 --> 22:07.780
+ It was quite easy because there aren't that many.
+
+22:07.780 --> 22:13.300
+ And that's when I started learning about where we had already found it in the universe and
+
+22:13.300 --> 22:15.380
+ what it meant.
+
+22:15.380 --> 22:20.380
+ I started finding out quite how little we know about it and why.
+
+22:20.380 --> 22:27.820
+ And it was only when I joined MIT and I started talking to biochemists that it became clear
+
+22:27.820 --> 22:33.480
+ that phosphine wasn't just weird and special and understudied and disgusting.
+
+22:33.480 --> 22:37.020
+ It was all these things for oxygen loving life.
+
+22:37.020 --> 22:42.780
+ And it was the anaerobic world that would welcome phosphine and that's when the idea
+
+22:42.780 --> 22:46.540
+ of looking for it on other planets became crystallized.
+
+22:46.540 --> 22:52.340
+ Because oxygen is very powerful and very important on Earth but that's not necessarily going
+
+22:52.340 --> 22:54.360
+ to be the case on other exoplanets.
+
+22:54.360 --> 22:59.820
+ Most planets are oxygen poor, overwhelmingly most planets are oxygen poor.
+
+22:59.820 --> 23:06.180
+ And so finding the sign of life that would be welcomed by everything that would live
+
+23:06.180 --> 23:12.700
+ without oxygen on Earth seemed so cool.
+
+23:12.700 --> 23:16.820
+ But ultimately the project at first was born out of the idea that you want to find that
+
+23:16.820 --> 23:22.460
+ molecular fingerprint of a molecule.
+
+23:22.460 --> 23:24.860
+ And this is just one example.
+
+23:24.860 --> 23:33.620
+ And that's connected to then looking for that fingerprint elsewhere in a remote way.
+
+23:33.620 --> 23:37.780
+ And obviously that then at that time where exoplanets already, when you were doing your
+
+23:37.780 --> 23:41.180
+ PhD, and by the way you should say your PhD thesis was on phosphine.
+
+23:41.180 --> 23:45.700
+ It was all on phosphine, 100% on phosphine with a little bit of ammonia.
+
+23:45.700 --> 23:51.300
+ I have a chapter that I did where I talked about phosphine and ammonia.
+
+23:51.300 --> 23:55.500
+ But no, phosphine was very much my thesis.
+
+23:55.500 --> 24:01.020
+ But at that time when you're writing it there's already a sense that exoplanets are out there
+
+24:01.020 --> 24:08.420
+ and we might be able to be looking for biosignatures on those exoplanets?
+
+24:08.420 --> 24:09.420
+ Pretty much.
+
+24:09.420 --> 24:11.580
+ I did my PhD in 2015.
+
+24:11.580 --> 24:15.780
+ We found the first exoplanets in the kind of mid to late 90s.
+
+24:15.780 --> 24:17.620
+ So exoplanets were known.
+
+24:17.620 --> 24:22.380
+ It was known that some had atmospheres and from there it's not a big jump to think, well,
+
+24:22.380 --> 24:30.180
+ if some have atmospheres, some of those might be habitable and some of those may be inhabited.
+
+24:30.180 --> 24:35.100
+ So how do you detect, you started to talk about it, but can we linger on it?
+
+24:35.100 --> 24:43.000
+ How do you detect phosphine on a faraway thing, rocky thing, rocky planet?
+
+24:43.000 --> 24:45.880
+ What is spectroscopy?
+
+24:45.880 --> 24:47.820
+ What is this molecular fingerprint?
+
+24:47.820 --> 24:49.420
+ What does it look like?
+
+24:49.420 --> 24:52.980
+ You've kind of mentioned the wave, but what are we supposed to think about?
+
+24:52.980 --> 24:53.980
+ What are the tools?
+
+24:53.980 --> 24:55.860
+ What are the uncertainties?
+
+24:55.860 --> 24:57.380
+ All those kinds of things.
+
+24:57.380 --> 24:59.780
+ So the path can go this way.
+
+24:59.780 --> 25:03.840
+ You've got light, kind of pure light.
+
+25:03.840 --> 25:10.620
+ You can crack that light open with a prism or a spectroscope or water and make a rainbow.
+
+25:10.620 --> 25:17.460
+ That rainbow is all the colors and all the invisible colors, the ultraviolet, the infrared.
+
+25:17.460 --> 25:22.800
+ And if that light was truly pure, you could consider that rainbow to just cover continuously
+
+25:22.800 --> 25:24.820
+ all of these colors.
+
+25:24.820 --> 25:28.140
+ But if that light goes through a gas, we may not see that gas.
+
+25:28.140 --> 25:33.180
+ We certainly cannot see the molecules within that gas, but those molecules will steal,
+
+25:33.180 --> 25:38.300
+ absorb some of that light, some, but not all.
+
+25:38.300 --> 25:42.840
+ Each molecule absorbs only very specific colors of that rainbow.
+
+25:42.840 --> 25:48.420
+ And so if you know, for example, that shade of green can only be absorbed by methane,
+
+25:48.420 --> 25:49.420
+ then you can watch.
+
+25:49.420 --> 25:54.400
+ As a planet passes in front of a star, the planet's too far away, you can't see it.
+
+25:54.400 --> 25:55.400
+ And it has an atmosphere.
+
+25:55.400 --> 25:58.900
+ That atmosphere is far too small, you definitely can't see it.
+
+25:58.900 --> 26:01.280
+ But the sunlight will go through that atmosphere.
+
+26:01.280 --> 26:06.340
+ And if that atmosphere is methane, then on the other side, that shade of blue, I can't
+
+26:06.340 --> 26:11.960
+ remember if I said blue or green, that color will be missing because methane took it.
+
+26:11.960 --> 26:14.540
+ And so with phosphine, it's the same thing.
+
+26:14.540 --> 26:22.020
+ It has specific colors, 16.8 billion colors that it absorbs it and nothing else does.
+
+26:22.020 --> 26:28.060
+ And so if you can find them and notice them missing from the light of a star that went
+
+26:28.060 --> 26:33.260
+ through a planet's atmosphere, then you'll know that atmosphere contains the molecule.
+
+26:33.260 --> 26:34.260
+ How cool is that?
+
+26:34.260 --> 26:35.260
+ That's incredible.
+
+26:35.260 --> 26:40.820
+ So you can have this fingerprint within the space of colors and there's a lot of molecules.
+
+26:40.820 --> 26:45.060
+ And I mean, I wonder, that's a question of like how much overlap there is.
+
+26:45.060 --> 26:48.300
+ How close can you get to the actual fingerprint?
+
+26:48.300 --> 26:52.220
+ Like can phosphine unlock the iPhone with its lights on?
+
+26:52.220 --> 27:00.020
+ You said 16.8 billion, so presumably this rainbow is discretized into little segments
+
+27:00.020 --> 27:01.020
+ somehow.
+
+27:01.020 --> 27:02.020
+ Exactly.
+
+27:02.020 --> 27:03.980
+ How many total are there?
+
+27:03.980 --> 27:06.700
+ How a lot is 16.8 billion?
+
+27:06.700 --> 27:07.940
+ It's a lot.
+
+27:07.940 --> 27:14.340
+ We don't have the instruments to break these, break any light into this many tiny segments.
+
+27:14.340 --> 27:19.060
+ And so with the instruments we do have, there's huge amounts of overlap.
+
+27:19.060 --> 27:27.660
+ As an example, a lot of the ways it's detectable is because the carbon and the hydrogens, they
+
+27:27.660 --> 27:30.700
+ vibrate with one another, they move, they interact.
+
+27:30.700 --> 27:38.460
+ But every other hydrocarbon, acetylene, isoprene has carbon and hydrogens also vibrating and
+
+27:38.460 --> 27:39.460
+ rotating.
+
+27:39.460 --> 27:44.540
+ And so it's actually very hard to tell them apart at low resolutions and our instruments
+
+27:44.540 --> 27:50.260
+ can't really cope with distinguishing between molecules particularly well.
+
+27:50.260 --> 27:55.460
+ But in an ideal world, if we had infinite resolution, then yes, every molecule's spectral
+
+27:55.460 --> 27:57.580
+ features will be unique.
+
+27:57.580 --> 28:01.780
+ Yeah, like almost too unique, like it would be too trivial.
+
+28:01.780 --> 28:04.220
+ At the quantum level, they're unique.
+
+28:04.220 --> 28:07.100
+ At our level, there's huge overlap.
+
+28:07.100 --> 28:08.100
+ Yeah.
+
+28:08.100 --> 28:16.860
+ So you can start to then try to disambiguate the fact that certain colors are missing,
+
+28:16.860 --> 28:18.080
+ what does that mean?
+
+28:18.080 --> 28:21.740
+ And hopefully they're missing in a certain kind of pattern where you can say with some
+
+28:21.740 --> 28:24.460
+ kind of probability, there's this gas, not this gas.
+
+28:24.460 --> 28:28.460
+ So you're solving that gaseous puzzle.
+
+28:28.460 --> 28:29.460
+ I got it.
+
+28:29.460 --> 28:30.460
+ Okay.
+
+28:30.460 --> 28:31.720
+ We can go back to Venus actually and show that.
+
+28:31.720 --> 28:36.460
+ So with this, I mentioned those two molecules that could be responsible for that signal,
+
+28:36.460 --> 28:37.780
+ the resolution that we have.
+
+28:37.780 --> 28:43.180
+ It was phosphine and SO2, sulfur dioxide.
+
+28:43.180 --> 28:47.780
+ And that resolution could really be one of the other, but in the same bandwidth, so in
+
+28:47.780 --> 28:52.440
+ the kind of the same observations, there was another region where phosphine does not absorb,
+
+28:52.440 --> 28:55.180
+ we know that, but SO2 does.
+
+28:55.180 --> 28:58.660
+ So we just went and checked and there was no signal.
+
+28:58.660 --> 29:01.980
+ So we thought, oh, then it must be phosphine.
+
+29:01.980 --> 29:05.620
+ And then we submitted the paper.
+
+29:05.620 --> 29:06.620
+ The rest is history.
+
+29:06.620 --> 29:07.620
+ I got it.
+
+29:07.620 --> 29:13.220
+ Well, yeah, that's beautifully told.
+
+29:13.220 --> 29:18.180
+ Is there, so the telescopes we're talking about are sitting on earth.
+
+29:18.180 --> 29:26.260
+ What can it help solving this fingerprint, molecular fingerprint problem if we do a flyby?
+
+29:26.260 --> 29:31.760
+ Does it help if you get closer and closer or are telescopes pretty damn good for this
+
+29:31.760 --> 29:34.340
+ kind of puzzle solving?
+
+29:34.340 --> 29:37.780
+ Telescopes are pretty good, but the earth's atmosphere is a pain.
+
+29:37.780 --> 29:43.540
+ I mean, I'm very thankful for it, but it does interrupt a lot of measurements and a lot
+
+29:43.540 --> 29:47.260
+ of regions where phosphine would be active, they are not available.
+
+29:47.260 --> 29:52.300
+ The earth is not transparent in those wavelengths.
+
+29:52.300 --> 29:55.380
+ So being above the atmosphere would make a huge difference.
+
+29:55.380 --> 30:00.580
+ Then proximity matters a lot less, but just escaping the earth's atmosphere would be wonderful.
+
+30:00.580 --> 30:06.220
+ But then it's really hard to stay very stable and if there is phosphine on Venus, there's
+
+30:06.220 --> 30:08.700
+ very little of it in the clouds.
+
+30:08.700 --> 30:15.580
+ And so the signal is very weak and the telescopes we can use on earth are much bigger and much
+
+30:15.580 --> 30:16.740
+ more stable.
+
+30:16.740 --> 30:18.500
+ So it's a bit of a trade off.
+
+30:18.500 --> 30:24.620
+ So is it, are you comfortable with this kind of remote observation?
+
+30:24.620 --> 30:32.820
+ Is it at all helpful to strive for going over to Venus and like grabbing a scoop of the
+
+30:32.820 --> 30:39.260
+ atmosphere or is remote observation really a powerful tool for this kind of job?
+
+30:39.260 --> 30:41.900
+ Like the scoop is not necessary.
+
+30:41.900 --> 30:44.820
+ Well a lot of people want to scoop, I get it.
+
+30:44.820 --> 30:45.820
+ I get it completely.
+
+30:45.820 --> 30:47.380
+ That's my natural inclination, yeah.
+
+30:47.380 --> 30:51.860
+ I don't want to scoop specifically because if it is life, I want to know everything I
+
+30:51.860 --> 30:55.660
+ can remotely before I interfere.
+
+30:55.660 --> 30:59.660
+ So that's my, I've got ethical reasons against the scoop more than engineering reasons against
+
+30:59.660 --> 31:00.660
+ the scoop.
+
+31:00.660 --> 31:03.380
+ But I have some engineering reasons against the scoop.
+
+31:03.380 --> 31:10.000
+ Scoop is not a technical term, but I feel like now it's too late to take it back.
+
+31:10.000 --> 31:14.380
+ We don't understand the clouds well enough to plan the scoop very well.
+
+31:14.380 --> 31:18.900
+ Because it's not that saturated, like there's not that much of it present.
+
+31:18.900 --> 31:21.780
+ No, and the place is nasty.
+
+31:21.780 --> 31:28.220
+ You know, it's not going to be easy to build something that can do the task reliably and
+
+31:28.220 --> 31:33.220
+ can be trusted, the measurements can be trusted and then pass that message on.
+
+31:33.220 --> 31:35.500
+ So actually I'm for an orbiter.
+
+31:35.500 --> 31:40.420
+ I think we should have orbiters around every solar system body whose job is just to learn
+
+31:40.420 --> 31:42.180
+ about these places.
+
+31:42.180 --> 31:47.100
+ I'm disappointed we haven't already got an orbiter around every single one of them.
+
+31:47.100 --> 31:49.420
+ A small, it can be a small satellite.
+
+31:49.420 --> 31:52.220
+ Getting data, figuring out, you know, how do the clouds move?
+
+31:52.220 --> 31:53.300
+ What's in them?
+
+31:53.300 --> 31:56.220
+ How often is there lightning and volcanic activity?
+
+31:56.220 --> 31:57.220
+ Where's the topography?
+
+31:57.220 --> 31:58.980
+ Is it changing?
+
+31:58.980 --> 32:02.020
+ Is there a biosphere actively doing things?
+
+32:02.020 --> 32:05.020
+ We should be monitoring this from afar.
+
+32:05.020 --> 32:11.500
+ And so I'm for over the atmosphere, hopefully around Venus, that would be, that would be
+
+32:11.500 --> 32:12.500
+ my choice.
+
+32:12.500 --> 32:13.500
+ Okay.
+
+32:13.500 --> 32:19.260
+ So now recently Venus is all exciting about a phosphine and everything.
+
+32:19.260 --> 32:25.260
+ Is there other stuff maybe before we were looking at Venus or now looking out into other
+
+32:25.260 --> 32:26.980
+ solar systems?
+
+32:26.980 --> 32:32.900
+ Is there other promising exoplanets or other planets within the solar system that might
+
+32:32.900 --> 32:40.700
+ have phosphine or might have other strong biosignatures that we should be looking for
+
+32:40.700 --> 32:41.700
+ like phosphine?
+
+32:41.700 --> 32:48.380
+ There's a few, but outside the solar system, all are kind of promising candidates.
+
+32:48.380 --> 32:49.940
+ We know so little about them.
+
+32:49.940 --> 32:53.880
+ For most of them, we barely know their density.
+
+32:53.880 --> 32:57.900
+ Most of them, we don't even know if they have an atmosphere, nevermind what that atmosphere
+
+32:57.900 --> 32:59.260
+ might contain.
+
+32:59.260 --> 33:03.960
+ So we're still very much at the stage where we have detected promising planets, but they're
+
+33:03.960 --> 33:08.700
+ promising in that they're about the right size, about the right density.
+
+33:08.700 --> 33:13.180
+ They could have an atmosphere and they're about the right distance from their host star.
+
+33:13.180 --> 33:15.180
+ But that's really all we know.
+
+33:15.180 --> 33:20.780
+ Near future telescopes will tell us much more, but for now we're just guessing.
+
+33:20.780 --> 33:25.660
+ So you said near future, so there's hope that there'll be telescopes that can see that far
+
+33:25.660 --> 33:31.460
+ enough to determine if there's an atmosphere and perhaps even the contents of that atmosphere?
+
+33:31.460 --> 33:32.460
+ Absolutely.
+
+33:32.460 --> 33:39.380
+ JWST, launching later this year, will be able to get a very rough sense of the main atmospheric
+
+33:39.380 --> 33:44.380
+ constituents of planets that could potentially be habitable.
+
+33:44.380 --> 33:46.060
+ And that's this year.
+
+33:46.060 --> 33:47.060
+ What's the name?
+
+33:47.060 --> 33:49.660
+ JWST, the James Webb Space Telescope.
+
+33:49.660 --> 33:50.660
+ Okay.
+
+33:50.660 --> 33:53.060
+ And that's going to be out in space, past the atmosphere.
+
+33:53.060 --> 33:54.060
+ Yes.
+
+33:54.060 --> 33:57.300
+ Is there something interesting to be said about the engineering aspect of the telescope?
+
+33:57.300 --> 34:02.940
+ I mean, it's an incredible beast, but it's a beast of many burdens.
+
+34:02.940 --> 34:05.580
+ So it's going to do, it's going to.
+
+34:05.580 --> 34:07.300
+ See, you are a poet.
+
+34:07.300 --> 34:08.720
+ You are, yeah.
+
+34:08.720 --> 34:09.720
+ I love it.
+
+34:09.720 --> 34:10.720
+ This is very eloquent.
+
+34:10.720 --> 34:15.300
+ You're speaking to the audience, which I appreciate.
+
+34:15.300 --> 34:20.700
+ So yeah, so it's a giant engineering project and is it orbiting something, do you know?
+
+34:20.700 --> 34:26.220
+ So it's going to be above the atmosphere and it will be doing lots of different astrophysics.
+
+34:26.220 --> 34:33.180
+ And so some of its time will be dedicated to exoplanets, but there's an entire astronomy
+
+34:33.180 --> 34:40.340
+ field fighting for time before the cryogenic lifetime of the instrument.
+
+34:40.340 --> 34:45.980
+ And so when I was looking for the possibility of finding phosphine on distant exoplanets,
+
+34:45.980 --> 34:52.500
+ I used JWST as a way of checking with this instrument that we will launch later this
+
+34:52.500 --> 34:56.740
+ year, could we detect phosphine on an oxygen poor planet?
+
+34:56.740 --> 35:02.140
+ And there I put very much a hard stop where some of my simulation said, yes, you can totally
+
+35:02.140 --> 35:07.020
+ do it, but it will take a little under the cryogenic lifetime of this machine.
+
+35:07.020 --> 35:11.960
+ So then I had to go, well, that's not going to, no one's going to dedicate all of JWST
+
+35:11.960 --> 35:15.420
+ to look for my molecule that no one cared about.
+
+35:15.420 --> 35:21.200
+ So we're very much at that edge, but there'll be many other telescopes in the coming decades
+
+35:21.200 --> 35:26.060
+ that will be able to tell us quite a lot about the atmospheres of potentially habitable planets.
+
+35:26.060 --> 35:28.400
+ So you mentioned simulation.
+
+35:28.400 --> 35:30.220
+ This is super interesting to me.
+
+35:30.220 --> 35:36.860
+ And this perhaps could be a super dumb question, but I think I haven't been able to, I haven't
+
+35:36.860 --> 35:38.940
+ been able to prove you wrong on that one.
+
+35:38.940 --> 35:43.660
+ You simulate molecules to understand how they look from a distance is what I understand.
+
+35:43.660 --> 35:46.740
+ Like what does that simulation look like?
+
+35:46.740 --> 35:52.160
+ So it's talking about which colors that the rainbow will be missing.
+
+35:52.160 --> 35:54.740
+ Is that the goal of the simulation?
+
+35:54.740 --> 35:59.620
+ That's the goal, but it's really just a very, very nasty Schrodinger's equation.
+
+35:59.620 --> 36:01.100
+ So it's a quantum simulation.
+
+36:01.100 --> 36:03.780
+ Oh, so it's simulating at the quantum level.
+
+36:03.780 --> 36:04.780
+ Yes.
+
+36:04.780 --> 36:05.780
+ So I'm a quantum astrochemist.
+
+36:05.780 --> 36:07.180
+ Hi, I'm Clara.
+
+36:07.180 --> 36:08.180
+ I'm a quantum astrochemist.
+
+36:08.180 --> 36:10.300
+ That's how we should have started this conversation.
+
+36:10.300 --> 36:17.340
+ Can you describe the three components of that quantum astro and chemist and how they interplay
+
+36:17.340 --> 36:18.920
+ together?
+
+36:18.920 --> 36:26.060
+ So I study the quantum behavior of molecules, hence the quantum and the chemist specifically
+
+36:26.060 --> 36:31.120
+ so I can detect them in space, hence the astro.
+
+36:31.120 --> 36:38.620
+ So what I do is I figure out the probability of a molecule being in a particular state.
+
+36:38.620 --> 36:45.220
+ There's no deterministic nature to the work I do, so it's every transition is just a likelihood.
+
+36:45.220 --> 36:50.640
+ But if you get a population of that molecule, it will always happen.
+
+36:50.640 --> 36:52.460
+ And so this is all at the quantum level.
+
+36:52.460 --> 36:55.860
+ It's a Schrodinger equation on, I think, 27 dimensions.
+
+36:55.860 --> 36:57.880
+ I don't remember it by heart.
+
+36:57.880 --> 37:03.660
+ And what this means is I'm solving these giant quantum matrices.
+
+37:03.660 --> 37:09.060
+ And that's why you need a lot of computer power, giant computers, to diagonalize these
+
+37:09.060 --> 37:17.440
+ enormous matrices, each of whom describes a single vibrational behavior of a molecule.
+
+37:17.440 --> 37:26.120
+ So I think phosphine has 17.5 million possible states it can exist in.
+
+37:26.120 --> 37:31.160
+ And transitions can occur between pairs of these states, and there's a certain likelihood
+
+37:31.160 --> 37:32.160
+ that they'll happen.
+
+37:32.160 --> 37:33.160
+ This is the quantum world.
+
+37:33.160 --> 37:34.160
+ Nothing is deterministic.
+
+37:34.160 --> 37:38.560
+ There's just a likelihood that it will jump from one state to another.
+
+37:38.560 --> 37:44.220
+ And these jumps, they're transitions, and there's 16.8 billion of them.
+
+37:44.220 --> 37:48.980
+ When energy is absorbed, that corresponds to this transition, we see it in the spectrum.
+
+37:48.980 --> 37:50.700
+ This is more quantum chemistry than you had asked for.
+
+37:50.700 --> 37:51.700
+ I'm sorry.
+
+37:51.700 --> 37:52.700
+ No, no.
+
+37:52.700 --> 37:53.700
+ I'm sorry.
+
+37:53.700 --> 37:54.700
+ Brain's broken.
+
+37:54.700 --> 37:59.840
+ So when the transitions happen between the different states, somehow the energy maps
+
+37:59.840 --> 38:00.840
+ the spectrum.
+
+38:00.840 --> 38:01.840
+ Exactly.
+
+38:01.840 --> 38:06.760
+ Energy corresponds to a frequency, and a frequency corresponds to a wavelength, which corresponds
+
+38:06.760 --> 38:08.180
+ to a color.
+
+38:08.180 --> 38:11.800
+ So there's some probability assigned to each color then?
+
+38:11.800 --> 38:12.800
+ Exactly.
+
+38:12.800 --> 38:17.060
+ And that probability determines how intense that transition will be, how strong.
+
+38:17.060 --> 38:23.280
+ And so you run this kind of simulation for particular, so that's 17.5 squared or something
+
+38:23.280 --> 38:24.280
+ like that.
+
+38:24.280 --> 38:30.600
+ So 15.5 million energies, each one of whom involves diagonalizing a giant matrix with
+
+38:30.600 --> 38:31.600
+ a supercomputer.
+
+38:31.600 --> 38:36.960
+ I wonder what the most efficient algorithm for diagonalization is, but there's some kind
+
+38:36.960 --> 38:37.960
+ of...
+
+38:37.960 --> 38:38.960
+ There's many.
+
+38:38.960 --> 38:41.840
+ Depends on kind of the shape of the matrix.
+
+38:41.840 --> 38:43.600
+ So they're not random matrices.
+
+38:43.600 --> 38:48.580
+ So some are more diagonal than others, and so some need more treatment than others.
+
+38:48.580 --> 38:52.960
+ Most of the work ends up going in describing the system, this quantum system in different
+
+38:52.960 --> 38:57.560
+ ways until you have a matrix that is close to being diagonal, and then it's much easier
+
+38:57.560 --> 38:59.480
+ to clean it up.
+
+38:59.480 --> 39:03.840
+ So how hard is this puzzle?
+
+39:03.840 --> 39:08.400
+ So you're solving this puzzle for phosphine, right?
+
+39:08.400 --> 39:09.400
+ Is this...
+
+39:09.400 --> 39:12.240
+ Are we supposed to solve this puzzle for every single molecule?
+
+39:12.240 --> 39:13.240
+ Exactly.
+
+39:13.240 --> 39:14.240
+ Oh boy.
+
+39:14.240 --> 39:20.320
+ Yes, I calculated if I did the work I did for phosphine, again, for all the molecules
+
+39:20.320 --> 39:25.040
+ for which we don't have spectra, for which we don't have a fingerprint, it would take
+
+39:25.040 --> 39:28.560
+ me 62,000 years, a little over.
+
+39:28.560 --> 39:30.080
+ 62,000 years.
+
+39:30.080 --> 39:31.960
+ What time flies when you're having fun?
+
+39:31.960 --> 39:32.960
+ Okay.
+
+39:32.960 --> 39:38.320
+ But you write that there are about 16,000 molecules we care about when looking for a
+
+39:38.320 --> 39:43.040
+ new Earth or when we try to detect alien biosignatures.
+
+39:43.040 --> 39:48.720
+ If we want to detect any molecules from here, we need to know their spectra, and we currently
+
+39:48.720 --> 39:49.720
+ don't.
+
+39:49.720 --> 39:53.000
+ So to solve this particular problem, that's my job.
+
+39:53.000 --> 39:54.000
+ What was that?
+
+39:54.000 --> 39:55.880
+ I mean, that's absolutely correct.
+
+39:55.880 --> 39:57.880
+ I could have not said it better myself.
+
+39:57.880 --> 39:59.360
+ Did you take that from my website?
+
+39:59.360 --> 40:00.800
+ Yeah, I think I stole it.
+
+40:00.800 --> 40:04.680
+ And your website is excellent, so it's a worthy place to steal stuff from.
+
+40:04.680 --> 40:05.680
+ Thank you.
+
+40:05.680 --> 40:12.120
+ How do you solve this problem for the 16,000 molecules we care about, of which phosphine
+
+40:12.120 --> 40:13.120
+ is one?
+
+40:13.120 --> 40:14.120
+ Yes.
+
+40:14.120 --> 40:21.360
+ So, taking a step a little bit out of phosphine, is there...
+
+40:21.360 --> 40:23.480
+ Well, we were having so much fun.
+
+40:23.480 --> 40:24.480
+ We were having so much fun.
+
+40:24.480 --> 40:25.480
+ No, no, we're not saying bye.
+
+40:25.480 --> 40:26.480
+ No, no, no.
+
+40:26.480 --> 40:27.480
+ It's sticking around.
+
+40:27.480 --> 40:30.720
+ I'm just saying we're joining, more friends coming to the party.
+
+40:30.720 --> 40:35.440
+ How do you choose other friends to come to the party that are interesting to study as
+
+40:35.440 --> 40:40.280
+ we solve one puzzle at a time through the space of 16,000?
+
+40:40.280 --> 40:41.280
+ So we've already started.
+
+40:41.280 --> 40:46.840
+ Out of those 16,000, we understand water quite well, methane quite well, ammonia quite well,
+
+40:46.840 --> 40:47.840
+ carbon dioxide.
+
+40:47.840 --> 40:49.600
+ I could keep going.
+
+40:49.600 --> 40:55.940
+ And then we understand molecules like acetylene, hydrogen cyanide, more or less.
+
+40:55.940 --> 40:59.220
+ And that takes us to about 4% of those 16,000.
+
+40:59.220 --> 41:02.320
+ We understand about 4% of them, more or less.
+
+41:02.320 --> 41:04.280
+ Phosphine is one of them.
+
+41:04.280 --> 41:11.040
+ But the other 96%, we just really have barely any idea at all of where in the spectrum of
+
+41:11.040 --> 41:14.720
+ light they would leave a mark.
+
+41:14.720 --> 41:19.280
+ I can't spend the next 62,000 years doing this work.
+
+41:19.280 --> 41:26.420
+ And I don't want to, even if somehow I was able, that wouldn't feel good.
+
+41:26.420 --> 41:32.600
+ So one of the things that I try to do now is move away from how I did phosphine.
+
+41:32.600 --> 41:37.040
+ So I did phosphine really the best that I could, the best that could be done with the
+
+41:37.040 --> 41:42.280
+ computer power that we have, trying to get each one of those 16.8 billion transitions
+
+41:42.280 --> 41:46.640
+ mapped accurately, calculated.
+
+41:46.640 --> 41:50.000
+ And then I thought, what if I do a worse job?
+
+41:50.000 --> 41:53.160
+ What if I just do a much worse job?
+
+41:53.160 --> 41:57.680
+ Can I just make it much faster and then it's still worth it?
+
+41:57.680 --> 42:02.120
+ How bad can I get before it's worthless?
+
+42:02.120 --> 42:05.380
+ And then could I do this for all the other molecules?
+
+42:05.380 --> 42:10.560
+ So I created exactly this terrible, terrible system.
+
+42:10.560 --> 42:14.120
+ So how, what's the answer to that question, that fundamental question I ask myself all
+
+42:14.120 --> 42:15.600
+ the time in other domains.
+
+42:15.600 --> 42:17.400
+ How crappy can I be before I'm useless?
+
+42:17.400 --> 42:18.400
+ Before somebody notices.
+
+42:18.400 --> 42:26.520
+ Turns out pretty crappy because no one has any idea what these molecules look like.
+
+42:26.520 --> 42:28.640
+ Anything is better than nothing.
+
+42:28.640 --> 42:33.040
+ And so I thought, how long will it take me to create better than nothing spectra for
+
+42:33.040 --> 42:34.040
+ all of these molecules?
+
+42:34.040 --> 42:42.480
+ And so I created RASCAL, Rapid Approximate Spectral Calculations for All.
+
+42:42.480 --> 42:48.440
+ And what I do is I use organic chemistry and quantum chemistry and kind of cheat them both.
+
+42:48.440 --> 42:53.000
+ I just try to figure out what is the fastest way I could run this.
+
+42:53.000 --> 42:57.520
+ And I simulate rough spectra for all of those 16,000.
+
+42:57.520 --> 42:59.560
+ So I've managed to get it to work.
+
+42:59.560 --> 43:03.040
+ It's really shocking how well it works considering how bad it is.
+
+43:03.040 --> 43:08.600
+ Is there insights you could give to like the tricks involved in making it fast?
+
+43:08.600 --> 43:16.520
+ Like what are the maybe some insightful shortcuts taken that still result in some useful information
+
+43:16.520 --> 43:18.120
+ about the spectra?
+
+43:18.120 --> 43:22.280
+ The insights came from organic chemistry from decades ago.
+
+43:22.280 --> 43:26.840
+ When organic chemists wanted to know what a compound might be, they will look at a spectrum
+
+43:26.840 --> 43:31.120
+ and see a feature and they would go, I've seen that feature before.
+
+43:31.120 --> 43:36.040
+ That's usually what happens when you have a carbon triple bonded to another carbon.
+
+43:36.040 --> 43:37.440
+ And they were mostly right.
+
+43:37.440 --> 43:42.480
+ Almost every molecule that has a carbon triple bonded to another one looks like that.
+
+43:42.480 --> 43:47.360
+ Has other features different that distinguish them from one another, but they have that
+
+43:47.360 --> 43:49.320
+ feature in common.
+
+43:49.320 --> 43:51.280
+ We call these functional groups.
+
+43:51.280 --> 43:57.080
+ And so most of that work ended up being abandoned because now we have mass spectrometry.
+
+43:57.080 --> 44:03.160
+ We got nuclear magnetic resin spectroscopy, so people don't really need to do that anymore.
+
+44:03.160 --> 44:09.560
+ But these ancient textbooks still exist and I've collected them all as many as I could.
+
+44:09.560 --> 44:13.880
+ And there are hundreds of these descriptions where people have said, oh, whenever you have
+
+44:13.880 --> 44:20.620
+ a iodine atom connected to this one, there's always a feature here and it's usually quite
+
+44:20.620 --> 44:22.940
+ sharp and it's quite strong.
+
+44:22.940 --> 44:24.980
+ And some people go, oh yeah, that's really broad feature.
+
+44:24.980 --> 44:28.220
+ Every time that combination of atoms and bonds.
+
+44:28.220 --> 44:32.720
+ So I've collected them all and I've created this giant dictionary of all these kind of
+
+44:32.720 --> 44:37.440
+ puzzle pieces, these Lego parts of molecules.
+
+44:37.440 --> 44:41.640
+ And I've written a code that then puts them all together in some kind of like Frankenstein's
+
+44:41.640 --> 44:43.760
+ monster of molecules.
+
+44:43.760 --> 44:48.780
+ So you asked me for any molecule and I go, well, it has these bonds and this atom dangling
+
+44:48.780 --> 44:55.640
+ off this atom and this cluster here, and I tell you what it should look like and it kind
+
+44:55.640 --> 44:57.320
+ of works.
+
+44:57.320 --> 45:03.600
+ So this creates a whole portfolio of just kind of signatures that we could look for.
+
+45:03.600 --> 45:05.160
+ Rough, very rough signatures.
+
+45:05.160 --> 45:14.360
+ But still useful enough to analyze the atmospheres, the telescope generated images of other planets?
+
+45:14.360 --> 45:15.540
+ Close.
+
+45:15.540 --> 45:18.960
+ Right now it is so complete.
+
+45:18.960 --> 45:24.080
+ So it has all of these molecules that it can tell you, say you look at an alien atmosphere
+
+45:24.080 --> 45:26.320
+ and there's a feature there.
+
+45:26.320 --> 45:29.100
+ It can tell you, oh, that feature, that's familiar.
+
+45:29.100 --> 45:34.160
+ It could be one of these 816 molecules, best of luck.
+
+45:34.160 --> 45:38.520
+ So I think the next step, which is what I'm working on is telling you something more useful
+
+45:38.520 --> 45:41.320
+ than it could be one of those 816 molecules.
+
+45:41.320 --> 45:42.320
+ That's still true.
+
+45:42.320 --> 45:43.800
+ I wouldn't say it's useful.
+
+45:43.800 --> 45:48.680
+ So it can tell you, but only 12% of them also have a feature in this region.
+
+45:48.680 --> 45:49.680
+ So go look there.
+
+45:49.680 --> 45:53.400
+ And if there's nothing there, it can't be those and so on.
+
+45:53.400 --> 45:58.000
+ It can also tell you things like you will need this much accuracy to distinguish between
+
+45:58.000 --> 46:00.220
+ those 816.
+
+46:00.220 --> 46:03.080
+ So that's what I'm working on.
+
+46:03.080 --> 46:04.480
+ But it's a lot of work.
+
+46:04.480 --> 46:09.000
+ So this is really interesting, the role of computing in this whole picture.
+
+46:09.000 --> 46:10.200
+ You mentioned code.
+
+46:10.200 --> 46:18.600
+ So like you as a quantum astrochemist, there is some role for programming in your life,
+
+46:18.600 --> 46:21.440
+ in your past life, in your current life, in your group?
+
+46:21.440 --> 46:22.440
+ Oh yeah, almost entirely.
+
+46:22.440 --> 46:25.400
+ I'm a computational quantum astrochemist, but that doesn't roll off the tongue very
+
+46:25.400 --> 46:26.400
+ easily.
+
+46:26.400 --> 46:28.520
+ So this is fundamentally computational.
+
+46:28.520 --> 46:32.480
+ Like if you want to be successful in the 21st century in doing quantum astrochemistry, you
+
+46:32.480 --> 46:33.480
+ want to be computational?
+
+46:33.480 --> 46:34.480
+ Absolutely.
+
+46:34.480 --> 46:36.680
+ All quantum chemistry is computational at this point.
+
+46:36.680 --> 46:37.680
+ Okay.
+
+46:37.680 --> 46:40.560
+ So does machine learning play a role at all?
+
+46:40.560 --> 46:46.080
+ Is there some extra shortcuts that could be discovered through, like you see all that
+
+46:46.080 --> 46:48.280
+ success with protein folding, right?
+
+46:48.280 --> 46:58.800
+ A problem that thought to be extremely difficult to apply machine learning to because it's,
+
+46:58.800 --> 47:04.800
+ I mean mostly because there's not a lot of already solved puzzles to train on.
+
+47:04.800 --> 47:09.320
+ I suppose the same exact thing is true with this particular problem, but is there hope
+
+47:09.320 --> 47:11.480
+ for machine learning to help out?
+
+47:11.480 --> 47:12.600
+ Absolutely.
+
+47:12.600 --> 47:14.920
+ Currently you've laid out exactly the problem.
+
+47:14.920 --> 47:21.800
+ The training set is awful and because there's so, a lot of this data that I'm basing it
+
+47:21.800 --> 47:24.000
+ on is literally many decades old.
+
+47:24.000 --> 47:29.520
+ The people who worked on it and data that I get, often they're dead and the files that
+
+47:29.520 --> 47:34.240
+ I've used, some of them were hand drawn by someone tired in the seventies.
+
+47:34.240 --> 47:35.240
+ Yes.
+
+47:35.240 --> 47:40.560
+ So I can of course have a program training on these, but I would just be perpetuating
+
+47:40.560 --> 47:43.840
+ these mistakes without hope of actually verifying them.
+
+47:43.840 --> 47:51.360
+ So my next step is to improve this training set by hand and then try to see if I can apply
+
+47:51.360 --> 47:57.240
+ machine learning on the full code of the full 16,000 molecules and improve them all.
+
+47:57.240 --> 48:01.500
+ But really I need to be able to test the outcomes with experimental data, which means convincing
+
+48:01.500 --> 48:08.560
+ someone in a lab to spend a lot of money putting very dangerous gases in chambers and measuring
+
+48:08.560 --> 48:11.260
+ them at outrageous temperatures.
+
+48:11.260 --> 48:13.520
+ So it's a work in progress.
+
+48:13.520 --> 48:18.400
+ And so collecting huge amounts of data about the actual gases.
+
+48:18.400 --> 48:22.520
+ So you are up for doing that kind of thing too.
+
+48:22.520 --> 48:29.680
+ So actually like doing the full end to end thing, which is like having a gas, collecting
+
+48:29.680 --> 48:35.760
+ data about it, and then doing the kind of analysis that creates the fingerprint and
+
+48:35.760 --> 48:40.120
+ then also analyzing using that library, the data that comes from other planets.
+
+48:40.120 --> 48:41.760
+ So you do the full.
+
+48:41.760 --> 48:43.600
+ Full from birth to death.
+
+48:43.600 --> 48:44.600
+ Interesting.
+
+48:44.600 --> 48:45.600
+ Yes.
+
+48:45.600 --> 48:50.880
+ I worked in an industrial chemistry laboratory when I was much younger in Slovenia and there
+
+48:50.880 --> 48:56.640
+ I worked in the lab actually collecting spectrum and predicting spectrum.
+
+48:56.640 --> 49:00.800
+ What's it like to work with a bunch of gases that are like not so human friendly?
+
+49:00.800 --> 49:01.800
+ It's terrifying.
+
+49:01.800 --> 49:03.160
+ It's horrific.
+
+49:03.160 --> 49:04.320
+ It's so scary.
+
+49:04.320 --> 49:06.280
+ And I love my job.
+
+49:06.280 --> 49:15.160
+ I'm willing to clearly sacrifice a lot for it, you know, job, stability, money, sanity.
+
+49:15.160 --> 49:20.440
+ But I only worked there for a few months and it was really terrifying.
+
+49:20.440 --> 49:22.800
+ There's just so many ways to die.
+
+49:22.800 --> 49:26.200
+ You know, usually you only have a handful of ways to die every day, you know.
+
+49:26.200 --> 49:30.800
+ And if you work in a lab, there's so many more, orders of magnitude more.
+
+49:30.800 --> 49:32.920
+ And I was very bad at it.
+
+49:32.920 --> 49:35.840
+ I'm not a good hands on scientist.
+
+49:35.840 --> 49:43.240
+ I want a laptop connected to a remote super computer or a laptop connected to a telescope.
+
+49:43.240 --> 49:46.960
+ I don't need to be there to believe it.
+
+49:46.960 --> 49:48.760
+ And I am not good in the lab.
+
+49:48.760 --> 49:49.760
+ Yeah.
+
+49:49.760 --> 49:53.200
+ When there's a bunch of things that can poison you, a bunch of things that could explode
+
+49:53.200 --> 49:57.720
+ and they're gaseous and they're often, maybe they might not even have a smell or they might
+
+49:57.720 --> 49:59.820
+ not be visible.
+
+49:59.820 --> 50:00.820
+ It's like...
+
+50:00.820 --> 50:02.240
+ So many of them give you cancer.
+
+50:02.240 --> 50:03.840
+ It's just so cruel.
+
+50:03.840 --> 50:09.120
+ And some people love this work, but I've never enjoyed experimental work.
+
+50:09.120 --> 50:11.120
+ It's so ungrateful.
+
+50:11.120 --> 50:12.120
+ So lonely.
+
+50:12.120 --> 50:18.440
+ Well, most, I mean, so much work is lonely if you find the joy in it, but you enjoy the
+
+50:18.440 --> 50:19.920
+ results of it.
+
+50:19.920 --> 50:20.920
+ Yes.
+
+50:20.920 --> 50:26.160
+ So I'm very thankful for all the experimentalists in my life, but I'll do the theory.
+
+50:26.160 --> 50:30.200
+ They do the experiment and then we talk to one another and make sure it matches.
+
+50:30.200 --> 50:31.200
+ Okay.
+
+50:31.200 --> 50:32.200
+ Beautiful.
+
+50:32.200 --> 50:34.400
+ What are spectroscopic networks?
+
+50:34.400 --> 50:35.480
+ Those look super cool.
+
+50:35.480 --> 50:37.600
+ Are they related to what we were talking about?
+
+50:37.600 --> 50:38.600
+ The picture look pretty.
+
+50:38.600 --> 50:39.600
+ Oh, yes, slightly.
+
+50:39.600 --> 50:44.400
+ So remember when I mentioned the 17.5 million energy levels?
+
+50:44.400 --> 50:45.400
+ Yes.
+
+50:45.400 --> 50:51.640
+ There are rules for each molecule on which energy levels they can jump from and to and
+
+50:51.640 --> 50:53.900
+ how likely it is to make that jump.
+
+50:53.900 --> 51:01.040
+ And so if you plot all the routes it can take, you get this energy network, which is like
+
+51:01.040 --> 51:02.040
+ a ball.
+
+51:02.040 --> 51:06.200
+ So these are the constraints of the transitions that could be taken.
+
+51:06.200 --> 51:07.680
+ Exactly for each molecule.
+
+51:07.680 --> 51:08.680
+ Interesting.
+
+51:08.680 --> 51:13.840
+ And they're not, so it's not a fully connected, it's like it's sparse somehow.
+
+51:13.840 --> 51:15.800
+ Yes, you get islands sometimes.
+
+51:15.800 --> 51:20.920
+ You get a molecule can only jump from one set of states to another and it's trapped
+
+51:20.920 --> 51:21.920
+ now in this network.
+
+51:21.920 --> 51:27.680
+ It can never go to another network that could have been available to other siblings.
+
+51:27.680 --> 51:30.060
+ Is there some insights to be drawn from these networks?
+
+51:30.060 --> 51:33.800
+ Like something cool that you can understand about a particular molecule because of it?
+
+51:33.800 --> 51:34.800
+ Yes.
+
+51:34.800 --> 51:38.800
+ Some molecules have what we call forbidden transitions, which aren't really forbidden
+
+51:38.800 --> 51:39.800
+ because it's quantum.
+
+51:39.800 --> 51:40.800
+ There are no rules.
+
+51:40.800 --> 51:41.800
+ No, I'm not joking.
+
+51:41.800 --> 51:45.880
+ One of the rules is just the rules are very often broken in the quantum world.
+
+51:45.880 --> 51:49.240
+ And so forbidden transitions doesn't actually mean they're forbidden.
+
+51:49.240 --> 51:50.240
+ Low probability.
+
+51:50.240 --> 51:51.240
+ Exactly.
+
+51:51.240 --> 51:52.640
+ They just become deeply unlikely.
+
+51:52.640 --> 51:53.640
+ Yeah.
+
+51:53.640 --> 51:54.640
+ Cool.
+
+51:54.640 --> 51:58.620
+ And so you could do all the same, like I'm coming from a computer science world, I love
+
+51:58.620 --> 51:59.620
+ graph theory.
+
+51:59.620 --> 52:05.320
+ So you can do all the same graph theoretic kind of analysis of clusters or something
+
+52:05.320 --> 52:06.320
+ like that.
+
+52:06.320 --> 52:07.320
+ Exactly.
+
+52:07.320 --> 52:08.320
+ All those kinds of things.
+
+52:08.320 --> 52:09.320
+ And draw insights from it.
+
+52:09.320 --> 52:10.320
+ Cool.
+
+52:10.320 --> 52:11.320
+ And they're unique for each molecule.
+
+52:11.320 --> 52:17.040
+ And the networks that you mentioned, that's actually not too difficult a layer of quantum
+
+52:17.040 --> 52:18.040
+ physics.
+
+52:18.040 --> 52:19.960
+ By then, all the energies are mapped.
+
+52:19.960 --> 52:23.420
+ So we've had high school children work on those networks.
+
+52:23.420 --> 52:26.380
+ And the trick is to not tell them they're doing quantum physics until like three months
+
+52:26.380 --> 52:29.140
+ in when it's too late for them to back out.
+
+52:29.140 --> 52:31.080
+ And then you're like, you're a quantum physicist now.
+
+52:31.080 --> 52:32.080
+ And it's really nice.
+
+52:32.080 --> 52:33.080
+ Yeah.
+
+52:33.080 --> 52:34.080
+ Okay.
+
+52:34.080 --> 52:37.400
+ But like the promise of this, even though it's 16,000, even just a subset of them, that's
+
+52:37.400 --> 52:41.640
+ really exciting because then you can do as the telescope data get better and better,
+
+52:41.640 --> 52:46.120
+ especially for exoplanets, but also for Venus.
+
+52:46.120 --> 52:50.520
+ You can then start like getting your full, like, you know how you get like blood work
+
+52:50.520 --> 52:54.760
+ done or like you get your genetic testing to see what your ancestors are.
+
+52:54.760 --> 52:59.760
+ You can get the same kind of like high resolution information about interesting things going
+
+52:59.760 --> 53:02.240
+ on on a particular planet based on the atmosphere.
+
+53:02.240 --> 53:03.240
+ Right?
+
+53:03.240 --> 53:04.240
+ Exactly.
+
+53:04.240 --> 53:07.360
+ How cool would that be if we could, you know, scan an alien planet and go,
+
+53:07.360 --> 53:09.080
+ oh, this is what the clouds are made of.
+
+53:09.080 --> 53:10.680
+ This is what's in the surface.
+
+53:10.680 --> 53:12.640
+ These are the molecules that are mixing.
+
+53:12.640 --> 53:16.880
+ Here are probably oceans because you can see these types of molecules above it.
+
+53:16.880 --> 53:19.360
+ And here are the Hadley cells.
+
+53:19.360 --> 53:22.300
+ Here are how the biosphere works.
+
+53:22.300 --> 53:24.160
+ We could map this whole thing.
+
+53:24.160 --> 53:28.320
+ Wouldn't it be cool if the aliens like are aware of these techniques and like would spoof
+
+53:28.320 --> 53:33.680
+ like the wrong gases, just to like pretend that's how they can be, it's like an invisibility
+
+53:33.680 --> 53:34.680
+ cloak.
+
+53:34.680 --> 53:39.440
+ They can generate gases that would throw you off or like, or do the opposite.
+
+53:39.440 --> 53:42.200
+ They pretend they will artificially generate phosphine.
+
+53:42.200 --> 53:47.840
+ So like, like the dumb, the dumb apes on earth again, like go out, like flying in different
+
+53:47.840 --> 53:49.660
+ places because it's just fun.
+
+53:49.660 --> 53:53.440
+ It's like some teenager alien somewhere, just pranking.
+
+53:53.440 --> 53:54.440
+ Yeah.
+
+53:54.440 --> 54:04.240
+ I was asked that exact question this Saturday by, by a 70 year old boy in Canada, but it
+
+54:04.240 --> 54:10.400
+ was the first time I'd been asked that question, the second in a week.
+
+54:10.400 --> 54:12.540
+ We're kindred spirits, him and I.
+
+54:12.540 --> 54:19.520
+ We can, they can prank us to some extent, but the, this work of interpreting an alien
+
+54:19.520 --> 54:25.760
+ atmosphere means you're reading the atmosphere as a message and it's very hard to hide signs
+
+54:25.760 --> 54:32.160
+ of life in an atmosphere because you can try to prank us, but you're still going to fart
+
+54:32.160 --> 54:37.960
+ and breathe and somehow metabolize the environment around you and call that whatever you call
+
+54:37.960 --> 54:41.160
+ that and release molecules.
+
+54:41.160 --> 54:42.520
+ And so that's really hard to hide.
+
+54:42.520 --> 54:44.820
+ You know, you can go very quiet.
+
+54:44.820 --> 54:50.400
+ You can throw out some weird molecule to confuse us further, but we can still see all your
+
+54:50.400 --> 54:51.400
+ other metabolites.
+
+54:51.400 --> 54:52.400
+ Yeah.
+
+54:52.400 --> 54:53.400
+ It's hard to fake.
+
+54:53.400 --> 55:00.800
+ Is there, so you kind of mentioned like water that what, what other gases are there that
+
+55:00.800 --> 55:06.800
+ we know about that are like high likelihood as biosignatures in terms of life?
+
+55:06.800 --> 55:14.400
+ I mean, what are your other favorites in terms of, so, so we've got phosphine, but like what,
+
+55:14.400 --> 55:19.080
+ what else is a damn good signal to be a, that you think about that we should be looking
+
+55:19.080 --> 55:23.760
+ for if we look at another atmosphere, is there gases that come to mind or are there all sort
+
+55:23.760 --> 55:29.080
+ of possible biosignatures that we should love equally?
+
+55:29.080 --> 55:31.600
+ There's many, so there's water.
+
+55:31.600 --> 55:33.480
+ We know that's important for life as we know it.
+
+55:33.480 --> 55:35.400
+ There's molecular oxygen on earth.
+
+55:35.400 --> 55:39.720
+ That's probably the most robust sign of life, particularly combined with small amounts of
+
+55:39.720 --> 55:40.720
+ methane.
+
+55:40.720 --> 55:44.700
+ And it's true that the majority of the oxygen in our atmosphere is a product of life.
+
+55:44.700 --> 55:50.680
+ And so if I was an alien astronomer and I saw earth's atmosphere, I'm, I would get a
+
+55:50.680 --> 55:52.640
+ Nobel I think on, you know,
+
+55:52.640 --> 55:53.640
+ What would you notice?
+
+55:53.640 --> 55:54.640
+ I mean, this is a really,
+
+55:54.640 --> 55:57.560
+ I would be very excited about this.
+
+55:57.560 --> 55:58.560
+ About the oxygen.
+
+55:58.560 --> 56:02.280
+ I'm not finding 20%, 21% of oxygen atmosphere.
+
+56:02.280 --> 56:03.280
+ That's very unusual.
+
+56:03.280 --> 56:07.160
+ So would that be the most exciting thing to you from an alien perspective about earth
+
+56:07.160 --> 56:12.400
+ in terms of the tech, like analyzing the atmosphere, like what are the biosignatures of life on
+
+56:12.400 --> 56:13.400
+ earth?
+
+56:13.400 --> 56:18.160
+ Would you say in terms of the contents of the atmosphere is oxygen, high amount of oxygen,
+
+56:18.160 --> 56:19.600
+ pretty damn good sign.
+
+56:19.600 --> 56:23.440
+ I mean, it's not as good as the TV signals we've been sending out.
+
+56:23.440 --> 56:27.760
+ Those are slightly more robust than oxygen.
+
+56:27.760 --> 56:30.140
+ Oxygen on its own has false positives for life.
+
+56:30.140 --> 56:36.520
+ So there's still ways of making it, but it's, it's a pretty robust sign of life in the context
+
+56:36.520 --> 56:41.480
+ or atmosphere with the radiation that the sun produces, our position in relation to
+
+56:41.480 --> 56:47.040
+ the sun, the other components of our atmosphere, the volcanic activity we have, all of that
+
+56:47.040 --> 56:53.920
+ together makes the 20% of oxygen extremely robust sign of life.
+
+56:53.920 --> 56:59.520
+ But outside that context, you could still produce oxygen without life.
+
+56:59.520 --> 57:03.520
+ But phosphine, although better in the sense of it is much harder to make, it has lower
+
+57:03.520 --> 57:06.260
+ false positives, still has some.
+
+57:06.260 --> 57:12.080
+ So I'm actually against looking for specific molecules unless we're looking for like CFCs.
+
+57:12.080 --> 57:16.900
+ If we find CFCs, that's definitely aliens, I feel confident, chlorofluorocarbons.
+
+57:16.900 --> 57:22.520
+ And so, you know, if aliens had been watching us, they would have been going, oh no, CFCs.
+
+57:22.520 --> 57:25.200
+ I mean, they're not going to last long.
+
+57:25.200 --> 57:30.560
+ Let's, you know, everyone's writing their thesis on the end of, the end of the earth.
+
+57:30.560 --> 57:33.280
+ And then we got together, we stopped using them.
+
+57:33.280 --> 57:35.440
+ I like to think they're really proud of us.
+
+57:35.440 --> 57:38.280
+ You know, they literally saw our ozone hole shrinking.
+
+57:38.280 --> 57:40.200
+ They've been watching it and they saw it happen.
+
+57:40.200 --> 57:43.440
+ I think to be honest, they're more paying attention to the whole nuclear thing.
+
+57:43.440 --> 57:44.440
+ I don't think they care.
+
+57:44.440 --> 57:45.440
+ It's not going to bother them.
+
+57:45.440 --> 57:46.440
+ Oh, I mean, worried about us.
+
+57:46.440 --> 57:47.440
+ Oh yes.
+
+57:47.440 --> 57:48.440
+ Oh no, worried about us.
+
+57:48.440 --> 57:53.040
+ They, I mean, this is why the aliens have been showing up recently.
+
+57:53.040 --> 57:56.960
+ It's like, if you, if you look at, I mean, there is, I mean, it's probably, there's a
+
+57:56.960 --> 58:02.080
+ correlation with a lot of things, but what the ufologists quote unquote often talk about
+
+58:02.080 --> 58:08.400
+ is that there seems to be a much higher level of UFO sightings since like in the nuclear
+
+58:08.400 --> 58:09.720
+ age.
+
+58:09.720 --> 58:14.000
+ So like if aliens were indeed worried about us, like if you were aliens, you would start
+
+58:14.000 --> 58:21.000
+ showing up when the living organisms first discovered a way to destroy the entire, the
+
+58:21.000 --> 58:22.680
+ entire colony.
+
+58:22.680 --> 58:28.720
+ Can the increase in sightings not have to do with the fact that people now have more
+
+58:28.720 --> 58:29.720
+ cameras?
+
+58:29.720 --> 58:37.600
+ It's an interesting thing about science, like with UFO sightings, it's like either 99.9%
+
+58:37.600 --> 58:40.240
+ of them are false or 100% of them are false.
+
+58:40.240 --> 58:46.320
+ The interesting thing to me is that in that 0.01%, there's a lot of things in science
+
+58:46.320 --> 58:52.080
+ that are like these weird outliers that are difficult to replicate.
+
+58:52.080 --> 58:55.120
+ You have like, there's even physical phenomena, ball lightning.
+
+58:55.120 --> 59:00.960
+ There's difficult things to artificially create in large amounts or observe in nature in large
+
+59:00.960 --> 59:05.640
+ amounts in such a way that you can do it to apply the scientific method that could be
+
+59:05.640 --> 59:11.600
+ just things that like what happened like a few times or once and you're like, what the
+
+59:11.600 --> 59:13.420
+ hell is that?
+
+59:13.420 --> 59:16.280
+ And that's very difficult for science to know what to do with.
+
+59:16.280 --> 59:20.920
+ I'm a huge proponent of just being open minded because when you're open minded about aliens,
+
+59:20.920 --> 59:27.600
+ for example, it allows you to think outside of the box in other domains as well.
+
+59:27.600 --> 59:33.280
+ And somehow that will result, like if you're open minded about aliens and you don't laugh
+
+59:33.280 --> 59:37.560
+ it off immediately, what happens is somehow that's going to lead to a solution to a P
+
+59:37.560 --> 59:39.760
+ equals NP or P not equals NP.
+
+59:39.760 --> 59:45.880
+ Like in ways that you can't predict, the open mindedness has tertiary effects that will
+
+59:45.880 --> 59:51.840
+ result in progress, I believe, which is why I'm a huge fan of aliens because it's like
+
+59:51.840 --> 59:57.360
+ because too many scientists roll their eyes at the idea of aliens, alien life.
+
+59:57.360 --> 1:00:06.280
+ And to me, it's one of the most exciting possibilities in the biggest, most exciting questions before
+
+1:00:06.280 --> 1:00:07.720
+ all of human civilization.
+
+1:00:07.720 --> 1:00:12.520
+ So to roll your eyes is not the right answer.
+
+1:00:12.520 --> 1:00:16.800
+ To roll your eyes presumes that you know anything about this world as opposed to just knowing
+
+1:00:16.800 --> 1:00:19.560
+ point zero zero zero one percent of this world.
+
+1:00:19.560 --> 1:00:26.760
+ And so being humble in the face of that, being open to the possibility of aliens visiting
+
+1:00:26.760 --> 1:00:29.120
+ Earth is a good idea.
+
+1:00:29.120 --> 1:00:30.160
+ Not everything, though.
+
+1:00:30.160 --> 1:00:36.960
+ I'm not so open minded to the flat Earth hypothesis as there's a growing number of people believing
+
+1:00:36.960 --> 1:00:37.960
+ in.
+
+1:00:37.960 --> 1:00:38.960
+ But even then.
+
+1:00:38.960 --> 1:00:42.200
+ Or the inner Earth, I've got shouted at in a public talk about it.
+
+1:00:42.200 --> 1:00:43.760
+ So like the Earth is hollow?
+
+1:00:43.760 --> 1:00:44.760
+ Yeah.
+
+1:00:44.760 --> 1:00:51.500
+ My understanding is that there's this conspiracy theory that as far as I can tell has no grounding
+
+1:00:51.500 --> 1:00:56.200
+ in reality is that there's a slightly smaller Earth inside this one, which is just too cute
+
+1:00:56.200 --> 1:00:57.200
+ as a concept.
+
+1:00:57.200 --> 1:00:58.200
+ That's awesome.
+
+1:00:58.200 --> 1:01:00.800
+ And you can access it, I think, from Antarctica.
+
+1:01:00.800 --> 1:01:05.240
+ And that's where we keep, and I quote, the mammoths and the Nazis.
+
+1:01:05.240 --> 1:01:08.700
+ Yeah, I mean, that one is ridiculous.
+
+1:01:08.700 --> 1:01:09.700
+ But like I do like.
+
+1:01:09.700 --> 1:01:12.800
+ Hey, I thought you were keeping an open mind.
+
+1:01:12.800 --> 1:01:15.880
+ I genuinely think that's more likely than aliens visiting the Earth.
+
+1:01:15.880 --> 1:01:21.920
+ And I say this as someone who has dedicated her life to finding like alien life.
+
+1:01:21.920 --> 1:01:27.680
+ And so that's how improbable, I think, the visitations are.
+
+1:01:27.680 --> 1:01:32.720
+ Because interstellar distances are so huge that it's just not really worth it.
+
+1:01:32.720 --> 1:01:34.560
+ See, I have a different view on this whole thing.
+
+1:01:34.560 --> 1:01:43.080
+ I think the aliens that look like little green men are like extremely low probability event.
+
+1:01:43.080 --> 1:01:48.920
+ Like mammoths and Nazis under that level.
+
+1:01:48.920 --> 1:01:57.760
+ But other kind of ideas, like the sad thing to me, and I think in my view, if there's
+
+1:01:57.760 --> 1:02:04.120
+ other alien civilizations out there and they visited Earth, neither them or perhaps just
+
+1:02:04.120 --> 1:02:06.920
+ us would be even able to detect them.
+
+1:02:06.920 --> 1:02:10.400
+ Like we wouldn't be open minded enough to see it.
+
+1:02:10.400 --> 1:02:19.880
+ Like if, because our understanding of what is life, and I just talked to Sarah Walker,
+
+1:02:19.880 --> 1:02:20.880
+ who's.
+
+1:02:20.880 --> 1:02:21.880
+ You know Sarah.
+
+1:02:21.880 --> 1:02:25.400
+ Yeah, we talked for three hours about the question of what is life.
+
+1:02:25.400 --> 1:02:29.320
+ Sarah's a good person to talk to about what is life.
+
+1:02:29.320 --> 1:02:33.520
+ But like the whole point is we don't really, we have a very narrow minded view of what
+
+1:02:33.520 --> 1:02:34.520
+ is life.
+
+1:02:34.520 --> 1:02:45.080
+ And when it shows up, and it might be already here, trees and dolphins and so on, or mountains
+
+1:02:45.080 --> 1:02:53.400
+ or I don't know, or the molecules in the atmosphere, or like people make fun of me.
+
+1:02:53.400 --> 1:02:57.640
+ But I do think that ideas are kind of aliens themselves, or consciousness could be the
+
+1:02:57.640 --> 1:03:00.620
+ aliens, or it could be the method by which they communicate.
+
+1:03:00.620 --> 1:03:03.640
+ We don't know shit about the way our human mind works.
+
+1:03:03.640 --> 1:03:09.600
+ And the fact that this thing is a quantum process, please don't I understand this.
+
+1:03:09.600 --> 1:03:10.600
+ It's not woo woo.
+
+1:03:10.600 --> 1:03:14.520
+ I'm not I, we could, but it very well could be there could be something at the at the
+
+1:03:14.520 --> 1:03:16.140
+ physics level, right?
+
+1:03:16.140 --> 1:03:19.360
+ It could be at the chemical or the biological level, things that are happening that we're
+
+1:03:19.360 --> 1:03:27.120
+ just close to close minded, because our conception of life is at the level of like us, like at
+
+1:03:27.120 --> 1:03:30.080
+ the jungle level of mammals.
+
+1:03:30.080 --> 1:03:34.680
+ And on the time scale, that's the human time scale, we may not be able to perceive what
+
+1:03:34.680 --> 1:03:42.640
+ alien life is actually like what the scale at which their intelligence realizes itself
+
+1:03:42.640 --> 1:03:45.040
+ when we're not able to perceive.
+
+1:03:45.040 --> 1:03:49.960
+ And the other thing that's really important about alien visitations, whether it happened
+
+1:03:49.960 --> 1:03:56.560
+ or not, is especially after COVID in 2020, I'm losing a little bit of faith of our government
+
+1:03:56.560 --> 1:04:04.120
+ being able to handle that that well, not our government, but us as a society, as a collective,
+
+1:04:04.120 --> 1:04:11.880
+ being able to deal with new things in an effective way that's inspiring, that's efficient, that
+
+1:04:11.880 --> 1:04:19.680
+ like, whether it's if it's a dangerous thing to deal with it to alleviate the danger, whether
+
+1:04:19.680 --> 1:04:24.880
+ it's the possibility of new discoveries and something inspiring to ride that wave and
+
+1:04:24.880 --> 1:04:27.000
+ make it inspiring all those kinds of things.
+
+1:04:27.000 --> 1:04:31.120
+ I honestly think if aliens showed up, they would look around, everybody would ignore
+
+1:04:31.120 --> 1:04:36.480
+ them and the government might like hide it, try to like see to keep it from the Chinese
+
+1:04:36.480 --> 1:04:41.400
+ and the Russians if it's the United States, call it a military secret in a very close
+
+1:04:41.400 --> 1:04:42.880
+ minded way.
+
+1:04:42.880 --> 1:04:48.000
+ And then the bureaucracy would drown it away to where through paperwork, the poor aliens
+
+1:04:48.000 --> 1:04:51.280
+ would just like waste away and sell somewhere like there's a certain
+
+1:04:51.280 --> 1:04:55.400
+ That would not happen, that would never happen, part of the reason that I feel so confident
+
+1:04:55.400 --> 1:04:59.480
+ that aliens have not visited because they would have had to visit just to have a look
+
+1:04:59.480 --> 1:05:04.800
+ remotely, from Neptune or something, which makes no sense because interstellar travel
+
+1:05:04.800 --> 1:05:12.040
+ is so difficult that it would be quite a ridiculous proposition, but that's the bit that I think
+
+1:05:12.040 --> 1:05:13.540
+ is technically possible.
+
+1:05:13.540 --> 1:05:18.880
+ If they did come here and they were visible by anyone, detectable by anyone, the thought
+
+1:05:18.880 --> 1:05:24.360
+ that any government, no matter, or any military could just contain them, these beings are
+
+1:05:24.360 --> 1:05:30.560
+ capable of traveling interstellar distances when we can barely go to the moon, like barely
+
+1:05:30.560 --> 1:05:31.560
+ go to the moon.
+
+1:05:31.560 --> 1:05:32.560
+ These things would be way, way, way, way out there.
+
+1:05:32.560 --> 1:05:33.560
+ Way.
+
+1:05:33.560 --> 1:05:38.360
+ And the fact that we think our puny military, even if all the military in the world got
+
+1:05:38.360 --> 1:05:44.240
+ together and the fact that they could somehow contain it, that's the bit that's laughable.
+
+1:05:44.240 --> 1:05:47.000
+ Ants trying to contain a human that visited them.
+
+1:05:47.000 --> 1:05:48.000
+ Exactly.
+
+1:05:48.000 --> 1:05:50.560
+ And scientists, you would have to bring scientists on board.
+
+1:05:50.560 --> 1:05:52.280
+ You've met a lot of scientists.
+
+1:05:52.280 --> 1:05:53.680
+ How good are they at keeping secrets?
+
+1:05:53.680 --> 1:05:58.760
+ Because in my experience, they're absolutely appalling at keeping secrets.
+
+1:05:58.760 --> 1:05:59.760
+ Yeah, that's terrible.
+
+1:05:59.760 --> 1:06:03.320
+ Even the Phosphine on Venus thing, which was a pretty well kept secret.
+
+1:06:03.320 --> 1:06:04.320
+ This is true.
+
+1:06:04.320 --> 1:06:05.320
+ You had a bunch of people that were.
+
+1:06:05.320 --> 1:06:06.320
+ I told my dad.
+
+1:06:06.320 --> 1:06:07.320
+ Yeah.
+
+1:06:07.320 --> 1:06:12.680
+ You know, my dad knew and hopefully didn't tell anyone, but if it had been an alien visiting,
+
+1:06:12.680 --> 1:06:15.440
+ he probably would have told a mate, you know?
+
+1:06:15.440 --> 1:06:20.960
+ And so these secrets could not be kept by any scientist that I know and certainly not
+
+1:06:20.960 --> 1:06:23.000
+ collaborative scientists, which would be needed.
+
+1:06:23.000 --> 1:06:26.080
+ You would need all sorts of scientific teams.
+
+1:06:26.080 --> 1:06:34.360
+ So between the pathetic power of any world's military compared to any civilization capable
+
+1:06:34.360 --> 1:06:41.600
+ of traveling and our absolute inability to keep secrets, absolutely not.
+
+1:06:41.600 --> 1:06:46.320
+ I will bet everything that we have not been visited because we are too pathetic to hold
+
+1:06:46.320 --> 1:06:47.320
+ that truth.
+
+1:06:47.320 --> 1:06:56.160
+ If we're just making like a $10 bet, the possibility here that the main alien, say there exists
+
+1:06:56.160 --> 1:07:02.560
+ one alien civil, other intelligent alien civilization in the galaxy.
+
+1:07:02.560 --> 1:07:09.840
+ To me, if they visit Earth, what's going to visit Earth is like the crappy, like the really
+
+1:07:09.840 --> 1:07:17.640
+ crappy, short straw, like, like this, this like really dumb thing that's, I don't know,
+
+1:07:17.640 --> 1:07:20.680
+ like the early game boys or something like, there's a cartoon about this.
+
+1:07:20.680 --> 1:07:26.520
+ There's an alien that gets sent to Earth, Commander Spiff or something, and it's kind
+
+1:07:26.520 --> 1:07:29.600
+ of a punishment or something, but that's not possible.
+
+1:07:29.600 --> 1:07:34.040
+ That's the thing because interstellar distances are so hard to, to cross.
+
+1:07:34.040 --> 1:07:35.040
+ You have to do it on purpose.
+
+1:07:35.040 --> 1:07:36.040
+ You have to do on purpose.
+
+1:07:36.040 --> 1:07:40.040
+ It has to be a big, big deal, and we know this because yes, you're right.
+
+1:07:40.040 --> 1:07:43.640
+ We don't know enough about galactic biology.
+
+1:07:43.640 --> 1:07:47.960
+ We don't know what the universal rules of biology or biochemistry are because we only
+
+1:07:47.960 --> 1:07:53.560
+ have the Earth, but we do know that the laws of physics are universal.
+
+1:07:53.560 --> 1:07:57.940
+ We can predict behavior in the universe and then see it happen based on these laws of
+
+1:07:57.940 --> 1:07:59.100
+ physics.
+
+1:07:59.100 --> 1:08:01.900
+ We know that the laws of chemistry are universal.
+
+1:08:01.900 --> 1:08:05.240
+ We know the periodic table is all they have to choose from.
+
+1:08:05.240 --> 1:08:11.000
+ So yes, they may be some sort of unimaginable intelligence, but they still have to use the
+
+1:08:11.000 --> 1:08:13.960
+ same periodic table that we have access to.
+
+1:08:13.960 --> 1:08:18.120
+ They still have a finite number of molecules they can do things with.
+
+1:08:18.120 --> 1:08:22.700
+ So they still have to use the resources around them, the stars around them, the universe
+
+1:08:22.700 --> 1:08:26.640
+ around them, and we know how much energy is in these places.
+
+1:08:26.640 --> 1:08:32.480
+ And so yes, they may be very capable, capable beyond our wildest dreams, but they're still
+
+1:08:32.480 --> 1:08:35.400
+ in the same universe, and we know a lot of those rules.
+
+1:08:35.400 --> 1:08:37.120
+ We're not completely blind.
+
+1:08:37.120 --> 1:08:43.240
+ But there's a colleague of yours at Harvard, Kamran Vafa, he's a theoretical physicist.
+
+1:08:43.240 --> 1:08:45.240
+ I don't know if you know him.
+
+1:08:45.240 --> 1:08:48.240
+ I've only joined Harvard about six months ago.
+
+1:08:48.240 --> 1:08:49.240
+ Okay.
+
+1:08:49.240 --> 1:08:52.860
+ It's time to meet all the theoretical physicists.
+
+1:08:52.860 --> 1:09:01.280
+ So he's a string theorist, but his idea is that aliens that are sophisticated enough
+
+1:09:01.280 --> 1:09:05.840
+ to travel interstellar like those kinds of distances will figure out actually ways to
+
+1:09:05.840 --> 1:09:11.160
+ hack the fabric of the universe enough to have fun in other ways, like this universe
+
+1:09:11.160 --> 1:09:12.160
+ is too boring.
+
+1:09:12.160 --> 1:09:17.740
+ Like you would figure out ways to create other universes, like you go outside the physics
+
+1:09:17.740 --> 1:09:19.380
+ as we know it.
+
+1:09:19.380 --> 1:09:23.440
+ So the reason we don't see aliens visiting us all over the place is they're having fun
+
+1:09:23.440 --> 1:09:24.440
+ elsewhere.
+
+1:09:24.440 --> 1:09:26.060
+ This is like way too boring.
+
+1:09:26.060 --> 1:09:32.080
+ We humans think this is fun, but it's actually mostly empty space that no fun is happening.
+
+1:09:32.080 --> 1:09:35.800
+ There's no fun in visiting Earth for a super advanced civilization.
+
+1:09:35.800 --> 1:09:42.040
+ So he thinks like if alien civilizations are out there, they found outside of our current
+
+1:09:42.040 --> 1:09:47.680
+ standard models of physics ways of having fun that don't involve us.
+
+1:09:47.680 --> 1:09:52.540
+ That's probably true, but even the notion of visiting, that's so literally pedestrian.
+
+1:09:52.540 --> 1:09:55.800
+ Of course we want to go there because going there is the only thing we know.
+
+1:09:55.800 --> 1:09:58.480
+ We see a thing we want, we want to go there and get it.
+
+1:09:58.480 --> 1:10:03.600
+ But that is probably something they've no longer gotten need for.
+
+1:10:03.600 --> 1:10:08.080
+ I specifically don't particularly want to go to space.
+
+1:10:08.080 --> 1:10:09.080
+ Sounds awful.
+
+1:10:09.080 --> 1:10:13.960
+ None of the things I like are going to be there.
+
+1:10:13.960 --> 1:10:17.880
+ My whole work is my whole career is finding life and understanding the universe.
+
+1:10:17.880 --> 1:10:23.840
+ So I care a lot, but I care about knowing about it and I feel no need to go there to
+
+1:10:23.840 --> 1:10:25.040
+ learn about it.
+
+1:10:25.040 --> 1:10:30.360
+ And I think as we develop better tools, hopefully people will feel less and less a need to go
+
+1:10:30.360 --> 1:10:33.120
+ everywhere that we know about.
+
+1:10:33.120 --> 1:10:38.460
+ And I would expect any alien civilization worth the salt have developed observation
+
+1:10:38.460 --> 1:10:44.600
+ tools and tools that allow them to understand the universe around them and beyond without
+
+1:10:44.600 --> 1:10:46.160
+ having to go there.
+
+1:10:46.160 --> 1:10:48.120
+ This going is so wasteful.
+
+1:10:48.120 --> 1:10:49.120
+ Yeah.
+
+1:10:49.120 --> 1:10:53.320
+ So more focused on the knowledge and learning versus the colonization, like the conquering
+
+1:10:53.320 --> 1:10:55.280
+ and all those kinds of things.
+
+1:10:55.280 --> 1:10:57.480
+ That's beneath them.
+
+1:10:57.480 --> 1:10:58.480
+ That's beneath them.
+
+1:10:58.480 --> 1:11:04.160
+ I mean, that said, do you think there's in your hopeful search for life through phosphine
+
+1:11:04.160 --> 1:11:11.080
+ and other gases, do you think there's other alien civilizations out there?
+
+1:11:11.080 --> 1:11:14.040
+ First do you think there's other life out there?
+
+1:11:14.040 --> 1:11:17.040
+ First do you think there's life in the solar system?
+
+1:11:17.040 --> 1:11:22.080
+ Second do you think there's life in the galaxy?
+
+1:11:22.080 --> 1:11:26.560
+ And a third, do you think there's intelligent life in the solar system or the galaxy outside
+
+1:11:26.560 --> 1:11:28.000
+ of earth?
+
+1:11:28.000 --> 1:11:30.280
+ So intelligent life, I have no idea.
+
+1:11:30.280 --> 1:11:35.440
+ It seems deeply unlikely possible, but I'm not even sure if it's plausible.
+
+1:11:35.440 --> 1:11:38.880
+ So that's the special thing to you about earth is somehow intelligent life came to me.
+
+1:11:38.880 --> 1:11:39.880
+ Yes.
+
+1:11:39.880 --> 1:11:43.800
+ And it's only, you know, very briefly, probably extremely briefly.
+
+1:11:43.800 --> 1:11:48.640
+ Oh, you mean like it's always going to be like, we're going to destroy ourselves.
+
+1:11:48.640 --> 1:11:49.640
+ Exactly.
+
+1:11:49.640 --> 1:11:50.640
+ Oh boy.
+
+1:11:50.640 --> 1:11:54.400
+ We're going to continue on earth happily, probably more happily.
+
+1:11:54.400 --> 1:11:56.960
+ So the trees and the dolphins will be here, I'm telling you.
+
+1:11:56.960 --> 1:12:02.320
+ And the cockroaches and the incredible fungi, you know, they'll be fine.
+
+1:12:02.320 --> 1:12:08.120
+ So life on earth will be fine, was fine before us and will be fine after us.
+
+1:12:08.120 --> 1:12:12.160
+ So I'm not that worried about intelligent life, but I think it is unlikely, even on
+
+1:12:12.160 --> 1:12:16.400
+ earth is unlikely out of, what is it, five billion species across the history of the
+
+1:12:16.400 --> 1:12:17.400
+ earth.
+
+1:12:17.400 --> 1:12:18.400
+ Yes.
+
+1:12:18.400 --> 1:12:24.500
+ For an intelligent one and for a blink of an eye, possibly not much longer than that.
+
+1:12:24.500 --> 1:12:31.640
+ So I wouldn't bet on that at all, though I would love it, of course, you know, I wanted
+
+1:12:31.640 --> 1:12:34.680
+ to find aliens since I was a little girl.
+
+1:12:34.680 --> 1:12:40.900
+ And so of course I initially wanted to find ones that I could be friends with and I've
+
+1:12:40.900 --> 1:12:44.280
+ had to let go of that dream because it's so deeply implausible.
+
+1:12:44.280 --> 1:12:47.680
+ But see the nice, and sorry to interrupt, but the nice thing about intelligent alien
+
+1:12:47.680 --> 1:12:52.480
+ civilizations, they may have more biosignatures than nonintelligent ones.
+
+1:12:52.480 --> 1:12:56.320
+ So they might be easier to detect, that would be the hope.
+
+1:12:56.320 --> 1:12:58.680
+ On earth that's not the case, but it could be the case elsewhere.
+
+1:12:58.680 --> 1:13:00.480
+ Oh, it's not the case on earth.
+
+1:13:00.480 --> 1:13:06.000
+ Most of the biosignatures we have on earth are created by quite simple life.
+
+1:13:06.000 --> 1:13:11.200
+ If you don't count pollution, pollution is all, all us baby.
+
+1:13:11.200 --> 1:13:17.080
+ So you don't see polluting gases as a possible, like.
+
+1:13:17.080 --> 1:13:18.560
+ I look for polluting gases.
+
+1:13:18.560 --> 1:13:20.640
+ I would love to find polluting gases.
+
+1:13:20.640 --> 1:13:26.520
+ Well, you know, I'd be worried for them, of course, the same way I, I think about my alien
+
+1:13:26.520 --> 1:13:30.720
+ colleagues all the time looking at us and I'm sure they worry about our pollutions,
+
+1:13:30.720 --> 1:13:38.120
+ but it would be a really good, robust, unambiguous sign of life if we found complex pollutants.
+
+1:13:38.120 --> 1:13:39.440
+ So I look for those too.
+
+1:13:39.440 --> 1:13:41.080
+ I just don't have any hope of finding them.
+
+1:13:41.080 --> 1:13:47.800
+ I think intelligent life in the galaxy at the same time that we're looking is deeply
+
+1:13:47.800 --> 1:13:56.160
+ implausible, but life I think is inevitable and if it is inevitable, it is common.
+
+1:13:56.160 --> 1:14:00.080
+ So I think there'll be life everywhere in the galaxy.
+
+1:14:00.080 --> 1:14:04.680
+ Now how common that life is, I think will depend a lot on whether there's life in the
+
+1:14:04.680 --> 1:14:07.080
+ solar system beyond earth.
+
+1:14:07.080 --> 1:14:13.220
+ So I'll adjust my expectations very much based on there being life in the solar system.
+
+1:14:13.220 --> 1:14:19.380
+ If there's life in the Venusian clouds, if there's life in the, if there are biosignals
+
+1:14:19.380 --> 1:14:23.200
+ coming out of the plumes of Enceladus, if there's life on Titan.
+
+1:14:23.200 --> 1:14:24.200
+ Yeah, that's right.
+
+1:14:24.200 --> 1:14:25.200
+ Yeah, yeah.
+
+1:14:25.200 --> 1:14:26.200
+ Plumes of Enceladus.
+
+1:14:26.200 --> 1:14:27.880
+ That's the, that's the Saturn one.
+
+1:14:27.880 --> 1:14:30.320
+ It's the moon that has the geysers that come out.
+
+1:14:30.320 --> 1:14:34.160
+ And so you can't see the, under the subterranean oceans, but.
+
+1:14:34.160 --> 1:14:36.520
+ It's supposed, so it would be in the atmosphere.
+
+1:14:36.520 --> 1:14:39.000
+ I was going to ask you about that one.
+
+1:14:39.000 --> 1:14:40.000
+ Have you looked at that?
+
+1:14:40.000 --> 1:14:49.360
+ Have you, is that a hope for you to use the tools you're using with RASCAL and other ways
+
+1:14:49.360 --> 1:14:56.400
+ for detecting the 16,000 molecules that might be biosignatures to look at Enceladus?
+
+1:14:56.400 --> 1:14:59.920
+ Yes, that's absolutely the plan.
+
+1:14:59.920 --> 1:15:01.560
+ What's the limiting factor currently?
+
+1:15:01.560 --> 1:15:06.760
+ Is it the quality of the telescopes, what's the quality of the data?
+
+1:15:06.760 --> 1:15:12.560
+ Yeah, the quality of the data, the observational data, and also the quality of RASCAL and other
+
+1:15:12.560 --> 1:15:13.560
+ associated things.
+
+1:15:13.560 --> 1:15:17.680
+ So we're missing a lot of fundamental data to interpret the data that we get and we don't
+
+1:15:17.680 --> 1:15:19.240
+ have good enough data.
+
+1:15:19.240 --> 1:15:24.760
+ But hopefully we will, in the coming decades, we'll get some information on Titan.
+
+1:15:24.760 --> 1:15:27.880
+ We have Dragonfly going over.
+
+1:15:27.880 --> 1:15:31.400
+ We'll get the plumes of Enceladus.
+
+1:15:31.400 --> 1:15:34.040
+ We will look at the clouds of Venus and there's other places.
+
+1:15:34.040 --> 1:15:41.740
+ And so if we find any life or any sign of life ever, like on Mars, then I'll adjust
+
+1:15:41.740 --> 1:15:48.520
+ my calculations and I'll say life is not just inevitable and common, but extremely common.
+
+1:15:48.520 --> 1:15:52.720
+ Because all of these places we've mentioned, the subterranean oceans on Enceladus, the
+
+1:15:52.720 --> 1:15:58.240
+ methane oceans of Titan, the clouds of Venus, the acidic clouds of Venus, these are places
+
+1:15:58.240 --> 1:16:02.280
+ that are very different from the places where we find life on Earth.
+
+1:16:02.280 --> 1:16:04.200
+ Even the most extreme places.
+
+1:16:04.200 --> 1:16:10.120
+ And so if life can originate in all of these completely different habitats, then life is
+
+1:16:10.120 --> 1:16:14.860
+ even more resourceful than we thought, which means it's everywhere.
+
+1:16:14.860 --> 1:16:17.200
+ That's really exciting if it's everywhere.
+
+1:16:17.200 --> 1:16:21.320
+ If there's life on just one of the moons, if it's on Mars.
+
+1:16:21.320 --> 1:16:22.320
+ Anywhere.
+
+1:16:22.320 --> 1:16:27.080
+ Anywhere in the solar system and I will bet everything I own that every solar system,
+
+1:16:27.080 --> 1:16:31.360
+ every planetary system has a potential for habitability.
+
+1:16:31.360 --> 1:16:35.440
+ Because even if they don't have a habitable planet, they'll have moons around other giant
+
+1:16:35.440 --> 1:16:39.280
+ planets and there'll be so much life.
+
+1:16:39.280 --> 1:16:44.960
+ So for me, that's the only thing to figure out now, whether life is inevitable and quite
+
+1:16:44.960 --> 1:16:51.860
+ common throughout the galaxy or everywhere, but it's somewhere between those two.
+
+1:16:51.860 --> 1:16:58.480
+ In life, I make no bets and if I had to bet, I would be against.
+
+1:16:58.480 --> 1:17:05.280
+ To me, like two discoveries in the 21st century would change everything.
+
+1:17:05.280 --> 1:17:12.800
+ One is, and maybe I'm biased, but one is a discovery of life in the solar system.
+
+1:17:12.800 --> 1:17:18.600
+ I feel like that would change our whole conception of how unique we are in the universe.
+
+1:17:18.600 --> 1:17:23.560
+ I think I'm much more eager than you are to jump from basic life to intelligent life.
+
+1:17:23.560 --> 1:17:31.880
+ I feel like if there's life everywhere, like the odds are, there has, like we cannot, like
+
+1:17:31.880 --> 1:17:34.320
+ you have, oh, I see.
+
+1:17:34.320 --> 1:17:37.880
+ You're saying there could have been many intelligent civilizations out there, but they just keep
+
+1:17:37.880 --> 1:17:38.880
+ dying out.
+
+1:17:38.880 --> 1:17:39.880
+ It's like little.
+
+1:17:39.880 --> 1:17:40.880
+ Yeah.
+
+1:17:40.880 --> 1:17:41.880
+ I was detecting them, you know, ships in the night.
+
+1:17:41.880 --> 1:17:42.880
+ Ships in the night.
+
+1:17:42.880 --> 1:17:45.640
+ No, that's ultra sad.
+
+1:17:45.640 --> 1:17:46.640
+ Just like.
+
+1:17:46.640 --> 1:17:47.640
+ Is it sad?
+
+1:17:47.640 --> 1:17:50.400
+ The earth is not better for having us.
+
+1:17:50.400 --> 1:17:53.640
+ Is it, we, it doesn't owe us anything.
+
+1:17:53.640 --> 1:17:56.120
+ Would you be sad to find alien giraffes?
+
+1:17:56.120 --> 1:17:59.240
+ Would you be disappointed if you found alien giraffes?
+
+1:17:59.240 --> 1:18:00.240
+ Because I would not.
+
+1:18:00.240 --> 1:18:04.280
+ No, well, giraffes, first of all, they look goofy with their necks and everything, but.
+
+1:18:04.280 --> 1:18:05.720
+ We do not shit on giraffes.
+
+1:18:05.720 --> 1:18:06.720
+ Okay.
+
+1:18:06.720 --> 1:18:09.240
+ Giraffes are wondrous animals, are deeply understudied.
+
+1:18:09.240 --> 1:18:12.840
+ We still know so little about them because no one does PhDs in giraffes.
+
+1:18:12.840 --> 1:18:17.680
+ I am disappointed I made a PhD in phosphine when people aren't doing PhDs in giraffes.
+
+1:18:17.680 --> 1:18:19.440
+ We do not know enough about giraffes.
+
+1:18:19.440 --> 1:18:22.680
+ I think it was like Ricky Gervais that did a whole, like a long thing.
+
+1:18:22.680 --> 1:18:25.080
+ You can't trust Ricky Gervais to talk about giraffes.
+
+1:18:25.080 --> 1:18:26.560
+ That is not his expertise.
+
+1:18:26.560 --> 1:18:27.560
+ Yeah.
+
+1:18:27.560 --> 1:18:31.600
+ But it's a stupid necks, it doesn't make any sense.
+
+1:18:31.600 --> 1:18:32.600
+ I mean, that's fine.
+
+1:18:32.600 --> 1:18:36.880
+ Giraffes are very resourceful animals who do incredible things and can kick a lion in
+
+1:18:36.880 --> 1:18:37.880
+ the face.
+
+1:18:37.880 --> 1:18:38.880
+ Why don't you climb the tree?
+
+1:18:38.880 --> 1:18:39.880
+ Why don't you climb the tree?
+
+1:18:39.880 --> 1:18:42.480
+ You don't need to grow through the lengthy evolutionary process.
+
+1:18:42.480 --> 1:18:43.480
+ You're shitting on giraffes.
+
+1:18:43.480 --> 1:18:44.480
+ Okay.
+
+1:18:44.480 --> 1:18:45.480
+ Giraffes are wondrous animals.
+
+1:18:45.480 --> 1:18:46.480
+ Fine.
+
+1:18:46.480 --> 1:18:47.480
+ I would very appreciate it.
+
+1:18:47.480 --> 1:18:48.480
+ Take it back.
+
+1:18:48.480 --> 1:18:49.480
+ I take it back.
+
+1:18:49.480 --> 1:18:50.480
+ I apologize.
+
+1:18:50.480 --> 1:18:54.280
+ I trust your expertise on this.
+
+1:18:54.280 --> 1:19:01.560
+ The thing that makes humans really fascinating, and I think the earth, but I'm a human, is
+
+1:19:01.560 --> 1:19:09.400
+ we create things that are, yes, there's all the ugliness in the world.
+
+1:19:09.400 --> 1:19:16.200
+ There's all the, on the biological, on the chemical level, there's the pollution, but
+
+1:19:16.200 --> 1:19:18.500
+ we create beauty.
+
+1:19:18.500 --> 1:19:23.840
+ If you even from a physics perspective, look at symmetry as somehow capturing beauty, the
+
+1:19:23.840 --> 1:19:28.320
+ breaking of symmetries, stuff grounded in all the different definitions of symmetry,
+
+1:19:28.320 --> 1:19:31.540
+ we're good at creating things.
+
+1:19:31.540 --> 1:19:35.020
+ So are spiders.
+
+1:19:35.020 --> 1:19:36.020
+ But not giraffes.
+
+1:19:36.020 --> 1:19:37.020
+ Okay.
+
+1:19:37.020 --> 1:19:38.020
+ But yes, this is a...
+
+1:19:38.020 --> 1:19:39.020
+ Spiders.
+
+1:19:39.020 --> 1:19:43.360
+ Spiders that create little bubbles of air so they can breathe underwater, they can literally
+
+1:19:43.360 --> 1:19:44.360
+ scuba dive.
+
+1:19:44.360 --> 1:19:48.440
+ There are spiders that can create parachutes so they can glide.
+
+1:19:48.440 --> 1:19:51.240
+ And talk about symmetry, look what spiders can do.
+
+1:19:51.240 --> 1:19:56.680
+ And I just thought of spiders, but if I was an alien species coming to earth, there'll
+
+1:19:56.680 --> 1:20:05.600
+ be plenty to wonder, and we would just be one of the things, clunky, naked monkey.
+
+1:20:05.600 --> 1:20:07.680
+ The ants might be even more fascinating.
+
+1:20:07.680 --> 1:20:08.680
+ The ants.
+
+1:20:08.680 --> 1:20:14.680
+ The ants can figure out exactly through some emergent consciousness what the maximum distance
+
+1:20:14.680 --> 1:20:22.000
+ between their trash, their babies, and their food is just from without any of them knowing
+
+1:20:22.000 --> 1:20:23.000
+ how to do this.
+
+1:20:23.000 --> 1:20:24.720
+ And collectively they've learned how to do this.
+
+1:20:24.720 --> 1:20:27.200
+ If I was an alien species, I'll be looking at that.
+
+1:20:27.200 --> 1:20:29.200
+ Well, so that was the other thing I was going to mention.
+
+1:20:29.200 --> 1:20:35.840
+ The second thing is I tend to believe we can engineer consciousness, but at the basic level,
+
+1:20:35.840 --> 1:20:42.600
+ in the source of consciousness, because if consciousness is unique to humans, and if
+
+1:20:42.600 --> 1:20:47.800
+ we can engineer it, that gives me hope that it could be present elsewhere in the universe.
+
+1:20:47.800 --> 1:20:53.600
+ That's the other thing that makes, it's an open question, that makes humans perhaps special
+
+1:20:53.600 --> 1:21:00.260
+ is not maybe the presence of consciousness, but somehow a presence of elevated consciousness.
+
+1:21:00.260 --> 1:21:04.800
+ It does, again, maybe human centric, but it feels like we're more conscious than giraffes,
+
+1:21:04.800 --> 1:21:06.360
+ for example, and spiders.
+
+1:21:06.360 --> 1:21:08.960
+ Yes, I won't deny that.
+
+1:21:08.960 --> 1:21:10.440
+ There is something special about humans.
+
+1:21:10.440 --> 1:21:12.440
+ They're my favorite species.
+
+1:21:12.440 --> 1:21:14.160
+ They are.
+
+1:21:14.160 --> 1:21:16.080
+ They are.
+
+1:21:16.080 --> 1:21:21.720
+ Some of my best friends are humans.
+
+1:21:21.720 --> 1:21:24.240
+ I think highly of humans.
+
+1:21:24.240 --> 1:21:25.240
+ It's great.
+
+1:21:25.240 --> 1:21:31.160
+ I just don't have great hope for our longevity, and specifically I don't have great hope given
+
+1:21:31.160 --> 1:21:35.520
+ that we're the only species that are five billion that did this cool consciousness trick.
+
+1:21:35.520 --> 1:21:42.240
+ I just, I don't want to bet on finding a kinship elsewhere.
+
+1:21:42.240 --> 1:21:44.040
+ That's quite interesting to think about.
+
+1:21:44.040 --> 1:21:51.720
+ I don't think I've even considered that possibility that there would be life in the solar system,
+
+1:21:51.720 --> 1:21:57.520
+ so that indicates that very possibly life is literally everywhere.
+
+1:21:57.520 --> 1:21:59.600
+ Everywhere it can happen, it does.
+
+1:21:59.600 --> 1:22:06.200
+ And especially what we're discovering with the exoplanets now, how numerous they are,
+
+1:22:06.200 --> 1:22:12.200
+ or earthlike habitable, quote unquote, planets, they're everywhere.
+
+1:22:12.200 --> 1:22:16.620
+ The most common type of planet is rocky, it seems.
+
+1:22:16.620 --> 1:22:21.880
+ But I didn't consider the possibility that life is literally everywhere, and yet intelligent
+
+1:22:21.880 --> 1:22:30.600
+ life is nowhere long enough to communicate with each other, to form little clusters of
+
+1:22:30.600 --> 1:22:35.680
+ civilizations that expand beyond the solar system and so on.
+
+1:22:35.680 --> 1:22:43.800
+ Man, maybe becoming a multi planetary species is a less likely pursuit than we imagine.
+
+1:22:43.800 --> 1:22:44.800
+ I agree.
+
+1:22:44.800 --> 1:22:49.040
+ But one of the things that makes humans beautiful is we hope.
+
+1:22:49.040 --> 1:22:56.620
+ What I hope for humanity, and one of the things I hope for is that we become less obsessed
+
+1:22:56.620 --> 1:23:03.360
+ with conquering, and we become less obsessed with spreading ourselves.
+
+1:23:03.360 --> 1:23:08.880
+ I hope that we transcend that, that we're happy with the universe without having to
+
+1:23:08.880 --> 1:23:11.240
+ go and take it.
+
+1:23:11.240 --> 1:23:18.060
+ So you can hope for the species without hoping for a multi planetary existence.
+
+1:23:18.060 --> 1:23:26.840
+ That is only, I think, the drive of our most primitive instincts to go and take, to go
+
+1:23:26.840 --> 1:23:28.240
+ and plant a flag somewhere.
+
+1:23:28.240 --> 1:23:31.060
+ We love planting a flag somewhere.
+
+1:23:31.060 --> 1:23:35.340
+ And maybe we could overcome that minor drive.
+
+1:23:35.340 --> 1:23:41.480
+ And once we do, the AI systems we build will destroy us because we're too peaceful, and
+
+1:23:41.480 --> 1:23:43.720
+ they will go and conquer and plant the flags.
+
+1:23:43.720 --> 1:23:44.720
+ Best of luck to them.
+
+1:23:44.720 --> 1:23:50.880
+ Rock roaches will be happy to keep to the business as they always have.
+
+1:23:50.880 --> 1:23:58.240
+ I tend to believe that robots can have the same elegance and consciousness and all the
+
+1:23:58.240 --> 1:24:02.760
+ qualities of kindness and love and hope and fear that humans have.
+
+1:24:02.760 --> 1:24:05.160
+ In principle, they could, yes.
+
+1:24:05.160 --> 1:24:10.700
+ I don't really trust the people who make them.
+
+1:24:10.700 --> 1:24:13.040
+ This is about the giraffe comment, isn't it?
+
+1:24:13.040 --> 1:24:18.440
+ I haven't forgiven you for shitting on giraffes, whatever they've done to you.
+
+1:24:18.440 --> 1:24:22.480
+ Just as a small tangent, your master's thesis is also fascinating.
+
+1:24:22.480 --> 1:24:25.040
+ Maybe we could talk about it for just a little bit.
+
+1:24:25.040 --> 1:24:30.080
+ It's titled Influence of a Star's Evolution on its Planetary System.
+
+1:24:30.080 --> 1:24:35.240
+ So this interplay between a star and a planet, is there something interesting you could say
+
+1:24:35.240 --> 1:24:42.400
+ about what you've learned about this journey that a star takes and the planets around it?
+
+1:24:42.400 --> 1:24:49.040
+ Well, when I was younger and I was told what would happen ultimately to the Earth as the
+
+1:24:49.040 --> 1:24:57.680
+ sun expands towards a red giant and mercury would just like fall in and then Venus fall
+
+1:24:57.680 --> 1:24:59.840
+ in and the sun doesn't care.
+
+1:24:59.840 --> 1:25:05.720
+ And it just seemed so, I felt so small.
+
+1:25:05.720 --> 1:25:10.480
+ I felt like the Earth and everything on it, it's just the universe doesn't care.
+
+1:25:10.480 --> 1:25:12.400
+ Even our sun doesn't care.
+
+1:25:12.400 --> 1:25:17.800
+ And I think I felt like our sun should feel some sort of responsibility for its planets.
+
+1:25:17.800 --> 1:25:21.280
+ And it just felt like such a violent and neglectful parent.
+
+1:25:21.280 --> 1:25:23.360
+ It's like a parent eating its own children.
+
+1:25:23.360 --> 1:25:24.360
+ It's horrible.
+
+1:25:24.360 --> 1:25:31.000
+ It's just a horrible notion, but it made me think, what if there's some sort of generation?
+
+1:25:31.000 --> 1:25:36.360
+ And so at the time when I was doing my master's, there was a notion of the white dwarf cemetery,
+
+1:25:36.360 --> 1:25:41.400
+ which is this idea that when stars become white dwarfs, that death is so horrible that
+
+1:25:41.400 --> 1:25:45.720
+ planets, potentially habitable planets that could have been habitable before, they're
+
+1:25:45.720 --> 1:25:46.720
+ now gone.
+
+1:25:46.720 --> 1:25:48.720
+ There's no chance for life.
+
+1:25:48.720 --> 1:25:52.320
+ But then I thought, what if life returns?
+
+1:25:52.320 --> 1:25:55.280
+ Now it's a white dwarf, it's calmed down, it's not going to go anywhere.
+
+1:25:55.280 --> 1:25:59.680
+ White dwarfs are very stable across like universal timescales.
+
+1:25:59.680 --> 1:26:05.400
+ And so could you have planets around the white dwarf that could themselves get life again?
+
+1:26:05.400 --> 1:26:07.960
+ No, life doesn't care.
+
+1:26:07.960 --> 1:26:14.400
+ And so my work was basically killing dozens of planets, thousands of times.
+
+1:26:14.400 --> 1:26:18.400
+ I just ran thousands and thousands of end body simulations.
+
+1:26:18.400 --> 1:26:19.720
+ Oh, you simulated this?
+
+1:26:19.720 --> 1:26:20.720
+ Yeah.
+
+1:26:20.720 --> 1:26:26.920
+ So I simulated the star growing and just eating all these planets up and just absolute chaos.
+
+1:26:26.920 --> 1:26:29.960
+ The orbits of the planets would change as the star loses mass.
+
+1:26:29.960 --> 1:26:34.800
+ So you would have like Jupiter planets just crashing into the other planets, throwing
+
+1:26:34.800 --> 1:26:36.480
+ them into the sun early.
+
+1:26:36.480 --> 1:26:40.720
+ It was terrifying to watch these simulations.
+
+1:26:40.720 --> 1:26:44.680
+ It was absolute carnage.
+
+1:26:44.680 --> 1:26:50.400
+ But if you run thousands of these simulations, some systems find new balance ways of staying
+
+1:26:50.400 --> 1:26:52.000
+ alive.
+
+1:26:52.000 --> 1:26:59.640
+ Some systems post star death find stable orbits again for billions of years, more than enough
+
+1:26:59.640 --> 1:27:01.840
+ for life to originate again.
+
+1:27:01.840 --> 1:27:09.480
+ And so that was my idea during that time that Thesis was trying to explore this notion of
+
+1:27:09.480 --> 1:27:12.280
+ life coming back.
+
+1:27:12.280 --> 1:27:18.160
+ And this idea of the universe doesn't care if you're here or not, and it will go about
+
+1:27:18.160 --> 1:27:19.160
+ its business.
+
+1:27:19.160 --> 1:27:23.460
+ Andromeda will crash into us and doesn't care.
+
+1:27:23.460 --> 1:27:25.880
+ No one cares if you're alive in the universe.
+
+1:27:25.880 --> 1:27:31.080
+ And so letting go of that preciousness of life, I found very useful at that stage of
+
+1:27:31.080 --> 1:27:32.080
+ my career.
+
+1:27:32.080 --> 1:27:38.520
+ And instead, I just thought, if life is inevitable, it doesn't matter that it came by four billion
+
+1:27:38.520 --> 1:27:39.520
+ years ago.
+
+1:27:39.520 --> 1:27:41.760
+ It can start again four billion years later.
+
+1:27:41.760 --> 1:27:44.200
+ And maybe that is nice.
+
+1:27:44.200 --> 1:27:49.200
+ Maybe that's where hope lies, the Phoenix rising everywhere.
+
+1:27:49.200 --> 1:27:56.240
+ Planets being destroyed and created and we're here now and others will be more or less hereish
+
+1:27:56.240 --> 1:27:57.640
+ billions of years later.
+
+1:27:57.640 --> 1:28:02.360
+ So accepting the cycle of death and life and yeah.
+
+1:28:02.360 --> 1:28:03.360
+ Not taking it personally.
+
+1:28:03.360 --> 1:28:05.000
+ Not taking it personally.
+
+1:28:05.000 --> 1:28:06.480
+ The sun doesn't owe us anything.
+
+1:28:06.480 --> 1:28:08.240
+ It's not a bad parent.
+
+1:28:08.240 --> 1:28:10.360
+ It's not a parent at all.
+
+1:28:10.360 --> 1:28:11.360
+ Yeah.
+
+1:28:11.360 --> 1:28:18.600
+ I was looking at the work of Freeman Dyson and seeing how this universe eventually will
+
+1:28:18.600 --> 1:28:22.760
+ just be a bunch of supermassive black holes before they also evaporate.
+
+1:28:22.760 --> 1:28:24.680
+ A bunch of tiny black holes too.
+
+1:28:24.680 --> 1:28:25.680
+ Yeah.
+
+1:28:25.680 --> 1:28:26.680
+ Absolute quiet.
+
+1:28:26.680 --> 1:28:30.920
+ Everyone, all the black holes a little too far away from one another to even interact
+
+1:28:30.920 --> 1:28:34.640
+ until it's just silence forever.
+
+1:28:34.640 --> 1:28:40.680
+ But until then, many, many cycles of death and destruction and rebirth.
+
+1:28:40.680 --> 1:28:42.400
+ And rebirth.
+
+1:28:42.400 --> 1:28:44.960
+ You kept bringing up sort of coding stuff up.
+
+1:28:44.960 --> 1:28:47.000
+ I wanted to ask two things.
+
+1:28:47.000 --> 1:28:52.280
+ First of all, what programming language do you like?
+
+1:28:52.280 --> 1:29:05.520
+ And also what, because you're as a computational quantum astrochemist, no, yes, that's right.
+
+1:29:05.520 --> 1:29:11.480
+ You're kind of, you could say you're actually understanding some exceptionally complicated
+
+1:29:11.480 --> 1:29:18.120
+ things with one of the things you're using is the tools of computation of programming.
+
+1:29:18.120 --> 1:29:24.280
+ Is there a device you can give to people, because I know quite a few that have not practiced
+
+1:29:24.280 --> 1:29:28.800
+ that tool and have fallen in love with a particular science, whatever it's biology and chemistry
+
+1:29:28.800 --> 1:29:30.840
+ and physics and so on.
+
+1:29:30.840 --> 1:29:37.080
+ And if they were interested in learning to program and learning to use computation as
+
+1:29:37.080 --> 1:29:41.680
+ a tool in their particular science, is there advice you can give on programming and also
+
+1:29:41.680 --> 1:29:48.200
+ just maybe a comment on your own journey and the use of programming in your own life?
+
+1:29:48.200 --> 1:29:50.920
+ Well, I'm a terrible programmer.
+
+1:29:50.920 --> 1:29:55.360
+ A lot of scientists, their programming is bad because we never learned formal programming.
+
+1:29:55.360 --> 1:29:58.040
+ We learned science, physics, chemistry.
+
+1:29:58.040 --> 1:30:03.040
+ And then we were told, oh, you can, you have to get these equations modeled and run through
+
+1:30:03.040 --> 1:30:04.040
+ a simulation.
+
+1:30:04.040 --> 1:30:07.500
+ And you're like, oh, okay, so I'm going to learn how to code to do this.
+
+1:30:07.500 --> 1:30:12.040
+ And you learn just as much as you need to run these simulations and no more.
+
+1:30:12.040 --> 1:30:15.160
+ So they're rarely optimized and they're really clunky.
+
+1:30:15.160 --> 1:30:17.240
+ Six months later, you can't read your own code.
+
+1:30:17.240 --> 1:30:19.360
+ My variable names are extremely embarrassing.
+
+1:30:19.360 --> 1:30:26.880
+ I still have error messages for different compilation errors that say things like, at
+
+1:30:26.880 --> 1:30:29.600
+ least your dad loves you, Clara.
+
+1:30:29.600 --> 1:30:32.600
+ You know, it doesn't help me at all.
+
+1:30:32.600 --> 1:30:36.680
+ Just like you suck at coding, but there's other things in your life.
+
+1:30:36.680 --> 1:30:37.880
+ So I'm a bad programmer.
+
+1:30:37.880 --> 1:30:41.240
+ And so, you know, if that will give hope to anyone else who's a bad programmer, I can
+
+1:30:41.240 --> 1:30:44.360
+ still do pretty impressive science.
+
+1:30:44.360 --> 1:30:48.880
+ But I learned, I think I started learning MATLAB and Java when I was in college.
+
+1:30:48.880 --> 1:30:50.720
+ It did me no good at all.
+
+1:30:50.720 --> 1:30:52.480
+ It has not been particularly useful.
+
+1:30:52.480 --> 1:30:58.200
+ I learned some Fortran that was very useful, even though it's really not a fun language
+
+1:30:58.200 --> 1:31:02.680
+ because so much of legacy code is in Fortran.
+
+1:31:02.680 --> 1:31:08.240
+ And so if you want to use other people's code who have now retired, Fortran will be nice.
+
+1:31:08.240 --> 1:31:10.160
+ And then I used IDL to visualize.
+
+1:31:10.160 --> 1:31:14.960
+ So that simulation and body simulation, those all Fortran and IDL.
+
+1:31:14.960 --> 1:31:19.520
+ But thankfully, since I've left college, I've just learned Python like a normal person and
+
+1:31:19.520 --> 1:31:21.600
+ that has been much nicer.
+
+1:31:21.600 --> 1:31:24.360
+ So most of my code now is in Python.
+
+1:31:24.360 --> 1:31:26.840
+ I should also make a few quick comments as well.
+
+1:31:26.840 --> 1:31:30.680
+ So one is, you say you're sort of bad at programming.
+
+1:31:30.680 --> 1:31:36.880
+ I've worked with a lot of excellent scientists that are quote unquote bad at programming.
+
+1:31:36.880 --> 1:31:37.880
+ They're not.
+
+1:31:37.880 --> 1:31:38.880
+ It gets the job done.
+
+1:31:38.880 --> 1:31:45.680
+ In fact, there's a downside to sort of, especially getting a software engineering education.
+
+1:31:45.680 --> 1:31:50.520
+ If I were to give advice, especially if you're doing a computer science degree and you're
+
+1:31:50.520 --> 1:31:58.280
+ doing software engineering, is not to get lost in the optimization of the correct, there's
+
+1:31:58.280 --> 1:32:04.000
+ an obsession, you could see it in like Stack Overflow, of the correct way to do things.
+
+1:32:04.000 --> 1:32:11.000
+ And I think you can too easily get lost in constantly trying to optimize and do things
+
+1:32:11.000 --> 1:32:13.440
+ the correct way when you actually never get done.
+
+1:32:13.440 --> 1:32:19.960
+ The same thing happens, you have like communities of people obsessed with productivity and they
+
+1:32:19.960 --> 1:32:25.440
+ keep researching productivity hacks and then they spend like 90% plus of their time figuring
+
+1:32:25.440 --> 1:32:29.560
+ out how to do things productively and then never actually do anything.
+
+1:32:29.560 --> 1:32:34.320
+ So there's a certain sense if you focus on the task that needs to be done, that's what
+
+1:32:34.320 --> 1:32:35.520
+ programming is for.
+
+1:32:35.520 --> 1:32:43.760
+ So not over optimizing, not thinking about variable names in the following sense.
+
+1:32:43.760 --> 1:32:47.440
+ Sometimes you think, okay, I'm going to write code that's going to last for decades.
+
+1:32:47.440 --> 1:32:53.180
+ In reality, your code, if it's well written or poorly written, will be very likely obsolete
+
+1:32:53.180 --> 1:32:54.760
+ very quickly.
+
+1:32:54.760 --> 1:32:57.600
+ The point is to get the job done really well.
+
+1:32:57.600 --> 1:33:02.320
+ So there's a trade off there that you have to make sure to strike.
+
+1:33:02.320 --> 1:33:08.560
+ I should also comment as a public service announcement or a request, if there's any
+
+1:33:08.560 --> 1:33:13.120
+ world class Fortran or Cobalt programmers out there, I'm looking for them, I want to
+
+1:33:13.120 --> 1:33:14.120
+ talk to you.
+
+1:33:14.120 --> 1:33:18.000
+ That will not be me, I'm a terrible Fortran programmer.
+
+1:33:18.000 --> 1:33:23.480
+ But it's fascinating because so much of the world in the past and still runs programming
+
+1:33:23.480 --> 1:33:26.400
+ languages and there's no experts on it.
+
+1:33:26.400 --> 1:33:28.760
+ They're all retiring.
+
+1:33:28.760 --> 1:33:33.480
+ I disagree slightly in that I think because I can get the job done, I'm a programmer.
+
+1:33:33.480 --> 1:33:37.880
+ But because no one else can look at my code and know how I got my job done, I'm a bad
+
+1:33:37.880 --> 1:33:38.880
+ programmer.
+
+1:33:38.880 --> 1:33:39.880
+ That's how I'm defining it.
+
+1:33:39.880 --> 1:33:40.880
+ Including yourself.
+
+1:33:40.880 --> 1:33:44.920
+ Including myself six months later, I'm working with a new student right now and she sent
+
+1:33:44.920 --> 1:33:52.720
+ me some messages on Slack being like, what is this file that you've got with some functions
+
+1:33:52.720 --> 1:33:53.720
+ that run?
+
+1:33:53.720 --> 1:33:59.840
+ And I was like, this was from 2018, it wasn't that long ago and I can no longer remember
+
+1:33:59.840 --> 1:34:00.840
+ what that code does.
+
+1:34:00.840 --> 1:34:06.480
+ I'm going to spend now two days reading through my own code and trying to improve it.
+
+1:34:06.480 --> 1:34:08.520
+ And I do think that's frustrating.
+
+1:34:08.520 --> 1:34:15.680
+ And so I think my advice to any young people who want to get into astronomy or astrobiology
+
+1:34:15.680 --> 1:34:22.240
+ or quantum chemistry is that I certainly find it much easier to teach the science concepts
+
+1:34:22.240 --> 1:34:25.840
+ to a programmer than the programming to a scientist.
+
+1:34:25.840 --> 1:34:33.080
+ And so I would much, much faster hire someone who knows programming but barely knows where
+
+1:34:33.080 --> 1:34:37.440
+ space is than teach programming to an astronomer.
+
+1:34:37.440 --> 1:34:39.000
+ Oh, that's fascinating.
+
+1:34:39.000 --> 1:34:40.000
+ Yeah.
+
+1:34:40.000 --> 1:34:41.000
+ Okay.
+
+1:34:41.000 --> 1:34:42.000
+ This is true.
+
+1:34:42.000 --> 1:34:43.000
+ I mean, yeah, there's some basics.
+
+1:34:43.000 --> 1:34:47.920
+ I'm focusing too much on the silver lining because the people that write MATLAB code,
+
+1:34:47.920 --> 1:34:52.400
+ yeah, single variable, single letter variable names, those kinds of things.
+
+1:34:52.400 --> 1:34:53.960
+ And it's accessibility, right?
+
+1:34:53.960 --> 1:34:59.040
+ It's I want my code to be open source and it is, it's on GitHub, anyone can download
+
+1:34:59.040 --> 1:35:00.040
+ it.
+
+1:35:00.040 --> 1:35:04.160
+ But is it really open source if it's written so cryptically, so poorly that no one can
+
+1:35:04.160 --> 1:35:06.240
+ really use it to its full functionality?
+
+1:35:06.240 --> 1:35:11.560
+ Have I really published my work and that weighs on me?
+
+1:35:11.560 --> 1:35:16.800
+ I feel guilty for my own inadequacies as a programmer.
+
+1:35:16.800 --> 1:35:18.040
+ But you can only do so much.
+
+1:35:18.040 --> 1:35:20.440
+ I've already learned quantum chemistry and astrophysics.
+
+1:35:20.440 --> 1:35:28.000
+ So yeah, I mean, there's all kinds of ways to contribute to the world.
+
+1:35:28.000 --> 1:35:32.880
+ One of them is publication, but publishing code is a fascinating way to contribute to
+
+1:35:32.880 --> 1:35:38.960
+ the world, even if it's very small, very basic element, great code.
+
+1:35:38.960 --> 1:35:44.760
+ I guess I was also kind of criticizing the software engineering process versus like,
+
+1:35:44.760 --> 1:35:50.240
+ which is a good thing to do is code that's readable, almost like without documentation,
+
+1:35:50.240 --> 1:35:52.760
+ it's readable, it's understandable.
+
+1:35:52.760 --> 1:35:55.880
+ The variable names, the structure, all those kinds of things.
+
+1:35:55.880 --> 1:35:56.880
+ That's the dream.
+
+1:35:56.880 --> 1:35:57.880
+ That's the dream.
+
+1:35:57.880 --> 1:35:58.880
+ This is a dumb question.
+
+1:35:58.880 --> 1:35:59.880
+ What do you, all right.
+
+1:35:59.880 --> 1:36:00.880
+ No, no, tell me a dumb question.
+
+1:36:00.880 --> 1:36:01.880
+ I want to hear it.
+
+1:36:01.880 --> 1:36:02.880
+ Okay.
+
+1:36:02.880 --> 1:36:08.160
+ I mean, okay, this is the question about beauty.
+
+1:36:08.160 --> 1:36:09.160
+ It's way too general.
+
+1:36:09.160 --> 1:36:10.160
+ It's very impossible.
+
+1:36:10.160 --> 1:36:12.240
+ It's like asking, what's your favorite band?
+
+1:36:12.240 --> 1:36:13.240
+ What's your favorite music band?
+
+1:36:13.240 --> 1:36:15.040
+ Oh, I thought you meant wavelength band.
+
+1:36:15.040 --> 1:36:17.520
+ I was like, I definitely have favorite wavelength bands.
+
+1:36:17.520 --> 1:36:18.520
+ Absolutely.
+
+1:36:18.520 --> 1:36:21.680
+ Well, it's hard to narrow it down, huh?
+
+1:36:21.680 --> 1:36:22.680
+ Okay.
+
+1:36:22.680 --> 1:36:25.360
+ What do you use the most beautiful idea in science?
+
+1:36:25.360 --> 1:36:27.160
+ It's not a dumb question.
+
+1:36:27.160 --> 1:36:31.240
+ Do you want to try the question again proudly?
+
+1:36:31.240 --> 1:36:32.760
+ Okay.
+
+1:36:32.760 --> 1:36:35.240
+ I have a really good question to ask you.
+
+1:36:35.240 --> 1:36:36.240
+ Okay.
+
+1:36:36.240 --> 1:36:37.240
+ Don't oversell it.
+
+1:36:37.240 --> 1:36:42.240
+ I've got an okay question to ask you, you know?
+
+1:36:42.240 --> 1:36:49.760
+ What do you use the most beautiful idea in science, something you just find inspiring
+
+1:36:49.760 --> 1:37:00.000
+ or just maybe the reason you got into science or the reason you think science is cool?
+
+1:37:00.000 --> 1:37:05.480
+ My favorite thing about science is kind of the connection between the scales.
+
+1:37:05.480 --> 1:37:11.040
+ So when I was little and I wanted to know about space, I really felt that it would make
+
+1:37:11.040 --> 1:37:15.040
+ me feel powerful to be able to predict the heavens.
+
+1:37:15.040 --> 1:37:19.520
+ Something so much larger than myself that felt really powerful.
+
+1:37:19.520 --> 1:37:23.080
+ It was almost a selfish desire and that's what I wanted.
+
+1:37:23.080 --> 1:37:29.560
+ There was some control to being able to know exactly what the sky would do.
+
+1:37:29.560 --> 1:37:34.120
+ And then as I got older and I got more into astronomy and I didn't just want to know how
+
+1:37:34.120 --> 1:37:35.120
+ the stars moved.
+
+1:37:35.120 --> 1:37:38.040
+ I wanted to know how the planets around them moved.
+
+1:37:38.040 --> 1:37:41.880
+ And then as I got deeper into that field, I really didn't care that much about the planets.
+
+1:37:41.880 --> 1:37:45.280
+ I wanted to know about the atmospheres around the planets and then the molecules within
+
+1:37:45.280 --> 1:37:48.480
+ those atmospheres and what that might mean.
+
+1:37:48.480 --> 1:37:53.720
+ So I ended up shrinking my scale until it was literally the quantum scale.
+
+1:37:53.720 --> 1:37:59.780
+ And now all my work, the majority of my work is on this insane quantum scale.
+
+1:37:59.780 --> 1:38:10.000
+ And yet I'm using these literal tiny, tiny tools to try and answer the greatest questions
+
+1:38:10.000 --> 1:38:12.980
+ that we've ever been able to ask.
+
+1:38:12.980 --> 1:38:20.280
+ And this crossing of scales from the quantum to the astronomical, that's so cool, isn't
+
+1:38:20.280 --> 1:38:21.280
+ it?
+
+1:38:21.280 --> 1:38:22.280
+ Yeah.
+
+1:38:22.280 --> 1:38:24.920
+ It spans the entirety, the tiny and the huge.
+
+1:38:24.920 --> 1:38:30.120
+ That's the cool thing about, I guess, being a quantum astrochemist is you're using the
+
+1:38:30.120 --> 1:38:35.520
+ tools of the tiny to look at the heavenly bodies, the giant stuff.
+
+1:38:35.520 --> 1:38:41.040
+ And the potential life out there that this is the thing that connects us, that you can't
+
+1:38:41.040 --> 1:38:45.740
+ escape the rules of the quantum world and how universal they themselves are despite
+
+1:38:45.740 --> 1:38:48.040
+ being probabilistic.
+
+1:38:48.040 --> 1:38:56.160
+ And that makes me feel really pleased to be in science, but in a really humbling way.
+
+1:38:56.160 --> 1:39:00.600
+ It's no longer this thirst for power.
+
+1:39:00.600 --> 1:39:05.560
+ I feel less special the more work I do, less exceptional the more work I do.
+
+1:39:05.560 --> 1:39:11.200
+ I feel like humans and the earth and our place in the universe is less and less exceptional.
+
+1:39:11.200 --> 1:39:14.820
+ And yet I feel so much less lonely.
+
+1:39:14.820 --> 1:39:19.680
+ And so it's been a really good trade off that I've lost power, but I've gained company.
+
+1:39:19.680 --> 1:39:20.820
+ Wow.
+
+1:39:20.820 --> 1:39:21.820
+ That's a beautiful answer.
+
+1:39:21.820 --> 1:39:23.680
+ I don't think there's a better way to actually end it.
+
+1:39:23.680 --> 1:39:24.680
+ You're right.
+
+1:39:24.680 --> 1:39:27.500
+ I asked a mediocre question and you came through.
+
+1:39:27.500 --> 1:39:34.100
+ You made the question good by a brilliant answer.
+
+1:39:34.100 --> 1:39:39.120
+ You're the Michael Jordan and I'll be the Dennis Rodman.
+
+1:39:39.120 --> 1:39:40.880
+ I don't know enough about basketball.
+
+1:39:40.880 --> 1:39:44.280
+ I mean, literally you've reached the peak of my basketball knowledge because I know
+
+1:39:44.280 --> 1:39:50.120
+ that those people are basketball pros, I believe, but only because I watch Space Jam, I think.
+
+1:39:50.120 --> 1:39:53.680
+ Are there books or movies in your life?
+
+1:39:53.680 --> 1:39:59.000
+ Long ago or recently, do you have any time for books and movies had an impact on you?
+
+1:39:59.000 --> 1:40:02.040
+ What ideas did you take away?
+
+1:40:02.040 --> 1:40:04.200
+ I absolutely have time for books and movies.
+
+1:40:04.200 --> 1:40:08.880
+ I try as best I can to not work very hard.
+
+1:40:08.880 --> 1:40:09.880
+ I mostly fail.
+
+1:40:09.880 --> 1:40:11.320
+ I should point out.
+
+1:40:11.320 --> 1:40:18.000
+ But I think I'm a better scientist when I don't work evenings and weekends.
+
+1:40:18.000 --> 1:40:21.080
+ If I get four good hours in a day, I often don't.
+
+1:40:21.080 --> 1:40:28.020
+ I often get eight crappy hours, emails, meetings, bad code, data processing.
+
+1:40:28.020 --> 1:40:33.640
+ But if I can get four high quality scientific hours, I just stop working for the day because
+
+1:40:33.640 --> 1:40:35.840
+ I know it's diminishing returns after that.
+
+1:40:35.840 --> 1:40:37.400
+ So I have a lot of time.
+
+1:40:37.400 --> 1:40:40.280
+ I try to make as much time as I can.
+
+1:40:40.280 --> 1:40:50.560
+ Can you kind of dig into what it takes to be, one, productive, two, to be happy as a
+
+1:40:50.560 --> 1:40:51.560
+ researcher?
+
+1:40:51.560 --> 1:40:58.280
+ Because I think it's too easy in that world because you have so many hats, you have to
+
+1:40:58.280 --> 1:41:05.000
+ wear so many jobs, you have to be a mentor, a teacher, a head of a research group to research
+
+1:41:05.000 --> 1:41:06.000
+ yourself.
+
+1:41:06.000 --> 1:41:15.400
+ You have to do service, all the kinds of stuff you're doing now with education and interviews.
+
+1:41:15.400 --> 1:41:22.480
+ So as a public science, like being a public communicator, that's a job.
+
+1:41:22.480 --> 1:41:23.480
+ The whole thing.
+
+1:41:23.480 --> 1:41:24.480
+ Pays very poorly.
+
+1:41:24.480 --> 1:41:28.520
+ I'll pay you in Bitcoin.
+
+1:41:28.520 --> 1:41:29.520
+ Okay.
+
+1:41:29.520 --> 1:41:33.360
+ I'll take Bitcoin.
+
+1:41:33.360 --> 1:41:41.800
+ So is there some advice you can give to the process of being productive and happy as a
+
+1:41:41.800 --> 1:41:42.800
+ researcher?
+
+1:41:42.800 --> 1:41:47.480
+ I think, sadly, it's very hard to feel happy as a scientist if you're not productive.
+
+1:41:47.480 --> 1:41:53.000
+ It's a bit of a trap, but I certainly find it very difficult to feel happy when I'm not
+
+1:41:53.000 --> 1:41:54.800
+ being productive.
+
+1:41:54.800 --> 1:41:56.140
+ It's become slightly better.
+
+1:41:56.140 --> 1:41:59.840
+ If I know my students are being productive, I can be happy.
+
+1:41:59.840 --> 1:42:05.600
+ But I think a lot of senior scientists, once they get into that mindset, they start thinking
+
+1:42:05.600 --> 1:42:07.600
+ that their student science is theirs.
+
+1:42:07.600 --> 1:42:10.840
+ And I think this happens a lot with senior scientists.
+
+1:42:10.840 --> 1:42:14.680
+ They have so many hats, as you mentioned, they have to do so much service and so much
+
+1:42:14.680 --> 1:42:18.900
+ admin, that they have very little time for their own science.
+
+1:42:18.900 --> 1:42:24.000
+ And so they end up feeling ownership over the junior people in their labs and their
+
+1:42:24.000 --> 1:42:25.000
+ groups.
+
+1:42:25.000 --> 1:42:26.000
+ And that's really heartbreaking.
+
+1:42:26.000 --> 1:42:28.940
+ I see it all the time.
+
+1:42:28.940 --> 1:42:31.960
+ And that, I think I've escaped that trap.
+
+1:42:31.960 --> 1:42:38.360
+ I feel so happy, even when I'm not productive, when my students are productive.
+
+1:42:38.360 --> 1:42:44.160
+ I think that sensation I was describing earlier of they only need to be half as productive
+
+1:42:44.160 --> 1:42:50.640
+ as me for me to feel like I've done my job for humanity.
+
+1:42:50.640 --> 1:42:55.240
+ So that has been the dynamic I've had to worry about.
+
+1:42:55.240 --> 1:42:58.400
+ But to be productive is not clear to me what you have to do.
+
+1:42:58.400 --> 1:42:59.720
+ You have to not be miserable otherwise.
+
+1:42:59.720 --> 1:43:06.640
+ I find it extremely hard when I'm having conflicts with collaborators, for example, kind of very
+
+1:43:06.640 --> 1:43:08.500
+ hard to enjoy the work we do.
+
+1:43:08.500 --> 1:43:16.040
+ Even if the work is this fantastical phosphine or things that I know I love, still very difficult.
+
+1:43:16.040 --> 1:43:22.760
+ So I think choosing your collaborators based on how well you get along with them is a really
+
+1:43:22.760 --> 1:43:26.140
+ sound scientific choice.
+
+1:43:26.140 --> 1:43:29.560
+ Being a miserable collaborator ruins your whole life.
+
+1:43:29.560 --> 1:43:30.560
+ It's horrible.
+
+1:43:30.560 --> 1:43:32.240
+ It makes you not want to do the science.
+
+1:43:32.240 --> 1:43:35.700
+ It probably makes you do clumsy science because you don't focus on it.
+
+1:43:35.700 --> 1:43:37.400
+ You don't go over it several times.
+
+1:43:37.400 --> 1:43:39.560
+ You just want it to be over.
+
+1:43:39.560 --> 1:43:47.880
+ And so I think in general, just not being a douchebag can get so much good science done.
+
+1:43:47.880 --> 1:43:51.520
+ Just find the good people in your community and collaborate with them.
+
+1:43:51.520 --> 1:43:55.040
+ Even if they're not as good scientists as others, you'll get better science out.
+
+1:43:55.040 --> 1:43:59.520
+ Yeah, don't be a douchebag yourself and surround yourself by other cool people.
+
+1:43:59.520 --> 1:44:00.520
+ Exactly.
+
+1:44:00.520 --> 1:44:04.680
+ And then you'll get better science than if you would try to work with three geniuses
+
+1:44:04.680 --> 1:44:07.760
+ who are just hell to be around.
+
+1:44:07.760 --> 1:44:08.760
+ Yeah.
+
+1:44:08.760 --> 1:44:12.080
+ I mean, there's parallel things like that.
+
+1:44:12.080 --> 1:44:14.720
+ I'm very fortunate now.
+
+1:44:14.720 --> 1:44:18.920
+ I was very fortunate at MIT to have friends and colleagues there that were incredible
+
+1:44:18.920 --> 1:44:19.920
+ to work with.
+
+1:44:19.920 --> 1:44:29.160
+ But I'm currently sort of, I'm doing a lot of fun stuff on the side, like this little
+
+1:44:29.160 --> 1:44:35.360
+ podcast thing and I mentioned to you, I think, robotics related stuff.
+
+1:44:35.360 --> 1:44:41.440
+ I was just at Boston Dynamics yesterday checking out their robots.
+
+1:44:41.440 --> 1:44:46.320
+ And I'm currently, I guess, hiring people to help me with a very fun little project
+
+1:44:46.320 --> 1:44:47.320
+ around those robots.
+
+1:44:47.320 --> 1:44:48.320
+ Want to put an ad in?
+
+1:44:48.320 --> 1:44:49.320
+ No.
+
+1:44:49.320 --> 1:44:53.800
+ I have more applications I can possibly deal with, there's thousands.
+
+1:44:53.800 --> 1:44:57.680
+ So it's not an ad, it's the opposite.
+
+1:44:57.680 --> 1:45:00.640
+ We need to put an ad out for someone to help you go through the applications.
+
+1:45:00.640 --> 1:45:03.440
+ Well, that too is already there.
+
+1:45:03.440 --> 1:45:04.840
+ Over 10,000 people apply for that.
+
+1:45:04.840 --> 1:45:09.560
+ An infinite Master Yoshika doll of application management.
+
+1:45:09.560 --> 1:45:16.800
+ But the point is, it's not exactly, the point is, like what I'm very distinctly aware of
+
+1:45:16.800 --> 1:45:26.440
+ is life is short and productivity is not the right goal to optimize for, at least for me.
+
+1:45:26.440 --> 1:45:32.440
+ The right goal to optimize for is how happy you are to wake up in the day and to work
+
+1:45:32.440 --> 1:45:34.120
+ with the people that you do.
+
+1:45:34.120 --> 1:45:36.360
+ Because the productivity will take care of itself.
+
+1:45:36.360 --> 1:45:37.360
+ Agreed.
+
+1:45:37.360 --> 1:45:42.320
+ And so like, it's so important to select the people well.
+
+1:45:42.320 --> 1:45:46.520
+ And I think one of the challenges with academia, as opposed to sort of the thing I'm currently
+
+1:45:46.520 --> 1:45:51.880
+ doing is, like, saying goodbye is sometimes a little bit tougher.
+
+1:45:51.880 --> 1:45:58.400
+ Because your colleagues are there, I mean, their goodbye hurts.
+
+1:45:58.400 --> 1:46:02.200
+ And then if you have to spend the rest, you know, for many years to come, still surrounded
+
+1:46:02.200 --> 1:46:04.540
+ by them in the community, it's tougher.
+
+1:46:04.540 --> 1:46:13.440
+ It kind of adds, puts extra pressure to stay in that relationship, in that collaboration.
+
+1:46:13.440 --> 1:46:17.080
+ And in some sense, that makes it much more difficult, but it's still worth it.
+
+1:46:17.080 --> 1:46:25.360
+ It's still worth it to break ties if you don't, if you're not happy, if there's not that magic,
+
+1:46:25.360 --> 1:46:26.360
+ that dance.
+
+1:46:26.360 --> 1:46:30.800
+ I talked to this guy named Daniel Kahneman.
+
+1:46:30.800 --> 1:46:32.000
+ Oh, I know.
+
+1:46:32.000 --> 1:46:33.000
+ Danny Kahneman.
+
+1:46:33.000 --> 1:46:34.000
+ Danny, yeah.
+
+1:46:34.000 --> 1:46:39.360
+ Boy, did that guy make me realize, like, what a great collaborator is.
+
+1:46:39.360 --> 1:46:41.720
+ Well, he had Tversky, right?
+
+1:46:41.720 --> 1:46:42.720
+ Yeah.
+
+1:46:42.720 --> 1:46:48.480
+ So they had, obviously, they had a really deep collaboration there, but, like, I collaborated
+
+1:46:48.480 --> 1:46:53.160
+ with him on a conversation, like, just, like, talking about, I don't know what we're talking
+
+1:46:53.160 --> 1:46:54.160
+ about.
+
+1:46:54.160 --> 1:46:59.560
+ I think cars, autonomous vehicles, but the brainstorming session, I'm like a nobody.
+
+1:46:59.560 --> 1:47:04.280
+ And the fact that he would, with that childlike curiosity and that dance of thoughts and ideas
+
+1:47:04.280 --> 1:47:09.720
+ and the push and pull and the, like, and the lack of ego, but then enough ego to have a
+
+1:47:09.720 --> 1:47:13.800
+ little bit of a stubbornness over an idea and a little bit of humor and all those things,
+
+1:47:13.800 --> 1:47:19.440
+ it's like, holy shit, that person, also the ability to truly listen to another human,
+
+1:47:19.440 --> 1:47:23.560
+ it's like, okay, that's what it takes to be a good collaborator.
+
+1:47:23.560 --> 1:47:27.840
+ It made me realize that I haven't been, I've been very fortunate to have cool people in
+
+1:47:27.840 --> 1:47:30.960
+ my life, but there's, like, levels even to the cool.
+
+1:47:30.960 --> 1:47:34.400
+ Yeah, I don't think you can compete with Danny Kahneman on cool.
+
+1:47:34.400 --> 1:47:36.400
+ He's just incredible.
+
+1:47:36.400 --> 1:47:41.400
+ Everybody was like, okay, I guess what I'm trying to say is that collaboration is an
+
+1:47:41.400 --> 1:47:47.440
+ art form, but perhaps it's actually a skill, is allowing yourself to develop that skill
+
+1:47:47.440 --> 1:47:50.160
+ because that's one of the fruitful skills.
+
+1:47:50.160 --> 1:47:56.240
+ And praise it in students, you know, and I think it is something you can really improve
+
+1:47:56.240 --> 1:47:57.240
+ on.
+
+1:47:57.240 --> 1:47:59.680
+ I've become a better collaborator as the years have gone on.
+
+1:47:59.680 --> 1:48:03.240
+ I don't have some innate collaborative skills.
+
+1:48:03.240 --> 1:48:10.080
+ I think they're skills I've developed, and I think in science there's this really destructive
+
+1:48:10.080 --> 1:48:15.000
+ notion of the lone wolf, the scientist who sees things where others don't, you know,
+
+1:48:15.000 --> 1:48:19.120
+ then that's really appealing and people really like either fulfilling that or pretending
+
+1:48:19.120 --> 1:48:21.360
+ to be fulfilling that.
+
+1:48:21.360 --> 1:48:25.480
+ And first of all, it's mostly a lie.
+
+1:48:25.480 --> 1:48:30.640
+ Any modern scientist, particularly in astronomy, which is so interdisciplinary, any modern scientist
+
+1:48:30.640 --> 1:48:36.760
+ that's doing it on their own is doing a crappy job most likely because you need an independent
+
+1:48:36.760 --> 1:48:39.000
+ set of eyes to help you do things.
+
+1:48:39.000 --> 1:48:43.960
+ You need experts in the sub fields that you're working on to check your work.
+
+1:48:43.960 --> 1:48:49.840
+ But most importantly, it's just a bad idea.
+
+1:48:49.840 --> 1:48:54.120
+ It doesn't lead to good science and it leaves you miserable.
+
+1:48:54.120 --> 1:48:58.920
+ I was recently, I had some work that I was avoiding and I thought maybe I should pursue
+
+1:48:58.920 --> 1:49:03.200
+ the scientific project because I don't care enough about the outcome and it's going to
+
+1:49:03.200 --> 1:49:04.200
+ be a lot of hard work.
+
+1:49:04.200 --> 1:49:07.720
+ And I was trying to balance these two things to be really difficult.
+
+1:49:07.720 --> 1:49:12.400
+ And the outcome is that maybe 10 people will cite me in the next decade because it's not,
+
+1:49:12.400 --> 1:49:16.120
+ no one's asking for this question to be answered.
+
+1:49:16.120 --> 1:49:21.000
+ And then I found myself working with this collaborator, Jason Dittman.
+
+1:49:21.000 --> 1:49:27.720
+ And I spent a whole afternoon hours with him working on this and time flew by and I just
+
+1:49:27.720 --> 1:49:31.960
+ felt taller and like I could breathe better.
+
+1:49:31.960 --> 1:49:35.480
+ I was happier, I was a better person when it was done.
+
+1:49:35.480 --> 1:49:38.840
+ And that's because he's a great collaborator.
+
+1:49:38.840 --> 1:49:43.560
+ He's just a wonderful person that brings out joy out of science that you're doing with
+
+1:49:43.560 --> 1:49:45.400
+ him.
+
+1:49:45.400 --> 1:49:46.920
+ And that's really the trick.
+
+1:49:46.920 --> 1:49:52.240
+ You find the people that make you feel that way about the science you're doing and you
+
+1:49:52.240 --> 1:49:55.720
+ stop worrying about being the lone wolf.
+
+1:49:55.720 --> 1:50:01.320
+ That's just a terrible dream that will leave you miserable and your science will be shit.
+
+1:50:01.320 --> 1:50:08.120
+ And since I'm Russian, just murder anybody who doesn't fall into that beautiful collaborative
+
+1:50:08.120 --> 1:50:10.360
+ relationship.
+
+1:50:10.360 --> 1:50:11.920
+ We were talking about books.
+
+1:50:11.920 --> 1:50:13.420
+ Books, yes.
+
+1:50:13.420 --> 1:50:14.420
+ Is there books, movies?
+
+1:50:14.420 --> 1:50:16.360
+ Why was I talking about my productivity?
+
+1:50:16.360 --> 1:50:18.920
+ Oh, you said you maybe don't have time for books and movies.
+
+1:50:18.920 --> 1:50:22.800
+ And you said you must make time for books and movies.
+
+1:50:22.800 --> 1:50:24.620
+ Make time to not work.
+
+1:50:24.620 --> 1:50:28.160
+ Make time to not work whatever that looks like to you.
+
+1:50:28.160 --> 1:50:31.320
+ But there's plenty.
+
+1:50:31.320 --> 1:50:36.940
+ When I was younger, I found a lot of my scientific fulfillment in books and movies.
+
+1:50:36.940 --> 1:50:43.680
+ Now as I got older, I have plenty of that in my work and I try to read outside my field.
+
+1:50:43.680 --> 1:50:47.620
+ I read about Danny Kahneman's work instead.
+
+1:50:47.620 --> 1:50:52.080
+ But when I was little, it was Contact, the Carl Sagan book.
+
+1:50:52.080 --> 1:50:59.960
+ I really thought I was just like Ellie and I was going to become Ellie.
+
+1:50:59.960 --> 1:51:06.600
+ I really resonated with me, that character and the notions of life and space and the
+
+1:51:06.600 --> 1:51:07.600
+ universe.
+
+1:51:07.600 --> 1:51:17.440
+ Even the idea of then the movie came out and I got to put Jodie Foster in that, which helped.
+
+1:51:17.440 --> 1:51:23.740
+ But even the notion of if it is just us, what an awful waste of space, I find extremely
+
+1:51:23.740 --> 1:51:30.280
+ useful as a concept to think maybe we are special, but that would suck is a really nice
+
+1:51:30.280 --> 1:51:35.720
+ way of thinking of the search for life, that it's much better to not be special and have
+
+1:51:35.720 --> 1:51:36.720
+ company.
+
+1:51:36.720 --> 1:51:39.440
+ I got that from Carl Sagan.
+
+1:51:39.440 --> 1:51:42.080
+ So that's where I always recommend.
+
+1:51:42.080 --> 1:51:45.880
+ Let me ask one other ridiculous question.
+
+1:51:45.880 --> 1:51:53.120
+ We talked about the death and life cycle that is ever present in the universe until it's
+
+1:51:53.120 --> 1:51:58.760
+ not, until it's supermassive and little black holes too at the end of the universe.
+
+1:51:58.760 --> 1:52:02.760
+ What do you think is the why, the meaning of it all?
+
+1:52:02.760 --> 1:52:09.840
+ What do you think is the meaning of life here on Earth and the meaning of that life that
+
+1:52:09.840 --> 1:52:14.280
+ you look for, whether it's on Venus or other exoplanets?
+
+1:52:14.280 --> 1:52:16.000
+ I think there's none.
+
+1:52:16.000 --> 1:52:19.160
+ I find enormous relief in the absence of meaning.
+
+1:52:19.160 --> 1:52:29.240
+ I think chasing for meaning is a human desire that the universe doesn't give two shits about.
+
+1:52:29.240 --> 1:52:30.240
+ But you still enjoy...
+
+1:52:30.240 --> 1:52:33.320
+ I enjoy finding meaning in my life.
+
+1:52:33.320 --> 1:52:38.400
+ I enjoy finding where the morality lies.
+
+1:52:38.400 --> 1:52:47.800
+ I enjoy the complication of that desire and I feel that is deeply human, but I don't feel
+
+1:52:47.800 --> 1:52:49.760
+ that it's universal.
+
+1:52:49.760 --> 1:52:50.760
+ It's somehow absolute.
+
+1:52:50.760 --> 1:52:54.080
+ Like we conjure it up.
+
+1:52:54.080 --> 1:52:59.880
+ We bring it to life through our own minds, but it's not any kind of fundamental way real.
+
+1:52:59.880 --> 1:53:01.240
+ No.
+
+1:53:01.240 --> 1:53:07.760
+ And the same way the sun is not to be blamed for destroying its own planets.
+
+1:53:07.760 --> 1:53:12.600
+ The universe doesn't care because it has no meaning.
+
+1:53:12.600 --> 1:53:14.400
+ It owes us nothing.
+
+1:53:14.400 --> 1:53:18.080
+ And looking for meaning in the universe is demanding answers.
+
+1:53:18.080 --> 1:53:19.080
+ Who are we?
+
+1:53:19.080 --> 1:53:20.080
+ We're nothing.
+
+1:53:20.080 --> 1:53:23.280
+ We don't get to demand anything and that includes meaning.
+
+1:53:23.280 --> 1:53:28.560
+ And I find it very reassuring because once there is no meaning, I don't have to find
+
+1:53:28.560 --> 1:53:30.800
+ it.
+
+1:53:30.800 --> 1:53:34.320
+ Yeah.
+
+1:53:34.320 --> 1:53:38.240
+ Once there's no meaning, it's a kind of freedom in a way.
+
+1:53:38.240 --> 1:53:41.240
+ You sound a bit like...
+
+1:53:41.240 --> 1:53:42.240
+ I'm happy about it.
+
+1:53:42.240 --> 1:53:44.320
+ This isn't a depressing outlook as far as I'm concerned.
+
+1:53:44.320 --> 1:53:45.320
+ It's happiness.
+
+1:53:45.320 --> 1:53:46.320
+ Yeah.
+
+1:53:46.320 --> 1:53:47.320
+ Yeah.
+
+1:53:47.320 --> 1:53:48.320
+ So, I mean, there's a...
+
+1:53:48.320 --> 1:53:53.440
+ I don't know if you know who Sam Harris is, but he, despite the pushbacks from the entirety
+
+1:53:53.440 --> 1:54:01.880
+ of the world, really argues hard that free will is an illusion, that the deterministic
+
+1:54:01.880 --> 1:54:06.880
+ universe and it's all already been predetermined and he's okay with it.
+
+1:54:06.880 --> 1:54:11.840
+ And he's happy with it, that he's distinctly aware of it.
+
+1:54:11.840 --> 1:54:12.840
+ And that's okay.
+
+1:54:12.840 --> 1:54:16.480
+ The quantum world will disagree with him on the deterministic nature of nature.
+
+1:54:16.480 --> 1:54:22.540
+ Well, he's not saying it's deterministic, but he's saying that the randomness doesn't
+
+1:54:22.540 --> 1:54:24.880
+ help either.
+
+1:54:24.880 --> 1:54:31.280
+ Randomness does not help in the experience of feeling like you're the decider of your
+
+1:54:31.280 --> 1:54:33.100
+ own actions.
+
+1:54:33.100 --> 1:54:40.640
+ That he kind of is okay with being a leaf flowing on the river, or being the river,
+
+1:54:40.640 --> 1:54:45.040
+ as opposed to having or being like a fish or something that can decide its swimming
+
+1:54:45.040 --> 1:54:46.040
+ direction.
+
+1:54:46.040 --> 1:54:48.600
+ He's okay just embracing the flow of life.
+
+1:54:48.600 --> 1:54:53.360
+ I mean, in that same way, it kind of sounds like your conception of meaning.
+
+1:54:53.360 --> 1:54:56.920
+ I mean, it just is.
+
+1:54:56.920 --> 1:54:58.960
+ The universe doesn't care.
+
+1:54:58.960 --> 1:55:04.720
+ It just is what it is and we experience certain things and some feel good and some don't.
+
+1:55:04.720 --> 1:55:08.400
+ And that's life.
+
+1:55:08.400 --> 1:55:10.040
+ But I don't feel like that about life.
+
+1:55:10.040 --> 1:55:16.040
+ I think life does have meaning and it's laudable to look for that meaning in life.
+
+1:55:16.040 --> 1:55:22.080
+ I just don't think you can apply that beyond life and certainly not beyond earth.
+
+1:55:22.080 --> 1:55:31.440
+ That this notion of meaning is a human construct and so it only applies within us and the other
+
+1:55:31.440 --> 1:55:40.640
+ life forms and planet types that suffer from our intrusions or rejoice from our interactions.
+
+1:55:40.640 --> 1:55:44.820
+ But this meaning is ours to do as we please.
+
+1:55:44.820 --> 1:55:49.520
+ We created it, we've created a need for it, and so that's our problem to solve.
+
+1:55:49.520 --> 1:55:51.200
+ I don't apply it beyond us.
+
+1:55:51.200 --> 1:55:55.640
+ I think we as humans have a lot of responsibilities, but they're moral responsibilities.
+
+1:55:55.640 --> 1:55:59.800
+ And a lot of those responsibilities are much more easily fulfilled if you find meaning
+
+1:55:59.800 --> 1:56:00.840
+ in them.
+
+1:56:00.840 --> 1:56:04.640
+ So I think there's value to meaning, whether it's real or not.
+
+1:56:04.640 --> 1:56:11.000
+ I just think we gain nothing from trying to anthropomorphize the entire universe.
+
+1:56:11.000 --> 1:56:13.800
+ And also that's the height of hubris.
+
+1:56:13.800 --> 1:56:15.360
+ That's not for us to do.
+
+1:56:15.360 --> 1:56:16.360
+ Yeah.
+
+1:56:16.360 --> 1:56:19.640
+ It also could be just like duality and quantum mechanics.
+
+1:56:19.640 --> 1:56:25.600
+ It could be both that there is meaning and that there isn't.
+
+1:56:25.600 --> 1:56:32.440
+ And we're somehow depending on the observer, depending on the perspective you take on the
+
+1:56:32.440 --> 1:56:33.440
+ thing.
+
+1:56:33.440 --> 1:56:38.640
+ I mean, even on earth that's true, but whether things have meaning or not depends a lot on
+
+1:56:38.640 --> 1:56:41.640
+ who's looking.
+
+1:56:41.640 --> 1:56:45.440
+ Whether it's us humans, the aliens or the giraffes.
+
+1:56:45.440 --> 1:56:49.800
+ Clara, this was an incredible conversation.
+
+1:56:49.800 --> 1:56:57.160
+ I mean, I learned so much, but I also am just inspired by the passion you have in not finding
+
+1:56:57.160 --> 1:57:00.040
+ meaning in the universe.
+
+1:57:00.040 --> 1:57:04.240
+ I'm very passionate about not finding meaning in the universe.
+
+1:57:04.240 --> 1:57:06.640
+ You're the most inspiring nihilist I've ever met.
+
+1:57:06.640 --> 1:57:08.640
+ I'm just kidding.
+
+1:57:08.640 --> 1:57:17.480
+ You are truly an inspiring communicator of everything from phosphine to life to quantum
+
+1:57:17.480 --> 1:57:18.480
+ astrochemistry.
+
+1:57:18.480 --> 1:57:24.440
+ I can't wait to see what other cool things you do in your career, in your scientific
+
+1:57:24.440 --> 1:57:25.440
+ life.
+
+1:57:25.440 --> 1:57:28.120
+ Thank you so much for wasting your valuable time with me today.
+
+1:57:28.120 --> 1:57:30.120
+ I really appreciate it.
+
+1:57:30.120 --> 1:57:31.120
+ It was my pleasure.
+
+1:57:31.120 --> 1:57:33.880
+ I'd already got my four hours of productivity before I got here.
+
+1:57:33.880 --> 1:57:35.240
+ And so it's not a waste.
+
+1:57:35.240 --> 1:57:37.320
+ It's all downhill from there.
+
+1:57:37.320 --> 1:57:38.320
+ Thank you.
+
+1:57:38.320 --> 1:57:41.320
+ Thanks for listening to this conversation with Clara Sousa Silva.
+
+1:57:41.320 --> 1:57:46.600
+ And thank you to Onnit, Grammarly, Blinkist, and Indeed.
+
+1:57:46.600 --> 1:57:50.440
+ Check them out in the description to support this podcast.
+
+1:57:50.440 --> 1:57:54.160
+ And now let me leave you with some words from Konstantin Tsiolkovsky.
+
+1:57:54.160 --> 1:58:00.360
+ The earth is the cradle of humanity, but mankind cannot stay in the cradle forever.
+
+1:58:00.360 --> 1:58:11.640
+ Thank you for listening and hope to see you next time.
+

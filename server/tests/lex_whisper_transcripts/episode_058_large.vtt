@@ -1,0 +1,3752 @@
+WEBVTT
+
+00:00.000 --> 00:02.680
+ The following is a conversation with Michael Stevens,
+
+00:02.680 --> 00:04.500
+ the creator of Vsauce,
+
+00:04.500 --> 00:07.000
+ one of the most popular educational YouTube channels
+
+00:07.000 --> 00:10.080
+ in the world with over 15 million subscribers
+
+00:10.080 --> 00:13.040
+ and over 1.7 billion views.
+
+00:13.040 --> 00:16.160
+ His videos often ask and answer questions
+
+00:16.160 --> 00:18.780
+ that are both profound and entertaining,
+
+00:18.780 --> 00:21.800
+ spanning topics from physics to psychology.
+
+00:21.800 --> 00:23.640
+ Popular questions include,
+
+00:23.640 --> 00:25.440
+ what if everyone jumped at once?
+
+00:25.440 --> 00:27.680
+ Or what if the sun disappeared?
+
+00:27.680 --> 00:29.820
+ Or why are things creepy?
+
+00:29.820 --> 00:32.840
+ Or what if the earth stopped spinning?
+
+00:32.840 --> 00:34.040
+ As part of his channel,
+
+00:34.040 --> 00:36.320
+ he created three seasons of Mind Field,
+
+00:36.320 --> 00:38.760
+ a series that explored human behavior.
+
+00:38.760 --> 00:41.640
+ His curiosity and passion are contagious
+
+00:41.640 --> 00:44.080
+ and inspiring to millions of people.
+
+00:44.080 --> 00:45.240
+ And so as an educator,
+
+00:45.240 --> 00:47.540
+ his impact and contribution to the world
+
+00:47.540 --> 00:49.780
+ is truly immeasurable.
+
+00:49.780 --> 00:52.840
+ This is the Artificial Intelligence Podcast.
+
+00:52.840 --> 00:55.200
+ If you enjoy it, subscribe on YouTube,
+
+00:55.200 --> 00:57.160
+ give it five stars on Apple Podcast,
+
+00:57.160 --> 00:58.600
+ support it on Patreon,
+
+00:58.600 --> 01:00.640
+ or simply connect with me on Twitter,
+
+01:00.640 --> 01:03.800
+ at Lex Friedman, spelled F R I D M A N.
+
+01:04.900 --> 01:06.400
+ I recently started doing ads
+
+01:06.400 --> 01:08.120
+ at the end of the introduction.
+
+01:08.120 --> 01:10.780
+ I'll do one or two minutes after introducing the episode
+
+01:10.780 --> 01:12.740
+ and never any ads in the middle
+
+01:12.740 --> 01:14.760
+ that break the flow of the conversation.
+
+01:14.760 --> 01:16.120
+ I hope that works for you
+
+01:16.120 --> 01:19.000
+ and doesn't hurt the listening experience.
+
+01:19.000 --> 01:21.500
+ This show is presented by Cash App,
+
+01:21.500 --> 01:24.000
+ the number one finance app in the App Store.
+
+01:24.000 --> 01:26.560
+ I personally use Cash App to send money to friends,
+
+01:26.560 --> 01:28.280
+ but you can also use it to buy, sell,
+
+01:28.280 --> 01:30.720
+ and deposit Bitcoin in just seconds.
+
+01:30.720 --> 01:33.480
+ Cash App also has a new investing feature.
+
+01:33.480 --> 01:36.320
+ You can buy fractions of a stock, say $1 worth,
+
+01:36.320 --> 01:38.280
+ no matter what the stock price is.
+
+01:38.280 --> 01:40.880
+ Broker services are provided by Cash App Investing,
+
+01:40.880 --> 01:44.200
+ a subsidiary of Square and member SIPC.
+
+01:44.200 --> 01:46.180
+ I'm excited to be working with Cash App
+
+01:46.180 --> 01:49.120
+ to support one of my favorite organizations called First,
+
+01:49.120 --> 01:52.440
+ best known for their first robotics and Lego competitions.
+
+01:52.440 --> 01:56.000
+ They educate and inspire hundreds of thousands of students
+
+01:56.000 --> 01:57.720
+ in over 110 countries
+
+01:57.720 --> 02:00.320
+ and have a perfect rating on Charity Navigator,
+
+02:00.320 --> 02:01.640
+ which means the donated money
+
+02:01.640 --> 02:04.280
+ is used to maximum effectiveness.
+
+02:04.280 --> 02:07.180
+ When you get Cash App from the App Store, Google Play,
+
+02:07.180 --> 02:11.040
+ and use code LEXPODCAST, you'll get $10,
+
+02:11.040 --> 02:13.760
+ and Cash App will also donate $10 to First,
+
+02:13.760 --> 02:15.480
+ which again is an organization
+
+02:15.480 --> 02:18.360
+ that I've personally seen inspire girls and boys
+
+02:18.360 --> 02:21.660
+ to dream of engineering a better world.
+
+02:21.660 --> 02:25.940
+ And now here's my conversation with Michael Stevens.
+
+02:25.940 --> 02:30.260
+ One of your deeper interests is psychology,
+
+02:30.260 --> 02:31.760
+ understanding human behavior.
+
+02:32.620 --> 02:35.480
+ You've pointed out how messy studying human behavior is
+
+02:35.480 --> 02:37.420
+ and that it's far from the scientific rigor
+
+02:37.420 --> 02:40.880
+ of something like physics, for example.
+
+02:40.880 --> 02:43.640
+ How do you think we can take psychology
+
+02:43.640 --> 02:45.680
+ from where it's been in the 20th century
+
+02:45.680 --> 02:49.100
+ to something more like what the physicists,
+
+02:49.100 --> 02:50.460
+ theoretical physicists are doing,
+
+02:50.460 --> 02:52.380
+ something precise, something rigorous?
+
+02:52.380 --> 02:57.380
+ Well, we could do it by finding
+
+02:57.600 --> 03:01.200
+ the physical foundations of psychology, right?
+
+03:01.200 --> 03:05.840
+ If all of our emotions and moods and feelings and behaviors
+
+03:05.840 --> 03:10.840
+ are the result of mechanical behaviors of atoms
+
+03:11.120 --> 03:12.800
+ and molecules in our brains,
+
+03:12.800 --> 03:15.400
+ then can we find correlations?
+
+03:15.400 --> 03:17.760
+ Perhaps like chaos makes that really difficult
+
+03:17.760 --> 03:19.520
+ and the uncertainty principle and all these things.
+
+03:19.520 --> 03:22.760
+ That we can't know the position and velocity
+
+03:22.760 --> 03:27.140
+ of every single quantum state in a brain, probably.
+
+03:27.140 --> 03:32.140
+ But I think that if we can get to that point with psychology,
+
+03:33.560 --> 03:37.380
+ then we can start to think about consciousness
+
+03:37.380 --> 03:40.960
+ in a physical and mathematical way.
+
+03:40.960 --> 03:44.760
+ When we ask questions like, well, what is self reference?
+
+03:44.760 --> 03:47.320
+ How can you think about yourself thinking?
+
+03:47.320 --> 03:49.160
+ What are some mathematical structures
+
+03:49.160 --> 03:52.400
+ that could bring that about?
+
+03:52.400 --> 03:55.560
+ There's ideas of, in terms of consciousness
+
+03:55.560 --> 03:59.260
+ and breaking it down into physics,
+
+03:59.260 --> 04:02.400
+ there's ideas of panpsychism where people believe
+
+04:02.400 --> 04:04.840
+ that whatever consciousness is,
+
+04:04.840 --> 04:07.480
+ is a fundamental part of reality.
+
+04:07.480 --> 04:08.860
+ It's almost like a physics law.
+
+04:08.860 --> 04:11.560
+ Do you think, what's your views on consciousness?
+
+04:11.560 --> 04:15.600
+ Do you think it has this deep part of reality
+
+04:15.600 --> 04:17.840
+ or is it something that's deeply human
+
+04:17.840 --> 04:19.500
+ and constructed by us humans?
+
+04:21.640 --> 04:24.120
+ Starting nice and light and easy.
+
+04:25.120 --> 04:28.280
+ Nothing I ask you today has actually proven answer.
+
+04:28.280 --> 04:29.720
+ So we're just hypothesizing.
+
+04:29.720 --> 04:32.960
+ So yeah, I mean, I should clarify, this is all speculation
+
+04:32.960 --> 04:35.320
+ and I'm not an expert in any of these topics
+
+04:35.320 --> 04:39.840
+ and I'm not God, but I think that consciousness
+
+04:39.840 --> 04:44.840
+ is probably something that can be fully explained
+
+04:44.840 --> 04:48.280
+ within the laws of physics.
+
+04:48.280 --> 04:51.960
+ I think that our bodies and brains and the universe
+
+04:51.960 --> 04:56.280
+ and at the quantum level is so rich and complex.
+
+04:56.280 --> 04:58.560
+ I'd be surprised if we couldn't find a room
+
+04:58.560 --> 05:00.800
+ for consciousness there.
+
+05:00.800 --> 05:04.440
+ And why should we be conscious?
+
+05:04.440 --> 05:06.200
+ Why are we aware of ourselves?
+
+05:06.200 --> 05:10.400
+ That is a very strange and interesting
+
+05:10.400 --> 05:11.960
+ and important question.
+
+05:11.960 --> 05:15.640
+ And I think for the next few thousand years,
+
+05:15.640 --> 05:20.200
+ we're going to have to believe in answers purely on faith.
+
+05:20.200 --> 05:25.080
+ But my guess is that we will find that,
+
+05:25.080 --> 05:27.080
+ within the configuration space
+
+05:27.080 --> 05:29.860
+ of possible arrangements of the universe,
+
+05:29.860 --> 05:34.240
+ there are some that contain memories of others.
+
+05:34.240 --> 05:38.140
+ Literally, Julian Barber calls them time capsule states
+
+05:38.140 --> 05:40.400
+ where you're like, yeah, not only do I have a scratch
+
+05:40.400 --> 05:43.160
+ on my arm, but also this state of the universe
+
+05:43.160 --> 05:45.720
+ also contains a memory in my head
+
+05:45.720 --> 05:48.560
+ of being scratched by my cat three days ago.
+
+05:48.560 --> 05:52.940
+ And for some reason, those kinds of states of the universe
+
+05:52.940 --> 05:55.800
+ are more plentiful or more likely.
+
+05:55.800 --> 05:57.120
+ When you say those states,
+
+05:57.120 --> 06:00.000
+ the ones that contain memories of its past
+
+06:00.000 --> 06:02.760
+ or ones that contain memories of its past
+
+06:02.760 --> 06:05.400
+ and have degrees of consciousness.
+
+06:05.400 --> 06:08.640
+ Just the first part, because I think the consciousness
+
+06:08.640 --> 06:13.160
+ then emerges from the fact that a state of the universe
+
+06:13.160 --> 06:18.160
+ that contains fragments or memories of other states
+
+06:19.660 --> 06:22.560
+ is one where you're going to feel like there's time.
+
+06:22.560 --> 06:24.160
+ You're going to feel like, yeah,
+
+06:24.160 --> 06:26.400
+ things happened in the past.
+
+06:26.400 --> 06:27.980
+ And I don't know what'll happen in the future
+
+06:27.980 --> 06:29.600
+ because these states don't contain information
+
+06:29.600 --> 06:30.760
+ about the future.
+
+06:30.760 --> 06:34.000
+ For some reason, those kinds of states
+
+06:34.000 --> 06:38.240
+ are either more common, more plentiful,
+
+06:38.240 --> 06:40.840
+ or you could use the anthropic principle and just say,
+
+06:40.840 --> 06:42.480
+ well, they're extremely rare,
+
+06:42.480 --> 06:45.720
+ but until you are in one, or if you are in one,
+
+06:45.720 --> 06:46.860
+ then you can ask questions,
+
+06:46.860 --> 06:48.820
+ like you're asking me on this podcast.
+
+06:49.920 --> 06:50.760
+ Why questions?
+
+06:50.760 --> 06:52.560
+ Yeah, it's like, why are we conscious?
+
+06:52.560 --> 06:53.400
+ Well, because if we weren't,
+
+06:53.400 --> 06:55.240
+ we wouldn't be asking why we were.
+
+06:56.040 --> 06:59.480
+ You've kind of implied that you have a sense,
+
+06:59.480 --> 07:02.360
+ again, hypothesis, theorizing
+
+07:02.360 --> 07:05.560
+ that the universe is deterministic.
+
+07:05.560 --> 07:08.040
+ What's your thoughts about free will?
+
+07:08.040 --> 07:10.320
+ Do you think of the universe as deterministic
+
+07:10.320 --> 07:14.000
+ in a sense that it's unrolling a particular,
+
+07:14.000 --> 07:14.960
+ like there's a,
+
+07:14.960 --> 07:17.920
+ it's operating under a specific set of physical laws.
+
+07:17.920 --> 07:21.360
+ And when you have to set the initial conditions,
+
+07:21.360 --> 07:23.500
+ it will unroll in the exact same way
+
+07:23.500 --> 07:28.440
+ in our particular line of the universe every time.
+
+07:28.440 --> 07:31.600
+ That is a very useful way to think about the universe.
+
+07:31.600 --> 07:32.440
+ It's done us well.
+
+07:32.440 --> 07:33.740
+ It's brought us to the moon.
+
+07:33.740 --> 07:35.920
+ It's brought us to where we are today, right?
+
+07:35.920 --> 07:40.280
+ I would not say that I believe in determinism
+
+07:40.280 --> 07:43.200
+ in that kind of an absolute form,
+
+07:43.200 --> 07:45.560
+ or actually I just don't care.
+
+07:45.560 --> 07:46.720
+ Maybe it's true,
+
+07:46.720 --> 07:48.860
+ but I'm not gonna live my life like it is.
+
+07:49.920 --> 07:50.880
+ What in your sense,
+
+07:50.880 --> 07:54.120
+ cause you've studied kind of how we humans
+
+07:54.120 --> 07:55.820
+ think of the world.
+
+07:55.820 --> 07:59.240
+ What's in your view is the difference between our perception,
+
+07:59.240 --> 08:02.320
+ like how we think the world is and reality.
+
+08:02.320 --> 08:04.120
+ Do you think there's a huge gap there?
+
+08:04.120 --> 08:07.240
+ Like we delude ourselves that the whole thing is an illusion.
+
+08:07.240 --> 08:09.360
+ Just everything about human psychology,
+
+08:09.360 --> 08:12.880
+ the way we see things and how things actually are.
+
+08:12.880 --> 08:14.760
+ All the things you've studied, what's your sense?
+
+08:14.760 --> 08:16.920
+ How big is the gap between reality and perception?
+
+08:16.920 --> 08:18.920
+ Well, again, purely speculative.
+
+08:18.920 --> 08:20.960
+ I think that we will never know the answer.
+
+08:20.960 --> 08:22.600
+ We cannot know the answer.
+
+08:22.600 --> 08:26.960
+ There is no experiment to find an answer to that question.
+
+08:26.960 --> 08:30.240
+ Everything we experience is an event in our brain.
+
+08:30.240 --> 08:32.880
+ When I look at a cat, I'm not even,
+
+08:32.880 --> 08:36.660
+ I can't prove that there's a cat there.
+
+08:36.660 --> 08:40.900
+ All I am experiencing is the perception of a cat
+
+08:40.900 --> 08:43.100
+ inside my own brain.
+
+08:43.100 --> 08:46.300
+ I am only a witness to the events of my mind.
+
+08:46.300 --> 08:50.060
+ I think it is very useful to infer that
+
+08:50.060 --> 08:54.060
+ if I witness the event of cat in my head,
+
+08:54.060 --> 08:57.180
+ it's because I'm looking at a cat that is literally there
+
+08:57.180 --> 08:59.900
+ and it has its own feelings and motivations
+
+08:59.900 --> 09:03.100
+ and should be pet and given food and water and love.
+
+09:03.100 --> 09:05.940
+ I think that's the way you should live your life.
+
+09:05.940 --> 09:09.500
+ But whether or not we live in a simulation,
+
+09:09.500 --> 09:13.040
+ I'm a brain in a vat, I don't know.
+
+09:13.040 --> 09:13.880
+ Do you care?
+
+09:14.900 --> 09:16.800
+ I don't really.
+
+09:16.800 --> 09:19.580
+ Well, I care because it's a fascinating question.
+
+09:19.580 --> 09:22.600
+ And it's a fantastic way to get people excited about
+
+09:23.740 --> 09:26.260
+ all kinds of topics, physics, psychology,
+
+09:26.260 --> 09:28.100
+ consciousness, philosophy.
+
+09:28.100 --> 09:31.000
+ But at the end of the day, what would the difference be?
+
+09:31.000 --> 09:31.840
+ If you...
+
+09:31.840 --> 09:33.780
+ The cat needs to be fed at the end of the day,
+
+09:33.780 --> 09:35.620
+ otherwise it'll be a dead cat.
+
+09:35.620 --> 09:38.420
+ Right, but if it's not even a real cat,
+
+09:38.420 --> 09:40.320
+ then it's just like a video game cat.
+
+09:40.320 --> 09:43.040
+ And right, so what's the difference between killing
+
+09:43.040 --> 09:46.740
+ a digital cat in a video game because of neglect
+
+09:46.740 --> 09:48.320
+ versus a real cat?
+
+09:48.320 --> 09:50.540
+ It seems very different to us psychologically.
+
+09:50.540 --> 09:52.400
+ Like I don't really feel bad about, oh my gosh,
+
+09:52.400 --> 09:54.380
+ I forgot to feed my Tamagotchi, right?
+
+09:54.380 --> 09:55.780
+ But I would feel terrible
+
+09:55.780 --> 09:58.940
+ if I forgot to feed my actual cats.
+
+09:58.940 --> 10:03.420
+ So can you just touch on the topic of simulation?
+
+10:03.420 --> 10:06.220
+ Do you find this thought experiment that we're living
+
+10:06.220 --> 10:10.500
+ in a simulation useful, inspiring or constructive
+
+10:10.500 --> 10:11.580
+ in any kind of way?
+
+10:11.580 --> 10:12.980
+ Do you think it's ridiculous?
+
+10:12.980 --> 10:14.980
+ Do you think it could be true?
+
+10:14.980 --> 10:17.540
+ Or is it just a useful thought experiment?
+
+10:17.540 --> 10:20.920
+ I think it is extremely useful as a thought experiment
+
+10:20.920 --> 10:24.700
+ because it makes sense to everyone,
+
+10:24.700 --> 10:27.360
+ especially as we see virtual reality
+
+10:27.360 --> 10:30.580
+ and computer games getting more and more complex.
+
+10:30.580 --> 10:33.900
+ You're not talking to an audience in like Newton's time
+
+10:33.900 --> 10:36.660
+ where you're like, imagine a clock
+
+10:36.660 --> 10:38.820
+ that it has mechanics in it that are so complex
+
+10:38.820 --> 10:40.220
+ that it can create love.
+
+10:40.220 --> 10:42.380
+ And everyone's like, no.
+
+10:42.380 --> 10:46.540
+ But today you really start to feel, man,
+
+10:46.540 --> 10:48.960
+ at what point is this little robot friend of mine
+
+10:48.960 --> 10:53.960
+ gonna be like someone I don't want to cancel plans with?
+
+10:53.960 --> 10:58.960
+ And so it's a great, the thought experiment
+
+10:59.000 --> 11:00.280
+ of do we live in a simulation?
+
+11:00.280 --> 11:03.760
+ Am I a brain in a vat that is just being given
+
+11:03.760 --> 11:08.760
+ electrical impulses from some nefarious other beings
+
+11:08.960 --> 11:11.000
+ so that I believe that I live on earth
+
+11:11.000 --> 11:13.040
+ and that I have a body and all of this?
+
+11:13.040 --> 11:15.480
+ And the fact that you can't prove it either way
+
+11:15.480 --> 11:17.480
+ is a fantastic way to introduce people
+
+11:17.480 --> 11:19.800
+ to some of the deepest questions.
+
+11:20.760 --> 11:23.080
+ So you mentioned a little buddy
+
+11:23.080 --> 11:25.700
+ that you would want to cancel an appointment with.
+
+11:25.700 --> 11:27.800
+ So that's a lot of our conversations.
+
+11:27.800 --> 11:30.740
+ That's what my research is, is artificial intelligence.
+
+11:32.240 --> 11:34.520
+ And I apologize, but you're such a fun person
+
+11:34.520 --> 11:36.880
+ to ask these big questions with.
+
+11:36.880 --> 11:40.200
+ Well, I hope I can give some answers that are interesting.
+
+11:40.200 --> 11:45.200
+ Well, because of you've sharpened your brain's ability
+
+11:45.200 --> 11:47.940
+ to explore some of the most, some of the questions
+
+11:47.940 --> 11:51.120
+ that many scientists are actually afraid of even touching,
+
+11:51.120 --> 11:52.380
+ which is fascinating.
+
+11:52.380 --> 11:56.580
+ I think you're in that sense ultimately a great scientist
+
+11:56.580 --> 11:58.920
+ through this process of sharpening your brain.
+
+11:58.920 --> 12:01.740
+ Well, I don't know if I am a scientist.
+
+12:01.740 --> 12:04.920
+ I think science is a way of knowing
+
+12:04.920 --> 12:09.440
+ and there are a lot of questions I investigate
+
+12:09.440 --> 12:11.960
+ that are not scientific questions.
+
+12:11.960 --> 12:14.200
+ On like mind field, we have definitely done
+
+12:14.200 --> 12:17.680
+ scientific experiments and studies that had hypotheses
+
+12:17.680 --> 12:22.240
+ and all of that, but not to be too like precious
+
+12:22.240 --> 12:24.200
+ about what does the word science mean?
+
+12:24.200 --> 12:27.600
+ But I think I would just describe myself as curious
+
+12:27.600 --> 12:29.920
+ and I hope that that curiosity is contagious.
+
+12:29.920 --> 12:31.840
+ So to you, the scientific method
+
+12:31.840 --> 12:33.720
+ is deeply connected to science
+
+12:33.720 --> 12:38.280
+ because your curiosity took you to asking questions.
+
+12:38.280 --> 12:43.280
+ To me, asking a good question, even if you feel,
+
+12:43.440 --> 12:45.400
+ society feels that it's not a question
+
+12:45.400 --> 12:47.320
+ within the reach of science currently.
+
+12:47.320 --> 12:51.320
+ To me, asking the question is the biggest step
+
+12:51.320 --> 12:53.320
+ of the scientific process.
+
+12:53.320 --> 12:57.240
+ The scientific method is the second part
+
+12:57.240 --> 12:59.400
+ and that may be what traditionally is called science,
+
+12:59.400 --> 13:00.840
+ but to me, asking the questions,
+
+13:00.840 --> 13:03.000
+ being brave enough to ask the questions,
+
+13:03.000 --> 13:05.000
+ being curious and not constrained
+
+13:05.000 --> 13:09.880
+ by what you're supposed to think is just true,
+
+13:09.880 --> 13:11.560
+ what it means to be a scientist to me.
+
+13:11.560 --> 13:15.260
+ It's certainly a huge part of what it means to be a human.
+
+13:16.380 --> 13:17.520
+ If I were to say, you know what?
+
+13:17.520 --> 13:19.080
+ I don't believe in forces.
+
+13:19.080 --> 13:22.120
+ I think that when I push on a massive object,
+
+13:22.120 --> 13:25.680
+ a ghost leaves my body and enters the object I'm pushing
+
+13:25.680 --> 13:28.040
+ and these ghosts happen to just get really lazy
+
+13:28.040 --> 13:29.760
+ when they're around massive things
+
+13:29.760 --> 13:31.200
+ and that's why F equals MA.
+
+13:32.640 --> 13:34.360
+ Oh, and by the way, the laziness of the ghost
+
+13:34.360 --> 13:36.320
+ is in proportion to the mass of the object.
+
+13:36.320 --> 13:37.760
+ So boom, prove me wrong.
+
+13:37.760 --> 13:41.060
+ Every experiment, well, you can never find the ghost.
+
+13:41.060 --> 13:45.880
+ And so none of that theory is scientific,
+
+13:45.880 --> 13:49.380
+ but once I start saying, can I see the ghost?
+
+13:49.380 --> 13:50.880
+ Why should there be a ghost?
+
+13:50.880 --> 13:53.100
+ And if there aren't ghosts, what might I expect?
+
+13:53.100 --> 13:56.540
+ And I start to do different tests to see,
+
+13:56.540 --> 13:58.000
+ is this falsifiable?
+
+13:59.120 --> 14:01.520
+ Are there things that should happen if there are ghosts
+
+14:01.520 --> 14:02.740
+ or are there things that shouldn't happen?
+
+14:02.740 --> 14:05.120
+ And do they, you know, what do I observe?
+
+14:05.120 --> 14:06.920
+ Now I'm thinking scientifically.
+
+14:06.920 --> 14:10.960
+ I don't think of science as, wow, a picture of a black hole.
+
+14:10.960 --> 14:12.240
+ That's just a photograph.
+
+14:12.240 --> 14:13.060
+ That's an image.
+
+14:13.060 --> 14:13.900
+ That's data.
+
+14:13.900 --> 14:16.480
+ That's a sensory and perception experience.
+
+14:16.480 --> 14:19.640
+ Science is how we got that and how we understand it
+
+14:19.640 --> 14:20.680
+ and how we believe in it
+
+14:20.680 --> 14:24.040
+ and how we reduce our uncertainty around what it means.
+
+14:24.040 --> 14:28.260
+ But I would say I'm deeply within the scientific community
+
+14:28.260 --> 14:31.600
+ and I'm sometimes disheartened by the elitism
+
+14:31.600 --> 14:34.640
+ of the thinking, sort of not allowing yourself
+
+14:34.640 --> 14:36.280
+ to think outside the box.
+
+14:36.280 --> 14:37.880
+ So allowing the possibility
+
+14:37.880 --> 14:40.040
+ of going against the conventions of science,
+
+14:40.040 --> 14:43.920
+ I think is a beautiful part of some
+
+14:43.920 --> 14:46.280
+ of the greatest scientists in history.
+
+14:46.280 --> 14:49.840
+ I don't know, I'm impressed by scientists every day
+
+14:49.840 --> 14:54.840
+ and revolutions in our knowledge of the world occur
+
+14:58.480 --> 15:00.760
+ only under very special circumstances.
+
+15:00.760 --> 15:05.680
+ It is very scary to challenge conventional thinking
+
+15:05.680 --> 15:10.440
+ and risky because let's go back to elitism and ego, right?
+
+15:10.440 --> 15:11.440
+ If you just say, you know what?
+
+15:11.440 --> 15:14.000
+ I believe in the spirits of my body
+
+15:14.000 --> 15:17.900
+ and all forces are actually created by invisible creatures
+
+15:17.900 --> 15:21.160
+ that transfer themselves between objects.
+
+15:22.360 --> 15:26.680
+ If you ridicule every other theory
+
+15:26.680 --> 15:28.800
+ and say that you're correct,
+
+15:28.800 --> 15:31.680
+ then ego gets involved and you just don't go anywhere.
+
+15:31.680 --> 15:35.640
+ But fundamentally the question of well, what is a force
+
+15:36.800 --> 15:38.560
+ is incredibly important.
+
+15:38.560 --> 15:40.040
+ We need to have that conversation,
+
+15:40.040 --> 15:42.640
+ but it needs to be done in this very political way
+
+15:42.640 --> 15:44.640
+ of like, let's be respectful of everyone
+
+15:44.640 --> 15:46.920
+ and let's realize that we're all learning together
+
+15:46.920 --> 15:49.000
+ and not shutting out other people.
+
+15:49.000 --> 15:54.000
+ And so when you look at a lot of revolutionary ideas,
+
+15:54.720 --> 15:57.460
+ they were not accepted right away.
+
+15:57.460 --> 16:00.560
+ And, you know, Galileo had a couple of problems
+
+16:00.560 --> 16:04.800
+ with the authorities and later thinkers, Descartes,
+
+16:04.800 --> 16:06.980
+ was like, all right, look, I kind of agree with Galileo,
+
+16:06.980 --> 16:11.380
+ but I'm gonna have to not say that.
+
+16:11.380 --> 16:13.740
+ I'll have to create and invent and write different things
+
+16:13.740 --> 16:15.100
+ that keep me from being in trouble,
+
+16:15.100 --> 16:17.320
+ but we still slowly made progress.
+
+16:17.320 --> 16:19.240
+ Revolutions are difficult in all forms
+
+16:19.240 --> 16:20.480
+ and certainly in science.
+
+16:20.480 --> 16:23.840
+ Before we get to AI, on topic of revolutionary ideas,
+
+16:23.840 --> 16:28.840
+ let me ask on a Reddit AMA, you said that is the earth flat
+
+16:28.840 --> 16:31.600
+ is one of the favorite questions you've ever answered,
+
+16:31.600 --> 16:33.640
+ speaking of revolutionary ideas.
+
+16:33.640 --> 16:37.080
+ So your video on that, people should definitely watch,
+
+16:37.080 --> 16:38.820
+ is really fascinating.
+
+16:39.760 --> 16:41.660
+ Can you elaborate why you enjoyed
+
+16:41.660 --> 16:43.800
+ answering this question so much?
+
+16:43.800 --> 16:45.620
+ Yeah, well, it's a long story.
+
+16:45.620 --> 16:49.380
+ I remember a long time ago,
+
+16:49.380 --> 16:50.940
+ I was living in New York at the time,
+
+16:50.940 --> 16:54.000
+ so it had to have been like 2009 or something.
+
+16:54.000 --> 16:57.600
+ I visited the Flat Earth forums
+
+16:57.600 --> 17:00.280
+ and this was before the Flat Earth theories
+
+17:00.280 --> 17:03.160
+ became as sort of mainstream as they are.
+
+17:03.160 --> 17:06.720
+ Sorry to ask the dumb question, forums, online forums.
+
+17:06.720 --> 17:09.040
+ Yeah, the Flat Earth Society,
+
+17:09.040 --> 17:11.200
+ I don't know if it's.com or.org, but I went there
+
+17:11.200 --> 17:14.200
+ and I was reading their ideas
+
+17:14.200 --> 17:17.880
+ and how they responded to typical criticisms of,
+
+17:17.880 --> 17:20.280
+ well, the earth isn't flat because what about this?
+
+17:20.280 --> 17:23.760
+ And I could not tell, and I mentioned this in my video,
+
+17:23.760 --> 17:28.640
+ I couldn't tell how many of these community members
+
+17:28.640 --> 17:32.400
+ actually believe the earth was flat or we're just trolling.
+
+17:32.400 --> 17:36.320
+ And I realized that the fascinating thing is,
+
+17:36.320 --> 17:38.480
+ how do we know anything?
+
+17:38.480 --> 17:41.640
+ And what makes for a good belief
+
+17:41.640 --> 17:45.240
+ versus a maybe not so tenable or good belief?
+
+17:45.240 --> 17:47.560
+ And so that's really what my video
+
+17:47.560 --> 17:49.920
+ about earth being flat is about.
+
+17:49.920 --> 17:52.320
+ It's about, look, there are a lot of reasons
+
+17:52.320 --> 17:55.680
+ that the earth is probably not flat,
+
+17:57.000 --> 18:00.600
+ but a Flat Earth believer can respond
+
+18:00.600 --> 18:04.120
+ to every single one of them, but it's all in an ad hoc way.
+
+18:04.120 --> 18:05.760
+ And all of these, all of their rebuttals
+
+18:05.760 --> 18:07.040
+ aren't necessarily gonna form
+
+18:07.040 --> 18:10.760
+ a cohesive noncontradictory whole.
+
+18:10.760 --> 18:12.520
+ And I believe that's the episode
+
+18:12.520 --> 18:14.960
+ where I talk about Occam's razor
+
+18:14.960 --> 18:17.400
+ and Newton's flaming laser sword.
+
+18:17.400 --> 18:19.480
+ And then I say, well, you know what, wait a second.
+
+18:19.480 --> 18:24.480
+ We know that space contracts as you move.
+
+18:25.040 --> 18:27.200
+ And so to a particle moving near the speed of light
+
+18:27.200 --> 18:29.560
+ towards earth, earth would be flattened
+
+18:29.560 --> 18:32.200
+ in the direction of that particles travel.
+
+18:32.200 --> 18:35.520
+ So to them, earth is flat.
+
+18:35.520 --> 18:40.520
+ Like we need to be really generous to even wild ideas
+
+18:41.000 --> 18:43.800
+ because they're all thinking,
+
+18:43.800 --> 18:45.840
+ they're all the communication of ideas.
+
+18:45.840 --> 18:48.240
+ And what else can it mean to be a human?
+
+18:48.240 --> 18:50.960
+ Yeah, and I think I'm a huge fan
+
+18:50.960 --> 18:54.880
+ of the Flat Earth theory, quote unquote,
+
+18:54.880 --> 18:57.520
+ in the sense that to me it feels harmless
+
+18:57.520 --> 18:59.000
+ to explore some of the questions
+
+18:59.000 --> 19:00.480
+ of what it means to believe something,
+
+19:00.480 --> 19:05.000
+ what it means to explore the edge of science and so on.
+
+19:05.000 --> 19:07.160
+ Cause it's a harm, it's a, to me,
+
+19:07.160 --> 19:09.680
+ nobody gets hurt whether the earth is flat or round,
+
+19:09.680 --> 19:11.840
+ not literally, but I mean intellectually
+
+19:11.840 --> 19:13.360
+ when we're just having a conversation.
+
+19:13.360 --> 19:15.760
+ That said, again, to elitism,
+
+19:15.760 --> 19:18.640
+ I find that scientists roll their eyes
+
+19:18.640 --> 19:21.400
+ way too fast on the Flat Earth.
+
+19:21.400 --> 19:25.520
+ The kind of dismissal that I see to this even notion,
+
+19:25.520 --> 19:27.760
+ they haven't like sat down and say,
+
+19:27.760 --> 19:30.120
+ what are the arguments that are being proposed?
+
+19:30.120 --> 19:32.600
+ And this is why these arguments are incorrect.
+
+19:32.600 --> 19:35.040
+ So that should be something
+
+19:35.040 --> 19:37.480
+ that scientists should always do,
+
+19:37.480 --> 19:42.160
+ even to the most sort of ideas that seem ridiculous.
+
+19:42.160 --> 19:45.880
+ So I like this as almost, it's almost my test
+
+19:45.880 --> 19:48.440
+ when I ask people what they think about Flat Earth theory,
+
+19:48.440 --> 19:51.080
+ to see how quickly they roll their eyes.
+
+19:51.080 --> 19:53.880
+ Well, yeah, I mean, let me go on record
+
+19:53.880 --> 19:58.400
+ and say that the earth is not flat.
+
+19:58.400 --> 20:02.040
+ It is a three dimensional spheroid.
+
+20:02.040 --> 20:07.000
+ However, I don't know that and it has not been proven.
+
+20:07.000 --> 20:08.800
+ Science doesn't prove anything.
+
+20:08.800 --> 20:10.680
+ It just reduces uncertainty.
+
+20:10.680 --> 20:12.320
+ Could the earth actually be flat?
+
+20:13.960 --> 20:18.960
+ Extremely unlikely, extremely unlikely.
+
+20:19.040 --> 20:21.640
+ And so it is a ridiculous notion
+
+20:21.640 --> 20:26.640
+ if we care about how probable and certain our ideas might be.
+
+20:26.680 --> 20:28.400
+ But I think it's incredibly important
+
+20:28.400 --> 20:32.120
+ to talk about science in that way
+
+20:32.120 --> 20:35.280
+ and to not resort to, well, it's true.
+
+20:35.280 --> 20:39.880
+ It's true in the same way that a mathematical theorem
+
+20:39.880 --> 20:41.280
+ is true.
+
+20:41.280 --> 20:46.280
+ And I think we're kind of like being pretty pedantic
+
+20:46.520 --> 20:48.400
+ about defining this stuff.
+
+20:48.400 --> 20:51.680
+ But like, sure, I could take a rocket ship out
+
+20:51.680 --> 20:53.680
+ and I could orbit earth and look at it
+
+20:53.680 --> 20:55.840
+ and it would look like a ball, right?
+
+20:56.880 --> 20:59.360
+ But I still can't prove that I'm not living in a simulation,
+
+20:59.360 --> 21:00.520
+ that I'm not a brain in a vat,
+
+21:00.520 --> 21:02.640
+ that this isn't all an elaborate ruse
+
+21:02.640 --> 21:04.600
+ created by some technologically advanced
+
+21:04.600 --> 21:06.520
+ extraterrestrial civilization.
+
+21:06.520 --> 21:11.000
+ So there's always some doubt and that's fine.
+
+21:11.000 --> 21:12.280
+ That's exciting.
+
+21:12.280 --> 21:14.840
+ And I think that kind of doubt, practically speaking,
+
+21:14.840 --> 21:17.720
+ is useful when you start talking about quantum mechanics
+
+21:17.720 --> 21:20.360
+ or string theory, sort of, it helps.
+
+21:20.360 --> 21:23.200
+ To me, that kind of adds a little spice
+
+21:23.200 --> 21:26.440
+ into the thinking process of scientists.
+
+21:26.440 --> 21:30.040
+ So, I mean, just as a thought experiment,
+
+21:30.040 --> 21:33.400
+ your video kind of, okay, say the earth is flat.
+
+21:33.400 --> 21:36.640
+ What would the forces when you walk about this flat earth
+
+21:36.640 --> 21:38.360
+ feel like to the human?
+
+21:38.360 --> 21:40.600
+ That's a really nice thought experiment to think about.
+
+21:40.600 --> 21:42.440
+ Right, because what's really nice about it
+
+21:42.440 --> 21:45.400
+ is that it's a funny thought experiment,
+
+21:45.400 --> 21:48.040
+ but you actually wind up accidentally learning
+
+21:48.040 --> 21:51.640
+ a whole lot about gravity and about relativity
+
+21:51.640 --> 21:53.240
+ and geometry.
+
+21:53.240 --> 21:56.280
+ And I think that's really the goal of what I'm doing.
+
+21:56.280 --> 21:57.640
+ I'm not trying to like convince people
+
+21:57.640 --> 21:58.840
+ that the earth is round.
+
+21:58.840 --> 22:01.280
+ I feel like you either believe that it is or you don't
+
+22:01.280 --> 22:04.680
+ and like, that's, you know, how can I change that?
+
+22:04.680 --> 22:06.920
+ What I can do is change how you think
+
+22:06.920 --> 22:10.920
+ and how you are introduced to important concepts.
+
+22:10.920 --> 22:13.760
+ Like, well, how does gravity operate?
+
+22:13.760 --> 22:16.480
+ Oh, it's all about the center of mass of an object.
+
+22:16.480 --> 22:19.480
+ So right, on a sphere, we're all pulled towards the middle,
+
+22:19.480 --> 22:21.440
+ essentially the centroid geometrically,
+
+22:21.440 --> 22:24.560
+ but on a disc, ooh, you're gonna be pulled at a weird angle
+
+22:24.560 --> 22:25.920
+ if you're out near the edge.
+
+22:25.920 --> 22:28.400
+ And that stuff's fascinating.
+
+22:28.400 --> 22:32.880
+ Yeah, and to me, that was, that particular video
+
+22:34.520 --> 22:37.520
+ opened my eyes even more to what gravity is.
+
+22:37.520 --> 22:40.040
+ It's just a really nice visualization tool of,
+
+22:40.040 --> 22:43.080
+ because you always imagine gravity with spheres,
+
+22:43.080 --> 22:44.600
+ with masses that are spheres.
+
+22:44.600 --> 22:45.440
+ Yeah.
+
+22:45.440 --> 22:48.280
+ And imagining gravity on masses that are not spherical,
+
+22:48.280 --> 22:53.280
+ some other shape, but in here, a plate, a flat object,
+
+22:53.400 --> 22:54.240
+ is really interesting.
+
+22:54.240 --> 22:56.280
+ It makes you really kind of visualize
+
+22:56.280 --> 22:57.800
+ in a three dimensional way the force of gravity.
+
+22:57.800 --> 23:02.800
+ Yeah, even if a disc the size of Earth would be impossible,
+
+23:05.880 --> 23:09.040
+ I think anything larger than like the moon basically
+
+23:09.040 --> 23:13.760
+ needs to be a sphere because gravity will round it out.
+
+23:15.240 --> 23:18.120
+ So you can't have a teacup the size of Jupiter, right?
+
+23:18.120 --> 23:21.040
+ There's a great book about the teacup in the universe
+
+23:21.040 --> 23:22.920
+ that I highly recommend.
+
+23:22.920 --> 23:24.720
+ I don't remember the author.
+
+23:24.720 --> 23:26.800
+ I forget her name, but it's a wonderful book.
+
+23:26.800 --> 23:28.200
+ So look it up.
+
+23:28.200 --> 23:30.200
+ I think it's called Teacup in the Universe.
+
+23:30.200 --> 23:32.680
+ Just to link on this point briefly,
+
+23:32.680 --> 23:37.120
+ your videos are generally super, people love them, right?
+
+23:37.120 --> 23:39.600
+ If you look at the sort of number of likes versus dislikes
+
+23:39.600 --> 23:43.140
+ is this measure of YouTube, right, is incredible.
+
+23:43.140 --> 23:45.240
+ And as do I.
+
+23:45.240 --> 23:48.160
+ But this particular flat Earth video
+
+23:48.160 --> 23:51.800
+ has more dislikes than usual.
+
+23:51.800 --> 23:55.320
+ What do you, on that topic in general,
+
+23:55.320 --> 23:58.800
+ what's your sense, how big is the community,
+
+23:58.800 --> 24:00.740
+ not just who believes in flat Earth,
+
+24:00.740 --> 24:03.720
+ but sort of the anti scientific community
+
+24:03.720 --> 24:08.200
+ that naturally distrust scientists in a way
+
+24:08.200 --> 24:12.200
+ that's not an open minded way,
+
+24:12.200 --> 24:13.720
+ like really just distrust scientists
+
+24:13.720 --> 24:17.040
+ like they're bought by some kind of mechanism
+
+24:17.040 --> 24:18.880
+ of some kind of bigger system
+
+24:18.880 --> 24:21.080
+ that's trying to manipulate human beings.
+
+24:21.080 --> 24:24.040
+ What's your sense of the size of that community?
+
+24:24.040 --> 24:28.960
+ You're one of the sort of great educators in the world
+
+24:28.960 --> 24:33.960
+ that educates people on the exciting power of science.
+
+24:34.000 --> 24:38.080
+ So you're kind of up against this community.
+
+24:38.080 --> 24:39.960
+ What's your sense of it?
+
+24:39.960 --> 24:41.960
+ I really have no idea.
+
+24:41.960 --> 24:44.200
+ I haven't looked at the likes and dislikes
+
+24:44.200 --> 24:45.320
+ on the flat Earth video.
+
+24:45.320 --> 24:49.100
+ And so I would wonder if it has a greater percentage
+
+24:49.100 --> 24:51.340
+ of dislikes than usual,
+
+24:51.340 --> 24:53.520
+ is that because of people disliking it
+
+24:53.520 --> 24:56.720
+ because they think that it's a video
+
+24:56.720 --> 25:01.260
+ about Earth being flat and they find that ridiculous
+
+25:01.260 --> 25:04.200
+ and they dislike it without even really watching much?
+
+25:04.200 --> 25:07.360
+ Do they wish that I was more like dismissive
+
+25:07.360 --> 25:08.560
+ of flat Earth theories?
+
+25:08.560 --> 25:09.760
+ Yeah.
+
+25:09.760 --> 25:10.600
+ That's possible too.
+
+25:10.600 --> 25:12.080
+ I know there are a lot of response videos
+
+25:12.080 --> 25:17.080
+ that kind of go through the episode and are pro flat Earth,
+
+25:18.600 --> 25:21.860
+ but I don't know if there's a larger community
+
+25:21.860 --> 25:25.120
+ of unorthodox thinkers today
+
+25:25.120 --> 25:27.440
+ than there have been in the past.
+
+25:27.440 --> 25:29.960
+ And I just wanna not lose them.
+
+25:29.960 --> 25:32.580
+ I want them to keep listening and thinking
+
+25:32.580 --> 25:36.640
+ and by calling them all idiots or something,
+
+25:36.640 --> 25:41.020
+ that does no good because how idiotic are they really?
+
+25:41.020 --> 25:45.300
+ I mean, the Earth isn't a sphere at all.
+
+25:45.300 --> 25:47.720
+ We know that it's an oblate spheroid
+
+25:47.720 --> 25:50.340
+ and that in and of itself is really interesting.
+
+25:50.340 --> 25:52.240
+ And I investigated that in which way is down
+
+25:52.240 --> 25:54.200
+ where I'm like, really down does not point
+
+25:54.200 --> 25:56.240
+ towards the center of the Earth.
+
+25:56.240 --> 25:58.920
+ It points in different direction,
+
+25:58.920 --> 26:01.640
+ depending on what's underneath you and what's above you
+
+26:01.640 --> 26:02.480
+ and what's around you.
+
+26:02.480 --> 26:06.000
+ The whole universe is tugging on me.
+
+26:06.000 --> 26:10.080
+ And then you also show that gravity is non uniform
+
+26:10.080 --> 26:11.680
+ across the globe.
+
+26:11.680 --> 26:14.400
+ Like if you, there's this I guess thought experiment
+
+26:14.400 --> 26:19.400
+ if you build a bridge all the way across the Earth
+
+26:19.400 --> 26:23.440
+ and then just knock out its pillars, what would happen?
+
+26:23.440 --> 26:27.080
+ And you describe how it would be like a very chaotic,
+
+26:27.080 --> 26:28.960
+ unstable thing that's happening
+
+26:28.960 --> 26:31.760
+ because gravity is non uniform throughout the Earth.
+
+26:31.760 --> 26:36.620
+ Yeah, in small spaces, like the ones we work in,
+
+26:36.620 --> 26:39.320
+ we can essentially assume that gravity is uniform,
+
+26:39.320 --> 26:40.880
+ but it's not.
+
+26:40.880 --> 26:43.040
+ It is weaker the further you are from the Earth.
+
+26:43.040 --> 26:47.080
+ And it also is going to be,
+
+26:47.080 --> 26:50.060
+ it's radially pointed towards the middle of the Earth.
+
+26:50.060 --> 26:54.160
+ So a really large object will feel tidal forces
+
+26:54.160 --> 26:55.640
+ because of that non uniformness.
+
+26:55.640 --> 26:58.500
+ And we can take advantage of that with satellites, right?
+
+26:58.500 --> 27:00.280
+ Gravitational induced torque.
+
+27:00.280 --> 27:01.680
+ It's a great way to align your satellite
+
+27:01.680 --> 27:05.560
+ without having to use fuel or any kind of engine.
+
+27:05.560 --> 27:08.320
+ So let's jump back to it, artificial intelligence.
+
+27:08.320 --> 27:11.180
+ What's your thought of the state of where we are at
+
+27:11.180 --> 27:12.920
+ currently with artificial intelligence
+
+27:12.920 --> 27:15.880
+ and what do you think it takes to build human level
+
+27:15.880 --> 27:17.960
+ or superhuman level intelligence?
+
+27:17.960 --> 27:20.400
+ I don't know what intelligence means.
+
+27:20.400 --> 27:22.840
+ That's my biggest question at the moment.
+
+27:22.840 --> 27:25.080
+ And I think it's because my instinct is always to go,
+
+27:25.080 --> 27:28.000
+ well, what are the foundations here of our discussion?
+
+27:28.000 --> 27:31.080
+ What does it mean to be intelligent?
+
+27:31.080 --> 27:35.320
+ How do we measure the intelligence of an artificial machine
+
+27:35.320 --> 27:37.480
+ or a program or something?
+
+27:37.480 --> 27:39.880
+ Can we say that humans are intelligent?
+
+27:39.880 --> 27:42.600
+ Because there's also a fascinating field
+
+27:42.600 --> 27:44.280
+ of how do you measure human intelligence.
+
+27:44.280 --> 27:45.360
+ Of course.
+
+27:45.360 --> 27:47.080
+ But if we just take that for granted,
+
+27:47.080 --> 27:50.000
+ saying that whatever this fuzzy intelligence thing
+
+27:50.000 --> 27:52.200
+ we're talking about, humans kind of have it.
+
+27:53.080 --> 27:56.680
+ What would be a good test for you?
+
+27:56.680 --> 27:59.160
+ So during develop a test that's natural language
+
+27:59.160 --> 28:01.600
+ conversation, would that impress you?
+
+28:01.600 --> 28:03.360
+ A chat bot that you'd want to hang out
+
+28:03.360 --> 28:06.600
+ and have a beer with for a bunch of hours
+
+28:06.600 --> 28:08.360
+ or have dinner plans with.
+
+28:08.360 --> 28:10.240
+ Is that a good test, natural language conversation?
+
+28:10.240 --> 28:12.260
+ Is there something else that would impress you?
+
+28:12.260 --> 28:13.640
+ Or is that also too difficult to think about?
+
+28:13.640 --> 28:16.120
+ Oh yeah, I'm pretty much impressed by everything.
+
+28:16.120 --> 28:20.320
+ I think that if there was a chat bot
+
+28:20.320 --> 28:23.360
+ that was like incredibly, I don't know,
+
+28:23.360 --> 28:24.460
+ really had a personality.
+
+28:24.460 --> 28:27.940
+ And if I didn't be the Turing test, right?
+
+28:27.940 --> 28:32.940
+ Like if I'm unable to tell that it's not another person
+
+28:33.360 --> 28:36.560
+ but then I was shown a bunch of wires
+
+28:36.560 --> 28:39.060
+ and mechanical components.
+
+28:39.060 --> 28:42.680
+ And it was like, that's actually what you're talking to.
+
+28:42.680 --> 28:46.440
+ I don't know if I would feel that guilty destroying it.
+
+28:46.440 --> 28:49.240
+ I would feel guilty because clearly it's well made
+
+28:49.240 --> 28:51.040
+ and it's a really cool thing.
+
+28:51.040 --> 28:53.800
+ It's like destroying a really cool car or something
+
+28:53.800 --> 28:56.280
+ but I would not feel like I was a murderer.
+
+28:56.280 --> 28:58.800
+ So yeah, at what point would I start to feel that way?
+
+28:58.800 --> 29:02.680
+ And this is such a subjective psychological question.
+
+29:02.680 --> 29:07.680
+ If you give it movement or if you have it act as though
+
+29:07.680 --> 29:11.840
+ or perhaps really feel pain as I destroy it
+
+29:11.840 --> 29:15.640
+ and scream and resist, then I'd feel bad.
+
+29:15.640 --> 29:16.680
+ Yeah, it's beautifully put.
+
+29:16.680 --> 29:20.480
+ And let's just say act like it's a pain.
+
+29:20.480 --> 29:25.480
+ So if you just have a robot that not screams,
+
+29:25.640 --> 29:28.440
+ just like moans in pain if you kick it,
+
+29:28.440 --> 29:30.920
+ that immediately just puts it in a class
+
+29:30.920 --> 29:35.280
+ that we humans, it becomes, we anthropomorphize it.
+
+29:35.280 --> 29:37.920
+ It almost immediately becomes human.
+
+29:37.920 --> 29:39.320
+ So that's a psychology question
+
+29:39.320 --> 29:40.920
+ as opposed to sort of a physics question.
+
+29:40.920 --> 29:43.080
+ Right, I think that's a really good instinct to have.
+
+29:43.080 --> 29:44.080
+ If the robot.
+
+29:45.720 --> 29:46.560
+ Screams.
+
+29:46.560 --> 29:50.160
+ Screams and moans, even if you don't believe
+
+29:50.160 --> 29:52.640
+ that it has the mental experience,
+
+29:52.640 --> 29:55.280
+ the qualia of pain and suffering,
+
+29:55.280 --> 29:56.760
+ I think it's still a good instinct to say,
+
+29:56.760 --> 29:59.960
+ you know what, I'd rather not hurt it.
+
+29:59.960 --> 30:02.560
+ The problem is that instinct can get us in trouble
+
+30:02.560 --> 30:05.560
+ because then robots can manipulate that.
+
+30:05.560 --> 30:08.240
+ And there's different kinds of robots.
+
+30:08.240 --> 30:10.640
+ There's robots like the Facebook and the YouTube algorithm
+
+30:10.640 --> 30:11.920
+ that recommends the video,
+
+30:11.920 --> 30:14.440
+ and they can manipulate in the same kind of way.
+
+30:14.440 --> 30:16.240
+ Well, let me ask you just to stick
+
+30:16.240 --> 30:17.840
+ on artificial intelligence for a second.
+
+30:17.840 --> 30:21.720
+ Do you have worries about existential threats from AI
+
+30:21.720 --> 30:23.680
+ or existential threats from other technologies
+
+30:23.680 --> 30:27.720
+ like nuclear weapons that could potentially destroy life
+
+30:27.720 --> 30:31.200
+ on earth or damage it to a very significant degree?
+
+30:31.200 --> 30:32.280
+ Yeah, of course I do.
+
+30:32.280 --> 30:35.280
+ Especially the weapons that we create.
+
+30:35.280 --> 30:38.080
+ There's all kinds of famous ways to think about this.
+
+30:38.080 --> 30:41.440
+ And one is that, wow, what if we don't see
+
+30:41.440 --> 30:46.440
+ advanced alien civilizations because of the danger
+
+30:46.800 --> 30:50.600
+ of technology?
+
+30:50.600 --> 30:51.800
+ What if we reach a point,
+
+30:51.800 --> 30:55.000
+ and I think there's a channel, Thoughty2,
+
+30:55.000 --> 30:57.400
+ geez, I wish I remembered the name of the channel,
+
+30:57.400 --> 30:59.960
+ but he delves into this kind of limit
+
+30:59.960 --> 31:04.960
+ of maybe once you discover radioactivity and its power,
+
+31:04.960 --> 31:07.160
+ you've reached this important hurdle.
+
+31:07.160 --> 31:09.400
+ And the reason that the skies are so empty
+
+31:09.400 --> 31:13.880
+ is that no one's ever managed to survive as a civilization
+
+31:13.880 --> 31:16.840
+ once they have that destructive power.
+
+31:16.840 --> 31:21.840
+ And when it comes to AI, I'm not really very worried
+
+31:22.320 --> 31:24.760
+ because I think that there are plenty of other people
+
+31:24.760 --> 31:26.440
+ that are already worried enough.
+
+31:26.440 --> 31:30.520
+ And oftentimes these worries are just,
+
+31:30.520 --> 31:32.880
+ they just get in the way of progress.
+
+31:32.880 --> 31:36.680
+ And they're questions that we should address later.
+
+31:37.680 --> 31:41.960
+ And I think I talk about this in my interview
+
+31:41.960 --> 31:46.960
+ with the self driving autonomous vehicle guy,
+
+31:47.440 --> 31:48.640
+ as I think it was a bonus scene
+
+31:48.640 --> 31:52.080
+ from the trolley problem episode.
+
+31:52.080 --> 31:54.200
+ And I'm like, wow, what should a car do
+
+31:54.200 --> 31:56.960
+ if this really weird contrived scenario happens
+
+31:56.960 --> 32:00.120
+ where it has to swerve and save the driver, but kill a kid?
+
+32:00.120 --> 32:03.440
+ And he's like, well, what would a human do?
+
+32:03.440 --> 32:07.200
+ And if we resist technological progress
+
+32:07.200 --> 32:10.360
+ because we're worried about all of these little issues,
+
+32:10.360 --> 32:11.960
+ then it gets in the way.
+
+32:11.960 --> 32:14.320
+ And we shouldn't avoid those problems,
+
+32:14.320 --> 32:16.760
+ but we shouldn't allow them to be stumbling blocks
+
+32:16.760 --> 32:18.920
+ to advancement.
+
+32:18.920 --> 32:22.440
+ So the folks like Sam Harris or Elon Musk
+
+32:22.440 --> 32:24.520
+ are saying that we're not worried enough.
+
+32:24.520 --> 32:28.520
+ So the worry should not paralyze technological progress,
+
+32:28.520 --> 32:30.760
+ but we're sort of marching,
+
+32:30.760 --> 32:35.760
+ technology is marching forward without the key scientists,
+
+32:35.800 --> 32:37.880
+ the developing of technology,
+
+32:37.880 --> 32:42.080
+ worrying about the overnight having some effects
+
+32:42.080 --> 32:45.200
+ that would be very detrimental to society.
+
+32:45.200 --> 32:49.520
+ So to push back on your thought of the idea
+
+32:49.520 --> 32:51.240
+ that there's enough people worrying about it,
+
+32:51.240 --> 32:53.040
+ Elon Musk says, there's not enough people
+
+32:53.040 --> 32:54.640
+ worrying about it.
+
+32:54.640 --> 32:56.580
+ That's the kind of balance is,
+
+32:58.960 --> 33:01.240
+ it's like folks who are really focused
+
+33:01.240 --> 33:03.680
+ on nuclear deterrence are saying
+
+33:03.680 --> 33:04.840
+ there's not enough people worried
+
+33:04.840 --> 33:06.080
+ about nuclear deterrence, right?
+
+33:06.080 --> 33:10.220
+ So it's an interesting question of what is a good threshold
+
+33:10.220 --> 33:12.600
+ of people to worry about these?
+
+33:12.600 --> 33:15.160
+ And if it's too many people that are worried, you're right.
+
+33:15.160 --> 33:18.720
+ It'll be like the press would over report on it
+
+33:18.720 --> 33:21.840
+ and there'll be technological, halt technological progress.
+
+33:21.840 --> 33:24.440
+ If not enough, then we can march straight ahead
+
+33:24.440 --> 33:29.440
+ into that abyss that human beings might be destined for
+
+33:29.840 --> 33:31.320
+ with the progress of technology.
+
+33:31.320 --> 33:33.680
+ Yeah, I don't know what the right balance is
+
+33:33.680 --> 33:35.720
+ of how many people should be worried
+
+33:35.720 --> 33:36.960
+ and how worried should they be,
+
+33:36.960 --> 33:40.440
+ but we're always worried about new technology.
+
+33:40.440 --> 33:42.960
+ We know that Plato was worried about the written word.
+
+33:42.960 --> 33:45.000
+ He was like, we shouldn't teach people to write
+
+33:45.000 --> 33:48.360
+ because then they won't use their minds to remember things.
+
+33:48.360 --> 33:51.240
+ There have been concerns over technology
+
+33:51.240 --> 33:55.120
+ and its advancement since the beginning of recorded history.
+
+33:55.120 --> 33:58.880
+ And so, I think, however,
+
+33:58.880 --> 34:01.060
+ these conversations are really important to have
+
+34:01.060 --> 34:03.360
+ because again, we learn a lot about ourselves.
+
+34:03.360 --> 34:06.200
+ If we're really scared of some kind of AI
+
+34:06.200 --> 34:09.360
+ like coming into being that is conscious or whatever
+
+34:09.360 --> 34:13.120
+ and can self replicate, we already do that every day.
+
+34:13.120 --> 34:14.560
+ It's called humans being born.
+
+34:14.560 --> 34:17.200
+ They're not artificial, they're humans,
+
+34:17.200 --> 34:20.140
+ but they're intelligent and I don't wanna live in a world
+
+34:20.140 --> 34:21.940
+ where we're worried about babies being born
+
+34:21.940 --> 34:24.200
+ because what if they become evil?
+
+34:24.200 --> 34:25.040
+ Right.
+
+34:25.040 --> 34:25.920
+ What if they become mean people?
+
+34:25.920 --> 34:27.680
+ What if they're thieves?
+
+34:27.680 --> 34:31.760
+ Maybe we should just like, what, not have babies born?
+
+34:31.760 --> 34:33.980
+ Like maybe we shouldn't create AI.
+
+34:33.980 --> 34:38.980
+ It's like, we will want to have safeguards in place
+
+34:39.720 --> 34:41.740
+ in the same way that we know, look,
+
+34:41.740 --> 34:44.400
+ a kid could be born that becomes some kind of evil person,
+
+34:44.400 --> 34:47.880
+ but we have laws, right?
+
+34:47.880 --> 34:51.600
+ And it's possible that with advanced genetics in general,
+
+34:51.600 --> 34:56.600
+ be able to, it's a scary thought to say that,
+
+34:58.400 --> 35:03.400
+ this, my child, if born would have an 83% chance
+
+35:05.200 --> 35:08.720
+ of being a psychopath, right?
+
+35:08.720 --> 35:11.500
+ Like being able to, if it's something genetic,
+
+35:11.500 --> 35:15.040
+ if there's some sort of, and what to use that information,
+
+35:15.040 --> 35:16.200
+ what to do with that information
+
+35:16.200 --> 35:20.000
+ is a difficult ethical thought.
+
+35:20.000 --> 35:22.040
+ Yeah, and I'd like to find an answer that isn't,
+
+35:22.040 --> 35:24.940
+ well, let's not have them live.
+
+35:24.940 --> 35:26.860
+ You know, I'd like to find an answer that is,
+
+35:26.860 --> 35:30.340
+ well, all human life is worthy.
+
+35:30.340 --> 35:33.640
+ And if you have an 83% chance of becoming a psychopath,
+
+35:33.640 --> 35:38.140
+ well, you still deserve dignity.
+
+35:38.140 --> 35:42.400
+ And you still deserve to be treated well.
+
+35:42.400 --> 35:43.360
+ You still have rights.
+
+35:43.360 --> 35:45.980
+ At least at this part of the world, at least in America,
+
+35:45.980 --> 35:49.540
+ there's a respect for individual life in that way.
+
+35:49.540 --> 35:54.040
+ That's, well, to me, but again, I'm in this bubble,
+
+35:54.040 --> 35:55.760
+ is a beautiful thing.
+
+35:55.760 --> 35:59.020
+ But there's other cultures where individual human life
+
+35:59.020 --> 36:02.720
+ is not that important, where a society,
+
+36:02.720 --> 36:04.760
+ so I was born in the Soviet Union,
+
+36:04.760 --> 36:07.440
+ where the strength of nation and society together
+
+36:07.440 --> 36:10.280
+ is more important than any one particular individual.
+
+36:10.280 --> 36:12.080
+ So it's an interesting also notion,
+
+36:12.080 --> 36:13.540
+ the stories we tell ourselves.
+
+36:13.540 --> 36:16.000
+ I like the one where individuals matter,
+
+36:16.000 --> 36:19.200
+ but it's unclear that that was what the future holds.
+
+36:19.200 --> 36:21.480
+ Well, yeah, and I mean, let me even throw this out.
+
+36:21.480 --> 36:23.840
+ Like, what is artificial intelligence?
+
+36:23.840 --> 36:25.200
+ How can it be artificial?
+
+36:25.200 --> 36:28.000
+ I really think that we get pretty obsessed
+
+36:28.000 --> 36:30.740
+ and stuck on the idea that there is some thing
+
+36:30.740 --> 36:34.320
+ that is a wild human, a pure human organism
+
+36:34.320 --> 36:35.780
+ without technology.
+
+36:35.780 --> 36:37.540
+ But I don't think that's a real thing.
+
+36:37.540 --> 36:42.540
+ I think that humans and human technology are one organism.
+
+36:42.780 --> 36:44.500
+ Look at my glasses, okay?
+
+36:44.500 --> 36:47.860
+ If an alien came down and saw me,
+
+36:47.860 --> 36:50.620
+ would they necessarily know that this is an invention,
+
+36:50.620 --> 36:53.220
+ that I don't grow these organically from my body?
+
+36:53.220 --> 36:55.460
+ They wouldn't know that right away.
+
+36:55.460 --> 37:00.460
+ And the written word, and spoons, and cups,
+
+37:00.460 --> 37:02.460
+ these are all pieces of technology.
+
+37:02.460 --> 37:06.700
+ We are not alone as an organism.
+
+37:06.700 --> 37:09.060
+ And so the technology we create,
+
+37:09.060 --> 37:11.980
+ whether it be video games or artificial intelligence
+
+37:11.980 --> 37:14.020
+ that can self replicate and hate us,
+
+37:14.020 --> 37:16.780
+ it's actually all the same organism.
+
+37:16.780 --> 37:19.220
+ When you're in a car, where do you end in the car begin?
+
+37:19.220 --> 37:21.100
+ It seems like a really easy question to answer,
+
+37:21.100 --> 37:22.660
+ but the more you think about it,
+
+37:22.660 --> 37:23.900
+ the more you realize, wow,
+
+37:23.900 --> 37:27.940
+ we are in this symbiotic relationship with our inventions.
+
+37:27.940 --> 37:30.020
+ And there are plenty of people who are worried about it.
+
+37:30.020 --> 37:30.860
+ And there should be,
+
+37:30.860 --> 37:32.820
+ but it's inevitable.
+
+37:32.820 --> 37:35.900
+ And I think that even just us think of ourselves
+
+37:35.900 --> 37:40.900
+ as individual intelligences may be silly notion
+
+37:41.380 --> 37:44.540
+ because it's much better to think
+
+37:44.540 --> 37:46.780
+ of the entirety of human civilization.
+
+37:46.780 --> 37:50.740
+ All living organisms on earth is a single living organism.
+
+37:50.740 --> 37:52.180
+ As a single intelligent creature,
+
+37:52.180 --> 37:54.340
+ because you're right, everything's intertwined.
+
+37:54.340 --> 37:57.100
+ Everything is deeply connected.
+
+37:57.100 --> 37:57.940
+ So we mentioned, you know,
+
+37:57.940 --> 38:02.940
+ Musk, so you're a curious lover of science.
+
+38:03.140 --> 38:06.860
+ What do you think of the efforts that Elon Musk is doing
+
+38:06.860 --> 38:10.100
+ with space exploration, with electric vehicles,
+
+38:10.100 --> 38:13.620
+ with autopilot, sort of getting into the space
+
+38:13.620 --> 38:17.300
+ of autonomous vehicles, with boring under LA
+
+38:17.300 --> 38:21.740
+ and a Neuralink trying to communicate brain machine
+
+38:21.740 --> 38:24.260
+ interfaces, communicate between machines
+
+38:24.260 --> 38:28.540
+ and human brains?
+
+38:28.540 --> 38:30.140
+ Well, it's really inspiring.
+
+38:30.140 --> 38:34.860
+ I mean, look at the fandom that he's amassed.
+
+38:34.860 --> 38:39.220
+ It's not common for someone like that
+
+38:39.220 --> 38:40.620
+ to have such a following.
+
+38:40.620 --> 38:42.420
+ And so it's... Engineering nerd.
+
+38:42.420 --> 38:44.580
+ Yeah, so it's really exciting.
+
+38:44.580 --> 38:46.420
+ But I also think that a lot of responsibility
+
+38:46.420 --> 38:47.660
+ comes with that kind of power.
+
+38:47.660 --> 38:50.860
+ So like if I met him, I would love to hear how he feels
+
+38:50.860 --> 38:53.420
+ about the responsibility he has.
+
+38:53.420 --> 38:58.420
+ When there are people who are such a fan of your ideas
+
+38:59.980 --> 39:04.620
+ and your dreams and share them so closely with you,
+
+39:04.620 --> 39:06.420
+ you have a lot of power.
+
+39:06.420 --> 39:09.660
+ And he didn't always have that, you know?
+
+39:09.660 --> 39:11.980
+ He wasn't born as Elon Musk.
+
+39:11.980 --> 39:13.980
+ Well, he was, but well, he was named that later.
+
+39:13.980 --> 39:18.980
+ But the point is that I wanna know the psychology
+
+39:18.980 --> 39:23.860
+ of becoming a figure like him.
+
+39:23.860 --> 39:25.660
+ Well, I don't even know how to phrase the question right,
+
+39:25.660 --> 39:27.980
+ but it's a question about what do you do
+
+39:27.980 --> 39:32.980
+ when you're following, your fans become so large
+
+39:35.780 --> 39:37.980
+ that it's almost bigger than you.
+
+39:37.980 --> 39:41.020
+ And how do you responsibly manage that?
+
+39:41.020 --> 39:42.180
+ And maybe it doesn't worry him at all.
+
+39:42.180 --> 39:43.500
+ And that's fine too.
+
+39:43.500 --> 39:45.500
+ But I'd be really curious.
+
+39:45.500 --> 39:47.660
+ And I think there are a lot of people that go through this
+
+39:47.660 --> 39:50.380
+ when they realize, whoa, there are a lot of eyes on me.
+
+39:50.380 --> 39:53.900
+ There are a lot of people who really take what I say
+
+39:53.900 --> 39:57.700
+ very earnestly and take it to heart and will defend me.
+
+39:57.700 --> 40:02.700
+ And whew, that's, that's, that can be dangerous.
+
+40:04.260 --> 40:07.500
+ And you have to be responsible with it.
+
+40:07.500 --> 40:09.260
+ Both in terms of impact on society
+
+40:09.260 --> 40:11.260
+ and psychologically for the individual,
+
+40:11.260 --> 40:15.020
+ just the burden psychologically on Elon?
+
+40:15.020 --> 40:18.820
+ Yeah, yeah, how does he think about that?
+
+40:18.820 --> 40:21.180
+ Part of his persona.
+
+40:21.180 --> 40:23.340
+ Well, let me throw that right back at you
+
+40:23.340 --> 40:27.500
+ because in some ways you're just a funny guy
+
+40:28.540 --> 40:31.660
+ that gotten a humongous following,
+
+40:31.660 --> 40:33.540
+ a funny guy with a curiosity.
+
+40:34.900 --> 40:36.540
+ You've got a huge following.
+
+40:36.540 --> 40:40.060
+ How do you psychologically deal with the responsibility?
+
+40:40.060 --> 40:41.980
+ In many ways you have a reach
+
+40:41.980 --> 40:44.540
+ in many ways bigger than Elon Musk.
+
+40:44.540 --> 40:49.340
+ What is your, what is the burden that you feel in educating
+
+40:49.340 --> 40:51.980
+ being one of the biggest educators in the world
+
+40:51.980 --> 40:53.500
+ where everybody's listening to you
+
+40:53.500 --> 40:58.380
+ and actually everybody, like most of the world
+
+40:58.380 --> 41:01.060
+ that's uses YouTube for educational material,
+
+41:01.060 --> 41:06.000
+ trust you as a source of good, strong scientific thinking.
+
+41:07.540 --> 41:11.020
+ It's a burden and I try to approach it
+
+41:11.020 --> 41:16.020
+ with a lot of humility and sharing.
+
+41:16.020 --> 41:18.580
+ Like I'm not out there doing
+
+41:18.580 --> 41:20.300
+ a lot of scientific experiments.
+
+41:20.300 --> 41:23.180
+ I am sharing the work of real scientists
+
+41:23.180 --> 41:26.420
+ and I'm celebrating their work and the way that they think
+
+41:26.420 --> 41:29.500
+ and the power of curiosity.
+
+41:29.500 --> 41:32.200
+ But I wanna make it clear at all times that like,
+
+41:32.200 --> 41:35.260
+ look, we don't know all the answers
+
+41:35.260 --> 41:37.660
+ and I don't think we're ever going to reach a point
+
+41:37.660 --> 41:39.500
+ where we're like, wow, and there you go.
+
+41:39.500 --> 41:40.620
+ That's the universe.
+
+41:40.620 --> 41:43.820
+ It's this equation, you plug in some conditions or whatever
+
+41:43.820 --> 41:44.660
+ and you do the math
+
+41:44.660 --> 41:46.100
+ and you know what's gonna happen tomorrow.
+
+41:46.100 --> 41:47.920
+ I don't think we're ever gonna reach that point,
+
+41:47.920 --> 41:51.920
+ but I think that there is a tendency
+
+41:51.920 --> 41:56.100
+ to sometimes believe in science and become elitist
+
+41:56.100 --> 41:58.860
+ and become, I don't know, hard when in reality
+
+41:58.860 --> 42:01.780
+ it should humble you and make you feel smaller.
+
+42:01.780 --> 42:03.080
+ I think there's something very beautiful
+
+42:03.080 --> 42:07.420
+ about feeling very, very small and very weak
+
+42:07.420 --> 42:10.940
+ and to feel that you need other people.
+
+42:10.940 --> 42:13.220
+ So I try to keep that in mind and say,
+
+42:13.220 --> 42:14.340
+ look, thanks for watching.
+
+42:14.340 --> 42:16.700
+ Vsauce is not, I'm not Vsauce, you are.
+
+42:16.700 --> 42:18.080
+ When I start the episodes, I say,
+
+42:18.080 --> 42:20.500
+ hey, Vsauce, Michael here.
+
+42:20.500 --> 42:22.260
+ Vsauce and Michael are actually a different thing
+
+42:22.260 --> 42:23.100
+ in my mind.
+
+42:23.100 --> 42:24.380
+ I don't know if that's always clear,
+
+42:24.380 --> 42:26.900
+ but yeah, I have to approach it that way
+
+42:26.900 --> 42:29.040
+ because it's not about me.
+
+42:30.080 --> 42:31.860
+ Yeah, so it's not even,
+
+42:31.860 --> 42:33.620
+ you're not feeling the responsibility.
+
+42:33.620 --> 42:36.100
+ You're just sort of plugging into this big thing
+
+42:36.100 --> 42:40.020
+ that is scientific exploration of our reality
+
+42:40.020 --> 42:42.660
+ and you're a voice that represents a bunch,
+
+42:42.660 --> 42:47.660
+ but you're just plugging into this big Vsauce ball
+
+42:47.660 --> 42:49.860
+ that others, millions of others are plugged into.
+
+42:49.860 --> 42:53.060
+ Yeah, and I'm just hoping to encourage curiosity
+
+42:53.060 --> 42:56.380
+ and responsible thinking
+
+42:56.380 --> 43:01.380
+ and an embracement of doubt
+
+43:01.980 --> 43:05.020
+ and being okay with that.
+
+43:05.020 --> 43:08.200
+ So I'm next week talking to Christos Gudrow.
+
+43:08.200 --> 43:09.980
+ I'm not sure if you're familiar who he is,
+
+43:09.980 --> 43:11.660
+ but he's the VP of engineering,
+
+43:11.660 --> 43:14.660
+ head of the quote unquote YouTube algorithm
+
+43:14.660 --> 43:16.140
+ or the search and discovery.
+
+43:16.140 --> 43:20.180
+ So let me ask, first high level,
+
+43:20.180 --> 43:25.100
+ do you have a question for him
+
+43:25.100 --> 43:28.860
+ that if you can get an honest answer that you would ask,
+
+43:28.860 --> 43:30.140
+ but more generally,
+
+43:30.140 --> 43:32.620
+ how do you think about the YouTube algorithm
+
+43:32.620 --> 43:36.060
+ that drives some of the motivation behind,
+
+43:36.060 --> 43:38.900
+ no, some of the design decisions you make
+
+43:38.900 --> 43:42.220
+ as you ask and answer some of the questions you do,
+
+43:42.220 --> 43:45.140
+ how would you improve this algorithm in your mind in general?
+
+43:45.140 --> 43:47.540
+ So just what would you ask him?
+
+43:47.540 --> 43:49.500
+ And outside of that,
+
+43:49.500 --> 43:52.700
+ how would you like to see the algorithm improve?
+
+43:52.700 --> 43:56.780
+ Well, I think of the algorithm as a mirror.
+
+43:56.780 --> 43:58.940
+ It reflects what people put in
+
+43:58.940 --> 44:01.140
+ and we don't always like what we see in that mirror.
+
+44:01.140 --> 44:02.780
+ From the individual mirror
+
+44:02.780 --> 44:05.420
+ to the individual mirror to the society.
+
+44:05.420 --> 44:07.020
+ Both, in the aggregate,
+
+44:07.020 --> 44:11.380
+ it's reflecting back what people on average want to watch.
+
+44:11.380 --> 44:15.340
+ And when you see things being recommended to you,
+
+44:15.340 --> 44:19.220
+ it's reflecting back what it thinks you want to see.
+
+44:19.220 --> 44:22.300
+ And specifically, I would guess that it's
+
+44:22.300 --> 44:23.560
+ not just what you want to see,
+
+44:23.560 --> 44:25.560
+ but what you will click on
+
+44:25.560 --> 44:30.560
+ and what you will watch some of and stay on YouTube
+
+44:30.560 --> 44:32.480
+ because of.
+
+44:32.480 --> 44:34.860
+ I don't think that, this is all me guessing,
+
+44:34.860 --> 44:38.980
+ but I don't think that YouTube cares
+
+44:38.980 --> 44:41.700
+ if you only watch like a second of a video,
+
+44:41.700 --> 44:45.100
+ as long as the next thing you do is open another video.
+
+44:45.100 --> 44:49.380
+ If you close the app or close the site,
+
+44:49.380 --> 44:50.780
+ that's a problem for them
+
+44:50.780 --> 44:52.940
+ because they're not a subscription platform.
+
+44:52.940 --> 44:53.780
+ They're not like, look,
+
+44:53.780 --> 44:56.120
+ you're giving us 20 bucks a month no matter what,
+
+44:56.120 --> 44:57.620
+ so who cares?
+
+44:57.620 --> 45:02.100
+ They need you to watch and spend time there and see ads.
+
+45:02.100 --> 45:03.620
+ So one of the things I'm curious about
+
+45:03.620 --> 45:08.620
+ whether they do consider longer term sort of develop,
+
+45:09.980 --> 45:12.600
+ your longer term development as a human being,
+
+45:12.600 --> 45:15.100
+ which I think ultimately will make you feel better
+
+45:15.100 --> 45:17.460
+ about using YouTube in the longterm
+
+45:17.460 --> 45:19.920
+ and allowing you to stick with it for longer.
+
+45:19.920 --> 45:23.300
+ Because even if you feed the dopamine rush in the short term
+
+45:23.300 --> 45:25.580
+ and you keep clicking on cat videos,
+
+45:25.580 --> 45:28.980
+ eventually you sort of wake up like from a drug
+
+45:28.980 --> 45:30.860
+ and say, I need to quit this.
+
+45:30.860 --> 45:32.700
+ So I wonder how much you're trying to optimize
+
+45:32.700 --> 45:35.820
+ for the longterm because when I look at the,
+
+45:35.820 --> 45:39.420
+ your videos aren't exactly sort of, no offense,
+
+45:39.420 --> 45:41.740
+ but they're not the most clickable.
+
+45:41.740 --> 45:44.180
+ They're both the most clickable
+
+45:44.180 --> 45:47.260
+ and I feel I watched the entire thing
+
+45:47.260 --> 45:49.640
+ and I feel a better human after I watched it, right?
+
+45:49.640 --> 45:54.640
+ So like they're not just optimizing for the clickability
+
+45:54.640 --> 45:59.640
+ because I hope, so my thought is how do you think of it?
+
+45:59.880 --> 46:02.240
+ And does it affect your own content?
+
+46:02.240 --> 46:03.280
+ Like how deep you go,
+
+46:03.280 --> 46:07.000
+ how profound you explore the directions and so on.
+
+46:07.000 --> 46:11.500
+ I've been really lucky in that I don't worry too much
+
+46:11.500 --> 46:12.520
+ about the algorithm.
+
+46:12.520 --> 46:13.800
+ I mean, look at my thumbnails.
+
+46:13.800 --> 46:17.200
+ I don't really go too wild with them.
+
+46:17.200 --> 46:19.800
+ And with minefield where I'm in partnership with YouTube
+
+46:19.800 --> 46:22.400
+ on the thumbnails, I'm often like, let's pull this back.
+
+46:22.400 --> 46:23.960
+ Let's be mysterious.
+
+46:23.960 --> 46:25.640
+ But usually I'm just trying to do
+
+46:25.640 --> 46:27.520
+ what everyone else is not doing.
+
+46:27.520 --> 46:30.960
+ So if everyone's doing crazy Photoshop kind of thumbnails,
+
+46:30.960 --> 46:34.120
+ I'm like, what if the thumbnails just a line?
+
+46:34.120 --> 46:37.760
+ And what if the title is just a word?
+
+46:37.760 --> 46:41.160
+ And I kind of feel like all of the Vsauce channels
+
+46:41.160 --> 46:43.160
+ have cultivated an audience that expects that.
+
+46:43.160 --> 46:45.340
+ And so they would rather Jake make a video
+
+46:45.340 --> 46:48.440
+ that's just called stains than one called,
+
+46:48.440 --> 46:50.920
+ I explored stains, shocking.
+
+46:50.920 --> 46:53.300
+ But there are other audiences out there that want that.
+
+46:53.300 --> 46:57.080
+ And I think most people kind of want
+
+46:57.080 --> 46:58.800
+ what you see the algorithm favoring,
+
+46:58.800 --> 47:02.240
+ which is mainstream traditional celebrity
+
+47:02.240 --> 47:03.640
+ and news kind of information.
+
+47:03.640 --> 47:05.200
+ I mean, that's what makes YouTube really different
+
+47:05.200 --> 47:06.680
+ than other streaming platforms.
+
+47:06.680 --> 47:08.800
+ No one's like, what's going on in the world?
+
+47:08.800 --> 47:10.520
+ I'll open up Netflix to find out.
+
+47:10.520 --> 47:12.720
+ But you do open up Twitter to find that out.
+
+47:12.720 --> 47:14.840
+ You open up Facebook and you can open up YouTube
+
+47:14.840 --> 47:16.260
+ because you'll see that the trending videos
+
+47:16.260 --> 47:20.240
+ are like what happened amongst the traditional mainstream
+
+47:20.240 --> 47:22.120
+ people in different industries.
+
+47:22.120 --> 47:24.040
+ And that's what's being shown.
+
+47:24.040 --> 47:27.560
+ And it's not necessarily YouTube saying,
+
+47:27.560 --> 47:29.240
+ we want that to be what you see.
+
+47:29.240 --> 47:31.400
+ It's that that's what people click on.
+
+47:31.400 --> 47:33.320
+ When they see Ariana Grande, you know,
+
+47:33.320 --> 47:36.280
+ reads a love letter from like her high school sweetheart,
+
+47:36.280 --> 47:38.000
+ they're like, I wanna see that.
+
+47:38.000 --> 47:39.320
+ And when they see a video from me
+
+47:39.320 --> 47:41.800
+ that's got some lines in math and it's called law and causes
+
+47:41.800 --> 47:45.940
+ they're like, well, I mean, I'm just on the bus.
+
+47:45.940 --> 47:48.640
+ Like I don't have time to dive into a whole lesson.
+
+47:48.640 --> 47:52.360
+ So, you know, before you get super mad at YouTube,
+
+47:52.360 --> 47:53.640
+ you should say, really,
+
+47:53.640 --> 47:55.520
+ they're just reflecting back human behavior.
+
+47:55.520 --> 47:59.040
+ Is there something you would improve about the algorithm
+
+48:00.240 --> 48:02.760
+ knowing of course, that as far as we're concerned,
+
+48:02.760 --> 48:04.600
+ it's a black box, so we don't know how it works.
+
+48:04.600 --> 48:06.760
+ Right, and I don't think that even anyone at YouTube
+
+48:06.760 --> 48:07.920
+ really knows what it's doing.
+
+48:07.920 --> 48:09.800
+ They know what they've tweaked, but then it learns.
+
+48:09.800 --> 48:13.800
+ I think that it learns and it decides how to behave.
+
+48:13.800 --> 48:16.640
+ And sometimes the YouTube employees are left going,
+
+48:16.640 --> 48:17.740
+ I don't know.
+
+48:17.740 --> 48:19.600
+ Maybe we should like change the value
+
+48:19.600 --> 48:22.640
+ of how much it, you know, worries about watch time.
+
+48:22.640 --> 48:24.800
+ And maybe it should worry more about something else.
+
+48:24.800 --> 48:25.640
+ I don't know.
+
+48:25.640 --> 48:27.400
+ But I mean, I would like to see,
+
+48:28.400 --> 48:30.680
+ I don't know what they're doing and not doing.
+
+48:30.680 --> 48:32.740
+ Well, is there a conversation
+
+48:32.740 --> 48:35.720
+ that you think they should be having just internally,
+
+48:35.720 --> 48:37.300
+ whether they're having it or not?
+
+48:37.300 --> 48:38.920
+ Is there something,
+
+48:38.920 --> 48:41.140
+ should they be thinking about the longterm future?
+
+48:41.140 --> 48:44.440
+ Should they be thinking about educational content
+
+48:44.440 --> 48:48.160
+ and whether that's educating about what just happened
+
+48:48.160 --> 48:50.680
+ in the world today, news or educational content,
+
+48:50.680 --> 48:51.520
+ like what you're providing,
+
+48:51.520 --> 48:54.360
+ which is asking big sort of timeless questions
+
+48:54.360 --> 48:56.580
+ about how the way the world works.
+
+48:56.580 --> 48:58.120
+ Well, it's interesting.
+
+48:58.120 --> 48:59.400
+ What should they think about?
+
+48:59.400 --> 49:02.620
+ Because it's called YouTube, not our tube.
+
+49:02.620 --> 49:04.680
+ And that's why I think they have
+
+49:04.680 --> 49:08.360
+ so many phenomenal educational creators.
+
+49:08.360 --> 49:11.720
+ You don't have shows like Three Blue One Brown
+
+49:11.720 --> 49:14.960
+ or Physics Girl or Looking Glass Universe or Up and Atom
+
+49:14.960 --> 49:18.720
+ or Brain Scoop or, I mean, I could go on and on.
+
+49:18.720 --> 49:21.200
+ They aren't on Amazon Prime and Netflix
+
+49:21.200 --> 49:24.000
+ and they don't have commissioned shows from those platforms.
+
+49:24.000 --> 49:25.520
+ It's all organically happening
+
+49:25.520 --> 49:26.660
+ because there are people out there
+
+49:26.660 --> 49:30.140
+ that want to share their passion for learning,
+
+49:30.140 --> 49:32.520
+ that wanna share their curiosity.
+
+49:32.520 --> 49:37.440
+ And YouTube could promote those kinds of shows more,
+
+49:37.440 --> 49:42.440
+ but first of all, they probably wouldn't get as many clicks
+
+49:43.240 --> 49:45.340
+ and YouTube needs to make sure that the average user
+
+49:45.340 --> 49:47.720
+ is always clicking and staying on the site.
+
+49:47.720 --> 49:51.060
+ They could still promote it more for the good of society,
+
+49:51.060 --> 49:52.720
+ but then we're making some really weird claims
+
+49:52.720 --> 49:53.960
+ about what's good for society
+
+49:53.960 --> 49:55.600
+ because I think that cat videos
+
+49:55.600 --> 49:58.040
+ are also an incredibly important part
+
+49:58.040 --> 50:00.360
+ of what it means to be a human.
+
+50:00.360 --> 50:02.860
+ I mentioned this quote before from Unumuno about,
+
+50:02.860 --> 50:05.400
+ look, I've seen a cat like estimate distances
+
+50:05.400 --> 50:09.440
+ and calculate a jump more often than I've seen a cat cry.
+
+50:09.440 --> 50:12.440
+ And so things that play with our emotions
+
+50:12.440 --> 50:15.360
+ and make us feel things can be cheesy and can feel cheap,
+
+50:15.360 --> 50:18.000
+ but like, man, that's very human.
+
+50:18.000 --> 50:23.000
+ And so even the dumbest vlog is still so important
+
+50:23.760 --> 50:27.380
+ that I don't think I have a better claim to take its spot
+
+50:27.380 --> 50:29.840
+ than it has to have that spot.
+
+50:29.840 --> 50:32.600
+ It puts a mirror to us, the beautiful parts,
+
+50:32.600 --> 50:35.880
+ the ugly parts, the shallow parts, the deep parts.
+
+50:35.880 --> 50:36.720
+ You're right.
+
+50:36.720 --> 50:38.520
+ What I would like to see is,
+
+50:39.840 --> 50:43.360
+ I miss the days when engaging with content on YouTube
+
+50:43.360 --> 50:47.620
+ helped push it into my subscribers timelines.
+
+50:47.620 --> 50:49.560
+ It used to be that when I liked a video,
+
+50:49.560 --> 50:54.560
+ say from Veritasium, it would show up in the feed
+
+50:54.620 --> 50:58.340
+ on the front page of the app or the website of my subscribers.
+
+50:58.340 --> 51:00.440
+ And I knew that if I liked a video,
+
+51:00.440 --> 51:03.480
+ I could send it 100,000 views or more.
+
+51:03.480 --> 51:05.360
+ That no longer is true,
+
+51:05.360 --> 51:07.300
+ but I think that was a good user experience.
+
+51:07.300 --> 51:09.800
+ When I subscribe to someone, when I'm following them,
+
+51:09.800 --> 51:13.060
+ I want to see more of what they like.
+
+51:13.060 --> 51:15.360
+ I want them to also curate the feed for me.
+
+51:15.360 --> 51:17.900
+ And I think that Twitter and Facebook are doing that
+
+51:17.900 --> 51:20.320
+ in also some ways that are kind of annoying,
+
+51:20.320 --> 51:22.340
+ but I would like that to happen more.
+
+51:22.340 --> 51:25.160
+ And I think we would see communities being stronger
+
+51:25.160 --> 51:27.300
+ on YouTube if it was that way instead of YouTube going,
+
+51:27.300 --> 51:29.760
+ well, technically Michael liked this Veritasium video,
+
+51:29.760 --> 51:33.620
+ but people are way more likely to click on Carpool Karaoke.
+
+51:33.620 --> 51:36.200
+ So I don't even care who they are, just give them that.
+
+51:36.200 --> 51:38.960
+ Not saying anything against Carpool Karaoke,
+
+51:38.960 --> 51:43.260
+ that is a extremely important part of our society,
+
+51:43.260 --> 51:46.780
+ what it means to be a human on earth, you know, but.
+
+51:46.780 --> 51:48.440
+ I'll say it sucks, but.
+
+51:48.440 --> 51:51.380
+ Yeah, but a lot of people would disagree with you
+
+51:51.380 --> 51:53.860
+ and they should be able to see as much of that as they want.
+
+51:53.860 --> 51:55.660
+ And I think even people who don't think they like it
+
+51:55.660 --> 51:57.100
+ should still be really aware of it
+
+51:57.100 --> 51:59.400
+ because it's such an important thing.
+
+51:59.400 --> 52:00.900
+ It's such an influential thing.
+
+52:00.900 --> 52:03.260
+ But yeah, I just wish that like new channels I discover
+
+52:03.260 --> 52:04.340
+ and that I subscribe to,
+
+52:04.340 --> 52:06.940
+ I wish that my subscribers found out about that
+
+52:06.940 --> 52:10.020
+ because especially in the education community,
+
+52:10.020 --> 52:11.580
+ a rising tide floats all boats.
+
+52:11.580 --> 52:14.020
+ If you watch a video from Numberphile,
+
+52:14.020 --> 52:16.740
+ you're just more likely to want to watch an episode from me,
+
+52:16.740 --> 52:18.540
+ whether it be on Vsauce1 or Ding.
+
+52:18.540 --> 52:21.840
+ It's not competitive in the way that traditional TV was
+
+52:21.840 --> 52:23.180
+ where it's like, well, if you tune into that show,
+
+52:23.180 --> 52:24.540
+ it means you're not watching mine
+
+52:24.540 --> 52:26.140
+ because they both air at the same time.
+
+52:26.140 --> 52:29.340
+ So helping each other out through collaborations
+
+52:29.340 --> 52:30.180
+ takes a lot of work,
+
+52:30.180 --> 52:32.820
+ but just through engaging, commenting on their videos,
+
+52:32.820 --> 52:36.700
+ liking their videos, subscribing to them, whatever,
+
+52:36.700 --> 52:41.500
+ that I would love to see become easier and more powerful.
+
+52:41.500 --> 52:46.060
+ So a quick and impossibly deep question,
+
+52:46.060 --> 52:48.980
+ last question about mortality.
+
+52:48.980 --> 52:52.580
+ You've spoken about death as an interesting topic.
+
+52:52.580 --> 52:55.940
+ Do you think about your own mortality?
+
+52:55.940 --> 52:59.740
+ Yeah, every day, it's really scary.
+
+52:59.740 --> 53:04.020
+ So what do you think is the meaning of life
+
+53:04.020 --> 53:07.340
+ that mortality makes very explicit?
+
+53:07.340 --> 53:12.340
+ So why are you here on earth, Michael?
+
+53:12.620 --> 53:14.560
+ What's the point of this whole thing?
+
+53:18.100 --> 53:23.100
+ What does mortality in the context of the whole universe
+
+53:23.100 --> 53:26.400
+ make you realize about yourself?
+
+53:26.400 --> 53:28.060
+ Just you, Michael Stevens.
+
+53:29.140 --> 53:31.300
+ Well, it makes me realize
+
+53:31.300 --> 53:35.620
+ that I am destined to become a notion.
+
+53:35.620 --> 53:39.620
+ I'm destined to become a memory and we can extend life.
+
+53:39.620 --> 53:42.900
+ I think there's really exciting things being done
+
+53:42.900 --> 53:43.860
+ to extend life,
+
+53:43.860 --> 53:47.100
+ but we still don't know how to protect you
+
+53:47.100 --> 53:48.860
+ from some accident that could happen,
+
+53:48.860 --> 53:50.300
+ some unforeseen thing.
+
+53:50.300 --> 53:54.140
+ Maybe we could save my connectome
+
+53:54.140 --> 53:56.580
+ and recreate my consciousness digitally,
+
+53:56.580 --> 53:59.420
+ but even that could be lost
+
+54:00.340 --> 54:02.580
+ if it's stored on a physical medium or something.
+
+54:02.580 --> 54:05.580
+ So basically, I just think that embracing
+
+54:07.780 --> 54:09.020
+ and realizing how cool it is,
+
+54:09.020 --> 54:11.540
+ that someday I will just be an idea.
+
+54:11.540 --> 54:13.380
+ And there won't be a Michael anymore
+
+54:13.380 --> 54:16.180
+ that can be like, no, that's not what I meant.
+
+54:16.180 --> 54:17.540
+ It'll just be what people,
+
+54:17.540 --> 54:19.620
+ they have to guess what I meant.
+
+54:19.620 --> 54:21.740
+ And they'll remember me
+
+54:23.140 --> 54:25.780
+ and how I live on as that memory
+
+54:25.780 --> 54:29.600
+ will maybe not even be who I want it to be.
+
+54:29.600 --> 54:31.940
+ But there's something powerful about that.
+
+54:31.940 --> 54:32.900
+ And there's something powerful
+
+54:32.900 --> 54:37.900
+ about letting future people run the show themselves.
+
+54:38.980 --> 54:41.980
+ I think I'm glad to get out of their way at some point
+
+54:41.980 --> 54:43.660
+ and say, all right, it's your world now.
+
+54:43.660 --> 54:47.300
+ So you, the physical entity, Michael,
+
+54:47.300 --> 54:50.260
+ have ripple effects in the space of ideas
+
+54:50.260 --> 54:54.260
+ that far outlives you in ways that you can't control,
+
+54:54.260 --> 54:56.100
+ but it's nevertheless fascinating to think,
+
+54:56.100 --> 54:57.580
+ I mean, especially with you,
+
+54:57.580 --> 54:59.180
+ you can imagine an alien species
+
+54:59.180 --> 55:01.740
+ when they finally arrive and destroy all of us
+
+55:01.740 --> 55:04.580
+ would watch your videos to try to figure out
+
+55:04.580 --> 55:05.980
+ what were the questions that these people.
+
+55:05.980 --> 55:07.460
+ But even if they didn't,
+
+55:08.620 --> 55:11.380
+ I still think that there will be ripples.
+
+55:11.380 --> 55:13.420
+ Like when I say memory,
+
+55:13.420 --> 55:16.580
+ I don't specifically mean people remember my name
+
+55:16.580 --> 55:18.940
+ and my birth date and like there's a photo of me
+
+55:18.940 --> 55:20.860
+ on Wikipedia, like all that can be lost,
+
+55:20.860 --> 55:23.980
+ but I still would hope that people ask questions
+
+55:23.980 --> 55:26.460
+ and teach concepts in some of the ways
+
+55:26.460 --> 55:28.340
+ that I have found useful and satisfying.
+
+55:28.340 --> 55:29.780
+ Even if they don't know that I was the one
+
+55:29.780 --> 55:32.580
+ who tried to popularize it, that's fine.
+
+55:32.580 --> 55:35.260
+ But if Earth was completely destroyed,
+
+55:35.260 --> 55:39.340
+ like burnt to a crisp, everything on it today,
+
+55:39.340 --> 55:42.700
+ what would, the universe wouldn't care.
+
+55:42.700 --> 55:47.700
+ Like Jupiter's not gonna go, oh no, and that could happen.
+
+55:49.980 --> 55:54.980
+ So we do however have the power to launch things
+
+55:55.100 --> 56:00.100
+ into space to try to extend how long our memory exists.
+
+56:02.900 --> 56:04.620
+ And what I mean by that is,
+
+56:04.620 --> 56:06.900
+ we are recording things about the world
+
+56:06.900 --> 56:08.420
+ and we're learning things and writing stories
+
+56:08.420 --> 56:13.020
+ and all of this and preserving that is truly
+
+56:13.020 --> 56:16.580
+ what I think is the essence of being a human.
+
+56:16.580 --> 56:20.580
+ We are autobiographers of the universe
+
+56:20.580 --> 56:21.660
+ and we're really good at it.
+
+56:21.660 --> 56:22.940
+ We're better than fossils.
+
+56:22.940 --> 56:25.500
+ We're better than light spectrum.
+
+56:25.500 --> 56:26.740
+ We're better than any of that.
+
+56:26.740 --> 56:29.980
+ We collect much more detailed memories
+
+56:29.980 --> 56:32.820
+ of what's happening, much better data.
+
+56:32.820 --> 56:37.300
+ And so that should be our legacy.
+
+56:37.300 --> 56:40.140
+ And I hope that that's kind of mine too
+
+56:40.140 --> 56:42.420
+ in terms of people remembering something
+
+56:42.420 --> 56:44.780
+ or having some kind of effect.
+
+56:44.780 --> 56:47.860
+ But even if I don't, you can't not have an effect.
+
+56:47.860 --> 56:49.180
+ This is not me feeling like,
+
+56:49.180 --> 56:50.820
+ I hope that I have this powerful legacy.
+
+56:50.820 --> 56:53.820
+ It's like, no matter who you are, you will.
+
+56:53.820 --> 56:57.700
+ But you also have to embrace the fact
+
+56:57.700 --> 57:01.340
+ that that impact might look really small and that's okay.
+
+57:01.340 --> 57:04.460
+ One of my favorite quotes is from Tessa the Durbervilles.
+
+57:04.460 --> 57:08.220
+ And it's along the lines of the measure of your life
+
+57:08.220 --> 57:10.940
+ depends on not your external displacement
+
+57:10.940 --> 57:13.100
+ but your subjective experience.
+
+57:13.100 --> 57:15.780
+ If I am happy and those that I love are happy,
+
+57:16.700 --> 57:17.700
+ can that be enough?
+
+57:17.700 --> 57:20.100
+ Because if so, excellent.
+
+57:21.340 --> 57:23.460
+ I think there's no better place to end it, Michael.
+
+57:23.460 --> 57:24.300
+ Thank you so much.
+
+57:24.300 --> 57:25.140
+ It was an honor to meet you.
+
+57:25.140 --> 57:25.980
+ Thanks for talking to me.
+
+57:25.980 --> 57:27.660
+ Thank you, it was a pleasure.
+
+57:27.660 --> 57:29.180
+ Thanks for listening to this conversation
+
+57:29.180 --> 57:30.460
+ with Michael Stevens.
+
+57:30.460 --> 57:33.340
+ And thank you to our presenting sponsor, Cash App.
+
+57:33.340 --> 57:35.940
+ Download it, use code LexPodcast,
+
+57:35.940 --> 57:38.980
+ you'll get $10 and $10 will go to First,
+
+57:38.980 --> 57:41.300
+ a STEM education nonprofit that inspires
+
+57:41.300 --> 57:43.300
+ hundreds of thousands of young minds
+
+57:43.300 --> 57:47.020
+ to learn, to dream of engineering our future.
+
+57:47.020 --> 57:49.940
+ If you enjoy this podcast, subscribe on YouTube,
+
+57:49.940 --> 57:51.940
+ give it five stars on Apple Podcast,
+
+57:51.940 --> 57:55.500
+ support it on Patreon, or connect with me on Twitter.
+
+57:55.500 --> 57:58.580
+ And now, let me leave you with some words of wisdom
+
+57:58.580 --> 58:00.780
+ from Albert Einstein.
+
+58:00.780 --> 58:03.980
+ The important thing is not to stop questioning.
+
+58:03.980 --> 58:06.900
+ Curiosity has its own reason for existence.
+
+58:06.900 --> 58:09.220
+ One cannot help but be in awe
+
+58:09.220 --> 58:11.740
+ when he contemplates the mysteries of eternity,
+
+58:11.740 --> 58:14.980
+ of life, the marvelous structure of reality.
+
+58:14.980 --> 58:18.100
+ It is enough if one tries merely to comprehend
+
+58:18.100 --> 58:20.140
+ a little of this mystery every day.
+
+58:20.140 --> 58:32.820
+ Thank you for listening and hope to see you next time.
+

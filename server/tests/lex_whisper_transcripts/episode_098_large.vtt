@@ -1,0 +1,2213 @@
+WEBVTT
+
+00:00.000 --> 00:04.480
+ The following is a conversation with Kate Darling, a researcher at MIT,
+
+00:04.480 --> 00:10.240
+ interested in social robotics, robot ethics, and generally how technology intersects with society.
+
+00:11.040 --> 00:15.680
+ She explores the emotional connection between human beings and lifelike machines,
+
+00:15.680 --> 00:20.480
+ which for me is one of the most exciting topics in all of artificial intelligence.
+
+00:21.360 --> 00:26.240
+ As she writes in her bio, she is a caretaker of several domestic robots,
+
+00:26.240 --> 00:33.600
+ including her plio dinosaur robots named Yochai, Peter, and Mr. Spaghetti.
+
+00:33.600 --> 00:37.200
+ She is one of the funniest and brightest minds I've ever had the fortune to talk to.
+
+00:37.840 --> 00:42.240
+ This conversation was recorded recently, but before the outbreak of the pandemic.
+
+00:42.240 --> 00:46.000
+ For everyone feeling the burden of this crisis, I'm sending love your way.
+
+00:46.720 --> 00:51.280
+ This is the Artificial Intelligence Podcast. If you enjoy it, subscribe on YouTube,
+
+00:51.280 --> 00:56.800
+ review it with five stars on Apple Podcast, support it on Patreon, or simply connect with me on Twitter
+
+00:56.800 --> 01:03.440
+ at Lex Friedman, spelled F R I D M A N. As usual, I'll do a few minutes of ads now and never any
+
+01:03.440 --> 01:08.000
+ ads in the middle that can break the flow of the conversation. I hope that works for you and
+
+01:08.000 --> 01:13.120
+ doesn't hurt the listening experience. Quick summary of the ads. Two sponsors,
+
+01:13.760 --> 01:19.040
+ Masterclass and ExpressVPN. Please consider supporting the podcast by signing up to
+
+01:19.040 --> 01:27.120
+ Masterclass at masterclass.com slash Lex and getting ExpressVPN at expressvpn.com slash Lex
+
+01:27.120 --> 01:35.440
+ Pod. This show is sponsored by Masterclass. Sign up at masterclass.com slash Lex to get a discount
+
+01:35.440 --> 01:40.720
+ and to support this podcast. When I first heard about Masterclass, I thought it was too good to
+
+01:40.720 --> 01:47.680
+ be true. For $180 a year, you get an all access pass to watch courses from, to list some of my
+
+01:47.680 --> 01:53.520
+ favorites. Chris Hadfield on space exploration, Neil deGrasse Tyson on scientific thinking and
+
+01:53.520 --> 01:59.520
+ communication, Will Wright, creator of SimCity and Sims, love those games, on game design,
+
+02:00.240 --> 02:06.800
+ Carlos Santana on guitar, Garry Kasparov on chess, Daniel Nagrano on poker, and many more.
+
+02:07.680 --> 02:12.720
+ Chris Hadfield explaining how rockets work and the experience of being launched into space alone
+
+02:12.720 --> 02:18.960
+ is worth the money. By the way, you can watch it on basically any device. Once again,
+
+02:18.960 --> 02:24.160
+ sign up on masterclass.com slash Lex to get a discount and to support this podcast.
+
+02:25.040 --> 02:33.120
+ This show is sponsored by ExpressVPN. Get it at expressvpn.com slash Lex Pod to get a discount
+
+02:33.120 --> 02:39.600
+ and to support this podcast. I've been using ExpressVPN for many years. I love it. It's easy
+
+02:39.600 --> 02:45.840
+ to use, press the big power on button, and your privacy is protected. And, if you like, you can
+
+02:45.840 --> 02:50.960
+ make it look like your location is anywhere else in the world. I might be in Boston now, but I can
+
+02:50.960 --> 02:56.240
+ make it look like I'm in New York, London, Paris, or anywhere else. This has a large number of
+
+02:56.240 --> 03:01.520
+ obvious benefits. Certainly, it allows you to access international versions of streaming websites
+
+03:01.520 --> 03:08.640
+ like the Japanese Netflix or the UK Hulu. ExpressVPN works on any device you can imagine. I
+
+03:08.640 --> 03:17.120
+ use it on Linux. Shout out to Ubuntu, 2004, Windows, Android, but it's available everywhere else too.
+
+03:17.760 --> 03:25.040
+ Once again, get it at expressvpn.com slash Lex Pod to get a discount and to support this podcast.
+
+03:26.240 --> 03:29.920
+ And now, here's my conversation with Kate Darling.
+
+03:31.040 --> 03:35.920
+ You co taught robot ethics at Harvard. What are some ethical issues that arise
+
+03:35.920 --> 03:38.320
+ in the world with robots?
+
+03:39.840 --> 03:44.400
+ Yeah, that was a reading group that I did when I, like, at the very beginning,
+
+03:44.400 --> 03:48.800
+ first became interested in this topic. So, I think if I taught that class today,
+
+03:48.800 --> 03:54.800
+ it would look very, very different. Robot ethics, it sounds very science fictiony,
+
+03:54.800 --> 04:01.840
+ especially did back then, but I think that some of the issues that people in robot ethics are
+
+04:01.840 --> 04:06.880
+ concerned with are just around the ethical use of robotic technology in general. So, for example,
+
+04:06.880 --> 04:11.760
+ responsibility for harm, automated weapon systems, things like privacy and data security,
+
+04:11.760 --> 04:19.200
+ things like, you know, automation and labor markets. And then personally, I'm really
+
+04:19.200 --> 04:23.760
+ interested in some of the social issues that come out of our social relationships with robots.
+
+04:23.760 --> 04:25.920
+ One on one relationship with robots.
+
+04:25.920 --> 04:26.640
+ Yeah.
+
+04:26.640 --> 04:30.160
+ I think most of the stuff we have to talk about is like one on one social stuff. That's what I
+
+04:30.160 --> 04:35.200
+ love. I think that's what you're, you love as well and are expert in. But a societal level,
+
+04:35.200 --> 04:39.280
+ there's like, there's a presidential candidate now, Andrew Yang running,
+
+04:41.360 --> 04:48.640
+ concerned about automation and robots and AI in general taking away jobs. He has a proposal of UBI,
+
+04:48.640 --> 04:55.440
+ universal basic income of everybody gets 1000 bucks as a way to sort of save you if you lose
+
+04:55.440 --> 05:02.960
+ your job from automation to allow you time to discover what it is that you would like to or
+
+05:02.960 --> 05:03.760
+ even love to do.
+
+05:04.560 --> 05:12.160
+ Yes. So I lived in Switzerland for 20 years and universal basic income has been more of a topic
+
+05:12.160 --> 05:19.360
+ there separate from the whole robots and jobs issue. So it's so interesting to me to see kind
+
+05:19.360 --> 05:25.520
+ of these Silicon Valley people latch onto this concept that came from a very kind of
+
+05:26.560 --> 05:37.120
+ left wing socialist, kind of a different place in Europe. But on the automation labor markets
+
+05:37.120 --> 05:44.720
+ topic, I think that it's very, so sometimes in those conversations, I think people overestimate
+
+05:44.720 --> 05:51.280
+ where robotic technology is right now. And we also have this fallacy of constantly comparing robots
+
+05:51.280 --> 05:57.680
+ to humans and thinking of this as a one to one replacement of jobs. So even like Bill Gates a few
+
+05:57.680 --> 06:03.920
+ years ago said something about, maybe we should have a system that taxes robots for taking people's
+
+06:03.920 --> 06:10.480
+ jobs. And it just, I mean, I'm sure that was taken out of context, he's a really smart guy,
+
+06:10.480 --> 06:15.920
+ but that sounds to me like kind of viewing it as a one to one replacement versus viewing this
+
+06:15.920 --> 06:21.520
+ technology as kind of a supplemental tool that of course is going to shake up a lot of stuff.
+
+06:21.520 --> 06:27.440
+ It's going to change the job landscape, but I don't see, you know, robots taking all the
+
+06:27.440 --> 06:30.080
+ jobs in the next 20 years. That's just not how it's going to work.
+
+06:30.800 --> 06:36.240
+ Right. So maybe drifting into the land of more personal relationships with robots and
+
+06:36.240 --> 06:43.280
+ interaction and so on. I got to warn you, I go, I may ask some silly philosophical questions.
+
+06:43.280 --> 06:43.920
+ I apologize.
+
+06:43.920 --> 06:45.040
+ Oh, please do.
+
+06:45.040 --> 06:52.560
+ Okay. Do you think humans will abuse robots in their interactions? So you've had a lot of,
+
+06:52.560 --> 07:00.640
+ and we'll talk about it sort of anthropomorphization and this intricate dance,
+
+07:00.640 --> 07:06.320
+ emotional dance between human and robot, but there seems to be also a darker side where people, when
+
+07:06.320 --> 07:13.520
+ they treat the other as servants, especially, they can be a little bit abusive or a lot abusive.
+
+07:13.520 --> 07:15.760
+ Do you think about that? Do you worry about that?
+
+07:16.400 --> 07:22.960
+ Yeah, I do think about that. So, I mean, one of my main interests is the fact that people
+
+07:22.960 --> 07:28.000
+ subconsciously treat robots like living things. And even though they know that they're interacting
+
+07:28.000 --> 07:35.200
+ with a machine and what it means in that context to behave violently. I don't know if you could say
+
+07:35.200 --> 07:42.000
+ abuse because you're not actually abusing the inner mind of the robot. The robot doesn't have
+
+07:42.000 --> 07:42.640
+ any feelings.
+
+07:42.640 --> 07:43.360
+ As far as you know.
+
+07:44.000 --> 07:50.400
+ Well, yeah. It also depends on how we define feelings and consciousness. But I think that's
+
+07:50.400 --> 07:54.080
+ another area where people kind of overestimate where we currently are with the technology.
+
+07:54.080 --> 07:54.320
+ Right.
+
+07:54.320 --> 08:00.320
+ The robots are not even as smart as insects right now. And so I'm not worried about abuse
+
+08:00.320 --> 08:05.840
+ in that sense. But it is interesting to think about what does people's behavior towards these
+
+08:05.840 --> 08:13.680
+ things mean for our own behavior? Is it desensitizing the people to be verbally abusive
+
+08:13.680 --> 08:16.720
+ to a robot or even physically abusive? And we don't know.
+
+08:17.360 --> 08:22.400
+ Right. It's a similar connection from like if you play violent video games, what connection does
+
+08:22.400 --> 08:30.320
+ that have to desensitization to violence? I haven't read literature on that. I wonder about that.
+
+08:32.080 --> 08:37.520
+ Because everything I've heard, people don't seem to any longer be so worried about violent video
+
+08:37.520 --> 08:38.080
+ games.
+
+08:38.080 --> 08:46.720
+ Correct. The research on it is, it's a difficult thing to research. So it's sort of inconclusive,
+
+08:46.720 --> 08:53.680
+ but we seem to have gotten the sense, at least as a society, that people can compartmentalize. When
+
+08:53.680 --> 08:58.320
+ it's something on a screen and you're shooting a bunch of characters or running over people with
+
+08:58.320 --> 09:04.160
+ your car, that doesn't necessarily translate to you doing that in real life. We do, however,
+
+09:04.160 --> 09:08.400
+ have some concerns about children playing violent video games. And so we do restrict it there.
+
+09:09.680 --> 09:14.400
+ I'm not sure that's based on any real evidence either, but it's just the way that we've kind of
+
+09:14.400 --> 09:19.040
+ decided we want to be a little more cautious there. And the reason I think robots are a little
+
+09:19.040 --> 09:23.280
+ bit different is because there is a lot of research showing that we respond differently
+
+09:23.280 --> 09:29.280
+ to something in our physical space than something on a screen. We will treat it much more viscerally,
+
+09:29.280 --> 09:37.360
+ much more like a physical actor. And so it's totally possible that this is not a problem.
+
+09:38.160 --> 09:43.280
+ And it's the same thing as violence in video games. Maybe restrict it with kids to be safe,
+
+09:43.280 --> 09:48.560
+ but adults can do what they want. But we just need to ask the question again because we don't
+
+09:48.560 --> 09:54.400
+ have any evidence at all yet. Maybe there's an intermediate place too. I did my research
+
+09:55.840 --> 09:59.760
+ on Twitter. By research, I mean scrolling through your Twitter feed.
+
+10:00.800 --> 10:03.920
+ You mentioned that you were going at some point to an animal law conference.
+
+10:04.560 --> 10:07.840
+ So I have to ask, do you think there's something that we can learn
+
+10:07.840 --> 10:12.320
+ from animal rights that guides our thinking about robots?
+
+10:12.320 --> 10:17.120
+ Oh, I think there is so much to learn from that. I'm actually writing a book on it right now. That's
+
+10:17.120 --> 10:22.400
+ why I'm going to this conference. So I'm writing a book that looks at the history of animal
+
+10:22.400 --> 10:26.640
+ domestication and how we've used animals for work, for weaponry, for companionship.
+
+10:27.280 --> 10:33.920
+ And one of the things the book tries to do is move away from this fallacy that I talked about
+
+10:33.920 --> 10:39.680
+ of comparing robots and humans because I don't think that's the right analogy. But I do think
+
+10:39.680 --> 10:43.920
+ that on a social level, even on a social level, there's so much that we can learn from looking
+
+10:43.920 --> 10:49.360
+ at that history because throughout history, we've treated most animals like tools, like products.
+
+10:49.360 --> 10:53.200
+ And then some of them we've treated differently and we're starting to see people treat robots in
+
+10:53.200 --> 10:57.920
+ really similar ways. So I think it's a really helpful predictor to how we're going to interact
+
+10:57.920 --> 11:04.400
+ with the robots. Do you think we'll look back at this time like 100 years from now and see
+
+11:05.440 --> 11:13.360
+ what we do to animals as like similar to the way we view like the Holocaust in World War II?
+
+11:13.360 --> 11:22.480
+ That's a great question. I mean, I hope so. I am not convinced that we will. But I often wonder,
+
+11:22.480 --> 11:28.480
+ you know, what are my grandkids going to view as, you know, abhorrent that my generation did
+
+11:28.480 --> 11:33.600
+ that they would never do? And I'm like, well, what's the big deal? You know, it's a fun question
+
+11:33.600 --> 11:41.200
+ to ask yourself. It always seems that there's atrocities that we discover later. So the things
+
+11:41.200 --> 11:49.600
+ that at the time people didn't see as, you know, you look at everything from slavery to any kinds
+
+11:49.600 --> 11:56.480
+ of abuse throughout history to the kind of insane wars that were happening to the way war was carried
+
+11:56.480 --> 12:05.360
+ out and rape and the kind of violence that was happening during war that we now, you know,
+
+12:05.360 --> 12:12.880
+ we see as atrocities, but at the time perhaps didn't as much. And so now I have this intuition
+
+12:12.880 --> 12:20.080
+ that I have this worry, maybe you're going to probably criticize me, but I do anthropomorphize
+
+12:20.800 --> 12:29.280
+ robots. I don't see a fundamental philosophical difference between a robot and a human being
+
+12:31.600 --> 12:39.200
+ in terms of once the capabilities are matched. So the fact that we're really far away doesn't,
+
+12:39.200 --> 12:43.600
+ in terms of capabilities and then that from natural language processing, understanding
+
+12:43.600 --> 12:48.800
+ and generation to just reasoning and all that stuff. I think once you solve it, I see though,
+
+12:48.800 --> 12:53.920
+ this is a very gray area and I don't feel comfortable with the kind of abuse that people
+
+12:53.920 --> 13:01.120
+ throw at robots. Subtle, but I can see it becoming, I can see basically a civil rights movement for
+
+13:01.120 --> 13:07.040
+ robots in the future. Do you think, let me put it in the form of a question, do you think robots
+
+13:07.040 --> 13:13.520
+ should have some kinds of rights? Well, it's interesting because I came at this originally
+
+13:13.520 --> 13:19.040
+ from your perspective. I was like, you know what, there's no fundamental difference between
+
+13:19.040 --> 13:24.800
+ technology and like human consciousness. Like we, we can probably recreate anything. We just don't
+
+13:24.800 --> 13:32.640
+ know how yet. And so there's no reason not to give machines the same rights that we have once,
+
+13:32.640 --> 13:38.080
+ like you say, they're kind of on an equivalent level. But I realized that that is kind of a
+
+13:38.080 --> 13:41.600
+ far future question. I still think we should talk about it because I think it's really interesting.
+
+13:41.600 --> 13:47.680
+ But I realized that it's actually, we might need to ask the robot rights question even sooner than
+
+13:47.680 --> 13:56.160
+ that while the machines are still, quote unquote, really dumb and not on our level because of the
+
+13:56.160 --> 14:00.560
+ way that we perceive them. And I think one of the lessons we learned from looking at the history of
+
+14:00.560 --> 14:05.360
+ animal rights and one of the reasons we may not get to a place in a hundred years where we view
+
+14:05.360 --> 14:11.440
+ it as wrong to, you know, eat or otherwise, you know, use animals for our own purposes is because
+
+14:11.440 --> 14:17.920
+ historically we've always protected those things that we relate to the most. So one example is
+
+14:17.920 --> 14:26.640
+ whales. No one gave a shit about the whales. Am I allowed to swear? Yeah, no one gave a shit about
+
+14:26.640 --> 14:31.200
+ freedom. Yeah, no one gave a shit about the whales until someone recorded them singing. And suddenly
+
+14:31.200 --> 14:35.840
+ people were like, oh, this is a beautiful creature and now we need to save the whales. And that
+
+14:35.840 --> 14:45.360
+ started the whole Save the Whales movement in the 70s. So as much as I, and I think a lot of people
+
+14:45.360 --> 14:52.400
+ want to believe that we care about consistent biological criteria, that's not historically
+
+14:52.400 --> 15:00.880
+ how we formed our alliances. Yeah, so what, why do we, why do we believe that all humans are created
+
+15:00.880 --> 15:07.120
+ equal? Killing of a human being, no matter who the human being is, that's what I meant by equality,
+
+15:07.120 --> 15:14.480
+ is bad. And then, because I'm connecting that to robots and I'm wondering whether mortality,
+
+15:14.480 --> 15:21.200
+ so the killing act is what makes something, that's the fundamental first right. So I am currently
+
+15:21.200 --> 15:29.280
+ allowed to take a shotgun and shoot a Roomba. I think, I'm not sure, but I'm pretty sure it's not
+
+15:29.280 --> 15:36.640
+ considered murder, right. Or even shutting them off. So that's, that's where the line appears to
+
+15:36.640 --> 15:44.080
+ be, right? Is this mortality a critical thing here? I think here again, like the animal analogy is
+
+15:44.080 --> 15:49.440
+ really useful because you're also allowed to shoot your dog, but people won't be happy about it.
+
+15:49.440 --> 15:56.960
+ So we give, we do give animals certain protections from like, you're not allowed to torture your dog
+
+15:56.960 --> 16:04.160
+ and set it on fire, at least in most states and countries, but you're still allowed to treat it
+
+16:04.160 --> 16:11.920
+ like a piece of property in a lot of other ways. And so we draw these arbitrary lines all the time.
+
+16:11.920 --> 16:20.320
+ And, you know, there's a lot of philosophical thought on why viewing humans as something unique
+
+16:22.320 --> 16:31.040
+ is not, is just speciesism and not, you know, based on any criteria that would actually justify
+
+16:31.040 --> 16:38.640
+ making a difference between us and other species. Do you think in general people, most people are
+
+16:38.640 --> 16:49.040
+ good? Do you think, or do you think there's evil and good in all of us? Is that's revealed through
+
+16:49.040 --> 16:55.760
+ our circumstances and through our interactions? I like to view myself as a person who like believes
+
+16:55.760 --> 17:03.600
+ that there's no absolute evil and good and that everything is, you know, gray. But I do think it's
+
+17:03.600 --> 17:08.080
+ an interesting question. Like when I see people being violent towards robotic objects, you said
+
+17:08.080 --> 17:15.600
+ that bothers you because the robots might someday, you know, be smart. And is that why?
+
+17:15.600 --> 17:21.280
+ Well, it bothers me because it reveals, so I personally believe, because I've studied way too,
+
+17:21.280 --> 17:26.640
+ so I'm Jewish. I studied the Holocaust and World War II exceptionally well. I personally believe
+
+17:26.640 --> 17:35.440
+ that most of us have evil in us. That what bothers me is the abuse of robots reveals the evil in
+
+17:35.440 --> 17:44.320
+ human beings. And it's, I think it doesn't just bother me. It's, I think it's an opportunity for
+
+17:44.320 --> 17:53.920
+ roboticists to make, help people find the better sides, the angels of their nature, right? That
+
+17:53.920 --> 17:59.600
+ abuse isn't just a fun side thing. That's a, you revealing a dark part that you shouldn't,
+
+17:59.600 --> 18:07.360
+ that should be hidden deep inside. Yeah. I mean, you laugh, but some of our research does indicate
+
+18:07.360 --> 18:12.400
+ that maybe people's behavior towards robots reveals something about their tendencies for
+
+18:12.400 --> 18:16.720
+ empathy generally, even using very simple robots that we have today that like clearly don't feel
+
+18:16.720 --> 18:27.360
+ anything. So, you know, Westworld is maybe, you know, not so far off and it's like, you know,
+
+18:27.360 --> 18:32.080
+ depicting the bad characters as willing to go around and shoot and rape the robots and the good
+
+18:32.080 --> 18:37.520
+ characters is not wanting to do that. Even without assuming that the robots have consciousness.
+
+18:37.520 --> 18:42.080
+ So there's a opportunity, it's interesting, there's opportunity to almost practice empathy.
+
+18:42.080 --> 18:46.960
+ The, on robots is an opportunity to practice empathy.
+
+18:47.840 --> 18:54.320
+ I agree with you. Some people would say, why are we practicing empathy on robots instead of,
+
+18:54.320 --> 18:59.360
+ you know, on our fellow humans or on animals that are actually alive and experienced the world?
+
+18:59.920 --> 19:03.840
+ And I don't agree with them because I don't think empathy is a zero sum game. And I do
+
+19:03.840 --> 19:09.200
+ think that it's a muscle that you can train and that we should be doing that. But some people
+
+19:09.200 --> 19:20.400
+ disagree. So the interesting thing, you've heard, you know, raising kids sort of asking them or
+
+19:20.400 --> 19:28.000
+ telling them to be nice to the smart speakers, to Alexa and so on, saying please and so on during
+
+19:28.000 --> 19:34.080
+ the requests. I don't know if, I'm a huge fan of that idea because yeah, that's towards the idea of
+
+19:34.080 --> 19:39.120
+ practicing empathy. I feel like politeness, I'm always polite to all the, all the systems that we
+
+19:39.120 --> 19:44.480
+ build, especially anything that's speech interaction based. Like when we talk to the car, I'll always
+
+19:44.480 --> 19:51.280
+ have a pretty good detector for please to, I feel like there should be a room for encouraging empathy
+
+19:51.280 --> 19:56.400
+ in those interactions. Yeah. Okay. So I agree with you. So I'm going to play devil's advocate. Sure.
+
+19:58.400 --> 20:02.320
+ So what is the, what is the devil's advocate argument there? The devil's advocate argument
+
+20:02.320 --> 20:08.560
+ is that if you are the type of person who has abusive tendencies or needs to get some sort of
+
+20:08.560 --> 20:14.640
+ like behavior like that out, needs an outlet for it, that it's great to have a robot that you can
+
+20:14.640 --> 20:19.760
+ scream at so that you're not screaming at a person. And we just don't know whether that's true,
+
+20:19.760 --> 20:23.520
+ whether it's an outlet for people or whether it just kind of, as my friend once said,
+
+20:23.520 --> 20:26.880
+ trains their cruelty muscles and makes them more cruel in other situations.
+
+20:26.880 --> 20:36.320
+ Oh boy. Yeah. And that expands to other topics, which I, I don't know, you know, there's a,
+
+20:36.320 --> 20:42.960
+ there's a topic of sex, which is weird one that I tend to avoid it from robotics perspective.
+
+20:42.960 --> 20:50.080
+ And most of the general public doesn't, they talk about sex robots and so on. Is that an area you've
+
+20:50.080 --> 20:57.920
+ touched at all research wise? Like the way, cause that's what people imagine sort of any kind of
+
+20:57.920 --> 21:04.160
+ interaction between human and robot that shows any kind of compassion. They immediately think
+
+21:04.160 --> 21:10.640
+ from a product perspective in the near term is sort of expansion of what pornography is and all
+
+21:10.640 --> 21:16.000
+ that kind of stuff. Yeah. Do researchers touch this? Well that's kind of you to like characterize
+
+21:16.000 --> 21:20.880
+ it as though there's thinking rationally about product. I feel like sex robots are just such a
+
+21:20.880 --> 21:27.760
+ like titillating news hook for people that they become like the story. And it's really hard to
+
+21:27.760 --> 21:32.480
+ not get fatigued by it when you're in the space because you tell someone you do human robot
+
+21:32.480 --> 21:37.040
+ interaction. Of course, the first thing they want to talk about is sex robots. Yeah, it happens a
+
+21:37.040 --> 21:42.320
+ lot. And it's, it's unfortunate that I'm so fatigued by it because I do think that there
+
+21:42.320 --> 21:48.080
+ are some interesting questions that become salient when you talk about, you know, sex with robots.
+
+21:48.880 --> 21:54.240
+ See what I think would happen when people get sex robots, like if it's some guys, okay, guys get
+
+21:54.240 --> 22:03.360
+ female sex robots. What I think there's an opportunity for is an actual, like, like they'll
+
+22:03.360 --> 22:09.440
+ actually interact. What I'm trying to say, they won't outside of the sex would be the most
+
+22:09.440 --> 22:15.120
+ fulfilling part. Like the interaction, it's like the folks who there's movies and this, right,
+
+22:15.120 --> 22:21.280
+ who pray, pay a prostitute and then end up just talking to her the whole time. So I feel like
+
+22:21.280 --> 22:27.360
+ there's an opportunity. It's like most guys and people in general joke about this, the sex act,
+
+22:27.360 --> 22:32.400
+ but really people are just lonely inside and they're looking for connection. Many of them.
+
+22:32.400 --> 22:40.880
+ And it'd be unfortunate if that connection is established through the sex industry. I feel like
+
+22:40.880 --> 22:46.480
+ it should go into the front door of like, people are lonely and they want a connection.
+
+22:46.480 --> 22:52.480
+ Well, I also feel like we should kind of de, you know, de stigmatize the sex industry because,
+
+22:54.000 --> 22:59.440
+ you know, even prostitution, like there are prostitutes that specialize in disabled people
+
+22:59.440 --> 23:07.920
+ who don't have the same kind of opportunities to explore their sexuality. So it's, I feel like we
+
+23:07.920 --> 23:13.200
+ should like de stigmatize all of that generally. But yeah, that connection and that loneliness is
+
+23:13.200 --> 23:19.360
+ an interesting topic that you bring up because while people are constantly worried about robots
+
+23:19.360 --> 23:23.840
+ replacing humans and oh, if people get sex robots and the sex is really good, then they won't want
+
+23:23.840 --> 23:29.680
+ their, you know, partner or whatever. But we rarely talk about robots actually filling a hole where
+
+23:29.680 --> 23:36.080
+ there's nothing and what benefit that can provide to people. Yeah, I think that's an exciting,
+
+23:37.120 --> 23:43.120
+ there's a whole giant, there's a giant hole that's unfillable by humans. It's asking too much of
+
+23:43.120 --> 23:47.280
+ your, of people, your friends and people you're in a relationship with in your family to fill that
+
+23:47.280 --> 23:54.640
+ hole. There's, because, you know, it's exploring the full, like, you know, exploring the full
+
+23:54.640 --> 24:02.560
+ complexity and richness of who you are. Like who are you really? Like people, your family doesn't
+
+24:02.560 --> 24:06.800
+ have enough patience to really sit there and listen to who are you really. And I feel like
+
+24:06.800 --> 24:11.760
+ there's an opportunity to really make that connection with robots. I just feel like we're
+
+24:11.760 --> 24:18.720
+ complex as humans and we're capable of lots of different types of relationships. So whether that's,
+
+24:18.720 --> 24:23.360
+ you know, with family members, with friends, with our pets, or with robots, I feel like
+
+24:23.360 --> 24:27.520
+ there's space for all of that and all of that can provide value in a different way.
+
+24:29.040 --> 24:35.520
+ Yeah, absolutely. So I'm jumping around. Currently most of my work is in autonomous vehicles.
+
+24:35.520 --> 24:44.400
+ So the most popular topic among the general public is the trolley problem. So most, most,
+
+24:45.760 --> 24:52.720
+ most roboticists kind of hate this question, but what do you think of this thought experiment?
+
+24:52.720 --> 24:56.000
+ What do you think we can learn from it outside of the silliness of
+
+24:56.000 --> 25:00.320
+ the actual application of it to the autonomous vehicle? I think it's still an interesting
+
+25:00.320 --> 25:06.240
+ ethical question. And that in itself, just like much of the interaction with robots
+
+25:06.880 --> 25:10.960
+ has something to teach us. But from your perspective, do you think there's anything there?
+
+25:10.960 --> 25:14.320
+ Well, I think you're right that it does have something to teach us because,
+
+25:14.320 --> 25:19.840
+ but I think what people are forgetting in all of these conversations is the origins of the trolley
+
+25:19.840 --> 25:25.600
+ problem and what it was meant to show us, which is that there is no right answer. And that sometimes
+
+25:25.600 --> 25:34.240
+ our moral intuition that comes to us instinctively is not actually what we should follow if we care
+
+25:34.240 --> 25:40.800
+ about creating systematic rules that apply to everyone. So I think that as a philosophical
+
+25:40.800 --> 25:46.960
+ concept, it could teach us at least that, but that's not how people are using it right now.
+
+25:48.160 --> 25:54.000
+ These are friends of mine and I love them dearly and their project adds a lot of value. But if
+
+25:54.000 --> 25:59.680
+ we're viewing the moral machine project as what we can learn from the trolley problems, the moral
+
+25:59.680 --> 26:04.720
+ machine is, I'm sure you're familiar, it's this website that you can go to and it gives you
+
+26:04.720 --> 26:10.640
+ different scenarios like, oh, you're in a car, you can decide to run over these two people or
+
+26:10.640 --> 26:15.280
+ this child. What do you choose? Do you choose the homeless person? Do you choose the person who's
+
+26:15.280 --> 26:21.520
+ jaywalking? And so it pits these like moral choices against each other and then tries to
+
+26:21.520 --> 26:29.040
+ crowdsource the quote unquote correct answer, which is really interesting and I think valuable data,
+
+26:29.040 --> 26:34.160
+ but I don't think that's what we should base our rules in autonomous vehicles on because
+
+26:34.160 --> 26:39.840
+ it is exactly what the trolley problem is trying to show, which is your first instinct might not
+
+26:39.840 --> 26:45.680
+ be the correct one if you look at rules that then have to apply to everyone and everything.
+
+26:45.680 --> 26:50.800
+ So how do we encode these ethical choices in interaction with robots? For example,
+
+26:50.800 --> 26:56.720
+ autonomous vehicles, there is a serious ethical question of do I protect myself?
+
+26:58.960 --> 27:05.280
+ Does my life have higher priority than the life of another human being? Because that changes
+
+27:05.280 --> 27:11.040
+ certain control decisions that you make. So if your life matters more than other human beings,
+
+27:11.600 --> 27:16.960
+ then you'd be more likely to swerve out of your current lane. So currently automated emergency
+
+27:16.960 --> 27:24.320
+ braking systems that just brake, they don't ever swerve. So swerving into oncoming traffic or
+
+27:25.520 --> 27:31.840
+ no, just in a different lane can cause significant harm to others, but it's possible that it causes
+
+27:31.840 --> 27:39.280
+ less harm to you. So that's a difficult ethical question. Do you have a hope that
+
+27:41.680 --> 27:46.480
+ like the trolley problem is not supposed to have a right answer, right? Do you hope that
+
+27:46.480 --> 27:50.960
+ when we have robots at the table, we'll be able to discover the right answer for some of these
+
+27:50.960 --> 27:58.480
+ questions? Well, what's happening right now, I think, is this question that we're facing of
+
+27:58.480 --> 28:03.600
+ what ethical rules should we be programming into the machines is revealing to us that
+
+28:03.600 --> 28:11.280
+ our ethical rules are much less programmable than we probably thought before. And so that's a really
+
+28:11.280 --> 28:19.360
+ valuable insight, I think, that these issues are very complicated and that in a lot of these cases,
+
+28:19.360 --> 28:25.200
+ it's you can't really make that call, like not even as a legislator. And so what's going to
+
+28:25.200 --> 28:31.440
+ happen in reality, I think, is that car manufacturers are just going to try and avoid
+
+28:31.440 --> 28:36.000
+ the problem and avoid liability in any way possible. Or like they're going to always protect
+
+28:36.000 --> 28:40.320
+ the driver because who's going to buy a car if it's programmed to kill someone?
+
+28:40.320 --> 28:41.520
+ Yeah.
+
+28:41.520 --> 28:47.040
+ Kill you instead of someone else. So that's what's going to happen in reality.
+
+28:47.040 --> 28:51.680
+ But what did you mean by like once we have robots at the table, like do you mean when they can help
+
+28:51.680 --> 28:54.720
+ us figure out what to do?
+
+28:54.720 --> 29:01.920
+ No, I mean when robots are part of the ethical decisions. So no, no, no, not they help us. Well.
+
+29:04.880 --> 29:08.560
+ Oh, you mean when it's like, should I run over a robot or a person?
+
+29:08.560 --> 29:15.760
+ Right. That kind of thing. So what, no, no, no. So when you, it's exactly what you said, which is
+
+29:15.760 --> 29:22.640
+ when you have to encode the ethics into an algorithm, you start to try to really understand
+
+29:22.640 --> 29:27.200
+ what are the fundamentals of the decision making process you make to make certain decisions.
+
+29:28.000 --> 29:34.960
+ Should you, like capital punishment, should you take a person's life or not to punish them for
+
+29:34.960 --> 29:41.280
+ a certain crime? Sort of, you can use, you can develop an algorithm to make that decision, right?
+
+29:42.480 --> 29:49.680
+ And the hope is that the act of making that algorithm, however you make it, so there's a few
+
+29:49.680 --> 29:58.400
+ approaches, will help us actually get to the core of what is right and what is wrong under our current
+
+29:59.600 --> 30:00.720
+ societal standards.
+
+30:00.720 --> 30:05.600
+ But isn't that what's happening right now? And we're realizing that we don't have a consensus on
+
+30:05.600 --> 30:06.560
+ what's right and wrong.
+
+30:06.560 --> 30:08.240
+ You mean in politics in general?
+
+30:08.240 --> 30:12.880
+ Well, like when we're thinking about these trolley problems and autonomous vehicles and how to
+
+30:12.880 --> 30:22.320
+ program ethics into machines and how to, you know, make AI algorithms fair and equitable, we're
+
+30:22.320 --> 30:28.080
+ realizing that this is so complicated and it's complicated in part because there doesn't seem
+
+30:28.080 --> 30:30.640
+ to be a one right answer in any of these cases.
+
+30:30.640 --> 30:35.680
+ Do you have a hope for, like one of the ideas of the moral machine is that crowdsourcing can help
+
+30:35.680 --> 30:41.040
+ us converge towards, like democracy can help us converge towards the right answer.
+
+30:42.080 --> 30:43.920
+ Do you have a hope for crowdsourcing?
+
+30:43.920 --> 30:49.520
+ Well, yes and no. So I think that in general, you know, I have a legal background and
+
+30:49.520 --> 30:55.440
+ policymaking is often about trying to suss out, you know, what rules does this particular society
+
+30:55.440 --> 31:00.000
+ agree on and then trying to codify that. So the law makes these choices all the time and then
+
+31:00.000 --> 31:06.080
+ tries to adapt according to changing culture. But in the case of the moral machine project,
+
+31:06.080 --> 31:12.240
+ I don't think that people's choices on that website necessarily reflect what laws they would
+
+31:12.240 --> 31:18.480
+ want in place. I think you would have to ask them a series of different questions in order to get
+
+31:18.480 --> 31:20.720
+ at what their consensus is.
+
+31:20.720 --> 31:25.680
+ I agree, but that has to do more with the artificial nature of, I mean, they're showing
+
+31:25.680 --> 31:32.800
+ some cute icons on a screen. That's almost, so if you, for example, we do a lot of work in virtual
+
+31:32.800 --> 31:38.720
+ reality. And so if you put those same people into virtual reality where they have to make that
+
+31:38.720 --> 31:42.720
+ decision, their decision would be very different, I think.
+
+31:42.720 --> 31:47.840
+ I agree with that. That's one aspect. And the other aspect is it's a different question to ask
+
+31:47.840 --> 31:55.360
+ someone, would you run over the homeless person or the doctor in this scene? Or do you want cars to
+
+31:55.360 --> 31:57.120
+ always run over the homeless people?
+
+31:57.120 --> 32:04.320
+ I think, yeah. So let's talk about anthropomorphism. To me, anthropomorphism, if I can
+
+32:04.320 --> 32:09.760
+ pronounce it correctly, is one of the most fascinating phenomena from like both the
+
+32:09.760 --> 32:14.480
+ engineering perspective and the psychology perspective, machine learning perspective,
+
+32:14.480 --> 32:23.280
+ and robotics in general. Can you step back and define anthropomorphism, how you see it in
+
+32:23.280 --> 32:25.360
+ general terms in your work?
+
+32:25.360 --> 32:32.160
+ Sure. So anthropomorphism is this tendency that we have to project human like traits and
+
+32:32.160 --> 32:38.800
+ behaviors and qualities onto nonhumans. And we often see it with animals, like we'll project
+
+32:38.800 --> 32:43.760
+ emotions on animals that may or may not actually be there. We often see that we're trying to
+
+32:43.760 --> 32:49.120
+ interpret things according to our own behavior when we get it wrong. But we do it with more
+
+32:49.120 --> 32:53.680
+ than just animals. We do it with objects, you know, teddy bears. We see, you know, faces in
+
+32:53.680 --> 32:59.200
+ the headlights of cars. And we do it with robots very, very extremely.
+
+32:59.200 --> 33:05.200
+ You think that can be engineered? Can that be used to enrich an interaction between an AI
+
+33:05.200 --> 33:07.120
+ system and the human?
+
+33:07.120 --> 33:08.480
+ Oh, yeah, for sure.
+
+33:08.480 --> 33:17.600
+ And do you see it being used that way often? Like, I don't, I haven't seen, whether it's
+
+33:17.600 --> 33:26.560
+ Alexa or any of the smart speaker systems, often trying to optimize for the anthropomorphization.
+
+33:26.560 --> 33:27.920
+ You said you haven't seen?
+
+33:27.920 --> 33:32.400
+ I haven't seen. They keep moving away from that. I think they're afraid of that.
+
+33:32.400 --> 33:38.080
+ They actually, so I only recently found out, but did you know that Amazon has like a whole
+
+33:38.080 --> 33:44.480
+ team of people who are just there to work on Alexa's personality?
+
+33:44.480 --> 33:50.480
+ So I know that depends on what you mean by personality. I didn't know that exact thing.
+
+33:50.480 --> 33:59.920
+ But I do know that how the voice is perceived is worked on a lot, whether if it's a pleasant
+
+33:59.920 --> 34:04.080
+ feeling about the voice, but that has to do more with the texture of the sound and the
+
+34:04.080 --> 34:08.640
+ audio and so on. But personality is more like...
+
+34:08.640 --> 34:13.120
+ It's like, what's her favorite beer when you ask her? And the personality team is different
+
+34:13.120 --> 34:17.520
+ for every country too. Like there's a different personality for German Alexa than there is
+
+34:17.520 --> 34:26.800
+ for American Alexa. That said, I think it's very difficult to, you know, use the, really,
+
+34:26.800 --> 34:34.000
+ really harness the anthropomorphism with these voice assistants because the voice interface
+
+34:34.000 --> 34:40.000
+ is still very primitive. And I think that in order to get people to really suspend their
+
+34:40.000 --> 34:47.520
+ disbelief and treat a robot like it's alive, less is sometimes more. You want them to project
+
+34:47.520 --> 34:51.040
+ onto the robot and you want the robot to not disappoint their expectations for how it's
+
+34:51.040 --> 34:57.920
+ going to answer or behave in order for them to have this kind of illusion. And with Alexa,
+
+34:57.920 --> 35:03.280
+ I don't think we're there yet, or Siri, that they're just not good at that. But if you
+
+35:03.280 --> 35:08.720
+ look at some of the more animal like robots, like the baby seal that they use with the
+
+35:08.720 --> 35:12.960
+ dementia patients, it's a much more simple design. It doesn't try to talk to you. It
+
+35:12.960 --> 35:17.760
+ can't disappoint you in that way. It just makes little movements and sounds and people
+
+35:17.760 --> 35:22.720
+ stroke it and it responds to their touch. And that is like a very effective way to harness
+
+35:23.280 --> 35:27.520
+ people's tendency to kind of treat the robot like a living thing.
+
+35:28.880 --> 35:35.520
+ Yeah. So you bring up some interesting ideas in your paper chapter, I guess,
+
+35:35.520 --> 35:40.400
+ Anthropomorphic Framing Human Robot Interaction that I read the last time we scheduled this.
+
+35:40.400 --> 35:42.160
+ Oh my God, that was a long time ago.
+
+35:42.160 --> 35:48.160
+ Yeah. What are some good and bad cases of anthropomorphism in your perspective?
+
+35:49.280 --> 35:52.000
+ Like when is the good ones and bad?
+
+35:52.000 --> 35:56.400
+ Well, I should start by saying that, you know, while design can really enhance the
+
+35:56.400 --> 36:01.360
+ anthropomorphism, it doesn't take a lot to get people to treat a robot like it's alive. Like
+
+36:01.360 --> 36:07.360
+ people will, over 85% of Roombas have a name, which I'm, I don't know the numbers for your
+
+36:07.360 --> 36:12.160
+ regular type of vacuum cleaner, but they're not that high, right? So people will feel bad for the
+
+36:12.160 --> 36:15.840
+ Roomba when it gets stuck, they'll send it in for repair and want to get the same one back. And
+
+36:15.840 --> 36:23.280
+ that's, that one is not even designed to like make you do that. So I think that some of the cases
+
+36:23.280 --> 36:28.560
+ where it's maybe a little bit concerning that anthropomorphism is happening is when you have
+
+36:28.560 --> 36:32.000
+ something that's supposed to function like a tool and people are using it in the wrong way.
+
+36:32.000 --> 36:44.160
+ And one of the concerns is military robots where, so gosh, 2000, like early 2000s, which is a long
+
+36:44.160 --> 36:51.840
+ time ago, iRobot, the Roomba company made this robot called the Pacbot that was deployed in Iraq
+
+36:51.840 --> 36:59.040
+ and Afghanistan with the bomb disposal units that were there. And the soldiers became very emotionally
+
+36:59.040 --> 37:08.800
+ attached to the robots. And that's fine until a soldier risks his life to save a robot, which
+
+37:08.800 --> 37:12.560
+ you really don't want. But they were treating them like pets. Like they would name them,
+
+37:12.560 --> 37:17.280
+ they would give them funerals with gun salutes, they would get really upset and traumatized when
+
+37:17.280 --> 37:23.760
+ the robot got broken. So in situations where you want a robot to be a tool, in particular,
+
+37:23.760 --> 37:26.960
+ when it's supposed to like do a dangerous job that you don't want a person doing,
+
+37:26.960 --> 37:32.960
+ it can be hard when people get emotionally attached to it. That's maybe something that
+
+37:32.960 --> 37:39.040
+ you would want to discourage. Another case for concern is maybe when companies try to
+
+37:39.840 --> 37:45.520
+ leverage the emotional attachment to exploit people. So if it's something that's not in the
+
+37:45.520 --> 37:51.200
+ consumer's interest, trying to like sell them products or services or exploit an emotional
+
+37:51.200 --> 37:57.200
+ connection to keep them paying for a cloud service for a social robot or something like that might be,
+
+37:57.200 --> 37:59.680
+ I think that's a little bit concerning as well.
+
+37:59.680 --> 38:04.720
+ Yeah, the emotional manipulation, which probably happens behind the scenes now with some like
+
+38:04.720 --> 38:10.720
+ social networks and so on, but making it more explicit. What's your favorite robot?
+
+38:12.000 --> 38:13.280
+ Fictional or real?
+
+38:13.280 --> 38:23.360
+ No, real. Real robot, which you have felt a connection with or not like, not anthropomorphic
+
+38:23.360 --> 38:31.040
+ connection, but I mean like you sit back and say, damn, this is an impressive system.
+
+38:32.080 --> 38:38.960
+ Wow. So two different robots. So the, the PLEO baby dinosaur robot that is no longer sold that
+
+38:38.960 --> 38:45.440
+ came out in 2007, that one I was very impressed with. It was, but, but from an anthropomorphic
+
+38:45.440 --> 38:50.080
+ perspective, I was impressed with how much I bonded with it, how much I like wanted to believe
+
+38:50.080 --> 38:51.760
+ that it had this inner life.
+
+38:51.760 --> 38:58.160
+ Can you describe PLEO, can you describe what it is? How big is it? What can it actually do?
+
+38:58.160 --> 39:06.400
+ Yeah. PLEO is about the size of a small cat. It had a lot of like motors that gave it this kind
+
+39:06.400 --> 39:11.440
+ of lifelike movement. It had things like touch sensors and an infrared camera. So it had all
+
+39:11.440 --> 39:18.800
+ these like cool little technical features, even though it was a toy. And the thing that really
+
+39:18.800 --> 39:24.160
+ struck me about it was that it, it could mimic pain and distress really well. So if you held
+
+39:24.160 --> 39:28.240
+ it up by the tail, it had a tilt sensor that, you know, told it what direction it was facing
+
+39:28.240 --> 39:34.080
+ and it would start to squirm and cry out. If you hit it too hard, it would start to cry.
+
+39:34.080 --> 39:37.120
+ So it was very impressive in design.
+
+39:38.240 --> 39:43.040
+ And what's the second robot that you were, you said there might've been two that you liked.
+
+39:43.680 --> 39:49.200
+ Yeah. So the Boston Dynamics robots are just impressive feats of engineering.
+
+39:49.760 --> 39:51.280
+ Have you met them in person?
+
+39:51.280 --> 39:55.280
+ Yeah. I recently got a chance to go visit and I, you know, I was always one of those people who
+
+39:55.280 --> 39:59.920
+ watched the videos and was like, this is super cool, but also it's a product video. Like,
+
+39:59.920 --> 40:02.800
+ I don't know how many times that they had to shoot this to get it right.
+
+40:02.800 --> 40:03.360
+ Yeah.
+
+40:03.360 --> 40:09.280
+ But visiting them, I, you know, I'm pretty sure that I was very impressed. Let's put it that way.
+
+40:10.000 --> 40:14.880
+ Yeah. And in terms of the control, I think that was a transformational moment for me
+
+40:15.520 --> 40:17.840
+ when I met Spot Mini in person.
+
+40:17.840 --> 40:18.640
+ Yeah.
+
+40:18.640 --> 40:25.360
+ Because, okay, maybe this is a psychology experiment, but I anthropomorphized the,
+
+40:26.160 --> 40:30.880
+ the crap out of it. So I immediately, it was like my best friend, right?
+
+40:30.880 --> 40:35.760
+ I think it's really hard for anyone to watch Spot move and not feel like it has agency.
+
+40:35.760 --> 40:44.160
+ Yeah. This movement, especially the arm on Spot Mini really obviously looks like a head.
+
+40:44.160 --> 40:44.400
+ Yeah.
+
+40:44.400 --> 40:51.440
+ That they say, no, wouldn't mean it that way, but it obviously, it looks exactly like that.
+
+40:51.440 --> 40:57.120
+ And so it's almost impossible to not think of it as a, almost like the baby dinosaur,
+
+40:57.120 --> 41:02.000
+ but slightly larger. And this movement of the, of course, the intelligence is,
+
+41:02.560 --> 41:07.840
+ their whole idea is that it's not supposed to be intelligent. It's a platform on which you build
+
+41:08.480 --> 41:13.520
+ higher intelligence. It's actually really, really dumb. It's just a basic movement platform.
+
+41:13.520 --> 41:19.920
+ Yeah. But even dumb robots can, like, we can immediately respond to them in this visceral way.
+
+41:19.920 --> 41:26.640
+ What are your thoughts about Sophia the robot? This kind of mix of some basic natural language
+
+41:26.640 --> 41:31.040
+ processing and basically an art experiment.
+
+41:31.040 --> 41:35.920
+ Yeah. An art experiment is a good way to characterize it. I'm much less impressed
+
+41:35.920 --> 41:37.840
+ with Sophia than I am with Boston Dynamics.
+
+41:37.840 --> 41:40.160
+ She said she likes you. She said she admires you.
+
+41:40.720 --> 41:43.440
+ Yeah. She followed me on Twitter at some point. Yeah.
+
+41:44.160 --> 41:45.680
+ She tweets about how much she likes you.
+
+41:45.680 --> 41:48.320
+ So what does that mean? I have to be nice or?
+
+41:48.320 --> 41:55.040
+ No, I don't know. I was emotionally manipulating you. No. How do you think of
+
+41:55.040 --> 42:00.560
+ that? I think of the whole thing that happened with Sophia is quite a large number of people
+
+42:01.360 --> 42:06.640
+ kind of immediately had a connection and thought that maybe we're far more advanced with robotics
+
+42:06.640 --> 42:11.840
+ than we are or actually didn't even think much. I was surprised how little people cared
+
+42:13.680 --> 42:18.320
+ that they kind of assumed that, well, of course AI can do this.
+
+42:19.200 --> 42:19.440
+ Yeah.
+
+42:19.440 --> 42:24.960
+ And then if they assume that, I felt they should be more impressed.
+
+42:26.960 --> 42:33.200
+ Well, people really overestimate where we are. And so when something, I don't even think Sophia
+
+42:33.200 --> 42:37.680
+ was very impressive or is very impressive. I think she's kind of a puppet, to be honest. But
+
+42:38.400 --> 42:43.120
+ yeah, I think people are a little bit influenced by science fiction and pop culture to
+
+42:43.120 --> 42:45.200
+ think that we should be further along than we are.
+
+42:45.200 --> 42:48.400
+ So what's your favorite robots in movies and fiction?
+
+42:48.400 --> 42:49.120
+ WALLI.
+
+42:49.680 --> 42:58.400
+ WALLI. What do you like about WALLI? The humor, the cuteness, the perception control systems
+
+42:58.400 --> 43:02.960
+ operating on WALLI that makes it all work? Just in general?
+
+43:02.960 --> 43:10.880
+ The design of WALLI the robot, I think that animators figured out, starting in the 1940s,
+
+43:10.880 --> 43:19.040
+ how to create characters that don't look real, but look like something that's even better than real,
+
+43:19.040 --> 43:23.120
+ that we really respond to and think is really cute. They figured out how to make them move
+
+43:23.120 --> 43:27.600
+ and look in the right way. And WALLI is just such a great example of that.
+
+43:27.600 --> 43:33.440
+ You think eyes, big eyes or big something that's kind of eyeish. So it's always playing on some
+
+43:35.040 --> 43:36.960
+ aspect of the human face, right?
+
+43:36.960 --> 43:44.080
+ Often. Yeah. So big eyes. Well, I think one of the first animations to really play with this was
+
+43:44.080 --> 43:48.720
+ Bambi. And they weren't originally going to do that. They were originally trying to make the
+
+43:48.720 --> 43:53.280
+ deer look as lifelike as possible. They brought deer into the studio and had a little zoo there
+
+43:53.280 --> 43:56.880
+ so that the animators could work with them. And then at some point they were like,
+
+43:57.520 --> 44:02.640
+ if we make really big eyes and a small nose and big cheeks, kind of more like a baby face,
+
+44:02.640 --> 44:10.800
+ then people like it even better than if it looks real. Do you think the future of things like
+
+44:10.800 --> 44:17.520
+ Alexa in the home has possibility to take advantage of that, to build on that, to create
+
+44:18.960 --> 44:25.680
+ these systems that are better than real, that create a close human connection? I can pretty
+
+44:25.680 --> 44:32.080
+ much guarantee you without having any knowledge that those companies are going to make these
+
+44:32.080 --> 44:37.440
+ things. And companies are working on that design behind the scenes. I'm pretty sure.
+
+44:37.440 --> 44:38.960
+ I totally disagree with you.
+
+44:38.960 --> 44:39.440
+ Really?
+
+44:39.440 --> 44:43.200
+ So that's what I'm interested in. I'd like to build such a company. I know
+
+44:43.200 --> 44:47.920
+ a lot of those folks and they're afraid of that because how do you make money off of it?
+
+44:49.120 --> 44:54.560
+ Well, but even just making Alexa look a little bit more interesting than just a cylinder
+
+44:54.560 --> 44:55.680
+ would do so much.
+
+44:55.680 --> 45:02.240
+ It's an interesting thought, but I don't think people are from Amazon perspective are looking
+
+45:02.240 --> 45:08.320
+ for that kind of connection. They want you to be addicted to the services provided by Alexa,
+
+45:08.320 --> 45:17.440
+ not to the device. So the device itself, it's felt that you can lose a lot because if you create a
+
+45:17.440 --> 45:26.800
+ connection and then it creates more opportunity for frustration for negative stuff than it does
+
+45:26.800 --> 45:29.920
+ for positive stuff is I think the way they think about it.
+
+45:29.920 --> 45:35.600
+ That's interesting. Like I agree that it's very difficult to get right and you have to get it
+
+45:35.600 --> 45:38.800
+ exactly right. Otherwise you wind up with Microsoft's Clippy.
+
+45:40.000 --> 45:42.800
+ Okay, easy now. What's your problem with Clippy?
+
+45:43.360 --> 45:45.040
+ You like Clippy? Is Clippy your friend?
+
+45:45.040 --> 45:51.680
+ Yeah, I like Clippy. I was just, I just talked to, we just had this argument and they said
+
+45:51.680 --> 45:57.520
+ Microsoft's CTO and they said, he said he's not bringing Clippy back. They're not bringing
+
+45:57.520 --> 46:05.600
+ Clippy back and that's very disappointing. I think it was Clippy was the greatest assistance
+
+46:05.600 --> 46:10.800
+ we've ever built. It was a horrible attempt, of course, but it's the best we've ever done
+
+46:10.800 --> 46:17.760
+ because it was a real attempt to have like a actual personality. I mean, it was obviously
+
+46:17.760 --> 46:25.040
+ technology was way not there at the time of being able to be a recommender system for assisting you
+
+46:25.040 --> 46:30.480
+ in anything and typing in Word or any kind of other application, but still it was an attempt
+
+46:30.480 --> 46:34.080
+ of personality that was legitimate, which I thought was brave.
+
+46:34.880 --> 46:39.840
+ Yes, yes. Okay. You know, you've convinced me I'll be slightly less hard on Clippy.
+
+46:39.840 --> 46:43.680
+ And I know I have like an army of people behind me who also miss Clippy.
+
+46:43.680 --> 46:47.200
+ Really? I want to meet these people. Who are these people?
+
+46:47.200 --> 46:53.680
+ It's the people who like to hate stuff when it's there and miss it when it's gone.
+
+46:55.280 --> 46:56.240
+ So everyone.
+
+46:56.240 --> 47:04.880
+ It's everyone. Exactly. All right. So Enki and Jibo, the two companies,
+
+47:04.880 --> 47:10.080
+ the two amazing companies, the social robotics companies that have recently been closed down.
+
+47:10.080 --> 47:10.580
+ Yes.
+
+47:12.160 --> 47:17.280
+ Why do you think it's so hard to create a personal robotics company? So making a business
+
+47:17.840 --> 47:23.840
+ out of essentially something that people would anthropomorphize, have a deep connection with.
+
+47:23.840 --> 47:28.880
+ Why is it so hard to make it work? Is the business case not there or what is it?
+
+47:28.880 --> 47:35.600
+ I think it's a number of different things. I don't think it's going to be this way forever.
+
+47:35.600 --> 47:43.360
+ I think at this current point in time, it takes so much work to build something that only barely
+
+47:43.360 --> 47:49.680
+ meets people's minimal expectations because of science fiction and pop culture giving people
+
+47:49.680 --> 47:53.920
+ this idea that we should be further than we already are. Like when people think about a robot
+
+47:53.920 --> 47:59.040
+ assistant in the home, they think about Rosie from the Jetsons or something like that. And
+
+48:00.000 --> 48:06.240
+ Enki and Jibo did such a beautiful job with the design and getting that interaction just right.
+
+48:06.240 --> 48:11.440
+ But I think people just wanted more. They wanted more functionality. I think you're also right that
+
+48:11.440 --> 48:17.280
+ the business case isn't really there because there hasn't been a killer application that's
+
+48:17.280 --> 48:23.440
+ useful enough to get people to adopt the technology in great numbers. I think what we did see from the
+
+48:23.440 --> 48:31.040
+ people who did get Jibo is a lot of them became very emotionally attached to it. But that's not,
+
+48:31.040 --> 48:35.040
+ I mean, it's kind of like the Palm Pilot back in the day. Most people are like, why do I need this?
+
+48:35.040 --> 48:40.160
+ Why would I? They don't see how they would benefit from it until they have it or some
+
+48:40.160 --> 48:45.760
+ other company comes in and makes it a little better. Yeah. Like how far away are we, do you
+
+48:45.760 --> 48:50.320
+ think? How hard is this problem? It's a good question. And I think it has a lot to do with
+
+48:50.320 --> 48:56.160
+ people's expectations and those keep shifting depending on what science fiction that is popular.
+
+48:56.160 --> 49:01.840
+ But also it's two things. It's people's expectation and people's need for an emotional
+
+49:01.840 --> 49:09.360
+ connection. Yeah. And I believe the need is pretty high. Yes. But I don't think we're aware of it.
+
+49:10.080 --> 49:16.960
+ That's right. There's like, I really think this is like the life as we know it. So we've just kind
+
+49:16.960 --> 49:24.640
+ of gotten used to it of really, I hate to be dark because I have close friends, but we've gotten
+
+49:24.640 --> 49:32.720
+ used to really never being close to anyone. Right. And we're deeply, I believe, okay, this is
+
+49:32.720 --> 49:37.680
+ hypothesis. I think we're deeply lonely, all of us, even those in deep fulfilling relationships.
+
+49:37.680 --> 49:43.120
+ In fact, what makes those relationship fulfilling, I think is that they at least tap into that deep
+
+49:43.120 --> 49:49.040
+ loneliness a little bit. But I feel like there's more opportunity to explore that, that doesn't
+
+49:49.040 --> 49:54.160
+ inter, doesn't interfere with the human relationships you have. It expands more on the,
+
+49:55.280 --> 50:01.760
+ that, yeah, the rich deep unexplored complexity that's all of us, weird apes. Okay.
+
+50:02.560 --> 50:05.440
+ I think you're right. Do you think it's possible to fall in love with a robot?
+
+50:05.440 --> 50:13.360
+ Oh yeah, totally. Do you think it's possible to have a longterm committed monogamous relationship
+
+50:13.360 --> 50:18.480
+ with a robot? Well, yeah, there are lots of different types of longterm committed monogamous
+
+50:18.480 --> 50:25.440
+ relationships. I think monogamous implies like, you're not going to see other humans sexually or
+
+50:26.400 --> 50:32.320
+ like you basically on Facebook have to say, I'm in a relationship with this person, this robot.
+
+50:32.320 --> 50:37.760
+ I just don't like, again, I think this is comparing robots to humans when I would rather
+
+50:37.760 --> 50:45.360
+ compare them to pets. Like you get a robot, it fulfills this loneliness that you have
+
+50:46.640 --> 50:52.400
+ in maybe not the same way as a pet, maybe in a different way that is even supplemental in a
+
+50:52.400 --> 50:58.640
+ different way. But I'm not saying that people won't like do this, be like, oh, I want to marry
+
+50:58.640 --> 51:05.840
+ my robot or I want to have like a sexual relation, monogamous relationship with my robot. But I don't
+
+51:05.840 --> 51:11.520
+ think that that's the main use case for them. But you think that there's still a gap between
+
+51:11.520 --> 51:24.480
+ human and pet. So between a husband and pet, there's a different relationship. It's engineering.
+
+51:24.480 --> 51:30.160
+ So that's a gap that can be closed through. I think it could be closed someday, but why
+
+51:30.160 --> 51:34.880
+ would we close that? Like, I think it's so boring to think about recreating things that we already
+
+51:34.880 --> 51:43.040
+ have when we could create something that's different. I know you're thinking about the
+
+51:43.040 --> 51:50.080
+ people who like don't have a husband and like, what could we give them? Yeah. But I guess what
+
+51:50.080 --> 52:01.280
+ I'm getting at is maybe not. So like the movie Her. Yeah. Right. So a better husband. Well,
+
+52:01.280 --> 52:07.360
+ maybe better in some ways. Like it's, I do think that robots are going to continue to be a different
+
+52:07.360 --> 52:13.360
+ type of relationship, even if we get them like very human looking or when, you know, the voice
+
+52:13.360 --> 52:18.320
+ interactions we have with them feel very like natural and human like, I think there's still
+
+52:18.320 --> 52:22.480
+ going to be differences. And there were in that movie too, like towards the end, it kind of goes
+
+52:22.480 --> 52:30.000
+ off the rails. But it's just a movie. So your intuition is that, because you kind of said
+
+52:30.000 --> 52:39.120
+ two things, right? So one is why would you want to basically replicate the husband? Yeah. Right.
+
+52:39.120 --> 52:46.160
+ And the other is kind of implying that it's kind of hard to do. So like anytime you try,
+
+52:46.160 --> 52:51.920
+ you might build something very impressive, but it'll be different. I guess my question is about
+
+52:51.920 --> 53:01.200
+ human nature. It's like, how hard is it to satisfy that role of the husband? So we're moving any of
+
+53:01.200 --> 53:08.240
+ the sexual stuff aside is the, it's more like the mystery, the tension, the dance of relationships
+
+53:08.240 --> 53:16.720
+ you think with robots, that's difficult to build. What's your intuition? I think that, well, it also
+
+53:16.720 --> 53:22.960
+ depends on are we talking about robots now in 50 years in like indefinite amount of time. I'm
+
+53:22.960 --> 53:29.920
+ thinking like five or 10 years. Five or 10 years. I think that robots at best will be like, it's
+
+53:29.920 --> 53:33.920
+ more similar to the relationship we have with our pets than relationship that we have with other
+
+53:33.920 --> 53:41.520
+ people. I got it. So what do you think it takes to build a system that exhibits greater and greater
+
+53:41.520 --> 53:47.440
+ levels of intelligence? Like it impresses us with this intelligence. Arumba, so you talk about
+
+53:47.440 --> 53:52.960
+ anthropomorphization that doesn't, I think intelligence is not required. In fact, intelligence
+
+53:52.960 --> 54:00.640
+ probably gets in the way sometimes, like you mentioned. But what do you think it takes to
+
+54:00.640 --> 54:06.800
+ create a system where we sense that it has a human level intelligence? So something that,
+
+54:07.360 --> 54:11.920
+ probably something conversational, human level intelligence. How hard do you think that problem
+
+54:11.920 --> 54:18.320
+ is? It'd be interesting to sort of hear your perspective, not just purely, so I talk to a lot
+
+54:18.320 --> 54:24.640
+ of people, how hard is the conversational agents? How hard is it to pass the torrent test? But my
+
+54:24.640 --> 54:33.440
+ sense is it's easier than just solving, it's easier than solving the pure natural language
+
+54:33.440 --> 54:41.760
+ processing problem. Because I feel like you can cheat. Yeah. So how hard is it to pass the torrent
+
+54:41.760 --> 54:47.120
+ test in your view? Well, I think again, it's all about expectation management. If you set up
+
+54:47.120 --> 54:52.160
+ people's expectations to think that they're communicating with, what was it, a 13 year old
+
+54:52.160 --> 54:56.160
+ boy from the Ukraine? Yeah, that's right. Then they're not going to expect perfect English,
+
+54:56.160 --> 55:00.640
+ they're not going to expect perfect, you know, understanding of concepts or even like being on
+
+55:00.640 --> 55:07.520
+ the same wavelength in terms of like conversation flow. So it's much easier to pass in that case.
+
+55:08.560 --> 55:14.960
+ Do you think, you kind of alluded this too with audio, do you think it needs to have a body?
+
+55:14.960 --> 55:21.440
+ I think that we definitely have, so we treat physical things with more social agency,
+
+55:21.440 --> 55:25.040
+ because we're very physical creatures. I think a body can be useful.
+
+55:29.840 --> 55:32.640
+ Does it get in the way? Is there a negative aspects like...
+
+55:33.600 --> 55:38.320
+ Yeah, there can be. So if you're trying to create a body that's too similar to something that people
+
+55:38.320 --> 55:44.320
+ are familiar with, like I have this robot cat at home that has robots. I have a robot cat at home
+
+55:44.320 --> 55:50.960
+ that has roommates. And it's very disturbing to watch because I'm constantly assuming that it's
+
+55:50.960 --> 55:56.000
+ going to move like a real cat and it doesn't because it's like a $100 piece of technology.
+
+55:57.040 --> 56:04.800
+ So it's very like disappointing and it's very hard to treat it like it's alive. So you can get a lot
+
+56:04.800 --> 56:09.680
+ wrong with the body too, but you can also use tricks, same as, you know, the expectation
+
+56:09.680 --> 56:13.360
+ management of the 13 year old boy from the Ukraine. If you pick an animal that people
+
+56:13.360 --> 56:17.680
+ aren't intimately familiar with, like the baby dinosaur, like the baby seal that people have
+
+56:17.680 --> 56:22.400
+ never actually held in their arms, you can get away with much more because they don't have these
+
+56:22.400 --> 56:27.280
+ preformed expectations. Yeah, I remember you thinking of a Ted talk or something that clicked
+
+56:27.280 --> 56:34.400
+ for me that nobody actually knows what a dinosaur looks like. So you can actually get away with a
+
+56:34.400 --> 56:44.320
+ lot more. That was great. So what do you think about consciousness and mortality
+
+56:46.400 --> 56:55.760
+ being displayed in a robot? So not actually having consciousness, but having these kind
+
+56:55.760 --> 57:01.600
+ of human elements that are much more than just the interaction, much more than just,
+
+57:01.600 --> 57:07.440
+ like you mentioned with a dinosaur moving kind of in an interesting ways, but really being worried
+
+57:07.440 --> 57:16.080
+ about its own death and really acting as if it's aware and self aware and identity. Have you seen
+
+57:16.080 --> 57:23.680
+ that done in robotics? What do you think about doing that? Is that a powerful good thing?
+
+57:24.560 --> 57:29.600
+ Well, I think it can be a design tool that you can use for different purposes. So I can't say
+
+57:29.600 --> 57:35.440
+ whether it's inherently good or bad, but I do think it can be a powerful tool. The fact that the
+
+57:36.480 --> 57:46.720
+ pleo mimics distress when you quote unquote hurt it is a really powerful tool to get people to
+
+57:46.720 --> 57:52.560
+ engage with it in a certain way. I had a research partner that I did some of the empathy work with
+
+57:52.560 --> 57:57.760
+ named Palash Nandi and he had built a robot for himself that had like a lifespan and that would
+
+57:57.760 --> 58:02.800
+ stop working after a certain amount of time just because he was interested in whether he himself
+
+58:02.800 --> 58:10.320
+ would treat it differently. And we know from Tamagotchis, those little games that we used to
+
+58:10.320 --> 58:17.600
+ have that were extremely primitive, that people respond to this idea of mortality and you can get
+
+58:17.600 --> 58:21.920
+ people to do a lot with little design tricks like that. Now, whether it's a good thing depends on
+
+58:21.920 --> 58:27.760
+ what you're trying to get them to do. Have a deeper relationship, have a deeper connection,
+
+58:27.760 --> 58:34.800
+ sign a relationship. If it's for their own benefit, that sounds great. Okay. You could do that for a
+
+58:34.800 --> 58:39.920
+ lot of other reasons. I see. So what kind of stuff are you worried about? So is it mostly about
+
+58:39.920 --> 58:44.880
+ manipulation of your emotions for like advertisement and so on, things like that? Yeah, or data
+
+58:44.880 --> 58:51.280
+ collection or, I mean, you could think of governments misusing this to extract information
+
+58:51.280 --> 58:57.200
+ from people. It's, you know, just like any other technological tool, it just raises a lot of
+
+58:57.200 --> 59:02.880
+ questions. If you look at Facebook, if you look at Twitter and social networks, there's a lot
+
+59:02.880 --> 59:10.480
+ of concern of data collection now. What's from the legal perspective or in general,
+
+59:12.240 --> 59:19.760
+ how do we prevent the violation of sort of these companies crossing a line? It's a great area,
+
+59:19.760 --> 59:24.480
+ but crossing a line, they shouldn't in terms of manipulating, like we're talking about and
+
+59:24.480 --> 59:31.360
+ manipulating our emotion, manipulating our behavior, using tactics that are not so savory.
+
+59:32.080 --> 59:38.960
+ Yeah. It's really difficult because we are starting to create technology that relies on
+
+59:38.960 --> 59:44.000
+ data collection to provide functionality. And there's not a lot of incentive,
+
+59:44.000 --> 59:49.600
+ even on the consumer side, to curb that because the other problem is that the harms aren't
+
+59:49.600 --> 59:55.040
+ tangible. They're not really apparent to a lot of people because they kind of trickle down on a
+
+59:55.040 --> 1:00:02.240
+ societal level. And then suddenly we're living in like 1984, which, you know, sounds extreme,
+
+1:00:02.240 --> 1:00:11.280
+ but that book was very prescient and I'm not worried about, you know, these systems. I have,
+
+1:00:11.280 --> 1:00:19.520
+ you know, Amazon's Echo at home and tell Alexa all sorts of stuff. And it helps me because,
+
+1:00:19.520 --> 1:00:25.200
+ you know, Alexa knows what brand of diaper we use. And so I can just easily order it again.
+
+1:00:25.200 --> 1:00:30.880
+ So I don't have any incentive to ask a lawmaker to curb that. But when I think about that data
+
+1:00:30.880 --> 1:00:39.200
+ then being used against low income people to target them for scammy loans or education programs,
+
+1:00:39.200 --> 1:00:45.120
+ that's then a societal effect that I think is very severe and, you know,
+
+1:00:45.120 --> 1:00:47.280
+ legislators should be thinking about.
+
+1:00:47.280 --> 1:00:53.920
+ But yeah, the gray area is the removing ourselves from consideration of like,
+
+1:00:55.360 --> 1:00:58.880
+ of explicitly defining objectives and more saying,
+
+1:00:58.880 --> 1:01:02.720
+ well, we want to maximize engagement in our social network.
+
+1:01:03.680 --> 1:01:04.240
+ Yeah.
+
+1:01:04.240 --> 1:01:11.040
+ And then just, because you're not actually doing a bad thing. It makes sense. You want people to
+
+1:01:11.840 --> 1:01:15.840
+ keep a conversation going, to have more conversations, to keep coming back
+
+1:01:16.480 --> 1:01:21.040
+ again and again, to have conversations. And whatever happens after that,
+
+1:01:21.920 --> 1:01:28.320
+ you're kind of not exactly directly responsible. You're only indirectly responsible. So I think
+
+1:01:28.320 --> 1:01:35.040
+ it's a really hard problem. Are you optimistic about us ever being able to solve it?
+
+1:01:37.280 --> 1:01:42.480
+ You mean the problem of capitalism? It's like, because the problem is that the companies
+
+1:01:43.120 --> 1:01:47.680
+ are acting in the company's interests and not in people's interests. And when those interests are
+
+1:01:47.680 --> 1:01:53.840
+ aligned, that's great. But the completely free market doesn't seem to work because of this
+
+1:01:53.840 --> 1:01:55.120
+ information asymmetry.
+
+1:01:55.120 --> 1:02:01.120
+ But it's hard to know how to, so say you were trying to do the right thing. I guess what I'm
+
+1:02:01.120 --> 1:02:07.600
+ trying to say is it's not obvious for these companies what the good thing for society is to
+
+1:02:07.600 --> 1:02:14.880
+ do. Like, I don't think they sit there with, I don't know, with a glass of wine and a cat,
+
+1:02:14.880 --> 1:02:21.120
+ like petting a cat, evil cat. And there's two decisions and one of them is good for society.
+
+1:02:21.120 --> 1:02:26.960
+ One is good for the profit and they choose the profit. I think they actually, there's a lot of
+
+1:02:26.960 --> 1:02:35.440
+ money to be made by doing the right thing for society. Because Google, Facebook have so much cash
+
+1:02:36.480 --> 1:02:40.880
+ that they actually, especially Facebook, would significantly benefit from making decisions that
+
+1:02:40.880 --> 1:02:46.800
+ are good for society. It's good for their brand. But I don't know if they know what's good for
+
+1:02:46.800 --> 1:02:56.800
+ society. I don't think we know what's good for society in terms of how we manage the
+
+1:02:56.800 --> 1:03:06.640
+ conversation on Twitter or how we design, we're talking about robots. Like, should we
+
+1:03:06.640 --> 1:03:10.960
+ emotionally manipulate you into having a deep connection with Alexa or not?
+
+1:03:10.960 --> 1:03:17.600
+ Yeah. Yeah. Do you have optimism that we'll be able to solve some of these questions?
+
+1:03:17.600 --> 1:03:22.400
+ Well, I'm going to say something that's controversial, like in my circles,
+
+1:03:22.400 --> 1:03:28.480
+ which is that I don't think that companies who are reaching out to ethicists and trying to create
+
+1:03:28.480 --> 1:03:32.240
+ interdisciplinary ethics boards, I don't think that that's totally just trying to whitewash
+
+1:03:32.240 --> 1:03:36.960
+ the problem and so that they look like they've done something. I think that a lot of companies
+
+1:03:36.960 --> 1:03:42.960
+ actually do, like you say, care about what the right answer is. They don't know what that is,
+
+1:03:42.960 --> 1:03:47.120
+ and they're trying to find people to help them find them. Not in every case, but I think
+
+1:03:48.160 --> 1:03:52.320
+ it's much too easy to just vilify the companies as, like you say, sitting there with their cat
+
+1:03:52.320 --> 1:03:59.600
+ going, her, her, her, $1 million. That's not what happens. A lot of people are well meaning even
+
+1:03:59.600 --> 1:04:09.280
+ within companies. I think that what we do absolutely need is more interdisciplinarity,
+
+1:04:09.840 --> 1:04:17.360
+ both within companies, but also within the policymaking space because we've hurtled into
+
+1:04:17.360 --> 1:04:23.760
+ the world where technological progress is much faster, it seems much faster than it was, and
+
+1:04:23.760 --> 1:04:28.480
+ things are getting very complex. And you need people who understand the technology, but also
+
+1:04:28.480 --> 1:04:33.440
+ people who understand what the societal implications are, and people who are thinking
+
+1:04:33.440 --> 1:04:39.280
+ about this in a more systematic way to be talking to each other. There's no other solution, I think.
+
+1:04:39.920 --> 1:04:45.440
+ You've also done work on intellectual property, so if you look at the algorithms that these
+
+1:04:45.440 --> 1:04:49.440
+ companies are using, like YouTube, Twitter, Facebook, so on, I mean that's kind of,
+
+1:04:51.200 --> 1:04:58.400
+ those are mostly secretive. The recommender systems behind these algorithms. Do you think
+
+1:04:58.400 --> 1:05:04.320
+ about an IP and the transparency of algorithms like this? Like what is the responsibility of
+
+1:05:04.320 --> 1:05:11.440
+ these companies to open source the algorithms or at least reveal to the public how these
+
+1:05:11.440 --> 1:05:16.000
+ algorithms work? So I personally don't work on that. There are a lot of people who do though,
+
+1:05:16.000 --> 1:05:19.760
+ and there are a lot of people calling for transparency. In fact, Europe's even trying
+
+1:05:19.760 --> 1:05:26.800
+ to legislate transparency, maybe they even have at this point, where like if an algorithmic system
+
+1:05:26.800 --> 1:05:31.440
+ makes some sort of decision that affects someone's life, that you need to be able to see how that
+
+1:05:31.440 --> 1:05:41.280
+ decision was made. It's a tricky balance because obviously companies need to have some sort of
+
+1:05:41.280 --> 1:05:46.800
+ competitive advantage and you can't take all of that away or you stifle innovation. But yeah,
+
+1:05:46.800 --> 1:05:51.680
+ for some of the ways that these systems are already being used, I think it is pretty important that
+
+1:05:51.680 --> 1:05:56.960
+ people understand how they work. What are your thoughts in general on intellectual property in
+
+1:05:56.960 --> 1:06:04.720
+ this weird age of software, AI, robotics? Oh, that it's broken. I mean, the system is just broken. So
+
+1:06:04.720 --> 1:06:11.840
+ can you describe, I actually, I don't even know what intellectual property is in the space of
+
+1:06:11.840 --> 1:06:20.240
+ software, what it means to, I mean, so I believe I have a patent on a piece of software from my PhD.
+
+1:06:20.240 --> 1:06:26.880
+ You believe? You don't know? No, we went through a whole process. Yeah, I do. You get the spam
+
+1:06:26.880 --> 1:06:36.320
+ emails like, we'll frame your patent for you. Yeah, it's much like a thesis. But that's useless,
+
+1:06:36.320 --> 1:06:43.040
+ right? Or not? Where does IP stand in this age? What's the right way to do it? What's the right
+
+1:06:43.040 --> 1:06:51.600
+ way to protect and own ideas when it's just code and this mishmash of something that feels much
+
+1:06:51.600 --> 1:06:58.160
+ softer than a piece of machinery? Yeah. I mean, it's hard because there are different types of
+
+1:06:58.160 --> 1:07:03.280
+ intellectual property and they're kind of these blunt instruments. It's like patent law is like
+
+1:07:03.280 --> 1:07:07.200
+ a wrench. It works really well for an industry like the pharmaceutical industry. But when you
+
+1:07:07.200 --> 1:07:12.080
+ try and apply it to something else, it's like, I don't know, I'll just hit this thing with a wrench
+
+1:07:12.080 --> 1:07:21.600
+ and hope it works. So software, you have a couple of different options. Any code that's written down
+
+1:07:21.600 --> 1:07:27.840
+ in some tangible form is automatically copyrighted. So you have that protection, but that doesn't do
+
+1:07:27.840 --> 1:07:35.440
+ much because if someone takes the basic idea that the code is executing and just does it in a
+
+1:07:35.440 --> 1:07:40.400
+ slightly different way, they can get around the copyright. So that's not a lot of protection.
+
+1:07:40.400 --> 1:07:47.200
+ Then you can patent software, but that's kind of, I mean, getting a patent costs,
+
+1:07:47.200 --> 1:07:51.280
+ I don't know if you remember what yours cost or like, was it through an institution?
+
+1:07:51.280 --> 1:07:56.640
+ Yeah, it was through a university. It was insane. There were so many lawyers, so many meetings.
+
+1:07:57.520 --> 1:08:02.160
+ It made me feel like it must've been hundreds of thousands of dollars. It must've been something
+
+1:08:02.160 --> 1:08:07.760
+ crazy. Oh yeah. It's insane the cost of getting a patent. And so this idea of protecting the
+
+1:08:07.760 --> 1:08:12.560
+ inventor in their own garage who came up with a great idea is kind of, that's the thing of the
+
+1:08:12.560 --> 1:08:18.960
+ past. It's all just companies trying to protect things and it costs a lot of money. And then
+
+1:08:18.960 --> 1:08:25.120
+ with code, it's oftentimes by the time the patent is issued, which can take like five years,
+
+1:08:25.120 --> 1:08:31.520
+ probably your code is obsolete at that point. So it's a very, again, a very blunt instrument that
+
+1:08:31.520 --> 1:08:37.440
+ doesn't work well for that industry. And so at this point we should really have something better,
+
+1:08:37.440 --> 1:08:41.840
+ but we don't. Do you like open source? Yeah. Is open source good for society?
+
+1:08:41.840 --> 1:08:48.720
+ You think all of us should open source code? Well, so at the Media Lab at MIT, we have an
+
+1:08:48.720 --> 1:08:54.160
+ open source default because what we've noticed is that people will come in, they'll write some code
+
+1:08:54.160 --> 1:08:58.640
+ and they'll be like, how do I protect this? And we're like, that's not your problem right now.
+
+1:08:58.640 --> 1:09:02.160
+ Your problem isn't that someone's going to steal your project. Your problem is getting people to
+
+1:09:02.160 --> 1:09:07.040
+ use it at all. There's so much stuff out there. We don't even know if you're going to get traction
+
+1:09:07.040 --> 1:09:12.640
+ for your work. And so open sourcing can sometimes help, you know, get people's work out there,
+
+1:09:12.640 --> 1:09:17.360
+ but ensure that they get attribution for it, for the work that they've done. So like,
+
+1:09:17.360 --> 1:09:22.560
+ I'm a fan of it in a lot of contexts. Obviously it's not like a one size fits all solution.
+
+1:09:23.680 --> 1:09:32.560
+ So what I gleaned from your Twitter is, you're a mom. I saw a quote, a reference to baby bot.
+
+1:09:32.560 --> 1:09:41.520
+ What have you learned about robotics and AI from raising a human baby bot?
+
+1:09:42.640 --> 1:09:48.560
+ Well, I think that my child has made it more apparent to me that the systems we're currently
+
+1:09:48.560 --> 1:09:53.280
+ creating aren't like human intelligence. Like there's not a lot to compare there.
+
+1:09:54.480 --> 1:09:59.920
+ It's just, he has learned and developed in such a different way than a lot of the AI systems
+
+1:09:59.920 --> 1:10:07.360
+ we're creating that that's not really interesting to me to compare. But what is interesting to me
+
+1:10:07.360 --> 1:10:13.520
+ is how these systems are going to shape the world that he grows up in. And so I'm like even more
+
+1:10:13.520 --> 1:10:18.960
+ concerned about kind of the societal effects of developing systems that, you know, rely on
+
+1:10:19.680 --> 1:10:26.720
+ massive amounts of data collection, for example. So is he going to be allowed to use like Facebook or
+
+1:10:26.720 --> 1:10:33.360
+ Facebook? Facebook is over. Kids don't use that anymore. Snapchat. What do they use? Instagram?
+
+1:10:33.360 --> 1:10:38.080
+ Snapchat's over too. I don't know. I just heard that TikTok is over, which I've never even seen.
+
+1:10:38.080 --> 1:10:44.560
+ So I don't know. No. We're old. We don't know. I need to, I'm going to start gaming and streaming
+
+1:10:44.560 --> 1:10:52.960
+ my, my gameplay. So what do you see as the future of personal robotics, social robotics, interaction
+
+1:10:52.960 --> 1:10:58.320
+ with other robots? Like what are you excited about if you were to sort of philosophize about what
+
+1:10:58.320 --> 1:11:05.040
+ might happen in the next five, 10 years that would be cool to see? Oh, I really hope that we get kind
+
+1:11:05.040 --> 1:11:12.160
+ of a home robot that makes it, that's a social robot and not just Alexa. Like it's, you know,
+
+1:11:12.160 --> 1:11:19.520
+ I really love the Anki products. I thought Jibo was, had some really great aspects. So I'm hoping
+
+1:11:19.520 --> 1:11:26.800
+ that a company cracks that. Me too. So Kate, it was a wonderful talking to you today. Likewise.
+
+1:11:26.800 --> 1:11:32.080
+ Thank you so much. It was fun. Thanks for listening to this conversation with Kate Darling.
+
+1:11:32.080 --> 1:11:37.520
+ And thank you to our sponsors, ExpressVPN and Masterclass. Please consider supporting the
+
+1:11:37.520 --> 1:11:45.200
+ podcast by signing up to Masterclass at masterclass.com slash Lex and getting ExpressVPN at
+
+1:11:45.200 --> 1:11:52.160
+ expressvpn.com slash LexPod. If you enjoy this podcast, subscribe on YouTube, review it with
+
+1:11:52.160 --> 1:11:57.200
+ five stars on Apple podcast, support it on Patreon, or simply connect with me on Twitter
+
+1:11:57.200 --> 1:12:04.720
+ at Lex Friedman. And now let me leave you with some tweets from Kate Darling. First tweet is
+
+1:12:05.440 --> 1:12:11.920
+ the pandemic has fundamentally changed who I am. I now drink the leftover milk in the bottom of
+
+1:12:11.920 --> 1:12:19.600
+ the cereal bowl. Second tweet is I came on here to complain that I had a really bad day and saw that
+
+1:12:19.600 --> 1:12:26.320
+ a bunch of you are hurting too. Love to everyone. Thank you for listening. I hope to see you next
+
+1:12:26.320 --> 1:12:42.320
+ time.
+
