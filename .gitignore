@@ -293,3 +293,4 @@ cython_debug/
 # ContextualSearchEngine
 server/images/cse/
 server/package-lock.json
+server/server_config.py
