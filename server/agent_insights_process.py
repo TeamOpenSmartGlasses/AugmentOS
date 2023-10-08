@@ -30,7 +30,7 @@ agent = initialize_agent([
 def agent_insights_processing_loop():
     #lock = threading.Lock()
 
-    dbHandler = DatabaseHandler(parentHandler=False)
+    dbHandler = DatabaseHandler(parent_handler=False)
 
     print("START AGENT INSIGHT PROCESSING LOOP")
     while True:
@@ -47,7 +47,7 @@ def agent_insights_processing_loop():
             pLoopStartTime = time.time()
             # Check for new transcripts
             print("RUNNING INSIGHTS AGENT LOOP")
-            newTranscripts = dbHandler.getRecentTranscriptsFromLastNSecondsForAllUsers(
+            newTranscripts = dbHandler.get_recent_transcripts_from_last_nseconds_for_all_users(
                 n=120)
             for transcript in newTranscripts:
                 #DEV if len(transcript['text']) < 800: # Around 150-200 words, no point to generate insight below this
@@ -68,7 +68,7 @@ def agent_insights_processing_loop():
                     insight_obj['timestamp'] = math.trunc(time.time())
                     insight_obj['uuid'] = str(uuid.uuid4())
                     insight_obj['text'] = insight
-                    dbHandler.addAgentInsightsResultsForUser(transcript['userId'], [insight_obj])
+                    dbHandler.add_agent_insights_results_for_user(transcript['userId'], [insight_obj])
                 except Exception as e:
                     print("Exception in agent.run()...:")
                     print(e)

@@ -16,7 +16,7 @@ if use_azure_openai:
     openai.api_version = '2023-08-01-preview' # this may change in the future
     deployment_name = azure_openai_api_deployment # This will correspond to the custom name you chose for your deployment when you deployed a model. 
 
-ogPromptNoContext = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
+og_prompt_no_context = """Please summarize the following "entity description" text to 8 words or less, extracting the most important information about the entity. The summary should be easy to parse very quickly. Leave out filler words. Don't write the name of the entity. Use less than 8 words for the entire summary. Be concise, brief, and succinct.
 
             Example:
             [INPUT]
@@ -31,9 +31,9 @@ ogPromptNoContext = """Please summarize the following "entity description" text 
             [OUTPUT]
             AI chatbot using GPT models.
 
-            \n Text to summarize: \n{} \nSummary (8 words or less): """
+            \n Text to summarize: \n{} \n_summary (8 words or less): """
 
-ogPromptWithContext = """
+og_prompt_with_context = """
     Summarize the following "entity description" text in relation to the given "context" which is a transcript from a conversation. 
 * Extract only the most important information about the entitiy, as summaries must be 8 words or less. 
 * The summary should be easy to parse very quickly. 
@@ -64,17 +64,17 @@ Context:
 [OUTPUT]
 44th US President, elected 2009, from Chicago Illinois.
 
-\nText to summarize:\n\n
+\n_text to summarize:\n\n
 {}\n
 Context:\n\n
 {}\n
-\nSummary (8 words or less): 
+\n_summary (8 words or less): 
 """
 
 class Summarizer:
 
-    def __init__(self, databaseHandler):
-        self.databaseHandler = databaseHandler
+    def __init__(self, database_handler):
+        self.database_handler = database_handler
         self.model = SBertSummarizer('paraphrase-MiniLM-L6-v2')
 
     def summarize_entity(self, entity_description: str, context: str = "", chars_to_use=1250):
@@ -84,7 +84,7 @@ class Summarizer:
 
         # Check cache for summary first
         cache_key = entity_description + ' c: ' + context
-        summary = self.databaseHandler.findCachedSummary(cache_key)
+        summary = self.database_handler.find_cached_summary(cache_key)
         if summary:
             print("$$$ SUMMARY: FOUND CACHED SUMMARY")
             return summary
@@ -92,14 +92,14 @@ class Summarizer:
         # Summary does not exist. Get it with OpenAI
         print("$$$ SUMMARY: SUMMARIZING WITH OPENAI")
         summary = self.summarize_entity_with_openai(entity_description, context)
-        self.databaseHandler.saveCachedSummary(entity_description, summary)
+        self.database_handler.save_cached_summary(entity_description, summary)
         return summary
 
     def summarize_entity_with_openai(self, entity_description: str, context: str = ""):
             if context and context != "" and False: # Disable contextual summaries for now
-                prompt = ogPromptWithContext.format(entity_description, context)
+                prompt = og_prompt_with_context.format(entity_description, context)
             else:
-                prompt = ogPromptNoContext.format(entity_description)
+                prompt = og_prompt_no_context.format(entity_description)
             
             if use_azure_openai:
                 messages = [{"role": "user", "content": prompt}]

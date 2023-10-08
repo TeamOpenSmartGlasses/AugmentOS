@@ -54,7 +54,7 @@ public class BackendServerComms {
         serverUrl = "https://vpmkebx0cl.execute-api.us-east-2.amazonaws.com/api"; //TOSG BOX
 //        serverUrl = "http://192.168.7.111:8080";
 
-        useDevServer = false;
+        useDevServer = true;
     }
 
     //handles requesting data, sending data
