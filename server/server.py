@@ -130,12 +130,15 @@ def cse_loop():
 
                 if cse_responses:
                     cse_responses_filtered = relevance_filter.should_display_result_based_on_context(
-                        transcript["userId"], cse_responses, transcript["text"]
+                        transcript["user_id"], cse_responses, transcript["text"]
                     )
 
-                # dbHandler.addCseResultsForUser(
-                #     transcript["userId"], cse_responses_filtered
-                # )
+                    final_cse_responses = [cse_response for cse_response in cse_responses if cse_response["name"] in cse_responses_filtered]
+                    print("=== CSE RESPONSES FILTERED: {} ===".format(final_cse_responses))
+
+                    db_handler.add_cse_results_for_user(
+                        transcript["user_id"], final_cse_responses
+                    )
 
         except Exception as e:
             cse_responses = None
@@ -279,4 +282,3 @@ if __name__ == '__main__':
     #let processes finish and join
     #agent_background_process.join()
     cse_process.join()
-

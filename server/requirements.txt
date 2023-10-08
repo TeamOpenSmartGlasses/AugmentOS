@@ -19,3 +19,4 @@ fuzzysearch
 txtai
 transformers
 bert-extractive-summarizer
+webvtt-py
